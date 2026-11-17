@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Fear's the wrong word; they hate them, the way a hound hates a cat. I'd no' blame a bird that pecked at yer imp, an' I'd no' blame ye for flyin' wi' yer hands in yer lap the whole way tae Ironforge." } },
+      choices = {
+        { text = "I'll respect your birds. My imp stays behind.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your birds will learn to tolerate it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Thorgrum.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Aye, when the weather over the loch is turnin', an' they're right every time. I never force a bird that refuses, for a gryphon that doesnae want tae fly will find a way tae land ye in the water." } },
@@ -104,6 +113,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? My birds dinnae mind priests, for ye sit quiet an' ye pray through the bumpy bits." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! My birds'll carry ye, plate an' all, though they'll grumble about the weight all the way tae Ironforge." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. My gryphons have been starin' at ye since ye came up the path, an' I'd say that means they like ye, though wi' gryphons it's hard tae tell." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My gryphons dinnae care for demons, so ye'll leave yer friend on the ground an' climb on alone." },
       },
       again = {
         { id = "h_again", text = "What else? The birds are restless, so I'll keep one eye on the roost." },
@@ -121,6 +131,7 @@ P:NPC {
         { text = "Do your gryphons carry the wounded home to Ironforge?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have your gryphons ever been attacked on the Menethil route?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your gryphons ever refuse to fly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do your gryphons really fear demons, Thorgrum?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Thorgrum.", next = "END" },
       },
     },
@@ -190,6 +201,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They trust my mail an' their rifles, an' they'll trust you once they've seen ye stand in a trogg fight. A dwarf trusts what he's seen, no' what he's told, so go an' let them see ye." } },
+      choices = {
+        { text = "Then I'll let them see me fight.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need their trust, only their room.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Morhan.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Anyone wi' ears, an' I've talked mountaineers out o' their coats an' intae better ones before they'd finished sayin' no. I'll no' try it on a druid, though, for I suspect the bear would win the argument." } },
@@ -268,6 +288,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Ye'll want no mail, I'd guess, but ye'll know the lads who wear it, an' that's near as good." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a body that wears plate an' still fancies a coat o' mail underneath, I'd wager." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Now, I know ye kaldorei like yer leather, but hear me out, for a wee bit o' mail never hurt anyone." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Ye'll no' be wantin' my mail, I'd say, for yer sort fight in cloth an' trust tae other things." },
       },
       again = {
         { id = "h_again", text = "What else can I talk ye intae, friend?" },
@@ -285,6 +306,7 @@ P:NPC {
         { text = "Do your mountaineers always come home in your mail, Morhan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever sell poor mail just to make a sale, Morhan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can you really talk anyone into heavier armor, Morhan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do your mountaineers trust warlocks, Morhan?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Morhan.", next = "END" },
       },
     },
@@ -354,6 +376,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It's no' bad, it's just nothin', like chewin' on mist. My bread's got Dun Morogh barley in it an' good Thelsamar butter, an' the mountaineers walk back from the hills tae eat it warm." } },
+      choices = {
+        { text = "Real bread it is. Nothing beats it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Conjured bread fills me just the same.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Honni.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Most of it comes by cart through Dun Algaz, an' some by ship tae Menethil when the Wetlands road is clear. I'll no' waste a single crumb, for I know what it cost tae get here." } },
@@ -433,6 +464,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless the loaves, if ye like, for they've tae feed the whole road from here tae the dam." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be wantin' a big loaf, an' maybe two, tae fill out that armour." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye kaldorei eat a great deal o' fruit, I'm told, but I'll wager ye've never had fresh bread at dawn by the loch." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll be conjurin' yer own bread, I suppose, an' I'll tell ye now it's no' a patch on mine." },
       },
       again = {
         { id = "h_again", text = "Anythin' else, love?" },
@@ -450,6 +482,7 @@ P:NPC {
         { text = "Does anyone in Thelsamar go without bread, Honni?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "If troggs came into Thelsamar, would you leave your ovens?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where does Thelsamar get its grain, so high in the hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is conjured bread really that bad, Honni?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Honni.", next = "END" },
       },
     },
@@ -519,6 +552,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only if ye mean tae dig, an' I'd ask ye no' tae dig deep, for the old miners say ye never know what's under a hill until ye've woken it. The troggs came up from somewhere far below, an' I'd no' like tae see what comes up after them." } },
+      choices = {
+        { text = "Then I'll leave the deep places alone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "What's under the hills might be worth waking.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Karm.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "None, if ye ask me, for the troggs are up from the deep an' Dark Iron sappers have been seen by the dam. Keep tae the roads near Thelsamar an' ye'll likely live tae see next week." } },
@@ -597,6 +639,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Ye'll no' be needin' a pick, I'd say, but ye might say a word for those that do." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye'll no' be diggin', I'd guess, but ye might clear a mine or two for them that do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Ye'll no' be wantin' a pick, I expect, but ye might want tae know which hills are safe, an' that I'll tell ye for nothin'." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell picks an' shovels, an' I'd guess ye've other ways o' gettin' intae the ground." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -614,6 +657,7 @@ P:NPC {
         { text = "Have many miners been lost in these hills, Karm?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the mines be closed until the troggs are cleared?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Which hills are safe for a druid to wander this week?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would a warlock need mining supplies, Karm?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Karm.", next = "END" },
       },
     },

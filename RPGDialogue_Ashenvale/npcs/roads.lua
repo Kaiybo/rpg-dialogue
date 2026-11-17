@@ -84,6 +84,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Demons, and the satyrs who worship them, and the bones of the Legion's march through these woods. I've watched warlocks go down into that canyon for their own reasons, and I've never asked what they found there, because I'd rather not know." },
+      },
+      choices = {
+        { text = "Something should be done about them. I'll thin their numbers.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I go down there to learn. That's my own business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Kayneth Stillwind, and Forest Song is my charge. The Forsaken have been seen in the woods to the east carrying strange diseases, and I'd very much like to know what they mean to do with them." },
@@ -97,6 +108,9 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because if the Forsaken are carrying their plague into these woods, I'll want someone who knows what it looks like." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you know the dead, and you'll know what it means that the Forsaken are walking these woods." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Forest Song, and welcome. The Forsaken carry their sickness into the eastern woods and the demons foul the canyon, so I'll take every healer of the land the Circle can spare." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Forest Song, with Demon Fall Canyon just to the south of us. I'll be honest, I'd sooner have you where I can see you than down there among the demons." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Felguard", "Mannoroc", "Infernal" }, min = 30 } },
+          text = "You've been down into Demon Fall Canyon, and by the count my lookouts keep, a good many demons didn't come back up with you. That's the best news Forest Song has had in a month." },
       },
       again = {
         { id = "h_again1", text = "There's more you want to know, I can see it, so ask while the woods are quiet." },
@@ -114,6 +128,7 @@ P:NPC {
         { text = "What has the Forsaken plague done here, Kayneth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Forsaken here be destroyed on sight?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What has the Forsaken sickness done to the eastern woods?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What waits in Demon Fall Canyon, Kayneth?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Keep the outpost safe.", next = "END" },
       },
     },
@@ -236,6 +251,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Because the wood takes on whatever's near it while it dries, and I won't have a bow that smells of the Burning Legion. Laugh if you like, but a good bow knows things, and I've broken the ones that learned the wrong things over my knee." },
+      },
+      choices = {
+        { text = "I'll keep it well away. Your craft deserves that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Wood is wood. You're superstitious, bowyer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Bhaldaran, and I make bows, which is all most people need to know about me. I live out here because the wood's better and the company's quieter." },
@@ -248,6 +274,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not want a bow, I suppose, but you're welcome to rest your feet while I work." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll hold a bow like a hammer, I expect, but I'll sell you one if you ask nicely." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and by how lightly you walk I'd guess you don't think much of bows. That's fine, because I make mine from fallen wood only, and you can tell the Circle so." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock out here, of all places. You won't want a bow, and I'd thank you to keep that thing of yours away from my drying staves." },
       },
       again = {
         { id = "h_again1", text = "If there's something else, out with it, because those staves won't shape themselves." },
@@ -264,6 +291,7 @@ P:NPC {
         { text = "Do you ever wish for company out here, Bhaldaran?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why trust the woods over Astranaar's walls, Bhaldaran?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you really only use fallen wood for your bows?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why keep my servant away from your staves, Bhaldaran?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

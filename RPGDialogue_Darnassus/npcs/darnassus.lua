@@ -828,6 +828,17 @@ P:NPC {
         { text = "I'd rather let it run and ride it.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The Circle has use for anyone who keeps the balance, and I've known quiet blades do more for it than loud ones. The Sentinels watch the borders and we tend what grows within them, but there are always things in Ashenvale and Felwood that need finding before they find us." },
+      },
+      choices = {
+        { text = "I'll serve the balance, if you'll have me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I serve myself first, druid.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Cenarion Enclave. Sit, if you like, for I've long wanted to ask one of your order how you decide when to heal and when to strike." },
@@ -849,6 +860,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You carry the smell of the arcane in here, {class}, like smoke in a cloak. Nobody will say anything, but the older druids will step a little to one side." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, warlock, and every one of them is growling at you right now in my head." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you walk the way the beasts do. Some of my students could learn a great deal from that." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in the Enclave. The young druids tell me you came in by the side path, which is the one only they use when they're late." },
       },
       again = {
         { id = "h_again", text = "Ask on. The young ones' questions are the best part of my day." },
@@ -865,6 +877,7 @@ P:NPC {
         { text = "How does a druid's bond with beasts differ from a hunter's?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you ever seen what a demon does to a forest?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You wanted to ask me something, Mathrengyl?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Circle have any use for a rogue, Mathrengyl?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1028,6 +1041,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Elune turns no one away, little star, but her light shows what we carry, and yours shows a great deal. The Sisterhood remembers the Legion too well to welcome your servant inside, so leave it at the door and come in as yourself." },
+      },
+      choices = {
+        { text = "I'll leave it at the door, Priestess.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's part of me. Where I go, it goes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Welcome, priest. Come and sit by the pool a while, for those who heal others are the last to rest, and Elune knows it." },
@@ -1049,6 +1073,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You carry the weight of armor and old bruises, little star. Sit by the pool a while, because warriors forget that they tire too." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, little star, with the forest still clinging to your boots. The Temple is quiet, so let it rest you as well as any glade would." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, little star, with a little moss still on your sleeve. Some say Cenarius was Elune's own son, so you are as much at home in her Temple as any sister." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Little star, you carry a shadow with you, and I can see it is a heavy one. Rest by the pool a while, though I'll ask your companion to wait beyond the Temple doors." },
       },
       again = {
         { id = "h_again", text = "What else, little star?" },
@@ -1068,6 +1093,7 @@ P:NPC {
         { text = "Who comes to the Temple's pool most often, Priestess?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Elune welcome soldiers of the Light, Priestess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the priestesses and the druids truly pray to the same goddess?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will Elune turn me away, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -1235,6 +1261,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Anything that oughtn't to exist, preserved and intact, and you'd be amazed how hard that is to come by from a Temple terrace. The southern deserts trouble me most, because what crawls out of Silithus is like nothing I've ever catalogued." },
+      },
+      choices = {
+        { text = "Some things are better left unfound, Gracina.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Name your price, and I'll fetch anything.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I study creatures that don't belong in this world, and I'm told your order has had a great deal of experience with those." },
@@ -1253,6 +1290,9 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I study creatures that do not belong in this world, warlock, and I can see one standing behind you. I'd rather it didn't come any closer to my notes." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll have met more creatures up close than any of my scholars, I imagine, and with less time to take notes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, at last. You of all people should care when something crawls out of the earth that the earth never made, so I would value your eyes on my specimens." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You go places nobody else can, I suppose, and I would give a great deal to know what you've seen in them." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Silithid", min = 40 } },
+          text = "You've been killing silithid, haven't you? I can smell that sour, dusty reek on your boots, and I'd give a great deal to know what you saw down there in the south." },
       },
       again = {
         { id = "h_again", text = "Go on, but mind the jar on your left; it bites." },
@@ -1270,6 +1310,7 @@ P:NPC {
         { text = "Couldn't you learn more about demons from a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are the silithid an evil a paladin should face?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Cenarion Circle know about these insects of yours?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What would you have a rogue bring you, Gracina?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -1442,6 +1483,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Because my guests sleep badly enough with the inn rocking in the wind, and they won't sleep at all with a demon at the foot of the bed. The branch is broad and the drop is long, so it can think about that." },
+      },
+      choices = {
+        { text = "Fair. My servant can take the branch.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep it where I please, innkeeper.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The travelers who come up from the boats are often more tired than they'll admit, and a kind word from a healer does them good." },
@@ -1456,6 +1508,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you've the look of someone who sleeps with one hand on a hilt. My beds don't bite, I promise, though the branches do creak." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please don't bring anything you've skinned upstairs, because the last guest who did left the room smelling of wet wolf for a week." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll be the one guest who doesn't mind the branches swaying at night, I expect, so long as you don't turn into a bear on my good linen." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll get a room like anyone else, but your servant sleeps outside on the branch, and I wish it luck." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's moonberry juice, if you're staying." },
@@ -1471,6 +1524,7 @@ P:NPC {
         { text = "Do many of your guests come in hurt, Saelienne?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do your people find paladins strange, Saelienne?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do druids often stay at your inn, Saelienne?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why must my servant sleep out on the branch?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

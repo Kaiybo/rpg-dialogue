@@ -80,6 +80,17 @@ P:NPC {
         { text = "Why work by the lake?", next = "lake" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I've wondered, I confess, because the seeds I've taken from them are wrong in ways the soil alone can't explain. If you sense anything of your own craft in them, I'd want to know it, even if I wouldn't enjoy hearing it." },
+      },
+      choices = {
+        { text = "I'll tell you whatever I sense, good or ill.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "What I sense is my own affair.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The timberlings I study are sick in a way I don't yet understand, and I wonder whether a healer's eye might see what mine has missed." },
@@ -94,6 +105,7 @@ P:NPC {
           text = "The sprouts by the water have grown in ways I did not expect. Gather what you can, and be gentle if they let you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The timberlings around the lake have become violent, and I would rather you trimmed them than I did." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the timberlings moving through the trees, and you'll have noticed that they move like hunting things now." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at my lake. I'd like you to keep your servant away from the timberlings, because they're strange enough already without a demon setting them off." },
       },
       again = {
         { id = "h_again", text = "Is there something more you would ask?" },
@@ -110,6 +122,7 @@ P:NPC {
         { text = "Do the timberlings stalk prey like true beasts now?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can a sickness like the timberlings' be healed, Denalan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the timberlings truly evil, or only twisted?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could fel magic be what's twisting the timberlings?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Elune guide your work.", next = "END" },
       },
     },
@@ -228,6 +241,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Terribly, and I'd be braver if the venom weren't making the trees spin. Dirania will have the antidote ready if someone brings her what she needs, and I'd be so grateful if it were you, so long as your friend waits at the cave mouth." },
+      },
+      choices = {
+        { text = "It'll wait. Rest, and I'll fetch what Dirania needs.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It goes where I go. You'll manage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin? Forgive me if I don't rise, {class}, because the venom has made my legs heavy, though seeing you makes me feel a little braver." },
@@ -240,6 +264,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You can't fight what's in my blood, I'm afraid, though I'd enjoy watching you try." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you see the spider that bit me, it was a big one, and it looked very pleased with itself." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. If you have any healing in you I'd welcome it, though the venom is stubborn and Dirania says only her antidote will draw it out." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that a demon? Oh, please don't let it near me, I've had quite enough of things with too many teeth today." },
       },
       again = {
         { id = "h_again", text = "Is there more? Talking keeps my mind off the pain." },
@@ -256,6 +281,7 @@ P:NPC {
         { text = "What does the antidote need from the Webwood?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Shall I deal with the spiders that poisoned you, Iverron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I try my healing on the venom, Iverron?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Are you afraid of my servant, Iverron?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Rest easy, Iverron.", next = "END" },
       },
     },
@@ -382,6 +408,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Not often, but a guest is a guest, and the old kaldorei kept their tables open to anyone who came in from the dark. Some of the elders in Dolanaar would grumble at that, but they grumble at my seasoning too." },
+      },
+      choices = {
+        { text = "Your elders are right to grumble about my kind.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them grumble. A guest is a guest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down and eat, because I've never met a healer who remembered to feed themselves while they were busy looking after everyone else." },
@@ -393,6 +430,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll need a good meal before the road, and the old recipes were made for travellers who fought." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me a good haunch and I'll show you what the kaldorei were doing with one long before Teldrassil grew." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've had herb broth on since dawn, and the Circle's folk are the only ones who can tell me whether the herbs I picked were happy to be picked." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my table. Sit, eat, and keep your servant out of my kitchen, because I've never yet found an old recipe that called for a pinch of brimstone." },
       },
       again = {
         { id = "h_again", text = "Anything else? Taste this while you think; I fear it wants a pinch more moonroot." },
@@ -410,6 +448,7 @@ P:NPC {
         { text = "Do priests often eat at your table, Zarrin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you feed someone who fights for a living?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the old recipes call for anything the Circle frowns on?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you cook for warlocks often, Zarrin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Zarrin.", next = "END" },
       },
     },

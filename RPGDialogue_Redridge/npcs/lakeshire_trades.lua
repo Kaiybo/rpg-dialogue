@@ -17,6 +17,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They'll fly anyone who pays, though one or two will sulk the whole way to Stormwind. I fly the wounded out of here as well, and I'll ask you not to frighten them, because they've seen enough of gnolls and orcs without demons besides." } },
+      choices = {
+        { text = "I'll keep my distance from the wounded.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The wounded have bigger worries than me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Ariena.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than the Marshal wants to hear, and more every week, camped around Stonewatch Keep and the old tower on the ridge. A warrior who knew where to strike could do more than a whole company knocking on the front gate." } },
@@ -90,6 +99,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I fly the wounded out, so I'd be grateful if you'd see to them before they go up." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. My birds will carry you, plate and all, though they'll complain the whole way." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! My birds have gone still for you, which they only do for folk who smell of the forest, so I'd say they like you." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My gryphons don't love the smell of brimstone, so be gentle when you mount, and keep your hands out of their feathers." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are getting restless." },
@@ -106,6 +116,7 @@ P:NPC {
         { text = "How many wounded have your gryphons carried out, Ariena?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you fly a paladin over Stonewatch to scout it?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do your gryphons see of the hills from up there?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will your gryphons fly a warlock, Ariena?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Ariena.", next = "END" },
       },
     },
@@ -150,6 +161,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not much, if I'm honest, though you'd be welcome on the wall when the gnolls come up the hill. Out there nobody asks where a spell comes from, only whether it lands, and maybe that's how it has to be in a war." } },
+      choices = {
+        { text = "It should matter where a spell comes from.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right. Only whether it lands matters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Kimberly.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Only a careful one, because a feather burns quicker than you'd believe. The watch shoots arrows faster than I can make them, though, and a mage on the wall would mean fewer arrows needed, which I'd count as help." } },
+      choices = {
+        { text = "I'll stand on the wall and save your arrows.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll fight where I choose, not on the wall.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kimberly.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Now and then, for a crossbow or a few bolts to keep a gnoll at a distance. I'll sell you whatever you like, but the watch comes first, because every arrow I feather goes into a gnoll that would otherwise be in Lakeshire." } },
+      choices = {
+        { text = "The watch comes first. I'll wait my turn.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Coin is coin. Sell to whoever pays most.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kimberly.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only the ones who've learned that a sword doesn't reach a gnoll on a ridge. A warrior with a short bow and a dozen arrows can thin a pack before it closes, and then the sword does the rest." } },
@@ -207,6 +245,9 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not want arrows, but if you'd bless the batch going up to the watch, I'll not say no." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll not want arrows either, but you'll want the watch to have them, so bless my fingers while you're here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll forgive the feathers on the floor, since every goose in Redridge has given something to the war." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll not be wanting arrows, I expect, unless it's to throw them, and I'd rather you didn't." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I could use a little warmth to dry the glue on my fletchings, if you've a spare spark and a steady hand." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Your demon's eyeing my feathers, I think, so I'll ask you to keep it on your side of the counter." },
       },
       again = {
         { id = "h_again", text = "What else? I've feathers to trim." },
@@ -221,6 +262,9 @@ P:NPC {
         { text = "Does the watch ever ask you for anything besides arrows?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the watch spend its arrows too freely on the gnolls?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where do you get your feathers, with the roads cut?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do rogues ever buy from a fletcher, Kimberly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could a mage really help with your fletching, Kimberly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do you make of warlocks, Kimberly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with it.", next = "END" },
       },
     },
@@ -265,6 +309,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I worry about every kind of fire, friend, and the green sort most of all, because I've no idea whether it lights powder or does something worse. I'd rather not find out in my own shop, so stand by the door, if you'd be so kind." } },
+      choices = {
+        { text = "I'll keep my fire far from your shop.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fel fire does what I tell it. Don't fret.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Henry.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Once, and he lit his pipe with a spell while standing beside a keg, and I've never moved so fast in my life. Nothing went up, but I've kept a bucket of water by the door ever since, and I'll empty it on you if you so much as sneeze." } },
+      choices = {
+        { text = "I'll keep my hands still in here, Henry.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little spark never hurt anyone, Henry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Henry.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Blowing open a lock, usually, which is why I ask. If it's for the gnolls' camps, I'll sell you a pouch and wish you luck, but if it's for anybody's strongbox in Lakeshire, I'll know whose shop it came from, and so will the Magistrate." } },
+      choices = {
+        { text = "It's for the gnolls, Henry. Nothing else.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "What I do with it is my own affair.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Henry.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Plenty of dwarves do, and they're the best fighters I know, so I'll say yes. A blunderbuss to open the fight and an axe to finish it is how the Ironforge mountaineers do it, and they've not lost a pass yet." } },
@@ -322,6 +393,9 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in a gunsmith's? Well, there's powder enough here to send anyone to their maker, so maybe that's fitting." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll favour a hammer, I expect, but I've a pistol that would make an orc think twice." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you to step back from the powder kegs, not because I don't trust you, but because I don't trust anything near powder." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Guns are loud, friend, so I'd guess you're here for the powder, and I'll be asking what it's for." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Keep your fire away from my powder kegs, if you'd be so kind, because I'd like to keep my fine record." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I'll ask you to keep any fire you're carrying well away from my kegs, green or otherwise." },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the powder kegs." },
@@ -336,6 +410,9 @@ P:NPC {
         { text = "Have your guns ever hurt someone you didn't mean them to?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you sell guns to anyone who could pay, Henry?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your guns frighten the game from the hills, Chapal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What do you think a rogue wants with powder, Henry?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Have you ever had a mage in the shop before, Henry?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you worry about fel fire near your kegs, Henry?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Henry.", next = "END" },
       },
     },

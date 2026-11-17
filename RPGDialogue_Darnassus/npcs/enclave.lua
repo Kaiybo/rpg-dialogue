@@ -103,6 +103,17 @@ P:NPC {
         { text = "The druids would never allow it.", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "They look down on everyone with an idea of their own, and mine are better than most, if I say so myself. You and I are both misunderstood, warlock, though I'd still thank you to keep your servant out of my ditch, because it scratches." },
+      },
+      choices = {
+        { text = "The druids have reasons to watch me. Not you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Misunderstood suits us both. Dig on, Jenal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Now there's a calling, though I've always thought I'd make a fine priest myself, if the Temple ever stopped looking at me like that." },
@@ -119,6 +130,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A real mage, here among the dirt piles! Could you make these move themselves? No, the druids would have my ears for it, forget I asked." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind the dirt, would you, because I've only just got that pile exactly where I want it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Don't let your beast dig in my piles, because the last one undid three days of my work." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! At last, someone else the druids look down on. Mind the dirt, though, because it's been arranged very carefully." },
       },
       again = {
         { id = "h_again", text = "What else? I've got all night, and a great deal of dirt." },
@@ -136,6 +148,7 @@ P:NPC {
         { text = "Has anything been digging through your piles at night?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do you think you'd make a fine priest, Jenal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why would the Circle want knights of its own, Jenal?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the druids look down on you, Jenal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll let you dig.", next = "END" },
       },
     },
@@ -559,6 +572,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A mage can respect anything, if they choose to, but the arcane takes from the world and seldom asks. A hunter's first lesson is awe, and I'd say it should be yours too, before you learn another spell." },
+      },
+      choices = {
+        { text = "Awe first, then. I'll take the lesson.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The arcane is a tool, not a sin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Respect the balance, as I tell my hunters, and you'll find the beasts of Teldrassil kinder to a healer than to a hunter." },
@@ -574,6 +598,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The beasts are restless, warlock, and so am I. Whatever walks behind you is no part of the balance I teach." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll find no training here, but you may stand and listen if you keep still." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, a keeper of the balance as my hunters are. Yours is the gentler half of the work, though I've seen a druid in cat shape who would shame any hunter of mine." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Highborne's magic once tore this world apart, and you'll forgive me if I mention that before anything else." },
       },
       again = {
         { id = "h_again", text = "What else? Speak; I'm listening." },
@@ -594,6 +619,7 @@ P:NPC {
         { text = "Does a priest have any place in the balance, Jocaste?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there no evil in the wild, Jocaste?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do hunters and druids keep the same balance, Jocaste?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can a mage respect the balance, Jocaste?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Jocaste.", next = "END" },
       },
     },
@@ -763,6 +789,17 @@ P:NPC {
       },
       choices = { { text = "I'll remember. Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Cenarius blesses all that lives in balance with the world, and a quiet step doesn't trouble that balance at all. What you do when you get where you're going is another matter, and I'll trust you to judge it as the wild would." },
+      },
+      choices = {
+        { text = "I'll strike only when I must.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The wild kills without a second thought, and so do I.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The young druids think healing is all growing vines over wounds, so I'm always glad when a priest comes by to remind them there's more than one way." },
@@ -776,6 +813,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach young druids to heal what the fel has burned, warlock, so you'll understand if I'd rather you kept walking." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Cenarius bless you, warrior. Even those who will never take a shape are welcome in the Enclave." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Cenarius bless you, hunter, and whatever walks beside you. You and my students share a love of the wild, though you show it differently." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Cenarius bless you, rogue, even if you walk too quietly for the young druids' comfort. They're used to hearing people coming before they see them." },
       },
       again = {
         { id = "h_again", text = "What else would you know? The Enclave is slow, and so are its answers, but they come." },
@@ -793,6 +831,7 @@ P:NPC {
         { text = "Is there any healing for what the fel has done?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What can young druids learn from a priest, Denatharion?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is iron really at war with the forest, Denatharion?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does Cenarius bless rogues as well, Denatharion?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

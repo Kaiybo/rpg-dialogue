@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Ha! No, the spy's a Dark Iron, an' ye're plainly no' one. But a stranger who calls things up out o' the dark is just the sort I'm paid tae keep an eye on, so ye'll forgive me if I do." } },
+      choices = {
+        { text = "Watch all you like. I've nothing to hide.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Watching me is a waste of your time, Kadrell.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "East toward the Valley o' Kings, where the troggs come up out o' the earth in the night, an' south by the Silver Stream where the kobolds dig. The bounty board's got a job for every one o' them, so ye'll never stand idle." } },
@@ -106,6 +115,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my road! Grand, for the troggs are bold this season, an' I like a shield beside mine when they come." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Grand, for the lads at the bounty board come back wi' scrapes they'd never show the healer." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my road! The Light an' a good hammer, there's no better pair for troggs." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I watch the road for the King, an' I'll be watchin' you as well, nothin' personal." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The road's quiet, for now." },
@@ -125,6 +135,7 @@ P:NPC {
         { text = "Where's the fighting worst along the road, Mountaineer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How are Thelsamar's folk holding up, Kadrell, with all this?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should be done with the Dark Iron spy once he's caught?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you think a warlock might be your Dark Iron spy, Kadrell?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Kadrell.", next = "END" },
       },
     },
@@ -243,6 +254,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Troggs, mostly, which come up out o' the ground like weeds an' bite like badgers. If ye find anythin' down there that whispers, though, ye'll bring it tae me an' no' keep it, for it belongs tae the League an' tae Ironforge." } },
+      choices = {
+        { text = "Anything I find goes to the League.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "What I find in the dark, I keep.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They come up wherever we dig, as if the earth sends them tae spite us, an' my diggers are scholars, no' soldiers. A warrior standin' at the cut wi' a good shield would let us work a full day for once." } },
@@ -331,6 +351,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll have a good eye, then, an' a good eye's worth more on a dig than ye'd think." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at my dig. Bless it if ye like, for we need the luck, an' poor Agmond needs the words more." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll see the troggs off my dig, I hope, for trowels make poor weapons." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my dig! Mind ye don't summon anythin' in the trenches; it's crowded enough wi' troggs." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the ropes while ye ask." },
@@ -350,6 +371,7 @@ P:NPC {
         { text = "Could a hunter's eye be useful on a dig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has anyone been lost on this dig, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the League keep digging while the troggs are so close?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Has your dig found anything a warlock should worry about?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good luck with the dig.", next = "END" },
       },
     },
@@ -641,6 +663,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Bear meat, boar guts, spider ichor an' a secret I'll no' tell even a warlock, though ye might be the only customer who'd no' be put off by the list. Bring me the makin's, an' the whole town eats well for a week." } },
+      choices = {
+        { text = "I'll fetch the makings for the town, Vidra.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep your sausages. I've lost my appetite.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Vidra.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Bear meat, boar guts, a dash o' spider ichor an' a secret I'll take tae my grave. Ye needn't look so pale, for I waste no part o' any beast I'm given." } },
@@ -707,6 +738,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in my kitchen? Bless the pot if ye must, but dinnae stand where I'm choppin'." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Ye'll be wantin' more than one sausage, by the size o' that armour." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my kitchen! Ye'll no' be wantin' blood sausage, I suppose, but ye can sit an' watch, so long as ye don't touch the pots." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Ye'll be wantin' a blood sausage, I expect, for everybody who looks as grim as ye do is only hungry." },
       },
       again = {
         { id = "h_again", text = "What is it now? I have a pot on the fire, so be quick." },
@@ -724,6 +756,7 @@ P:NPC {
         { text = "Do you feed the families who've lost their providers, Vidra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is Thelsamar safe enough for your kitchen, Vidra?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What goes into a Thelsamar blood sausage, Vidra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What goes into a Thelsamar blood sausage, Vidra?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll pass on the details.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -814,6 +847,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "In the Valley o' Kings, among the old statues, where the troggs come up out o' the ground in packs. Freeze a pack an' my mountaineers can do the rest, an' between us we might keep them off the road for a week." } },
+      choices = {
+        { text = "I'll go where you send me, Captain.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll choose my own ground, Captain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "With a shield wall at the cave mouths and a great deal of stubbornness, for the troggs have no discipline but there's no end to them. Hold a line for me and you'll learn more about war here than in any yard in Ironforge." } },
@@ -899,6 +941,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I could use one; the troggs come out of holes I didn't know were there, and somebody has to find them first." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I have soldiers who have fought the troggs too long, and it's not only their bodies that need mending." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The King's statues have seen your order before, and they'd be glad to see it again." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! The troggs come up from under the hills faster than we can put them down, an' I'd take a hundred o' yer kind if Ironforge would send them." },
       },
       again = {
         { id = "h_again", text = "Is there anything further?" },
@@ -919,6 +962,7 @@ P:NPC {
         { text = "Troggs fear fire. My demons could help hold the Valley.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do your soldiers bear the endless fighting, Captain?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the troggs dishonour the statues, Captain?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Where could a mage do the most good, Captain?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "The King's statues can guard themselves, Captain.", next = "END", fx = { align = { order = -1 } } },
       },
     },

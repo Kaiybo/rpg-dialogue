@@ -245,6 +245,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not from thieves, no, for there's little in Lakeshire worth stealing since the gnolls took the farms. What I get is soldiers who can't pay, and I let them stay anyway, because they're the only thing standing between us and the hills." } },
+      choices = {
+        { text = "You're right to keep them. They've earned it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Charge them. Kindness doesn't keep an inn open.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Brianna.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Twice a week, lately, and every time it's gnolls on the south road or orcs on the far shore. The guards do their best, but half of them are farm boys, and they'd stand a little taller with a real warrior beside them." } },
@@ -309,6 +318,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast can sleep in the room with you, so long as it doesn't mind Daniels snoring through the wall." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin under my roof! You'll have the room by the stairs, if you don't mind being first down when the bell goes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I'll give you the room by the lake, because you'll want to hear the water, and nobody else wants to hear the murlocs." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. The rooms lock from the inside, so you'll want to try the window if you're planning anything, and the window sticks." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The kettle's on and Narnie's asleep." },
@@ -325,6 +335,7 @@ P:NPC {
         { text = "I'll need somewhere quiet to work, Brianna.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do you keep the town calm when the bell rings?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do many travellers still reach Lakeshire with the roads so dangerous?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you get much trouble from thieves at the inn, Brianna?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

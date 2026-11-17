@@ -560,6 +560,17 @@ P:NPC {
         { text = "Something else, sister.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Elune's light falls on every shore, and it doesn't ask what a soul does after dark. I'd only ask you to remember that the people here are frightened by those carcasses on the beach, so whatever your work is, don't add to their fears." },
+      },
+      choices = {
+        { text = "I'll keep my work far from Auberdine's people.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their fears aren't my concern, priestess.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Gwennyth, of the Sisterhood. I came to tend Auberdine's troubled people and found the shore strewn with great dead creatures, as if the sea were giving up its dead, and I would like to know why." },
@@ -577,6 +588,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the creatures washed up on the shore, and I would like your eye on them." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Whether you pray to the Light or to Elune, you are welcome to stand beside me on this sad beach." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, here on our shore! The Temple speaks of your order with respect, though few of us have met one." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like someone who's used to not being seen, and I'll not ask why. The Sisterhood tends everyone who comes to Auberdine, the quiet ones included." },
       },
       again = {
         { id = "h_again", text = "What else? I'm listening, though I keep one eye on the tide." },
@@ -594,6 +606,7 @@ P:NPC {
         { text = "Can a hunter tell what killed the sea creatures?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What should a priest pray for over these dead creatures?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could something on this coast threaten Auberdine itself?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Sisterhood really tend to rogues as well?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Elune keep you.", next = "END" },
       },
     },
@@ -721,6 +734,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I count what I see: the furbolgs maddened, the moonkin gone wild and the bears with a sourness in their blood. Something fouls this land, and your craft draws from the same well the Legion did, so forgive me if I watch your hands." },
+      },
+      choices = {
+        { text = "Watch, then. I'll prove you wrong at the murloc camps.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My hands are my own business, Sentinel.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and murlocs creep up the beaches, and I am only one Sentinel, so I could use another pair of hands." },
@@ -736,6 +760,9 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because the Sentinels I send up the coast come back with wounds that do not close cleanly, and I have too few hands to mend them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kind at Maestra's Post fight hard, I am told, so I will not waste your strength on small things." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and kaldorei by the look of you. The groves along this shore are sickening faster than the Circle can tend them, so I am glad to see another of you on the beach." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I watch the beach for murlocs and the groves for corruption, and I'll be watching you as well until I know which of the two you are." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Greymist", min = 30 } },
+          text = "The beach has been quieter since you started on the Greymist, and I count fewer tracks each morning. I am still only one Sentinel, but this week I have felt like two." },
       },
       again = {
         { id = "h_again", text = "What else? I'm due on the beach soon." },
@@ -753,6 +780,7 @@ P:NPC {
         { text = "Do your Sentinels need a healer's hands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would a paladin do the most good on this shore?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Sentinels and the druids work well together here?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you count warlocks among the corruption, Sentinel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
       },
     },
@@ -882,6 +910,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "The Highborne who called the Legion down, and the restless dead of my people, and somewhere among them, my Anaya. I've heard that warlocks bind spirits to their will, so I'll ask you plainly to leave hers alone." },
+      },
+      choices = {
+        { text = "I swear I'll not touch her spirit.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The dead can be useful. I'll promise nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -893,6 +932,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Anaya loved the moonstalkers of these shores, and she would have liked to see you walk among them." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Do you know anything of spirits that will not rest? I have asked everyone else, and they look at me as though I were a ghost myself." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your order buries its dead with honour, which is more than the ruins of Ameth'Aran ever gave mine." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "There's a cold about you that reminds me of Ameth'Aran, warlock. I hope you've come to Darkshore for some reason other than to stir what sleeps there." },
       },
       again = {
         { id = "h_again", text = "Ask what you will. I have nothing but time, and the water." },
@@ -909,6 +949,7 @@ P:NPC {
         { text = "Did Anaya love the wild, before the Sundering?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does Anaya's spirit still trouble you, Cerellean?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does anything still walk the ruins of Ameth'Aran?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What sleeps in Ameth'Aran, Cerellean?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -1041,6 +1082,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A few, mostly humans off the Menethil boat, and they always want to know why there's no portal to Darnassus from here. I tell them it's the kaldorei way to keep the arcane at arm's length, and then I give them tea, because a cup is gentler than an argument." },
+      },
+      choices = {
+        { text = "Your people are wise to keep their distance.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your people's fear of magic is long out of date.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Shaussiy, and I keep the inn by the docks. My guests come off the boats from Teldrassil and Menethil, mostly, and they all arrive seasick." },
@@ -1052,6 +1104,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your companion took the crossing better than you did, I see; they usually do." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, under my roof! Then you will understand why I say a prayer in every room before a guest sleeps in it, because nobody sleeps well on Darkshore just now." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin off the boat from Menethil! Sit down before you fall down, because that armour is no friend on a rolling deck." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I've a pot of tea that's gone cold while my guests forgot it, if you'd care to warm it, and I won't tell a soul you did." },
       },
       again = {
         { id = "h_again", text = "Is there anything else, love? There's always tea on." },
@@ -1068,6 +1121,7 @@ P:NPC {
         { text = "I'll need a room for the night, and some quiet.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why do your guests sleep so badly here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do your guests come to any harm on these roads?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do many mages pass through your inn, Shaussiy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

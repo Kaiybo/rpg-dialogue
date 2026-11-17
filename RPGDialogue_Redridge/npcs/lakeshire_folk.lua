@@ -221,6 +221,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That's what I can't decide, because the gnolls go in one and the soldiers in the other, and you're not quite either. Help me bring the gnoll count down and I'll put you with the soldiers, and the Magistrate needn't hear about the rest." } },
+      choices = {
+        { text = "Put me with the soldiers. I'll earn it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep me out of your columns entirely, Deputy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Deputy.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Last night's count was forty-two, which is six more than the night before. They come up from the south end of the valley in packs, and they've got bolder since the orcs started feeding them scraps." } },
@@ -286,6 +295,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've any blessing that makes the count go down, I'd take it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Good, because the count is getting to the point where I'd like someone who can stand in front of it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't suppose you can tell how many gnolls are in those trees just by sniffing, because I've lost count again." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll add you to the count, I suppose, though I'm not sure which column you go in." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, please; I've lost count once today already." },
@@ -304,6 +314,7 @@ P:NPC {
         { text = "Do you count the fallen as carefully as the gnolls, Deputy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Has Stormwind answered any of your reports, Deputy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why have the gnolls grown so bold, Deputy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Which column would you put a warlock in, Deputy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Stay safe, Deputy.", next = "END" },
       },
     },
@@ -604,6 +615,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That they eat babies and curse the crops, which is silly, because the gnolls already ate the crops. I only pass on the nice parts, so I'll tell everyone you said please and thank you, if you'll let me." } },
+      choices = {
+        { text = "Tell them that, Darcy. I'll live up to it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let them believe the worst. It keeps them away.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Darcy.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Oh, the usual, love: who's courting who, who's been caught asleep on watch, and whether the orcs will come across the lake this year. The nice parts are mostly about the courting, and I keep the rest to myself." } },
@@ -678,6 +698,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, love! Sit by the window, because the soldiers behave themselves better with someone holy in the room." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, love! Parker will want to meet you, because he says the Silver Hand are the bravest lot in the kingdom." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, love, and a night elf besides! The whole inn will be talking about you by supper, and I'll only pass on the nice parts." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock! I won't tell anyone, I promise, though the whole inn will know by supper, because it's that sort of inn." },
       },
       again = {
         { id = "h_again", text = "What else, love? The tables can wait a minute." },
@@ -696,6 +717,7 @@ P:NPC {
         { text = "Do the soldiers ever ask you to pray for them, Darcy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who in Lakeshire needs protecting most, Darcy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does Lakeshire say about my people, Darcy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What does Lakeshire's gossip say about warlocks, Darcy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -800,6 +822,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I've always thought so, though nobody in Lakeshire has ever tried it. Flowers want sun and patience, and I can manage the patience, but the sun's been poor this spring and the gnolls trample whatever comes up." } },
+      choices = {
+        { text = "Patience suits a garden better than spells.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little magic would do your flowers good.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Martie.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not yet, thank the Light, though I've seen their tracks by the far fence once or twice. The herbs I grow keep the healer stocked, and the healer keeps the guards alive, so a warrior by my gate would be guarding more than flowers." } },
@@ -855,6 +886,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Mind the flowerbeds, please, because those boots look like they've trampled worse than marigolds." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I grow herbs for the healer, so you and I are in the same trade, more or less, only my patients are roots." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Mind the flowerbeds, please, because even holy boots trample marigolds." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could you warm the soil a little on frosty nights? My seedlings would thank you, and so would I." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? Just step around the seedling trays." },
@@ -875,6 +907,7 @@ P:NPC {
         { text = "Your garden is the only thing in Redridge that isn't frightened.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Which of your herbs go to the wounded, Martie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the guard post someone at your garden, Martie?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you think magic could help a garden, Martie?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -982,6 +1015,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It is, and it'll be worse by winter if the gnolls keep the farms. I've had food go missing from the back door twice this month, and I'd lay odds it was hungry children, not soldiers, so I've started leaving a bit out on purpose." } },
+      choices = {
+        { text = "That's kind of you. Keep leaving it out.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Lock the door. The soldiers need it more.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Breanna.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -1040,6 +1082,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! At last, someone who can bring me something besides complaints, because I've a hundred soldiers to feed and nothing in the pot." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit down and eat, because I'll not have it said that the Silver Hand left my kitchen hungry." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! If you know where the boar have gone in these hills, tell me, because my soldiers have eaten nothing but lake trout for a week." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in my kitchen. If you're after the pantry, you'll find it empty, because every scrap goes to the soldiers before you could lift it." },
       },
       again = {
         { id = "h_again", text = "What else, dear? You can talk while I get on with the chopping." },
@@ -1057,6 +1100,7 @@ P:NPC {
         { text = "Your kitchen could use a fire that never goes out.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the soldiers you feed get enough to fight on, Chef?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why are the hills so empty of game this season?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is food really that short in Lakeshire, Breanna?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Smells good.", next = "END", fx = { affinity = 1 } },
       },
     },

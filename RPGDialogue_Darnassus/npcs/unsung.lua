@@ -264,6 +264,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "They'd try, and they'd likely lose, and then I'd have a broken student and a smug demon, which is no way to run a morning. Stand at the edge and watch if you like, because you might learn how a front line works before you send something to stand in one." },
+      },
+      choices = {
+        { text = "I'll watch and learn how a line holds.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My servant could teach your students a thing or two.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My students will be glad to have you behind them, but only if you're still standing, so keep your head down." },
@@ -277,6 +288,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Keep your shield up, I always say, and for a mage that means keeping a warrior between you and the trouble." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Shoulders back, shield up, and tell me who trained you before I decide whether to start you over." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on the Warrior's Terrace. You're welcome to watch, but keep that beast out of the sparring ring." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my Terrace! Keep your servant out of the drill lines, because my students will swing at anything that moves, and they've no notion yet of friend or foe." },
       },
       again = {
         { id = "h_again", text = "What else? Keep it short; I've a drill starting." },
@@ -293,6 +305,7 @@ P:NPC {
         { text = "What can a hunter learn on the Warrior's Terrace?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What should a priest know about fighting beside warriors?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Will you drill a paladin with your warriors, Sildanair?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would your students really attack my servant?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to your drill.", next = "END" },
       },
     },
@@ -606,6 +619,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "To a kaldorei, or to someone the city honors as exalted, and only if I believe they'll treat it as a companion. A mage who teleports everywhere and leaves a saber pining in a stable is not someone I'd trust with one of mine." },
+      },
+      choices = {
+        { text = "I'd never leave a companion behind.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A mount is a mount, Lelanai.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The sabers are calm around healers, I've noticed, as though they can tell your hands are meant for mending." },
@@ -624,6 +648,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The sabers can smell steel on you, and they'll want to know whether you're the sort who leaves a mount behind in battle." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll understand the sabers better than most, since you already share your life with a beast." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. My sabers knew you were coming before you reached the pen, because you smell of cat, and they never quite know what to make of it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My sabers are twitching their ears at you, because they can feel the arcane on your skin, though they'll settle if you're gentle." },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the tail on that one." },
@@ -641,6 +666,7 @@ P:NPC {
         { text = "Do your sabers ever need a healer, Lelanai?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you trust a paladin with one of your sabers?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would a druid need a saber, when I can run as one?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you sell a saber to a mage, Lelanai?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell, Lelanai.", next = "END" },
       },
     },
@@ -766,6 +792,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "They'll let you, though they'll sulk about it, and a sulking saber has a way of finding every low branch on the path. Lelanai won't sell you one unless the city vouches for you, but I'll teach you to stay on whatever you end up riding, fire or fur." },
+      },
+      choices = {
+        { text = "Teach me. I'll learn the saber's way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll have a steed of my own soon enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I see more bruised pride than bruised bones in this job, so you'd be welcome on the riding ground, though mostly for the bones." },
@@ -777,6 +814,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mages keep asking me if they can just teleport instead of learning to ride. The answer is yes, but you'll still need to get home somehow." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll fall off heavier than most, so I'll warn the ground before your first lesson." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You already know how to talk to cats, which puts you ahead of every warrior I've ever taught." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've heard your kind ride horses made of fire eventually, so I'm curious whether you'll fall off a saber as fast as everyone else." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a student due who still can't find the stirrups." },
@@ -792,6 +830,7 @@ P:NPC {
         { text = "Does a hunter's bond help with riding a saber?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your riders fall often, Jartsam?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is a saber harder to ride than a warhorse, Jartsam?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Will your sabers let a warlock ride them?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell, Jartsam.", next = "END" },
       },
     },
@@ -924,6 +963,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because the last time mages gathered in numbers on this side of the sea, they called the Burning Legion down on us all, and the kaldorei have long memories. I'm not saying yours would do the same, only that I'll want a purpose I can write down and believe." },
+      },
+      choices = {
+        { text = "A fair question. Our purpose would be honest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Our studies are our own business, guild master.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Bands that ride into dark places always need a healer, and I advise every charter I write to find one early." },
@@ -934,6 +984,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I've written many warriors' guilds into the book, and most of them were founded on someone's oath." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your kind tend to join guilds late and leave them early, since you have company enough already." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Circle rarely asks me for a charter, because it is a fellowship of its own and older than any I've written down, so I'm curious what brings you." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. If you've come to register a guild of scholars, I'll want to know what you mean to study, because the Sentinels will ask me later." },
       },
       again = {
         { id = "h_again", text = "Is there more you wish to ask before you sign anything?" },
@@ -951,6 +1002,7 @@ P:NPC {
         { text = "Should every guild have a healer at its heart, Lysheana?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What purpose should a guild serve, Lysheana?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Should a druid join a guild outside the Circle, Lysheana?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why would the Sentinels ask about a mage's guild?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1240,6 +1292,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Not a clever one, but the clever ones aren't the ones who try, and a haunch still goes missing about once a month. The hunters who bring it to me work hard for every cut, so I'll watch my counter, and you'll understand why." },
+      },
+      choices = {
+        { text = "I'll catch your thief, if I see one.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep a sharper eye, Jaeana. That's your problem.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll eat meat, I hope, whatever the druids say, because you can't heal anyone on an empty stomach." },
@@ -1251,6 +1314,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Whatever that is, warlock, it's eyeing my meat, and I'd ask you to tell it no." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want meat, not berries, whatever the druids tell you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Half the meat on this counter came in on a hunter's back, so you're among friends here." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I've had cutpurses on the Terrace before, so you'll forgive me for keeping my eye on the venison while you look." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a queue forming." },
@@ -1266,6 +1330,7 @@ P:NPC {
         { text = "Do demons even eat, do you think?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the priestesses buy meat from you, Jaeana?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do soldiers bound for Ashenvale buy from you, Jaeana?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would a rogue really steal your venison?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Goodbye, Jaeana.", next = "END" },
       },
     },
@@ -1401,6 +1466,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because your spells won't close a wound, and the priest is never standing next to you when you need one. A roll of linen weighs less than a spellbook, and it's saved more mages than any spell I know of." },
+      },
+      choices = {
+        { text = "Then teach me. I'll carry linen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll just make sure nothing reaches me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'll still teach you, if you'll let me, because I've seen prayers run out in the Barrens while the linen carried on." },
@@ -1413,6 +1489,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll need bandages more than anyone on this Terrace, so let me teach you to tie them before you need them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have two of you to keep standing, I expect, since your companion can't tie its own bandages." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You can mend a wound with a word, I know, but the word costs mana and the linen doesn't, so I'd still like you to learn bandaging." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll be the first to go down when the Gnarlpine get close, so you'd do well to learn how to bandage yourself before it happens." },
       },
       again = {
         { id = "h_again", text = "Another question? My bandages can wait on the table a while." },
@@ -1430,6 +1507,7 @@ P:NPC {
         { text = "Do prayers and bandages work together, Dannelor?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should a paladin carry bandages, Dannelor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would a druid need bandages, Dannelor?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Why should a mage learn first aid, Dannelor?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you, Dannelor.", next = "END" },
       },
     },

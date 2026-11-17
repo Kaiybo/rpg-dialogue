@@ -23,6 +23,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not with the stones, I'd guess, but with the Blackrock, certainly. Every time we set a span, some orc scout comes down out of the hills and sets fire to the scaffolding, and I'd like to see one of them try it with a mage watching." } },
+      choices = {
+        { text = "I'll guard the scaffolding while you work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather hunt the scouts up in the hills.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Dmitri.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Blackrock, from across the water, though they send the gnolls to do the dirty work at night. A warrior posted at the far end while we set the stones would let this crew finish before the rains." } },
@@ -98,6 +107,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll bless the foundations, I hope, because I've done everything else I can think of to keep them standing." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll know about building things that last, I'd think, since your order's been standing longer than most bridges." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you not to turn into anything large on my scaffolding, because I've measured what it'll bear and a bear isn't in the sums." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you lift a stone with a spell? No? Then you're no more use on this bridge than the foreman." },
       },
       again = {
         { id = "h_again", text = "What else? Talk slowly; I like to think while I listen." },
@@ -115,6 +125,7 @@ P:NPC {
         { text = "Has the crew lost anyone building this bridge, Dmitri?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the crew need guarding while it works, Dmitri?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the bridge trouble the lake, Dmitri, or the fish below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Could a mage help with the Everstill Bridge, Dmitri?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to your stones.", next = "END" },
       },
     },

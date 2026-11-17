@@ -631,6 +631,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "That bandages are slow and a priest is rarely close by when you need one, so learn first aid properly and carry more linen than you think. I've patched up Sentinel scouts who thought they could walk off a Warsong axe, and every one of them was wrong." },
+      },
+      choices = {
+        { text = "I'll learn it properly. Thank you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't plan on getting hit, Priestess.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I had another question.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because I can always use another pair of hands that knows how to heal someone who won't stop moving." },
@@ -642,6 +653,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, you're the one who'll be bleeding while my students learn to work quickly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, so you'll be the one at the back, which suits me, because my students can reach you easily." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Good, you heal too, so you know what it's like to keep a Sentinel standing while she's still running at the enemy." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. You'll be the one bleeding behind some Warsong camp one day, so listen while I tell you how to stop it." },
       },
       again = { { id = "h_again", text = "Something more? Be quick about it, because a student of mine is kneeling by the pool and pretending not to listen." } },
       choices = {
@@ -655,6 +667,7 @@ P:NPC {
         { text = "What's the hardest healing you've done in the field?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Which mistakes do you mean, Jandria?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Any advice for a druid who heals in the thick of it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What should a rogue know about healing, Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -792,6 +805,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "A shadow sitting a little apart from you, like a guest who hasn't been invited to the table. The pool doesn't judge, it only shows, and I'd ask you to look into it yourself some night and see what you make of it." },
+      },
+      choices = {
+        { text = "I'll look, and I'll face what I see.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I know what I carry. I needn't look.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Come and look at the pool with me a moment, because the moonlight on it tonight is quieter than it was yesterday, and I don't yet know why." },
@@ -802,6 +826,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The moonlight on the pool tonight says a fight is coming, though I'll admit it says that most nights." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You watch the way I do, I think, long enough to see what everyone else walks past." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The moonlight on the pool went still when you came in, and it does that for the Circle more often than for anyone else." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The moonlight on the pool went dim when you came in, warlock, and it only does that for a few. Don't worry, I've seen it go dimmer." },
       },
       again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
       choices = {
@@ -815,6 +840,7 @@ P:NPC {
         { text = "What does the moonlight tell a priest, Lariia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does my armor really spoil your watching, Lariia?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does the moonlight on the pool tell you tonight, Lariia?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What does the moonlight show of a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Lariia.", next = "END" },
       },
     },
@@ -967,6 +993,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Not of rogues, exactly, but of anything done in the dark that couldn't bear Elune's light on it. I think a quiet step can serve her as well as a loud one, though I'd never say so in front of A'moora." },
+      },
+      choices = {
+        { text = "My work could stand in her light.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some work is best done in the dark.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, I hope you'll tell me what it was like when you first began, because I'm still learning and the priestesses make it look so easy." },
@@ -983,6 +1020,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Oh, a warrior! The priestesses say I should practice my healing on someone who actually gets hurt, but please don't take that as an invitation." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The priestesses say I'm too familiar with animals, but I can't help being glad to see one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! I study out here among the flowers, and I've always wondered whether they say more to one of the Circle than they ever say to me." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Oh! You startled me, coming up through the flowers like that. The priestesses say a quiet step is a gift, though I don't think they meant for sneaking." },
       },
       again = {
         { id = "h_again", text = "What else? The bell won't ring for my lessons for a while yet, so ask away." },
@@ -1001,6 +1039,7 @@ P:NPC {
         { text = "Is learning to heal harder than you expected, Aquinne?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What did the Temple's books say about paladins?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you ever thought of joining the Circle, Aquinne?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do the priestesses disapprove of rogues, Aquinne?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -1172,6 +1211,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Only now and then, mostly human ones, who keep trying to store things that hum, glow or answer back. Everything that comes into this vault must be recorded and returned as it was given, and that's difficult when the thing in question changes colour overnight." },
+      },
+      choices = {
+        { text = "Fair rules. I'll store nothing that hums.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Make a new column, banker.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Some of the Temple's own keep their things with us, so you needn't worry that your relics will be treated without respect." },
@@ -1184,6 +1234,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Please sheathe that before you lean on the counter, because the last warrior who didn't scratched it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're depositing hides, I'm afraid they go to the auction house and not to me, whatever you've heard." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your Circle leaves very little in my vaults, I find, though the ones who go into the long sleep do like to know their things will be here when they wake." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I'd ask you not to open any portals inside the vault, because I'd have to write it down, and I've no column for it." },
       },
       again = { { id = "h_again", text = "Is there anything else? Your coin is as safe under the Temple's roof as anywhere in Darnassus." } },
       choices = {
@@ -1197,6 +1248,7 @@ P:NPC {
         { text = "Do the priestesses keep relics in your vault?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the vault truly safe from thieves, Idriana?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do druids really leave their things here while they dream?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do mages trouble the bank often, Idriana?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },

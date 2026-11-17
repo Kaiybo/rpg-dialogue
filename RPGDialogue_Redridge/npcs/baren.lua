@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." } },
+      choices = {
+        { text = "I'll drive them off, and the fishermen can judge me after.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need their warmth. Only their silence.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Baren.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Right up onto the planks, bold as you like, and they take nets, fish, and once a whole rowboat. If you'd stand the end of the dock at dusk with a blade, I'd count fewer of them and more of my boats." } },
@@ -99,6 +108,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time, because the murlocs have started coming up onto the docks at dusk, and I've only got a boathook." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I count the boats back every evening, and when one comes back short, I'd be glad of someone who knows the words." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my docks. Mind the third plank from the end, because it doesn't care how holy you are." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my docks. Mind your step on the boards, and keep your pet away from the boats, because the fishermen are jumpy enough with the murlocs about." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'd say the tide's out, but it's a lake, so nothing's ever out. Ask away." },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "Do the murlocs come right onto the docks, Dockmaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Has the lake taken any of Lakeshire's people, Dockmaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who keeps the docks safe after dark, Baren?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the fishermen fear warlocks more than murlocs, Baren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },
