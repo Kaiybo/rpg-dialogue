@@ -83,6 +83,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Gorishi", min = 40 } },
+          text = "The Gorishi are fewer around the old camp sites, and I'd swear the hives sound quieter at night. Keep that up, and I might even get my camps back someday." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, here at the Refuge! Well, the expedition takes all sorts, and the crater's dangerous enough that I'm glad of anyone who can call up a little help." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -702,6 +704,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Pterrordax", min = 20 } },
+          text = "The pterrordax don't circle the Refuge half so much since you started shooting them down, and I can finally sleep without hearing them screech. Thank you, truly." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! Oh, could your demon find Ringo, do you think, because it can see things in the dark, can't it, and he's been missing for days." },
         { id = "h_apaladin", when = { class = "PALADIN" },

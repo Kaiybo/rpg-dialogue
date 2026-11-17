@@ -105,6 +105,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 40 } },
+          text = "Ha, I've been keeping score, and you're well ahead of the last fellow! The Twilight crazies are fewer around the wind stones, and the ones left are jumping at every shadow." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "Ha, a mage! You'll be able to read those Twilight papers, won't you, because I can't make heads or tails of them, and I'm fairly sure half are upside down." },
         { id = "h_apaladin", when = { class = "PALADIN" },

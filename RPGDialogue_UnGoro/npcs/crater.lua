@@ -100,6 +100,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Devilsaur", min = 20 } },
+          text = "Word is you've been bringing down devilsaurs, which I've never had the nerve to do myself. Either you're the best shot in the crater or the luckiest, and I'd like to know which." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, down in the crater. Keep your demon close and your eyes open, because the devilsaurs don't care what you've summoned, they'll eat it first and you second." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, maybe you can tell me why the ground in this crater is warm to the touch even at midnight, because nobody else can, and it keeps me awake." },

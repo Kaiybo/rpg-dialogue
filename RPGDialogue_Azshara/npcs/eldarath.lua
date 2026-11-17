@@ -851,6 +851,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Spitelash", min = 40 } },
+          text = "My lads say the Spitelash don't sing on the beach at night anymore, and they've slept better than they have since the Horizon Scout went down. I've a fair idea who to thank." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, on my beach. I've sailors here who'd jump at their own shadows after what the naga did, so keep that creature quiet and close, and we'll get along fine." },
         { id = "h_huntcl", when = { class = "HUNTER" },

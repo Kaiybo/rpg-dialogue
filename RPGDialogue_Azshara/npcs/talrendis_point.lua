@@ -119,6 +119,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Haldarr", min = 30 } },
+          text = "The Haldarr are fewer in the woods, friend, and the Sentinels have noticed whose hand did it. They watch me a little less closely now, and I have you to thank for that." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman, here among the Sentinels! Sit with me a moment, friend, for it has been long since I spoke with someone who hears the spirits as I do." },
         { id = "h_roguecl", when = { class = "ROGUE" },

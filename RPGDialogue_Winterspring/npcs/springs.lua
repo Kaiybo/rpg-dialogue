@@ -114,6 +114,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Winterfall", min = 30 } },
+          text = "Ye've been thinnin' the Winterfall, I hear, an' I'll no' pretend it gladdens me, for they were decent folk before the firewater. Still, the trappers can walk the valley again, an' that's somethin'." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Ye'll have a sharper eye for magic than I do, an' I've a feelin' there's more than drink in that Winterfall firewater, so look close if ye go near their camps." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -306,6 +308,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Chillwind", min = 25 } },
+          text = "De chillwind beasts be fewer in de hills, mon, and Mau'ari know who been huntin' dem. Bring de E'ko, and maybe de spirits forgive you dat many." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Ah, a rogue, mon, with quiet feet. Mau'ari like quiet feet, because de beasts don't run from dem, and de E'ko come easier when de beast never see you comin'." },
         { id = "h_apaladin", when = { class = "PALADIN" },

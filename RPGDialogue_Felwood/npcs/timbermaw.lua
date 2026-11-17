@@ -292,6 +292,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Deadwood", min = 40 } },
+          text = "Nafien has counted the Deadwood who no longer walk, and the count is high. He takes no joy in it, and he hopes you take none either, but he is grateful." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. Nafien smells the fel on you, as he smells it on the Deadwood, and he does not like it, but he will speak with you because the Deadwood are worse." },
         { id = "h_apaladin", when = { class = "PALADIN" },

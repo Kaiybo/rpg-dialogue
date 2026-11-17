@@ -104,6 +104,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Jadefire", min = 30 } },
+          text = "The Jadefire satyrs are fewer, and I swear one of my seedlings sprouted the morning after you came back from their camps. I'll not call it a coincidence." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You move so quietly the satyrs won't hear you coming, which is good, because the Jadefire satyrs wear the corruption like a crown, and I'd love to see someone knock it off." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -315,6 +317,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Jaedenar", min = 40 } },
+          text = "Jaedenar is quieter than it was, and I know who's been walking into it. Mind what you saw down there, because the Shadow Council's tricks don't always show until later." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Good, steel is honest, and it can't be tempted by the fel the way a spell can, so you may be the safest visitor I've had all month." },
         { id = "h_huntcl", when = { class = "HUNTER" },

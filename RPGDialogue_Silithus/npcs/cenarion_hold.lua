@@ -776,6 +776,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Hive'Ashi", "Hive'Zora", "Hive'Regal" }, min = 50 } },
+          text = "My scouts report the hives are quieter on the near side, and the worm counts have dropped for the first time this season. That is your doing, I think, and it means the grain carts get through." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue at Cenarion Hold. The swarm cannot be outwitted the way men can, but the Twilight's Hammer can, and the Hold has use for anyone who keeps their footsteps light." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! The Hold is glad of you, and so am I, because the winds have been foul since the cult began its summonings, and every caravan I send needs fair weather." },
@@ -1471,6 +1473,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Stonelash", min = 20 } },
+          text = "You've been squashing scorpids by the dozen, I hear, which is lovely, because every one you kill is one less that can sting Noggle again. Mind you, he'd find a way." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Oh, you're just what I need, because Noggle's been moaning for a miracle all week, and I'd much rather you supplied one than I paid for another potion." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you heal venom with a totem, or a chant, or anything else that doesn't cost me reagents? Noggle's eating my profits faster than the venom's eating him." },

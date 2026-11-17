@@ -282,6 +282,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Winterfall", min = 40 } },
+          text = "Salfa hears the Winterfall howl less at night, and he knows whose work that is. He thanks you, and he grieves, and both are true." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Salfa smells the arcane on you, and it is cleaner than what he smells on the Winterfall, though not by so much as you might like." },
         { id = "h_apaladin", when = { class = "PALADIN" },
