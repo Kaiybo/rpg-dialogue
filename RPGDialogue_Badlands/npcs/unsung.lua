@@ -33,7 +33,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "As well as coal and iron allow, and both cost a fortune to haul over the Gorge road. The Dark Irons have all the iron they want under their mountain, which isn't fair, because they're the ones trying to kill everybody." } },
       choices = {
         { text = "Then the Horde's smiths deserve your coal at a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Raid the Dark Irons for iron. Why pay goblin prices?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Raid the Dark Irons for iron and never pay goblin prices.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Jazzrik.", next = "BACK" },
       },
     },

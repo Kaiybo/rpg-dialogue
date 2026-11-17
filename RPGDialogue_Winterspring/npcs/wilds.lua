@@ -820,7 +820,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll sell you only what I kill cleanly and quickly.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll sell you whatever I find dead in the snow. Who'd know?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll sell you whatever I find dead in the snow. Nobody would know.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

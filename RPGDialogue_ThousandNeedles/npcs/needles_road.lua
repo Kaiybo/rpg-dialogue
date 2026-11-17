@@ -555,7 +555,7 @@ P:NPC {
       },
       choices = {
         { text = "Honest times matter. Nobody should ever doubt the clock.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A close race could go either way. Who'd notice?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A close race could go either way, and nobody would notice.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
