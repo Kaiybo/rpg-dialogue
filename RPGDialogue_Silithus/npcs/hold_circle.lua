@@ -28,6 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Oh, they leave plenty, because crazies never think anybody's watching, and they drag their robes through the sand like brooms. Follow the robe-marks west and you'll find a camp, and bring me back any papers you find, even if neither of us can read them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And if {pet} likes chasing crazies, I'll count its kills too, because I keep score of everything, and it'd be rude to leave a good beast off the tally." },
+      },
+      choices = {
+        { text = "I'll scout first and report. Rushing in helps nobody.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hit their camp the moment I find it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Something under the sand, or something behind the wall, or maybe just the end of everything, because they seem happy about all three. Huum says they've given their hearts to something old, and my brother is rarely wrong about such things." } },
@@ -89,6 +101,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Ha, a priest of the Horde! You'll have to tell me whether those Twilight crazies pray to anything at all, because their papers read like a madman's shopping list." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Big brother says the crazies out west hate your Light worse than they hate the bugs, so you and I are going to get along fine." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Good, the crazies leave tracks all over the western dunes, and I bet you can follow them better than my big brother can." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Huum's busy being serious, so I've got time." },
@@ -106,6 +120,7 @@ P:NPC {
         { text = "Do the Twilight's Hammer use demons?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What do the Twilight's Hammer want in Silithus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Twilight's Hammer pray to anything, Bor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the Twilight's Hammer leave much of a trail, Bor?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll bring you whatever I find on them.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },
@@ -210,6 +225,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "There is, though many warriors never learn it until the land has bled dry around them. The Twilight's Hammer fight upon Silithus for their own ends, and you may strike them down, but only if you remember the land is not your enemy." } },
+      choices = {
+        { text = "I fight for the land, not for myself.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A fight's a fight. The land can look after itself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Their camps foul the ground and their rituals shake the earth, and the creatures that once wandered freely now flee or turn savage. When you hunt here, take only what you need, for this land has little left to give." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} walks with the old spirits close about it, and I see they are pleased with how you keep it, so listen when it grows uneasy." },
+      },
+      choices = {
+        { text = "I take only what I need from this land.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "This desert is cursed. I'll hunt as I please.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "The cult's summonings, which tear at the elements and leave the earth raw, and the swarm, which hollows it out from below. A shaman can soothe the spirits, but a priest can pray for the living who must stand upon such wounded ground." } },
@@ -250,6 +286,10 @@ P:NPC {
         { id = "h_vyral", tags = { "news" }, when = { questActive = TODO_QUEST("Vyral the Vile") },
           text = "Vyral the Vile hides in Twilight's Run, a cave in the northeast where the cult keeps its secrets. Bring me his signet ring, and go carefully; the cave is full of horrors." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The land of Silithus weeps, {name}, and perhaps your prayers can reach the places where its tears have dried to sand." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. The land feels the weight of your step, {name}, and it asks whether you come to defend it or only to fight upon it." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. The spirits of the beasts here are restless, {name}, for the crystals and the cult have driven them from their old paths." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, {name}; the spirits have waited this long, and they can wait a little longer." },
@@ -265,6 +305,8 @@ P:NPC {
         { text = "Do the spirits judge me for my power?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How should a mage speak to the spirits?", next = "xmage", when = { class = "MAGE" } },
         { text = "What wounds the land here most, Huum?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is there a difference between defending and fighting, Huum?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "How has the cult disturbed the beasts of Silithus, Huum?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "May the Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -362,6 +404,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I can make the robe and the medallion, but the walk is yours to change, and warriors are the hardest to teach. You hold your shoulders like you expect a blow, and a true cultist holds them like he expects a reward." } },
+      choices = {
+        { text = "I'd sooner face them openly than hide behind a disguise.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A disguise is just another weapon. I'll learn the walk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I could try, but the cult keeps few animals, and a disguised wolf among them would draw more eyes than an honest one. The better trick is to hide yourself well and let your beast be what it is, since a stray in the desert surprises no one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Though I confess {pet} has a certain dignity that would look very well in a small Twilight robe, if only the cult were the sort to be fooled by it." },
+      },
+      choices = {
+        { text = "Hiding my beast feels like a lie. I'd rather not.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Deception wins wars. Hide whatever you must.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Their priests worry me least, because they see only what they wish to see; it is the things they serve that worry me. A disguise fools eyes, but what the Twilight's Hammer calls up looks past eyes, and I'd want a priest's blessing on anyone who wore my work into their camps." } },
@@ -414,6 +477,10 @@ P:NPC {
           text = "Huum told you true: I think I can call down one of the Council's lords. Sit, and let me explain how badly this could go." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, and a disguise is the last thing you'd wear, I imagine, because your kind would rather be seen and struck than hidden and safe." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Your bearing would give you away in any cult camp, I'm afraid, for no cultist I've studied ever stood that straight." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Your companion would be a problem if I ever had to disguise you, for I have yet to make a cult robe for a beast." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk and work at once." },
@@ -429,6 +496,8 @@ P:NPC {
         { text = "Do the Twilight's Hammer use warlock magic?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is it honest, fooling the cult with your forgeries?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would your disguises fool the cult's own priests, Aurel?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could you disguise a warrior well enough to fool the cult?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Could you make a disguise for a beast, Aurel?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your bench.", next = "END" },
       },
     },
@@ -517,6 +586,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A thousand years past I stood among many, and I fell among many, and the master's breath bound me to watch where I would otherwise have died. The courage of those who held that day is why the wall still stands, and I remember every one of them." } },
+      choices = {
+        { text = "I'd hold the line as they did, whatever the cost.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Holding lines buys time. Breaking the enemy ends wars.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "By watching the sand where nothing walks, for it shifts when the hive stirs below, as a pool shivers before the rain. The Brood taught me to watch for it, and I have watched for a thousand years, and it shifts more now than ever." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} feels it already, I think, for it will not lie flat upon this ground, and the beasts of the field have always known the swarm before we did." },
+      },
+      choices = {
+        { text = "Some threats are too great to hunt. Watch, and warn.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then strike the hive now, before it rises.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Little alone, and a great deal together, as those who stood at the wall learned a thousand years ago. Heal those who hold the line, mortal, and do not let the whispers from beneath the sand persuade you that the dark is kinder." } },
@@ -565,6 +655,10 @@ P:NPC {
           text = "The land around us shudders, and the hive answers. I made a promise a thousand years past, mortal, and the time to keep it draws near, for the sands are shifting once more." },
         { id = "h_tomorrow", tags = { "news" }, when = { questActive = TODO_QUEST("What Tomorrow Brings") },
           text = "Go to the Caverns of Time, in the deserts of Tanaris, and see whether the master has returned. I must be certain before I may act." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. I have seen warriors stand before the hive, mortal, and I have seen the sand cover them, and still they came, for that is what your kind does." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. You read the tracks of beasts, mortal, but can you read the tracks of the hive, which move beneath the sand and remember?" },
       },
       again = {
         { id = "h_again", text = "Ask, then. I have waited a thousand years; I can wait a little longer." },
@@ -581,6 +675,8 @@ P:NPC {
         { text = "What does the Brood see in mages?", next = "xmage", when = { class = "MAGE" } },
         { text = "What waits behind the Scarab Wall?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What can a priest do against the swarm, Baristolth?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Did you stand before the hive yourself, Baristolth?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "How does one read the tracks of the hive, Baristolth?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell, Baristolth.", next = "END" },
       },
     },

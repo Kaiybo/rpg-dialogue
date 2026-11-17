@@ -30,6 +30,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Many who came to fight in these wastes, from more than one land and under more than one banner. I tend their graves because the desert forgets everyone who has no keeper, and their courage deserves to be remembered." } },
+      choices = {
+        { text = "Their courage should be remembered. I'd be proud to rest here.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The dead are dead. Glory does nothing for them now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The stones give shade, and so the scorpids and the worms come, and they do not know whose rest they disturb. I would rather turn them gently away than see blood spilled where so much was spilled already." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is at ease here, I see, which tells me it understands better than most that this ground is to be walked gently." },
+      },
+      choices = {
+        { text = "No blood among the graves. I'll hunt elsewhere.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A beast's a beast. I hunt wherever the prey is.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Rest, mostly, and to be remembered, though the silithid tunnel beneath their graves and the Twilight's Hammer would gladly rouse them. I keep watch so that nothing wakes them that has no right to, and a Forsaken priest, I'll say gently, makes me watch a little harder." } },
@@ -86,6 +107,10 @@ P:NPC {
           text = "I keep turning that thing you found over in my hands. It's crusted with chitin like a beetle's shell, but there's a book underneath, I'd swear it, and a book from Southwind would be a window into the past." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "It does me good to see you, {name}. Sit a while among the stones; they're better company than you'd think." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Many who rest here carried a blade as you do, {class}, and came to these wastes to stand against what lies beyond them." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Walk softly here, {class}, for the beasts of this place feed near the graves, and I ask only that you do not hunt among the stones." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The graves are patient." },
@@ -106,6 +131,8 @@ P:NPC {
         { text = "Why do the dead of Southwind rest uneasily?", next = "xmage", when = { class = "MAGE" } },
         { text = "Has anyone tried robbing the graves?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the dead of Valor's Rest want, Layo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Who lies buried at Valor's Rest, Layo?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why do beasts gather near the graves at Valor's Rest?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Elune keep you, Layo.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -289,6 +316,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Drag me back to the camp and hand me to their big brutes, the ones who swing before they ask, a bit like you, no offence. I told them I was going to Westfall, and with any luck they're searching every farm from Sentinel Hill to the coast." } },
+      choices = {
+        { text = "I'll stand between you and them. A deserter deserves a chance.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You joined them. You can face what comes alone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because I left boot prints all the way from the Twilight camp to this cave, didn't I, and I only thought to brush them over halfway. If a hunter like you can find me, then so can they, and their trackers don't bring biscuits." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} is sniffing at me, which I don't care for, because the last beast that sniffed at me belonged to a cultist, and he was not a nice man." },
+      },
+      choices = {
+        { text = "I'll cover your trail. A man trying to change deserves help.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A traitor once is a traitor twice. I won't help you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "They'd want you very much, I'm afraid, because they're always looking for anyone who's touched a power beyond the mortal, and shadow most of all. They'd promise you secrets and give you a robe and a chant, and you'd not notice the hook until it was through you." } },
@@ -333,6 +381,10 @@ P:NPC {
         { id = "h_purpose", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Terrible Purpose"), days = 7 } },
           text = "Did the Commander read it? Did he understand it? Of course he did; I translated it beautifully, once I'd worked out which chapter went first." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Close the door, quickly, because the cult has no love for priests, and I'd rather not be found in the company of one." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Don't swing that thing, I'm a friend, an ex-cultist, the most reformed man in the whole desert. You'll tell the Hammer you didn't find me, won't you?" },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter? Oh, no, no, they've sent a tracker, I knew it, I told everyone Westfall and they've sent a tracker anyway." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before someone sees your shadow at the door." },
@@ -351,6 +403,8 @@ P:NPC {
         { text = "What did the Twilight's Hammer mages do?", next = "xmage", when = { class = "MAGE" } },
         { text = "What would a spy need to fool the Hammer?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would the cult want a Horde priest as a recruit, Ortell?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What would the Hammer do if they found you, Ortell?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why are you so afraid of being tracked, Ortell?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your hiding.", next = "END" },
       },
     },
@@ -505,6 +559,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The diggers, the finds and the beer, in reverse order, and ye'd be surprised what wanders up from the hives at night to look at all three. Ironforge won't send an army for a hunch, so I'll take one good warrior who doesn't ask daft questions." } },
+      choices = {
+        { text = "You'll get discipline from me. I'll hold your camp steady.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go after whatever comes in the night, not wait for it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Scorpids, worms, and once a silithid scout that looked at our tents like it was taking notes, which is a thought I'd rather not have had. A good hunter could tell me which tracks are bugs on the hunt and which are just bugs lost, and that'd let me sleep." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} can sleep by the cook fire if it likes, mind, but if it digs up any of our finds I'll be writing to Ironforge about it." },
+      },
+      choices = {
+        { text = "Set a watch and keep to it. That keeps a camp alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Strike first, before the scouts report back to the hive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Holy or unholy, I couldn't say, but there's glyphs on these ruins older than any temple in Ironforge, and some o' them were carved to keep somethin' in. I'll not have a priest of any sort chantin' near them until I know what that somethin' is." } },
@@ -579,6 +654,10 @@ P:NPC {
           text = "A priest, out here? Weel, say a word for Brann while ye're at it, because wherever he's wandered off tae, he'll be needin' it more than the rest of us." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Ye'll fit right in, if ye can stand the heat in that plate, because what we need out here is someone who'll stand still when the bugs come boilin' out o' the sand." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Good, because Brann's off somewhere with my last two guards, and this camp's held together with digging tools and bad language." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, eh? Are ye daft, wandering this desert with a beast that needs water? Come in out of the sun, the pair of ye." },
       },
       again = {
         { id = "h_again", text = "What else? I've got rubbings to sort." },
@@ -599,6 +678,8 @@ P:NPC {
         { text = "What are you digging for out here, Rutgar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have your digs turned up anything holy, Rutgar?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the silithid trouble the camp often?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do you need guarded at the encampment, Rutgar?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What wanders into your camp from the desert at night, Rutgar?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -702,6 +783,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Die, mostly, but bravely, and I'd write it up in three languages for the folk back home! I've no notion what the bronze flight wants over Silithus, but if it comes to blades, I want someone with a shield standing between it and the monkey." } },
+      choices = {
+        { text = "Even against a dragon, I'd hold the line.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd pick my own fight, not die guarding a monkey.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "He doesn't like anyone at first, and he was right about Natalia before the rest of us were, so I've learned to take him seriously. He'll come round once you've fed him, but I'd keep your hands where he can see them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} has him worried, I can tell, because he's gone up the tent pole, and he only does that for scorpids and dragons." },
+      },
+      choices = {
+        { text = "Beasts sense trouble before we do. Trust them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A monkey's judgment means nothing. Trust your own eyes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Bronze, I'd swear on my beard, circlin' high an' never landin', as if they're keepin' watch over the great wall to the south. Whatever they're watchin' for, I'd like a priest prayin' it never gets out." } },
@@ -752,6 +854,10 @@ P:NPC {
           text = "Not this again! Fine, sit down; Rutgar's told ye the boring part, so I'll skip straight to the bit with the screaming." },
         { id = "h_brains", when = { questActive = TODO_QUEST("Breaking the Code") },
           text = "Brains, friend, one from each hive! The elixir won't brew itself, and I'm not going in there." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Stand here with me and look up, friend, and tell me if that's a dragon over the dunes or just my eyes going." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Ye'll appreciate the monkey, then, because he's got better instincts than half the Explorers' League, and he doesn't like you yet." },
       },
       again = {
         { id = "h_again", text = "What else? The sky's not going anywhere." },
@@ -768,6 +874,8 @@ P:NPC {
         { text = "Is Glibb really a thief?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why do you watch the dragons so closely?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What sort of dragons fly over Silithus, Frankal?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What would a warrior do against a dragon, Frankal?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why doesn't your monkey like me, Frankal?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll let you watch your sky.", next = "END" },
       },
     },

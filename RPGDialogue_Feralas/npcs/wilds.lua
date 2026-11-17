@@ -15,6 +15,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Strong enough to make a warrior forget the ogre that hit him, aye, and nearly strong enough to forget the ogre altogether. The fruit out here ferments wild, and I've had a barrel blow its own lid off, which is the mark of a proper brew." } },
+      choices = {
+        { text = "A warrior keeps a clear head. Drink after the fighting's done.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A strong ale before battle never hurt anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bears, mostly, and the apes down in the Lower Wilds, who eat everything ripe and throw the rest at me. I've started brewing faster just to beat them to it, and the ale's been better for the hurry, oddly enough." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out of my mash tub, though, because a beast that gets a taste of fermented fruit comes back for more, and I've lost a whole barrel to a tipsy bear before." },
+      },
+      choices = {
+        { text = "The beasts were here first. Share the fruit with them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Drive them off. Your brew matters more than their supper.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Only the fruit from the high places, where the beasts nest and the ogres wander! A brewer can't go sneaking about, but a rogue could, and the best ingredients are always where somebody doesn't want ye to be." } },
@@ -66,6 +87,10 @@ P:NPC {
           text = "A priest of the Light, out in the jungle! Now there's a blessing I'll take, friend, because a brewer needs watching over his kegs as much as any soldier needs it over his shield." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin in the jungle! Put that hammer down a moment and have a mug, because even the Silver Hand stopped for an ale now and then, or so my grandda claimed." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Ye'll want a strong ale after a day of knocking ogres about, and I've one brewing that'd make a Gordunni weep." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, eh? Ye'll know where the wild fruit grows, then, because the beasts always find it first and leave me the pits." },
       },
       again = { { id = "h_again", text = "What else, friend? The mash won't stir itself." }, { id = "h_again2", text = "Ask away, I'm only half busy." } },
       choices = {
@@ -80,6 +105,8 @@ P:NPC {
         { text = "I could chill your barrels, Gregan.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Light have any place in brewing, Gregan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it wise to brew alone with ogres in these hills?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you really brew ale strong enough for warriors, Gregan?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Which beasts steal your brewing fruit, Gregan?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -146,6 +173,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a giant you fight is a giant that steps on you, and a giant you shrink is a giant you can study, sell or put in a jar! Mind you, I still need someone big and brave to get close enough to zap them, which is where you come in." } },
+      choices = {
+        { text = "I'd sooner face a giant honestly than zap it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Shrink it, then smash it. The easy way works fine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not as far as I know, which isn't far, because they tend to stomp off in a very small rage. But the thought of a hunter with a pocket-sized giant at heel keeps me up at night, in a good way, mostly." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not that {pet} needs replacing, mind, because it looks like a fine beast, but think of its face if you came home with a giant the size of a cat." },
+      },
+      choices = {
+        { text = "Giants aren't toys. Leave them as nature made them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If you can shrink it, it's yours to use.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Must I? Friend, my crates belonged on this beach until one of those giants sat on them, so yes, I must. You druids can talk to nature all you like, but nature has never once paid its bills." } },
       choices = {
@@ -195,6 +243,10 @@ P:NPC {
           text = "A rogue! Perfect, because I need someone who can get close to a giant without being stepped on, and that's a rarer skill than you'd think." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Great, because if my zapper goes off wrong again, I'm going to need someone who can grow my eyebrows back." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! You look like the sort who'd walk right up to a giant and hit it in the ankle, and that's exactly the sort I'm looking for." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Ever thought of taming something that used to be forty feet tall? After my zapper, there's a few around here that are just the right size." },
       },
       again = { { id = "h_again", text = "What else? Clock's ticking." }, { id = "h_again2", text = "More questions? Sure, those are free." } },
       choices = {
@@ -209,6 +261,8 @@ P:NPC {
         { text = "You don't know how your own device works?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why not use your zapper yourself, Zorbin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is zapping the giants really necessary, Zorbin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why not just fight the giants instead of shrinking them, Zorbin?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Can a shrunken giant really be tamed, Zorbin?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -275,6 +329,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Heavily enough that I have lost sisters to it, for the Grimtotem fight hard for what they think is theirs. Hold their warriors at the gate, and I will see every cage in the compound opened before they know we've come." } },
+      choices = {
+        { text = "Free the beasts and spare whoever we can.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Kill every Grimtotem there, and the cages open themselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They break them, or try to, and I believe they trade away whatever will not break. A hunter earns a beast's trust and is chosen by it, but the Grimtotem only take, and the creatures know the difference." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} chose you, I can see it, and that bond is the very thing the Grimtotem will never understand." },
+      },
+      choices = {
+        { text = "A beast must be won by trust, never by a cage.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Taming is taming. A cage is just a quicker method.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Perhaps not, but what you carry harms everything it touches, whether you mean it to or not. If you would help free them from the Grimtotem cages, I'll not refuse you, but stand well back while they flee." } },
@@ -312,6 +387,10 @@ P:NPC {
           text = "A rogue! Good, because the Grimtotem guard their cages closely, and I need someone who can open a lock before the guards notice." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Light, so far from your own lands. The beasts in the Grimtotem cages don't know your faith or mine, but they know suffering, and I'd welcome any hands that would ease it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. The Grimtotem guard their cages with brutes of their own, and I need someone who can stand against them while the creatures go free." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. Then you know what it is to stand beside a beast as an equal, and you will understand why the Grimtotem's cages anger me so." },
       },
       again = { { id = "h_again", text = "Ask, and speak gently; the creatures of these woods startle at loud voices." }, { id = "h_again2", text = "Ask, but quietly." } },
       choices = {
@@ -323,6 +402,8 @@ P:NPC {
         { text = "I mean the beasts no harm, Kindal.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How many creatures are caged in the compound?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How do the Grimtotem treat the beasts they cage?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "How heavily do the Grimtotem guard their cages, Kindal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do the Grimtotem do with the beasts they cage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -371,6 +452,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Old magic, and the echoes of those who used it too freely, and things that should have died with Eldre'Thalas. A warrior who goes in must remember that not every enemy there bleeds, and that some of them were once our own people." } },
+      choices = {
+        { text = "Some places should stay sealed. I'll guard the entrances.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Whatever's in there, I'll cut my way through it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They sense the old magic still bleeding from the stones, I think, the way a deer senses a storm before it breaks. Even the ogres who live there seem changed by it, and I would not let a beast I loved wander within those walls." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch {pet} closely if you ever go near the ruins, and if it refuses to go further, turn back, because its instincts are older and wiser than ours." },
+      },
+      choices = {
+        { text = "Respect the beasts' warning. Leave that magic buried.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Old magic is power. It shouldn't be left to rot.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Perhaps, in time, but not while the ogres squat in Eldre'Thalas and the naga dig along the coast. The Circle teaches patience, and I'm afraid I have less of it than I should." } },
       choices = {
@@ -428,6 +530,10 @@ P:NPC {
           text = "A priest of the Light. You'll find little of it in the old Highborne ruins across this land, because the magic that broke the world still festers there." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. Your order knows what it is to see corruption rise from within its own ranks, so you may understand better than most what waits in the ruins of Eldre'Thalas." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. The highborne ruins hold more than ogres now, and I would sooner send a shield into them than another of my scouts." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. The beasts avoid the highborne ruins, and I have learned to trust their judgment over any scholar's." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -441,6 +547,8 @@ P:NPC {
         { text = "I'm no satyr, Angelas.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What lingers in the Highborne ruins, Angelas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did the Highborne deserve what became of them?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What lies in the highborne ruins besides ogres, Angelas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why do the beasts avoid the highborne ruins, Angelas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -489,6 +597,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "With great clubs and greater numbers, and with shamans who throw fire from behind the line. A warrior who breaks their front rank and keeps going until he reaches the shamans is worth more to Mojache than a hundred who stop at the first ogre." } },
+      choices = {
+        { text = "Hold together as a line. Lone heroes die at their feet.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Break through and kill the shamans. Fury wins that fight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Fight them as yourself, druid, whether you choose claw or moonlight. I ask only that you don't hold back out of pity, because the gordunni show none to our braves." } },
       choices = {
@@ -527,6 +644,8 @@ P:NPC {
           text = "You move like a shadow in the grass, and a shadow is what we need against the Gordunni. Their camps are many, but their sentries are lazy." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "Warlock. You are of the Horde, and so I will fight beside you against the ogres, but I will not call what you do honorable." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. Blades are proven against the gordunni, not in the telling, so I will judge you by what you bring back from their camps." },
       },
       again = { { id = "h_again", text = "What else do you seek?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -540,6 +659,7 @@ P:NPC {
         { text = "Should we make peace with Feathermoon?", next = "s_1" },
         { text = "Should I strike the Gordunni from hiding?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "My power wins battles, Hadoken.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "How do the gordunni fight, Hadoken?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -606,6 +726,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Beneath the mail, always, and well oiled, for the forests here are wet and the ogres strike hard. A warrior in a good leather jerkin feels the club less, and I would rather fit you properly than see you carried back by Hadoken's braves." } },
+      choices = {
+        { text = "Good armor, well kept, is a warrior's discipline.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Speed and strength keep me alive, not layers of armor.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Armor that bends when you draw and holds when the yeti swings, which is harder to make than either alone. I use the hides of the Feralas bears, for they are thick and they shed the rain, and the hunters who follow Hadoken trust nothing else." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} could use a collar of soft hide, too, for the brush here tears at fur, though I suspect it would rather chew one than wear one." },
+      },
+      choices = {
+        { text = "Wear the hide of what you hunt. It honours the beast.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Armor is armor. Where it came from doesn't matter.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "They're loud, little one, and a rogue in loud leather is a rogue who doesn't live long. The hides from these forests are soft and strong, and armor worked from them moves like the wind and whispers like the grass." } },
@@ -634,6 +775,10 @@ P:NPC {
           text = "A rogue! Your leathers are worn thin where the knives rub, and they creak like an old tree. Let me show you what proper Feralas hide can do." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage. You wear cloth, and cloth is not my trade, but I'll tell you this for free: cloth tears on the thorns of Feralas, and leather does not." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. You wear mail, I see, but you would fight better in Feralas with good leather beneath it, for the rain rusts everything that is not tended." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. Your leathers are worn, and I can tell by the wear that you draw a bow more often than you swing a blade." },
       },
       again = { { id = "h_again", text = "Anything else, friend?" }, { id = "h_again2", text = "Ask away." } },
       choices = {
@@ -644,6 +789,8 @@ P:NPC {
         { text = "What would a spellcaster need to survive in Feralas?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What's wrong with my leathers, Jangdor?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Mages don't wear leather, Jangdor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Should a warrior wear leather at all, Jangdor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What can you make for a hunter, Jangdor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },

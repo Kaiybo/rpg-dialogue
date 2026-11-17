@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not skittish, only wise, for many of them flew wild over Feralas before they came to us, and they remember the ogres' clubs. They learn to trust a warrior who moves slowly, and to carry him, but they never forget the sound of a blade." } },
+      choices = {
+        { text = "I'll respect the roost's rules. The birds come first here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A warrior goes armed. The birds will have to adjust.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "By its stillness, mostly, for a beast that waits calmly beneath the roost is no threat, and one that stares upward is a hunter. The wild hippogryphs of the mainland learned that from the yetis, and they taught it to mine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the right manner, I think; it does not look up at them, and so they have stopped looking down at it." },
+      },
+      choices = {
+        { text = "Every creature deserves a chance to earn trust.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Wild beasts are wild. Trusting them is foolish.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They do, I think, for Feralas is wetter and the winds off the sea are rough. Still, they carry our letters and our wounded across the water, and the stronghold would wither without them." } },
       choices = {
@@ -76,6 +97,10 @@ P:NPC {
           text = "You walk softly enough that the hippogryphs didn't even turn their heads, and that's rare. They don't startle at a Sentinel's step either, so you've been trained well by someone." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. My hippogryphs have never carried one of your order, and they're watching that hammer of yours very carefully, so move slowly near the roosts." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. Keep your weapon sheathed near the roost, if you would; my birds startle at drawn steel, and a startled hippogryph is a dangerous thing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. My birds have already marked your companion, and they are deciding whether it is a friend of the roost." },
       },
       again = {
         { id = "h_again", text = "Would you ask more of the roost, or of the isle?" },
@@ -91,6 +116,8 @@ P:NPC {
         { text = "Will your hippogryphs carry a warlock at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your hippogryphs carry scouts across the coast?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Are your hippogryphs uneasy around the Light?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are hippogryphs truly that skittish around warriors, Fyldren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How do your hippogryphs judge another beast, Fyldren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -170,6 +197,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because everything comes across the water from the mainland, and every boat risks the naga to bring it. A warrior who wastes a strap wastes a boatman's courage, and I'll not have that on my shelves." } },
+      choices = {
+        { text = "Careful records keep a stronghold alive. You're right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "In battle nobody counts straps. Supplies are for using.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bear and wolf for the cloaks, and anything thick enough to turn an ogre's club for the armor, though the hunters rarely bring enough. The rain ruins half of what comes over, so a hunter who keeps the hides dry is a hunter I remember." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the stacked hides, please, because a beast that smells fresh leather tends to want to taste it, and I've lost a bolt or two that way." },
+      },
+      choices = {
+        { text = "Take only what the land can spare.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The woods are full of beasts. Take all you can carry.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "I sell to whoever the Alliance sends across the water, and I keep a record of every bolt that leaves my shelves. My sisters look twice at a mage on the isle, but cloth is cloth, and a mage in a dry robe is better company than one in a wet one." } },
@@ -196,6 +244,10 @@ P:NPC {
           text = "A mage, and you'll be wanting runecloth and thread, I'd expect, because your robes don't survive the rain here any better than anyone's. I keep some at the back, where the damp can't reach it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You've a quiet way of standing near my shelves, friend, and I've a quiet way of counting them. Between the two of us, I think we'll stay on good terms." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. If you've come for leather to mend your straps, I'll need it counted out and signed for, because the Sentinels' stores are not a charity." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. If you bring me hides from the mainland I'll take them gladly, but bring them dry, because wet leather is worth half." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you need from the stores?" },
@@ -208,6 +260,8 @@ P:NPC {
         { text = "Do the Sentinels need anything I could bring?", next = "need" },
         { text = "Do the Sentinels trust you to sell to mages?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "You think I'd steal from the Sentinels?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why count every strap so carefully, Vivianna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What hides do the Sentinels need most, Vivianna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -286,6 +340,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Patience, which few warriors learn, and healing, which every one of them needs. The best herbs of Feralas grow slowly in the shade, and a warrior who learns to wait for them learns also to wait for the right moment to strike." } },
+      choices = {
+        { text = "Patience before the strike. That's how battles are won.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The right moment is now. Waiting gets braves killed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Better than any map, for the beasts of Feralas know which leaves heal and which poison, and they graze accordingly. Watch what the wild things eat after a fight, and you will learn half of what I teach." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch {pet} when it noses at the ground, for it is reading the Earth Mother's gifts, and she speaks more plainly to beasts than to us." },
+      },
+      choices = {
+        { text = "The beasts are our teachers. We should learn from them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Beasts eat what's in front of them. There's no wisdom in it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Less than it did, because the Gordunni strip the groves near their camps and the Grimtotem take whatever they please. I've seen whole hillsides of herbs pulled up by the roots, and they won't grow back for years." } },
       choices = {
@@ -324,6 +399,10 @@ P:NPC {
           text = "The plants turn from you, warlock. I have seen it before, in the travelers who come from Felwood, and it saddens me, because the Earth Mother grows them for everyone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage. You know your books, little one, and books are useful, but there are things in the soil that no book in Undercity or anywhere else has written down." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. You walk heavily, and the herbs bend beneath you, but they will rise again, as you will after the ogres strike." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. Your beast will find herbs before you do, for it knows the smell of the earth better than any student I've had." },
       },
       again = {
         { id = "h_again", text = "What else would you know, little one?" },
@@ -340,6 +419,8 @@ P:NPC {
         { text = "Is the forest safe for gathering?", next = "safe" },
         { text = "Is it the fel that makes them wither?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can the soil teach a mage, Ruw?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do herbs have anything to teach a warrior, Ruw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Can a beast really help find herbs, Ruw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -445,6 +526,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a death that feeds nothing is a wasted death, and waste dishonors the beast and the one who killed it. The Gordunni kill and leave the bodies to rot, and that, more than their clubs, is why I hate them." } },
+      choices = {
+        { text = "Every kill should feed someone. I'll take what I can.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A warrior kills. What comes after is someone else's work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "A hide is a tool too, but I take it after the beast is gone, and I take it to make something that keeps a hunter warm. What you take, you take so that nothing of the beast goes back to the Earth Mother, and that is waste of the worst kind." } },
@@ -474,6 +564,8 @@ P:NPC {
           text = "You take souls, warlock, and I take hides. One of those honors the beast, and one of them does not, and I think you know which." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue. You'll know how to take a hide quickly and cleanly, because your knives are sharp, but I hope you take your time with them too." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. You kill many beasts, I think, but do you take anything from them, or do you leave them for the crows?" },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly." },
@@ -489,6 +581,7 @@ P:NPC {
         { text = "Do spellcasters waste more of the hunt than warriors?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "A soul shard is a tool, Kulleg.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "A quick cut is the best cut, Kulleg.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why should a warrior care what's left behind after a kill?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -585,6 +678,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Grimtotem in the Needles, centaur on the edge of the Barrens, and ogres once we're back under the trees, all of them wanting kodo and cloth. A warrior who stays by the wagons is worth more to me than ten who chase off after every raider." } },
+      choices = {
+        { text = "A guard stays with the wagons. Chasing raiders is foolish.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Kill the raiders before they ever reach the wagons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Badly, and every lame kodo means a caravan delayed and a trader overcharging. I'd value a hunter who knows beasts well enough to tell me which of my kodos will make the road and which won't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well kept, which tells me you know what a beast needs on a long road, and I'd trust your eye over my drovers'." },
+      },
+      choices = {
+        { text = "Work the beasts fairly. A broken kodo serves no one.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Kodos are cargo. Drive them hard and replace the lame.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "No, I can't, and I don't, but I count anyway. The caravans from Thunder Bluff come the long way through the Needles, and every missing spool is one that some kodo walked a hundred miles to bring me." } },
@@ -614,6 +728,10 @@ P:NPC {
           text = "A rogue! Then you'll understand why I count every spool twice, because I've had a few of your sort pass through and I'm still short three bolts of mageweave." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage, and you'll want cloth for robes, I suppose. The caravans bring good wool from Mulgore, but you mages always want something finer, and finer costs more to haul." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. Good, the next caravan from Thunder Bluff needs guarding through the Needles, and the last guards spent more time drinking than guarding." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. You'll have come down through the Needles, then, and seen what that road does to a kodo's feet." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -628,6 +746,8 @@ P:NPC {
         { text = "Who else trades here?", next = "trade" },
         { text = "You can't blame every rogue for one thief.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "I'd pay well for good cloth, Sheendra.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What threatens the caravans on the road from Thunder Bluff?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How do the kodos hold up on the long road, Sheendra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

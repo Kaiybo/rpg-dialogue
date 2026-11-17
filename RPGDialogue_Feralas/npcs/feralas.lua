@@ -275,6 +275,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every day out here, friend, or you'll find a buckle gone green and a strap snapped the moment an ogre swings at you. I learned that the hard way in my paladin days, and now I pass it on with the needle, which hurts a good deal less." } },
+      choices = {
+        { text = "Caring for your kit is a warrior's first duty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd sooner buy new than fuss over old straps.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Not the beasts so much as what's been done to them. Some of the cats the Sentinels bring back came out of the Grimtotem's cages half-starved, and a hide like that tears in my hands." } },
       choices = {
@@ -321,6 +330,8 @@ P:NPC {
           text = "A warlock, is it? I've hung up my hammer, friend, but a man doesn't stop being a paladin all at once, and I'll admit my hand still twitches for it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Now there's a rogue's coat, and it's had a rough time of it, by the look of those seams. Oil those seams before you go near the naga, because creaky leather gets more of your lot killed than bad luck does." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! Come here and let me see those straps, because the rain in Feralas rots good leather faster than any Gordunni club ever broke it." },
       },
       again = { { id = "h_again", text = "Anything else, friend? I'll keep stitching while you think." } },
       choices = {
@@ -333,6 +344,7 @@ P:NPC {
         { text = "I skin what I hunt. Any use to you?", next = "hunter_pr", when = { class = "HUNTER" } },
         { text = "Does my craft offend you, Pratt?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You know a lot about rogues' leathers, Pratt.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does a warrior's armor really need that much tending, Pratt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Just browsing.", next = "END" },
       },
     },
@@ -398,6 +410,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than I'd like, and the Gordunni do most of it, though the naga on the coast take their share. The Sentinels bring them in at every hour, and I keep the kettle hot, because a warm cup steadies a hand that's held a shield all night." } },
+      choices = {
+        { text = "Rest is part of the fight. Your kindness keeps us standing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A soldier shouldn't need comfort. Hardship makes us stronger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every night, and they lie by the fire in a great warm heap while their riders sleep upstairs. I think the cats guard the stronghold as well as the Sentinels do, though I'd never say so where the General could hear." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome to join them by the fire, if it doesn't mind sharing, and I suspect it's had a wetter day than you have." },
+      },
+      choices = {
+        { text = "A loyal beast has earned its place by the fire.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Beasts belong outside. A stronghold isn't a kennel.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Restful enough, until the naga come up out of the water at night. The Sentinels say the old ruins along the coast draw them, and nothing we do keeps them away for long." } },
       choices = {
@@ -459,6 +492,10 @@ P:NPC {
           text = "A priest of the Light, here at Feathermoon? You're welcome at my hearth, and if you've healing to spare, some of the Sentinels came in from the coast last night with naga wounds that won't close cleanly." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, so far from the Eastern Kingdoms! The Sentinels will want to see you swing that hammer before they trust it, but my kettle trusts everyone." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior, wet through and weary, like every soldier who comes off the boat. Sit by the fire and let the rain run off you for a while." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter, and with a companion! Bring it in out of the rain, please; the Sentinels' cats sleep by my hearth all the time." },
       },
       again = { { id = "h_again", text = "Anything else? The kettle's on." } },
       choices = {
@@ -470,6 +507,8 @@ P:NPC {
         { text = "Sorry. Old habits, Shyria.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What makes the naga wounds so slow to heal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Sentinels welcome help from outsiders?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do many warriors come back from the mainland hurt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the Sentinels really bring their cats inside, Shyria?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -520,6 +559,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "In the caves and the old ruins to the north, where their shamans work foul magic with orbs and scrolls. Find their tracks, follow them to the shamans, and I will send the warriors in after you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And let {pet} take the first bite, because the ogres fear a beast's teeth more than an orc's axe, and I want them afraid." },
+      },
+      choices = {
+        { text = "I'll find them, but the kill should be face to face.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "An ambush kills just as dead. I'll strike from cover.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Not much, I'll be honest, but a forest full of angry beasts is harder to march through. Break enough Gordunni and the woods will quiet down, and then you can tend them however you like." } },
       choices = {
@@ -576,6 +627,8 @@ P:NPC {
           text = "A warlock. Thrall lets your kind serve the Horde, and so I let you stand in my camp, but the Gordunni have their own dark casters, so you'll understand if I don't care for the smell." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You walk soft for one of the Horde. Good, because the Gordunni sleep in shifts, and a blade that comes in the dark is worth ten that come at noon." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. Good, because the Gordunni hide in their caves and ruins, and I need someone who can track them to their doors." },
       },
       again = {
         { id = "h_again", text = "What else? Ogres don't wait for talk." },
@@ -594,6 +647,7 @@ P:NPC {
         { text = "The ogres' shamans call on the elements wrongly.", next = "shaman_ro", when = { class = "SHAMAN" } },
         { text = "The Gordunni use dark magic too?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "You'd have me strike the ogres in their sleep?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Where do the Gordunni hide, Rok Orhan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { mojache = 1 } } },
       },
     },
@@ -741,6 +795,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Nobody knows, which is exactly what makes it special, and exactly why I want to be the first to sell it. The Gordunni dig it out with their big hands and do something odd with it, and I'd dearly love a sample a warrior pried out of their grip." } },
+      choices = {
+        { text = "I'll fight the ogres for the Horde, not for your profit.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If there's coin in it, I'll break the ogres for you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because I'm a goblin, and goblins who follow ogre trails end up as ogre suppers, which is bad for business and worse for the goblin. You hunters can step around a sleeping ogre without waking it, and that's a talent I'd happily rent." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks like it could sniff out cobalt in an ogre camp, if cobalt smells of anything, which I'm going to assume it does, because I want it to." },
+      },
+      choices = {
+        { text = "I hunt for Camp Mojache first. Your ore comes second.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go wherever the coin's best, Horde or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     rogue_or = {
       lines = {
         { id = "ror_default", text = "Now you're talking my language! Quiet is good, quiet means nobody else hears about the cobalt before I've set a price on it. Bring me enough and I won't ask whose cart it fell off." },
@@ -784,6 +859,10 @@ P:NPC {
           text = "A mage! Tell me what you feel off this lump of cobalt, would you? The Gordunni guard it like it's worth more than gold, and I'd like to know why before I price it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue! You know, the Gordunni keep their best cobalt in the deepest parts of their camps, and I'd pay very well for a sample that didn't come with an ogre attached." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior! Perfect, the ogres up north are sitting on a cave full of ore, and somebody's going to have to ask them politely, by which I mean with an axe." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter! You'll have seen the ogre trails through the woods, then, and I'd bet you could follow them straight to my ore." },
       },
       again = {
         { id = "h_again", text = "More questions? Ask fast, my friend; time is money, and so is cobalt." },
@@ -799,6 +878,8 @@ P:NPC {
         { text = "What's so special about the ogres' ore?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What makes you think the cobalt is magical?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "You want me to steal from the ogres?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What's so special about the ore the ogres guard, Orwin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Why don't you follow the ogre trails yourself, Orwin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll get you some.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -907,6 +988,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Many, and some who come back carrying others, and I feed them all the same. The Gordunni hit hard, and the braves of Mojache hit harder, but even the toughest of them goes quiet when the stew is hot." } },
+      choices = {
+        { text = "There's no shame in grieving after a battle.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A warrior should keep his grief to himself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Stories, mostly, of yetis in the caves and great bears in the hills, and meat when the hunt is good. They sit here and argue over whose beast is bravest until the fire burns low, and I let them, because it's better than hearing about the ogres." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is the bravest I've seen tonight, I think, and you may tell the others I said so, because they'll argue with me and I enjoy it." },
+      },
+      choices = {
+        { text = "A hunt is only worth telling if it's told true.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good story's worth a little stretching.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The Twin Colossals, mostly, and the giants who walk the shore beneath them. Some of the old braves say the giants are older than the ogres and only angry because something woke them." } },
       choices = {
@@ -946,6 +1048,10 @@ P:NPC {
           text = "A mage! Sit by my fire and dry those robes, because Feralas rains every day, and I've yet to see a spell that keeps the wet out of a traveler's boots." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "You're welcome at my fire, warlock, as every traveler is. But tell your little companion not to play with the flames, because the last imp that came through set my roof thatch smoldering." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior, soaked through and still gripping that weapon! Set it down by the fire, friend; nobody here will steal it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter! Come in from the rain, and bring your beast close to the fire, for the wet gets into fur worse than it gets into skin." },
       },
       again = { { id = "h_again", text = "Something more? Sit a while longer; the rain isn't going anywhere." } },
       choices = {
@@ -958,6 +1064,8 @@ P:NPC {
         { text = "Who's been asking strange questions at your fire?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Magic could keep the rain away, Greul.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Imps can be hard to control, Greul.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you see many warriors come back from the ogre lands, Greul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do the hunters of Mojache bring to your fire, Greul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Just a rest, thank you.", next = "END" },
       },
     },
