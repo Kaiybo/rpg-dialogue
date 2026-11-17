@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.60.0 (2026-11-17)
+Core only; no pack changes. Includes 0.59.0 (party reactions). No new files in 0.60.0: /reload is enough if you have 0.39.0 or later.
+
+### Dungeon clears count more reliably
+- **A boss falling in front of you counts.** Before, a dungeon only counted as cleared if you or a party member landed the killing blow on its last boss. Now it also counts when you're inside and the boss dies to a pet, a totem, a raid member outside your party, or the fight itself.
+- **Older clears show in the journal.** If you killed a dungeon's last boss between 0.54.0 and 0.58.0, people already knew, but your journal didn't. Logging in now adds the "Cleared <dungeon>" deed and diary line.
+
 ## 0.59.0 (2026-11-17)
 Packs: 32 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.59.0: /reload is enough if you have 0.39.0 or later.
 
