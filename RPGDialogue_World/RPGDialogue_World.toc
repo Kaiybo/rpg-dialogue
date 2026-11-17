@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: World |cff8a8a8a1.35.0|r
+## Title: RPG Dialogue: World |cff8a8a8a1.36.0|r
 ## Notes: Shared dialogue for RPG Dialogue: towns, topics, claims, throughlines, origins, role pools and fallbacks.
 ## Author: RPG Dialogue
-## Version: 1.35.0
+## Version: 1.36.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.world
@@ -36,6 +36,8 @@ rumors\wetlands.lua
 rumors\hillsbrad.lua
 rumors\kalimdor.lua
 rumors\riverglades.lua
+rumors\eastern.lua
+rumors\kalimdor_more.lua
 books.lua
 generic.lua
 pools.lua
