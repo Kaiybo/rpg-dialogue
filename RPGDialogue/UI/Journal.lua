@@ -390,54 +390,184 @@ local function heard(add, c, search)
   end
 end
 
+-- Myself (0.80.0): who I am at a glance, where I stand (gauges), how I come across, the
+-- people closest to me and most against me, what I've said I believe (in my own words),
+-- the towns from warmest to coldest, then the rest of the record.
+local PEOPLE_SHOWN = 5
+local STANCE_WORDS = { ["for"] = "for it", against = "against it", yes = "yes", no = "no" }
+
+local function stanceWords(stance)
+  stance = tostring(stance or "")
+  return STANCE_WORDS[stance] or (stance:gsub("_", " "))
+end
+
+local function countKeys(t, test)
+  local n = 0
+  for _, v in pairs(t or {}) do if not test or test(v) then n = n + 1 end end
+  return n
+end
+
+local function selfHeader(add, c)
+  local name = C.Name("player")
+  local level = C.Level("player")
+  local race = C.Race("player")
+  local class = C.Class("player")
+  local who = {}
+  if level then who[#who + 1] = L.J_SELF_LEVEL:format(level) end
+  if race then who[#who + 1] = race end
+  if class then who[#who + 1] = class end
+  add((name or L.J_TAB_SHEET) .. (#who > 0 and (DIM .. "  " .. table.concat(who, " ") .. "|r") or ""), "section")
+  if c.origin then
+    add(L.J_SELF_ORIGIN:format(c.origin.name), "place")
+    if c.origin.blurb and c.origin.blurb ~= "" then add(c.origin.blurb, "note") end
+  else
+    add(L.J_NO_ORIGIN_LINE, "dim")
+  end
+  local met = countKeys(c.npc, function(m) return (m.times or 0) > 0 end)
+  local bits = {}
+  if met > 0 then bits[#bits + 1] = L.J_SELF_MET:format(met) end
+  if (c.conversations or 0) > 0 then bits[#bits + 1] = L.J_SELF_TALKS:format(c.conversations) end
+  local quests = countKeys(c.quests and c.quests.turnedIn)
+  if quests > 0 then bits[#bits + 1] = L.J_SELF_QUESTS:format(quests) end
+  local books = countKeys(c.books)
+  if books > 0 then bits[#bits + 1] = L.J_SELF_BOOKS:format(books) end
+  if #bits > 0 then add(table.concat(bits, "  ·  "), "dim") end
+end
+
+-- One axis as a gauge block; J.Text shows it as words.
+local function gauge(add, v, pos, neg)
+  v = math.max(-100, math.min(100, v or 0))
+  local words = axisWords(v, pos, neg)
+  local b = { text = neg .. " / " .. pos .. ": " .. words, kind = "bar", value = v, left = neg, right = pos, words = words }
+  add(b)
+end
+
+local TRAIT_MILD = 1
+local function traitsLine(c)
+  local list = {}
+  for name, n in pairs(c.traits or {}) do
+    if type(n) == "number" and n >= TRAIT_MILD then list[#list + 1] = { name = name, n = n } end
+  end
+  table.sort(list, function(a, b) if a.n ~= b.n then return a.n > b.n end return a.name < b.name end)
+  local strong, mild = {}, {}
+  for i = 1, math.min(5, #list) do
+    local e = list[i]
+    if e.n >= 3 then strong[#strong + 1] = e.name else mild[#mild + 1] = e.name end
+  end
+  return strong, mild
+end
+
+-- The people who think best and worst of me, from what's stored.
+local function closest(c)
+  local good, bad = {}, {}
+  for key, m in pairs(c.npc or {}) do
+    if (m.times or 0) > 0 then
+      local d = ns.Disposition and ns.Disposition.ForMemory(key)
+      local a = m.affinity or 0
+      local def = ns.Data.npcs[key]
+      local e = { key = key, m = m, name = m.name or (def and def.name) or key, d = d, a = a }
+      if (d and d >= 75) or (not d and a >= 2) then good[#good + 1] = e
+      elseif (d and d <= 34) or (not d and a <= -2) then bad[#bad + 1] = e end
+    end
+  end
+  table.sort(good, function(x, y) return (x.d or x.a * 10) > (y.d or y.a * 10) end)
+  table.sort(bad, function(x, y) return (x.d or x.a * 10) < (y.d or y.a * 10) end)
+  return good, bad
+end
+
+local function personLine(e)
+  local word = e.d and ns.Disposition.TierName(e.d) or affinityWord(e.a)
+  local place = e.m.zone and (DIM .. "  " .. e.m.zone .. "|r") or ""
+  return e.name .. "  " .. NOTE .. word:lower() .. "|r" .. place
+end
+
 local function myself(add, c)
+  selfHeader(add, c)
+
   local a = c.align
   local alignTitle = ns.Effects.TitleName()
   add(L.J_ALIGNMENT .. (alignTitle and ("  (" .. alignTitle .. ")") or ""), "section")
-  add(axisWords(a.light or 0, L.AX_LIGHT, L.AX_SHADOW))
-  add(axisWords(a.order or 0, L.AX_ORDER, L.AX_WILD))
-  add(axisWords(a.honor or 0, L.AX_HONOR, L.AX_CUNNING))
-  if (a.taint or 0) > 0 then add(a.taint >= 40 and L.TAINT_STRONG or L.TAINT_FAINT) end
-  local dom = ns.Effects.DominantTraits()
-  if #dom > 0 then add(L.J_TRAITS .. " " .. table.concat(dom, ", ")) end
-  local function section(title, lines)
-    if #lines == 0 then return end
-    add(title, "section")
-    for _, l in ipairs(lines) do add(l) end
+  gauge(add, a.light, L.AX_LIGHT, L.AX_SHADOW)
+  gauge(add, a.order, L.AX_ORDER, L.AX_WILD)
+  gauge(add, a.honor, L.AX_HONOR, L.AX_CUNNING)
+  if (a.taint or 0) > 0 then add(a.taint >= 40 and L.TAINT_STRONG or L.TAINT_FAINT, "note") end
+  local strong, mild = traitsLine(c)
+  if #strong > 0 then add(L.J_TRAITS .. " " .. joinList(strong) .. ".") end
+  if #mild > 0 then add(L.J_TRAITS_MILD:format(joinList(mild)), "dim") end
+
+  local good, bad = closest(c)
+  if #good + #bad > 0 then
+    add(L.J_SELF_PEOPLE, "section")
+    if #good > 0 then
+      add(L.J_SELF_FRIENDS, "place")
+      for i = 1, math.min(PEOPLE_SHOWN, #good) do add(personLine(good[i])) end
+    end
+    if #bad > 0 then
+      add(L.J_SELF_FOES, "place")
+      for i = 1, math.min(PEOPLE_SHOWN, #bad) do add(personLine(bad[i])) end
+    end
   end
-  local lines = {}
-  for topic, o in pairs(c.opinions) do
+
+  -- Beliefs: the topic, what I said (my words when they were kept), to whom and when.
+  local beliefs = {}
+  for topic, o in pairs(c.opinions or {}) do
     local def = ns.Data.topics[topic]
-    lines[#lines + 1] = (def and def.name or topic) .. ": " .. tostring(o.stance):gsub("_", " ") .. (o.contradicts and (" " .. L.J_CONTRADICTED) or "")
+    beliefs[#beliefs + 1] = { name = def and def.name or topic, o = o }
   end
-  table.sort(lines)
-  section(L.J_OPINIONS, lines)
-  lines = {}
-  for id in pairs(c.towns) do
+  if #beliefs > 0 then
+    add(L.J_OPINIONS, "section")
+    table.sort(beliefs, function(x, y) return x.name < y.name end)
+    for _, b in ipairs(beliefs) do
+      local o = b.o
+      heading(add, b.name .. ": " .. stanceWords(o.stance))
+      if o.said and o.said ~= "" then add("\"" .. o.said .. "\"", "note") end
+      local npc = o.npc and ((c.npc[o.npc] and c.npc[o.npc].name) or (ns.Data.npcs[o.npc] and ns.Data.npcs[o.npc].name) or o.npc)
+      local told = npc and L.J_SAID_TO:format(npc, when(o.t)) or when(o.t)
+      if told ~= "" then add(told, "dim") end
+      if o.contradicts then
+        add(L.J_CONTRADICTED_WAS:format(stanceWords(o.contradicts.stance)), "dim")
+      end
+    end
+  end
+
+  local towns = {}
+  for id, rec in pairs(c.towns or {}) do
     local town = ns.Data.towns[id]
-    lines[#lines + 1] = (town and town.name or id) .. ": " .. ns.Towns.TierName(id)
+    towns[#towns + 1] = { text = (town and town.name or id) .. ": " .. ns.Towns.TierName(id), v = rec.value or 0 }
   end
-  table.sort(lines)
-  section(L.J_TOWNS, lines)
-  lines = {}
+  if #towns > 0 then
+    add(L.J_TOWNS, "section")
+    table.sort(towns, function(x, y) if x.v ~= y.v then return x.v > y.v end return x.text < y.text end)
+    for _, t in ipairs(towns) do add(t.text) end
+  end
+
+  local lines = {}
   for id, rec in pairs(c.claims.heard) do
     local def = ns.Data.claims[id]
     local who = def and def.by and ns.Data.npcs[def.by] and ns.Data.npcs[def.by].name or tostring(rec.npc or "?")
     lines[#lines + 1] = L.J_INSISTS:format(who, def and def.text or id) .. (c.claims.exposed[id] and (" " .. L.J_SETTLED) or "")
   end
   table.sort(lines)
-  section(L.J_CLAIMS, lines)
+  if #lines > 0 then
+    add(L.J_CLAIMS, "section")
+    for _, l in ipairs(lines) do add(l) end
+  end
+
+  deedsPage(add, c)
+
   local nTopics = 0
   for _, t in ipairs(ns.Topics.Known(true)) do if not t.standard then nTopics = nTopics + 1 end end
-  if nTopics > 0 then section(L.J_TOPICS, { L.J_TOPICS_COUNT:format(nTopics) }) end
   lines = {}
   for title in pairs(c.books) do lines[#lines + 1] = title end
   table.sort(lines)
-  section(L.J_BOOKS, lines)
-  deedsPage(add, c)
-  add(L.J_ORIGIN, "section")
-  heading(add, c.origin and c.origin.name or L.J_NO_ORIGIN)
-  if c.origin and c.origin.blurb then add(c.origin.blurb) end
+  if nTopics > 0 or #lines > 0 then
+    add(L.J_SELF_LEARNED, "section")
+    if nTopics > 0 then add(L.J_TOPICS_COUNT:format(nTopics), "dim") end
+    if #lines > 0 then
+      add(L.J_BOOKS, "place")
+      for _, l in ipairs(lines) do add(l) end
+    end
+  end
 end
 
 -- A page as blocks: { text, kind } where kind is "section" (a day, a place, a category:
@@ -447,7 +577,9 @@ function J.Blocks(tab, search)
   tab = ALIASES[tab] or tab
   local c = ns.char
   local out = {}
-  local function add(s, kind) out[#out + 1] = { text = s, kind = kind } end
+  local function add(s, kind)
+    out[#out + 1] = type(s) == "table" and s or { text = s, kind = kind }
+  end
   if tab == "chronicle" then
     diary(add, c, search)
     if #out == 0 then add(L.J_EMPTY, "empty") end
@@ -935,14 +1067,66 @@ local STYLE = {
   dim     = { size = -1, ink = "dim", indent = 24, above = 2 },
   text    = { ink = "text", indent = 14, above = 4 },
   empty   = { ink = "dim", indent = 0, above = 0 },
+  bar     = { size = -1, ink = "dim", indent = 14, above = 6 },
 }
+
+-- A gauge row (Myself): "Shadow [----|==    ] Light   leaning toward Light". The track runs
+-- from one end of the axis to the other; the fill grows from the middle to the marker.
+local BAR_LABEL, BAR_TRACK, BAR_GAP = 64, 200, 8
+local function gaugeRow(i)
+  frame.bars = frame.bars or {}
+  local r = frame.bars[i]
+  if r then return r end
+  r = CreateFrame("Frame", nil, frame.content)
+  r.left = r:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  r.left:SetJustifyH("RIGHT")
+  r.right = r:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  r.right:SetJustifyH("LEFT")
+  r.words = r:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  r.words:SetJustifyH("LEFT")
+  r.words:SetWordWrap(false)
+  r.track = r:CreateTexture(nil, "ARTWORK")
+  r.mid = r:CreateTexture(nil, "ARTWORK", nil, 1)
+  r.fill = r:CreateTexture(nil, "ARTWORK", nil, 2)
+  r.mark = r:CreateTexture(nil, "ARTWORK", nil, 3)
+  frame.bars[i] = r
+  return r
+end
+
+local function layoutGauge(r, b, size, width)
+  local h = size + 6
+  r:SetSize(width, h)
+  local function ink(tex, key, alpha)
+    local col = Theme.Palette()[key] or { 0.5, 0.5, 0.5 }
+    tex:SetColorTexture(col[1], col[2], col[3], alpha or col[4] or 1)
+  end
+  for _, fs in ipairs({ r.left, r.right, r.words }) do Theme.SetFont(fs, "body", size - 1) end
+  Theme.TextColor(r.left, "text"); Theme.TextColor(r.right, "text"); Theme.TextColor(r.words, "dim")
+  r.left:SetText(b.left); r.right:SetText(b.right); r.words:SetText(b.words)
+  r.left:ClearAllPoints(); r.left:SetPoint("LEFT", 0, 0); r.left:SetWidth(BAR_LABEL)
+  local x0 = BAR_LABEL + BAR_GAP
+  r.track:ClearAllPoints(); r.track:SetPoint("LEFT", x0, 0); r.track:SetSize(BAR_TRACK, 6); ink(r.track, "divider")
+  r.mid:ClearAllPoints(); r.mid:SetPoint("LEFT", x0 + BAR_TRACK / 2, 0); r.mid:SetSize(1, 10); ink(r.mid, "dim", 0.6)
+  local v = b.value or 0
+  local pos = x0 + (v + 100) / 200 * BAR_TRACK
+  local half = x0 + BAR_TRACK / 2
+  r.fill:ClearAllPoints()
+  r.fill:SetPoint("LEFT", math.min(pos, half), 0)
+  r.fill:SetSize(math.max(1, math.abs(pos - half)), 6)
+  ink(r.fill, "accent", 0.75)
+  r.fill:SetShown(math.abs(v) >= 1)
+  r.mark:ClearAllPoints(); r.mark:SetPoint("CENTER", r, "LEFT", pos, 0); r.mark:SetSize(3, 12); ink(r.mark, "name")
+  r.right:ClearAllPoints(); r.right:SetPoint("LEFT", x0 + BAR_TRACK + BAR_GAP, 0); r.right:SetWidth(BAR_LABEL)
+  r.words:ClearAllPoints(); r.words:SetPoint("LEFT", r.right, "RIGHT", BAR_GAP, 0); r.words:SetPoint("RIGHT", r, "RIGHT", 0, 0)
+  return h
+end
 local COUNTED = { chronicle = "text", people = "head", heard = "head", stories = "section" }
 
 function J.Render(blocks)
   refreshInk()
   local size, width = Theme.TextSize(), W - 74
   local spacing = ns.db.settings.lineSpacing or 3
-  local y, prev, nRule, count = 4, nil, 0, 0
+  local y, prev, nRule, count, nBar = 4, nil, 0, 0, 0
   for i, b in ipairs(blocks) do
     local st = STYLE[b.kind or "text"] or STYLE.text
     local fs = frame.lines[i]
@@ -952,20 +1136,31 @@ function J.Render(blocks)
       fs:SetJustifyV("TOP")
       frame.lines[i] = fs
     end
-    Theme.SetFont(fs, st.font or "body", size + (st.size or 0))
-    Theme.TextColor(fs, st.ink)
-    fs:SetSpacing(spacing)
-    fs:SetWidth(width - st.indent)
-    fs:SetText(b.text or "")
     local above = st.above
     if not prev then above = 0
     elseif prev == "section" then above = math.min(above, 6)
     elseif prev == "head" and st.indent > 0 then above = 2 end
     y = y + above
-    fs:ClearAllPoints()
-    fs:SetPoint("TOPLEFT", st.indent, -y)
-    fs:Show()
-    y = y + (fs:GetStringHeight() or size)
+    if b.kind == "bar" then
+      fs:Hide()
+      nBar = nBar + 1
+      local r = gaugeRow(nBar)
+      local h = layoutGauge(r, b, size, width - st.indent)
+      r:ClearAllPoints()
+      r:SetPoint("TOPLEFT", st.indent, -y)
+      r:Show()
+      y = y + h
+    else
+      Theme.SetFont(fs, st.font or "body", size + (st.size or 0))
+      Theme.TextColor(fs, st.ink)
+      fs:SetSpacing(spacing)
+      fs:SetWidth(width - st.indent)
+      fs:SetText(b.text or "")
+      fs:ClearAllPoints()
+      fs:SetPoint("TOPLEFT", st.indent, -y)
+      fs:Show()
+      y = y + (fs:GetStringHeight() or size)
+    end
     if st.rule then
       nRule = nRule + 1
       local rule = frame.rules[nRule]
@@ -982,6 +1177,7 @@ function J.Render(blocks)
   end
   for i = #blocks + 1, #frame.lines do frame.lines[i]:Hide() end
   for i = nRule + 1, #frame.rules do frame.rules[i]:Hide() end
+  for i = nBar + 1, #(frame.bars or {}) do frame.bars[i]:Hide() end
   frame.content:SetHeight(y + 16)
   if count > 0 and L["J_COUNT_" .. current:upper()] then
     frame.pageCount:SetText(L["J_COUNT_" .. current:upper()]:format(count))

@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.0 (2026-11-17)
+A new Myself page in the journal. No new files: a /reload is enough.
+
+- **Who you are, at the top.** Your name, level, race and class, your origin and its words, and a line of counts: people met, conversations, tasks seen through, books read.
+- **Where you stand, drawn as gauges.** Light and Shadow, Order and Wild, Honor and Cunning each get a bar with a marker, plus the words for how far you lean.
+- **How you come across.** Your strongest traits, and the ones that only show now and then.
+- **The people in your life.** Up to five who think best of you and five who'd rather you kept walking, with how each regards you and where you last spoke.
+- **Your beliefs in your own words.** Each opinion now quotes what you actually said, to whom, and when, and notes it if you once said otherwise. (Only for things said from now on; older ones show the stance as before.)
+- Towns are listed from warmest to coldest; books and subjects heard of sit together under "What I've learned".
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

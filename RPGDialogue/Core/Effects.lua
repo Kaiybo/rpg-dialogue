@@ -144,7 +144,7 @@ function Effects.Apply(fx, env)
     local who = env.info and (env.info.key or env.info.name)
     for topic, stance in pairs(fx.opinion) do
       local prev = c.opinions[topic]
-      local rec = { stance = stance, t = now, npc = who, communities = env.info and env.info.communities, heardBy = {} }
+      local rec = { stance = stance, said = env.said, t = now, npc = who, communities = env.info and env.info.communities, heardBy = {} }
       if prev and prev.stance ~= stance then
         rec.contradicts = { stance = prev.stance, npc = prev.npc, t = prev.t, communities = prev.communities }
       end
