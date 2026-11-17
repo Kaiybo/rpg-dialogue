@@ -26,6 +26,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zf = {
+      big = true,
+      lines = { { id = "xcl_zf_default", text = "Then you see what Zalazane be wantin' to make of the Echo Isles. The Sandfury witch doctors drag their dead back up to guard the walls and call it devotion, but a spirit pulled back into rotten flesh never be grateful for it. I teach my students that the dead deserve rest, and Zul'Farrak be a whole city that forget it." } },
+      choices = {
+        { text = "The dead deserve their rest, whoever raised them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If the dead can still fight, why waste them, Gadrin?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Did you ever know the Sandfury witch doctors?", next = "xcl_zf2" },
+      },
+    },
+    xcl_zf2 = {
+      lines = { { id = "xcl_zf2_default", text = "No, mon, and Gadrin be glad of it. The Darkspear and the Sandfury both learn the old voodoo, but they learn different lessons from it, and the Sandfury lesson be that power over the dead be power enough. That be the same lesson Zalazane learn, and look where it take him." } },
+      choices = { { text = "Then I'll remember the right lesson, Master Gadrin.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Fear? No. Watch? Yes. Zalazane twist the dead on the Echo Isles into his slaves, and you be dead with a power he never touch. Maybe that make you safe, maybe not. The loa decide, and I listen." } },
@@ -80,6 +93,7 @@ P:NPC {
           text = "I be Master Gadrin, and I teach the Darkspear witch doctors. I teach Vol'jin once, and Zalazane, and one of them I be proud of." },
         { id = "h_skull", when = { questActive = TODO_QUEST("Minshina's Skull") },
           text = "Minshina's skull sit on the isles in bad hands. Bring it to me, because she deserve better." },
+        { id = "h_cl_zf", tags = { "news" }, when = { cleared = "Zul'Farrak", faction = "Horde" }, text = "You been to Zul'Farrak and back, eh? The Sandfury be cousins of a sort, mon, but cousins who raise their own dead to guard the gates, so Gadrin won't weep for them." },
         { id = "h_zalazane", tags = { "news" }, when = { questActive = TODO_QUEST("Zalazane") },
           text = "Zalazane be my student once, and now he be the shame of my years. End him, and maybe this old man sleep through the night." },
         { id = "h_orgnil", when = { questActive = TODO_QUEST("Report to Orgnil") },
@@ -101,6 +115,7 @@ P:NPC {
         { text = "Could a rogue help you against Zalazane?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "How do I fight the hexed Darkspear, Master Gadrin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should a troll fear a Forsaken paladin, Master?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've been to the heart of Zul'Farrak, Master Gadrin.", next = "xcl_zf", when = { cleared = "Zul'Farrak", faction = "Horde" } },
         { text = "Thank you, Master.", next = "END" },
       },
       again = {

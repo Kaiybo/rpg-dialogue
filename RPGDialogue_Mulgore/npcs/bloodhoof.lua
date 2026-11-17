@@ -30,6 +30,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rfk = {
+      big = true,
+      lines = { { id = "xcl_rfk_default", text = "Then you've seen that the quilboar are not only raiders, whatever the young braves say. They have a holy place and elders and a crone who speaks for them, which means there is someone who could be spoken to, if she weren't so set on war. I'd rather have had a word with Charlga than a fight, though I know she'd never have allowed it." } },
+      choices = {
+        { text = "There's always someone to speak with, Baine. You're right to try.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Talk wouldn't have stopped her, Baine. Only steel would.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Did your father ever try to make peace with them?", next = "xcl_rfk2" },
+      },
+    },
+    xcl_rfk2 = {
+      lines = { { id = "xcl_rfk2_default", text = "He tried, when the tribes first came to Mulgore, and the Razormane answered with spears. My father says a hand offered once and refused is still a hand worth offering, so I keep offering mine, and someday one of them may take it." } },
+      choices = { { text = "I hope one of them does, Baine.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Every honest strength has a place here. The tauren never needed the Light, but I would rather talk the gnolls and the goblins down than fight them, and I suspect a paladin knows something about choosing mercy when a hammer would be easier." } },
@@ -105,6 +118,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You carry totems, and the grass seems to lean toward you as you walk. My father calls the shamans the oldest memory of our people, so I'm glad to see one more." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The plains feed Bloodhoof, and those who hunt them well keep the peace better than any treaty I could make." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. My people do not pray as yours do, but anyone who mends the hurt is welcome in Bloodhoof, whatever voice answers them." },
+        { id = "h_cl_rfk", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Horde" }, text = "You've been to Razorfen Kraul, I'm told. The quilboar raided our herds when the tribes crossed the Barrens, and I won't pretend I'm sorry their crone has been humbled." },
       },
       choices = {
         { text = "How did the tauren come to Mulgore?", next = "coming" },
@@ -124,6 +138,7 @@ P:NPC {
         { text = "I bring a demon to Mulgore. Will your people bear it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "How do the tauren see a priest like me, Baine?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Light have a place in Mulgore, Baine?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've been to the heart of Razorfen Kraul, Baine.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul", faction = "Horde" } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {

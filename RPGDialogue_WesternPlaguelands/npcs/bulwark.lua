@@ -28,6 +28,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_strat = {
+      big = true,
+      lines = { { id = "xcl_strat_default", text = "Then you've done what the Dark Lady's armies couldn't, and Undercity will be calling it policy by supper. The Baron served Kel'Thuzad in life before he ever served him in death, and I knew men who sat at his table, so I'll not pretend there's anything personal in it, except that there is." } },
+      choices = {
+        { text = "The Dark Lady should hear it first. It was her war.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let Undercity squabble over the credit. The Bulwark knows the truth.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "You knew men who sat at the Baron's table?", next = "xcl_strat2" },
+      },
+    },
+    xcl_strat2 = {
+      lines = { { id = "xcl_strat2_default", text = "Lordaeron's nobility was a small world, and I wore its colours once, and the Baron was the kind of host who made sure you knew it. I'll admit I enjoy thinking of his chair empty, which is a very petty thing for a dead man to enjoy." } },
+      choices = {
+        { text = "Petty or not, he earned it.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They whisper about everything in Undercity, and a dead knight who still prays to the Light gives them plenty to whisper about. I don't care whose side you were on before the plague, so long as you're on the wall when the Scourge comes out of Andorhal." } },
@@ -90,6 +105,8 @@ P:NPC {
           text = "Andorhal's towers direct their troops, so mark each of them with the beacon. We have one torch and five charges, and I'm told the charges are not refundable." },
         { id = "h_araj", tags = { "news" }, when = { questActive = TODO_QUEST("Alas, Andorhal") },
           text = "Araj the Summoner is a lich, and he sits at the heart of Andorhal. Take allies, take his phylactery, and take your time dying if you must, only not before he does." },
+        { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme", faction = "Horde" },
+          text = "Stratholme's lost its masters, I hear, and the dead beyond my wall have been shuffling about all morning as if somebody forgot to give them orders. I'll take confusion over discipline in the enemy, and I'm told I've you to thank for it." },
         { id = "h_araj_dead", when = { questDone = TODO_QUEST("Alas, Andorhal") },
           text = "Araj is destroyed, and the Dark Lady will be told it was the Bulwark's doing. You'll be mentioned too, briefly, which is how glory works in Undercity." },
         { id = "h_living", when = { metBefore = true },
@@ -123,6 +140,7 @@ P:NPC {
         { text = "Can the Plaguelands be healed, High Executor?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What did your orcs hear from the earth at Andorhal, High Executor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do they truly whisper about paladins in the Undercity, High Executor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've come back from Stratholme, High Executor.", next = "xcl_strat", when = { cleared = "Stratholme", faction = "Horde" } },
         { text = "Send me east.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 } } },
       },
     },
@@ -493,6 +511,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_scholo = {
+      big = true,
+      lines = { { id = "xcl_scholo_default", text = "Splendid, splendid, and do tell Arbington if you're ever on the Alliance side of the road, because he'll faint and I'd like to hear about it. The Society sent me out here to break the cauldrons, but between you and me, half the recipes in those cauldrons were first written down in Gandling's classrooms." } },
+      choices = {
+        { text = "Then the Society should seize his notes before the Cult does.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Burn his recipes. Nobody should brew those again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "How do you know where the recipes came from?", next = "xcl_scholo2" },
+      },
+    },
+    xcl_scholo2 = {
+      lines = { { id = "xcl_scholo2_default", text = "The handwriting, mostly, for necromancers are terribly vain about their penmanship, and the same flourishes turn up on every scrap of cauldron notes I've ever pried loose. I keep a little collection of them, purely for reference, and I'd thank you not to mention it to Vandis." } },
+      choices = {
+        { text = "Your secret's safe with me, Apothecary.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "It might, which is the exciting part! The Light burns the plague and so does my agent, and if the two get along, the Bulwark could cleanse a cauldron twice as fast. If they don't, well, my knee says it'll rain tomorrow anyway, so we'd hardly notice the smoke." } },
@@ -569,6 +602,8 @@ P:NPC {
           text = "There's a goblin in Gadgetzan, Krinkle Goodsteel, who makes molds for the unspeakable. Bring him the fragments and your purse, and mostly your purse." },
         { id = "h_scarab", tags = { "news" }, when = { questActive = TODO_QUEST("Araj's Scarab") },
           text = "Araj ran the Scholomance before he moved to Andorhal, so his scarab ought to fit that door like a ring on a finger. A dead finger, naturally, but you know what I mean." },
+        { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance", faction = "Horde" },
+          text = "Something's worked, because Gandling's gone and my knee's stopped aching for the first time in a month. I'll put it down to the weather, but I know better." },
         { id = "h_key", when = { questDone = TODO_QUEST("The Key to Scholomance") },
           text = "You've got the key! Bring me back a souvenir, would you, a note or a bone or a recipe, only not a student, please. Students follow you home." },
         { id = "h_knee", when = { metBefore = true },
@@ -606,6 +641,7 @@ P:NPC {
         { text = "Do you ever ask a priest to look at that knee?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "You'd want to talk to the plague, Apothecary?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would the Light help with your counter agent, Apothecary?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Gandling is dead, Dithers. The Scholomance has lost its master.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -720,6 +756,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_scholo = {
+      big = true,
+      lines = { { id = "xcl_scholo_default", text = "Then the house has a chance of being a house again, and I mean to be the one holding its deeds when it is. Kel'Thuzad promised us forever, and I'm the only Barov who saw what forever looked like and walked out, so I think I've earned the keys, don't you?" } },
+      choices = {
+        { text = "The house should go to your family's victims, not its heirs.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "You walked out of there. That's claim enough for me.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Did you see your parents, before you left?", next = "xcl_scholo2" },
+      },
+    },
+    xcl_scholo2 = {
+      lines = { { id = "xcl_scholo2_default", text = "I saw Father at the head of the table, pouring wine for a man who'd been dead a week and laughing at something the man hadn't said. I left that night and took nothing with me, which is the one decision of my life I've never been able to defend at a dinner party." } },
+      choices = {
+        { text = "It may be the best one you ever made.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "My father would have tried to buy you, and my mother would have asked whether the Light came with land. We Barovs measured everything by what it would fetch, which is how we ended up selling ourselves to Kel'Thuzad, so I'd not take our opinion of anything too seriously." } },
@@ -786,6 +837,8 @@ P:NPC {
           text = "There are four deeds lost somewhere in the Scholomance, for Caer Darrow, Brill, Tarren Mill and Southshore. Fetch them, and don't read them, or you'll only feel poor." },
         { id = "h_last", tags = { "news" }, when = { questActive = TODO_QUEST("The Last Barov") },
           text = "My brother hides at Chillwind Camp behind the Alliance's skirts, so slay him and bring me his head. Do hurry, because I'm told heads go off." },
+        { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance", faction = "Horde" },
+          text = "I'm told the Darkmaster's gone and my family's dining hall has no one at the head of the table. I'll raise a glass to that, though I can't taste it, which is very much the Barov luck." },
         { id = "h_done", when = { questDone = TODO_QUEST("The Last Barov") },
           text = "So Weldon's gone, then. He spared me once, you know, the sentimental fool, and I've no such weakness, I've checked." },
         { id = "h_signet", when = { metBefore = true },
@@ -820,6 +873,7 @@ P:NPC {
         { text = "Would you want your soul back, if you could buy it?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Who does the land belong to, Barov, if not the spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What would the Barovs have made of a Forsaken paladin, Alexi?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've been inside Caer Darrow, Alexi. Gandling is dead.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Horde" } },
         { text = "I'll look for the deeds.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Should the Barov lands be returned to the land itself?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I won't do a Barov's dirty work, living or dead.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },

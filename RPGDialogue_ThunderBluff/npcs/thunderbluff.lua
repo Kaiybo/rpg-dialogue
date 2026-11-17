@@ -32,6 +32,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rfd = {
+      big = true,
+      lines = { { id = "xcl_rfd_default", text = "Then the dead have one less nest in Kalimdor, and I am grateful. When the Forsaken came to us, they told us how the plague took Lordaeron one village at a time, and I swore it would not take Mulgore the same way. The quilboar were foolish to welcome that lich, but I do not wish their fate on any people, even those who have raided our herds." } },
+      choices = {
+        { text = "Even the quilboar deserved to be spared that fate.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The quilboar chose their allies, Chieftain. They earned their end.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why would the Scourge come so far south?", next = "xcl_rfd2" },
+      },
+    },
+    xcl_rfd2 = {
+      lines = { { id = "xcl_rfd2_default", text = "Because the Lich King wants this land as surely as he wanted Lordaeron, and he begins where no one is watching. A land of scattered tribes and empty plains must look easy from across the sea, and he will find that it is not." } },
+      choices = { { text = "He'll find the Horde waiting, Chieftain.", next = "BACK" } },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "We have our shaman and our druids, and we have never needed priests the way your peoples have, so you will find few here who understand you. But a healer is a healer, and when the centaur harried our caravans across the Barrens, I would have welcomed any hand that could close a wound. Walk among us gently, and you will find room enough." } },
@@ -96,6 +109,7 @@ P:NPC {
           text = "I am Cairne Bloodhoof, and I lead the Bloodhoof and all the tribes who call Mulgore home. We wandered for generations, but now we have a home, and I mean to keep it." },
         { id = "h_baine", when = { heardLine = "baine.h_default" },
           text = "You've met my son in the village. He listens better than I did at his age, but don't tell him I said so." },
+        { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "The scouts say a stranger went down into Razorfen Downs and broke the Scourge's hold there. If that was you, you have my thanks, because that cold was creeping north toward my people." },
         { id = "h_journey", tags = { "news" }, when = { questActive = TODO_QUEST("Journey into Thunder Bluff") },
           text = "You've climbed the lifts and found your way to me, and well done; a tauren who knows the Bluff knows where home is. Now, let me look at you." },
         { id = "h_rites", when = { questDone = TODO_QUEST("Rites of the Earthmother") },
@@ -119,6 +133,7 @@ P:NPC {
         { text = "Do the tauren fear the arcane, chieftain?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does a hunt teach the tauren, Cairne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You allied with a Horde that has warlocks, chieftain.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "The Scourge are broken in Razorfen Downs, Chieftain.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
         { text = "Earth Mother keep you, chieftain.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -257,6 +272,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_wc = {
+      big = true,
+      lines = { { id = "xcl_wc_default", text = "Then you did what his own disciples could not, and what I could not either. Naralex was a night elf of the Cenarion Circle who wanted to make the Barrens green again, so he went into the Emerald Dream to do it, and the Dream turned to nightmare around him. His followers went down to help him and were twisted into the Druids of the Fang, and every young druid who rides up the lift should know that story before they try to bend the land." } },
+      choices = {
+        { text = "Some things in nature shouldn't be forced, however good the cause.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Naralex was right to try. Caution never healed anything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Did you know Naralex yourself?", next = "xcl_wc2" },
+      },
+    },
+    xcl_wc2 = {
+      lines = { { id = "xcl_wc2_default", text = "Only by name and reputation, through the Circle. He was said to be impatient to heal the world, which is a fine thing in a young druid and a dangerous one in a powerful druid, and I have tried to remember the difference in myself." } },
+      choices = { { text = "Then I'll try to remember it too, Arch Druid.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Some will be wary; the Light and the dead are both strangers to us. But I learned from a teacher who saw past what I was, and I would be a poor student if I did not do the same for you." } },
@@ -349,6 +377,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The beasts of Mulgore are the Earth Mother's children, and you walk among them closer than most." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Forgive an old druid's curiosity, but I have learned the night elves' ways and never quite understood yours, whether you pray to the loa or to the shadow." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Malfurion once told me the nightsaber is the quietest hunter in the forest, and also the most patient." },
+        { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "Tonga writes that the Barrens oases run a little sweeter, and he says a stranger went down into the Wailing Caverns to wake Naralex. If that was you, then you've done the Circle a kindness I won't forget." },
       },
       choices = {
         { text = "Does a druid's healing differ from a priest's, Arch Druid?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -367,6 +396,7 @@ P:NPC {
         { text = "Would the Cenarion Circle ever accept a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can a rogue learn from a druid, Arch Druid?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Will the druids accept a Forsaken paladin, Arch Druid?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I went into the Wailing Caverns to wake Naralex, Arch Druid.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "Farewell, Arch Druid.", next = "END" },
       },
       again = {
@@ -467,6 +497,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_mara = {
+      big = true,
+      lines = { { id = "xcl_mara_default", text = "Then Zaetar's spirit may rest a little easier. Zaetar was a son of Cenarius who loved Theradras, the daughter of Therazane the Stonemother, and their children were the first centaur, who murdered their own father. Theradras buried him in Maraudon, and her grief has poisoned those caves and half of Desolace ever since." } },
+      choices = {
+        { text = "The balance had to be restored, whatever she felt.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Who are we to judge an elemental's grief, Turak?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Why do the centaur honour Maraudon?", next = "xcl_mara2" },
+      },
+    },
+    xcl_mara2 = {
+      lines = { { id = "xcl_mara2_default", text = "Because it's their father's tomb, and every centaur clan in Desolace claims Zaetar as its own, though they agree on little else. To them Maraudon is a holy place, and a tomb is sacred even to a people who make so many of them." } },
+      choices = { { text = "Then I hope the dead of Maraudon rest now, Turak.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Perhaps. Death and Light should not walk together, and yet you do. Balance is practised daily, like any honest craft, and I suspect you practise harder than most. Keep at it, and you may find your own." } },
@@ -531,6 +574,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I teach the steps of balance, and you, I think, are a very strange step." },
         { id = "h_default", key = true, text = "I'm Turak Runetotem, and I help the Arch Druid train the young ones. I teach the steps; he teaches why they matter." },
+        { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Horde" }, text = "You've been down to the bottom of Maraudon, where Princess Theradras sits in her poisoned grotto. The Circle will want to hear of it, and I'd like to hear it first, if you'll humour me." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
           text = "The call reached you, then, and good. Sit, for before you can be more than one creature, you must understand the one you are." },
         { id = "h_back", when = { questActive = TODO_QUEST("Back to Thunder Bluff") },
@@ -563,6 +607,7 @@ P:NPC {
         { text = "What do druids think of warriors, Turak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can a warlock keep the balance, Turak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Am I out of balance, Turak?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Princess Theradras is defeated, Turak.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -659,6 +704,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_mara = {
+      big = true,
+      lines = { { id = "xcl_mara_default", text = "Defeated, you say, which is a fine word for something that cannot truly die. Theradras is a daughter of the Stonemother, and the earth itself listened when she wept, so Desolace became the wasteland it is now. My Grimtotem have always known the earth is not gentle, whatever Cairne's druids say, and Maraudon is the proof of it." } },
+      choices = {
+        { text = "Power like hers belongs to those strong enough to claim it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The earth's power should be respected, Elder Crone, not seized.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Do the Grimtotem honour the earth's anger?", next = "xcl_mara2" },
+      },
+    },
+    xcl_mara2 = {
+      lines = { { id = "xcl_mara2_default", text = "We honour the earth as it is, child, in its anger as well as its patience, which is more than the Bloodhoof bother with. Cairne would have the Earth Mother be a gentle grandmother who sings to calves, but the stones of Desolace know better." } },
+      choices = { { text = "I think the earth is both, Elder Crone.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "A creature that should not be, carrying a power that should not answer it. The Earth Mother has nothing to say about you, so I will say it: you are useful, and you are dangerous, and I wonder whether the Horde knows which." } },
@@ -740,6 +798,7 @@ P:NPC {
           text = "So you have worn out your welcome on the High Rise. Then perhaps you will find Elder Rise more hospitable than the old bull's lodge." },
         { id = "h_default", key = true,
           text = "Magatha, Elder Crone of the Grimtotem. Cairne lets me live up here so he can keep an eye on me. I let him think it works." },
+        { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Horde" }, text = "So you've been into Maraudon and humbled Theradras. She is a princess of the earth itself, child, and you walked into her grotto as though it were Elder Rise, which is either very brave or very foolish." },
         { id = "h_crone", tags = { "news" }, when = { questActive = TODO_QUEST("The Elder Crone") },
           text = "Someone sent you to me? Good; I have uses for capable hands, and fewer for chatter. Listen carefully, because I won't say it twice." },
         { id = "h_forsaken", when = { questActive = TODO_QUEST("Forsaken Aid") },
@@ -766,6 +825,7 @@ P:NPC {
         { text = "What do the Grimtotem hunt, Magatha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the Grimtotem fear demons, Elder Crone?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do you see in me, Magatha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I defeated Princess Theradras in Maraudon, Elder Crone.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = {
@@ -858,6 +918,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_wc = {
+      big = true,
+      lines = { { id = "xcl_wc_default", text = "Then you'll have heard the moaning in the stone, which the young ones say is the cave itself crying. My cousin's boy went in with a hunting party and talked in his sleep about snakes for a month after, and he still won't eat eel. I feed them all when they come back up, because it's the only cure I know." } },
+      choices = {
+        { text = "The young ones should stay out until they're ready.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them go, Pala. Fear is how the young learn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do the druids say is down there?", next = "xcl_wc2" },
+      },
+    },
+    xcl_wc2 = {
+      lines = { { id = "xcl_wc2_default", text = "A sleeping night elf, if you'll believe it, dreaming so badly that the whole cave dreams with him. The druids are very solemn when they say it, and I nod and pour the stew, because what else can an innkeeper do with a story like that?" } },
+      choices = { { text = "Keep pouring, Pala. It helps.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Thunder Bluff welcomes everyone, more or less. Some of my guests will want to see the Light, and some will keep their distance, and both are fine. The orcs who come up the lifts sometimes go quiet around paladins, so give them space." } },
@@ -954,6 +1027,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Come in, come in, and sit by the fire, for you healers never stop to eat, and you look as if you've been praying on an empty stomach." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Sit with the others by the fire, love, because they'll want you on their side the next time the shamans start the old argument." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Sit down and I'll bring you stew, but your demon waits outside with the kodos." },
+        { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Horde" }, text = "Some of the young druids came through the Cat and the Shaman saying a stranger had been down the Wailing Caverns ahead of them. Sit down, because anyone who's breathed that air needs a bowl of something hot." },
       },
       choices = {
         { text = "Do travellers often need healing at your inn, Pala?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -968,6 +1042,7 @@ P:NPC {
         { text = "What do the druids and shamans argue about, Pala?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Is a warlock welcome at the Cat and the Shaman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does Thunder Bluff welcome paladins, Pala?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've been down the Wailing Caverns, Pala.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {

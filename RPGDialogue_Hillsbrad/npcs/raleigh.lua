@@ -33,6 +33,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_cath = {
+      big = true,
+      lines = { { id = "xcl_cath_default", text = "Then the High Inquisitor has met the judgement she handed out so freely, and I'll not pretend I'm sorry. She raised the fallen in the drill yard more than once, and the brothers called it a miracle, but I always wondered what answered her so quickly." } },
+      choices = {
+        { text = "The Light judged her, and I was only its instrument.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light had nothing to do with it. She was a murderer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Will the Crusade break, now its leaders are gone?", next = "xcl_cath2" },
+      },
+    },
+    xcl_cath2 = {
+      lines = { { id = "xcl_cath2_default", text = "Not while Hearthglen and Tyr's Hand still stand, for the Monastery was only one of the Crusade's hearts. But the young ones in the pews will hear what happened, and some of them will start asking questions, as I did." } },
+      choices = {
+        { text = "Then I hope they find a door, as you did.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Without a moment's hesitation, because they decided long ago that anything not of the Light was of the Scourge, and they've grown no wiser since. I still believe the Light is the truest thing in this world, but I've learned it doesn't need me to hate everything else on its behalf." } },
@@ -110,6 +125,8 @@ P:NPC {
           text = "The Monastery's in Tirisfal, and the Houndmaster, Herod, Mograine and Whitemane hold it. Until they fall, anyone who crosses the Crusade's path is in danger." },
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("In the Name of the Light"), days = 3 } },
           text = "It's done, then. I won't celebrate, and neither should you. But there are people in Tirisfal tonight who'll live to see morning." },
+        { id = "h_cl_cath", tags = { "news" }, when = { cleared = "Scarlet Cathedral", faction = "Alliance" },
+          text = "You've stood in the cathedral and come back down its steps, and I can see it on you. I knelt at that altar for six years, and I never thought I'd be glad to hear it had gone quiet." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Close the door, and I'll ask you plainly: were you sent by the Crusade? You move like the men they send for those of us who left." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Crusade would have burned you before you finished speaking, and once I'd have lit the pyre myself, which is something I think about more than I'd like." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You stand like a soldier, and I used to drill men to stand like that, under a red banner I'd rather not name. Close the door, please, and sit with your back to the wall if it makes you easier." },
@@ -135,6 +152,7 @@ P:NPC {
         { text = "You wore the Crusade's red. Would they have burned me?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does the Crusade still blame Dalaran, Raleigh?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would the Crusade really call me a heretic, Raleigh?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been through the cathedral, Raleigh. Whitemane has fallen.", next = "xcl_cath", when = { cleared = "Scarlet Cathedral", faction = "Alliance" } },
         { text = "I'll leave you to your window.", next = "END" },
       },
     },

@@ -882,6 +882,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_scholo = {
+      big = true,
+      lines = { { id = "xcl_scholo_default", text = "Then the house is only a house again, or as near as it can be with so much wrong in its walls. Lucien and I were made to bow to the students as they came and went, which I minded more than you'd think, considering everything else they did to us." } },
+      choices = {
+        { text = "You and Lucien deserve your rest, as much as anyone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The house got what it bargained for. The Barovs built it on bargains.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Will you and Lucien be able to rest now?", next = "xcl_scholo2" },
+      },
+    },
+    xcl_scholo2 = {
+      lines = { { id = "xcl_scholo2_default", text = "Not quite yet, though it's closer, and I can feel it the way you feel morning before it comes. There's still a great deal of the house left to put right, and I was always the last to bed in it, so I suppose I'll be the last to leave." } },
+      choices = {
+        { text = "Then I'll see what else needs putting right.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Regrown, I'd hope, though I'm not sure anything that grows there now would be safe. The roses have gone black and the hedges move at night, and I'd sooner see them burned than see them become what the house became." } },
@@ -932,6 +947,8 @@ P:NPC {
           text = "The Butcher answered to another, called Kirtonos, and to summon him you'll need what Jandice Barov carries. She was such a quiet girl once, but bring it to me all the same." },
         { id = "h_herald", tags = { "news" }, when = { questActive = TODO_QUEST("Kirtonos the Herald") },
           text = "Kirtonos is the last of them, for us, and when he falls I believe we can finally go." },
+        { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance" },
+          text = "The halls have gone still, {g:sir|madam}, and Lucien says the Darkmaster's voice no longer carries across the lake. I kept that house a long time, and I never knew it could be so quiet." },
         { id = "h_done", when = { questDone = TODO_QUEST("Kirtonos the Herald") },
           text = "It's lighter now, and I can feel the edges of things going soft. Thank you, truly, and Lucien thanks you too, and means it more than he can show." },
         { id = "h_months", when = { metBefore = true },
@@ -963,6 +980,7 @@ P:NPC {
         { text = "What became of House Barov's guards, Eva?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Did House Barov hunt much, Mistress Sarkhoff?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What was Caer Darrow like before the Barovs fell, Eva?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Gandling is dead, Eva. The school has lost its master.", next = "xcl_scholo", when = { cleared = "Scholomance" } },
         { text = "I'll help you rest.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Should Caer Darrow's gardens be burned clean or regrown?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'm here for the Scholomance, not for ghosts.", next = "END", fx = { affinity = -1, align = { light = -1 } } },

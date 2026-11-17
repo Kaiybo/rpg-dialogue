@@ -746,6 +746,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_ony = {
+      big = true,
+      lines = { { id = "xcl_ony_default", text = "Then you've done what most warriors in this city only boast about. That beast sat in her swamp in Dustwallow for too long, close enough to Theramore and to our own outposts to be trouble for both. When a dragon's head goes up over the city gates, the recruits stand straighter for a month, and I make sure of it." } },
+      choices = {
+        { text = "The glory belongs to the Horde, Overlord, not to me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I killed her. Let the whole city know my name.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Was she ever a threat to Orgrimmar itself?", next = "xcl_ony2" },
+      },
+    },
+    xcl_ony2 = {
+      lines = { { id = "xcl_ony2_default", text = "Not to these walls, but to every caravan and outpost within a dragon's flight of her swamp, and that's more of them than I'd like. A dragon doesn't need to attack a city to bleed it; it only needs to be hungry. I'm told she has a brother up in Blackrock, too, so don't hang up your axe yet." } },
+      choices = { { text = "Then I'll keep my axe close, Overlord.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I trust the Warchief. He says the Forsaken are our allies, so I let you walk my valley, but the Silver Hand rode past the camps with that same light on their hammers. Keep it sheathed and keep your oath to the Horde, and we'll have no quarrel." } },
@@ -835,6 +848,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief walks your path himself, so you'll hold yourself to his standard in my valley, and that means no lightning near the inn." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Keep your axe in its loop while you're in my valley, and save the swinging for Ragefire Chasm." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a beast in my valley. Keep it close near the inn, because the recruits are bored enough to start something with it." },
+        { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Horde" }, text = "So you've been into Onyxia's lair and come out with your hide on. Every grunt in the Valley of Strength has heard about it, and half of them are lying about having been there with you." },
       },
       again = { { id = "h_again", text = "Anything else? Make it quick; I'm on my rounds." } },
       choices = {
@@ -849,6 +863,7 @@ P:NPC {
         { text = "What's down in Ragefire Chasm, Overlord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is there game worth hunting near Orgrimmar, Overlord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you trust a Forsaken paladin, Overlord?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Onyxia is dead, Overlord.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Horde" } },
         { text = "Dismissed, Overlord.", next = "END" },
       },
     },
@@ -1439,6 +1454,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_brd = {
+      big = true,
+      lines = { { id = "xcl_brd_default", text = "Then you've seen their forges, and I envy you that much. Dark iron comes from the mountain's heart and takes a heat no orc forge can give it, so the dwarves down there make things I can only guess at from the broken pieces traders bring me. They make fine weapons for a wicked master, and that's always been the trouble with good steel." } },
+      choices = {
+        { text = "A smith should know whose hand will hold the blade.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Good steel should go to whoever has the coin, Saru.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Can an orc ever learn their craft?", next = "xcl_brd2" },
+      },
+    },
+    xcl_brd2 = {
+      lines = { { id = "xcl_brd2_default", text = "Not easily, because the dwarves guard it like gold and the Thorium Brotherhood teaches only those it trusts. A few of their smiths have made some strange bargains down there, I'm told, and if I were younger I'd be tempted to make one of my own." } },
+      choices = { { text = "I'll keep an eye out for their work, Saru.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd forge it honest, the same as for any grunt. The Silver Hand's hammers came down on my people in the camps, and I've hated the shape since, but a smith judges the arm swinging it. Swing it for the Horde and it's a good hammer." } },
@@ -1540,6 +1568,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Let me see your blade, then, because I can tell a lot about a fighter by the nicks in the edge and how they've been kept." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll carry a knife for skinning and an axe for when the beast gets too close, so let me see that both are sharp enough to do their work." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my forge! You'll want a blade you'll never swing, I suppose, but I'll teach you to forge one anyway." },
+        { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Horde" }, text = "You've been through the Dark Iron halls under Blackrock and walked out again. I'd give a good deal to see what's on their anvils, because no smith alive works iron the way they do." },
       },
       again = { { id = "h_again", text = "What else? Speak up over the hammer." } },
       choices = {
@@ -1556,6 +1585,7 @@ P:NPC {
         { text = "Do you forge for warlocks, Saru?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What would a smith make for a mage, Saru?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you forge a hammer for a Forsaken paladin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I fought my way to Thaurissan's throne, Saru.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Horde" } },
         { text = "Farewell, smith.", next = "END" },
       },
     },

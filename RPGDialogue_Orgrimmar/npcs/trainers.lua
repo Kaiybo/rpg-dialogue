@@ -322,6 +322,19 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xcl_mc = {
+      big = true,
+      lines = { { id = "xcl_mc_default", text = "Then you did not kill him, because nobody can kill an elemental lord, but you sent him back to the realm of fire where he belongs, and that is a great thing. The Dark Iron dwarves tore him into this world centuries ago, and he has burned in the mountain ever since, angry and hungry and out of his place. The elements are not evil, but fire torn from its place goes mad, and that is what you faced." } },
+      choices = {
+        { text = "Every element has its place, and his isn't here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Places change, Kardris. Let the strong elements take what they can.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Will Ragnaros return?", next = "xcl_mc2" },
+      },
+    },
+    xcl_mc2 = {
+      lines = { { id = "xcl_mc2_default", text = "In time, perhaps, because an elemental lord is patient in a way we cannot imagine. But the spirits of the mountain can breathe again for a while, and the Dark Irons who served him will have to learn what they are without a master. I'll be listening for him either way." } },
+      choices = { { text = "Then I'll listen too, Kardris.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They do not reject you; they only do not know you. The Light came to my people in the camps, on the hammers of the Silver Hand, and the elements came back to us when we were freed. Perhaps you are walking the same road from the other end." } },
@@ -412,6 +425,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior in the Valley of Wisdom. Good, because the elements respect a strong spirit as much as a wise one, and you may have more of the first than you think." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a beast who walks with you. The spirits of the wild are close to the elements, and I can feel them gathered around you both." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in the Valley of Wisdom. The spirits see you, even when nobody else does." },
+        { id = "h_cl_mc", tags = { "news" }, when = { cleared = "Molten Core", faction = "Horde" }, text = "The fire spirits have been quieter these past days, as if something in Blackrock Mountain stopped burning so hot. I think you know why, because you carry the smell of the Firelord's hall on you." },
       },
       choices = {
         { text = "Do the spirits mind that a priest prays to something else?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -424,6 +438,7 @@ P:NPC {
         { text = "The spirits must hate me, Kardris.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the elements care what a rogue does?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the spirits reject a Forsaken paladin, Kardris?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I faced Ragnaros in the Molten Core, Kardris.", next = "xcl_mc", when = { cleared = "Molten Core", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you wish. Wisdom grows by sharing it." } },

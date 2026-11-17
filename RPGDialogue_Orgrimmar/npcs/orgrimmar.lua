@@ -32,6 +32,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rend = {
+      big = true,
+      lines = { { id = "xcl_rend_default", text = "Then the last of Blackhand's line to claim my title is gone. Rend gathered the Blackrock who would not follow me and gave them to the black dragons in the Spire, and he called that rabble the true Horde. He thought the Horde was a weapon to be pointed at the world, and I have spent my life proving it can be a people instead." } },
+      choices = {
+        { text = "The Horde needs one Warchief, and every clan should answer to him.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the clans choose their own chiefs, Warchief. That's the old way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who still follows the Blackrock in the Spire?", next = "xcl_rend2" },
+      },
+    },
+    xcl_rend2 = {
+      lines = { { id = "xcl_rend2_default", text = "Too many orcs who never shook off the hatred of the camps, and a few who never wanted to. The black dragons give them weapons and promises, and Rend gave them a name to shout, so without him they are only soldiers serving a dragon, and I mean to make sure they hear it." } },
+      choices = { { text = "Then they've lost their reason to fight, Warchief.", next = "BACK" } },
+    },
+    xcl_rfc = {
+      big = true,
+      lines = { { id = "xcl_rfc_default", text = "Then you've seen how close they came. The Searing Blade crawled into the caves beneath Orgrimmar while we were still raising the walls above them, and they fed a demon down there and called it their master. I built this city as a home, and I won't let anyone turn its roots into a shrine to the Legion." } },
+      choices = {
+        { text = "Some of those cultists were orcs who lost their way. Offer them a way back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A traitor to the Horde deserves no second chance, Warchief.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who were they serving down there?", next = "xcl_rfc2" },
+      },
+    },
+    xcl_rfc2 = {
+      lines = { { id = "xcl_rfc2_default", text = "A demon the cultists called Taragaman, which they fed with blood and fire in the deepest cave. The Burning Blade served the Legion long before we came to Durotar, and some of my people still remember the taste of that power and miss it, which troubles me more than any demon." } },
+      choices = { { text = "Then the Horde must remember what that power cost.", next = "BACK" } },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "The same place any healer has, which is beside the wounded when the fighting stops. The shaman speak for the elements, but the elements do not bind a grunt's leg, and I have watched too many orcs die in the camps for want of someone who would kneel beside them." } },
@@ -99,6 +125,8 @@ P:NPC {
           text = "Thrall, Warchief of the Horde. Orgrim Doomhammer gave me his hammer and his people with his last breath. I've spent every day since trying to deserve both." },
         { id = "h_garthok", when = { heardLine = "garthok.h_default" },
           text = "You've reported to Gar'Thok at Razor Hill. Nazgrel trained him well, and I sleep easier knowing he holds the crossroads." },
+        { id = "h_cl_rend", tags = { "news" }, when = { killed = { name = "Rend Blackhand" }, faction = "Horde" }, text = "Word has come down from Blackrock that Rend Blackhand is dead. He called himself Warchief and called my Horde a pack of slaves, and I hope he understood at the end who had sent you." },
+        { id = "h_cl_rfc", tags = { "news" }, when = { cleared = "Ragefire Chasm", faction = "Horde" }, text = "You've been to the bottom of Ragefire Chasm and come back up the stairs, and the Searing Blade will think twice before they light another fire under my city." },
         { id = "h_hidden", tags = { "news" }, when = { questActive = TODO_QUEST("Hidden Enemies") },
           text = "Some in my city wear the Horde's colours and serve older masters. I need someone they'll trust, so earn that trust, and then bring me what they know." },
         { id = "h_hidden_done", when = { questDone = TODO_QUEST("Hidden Enemies") },
@@ -129,6 +157,8 @@ P:NPC {
         { text = "I study the arcane, Warchief. Is there a place for me?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do you ask of the Horde's warriors, Warchief?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Did the Frostwolves teach you to hunt, Warchief?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I've cleared Ragefire Chasm, Warchief.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
+        { text = "Rend Blackhand is dead, Warchief. I was there.", next = "xcl_rend", when = { killed = { name = "Rend Blackhand" }, faction = "Horde" } },
         { text = "For the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I fight for myself first, Warchief.", next = "END", fx = { align = { honor = -1 } } },
       },
@@ -281,6 +311,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_zg = {
+      big = true,
+      lines = { { id = "xcl_zg_default", text = "Quiet for now, mon. The Gurubashi call that Soulflayer into the world because they want their empire back, and they forget that a god who drink blood never stop at the enemy's. My people lose our place in that jungle long ago, and I won't pretend I grieve for the ones who drive us out, but no troll should be food for Hakkar." } },
+      choices = {
+        { text = "Even the Gurubashi deserved better than to be his food.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Those trolls chose their god, Vol'jin. Let them pay his price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who are the Zandalar to the Darkspear?", next = "xcl_zg2" },
+      },
+    },
+    xcl_zg2 = {
+      lines = { { id = "xcl_zg2_default", text = "The Zandalar be the oldest of us, mon, the ones who remember when all trolls be one people. They keep to their island and their histories, and they only come to Yojamba Isle because Hakkar frighten even them, which tell you how bad it be." } },
+      choices = { { text = "Then the Darkspear and the Zandalar want the same thing, for once.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Trouble me? No, mon. I seen the loa ride stranger horses than you. But the Light was the humans' spear, and the orcs remember who held it over the camps, so you be watched in this city until you give them a reason to stop." } },
@@ -352,6 +395,7 @@ P:NPC {
           text = "You see old Gadrin? He still tell people I be his best student? Good, because he right." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, mon! Your people and mine both know what it be to have the land under your feet taken away, so Vol'jin always be glad to see a horned one in this city." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Good, because the Darkspear be few, and every strong arm in Orgrimmar be one more spear between my people and the ones who want us gone." },
+        { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Horde" }, text = "So you be walkin' out of Zul'Gurub with the Blood God's priests dead behind you. The word from Yojamba be that Hakkar is cast down, and Vol'jin don't mind sayin' he sleep better for it." },
       },
       choices = {
         { text = "Do the loa still listen to a priest, Vol'jin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -366,6 +410,7 @@ P:NPC {
         { text = "Can a mage walk beside the loa, chief?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Who threatens the Darkspear now, Vol'jin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Does a Forsaken with the Light trouble you, Vol'jin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Hakkar is cast down, Vol'jin. Zul'Gurub is quiet.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
         { text = "Farewell, Vol'jin.", next = "END" },
       },
       again = {
@@ -487,6 +532,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rfc = {
+      big = true,
+      lines = { { id = "xcl_rfc_default", text = "Broken is such a strong word, though I suppose it will do. The cultists down there were young and loud and terribly eager, and eagerness is how a cult gets itself noticed by the wrong people. Taragaman was always hungrier than they understood, so perhaps they were fortunate you found them first." } },
+      choices = {
+        { text = "They were fools, Neeru, but fools can be useful.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Any orc who kneels to a demon deserves the same end.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Did you ever go down into the chasm yourself?", next = "xcl_rfc2" },
+      },
+    },
+    xcl_rfc2 = {
+      lines = { { id = "xcl_rfc2_default", text = "Oh, once or twice, purely to keep an eye on things, as the Warchief asked. The caves run deeper than most of the city realises, and the fire down there is older than Orgrimmar. One learns a great deal about people by watching what they do in the dark." } },
+      choices = { { text = "I'll remember that, Neeru.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Every power is dangerous in the wrong hands, friend, and the Light has had some very wrong hands in its time. The Silver Hand kept my people in pens with it. I don't say you'd do the same; I only say I will be watching, as I watch everyone." } },
@@ -562,6 +620,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. How refreshing; most of the Horde's spellcasters come to the Cleft of Shadow for something less wholesome than prayer." },
         { id = "h_default", key = true,
           text = "Neeru Fireblade, loyal servant of the Warchief. I keep an eye on those in the Horde who still play with fire. Someone with experience must, after all." },
+        { id = "h_cl_rfc", tags = { "news" }, when = { cleared = "Ragefire Chasm", faction = "Horde" }, text = "I'm told the Searing Blade in Ragefire have lost their leaders, and their demon besides, and that you were the one who saw to it. How very thorough of you, and the Warchief must be delighted." },
         { id = "h_burning", tags = { "news" }, when = { questActive = TODO_QUEST("Burning Shadows") },
           text = "An eye, taken from a cultist's body? How dreadful. Bring it to me, and I'll see that it's dealt with properly." },
         { id = "h_akzeloth", when = { questActive = TODO_QUEST("Ak'Zeloth") },
@@ -589,6 +648,7 @@ P:NPC {
         { text = "Is there work in the Cleft for a warrior, Neeru?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Why do beasts shy away from the Cleft, Neeru?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is the Light a dangerous fire, Neeru?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "The Searing Blade in Ragefire are broken, Neeru.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
@@ -699,6 +759,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rfc = {
+      big = true,
+      lines = { { id = "xcl_rfc_default", text = "Good, because some nights my cellar smells of brimstone, and I've told the guards so twice. The recruits joke that there's a whole city of troggs and cultists under the Cleft, and after a few ales they dare each other to go and look, and most of them come back limping. I patch them up and feed them and tell them to wait until they're grown." } },
+      choices = {
+        { text = "The guards should have sealed those caves long ago.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let the young ones go down, Gryshka. It's how they'll learn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do the recruits say is down there?", next = "xcl_rfc2" },
+      },
+    },
+    xcl_rfc2 = {
+      lines = { { id = "xcl_rfc2_default", text = "Troggs, mostly, and fire-dancers in red robes, and a demon as tall as Grommash Hold, though that last part grows taller with every ale. Whatever's true, they come back hungrier than they left, and I'll not complain about that." } },
+      choices = { { text = "Then I'll take a plate, and the story's yours.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Some of them. The old grunts saw that light in the camps, on the guards who kept them there, and they go quiet when it shows. Sit near the door and keep it to yourself after a few drinks, and they'll settle." } },
@@ -791,6 +864,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid in the Broken Tusk! Sit down before you knock the lamps over, and mind the stools, because the last one a tauren sat on is still in pieces." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Broken Tusk! Sit down and eat first, because the spirits can wait for you to finish a plate, and I'll not have you calling storms on an empty stomach." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Sit down before you fall down, because the ones who come in off the Valley of Honor always swear they aren't hungry until the stew's in front of them." },
+        { id = "h_cl_rfc", tags = { "news" }, when = { cleared = "Ragefire Chasm", faction = "Horde" }, text = "You've been down Ragefire Chasm and back, have you? Sit and eat, because nobody comes up from those caves without a hole in their stomach, and I'd like to hear what's been making my floor so warm." },
       },
       choices = {
         { text = "Do your brawlers ever let a priest patch them up?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -804,6 +878,7 @@ P:NPC {
         { text = "Do warriors cause much trouble in the Broken Tusk, Gryshka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Mind if my imp warms itself at your fire?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does a Forsaken paladin bother your guests, Gryshka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I went down Ragefire Chasm, Gryshka. It's quiet now.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {

@@ -24,6 +24,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_strat = {
+      big = true,
+      lines = { { id = "xcl_strat_default", text = "Then the city whose dead marched on Darrowshire is quieter tonight, and I'd like to think Joseph felt it, wherever he is. The Scourge that came at us that day had walked out of the north, and Stratholme was the heart of it, so this is as close as I'll ever get to an answer." } },
+      choices = {
+        { text = "Joseph's courage was never wasted, and this proves it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "No victory brings anyone back, Carlin. Don't pretend it does.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Did Joseph ever speak of Stratholme?", next = "xcl_strat2" },
+      },
+    },
+    xcl_strat2 = {
+      lines = { { id = "xcl_strat2_default", text = "Only once, when we were young and Father took us to a harvest fair there, and Joseph spent all his coin on a wooden sword. He kept it on the wall at home until the day he took down a real one, and I suppose it burned with the house." } },
+      choices = {
+        { text = "He sounds like a good brother.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Whether the spirits of Darrowshire are at peace, I think, because that's what he'd want to know above everything else. He held that town to the last, and I lived, so if you ever hear anything from the earth there, I'd be grateful if you told me, even if it's hard." } },
@@ -116,6 +131,8 @@ P:NPC {
           text = "I'm Carlin Redpath, and I was at Darrowshire when the Scourge came. My brother Joseph led the defense, and I lived and he didn't, and I've spent every day since trying to make that mean something." },
         { id = "h_villains", tags = { "news" }, when = { questActive = TODO_QUEST("Villains of Darrowshire") },
           text = "The villains of that day still have relics lying about the Plaguelands. Bring them to me, and I'll see they're never honored by anyone again." },
+        { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme" },
+          text = "They say Stratholme's masters are dead, and I sat up most of the night thinking of Joseph. He'd have wanted to see that city brought low, and since he can't, I'd like to hear it from someone who did." },
         { id = "h_heroes", when = { questActive = TODO_QUEST("Heroes of Darrowshire") },
           text = "And the heroes, too; their things are scattered and forgotten, and they shouldn't be. Joseph's among them, of course, and so is Davil Lightfire, who came to help us." },
         { id = "h_pamela", when = { questDone = TODO_QUEST("Uncle Carlin") },
@@ -152,6 +169,7 @@ P:NPC {
         { text = "Were the Cult's necromancers at Darrowshire, Carlin?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you think the Light could find Joseph too, Carlin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "What would Joseph have asked me, Carlin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've been through Stratholme, Carlin. Its masters are dead.", next = "xcl_strat", when = { cleared = "Stratholme" } },
         { text = "I'll leave you to your memories.", next = "END" },
       },
       again = { { id = "h_again", text = "What else would you hear? I've little but stories now, but I've plenty of those." } },

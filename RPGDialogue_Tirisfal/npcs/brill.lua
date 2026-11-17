@@ -26,6 +26,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_sm = {
+      big = true,
+      lines = { { id = "xcl_sm_default", text = "Then you've seen the Crusade at its proudest, with its great halls and banners and libraries and inquisitors. They built that place to be their answer to the plague, and it held more prisoners than prayers, and I knew some of the Forsaken they dragged inside." } },
+      choices = {
+        { text = "They fought hard for their halls. I'll grant them that much.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "They deserved no mercy, and I showed them none.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "What happened to the Forsaken they dragged inside?", next = "xcl_sm2" },
+      },
+    },
+    xcl_sm2 = {
+      lines = { { id = "xcl_sm2_default", text = "The inquisitors questioned them to learn how we were made, and when they were finished, they burned what was left in the courtyard. If you found the cells empty, that is why, and I keep a list of their names in my desk." } },
+      choices = {
+        { text = "Their names are owed more than a list, Executor.", next = "BACK" },
+      },
+    },
     xhpriest = {
       big = true,
       lines = { { id = "xhpriest_default", text = "Mend my Deathguard when the Crusade's arrows find them, because a corpse that cannot feel its wounds will walk until it falls apart. Beyond that, I want the zealots to see that faith did not die with Lordaeron, and that it answers to the Dark Lady now." } },
@@ -62,6 +77,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Crusade's scouts creep through the woods north of Brill, and I would rather they were tracked than merely counted." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, then. The Crusade burns priests of every kind but their own, so you'll be high on their lists, and I'd sooner you were high on mine." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Scarlet", min = 40 } }, text = "The Scarlet patrols near Brill have grown thin and nervous, and my deathguards tell me you're the reason. The Dark Lady values that kind of work, and so do I." },
+        { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery", faction = "Horde" },
+          text = "The Monastery's leaders are dead, and my deathguards report Scarlet patrols on the north road wandering without orders. That is your doing, I'm told, and it is good work." },
       },
       choices = {
         { text = "What use does the Deathguard have for a priest, Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -74,6 +91,7 @@ P:NPC {
         { text = "My spells are at the Deathguard's service.", next = "mage", when = { class = "MAGE" } },
         { text = "My demons could break the Crusade's lines, Executor.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I track the Crusade's scouts through the woods, Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "I've been through the Scarlet Monastery, Executor.", next = "xcl_sm", when = { cleared = "Scarlet Monastery", faction = "Horde" } },
         { text = "For the Dark Lady.", next = "END", fx = { affinity = 1, standing = { brill = 1 } } },
       },
       again = {

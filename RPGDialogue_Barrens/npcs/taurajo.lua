@@ -26,6 +26,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rfk = {
+      big = true,
+      lines = { { id = "xcl_rfk_default", text = "Then you've seen where the quilboar were born, or where they believe they were. The Kraul grew from the body of Agamaggan, the great boar, and the quilboar guard it like a temple while their crone Charlga whispers to powers that should never have been invited in. I've hunted the Barrens all my life, and I've never once sent a student in there." } },
+      choices = {
+        { text = "It's their sacred ground, Jorn. I went in with respect.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sacred or not, the quilboar raid our caravans.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "What is Charlga hiding down there?", next = "xcl_rfk2" },
+      },
+    },
+    xcl_rfk2 = {
+      lines = { { id = "xcl_rfk2_default", text = "The scouts say her Death's Head priests deal in death magic now, and the Downs beyond the Kraul are full of things that won't stay dead. A quilboar crone bargaining with that kind of power is something I'd never have believed, and I still don't like to say it aloud." } },
+      choices = { { text = "Then I'll watch the Downs as well, Jorn.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "A stranger. The tauren never needed the Light; we live by the Earth Mother and the hunt. But stillness teaches, and you are very still, as the dead are. Perhaps the Light is something like that: a stillness inside that waits." } },
@@ -100,6 +113,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. Sit still a moment, if you can, and let the Barrens look at you." },
         { id = "h_default", key = true,
           text = "Jorn Skyseer is my name, and I teach young hunters the ways of the wild, here where it's safe enough to learn. The Barrens are full of life for those with the patience to see it." },
+        { id = "h_cl_rfk", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Horde" }, text = "You went down into the thorns of Razorfen Kraul and came back. Sit a while, because I can see the quilboar's brambles still caught in your gear." },
         { id = "h_ishamuhale", tags = { "news" }, when = { questActive = TODO_QUEST("Ishamuhale") },
           text = "Ishamuhale is a thunder lizard, older and fiercer than the rest. Bring me proof that you faced it, and we'll talk about what's next." },
         { id = "h_lakota", when = { questActive = TODO_QUEST("Lakota'mani") },
@@ -127,6 +141,7 @@ P:NPC {
         { text = "Does a hunter have need of a priest, Jorn?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there anything a warlock can learn from a hunter?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the Barrens see in me, Jorn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've been to the heart of Razorfen Kraul, Jorn.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul", faction = "Horde" } },
         { text = "Thank you, teacher.", next = "END" },
       },
       again = {
@@ -221,6 +236,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rfk = {
+      big = true,
+      lines = { { id = "xcl_rfk_default", text = "*snort* Then you walked on the bones of Agamaggan, and the thorns let you live, so maybe the great boar did not mind you so much. Charlga Razorflank sits in the deep of it with her Death's Head priests, and she wanted all the tribes to kneel, but the Razormane knelt to no one. If you made her bleed, Mangletooth is not sorry, though he will not say so to the other quilboar." } },
+      choices = {
+        { text = "The quilboar should be left in peace in their holy place.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Kraul should be burned out, thorns and all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Who was Agamaggan to your people?", next = "xcl_rfk2" },
+      },
+    },
+    xcl_rfk2 = {
+      lines = { { id = "xcl_rfk2_default", text = "*snort* He was the great boar, who fought the demons in the old war and died, and his blood made the thorns. The quilboar live inside his body still, so when you walk the Kraul, you walk through him, and Mangletooth would like to see it once more before he dies in this cage." } },
+      choices = { { text = "I'm sorry for your cage, Mangletooth.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "*snort* Mangletooth fears nothing in a cage. But shining dead make Razormane nervous, and nervous Razormane talk. Kill Bristlebacks, and Mangletooth will tell you where the Razormane are nervous." } },
@@ -305,6 +333,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "*snort* Dead one that shines! Mangletooth has seen many things in this cage, but not this. Shining dead are strange." },
         { id = "h_default", key = true,
           text = "*snort* Mangletooth is of the Razormane, strongest of the quilboar, and the Bristlebacks are weak. Kill them, and Mangletooth will tell you things." },
+        { id = "h_cl_rfk", tags = { "news" }, when = { cleared = "Razorfen Kraul" }, text = "*snort* You stink of the Kraul and of Agamaggan's thorns. Mangletooth smells it from here, and Mangletooth remembers that smell from when he was young and free." },
         { id = "h_tribes", tags = { "news" }, when = { questActive = TODO_QUEST("Tribes at War") },
           text = "*snort* Go and break the Bristlebacks, and the Razormane will thank you. Maybe they will even remember Mangletooth." },
         { id = "h_shards", when = { questActive = TODO_QUEST("Blood Shards of Agamaggan") },
@@ -331,6 +360,7 @@ P:NPC {
         { text = "Your geomancers would kneel to my demon.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the Razormane have priests of their own, Mangletooth?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does Mangletooth fear the Light?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I went into Razorfen Kraul, Mangletooth.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul" } },
         { text = "You're not getting out of that cage.", next = "END", fx = { affinity = -1 } },
       },
       again = {
@@ -540,6 +570,19 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_rfd = {
+      big = true,
+      lines = { { id = "xcl_rfd_default", text = "Then you've seen the dead walking among the quilboar, which I'd never have believed if the herders hadn't seen it too. Something cold came out of the north and made a nest in the Downs, and the quilboar there took it in like an honoured guest. The kodo won't graze within a day's walk of the place, and the kodo are wiser than most of my guests." } },
+      choices = {
+        { text = "The dead should be put back in the ground, every one.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let the quilboar and the dead tear each other apart.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What did the herders see?", next = "xcl_rfd2" },
+      },
+    },
+    xcl_rfd2 = {
+      lines = { { id = "xcl_rfd2_default", text = "They saw quilboar with skin as pale as frost and glowing eyes, and bones walking beside them as though they'd always been friends. One of the young herders hasn't slept a full night since, so I keep a bowl of stew warm for him whatever the hour." } },
+      choices = { { text = "I hope he sleeps easier now, Byula.", next = "BACK" } },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The tauren welcome travellers, and you are a traveller. We do not know the Light well, so you'll find some of us curious and some uneasy. Don't take offence at the hyenas; they laugh at everyone, even the dead." } },
@@ -643,6 +686,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Jorn Skyseer will want to meet you, if you haven't already met him, because he teaches every hunter who passes through." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at Taurajo! Sit by the fire, because the herders come in limping every night and I can only do so much with stew." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my fire. You won't need it to warm your hands, I suppose, but sit by it anyway." },
+        { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "Travellers up from the south say the cold has lifted off the Downs, and that somebody's been to the bottom of the place. If it was you, sit nearer the fire, because I've heard what lives down there." },
       },
       choices = {
         { text = "Do the hyenas' spirits trouble the camp at night?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -655,6 +699,7 @@ P:NPC {
         { text = "Do the kodo herders need tending, Byula?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do mages come through Taurajo often, Byula?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does Taurajo welcome a Forsaken paladin, Byula?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I went to the bottom of Razorfen Downs, Byula.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
         { text = "Just a rest, thanks.", next = "END" },
       },
     },
