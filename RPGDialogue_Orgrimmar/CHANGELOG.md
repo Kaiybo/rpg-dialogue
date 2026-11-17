@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.0 (2026-11-17)
+- 24 new people: Brakgul Deathbringer, Kildar, Shenthul, Dran Droffers, and the trainers and merchants of the Valley of Honor, the Cleft of Shadow, the Drag and the Valleys of Spirits and Wisdom. New files: restart the game fully (a /reload won't load them).
+
 ## 1.21.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

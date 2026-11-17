@@ -2,6 +2,15 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.78.0 (2026-11-17)
+The Horde capitals and the Barrens catch up: about 100 new people to talk to. **New files: restart the game fully (a /reload won't load them).**
+
+- **Orgrimmar** (24): Brakgul Deathbringer at the Warsong Gulch banner, Kildar and his wolves, Shenthul in the Cleft of Shadow, Dran and Malton at Droffers and Son, and the trainers and merchants of the Drag and the Valley of Honor.
+- **Undercity** (24): Carendin Halgar and his warlock's summons, Jeremiah Payson and his cockroaches, Aelthalyste, and trainers, merchants and a banker across every quarter, most with long memories of Lordaeron.
+- **Thunder Bluff** (24): Sage Truthseeker, Eyahn Eagletalon, Auld Stonespire, Veren Tallstrider, Magatha's attendant Rahauro, Bashana Runetotem, Mosarn, and the trainers of Hunter, Elder and Spirit Rise (the Forsaken embassy included).
+- **The Barrens** (26): Far Watch, the Crossroads and the Disciples of Naralex at the Wailing Caverns; Ratchet's folk, Klannoc Macleod's fighting ring on Fray Island, Gilthares Firebough in his Northwatch cell, and Doan Karhan.
+- Core: no code changes.
+
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
 
