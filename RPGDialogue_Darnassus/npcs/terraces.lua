@@ -89,6 +89,15 @@ P:NPC {
         { text = "I left because one watch wasn't enough.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Heal my patrols, carry word faster than any saber, and tell us where the Warsong loggers are cutting before the ancients wake angry. The Circle would prefer to stay above the war, but the trees do not have that choice." } },
+      choices = {
+        { text = "I'll serve the Sentinels in Ashenvale, wherever I'm sent.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A druid serves the forest first, and not any army.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Sentinels have fought beside your kind before, and I will say that you hold a line as well as anyone I've seen." },
@@ -106,6 +115,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. The Sentinels have use for anyone who can walk into a Warsong camp and walk back out with something worth hearing." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Warlock. I command Sentinels, and they are watching you right now from three places you haven't found yet." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Sentinels have need of those who can hold a line, though I will judge for myself whether you can." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Sentinels can use you in Ashenvale, because the orcs cut the trees faster than my patrols can bury the dead, and the forest needs someone who can hear it." },
       },
       again = {
         { id = "h_again", text = "What else? Make it worth the time." },
@@ -123,6 +133,7 @@ P:NPC {
         { text = "Where do the Sentinels need warriors most, Thyn'tel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you treat every warlock as an enemy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Where do the Sentinels need a paladin, Commander?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How can a druid best serve the Sentinels in Ashenvale?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll let you return to your duties.", next = "END" },
       },
     },
@@ -321,6 +332,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Footing, mostly, because a bear that charges wildly is a bear that gets surrounded, and the Gnarlpine have taught that lesson to more than one of you. Resolve is the same in any shape, so stand where you are placed and hold until it is over." } },
+      choices = {
+        { text = "I'll hold the line where I'm placed, as a warrior would.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A bear fights best when it follows its own instincts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I'd sooner see warriors on this Terrace, I'll be honest, but a good healer has saved more battles than a good blade, and I've seen it." },
@@ -337,6 +357,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You'd last in a fight, rogue, but only if you struck first. I train warriors to last when they don't." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "Mages always stand too far back, and then they're surprised when something circles round to reach them. Which way are you going to stand, mage?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on the Warrior's Terrace. You'll find no stances to learn here, but resolve is the same in any profession." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't train your kind, but I've seen a druid in bear shape hold a line I'd have been proud of, so you're welcome to watch." },
       },
       again = {
         { id = "h_again", text = "What else, warrior? Speak quickly; the Terrace doesn't sit still." },
@@ -356,6 +377,7 @@ P:NPC {
         { text = "What does resolve mean to a hunter, Elanaria?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you fought beside priests, Elanaria?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you test a paladin as you test your warriors?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could a druid in bear shape learn anything from your warriors?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you to the Terrace.", next = "END" },
       },
     },
@@ -528,6 +550,15 @@ P:NPC {
         { text = "I'll carry it with that in mind.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some of the older druids frown at the forge smoke, because they say the tree feels the heat in its branches. I work elunite as Elune's gift and I waste none of it, but I'd be glad to hear a druid tell me whether they're right." } },
+      choices = {
+        { text = "The elders are right, and the forge should move off the tree.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your forge honours Elune's gift, and the tree can bear it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I always say a little prayer to Elune over my best work, so I like to think we're in the same line of business." },
@@ -548,6 +579,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "I've mended a mage's staff once, and it hummed the whole time I worked on it. I'd rather you didn't bring that one back." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll repair your gear, warlock, because coin is coin and I need an anvil of my own. But tell your servant to stay outside the forge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Elunite holds an edge like nothing else, and I've always wondered how it would sit on an arrowhead." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't need much from my forge, I suppose, but buckles snap on bears as easily as on anyone, so bring them to me when they do." },
       },
       again = {
         { id = "h_again", text = "Ask on, then, while the elunite cools; it takes its time and so may you." },
@@ -566,6 +598,7 @@ P:NPC {
         { text = "Why must my servant stay outside the forge?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you really pray over your smithing, Mathiel?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you do to a paladin's hammer, Mathiel?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does a smith's work trouble the Circle, Mathiel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck at the forge.", next = "END" },
       },
     },
@@ -744,6 +777,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Patience, mostly, and a fury held so tightly that only the bear is allowed to show it. A warrior lets that fury out in the open, and I have never been sure which of us is wiser." } },
+      choices = {
+        { text = "Fury should be held tightly, and loosed only when it's needed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fury hidden too long rots, so better to let it out openly.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I teach only those with the warrior's spirit, but I'll grant that some healers have more of it than the fighters they heal." },
@@ -752,6 +794,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "I see some warrior's spirit in you, rogue, buried under a great deal of cunning. It isn't the worst combination I've ever seen." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I teach only those with the warrior's spirit, warlock, and whatever spirit is walking behind you isn't the right kind." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I do not teach your art, but I can see whether you carry the warrior's spirit, and some hunters do." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I see something of the warrior's spirit in you, which is not common in the Circle, though I teach only those who carry it whole." },
       },
       again = { { id = "h_again", text = "Something more? Ask, and then let me return to my students." } },
       choices = {
@@ -765,6 +808,7 @@ P:NPC {
         { text = "Do you think warlocks lack courage?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Can a priest have a warrior's spirit, Arias'ta?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you see the warrior's spirit in me, Arias'ta?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do you see in a druid's spirit, Arias'ta?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1059,6 +1103,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Moonberry juice and bread for the road, mostly, because the young ones up from Dolanaar forget that a cat can't carry a pack. It's an honor to feed them, and I tell them so every time." } },
+      choices = {
+        { text = "A druid should live off the forest, not a market stall.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "There's no shame in buying bread when the forest is far off.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll want linen for bandages and water for the road, I expect, because even a healer's prayers run dry halfway to Ashenvale." },
@@ -1070,6 +1123,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll sell you supplies, warlock, though I'd rather you didn't tell anyone where you got them. My other customers are a nervous lot." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want bread, water and twice as much of both, because a hero on the front line burns through supplies." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want arrows, I suppose, and something for your companion, because heroes' beasts get hungry too." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a hero in the making! I keep the Terrace in food and drink, and I've learned that druids eat like bears after a long day in one, so do stock up." },
       },
       again = { { id = "h_again", text = "Anything else? Take your time." } },
       choices = {
@@ -1082,6 +1136,7 @@ P:NPC {
         { text = "Would your customers really leave over a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do many healers buy supplies from you, Mydrannul?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the young heroes really look up to paladins?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do druids usually buy from you, Mydrannul?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1387,6 +1442,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I don't really know yet, and I'm not sure Faldron does either, though Telonis says the shapeshifting does most of the work and the stitching only has to keep up. I've been practicing on a sabercat's harness, and the cat is not impressed." } },
+      choices = {
+        { text = "Don't guess, Darianna, and ask your teachers before you try.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep experimenting, because that's how anyone learns anything.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Oh, do priests wear leather? I suppose not, but I'll ask anyway, because Faldron says I should know who my customers might be." },
@@ -1396,6 +1460,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh! I'm sorry, I nearly dropped my broom. Is that thing yours? It's watching the hides like it wants to eat them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, your armor's taken a beating, hasn't it, and Faldron could have that leather mended in an afternoon!" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your hides must be wonderful; do you skin what you hunt, or do you leave it where it falls?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Faldron says druids are the hardest customers, because your armor has to forgive you every time you turn into a bear, and I think that's the most exciting problem in the world." },
       },
       again = { { id = "h_again", text = "What else? Ask me quickly before Faldron gives me something to sew." } },
       choices = {
@@ -1408,6 +1473,7 @@ P:NPC {
         { text = "Does my servant frighten you, Darianna?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you think a priest should wear, Darianna?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are straps really where all armor fails?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How does leather stretch to fit a bear, Darianna?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck with the stitching.", next = "END" },
       },
     },

@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only if we take as the tauren do, a little and with thanks, but the Warsong's saws don't know how. I've told Splintertree as much, and they listen politely and send more axes." } },
+      choices = {
+        { text = "The Warchief needs lumber. We obey, but we take wisely.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll stand against the axes, even if Splintertree objects.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because you are here to fight in it, and a warrior who knows what they fight for fights better. The Warsong cut and the elves strike back, and I only ask that you remember the trees were here before either of us." } },
@@ -99,6 +108,7 @@ P:NPC {
         { id = "h_call", when = { metBefore = true },
           text = "Can you hear the Hunt calling? It is quiet, and it doesn't come from the trees; it comes from somewhere deep inside you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You will want to fight in this forest, I know, but I ask you to look at it first." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, walking in this forest! Then you see what I see, and you know how it hurts to fight the kaldorei over trees we both love." },
       },
       again = {
         { id = "h_again", text = "What else? Speak softly; the forest is listening." },
@@ -116,6 +126,7 @@ P:NPC {
         { text = "My kin cut these trees. Does that make me your enemy?", next = "orc_s", when = { race = "Orc" } },
         { text = "I'll take on the Hunt.", next = "END", fx = { affinity = 1 } },
         { text = "Why should a warrior care how beautiful this forest is?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Can the Horde take wood here without wounding the forest?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
     },
     why = {
@@ -187,6 +198,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Kaldorei druids do, because a wagon tips over awful easy when a bear walks into the ox team. I've lost four that way this season, and I've written each one down, so I'll know who to be angry at." } },
+      choices = {
+        { text = "They're defending their home. I'd do the same in their place.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then the wagons need guards who'll put those bears down.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every one of them, though Splintertree never has warriors to spare. Seventeen wagons this week and three of them burned, and if a warrior rode with each, I'd have fewer things to count and fewer people to be angry at." } },
@@ -268,6 +288,7 @@ P:NPC {
         { id = "h_count", when = { metBefore = true }, text = "Seventeen wagons this week, and the elves burned three of them. I count the burned ones too, so I remember who to be angry at." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The elves keep burning my wagons on the Stonetalon road, and a few axes riding along might change their minds." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast had better not spook the kodos, because a spooked kodo is a wagon in a ditch." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. If you're here to tell me the lumber hurts the trees, you'll have to get in line, and the line is long." },
       },
       again = {
         { id = "h_again", text = "What now? Make it quick, because I've wagons to count." },
@@ -286,6 +307,7 @@ P:NPC {
         { text = "Fine. Bye.", next = "END" },
         { text = "Do your caravans need a warrior's escort, Mastok?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the forest beasts trouble your caravans, Mastok?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do druids ever trouble your caravans, Mastok?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
     },
     people = {
@@ -349,6 +371,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Splintertree only be listening to da Warchief and to da sound of wood piling up, mon. But da forest be patient, and one day it gonna take back every clearing we made, whether we listen or not." } },
+      choices = {
+        { text = "We owe the forest respect, even while we fight in it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Respect is for allies. The forest is just wood to cut.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "You don't chase them, mon, you wait where they gotta pass, because they always take the same paths home through the trees. Stand still in the right place and let them run into you, and that be the whole trick." } },
@@ -400,6 +431,7 @@ P:NPC {
         { id = "h_blind", when = { questDone = TODO_QUEST("Ashenvale Outrunners") },
           text = "Those outrunners won't be tellin' anybody nothin' now. Blind the Alliance, mon, and they think twice before they come." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. The elf runners be too quick for big axes, so you gonna have to learn to move." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, mon. You be listening to dis forest more than any of us, so tell me, is it angry with da Horde or only with da axes?" },
       },
       again = {
         { id = "h_again", text = "What else you be needin', mon? Keep your voice down out here." },
@@ -416,6 +448,7 @@ P:NPC {
         { text = "I've taken heads before. Show me where they run.", next = "hunter_k", when = { class = "HUNTER" } },
         { text = "Stay sharp.", next = "END" },
         { text = "How does a warrior catch an elf runner, Kuray'bin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "The forest is angry at the axes. Will Splintertree ever listen?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
     },
     fighting = {

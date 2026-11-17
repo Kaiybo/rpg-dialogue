@@ -174,6 +174,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They drive out anything that can't fight back, and plenty that can, so the bears have moved up toward the ridge. I've watched the boar herds shrink every season since the troggs came up out of the Badlands." } },
+      choices = {
+        { text = "Then thin the troggs and give the hills back to the beasts.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The hills have always had predators. Let them settle it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "On the wall facing the Badlands, where the troggs come up the slope in a howling mob every few nights. They're stupid, but there's always more of them, and a warrior who keeps his feet and his shield up is worth five who charge down after them." } },
@@ -246,6 +255,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? A rifle on the tower and a beast at the foot of it would thin the troggs nicely." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest on the south tower! Bless the wall, if ye've a mind, for the troggs have scratched half the mortar out." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Stand on the south wall a while, for the troggs dinnae like shine, an' I've a mind tae see them squint." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my tower! The troggs are swarming the hills again, and if you can talk to bears, tell them to eat a few." },
       },
       again = {
         { id = "h_again", text = "Somethin' else, friend?" },
@@ -262,6 +272,7 @@ P:NPC {
         { text = "Is there anything worth tracking in these hills besides troggs?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who tends your wounded out here at the tower, Cobbleflint?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should you take the fight to the troggs, or hold the wall?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the troggs drive the beasts out of these hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Stay safe, Mountaineer.", next = "END" },
       },
     },
@@ -463,6 +474,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some of them, I'm sure, and I'm fairly certain a bear sat on my hammer. I don't blame the animals, exactly, but I do wish they'd stop collecting gnomish engineering." } },
+      choices = {
+        { text = "Then gather every piece. The loch shouldn't keep your scraps.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Lost tools belong to the loch now. Buy new ones.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Well, the loch's crawling with things this season: crocolisks on the shore, kobolds in the hills and troggs nosing about the Ironband dig. I'm fairly sure one of them is sitting on my best wrench right now, and I'd much rather a warrior asked for it back than me." } },
@@ -536,6 +556,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must be good at finding things that have wandered off, which is exactly the skill I'm short of today." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Oh, a priest! Could you bless my blastencapper, once we find it? It's never been blessed, and frankly it shows." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Marvellous, because if anything with teeth comes back for the rest of my supplies, you can glow at it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You haven't seen a wrench lying about the loch, have you? Or a screwdriver, or a hammer, or a very important blastencapper?" },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm listening, mostly." },
@@ -552,6 +573,7 @@ P:NPC {
         { text = "Could a hunter's tracking help you find your supplies?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has your research ever hurt anyone, Bingles?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What will your research do for Gnomeregan's people, Bingles?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Did the wildlife carry off your tools, Bingles?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck, Bingles.", next = "END" },
       },
     },

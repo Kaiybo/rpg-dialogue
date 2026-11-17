@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The elders trust slowly and have reason to, but the humans of this city have treated me fairly, and I say so in my letters home. Whether Stormwind remembers us when the orcs push deeper into Ashenvale is another question, and I can't answer it from here." } },
+      choices = {
+        { text = "Stormwind will keep its word, Lilyssia. I believe that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "We shouldn't wait on human promises. We'll guard Ashenvale ourselves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because the arcane nearly destroyed my people once, long ago, and the Sentinels have long memories. I don't share their fear entirely, but I won't pretend I don't understand it." } },
@@ -94,6 +103,7 @@ P:NPC {
           text = "You bring the fel into my workshop, and the herbs wilt on the bench. I will teach you, because I must, but my sisters in Ashenvale would not." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You will fight the battles I dream of every night, while I stay here among the humans' stone. I envy you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The hunters of my people walk the forests beside the night sabers, and I think of them often, here among the stone." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Elune guide you, druid. Some days I'd trade my mortar for your claws, because my place is outside these walls with the Sentinels." },
       },
       again = {
         { id = "h_again", text = "Speak, and I will answer while the still drips; the forest taught me to listen and work at once." },
@@ -110,6 +120,7 @@ P:NPC {
         { text = "Would your sisters fight a warlock, Lilyssia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you envy the Sentinels, Lilyssia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Sentinels respect the Silver Hand, Lilyssia?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Circle trust humans to keep the Alliance's promises, Lilyssia?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell, Lilyssia.", next = "END" },
       },
     },
@@ -163,6 +174,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some do, and they hold them as carefully as a priest holds a relic, while others only ask the price. I sell to both, because a gift between peoples must begin somewhere, even at a market stall." } },
+      choices = {
+        { text = "Sell only to those who'll treat them with respect.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sell to anyone. Respect can be learned afterwards.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "We do, though we call them other things, and they walk the shadows of Ashenvale far more quietly than any human. Our Sentinels and your SI:7 would understand each other well, I think, if they ever stopped watching each other." } },
@@ -232,6 +252,7 @@ P:NPC {
           text = "A mage. My people do not love the arcane, but I was taught to be courteous to guests, and you are a guest here, as I am." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at my stall. These are tools for craftsmen, though I suppose a warrior must mend his own gear when he's far from a forge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Welcome; the tools I sell were made on Teldrassil, and many of them were made for hunters, so they will feel familiar in your hands." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Ishnu-alah, druid. These tools crossed the sea with me from Teldrassil, and it gladdens me to see someone who knows the wood they were carved from." },
       },
       again = {
         { id = "h_again", text = "What else may I tell you?" },
@@ -247,6 +268,7 @@ P:NPC {
         { text = "What tools did the craftsmen of Teldrassil make for hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your priestesses tend the sick in Teldrassil?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do your people think of the Silver Hand, Eldraeith?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the humans here understand what your tools mean, Eldraeith?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell, Eldraeith.", next = "END" },
       },
     },
@@ -298,6 +320,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nothing I make has ever been asked to, and I'll confess the thought gives me a headache. Still, if you'd stand very still for an hour, I'd make you look like nobility of Darnassus, whatever happens to it afterwards." } },
+      choices = {
+        { text = "Plain cloth suits a druid. I'll not dress up for Stormwind.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Make me splendid, Georgio. Let the whole court stare.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because a tailor remembers every measurement he takes, and a careful man in your trade shouldn't want to be remembered. The SI:7 people sew their own, you know, and I've always taken that as a compliment to the craft." } },
@@ -368,6 +399,7 @@ P:NPC {
           text = "A warlock, and your cuffs are singed exactly where the shadow bolts leave your hands. I can teach you to line them, which will save you a fortune in sleeves." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in a tailor's shop! You'll be wanting a tabard to wear over that armour, I expect, so that everybody knows whose side you're on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your clothes are torn, I see, in all the places hunters always tear them: the knees, the elbows and the hem." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Your leathers are serviceable, I'll say that, but please let me show you what a proper cut would do for a figure as tall as yours." },
       },
       again = {
         { id = "h_again", text = "What else? I've a bolt of wool waiting." },
@@ -384,6 +416,7 @@ P:NPC {
         { text = "Do many warlocks learn tailoring from you?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the Cathedral's tailors really cut so badly, Georgio?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does a paladin's tabard really matter, Georgio?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can a proper cut survive a druid changing shape, Georgio?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Georgio.", next = "END" },
       },
     },
@@ -437,6 +470,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Roots and bark from Elwynn, mostly, and a blue from Lordaeron that I can't get any more since the plague. I pay the gatherers fairly and ask them not to strip the trees, though I can't swear they listen." } },
+      choices = {
+        { text = "Make them swear it, and check on them yourself.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You can't police every gatherer. Trust them and move on.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because mages wear it and mages pay more for things with their name on, and someone in Dalaran worked that out long before I did. I've never told a buyer it was enchanted, mind, and I never will." } },
@@ -505,6 +547,7 @@ P:NPC {
           text = "A warlock. I'll sell you thread and dye like anyone else, though I'd sooner you didn't stitch anything into it that whispers." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll not want thread and needles, I'd think, but if you ever tear a tabard, bring it to Georgio and not to the market stalls." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've thread strong enough for hides, if you work your own leather, and needles that won't snap on a boar's skin." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll be wondering where my dyes come from, I expect, because your people always ask that before they ask the price." },
       },
       again = {
         { id = "h_again", text = "Anything else?" },
@@ -520,6 +563,7 @@ P:NPC {
         { text = "Have you sold thread to the Lamb's cellar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Where does the Cathedral's thread come from, Alexandra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins mend their own tabards, Alexandra?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Where do your dyes come from, Alexandra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thank you, Alexandra.", next = "END" },
       },
     },
@@ -569,6 +613,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I think so, because every thread holds the others and pulling one loose unravels the rest. My teacher says that's sentimental, but I've never seen a forest or a cloth that proves me wrong." } },
+      choices = {
+        { text = "Every thread matters. That's the whole truth of the forest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Forests aren't cloth, Lawrence. Some threads must be cut.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "It's meant as one, though I'd rather you used those hands on a needle than on someone's purse. Every seam can be unpicked and sewn again, and every life can too, if you start soon enough." } },
@@ -637,6 +690,7 @@ P:NPC {
           text = "A mage, here to learn tailoring? I always say a spell is like a stitch, because a careless one comes undone just when you need it most." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Life is like a bolt of good cloth, I always say, and a warrior is the thread that holds the hem together when everything else tears." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll know about patience, I'd guess, which is the first thing I teach and the last thing my students learn." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I always say the forest is the greatest loom of all, with every root a thread, and I'd love to know if you agree." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got a lesson in a moment." },
@@ -652,6 +706,7 @@ P:NPC {
         { text = "Is tailoring much like hunting, Lawrence?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is faith really like the warp in a loom, Lawrence?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What happens if the strong thread breaks, Lawrence?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is the forest really so much like a loom, Lawrence?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Lawrence.", next = "END" },
       },
     },
@@ -703,6 +758,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Most of it came from Dalaran's own orchards, which are gone now, and I've kept the last of it like an heirloom. The new wood from Elwynn is stubborn and hums wrong, and I wonder if your people would know why." } },
+      choices = {
+        { text = "Ask the trees' pardon before you cut, and the wood will settle.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Wood is wood, Ardwyn. Better tools will fix the hum.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "A well-made wand is silent until you call on it, while a cheap one hums all the time because the enchantment's leaking out through the grain. Half the wands sold on the canal stalls would empty themselves in a month, and the sellers know it." } },
@@ -772,6 +836,7 @@ P:NPC {
           text = "A warlock, so you'll want a wand that can bear a shadow without cracking, and I'll admit I've only a few that can." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at a wand stall. You'll not need any of these, but I'll tell you honestly that a warrior who can recognise a good wand is a warrior who can spot a dangerous mage." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Wands aren't much use to you, I'd think, though I've known a hunter or two who carried one as a curiosity." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll want a staff of good wood rather than a wand, but every wand here has a core of the finest timber I could find, so don't scorn them yet." },
       },
       again = {
         { id = "h_again", text = "What else? I could talk about wands all day." },
@@ -787,6 +852,7 @@ P:NPC {
         { text = "Why do shadow wands crack, Ardwyn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Can a wand carry holy power, Ardwyn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you still grieve for Dalaran's workshops, Ardwyn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you know where your wands' wood was grown, Ardwyn?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Ardwyn.", next = "END" },
       },
     },
@@ -836,6 +902,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A carved owl feather, a stone that's warm at night and a little silver bell nobody can make ring. A sailor swore they came from a ruin in Ashenvale, and I confess I've been afraid to sell them ever since." } },
+      choices = {
+        { text = "Things taken from ruins should go home. Send them to Darnassus.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "They're yours now, Charys. Sell them and be rid of them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "They send their apprentices, who swear the purchases are for study, and I've sold the same lucky charm three times to the same master's three apprentices. Even the wise like a little luck, it seems, now that Dalaran's gates are closed to them." } },
@@ -904,6 +979,7 @@ P:NPC {
           text = "A warlock. I keep a few things at the back for your people, though nothing that would trouble the Watch, and I'd rather keep it that way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, among the reagents. These are leftovers of a great deal of magic, and most of them won't help you, though a few might surprise you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you see more of the world's raw magic than I do, out in the wild where the reagents first come from." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in my little shop. Some of these trinkets came from your side of the sea, and they've been restless since you walked in." },
       },
       again = {
         { id = "h_again", text = "Have you another question for me, or for the curios?" },
@@ -919,6 +995,7 @@ P:NPC {
         { text = "What sort of things do you keep at the back?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do any of your trinkets carry dark magic, Charys?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why would your trinkets react to a paladin, Charys?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What have you got that came from Kalimdor, Charys?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Charys.", next = "END" },
       },
     },
@@ -970,6 +1047,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Something warm and dark with no buttons, because buttons and dew make a poor marriage. Thurman would want to embroider stars on it, and I'd let him, because it's the only thing he sews straight." } },
+      choices = {
+        { text = "Keep it plain. An apprentice learns by following the pattern.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let him embroider. A shop should have some joy in it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I could, and I'd rather not, because the last fellow who borrowed a priest's robe got as far as the Cathedral steps before a novice asked him to lead the evening prayer. The Watch still laughs about it." } },
@@ -1039,6 +1125,7 @@ P:NPC {
           text = "A warlock, and you'll want something dark and loose, so you can move your hands. My apprentice keeps those at the back, assuming he's remembered where he put them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in Larson Clothiers! You'll want a robe for under your armour, perhaps, or something nice for when you're off duty." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I'm afraid we only sell robes, but if you're ever invited to the Cathedral, you'll want something without mud on it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in a robe shop. Your people dress like moonlight, I'm told, so I'll not try to sell you anything grey." },
       },
       again = {
         { id = "h_again", text = "Is there something else? Mind the pins on the counter, Thurman never puts them away." },
@@ -1054,6 +1141,7 @@ P:NPC {
         { text = "Do you sell robes to the Lamb's people too?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is your apprentice really a test of faith, Wynne?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins ever wear robes, Wynne?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you sew for someone who sleeps under the stars, Wynne?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Wynne.", next = "END" },
       },
     },

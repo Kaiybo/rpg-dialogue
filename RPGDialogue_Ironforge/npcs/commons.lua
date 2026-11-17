@@ -670,6 +670,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It reaches by letter an' by ship from Menethil, though slower than either of us would like. The King values the kaldorei as allies, but he'll no' pretend he understands a people who'd sooner live in a tree than under a mountain." } },
+      choices = {
+        { text = "Alliances run on letters and patience. I'll carry them if asked.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Letters are slow. Friendship between peoples is made on the road.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That they stand firm at the gates o' Khaz Modan while the rest o' the Alliance squabbles over coin. The Dark Irons press us from the south an' the troggs from below, an' the King would sooner see a warrior at Thelsamar than at a banquet in Stormwind." } },
@@ -757,6 +766,7 @@ P:NPC {
           text = "I'll be honest wi' ye, as the King would want: there's a warlock in the throne room, an' half the guards have their hands on their axes. Say what ye came tae say." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The King's always had a soft spot for warriors, for he was raised among them, an' so was I." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The King's rams an' the King's rifles both owe a great deal tae hunters, an' the throne remembers it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid o' the kaldorei, standin' in the King's own hall. Ye're a long way from yer forests, so I'll see ye're treated as a guest o' the throne." },
       },
       again = {
         { id = "h_again", text = "Anythin' further?" },
@@ -776,6 +786,7 @@ P:NPC {
         { text = "Does the throne have any use for hunters, Advisor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the court pray for the King's daughter?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does Ironforge need most from its paladins, Advisor?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the King's word reach as far as Darnassus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Advisor.", next = "END" },
       },
     },
@@ -1270,6 +1281,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because a cat that can walk past a guard is worth more than any lockpick I own, matey. I'll no' pretend the Circle's honest, but we keep our word an' our mouths shut, which is more than the Senate does." } },
+      choices = {
+        { text = "A quiet job is still honest work if nobody's hurt.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "My shape is Cenarius's gift, not a burglar's tool.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Now an' then, when a job needs a door broken rather than opened, an' my lads would sooner no' be seen doin' it. Mostly, though, a warrior in the Forlorn Cavern brings the guards down on us, an' I've trouble enough wi' them already." } },
@@ -1344,6 +1364,7 @@ P:NPC {
           text = "Ah, one o' the cavern's other residents. Yer lot an' mine get the same looks from the guards, so we might as well nod tae each other." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, down in the Hidden Circle? Ye're louder than my whole crew put together, so keep yer voice down, if ye can." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Ye've a quiet step for someone who carries a gun, I'll give ye that." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Well now, a night elf druid in the Forlorn Cavern, an' no' even lost! Yer kind can slip about as a cat, I hear, which would make ye a fine catch for the Circle." },
       },
       again = {
         { id = "h_again", text = "Wut else? Quietly, now." },
@@ -1361,6 +1382,7 @@ P:NPC {
         { text = "Do hunters and rogues ever work together, Blackbeard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your rogues ever need a priest, Blackbeard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why shouldn't a paladin turn your Circle over to the guards?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why would the Hidden Circle want anything from a druid?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll keep your secret.", next = "END" },
       },
     },

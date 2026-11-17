@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Barley soup, mushroom pie and a pumpkin mash from the Brackwells' field that the regulars pretend not to like. Toddrick calls it rabbit food, but the bowls come back empty, so I don't listen to Toddrick." } },
+      choices = {
+        { text = "The land gives plenty without killing. Your mash proves it.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Hunting is part of the wild too. I'll take the stew.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Something warm and heavy that stays put, like boar stew with a heel of Kira's bread. Don't eat the spiced chili before you fight, mind, or you'll regret it at the worst moment." } },
@@ -102,6 +111,7 @@ P:NPC {
           text = "You've come up from below, haven't you? The cellar stairs are right beside my larder, and I hear things on that side of the wall I'd rather not." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll eat like three men, I expect, and I'll cook for three, and we'll both be happy." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me boar and bear, and I'll make you something that'll keep you out in the cold for days." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in my kitchen! Have you eaten? You look like someone who's been living on nuts and dew, and I've a stew on." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I chop; the onions won't wait." },
@@ -119,6 +129,7 @@ P:NPC {
         { text = "What would you cook from what I hunt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever cook for those who can't pay, Tomas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does Brother Wilhelm eat, Tomas?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you cook anything without meat, Tomas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just smelling the stew.", next = "END" },
       },
     },
@@ -194,6 +205,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "From the farms along the Goldshire road, and I buy it off the farmers' carts myself whenever I can. It costs a copper more that way, but it's my neighbours I'm paying, and they remember it." } },
+      choices = {
+        { text = "Paying your neighbours fairly is worth the extra copper.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "A copper saved is a copper. Buy wherever it's cheapest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Oh, more than anyone, and they never think to bring any with them. I've passed warriors in the Fargodeep fields sitting on a dead kobold with nothing to eat, so I sell them two loaves and walk on." } },
@@ -267,6 +287,7 @@ P:NPC {
           text = "Oh! You gave me a fright, coming up the road with that creature, and I nearly dropped the rolls." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll be hungry, because warriors always are! I've a loaf here that's still warm, if you've the coin." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on my road! You'll have meat already, I expect, but bread goes with it, so let's talk." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on the road! Have a sniff of this basket, because I'll wager the bread in Darnassus doesn't smell anything like it." },
       },
       again = {
         { id = "h_again", text = "Anything else, love? I've got a long way to walk before dark." },
@@ -283,6 +304,7 @@ P:NPC {
         { text = "Will your bread keep for a long hunt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Who do you bake for, besides your customers, Kira?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have the Defias ever stopped you on the road, Kira?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Where does your flour come from, Kira?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Safe walking.", next = "END" },
       },
     },
@@ -342,6 +364,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Yes! Only not here, because Argus said no animals near the forge after the time Mark brought a lamb. Could you do it behind the inn, where Farley can't see?" } },
+      choices = {
+        { text = "Not for show, Bo. It isn't a trick to play.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Behind the inn, then, but only if you keep it secret.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "No, a paladin, but a warrior's nearly as good! I practise with a stick behind the smithy, only Argus says I'm holding it like a broom, and then Mark laughs." } },
@@ -392,6 +423,7 @@ P:NPC {
           text = "Are you a rogue? Can you go invisible? Mark says rogues can go invisible, and Joshua says Mark's daft again." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Are you a warrior? You've got a real sword, a real one! Joshua says warriors never get scared, and Mark says that's daft." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Is that your animal? Can I pat it? Mark says it'll bite, but Mark's daft." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Are you really a night elf? Joshua says your lot can turn into bears, and Mark says that's made up, so you have to show me." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, before Mark finds me." },
@@ -405,6 +437,7 @@ P:NPC {
         { text = "Do you want to be a warrior someday, Bo?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would you like to be a hunter, Bo?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do you want to be a paladin, Bo?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you want to see me turn into a bear?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Off you go, then.", next = "END" },
       },
     },
@@ -462,6 +495,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Yes, please, because I've been here since breakfast and I've tried three different worms. Lee Brown says it's my knot, but I think the fish have just got it in for me." } },
+      choices = {
+        { text = "It's your knot, Matt. Learn to tie it properly and they'll come.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the knot. Wade in and grab one, like a bear does.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I saw the guards fight a murloc by the bridge once, from behind a fence. It made a noise like a kettle and they didn't win straight off, and then Ma pulled me home by the ear." } },
@@ -533,6 +575,7 @@ P:NPC {
           text = "A mage! Can you make fish jump out of the water? That would be the best way to fish there is." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You're a warrior! Could you hit the water and make the fish come up stunned? I saw a man do that once, nearly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Can your animal catch fish? Mine can't, because I haven't got one, but if I did it would." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a night elf! Can you talk to fish? Because if you can, tell them I've got a worm and it's a good one." },
       },
       again = {
         { id = "h_again", text = "What? Keep your voice down, there might be one coming." },
@@ -548,6 +591,7 @@ P:NPC {
         { text = "Do any animals come down to the pond to fish?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why won't your ma let you past the bridge, Matt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you like to be a paladin, Matt?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Shall I tell you why the fish aren't biting?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck, Matt.", next = "END" },
       },
     },

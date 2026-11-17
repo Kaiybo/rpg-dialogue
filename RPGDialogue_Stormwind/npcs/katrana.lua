@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The court thinks very little of anything it can't tax or marry, darling, and your people are neither. I find the kaldorei rather charming myself, the way one finds old ruins charming, so long as one isn't asked to live in them." } },
+      choices = {
+        { text = "My people are no ruin, my lady, and we'll stand by the Alliance.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then my people needn't trouble themselves with this court at all.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "The court has a use for everyone, little one, which is the whole art of governing. A mage who keeps to the Sanctum and minds the Regent's business will find me very patient, though I've noticed that clever people rarely manage either." } },
@@ -99,6 +108,7 @@ P:NPC {
           text = "A mage of the Sanctum, or one who wishes to be. Dalaran's children do so love to remind the court how clever they are." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the king's hall. How very loyal you look, all that steel and no idea at all who you're guarding." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Keep. Do keep your animal on a short leash; the Regent's hall has quite enough noise in it already." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, at court. How quaint, the kaldorei send us their forest-priests, as if the Regent needed reminding that the world is older than his crown." },
       },
       again = { { id = "h_again", text = "Something else? Do be quick." } },
       choices = {
@@ -118,6 +128,7 @@ P:NPC {
         { text = "Have you ever hunted, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the court value the Church's counsel, my lady?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you think of the Silver Hand, my lady?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What does the court think of the night elves, my lady?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Excuse me.", next = "END" },
       },
     },

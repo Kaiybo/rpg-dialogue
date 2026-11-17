@@ -68,6 +68,15 @@ P:NPC {
         { text = "Tell me about your family.", next = "family" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A woodcutter's boy who went for kindling down by the river two days ago, and nobody's seen him since. The Watch stops looking after three days, so if you can follow a trail, follow his first." } },
+      choices = {
+        { text = "I'll look for him, and I won't stop at three days.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Two days in this forest? He's gone, Elaine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -84,6 +93,7 @@ P:NPC {
           text = "I sent you up to that shack to ask after an old man's health. I keep thinking about that, and I haven't found a way to stop." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Jonathan will be glad of you, and so am I, because I keep the list of who hasn't come back and I'd like it shorter." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be out in the wood longer than most, so do come back and tell me what you see moving where it shouldn't." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll put you on my list of folk passing through, if you'll tell me where you're headed and when you'll be back." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind? I've a list, but it can wait a moment." },
@@ -102,6 +112,7 @@ P:NPC {
         { text = "Which part of the wood needs a warrior most, Elaine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a hunter report back to you, Elaine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You walk under the Light, Elaine. I walk elsewhere.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "I can follow a scent. Is anyone missing that I might find?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { standing = { darkshire = 1 } } },
       },
     },
@@ -316,6 +327,15 @@ P:NPC {
         { text = "Something else, Watchmaster.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because it watches the Blasted Lands, and the last time nobody was watching, the Horde came marching up through this very forest. People here think the dead are the worst of it, and I'd like to keep it that way." } },
+      choices = {
+        { text = "Supply the keep first. Vigilance keeps the whole realm safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Darkshire's own dead matter more than an old fortress.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Nethergarde asks for bandages as often as it asks for stone, and I've never once had enough of either." },
@@ -332,6 +352,7 @@ P:NPC {
           text = "No caravans leave after dark, so at night I sit with the ledgers and work out which of the day's wagons I'll be writing off." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because my wagons need escorts and I've run out of men who'll walk the road to Deadwind Pass twice." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The beasts that hit my wagons don't steal much, but they spook the oxen, and a bolted ox loses a whole load in the trees." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. If you can travel faster than a wagon, which I'm told you can, I've crates for Nethergarde and no one quick enough to carry them." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly; there's a wagon with a broken axle out front." },
@@ -350,6 +371,7 @@ P:NPC {
         { text = "Nethergarde watches the Portal. My kind know its pull.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does Nethergarde need that a priest could give?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who guards your wagons on the road east, Watchmaster?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why does Nethergarde matter so much to Duskwood?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Safe roads, Watchmaster.", next = "END" },
       },
     },
@@ -527,6 +549,15 @@ P:NPC {
         { text = "Something else, Hann.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Corn from the Yorgen farm, from before the dead came, and a little something I won't name in case the Watch is listening. It'll strip the bark off a tree, so mind you don't spill it near your friends outside." } },
+      choices = {
+        { text = "Pour it out. Darkshire needs clear heads at night.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sell it openly, Hann. The Watch has worse to worry about.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I'll pour you spring water and say nothing, though the jug under the counter is there if the Light ever looks away." },
@@ -537,6 +568,7 @@ P:NPC {
           text = "I hear my moonshine's sitting on a shelf in Lakeshire now. That's the furthest a bottle of mine has travelled, and I've half a mind to feel proud." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll be wanting something from under the counter, then; nobody fights the dead in this wood on spring water." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've a jug of juice for you and a bowl of water for the beast, and if either of you wants something stronger, ask quietly." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Now, I'd wager your folk know a thing or two about what berries do when you leave them in a jar, eh?" },
       },
       again = {
         { id = "h_again", text = "More questions? Ask them over the bar; I don't leave it after dark." },
@@ -553,6 +585,7 @@ P:NPC {
         { text = "Do you buy game for the bar, Hann?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your moonshine is the only thing here that burns hotter than me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does your moonshine keep the Night Watch on their feet, Hann?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What goes into that jug under the counter, Hann?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not tonight.", next = "END" },
       },
     },
@@ -684,6 +717,15 @@ P:NPC {
         { text = "Something else, Alyssa.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Mostly mages and the Watch, but I keep maple seeds and wild thornroot for the odd druid who drifts through, since your lot burn through them faster than you'd think. Grandmother says that means one of you is coming soon, which is what she says about everything." } },
+      choices = {
+        { text = "Fate is real, Alyssa. Heed your grandmother's cards.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right to doubt. We make our own fate.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Gran's cards say holy folk always arrive in pairs, so I suppose I'll be watching the door for your friend." },
@@ -695,6 +737,7 @@ P:NPC {
           text = "Grandmother's stopped telling me to stay indoors. She won't say why, but she looks at me as if I'd survived something, and I'd quite like to know what." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior? Gran would say the cards foretold you, but I'll just say you look like someone who never buys a single candle." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast, in my shop full of breakable glass. Please, for the love of the Light, tell it to sit." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Grandmother will want to read your cards, and I'll warn you now that she always finds a tree in a druid's spread." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm only counting candles, and they're not going anywhere." },
@@ -711,6 +754,7 @@ P:NPC {
         { text = "Do you sell anything for a hunter, Alyssa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do Darkshire's folk buy candles for prayer as well, Alyssa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does your grandmother's trade trouble the faithful, Alyssa?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you sell much to druids, Alyssa, or only to mages?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Alyssa.", next = "END" },
       },
     },
@@ -862,6 +906,15 @@ P:NPC {
         { text = "Something else, Herble.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only when Finbus forgets to bank the forge, and then it's mostly the shed that suffers. I'll admit Gnomeregan didn't do the hills around it any favours, though, so I understand why your people look at a smokestack the way they do." } },
+      choices = {
+        { text = "Machines need rules. Build with care for the land.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Invent freely. The land recovers, given time.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I'm told prayer works wonders, but I've never managed to fit one into a gadget, and believe me, I've tried." },
@@ -871,6 +924,7 @@ P:NPC {
           text = "You're after a bronze tube for that stargazer, Viktori? I've a couple left, though they're dear, and I'll give you my opinion of his telescope free of charge." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? Big, strong, likely to hit things, and I sell parts for gadgets that don't need any of that, so you're in the wrong house!" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now, a gnome who sells gun parts likes a hunter, because hunters like guns, and guns like parts!" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Your people and mine haven't much in common, I'd guess, except that we've both lost a home lately and ended up somewhere damp." },
       },
       again = {
         { id = "h_again", text = "What else? I've three conversations going in my head already, so one more won't hurt." },
@@ -888,6 +942,7 @@ P:NPC {
         { text = "Do you sell parts for a hunter's rifle, Herble?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the gnomes of Gnomeregan keep priests, Herble?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could your gadgets help hold Darkshire against the dead?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your machines ever harm the forest, Herble?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Mind the shelf. Goodbye.", next = "END" },
       },
     },
@@ -1041,6 +1096,15 @@ P:NPC {
         { text = "Something else, Farrin.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I don't know, and that's what eats at me, because the last time I went the earth one row over had been turned from beneath. I planted a rowan at his head when we buried him, so if the tree's still standing, I'll take that as a sign." } },
+      choices = {
+        { text = "I'll look for the rowan and tell you honestly what I find.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Better not to know. Let him and the question rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My father's grave hasn't had a prayer said over it since the dead started walking, and I've been too frightened to go myself." },
@@ -1050,6 +1114,7 @@ P:NPC {
           text = "They say someone cleared the cemetery for the Watch. I thought about going to see my father, and then I didn't, but I thought about it, which is more than last month." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're half what you look like, you could walk me to my father's grave and back, and I'd owe you more than I could ever pay." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the woods, then, and you'll know there's nothing out there a man like me can face alone." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your people speak to the land, I've heard, so perhaps you'd know whether the dead in it are resting or not." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm not going anywhere, and I never am these days." },
@@ -1066,6 +1131,7 @@ P:NPC {
         { text = "What's out there besides the dead, Farrin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you like me to pray at your father's grave, Farrin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you walk out with me, if I kept the dead off you?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Your father lies near Raven Hill. Do you know if his grave is whole?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Take care of yourself, Farrin.", next = "END" },
       },
     },
@@ -1197,12 +1263,22 @@ P:NPC {
         { text = "Something else, Steven.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They smell the worgen long before we hear them, and they go stiff at the dead in a way they never do for wolves. The worst nights are when they go stiff and nothing comes, because then I don't know what they smelled." } },
+      choices = {
+        { text = "Keep them drilled and calm. Fear spreads through a stable.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Trust their senses over your own. They know this wood.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The animals settle a little when your sort walk through, and I've never worked out why." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your horse will be a well-bred sort, I'd guess, and well-bred horses hate this wood more than most." },
         { id = "h_default", text = "Steven Black, stable master. I keep your animals behind a stout fence and well away from the trees, which is more than I can do for the people." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your horse will thank me for the rest, I'd wager, since I doubt you ever let it stop long enough to drink." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The horses went to the back of their stalls when you came in, and the gryphons stretched their necks, so I'll let them argue about you." },
       },
       again = {
         { id = "h_again", text = "Anything else? The feed won't fork itself." },
@@ -1218,6 +1294,7 @@ P:NPC {
         { text = "Your animals don't like me.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the animals sense the dead in the woods, Steven?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Will a horse carry me through Duskwood at night, Steven?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do your animals sense in these woods that people don't?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

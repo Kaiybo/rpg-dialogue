@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only when it's used badly, which is more often than I'd like, because people buy cheap flux elsewhere. Good engineering makes a clean hole exactly where you want it and nowhere else." } },
+      choices = {
+        { text = "Careful work is the best anyone can ask for.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "No blast is ever clean. The land remembers every one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only in a charge, and only if you throw it first and run second, which is the order most warriors get wrong. I'd sell you a stick if you were an engineer, but you're not, so I'll sell you a whetstone and save us both the explosion." } },
@@ -96,6 +105,7 @@ P:NPC {
           text = "A warlock! I'll warn you that none of my parts are rated for fel energy, and I won't take them back if they melt." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want blasting powder, I imagine; everybody does, sooner or later." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've parts for rifle scopes in the back, and every one of them's been tested twice, like everything else here." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I don't suppose you'll be buying blasting powder, but you're welcome to look, as long as you don't shed on the flux." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a box of springs to count." },
@@ -112,6 +122,7 @@ P:NPC {
         { text = "Could a scope really improve my aim, Gearcutter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do many engineers come to you hurt, Gearcutter?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is honest work rarer than it should be, Gearcutter?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does all this blasting powder ever harm the land outside?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thanks, Gearcutter.", next = "END" },
       },
     },
@@ -181,6 +192,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Your people ride great cats and walk everywhere else, which makes you the most advanced civilisation I've met, technically. I'm not sure that's what you were aiming for, but I admire the result." } },
+      choices = {
+        { text = "Change for its own sake is wasted effort.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep inventing. Someone has to replace the wheel.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Legs! Mechanical legs, on carts and cannons and very possibly on soldiers, so that nothing ever gets stuck in the mud again. The current prototype only walks backwards, and it occasionally explodes, but the principle is sound." } },
@@ -250,6 +270,7 @@ P:NPC {
           text = "A warlock! I'd ask you not to summon anything near my prototypes, for the last one caught fire on its own and I don't need help." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Imagine a battlefield without wheels, with no carts and no chariots, only my marvellous replacement, which I'll describe if you've a minute." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've been studying how your beasts walk, you know, for my wheel replacement, and they've taught me a great deal." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Tell me, do your people use the wheel? Because I'm about to make it obsolete, and I'd hate for you to have invested heavily." },
       },
       again = {
         { id = "h_again", text = "More questions? Excellent, I love questions." },
@@ -267,6 +288,7 @@ P:NPC {
         { text = "What have hunters' beasts taught you, Springspindle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever worry your inventions might hurt someone, Springspindle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would a mechanical charger be as good as a living one?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do night elves even need the wheel, Springspindle?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },

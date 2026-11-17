@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Hunger at first, I'd say, but they've grown bold under Hogger and take more deer than they can eat. They leave the carcasses by the river, and the wolves follow the smell right up to my fence." } },
+      choices = {
+        { text = "Then Hogger must be stopped, for the forest's sake as well.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Let them waste the deer. Fewer deer means fewer wolves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -77,6 +86,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, and not from around here. Keep whatever that is away from my lads, because they're nervous enough with Hogger in the woods." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at Westbrook. The gnolls cross the river at night, and I could use someone who sees in the dark better than my lads." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you came in from the trees, not the road. That's a skill I'd sooner have on my side than out there with the gnolls." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I watch the road." },
@@ -94,6 +104,7 @@ P:NPC {
         { text = "Would you hire a rogue to deal with Hogger?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would a warlock's help with Hogger be welcome here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Where do the gnolls cross the river, Deputy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the gnolls hunt the forest out of hunger, or for sport?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck, deputy.", next = "END" },
       },
     },

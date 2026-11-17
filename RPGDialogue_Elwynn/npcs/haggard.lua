@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every winter, when the wolves came down hungry, and I lost more men to frostbite than to fangs. We never thought to ask the forest why, and maybe we should have, but soldiers don't ask questions of trees." } },
+      choices = {
+        { text = "A guard keeps the people safe first. You did right.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "You should have asked. Fighting the forest only feeds the wolves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Showing up, mostly, every watch and every bad night, without being asked twice. The ones who wanted glory didn't last, and the ones who wanted their mates to come home lasted forever, near enough." } },
@@ -111,6 +120,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "There's a hum in the air when you're near, like a hive. That'll be a mage, then, or else my ears are going the way of my eyes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few in the Guard, back when, for tracking deserters and gnolls. Handy folk, and quiet." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, by the sound of you, or rather by the lack of it. You walk quieter than any soldier I ever commanded." },
       },
       again = {
         { id = "h_again", text = "If you're still there, speak up, will you?" },
@@ -130,6 +140,7 @@ P:NPC {
         { text = "Did the Guard really use hunters for tracking?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is there anyone you'd like remembered in prayer, Haggard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What makes a good guardsman, Captain Haggard?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Did the Guard ever have to fight the beasts of this forest?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Rest easy, Marshal.", next = "END" },
       },
     },

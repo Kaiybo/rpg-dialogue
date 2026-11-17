@@ -77,6 +77,15 @@ P:NPC {
         { text = "What do tauren keep in their vaults?", next = "keep" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Less than most, though they keep a few seeds and old charms that came from Moonglade with their first teachers. When we wandered, that was how every tauren lived, and the druids remind me that a full vault is a fine thing but a healthy herd is better." } },
+      choices = {
+        { text = "A full vault keeps a family safe, and there's no shame in it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Carry little, and nothing can ever tie you down.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Chesmu, and I keep the vaults of Thunder Bluff. Whatever you leave here is safe until you return for it, and you may reach the same vault from any bank of the Horde." },
@@ -85,6 +94,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll have spare armour to store, I expect, because warriors always carry more than they can wear." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Hides and trophies go in the lower vaults, where the smell won't bother the other guests." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Welcome to the vault, friend, though I suspect the thing you value most can't be kept in a box." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. Hamuul's students keep very little in my vaults, because they say the plains hold everything they need, and I never know whether to admire that or worry." },
       },
       again = { { id = "h_again", text = "Is there something more you wanted to ask, friend? The vaults have waited this long, so they can wait a little longer." } },
       choices = {
@@ -98,6 +108,7 @@ P:NPC {
         { text = "Do mages keep anything strange in your vaults?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do warriors usually leave with you, Chesmu?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters keep their trophies here, Chesmu?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do druids really own nothing, Chesmu?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell, Chesmu.", next = "END" },
       },
     },
@@ -218,6 +229,15 @@ P:NPC {
         { text = "Where do the wind riders come from?", next = "beasts" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Hamuul's druids say every beast can feel the Earth Mother's balance in them, and a wind rider is only a beast with very large wings. I've also noticed the druids feed them better than the traders do, so I won't swear which reason matters more." } },
+      choices = {
+        { text = "Beasts know an honest heart, and that's reason enough.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A good meal buys any beast's trust. It's that simple.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Tal, and I keep the wind riders of Thunder Bluff. They will carry you to the Crossroads, Camp Taurajo, Sun Rock Retreat, or anywhere else the Horde keeps a roost you've visited." },
@@ -226,6 +246,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders will carry you wherever the Horde needs you, but hold on tight, because they don't slow down for armour." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My wind riders are beasts too, and they always know when a hunter is near; they lift their heads and watch." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the top of the tower. The wind up here hears a great many prayers from nervous riders, so you'll be in good company." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. The wind riders always settle when one of Hamuul's students is near, and I stopped asking why long ago, because I'm grateful for the quiet." },
       },
       again = { { id = "h_again", text = "Anything more? The wind won't wait forever." } },
       choices = {
@@ -239,6 +260,7 @@ P:NPC {
         { text = "Where do the wind riders take warriors, Tal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do you care for the wind riders, Tal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Will your wind riders carry a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why do the wind riders settle around druids, Tal?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell, Tal.", next = "END" },
       },
     },
@@ -486,6 +508,15 @@ P:NPC {
         { text = "Are you kin to Holt Thunderhorn?", next = "holt" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They did once, when a young druid followed my cousin home from near the Red Rocks and asked her which tree she'd taken. Now I gather only fallen wood along the shore of Stonebull Lake, and I swear the bows draw sweeter for it." } },
+      choices = {
+        { text = "The druids were right to set limits on the cutting.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A bowyer knows her wood. She shouldn't need anyone's leave.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Kuna Thunderhorn, and I sell bows, arrows and guns on Hunter Rise. The Thunderhorns have always been hunters, and somebody in the family had to make the bows instead of only using them." },
@@ -494,6 +525,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Hunter Rise? You'll be wanting a gun for when the centaur keep their distance, I'd wager." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! I can tell by the way you looked at my bows before you looked at me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on Hunter Rise! I've nothing on my rack for you, I'm afraid, though you're welcome to admire the wood." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! You won't need my bows once you're running with claws, but come and feel the wood anyway, because every stave on this rack came from a tree that fell on its own." },
       },
       again = { { id = "h_again", text = "Anything else? Take your time choosing; a bow is a long friendship." } },
       choices = {
@@ -507,6 +539,7 @@ P:NPC {
         { text = "Bows are clumsy. A wand fires just as true.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Should a warrior carry a bow, Kuna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What makes a Thunderhorn bow special, Kuna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do the druids mind you cutting wood for bows, Kuna?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -605,6 +638,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Fair to the fish, maybe, because a seal takes only what it can eat while a fisherman fills a whole basket. Turak's students swim in Stonebull Lake sometimes, and I've hooked more of them on my line than I'd like to admit." } },
+      choices = {
+        { text = "A fisherman's patience beats a seal's teeth. I'll use the line.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A catch is a catch, so I'll use whatever works.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Kah Mistrunner, and I teach fishing. It's a strange thing to teach on top of a mesa, I know, but the lakes of Mulgore are only a lift and a walk away." },
@@ -613,6 +655,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior who fishes? Don't laugh, because the best warriors I know are the ones who know how to wait." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know patience already, so you'll make a fine fisher, and the lakes of Mulgore are waiting." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, all the way up on a mesa! Sit a while, friend, for fishing is mostly waiting, and I hear prayer is much the same." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Someday you'll swim like a seal and catch fish with your teeth, and then I'll be out of work, so promise me you'll still use a line now and then." },
       },
       again = { { id = "h_again", text = "Something more? Fishing gives plenty of time for talking." } },
       choices = {
@@ -620,6 +663,7 @@ P:NPC {
         { text = "Why do you think the fish bite better after rain, Kah?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why would a warrior need to fish, Kah?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is fishing much like hunting, Kah?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Is it fair to fish as a seal, Kah?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's good fishing in Mulgore?", next = "where" },
         { text = "Why do tauren fish?", next = "why" },
@@ -741,6 +785,15 @@ P:NPC {
         { text = "Why does cooking matter so much?", next = "why" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Plainstrider, if you can catch one, and you'll catch more as a cat than any hunter will, but thank the bird before you roast it. Turak's druids live on roots and berries for days at a time, and then they come to me looking like hungry kodo." } },
+      choices = {
+        { text = "I'll thank every beast I take, as the old ways ask.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Food is food. I'll eat when I'm hungry and move on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Aska Mistrunner, and I teach cooking. A warrior who can cook eats well on the road and makes friends at every campfire, and those are both worth more than a sharper sword." },
@@ -749,6 +802,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll eat well if you learn to cook, and you'll make friends at every campfire, which is worth more than a sharp blade." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll bring me meat to cook, I hope, because a hunter's game makes the finest stew there is." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Look at you, all prayers and no supper; sit down, dear, before you fall over." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and thin as a reed, so sit down. You young ones run about the plains as cats and forget that even a cat needs feeding." },
       },
       again = { { id = "h_again", text = "What else, dear? Ask while the pot's still warm." } },
       choices = {
@@ -762,6 +816,7 @@ P:NPC {
         { text = "A rogue eats cold on the road, Aska.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why should a warrior learn to cook, Aska?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What's the best game to cook in Mulgore, Aska?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What should a druid cook out on the plains, Aska?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell, Aska.", next = "END" },
       },
     },
@@ -880,6 +935,15 @@ P:NPC {
         { text = "What potion should I learn first?", next = "first" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Someone should, and the druids on Elder Rise already do, though they're more polite about it than I am. Peacebloom and silverleaf were given to heal, and if the Forsaken are bending them to something else beside the Pools of Vision, the Earth Mother's own servants ought to be the first to know." } },
+      choices = {
+        { text = "Cairne let them stay, and I'll trust the chieftain's word.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Allies or not, I'll watch them myself and judge.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Bena Winterhoof, and I teach alchemy. The Earth Mother grows the herbs, and alchemy draws out what she put in them to heal and to strengthen, which is all it should be used for." },
@@ -888,6 +952,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want healing potions, I expect, because warriors always need more of them than they think." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know the herbs of the plains better than most, because you walk among them every day." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and a healer, I hope. I'll say plainly that I don't trust what the apothecaries brew on Spirit Rise, but anyone who mends is welcome at my table." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Then you know the herbs the way I do, as gifts, and you'll understand why I watch what the apothecaries on Spirit Rise do with them." },
       },
       again = { { id = "h_again", text = "Something else? Ask quickly, before this boils over." } },
       choices = {
@@ -901,6 +966,7 @@ P:NPC {
         { text = "Which potions should a warrior carry, Bena?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters bring you herbs, Bena?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Warlocks use reagents too, Bena. Any advice?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Should druids keep an eye on the apothecaries, Bena?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1161,6 +1227,15 @@ P:NPC {
         { text = "What's the best hide in Mulgore?", next = "best" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some of the young ones do, until they spend a winter in the high country and come back asking for a hide cloak. The old druids understand that the plains give and take, and so long as I waste nothing, Hamuul has never said a word against me." } },
+      choices = {
+        { text = "The old balance of giving and taking is the right one.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Each druid should judge that alone, not by the elders' say.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Una, and I teach leatherworking. Every hide that comes to me was a living beast, and I teach my students to use all of it and waste none, because that's how you honour what was given." },
@@ -1169,6 +1244,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leather armour won't stop an axe the way mail will, but a good leather jerkin under it will stop the chafing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and I can smell the hides in your pack from here. Let me see them, and I'll tell you which ones you've ruined." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my bench. Mind the hides, friend; they're drying, and I'd rather your robes stayed clean." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll wear the bear and the cat yourself before long, so I hope you'll think kindly of the beasts when you see what I do with their hides." },
       },
       again = { { id = "h_again", text = "Something else? Ask while I stitch." } },
       choices = {
@@ -1181,6 +1257,7 @@ P:NPC {
         { text = "Mages wear cloth, Una. Leather's too heavy.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do warriors wear leather, Una?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How should a hunter treat a hide, Una?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do the druids object to your work, Una?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell, Una.", next = "END" },
       },
     },

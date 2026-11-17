@@ -453,6 +453,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Yes, please, but a small bear, if you can, because Papa will hear if you knock anything over. Do bears have bad dreams too, or do they sleep all winter and only dream about honey?" } },
+      choices = {
+        { text = "Bears have bad dreams too, but they always wake up again.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Bears never have bad dreams. Nothing scares a bear.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I want to be a Sentinel and ride a nightsaber and fight the orcs, but Papa says I have to get better first. Did it hurt, the first time you got hit? I bet you didn't even cry." } },
@@ -533,6 +542,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Do you have a beast? Does it bite, or can I pet it, or will Papa get cross?" },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Are you a priest? Papa says priests make the bad dreams go away, but they always come back after." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "You've got so much armour! Are you a knight? Papa says knights help people, so you must help people too." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Are you a druid? Papa says druids can turn into a bear, and I've never seen it, but I promise I won't be scared." },
       },
       again = {
         { id = "h_again", text = "Are you still here? Good, then tell me something." },
@@ -550,6 +560,7 @@ P:NPC {
         { text = "Would you like to be a hunter when you're well, Relara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you like me to say a prayer for you, Relara?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'm a paladin, Relara. Do you know what that means?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would you like to see my bear form, Relara?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Get well soon.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -604,6 +615,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I do, though they are the hardest to keep, because they leave in one shape and come back in another. Two of the Circle went toward the Foulweald a month ago, and I have not crossed their names off yet." } },
+      choices = {
+        { text = "Fair enough. I'll tell you each time before I leave.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Druids go where the forest calls. Don't count on my word.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More of them than scholars, but fewer than I'd like, because warriors go looking for the Warsong instead of hiding from them. I cross off every name that comes back, and I'd very much like to cross off yours." } },
@@ -673,6 +693,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Write your name in my book before you go out on the roads, please, so I'll know where to look if you're late." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll know, then, why I keep a second list, the one of those who won't be coming back down the road." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You walk the roads armoured, which gives me some hope I won't be adding your name to my second list." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. You will walk paths I cannot follow, so tell me when you set out, and I will know where to look if you do not come back." },
       },
       again = {
         { id = "h_again", text = "What else? I've a list to keep." },
@@ -689,6 +710,7 @@ P:NPC {
         { text = "Do warriors make it back from the roads, Faldreas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you want a prayer said for the names on your list?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Which road needs a paladin's protection most?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you keep druids on your list as well, Faldreas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -922,6 +944,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I admire them, truly, because they heal the land as surely as we heal the wounded. But they speak of balance where I would speak of evil, and with the Dark Strand nesting in that tower, I'm not sure balance is what's called for." } },
+      choices = {
+        { text = "The balance is the law of the forest. Respect it here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Balance or not, I'll do whatever the moment needs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Someone to hold the tower stairs while my paladins clear the cultists room by room. The Dark Strand fight like cornered rats, and a warrior who holds the stairs is worth more to me than any blessing I could give." } },
@@ -988,6 +1019,7 @@ P:NPC {
           text = "A mage, out here in elf country, and that's a cheering sight! The Dark Strand work their spells in that old tower, and I'd welcome someone who understands how such magic thinks." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Light bless you, friend, for we've been short of strong arms since the Dark Strand dug in at the tower." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The Light welcomes you, and so do I, because there's a great deal of forest between us and that tower, and you'll know it better than my paladins." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've learned a good deal about your Circle since I came to Ashenvale, though I'll admit I still don't follow half of it." },
       },
       again = {
         { id = "h_again", text = "What else, friend? The cult won't wait on us." },
@@ -1004,6 +1036,7 @@ P:NPC {
         { text = "Is my magic so different from the Dark Strand's?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does Maestra's Post need from a warrior, Delgren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a hunter be of use against the Dark Strand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do you make of the Circle's ways, Delgren?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Light keep you.", next = "END", fx = { affinity = 1 } },
       },
     },

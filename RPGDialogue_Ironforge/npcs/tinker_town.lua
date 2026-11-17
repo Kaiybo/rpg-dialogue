@@ -262,6 +262,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Leper gnomes, sadly, who were our neighbours once and don't know us now, and some very unhappy machines. Nothing green grows down there anymore, and I doubt it will for a long time." } },
+      choices = {
+        { text = "Recover your data, then help the lepers too.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Take the data and seal the place. Some losses can't be mended.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because Gnomeregan is full of troggs, leper gnomes and malfunctioning machines, and all three object to us taking our data back. A warrior at the front of a team means the engineers can read their punch cards instead of running from things." } },
@@ -339,6 +348,7 @@ P:NPC {
           text = "A warlock! I won't lie, the procedure for a warlock on a Gnomeregan team is very complicated, and it's mostly about what to do if your demon gets irradiated." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Excellent, because my recovery teams keep asking for someone to stand at the front, and I keep having to volunteer engineers." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Good, because the outer tunnels of Gnomeregan need scouting, and my engineers keep walking into things." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! If you've come to help in Gnomeregan, the procedure is complicated, and I'm afraid the radiation won't care how natural you are." },
       },
       again = {
         { id = "h_again", text = "Questions? Ask them now, before you're in the city; there's no asking down there." },
@@ -357,6 +367,7 @@ P:NPC {
         { text = "What would a hunter scout in Gnomeregan's tunnels?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How many of your teams come back hurt, Castpipe?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you send a team down without a paladin, Castpipe?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is anything still living in Gnomeregan besides the troggs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll be back.", next = "END" },
       },
     },
@@ -474,6 +485,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The greatest invention of all, though I haven't quite worked out what that is yet. I'd make it light enough to carry and strong enough to outlast me, and if it could grow back when broken, like your trees, so much the better." } },
+      choices = {
+        { text = "Build it to last. That's a worthy dream.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Things that last forever crowd out whatever comes after.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a broken blade tells you exactly where the metal was weakest, and that tells me what not to put in my next alloy. Bring me the pieces after you've fought the troggs, and I'll make you something that won't break where the last one did." } },
@@ -551,6 +571,7 @@ P:NPC {
           text = "A mage! I've a theory that the right enchantment on the right metal could make an alloy stronger than mithril, and you might be the one to test it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll have broken a blade or two, I expect, and I'd very much like to see the pieces." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you know, I've been trying to make a lighter rifle barrel for years, and I keep making heavier ones." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I don't suppose the forests of Teldrassil hide any interesting metals? Even an odd sort of rock would do." },
       },
       again = {
         { id = "h_again", text = "What else? I've a crucible warming." },
@@ -568,6 +589,7 @@ P:NPC {
         { text = "Why do your rifle barrels keep getting heavier?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is the greatest invention worth all this searching, Klockmort?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should you test your alloys on living paladins, Klockmort?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you build if you found your perfect alloy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck with your quest.", next = "END" },
       },
     },
@@ -685,6 +707,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I blame the troggs, because they came up from the deep and took our city, and I blame the leak, because it took my hair. Mekkatorque says blame is a waste of time, and he's right, but it keeps me warm at night." } },
+      choices = {
+        { text = "Blame won't retake the city. Careful planning will.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Anger can be a weapon, Gnoarn. Keep it sharp.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "First clear the troggs from the outer levels, then secure the airlocks, then take back the city level by level, and I've drawn every step of it on very large paper. A warrior would be at the front of step one, which is the most glorious step, and also the most dangerous." } },
@@ -751,6 +782,7 @@ P:NPC {
           text = "A rogue! I've a few plans for Gnomeregan that need someone who can get in and out without being seen, if you're interested." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Splendid, for Gnomeregan will need soldiers when we march back in, and I'm the one who keeps the plans." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, for the troggs keep coming up out of the tunnels, and somebody needs to count them before I lose my temper again." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Gnomeregan needs every pair of hands it can get, paws included, and I mean that as a compliment." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? The troggs aren't resting, and neither am I." },
@@ -769,6 +801,7 @@ P:NPC {
         { text = "Where are the troggs coming up, Gnoarn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Can anything be done for the gnomes still sick from the leak?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What will the march on Gnomeregan need most, Gnoarn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you blame the troggs or the leak for Gnomeregan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "For Gnomeregan!", next = "END" },
       },
     },

@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.53.0 (2026-11-17)
+Packs: 18 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.53.0: /reload is enough if you have 0.39.0 or later.
+
+### Druids from level 1, and in every capital
+- **The starting lands notice druids**: about 490 named people greet a druid as one, with a question to ask and something to argue about. Alliance: Darnassus, Teldrassil, Darkshore, Stormwind, Elwynn, Ironforge and Dun Morogh, Loch Modan, Westfall, Redridge, Duskwood and the Wetlands. Horde: Orgrimmar, Durotar, the Barrens, Mulgore and Thunder Bluff. Ashenvale and Stonetalon have both.
+- Night elf druids hear about Teldrassil's sickness, the furbolgs and the Enclave; tauren druids about the Earth Mother, Hamuul's students, the Venture Co. and the drying Barrens. In the human and dwarven lands, people are curious or wary of a kaldorei who turns into a bear. Every person in Darnassus, Teldrassil, Mulgore and Thunder Bluff now has something for a druid.
+- Ratchet's goblins and a few neutral figures talk to either faction's druids; shady figures (Lescovar, the Slaughtered Lamb, Lady Prestor's circle) answer coldly. People who already had druid lines kept them.
+
 ## 0.52.0 (2026-11-17)
 Packs: Orgrimmar, Durotar, the Barrens, Mulgore, Thunder Bluff, Tirisfal, the Undercity and Silverpine have new versions. No new files in 0.52.0: /reload is enough if you have 0.39.0 or later.
 

@@ -402,6 +402,15 @@ P:NPC {
         { text = "I'd rather they knew who took it back.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 } } },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Both, if you can, though the ones that come at you with madness in their eyes are past healing for today. Protect the groves first and leave the curing to Athridas, because he has a better chance of it than either of us." } },
+      choices = {
+        { text = "I'll protect the groves first, as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I won't give up on a furbolg just because it attacks me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Good, for Dolanaar has had wounded enough since the Gnarlpine grew bold, and the Sentinels bring me more of them every week." },
@@ -416,6 +425,7 @@ P:NPC {
           text = "Lord Melenas is a satyr, and he has gathered grells in Fel Rock to the north. Deal with him quickly and quietly, bring me his head, and say nothing of it to anyone." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because the Gnarlpine have grown bold, and they listen to a blade sooner than to words." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Gnarlpine hunt my groves now, and I would like to see someone hunt them back." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A young druid, guarding the groves as you should. The Gnarlpine have grown bold this season, and I'm glad to see one of the Circle's own standing against it." },
       },
       again = {
         { id = "h_again", text = "Anything else, young one?" },
@@ -431,6 +441,7 @@ P:NPC {
         { text = "I'll protect the village.", next = "END", fx = { affinity = 2, standing = { dolanaar = 1 } } },
         { text = "Do you need a blade against the Gnarlpine, Tallonkai?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How have the Gnarlpine changed the hunting in these woods?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Should a druid fight the Gnarlpine, or try to heal them?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
       },
     },
     dreamcatcher = {
@@ -553,6 +564,15 @@ P:NPC {
         { text = "Dull orders are for other people.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It asks, and the Circle usually listens, because Darnassus and the Enclave need each other more than either will admit. A druid who heals the land and still answers a summons is worth three who only do one or the other." } },
+      choices = {
+        { text = "The Council should have my help whenever it asks.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A druid answers to the land, and not to any council.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The Council's orders are mostly for blades and bows, but there is always someone on the list who needs mending more than fighting." },
@@ -565,6 +585,7 @@ P:NPC {
           text = "Denalan studies Teldrassil's plants at Lake Al'Ameth. His rare earth from Darnassus came late. Take it to him, please." },
         { id = "h_sort", when = { metBefore = true }, text = "The Council sends more orders than Dolanaar has hands. I sort them by which ones get someone hurt if they wait." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Council always has more orders than hands, and hunters can carry the ones that lead into the deep wood." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Council of the Forest has work for the Circle's young as well as for the Sentinels, and I have more of it than I have druids to carry it." },
       },
       again = {
         { id = "h_again", text = "What else? There are always more orders." },
@@ -582,6 +603,7 @@ P:NPC {
         { text = "Have you any orders for someone discreet?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the Council have any work for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which of the Council's orders suit a hunter, Syral?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the Council give orders to druids too, Syral?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll help where I see a need, not where the Council points.", next = "END", fx = { align = { order = -1 } } },
       },
     },
@@ -711,6 +733,15 @@ P:NPC {
         { text = "What's on the road ahead?", next = "road" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Most of them, sooner or later, and a few stay longer than they meant to because the Gnarlpine trouble them more than they say. I don't ask why they look tired, but I keep the tea hot." } },
+      choices = {
+        { text = "The Gnarlpine trouble me too, and I won't pretend otherwise.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A druid should keep their worries and not burden your inn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest under my roof! The road from Shadowglen is kind, mostly, but now and then someone comes in limping, and it helps to have a healer near." },
@@ -724,6 +755,7 @@ P:NPC {
         { id = "h_corithras", when = { heardLine = "corithras.h_default" }, text = "Corithras and his wells. He tastes every one himself, you know, to find the trouble. I keep peppermint tea for him after." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Sit and take the armor off for an hour, because tea doesn't taste right through a helmet." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your companion is welcome by the fire, so long as it doesn't mind the other guests' boots." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Sit, and I'll bring you some tea, because the young ones from Shadowglen always arrive with that tired look that comes from listening to the forest too hard." },
       },
       again = {
         { id = "h_again", text = "Anything else I can do for you? There's tea, if you'd like some." },
@@ -738,6 +770,7 @@ P:NPC {
         { text = "I'll need a room away from the others.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the wounded often come to your inn, Keldamyr?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do your guests ever bring trouble to the inn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do many druids stop at your inn on the way to Darnassus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just rest, thank you.", next = "END" },
       },
     },
@@ -850,6 +883,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not so very different, though I build a fire and you'd rather not, because the Circle says even a small flame makes the young tree flinch. I keep mine small and put it out properly, and I'd like to think Teldrassil forgives me." } },
+      choices = {
+        { text = "The Circle is right, and a druid should sleep without fire.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A small, careful fire does the forest no harm.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Have you ever prayed under the open sky, with no roof between you and whatever's listening? It's the only way I'd do it." },
@@ -860,6 +902,7 @@ P:NPC {
           text = "Sit by the fire and stay there until you feel rested through. It comes slowly, then all at once." },
         { id = "h_stars", when = { metBefore = true }, text = "Last night I counted the stars through the leaves until I fell asleep, and I got to forty, which is further than usual." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll sleep in the wilds often enough on campaign, so you might as well learn to do it well." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll already know half of what I teach, since your kind sleep under the leaves as easily as most folk sleep in a bed." },
       },
       again = {
         { id = "h_again", text = "Anything else? The fire's still going, so there's no hurry." },
@@ -875,6 +918,7 @@ P:NPC {
         { text = "Can a warrior learn to sleep outdoors as you do?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you really prefer to pray under the canopy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can a paladin learn to camp in full armor?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is camping in the wild really so different from a druid's way?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
       },
     },

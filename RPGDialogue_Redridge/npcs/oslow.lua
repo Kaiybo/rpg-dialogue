@@ -92,6 +92,15 @@ P:NPC {
         { text = "Something else, Oslow.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Strong enough to stand, aye, but nothing's strong enough against catapults when nobody's guarding the far end. Give me a company of soldiers and one dry month, and I'll give Lakeshire a bridge that outlasts us all." } },
+      choices = {
+        { text = "The Marshal should send soldiers. Your crew shouldn't stand alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget soldiers. Build it quick, and rebuild when it falls.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Oslow's the name. I'm rebuilding the Everstill Bridge on schedule and under budget, before the rains, or that was the plan until the orcs had opinions." },
@@ -116,6 +125,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Keep that beast off my scaffolding, because the last dog that climbed it brought down a whole morning's work." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Unless you're carrying a hammer, keep walking, but if you're carrying a blessing, I'll take it for the crew." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Unless you're carrying a hammer, keep walking, though I'll make an exception for one who keeps orcs off my scaffolding." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Unless you can turn into something that carries stone, keep walking, because I've no time for sightseers, even tall ones." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask, by all means; the measuring line won't run off." },
@@ -136,6 +146,7 @@ P:NPC {
         { text = "I could put something in the water to frighten the orcs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does your crew ever ask for a blessing before work, Foreman?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the bridge worth the lives it's cost, Foreman?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Will the new bridge be strong enough to stand against the orcs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck with the rains.", next = "END" },
       },
     },

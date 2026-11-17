@@ -56,6 +56,15 @@ P:NPC {
         { text = "Something else, Felicia.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They're hill birds, bred under open sky, and this forest keeps the sun out from dawn to dusk, so they never properly wake up. They sleep badly too, because the wolves howl right under the roost." } },
+      choices = {
+        { text = "Keep them on their schedule. They'll adjust in time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fly them out to the open hills each week for the sun.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Say something soothing near the roosts, would you? The gryphons have heard nothing but wolves for weeks." },
@@ -64,6 +73,7 @@ P:NPC {
         { id = "h_cond", when = { class = "HUNTER" }, text = "A hunter, and with a beast at your side! Keep it close at night, friend; the worgen like nothing better than a stray pet." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The gryphons will carry you, but don't go waving that blade near them, because they're nervous enough with the wolves howling." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll know how a frightened animal behaves, so you'll understand why my gryphons are so jumpy tonight." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! My gryphons have perked up at you, which is more than they've done for anything since the last full moon." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds want their supper." },
@@ -77,6 +87,7 @@ P:NPC {
         { text = "Why do the wolves frighten the gryphons, Felicia?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your gryphons ever carry the dead home, Felicia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could your gryphons carry word to Stormwind faster than letters?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why do your gryphons hate Duskwood's dark so much?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thank you, Felicia.", next = "END" },
       },
     },
@@ -160,6 +171,15 @@ P:NPC {
         { text = "Something else, Gavin.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Claws against claws is a fair fight, and a fair fight against a worgen is one you'll lose, because they don't tire. A good axe ends it before it gets fair, and that's the only edge I sell." } },
+      choices = {
+        { text = "Then I'll fight fair, with my own claws, and win.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair is for tourney grounds. I'll take every edge.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've nothing for you but a knife to cut bread, though out here a knife's never the worst idea." },
@@ -168,6 +188,7 @@ P:NPC {
         { id = "h_cond", when = { class = "WARRIOR" }, text = "A warrior. Good. Commander Ebonlocke could use a dozen more of you, and I could use the custom." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because I sell blades to people who'll use them, and you look like you've used plenty." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want a good knife for skinning and a better one for the worg that's skinning you, and I've both." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll fight with claws and teeth, I suppose, and the worgen have both, yet they still lose to a good axe." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -181,6 +202,7 @@ P:NPC {
         { text = "Do you sell hunting knives, Gavin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the folk who buy your blades ever come back, Gavin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What weapon do you trust against the dead, Gavin?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Claws against claws seems fairer. Why should I want a blade?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

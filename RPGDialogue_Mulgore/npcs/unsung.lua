@@ -50,6 +50,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Less different than either would like, because the bear stands its ground for the cubs behind it, and so does a good brave. Gennia Runetotem tells her students the bear is patience with claws, and I have stolen that for my own lessons." } },
+      choices = {
+        { text = "The bear stands for the herd, never for its own glory.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A bear that waits too long gets nothing. Strike first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Harutt Thunderhorn, and I teach the young braves of Narache to stand firm. A tauren is strong from birth, but strength without patience only breaks things." },
@@ -57,6 +66,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You carry totems on your belt, young one, and that is a heavy load for a brave. Carry it as patiently as you would carry a spear." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter comes to the warrior's fire. Sit, and let me tell you why a hunter should stand as firm as any brave." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Strength without patience breaks things, and I am told that healing without patience breaks things too." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll wear the bear's shape before long, so come and watch my braves, because the bear is only truly strong when it knows when not to fight." },
       },
       choices = {
         { text = "Why should a hunter learn to stand firm, Harutt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -66,6 +76,7 @@ P:NPC {
         { text = "What dangers face the camp?", next = "danger" },
         { text = "Who else trains here?", next = "others" },
         { text = "Can a priest stand as firmly as a brave, Harutt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is a druid's bear any different from a warrior's strength?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell, Harutt.", next = "END" },
       },
       again = {
@@ -180,6 +191,15 @@ P:NPC {
         { text = "Who taught the tauren the shaman's way?", next = "tradition" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A shaman asks the elements and waits for their answer, but a druid becomes part of the wild and keeps its balance from within. The night elves taught Hamuul the druid's way, while the shaman's way is far older among the tauren, and I think the Earth Mother is glad to be heard either way." } },
+      choices = {
+        { text = "Each path should keep to its own teachers and its own ways.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the paths mingle, because the wild draws no such lines.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Meela Dawnstrider, and I teach the young shaman of Narache to hear the earth, fire, water and air. The elements are not tools, and the first lesson is learning to listen before you ask them for anything." },
@@ -187,6 +207,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The earth holds you up, though you may never have thanked it for that." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast hears the elements better than you do, so watch its ears when the wind changes." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The elements are quiet around you, as they are around anyone who listens to something they cannot hear, and I find I respect that." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. The elements and the wild are close cousins, so I'd ask you to listen as carefully as my shaman do, though your teachers on Elder Rise will tell you the same in other words." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "SHAMAN" } },
@@ -198,6 +219,7 @@ P:NPC {
         { text = "Should a warrior thank the elements, Meela?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What does my companion hear, Meela?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the elements and my prayers ever quarrel, Meela?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "How does a druid's path differ from a shaman's, Meela?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell, Meela.", next = "END" },
       },
       again = {
@@ -406,12 +428,22 @@ P:NPC {
         { text = "What threats does Mulgore face?", next = "threats" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Cairne gave his word to Thrall, and that word covers every tauren who can swing a claw or a club, druids as much as warriors. Some on Elder Rise think a druid belongs only to the wild, but the centaur in the Barrens never stop to ask what kind of tauren they're attacking." } },
+      choices = {
+        { text = "A druid serves the Horde and keeps Cairne's word.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A druid serves the wild first, and no banner after.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Krang Stonehoof, and I train the warriors of Bloodhoof Village. Since Cairne joined the Horde, our braves fight beside orcs and trolls, and they must learn to fight as well as any of them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? The orcs taught us that a shaman can fight as hard as any warrior, and I'll expect you to prove it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The orcs and trolls fight beside us now, and so must our hunters and warriors, so come and learn how a shield-wall works." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Horde's healers are one of the reasons I let my braves march beside orcs and trolls without fearing for their lives." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. I've seen Hamuul's students fight as bears at the edge of the Barrens, and I'll admit they held the line as well as any warrior of mine." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
@@ -422,6 +454,7 @@ P:NPC {
         { text = "Why should a hunter learn the shield-wall, Krang?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "A warlock fights for the Horde too, Krang.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do your warriors trust priests, Krang?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Should druids fight in the Horde's battles, Krang?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
       again = { { id = "h_again", text = "What else would you ask of an old warrior? Speak, and be quick about it." } },
@@ -529,6 +562,15 @@ P:NPC {
         { text = "Where does your wood and iron come from?", next = "materials" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because you'll spend half your life out of bear shape, and a Palemane gnoll won't wait politely while you change. Hamuul himself carries a staff nearly as tall as a kodo, so don't let any young druid tell you claws are enough." } },
+      choices = {
+        { text = "Claws or staff, I'll meet the gnolls head-on.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd rather the gnolls never saw me coming at all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Mahnott Roughwound, and I sell weapons to the braves of Bloodhoof. Most of what I have is heavy, because a tauren with a little dagger looks like a kodo wearing a hat." },
@@ -537,6 +579,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! At last, somebody who'll appreciate a proper weapon, heavy enough to fell a kodo in one swing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want something for close work, then, and I've axes light enough for a hunter's arm." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've no little daggers for you, I'm afraid, though I have a staff that would make a Palemane gnoll think twice about his life." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! You'll grow your own claws soon enough, but until then you'll want a good heavy staff, because a little one in your hands would look ridiculous." },
       },
       choices = {
         { text = "What weapon suits a shaman of the plains, Mahnott?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -548,6 +591,7 @@ P:NPC {
         { text = "What's the heaviest weapon you sell, Mahnott?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a hunter carry for close work, Mahnott?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why would a priest need a big weapon, Mahnott?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why would a druid need your weapons, Mahnott?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, or are you ready to buy something heavy?" } },
@@ -654,6 +698,15 @@ P:NPC {
         { text = "What's the news in the village?", next = "news" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Oh, I hope so, because the farmers have tried everything else. The goblins at the Venture mine grind up the hills and the wind carries the dust onto the wheat, and now the eastern fields look tired in a way no amount of rain seems to fix." } },
+      choices = {
+        { text = "The goblins must be driven from that mine for good.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The land heals in its own time, so let it be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Jhawna Oatwind, and I bake for Bloodhoof Village. The wheat comes from the farms around us, and if you have ever wondered why Mulgore smells so sweet in the morning, it's my ovens." },
@@ -661,6 +714,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You look like you've been living on jerky and pride, and that's no way for anyone to fight." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have plainstrider meat to trade, I hope, because I'd love to try a new pie." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! We bless the first loaf of every harvest to the Earth Mother, and I've always wondered whether your people bless their bread too." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Then you'll know whether the Earth Mother is happy with the wheat this year, because the Venture Company's dust keeps settling on the eastern farms and I can't tell anymore." },
       },
       choices = {
         { text = "Do the old songs over the wheat still matter, Jhawna?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -673,6 +727,7 @@ P:NPC {
         { text = "Do the braves eat your bread before battle, Jhawna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you bake with a hunter's game, Jhawna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would you want a blessing on your ovens, Jhawna?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could a druid help the eastern farms, Jhawna?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell, Jhawna.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, little one? The ovens are warm, and so am I." } },

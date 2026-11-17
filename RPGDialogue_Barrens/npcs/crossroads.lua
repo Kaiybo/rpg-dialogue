@@ -81,6 +81,15 @@ P:NPC {
         { text = "What's the hardest part of holding the Crossroads?", next = "hardest" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The tauren blame the druids who went down into the Wailing Caverns, and they say their magic has twisted the water underground. I don't know druid business, but I know the oases are shrinking and the Kolkar fight harder over each one, so whatever's wrong, I need it fixed." } },
+      choices = {
+        { text = "Hold the oases first. We can mend the land once they're ours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fix the caverns first, or there'll be no water left to hold.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -94,11 +103,13 @@ P:NPC {
         { id = "h_mankrik", when = { heardLine = "mankrik.h_default" },
           text = "So Mankrik told you his story. I'm sorry for his loss, but I won't send soldiers to die for a man who can't see past his anger. Someone has to say no." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Crossroads. Good, because the Barrens are dry as bone, and if you can find water where my scouts can't, you're worth three grunts on my wall." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at the Crossroads. The Barrens are drying out faster every season, and if your kind can tell me why, you'll do more good than a dozen grunts on my wall." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Barrens is all open ground, and I need someone who can see the Kolkar coming before they reach my wall." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Crossroads sends more wounded back through that gate than I have beds for, so you'll find work here if you want it." },
       },
       choices = {
         { text = "Do you need the spirits' help to hold the Crossroads?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why are the Barrens drying out, Thork?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What's the hardest part of holding the Crossroads?", next = "hardest" },
         { text = "What threatens the Crossroads?", next = "threats" },
         { text = "I work from the shadows, Thork. Is there a use for that here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -242,6 +253,15 @@ P:NPC {
         { text = "Why do some orcs resent you?", next = "resent" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Tamed, no, and I'd be sorry to see it, because a land that bites back keeps the Horde sharp. But it can be lived in, if you learn where the water is and who else is drinking from it, and that's what I send people out to learn." } },
+      choices = {
+        { text = "The Horde should bring order to these plains, wall by wall.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave the Barrens wild. That's what makes it worth living in.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -257,11 +277,13 @@ P:NPC {
         { id = "h_jorn", when = { questActive = TODO_QUEST("Jorn Skyseer") },
           text = "Go and see Jorn Skyseer at Camp Taurajo. He'll teach you things about the Barrens that I never could. Tauren listen to the land better than orcs." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here where the land's still wild! Then you'll feel what I feel, that the Barrens are a test and the spirits are watching to see who passes." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, out in the Barrens! Then you'll know this land better than any orc, so tell me whether it's really dying or only testing us." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Thork will want you on the wall, but I'll want you past it, out where the Barrens bites back." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, then! Good, because half the people I send past the walls come back needing one, and the other half don't come back at all." },
       },
       choices = {
         { text = "Do you really think the spirits test us, Sergra?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you think the Barrens can be tamed, Sergra?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Why do some orcs resent you?", next = "resent" },
         { text = "What does the Barrens need?", next = "need" },
         { text = "My beast and I are ready to hunt.", next = "hunter", when = { class = "HUNTER" } },
@@ -402,6 +424,15 @@ P:NPC {
         { text = "Who was the tauren who found you?", next = "tauren" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I asked, and they told me the land would give her back to me in its own time. I don't want the land's time, I want my wife, and if I have to kill every quilboar between here and Thousand Needles to find her, I will." } },
+      choices = {
+        { text = "Find her and honour her. Vengeance won't bring her back.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The quilboar earned your vengeance. Take every bit of it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -413,11 +444,13 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "You came back, and you didn't have to. Olgra would have liked you, I think, and she didn't like many people." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You talk to the dead, they say, so if Olgra's spirit has crossed your path out in the grass, I need to hear it, whatever she said." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You've the eyes of someone who knows the grass, so if you've seen tracks out there that might be Olgra's, I need to hear it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Olgra could track a quilboar across bare rock, and she taught me a little of it before... well, before." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you've come to tell me Olgra's spirit is at peace, save your breath, because I'll believe that when I've seen what the quilboar did to her." },
       },
       choices = {
         { text = "Do you want me to listen for Olgra's spirit?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Have you asked the tauren druids to help search, Mankrik?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Tell me about Olgra.", next = "olgra" },
         { text = "Revenge won't bring her back.", next = "revenge" },
         { text = "I fight with an axe too. Tell me how she fought.", next = "warrior", when = { class = "WARRIOR" } },
@@ -729,6 +762,15 @@ P:NPC {
         { text = "Does the Society send you word from Undercity?", next = "forsaken" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Remedies, mostly, and a better understanding of what grows in dry country, which the Society finds very useful. I won't pretend every tincture I brew is meant to heal, but the Warchief has seen our reports, and he hasn't complained." } },
+      choices = {
+        { text = "Plants taken for healing are well taken. Poisons are not.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Remedy or poison, knowledge is knowledge. I'd study it too.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "The name is Helbrim, of the Royal Apothecary Society. The Society sent me to see what grows out here that might be useful, and a great deal does, it turns out." },
@@ -739,12 +781,14 @@ P:NPC {
         { id = "h_dizzywig", when = { questActive = TODO_QUEST("Wharfmaster Dizzywig") },
           text = "Dizzywig at Ratchet is to have this delivery. The goblins will move anything for the right price, and some of my shipments need moving very discreetly." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. I doubt I have a spirit left worth speaking to, so don't trouble yourself, though I confess I'm curious what the elements make of a man like me." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll disapprove of my work, I imagine, since I take the Barrens' plants apart to see what's inside, and your kind prefer them whole." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. How useful; the Society's samples have a habit of biting back, and I've only these thin old arms to defend them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know where the serpents and spiders of the Barrens nest, then, which is more than I do." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Ah, a priest. If you're one of the Forgotten Shadow, we're practically colleagues, but if you still pray to the Light, I'd rather not hear about it while I'm working." },
       },
       choices = {
         { text = "Why would an apothecary care what the elements think?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What does the Society really want with the Barrens' plants?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What are you studying?", next = "study" },
         { text = "Does the Society send you word from Undercity?", next = "forsaken", when = { race = "Scourge" } },
         { text = "My people make medicine from these plants too.", next = "troll", when = { race = "Troll" } },
@@ -880,6 +924,15 @@ P:NPC {
         { text = "Are you really the best around?", next = "best" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not a chance, though I'll admit I've lost a harpy or two to a lion that got there first. The difference is that the lion eats what it kills and I get paid for it, which is the more civilised arrangement, if you ask me." } },
+      choices = {
+        { text = "I'd rather face my prey than knife it from the grass.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Strike unseen and get paid for it. That's sensible work.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -893,12 +946,14 @@ P:NPC {
         { id = "h_jinzil", when = { questActive = TODO_QUEST("Letter to Jin'Zil") },
           text = "This letter goes to my old friend Jin'Zil, a witch doctor out in Stonetalon, and he'll have a use for you. Don't read it; he'll know." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Nice trick with the lightning, but I've killed more harpies with one knife than most shamans have with a whole storm." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, eh? I hear you can turn into a cat and creep up on people, which is cute, but I was doing it before you'd grown your first claw." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, eh? Loud, slow and very good at getting hit, which is exactly what I need standing in front of me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Nobody sneaks up on Darsok, and that includes your beast, so don't let it try." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Patch up my clients' victims and I'll be out of business, so do us both a favour and only heal the people who pay me." },
       },
       choices = {
         { text = "Have you ever fought beside a shaman, Darsok?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could a cat outstalk you in the grass, Darsok?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Are you really the best?", next = "best" },
         { text = "I'm a blade too. Teach me something.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You know Jin'Zil? He's Darkspear, like me.", next = "troll", when = { race = "Troll" } },
@@ -1010,6 +1065,15 @@ P:NPC {
         { text = "How did you lose that finger?", next = "finger" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Plainstrider mostly, kodo when the herders sell me an old one, and zhevra when the hunters bring it in. Nobody goes hungry at the Crossroads while I've a cleaver, and I've never taken more than the herds could spare." } },
+      choices = {
+        { text = "Taking only what's needed honours the herds. Keep doing that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The plains are full of game. Take all you can sell.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Zargh, and I'm the butcher. I sell meat to everyone who passes through the Crossroads, which is everyone, so business is good. Everything else is the Barrens." },
@@ -1019,11 +1083,13 @@ P:NPC {
           text = "She liked them, she actually said that? Good, good! If there's a wedding you're invited, but I'm only saying if, mind; I'm not saying there's a wedding." },
         { id = "h_bones", when = { metBefore = true }, text = "Gryshka sent back the bones, picked clean. I don't know what that means, but I've decided it's a good sign." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits know anything about, well, matters of the heart? Never mind, forget I asked, and buy some meat." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I'll not ask how you feel about the meat, because the last druid who came by gave me a very long look, and I've been selling less plainstrider since." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll be wanting meat, and plenty of it, because nobody eats like a grunt back from the Kolkar camps." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Do your lot eat meat like the rest of us, or is it all prayers and broth where you come from?" },
       },
       choices = {
         { text = "Do you want the spirits' advice about Gryshka, Zargh?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Where does the Crossroads' meat come from, Zargh?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What happened to your finger?", next = "finger" },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "I hunt the plains. Want what I bring back?", next = "hunter", when = { class = "HUNTER" } },
@@ -1145,6 +1211,15 @@ P:NPC {
         { text = "Any news from the road, Boorand?", next = "news" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It worries everyone, though most try not to say so over supper. The herders talk about the druids lost in the Wailing Caverns and the grunts talk about the Kolkar at the oases, and I keep the stew hot because I can't do anything about either." } },
+      choices = {
+        { text = "The Horde should guard every oasis until the rains return.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No one should own the water. Let everyone drink freely.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Boorand Plainswind is my name, and I keep the inn at the Crossroads. Orcs, trolls, tauren, the odd Forsaken: they all sleep the same once they're tired enough." },
@@ -1153,12 +1228,14 @@ P:NPC {
         { id = "h_roof", when = { metBefore = true }, text = "A goblin from Ratchet stayed three nights and tried to sell me a better roof. This roof is fine; it has holes, and that's how the stars get in." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night at the Crossroads is never quiet. Riders coming in, wind riders grumbling on the tower. I'd miss it if it stopped." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman under my roof, and under the holes in it. The Earth Mother sends rain through them now and then, but she sends the stars through more often, so I've never patched a single one." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid under my roof! The stars come in through the holes, and the rain too when the Earth Mother remembers us, so you'll feel right at home." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you've got the walk of somebody who's spent all day fighting centaur. Sit, friend, before your legs decide it for you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Mind your beast on the stairs, because the last one knocked over a tauren and he wasn't happy about it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest under my leaky roof! Sit by the fire, and if any of the grunts by the door start groaning in their sleep, you'll know what to do better than I would." },
       },
       choices = {
         { text = "Do the spirits of the Barrens speak to you, Boorand?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does the drought worry the folk who stay here, Boorand?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Any news?", next = "news" },
         { text = "I don't really sleep anymore, Boorand.", next = "forsaken", when = { race = "Scourge" } },

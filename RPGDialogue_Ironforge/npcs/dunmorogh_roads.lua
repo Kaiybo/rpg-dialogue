@@ -20,6 +20,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Great broad prints in the snow, wider than my hand, an' a smell like wet fur an' old meat. My da would've said yeti, but whatever it is, it's hungry, an' it's lost its fear o' the ranch." } },
+      choices = {
+        { text = "Drive it back to the hills. It's only hungry.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Kill it before it takes another ram.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Somethin' big from the high snows, an' Tundra MacGrann swears it's a yeti, though he swears a lot o' things. It comes at night, takes one ram an' leaves the rest screamin', an' I've a ranch tae run in the mornin'." } },
@@ -80,6 +89,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, an' I'll ask ye tae keep yer fire away from the rams. They've no' forgotten the last one who blinked in front o' them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! I've no' slept right in a week, but I'd sleep a deal better wi' an axe standin' by the pen." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' just when I need one. Somethin' big's comin' down from the hills for my rams, an' I wondered if yer kind could tell me what." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The feed won't spread itself." },
@@ -95,6 +105,7 @@ P:NPC {
         { text = "What's been coming down to take your rams, Rudra?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How are your herdsmen holding up, Rudra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's taking your rams, and when does it hunt?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What kind of tracks has the beast left near your rams?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day to you.", next = "END" },
       },
     },
@@ -161,6 +172,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nothin' I thought he'd want, only cheese an' dried meat an' a jar o' honey I was savin'. Aye, the honey, I ken, I ken, an' I've been callin' myself a fool about it since." } },
+      choices = {
+        { text = "Leave the bear be. It was your mistake, not his.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Get your stash back. A bear can learn to fear a camp.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A great black brute that's been raidin' camps up here all winter, an' he's meaner than any trogg I've met. Mind his claws, let him come tae ye, an' dinnae turn yer back while ye're liftin' my sack." } },
@@ -234,6 +254,7 @@ P:NPC {
           text = "Ye've a warlock's look, an' the snow's gone grey where ye stood. I'll no' ask, if ye'll no' tell." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? Ye'd be just the thing for a great black bear, if ye're no' too proud tae fight one for a sack o' food." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now ye're the very one I need, for that bear's got my stash, an' ye'll know how tae follow him." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll know bears, then, an' ye might tell me why a great black one would want my smoked cheese." },
       },
       again = {
         { id = "h_again", text = "Somethin' else on yer mind? I've nowhere to be." },
@@ -250,6 +271,7 @@ P:NPC {
         { text = "Which way did the bear go with your stash?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever get lonely out here in the snows, Tundra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does a thieving bear deserve to die for stealing food?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What did you leave out that a bear would want?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell, Tundra.", next = "END" },
       },
     },
@@ -316,6 +338,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Constantly, because the gryphons sulk for an hour whenever I start the engine. I keep telling them it isn't a contest, but they've decided it is, and frankly they're winning." } },
+      choices = {
+        { text = "The sky is the birds' home. Fly gently in it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The sky belongs to whoever can reach it.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The boars and wolves round the depot, mostly, for they've been helping themselves to the stores, and the flier runs on oil but the pilot runs on stew. A warrior could clear them off long enough for me to finish loading, and I'd be ever so grateful." } },
@@ -389,6 +420,7 @@ P:NPC {
           text = "A mage! I've always wondered whether arcane power could drive a flier, and I'd very much like you to tell me it can." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Splendid, because the depot's larder is empty and the beasts outside are not, and I'm terribly busy with my flier." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Oh, perfect, because I need meat for a long trip, and you can get it faster than the depot's cook can find his spoon." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've heard you can turn into a bear, and I'm deeply curious whether a bear would fit in my cockpit." },
       },
       again = {
         { id = "h_again", text = "Something else? Quickly, quickly, the engine's warm!" },
@@ -405,6 +437,7 @@ P:NPC {
         { text = "What meat do you need for your trip, Pilot?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you really want a prayer said over your flier?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the depot safe out here, pilot?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does your machine ever frighten the birds, Pilot?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Safe flying.", next = "END" },
       },
     },
@@ -463,6 +496,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They frighten everythin' for a mile, an' then everythin' comes back, for the hills are stubborn. A good shot's quick an' clean, which is kinder than a bad arrow, whatever an elf might tell ye." } },
+      choices = {
+        { text = "A clean kill is kinder. I'll grant you that much.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The hills were quieter before gunpowder ever came to them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Aye, an' I'll tell ye why: a Frostmane troll wi' a spear can hit ye from twenty paces, an' yer axe cannae. A wee blunderbuss on yer back, an' ye can answer him before ye close the distance." } },
@@ -521,6 +563,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock buyin' a gun? That's a new one, though I'll sell tae anyone wi' coin an' sense." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll swear by yer axe, I've no doubt, but there's no shame in a gun for the troll that's too far tae reach." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've heard yer kind don't care for guns, an' I'll no' take it personal if ye don't buy one." },
       },
       again = {
         { id = "h_again", text = "What else? I've a rifle to oil." },
@@ -534,6 +577,7 @@ P:NPC {
         { text = "Should a warrior carry a gun as well, Hegnar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Should a priest carry a gun, Hegnar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it honourable to shoot a foe from a ridge?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your guns ever frighten the wildlife away for good?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just looking, thanks.", next = "END" },
       },
     },

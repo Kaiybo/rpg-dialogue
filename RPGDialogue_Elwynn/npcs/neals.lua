@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It did, before the Defias took the vineyard, and now I'm pouring the last of the good years one careful cup at a time. I've noted it in the tally under hardship, though I confess the tally is mostly me." } },
+      choices = {
+        { text = "Save the last casks for the Brothers who've earned them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pour freely, Brother. Wine's for drinking, not hoarding.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Bread and water, officially, and a modest selection of the vintage for our guests, also officially. The recruits who survive the kobolds sometimes earn a cup, and I see that they get one." } },
@@ -89,6 +98,7 @@ P:NPC {
           text = "You've come from the graveyard, friend, I can smell it, and the brothers don't like La Salle's students in the cellars." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my cellar! Do mind the barrels, friend; each one is accounted for, and you are not." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please, your animal stays on the stairs; it has been known for creatures to discover the cheese." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in the Abbey's cellars, and welcome, friend! We've wine, cheese and a fair amount of quiet, though the wolves took one of the cheeses." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? The bells won't ring for an hour." },
@@ -104,6 +114,7 @@ P:NPC {
         { text = "Why do the brothers mind warlocks near the wine?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do the Abbey's cellars hold that a warrior would want?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have animals been at the Abbey's stores, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the Abbey make its wine from its own grapes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just paying my respects.", next = "END" },
       },
     },

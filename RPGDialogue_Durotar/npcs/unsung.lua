@@ -81,6 +81,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I'd like nothing better, so long as you remember they're recruits and not quilboar. Knock them down hard enough to teach them something and gently enough that Ken'jai doesn't come shouting at me." } },
+      choices = {
+        { text = "I'll fight them fairly, and they'll learn something honest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll fight them the way the quilboar will. That's the real lesson.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Stand back from the ring, then, because my recruits will want to show off for you, and you'll be busy soon enough." },
@@ -88,6 +97,7 @@ P:NPC {
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back from the valley, are you? Tell me what the quilboar taught you today, and then I will teach you something they cannot." },
         { id = "h_low", when = { maxLevel = 5 }, text = "You are greener than a cactus apple, but everyone starts green. The trick is not to stay that way, so get out there and come back hurt." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in my Den! Good, because when my recruits fall down you can tell the earth to hold them up, and save me some shouting." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in my Den! Good, because a recruit who's been knocked down by a bear learns to get up faster than one who's only been knocked down by me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Rogue. I teach shoulder to shoulder and never turning your back, so you'll find little here for you except a sore lesson." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I've seen the scars the Blade's demons leave on recruits, and I've buried two of them this season." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in my training ground. Your beast can sit by the wall, and you can stand with my recruits, because it won't hurt you to learn to take a hit." },
@@ -95,6 +105,7 @@ P:NPC {
       choices = {
         { text = "Do your recruits ever thank the priests for mending them?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warriors and shamans fight well together, Frang?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Would you want a bear to spar with your recruits, Frang?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "What does a warrior learn first?", next = "first" },
         { text = "Who else trains in the Den?", next = "den" },
@@ -218,11 +229,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not so different, mon, because both of us be asking somethin' bigger to fix what got broke. You ask the land and the beasts and I ask the loa, and as long as the recruit get up, I don't think either one be jealous." } },
+      choices = {
+        { text = "Healers should work together, whatever power they draw on.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My craft is my own, and I keep it apart from priests.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Ken'jai, and I teach the priests of the Den to mend what the warriors break. Frang hits them, I fix them, and between us the young ones learn something." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "Every priest who come back from the valley a little stronger make Ken'jai proud, mon. What you need to learn today?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The spirits and the Loa be cousins, mon, so you and Ken'jai already be family of a sort." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, mon! You mend the body with green magic and I mend it with the loa's blessing, so come and help me with Frang's recruits whenever you like." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, mon! You can make the fire, and I can mend the burns, so between us the young ones will learn quick." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, you come to a priest's hut. Either you be very brave or you be very hurt, and I hope it be the second." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Frang send you over to get patched up again, or did you come on your own feet this time?" },
@@ -230,6 +251,7 @@ P:NPC {
       },
       choices = {
         { text = "Do your Loa and my elements ever disagree, Ken'jai?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Is green magic so different from a priest's, Ken'jai?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Where does your healing come from?", next = "power" },
         { text = "What's a troll doing in an orc valley?", next = "troll" },
@@ -360,11 +382,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some could, in a kinder place, but Durotar's springs are few and the Burning Blade have fouled at least one of them. Take the waterskin, and if you find a clean spring the grunts don't know about, tell me where it is." } },
+      choices = {
+        { text = "I'll take the waterskin. Better prepared than proud.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll trust the land. A druid shouldn't need a merchant's waterskin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Then you'll want bandages and clean water, because prayers go further when the wound's been washed." },
         { id = "h_default", key = true, text = "I am Duokna, and I keep the goods for the Den. Most of the young ones walk in with an axe and nothing else, so I make sure they walk out with a waterskin." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems are heavy, so I'll ask you what I ask everyone, which is whether you remembered to carry water as well." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll tell me you can live off the land, I suppose, and I'll tell you that Durotar's land is mostly rock, so take a waterskin anyway." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my shop. Count your goods, Duokna, I always say to myself, and I'm saying it now." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage? You can conjure water, so you're the one recruit who won't need my waterskins. Shame, they're good waterskins." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Let me guess: you've got an axe and nothing else, and you want to know why you're always thirsty." },
@@ -373,6 +405,7 @@ P:NPC {
       choices = {
         { text = "Do you keep supplies aside for healers, Duokna?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do shamans usually forget to carry?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Can't a druid live off the land out there, Duokna?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "What should a recruit carry?", next = "carry" },
         { text = "Where do your goods come from?", next = "supply" },
@@ -496,11 +529,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "You'll need one when you're on two legs and out of breath, which happens more than any druid will admit. A good mace has saved more of your kind than will ever thank me for it, so buy one and don't tell the others." } },
+      choices = {
+        { text = "The Kul Tirans deserve a fair fight, steel against steel.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Kul Tirans deserve nothing. I'll use whatever kills fastest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll be wanting a mace, then, because I've never sold a priest a sword who didn't regret it." },
         { id = "h_default", key = true, text = "I am Uhgar, and I sell weapons to the grunts of Razor Hill and anyone else with coin. Durotar is a hard place, and you will want something better than a training axe before you leave town." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, so you'll want a mace or an axe and not some little dagger. The spirits respect a weapon with weight behind it, or so the old shamans told me." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in a weapon shop. You'll want a staff or a mace, then, and something heavy enough that the Kul Tirans notice it before they notice the claws." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in a weapon shop. You'll be after a staff, then, and I'll find you one that won't snap on a quilboar's head." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I'll sell you a dagger, but I'll not put a curse on it, and I'll not buy back anything that whispers." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Put that training axe down before you embarrass us both, and let me show you something with an edge." },
@@ -509,6 +552,7 @@ P:NPC {
       choices = {
         { text = "Why are priests so fond of maces, Uhgar?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What weapon suits a shaman, Uhgar?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does a druid even need your weapons, Uhgar?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What do you recommend?", next = "advice" },
         { text = "Who are Razor Hill's enemies?", next = "enemies" },
@@ -761,11 +805,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A cat already knows most of what I teach, which is to wait, to watch and to strike once. What I could teach you is the part that comes after, knowing when to keep your mouth shut, and that's harder for most folk than the killing." } },
+      choices = {
+        { text = "I'd rather strike openly, where the enemy can see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Waiting in the dark and striking once suits me well enough.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, down here in the dark. You'll fit in better than you'd like to think, because the shadow you pray in is the same one I work in." },
         { id = "h_default", key = true, text = "Name's Kaplak, and I teach the quiet arts to those who have the stomach for them. The grunts upstairs fight in the open, but somebody has to handle the work that happens in the dark." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, down in my burrow. Keep your thunder to yourself, friend, because the grunts upstairs don't need to know what goes on down here." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, down in my burrow, and quieter than most of my students. I hear your kind can walk as a cat, so you'll forgive me if I keep one eye on the shadows while we talk." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, down in my burrow? You're the last person I expected, because your kind glow too much to hide." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, down in the burrow. Your imp's light is giving away my hiding place, so put it out or take it outside." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, all noise and steel. The grunts upstairs could use you more than I can, though I'll admit you'd make a fine distraction." },
@@ -774,6 +828,7 @@ P:NPC {
       choices = {
         { text = "Do your rogues ever need a priest, Kaplak?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do shamans have any use for the quiet arts?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could a druid learn something from your quiet arts, Kaplak?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Why train down in a burrow?", next = "burrow" },
         { text = "What work happens in the dark?", next = "work" },
@@ -880,10 +935,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every day, mon, because I grew up with the sea in my ears and the smell of jungle rain. But the grunts here need mendin' more than I need the sea, so I stay, and I dream of the waves when I sleep." } },
+      choices = {
+        { text = "Duty keeps you here, and that's worth more than the sea.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your heart belongs by the sea. You should follow it home.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Tai'jin, and I teach the priests of Razor Hill when they come through. The grunts here get cut up by quilboar and Kul Tirans, so my hands stay busy even when the students be few." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and you be welcome here, mon. Back home in Sen'jin the shamans and the witch doctors argue all night, but they always share the fire." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, mon, all the way out here in the red dust! The grunts be cut up somethin' fierce this week, so if you got green magic to spare, I be glad of it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You be the quiet one, mon, and I see the cut on your arm you trying to hide. Come here and let me look at it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Un'Thuwa's student, are you? He sends me the ones who burn their own fingers, so I hope you be more careful." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Hold still while I look at you, because the grunts here never tell me when they be bleedin'." },
@@ -891,6 +956,7 @@ P:NPC {
       },
       choices = {
         { text = "How do Darkspear shamans differ from the orcs'?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does Durotar's dry land ever wear on you, Tai'jin?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Are you from Sen'jin Village?", next = "senjin" },
         { text = "What do the grunts think of a troll healer?", next = "grunts" },
@@ -1017,11 +1083,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Used carelessly it does, mon, and the elves found that out the hard way long before any troll learned a spell. That be why I teach my students slowly, though they always want the fireball before they learn to put it out." } },
+      choices = {
+        { text = "Slow and careful is the right way to teach any power.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Power should be used freely. Let the students learn by burning.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, mon. The loa and the arcane don't talk much, but I be curious what yours say to you." },
         { id = "h_default", key = true, text = "I be Un'Thuwa, and I teach the arcane to trolls, and to orcs brave enough to try it. Most of the village fish or fight, but there be a few of us who rather study." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, come to see a troll do magic the hard way. You ask the elements for help and I make them listen, so let's not argue about which be better." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, mon, in my hut. You bend your own body and I bend the arcane, and I be curious which of us has the harder time keepin' our shape." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my hut! You can't learn from me, mon, but you be welcome to admire the books, as long as you don't pocket any." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I teach the arcane, warlock, and I don't touch what you touch. Keep that imp out of my hut, please, because it be eyeing my scrolls." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, in the mage's hut. You lost, or you come to see what real power look like?" },
@@ -1030,6 +1106,7 @@ P:NPC {
       choices = {
         { text = "Do the arcane and the loa ever work together, Un'Thuwa?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is the arcane any safer than what the spirits give?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you think arcane magic harms the land, Un'Thuwa?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Where did a Darkspear learn magic?", next = "learn" },
         { text = "What does the village think of mages?", next = "village" },

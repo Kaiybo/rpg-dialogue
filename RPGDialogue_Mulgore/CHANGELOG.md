@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.14.0 (2026-11-17)
+- Druids are noticed: 12 people greet a druid as one, with a question to ask and something to argue about. No new files. Needs RPG Dialogue 0.53.0.
+
 ## 1.13.0 (2026-11-17)
 - Troll and Forsaken priests are noticed: 20 people greet a Horde priest as one, with a question to ask and something to argue about. No new files. Needs RPG Dialogue 0.52.0.
 

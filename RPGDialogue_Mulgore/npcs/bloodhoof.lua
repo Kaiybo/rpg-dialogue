@@ -419,6 +419,15 @@ P:NPC {
         { text = "Why keep watch on the sky?", next = "sky" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "You could ask, but I suspect they'd blame the Windfury harpies, the same as I do, because the harpies have pushed every swoop off their ridge and down onto our fields. The druids tell me the plains keep their own balance, and I'm an old sky-watcher who isn't sure the plains have heard about harpies." } },
+      choices = {
+        { text = "Bloodhoof's fields come first, so we keep the swoops in check.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The plains will find their own balance without our hand on it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -431,6 +440,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Then you'll know the wind is turning before my knees do, and I'd thank you to tell me when." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a tall one. Watch the skies, because the swoops dive at anything that stands still long enough on the plains." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! My knees say rain is coming, and my eyes say a priest of the Horde has come, and I'm only certain about the knees." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, is it? Hamuul's students say they can hear what the birds are saying, so ask the swoops for me why there are so many of them this year." },
       },
       choices = {
         { text = "Why watch the sky?", next = "sky" },
@@ -440,6 +450,7 @@ P:NPC {
         { text = "I could bring down those swoops with frost.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Are the swoops a real danger, Harken?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Shall I see to those aching knees, Harken?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could a druid ask the swoops why they've grown so bold?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll see to it.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -537,6 +548,15 @@ P:NPC {
         { text = "How did you get your name?", next = "name" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Help me find it and I'll be glad of you, because no tracker in Bloodhoof has ever seen it twice in the same place. But a druid might also tell me that a beast so old belongs to the plains more than to my skinning knife, and I'm not certain I want to hear that." } },
+      choices = {
+        { text = "A beast that old has earned a fair hunt, face to face.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Old or not, it's a danger. Take it however you can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -548,6 +568,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You walk like a shaman, light on the grass, and that's a gift on a hunt. The beast I'm tracking would hear anyone else coming a mile off." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You won't track the beast I'm after, but if it ever turns on you, I'd like to know you can stand your ground." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Rain followed me all the way to Mulgore, and now a priest has followed the rain, so perhaps the spirits have a sense of humour." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. They say your kind learns to walk as the cat walks, and I'd give a good deal to move through the tall grass as quietly as you will." },
       },
       choices = {
         { text = "How did you get your name?", next = "name" },
@@ -557,6 +578,7 @@ P:NPC {
         { text = "Can't a mage simply blast the beast from afar?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What is this beast you're after, Maur?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Will you want a blessing before you hunt Mazzranache, Maur?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Should a druid help you hunt Mazzranache, Maur?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
       again = {
@@ -792,6 +814,15 @@ P:NPC {
         { text = "What does Kyle look like?", next = "kyle" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "He might, because he walked right up to a wolf once and seemed to think they were friends, right up until the wolf disagreed. The druids say every beast knows its place on the plains, but nobody ever told Kyle, and I don't think I want anyone to." } },
+      choices = {
+        { text = "A dog belongs at home, Ahab. I'd bring him back.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Maybe Kyle wants to run with the plains for a while.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -805,6 +836,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You're a shaman? Then maybe the spirits have seen my Kyle, because he's a scruffy little thing and he goes wherever his nose takes him." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! If you happen to see my dog Kyle while you're out fighting things, please don't fight him; he's only a little scruffy." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Would you say a prayer for my Kyle? He's only a dog, but I've a feeling the Earth Mother keeps an eye on dogs too." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! You understand animals, don't you? If you meet a scruffy dog called Kyle out on the plains, please tell him I'm not angry and he can come home." },
       },
       choices = {
         { text = "Tell me about Kyle.", next = "kyle" },
@@ -816,6 +848,7 @@ P:NPC {
         { text = "It's only a dog.", next = "END", fx = { affinity = -2 } },
         { text = "My beast could follow Kyle's scent.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Do the spirits ever watch over a lost dog, Ahab?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you think Kyle would come to a druid, Ahab?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
       again = {
         { id = "h_again", text = "Anything else? Sorry, I keep looking at the lake shore in case he comes back." },
@@ -923,6 +956,15 @@ P:NPC {
         { text = "What goes into the stew?", next = "stew" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Now and then, on their way out to the wells with Mull or to the Venture mine, to see what the goblins have done to the ground. They come back quiet and angry, so I feed them, because I've never seen anyone stay angry through a second bowl." } },
+      choices = {
+        { text = "The druids should face the goblins openly and drive them off.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Quiet anger is better spent spoiling the goblins' drills by night.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -936,6 +978,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and I can hear your stomach from here. Sit down, friend, and let me feed you before you go off and fight something." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have game to share, I hope, because my pot's always open to a fresh plainstrider." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit and eat, because I've never met a healer yet who remembers to feed themselves, and stew mends more than you'd think." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, by the grass seed on your boots. Sit down, because the druids who come down from Elder Rise always forget to eat, and I take that personally." },
       },
       choices = {
         { text = "What's in the stew?", next = "stew" },
@@ -945,6 +988,7 @@ P:NPC {
         { text = "What do you cook from the plains, Kauth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does my imp get a bowl too, Kauth?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does anyone in Bloodhoof need a healer, Kauth?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the druids from Elder Rise often stop here, Kauth?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Just a meal, thank you.", next = "END" },
       },
     },
@@ -1033,6 +1077,15 @@ P:NPC {
         { text = "What do you love about camping?", next = "why" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "More every year, and that's new, because when I was a calf there were no druids among the tauren at all, only stories of the night elves in their faraway forest. Now I meet them at every other campfire, and they ask the fire's leave before they light it, which I've started doing too." } },
+      choices = {
+        { text = "The old ways came back to us for a reason. Keep them close.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A druid should learn from the open road, not just from teachers.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1045,6 +1098,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the campfire is good luck, the old wanderers used to say, because the fire burns brighter beside one of you. Sit down, and we'll test the saying." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Sit by my fire a while, because I've met warriors on every road I've ever walked, and they always have the best stories." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at my campfire! I've shared fires with orcs, trolls and once a very lost goblin, but never a priest, so sit and tell me who you pray to." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I once shared a fire with one of Hamuul's students out past the Red Rocks, and she spent half the night as a bear because she said the ground felt warmer that way." },
       },
       choices = {
         { text = "What is it you love about camping?", next = "why" },
@@ -1055,6 +1109,7 @@ P:NPC {
         { text = "A mage never needs flint to start a fire.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Where have your roads taken you, Kaga?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Have you met many priests on your travels, Kaga?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Have you met many druids on the roads, Kaga?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = {

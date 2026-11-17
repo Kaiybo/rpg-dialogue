@@ -18,6 +18,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Sure it would, because that's what reapers are for, but mine would cut them neater and faster and twice as profitable. Look, the trees are coming down either way, so you might as well get on the side with the money." } },
+      choices = {
+        { text = "Then I won't help you build another tree-killer.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The trees fall either way. Better you profit than Venture Co.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Tough enough when they're sitting in a shredder, and soft as a cream puff when they're not, so hit 'em on their lunch break. The blueprints are on their belts, and I'll want those in one piece, so try not to cut them in half along with the operator." } },
@@ -70,6 +79,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You see that wildlife out there? The Venture Company's been chopping its home down for months, so it's real cranky, and that's useful to a guy like me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? Don't suppose you've got a blessing for a goblin's bank account, because the Venture Company's been bleeding mine dry." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now you look like someone who doesn't mind roughing up a few Venture Co. thugs for a good cause, and I've got a good cause right here." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, huh? Look, pal, I don't cut down any trees myself, I just want the plans for the machine that does, and that's a whole different thing." },
       },
       again = {
         { id = "h_again1", text = "What else? Make it quick, the shift changes soon." },
@@ -87,6 +97,7 @@ P:NPC {
         { text = "Have the Venture Company's saws driven the beasts out, Ziz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does anyone pray for the workers the Venture Company drives here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should a paladin help you steal from them, Ziz?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would your reaper cut down trees just like the Venture Company's?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Good luck with your machine.", next = "END" },
       },
     },
@@ -182,6 +193,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It can quicken them a little, but the earth must still do the real work, because a tree hurried into growing is a tree that breaks in the first hard wind. What the vale needs most from you is to keep the shredders away while the roots go deep." } },
+      choices = {
+        { text = "The earth sets the pace. I'll guard the vale and let it grow.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Waiting is how the vale was lost. I'll push the growth.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Driven off, if the Earth Mother had her way, because she does not delight in blood. But the goblins will not leave while the trees still stand, and a warrior who breaks their machines may do more for the forest than any planting of mine." } },
@@ -214,6 +234,7 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You walk softly, and I like that, because the ground here has had enough heavy boots. If you're going down to the Venture camps, step lighter there than they ever did." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Your strength is welcome here, though I ask you to remember the seedlings when you walk among them, because they can't move out of your way." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have seen the creatures fleeing the vale, then, and you'll know the forest is not only trees." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! The Earth Mother's own healers, here at last, and the Charred Vale has waited a long time for hands like yours." },
       },
       again = {
         { id = "h_again1", text = "What else, friend?" },
@@ -229,6 +250,7 @@ P:NPC {
         { text = "Where do the Venture Company keep their fuel and machines?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Should the Venture Company be fought, or driven off, Tsunaman?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where have the beasts gone since the vale burned, Tsunaman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can a druid's magic help the seedlings take root, Tsunaman?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "May the seeds take root.", next = "END" },
       },
     },
@@ -324,6 +346,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I did, before the Grimtotem came, because I wanted to run with the plainstriders and listen to the land. Now I only want to get home to Sun Rock, and I'll think about everything else when I'm not afraid any more." } },
+      choices = {
+        { text = "I'll keep you safe, and you can dream again tomorrow.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Dreams get you killed out here. Stay quiet and stay close.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I don't know, ten, maybe more, and they came at night with axes and torches. I hid in the rocks and listened to them, and I can still hear it, so if you walk me home, please walk in front." } },
@@ -356,6 +387,7 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Oh! I didn't hear you come up at all, and I'm so glad you're not Grimtotem. Can you walk that quietly with me all the way to Sun Rock?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Oh, thank the Earth Mother, because the Grimtotem were big and there were so many of them, and I didn't have anything but a walking stick." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know how to stay hidden, then, and you'll know the Grimtotem are hunters too, which frightens me more than anything." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "You're a druid, aren't you? My uncle says druids can become a bear, and if you did that now, I think I'd feel a great deal safer." },
       },
       again = {
         { id = "h_again1", text = "I'll answer anything you like, if it means we're closer to leaving." },
@@ -371,6 +403,7 @@ P:NPC {
         { text = "Did you see where the Grimtotem went after the attack?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "How many Grimtotem attacked your camp, Kaya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the Grimtotem hunt along this road, Kaya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you want to become a druid one day, Kaya?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll take you home soon, Kaya.", next = "END" },
       },
     },

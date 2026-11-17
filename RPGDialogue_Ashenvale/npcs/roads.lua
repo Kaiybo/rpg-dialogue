@@ -18,6 +18,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Less than I feared, so far, though the deer near their camps have begun to waste and the streams there smell wrong. I can count arrows and Forsaken, but I can't count what a sickness does under the soil, and that is why I need your kind." } },
+      choices = {
+        { text = "Heal the woods first. Vengeance on the Forsaken can wait.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Burn out the sick ground and their camps before it spreads.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The satyrs of Satyrnaar would be my answer on most days, but the Forsaken and their diseases worry me more, because I don't know what they want. A blade will answer the satyrs, but against the Forsaken I need eyes before I need blades." } },
@@ -87,6 +96,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Good, because the Forsaken in the eastern woods have been seen near the beasts, and I don't like what that means." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because if the Forsaken are carrying their plague into these woods, I'll want someone who knows what it looks like." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Then you know the dead, and you'll know what it means that the Forsaken are walking these woods." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Forest Song, and welcome. The Forsaken carry their sickness into the eastern woods and the demons foul the canyon, so I'll take every healer of the land the Circle can spare." },
       },
       again = {
         { id = "h_again1", text = "There's more you want to know, I can see it, so ask while the woods are quiet." },
@@ -103,6 +113,7 @@ P:NPC {
         { text = "Have the Forsaken been poisoning Ashenvale's beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What has the Forsaken plague done here, Kayneth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Forsaken here be destroyed on sight?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What has the Forsaken sickness done to the eastern woods?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Keep the outpost safe.", next = "END" },
       },
     },
@@ -171,6 +182,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only fallen wood, and only from trees the storms brought down, because I learned long ago that a bow cut from a living tree never sits right in the hand. The orcs cut living wood by the cartload, and it shows in everything they make." } },
+      choices = {
+        { text = "A good rule. The forest gives enough without cutting.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A bow's a bow. The wood doesn't care how it fell.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I'll make you one, but I'll make it heavy, because you'll treat it roughly and a light bow would snap. Learn to draw it smooth instead of yanking it, and it'll serve you longer than you'd think." } },
@@ -227,6 +247,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a bow for pulling, I suppose, and you'll hold it like a club." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll not want a bow, I suppose, but you're welcome to rest your feet while I work." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll hold a bow like a hammer, I expect, but I'll sell you one if you ask nicely." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and by how lightly you walk I'd guess you don't think much of bows. That's fine, because I make mine from fallen wood only, and you can tell the Circle so." },
       },
       again = {
         { id = "h_again1", text = "If there's something else, out with it, because those staves won't shape themselves." },
@@ -242,6 +263,7 @@ P:NPC {
         { text = "Will you make a bow for a warrior, Bhaldaran?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever wish for company out here, Bhaldaran?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why trust the woods over Astranaar's walls, Bhaldaran?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you really only use fallen wood for your bows?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -293,6 +315,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The kelp is dying and the fish are leaving, and the naga have been working at something in the bay that they don't want seen. An orc can guard a camp, but he can't read the water, so I'd hear what a druid makes of it." } },
+      choices = {
+        { text = "I'll study the water first, then strike the naga where it matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Why read the water? Kill the naga and the shore will settle.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Someone to keep the naga off the beach when they crawl up at night, and to remind the elves in the trees that we're still here. Blackfathom Deeps lies out in the bay as well, and one day we'll go in after whatever lives there." } },
@@ -355,6 +386,7 @@ P:NPC {
         { id = "h_cond", when = { race = "Orc" }, text = "An orc of the Horde, good. You'll know we didn't come to this coast to admire it, so let us speak plainly." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior of the Horde. Good, because this outpost holds by strength alone, and I need more of it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Zoram Strand is full of things worth hunting, and some of them are naga." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. I've little use for talk of balance out here, but if you can tell me what is wrong with this shore, that I would use." },
       },
       again = {
         { id = "h_again1", text = "Say what else is on your mind, and say it before the tide turns." },
@@ -371,6 +403,7 @@ P:NPC {
         { text = "Strength to Zoram'gar.", next = "END" },
         { text = "What does Zoram'gar need from a warrior, Karang?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What hunts along the Zoram Strand, Karang?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What is wrong with the shore, Karang?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
     },
     strand = {
@@ -438,6 +471,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Ruul does not know, only that it came with the darkness creeping down from the north, and the Thistlefur breathed it in until their eyes went red. Ruul would have them healed and not killed, but Ruul fears that is too much to ask." } },
+      choices = {
+        { text = "Then I'll spare them when I can, for your sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If they're too far gone, kindness means a quick end.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They will, because the Thistlefur no longer remember that they were friends of the forest. Ruul is sad to ask it, but if they come, you must fight them, and Ruul will try not to watch." } },
@@ -500,6 +542,7 @@ P:NPC {
         { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo, cousin of the forest! Ruul knew your people's drums once, from the old days, before the madness." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "You carry a blade, and you are not Thistlefur. Ruul hopes that blade is not for Ruul." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "You walk the way the forest walks, quiet and watchful. Ruul likes that." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Ruul knows the smell of Cenarius's children, and Ruul's heart is glad, because perhaps you can see what has made the Thistlefur sick." },
       },
       again = {
         { id = "h_again1", text = "What else does the friend want to know?" },
@@ -516,6 +559,7 @@ P:NPC {
         { text = "I'll come back for you, Ruul.", next = "END" },
         { text = "Will your tribe fight us when we leave, Ruul?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Did the Thistlefur hunt well, before they went mad?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What made the Thistlefur turn, Ruul?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
     },
     madness = {

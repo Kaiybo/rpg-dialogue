@@ -243,6 +243,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nothing grows within a stone's throw of the cave mouth now, and even the scorpids out there have turned mean and strange. I count cultists because that's my job, but I'd count it a kindness if someone mended the ground once they're gone." } },
+      choices = {
+        { text = "The cultists come first. The land can wait until they're dead.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The land comes first. Let the grunts worry about the cultists.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You won't change Skull Rock with prayers, but you can keep my scouts alive while they count the cultists, which is more use than most." },
@@ -253,6 +262,7 @@ P:NPC {
         { id = "h_neeru", when = { questActive = TODO_QUEST("Margoz") },
           text = "So Orgrimmar sent you to old Margoz. Good, because I've been waiting for someone with more sword than sense." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The Burning Blade down in Skull Rock spit on everything your kind keeps, so I expect you'll enjoy this work more than most." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll smell the fel on the wind from Skull Rock before you're halfway down the path, and I'm told your kind feel it in the ground as well." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You could get closer to Skull Rock than I ever could, and count the cultists without being counted yourself." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A spellcaster, out here? I thought Un'Thuwa kept all of his students in Sen'jin, reading." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Good, you're built to stand in a cave mouth while the imps pour out, and that's the job I need doing." },
@@ -261,6 +271,7 @@ P:NPC {
       choices = {
         { text = "Can a priest cleanse what the Burning Blade did to Skull Rock?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What have the cultists done to the earth around Skull Rock?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What has the Blade's magic done to the land near Skull Rock?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Who are the Burning Blade?", next = "blade" },
         { text = "Why watch from out here?", next = "watch" },
         { text = "Who sends you your orders?", next = "orders" },
@@ -508,12 +519,22 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "In bear shape you'd hold it better than half my recruits, because a bear doesn't flinch and doesn't drop its shield. But you'll need to learn when to stay put, because a line with a hole in it is worse than no line at all." } },
+      choices = {
+        { text = "I'll hold my place in the line, whatever comes at it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go wherever the fight needs me, line or no line.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my recruits learn faster when they know someone will pick them back up." },
         { id = "h_default", key = true, text = "I'm Tarshaw Jaggedscar, and I teach the warriors of Razor Hill how to stay alive long enough to be useful. The scars are from the ones who taught me." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Back for more lessons, warrior? Good, because the scorpids out there won't wait for you to get better." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman wearing mail, good. Thrall fights in plate with a hammer in his hand, and I've never once seen him wait for the spirits to swing it for him." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid in my yard. I've seen your kind turn into a bear in the middle of a fight, and the quilboar on the other end never saw it coming." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in my training yard, standing where the shadow's longest. You'll find no tricks to learn here, only scars." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Mages always stand behind my warriors and act surprised when the quilboar get round them. Which kind are you?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "Back again? Good. Show me where you got hit since I last saw you, because every bruise is a lesson you paid for." },
@@ -522,6 +543,7 @@ P:NPC {
       choices = {
         { text = "Do you want a priest to heal your recruits mid-lesson?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should a shaman stand in the front line, Tarshaw?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Could a druid hold a line beside your warriors, Tarshaw?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How did you get those scars?", next = "scars" },
         { text = "What makes a good warrior?", next = "good" },
         { text = "Can a warrior and a rogue ever fight together well?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },

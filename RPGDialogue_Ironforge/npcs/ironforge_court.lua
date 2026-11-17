@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I'd welcome any help, but the radiation is a gnomish poison of our own making, and I'm not sure the green can mend what we broke. We'll take Gnomeregan back with our own hands first, and then I'll gladly ask your people what grows best in a clean tunnel." } },
+      choices = {
+        { text = "Mend it yourselves first. That's the right order of things.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Pride won't clean a tunnel. Ask the kaldorei now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -69,6 +78,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Oh, splendid, it's you! Mind the coil there, it bites, and do sit down, because I've a hundred things to show you and time for about four." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you eat properly out there? I only ask because my people forget to, and you look as though you'd forget too." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Your people know more about living with the land than we gnomes ever learned, and after Gnomeregan, I'm humble enough to say so." },
       },
       again = {
         { id = "h_again", text = "Where were we? I've lost the thread again; I lose a lot of threads, so I keep them in a drawer." },
@@ -88,6 +98,7 @@ P:NPC {
         { text = "I held the line when we ran.", next = "rear", when = { race = "Gnome", class = "WARRIOR" } },
         { text = "Could a hunter be of any use to Gnomeregan, High Tinker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you ask of a paladin, High Tinker?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could a druid help cleanse the poison from Gnomeregan?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -978,6 +989,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "History's no' a grave, it's a record, an' a record's no use buried. Ye'll have yer views, an' I've work tae do." } },
+      choices = {
+        { text = "Records should be studied, carefully and properly.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Some things are buried because they should stay buried.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Enough. Troggs in Loch Modan, Dark Irons in the Badlands, an' I've scars from both, though I'll no' be showin' them. If ye're offerin' tae guard a dig, speak tae Magellas, for I've no time tae hire anyone." } },
@@ -1045,6 +1065,7 @@ P:NPC {
           text = "Ye've a warlock's look about ye, an' I've seen what yer kind left behind in some o' the old ruins. Mind yerself in the Hall." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. State yer business; I've a page tae finish." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Fine; mind yer beast doesnae chew the maps." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The League's turned up a few kaldorei relics in the hills, an' I suppose ye'll want tae tell me they're no' mine." },
       },
       again = {
         { id = "h_again", text = "What is it now, then?" },
@@ -1062,6 +1083,7 @@ P:NPC {
         { text = "Could a hunter be of use on a League dig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you found anything holy in the old dig sites, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the League's diggers need protecting, Prospector?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Should the League be digging up kaldorei history at all?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Sorry to bother you.", next = "END" },
       },
     },

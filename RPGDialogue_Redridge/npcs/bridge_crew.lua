@@ -78,6 +78,15 @@ P:NPC {
         { text = "Something else, Dmitri.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The old bridge stood longer than my grandfather lived and the fish never complained, so I'd say the lake has made its peace with stone. It's the catapult shot sinking in the shallows that worries me, because the murlocs have started building on it." } },
+      choices = {
+        { text = "Stone that's well laid belongs there. Build it properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Give the lake its shallows back. Build less, and build lighter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dmitri, and I've built more bridges than anyone on this crew, the foreman included, though I'd not say so in front of him. This one is the hardest, because people keep trying to knock it down while we build it." },
@@ -88,6 +97,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll know the hills, then, and you'll know there's more than orcs out there watching us work." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! You'll bless the foundations, I hope, because I've done everything else I can think of to keep them standing." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll know about building things that last, I'd think, since your order's been standing longer than most bridges." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you not to turn into anything large on my scaffolding, because I've measured what it'll bear and a bear isn't in the sums." },
       },
       again = {
         { id = "h_again", text = "What else? Talk slowly; I like to think while I listen." },
@@ -104,6 +114,7 @@ P:NPC {
         { text = "Stone holds a curse well, you know.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Has the crew lost anyone building this bridge, Dmitri?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the crew need guarding while it works, Dmitri?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the bridge trouble the lake, Dmitri, or the fish below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you to your stones.", next = "END" },
       },
     },
@@ -220,6 +231,15 @@ P:NPC {
         { text = "Something else, Jess.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Once, to fetch Dmitri's level from the far bank, and I ran both ways because the gnolls were watching from the trees. The hills are beautiful, though, when nobody's shooting at you, and I'd like to see them properly someday." } },
+      choices = {
+        { text = "Stay with the crew, Jess. The bridge needs you here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Go and see them someday. Life's more than carrying stone.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Jess, and I carry stone for Foreman Oslow, which isn't very exciting, but it's for the bridge, and the bridge is important. Everyone says so, especially the foreman." },
@@ -229,6 +249,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! With a real beast and everything! Can it do tricks? I bet it can do tricks, and I bet it bites gnolls." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Are you here to bless the bridge? Somebody should, because Dmitri says it's cursed, though I think he's only joking." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! A real one! Is it true you can heal people just by touching them? Could you show me sometime?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a real druid, and a night elf besides! I've never seen either before today, and I'd love to see the bear, if you'd show me." },
       },
       again = {
         { id = "h_again", text = "What else? Dmitri's not looking, so I've a minute." },
@@ -244,6 +265,7 @@ P:NPC {
         { text = "Have you seen the beasts in the hills, Jess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the work frighten you, Jess?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you stand your ground if the orcs came for the bridge?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have you ever gone past the bridge, Jess, into the hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Back to work, Jess.", next = "END" },
       },
     },

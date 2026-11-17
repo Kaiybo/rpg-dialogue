@@ -87,6 +87,15 @@ P:NPC {
         { text = "How can every bank reach the same vault?", next = "vault" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every druid I've met keeps a little, though they're shy about it, and it's mostly seeds and herbs they swear can't be bought anywhere else. I keep their chests by the cool wall, because I learned the hard way that seeds sprout in a warm vault." } },
+      choices = {
+        { text = "A sensible druid plans for lean seasons, like any good banker.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The land provides. A druid shouldn't hoard anything at all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my counter. Your kind don't deposit much, I find, though you come back for your coin more often than most." },
@@ -94,6 +103,7 @@ P:NPC {
         { id = "h_orc", when = { race = "Orc" }, text = "When we were in the camps, the only thing an orc could own was his anger. Now look at us, queuing for our own vaults like merchants. Your vault is ready, {g:brother|sister}." },
         { id = "h_rich", when = { money = { min = 1000000 } }, text = "You carry more gold than most warbands ever saw. Leave some of it with me before a Kolkar cuts your purse off your belt in the Barrens." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at the vaults. Your kind give back to the earth what they take from it, which is more than most of my depositors do with their gold." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at the vaults. Your kind carry less than anyone who walks in here, so I'll wager you've come for gold and not to leave any." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior with full packs, I see. Leave the spare axes with me, because nobody ever won a fight carrying three of them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and you'll have hides and teeth to stow, I expect. They go in the back vault, where the smell won't trouble anyone." },
       },
@@ -104,6 +114,7 @@ P:NPC {
       choices = {
         { text = "What do priests usually leave in your vaults, Karus?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the spirits care about gold, Karus?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does a druid need a bank at all, Karus?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Open my vault, please.", next = "BUSINESS" },
         { text = "How can every bank reach the same vault?", next = "vault" },
         { text = "What do orcs keep in a bank?", next = "keep" },
@@ -238,12 +249,22 @@ P:NPC {
         { text = "Why do I pay a deposit?", next = "deposit" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Fair is whatever the bidding says it is, and right now the alchemists are paying well for anything green out of the Barrens. A druid who picks clean and lists early will do better than one who sits on a full bag waiting for a better day." } },
+      choices = {
+        { text = "I'll ask a fair price. Gouging the alchemists isn't honourable.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If they're paying well, I'll squeeze every copper out of them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the auction house. If you've come to bid on bandages, you're in luck, because the warriors keep selling theirs for ale money." },
         { id = "h_default", key = true, text = "Auctioneer Thathung. You list your goods, other people bid, and the house takes a deposit and a cut. That's the whole of it, though you'd be amazed how many warriors want it explained twice." },
         { id = "h_low", when = { maxLevel = 15 }, text = "New to the house, are you? Start by selling the linen and the copper you've been carrying around, because somebody here always needs it more than you do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! If you're selling totems this isn't the place, and if you're buying them it isn't either, because no shaman I know would trust one made by another hand." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at the auction house! You'll be selling herbs, I expect, because every druid who comes through that arch has a bag of peacebloom and an opinion on the price." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and I can guess what you're after: a better axe for less coin than it's worth. Everybody wants that, and the bidding usually tells them no." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want arrows and a better bow, and you'll find both on the lists, if you've the patience to wait for them." },
       },
@@ -251,6 +272,7 @@ P:NPC {
       choices = {
         { text = "Do people bid on holy relics here?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do shamans ever sell anything through the house?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do herbs fetch a fair price here, Thathung?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Show me what's for sale.", next = "BUSINESS" },
         { text = "Why do I pay a deposit?", next = "deposit" },
         { text = "What sells best in Orgrimmar?", next = "sells" },
@@ -386,12 +408,22 @@ P:NPC {
         { text = "Where do the wind riders come from?", next = "beasts" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They mind a bear on the tower more than anything else, because a bear weighs twice what a rider should and smells like something to fight. Change on the ground and climb up as yourself, and they'll carry you anywhere the Horde has a roost." } },
+      choices = {
+        { text = "Your tower, your rules. I'll keep to my own shape up here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A wind rider should learn to carry whatever a druid becomes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Then you'll be calm in the saddle, I hope, because the wind riders can smell a nervous passenger and they don't like it." },
         { id = "h_default", key = true, text = "Doras. I keep the wind riders, and they'll carry you to the Crossroads, to Thunder Bluff, or anywhere else the Horde has a roost. Have you flown before, or will you be holding on with your eyes shut?" },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren up my tower! You'd make a wind rider sweat, but they've carried heavier, so climb on and keep your hooves tucked in." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The wind riders like your kind, because you smell of storms, and they were flying through storms long before the Horde came to this land." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. The wind riders get skittish when your kind change shape on the platform, so stay on two legs until you're in the saddle, if you please." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Hold on with both hands when you fly, because the wind riders don't care how strong you are, and neither does the drop." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Your beast will grumble all the way to the Crossroads, but they always do, and they always land happier than they left." },
       },
@@ -399,6 +431,7 @@ P:NPC {
       choices = {
         { text = "Do the wind riders ever carry the wounded home?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the wind riders hear the air spirits?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the wind riders mind a druid's beast shapes, Doras?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I need a ride.", next = "BUSINESS" },
         { text = "Where do the wind riders come from?", next = "beasts" },
         { text = "Why can't I fly somewhere new?", next = "roosts" },
@@ -979,12 +1012,22 @@ P:NPC {
         { text = "Where's good fishing near Orgrimmar?", next = "where" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I try to, because I fished a pool dry in my first year out of the camps and it never came back. Now I throw the small ones in and leave a stretch alone each season, though most orcs laugh when they see me do it." } },
+      choices = {
+        { text = "That's the right way. Take only what you need.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fish don't keep promises. Catch what you can while you can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the river. Sit a while if you like; the water's the quietest temple in Orgrimmar." },
         { id = "h_default", key = true, text = "Lumak. I teach fishing, though most orcs who walk past me think it's a job for peons. Then they spend a week in the Barrens with nothing but dry jerky, and they come back asking for a pole." },
         { id = "h_troll", when = { race = "Troll" }, text = "A Darkspear wants fishing lessons from an orc? Your people were fishing off the Echo Isles before mine ever saw the sea. You could probably teach me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here by the water. Keep your voice low, because the water spirits are easier to frighten than the fish, and a good deal harder to catch." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, here at the river. Sit down and be quiet a while, because you'll know better than most that the water gives more to those who wait for it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior with a fishing question, I hope? More come to me after a long patrol than you'd think, wanting something to do with their hands that isn't killing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll know about patience already, so you'll make a better fisher than any warrior, though I'll not tell them I said it." },
       },
@@ -992,6 +1035,7 @@ P:NPC {
       choices = {
         { text = "Is fishing a kind of prayer to you, Lumak?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the water spirits help or hinder a fisherman?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do you take only what the water can spare, Lumak?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's good fishing near Orgrimmar?", next = "where" },
         { text = "Why did you take up fishing?", next = "why" },
@@ -1098,12 +1142,22 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It does, and I'll not pretend otherwise, because Durotar heals slower than any land I know. But Orgrimmar's walls had to come from somewhere, and I'd rather the Horde dug its own stone than begged it from anyone." } },
+      choices = {
+        { text = "The Horde needs walls. The hills can bear the cost.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then dig less, and let the hills heal before the city grows.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll not want to learn mining, I expect, but you'll want to know which caves the Burning Blade have taken, and I can tell you that." },
         { id = "h_default", key = true, text = "Makaru, and I teach mining. The city was built from the stone of these hills, and every forge in the Valley of Honor burns ore that somebody dug out with a pick." },
         { id = "h_smith", when = { profession = "Blacksmithing" }, text = "A smith! Then you know what bad ore does to a blade, so learn to dig your own and never trust a stranger's bars." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the miners' hall. You'll ask the earth's leave before you dig, I suppose, and I won't laugh at you for it, because the hills here have dropped a roof on more than one miner who didn't." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid among the miners. You'll not like what a pick does to a hillside, I expect, so say your piece about it now and let's be done with it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a strong back on you! You'd swing a pick as well as an axe, and the forges in the Valley of Honor would thank you for it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll be out in the hills more than anyone, so you'll pass more copper veins than anyone, and I'd learn to see them if I were you." },
       },
@@ -1111,6 +1165,7 @@ P:NPC {
       choices = {
         { text = "Have you seen what the Burning Blade do in the caves?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you ask the earth's leave before you dig?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does all this digging scar the hills, Makaru?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do warriors make good miners, Makaru?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where's the best ore in Durotar, Makaru?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Teach me mining.", next = "BUSINESS" },
@@ -1240,12 +1295,22 @@ P:NPC {
         { text = "How did orcs learn to smith?", next = "history" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Any fighter who walks out of this city should carry something they'd trust their life to, and that goes for you too. Your claws are fine in the open, but you'll be on two legs when you're tired and cornered, and that's when a good mace earns its keep." } },
+      choices = {
+        { text = "I'll carry your mace and fight in the open, like a warrior.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll use whatever wins, claws or steel or a knife in the back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the forges. You'll want a mace, then, because a priest who carries a blade is either a liar or a Forsaken, and I've met both." },
         { id = "h_default", key = true, text = "Saru Steelfury. I teach smithing at these forges, and everything the Grunts on the walls carry was hammered here. Do you want to learn, or have you only come to watch?" },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "A warrior at my forge! Good, because you'll understand why a blade's balance matters more than its shine. Learn to make your own, and you'll never have to trust a trader's." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at my forge! Good, because you'll want a weapon that can take a jolt of lightning, and most of what the traders sell will crack the first time you try." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at my forge, with claws you grew yourself. I'll not pretend I can make a better weapon than that, but I can make you a staff that won't split on a centaur's skull." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Let me see your blade, then, because I can tell a lot about a fighter by the nicks in the edge and how they've been kept." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll carry a knife for skinning and an axe for when the beast gets too close, so let me see that both are sharp enough to do their work." },
       },
@@ -1253,6 +1318,7 @@ P:NPC {
       choices = {
         { text = "Should a priest carry a weapon at all, Saru?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the fire spirits help you at the forge?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Should a druid carry steel at all, Saru?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Teach me blacksmithing.", next = "BUSINESS" },
         { text = "What makes a good weapon?", next = "weapon" },
         { text = "How did orcs learn to smith?", next = "history" },
@@ -1382,6 +1448,15 @@ P:NPC {
         { text = "What can an engineer make?", next = "make" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Sure they can, as long as the wild doesn't mind the occasional explosion, and I'll admit it usually does. The tauren kept asking me to stop testing rockets out by the cactus fields, and I kept telling them it was for science, but I did move the test range." } },
+      choices = {
+        { text = "Good. Build what you like, but keep it out of the wild.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Progress always costs something. Test wherever you need to.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Excellent, because my last apprentice set his eyebrows on fire, and I'd like someone handy who can grow them back." },
@@ -1389,6 +1464,7 @@ P:NPC {
         { id = "h_goblin", when = { race = "Goblin" }, text = "A fellow goblin! You know how it is: these orcs think a wrench is a club, but they pay on time, so I'm not complaining." },
         { id = "h_eng", when = { profession = "Engineering" }, text = "Ah, a colleague! How are your bombs holding up? Not too stable, I hope, because a stable bomb is a boring bomb." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You call lightning out of the sky for free, and I spend a fortune on copper wire to do half as much, so we should talk business sometime." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I've always wanted to ask one of you how the shapeshifting works, because I tried it once with a stolen gnomish gadget and spent most of a day as a chicken." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You know what's better than a big axe? A big axe with a bomb on the end of it, and I've been working on that design for months." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Ever thought about a scope on that gun? I can make you hit a plainstrider from so far away it'll never know you were there." },
       },
@@ -1396,6 +1472,7 @@ P:NPC {
       choices = {
         { text = "Do your students really need a priest on hand, Nogg?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Have you ever tried to bottle lightning, Nogg?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Can your machines live alongside the wild, Nogg?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "Why does a goblin work in Orgrimmar?", next = "why" },
         { text = "Is engineering dangerous?", next = "danger" },
@@ -1519,18 +1596,29 @@ P:NPC {
         { text = "What's the strangest beast you've kept?", next = "strange" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some do, mon, and I let those ones run in the canyon whenever I can, because a beast that never runs forget what it be. The others be happy with a full trough and a voice in the morning, and I don't think less of them for it." } },
+      choices = {
+        { text = "A beast in good hands is cared for, and that's enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every beast belongs in the wild. The pens are only cages.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest come to the stables, mon. The beasts be calm around you already, which tell me you got a quiet way about you." },
         { id = "h_default", key = true, text = "Xon'cha, and I keep the stables. You leave your beast with me and it be fed, brushed and talked to every day until you come back for it. Most hunters forget the talkin', but I don't." },
         { id = "h_troll", when = { race = "Troll" }, text = "Ah, a Darkspear! You come up from Sen'jin, or from further? Leave your beast here and I treat it like family." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, mon! The beasts in my pens feel you comin' before they see you, so walk slow and let them get a good look at you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, mon! The beasts in my pens know you be half one of them, so don't be surprised if they all want to say hello." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and no beast with you. That be fine, because I keep the beasts and you keep the fightin', and between us the Horde do alright." },
       },
       again = { { id = "h_again", text = "Somethin' else? The beasts don't mind waitin', but I do." } },
       choices = {
         { text = "Do you think the loa watch over beasts too, Xon'cha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the beasts feel the spirits, Xon'cha?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the beasts here ever long for the wild, Xon'cha?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I need the stables.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Do you speak to the beasts?", next = "speak" },
         { text = "What's the strangest beast you've kept?", next = "strange" },

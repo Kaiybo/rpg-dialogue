@@ -78,6 +78,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They settle the moment one of the Circle climbs on, because hippogryphs have flown beside the druids since the days of Cenarius and they remember who keeps his ways. The Sentinels ride them to war now, though I don't think they were ever meant for it." } },
+      choices = {
+        { text = "They serve the Sentinels well, and that's an honourable use.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They should fly free, not carry anyone to war.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My hippogryphs carry the wounded home more often than I'd like, and they're always calmer when a healer rides with them." },
@@ -88,6 +97,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage taking the long way! I'd heard your kind can step from one place to another with a word, so it's a compliment that you'd choose my birds." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, flying on to Auberdine? Hold on tight and don't lean, because armor makes the birds nervous." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! My birds can smell your companion from here, so let me settle them before you come any closer." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You could swim to Auberdine in seal shape if you liked, but my hippogryphs are faster and a good deal drier." },
       },
       again = {
         { id = "h_again", text = "What else would you ask?" },
@@ -103,6 +113,7 @@ P:NPC {
         { text = "Do your hippogryphs get on with hunters' companions?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the wounded often fly home on your hippogryphs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Can your hippogryphs carry a paladin toward the front?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your hippogryphs know a druid when they carry one?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Thank you, Vesprystus.", next = "END" },
       },
     },
@@ -208,6 +219,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because a bear that is struck down wakes up as an elf with nothing in hand, and I've seen that happen in Ashenvale more than once. Learn the staff, and you'll be glad of it on the day your shapes fail you." } },
+      choices = {
+        { text = "Then I'll learn the staff properly, as you say.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My claws have never failed me, and I trust them more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a staff or a mace, I suppose, and I can teach you both, but I'll teach you patience first, as I teach everyone." },
@@ -218,6 +238,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A staff, of course, and you'll want to know how to swing it when the spells run dry. Every mage thinks they'll never need to, and every mage is wrong." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, I'll have someone to teach who won't flinch when the staff comes round." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I teach bows here, though the hunters always tell me they know better." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll want a staff or a mace, and I'll teach you either, though you'll fight half your battles with claws and never thank me for it." },
       },
       again = {
         { id = "h_again", text = "Anything else?" },
@@ -233,6 +254,7 @@ P:NPC {
         { text = "Can you teach a hunter anything new about the bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Must a priest learn weapons as well, Ilyenia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Will you teach a paladin as you teach the Sentinels?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why should a druid learn weapons when the claws do the work?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -338,6 +360,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because you smell a little of them, I think, and you've walked in their shapes, so they know you won't put a collar on them. My hunters earn that trust slowly, and you arrived with half of it already." } },
+      choices = {
+        { text = "A beast should only follow someone it has chosen freely.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some beasts need a firm hand before they'll trust anyone.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My hunters come back bitten and clawed, and they rarely think to ask a healer, so I'm glad to see one of you here." },
@@ -348,6 +379,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "My cat has her ears flat and her tail low, warlock, and I've learned to trust her over my own eyes." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior among the hunters. The beasts in the pens are watching you, so try not to rattle that armor." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Come and sit, and tell me what walks beside you; the people can wait." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The cats in the pens have stopped pacing, and they only do that for one of the Circle, so come in and let them look at you." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -363,6 +395,7 @@ P:NPC {
         { text = "Is your cat afraid of me or of my servant?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your hunters ever ask a priest for help?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Will the beasts of Teldrassil trust a paladin?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why do the beasts settle for a druid, Jeen'ra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell, Jeen'ra.", next = "END" },
       },
     },

@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Lightly, and ready to become something else, but never so ready that you forget the shape you are in. Many of your people fight as if they are already the bear, and the bear does not come in time." } },
+      choices = {
+        { text = "Master each shape fully before reaching for the next.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Instinct is faster than any lesson, Wu Shen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Nothing, until the day you must stand, and on that day your feet will not know how. Every rogue I have watched die died running, because he had never learned the stance that would have saved him." } },
@@ -96,6 +105,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You stand like a candle in a draught, and I could knock you over with one finger, though I suspect you'd set my sleeve alight on the way down." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the warriors' hall. Your feet are good, which surprises me; hunters usually stand like they're waiting for something." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your feet do not know how many of them you will have in a moment, and I can see it in how you stand." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your weight on the balls of your feet while you ask." },
@@ -115,6 +125,7 @@ P:NPC {
         { text = "What can a hunter learn from a warrior's training, Wu Shen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should a priest learn to stand like a warrior, Wu Shen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should a paladin trust the Light or their training?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How should a druid stand when the ground keeps changing, Wu Shen?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you to your drills.", next = "END" },
       },
     },
@@ -276,6 +287,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I think it's furious, and you've been keeping it on a leash because somebody told you balance was everything. Let it out once in a while, recruit, and see how much better you feel afterwards." } },
+      choices = {
+        { text = "Balance keeps the bear from hurting the wrong people.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right. Sometimes the bear should run loose.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Anger, love, the honest kind they train you to bottle up in the Sanctum. A mage who's never been angry casts like a clerk, but one who knows how to use it casts like a storm, and I know which I'd rather stand beside." } },
@@ -341,6 +361,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, and you've the same look as half my students, all that anger with nowhere to put it. Yours just happens to have horns." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in a warriors' hall. You've anger in you too, I'd wager, though you keep it on a leash with your beast." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You've got a bear inside you somewhere, recruit, and I'd love to know if it's as angry as I hope it is." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? Quick, my arm's getting cold." },
@@ -359,6 +380,7 @@ P:NPC {
         { text = "Do you see anger in everyone, Ilsa?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you think priests carry anger, Ilsa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is righteous anger different from ordinary anger, Ilsa?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you think the bear in me is angry, Ilsa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -475,6 +497,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Wherever the line was about to break, I expect, because a bear that can heal itself holds a gap better than three recruits. But you'd have to stay there, and not wander off after something in the trees." } },
+      choices = {
+        { text = "I'd hold the line wherever you put me, Ander.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the forest calls, I'll go, line or no line.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not in a line, but beside one, because the man with the shield holds while the man with the knife finds the gap. I've seen SI:7's people work beside a shield wall, and the good ones never forgot who was holding the front." } },
@@ -527,6 +558,7 @@ P:NPC {
           text = "A rogue. You work alone, I expect, and I'll tell you what I tell everyone: nobody's as alone as they think." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. I've stood in front of a good many of your kind, and I've only been set on fire twice, which I count as a fine record." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've been told your people can be a shield one moment and a healer the next, and I'd like to see how that fits in a line." },
       },
       again = {
         { id = "h_again", text = "What else? I've time; the recruits are running laps." },
@@ -544,6 +576,7 @@ P:NPC {
         { text = "Do you trust the mages you protect, Ander?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How should a priest serve the line, Ander?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it wrong to step back from the line, Ander?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Where would a druid stand in your shield line, Ander?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },

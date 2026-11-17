@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I can, because a horse that leaves its oats or stands with its head low is telling you as plainly as any man could. Randal says I talk to them more than I talk to him, and he isn't wrong." } },
+      choices = {
+        { text = "A beast cared for daily repays it. That's the right way.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Horses are stock, Katie. Grieve less and sell more, I'd say.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Nerve, mostly, and years of training it not to bolt when steel rings. A warhorse will stand still while the world shouts at it, which is more than I can say for most riders." } },
@@ -99,6 +108,7 @@ P:NPC {
           text = "Keep your creature downwind of the stalls, please, because I've a mare in foal and she won't settle if she smells it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Stormwind's cavalry rode my mother's horses into the last war, and they came home with warriors on their backs, those that came home." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. My horses don't love your beasts, love, but they'll learn manners if you keep your distance." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! I've heard your people ride great cats instead of horses, so forgive me if I keep you from the foals until they've had a sniff of you." },
       },
       again = { { id = "h_again", text = "Anything else? They'll want feeding soon." } },
       choices = {
@@ -112,6 +122,7 @@ P:NPC {
         { text = "Do your horses fear a hunter's pet?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you lose many foals, Katie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do your horses still go to the paladins, Katie?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can you tell when one of your horses is sick?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -168,6 +179,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because a cat tires and a horse is bred not to, and you'll want your strength for whatever's waiting at the end of the road. Mind you, I'd pay good coin to see a horse's face when you do it." } },
+      choices = {
+        { text = "Then I'll learn the saddle properly. Your way has its reasons.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "I'll run as I please. The road doesn't care how I travel.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Stormwind's knights do, but they train for years, and the horse trains longer. Most warriors ride to the fight and get down for it, and that's no shame; it's sense." } },
@@ -229,6 +249,7 @@ P:NPC {
           text = "A warlock. I'll teach you to ride if you want it, though your sort will be riding something else soon enough, I hear." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll ride well, I think, because your sort already know how to stay upright while something tries to throw you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want to ride with your beast trotting alongside, I suppose, and that takes a calm horse and a calmer rider." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, I'm told, and the first night elf to come to my yard. I don't suppose you need lessons, if you can turn into something with four legs yourself." },
       },
       again = { { id = "h_again", text = "More questions? Good, because questions now are cheaper than falls later." } },
       choices = {
@@ -241,6 +262,7 @@ P:NPC {
         { text = "Can a warrior fight from the saddle, Randal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will a horse ride beside a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do paladins ride differently from other folk, Randal?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why should I ride a horse when I can run as a cat?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

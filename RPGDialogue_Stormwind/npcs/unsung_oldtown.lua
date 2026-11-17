@@ -160,6 +160,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "If it was already dead and nobody claimed it, yes, because leaving a good hide to rot is a waste, whatever your goddess says. If it was alive and you asked me nicely, I'd think about it, which is more than most would." } },
+      choices = {
+        { text = "Waste nothing. A hide put to use is the sensible way.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some beasts should go back to the soil whole, Maris.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "It's slower, and the beast's already dead, which is the main difference I can see. A skinner and a cutpurse both live by a steady blade, but only one of us does honest work." } },
@@ -228,6 +237,7 @@ P:NPC {
           text = "A mage, in my shop? You'll be wanting to skin something you've already roasted, I expect, and I'll tell you now that it doesn't work." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be skinning nothing, I'd wager, and you'll leave your kills to rot on the road, which is a waste I can't abide." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Finally, someone who might actually be serious about skinning. Don't waste my time and I won't waste yours." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the skinning table. I'll not ask you to watch if you'd rather not, but I won't stop working for you either." },
       },
       again = {
         { id = "h_again", text = "Still here? Then say what you need while I sharpen this knife." },
@@ -243,6 +253,7 @@ P:NPC {
         { text = "What makes a good skinner, Maris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does skinning ever trouble you, Maris?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should a paladin learn skinning, Maris?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would you skin a beast I'd asked you to leave whole, Maris?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -425,6 +436,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "On a strap round the neck, of course, with a buckle a paw can manage, and I've been sketching it for a month. Nobody's bought one yet, but your people keep coming in, so I keep hoping." } },
+      choices = {
+        { text = "Make it, Alyssa. Every druid could use one.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A bear carries nothing, Alyssa. That's the point of being a bear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because the loudest thing about any thief is what they've just stolen, and I've seen more than one caught by the jingle in their pack. A good bag keeps its secrets, which is the whole point of a bag." } },
@@ -493,6 +513,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you'll need room for reagents, scrolls and three days of conjured bread, I expect. Mages always pack like they're leaving forever." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a bag big enough for bandages, rations and whatever you take off the gnolls, and I've got just the one." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and carrying nothing, as usual for your people. I'll not let that stand, because even a bear needs a bag for the walk home." },
       },
       again = {
         { id = "h_again", text = "What else, love?" },
@@ -508,6 +529,7 @@ P:NPC {
         { text = "How big a quiver should a hunter carry, Alyssa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do healers forget to carry, Alyssa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a paladin forget to pack, Alyssa?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Where would a bear even put a bag, Alyssa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Alyssa.", next = "END" },
       },
     },
@@ -557,6 +579,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because nobody here has ever seen a moonberry, and the sailors who bring the juice drink it before they dock! I'd write a whole chapter on the things if I could only taste one fresh." } },
+      choices = {
+        { text = "I'll bring you some fresh moonberries next time I'm home.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some flavours belong to Darnassus alone, Kendor.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "A Westfall stew that the old farmers cooked over embers for a whole day, before the Defias burned half their kitchens. I've got the words but not the patience, and I suspect a mage could hold the heat steadier than I ever could." } },
@@ -626,6 +657,7 @@ P:NPC {
           text = "A warlock! Does your imp eat, I wonder? I've always wanted to cook for something that's never tasted a proper meal." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want recipes for the camp, I'd think, because the Barracks cooks don't teach anyone anything except how to suffer." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've recipes for every kind of game in the kingdom, from Elwynn boar to Westfall chicken to Redridge goretusk." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've been dying to ask one of your people about moonberry juice, because nobody in Stormwind can make it properly." },
       },
       again = {
         { id = "h_again", text = "What else, friend? I'm in no hurry, not with the kitchen smelling like that." },
@@ -641,6 +673,7 @@ P:NPC {
         { text = "Why would you want to cook for a demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is there really a secret Cathedral bread recipe, Kendor?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What did the Silver Hand eat in the old days, Kendor?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why can't anyone in Stormwind make moonberry juice, Kendor?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Kendor.", next = "END" },
       },
     },

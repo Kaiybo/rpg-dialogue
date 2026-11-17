@@ -219,6 +219,15 @@ P:NPC {
         { text = "What happened in the cave?", next = "cave" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Try if you like, and thank you, though I think Dirania is right that it wants the antidote. What I'd really like is for someone of the Circle to tell me why the spiders have grown so large." } },
+      choices = {
+        { text = "Rest easy, and I'll help Dirania finish the antidote.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Wandering near that cave was your own fault, Iverron.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin? Forgive me if I don't rise, {class}, because the venom has made my legs heavy, though seeing you makes me feel a little braver." },
@@ -230,6 +239,7 @@ P:NPC {
           text = "The antidote worked, and I owe you my life. I'll stay well away from that cave from now on, I promise." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You can't fight what's in my blood, I'm afraid, though I'd enjoy watching you try." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you see the spider that bit me, it was a big one, and it looked very pleased with itself." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. If you have any healing in you I'd welcome it, though the venom is stubborn and Dirania says only her antidote will draw it out." },
       },
       again = {
         { id = "h_again", text = "Is there more? Talking keeps my mind off the pain." },
@@ -245,6 +255,7 @@ P:NPC {
         { text = "Can I do anything about the spiders, Iverron?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does the antidote need from the Webwood?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Shall I deal with the spiders that poisoned you, Iverron?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Shall I try my healing on the venom, Iverron?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Rest easy, Iverron.", next = "END" },
       },
     },
@@ -362,6 +373,15 @@ P:NPC {
         { text = "Who eats here, mostly?", next = "guests" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "One or two of the oldest call for a nest's worth of eggs, and the druids of Dolanaar look at me as though I'd robbed a cradle. I take only what the birds can spare now, because the old ways are worth keeping but not at any cost." } },
+      choices = {
+        { text = "Keep the old recipes exactly as your mother made them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old recipes should change when the forest needs them to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down and eat, because I've never met a healer who remembered to feed themselves while they were busy looking after everyone else." },
@@ -372,6 +392,7 @@ P:NPC {
           text = "The old recipe needs what the forest around Dolanaar provides, and I've no time to hunt it myself. Bring it, and I'll teach you a taste of home." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll need a good meal before the road, and the old recipes were made for travellers who fought." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me a good haunch and I'll show you what the kaldorei were doing with one long before Teldrassil grew." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've had herb broth on since dawn, and the Circle's folk are the only ones who can tell me whether the herbs I picked were happy to be picked." },
       },
       again = {
         { id = "h_again", text = "Anything else? Taste this while you think; I fear it wants a pinch more moonroot." },
@@ -388,6 +409,7 @@ P:NPC {
         { text = "Which of Teldrassil's beasts make the best meals, Zarrin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do priests often eat at your table, Zarrin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you feed someone who fights for a living?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the old recipes call for anything the Circle frowns on?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell, Zarrin.", next = "END" },
       },
     },

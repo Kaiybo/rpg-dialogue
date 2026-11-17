@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Constantly, because I'd blame half my failures on a sulky root if I could prove it. Pomeroy swears the peacebloom grows better when he hums, and I've stopped arguing, because the potions are better too." } },
+      choices = {
+        { text = "Herbs aren't sulky. Measure carefully and the potion follows.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Trust Pomeroy's humming. The plants know what they need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Three, and drink the first when you're half done, not when you're nearly gone. Warriors save them like heirlooms and then fall over clutching a full flask, which is a waste of my afternoon." } },
@@ -96,6 +105,7 @@ P:NPC {
           text = "You'll not be wanting anything off my top shelf, I hope, because I keep the nightshade up there for a reason." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want healing potions, and you'll want more than you think, because your sort always run short at the worst moment." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at my door. You'll be gathering for me before long, I expect, since your sort walk where the herbs grow." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you're looking at Pomeroy's herb beds with a very critical eye. Don't tell him, because he's sensitive about the peacebloom." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the green flask; it isn't finished." },
@@ -113,6 +123,7 @@ P:NPC {
         { text = "What would an alchemist ask a hunter to bring?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Could your potions ease the dying, Mallory?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins buy many potions from you, Mallory?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you ever wonder what the herbs think of your potions?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

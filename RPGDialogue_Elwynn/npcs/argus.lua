@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Bears don't wear plate, so no, unless you want a collar, and I'd charge you for the fitting. Claws dull like any blade, mind, but mine at least can be sharpened." } },
+      choices = {
+        { text = "Every tool has its place, and your steel keeps Goldshire safe.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "I'd sooner trust claws than anything hammered out in a shed.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That a nick left alone becomes a crack, and a crack becomes a broken blade in some kobold's tunnel. Bring it to me after every fight, not after every month, and it'll outlast you." } },
@@ -101,6 +110,7 @@ P:NPC {
           text = "A mage, and not a scrap of steel on you anywhere. You'll want a stout staff and somebody tall to stand in front of you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and that blade's been put to honest use, by the nicks in it. Leave it on the bench and I'll take the worst of them out." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a blade for skinning and a quiver for everything else. I can sharpen the one, but I don't make arrows, so don't ask." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a buckle of steel on you, so I expect you've come for directions rather than repairs." },
       },
       again = {
         { id = "h_again", text = "What else? Talk over the hammer and I'll catch most of it." },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "What does a smith wish warriors knew about their steel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you forge anything a hunter would want?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does a paladin's armor need from a smith, Argus?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is there anything at your forge for someone who fights as a bear?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

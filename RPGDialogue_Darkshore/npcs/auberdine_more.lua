@@ -242,6 +242,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Herbs and linen, mostly, and more clean water than you would think, because every sick creature they bring back to the village has to be washed and fed. I keep a careful tally, since the Circle asks for more each month and Darnassus sends less." } },
+      choices = {
+        { text = "Keep your tally. Fair shares keep a village alive.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The sick need what they need. Give it without counting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Better than I expected, and they hold against the Dark Strand with a stubbornness I've come to admire. They need blades more than prayers in Ashenvale, so if you're going south, carry their supplies and stay a while." } },
@@ -315,6 +324,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I keep lists of everything Auberdine needs, and half of it comes in on a hunter's back." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Your bandages and your prayers are both in short supply on this coast, and I would be glad of either." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Delgren's people have been fair partners at Maestra's Post, so I will treat you as fairly as they have treated us." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. Your people ask my stores for more herbs and bandages every month, so I hope you have come to tell me the groves are mending." },
       },
       again = {
         { id = "h_again", text = "What else? I've three crates to count before the Moonspray comes in." },
@@ -332,6 +342,7 @@ P:NPC {
         { text = "The Dark Strand deal with demons. I know how they think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do Auberdine's stores run short of healing supplies?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do the Sentinels and the Silver Hand work together?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do the druids need from your stores, Sentinel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Elune keep you.", next = "END", fx = { standing = { auberdine = 1 } } },
       },
     },

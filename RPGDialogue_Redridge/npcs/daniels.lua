@@ -92,6 +92,15 @@ P:NPC {
         { text = "Something else, Daniels.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The Blackrock cut the road from Stormwind, so the wagons stopped, and the last cask went the night the militia came back from Stonewatch. I've tried brewing from what grows round the lake, but it came out tasting like the lake." } },
+      choices = {
+        { text = "Wait for the road to reopen. Proper ale is worth waiting for.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Brew wild. Bramble wine never hurt anyone.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -111,6 +120,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I've no drink to sell, but I'd gladly buy some meat for the table, because the soldiers are sick of bread." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've nothing to pour you, but I've a few regulars who could do with a kind word more than a drink." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "One of the Silver Hand, in my bar. I'd pour you something proper if the Blackrock had let a single cask through." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You wouldn't know how to brew something from berries and moss, would you, because I've an empty cellar and I'm getting desperate." },
       },
       again = {
         { id = "h_again", text = "Anything else? The stool's yours as long as you want it." },
@@ -132,6 +142,7 @@ P:NPC {
         { text = "The Blackrock have warlocks, Daniels. I'm not one of theirs.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the soldiers tell you what they've seen out there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the soldiers keep the peace in your bar, Daniels?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What became of your stock, Daniels?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -280,6 +291,15 @@ P:NPC {
         { text = "Something else, Brianna.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Fewer every week, and most of those are soldiers or folk running from somewhere worse. You're the first of your people I've had under this roof, so you'll tell me if the beds are too short, won't you?" } },
+      choices = {
+        { text = "Keep your doors open. Travellers need a safe place now.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Turn strangers away until the road is safe again.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Brianna. I keep the rooms and Daniels keeps the bar, when he has anything to keep, and between us we keep Lakeshire from losing its mind." },
@@ -288,6 +308,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a room near the stairs, I expect, so you can be first down if the bell rings, and it rings more than I'd like." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast can sleep in the room with you, so long as it doesn't mind Daniels snoring through the wall." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin under my roof! You'll have the room by the stairs, if you don't mind being first down when the bell goes." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I'll give you the room by the lake, because you'll want to hear the water, and nobody else wants to hear the murlocs." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The kettle's on and Narnie's asleep." },
@@ -303,6 +324,7 @@ P:NPC {
         { text = "Is there good hunting near Lakeshire, Brianna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll need somewhere quiet to work, Brianna.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do you keep the town calm when the bell rings?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do many travellers still reach Lakeshire with the roads so dangerous?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

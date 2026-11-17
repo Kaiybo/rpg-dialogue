@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Crystal Lake at dusk, when the fishermen have gone home and the deer come down to drink, and I've stood there longer than I'd admit. Keep clear of the murlocs on the far shore, though, because they don't care much for quiet." } },
+      choices = {
+        { text = "I'll go quietly and leave the deer in peace.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Deer that drink at dusk make for easy hunting.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because they fight everything between Northshire and Goldshire, the wolves, the kobolds and each other, and nobody told them a wolf can be walked around. Rest well, and pick your fights tomorrow." } },
@@ -103,6 +112,7 @@ P:NPC {
           text = "A mage, and you're the sort who forgets to sleep, I can see it in your eyes. Reading by candlelight again, were you?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my road. You've had a hard day of it, I'd wager; the Lion's Pride has a bed with your name on it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast in tow and mud to the knees. Farley lets animals sleep by the fire, so long as they don't eat the cat." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on the Goldshire road! The Lion's Pride has a soft bed and a hot meal, though I expect your kind would sooner sleep in a tree." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? The road's quiet just now, and I've time." },
@@ -123,6 +133,7 @@ P:NPC {
         { text = "Why do warriors always look so tired on this road?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you see many hunters on this road?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever stop the tired from going on, Falkhaan?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is there anywhere quiet in Elwynn, away from the road?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll find my own bed, thanks.", next = "END" },
       },
     },

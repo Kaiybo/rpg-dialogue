@@ -419,6 +419,15 @@ P:NPC {
         { text = "Something else, Fitzsimmons.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every night, friend, calling the watch the way they did aboard the Wave Mistress, and I answer them when I've had enough to drink. That's why I drink, if you were wondering, and you weren't, but there it is." } },
+      choices = {
+        { text = "Answer them sober once. They deserve a clear-headed shipmate.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Drink, then. Nobody owes the dead a sober ear.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! We had a chaplain aboard the Wave Mistress, and he'd have liked you, though he never could hold his drink." },
@@ -440,6 +449,7 @@ P:NPC {
           text = "Listen... can you hear that, out on the water? No? Then you're lucky, because I hear it every night." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! You'd have done well on the Wave Mistress, friend, for a deck's no different from a wall when the boarders come over the side." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, eh? We had a hunter aboard once who kept a hawk on the mainmast, and it brought us fish when the stores ran low." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! We had a ship's cat aboard the Wave Mistress that I swore was a druid, because it always knew when a storm was coming." },
       },
       again = {
         { id = "h_again", text = "Another question? Then it's another drink, and I believe it's your round." },
@@ -457,6 +467,7 @@ P:NPC {
         { text = "Did you have warriors aboard the Wave Mistress?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's worth hunting around Menethil, Fitzsimmons?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Can your crew's spirits still be set free, Fitzsimmons?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "The bay's spirits are restless. Do you hear them at night?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -940,6 +951,15 @@ P:NPC {
         { text = "Something else, Harlo.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "It might, if ye're quick about it before the healer sees, for she's jealous o' her patients. Mostly I want tae be on my feet an' on the road north, an' I'll take healin' from anyone who'll hurry it." } },
+      choices = {
+        { text = "Healing takes the time it takes. Rest, as she says.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If you're fit to walk, walk. Hang the healer's rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! If ye've the Light in ye, ye might take a look at my back, for the healers have given up on it an' I've no'." },
@@ -955,6 +975,7 @@ P:NPC {
           text = "I can't sleep on my front an' I can't sleep on my back, so I lie here an' count the Dark Irons I owe. It's a long count." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit an' tell me where ye've been, for I've been lyin' here so long I've forgot what a fight smells like." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye've been out on the roads, then, so tell me what ye've seen o' the north." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! The healer's tried every poultice she owns on my back, so if ye've some green trick she hasnae, I'll lie still for it." },
       },
       again = {
         { id = "h_again", text = "Ask away, for I'm no' goin' anywhere, truly." },
@@ -972,6 +993,7 @@ P:NPC {
         { text = "What happened at Dun Modr, Harlo?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the roads north still run, Harlo?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Did Ironforge send anyone to retake Dun Modr, Harlo?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could a druid's healing mend what the poultices haven't?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Rest easy.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1724,6 +1746,15 @@ P:NPC {
         { text = "Something else, Mikhail.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "A few every week, quiet and tall, and they mostly stand at the end of the dock looking back across the sea. I don't ask them anything, because I know that look, and it took me two years to stop wearing it after Stormwind." } },
+      choices = {
+        { text = "Looking back is only honest. We should remember what we left.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Leave the past behind. Nothing good comes of looking back.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. People tell me things across this bar that they ought to be telling you, and I'd rather they didn't." },
@@ -1737,6 +1768,7 @@ P:NPC {
           text = "Busiest hour. Nobody in here is doing anything wrong. That's what I tell myself, and then I keep watching." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Sit where you can see the door, then, and I'll not ask what you're expecting to come through it." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. You'll have noticed the crocolisks, then, and you'll have noticed I don't go near the water." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf. You're off the boat from Auberdine, I'd guess, and you've the look of someone who hasn't decided yet whether you like it here." },
       },
       again = {
         { id = "h_again", text = "Anything else, friend? Keep it quiet in here, if you please." },
@@ -1752,6 +1784,7 @@ P:NPC {
         { text = "Why don't you go near the water, Mikhail?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What do people confess at your bar, Mikhail?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "You watch everyone in here. Who are you working for, Mikhail?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do many of my people come through Menethil from Auberdine?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I'd call them powerful beyond anything Dalaran ever dreamed, and power without restraint burns the world as well as the student. Your ancestors learned that lesson at a cost we can only read about, and I'd sooner learn it from books." } },
+      choices = {
+        { text = "Then keep your chains on the books, Master Dumas.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Fear of power is its own trap. Knowledge should be free.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because a spell read by the wrong eyes is worse than a dagger in the wrong hand, and this city already has enough daggers. SI:7 understands that, and I'm told Master Shaw keeps a shelf of his own that nobody is allowed to read." } },
@@ -98,6 +107,7 @@ P:NPC {
           text = "A rogue in the Sanctum. You'll find our doors open and our books chained, and I'd ask you to remember the difference between the two." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Sanctum. You'll be wary of magic, I hope, because the untrained always are, and the ones who aren't tend to burn." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've spent your days in the wild, so you'll know the world is full of power, much of it untrained and most of it dangerous." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Sanctum. Your people once had the greatest mages the world has known and then gave it all away, and I've never decided whether that was wisdom or fear." },
       },
       again = {
         { id = "h_again", text = "Is there more? I have students waiting, but they can wait." },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "Is there magic in the wild, Master Dumas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is faith a discipline like your magic, Master Dumas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should a paladin fear the Light he carries, Master Dumas?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would you call my people's ancient mages reckless, Master Dumas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll be wary, Master Dumas.", next = "END" },
       },
     },
@@ -246,6 +257,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I doubt it, because your elders still remember why mine were sent away, and mine have never quite forgiven them. But Quel'Thalas burned and the Alliance took me in, so I've learned that old quarrels matter less than who stands beside you now." } },
+      choices = {
+        { text = "Old wounds should heal. I'd call you cousin gladly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The exile was earned, Elsharin, and my elders were right.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Every spring, and every spring I let them, because a student who learns the city's alleys learns caution faster than any lesson of mine. They come back with cut purses and humbled pride, and then they listen." } },
@@ -318,6 +338,7 @@ P:NPC {
           text = "I can feel the fel on you, faint as old smoke, and I won't pretend it doesn't trouble me. Even so, I'd rather talk to you than about you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your kind always arrives in such a rush, with your armour clanking and your hand on your sword, as if the room might attack." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Among my people, the hunters walk beside the Sentinels and the night sabers walk beside them, so I feel a little less far from home." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, in my classroom. Our peoples parted long ago, cousin, and I sometimes wonder what you see when you look at me." },
       },
       again = {
         { id = "h_again", text = "Yes? There is no hurry." },
@@ -337,6 +358,7 @@ P:NPC {
         { text = "Does my kind of magic frighten you, Elsharin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did your people pray in Quel'Thalas, Elsharin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the high elves still honour the Alliance, Elsharin?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Might our two peoples ever be one again, Elsharin?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -445,6 +467,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "In principle, yes, once someone of sufficient skill anchors one there, though I doubt your elders would let a human mage carve a door into their tree. Until then you'll take the boat from Menethil like everyone else." } },
+      choices = {
+        { text = "My elders are right. Some places should stay hard to reach.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They should allow it. Distance only keeps allies strangers.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Only by bribing a mage to open one, and the Sanctum would hear of it within the hour. We keep a record of every portal opened from this tower, and I keep it personally." } },
@@ -515,6 +546,7 @@ P:NPC {
           text = "A warlock in a portal mage's tower. I'll be civil, but you'll forgive me if I watch what you do with your hands." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You don't need a portal; you need a road and a pair of good boots, and I suspect you already have both." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and I suppose you'd like to know whether your beast can come through a portal. It can, but it won't like it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, which means you'll have walked or swum here, I suppose. Your people do seem to prefer the long way round to everything." },
       },
       again = {
         { id = "h_again", text = "Something further? Concisely, please." },
@@ -529,6 +561,7 @@ P:NPC {
         { text = "Surely your portals and my summonings aren't so different?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Has anyone ever been lost in a portal, Larimaine?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you trust a student's portal yourself, Larimaine?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could your portals ever reach Darnassus, Larimaine?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -588,6 +621,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They wilt, as most things do when they're far from the sun and close to something hungry. I'd not take it personally, druid, because the cellar has never been fond of anything that grows." } },
+      choices = {
+        { text = "The Crown should seal this cellar for good.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your cellar, your darkness. I won't meddle in it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Of course they do, and we let them, because there's nothing in our ledgers that Shaw hasn't read already. He knows exactly what we are, and he's decided we're worth more to him alive and indoors." } },
@@ -654,6 +696,7 @@ P:NPC {
           text = "A mage from upstairs, slumming in the cellar. The Sanctum sends someone down to disapprove of us every few months, and I've grown rather fond of the visits." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the cellar. How unexpected. Do keep your hands away from the circles; they're more delicate than they look, and so, I suspect, are you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast is sniffing the air, I notice. It smells what I'd rather it didn't." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, on the Lamb's stairs. How refreshing, though I'd ask you not to bring any of your saplings down here, because they never last long." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've all evening." },
@@ -670,6 +713,7 @@ P:NPC {
         { text = "What would the Black Claw want with a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What does my pet smell down here, Zardeth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What keeps me from turning this cellar out, Zardeth?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What becomes of the green things that come down here, Zardeth?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -773,6 +817,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Anyone can, but only the weak are, and your own Druids of the Fang went mad dreaming in a cave in the Barrens. I'd look to your own kind before you look down at my circles." } },
+      choices = {
+        { text = "Corruption must be rooted out, wherever it grows.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Each walks their own path, and falls by their own choices.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because what I teach can burn a street to the ground, and the crown would like to know whose street. I don't resent the watching, so long as Shaw's people remember that I'm watching them back." } },
@@ -845,6 +898,7 @@ P:NPC {
           text = "A mage, come down from the Sanctum to see how the other half studies. Look all you like, though you'll find our discipline is stricter than yours." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, among warlocks. You may stay, but if your sword begins to sing, I'd advise you to put it down and leave quickly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You bind beasts, and we bind demons. The difference, they tell me, is that yours love you, and mine merely obey." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid on my stairs. Your people fear corruption above all else, I'm told, so I wonder what brought you so close to it." },
       },
       again = {
         { id = "h_again", text = "More? Be brief." },
@@ -863,6 +917,7 @@ P:NPC {
         { text = "Do warlocks envy a hunter's bond, Ursula?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever fear where your path leads, Ursula?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should a paladin leave you in peace, Ursula?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you think a druid could ever be corrupted, Ursula?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -952,6 +1007,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Once, a herbal with a demon pressed between the pages like a flower, but the druid who bought it set it on fire in the street. I thought that was a bit much, though I suppose it was her book by then." } },
+      choices = {
+        { text = "She was right to burn it. Some books shouldn't exist at all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It was hers to burn or keep. That's nobody else's business.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Fewer than you'd think, because the stairs are dark and the imps are nosy, and nobody likes being shouted at in Infernal. The last one tried to pocket a grimoire, and it bit him, which taught us both something." } },
@@ -1024,6 +1088,7 @@ P:NPC {
           text = "A mage! Don't look so stern; my grimoires are perfectly respectable by the standards of this cellar, and they're very well bound." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, I'm afraid none of my grimoires will do anything for you, unless you'd like to read about how a voidwalker blocks a sword. It's fascinating, really." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I sell grimoires for demons, not beasts, but I've always thought the principles were rather similar, haven't you?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! I've no grimoires for you, sadly, because nobody's ever written down how to talk to a tree, or if they have, the tree kept the book." },
       },
       again = {
         { id = "h_again", text = "What else? I love a good chat between customers." },
@@ -1042,6 +1107,7 @@ P:NPC {
         { text = "Could a beast learn tricks from a grimoire, Spackle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Doesn't selling books like these worry you, Spackle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who decides what's legal to sell down here, Spackle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have you ever sold a book a druid might want, Spackle?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye, Spackle.", next = "END" },
       },
     },

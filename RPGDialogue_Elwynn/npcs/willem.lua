@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They shout that nobody takes their candle at anyone who comes near, so I reckon they're afraid of the dark down in those tunnels. I'd almost feel sorry for them, if they weren't digging up the vineyard to get here." } },
+      choices = {
+        { text = "Drive them back into the mine. The vineyard comes first.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Leave them their candles and they'll stop digging. Fear makes them bold.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Walk in and take their bandanas, and make it hard enough that they think twice about coming back. The Marshal wants a full count, and I want the vineyard clear before the grapes are ruined." } },
@@ -129,6 +138,7 @@ P:NPC {
           text = "A warlock, coming down from La Salle's graveyard. I'll ask you to keep that thing on a short leash, because the horses don't like it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because the bandanas in the vineyard won't count themselves, and the Marshal wants a full tally." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The wolves on the north slope have been bold this week, and the recruits are nervous." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid on the Abbey road! I've a tally of kobolds as long as my arm, so I hope you've come to help me shorten it." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a road to watch, and it won't watch itself." },
@@ -147,6 +157,7 @@ P:NPC {
         { text = "How bold have the wolves been, Deputy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have the thieves hurt anyone in the valley, Willem?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does the Marshal need most, Willem?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why do the kobolds want the Abbey's candles?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

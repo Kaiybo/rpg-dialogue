@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Fewer orders, and Stormwind isn't sending fewer, because the city's still rebuilding everything the orcs burned. Bring me a royal decree and I'll cut half as many, but I'm not holding my breath." } },
+      choices = {
+        { text = "Then I'll take it to Stormwind properly, through the right hands.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Decrees take too long. The forest can't wait on kings.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Fight the bears, and then cut the wood, if you've an arm left, because the order's due and my lads are scared. I'd pay you for one and thank you for the other." } },
@@ -97,6 +106,7 @@ P:NPC {
           text = "A mage at my logging camp. I don't suppose you could turn a tree into planks with a wave of your hand?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're here to fight bears, good; if you're here to cut wood, better, but I'll take either." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The bears and wolves up north are your trade, I'd think, and they're my problem." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and if you've come to tell me the trees have feelings, get in line behind the bowyer. I've an order due in Stormwind by the week's end." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it; daylight's money." },
@@ -114,6 +124,7 @@ P:NPC {
         { text = "Would you rather I cut wood or fight bears?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How many bears are we talking about, Raelen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has Stormwind sent you any protection, Raelen?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would it take to make the mill cut fewer trees?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
