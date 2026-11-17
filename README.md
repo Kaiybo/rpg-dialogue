@@ -105,6 +105,7 @@ Nothing has been tested in the game yet; see `HANDOFF.md` for what needs checkin
 - `DESIGN.md`: architecture, data schema, scoring, risks · `HANDOFF.md`: current state and next step
 - Every check in one command: `python3 tools/check_all.py` (needs Python 3, Lua 5.1 and luacheck)
 - Develop from the repo by linking the addon folders into your AddOns folder: `tools/link_addons.sh "/.../_forever_/Interface/AddOns"` (macOS/Linux) or `tools\link_addons.bat "C:\...\_forever_\Interface\AddOns"` (Windows)
+- CurseForge page kit (logo, description, setup steps): `curseforge/README.md`
 - Releases: tag `vX.Y.Z` and push; `.github/workflows/release.yml` runs the release checks and the BigWigs packager, which builds one zip with the core and every pack as separate addon folders.
 
 ## License

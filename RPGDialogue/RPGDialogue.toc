@@ -3,10 +3,11 @@
 ## Notes: Branching, reactive conversations with the people of Azeroth.
 ## Author: RPG Dialogue
 ## Version: 0.66.0
-## IconTexture: Interface\Icons\INV_Misc_Book_09
+## IconTexture: Interface\AddOns\RPGDialogue\Media\Logo
 ## SavedVariables: RPGDialogueDB
 ## SavedVariablesPerCharacter: RPGDialogueCharDB
 ## X-License: MIT
+## X-Website: https://github.com/Kaiybo/rpg-dialogue
 
 Locales\enUS.lua
 
