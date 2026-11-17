@@ -9,8 +9,8 @@
 
 ## Identity
 TODO_NPC · Kurgul · Cleft of Shadow, Orgrimmar · Horde · Orc (confirm) · Demon Trainer
-Personality: dry, curious, oddly fond of demons
-Speech: describes demons like difficult pets
+Personality: dry, curious, oddly fond of demons; treats them like difficult pets or whelps
+Speech: describes demons like difficult pets; remembers every demon's name; pet peeve is warlocks who never speak to their demons
 Knows and cares about: grimoires, demon temperaments
 Relationships: warlocks of the Cleft
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: Some grimoires copied from surviving Shadow Council books.
+Authored, not canon: Some grimoires copied from surviving Shadow Council books; an imp calling himself the Duke of Ashes ate his good quill; keeps a list of demons who owe him an apology; friendly leash-versus-kennel bickering with Mirket.
 
 ## Reliability
 Reliable about their trade; opinions are their own.
