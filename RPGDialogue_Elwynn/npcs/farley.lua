@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only the arm-wrestling, and Dobbins handles that with a bucket of water. Most warriors drink, sleep and go, and the good ones pay for what they break before I have to ask." } },
+      choices = {
+        { text = "I'll pay for anything I break, Farley.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it breaks under me, it wasn't built well.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not the ones who stay, because Keryn Sylvius keeps his students in line and I keep the ale flowing, and we understand each other. It's the Defias passing through I worry about, though they never seem to stay for a second drink." } },
@@ -75,6 +84,7 @@ P:NPC {
           text = "A druid! Well, Elwynn's a fine forest to visit, though I expect ye've seen far older ones in Ashenvale." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Welcome, welcome! I don't mind telling you I count the spoons at night, and it's nothing against you, it's only habit." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit yourself down; I'll not ask what you've been hitting, but my chairs are older than you, so go gently on them." },
       },
       again = {
         { id = "h_again", text = "What else, friend? So much to do, and I'd rather talk." },
@@ -94,6 +104,7 @@ P:NPC {
         { text = "Can {pet} sleep in my room?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Does the mage upstairs ever complain?", next = "mage", when = { class = "MAGE" } },
         { text = "Do rogues give you much trouble at the Lion's Pride?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you get much trouble from warriors at the Lion's Pride?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Just stopping in.", next = "END" },
       },
     },

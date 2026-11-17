@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Up the path from the beach, three or four at a time, thinking a woman alone is an easy morning's work. I've a pitchfork and a good fence, but a sword at the gate would make them think twice." } },
+      choices = {
+        { text = "I'll stand at your gate with you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Sell up and go to Sentinel Hill. It's not worth dying for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Only once, and they didn't like the welcome. It's the Defias I watch for, but the coyotes are bold too, and they've had two of my hens this month while I was looking at the sea." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine watchdog, love. If I had one like it, I'd sleep the whole night through." },
+      },
+      choices = {
+        { text = "I'll clear the coyotes so your hens are safe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Coyotes are the least of your worries. I'll hunt elsewhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "They talk loud enough that I hear them from my porch, love, and mostly it's about the Deadmines and who's owed what. If you go down there, mind the sentries in red bandanas, because they've seen me watching and they don't like it one bit." } },
       choices = {
@@ -53,6 +74,8 @@ P:NPC {
           text = "That's the last time they try my gate, I'd wager. I got two of them myself, you know, but don't tell Jordan, because he worries." },
         { id = "h_jordan", text = "My husband Jordan's a smith, away up by the gates of Ironforge for now, and the most faithful man the Church has. It's a long way off, but we write." },
         { id = "h_apples", when = { metBefore = true }, text = "First apples are coming on, love. Small and sour, but they're mine, and nobody's burned them. That's a good year, out here." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time; the tide's turning, and the Brotherhood like to come up with it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Then you've seen what's left on the beach after the murlocs have been at it, and you know why I keep the gate shut." },
       },
       again = {
         { id = "h_again", text = "What else, love? I've a whole basket of apples to sort." },
@@ -68,6 +91,8 @@ P:NPC {
         { text = "Can I help?", next = "BUSINESS" },
         { text = "I could slip down among the Defias below and listen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A ward on your door would keep the Defias out.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "How do the Defias come at your farm, Daphne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the murlocs come up as far as your farm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Enjoy your apples.", next = "END" },
       },
     },

@@ -24,6 +24,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "No, and I didn't say that, so don't go telling the Stonefields I did. But a strong arm walking the fence line now and then would remind certain people that the Maclures aren't to be trifled with." } },
+      choices = {
+        { text = "I'll not take sides in your feud, Pa.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll walk the fence for you, Pa. Let them see me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They come up from the woods at night and dig under the trellis till it falls, and then they eat whatever's on the ground. The Stonefields say it's my vines bringing them, and I say it's their pigs." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it could clear the low rows by itself. Let it, if you've the time." },
+      },
+      choices = {
+        { text = "I'll clear the boars and keep out of the feud.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll drive them over to the Stonefield side.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I fear anything I don't understand, and I don't understand you or what you keep at your heel. The Stonefields would say I fear everything, but the Stonefields have never had to watch a harvest go to the Defias." } },
@@ -45,6 +66,8 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Late to be out among the vines. A man hears things in the rows at night, and none of them are honest." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've a stink about you like a burned field, and I don't want it near my vines, so state your business and go." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on Maclure land. Good, because there are folk on the Stonefield side who'd do with a fright." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you've come for the boars, they're in the low rows, rooting up my vines like they own them." },
       },
       again = {
         { id = "h_again", text = "What else? I've vines to see to before dark." },
@@ -57,6 +80,8 @@ P:NPC {
         { text = "Tell me about your children.", next = "children" },
         { text = "Seen the Defias up this way?", next = "defias", when = { any = { { questDone = TODO_QUEST("Brotherhood of Thieves") }, { class = "ROGUE" } } } },
         { text = "Do you fear a warlock will harm your vines?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would you have a warrior settle your feud, Pa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the boars give you much trouble in the vines?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Mr. Maclure.", next = "END" },
       },
     },
@@ -165,6 +190,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than you'd think, and they drink it faster than anyone. A warrior coming back from Fargodeep wants a bottle to forget the kobolds, and I'm happy to sell it, though I'd not say so in front of Pa." } },
+      choices = {
+        { text = "I'll drink to the ones who didn't come back.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll drink to forget the lot of them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Very nearly, and he talks about them the same way, with a lot of fist-shaking at the bottom rows. If you clear a few boars out, he'll think better of you, though he'll not tell you so himself." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mind your {pet} near the bottles, if you would. One wag of a tail and I'm explaining to Pa again." },
+      },
+      choices = {
+        { text = "I'll clear the boars and leave Pa in peace.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll clear them if he pays, and only then.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "He does, and the one night he came up two short it was Billy who'd taken them to the Stonefields, which caused more trouble than a Defias raid. If you ever see Billy with a bottle, I'd be grateful if you didn't tell Pa." } },
@@ -194,6 +240,8 @@ P:NPC {
           text = "I'll show you everything I've got, but I'd thank you to keep your hands on the counter, because Pa counts bottles at night." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll be after a bottle for the long nights with your books, I'd guess, and I've just the vintage." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want something strong, I expect. I've a red that'll stand up to anything you've fought." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after something for a long night in a cold camp, I've just the bottle." },
       },
       again = {
         { id = "h_again", text = "Anything else? Pa's watching, so I'd best look busy." },
@@ -206,6 +254,8 @@ P:NPC {
         { text = "Do you know about Maybell and Tommy Joe?", next = "secret", when = { questDone = TODO_QUEST("Young Lovers") } },
         { text = "Does your Pa really count bottles every night?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there a vintage you'd recommend for a scholar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors buy much wine from the Maclures?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does Pa really hate the boars as much as the Stonefields?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Cheers.", next = "END" },
       },
     },

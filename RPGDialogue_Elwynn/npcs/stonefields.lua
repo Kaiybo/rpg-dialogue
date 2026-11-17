@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Need, no, but I'd not say no to someone strong enough to make that Maclure boy think twice about my fence. And the kobolds that took my necklace could do with a lesson too, if you're passing." } },
+      choices = {
+        { text = "I'll teach the kobolds a lesson, Auntie.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll put a scare into that Maclure boy.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Pies, of course, and the boy who's been hanging round my fence won't stop talking about them. Bring me good meat and I'll bake, though I'll not promise it'll be for him." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours looks well fed. Don't let it near my window when the pie's cooling, mind." },
+      },
+      choices = {
+        { text = "I'll bring you the best boar I can find.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bring whatever I catch. Boar's boar.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I think everyone who's ever walked past this window has thought about it, and half of them have tried, including Billy Maclure. You'd be the first rogue to resist, and I'd like to see it." } },
@@ -62,6 +83,8 @@ P:NPC {
           text = "Quick hands, I see, and I've a pie cooling on the sill, so I'll be watching both of them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Could you warm my oven a little faster, dear? The wood's damp, and the bread won't rise without heat." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Wipe your boots, then; I've just swept, and I don't sweep twice for anyone." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after good boar, the ones out past the Maclure vines are fattest, and I'd thank you to bring me some." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I knead; I can do both." },
@@ -76,6 +99,8 @@ P:NPC {
         { text = "A gnome could build you a better oven, Auntie.", next = "gnome", when = { race = "Gnome" } },
         { text = "Do you really think I'd steal your pie, Auntie?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Wouldn't a spell spoil the bread somehow?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you need a warrior's help on the farm, Auntie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why do you want boar meat, Auntie?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to your baking.", next = "END" },
       },
     },
@@ -226,6 +251,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Dangerous to my carrots, at least, and her hogs will take a shin off anyone who gets too close. She's the size of a cart, and she's had the run of my field all season, so I'd say she's due." } },
+      choices = {
+        { text = "I'll put her down and save your field.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll put her down and take her for the inn.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I'd want it killed any way at all, because that sow's eaten more of my cabbages than my family has, but I'd rather it was done quietly so the neighbours don't talk. Whoever's left over there can think she wandered off." } },
@@ -258,6 +292,7 @@ P:NPC {
           text = "A rogue. You could slip into the Brackwell patch and do away with that pig, couldn't you, without anyone the wiser?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Whatever that is at your heel, keep it out of my field, because I've enough trouble with one beast eating my crop." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now you're who I need, because that pig of the Brackwells' won't stop for a pitchfork." },
       },
       again = {
         { id = "h_again", text = "What else? I've weeding, and the weeds don't wait." },
@@ -273,6 +308,7 @@ P:NPC {
         { text = "I could ask Princess to leave, the druid's way.", next = "druid", when = { class = "DRUID" } },
         { text = "Would you really want the pig killed in secret?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could my demon deal with the Brackwells' pig?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is Princess really so dangerous, Ma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Good luck with the crop.", next = "END" },
       },
     },
@@ -399,6 +435,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "He's a kobold, down in Fargodeep, and he likes shiny things, and he's got Auntie Bernice's necklace. I saw it, only I didn't, because I wasn't there, so don't tell my ma." } },
+      choices = {
+        { text = "I'll get the necklace back, and I'll keep your secret.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Tell your ma the truth, Billy, or I will.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Starving, nearly! Ma says I eat too much, but I don't, I'm just growing, and Auntie Bernice's pie is the best in Elwynn. If you bring her boar meat, she'll make one, and then I'll tell you everything." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that your {pet}? Does it eat pie? I'd share, only not very much." },
+      },
+      choices = {
+        { text = "I'll bring the meat, Billy, but the pie's not yours.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Here's a bit of jerky. Now talk.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Only for a little while, just long enough for everyone to laugh, and then you could turn him back. Pa would say it's wicked, but Pa says everything's wicked when it's about Stonefields." } },
@@ -420,6 +477,8 @@ P:NPC {
         { id = "h_denial", when = { metBefore = true }, text = "I didn't eat the pie, I didn't! Ma says I did, but Ma's wrong, mostly." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A real mage! Can you do the thing where you turn somebody into a sheep? I know a Stonefield who'd look good as a sheep." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Are you a warrior? You could beat up Goldtooth! Only don't tell anyone I said, because I wasn't there." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Are you a hunter? Have you got a boar? I'm not hungry, I'm just asking, because I'm hungry." },
       },
       again = {
         { id = "h_again", text = "What? I'm listening, I'm always listening, that's how I know things." },
@@ -432,6 +491,8 @@ P:NPC {
         { text = "Aren't you scared of kobolds?", next = "kobolds" },
         { text = "I could teach you to lift a purse.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Would you really want a Stonefield turned into a sheep?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Who's Goldtooth, and why should a warrior fight him?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Are you really that hungry, Billy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "See you, Billy.", next = "END" },
       },
     },

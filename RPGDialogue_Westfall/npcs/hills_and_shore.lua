@@ -25,6 +25,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They drink it by barrel, they drink it by mug, they drink it by bucket and boot and by jug! A warrior's thirst is a wonderful thing, and I'll serve him a lager that'll make him sing." } },
+      choices = {
+        { text = "I'll drink one cup and keep my head clear.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pour me a barrel, and a song to go with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Grimbooze.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A Thunderbrew Lager, as dark as the night, with a head like the foam on a sea at its height! The Goretusk is tough, but the lager is smooth, and between them there's nothing a body can't soothe." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And there's {pet}, poor beast, with a nose for my still! Keep it away, for it'll drink, and it will!" },
+      },
+      choices = {
+        { text = "I'll share the boar and the barrel with the militia.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll keep the boar and the barrel for myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "A barrel lifted is a barrel missed, and a Thunderbrew never forgets his list! I've counted them twice since the Defias came by, so mind your fingers and keep your thirst dry." } },
       choices = {
@@ -48,6 +69,8 @@ P:NPC {
           text = "Ye've come from Lakeshire, and Daniels is dry? Then a keg of my lager's the thing ye should buy, for no barkeep in Redridge would sleep at his bar with no Thunderbrew Lager, whoever ye are!" },
         { id = "h_gnome", when = { race = "Gnome" }, text = "A gnome in the hills, with a nose for the brew? I'd show ye my still, but ye'd only improve it, and then it'd blow up, and so would I too." },
         { id = "h_paladin", when = { class = "PALADIN" }, text = "A paladin, shining as bright as the sun! I'll not ask ye to drink, but ye're welcome to look, since a still's only copper and fire and a book." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior come up from the road, with a blade at the hip and a terrible load! Sit down by the still and I'll pour ye a cup, for there's no better cure for a fight than a sup." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter with bow and a beast at the heel! Ye'll want a fine lager to go with yer meal, for a boar on the spit and a keg on the side is the best thing in Westfall, I'll say it with pride!" },
       },
       again = {
         { id = "h_again", text = "What else would ye ask of a dwarf at his still? Ask quickly, before all the barley goes ill." },
@@ -61,6 +84,8 @@ P:NPC {
         { text = "Barkeep Daniels in Lakeshire needs lager.", next = "daniels", when = { questActive = TODO_QUEST("Dry Times") } },
         { text = "Your barrels would be easy to lift, you know.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I could chill your lager in a heartbeat.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors drink much of your Thunderbrew, Grimbooze?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What goes best with a Westfall boar, Grimbooze?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to your still.", next = "END" },
       },
     },
@@ -140,6 +165,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More every season, coming up from the deep since the farms went bad. My father said the murlocs knew when people were weak, and they came up the beach to see. I think he was right." } },
+      choices = {
+        { text = "I'll push them back into the sea.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them have the beach. There's more inland.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Only when they come for my nets, and then I hit them with an oar. They're slippery and they shriek, but they're cowards mostly, so a beast at your side will scatter them faster than any spear." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make short work of a murloc. Keep it away from my catch, though; it's all I've got." },
+      },
+      choices = {
+        { text = "I'll clear the shore so you can fish in peace.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt them, but your nets are your own concern.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Nothing hears you coming, I'd wager, but murlocs smell you anyway, and they've noses like the tide. If you're creeping down the Longshore, go upwind and go slow, same as I do with the fish." } },
       choices = {
@@ -161,6 +207,8 @@ P:NPC {
         { id = "h_default", text = "Kriggon Talsone, and I fish this shore, same as my father did before the farms went bad. The sea doesn't care who owns Westfall, which is more than I can say for anything else around here." },
         { id = "h_farmhand", when = { origin = "human_westfall_farmhand" }, text = "You've the look of a Westfall hand, under all that gear. Whose farm was it? Never mind, I don't want to know which one burned." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "They say your sort can talk to the water. If it tells you where the fish have gone, you'll tell me, won't you?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my beach. The murlocs won't care how strong you are, so watch your feet; the sand's slippery when it's wet." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're after murlocs, they're thick on the Longshore; if you're after fish, you'll have to be patient, same as me." },
       },
       again = {
         { id = "h_again", text = "Something else? The line's slack, so I've time." },
@@ -173,6 +221,8 @@ P:NPC {
         { text = "Why stay in Westfall at all?", next = "stay" },
         { text = "The murlocs wouldn't hear me coming.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "My imp would burn those murlocs off your beach.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How many murlocs are on this shore, Kriggon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you ever hunt the murlocs yourself, Kriggon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good fishing to you.", next = "END" },
       },
     },

@@ -26,6 +26,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That you win fights before they start, and I'll grant you that's smart. But one day the wolf gets past the beast and the arrow, and then you'll wish you'd stood in my yard a week and learned to take a hit." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours takes the hits for you, I see. Look after it; it's doing my job." },
+      },
+      choices = {
+        { text = "I'll learn to stand my ground when it comes to that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it comes to that, I've already lost. I'll stay back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I'd train anyone who can stand up again after I knock them down, and rogues get knocked down a lot, by my reckoning. You'll never block like a warrior, but you'll learn when to run, and that's half the fight anyway." } },
@@ -91,6 +103,7 @@ P:NPC {
         { text = "Would you train a rogue alongside your warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do your warriors respect the mages here at Northshire?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have warlock pets damaged your dummies before?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What does a warrior trainer think of hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },

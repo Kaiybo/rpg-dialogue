@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Too many to count from the fence, and they've set a camp right on my grapes. They're not soldiers, but they've knives and they don't fight fair, so watch the ones you can't see." } },
+      choices = {
+        { text = "I'll take my harvest back, row by row.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll burn their camp out, grapes and all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Through the north rows, where the vines are thickest. They watch the road and not the grapes, and I've crept past them myself to see what they'd taken, though I'd not do it twice." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And bring your {pet}. If it barks, they'll think it's a stray, and they won't look twice." },
+      },
+      choices = {
+        { text = "I'll go quietly and take back only your crates.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll go quietly and leave nobody standing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "A rogue could slip into their camp and take back what's mine without the whole vineyard catching fire, which is more than the guards can promise. I don't care how it's done, so long as my grapes come home." } },
@@ -67,6 +88,8 @@ P:NPC {
           text = "You've the look of someone who knows how the Defias think, and I'll not ask why, so long as you're on my side." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "There's something about you that makes the vines droop, and I don't like it, but I'll take any help I can get with the Defias." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Then you can carry crates, and you can carry them past the Defias, which is twice what I hoped for." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be quiet, then, and you'll get into the vineyard without them hearing, which is more than the recruits manage." },
       },
       again = {
         { id = "h_again", text = "What else? You can talk while I sort these." },
@@ -82,6 +105,8 @@ P:NPC {
         { text = "I'll pray the Light watches over your vineyard.", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Could a rogue help you get your harvest back?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you truly accept a warlock's help, Milly?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How many Defias are in the vineyard, Milly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can I come at the Defias quietly through the vineyard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },

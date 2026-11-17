@@ -16,6 +16,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "In threes, with one in front to keep you busy and two coming round the side with knives. They'll pick off the one who stops to help a friend, so keep moving and don't look back, whatever you hear." } },
+      choices = {
+        { text = "I'll protect anyone who falls, knives or not.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll keep moving and let the slow ones fall.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Where the road narrows by the old farms, and the hedges are thickest. They'll have a man up a tree and two in the ditch, and they'll let you pass, then take me from behind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} smells them before we see them, I hope. If its hackles go up, trust it more than me." },
+      },
+      choices = {
+        { text = "I'll get you to Moonbrook alive, traitor or not.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll get you there, but my beast comes first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Pillagers, they call them, and they throw fire about like it costs nothing, which to them it doesn't. Where they learned it I never asked, but they've no love for Stormwind's towers, I'll tell you that for free." } },
       choices = {
@@ -40,6 +61,8 @@ P:NPC {
           text = "Right, we're doing this, then. Stay close, keep your blade out and don't stop for anything, not even if they call my name." },
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "You've the look of someone who'd have done well with us, you know. Don't take that wrong, it's meant kindly, more or less." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior escorting me. Good, because the Brotherhood's lot fight dirty, and you look like you can take a knife in the back and keep walking." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. That beast of yours had better have a nose for an ambush, because the Brotherhood will have one waiting." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, I don't like standing still." },
@@ -52,6 +75,8 @@ P:NPC {
         { text = "I ran with the Brotherhood too, once.", next = "kin", when = { class = "ROGUE" } },
         { text = "The Brotherhood have spellcasters of their own, don't they?", next = "xmage", when = { class = "MAGE" } },
         { text = "You fear your old crew more than you fear me.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How do the Defias fight, if they fight dirty?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Where would the Brotherhood set an ambush on our road?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Let's go.", next = "END" },
       },
     },

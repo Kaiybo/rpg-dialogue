@@ -25,6 +25,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Scrolls, mostly: a little strength or stamina, written into the page and spent in one breath. They're for the moment a gnoll has you pinned, not for showing off at the inn." } },
+      choices = {
+        { text = "I'll keep one for the hard moment and fight honestly until then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll read every one I can afford before a fight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Scrolls of agility, mostly, and the odd flask for a long night in the hills. Hunters who come up here usually want something for the eye and the hand, and they never stay long enough to sit." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing at the reagent shelf, and I'd rather it didn't. Some of those powders make a nose very unhappy." },
+      },
+      choices = {
+        { text = "A steady hand matters more than any scroll, I think.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Any edge in a hunt is worth buying, scroll or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Because Morganth was a sorcerer of your sort once, and he's camped across the river in Redridge wanting this tower for his own. My master looks at every warlock and sees Morganth, which isn't fair to you, though I can't say it's unwise of him." } },
@@ -41,6 +62,8 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest, up here among the scrolls? We don't get many of the Cathedral's people, though Master Theocritus would say the Light and the arcane are cousins who don't speak." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've the smell of a cellar about you, and I don't mean the inn's ale. Theocritus won't want you near his books, so let's keep our business to the counter." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, all the way up our stairs in all that steel! Sit a moment, because Theocritus keeps the windows shut and the climb is warmer than it looks." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in the tower! Mind the gnomes on the stairs, please, because they startle, and your beast startles them." },
       },
       again = {
         { id = "h_again", text = "What else can I help you with? I've a delivery list to finish." },
@@ -53,6 +76,8 @@ P:NPC {
         { text = "What sells best?", next = "sales" },
         { text = "I'm a mage. What would you recommend?", next = "mage", when = { class = "MAGE" } },
         { text = "Why would Theocritus mind a warlock in his tower?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is there anything in a mage's tower for a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do hunters buy from a tower like this?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Dawn.", next = "END" },
       },
     },
@@ -123,6 +148,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Truly, with the right dust and a steady hand! Though I'll tell you what I tell every warrior: an enchantment can't swing the blade for you, and the gnolls won't wait while you admire the glow." } },
+      choices = {
+        { text = "Then I'll train the arm first and enchant the blade after.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take every glow I can buy, and let the arm catch up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kitta.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Oh, all sorts, a sharper eye or a steadier string, though Theocritus says I'm too eager to try things on other people's weapons. Bring me one someday and we'll find out together." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}! I wonder whether a collar could take an enchantment, though I suspect it would rather you didn't try." },
+      },
+      choices = {
+        { text = "I'll trust my own aim before any enchantment.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it makes the shot surer, enchant whatever you like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Every mage should at least try, because a spell lasts a moment but an enchantment lasts as long as the blade does. Theocritus says it's a craft for people who can't hold their concentration, which I think is exactly why he's never managed it." } },
@@ -150,6 +196,7 @@ P:NPC {
           text = "A mage, and a young one! Enchanting comes easiest to your sort, because you already know what a rune wants before you've drawn it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I'd ask that you keep your imp away from my dust, because a spark in the wrong pouch costs me a week of work." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've always wanted to try enchanting a bow, and nobody ever brings me one, so you're very welcome." },
       },
       again = {
         { id = "h_again", text = "What else? I could talk about this all afternoon, and I usually do." },
@@ -163,6 +210,8 @@ P:NPC {
         { text = "Isn't the arcane dangerous to toy with?", next = "danger" },
         { text = "Should every mage learn enchanting, then?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is fel magic truly so dangerous to enchanting?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Could an enchantment truly make my sword cut deeper?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What would an enchanter do to a hunter's bow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll come back another time.", next = "END" },
       },
     },

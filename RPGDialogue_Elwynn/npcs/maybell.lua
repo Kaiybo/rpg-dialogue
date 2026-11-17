@@ -32,6 +32,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "No, nobody, not really. It's only that the murlocs sometimes come up the bank at dusk, and I'm meant to be counting grapes, and nobody would think to look for me if they got me." } },
+      choices = {
+        { text = "I'll keep watch by the river while you're there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You shouldn't be out there at all, Maybell.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "No reason, no reason at all, only that sometimes a girl wants to walk by the river without her whole family knowing. You must know which way the wind blows and where the brambles are thinnest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, look at {pet}! If it came with me to the river, I'd never be frightened of the murlocs again." },
+      },
+      choices = {
+        { text = "I'll not help you sneak about, Maybell.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep downwind and step on the grass. You'll do fine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because there's someone on the Stonefield side who'd like to hear from me, and Pa reads every letter that leaves the house. I know it isn't proper, but proper hasn't done much for me so far." } },
@@ -70,6 +91,8 @@ P:NPC {
           text = "Oh, a druid! Are you one of those who can talk to the animals? I've always wondered if the cows have opinions." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "You're a mage! Do you know any spells that could carry a letter across the river without anyone seeing?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Could you stand at the river crossing for a bit? Only if anyone comes, you could look terribly fierce." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must be good at going places without being seen, and I'd love to know how you do it." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick, though; Billy's somewhere about, and Billy hears everything." },
@@ -87,6 +110,8 @@ P:NPC {
         { text = "I could teach you to move unseen.", next = "rogue", when = { class = "ROGUE" } },
         { text = "You should tell your family the truth.", next = "truth", fx = { opinion = { maybell_tommy = "honest" } } },
         { text = "Why would you need a letter carried in secret?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is somebody bothering you down by the river?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why do you want to know how to go unseen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your secret's safe with me.", next = "END", fx = { affinity = 1, opinion = { maybell_tommy = "romantic" } } },
       },
     },

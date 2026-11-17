@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Nerve, mostly, and years of training it not to bolt when steel rings. A warhorse will stand still while the world shouts at it, which is more than I can say for most riders." } },
+      choices = {
+        { text = "Then I'll be as steady as the horse is.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Any horse will do, if the rider swings hard enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They fear what smells like a wolf or a cat, and most of your pets do. I've had a whole stable kick its doors because a hunter walked a lynx past the paddock, so I'd ask you to go round the long way." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks calm enough, but the mares won't believe that. Keep it by the gate, please." },
+      },
+      choices = {
+        { text = "I'll keep my beast away from your stable.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your horses will have to get used to it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "The Defias tried last spring, and they got as far as the fence before old Bramble kicked one of them into the trough. Stormwind horses fetch a high price on the Westfall road, so I don't blame them for trying, but I do blame them." } },
@@ -56,6 +77,8 @@ P:NPC {
           text = "I count every horse in this stable twice a night, so you know, and I know every one of them by the sound of its hooves." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Keep your creature downwind of the stalls, please, because I've a mare in foal and she won't settle if she smells it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Stormwind's cavalry rode my mother's horses into the last war, and they came home with warriors on their backs, those that came home." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. My horses don't love your beasts, love, but they'll learn manners if you keep your distance." },
       },
       again = { { id = "h_again", text = "Anything else? They'll want feeding soon." } },
       choices = {
@@ -65,6 +88,8 @@ P:NPC {
         { text = "Do you name them?", next = "names" },
         { text = "Has someone tried to steal your horses before?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do your horses fear a warlock's summons?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What makes a warhorse different from a farm horse?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your horses fear a hunter's pet?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -121,6 +146,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Stormwind's knights do, but they train for years, and the horse trains longer. Most warriors ride to the fight and get down for it, and that's no shame; it's sense." } },
+      choices = {
+        { text = "I'll ride to the fight and stand for it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather learn to fight from the saddle.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It will, in time, if the beast doesn't snap at its heels. I've seen hunters ride all the way to Westfall with a cat padding beside them, and the horse never blinked once it knew the cat was a friend." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Walk your {pet} past the paddock a few times. The horses will learn its smell, and then they'll stop fretting." },
+      },
+      choices = {
+        { text = "I'll take the time to teach them both.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The horse can learn on the road, like I did.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because a horse won't sit still while you think, and every mage I've taught tries to think in the saddle. Learn to ride first and work your spells second, and you'll get further than the ones who try it backwards." } },
@@ -149,6 +195,8 @@ P:NPC {
           text = "A mage. Your kind always want to ride at first and then decide halfway to Stormwind that walking was faster." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I'll teach you to ride if you want it, though your sort will be riding something else soon enough, I hear." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll ride well, I think, because your sort already know how to stay upright while something tries to throw you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want to ride with your beast trotting alongside, I suppose, and that takes a calm horse and a calmer rider." },
       },
       again = { { id = "h_again", text = "More questions? Good, because questions now are cheaper than falls later." } },
       choices = {
@@ -158,6 +206,8 @@ P:NPC {
         { text = "Can a priest ride like a knight?", next = "priest", when = { class = "PRIEST" } },
         { text = "Why do mages give up on riding?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you teach a warlock to ride your horses?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Can a warrior fight from the saddle, Randal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Will a horse ride beside a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

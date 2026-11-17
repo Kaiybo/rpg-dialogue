@@ -31,6 +31,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It favours those who protect, and a warrior who holds the line for others is doing the Light's work, whether they pray or not. I've seen the sword do more good in Northshire than a dozen sermons." } },
+      choices = {
+        { text = "Then I'll fight for those who can't.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I fight for myself. The Light can watch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I believe the Light cares for all that lives, and a hunter who takes life with care honours it. The ones who take more than they need, though, worry me, and they should worry themselves." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a living thing in your keeping, child. Remember that you answer for it." },
+      },
+      choices = {
+        { text = "I take only what I need, Brother.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The woods are full. Taking more won't harm them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "It watches over everyone, though some walk in its sight more easily than others, and your trade doesn't make it easy. I'd ask you to remember that every purse you lift belongs to someone the Light loves just as much as you." } },
@@ -94,6 +115,8 @@ P:NPC {
           text = "A mage. Khelden's student, I suppose, and you'll want to know whether the Light and the arcane can share a roof." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You come from the graveyard, and I can feel the darkness on you. I'll still pray for you, though I suspect you'd rather I didn't." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Abbey. You stand like Llane's yard, child, but you might find the Light stands with you too." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The Light walks in the woods as well as the Abbey, child, and I think you know that better than most." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind?" },
@@ -111,6 +134,8 @@ P:NPC {
         { text = "Does the Light truly watch over rogues, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can the Light and the arcane share a roof, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why would you pray for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Light favour warriors, Brother Sammuel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you think the Light cares for beasts, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Another time, Brother.", next = "END" },
       },
     },

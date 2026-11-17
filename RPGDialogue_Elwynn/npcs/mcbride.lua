@@ -39,6 +39,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The vineyard, where the Defias pick at our grapes, and the kobold camps to the east, where the miners stopped going. Llane has your training, but I have the map, and the map's mostly red." } },
+      choices = {
+        { text = "Put me where the line's thinnest, Marshal.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go where the fighting's best, Marshal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "I need the kobolds cleared out of the vineyard and the Defias kept off the Abbey road, and I've four guards to do it with. A mage who can follow orders is worth a dozen who can't, so learn to follow them." } },
@@ -106,6 +115,7 @@ P:NPC {
           text = "A druid, here in Northshire! I've kobolds in the vineyard and wolves in the hills, so I'll gladly take whatever help you're offering." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and fresh from the Library Wing, I'd guess. Khelden's told me about you; he says you read faster than you listen." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, I'll put you where the line's thinnest, and in Northshire that's everywhere." },
       },
       again = {
         { id = "h_again", text = "What else do you need, recruit? Be quick about it." },
@@ -133,6 +143,7 @@ P:NPC {
         { text = "I've brought my own beast, Marshal.", next = "hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "The spirits of the stone brought me here, Marshal.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "What do you need from a mage, Marshal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Where is the line thinnest in Northshire, Marshal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "That's all, Marshal.", next = "END" },
       },
     },

@@ -28,6 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "South of the garrison, at the shallows, and their tracks lead toward Hogger's camp every time. If you could follow them back, I'd know how many we're facing, which is more than the Army's told me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} will have their scent in no time. Gnolls smell worse than they look, and that's saying something." },
+      },
+      choices = {
+        { text = "I'll follow them and bring you a true count.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll follow them and kill what I find.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I'd hire a gnoll to deal with Hogger if it came to that, because the Army's sent most of its soldiers abroad and I'm short of anyone with a blade. A rogue who can get close to him without being eaten would earn every copper." } },
@@ -64,6 +76,7 @@ P:NPC {
           text = "A rogue, here at Westbrook. If you've come about the bounty, Hogger's the one on the notice, not me." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, and not from around here. Keep whatever that is away from my lads, because they're nervous enough with Hogger in the woods." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at Westbrook. The gnolls cross the river at night, and I could use someone who sees in the dark better than my lads." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I watch the road." },
@@ -80,6 +93,7 @@ P:NPC {
         { text = "I'll help hold the road.", next = "END", fx = { affinity = 1, standing = { goldshire = 1 } } },
         { text = "Would you hire a rogue to deal with Hogger?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would a warlock's help with Hogger be welcome here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Where do the gnolls cross the river, Deputy?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck, deputy.", next = "END" },
       },
     },

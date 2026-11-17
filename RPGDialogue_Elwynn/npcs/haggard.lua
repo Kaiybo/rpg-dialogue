@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Showing up, mostly, every watch and every bad night, without being asked twice. The ones who wanted glory didn't last, and the ones who wanted their mates to come home lasted forever, near enough." } },
+      choices = {
+        { text = "I'll fight for the ones beside me, not for glory.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Glory's what a soldier's remembered for, Marshal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "When we could get them, aye; a dwarf with a rifle found more Riverpaw camps in a month than my lads did in a year. Dead-tooth Jack's camp would take one about an afternoon, I'd guess." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a tracker. Point it at Jack's camp and it'll do my old badge proud." },
+      },
+      choices = {
+        { text = "I'd track for the Guard gladly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd track for whoever paid most.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Forty years in the Guard teaches you that honest men make noise, and the ones who don't are either rogues or Defias. You'd better be the first sort, because I've still a sword under this blanket." } },
@@ -69,6 +90,7 @@ P:NPC {
           text = "I can't see you, but I can't hear you either, which tells me plenty. You're one of the quiet ones, aren't you?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "There's a hum in the air when you're near, like a hive. That'll be a mage, then, or else my ears are going the way of my eyes." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few in the Guard, back when, for tracking deserters and gnolls. Handy folk, and quiet." },
       },
       again = {
         { id = "h_again", text = "If you're still there, speak up, will you?" },
@@ -84,6 +106,8 @@ P:NPC {
         { text = "My family's name opens doors at the Keep.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "How did you know I was a rogue, Marshal?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Did you ever fight beside mages in the Guard?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What made a good soldier, back when you led the Guard?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Did the Guard really use hunters for tracking?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Rest easy, Marshal.", next = "END" },
       },
     },

@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because the Defias come at night, and nobody wants to be the one running out barefoot. I've seen a man fight off a Defias raid in his nightshirt and one boot, and he was very proud of it." } },
+      choices = {
+        { text = "I'll sleep in my boots, then, and be ready.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll sleep well and let the night watch handle it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They don't mind, as long as the beast doesn't eat their supper, and some of them talk to the animals more than to each other. A wolf by the fire reminds them of home, I think, the ones who had a home." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome by the fire. Only mind it doesn't sit on anyone's feet; they're sore enough." },
+      },
+      choices = {
+        { text = "I'll keep it quiet and out of the way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It goes where I go. They'll have to cope.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Don't you dare, {class}. Half of them are militia who've nothing but those boots, and the other half are travellers who'll never come back if they lose their purse under my roof." } },
       choices = {
@@ -65,6 +86,8 @@ P:NPC {
           text = "You came back up out of Moonbrook. The whole hill's been singing about it, badly, and I've let them, because it's the first singing in here for a year." },
         { id = "h_patrol", when = { questActive = TODO_QUEST("Patrolling Westfall") },
           text = "Out after gnolls for Captain Danuvin? Wash your hands before you sit at my table. Gnoll paws are no kind of thing to bring to supper." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be sleeping in your boots, then, like the rest; I've given up asking anyone to take them off." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast can sleep by the fire, if it doesn't mind the militia snoring; most of them sound worse than a bear." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the dust on the bench; I've only just swept it." },
@@ -80,6 +103,8 @@ P:NPC {
         { text = "Your guests sleep in their boots. Easy pickings, Heather.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Mind if I sweep the dust out with a gust of wind?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll need a room with thick walls, Heather.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why does the militia sleep in their boots, Heather?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does the militia mind beasts in the inn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -155,6 +180,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Short enough that we share helmets between watches, and I've seen breastplates go out with one man and come back with another. The Defias rob every wagon, so I'm stretching what I've got thinner every week." } },
+      choices = {
+        { text = "I'll make do with what you have. Give the rest out.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll need the best you've got if I'm to fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Meat, mostly, and fewer vultures picking at the wagons. Goretusk and coyote both, if they're fresh, and I'll put them in the ledger and the pot, and the militia will be grateful for once." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} eats too, I suppose. I'll put it in the ledger as one more mouth, but I'll not complain." },
+      },
+      choices = {
+        { text = "I'll hunt for the hill and ask nothing for it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt for the hill, but I'll want paying.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Linen, water and a great deal of wishing, since the reagent wagon from Stormwind gets robbed twice as often as the rest. If you've ever conjured water for a militia patrol, you've done more for this hill than my ledger ever has." } },
       choices = {
@@ -178,6 +224,8 @@ P:NPC {
           text = "Our armor's running thin. That note goes to the one man in the city who can fix it, faster than a wagon and without a Defias reading it first. Thor will put you in the air." },
         { id = "h_return", when = { questActive = TODO_QUEST("Return to Lewis") },
           text = "Osric's crate? Armor at last, and it goes to whoever's in the worst shape first. Now you know the way by gryphon, so use it often; the roads are worse." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll put your name in the ledger, and you'll get what armor I can spare, which isn't much, and it's mostly dented." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Arrows are the first thing we run out of, after bread and patience, so I hope you brought your own." },
       },
       again = {
         { id = "h_again", text = "What's next? I've a ledger waiting on me." },
@@ -191,6 +239,8 @@ P:NPC {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Do you stock anything for a mage, Lewis?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "You'll want to log whatever my demon breaks.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How short is Sentinel Hill on armor, Quartermaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What does Sentinel Hill need from its hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -280,6 +330,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They mind the weight, but they don't complain, much. A warrior in plate is like a sack of stones to them, and they'll grumble the whole way to Stormwind, but they'll get you there." } },
+      choices = {
+        { text = "I'll ride light, for the gryphon's sake.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll ride in full armor. The bird can manage.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Once, and only once, because the cat took fright halfway to Stormwind and tried to climb the gryphon's neck. The bird landed in a field in Elwynn and refused to fly again until the cat was gone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will have to meet you at the other end. It'll find you; they always do." },
+      },
+      choices = {
+        { text = "I'll leave my beast at the stables and trust it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast goes where I go, on the bird or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Every bird I've got has carried somebody who paid in coin with a red bandana stuffed in his pocket, and the gryphons don't care a bit. I do, though, so if you're flying for the wrong sort, fly from somewhere else." } },
       choices = {
@@ -303,6 +374,8 @@ P:NPC {
           text = "From Lewis, and urgent? They're all urgent, with Lewis. Up you go, then, and hold on with your knees, not your hands; the bird hates being strangled." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You lot glide, I hear, off cliffs and the like. Gryphons don't glide, they haul, so strap in; it's not the same thing at all." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll need to leave that shield on the ground while you ride, or my gryphon will think you're attacking it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast stays on the ground, I'm afraid; the gryphons don't share their backs with anything that might bite." },
       },
       again = {
         { id = "h_again", text = "Anything else? Make it quick, the birds are restless." },
@@ -318,6 +391,8 @@ P:NPC {
         { text = "The winds over Westfall are restless today, Thor.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Your gryphons must carry riders who'd rather not be seen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "A gryphon is slower than a teleport, you know.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the gryphons mind carrying warriors, Thor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Has a hunter's beast ever ridden a gryphon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -398,6 +473,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "South to the Jangolode Mine, or west to the coast, where the Defias have dug in among the old farms. Gryan wants them pushed back, and I want them gone, but I'll settle for pushed back today." } },
+      choices = {
+        { text = "I'll push them back, and keep pushing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go where the fighting's thickest and stay there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Defias camps, mostly, and where the gnolls are gathering. The gnolls and the thieves trade, I'm sure of it, but I can't prove it from up here, so bring me something I can show Gryan." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a good nose, I'd guess. Point it at the hills south of the mine and see what it finds." },
+      },
+      choices = {
+        { text = "I'll track them and bring you proof.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll track them and deal with them myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "It would, and it would show every Defias on that road exactly where I'm standing, which is why I keep my tower dark. If you want to help, put your fire on the riders I point at, not on the lamp." } },
       choices = {
@@ -423,6 +519,8 @@ P:NPC {
           text = "There are fewer red silks on the roads this week, and the ones that are left look nervous. I like them nervous." },
         { id = "h_gryan", when = { heardLine = "gryan.w_default" },
           text = "Gryan told you how it was? He tells it like he was there because he was, and so were we all. That's why we stayed." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The tower sees a lot, but it can't fight what it sees, so I'll tell you where to go and you'll go." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll see things on the ground the tower can't, and I'd like to know what you see." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm watching the road, not you, but talk anyway." },
@@ -437,6 +535,8 @@ P:NPC {
         { text = "I could scout the hills for you as a cat.", next = "druid", when = { class = "DRUID" } },
         { text = "A light spell would show you the road at night.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I can see things in the dark that you can't.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Where should a warrior go from Sentinel Hill?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should a hunter watch for on the roads?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Carry on, scout.", next = "END" },
       },
     },
@@ -539,6 +639,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a warrior shoots once and then throws the bow down to draw a sword, and I've found my best work in a ditch more than once. Take a plain one, and save the good yew for the ones who'll keep it." } },
+      choices = {
+        { text = "Fair enough. I'll take the plain one and treat it well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll pay for the best, and do as I like with it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "Quieter, aye, and a sight shorter, which means you've got to be close enough to smell the Defias before you use it. I make bows so the militia lads never need to get that close." } },
       choices = {
@@ -563,6 +672,7 @@ P:NPC {
           text = "The gnolls to the south are thinner on the ground since you went out. The militia are wasting fewer arrows, which I'm told is good news and I take as bad for business." },
         { id = "h_deadmines", tags = { "news" }, when = { deed = "dungeon:The Deadmines" },
           text = "You went under Moonbrook and came back with your bowstring still whole. Either you're good, or you didn't let the hunters shoot. Either way, well done." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my bench. You'll want a bow for pulling, I suppose, and I'll sell you one, though it's not my best." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm listening, though I'm waxing a string while I do." },
@@ -576,6 +686,7 @@ P:NPC {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "A good bow is fine, but a knife is quieter.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would a wand count as competition, William?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why won't you sell a warrior your best bow?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

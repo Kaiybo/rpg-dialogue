@@ -32,6 +32,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The Light favours those who protect, and a hunter who keeps the wolves off a farmer's flock is doing just that. I've seen hunters with more grace in them than some of the paladins I've trained." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a fine creature. Treat it as a comrade, and the Light will see your heart in it." },
+      },
+      choices = {
+        { text = "I hunt to protect, not to kill.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I hunt for the meat and the coin, Brother.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not through your stealth, but through your intentions, sometimes, because the Light shows me the shape of a person's heart if I look. Yours seems decent enough, though I'd be lying if I said I couldn't see a few shadows in it." } },
@@ -86,6 +98,7 @@ P:NPC {
           text = "A mage. You'll find no books here, only sweat and the Light, though a mage could do worse than learn a little of both." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, here at my door. I'll not turn you away, but I'll ask you to keep that creature beyond the fence, because the Light and it don't agree." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the paladin's yard. You're welcome here, and so is your companion, if it keeps off the practice dummies." },
       },
       again = {
         { id = "h_again", text = "Something else? I've time. The forge doesn't, but I do." },
@@ -105,6 +118,7 @@ P:NPC {
         { text = "Can a paladin truly see through a rogue, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What could a mage learn from a paladin, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you think a warlock can ever be redeemed, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the Light favour hunters, Brother Wilhelm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Another time, Brother.", next = "END" },
       },
     },

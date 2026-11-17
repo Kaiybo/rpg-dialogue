@@ -30,6 +30,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Sometimes a problem needs only to be hit, and I am too busy to hit it myself. Morganth's gnolls in Redridge are such a problem, and you are, I suppose, such a solution." } },
+      choices = {
+        { text = "I'll solve your problem, and gladly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Find someone else to hit things for you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Hunted, no; watched, perhaps. Morganth's Shadowhide gnolls range far beyond Redridge, and a hunter who knows the hills can see things the Eye of Azora can't. Tell me what you find, and nothing more." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}, I see, is sniffing my gnome. Do call it off; they are not hounds, and they are not food." },
+      },
+      choices = {
+        { text = "I'll watch and report what I see.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take my own counsel on what I find.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I fear nothing, but I'm careful, because Morganth has sent spies into this tower before, and some of them came in as quietly as you did. The gnomes caught the last one and he's still apologizing." } },
@@ -70,6 +91,8 @@ P:NPC {
           text = "A druid. How quaint. I've studied the arcane for decades, and I'll confess the nature magics have always seemed rather muddy to me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in my tower. You'll touch nothing, take nothing and leave the gnomes alone, because they count everything, and I count them." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my tower. Do not touch the shelves; anything you break, you will learn the price of." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in my tower, with an animal. Keep it away from the gnomes; they bite back, and I'd rather not hear of it." },
       },
       again = {
         { id = "h_again", text = "Something else? Be brief, please; Redridge doesn't watch itself." },
@@ -88,6 +111,8 @@ P:NPC {
         { text = "Your servants are gnomes. Where are they from?", next = "gnome", when = { race = "Gnome" } },
         { text = "My family would rather I were at court.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Do you fear a rogue would steal from your tower?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What use would a mage have for a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you need anything hunted, Theocritus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll show myself out.", next = "END" },
       },
     },

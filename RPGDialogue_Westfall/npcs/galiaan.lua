@@ -34,6 +34,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "By following my maps, and hitting where they've just been, not where they are now. They pull back toward Moonbrook each time, and a warrior who chases them blindly ends up in a ditch with an arrow in him." } },
+      choices = {
+        { text = "I'll follow your maps and strike where you say.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go straight at them and break the line.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Galiaan.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "My people remember what the Well of Eternity did to the world, so yes, I watch your hands when you cast. But I've seen a human mage pin a Defias runner to the coast road with frost, and that was precise work, which I respect." } },
       choices = {
@@ -76,6 +85,7 @@ P:NPC {
         { id = "h_human_hunter", when = { race = "Human", class = "HUNTER" },
           text = "A human who tracks with a beast at heel. Not many of your folk take to it. The ones who do make the best scouts I've seen." },
         { id = "h_dust", when = { metBefore = true }, text = "Westfall hides nothing from a patient eye, though it hides everything under dust. I've stopped minding the dust." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Defias front moves, so I hope you move with it, rather than standing in one place to be found." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, since I lose the light at dusk." },
@@ -92,6 +102,7 @@ P:NPC {
         { text = "The kaldorei have scouted forests for ten thousand years.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Your people distrust magic like mine, don't they?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "You look at me like you've seen my kind before.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How should a warrior fight a front that keeps moving?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Good hunting, scout.", next = "END" },
       },
     },

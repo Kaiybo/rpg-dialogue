@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Fight the bears, and then cut the wood, if you've an arm left, because the order's due and my lads are scared. I'd pay you for one and thank you for the other." } },
+      choices = {
+        { text = "I'll clear the bears and help with the wood.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight the bears. Your lads can cut their own wood.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Enough that my lads count them before they start work, and stop working when they lose count. The wolves came after the bears, following the scraps, so clear the one and the other will scatter." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} could earn its keep up north. I'd pay it in scraps if it weren't against my principles." },
+      },
+      choices = {
+        { text = "I'll thin them so your lads can work safely.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt them, but for the hides, not your order.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "The Defias are, and they're selling it in Westfall for twice what Stormwind pays me, which is the only part of it I admire. If you know anyone who knows anyone, I'd like a word with them." } },
@@ -64,6 +85,8 @@ P:NPC {
           text = "A rogue. You'll want to steer clear of the stacks, because I've had enough timber walk off this camp at night." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at my logging camp. I don't suppose you could turn a tree into planks with a wave of your hand?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're here to fight bears, good; if you're here to cut wood, better, but I'll take either." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The bears and wolves up north are your trade, I'd think, and they're my problem." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it; daylight's money." },
@@ -78,6 +101,8 @@ P:NPC {
         { text = "Westfall folk would work for you.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Is someone stealing timber from the camp at night?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you rather have magic than honest lumberjacks?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you rather I cut wood or fight bears?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How many bears are we talking about, Raelen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

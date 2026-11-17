@@ -29,6 +29,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Padding, mostly, for under the mail, though they never think of it until they've rubbed their shoulders raw. A good quilted gambeson stops more Defias knives than anyone gives it credit for." } },
+      choices = {
+        { text = "I'll wear the padding and thank you for it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mail's enough. Padding just slows a fighter down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Cloaks in a dull green, so the bears around the camp don't see you before you see them. The loggers won't wear anything but red, and then they wonder why every bear in Eastvale knows where they are." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has burrs in its coat from the woods. Brush those out before they mat, or it'll be scratching all week." },
+      },
+      choices = {
+        { text = "I'll wear the green and stay out of their way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the bears see me. They'll learn fast enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "More than you'd think, because every apprentice from the tower comes down the road with a scorch mark somewhere they'd rather not explain. I mend it and don't ask, which is half of what they're paying for." } },
@@ -54,6 +75,8 @@ P:NPC {
           text = "Look who's come down out of the pines with a bow instead of an axe! Your old crew still asks after you at the camp, and still says you were wasted on felling." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and in a robe that's seen some road. If you've singed the hem, I can match the cloth, though I can't promise the color will forgive you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and your tabard's frayed at the hem from all that swinging. I could fix it, if you held still long enough." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be wanting pockets, and plenty of them, because your sort always do." },
       },
       again = {
         { id = "h_again", text = "Go on, I'm listening, and so is the needle." },
@@ -67,6 +90,8 @@ P:NPC {
         { text = "Robes from thieves' cloth, for a priest?", next = "priest", when = { class = "PRIEST" } },
         { text = "Red's a poor colour for sneaking.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Do mages bring you much mending work out here?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors ever buy anything from a tailor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What does a tailor make for hunters, Sara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll keep an eye out for red.", next = "END" },
       },
     },
@@ -179,6 +204,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Often enough to trample them, and they don't care what they ruin on the way. A fighter walking the rows at dusk would do more good than any scarecrow, though I'd not ask it of you." } },
+      choices = {
+        { text = "I'll walk the rows at dusk, and mind the vines.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll chase them through, and the vines can grow back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The crows take the first, and the boars take the rest when they root along the bottom rows. I'd sooner a hunter thinned them than watch another season go into their bellies." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} out of the rows, if you would. It'll chase a crow straight through a trellis." },
+      },
+      choices = {
+        { text = "I'll take the boars cleanly and leave the vines standing.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take whatever's eating your grapes, trellis or no.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Twice this season, and they take the good grapes from the south rows and leave the sour ones for us. The guards from Stormwind come when they can, but they can't come often, so mostly we just count what's left." } },
@@ -209,6 +255,8 @@ P:NPC {
           text = "You came up the rows without rustling a single vine, which is more than the Defias manage. They trample half of what they steal." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! You don't know a spell that makes rain fall on purpose, do you? The well's a long walk and the sun doesn't care." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, out among the vines. Mind your elbows; those rows took me years, and a sword takes them in a second." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in the rows. If you've come for crows, you've come to the right place, and I'll thank you for every one." },
       },
       again = {
         { id = "h_again", text = "What else? Talk slow, it saves water." },
@@ -224,6 +272,8 @@ P:NPC {
         { text = "Your vines are tired, Gerard. I can feel it.", next = "druid", when = { class = "DRUID" } },
         { text = "Have the Defias been taking from your vines too?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can't you simply carry more water from the well?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the Defias come into these vines often?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do the crows really take all your grapes?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Keep at it, Gerard.", next = "END" },
       },
     },

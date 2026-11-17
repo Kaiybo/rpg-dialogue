@@ -25,6 +25,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Three, and drink the first when you're half done, not when you're nearly gone. Warriors save them like heirlooms and then fall over clutching a full flask, which is a waste of my afternoon." } },
+      choices = {
+        { text = "Three, then, and I'll drink when it's sensible.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll save them until I truly need them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Peacebloom and silverleaf, for a start, from the fields around Goldshire. Hunters see more of the ground than anyone, so if you pick as you go, you'll keep me in stock and yourself in potions." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And mind your {pet} doesn't eat the silverleaf. It gives a beast a terrible bellyache, and you'll smell it for days." },
+      },
+      choices = {
+        { text = "I'll pick carefully and leave the roots.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll pull up the whole patch. It grows back.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because a potion's a patient thing, and every mage who's tried to hurry one with a fireball has blown the lid off my best still. Pomeroy still finds bits of copper in the herb beds from the last one." } },
@@ -54,6 +75,8 @@ P:NPC {
           text = "A mage! Your kind make the best alchemists, if only you'd stop trying to do everything with a spell." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You'll not be wanting anything off my top shelf, I hope, because I keep the nightshade up there for a reason." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want healing potions, and you'll want more than you think, because your sort always run short at the worst moment." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at my door. You'll be gathering for me before long, I expect, since your sort walk where the herbs grow." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the green flask; it isn't finished." },
@@ -67,6 +90,8 @@ P:NPC {
         { text = "Sam sent me about a camp.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Alchemy") } },
         { text = "Why shouldn't a mage use spells in alchemy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What reason would you have to keep nightshade high?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "How many healing potions should a warrior carry?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What would an alchemist ask a hunter to bring?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -143,6 +168,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Earthroot, chewed, for a bruise that won't settle, and bark of the silver birch for a sore head. Mallory will tell you a potion's better, and she's right, but a root in your pocket costs nothing." } },
+      choices = {
+        { text = "I'll carry the root. Every little help counts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll leave the roots to farmers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Peacebloom, along the roads, and silverleaf in the shade by the river. You'll find them where the deer have grazed and left the rest, and if your beast stops to sniff, it's usually found something." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its nose to the ground already. Half my best patches were found by somebody's dog." },
+      },
+      choices = {
+        { text = "I'll gather as I go and leave the patches whole.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take all I find. Another hunter would.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Peacebloom and silverleaf and earthroot, which mend more than they harm, and that's all I'll put in the ground. The Defias pay well for nastier things, I'm told, but they'll have to dig them up somewhere else." } },
@@ -172,6 +218,7 @@ P:NPC {
           text = "A rogue in an herb house. You'll be after something for your blades, I'd wager, and I'll tell you now I don't grow that sort of thing." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll be wanting herbs for your inks, I suppose, and I can spare a few, though not the best ones." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the herb house. Stand still, now, because you've knocked my drying rack twice already." },
       },
       again = {
         { id = "h_again", text = "What else, dear? I've roots drying and nowhere to be." },
@@ -185,6 +232,8 @@ P:NPC {
         { text = "Sam sent me about a camp.", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Herbalism") } },
         { text = "What do you grow, if not something for blades?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why won't you spare the best herbs for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do any of your herbs help a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should a hunter learn to look for underfoot?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day to you.", next = "END" },
       },
     },

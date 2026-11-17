@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I went in alone and quiet, which is fine for a rogue an' daft for a dwarf. If I'd had a warrior at my back, makin' noise at the front door, I'd have walked out the back with Gazin an' all." } },
+      choices = {
+        { text = "Next time, call for help before you go in.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Alone was brave, Henze. That counts for something.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Aye, easily, for I left boot prints like a ram on a snowfield. Gazin found me in the end, but a beast with a good nose would've found me before I was quite so dead, I'd wager." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that your {pet}? Grand beast. Ye keep it close, now, the Defias don't play fair with animals either." },
+      },
+      choices = {
+        { text = "I'd have come for you, Henze, Defias or not.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd have let Gazin sort out his own mess.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Cold, an' boring, an' then suddenly very warm an' very loud, which is how I ended up lyin' here. The Defias have folk watchin' the watchers, so if ye ever do that work, look behind ye more than ye look ahead." } },
@@ -62,6 +83,8 @@ P:NPC {
           text = "Ye walk like Gazin does, quiet as a cat. Are ye one o' the king's eyes as well, or just a thief wi' good manners?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Is that a demon ye've got wi' ye? I've been dead once already, so I'd be obliged if ye'd keep it from takin' an interest." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'd have been handy in that Defias camp, so ye would; I could've done with someone bigger than me." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Is that a dwarven rifle, or a bow? Either way, I like a body who hits things from a distance." },
       },
       again = {
         { id = "h_again", text = "What else? I'm no' goin' anywhere, mind, since my legs are still on strike." },
@@ -77,6 +100,8 @@ P:NPC {
         { text = "The stone remembers you, Henze. It told me where you fell.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "What was it like watching the Defias for the king?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you remember anything from when you were dead, Henze?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What went wrong when you went in after Gazin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could a hunter have tracked you to the Defias camp?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Rest easy, Henze.", next = "END" },
       },
     },

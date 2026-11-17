@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every one that comes by, and some twice a day, and they never say no to seconds. A fighter on an empty belly is no use to anyone, so I feed them, and they keep the thieves off my doorstep." } },
+      choices = {
+        { text = "I'll eat, and I'll keep the thieves away.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll eat, but the thieves aren't my problem.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Bless you, but conjured bread fills a belly for an hour and leaves a body hungrier after. My pot's got real murloc in it and real carrots, and that'll keep a militia man walking till supper." } },
       choices = {
@@ -65,6 +74,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Himself's asleep in the chair again, snoring like a harvest golem. Don't you dare tell him I said so." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Oh, it's you! I've been keeping a bowl warm in case you came by, and don't you dare say you've already eaten." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my door! You'll eat, then, because that's the rule, and you'll eat twice because you look like you need it." },
       },
       again = {
         { id = "h_again", text = "What else, then? Sit yourself down and ask while I stir." },
@@ -80,6 +90,7 @@ P:NPC {
         { text = "Could you spare a scrap for {pet}?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "I could conjure bread for your pot, Salma.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does your kindness feed strays like me too?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the militia warriors eat at your table, Salma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'd best be off.", next = "END" },
       },
     },

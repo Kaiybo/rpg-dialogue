@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Something worth having at the end of it, which this feud never was. Fight the gnolls and the kobolds and anything that comes for a child, and leave the old grudges to rot, because they will anyway." } },
+      choices = {
+        { text = "I'll fight what threatens folk, and leave the grudges alone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some grudges are worth a fight, Gramma.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "My father did, boar and deer up in the hills before the gnolls came over. He used to say a hunter feeds the house and a fighter only feeds the crows, and I've found that mostly true." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a handsome {pet}. Mind it doesn't chase our chickens, or I'll have to like you less." },
+      },
+      choices = {
+        { text = "I hunt to feed folk, as your father did.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I hunt for the sport, and the pelts.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "It's for the boy, though he thinks it's for the east fence crew, and he'll carry half of it across the river to someone he thinks I don't know about. I don't mind a little sneaking when it's for love, but I mind it very much when it's for pie." } },
@@ -77,6 +98,8 @@ P:NPC {
           text = "Light-fingered, are you? I can tell from the way you're looking at my pie tin, so mind it, child, because it's spoken for." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've a cold air about you, child, colder than this kitchen in January. Sit by the stove and tell me what you've been up to." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My husband was one, in the old days, and he spent most of it fighting things that weren't Maclures." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Princess has been at our field again, and nobody's had the nerve to do anything about her." },
       },
       again = {
         { id = "h_again", text = "What else? I'm old, child, not deaf. Well, mostly not deaf." },
@@ -95,6 +118,8 @@ P:NPC {
         { text = "Dwarves feud for generations, Gramma. It never ends well.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Who is the pie spoken for, Gramma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does it trouble you to sit with a warlock, Gramma?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What would you have a warrior fight for, Gramma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Did your family hunt, in the old days?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

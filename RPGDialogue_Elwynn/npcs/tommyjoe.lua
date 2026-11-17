@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because of Maybell, of course, and because half the valley thinks a Stonefield and a Maclure is a crime. I'd fight for her if I had to, but I'm better at mending fences than breaking heads." } },
+      choices = {
+        { text = "Then fight for her, Tommy Joe. She's worth it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Mend your fences and leave her be.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "To meet Maybell by the river, of course, without the whole family knowing. The murlocs are less trouble than my uncle, and he's less trouble than her pa." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours could keep watch by the river. If it growled, I'd know someone was coming." },
+      },
+      choices = {
+        { text = "I'll not help you hide from your family.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep low and use the reeds. They'll never see you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Stories about folk who made bargains with things in the dark and paid for it after, and she tells them whenever I come home late from the river. I always thought she made them up, but looking at you, I'm not so sure." } },
@@ -54,6 +75,8 @@ P:NPC {
           text = "Ma's got you after the Brackwell pig? Good, because that sow ate my supper three nights running, if you count carrots as supper." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "There's something odd about you, odd like Gramma's stories, and I'm not sure I like it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Are you here to beat me up for the Maclures, or for my family? Either way, I'd rather you didn't." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You must know how to wait without being seen, and I've been trying to learn that for months." },
       },
       again = {
         { id = "h_again", text = "What else? The river's not going anywhere, and neither am I, it seems." },
@@ -69,6 +92,8 @@ P:NPC {
         { text = "I've a letter from Maybell.", next = "BUSINESS", when = { questActive = TODO_QUEST("Young Lovers") } },
         { text = "I could carry your letters without anyone seeing.", next = "rogue", when = { class = "ROGUE" } },
         { text = "What sort of stories does Gramma tell, Tommy Joe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Why would anyone want to beat you up, Tommy Joe?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Why do you need to wait without being seen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck, Tommy Joe.", next = "END", fx = { affinity = 1 } },
       },
     },

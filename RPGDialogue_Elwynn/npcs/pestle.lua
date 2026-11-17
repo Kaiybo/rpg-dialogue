@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Willow bark and a little peacebloom, steeped strong, though it tastes like a boot. Most warriors would sooner limp than drink it, which tells you something about warriors, I suppose." } },
+      choices = {
+        { text = "I'll drink it, taste and all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll limp, thank you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A salve for paws, made with tallow and a bit of herb, which I first made for Farley's dog. Animals get sore feet just as we do, but they don't complain, so you have to look." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let me see {pet}'s paws, if it'll let me. Those roads are hard on a creature that doesn't wear boots." },
+      },
+      choices = {
+        { text = "I'll look after its paws, then. Thank you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's a beast. It'll toughen up on its own.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Tinctures for sleeping and salves for climbing, mostly, which is all I'll admit to with the Guard so thin on the ground. I sell them to anyone who asks, but I'd like to think they're used on Defias rather than farmers." } },
@@ -64,6 +85,8 @@ P:NPC {
           text = "A druid! Now, I'll wager you know the herbs of the wild better than any alchemist, and I'd love to compare notes." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Quick hands and a quiet step. I've a few things on the back shelf that your sort might find useful, if you're asking." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Something for the bruises, perhaps, or a candle to read your letters home by?" },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I've a salve for scratches, and a candle that keeps the midges off, if you're camping by the lake." },
       },
       again = {
         { id = "h_again", text = "Hmm? Sorry, I was counting drops; do go on." },
@@ -81,6 +104,8 @@ P:NPC {
         { text = "Invisibility's usually a mage's trick.", next = "mage", when = { class = "MAGE" } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "What sort of things do you keep on the back shelf?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is there a tincture for a warrior's aches, Pestle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you make anything for a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Nothing for now.", next = "END" },
       },
     },

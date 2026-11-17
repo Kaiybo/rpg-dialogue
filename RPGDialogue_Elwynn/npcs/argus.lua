@@ -31,6 +31,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That a nick left alone becomes a crack, and a crack becomes a broken blade in some kobold's tunnel. Bring it to me after every fight, not after every month, and it'll outlast you." } },
+      choices = {
+        { text = "I'll bring it after every fight, and pay for the care.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Steel's for using. I'll buy another when this one breaks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Argus.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Skinning knives, traps and arrowheads, when somebody brings me the iron. The wolves on the Goldshire road have taken more than one lamb this spring, so a trap that holds is worth its weight." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine set of teeth, but even teeth dull. Keep it fed and it'll do half the work my traps would." },
+      },
+      choices = {
+        { text = "I'll take only what the wolves cost the farmers. No more.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every pelt on that road is coin. I'll take them all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because the Defias carry knives just like yours, and I'd sooner not learn I've put an edge on one that ended up in a farmer. A smith can't choose who buys from him, but he can choose what he listens to." } },
@@ -68,6 +89,8 @@ P:NPC {
           text = "Soft boots and a short blade, so you're one of Jorik's lot or one of Sylvius's. I'll mend your knives, but I don't want to hear what they were for." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and not a scrap of steel on you anywhere. You'll want a stout staff and somebody tall to stand in front of you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and that blade's been put to honest use, by the nicks in it. Leave it on the bench and I'll take the worst of them out." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a blade for skinning and a quiver for everything else. I can sharpen the one, but I don't make arrows, so don't ask." },
       },
       again = {
         { id = "h_again", text = "What else? Talk over the hammer and I'll catch most of it." },
@@ -81,6 +104,8 @@ P:NPC {
         { text = "Can a priest learn anything at a forge?", next = "priest", when = { class = "PRIEST" } },
         { text = "Why don't you want to know what my knives are for?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is there nothing at your forge for a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does a smith wish warriors knew about their steel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you forge anything a hunter would want?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },
