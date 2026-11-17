@@ -126,7 +126,7 @@ P:NPC {
       choices = {
         { text = "Are the troggs a part of nature, Mountaineer?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's happening at the Silver Stream Mine?", next = "mine" },
-        { text = "Kadrell says you have stories.", next = "stories" },
+        { text = "I hear you have stories to tell.", next = "stories" },
         { text = "How do you see the Loch these days?", next = "loch" },
         { text = "A warrior reporting, Mountaineer. Where do you want me?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Kobolds in a mine? I could clear them without a sound.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -508,7 +508,7 @@ P:NPC {
         { text = "Do many travellers come back from the Wetlands hurt, Rockgar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should Algaz hold the pass, or march north on the Dragonmaw?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What lies north of Algaz Station, Rockgar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "What powers do the Dragonmaw call on, Rockgar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What powers do the orcs up there call on, Rockgar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Rockgar.", next = "END" },
       },
     },

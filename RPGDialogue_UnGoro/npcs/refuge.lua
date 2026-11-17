@@ -372,7 +372,7 @@ P:NPC {
         { text = "Do the spirits here remember what you've forgotten, Linken?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does the crater feel strange to you, Linken?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do you remember?", next = "memory" },
-        { text = "Tell me about your sword.", next = "sword" },
+        { text = "What did you carry with you?", next = "sword" },
         { text = "Who looks after you here?", next = "friends" },
         { text = "Do you remember Gnomeregan?", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "Want to spar?", next = "spar", when = { class = "WARRIOR" } },
@@ -401,7 +401,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     sword = {
-      lines = { { id = "s_default", text = "It feels right in my hand, the way a word feels right in your mouth before you remember what it means. It's not a gadget, and I don't like gadgets... I think." } },
+      lines = { { id = "s_default", text = "A sword, I think, and it feels right in my hand, the way a word feels right in your mouth before you remember what it means. It's not a gadget, and I don't like gadgets... I think." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     friends = {
@@ -564,7 +564,7 @@ P:NPC {
         { text = "What do the crystals do to the land, J.D.?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What do the crystals do?", next = "crystals" },
         { text = "Why live in a cave?", next = "cave" },
-        { text = "Can you really help Linken?", next = "linken" },
+        { text = "Could your crystals help Linken remember?", next = "linken", when = { any = { { questActive = TODO_QUEST("A Gnome's Assistance") }, { questActive = TODO_QUEST("Linken's Memory") }, { heardLine = "linken.h_default" } } } },
         { text = "I can feel them. The crystals.", next = "resonate", when = { class = { "MAGE", "PRIEST", "SHAMAN" } } },
         { text = "A gnome scholar out here? I'd have studied with you.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "What do you hope the crystals will do?", next = "xmage", when = { class = "MAGE" } },
@@ -757,7 +757,7 @@ P:NPC {
         { text = "Is Un'Goro too dangerous for the expedition?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who's Ringo?", next = "ringo" },
         { text = "How do supplies even get here?", next = "supplies" },
-        { text = "Why did you leave Gadgetzan?", next = "gadgetzan" },
+        { text = "What brought you out here?", next = "gadgetzan" },
         { text = "How's Ringo now?", next = "ringo_after", when = { questDone = TODO_QUEST("A Little Help From My Friends") } },
         { text = "Could a pterrordax be tamed, do you think?", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Should I find Ringo quietly, or quickly?", next = "xrogue", when = { class = "ROGUE" } },
@@ -786,7 +786,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gadgetzan = {
-      lines = { { id = "g_default", text = "Steady work, they said, and good pay, they said, but nobody said 'dinosaurs', friend. I'd have asked more questions, and for more money, if they'd said 'dinosaurs'." } },
+      lines = { { id = "g_default", text = "A job out of Gadgetzan: steady work, they said, and good pay, they said, but nobody said 'dinosaurs', friend. I'd have asked more questions, and for more money, if they'd said 'dinosaurs'." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     ringo_after = {

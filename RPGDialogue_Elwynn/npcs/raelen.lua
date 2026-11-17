@@ -133,7 +133,7 @@ P:NPC {
         { id = "h_again2", text = "If you're still here, you'd better make it count." },
       },
       choices = {
-        { text = "Where's the deputy?", next = "rainer" },
+        { text = "Where's the deputy?", next = "rainer", when = { heardLine = "raelen.h_rainer" } },
         { text = "Who's all this lumber for?", next = "order" },
         { text = "What's chasing your workers off?", next = "animals" },
         { text = "Rainer says someone should tell you where Westbrook is.", next = "rainer_heard", when = { heardLine = "rainer.h_raelen" } },

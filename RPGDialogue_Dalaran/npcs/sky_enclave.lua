@@ -38,7 +38,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Welcome to Dalaran, {class}! Pay no mind to the building work, and should anything glowing and angry come round a corner, find a magus first and the way out second, at a sensible walk." },
+          text = "Welcome to Dalaran, {class}, and to the skycutter landing! Pay no mind to the building work, and should anything glowing and angry come round a corner, find a magus first and the way out second, at a sensible walk." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Welcome down from Zephras! Take a moment to find your feet; they always seem to arrive a little after the rest of you." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -389,7 +389,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "This city is a wonder, and I'll admit it unsettles me. My people once gathered too much magic in one place, and the sea still sits where our capital used to be." },
+          text = "This city is a wonder, and I'll admit it unsettles me. My people once gathered too much magic in one place, and the sea still sits where our capital used to be, yet here I am, teaching the Skyborne's druids among the towers." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, here among the towers! Sit with me a moment, {class}, and let's both remember what living ground feels like." },
         { id = "h_nightelf", when = { race = "NightElf" },

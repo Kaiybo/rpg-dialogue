@@ -57,7 +57,7 @@ P:NPC {
       },
       choices = {
         { text = "What's actually in the Arathi Basin worth fighting for?", next = "basin" },
-        { text = "Who are the Defilers?", next = "defilers" },
+        { text = "Who are you fighting for the basin?", next = "defilers" },
         { text = "What happened to Stromgarde?", next = "strom" },
         { text = "I've brought marks from the basin.", next = "marks", when = { carrying = 20559 } },
         { text = "How does a soldier earn the League's trust?", next = "marks" },
@@ -373,7 +373,7 @@ P:NPC {
       },
       choices = {
         { text = "What do the Defilers want with Arathi?", next = "basin" },
-        { text = "Tell me about the League of Arathor.", next = "league" },
+        { text = "Who holds the basin against you?", next = "league" },
         { text = "Did you live before the Plague?", next = "self" },
         { text = "I've marks from the basin.", next = "marks", when = { carrying = 20559 } },
         { text = "How do you find it, recruiting in this city?", next = "city" },
@@ -392,7 +392,7 @@ P:NPC {
     -- What they want (chain: basin -> basin_points -> basin_strip)
     basin = {
       lines = {
-        { id = "bs_default", text = "Gold, timber, iron and grain, and the basin has all four, which is more than Tirisfal can say. The Undercity is a great deal of mouth for very little field, and the Horde's war doesn't feed itself." },
+        { id = "bs_default", text = "Gold, timber, iron and grain, and the basin has all four, which is more than Tirisfal can say. The Undercity is a great deal of mouth for very little field, and the Horde's war doesn't feed itself, though the League howls whenever we go near their old barrows." },
       },
       choices = {
         { text = "How does the fighting go there?", next = "basin_points" },

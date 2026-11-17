@@ -128,7 +128,7 @@ P:NPC {
       again = { { id = "h_again", text = "Aye? I'm listenin', for there's not much else tae do out here but listen an' dig." } },
       choices = {
         { text = "Was this land always so barren, Prospector?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What's Uldaman?", next = "uldaman" },
+        { text = "What were you digging for out here?", next = "uldaman" },
         { text = "Tell me about Hammertoe.", next = "hammertoe" },
         { text = "What chased you out of the dig?", next = "chased" },
         { text = "I'm with the League too.", next = "league", when = { origin = "dwarf_explorers_league" } },
@@ -145,7 +145,7 @@ P:NPC {
     },
     uldaman = {
       lines = {
-        { id = "u_default", text = "Old, older than Ironforge, a vault the titans may have built, if ye believe the scholars. Hammertoe believed, an' look where it got him." },
+        { id = "u_default", text = "Uldaman, an' it's old, older than Ironforge, a vault the titans may have built, if ye believe the scholars. Hammertoe believed, an' look where it got him." },
       },
       choices = {
         { text = "I'm sorry about your partner.", next = "BACK", fx = { affinity = 3, learn = { "uldaman" } } },

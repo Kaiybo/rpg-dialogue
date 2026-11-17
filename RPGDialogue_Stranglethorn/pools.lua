@@ -215,7 +215,7 @@ P:Pool {
       choices = {
         { text = "Who are the Blackwater Raiders?", next = "raiders" },
         { text = "What do folk here think of the Bloodsail?", next = "bloodsail" },
-        { text = "Is Fleet Master Seahorn as loud as they say?", next = "seahorn" },
+        { text = "Who leads the Blackwater Raiders?", next = "seahorn" },
         { text = "Do the Raiders ever take on new hands?", next = "hire" },
         { text = "Seen any Bloodsail spies about town?", next = "spies", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "Take care, friend.", next = "END" },
@@ -259,7 +259,7 @@ P:Pool {
     },
     seahorn = {
       lines = {
-        { id = "se_default", text = "Louder, friend! He laughs at the top of the tavern and the glasses rattle at the bottom. He's a tauren who went to sea and never came back, and he'd fight a kraken for any one of his sailors." },
+        { id = "se_default", text = "Fleet Master Seahorn, friend, and he's louder than a broadside! He laughs at the top of the tavern and the glasses rattle at the bottom. He's a tauren who went to sea and never came back, and he'd fight a kraken for any one of his sailors." },
       },
       choices = {
         { text = "A tauren pirate. I've seen everything now.", next = "BACK", fx = { trait = { witty = 1 } } },

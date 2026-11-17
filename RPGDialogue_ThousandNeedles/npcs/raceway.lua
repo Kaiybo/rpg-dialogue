@@ -638,7 +638,7 @@ P:NPC {
     sure_how = {
       lines = { { id = "sh_default", text = "Little things, like a delivery that arrives one wee piece short. Who'd miss one small worthless piece? Only a car doin' its top speed, that's who." } },
       choices = {
-        { text = "That's Fizzle's order you're talking about.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
+        { text = "That's a racing crew's order you're shorting.", next = "BACK", fx = { align = { honor = 1 }, affinity = -1 } },
         { text = "Clever.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
       },
     },

@@ -724,7 +724,7 @@ P:NPC {
       choices = {
         { text = "Who sent you?", next = "who" },
         { text = "What happened to you?", next = "wound" },
-        { text = "What's the real job?", next = "job" },
+        { text = "What were you really sent to do?", next = "job" },
         { text = "Let me see to that wound.", next = "heal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
         { text = "Elling Trias sends his regards.", next = "elling", when = { heardLine = "elling.h_default" } },
         { text = "Who trained you, then?", next = "rogue", when = { class = "ROGUE" } },
@@ -761,7 +761,7 @@ P:NPC {
       },
       choices = {
         { text = "Forgotten.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } },
-        { text = "Elling Trias? The cheesemaker?", next = "cheese" },
+        { text = "Elling? Who's Elling?", next = "cheese" },
       },
     },
     cheese = {
@@ -824,7 +824,7 @@ P:NPC {
       },
       choices = {
         { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } },
-        { text = "Somebody in Stormwind, or somebody who sells cheese?", next = "cheese" },
+        { text = "Somebody in Stormwind, or somebody who sells cheese?", next = "cheese", when = { heardLine = "kirsta.w_default" } },
         { text = "Something else.", next = "BACK" },
       },
     },

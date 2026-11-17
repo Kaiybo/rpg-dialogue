@@ -1242,7 +1242,7 @@ P:NPC {
         { text = "How do you keep track of it all?", next = "system" },
         { text = "Do you have a file on me?", next = "file", when = { townStanding = { town = "theramore", min = 20 } } },
         { text = "Records on deserters? I'd be hard to find.", next = "x_rogue", when = { class = "ROGUE" } },
-        { text = "What became of the Admiral's men?", next = "daelin" },
+        { text = "What became of the Admiral's men?", next = "daelin", when = { any = { { questActive = TODO_QUEST("Daelin's Men") }, { questDone = TODO_QUEST("Daelin's Men") } } } },
         { text = "A paladin keeps his oath. Do your deserters?", next = "x_paladin", when = { class = "PALADIN" } },
         { text = "Do you keep records on Theramore's mages too, Adjutant?", next = "xmage", when = { class = "MAGE" } },
         { text = "Must you record my demon too, Adjutant?", next = "xlock", when = { class = "WARLOCK" } },

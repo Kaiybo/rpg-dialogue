@@ -116,10 +116,10 @@ P:NPC {
       },
       choices = {
         { text = "Aren't you afraid out here?", next = "afraid" },
-        { text = "Tell me about Jordan.", next = "jordan" },
+        { text = "Is there anyone else on the farm with you?", next = "jordan" },
         { text = "Why would the Defias want your farm?", next = "farm" },
         { text = "You fight them yourself?", next = "fought" },
-        { text = "Duthorian Rall sent me to watch over you.", next = "rall", when = { class = "PALADIN" } },
+        { text = "Duthorian Rall sent me to watch over you.", next = "rall", when = { class = "PALADIN", any = { { questActive = TODO_QUEST("The Tome of Valor") }, { questDone = TODO_QUEST("The Tome of Valor") } } } },
         { text = "Where do you pray, all the way out here?", next = "pray", when = { class = "PRIEST" } },
         { text = "Can I help?", next = "BUSINESS" },
         { text = "I could slip down among the Defias below and listen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -149,7 +149,7 @@ P:NPC {
       choices = { { text = "Let's keep it that way.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } } },
     },
     jordan = {
-      lines = { { id = "jo_default", text = "Gone to Ironforge a while, to work with the dwarves. Best smith I know, and the most faithful man. He meant to be a paladin once, until his father's anvil wanted him more." } },
+      lines = { { id = "jo_default", text = "My husband Jordan's gone to Ironforge a while, to work with the dwarves. Best smith I know, and the most faithful man. He meant to be a paladin once, until his father's anvil wanted him more." } },
       choices = {
         { text = "You must miss him.", next = "jordan_miss" },
         { text = "He's working with my people, then.", next = "jordan_dwarf", when = { race = "Dwarf" } },

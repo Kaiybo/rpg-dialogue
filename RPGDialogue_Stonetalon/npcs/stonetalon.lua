@@ -145,7 +145,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at Sun Rock. I was gentle once. The Silver Hand's camps took some of that, and the wars took the rest." },
         { id = "h_default", key = true,
-          text = "I'm Maggran Earthbinder. Cairne gave me Sun Rock to hold, and the wind and sun here to ease what the years did to me. I was gentle once, but I'm not anymore." },
+          text = "I'm Maggran Earthbinder. Cairne gave me Sun Rock to hold, and the wind and sun here to ease what the years and a spider's fang did to me. I was gentle once, but I'm not anymore." },
         { id = "h_harpies", tags = { "news" }, when = { questActive = TODO_QUEST("Harpies Threaten") },
           text = "The Bloodfuries are why there are more harpies in Kalimdor every year, and they hem in every living thing near their roosts. Cull them in the Charred Vale, and strike hard." },
         { id = "h_bloodfury", when = { questActive = TODO_QUEST("Bloodfury Bloodline") },
@@ -661,9 +661,9 @@ P:NPC {
       choices = {
         { text = "Why do you hate the druids?", next = "hate" },
         { text = "What's wrong with the magic here?", next = "magic" },
-        { text = "Who sent you to these mountains?", next = "master" },
+        { text = "What brought you to these mountains?", next = "master" },
         { text = "I'm a mage. I feel it too.", next = "mage", when = { class = "MAGE" } },
-        { text = "Jaedenar? That's the Shadow Council's hold.", next = "council", when = { class = "WARLOCK" } },
+        { text = "Jaedenar? That's the Shadow Council's hold.", next = "council", when = { class = "WARLOCK", heardLine = "braelyn.ma_default" } },
         { text = "You knew Ordanus. What was he to you?", next = "ordanus", when = { any = { { questActive = TODO_QUEST("Ordanus") }, { questDone = TODO_QUEST("Ordanus") } } } },
         { text = "I'm a druid. You're speaking of my order.", next = "druid", when = { class = "DRUID" } },
         { text = "I studied in Dalaran, before I died.", next = "forsaken_b", when = { race = "Scourge", class = "MAGE" } },
@@ -1406,7 +1406,7 @@ P:NPC {
       choices = {
         { text = "How old is the grove?", next = "age" },
         { text = "What happened to the vale?", next = "vale" },
-        { text = "Who keeps the Talon Den?", next = "den" },
+        { text = "Who else guards this peak, Keeper?", next = "den" },
         { text = "Faldreas in Astranaar sent me to you.", next = "faldreas", when = { any = { { questActive = TODO_QUEST("Journey to Stonetalon Peak") }, { questDone = TODO_QUEST("Journey to Stonetalon Peak") } } } },
         { text = "Have humans ever come up here before?", next = "human", when = { race = "Human" } },
         { text = "Can the Light heal burned land?", next = "priest", when = { class = "PRIEST" } },
@@ -1651,7 +1651,7 @@ P:NPC {
       choices = {
         { text = "Who comes up here?", next = "visitors" },
         { text = "How do people get up and down the peak?", next = "roads" },
-        { text = "You pray to Elune? I pray to the Light.", next = "elune", when = { class = "PRIEST" } },
+        { text = "Do you pray to Elune, Faralia? I pray to the Light.", next = "elune", when = { class = "PRIEST" } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Do rogues often climb this far up the peak?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why are mages so rare on the peak?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },

@@ -48,9 +48,9 @@ P:NPC {
         { id = "h_again2", text = "Talk, then, but Do'gol keeps working while you talk, so stand back from the sparks, because Do'gol's last customer lost an eyebrow." },
       },
       choices = {
-        { text = "What did the black shield tell you?", next = "shield" },
+        { text = "What did the black shield tell you?", next = "shield", when = { any = { { questActive = TODO_QUEST("The Black Shield") }, { questDone = TODO_QUEST("The Black Shield") } } } },
         { text = "Why do you make shields and not axes?", next = "craft" },
-        { text = "You don't like the spiders?", next = "spiders" },
+        { text = "You don't like the spiders?", next = "spiders", when = { any = { { questActive = TODO_QUEST("The Black Shield") }, { questDone = TODO_QUEST("The Black Shield") } } } },
         { text = "What do you make of Krog?", next = "krog" },
         { text = "I'm a smith too. What's your secret?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "What makes a good shield, for a warrior?", next = "warrior", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } } },

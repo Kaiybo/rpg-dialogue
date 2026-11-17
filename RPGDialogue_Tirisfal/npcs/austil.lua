@@ -48,7 +48,7 @@ P:NPC {
       choices = {
         { text = "What makes a good warrior, in your eyes?", next = "good" },
         { text = "Who do you train here?", next = "recruits" },
-        { text = "Dillinger's task. What is it?", next = "dillinger", when = { class = "WARRIOR" } },
+        { text = "Dillinger's task. What is it?", next = "dillinger", when = { class = "WARRIOR", heardLine = "austil.h_ready" } },
         { text = "I'm here to train.", next = "BUSINESS" },
         { text = "I'll get out of your way.", next = "END" },
       },

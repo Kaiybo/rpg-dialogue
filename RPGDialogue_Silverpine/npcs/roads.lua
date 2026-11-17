@@ -280,7 +280,7 @@ P:NPC {
         { text = "What's happening in Pyrewood?", next = "pyrewood" },
         { text = "What do the scouts report?", next = "reports" },
         { text = "I'm a deathstalker too. Any orders?", next = "deathstalker", when = { origin = "forsaken_deathstalker_recruit" } },
-        { text = "What do your scouts see of Ambermill's mages, Yorick?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What can a mage do against the worgen, Yorick?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I could send an imp to watch Pyrewood for you.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can a hunter learn from the worgen tracks, Yorick?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would the Light draw the worgen out for you, Yorick?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },

@@ -169,7 +169,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you still believe, Father?", next = "believe" },
-        { text = "Is the collar from your old church?", next = "collar" },
+        { text = "Do you keep anything from your old church, Father?", next = "collar" },
         { text = "Train me, Father.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Goodbye, Father.", next = "END" },
       },

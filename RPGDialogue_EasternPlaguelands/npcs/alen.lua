@@ -52,7 +52,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about the pit.", next = "pit" },
-        { text = "Who's Egan?", next = "egan" },
+        { text = "Who's Egan?", next = "egan", when = { any = { { questActive = TODO_QUEST("The Restless Souls") }, { questDone = TODO_QUEST("The Restless Souls") } } } },
         { text = "Why do you stay at a job you hate?", next = "job" },
         { text = "You don't hate the Scourge's victims, do you?", next = "souls", when = { questDone = TODO_QUEST("Zaeldarr the Outcast") } },
         { text = "Can I bless the pit before you fill it again?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },

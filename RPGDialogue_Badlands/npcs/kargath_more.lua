@@ -130,8 +130,8 @@ P:NPC {
         { text = "Could my ghost wolf keep pace with your scouts, Neeka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Where would a spellcaster be most use to your scouts, Neeka?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What does a head scout do out here?", next = "scouting" },
-        { text = "Something's stealing your food?", next = "coyotes" },
-        { text = "Helgrum in Stonard speaks well of you.", next = "helgrum" },
+        { text = "Is anything troubling the camp?", next = "coyotes" },
+        { text = "Helgrum in Stonard speaks well of you.", next = "helgrum", when = { any = { { questActive = TODO_QUEST("Neeka Bloodscar") }, { questDone = TODO_QUEST("Neeka Bloodscar") } } } },
         { text = "What's the most dangerous thing in the Badlands?", next = "danger" },
         { text = "A hunter could help you track, Neeka.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "My people were runners on the plains of Mulgore.", next = "k_tauren", when = { race = "Tauren" } },
@@ -242,7 +242,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll find your den before nightfall.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Something's stealing your food?", next = "coyotes" },
+        { text = "Is anything troubling the camp?", next = "coyotes" },
       },
     },
     k_tauren = {
@@ -408,7 +408,7 @@ P:NPC {
         { text = "Why gather in a land this poor, Jarkal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The Badlands are hard country, and a good place for a warrior.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you need from the Badlands?", next = "reagents" },
-        { text = "What's this about a necklace?", next = "necklace" },
+        { text = "Is there anything in Uldaman you're after?", next = "necklace" },
         { text = "Why does a Darkspear live above an orc inn?", next = "upstairs" },
         { text = "I know my way around an alchemy table.", next = "k_alchemy", when = { profession = "Alchemy" } },
         { text = "The loa would frown on your bargaining, cousin.", next = "k_troll", when = { race = "Troll" } },

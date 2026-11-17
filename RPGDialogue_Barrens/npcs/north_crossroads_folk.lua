@@ -362,7 +362,7 @@ P:NPC {
       again = { { id = "h_again", text = "Anything else? Make it worth my while." } },
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
-        { text = "What do you think of Sergra?", next = "sergra" },
+        { text = "What do you think of the commander here?", next = "sergra" },
         { text = "How did you get your name?", next = "name" },
         { text = "Not today.", next = "END" },
       },
@@ -370,7 +370,7 @@ P:NPC {
     sergra = {
       lines = { { id = "s_default", text = "Best commander this outpost could have, and the only one who'd have kept it standing through the first Kolkar summer. Half the grunts grumble that a woman commands them, and the other half have the sense to shut up and follow her." } },
       choices = {
-        { text = "What about Kargal Battlescar?", next = "kargal" },
+        { text = "Did anyone else want her post?", next = "kargal" },
         { text = "Something else.", next = "BACK" },
       },
     },

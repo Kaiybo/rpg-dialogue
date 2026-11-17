@@ -1111,7 +1111,7 @@ P:NPC {
         { id = "h_again2", text = "Ask me anything; I'll tell you if I know, and if I don't I'll find out." },
       },
       choices = {
-        { text = "Who was Lady Sathrah?", next = "sathrah" },
+        { text = "Who was Lady Sathrah?", next = "sathrah", when = { any = { { questActive = TODO_QUEST("Tears of the Moon") }, { questActive = TODO_QUEST("Sathrah's Sacrifice") }, { questDone = TODO_QUEST("Sathrah's Sacrifice") } } } },
         { text = "What are you studying?", next = "study" },
         { text = "What's it like, training at the Temple?", next = "training" },
         { text = "We study the Light much the same way.", next = "light", when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },

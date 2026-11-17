@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Melisara, lieutenant to Sharlindra and servant of the Dark Lady. You'll find I don't waste much time with idle chatter, so ask what you came to ask." },
+          text = "I am Melisara, lieutenant to Sharlindra and servant of the Dark Lady. You'll find I don't waste much time with idle chatter, so ask what you came to ask. The Crown of Will and the ogre Mug'thol are my concern today." },
         { id = "h_sent", tags = { "news" }, when = { questActive = TODO_QUEST("The Crown of Will") },
           text = "Sharlindra sent you? Very well. Mug'thol is an irritant, and we will deal with him quickly, thoroughly and without incident." },
         { id = "h_heads", when = { questRecent = { TODO_QUEST("The Crown of Will"), days = 5 } },

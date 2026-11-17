@@ -132,7 +132,7 @@ P:NPC {
         { text = "What's cooking?", next = "pot" },
         { text = "How do you keep going out here?", next = "going" },
         { text = "Do you need help around the farm?", next = "help" },
-        { text = "Tell me about the Furlbrows.", next = "furlbrows" },
+        { text = "Who are your neighbours out here?", next = "furlbrows" },
         { text = "You do a priest's work with that ladle.", next = "priest", when = { class = "PRIEST" } },
         { text = "Any tricks for a fellow cook?", next = "cook", when = { profession = "Cooking" } },
         { text = "Could you spare a scrap for {pet}?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
@@ -170,7 +170,7 @@ P:NPC {
     recipe_verna = {
       lines = { { id = "rv_default", text = "Hers, start to finish. She wanted it to stay in Westfall when they go. Born for the city, that one, whatever she tells you. It'll be the making of her." } },
       choices = {
-        { text = "Verna says she never wanted to leave.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Does Verna really want to leave?", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "You'll miss her.", next = "furlbrows_miss" },
       },
     },
@@ -192,7 +192,7 @@ P:NPC {
     defias = {
       lines = { { id = "d_default", text = "No, that's Gryan's work. Mine is making sure there's someone left to thank him." } },
       choices = {
-        { text = "They say you've fed Defias at this door.", next = "fed" },
+        { text = "Have you ever fed a Defias at this door?", next = "fed" },
         { text = "I'll leave that be. Something else.", next = "BACK" },
       },
     },
@@ -226,7 +226,7 @@ P:NPC {
       },
     },
     furlbrows = {
-      lines = { { id = "fu_default", text = "Verna's my dearest friend out here. Theodore's a good man who lost his nerve with his farm. They'll be off to Elwynn the minute that wagon rolls." } },
+      lines = { { id = "fu_default", text = "The Furlbrows, up at the old Jansen place. Verna's my dearest friend out here. Theodore's a good man who lost his nerve with his farm. They'll be off to Elwynn the minute that wagon rolls." } },
       choices = {
         { text = "Will you miss them?", next = "furlbrows_miss" },
         { text = "Something else.", next = "BACK", fx = { learn = { "old_blanchy" } } },

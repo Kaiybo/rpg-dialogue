@@ -145,12 +145,12 @@ P:NPC {
       choices = {
         { text = "You couldn't have stopped them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "You should have tried.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 }, align = { light = -1 } } },
-        { text = "Tell me about Sven's wife.", next = "saw_wife" },
+        { text = "Who was at the farm that night?", next = "saw_wife" },
       },
     },
     saw_wife = {
       lines = {
-        { id = "sw_default", text = "She was braver than anyone I've ever known. She told them she knew where the thing was, so they'd take her and leave the children, but they didn't believe her.",
+        { id = "sw_default", text = "Sven's wife was there, and she was braver than anyone I've ever known. She told them she knew where the thing was, so they'd take her and leave the children, but they didn't believe her.",
           fx = { learn = { "dark_riders" } } },
       },
       choices = {
@@ -244,7 +244,7 @@ P:NPC {
       choices = {
         { text = "It isn't a trade. Pray anyway.", next = "pray_together" },
         { text = "The Light heard you, Jitters.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Prayers don't stop riders, Jitters, so learn to fight instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Prayers won't keep you safe, Jitters, so learn to fight instead.", next = "BACK", fx = { align = { light = -1 } } },
       },
     },
     pray_together = {

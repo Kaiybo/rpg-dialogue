@@ -137,7 +137,7 @@ P:NPC {
       },
       choices = {
         { text = "Let me see what you have.", next = "BUSINESS" },
-        { text = "What's the warning you mentioned?", next = "warn" },
+        { text = "Any advice for someone new to these parts?", next = "warn" },
         { text = "What's Kharanos like?", next = "town" },
         { text = "Do you see many gnomes come through?", next = "gnomes" },
         { text = "Do travellers often try to rob you, Kreg?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },

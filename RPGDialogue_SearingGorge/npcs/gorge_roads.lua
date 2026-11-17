@@ -129,7 +129,7 @@ P:NPC {
         { text = "What did this place look like before, Dorius?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are the Suntara Stones?", next = "stones" },
         { text = "What happened to your team?", next = "team" },
-        { text = "Does your brother know you're here?", next = "thorius" },
+        { text = "Does anyone at home know you're here?", next = "thorius" },
         { text = "I'm a dwarf of Ironforge. I'll stand with you.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Could I scout the Dark Iron camps ahead of you, Dorius?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why would the Dark Irons want the Suntara Stones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -186,7 +186,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, learn = { "dark_iron" } } } },
     },
     thorius = {
-      lines = { { id = "th_default", text = "Thorius knows I'm diggin', but no' how deep. He keeps the museum in Ironforge, an' he worries more than a curator ought, mostly about whether I've dusted the finds." } },
+      lines = { { id = "th_default", text = "My brother Thorius knows I'm diggin', but no' how deep. He keeps the museum in Ironforge, an' he worries more than a curator ought, mostly about whether I've dusted the finds." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dwarf = {

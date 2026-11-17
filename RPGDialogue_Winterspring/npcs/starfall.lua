@@ -55,17 +55,17 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've little to do but talk, between the storms." },
       },
       choices = {
-        { text = "What happened at Kel'Theril?", next = "kel" },
+        { text = "Which ruin holds the darkest secret?", next = "kel" },
         { text = "Tell me about Starfall Village.", next = "village" },
         { text = "What other ruins are there?", next = "ruins" },
         { text = "Why give the crystal to Fandral?", next = "crystal", when = { questDone = TODO_QUEST("Remorseful Highborne") } },
-        { text = "Couldn't a mage use the crystal properly?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Couldn't a mage use the crystal properly?", next = "xmage", when = { class = "MAGE", questDone = TODO_QUEST("Remorseful Highborne") } },
         { text = "Farewell, Wynd.", next = "END" },
       },
     },
     kel = {
       lines = {
-        { id = "k_default", text = "The Highborne who lived there stole a sacred artifact, believing they could drain its power and become greater than they were. They tried a ritual on it, and it shattered in a great blast that drove the pieces deep under the ice of the lake." },
+        { id = "k_default", text = "Kel'Theril, by the frozen lake. The Highborne who lived there stole a sacred artifact, believing they could drain its power and become greater than they were. They tried a ritual on it, and it shattered in a great blast that drove the pieces deep under the ice of the lake." },
       },
       choices = {
         { text = "And the Highborne themselves?", next = "kel_ghosts", fx = { learn = { "highborne" } } },
@@ -211,8 +211,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. I'm not going anywhere till the wildkin calm down." },
       },
       choices = {
-        { text = "What happened at your camp?", next = "camp" },
-        { text = "What did you see at Kel'Theril?", next = "kel" },
+        { text = "How has the digging gone?", next = "camp" },
+        { text = "Have you seen any of the old ruins?", next = "kel" },
         { text = "What brings the Explorers' League this far north?", next = "league" },
         { text = "Who should I ask about those fragments?", next = "aurora", when = { questActive = TODO_QUEST("Troubled Spirits of Kel'Theril") } },
         { text = "Let me look at that pick, Jaron.", next = "xpick", when = { race = { "Dwarf", "Gnome" } } },
@@ -259,7 +259,7 @@ P:NPC {
     },
     kel = {
       lines = {
-        { id = "k_default", text = "Ghosts of the Highborne, wandering the lake, all moaning and looking for the bits of the relic they broke. They're still searching for pieces of the very thing that cursed them there, and that's a hard sort of punishment." },
+        { id = "k_default", text = "I've seen Kel'Theril, aye, and the ghosts of the Highborne wandering its lake, all moaning and looking for the bits of the relic they broke. They're still searching for pieces of the very thing that cursed them there, and that's a hard sort of punishment." },
       },
       choices = {
         { text = "Could the pieces be found?", next = "kel_pieces" },

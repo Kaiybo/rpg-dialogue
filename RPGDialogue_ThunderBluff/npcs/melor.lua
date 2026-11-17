@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Melor Stonehoof. At times we hunt for food, at times for honor, and at times to earn the Earth Mother's teachings, and I set the young of Thunder Bluff on all three." },
+        { id = "h_default", key = true, text = "I am Melor Stonehoof. At times we hunt for food, at times for honor, and at times to earn the Earth Mother's teachings, and I set the young of Thunder Bluff on all three. The hyena Steelsnap in the Needles is another hunt entirely." },
         { id = "h_sergra", when = { questActive = TODO_QUEST("Sergra Darkthorn") },
           text = "Your path leads to the Barrens, and Sergra Darkthorn at the Crossroads will be your first guide there. The beasts of the Barrens are strong-willed and fierce, and you will learn much from them." },
         { id = "h_sends", when = { questActive = TODO_QUEST("Melor Sends Word") },
@@ -49,7 +49,7 @@ P:NPC {
       choices = {
         { text = "Tell me about the three kinds of hunt.", next = "three" },
         { text = "What made Steelsnap different?", next = "steelsnap" },
-        { text = "Who is Sergra Darkthorn?", next = "sergra" },
+        { text = "Who is Sergra Darkthorn?", next = "sergra", when = { heardLine = "melor.h_sergra" } },
         { text = "Teach me something about hunting with a companion.", next = "pet", when = { class = "HUNTER" } },
         { text = "What hunt do you have for me?", next = "BUSINESS" },
         { text = "Good hunting, Melor.", next = "END" },

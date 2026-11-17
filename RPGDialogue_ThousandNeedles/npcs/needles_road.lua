@@ -906,7 +906,7 @@ P:NPC {
       choices = {
         { text = "Shapeshifting isn't machinery, Wizzle. Why measure it?", next = "xdruid", when = { class = "DRUID" } },
         { text = "How do you beat the goblins?", next = "b1_1" },
-        { text = "Are you related to Fizzle?", next = "b2_1" },
+        { text = "Do you have family on the team?", next = "b2_1" },
         { text = "Is racing a good use of engineering?", next = "s_1" },
         { text = "A mallet summons a hydra?", next = "xmage", when = { class = "MAGE" } },
         { text = "Imps make poor engineers, Wizzle.", next = "xlock", when = { class = "WARLOCK" } },

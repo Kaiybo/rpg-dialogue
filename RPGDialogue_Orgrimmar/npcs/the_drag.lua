@@ -46,7 +46,7 @@ P:NPC {
       choices = {
         { text = "What exactly do you salvage?", next = "salvage" },
         { text = "Tell me about your son.", next = "son" },
-        { text = "What's this necklace you're after?", next = "necklace", when = { minLevel = 35 } },
+        { text = "Are you hunting for anything special, Dran?", next = "necklace", when = { minLevel = 35 } },
         { text = "Why would anyone want ripple?", next = "ripple" },
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "Not today, Dran.", next = "END" },
@@ -80,9 +80,9 @@ P:NPC {
       choices = { { text = "Something else, Dran.", next = "BACK" } },
     },
     necklace = {
-      lines = { { id = "ne_default", text = "A necklace from Uldaman, an old one, broken into pieces and scattered around the dig. Put it together, find the right gem, and you've got somethin' the collectors in Booty Bay will fight each other over." } },
+      lines = { { id = "ne_default", text = "A necklace from Uldaman, an old one, broken into pieces and scattered around the dig. Put it together, find the right gem, and you've got somethin' the collectors in Booty Bay will fight each other over. If a troll called Jarkal Mossmeld offers you more for it, don't listen." } },
       choices = {
-        { text = "Jarkal Mossmeld wants it too, I hear.", next = "jarkal" },
+        { text = "Who is Jarkal Mossmeld?", next = "jarkal" },
         { text = "Something else.", next = "BACK" },
       },
     },

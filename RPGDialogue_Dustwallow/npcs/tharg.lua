@@ -54,11 +54,11 @@ P:NPC {
       },
       choices = {
         { text = "What happened to the Stonemaul village?", next = "village" },
-        { text = "You lost someone to the dragons.", next = "wife" },
+        { text = "Did you lose anyone when the dragons came?", next = "wife" },
         { text = "What do you think of Mok'Morokk?", next = "overlord" },
         { text = "You were there when Rexxar came?", next = "rexxar" },
         { text = "I hunt beasts too. Tell me about Rexxar's way.", next = "rexxar_hunt", when = { class = "HUNTER" } },
-        { text = "Could the spirits carry a word to your wife?", next = "spirits", when = { class = "SHAMAN" } },
+        { text = "Could the spirits carry a word to those you lost?", next = "spirits", when = { class = "SHAMAN" } },
         { text = "The Firemane are fewer now, Tharg.", next = "after", when = { questDone = TODO_QUEST("Army of the Black Dragon") } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Farewell, Tharg.", next = "END" },

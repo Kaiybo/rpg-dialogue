@@ -50,8 +50,8 @@ P:NPC {
       },
       choices = {
         { text = "How does your blaster work?", next = "blaster" },
-        { text = "Why do you hate the Scourge so much?", next = "hate" },
-        { text = "How are you different from the Crusade?", next = "crusade" },
+        { text = "What drives you to this work, Egan?", next = "hate" },
+        { text = "Does the Scarlet Crusade see the dead as you do?", next = "crusade" },
         { text = "Let me look at your machine.", next = "engineer", when = { profession = "Engineering" } },
         { text = "Can the Light free them instead?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "What do you need?", next = "BUSINESS" },

@@ -80,7 +80,7 @@ P:NPC {
       choices = {
         { text = "East it is. Let them taste their own magic.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "I'll call on it sparingly, Marshal.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Who is Tharil'zun?", next = "tharil" },
+        { text = "Who leads the orc raiders?", next = "tharil" },
       },
     },
     druid_talk = {
@@ -115,7 +115,7 @@ P:NPC {
           text = "The guards tell me you've been inside Blackrock Spire itself, where the orcs that raid my lake come from. I'll believe it from you, and I'll sleep a little better tonight, which is more than I've managed in a month." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid! Hah, good. I've got gnolls in the hills and orcs on the ridge, and I'll take help from anyone with claws." },
-        { id = "h_default", text = "I'm Marris, Marshal of Lakeshire, with a guard stretched across a lake and orcs who never sleep. What do you need?" },
+        { id = "h_default", text = "I'm Marris, Marshal of Lakeshire, with a guard stretched across a lake, orcs who never sleep and a boar called Bellygrub in the gardens. What do you need?" },
         { id = "h_menace", when = { questBefore = TODO_QUEST("Blackrock Menace") },
           text = "The Blackrock came out of the Burning Steppes and took Stonewatch Keep. Now they raid everything north of town, and there's another nest of them in Render's Valley. I want their numbers down." },
         { id = "h_menace_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Blackrock Menace"), days = 3 } },
@@ -143,7 +143,7 @@ P:NPC {
         { text = "Your gnolls are only hungry. Something drives them down from the hills.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened at Stonewatch?", next = "stonewatch" },
         { text = "How bad is it?", next = "bad" },
-        { text = "Who is Tharil'zun?", next = "tharil" },
+        { text = "Who leads the orc raiders?", next = "tharil" },
         { text = "Who named that boar Bellygrub?", next = "bellygrub" },
         { text = "Keeshan's home. How is he?", next = "keeshan_after", when = { questDone = TODO_QUEST("Missing In Action") } },
         { text = "My people have fought the Blackrock for generations.", next = "dwarf", when = { race = "Dwarf" } },
@@ -225,7 +225,7 @@ P:NPC {
 
     tharil = {
       lines = {
-        { id = "t_default", text = "He leads their Outrunners. He picks the ground between here and Stonewatch, hits my patrols, and he's gone before the horn sounds; he's crafty, and I hate crafty." },
+        { id = "t_default", text = "Tharil'zun, who leads their Outrunners. He picks the ground between here and Stonewatch, hits my patrols, and he's gone before the horn sounds; he's crafty, and I hate crafty." },
         { id = "t_done", when = { questDone = TODO_QUEST("Tharil'zun") },
           text = "He led them, past tense, thanks to you. The road to Stonewatch is only dangerous now, not murderous." },
       },

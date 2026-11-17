@@ -541,7 +541,7 @@ P:NPC {
         { text = "Do you ever forge for the Circle?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What's the best weapon for the marsh?", next = "marsh" },
-        { text = "Do you work alongside Hans Weston?", next = "hans" },
+        { text = "Who makes the shields round here?", next = "hans" },
         { text = "Do you ever sell to the Horde?", next = "horde" },
         { text = "What blades do you sell to those who fight quietly, Piter?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you make anything for mages, Piter?", next = "xmage", when = { class = "MAGE" } },
@@ -571,7 +571,7 @@ P:NPC {
     },
     hans = {
       lines = {
-        { id = "h_hans", text = "Side by side, and we share a forge fire to save on coal. He makes the shields and I make what goes over the top of them, and we argue about the weather every morning, and then we get to work." },
+        { id = "h_hans", text = "Hans Weston, and we work side by side and share a forge fire to save on coal. He makes the shields and I make what goes over the top of them, and we argue about the weather every morning, and then we get to work." },
       },
       choices = {
         { text = "Sounds like a good partnership.", next = "BACK", fx = { affinity = 1 } },

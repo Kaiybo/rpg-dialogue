@@ -177,7 +177,7 @@ P:NPC {
         { id = "w_default", text = "I keep the stores of food and drink, you see, and keeping them requires inventory. Inventory requires tasting, and tasting requires honesty, and I am very honest." },
       },
       choices = {
-        { text = "And Milly's grapes?", next = "wine_milly" },
+        { text = "Where do your grapes come from, Brother?", next = "wine_milly" },
         { text = "That's a lot of honesty, Brother.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
         { text = "Brother Sammuel says the cellar tally is short again.", tag = "Deceive", next = "wine_caught",
           check = { pass = { any = { { disposition = { min = 55 } }, { origin = "human_abbey_novice" }, { class = "PRIEST" } } } },

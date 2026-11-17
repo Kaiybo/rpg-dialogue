@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down and have a pint, {class}, because the Pig and Whistle could use someone to bless the ale, and nobody else here will." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I fought beside your sort in the war, {class}, and I'll say this, they were the last ones off the field every time." },
         { id = "h_default", key = true,
-          text = "Harry Burlguard. I carried a sword for the kingdom more years than you've been alive, and now I sit here and teach the young ones how to keep breathing. It's quieter, mostly." },
+          text = "Harry Burlguard. I carried a sword for the kingdom more years than you've been alive, and now I sit here and teach the young ones how to keep breathing, usually by setting them on Bartleby, the drunk at the end of the bar. It's quieter, mostly." },
         { id = "h_training", tags = { "news" }, when = { questActive = TODO_QUEST("A Warrior's Training") },
           text = "Lyria sent you, did she? She's a fine teacher, and she knows when a student's ready for the rough part. Let's see what you've got, then." },
         { id = "h_bartleby", tags = { "news" }, when = { questActive = TODO_QUEST("Bartleby the Drunk") },
@@ -747,7 +747,7 @@ P:NPC {
       choices = {
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What's in the ribs?", next = "ribs" },
-        { text = "The guards say you weren't always a cook.", next = "past" },
+        { text = "Were you always a cook, Stephen?", next = "past" },
         { text = "Is that how you size people up, by their hands?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can't I just conjure my food?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What should a warrior eat before a fight, Stephen?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -773,7 +773,7 @@ P:NPC {
     },
     past = {
       big = true,
-      lines = { { id = "p_default", text = "The guards say a lot of things. I'm a cook, and I'm a good one, and that's all anybody in this tavern needs to know about me." } },
+      lines = { { id = "p_default", text = "Folk ask me that more than you'd think. I'm a cook, and I'm a good one, and that's all anybody in this tavern needs to know about me." } },
       choices = {
         { text = "A man's past is his own business.", next = "BACK", fx = { align = { honor = 1 }, affinity = 2 } },
         { text = "A cook doesn't hold a knife like that.", next = "past_knife", fx = { trait = { curious = 1 } } },
@@ -781,7 +781,7 @@ P:NPC {
       },
     },
     past_knife = {
-      lines = { { id = "pk_default", text = "A good cook holds a knife exactly like that. Sit down and eat something, and stop listening to guards." } },
+      lines = { { id = "pk_default", text = "A good cook holds a knife exactly like that. Sit down and eat something, and stop asking questions." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -1373,7 +1373,7 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
-        { text = "How do you know about Moonbrook?", next = "moonbrook" },
+        { text = "How do you know about Moonbrook?", next = "moonbrook", when = { any = { { questActive = TODO_QUEST("Detonation at a Distance") }, { questDone = TODO_QUEST("Detonation at a Distance") } } } },
         { text = "What does a shady dealer sell?", next = "wares" },
         { text = "Why keep quiet from my elf friend?", next = "alba",
           when = { any = { { questActive = TODO_QUEST("Detonation at a Distance") }, { questDone = TODO_QUEST("Detonation at a Distance") } } } },

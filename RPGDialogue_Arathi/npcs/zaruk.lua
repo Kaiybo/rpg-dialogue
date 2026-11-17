@@ -36,7 +36,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Zaruk, and I keep a quiet corner of Hammerfall while others shout about Stromgarde. I serve a higher cause than this camp, though Drum Fel has no need to hear that from either of us." },
+          text = "I am Zaruk, and I keep a quiet corner of Hammerfall while others shout about Stromgarde. I serve a higher cause than this camp, and a Lady who sleeps beneath these hills, though Drum Fel has no need to hear that from either of us." },
         { id = "h_allies", tags = { "news" }, when = { questActive = TODO_QUEST("Myzrael's Allies") },
           text = "The Lady has informed me of your coming. If we are to bring her back to the surface, then we have much to discuss." },
         { id = "h_theldurin_done", tags = { "news" }, when = { questDone = TODO_QUEST("Theldurin the Lost") },
@@ -57,7 +57,7 @@ P:NPC {
       choices = {
         { text = "Who is the Lady?", next = "lady" },
         { text = "What higher cause do you serve?", next = "hammer" },
-        { text = "Who is Theldurin?", next = "theldurin" },
+        { text = "Who is Theldurin?", next = "theldurin", when = { any = { { questActive = TODO_QUEST("Theldurin the Lost") }, { questDone = TODO_QUEST("Theldurin the Lost") } } } },
         { text = "Does Drum Fel know what you are?", next = "drum" },
         { text = "What does the earth tell you?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I'll leave you to your stones, Zaruk.", next = "END" },

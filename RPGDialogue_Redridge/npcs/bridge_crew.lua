@@ -128,7 +128,7 @@ P:NPC {
         { text = "How do you build over open water?", next = "how" },
         { text = "What's the rest of the crew like?", next = "crew" },
         { text = "Who knocked the bridge down?", next = "who" },
-        { text = "I could slip past the gnolls and fetch your stolen tools.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "I could slip past the gnolls and fetch back what they stole.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Who keeps knocking down the Everstill Bridge, Dmitri?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What else watches the bridge crew, Dmitri?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Stone holds a curse well, you know.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },

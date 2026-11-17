@@ -462,7 +462,7 @@ P:NPC {
       choices = {
         { text = "Show me your armour.", next = "BUSINESS" },
         { text = "What armour works against worgen?", next = "worgen" },
-        { text = "Are you kin to Gavin and Clarise?", next = "kin" },
+        { text = "Are you kin to Gavin?", next = "kin" },
         { text = "Who wears your armour?", next = "who" },
         { text = "What armour would you trust against Duskwood's worgs, Morg?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Will mail slow me down on the hunt, Morg?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -603,7 +603,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "The worgen, first, and then the dead walked in after them and made themselves at home. We left the carts full and the picks in the wall, and I still dream about the sound." } },
       choices = {
-        { text = "Then I'll clear Roland's Doom for your crew's sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Then I'll clear that mine for your crew's sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Mines are cheap, Matt. Dig somewhere safer.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Matt.", next = "BACK" },
       },
@@ -644,7 +644,7 @@ P:NPC {
         { text = "What's in the abandoned mines of Duskwood, Matt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do beasts nest in Duskwood's old mines, Matt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Did your old crew get the rites they deserved, Matt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "What drove the miners out of Roland's Doom, Matt?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What drove the miners out of these hills, Matt?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why did Duskwood's miners stop digging?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could my arts help a miner in Duskwood, Matt?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why don't people mine here anymore, Matt?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -1151,7 +1151,7 @@ P:NPC {
       choices = {
         { text = "What do you want the council to do?", next = "council" },
         { text = "Why haven't Stormwind's guards come?", next = "stormwind" },
-        { text = "What's happening at Raven Hill?", next = "raven" },
+        { text = "Where are the undead coming from?", next = "raven" },
         { text = "I'll see what I can do.", next = "help" },
         { text = "The council keeps secrets. I could find them out.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Has the council done nothing about the dead, Hogan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1193,7 +1193,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     raven = {
-      lines = { { id = "r_default", fx = { learn = { "raven_hill" } }, text = "The cemetery there won't keep its dead. They climb out at night and wander, and some say it isn't the curse at all but someone raising them on purpose." } },
+      lines = { { id = "r_default", fx = { learn = { "raven_hill" } }, text = "The cemetery at Raven Hill won't keep its dead. They climb out at night and wander, and some say it isn't the curse at all but someone raising them on purpose." } },
       choices = {
         { text = "Who would do that?", next = "raven_who" },
         { text = "Something else.", next = "BACK" },

@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Torek, and my raiders and I are about to hit the Silverwing Outpost to the west. Our target is its leader, Duriel Moonfire, and the scouts say it's thick with Sentinels, so the battle will be glorious." },
+          text = "I'm Torek, and my raiders and I are about to hit the Silverwing Outpost to the west. Our target is its leader, Duriel Moonfire, and the scouts say it's thick with Sentinels, so the battle will be glorious, and we'll all come home with fresh scars." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Torek's Assault") },
           text = "Stay close and keep my raiders alive, and when it's over, you report our success to Ertog Ragetusk. With luck, we'll all gain some good scars today." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Torek's Assault"), days = 3 } },

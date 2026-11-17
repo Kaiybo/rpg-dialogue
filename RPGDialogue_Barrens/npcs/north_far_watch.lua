@@ -47,7 +47,7 @@ P:NPC {
       },
       choices = {
         { text = "What does Far Watch Post guard?", next = "post" },
-        { text = "You don't think much of Sergra Darkthorn.", next = "sergra" },
+        { text = "You don't think much of the Crossroads command.", next = "sergra" },
         { text = "How did you get that scar?", next = "scar" },
         { text = "What's been moving in the hills lately?", next = "hills" },
         { text = "I serve under Sergra at the Crossroads.", next = "hers", when = { questDone = TODO_QUEST("Plainstrider Menace") } },
@@ -190,7 +190,7 @@ P:NPC {
         { id = "h_again2", text = "Ask quickly. The fires on the peak are lit again tonight." },
       },
       choices = {
-        { text = "What is the Demon Seed?", next = "seed" },
+        { text = "What gives the cultists their power?", next = "seed" },
         { text = "How do you know so much about the Burning Blade?", next = "know" },
         { text = "What happens on Dreadmist Peak?", next = "peak" },
         { text = "What do you make of Neeru Fireblade?", next = "neeru", when = { questDone = TODO_QUEST("Ak'Zeloth") } },

@@ -366,9 +366,9 @@ P:NPC {
         { text = "What keeps you up on those long nights?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why are you always resting?", next = "resting" },
         { text = "What's Lolo like to work for?", next = "lolo" },
-        { text = "How big are these lizards?", next = "lizards" },
+        { text = "What's the worst beast out in the Gorge?", next = "lizards" },
         { text = "Arm-wrestle me.", next = "wrestle", when = { class = { "WARRIOR", "PALADIN" } } },
-        { text = "My beast could take one of those lizards.", next = "k_hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "My beast could take anything in this Gorge.", next = "k_hunter", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Doesn't Lolo mind that you sleep on watch?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "No chairs, Hansel, but I could conjure you some water.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you really need a prayer for sore feet, Hansel?", next = "xpriest", when = { class = "PRIEST" } },
@@ -389,7 +389,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     lizards = {
-      lines = { { id = "z_default", text = "Big as a cart, hot as a forge, an' stupid as a boot, an' the stupid's what makes 'em dangerous, because they don't know tae run." } },
+      lines = { { id = "z_default", text = "The incendosaurs are big as a cart, hot as a forge, an' stupid as a boot, an' the stupid's what makes 'em dangerous, because they don't know tae run." } },
       choices = {
         { text = "Why not deal with them yourself?", next = "lizards_why" },
         { text = "Something else.", next = "BACK" },
@@ -549,7 +549,7 @@ P:NPC {
       again = { { id = "h_again", text = "Aye, aye, still here. I can hear ye fidgetin'." } },
       choices = {
         { text = "How do you keep watch, blind?", next = "watch" },
-        { text = "Who's Maltorius?", next = "maltorius" },
+        { text = "What do you hear from the Gorge at night?", next = "maltorius" },
         { text = "What did you smell on Kalaran?", next = "kalaran", when = { heardClaim = "kalaran_father" } },
         { text = "Does the drink really help?", next = "drink" },
         { text = "I could sneak up on the Point, Captain.", next = "k_rogue", when = { class = { "ROGUE", "DRUID" } } },
@@ -561,7 +561,7 @@ P:NPC {
         { text = "What can you smell on a priest, Captain?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "What does the Gorge smell like to you, Captain?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you watch for from up here, Captain?", next = "xpt_hunter", when = { party = { class = "HUNTER" } } },
-        { text = "I'll hunt Maltorius.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
+        { text = "Keep your nose to the wind, Captain.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
     watch = {
@@ -581,7 +581,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     maltorius = {
-      lines = { { id = "m_default", text = "He's overseer o' the slaves still workin' the Gorge for the Firelord's people, an' it's whips, mostly. Ye can hear 'em from the cliff on a still night, an' I'd like tae stop hearin' 'em." } },
+      lines = { { id = "m_default", text = "Whips, mostly, held by Maltorius, overseer o' the slaves still workin' the Gorge for the Firelord's people. Ye can hear 'em from the cliff on a still night, an' I'd like tae stop hearin' 'em." } },
       choices = {
         { text = "Then someone should stop those whips.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Slaves in the Gorge are the Firelord's business, not mine.", next = "BACK", fx = { align = { light = -1 } } },
@@ -749,10 +749,10 @@ P:NPC {
       choices = {
         { text = "Tell me about your father.", next = "father" },
         { text = "Which Dark Iron? The Brotherhood?", next = "which" },
-        { text = "What will the torch do?", next = "torch" },
+        { text = "How do you mean to make them pay?", next = "torch" },
         { text = "Lolo says you don't smell of grief.", next = "lolo", when = { heardLine = "lolo.h_kalaran" } },
         { text = "You tell your story very smoothly, Kalaran.", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "What kind of fire does your torch need?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What kind of fire would settle your debt?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How do you want the Dark Iron to pay, Kalaran?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you hunt the Dark Iron like beasts, Kalaran?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Who commands the fire in this Gorge, Kalaran?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -791,7 +791,7 @@ P:NPC {
       },
     },
     torch = {
-      lines = { { id = "t_default", text = "Burn, as he burned. Bring me the pieces and you'll see, and you'll see a great deal, at the end." } },
+      lines = { { id = "t_default", text = "With a torch that will make them burn, as he burned. Bring me the pieces and you'll see, and you'll see a great deal, at the end." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     lolo = {

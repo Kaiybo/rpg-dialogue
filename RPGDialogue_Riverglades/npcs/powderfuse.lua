@@ -121,7 +121,7 @@ P:NPC {
           fx = { learn = { "twilights_hammer", "brotherhood_horse" } } },
       },
       choices = {
-        { text = "And the pirates at Windstead?", next = "neighbors_pirates" },
+        { text = "Any pirates on this coast?", next = "neighbors_pirates" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -333,7 +333,7 @@ P:NPC {
         { text = "I'd like a room.", next = "BUSINESS" },
         { text = "Heard anything?", next = "gossip" },
         { text = "Who's the grumpy one at the bar?", next = "gray" },
-        { text = "Does Melbin really own everything?", next = "melbin" },
+        { text = "Who owns this port, anyway?", next = "melbin" },
         { text = "What do the fighters talk about at the bar?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why don't the knights come down to the port?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the trappers say about the wilds?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -356,7 +356,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "brotherhood_horse" } } } },
     },
     melbin = {
-      lines = { { id = "m_default", text = "He owns the land, or so he says, explorer. I own the stew pot and the good blankets, and I never once let him forget it, especially on rent day." } },
+      lines = { { id = "m_default", text = "Melbin Powderfuse owns the land, or so he says, explorer. I own the stew pot and the good blankets, and I never once let him forget it, especially on rent day." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xwarcl = {
@@ -541,7 +541,7 @@ P:NPC {
       choices = {
         { text = "Why aren't you up at the keep?", next = "keep" },
         { text = "Tell me about the Brotherhood.", next = "brotherhood" },
-        { text = "Who's Tessa?", next = "tessa", when = { metBefore = true } },
+        { text = "Who's Tessa?", next = "tessa", when = { heardLine = "gray.h_tessa" } },
         { text = "Fern Crimsonleaf. Did you know her?", next = "fern", when = { topicKnown = "fern_crimsonleaf" } },
         { text = "I spoke to Demar about Fern.", next = "fern_word",
           when = { thread = { id = "farholde_lost", beat = "b4_demar", state = { "stirring", "unfolding" } } } },
@@ -551,7 +551,7 @@ P:NPC {
         { text = "Did the Brotherhood ever ride with hunters?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "You knew Fern's walk?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What's at the bottom of the mug, Gray?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Was there a mage in the Brotherhood before Ashe?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Did the Brotherhood ever ride with mages?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does my companion bother you, Gray?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why would you want to frighten Zizplink?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do you have any use for a shaman, Gray?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

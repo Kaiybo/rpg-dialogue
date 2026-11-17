@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Brave Windfeather. I walk the road between Camp Narache and Grull's hunting camp, because the Bristleback like to ambush anyone who walks it alone." },
+        { id = "h_default", key = true, text = "Brave Windfeather. I walk the road between Camp Narache and Grull's hunting camp, because the Bristleback like to ambush anyone who walks it alone, and their chief, Sharptusk Thornmantle, sends them." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Break Sharptusk!") },
           text = "{name}, I've heard of you, newcomer, and perhaps you're the one who will help us where others have failed. We tauren carved a home out of this land, but not without a cost, and the Bristleback of Brambleblade Ravine make us pay it again every day. Their chief is Sharptusk Thornmantle, and I want his head." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Break Sharptusk!"), days = 3 } },
@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "Who is Sharptusk Thornmantle?", next = "sharptusk" },
-        { text = "What cost did the tauren pay for this land?", next = "cost" },
+        { text = "How did the tauren win this land?", next = "cost" },
         { text = "Why walk the road alone?", next = "road" },
         { text = "I'm a warrior. How do I fight a quilboar chief?", next = "fight", when = { class = "WARRIOR" } },
         { text = "What can I do?", next = "BUSINESS" },

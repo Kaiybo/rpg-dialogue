@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "How did you die?", next = "death" },
-        { text = "What is the relic in the chest?", next = "relic" },
+        { text = "What's in that chest beside you?", next = "relic" },
         { text = "Tell me about your captain.", next = "captain" },
         { text = "How did a tauren come to serve in Thrall's Grasp?", next = "grasp" },
         { text = "The Earth Mother waits for you, Thund.", next = "xtauren", when = { race = "Tauren" } },

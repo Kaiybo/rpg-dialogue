@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm only counting thread." },
       },
       choices = {
-        { text = "Who is this goblin?", next = "goblin" },
+        { text = "Who brings your shipments?", next = "goblin" },
         { text = "Why keep shop in Silithus?", next = "why" },
         { text = "What's running lowest?", next = "low" },
         { text = "Couldn't I bring supplies from Gadgetzan?", next = "help", when = { minLevel = 55 } },

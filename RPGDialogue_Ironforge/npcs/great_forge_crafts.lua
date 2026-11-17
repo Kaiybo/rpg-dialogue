@@ -746,7 +746,7 @@ P:NPC {
       },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },
-        { text = "Daryl says your prices are criminal.", next = "prices" },
+        { text = "Daryl says your prices are criminal.", next = "prices", when = { heardLine = "if_daryl.em_default" } },
         { text = "Where do your spices come from?", next = "spices" },
         { text = "Which recipe would you recommend?", next = "recipe" },
         { text = "Do rogues steal spices from you often?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -754,7 +754,7 @@ P:NPC {
         { text = "Why should a warrior care about spices, Emrul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What spice would you put on wild boar, Emrul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever give spices to the poor in the Forlorn Cavern?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Are your spice prices fair, Emrul? Your brother says otherwise.", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are your spice prices fair, Emrul? Your brother says otherwise.", next = "xapala", when = { class = "PALADIN", heardLine = "if_daryl.em_default" } },
         { text = "Where do your spices come from, Emrul?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can't conjured spices match yours, Emrul?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What would a kind word to your spice chest get you?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },

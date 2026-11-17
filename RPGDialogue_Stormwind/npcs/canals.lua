@@ -102,7 +102,7 @@ P:NPC {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Renato will try to give you a free bottle, and I'll ask you, as someone sworn to honour, to pay for it anyway." },
         { id = "h_default", key = true,
-          text = "Suzetta Gallina. My brother sells the wine in the square, Julia sells it at the counter and Roberto keeps the cellar, so somebody has to keep the books, and that's me." },
+          text = "Suzetta Gallina. My brother Renato sells the wine in the square and hands out tickets for free bottles, Julia sells it at the counter and Roberto keeps the cellar, so somebody has to keep the books, and that's me." },
         { id = "h_ticket", tags = { "news" }, when = { questActive = TODO_QUEST("Wine Shop Advert") },
           text = "Renato's ticket, and that's the fourth today. Here's your bottle of the house red, and if you like it, come back and pay for one, because that's the part he always forgets." },
         { id = "h_ticket_done", when = { questDone = TODO_QUEST("Wine Shop Advert") },
@@ -127,7 +127,7 @@ P:NPC {
         { text = "Who's Roberto?", next = "roberto" },
         { text = "How does a winery do on the canals?", next = "canals" },
         { text = "A good red is a small blessing.", next = "priest", when = { class = "PRIEST" } },
-        { text = "Someone's skimming your tally, I'd wager.", next = "rogue_tally", when = { class = "ROGUE" } },
+        { text = "Someone's skimming your books, I'd wager.", next = "rogue_tally", when = { class = "ROGUE" } },
         { text = "What happened with the apprentice and the merlot?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the winery ever need a strong back, Suzetta?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do boars really trouble the Gallina vines?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -350,8 +350,8 @@ P:NPC {
         { text = "Where's home, Emma?", next = "home" },
         { text = "Is your name Felstone?", next = "felstone",
           when = { any = { { questActive = TODO_QUEST("Good Natured Emma") }, { questDone = TODO_QUEST("Good Natured Emma") } } } },
-        { text = "I come from the north too.", next = "north", when = { origin = "human_lordaeron_refugee" } },
-        { text = "The Silver Hand fought for the north, Emma.", next = "silverhand", when = { class = "PALADIN" } },
+        { text = "You sound like the north, Emma. I'm from Lordaeron too.", next = "north", when = { origin = "human_lordaeron_refugee" } },
+        { text = "The Silver Hand has always stood for common folk, Emma.", next = "silverhand", when = { class = "PALADIN" } },
         { text = "Do many thieves work these streets, Emma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Did your Harold ever see a real fight, Emma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever miss the country, Emma?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -445,7 +445,7 @@ P:NPC {
     },
     silverhand = {
       big = true,
-      lines = { { id = "silverhand_l", text = "Did it? Then where was it the week the grain carts came, dearie, and the sickness after? Your sort rode through our village once, all shining, and never came back when we needed you." } },
+      lines = { { id = "silverhand_l", text = "Has it? Then where was it the week the grain carts came, dearie, and the sickness after? Your sort rode through our village once, all shining, and never came back when we needed you." } },
       choices = {
         { text = "You're right, and I'm sorry. We failed you.", next = "silverhand2", fx = { affinity = 2, align = { light = 1 } } },
         { text = "The Hand bled for Lordaeron. Don't forget that.", next = "silverhand2", fx = { affinity = -1, align = { light = -1 }, trait = { stern = 1 } } },
@@ -958,7 +958,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless me, then, {class}, bless me twice, for I've been a terrible sinner and a terrible farmer both, or so the story goes." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "Oh, a paladin. Now I never took a thing that wasn't given me, whatever the guards might say." },
-        { id = "h_default", text = "Morris Lawry, at yer service, guv. I'll polish yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },
+        { id = "h_default", text = "Morris Lawry, at yer service, guv, an' blind as a mole, near enough. I'll polish yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },
         { id = "h_back", when = { metBefore = true }, text = "You again! Ye've a kind face, I said so the first time, didn't I? Or I meant to." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Now don't look at me like that, guv, because I can see ye've the same trade as me, only ye're better paid for it." },
@@ -1342,7 +1342,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you need a hand?", next = "favor" },
-        { text = "What's the Gatehouse?", next = "gatehouse" },
+        { text = "What's the Gatehouse?", next = "gatehouse", when = { any = { { questActive = TODO_QUEST("Philmor's Favor") }, { questDone = TODO_QUEST("Philmor's Favor") } } } },
         { text = "Where do the ships go?", next = "ships" },
         { text = "Why are you short of dockhands?", next = "dockhands" },
         { text = "How much of your cargo goes missing?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },

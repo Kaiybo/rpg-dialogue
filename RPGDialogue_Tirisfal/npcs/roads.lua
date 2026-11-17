@@ -266,8 +266,8 @@ P:NPC {
         { text = "Do you think the dead belong to the land, Elreth?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I prayed to the Light once, too. Does it still answer?", next = "priest", when = { class = "PRIEST" } },
         { text = "Who are the Damned?", next = "damned" },
-        { text = "Tell me about Marla.", next = "marla" },
-        { text = "Why does the Light mean nothing to Sarvis?", next = "light" },
+        { text = "Is there anyone whose rest you worry about?", next = "marla" },
+        { text = "What does Sarvis teach about the Light?", next = "light" },
         { text = "Does Sarvis teach anything a mage could use, Elreth?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Shadow and fel aren't so different, Elreth.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Is it a mercy to cut the Damned down, Elreth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -295,7 +295,7 @@ P:NPC {
     },
     marla = {
       lines = {
-        { id = "ma_default", text = "A farmwife, buried before the plague took the rest of her family. Her husband died later and rose with the Damned, and it seemed wrong to me that they'd stay apart forever." },
+        { id = "ma_default", text = "Marla Fowler, a farmwife buried before the plague took the rest of her family. Her husband died later and rose with the Damned, and it seemed wrong to me that they'd stay apart forever." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
@@ -348,7 +348,7 @@ P:NPC {
       choices = {
         { text = "Say your word, Elreth. I won't mind it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Save your prayers. I chose this freely.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Why does the Light mean nothing to Sarvis?", next = "light" },
+        { text = "What does Sarvis teach about the Light?", next = "light" },
       },
     },
   },

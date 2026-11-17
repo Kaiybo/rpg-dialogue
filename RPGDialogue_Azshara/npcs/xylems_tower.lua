@@ -140,7 +140,7 @@ P:NPC {
           text = "A hunter. You'll not be interested in my research, I suppose, unless it involves something with fur and teeth, which, now that I think of it, it often does." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my tower? How quaint. I suppose you've come to tell me the Highborne relics upset the local spirits, and I suppose I'll pretend to listen." },
         { id = "h_default", key = true,
-          text = "Archmage Xylem, at your service, or rather, you at mine, if you're any use. I study what the Highborne left on this coast, which is a great deal, guarded by a great many things that would rather I didn't." },
+          text = "Archmage Xylem, at your service, or rather, you at mine, if you're any use. I study what the Highborne left on this coast, which is a great deal, guarded by a great many things that would rather I didn't, not least the drake Morphaz." },
         { id = "h_dust", when = { questActive = TODO_QUEST("Magic Dust") },
           text = "The elves on the northern cliffs grind their relics to a glittering dust, and they killed the apprentice I sent to buy some. We'll take it the other way, then; violence is only a less polite kind of trade." },
         { id = "h_coral", when = { questActive = TODO_QUEST("The Siren's Coral") },
@@ -217,7 +217,7 @@ P:NPC {
     study_found = {
       lines = { { id = "sf_default", text = "Runes on the old walls that explain how the Highborne kept their towers standing, a ward I still can't break, and four tablets named for their wizards that an enterprising orc keeps selling to everyone in Kalimdor. I bought one, naturally." } },
       choices = {
-        { text = "The orc is Jediga, at Valormok.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "The orc is Jediga, at Valormok.", next = "BACK", fx = { trait = { curious = 1 } }, when = { heardLine = "jediga.h_default" } },
         { text = "Something else.", next = "BACK" },
       },
     },

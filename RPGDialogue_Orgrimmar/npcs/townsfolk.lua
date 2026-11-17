@@ -870,7 +870,7 @@ P:NPC {
       choices = {
         { text = "Do you trust priests in Orgrimmar, Overlord?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Warchief still walk the shaman's path, Overlord?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Would any of them win, Overlord?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Could any recruit beat a tauren in bear form, Overlord?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who was the city named for?", next = "name" },
         { text = "What trouble do you see in the city?", next = "trouble" },
         { text = "How do I find my way around?", next = "around" },

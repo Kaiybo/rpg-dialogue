@@ -54,12 +54,12 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. Uzer'i likes da curious ones." },
       },
       choices = {
-        { text = "What is a muisek?", next = "muisek" },
-        { text = "Whose head did you send to Neeru?", next = "head" },
-        { text = "Why do the Horde need beast spirits?", next = "why" },
+        { text = "What power do you draw from the creatures?", next = "muisek" },
+        { text = "What was in the sack you sent Neeru?", next = "head", when = { questDone = TODO_QUEST("A Strange Request") } },
+        { text = "Why does the Horde need that power?", next = "why" },
         { text = "How do you get on with the tauren here?", next = "tauren" },
         { text = "Binding spirits in jars is cruel, Uzer'i.", next = "shaman", when = { class = { "SHAMAN", "DRUID" } } },
-        { text = "Is my companion's muisek safe from you?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Is my companion's spirit safe from you?", next = "hunter", when = { class = "HUNTER" } },
         { text = "What work do you have?", next = "BUSINESS" },
         { text = "Later, witch doctor.", next = "END" },
       },
@@ -83,7 +83,7 @@ P:NPC {
       choices = { { text = "Something else, Uzer'i.", next = "BACK" } },
     },
     head = {
-      lines = { { id = "hd_default", text = "Some poor dwarf I came across in da forest, mon. He was lost, and now he's found, and Neeru was very pleased with him." } },
+      lines = { { id = "hd_default", text = "A head, mon, from some poor dwarf I came across in da forest. He was lost, and now he's found, and Neeru was very pleased with him." } },
       choices = {
         { text = "That's ghoulish, even for a witch doctor.", next = "head_stance" },
         { text = "What was a dwarf doing in Feralas?", next = "head_stance" },

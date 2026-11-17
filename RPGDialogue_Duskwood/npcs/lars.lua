@@ -54,7 +54,7 @@ P:NPC {
       choices = {
         { text = "Why do you stay out here with Sven?", next = "sven" },
         { text = "What's worse here, wolves or the dead?", next = "danger" },
-        { text = "Who's the necromancer to the east?", next = "necro" },
+        { text = "Who else makes trouble in these woods?", next = "necro" },
         { text = "Let me teach you a better snare.", next = "snare", when = { class = { "HUNTER", "DRUID" } } },
         { text = "I'll help with the wolves.", next = "BUSINESS" },
         { text = "Good hunting, Lars.", next = "END" },
@@ -92,7 +92,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     necro = {
-      lines = { { id = "n_default", text = "Morbent Fel, up past Raven Hill. Sven says his name the way other folk spit, and I don't ask him why, because I can guess." },
+      lines = { { id = "n_default", text = "A necromancer called Morbent Fel, up past Raven Hill. Sven says his name the way other folk spit, and I don't ask him why, because I can guess." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

@@ -293,7 +293,7 @@ P:NPC {
       choices = {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What works against the worgen?", next = "a" },
-        { text = "Are you kin to Clarise?", next = "b" },
+        { text = "Is the Gnarltree at the forge your kin?", next = "b" },
         { text = "What blade would you carry into Duskwood, Gavin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you sell hunting knives, Gavin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the folk who buy your blades ever come back, Gavin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -309,7 +309,7 @@ P:NPC {
     a = {
       lines = { { id = "a_default", text = "Folk will tell you silver, but folk tell you all sorts. What works is a heavy blade, a steady arm and a friend at your back, and I can only sell you the first of those." } },
       choices = {
-        { text = "And against the dead at Raven Hill?", next = "a2" },
+        { text = "And against the walking dead?", next = "a2" },
         { text = "Something else.", next = "BACK" },
       },
     },

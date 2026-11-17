@@ -259,7 +259,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Deserters from Theramore, mostly, slinking off along the road with their heads down and their tabards stuffed in a sack. Now and then I see a light out in the reeds that I can't explain, and I've learned not to go looking for it." } },
       choices = {
-        { text = "Deserters should be reported to the Captain. That's the law.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Deserters should be reported to Theramore. That's the law.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Leave them be. A man has the right to walk away.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Jarl.", next = "BACK" },
       },

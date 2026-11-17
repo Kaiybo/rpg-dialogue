@@ -103,7 +103,7 @@ P:NPC {
           text = "You've brought a company back to Northshire. Good; the abbey has always done better when its graduates come home with friends than when they come home alone and wounded." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A healer. Anetta will claim you, but the barracks will claim you first, so sleep where you can." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Sammuel will have you, but the garrison needs you more, so don't spend all day in the chapel." },
-        { id = "h_default", text = "The garrison's spread thin, so I'll be brief. What do you need?" },
+        { id = "h_default", text = "The garrison's spread thin, with kobolds in the mine and worse in the woods, so I'll be brief. What do you need?" },
         { id = "h_from_willem", key = true, when = { questRecent = { TODO_QUEST("A Threat Within"), days = 1 }, metBefore = false },
           text = "Willem sent you up, then. Stand where the light's on you. Let's see what I'm working with." },
         { id = "h_return", tags = { "news" }, priority = 15, when = { metBefore = true, daysSince = { min = 7 } },

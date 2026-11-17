@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Barithras Moonshade. I make potions here in Auberdine, and the one I am working on needs mushrooms that grow in only one place on this whole coast." },
+          text = "I am Barithras Moonshade. I make potions here in Auberdine, and the one I am working on needs mushrooms that grow in only one place on this whole coast, a cave behind Cliffspring Falls that the Ancients of the grove, old Onu among them, have warned me away from." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Cave Mushrooms") },
           text = "The mushrooms grow in a cave behind Cliffspring Falls, to the east and a little north. I would fetch them myself, but the Grove of the Ancients has warned me away, for they sense a new evil hiding there." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cave Mushrooms"), days = 3 } },
@@ -83,7 +83,7 @@ P:NPC {
         { id = "ca_default", text = "They did not say, and I did not presume to ask more than once. The Ancients speak slowly, and they speak of what they feel rather than what they see, so all I know is that something has come to Darkshore that was not here before." },
       },
       choices = {
-        { text = "And you sent me there anyway?", next = "cave_sent" },
+        { text = "And you sent me there anyway?", next = "cave_sent", when = { any = { { questActive = TODO_QUEST("Cave Mushrooms") }, { questDone = TODO_QUEST("Cave Mushrooms") } } } },
         { text = "Something else.", next = "BACK" },
       },
     },

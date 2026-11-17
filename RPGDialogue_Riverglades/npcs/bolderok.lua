@@ -32,7 +32,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Clugfist is of Bolder'ok. Bolder'ok was Twilight once, but not now, and now Bolder'ok is Horde." },
+          text = "Clugfist is of Bolder'ok. Bolder'ok was Twilight once, but not now, and now Bolder'ok is Horde. Only young Jom-jom is missing, and Clugfist is worried." },
         { id = "h_jomjom", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Jom-Jom's Escape"), days = 3 } },
           text = "Jom-jom saved by a little one, and Clugfist did not think little ones could carry so much ogre home. Little one is friend now." },
         { id = "h_orc", when = { race = "Orc" },
@@ -53,7 +53,7 @@ P:NPC {
         { text = "Why did Bolder'ok leave the Twilight's Hammer?", next = "left" },
         { text = "Why join the Horde?", next = "horde" },
         { text = "Who is Jom-jom?", next = "jomjom" },
-        { text = "What do you know of Krol'dok?", next = "kroldok" },
+        { text = "Where do the Twilight ogres live now?", next = "kroldok" },
         { text = "Is Jom-jom all right?", next = "jomjom_after", when = { questDone = TODO_QUEST("Jom-Jom's Escape") } },
         { text = "Do you trust shadow magic now?", next = "xlock", when = { class = { "WARLOCK", "PRIEST" } } },
         { text = "Farewell, Clugfist.", next = "END" },
@@ -85,7 +85,7 @@ P:NPC {
         { id = "ho_default", text = "Horde fights Twilight, Bolder'ok fights Twilight, so Horde and Bolder'ok are friends. The orcs at Rog'mar give us meat and axes, and we give them ogres, which is a good trade." },
       },
       choices = {
-        { text = "And the humans at Farholde?", next = "horde_humans" },
+        { text = "And the humans in these glades?", next = "horde_humans" },
         { text = "Something else.", next = "BACK" },
       },
     },

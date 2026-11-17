@@ -80,7 +80,7 @@ P:NPC {
       choices = {
         { text = "I'll report what I see, and nothing more.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If there's anything worth taking, I'll take it.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "What's happening at Raven Hill?", next = "raven" },
+        { text = "What's moving where it shouldn't, lately?", next = "raven" },
       },
     },
     xlock = {
@@ -126,17 +126,17 @@ P:NPC {
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask, then. Nobody sleeps much in this house anyway." },
       },
       choices = {
-        { text = "What's happening at Raven Hill?", next = "raven" },
-        { text = "Who is Sven Yorgen?", next = "sven" },
+        { text = "What's moving where it shouldn't, lately?", next = "raven" },
+        { text = "Who needs supplies most these days?", next = "sven" },
         { text = "You said someone hasn't been seen?", next = "hermit" },
         { text = "What does your family actually do?", next = "family" },
-        { text = "You speak of walking under the Light.", next = "light", when = { class = "PRIEST" } },
+        { text = "Do you walk under the Light, Elaine?", next = "light", when = { class = "PRIEST" } },
         { text = "About the hermit you sent me to...", next = "hermit_after", when = { questDone = TODO_QUEST("Translation to Ello") } },
-        { text = "I walk under the Light too, with a hammer.", next = "paladin", when = { class = "PALADIN" } },
+        { text = "I walk under the Light, with a hammer.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I can check those empty houses without being seen.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Which part of the wood needs a warrior most, Elaine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a hunter report back to you, Elaine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "You walk under the Light, Elaine. I walk elsewhere.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Darkshire walks under the Light, Elaine. I walk elsewhere.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I can follow a scent. Is anyone missing that I might find?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Has the Night Watch any use for a mage, Elaine?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is the Light enough in Duskwood, Elaine?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -147,7 +147,7 @@ P:NPC {
     raven = {
       lines = {
         { id = "r_default", fx = { learn = { "raven_hill" } },
-          text = "It was a village once, west of here, with a cemetery that's grown bigger than the village ever was. Calor saw lights there, and Calor isn't a man who imagines things; he's a man who shoots at them." },
+          text = "Raven Hill was a village once, west of here, with a cemetery that's grown bigger than the village ever was. Calor saw lights there, and Calor isn't a man who imagines things; he's a man who shoots at them." },
         { id = "r_done", when = { questDone = TODO_QUEST("Raven Hill") },
           text = "A man named Jitters, hiding among the graves and terrified of everything. I'm glad you were the one who went, and not Calor with a crossbow." },
       },
@@ -1041,7 +1041,7 @@ P:NPC {
       choices = {
         { text = "Show me your stock.", next = "BUSINESS" },
         { text = "What's a gnome doing in Darkshire?", next = "why" },
-        { text = "What do you think of Viktori's telescope?", next = "viktori" },
+        { text = "Who buys your tubes, out here?", next = "viktori" },
         { text = "Do you miss Gnomeregan?", next = "gnomeregan" },
         { text = "I mine. What sells here?", next = "mining", when = { profession = "Mining" } },
         { text = "Your parts would sell well in Stormwind's back alleys.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1075,7 +1075,7 @@ P:NPC {
 
     viktori = {
       lines = {
-        { id = "v_default", text = "Lovely fellow, terrible optics. He wants to look at the stars through the thickest fog in the kingdom, and I keep telling him that a tube can't see through weather, but he buys the tubes anyway, so I've stopped telling him." },
+        { id = "v_default", text = "That's Viktori, the stargazer up the hill, a lovely fellow with terrible optics. He wants to look at the stars through the thickest fog in the kingdom, and I keep telling him that a tube can't see through weather, but he buys the tubes anyway, so I've stopped telling him." },
       },
       choices = {
         { text = "That's a little dishonest.", next = "viktori_honest" },
@@ -1239,12 +1239,12 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. My father's grave hasn't had a prayer said over it since the dead started walking, and I've been too frightened to go myself." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. They say the dead give way when your kind walk among them, and I've always wanted to see that, from a safe distance." },
-        { id = "h_default", text = "Farrin Daris. I've a room here at the Raven, and I walk from it to this table and back, because there's nowhere else in Darkshire a man can safely walk anymore." },
+        { id = "h_default", text = "Farrin Daris. I've a room here at the Raven, and I walk from it to this table and back, because there's nowhere else in Darkshire a man can safely walk anymore, not even to my father's grave." },
         { id = "h_watch_done", when = { questDone = TODO_QUEST("The Night Watch") },
           text = "They say someone cleared the cemetery for the Watch. I thought about going to see my father, and then I didn't, but I thought about it, which is more than last month." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're half what you look like, you could walk me to my father's grave and back, and I'd owe you more than I could ever pay." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the woods, then, and you'll know there's nothing out there a man like me can face alone." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your people speak to the land, I've heard, so perhaps you'd know whether the dead in it are resting or not." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your people speak to the land, I've heard, so perhaps you'd know whether the dead in it, my father among them, are resting or not." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You've a cold about you, stranger, and I've felt enough of that walking past the cemetery." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Can your spirits visit my father's grave? I can't, and Stormwind's guards haven't come." },
       },
@@ -1263,7 +1263,7 @@ P:NPC {
         { text = "What's out there besides the dead, Farrin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you like me to pray at your father's grave, Farrin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you walk out with me, if I kept the dead off you?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Your father lies near Raven Hill. Do you know if his grave is whole?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you know if your father's grave is still whole?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Are you afraid of what I am, Farrin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why can't you visit your father's grave, Farrin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Take care of yourself, Farrin.", next = "END" },

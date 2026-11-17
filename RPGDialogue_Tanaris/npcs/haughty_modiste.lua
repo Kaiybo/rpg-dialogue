@@ -49,7 +49,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. You have until I lose interest, and my interest is very expensive." },
       },
       choices = {
-        { text = "Who actually wears pirate hats?", next = "hats" },
+        { text = "What's in fashion this season?", next = "hats" },
         { text = "Do kings really buy from you?", next = "kings" },
         { text = "Why set up shop at Steamwheedle Port?", next = "port" },
         { text = "What's wrong with how I dress?", next = "dress" },
@@ -59,7 +59,7 @@ P:NPC {
       },
     },
     hats = {
-      lines = { { id = "ht_default", text = "Everyone, sweetie, once I've told them to. A pirate hat says danger and adventure and a certain disregard for the law, which is exactly what bored nobles want to feel on a Tuesday." } },
+      lines = { { id = "ht_default", text = "Pirate hats, sweetie, because everyone wears what I've told them to. A pirate hat says danger and adventure and a certain disregard for the law, and the pirates of Lost Rigger Cove won't be needing theirs once the Cartel is done with them." } },
       choices = {
         { text = "You're selling stolen hats to the rich?", next = "hats_stance" },
         { text = "Something else.", next = "BACK" },

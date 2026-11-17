@@ -86,7 +86,7 @@ P:NPC {
         { text = "I serve the Light. Your craft makes my skin crawl.", next = "paladin", when = { class = "PALADIN" } },
         { text = "How do you know the Crusade so well?", next = "crusade" },
         { text = "How does your illusion work?", next = "illusion" },
-        { text = "Why help Tirion Fordring?", next = "tirion" },
+        { text = "Why help anyone against the Crusade?", next = "tirion" },
         { text = "What do you know of shadow magic, Myranda?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Who taught you to work illusions, Myranda?", next = "xmage", when = { class = "MAGE" } },
         { text = "What's the difference between your seemings and a good disguise?", next = "xrogue", when = { class = "ROGUE" } },
@@ -151,7 +151,7 @@ P:NPC {
     },
     tirion = {
       lines = {
-        { id = "ti_default", text = "Because his son sits at the Crusade's table in Hearthglen, and anything that hurts the Crusade pleases me. That the old man's heart might mend a little is, well, a pleasant accident." },
+        { id = "ti_default", text = "Because old Tirion Fordring's son sits at the Crusade's table in Hearthglen, and anything that hurts the Crusade pleases me. That the old man's heart might mend a little is, well, a pleasant accident." },
       },
       choices = { { text = "That's kinder than you let on.", next = "BACK", fx = { affinity = 1 } } },
     },

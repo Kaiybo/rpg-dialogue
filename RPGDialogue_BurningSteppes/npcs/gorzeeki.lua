@@ -51,9 +51,9 @@ P:NPC {
       },
       choices = {
         { text = "Why do you work for Mor'zul?", next = "master" },
-        { text = "Tell me about your imp.", next = "jar" },
+        { text = "Do you keep any demons of your own?", next = "jar" },
         { text = "You really eat bugs?", next = "bugs" },
-        { text = "What are the shadowy potions for?", next = "xpotion", when = { class = "WARLOCK" } },
+        { text = "What do you brew for warlocks?", next = "xpotion", when = { class = "WARLOCK" } },
         { text = "A goblin should be selling, not serving.", next = "xgoblin", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "I'll be on my way.", next = "END" },
       },

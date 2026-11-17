@@ -53,7 +53,7 @@ P:NPC {
       choices = {
         { text = "How did you two get lost?", next = "lost" },
         { text = "Why not just talk to Muigin?", next = "talk" },
-        { text = "Who's this Marvon?", next = "marvon" },
+        { text = "Who's this Marvon?", next = "marvon", when = { any = { { questActive = TODO_QUEST("Marvon's Workshop") }, { questActive = TODO_QUEST("Zapper Fuel") } } } },
         { text = "Do you want to go home?", next = "home" },
         { text = "The pests are zapped. Will you talk to him now?", next = "patient", when = { questDone = TODO_QUEST("Bloodpetal Zapper") } },
         { text = "Dwarves don't get lost. Who's really to blame?", next = "dwarf", when = { race = "Dwarf" } },

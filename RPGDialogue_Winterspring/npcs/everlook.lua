@@ -145,7 +145,7 @@ P:NPC {
         { text = "Who comes through Everlook?", next = "guests" },
         { text = "Why are you so scared of bugs?", next = "bugs" },
         { text = "Who are your neighbours here?", next = "neighbours" },
-        { text = "I could track that beetle for you.", next = "beetle_hunt", when = { class = "HUNTER" } },
+        { text = "I could track down your bugs for you.", next = "beetle_hunt", when = { class = "HUNTER" } },
         { text = "Do rogues cause much trouble in Everlook?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You came all the way up here to get away from bugs?", next = "xmage", when = { class = "MAGE" } },
         { text = "My imp's harmless. Mostly.", next = "xlock", when = { class = "WARLOCK" } },
@@ -179,7 +179,7 @@ P:NPC {
       },
     },
     beetle_hunt = {
-      lines = { { id = "bh_default", text = "You'd do that? No, no, don't, sugar, because we've got a truce, and if you scare it off it'll only come back angrier with its cousins and I'll be payin' for traps all winter. Just keep your pet off the bar, that's all I ask." } },
+      lines = { { id = "bh_default", text = "You'd do that? No, no, don't, sugar, because me and the one beetle by the hearth have got a truce, and if you scare it off it'll only come back angrier with its cousins and I'll be payin' for traps all winter. Just keep your pet off the bar, that's all I ask." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
     bugs = {

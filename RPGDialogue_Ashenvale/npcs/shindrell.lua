@@ -58,7 +58,7 @@ P:NPC {
       choices = {
         { text = "Why are the naga on the Zoram Strand?", next = "naga" },
         { text = "Are we at war with the Horde or not?", next = "horde" },
-        { text = "Who is Kayneth Stillwind?", next = "kayneth" },
+        { text = "Who is Kayneth Stillwind?", next = "kayneth", when = { minLevel = 25 } },
         { text = "You don't like ordering the pridewings killed.", next = "pridewings", when = { any = { { questActive = TODO_QUEST("Pridewings of Stonetalon") }, { questDone = TODO_QUEST("Pridewings of Stonetalon") } } } },
         { text = "I'm kaldorei too. How bad is it, between the two of us?", next = "sister", when = { race = "NightElf", class = { "HUNTER", "WARRIOR", "ROGUE" } } },
         { text = "What work do you have?", next = "BUSINESS" },

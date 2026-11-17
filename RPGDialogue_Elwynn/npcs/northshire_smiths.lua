@@ -595,7 +595,7 @@ P:NPC {
       },
       choices = {
         { text = "Why walk, instead of staying in the Abbey?", next = "walk" },
-        { text = "I heard you buy ore from Redridge.", next = "ink" },
+        { text = "What do the Abbey's scribes use for ink, Brother?", next = "ink" },
         { text = "Do Khelden's students really burn themselves that often?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Light really turn a warlock away, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you mend many warriors, Brother Paxton?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -624,7 +624,7 @@ P:NPC {
       },
     },
     ink = {
-      lines = { { id = "i_default", text = "I do, from Foreman Oslow in Lakeshire. Rethban ore ground fine makes a lovely ink for the Abbey's scribes, though he's been too busy with his bridge to send any lately." } },
+      lines = { { id = "i_default", text = "Rethban ore from Lakeshire, ground fine, which I buy from Foreman Oslow. It makes a lovely ink, though he's been too busy with his bridge to send any lately." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

@@ -49,8 +49,8 @@ P:NPC {
       },
       choices = {
         { text = "Why build a mechanical ape?", next = "ape" },
-        { text = "Tell me about your uncle.", next = "uncle" },
-        { text = "What happened at Fungal Rock?", next = "fungal" },
+        { text = "Does engineering run in your family?", next = "uncle" },
+        { text = "What happened at Fungal Rock?", next = "fungal", when = { any = { { questActive = TODO_QUEST("Chasing A-Me 01") }, { questDone = TODO_QUEST("Chasing A-Me 01") } } } },
         { text = "What do you hope to find here?", next = "hope" },
         { text = "How did you build A-Me's eyes?", next = "gems", when = { profession = "Engineering" } },
         { text = "Animals know a fake when they see one.", next = "beasts", when = { class = { "HUNTER", "DRUID" } } },

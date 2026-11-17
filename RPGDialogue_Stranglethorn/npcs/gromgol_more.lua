@@ -306,7 +306,7 @@ P:NPC {
         { text = "Do the wind riders take to shamans more than to others?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Are the routes to Stonard and Kargath safe for a lone caster?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How do the riders like the jungle?", next = "jungle" },
-        { text = "You watch the trolls on the ridges?", next = "trolls" },
+        { text = "Who watches your pens from the jungle?", next = "trolls" },
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What do the trolls on the ridges see, Thysta?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why don't wind riders like demons, Thysta?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },

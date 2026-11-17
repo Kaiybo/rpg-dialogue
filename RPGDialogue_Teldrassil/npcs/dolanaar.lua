@@ -120,7 +120,7 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with the wells?", next = "wells" },
-        { text = "Tell me the story Tenaron began.", next = "story" },
+        { text = "Tell me the story Tenaron began.", next = "story", when = { any = { { questActive = TODO_QUEST("Crown of the Earth") }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
         { text = "Which wells do you watch?", next = "which" },
         { text = "I can feel something in the water too.", next = "feel", when = { class = { "PRIEST", "DRUID" } } },
         { text = "Could the Light help guard your moonwells, Corithras?", next = "xapala", when = { class = "PALADIN" } },
@@ -320,10 +320,10 @@ P:NPC {
       choices = {
         { text = "Were the Gnarlpine ever friends?", next = "friends" },
         { text = "Can the furbolgs be saved?", next = "saved" },
-        { text = "Who are the sleeping druids?", next = "talon" },
+        { text = "Is anything else in danger from the Gnarlpine?", next = "talon" },
         { text = "I can tell a sick beast from an angry one.", next = "druidtest", when = { class = "DRUID" } },
         { text = "I've hunted Gnarlpine. They fought like rabid wolves.", next = "hunter_a", when = { class = "HUNTER" } },
-        { text = "That fel moss. I know the stink of it.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "There's a stink of fel on the Gnarlpine. I know it well.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I could get close enough to the Gnarlpine to see what's turned them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Must I fight the Gnarlpine, Athridas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can prayer reach the Gnarlpine, Athridas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -357,7 +357,7 @@ P:NPC {
       },
     },
     talon = {
-      lines = { { id = "t_default", text = "They are the Druids of the Talon, hibernating in the Ban'ethil Barrow Den by a pact with Ysera, and Gaerolas guards them. Disturb the ritual wrongly and they could be lost in the Dream." } },
+      lines = { { id = "t_default", text = "The sleeping Druids of the Talon are, for they hibernate in the Ban'ethil Barrow Den by a pact with Ysera, and Gaerolas guards them. Disturb the ritual wrongly and they could be lost in the Dream." } },
       choices = {
         { text = "Lost in the Dream?", next = "talon2" },
         { text = "Something else.", next = "BACK" },
@@ -527,10 +527,10 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening." },
       },
       choices = {
-        { text = "What was the dreamcatcher to you?", next = "dreamcatcher" },
-        { text = "What happened to Starbreeze Village?", next = "starbreeze" },
+        { text = "What did they take from you?", next = "dreamcatcher" },
+        { text = "Where are the Gnarlpine causing trouble?", next = "starbreeze" },
         { text = "Who is Lord Melenas?", next = "melenas", when = { questActive = TODO_QUEST("Twisted Hatred") } },
-        { text = "I could slip into Starbreeze and take it back unseen.", next = "rogue_t", when = { class = "ROGUE" } },
+        { text = "I could slip in and take it back unseen.", next = "rogue_t", when = { class = "ROGUE" } },
         { text = "Who tends the wounded the Gnarlpine leave behind?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should a paladin face the Gnarlpine, Tallonkai?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is a mage welcome in Dolanaar, Tallonkai?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -544,7 +544,7 @@ P:NPC {
     },
     dreamcatcher = {
       lines = {
-        { id = "d_gift", text = "A gift from Gaerolas Talvethren, who wards the sleeping druids. It draws a little luck out of the Emerald Dream. Few are ever given one." },
+        { id = "d_gift", text = "My dreamcatcher, a gift from Gaerolas Talvethren, who wards the sleeping druids. It draws a little luck out of the Emerald Dream. Few are ever given one." },
       },
       choices = {
         { text = "I understand.", next = "BACK", fx = { affinity = 2 } },
@@ -556,7 +556,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     starbreeze = {
-      lines = { { id = "sb_default", text = "The Gnarlpine overran it. It was a quiet place once. My dresser is still there, and so is everything else we left behind." } },
+      lines = { { id = "sb_default", text = "They overran Starbreeze Village, east of here, and it was a quiet place once. My dresser is still there, and so is everything else we left behind." } },
       choices = {
         { text = "Will you go back?", next = "starbreeze2" },
         { text = "Something else.", next = "BACK" },
@@ -713,8 +713,8 @@ P:NPC {
       },
       choices = {
         { text = "What is the Council of the Forest?", next = "council" },
-        { text = "Who is Denalan?", next = "denalan" },
-        { text = "Who is Zenn Foulhoof?", next = "zenn" },
+        { text = "Who is Denalan?", next = "denalan", when = { questActive = TODO_QUEST("Denalan's Earth") } },
+        { text = "Who is Zenn Foulhoof?", next = "zenn", when = { any = { { questActive = TODO_QUEST("Seek Redemption!") }, { questActive = TODO_QUEST("Zenn's Bidding") }, { questDone = TODO_QUEST("Zenn's Bidding") } } } },
         { text = "I'm an herbalist. What grows here?", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Has the Council any orders for a priest?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the Council trust a paladin's oath, Syral?", next = "xapala", when = { class = "PALADIN" } },

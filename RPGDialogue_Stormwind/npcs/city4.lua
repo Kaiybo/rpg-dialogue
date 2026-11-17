@@ -110,7 +110,7 @@ P:NPC {
           text = "Word came up from the Burning Steppes that Thaurissan is dead in his own throne room, and that you were standing in it. I marched under Turalyon to the foot of that mountain once, and none of us ever went down into it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I could use a dozen of you on the walls, and the Keep sends me letters about the budget instead." },
         { id = "h_default", key = true,
-          text = "General Marcus Jonathan, High Commander of Stormwind's defence. I keep the city's walls and its army, such as the kingdom can spare of it." },
+          text = "General Marcus Jonathan, High Commander of Stormwind's defence. I keep the city's walls and its army, such as the kingdom can spare of it, and Lakeshire's letters remind me daily how little that is." },
         { id = "h_messenger", tags = { "news" }, when = { questActive = TODO_QUEST("Messenger to Stormwind") },
           text = "Magistrate Solomon writes again, asking reinforcements for Lakeshire. I'll take it to the throne myself, and you can tell him the army hasn't forgotten Redridge." },
         { id = "h_messenger_done", when = { questDone = TODO_QUEST("Messenger to Stormwind") },
@@ -167,7 +167,7 @@ P:NPC {
       },
       choices = {
         { text = "Whose voices?", next = "voices", fx = { trait = { curious = 1 } } },
-        { text = "What did you write to Solomon?", next = "army_letter" },
+        { text = "What did you write to Solomon?", next = "army_letter", when = { any = { { questActive = TODO_QUEST("Messenger to Stormwind") }, { questDone = TODO_QUEST("Messenger to Stormwind") }, { heardLine = "solomon.s_default" } } } },
         { text = "Keep asking.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
         { text = "Stop asking and march without orders, General.", next = "BACK", fx = { align = { order = -1 } } },
       },
@@ -291,7 +291,7 @@ P:NPC {
       choices = {
         { text = "That's pride talking, General.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "That's how allies should treat each other.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Who was Kurdran to you?", next = "kurdran" },
+        { text = "Kurdran's statue stands in your valley. Did you know him?", next = "kurdran" },
       },
     },
     sentinels = {

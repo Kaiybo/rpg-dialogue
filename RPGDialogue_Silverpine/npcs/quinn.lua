@@ -51,8 +51,8 @@ P:NPC {
       },
       choices = {
         { text = "What happened with Ivar?", next = "ivar" },
-        { text = "You don't trust Renferrel's potions?", next = "renferrel" },
-        { text = "Tell me about your sister.", next = "rane" },
+        { text = "You don't trust Renferrel's potions?", next = "renferrel", when = { questDone = TODO_QUEST("Return to Quinn") } },
+        { text = "Who is Rane?", next = "rane" },
         { text = "Let me look at that wound.", next = "wound", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Rest well, Quinn.", next = "END" },

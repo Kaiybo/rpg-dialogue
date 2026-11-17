@@ -395,8 +395,8 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
-        { text = "Who is Jannok?", next = "jannok" },
-        { text = "What's wrong with Teldrassil's forests?", next = "forest" },
+        { text = "Who is Jannok?", next = "jannok", when = { any = { { questActive = TODO_QUEST("The Apple Falls") }, { questDone = TODO_QUEST("The Apple Falls") } } } },
+        { text = "What's wrong with Teldrassil's forests?", next = "forest", when = { any = { { questActive = TODO_QUEST("Destiny Calls") }, { questDone = TODO_QUEST("Destiny Calls") } } } },
         { text = "Why do night elves need rogues?", next = "why" },
         { text = "Teach me how the kaldorei move unseen.", next = "rogue_s", when = { class = "ROGUE" } },
         { text = "Is a mage really so easy to notice?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },

@@ -444,7 +444,7 @@ P:NPC {
         { text = "Did a blessing really cloud your vial, Zinge?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do your mixtures do to the earth, Zinge?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are those vapours made for, Zinge?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "You test your work on prisoners, Zinge?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "Who do you test your work on, Zinge?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
         { text = "What do you work on here?", next = "work" },
         { text = "What's Faranell like?", next = "faranell" },
         { text = "Could the arcane speed up your experiments, Zinge?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },

@@ -125,7 +125,7 @@ P:NPC {
         { text = "Who are you, really?", next = "who" },
         { text = "What do you collect?", next = "draenethyst" },
         { text = "Why do you say everyone smells of greed?", next = "greed" },
-        { text = "What do you give for the fragments?", next = "junk" },
+        { text = "What do you give in trade?", next = "junk" },
         { text = "The Light could mend what was done to you.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Orcs came through that Portal too, draenei.", next = "orc", when = { race = "Orc" } },
         { text = "I deal in fel, collector. Does it smell of greed?", next = "k_lock", when = { class = "WARLOCK" } },
@@ -586,7 +586,7 @@ P:NPC {
       choices = {
         { text = "What's special about the basilisks?", next = "basilisks" },
         { text = "What do you mean by the spirit of a beast?", next = "spirit" },
-        { text = "Your brother says you look down on his work.", next = "brother" },
+        { text = "Do you and your brother see eye to eye?", next = "brother" },
         { text = "A beast's spirit is the Light's work, not yours.", next = "priest", when = { class = "PRIEST" } },
         { text = "A druid feels a beast's spirit, Lynnore. Not in bottles.", next = "k_druid", when = { class = "DRUID" } },
         { text = "What do basilisk minds teach you, Lynnore?", next = "xmage", when = { class = "MAGE" } },

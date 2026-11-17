@@ -56,7 +56,7 @@ P:NPC {
       },
       choices = {
         { text = "What is Warsong Gulch?", next = "gulch" },
-        { text = "Why does the Warsong clan cut the forest?", next = "mill" },
+        { text = "Why do the orcs cut the forest?", next = "mill" },
         { text = "How does the fighting there work?", next = "flags" },
         { text = "What do the Marks of Honor mean to the Sentinels?", next = "marks" },
         { text = "How do you find it, standing in this city?", next = "city" },

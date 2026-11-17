@@ -147,7 +147,7 @@ P:NPC {
       },
     },
     syndicate = {
-      lines = { { id = "s_default", text = "Alterac's leftovers, nobles who lost their kingdom and found a trade in knives. They rob the dead and call it business." } },
+      lines = { { id = "s_default", text = "Alterac's leftovers, nobles who lost their kingdom and found a trade in knives. They rob the dead, even cut the badges off our fallen, and call it business." } },
       choices = {
         { text = "Why take the badges?", next = "syndicate_badges" },
         { text = "Then they'll answer for it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -589,7 +589,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest, mon! If you be Darkspear, the loa walk with you, and if you be Forsaken, well, Zengu hope somethin' walk with you, because these hills be cold." },
         { id = "h_default", key = true,
-          text = "Zengu, of the Darkspear. Vol'jin send me for a sword, Trol'kalar, made by humans to kill trolls, and we going to use it against the Gurubashi, which be a fine joke, mon." },
+          text = "Zengu, of the Darkspear. Vol'jin send me for a sword, Trol'kalar, made by humans to kill trolls and sleepin' now in Trollbane's tomb in Stromgarde, and we going to use it against the Gurubashi, which be a fine joke, mon." },
         { id = "h_trollbane", tags = { "news" }, when = { questActive = TODO_QUEST("Trollbane") },
           text = "The sword sleep in Trollbane's tomb, in Stromgarde, and the humans guard it, so we going to need a key first." },
         { id = "h_sigil", when = { any = { { questActive = TODO_QUEST("Sigil of Strom") }, { questActive = TODO_QUEST("The Broken Sigil") }, { questActive = TODO_QUEST("Sigil of Thoradin") }, { questActive = TODO_QUEST("Sigil of Arathor") }, { questActive = TODO_QUEST("Sigil of Trollbane") } } },

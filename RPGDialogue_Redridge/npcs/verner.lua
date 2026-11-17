@@ -93,7 +93,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "With a hammer, and a forge, and the good sense to stay behind the stable door. If the gnolls come down for the horses while I'm here, they'll find a smith's arm is as good as a guard's, and angrier." } },
       choices = {
-        { text = "I'll drive Yowler's pack off your hill myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll drive the gnolls off your hill myself.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Your horses, your trouble, Verner. Build a better fence.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Verner.", next = "BACK" },
       },
@@ -102,7 +102,7 @@ P:NPC {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
           text = "You've a kind way with beasts, I'll bet. I could use that; the wolves around here have taken a liking to my supplies." },
-        { id = "h_default", text = "Osgood, the smith. The Guard takes every scrap of iron I've got, and I'm meant to shoe the town's horses with what's left, which is nothing." },
+        { id = "h_default", text = "Osgood, the smith. The Guard takes every scrap of iron I've got, and I'm meant to shoe the town's horses with what's left, which is nothing, unless Argus down in Goldshire takes pity on me." },
         { id = "h_shoes", when = { questBefore = TODO_QUEST("The Price of Shoes") },
           text = "Smith Argus in Goldshire owes me, and he's got iron. If someone carried a note down to him, I might see horseshoes this side of winter." },
         { id = "h_shoes_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Price of Shoes") },
@@ -133,7 +133,7 @@ P:NPC {
         { text = "Why do the wolves come so close to town?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Let's see what you've got.", next = "BUSINESS" },
         { text = "How do you know Argus?", next = "argus" },
-        { text = "Why are your horses in danger?", next = "gnolls" },
+        { text = "How are the town's horses faring?", next = "gnolls" },
         { text = "Where does all your iron go?", next = "iron" },
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Will you shoe my warhorse?", next = "warhorse", when = { class = "PALADIN", minLevel = 40 } },

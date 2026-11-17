@@ -52,10 +52,10 @@ P:NPC {
         { id = "h_again2", text = "Anything more, {g:son|lass}? Out with it." },
       },
       choices = {
-        { text = "You know Kurzen's soldiers personally?", next = "known" },
-        { text = "Why do you need his remedies?", next = "medicine" },
+        { text = "Do you know the men you're fighting?", next = "known" },
+        { text = "How does Kurzen keep his army fighting?", next = "medicine" },
         { text = "How do you fight a man who outnumbers you?", next = "tactics" },
-        { text = "Why did you leave Kurzen?", next = "leave" },
+        { text = "Why fight Kurzen at all?", next = "leave" },
         { text = "I could help make your remedies.", next = "xalchemy", when = { profession = "Alchemy" } },
         { text = "Let me tend your wounded, Sergeant.", next = "xheal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
         { text = "I'll get to work.", next = "END" },
@@ -84,7 +84,7 @@ P:NPC {
 
     medicine = {
       lines = {
-        { id = "me_default", text = "Because Kurzen keeps a great many medicine men who patch his soldiers with Jungle Remedies, and poison ours with extracts of venom fern. Take away his healers and his army wears out like ours does." },
+        { id = "me_default", text = "Kurzen keeps a great many medicine men who patch his soldiers with Jungle Remedies, and poison ours with extracts of venom fern. Take away his healers and his army wears out like ours does." },
       },
       choices = {
         { text = "And the venom fern sample?", next = "medicine_fern" },

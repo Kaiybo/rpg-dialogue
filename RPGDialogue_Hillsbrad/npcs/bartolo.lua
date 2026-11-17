@@ -36,7 +36,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Bartolo Ginsetti, and I make the world-famous, Alliance-renowned yeti fur cloak! Travel the planet and find yourself a better cloak, I dare you, but you will come back, for there is none." },
+          text = "I am Bartolo Ginsetti, and I make the world-famous, Alliance-renowned yeti fur cloak! Travel the planet and find yourself a better cloak, I dare you, but you will come back, for there is none, as Bartolo always says." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Bartolo's Yeti Fur Cloak") },
           text = "Bring Bartolo a bolt of wool, fine thread, a Hillman's cloak and ten clumps of yeti fur, and you shall be a happy customer. The yetis are in Alterac, and they do not give their fur willingly, but that is your concern and not mine." },
         { id = "h_ready", tags = { "news" }, when = { questReady = TODO_QUEST("Bartolo's Yeti Fur Cloak") },

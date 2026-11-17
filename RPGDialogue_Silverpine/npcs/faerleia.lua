@@ -34,7 +34,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Deathstalker Faerleia, on the Dark Lady's business. You've arrived just in time, because the Pyrewood Council will be back soon, and I can't take them all by myself." },
+        { id = "h_default", key = true, text = "Deathstalker Faerleia, on the Dark Lady's business. You've arrived just in time, because the Pyrewood Council will be back soon, Arugal's puppets every one, and I can't take them all by myself." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Pyrewood Ambush") },
           text = "Arugal has better things to do in his keep than mind a village, so he rules Pyrewood through its Council. Cut the Council down, and I think his sons will turn on him." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Pyrewood Ambush"), days = 3 } },
@@ -52,7 +52,7 @@ P:NPC {
         { text = "Who are the Pyrewood Council?", next = "council" },
         { text = "What does Arugal want with this village?", next = "arugal" },
         { text = "How long have you been waiting here?", next = "waiting" },
-        { text = "Do you know Rane Yorick?", next = "yorick" },
+        { text = "Are there other deathstalkers watching Pyrewood?", next = "yorick" },
         { text = "I'm a deathstalker in training too.", next = "rogue", when = { class = "ROGUE", race = "Scourge" } },
         { text = "I'm with you. Let them come.", next = "BUSINESS" },
         { text = "I'll leave you to your ambush.", next = "END" },
@@ -114,7 +114,7 @@ P:NPC {
     },
 
     yorick = {
-      lines = { { id = "yo_default", text = "Rane watches Pyrewood from the outside, and I watch it from the inside, and between us there isn't much the village does that the Sepulcher doesn't hear. She'll want a report from you too, so don't be stingy with it." } },
+      lines = { { id = "yo_default", text = "Rane Yorick watches Pyrewood from the outside, and I watch it from the inside, and between us there isn't much the village does that the Sepulcher doesn't hear. She'll want a report from you too, so don't be stingy with it." } },
       choices = {
         { text = "I'll tell her what I see.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },

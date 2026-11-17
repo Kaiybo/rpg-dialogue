@@ -626,7 +626,7 @@ P:NPC {
       choices = {
         { text = "What about the auction house?", next = "d_auction" },
         { text = "And the Gilded Rose?", next = "d_rose" },
-        { text = "What's odd about a cheese shop?", next = "d_cheese" },
+        { text = "Tell me about the cheese shop.", next = "d_cheese" },
         { text = "What do you see on the canal at night?", next = "d_canal" },
         { text = "The orphans rob you?", next = "d_orphans" },
         { text = "Have you met many gnomes since Gnomeregan fell?", next = "d_gnomes" },

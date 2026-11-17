@@ -125,7 +125,7 @@ P:NPC {
         { id = "h_again3", when = { questActive = TODO_QUEST("Young Lovers") }, text = "Well? You keep looking toward the river. There's nothing over there but Stonefields." },
       },
       choices = {
-        { text = "What's the trouble with the Stonefields?", next = "feud" },
+        { text = "Any trouble with the neighbours, Mr. Maclure?", next = "feud" },
         { text = "How are the vines this year?", next = "vines" },
         { text = "Tell me about your children.", next = "children" },
         { text = "Seen the Defias up this way?", next = "defias", when = { any = { { questDone = TODO_QUEST("Brotherhood of Thieves") }, { class = "ROGUE" } } } },
@@ -191,7 +191,7 @@ P:NPC {
       },
       choices = {
         { text = "Does Maybell want the vineyard?", next = "children_maybell" },
-        { text = "Billy was blamed for a stolen necklace.", next = "children_billy" },
+        { text = "Billy was blamed for a stolen necklace.", next = "children_billy", when = { any = { { questActive = TODO_QUEST("Lost Necklace") }, { questDone = TODO_QUEST("Lost Necklace") } } } },
         { text = "Something else.", next = "BACK" },
       },
     },

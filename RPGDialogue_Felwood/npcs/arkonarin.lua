@@ -53,7 +53,7 @@ P:NPC {
         { text = "Who did you come here with?", next = "trey" },
         { text = "What is the Council doing down here?", next = "council" },
         { text = "How do I get you out?", next = "out" },
-        { text = "Jessir Moonbow is waiting for you.", next = "jessir" },
+        { text = "Jessir Moonbow is waiting for you.", next = "jessir", when = { questActive = TODO_QUEST("Rescue From Jaedenar") } },
         { text = "I'm a paladin. Who was your friend?", next = "xpala", when = { class = "PALADIN" } },
         { text = "I'm no Council warlock. I'm here to help.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Hold on. I'll be back.", next = "END" },

@@ -568,7 +568,7 @@ P:NPC {
     apprentice = {
       lines = { { id = "a_default", text = "Soren. He's a good lad an' a bumbling lad, mostly the second, an' that's why I need ye." } },
       choices = {
-        { text = "What happened to his arm?", next = "soren_arm" },
+        { text = "What has Soren done this time?", next = "soren_arm" },
         { text = "Poor Soren.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -984,7 +984,7 @@ P:NPC {
         { text = "What's in the famous ribs?", next = "ribs" },
         { text = "What happened to your supplier?", next = "supplier" },
         { text = "Who founded the distillery?", next = "family" },
-        { text = "I hear the Dark Irons stole a recipe.", next = "theft", when = { minLevel = 45 } },
+        { text = "Have the Dark Irons ever troubled the distillery?", next = "theft", when = { minLevel = 45 } },
         { text = "I cook. Will you share the recipe?", next = "cookrecipe", when = { profession = "Cooking" } },
         { text = "Your supplier joined the army? So did half my company.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Have casks gone missing from the distillery?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1249,7 +1249,7 @@ P:NPC {
       },
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
-        { text = "Who's the gnome you toast?", next = "lazlo" },
+        { text = "Who's the gnome you toast?", next = "lazlo", when = { heardLine = "eric.sm_default" } },
         { text = "What's Rhapsody Malt?", next = "malt" },
         { text = "Who are all these trainers?", next = "trainers" },
         { text = "Did a mage really singe your eyebrows?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },

@@ -301,7 +301,7 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What happened to this camp's warriors?", next = "elves" },
         { text = "What's the best weapon against naga?", next = "naga" },
-        { text = "Do you blame all mages for what Rimtori did?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do you blame all mages for what that elf did?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do warlocks buy many weapons?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would you have me curse the Thalassian elves, Gruul?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What makes a good edge against elves, Gruul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },

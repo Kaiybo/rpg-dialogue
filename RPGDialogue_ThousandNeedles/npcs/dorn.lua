@@ -34,7 +34,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "So you've sought me out, or perhaps something brought you to me. Many facets make up a being: the spirit, the body and the mind. I test them, if you'll let me." },
+        { id = "h_default", key = true, text = "So you've sought me out, or perhaps something brought you to me. Many facets make up a being: the spirit, the body and the mind. I test them, if you'll let me, and those who fail learn how vast the Nether is." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Test of Faith") },
           text = "If you agree, I'll test some of the facets within you. Pass, and you'll grow stronger, and fail, and you'll learn how vast the Nether is. The first test is of faith, and it begins at the edge of those planks." },
         { id = "h_faith_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Test of Faith"), days = 3 } },

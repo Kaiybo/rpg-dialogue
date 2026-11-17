@@ -115,7 +115,7 @@ P:NPC {
         { id = "sp_default", text = "Some of the Circle sleep for long years by Ysera's leave, keeping watch in the Dream, and the barrow dens keep our bodies safe while we do. Gaerolas Talvethren guards us, and he will be heartsick that this happened on his watch." },
       },
       choices = {
-        { text = "Gaerolas was wounded by the Gnarlpine himself.", next = "sleepers_gaerolas" },
+        { text = "Gaerolas was wounded by the Gnarlpine himself.", next = "sleepers_gaerolas", when = { questDone = TODO_QUEST("A Troubling Breeze") } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -126,15 +126,15 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
-        { text = "What is the Tome of Divinity?", next = "tome" },
+        { text = "What is the Tome of Divinity?", next = "tome", when = { class = "PALADIN" } },
         { text = "What's the hardest part of the oath?", next = "oath" },
         { text = "Why teach behind a smithy?", next = "smithy" },
         { text = "What do paladins learn that priests don't?", next = "priest", when = { class = "PRIEST" } },
         { text = "I squired for the Silver Hand, before it broke.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "What should I be practising, Brother?", next = "practise", when = { class = "PALADIN" } },
         { text = "Ironforge has plenty of anvils, Brother. I came to learn.", next = "dwarf", when = { race = "Dwarf", class = "PALADIN" } },
-        { text = "Du Lac says a paladin is a warrior who prays.", next = "warrior", when = { class = "WARRIOR" } },
-        { text = "Do you know what goes on in the inn's cellar?", next = "cellar" },
+        { text = "Isn't a paladin just a warrior who prays?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Does anything in Goldshire trouble you, Brother?", next = "cellar" },
         { text = "Can a paladin really see through a rogue, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What could a mage learn from a paladin, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you think a warlock can ever be redeemed, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -265,14 +265,14 @@ P:NPC {
       },
     },
     warrior = {
-      lines = { { id = "warrior_l", text = "She would say that, and she'd mean it kindly, more or less. A paladin is a warrior who's promised the Light he'll stop when it tells him to, and that promise is the whole difference." } },
+      lines = { { id = "warrior_l", text = "Lyria Du Lac would say that, and she'd mean it kindly, more or less. A paladin is a warrior who's promised the Light he'll stop when it tells him to, and that promise is the whole difference." } },
       choices = {
         { text = "I'd rather decide for myself when to stop.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "That's a promise worth making.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
     cellar = {
-      lines = { { id = "cellar_l", text = "I know, and I look at the door every time I pass, and I don't go in. The kingdom permits them, and the Light hasn't told me to break down a door yet; when it does, I'll know." } },
+      lines = { { id = "cellar_l", text = "The warlocks in the inn's cellar. I look at the door every time I pass, and I don't go in. The kingdom permits them, and the Light hasn't told me to break down a door yet; when it does, I'll know." } },
       choices = {
         { text = "Some doors you break without being told.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "The kingdom's law comes first.", next = "BACK", fx = { align = { order = 1 } } },

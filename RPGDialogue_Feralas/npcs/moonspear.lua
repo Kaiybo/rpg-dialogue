@@ -54,11 +54,11 @@ P:NPC {
         { id = "h_again2", text = "Go on. I can spare a moment more." },
       },
       choices = {
-        { text = "What are the naga doing at Solarsal?", next = "naga" },
-        { text = "Shandris says you complain more than she does.", next = "shandris" },
-        { text = "Who's this Vestia?", next = "vestia" },
-        { text = "Any word of the missing courier?", next = "courier" },
-        { text = "Night elves aren't warmongers. Why strike first?", next = "strike" },
+        { text = "What are the naga up to?", next = "naga" },
+        { text = "Shandris says you complain more than she does.", next = "shandris", when = { heardLine = "shandris.w_default" } },
+        { text = "Have you family on the isle?", next = "vestia" },
+        { text = "Any other news from the isle?", next = "courier" },
+        { text = "Why fight the naga at all? Night elves aren't warmongers.", next = "strike" },
         { text = "I've fought naga before. What should I know?", next = "veteran", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "Give me a task.", next = "BUSINESS" },
         { text = "I'll let you work.", next = "END" },
@@ -82,7 +82,7 @@ P:NPC {
     vestia = {
       lines = { { id = "v_default", text = "My wife, a fine priestess for this community and one of the most learned scholars you'll find anywhere. When I bring home something I don't understand, which is often, it goes to Vestia." } },
       choices = {
-        { text = "She calls you Latro, doesn't she?", next = "vestia_latro" },
+        { text = "She calls you Latro, doesn't she?", next = "vestia_latro", when = { any = { { questActive = TODO_QUEST("Delivering the Relic") }, { questDone = TODO_QUEST("Delivering the Relic") } } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -91,7 +91,7 @@ P:NPC {
       choices = { { text = "Then I'll go and earn it, Latronicus.", next = "BACK" } },
     },
     courier = {
-      lines = { { id = "c_default", text = "Nothing, and it's been more than a week, so I've had to declare him missing in action. Ginro Hearthkindle hasn't given up, though; speak with him, if you've time to spare." } },
+      lines = { { id = "c_default", text = "Only that our courier never came back, and it's been more than a week, so I've had to declare him missing in action. Ginro Hearthkindle hasn't given up, though; speak with him, if you've time to spare." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     strike = {
@@ -160,8 +160,8 @@ P:NPC {
       choices = {
         { text = "What do you make of the relic?", next = "relic", when = { questDone = TODO_QUEST("Delivering the Relic") } },
         { text = "What are you studying?", next = "study" },
-        { text = "Tell me about Latro.", next = "latro" },
-        { text = "Why do the naga dig in the ruins?", next = "naga" },
+        { text = "Tell me about your husband.", next = "latro" },
+        { text = "What do you make of the naga?", next = "naga" },
         { text = "How do you balance prayer and study?", next = "priest", when = { class = "PRIEST" } },
         { text = "Do you have anything for me?", next = "BUSINESS" },
         { text = "I'll leave you to your books.", next = "END" },

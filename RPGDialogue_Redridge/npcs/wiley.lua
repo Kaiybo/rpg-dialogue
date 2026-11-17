@@ -109,7 +109,7 @@ P:NPC {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. Don't turn into anything in my presence; I've seen enough strange things this year." },
-        { id = "h_default", text = "They call me Wiley the Black, some of them, and some call me worse. I sit in this corner and I know things, and I don't tell them to just anybody." },
+        { id = "h_default", text = "They call me Wiley the Black, some of them, and some call me worse. I sit in this corner and I know things, and I don't tell them to just anybody, only to Gryan Stoutmantle, because I owe him a favor." },
         { id = "h_defias", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("The Defias Brotherhood") },
           text = "Gryan did me a favor once, the kind you don't repay with coin. So I pay him in what I know about the Brotherhood, and you'd best listen close." },
         { id = "h_deadmines", when = { deed = "dungeon:The Deadmines" },

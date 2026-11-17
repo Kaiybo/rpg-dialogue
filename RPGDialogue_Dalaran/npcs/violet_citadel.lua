@@ -40,7 +40,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Modera of the Kirin Tor. You've caught the Citadel at an untidy hour, I'm afraid, with half our wards held up by tired magi and the other half by stubbornness." },
+          text = "I am Modera of the Kirin Tor. You've caught the Citadel at an untidy hour, I'm afraid, with half our wards held up by tired magi and the other half by stubbornness, all because of what broke at the top of the Citadel, and the council would rather nobody heard of it." },
         { id = "h_helped", key = true, when = { questDone = TODO_QUEST("Friend of the Kirin Tor") },
           text = "There you are, {name}. You came through our sewers when we were too proud to ask anyone else, and as far as I'm concerned, Dalaran owes you a seat by its fire." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Friend of the Kirin Tor"), days = 3 } },
@@ -374,7 +374,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Yes? I'm Celindra, and I have three wards to recalibrate and only one pair of hands, so please be brief." },
+        { id = "h_default", key = true, text = "Yes? I'm Celindra, and I have three wards to recalibrate and only one pair of hands, and a mote of loose power to keep watch on besides, so please be brief." },
         { id = "h_mote", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Friend of the Kirin Tor"), days = 3 } },
           text = "So you're the one who carried the mote. Thank you, sincerely, and now let me work, because your errand is the reason the council has been in my study all morning." },
         { id = "h_mote_active", when = { questActive = TODO_QUEST("Friend of the Kirin Tor") },
@@ -398,9 +398,9 @@ P:NPC {
         { text = "What exactly is the mote?", next = "mote" },
         { text = "What are you working on?", next = "work" },
         { text = "Is the city safe now?", next = "safe" },
-        { text = "You knew Antonidas, didn't you?", next = "antonidas" },
+        { text = "Did you know Archmage Antonidas?", next = "antonidas" },
         { text = "Can you teach me anything, Archmage?", next = "xmage", when = { class = "MAGE" } },
-        { text = "The Horde meant no harm by its bargain.", next = "xhorde", when = { faction = "Horde" } },
+        { text = "The Horde means you no harm, Archmage.", next = "xhorde", when = { faction = "Horde" } },
         { text = "When will the High Order see your libraries?", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "I'll leave you to it.", next = "END" },
       },

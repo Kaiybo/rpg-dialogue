@@ -48,7 +48,7 @@ P:NPC {
         { id = "h_again2", text = "Talk to me, mon. It keep me awake." },
       },
       choices = {
-        { text = "How bad is the sting?", next = "sting" },
+        { text = "Are you hurt, Rhinag?", next = "sting" },
         { text = "Who is Kor'ghan to you?", next = "korghan" },
         { text = "What do you do out here?", next = "farm" },
         { text = "Let me see if I can slow the poison.", next = "heal", when = { class = { "PRIEST", "SHAMAN", "DRUID" } } },

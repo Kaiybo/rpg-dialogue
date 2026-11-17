@@ -124,7 +124,7 @@ P:NPC {
       choices = {
         { text = "Why do you stay?", next = "stay" },
         { text = "Were you really a pirate?", next = "pirate" },
-        { text = "Tell me about Old Murk-Eye.", next = "murkeye" },
+        { text = "What threatens this stretch of coast?", next = "murkeye" },
         { text = "What's it like, being dead?", next = "dead" },
         { text = "I could help you find rest, captain.", next = "priest", when = { class = "PRIEST" } },
         { text = "We're both dead. Why aren't you bitter?", next = "scourge", when = { race = "Scourge" } },

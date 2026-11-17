@@ -47,8 +47,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, but ask quiet. The ridge got ears." },
       },
       choices = {
-        { text = "What did you find in Kolkar Crag?", next = "plans" },
-        { text = "How did you get in there unseen?", next = "sneak" },
+        { text = "What are the centaur planning?", next = "plans" },
+        { text = "How do you watch them without being seen?", next = "sneak" },
         { text = "Why do the centaur want Durotar?", next = "kolkar" },
         { text = "I move unseen too. Let me scout the Crag.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll see what needs doing.", next = "BUSINESS" },

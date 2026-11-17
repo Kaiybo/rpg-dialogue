@@ -50,8 +50,8 @@ P:NPC {
       },
       choices = {
         { text = "What makes the Blue Recluse special?", next = "recluse" },
-        { text = "Tell me about your nephew.", next = "morgan" },
-        { text = "Why go to such lengths for one dish?", next = "lengths" },
+        { text = "Do you have family in the trade, Chef?", next = "morgan" },
+        { text = "Do you really go to such lengths for your dishes?", next = "lengths" },
         { text = "I cook as well. Have you any secrets to share?", next = "cook", when = { profession = "Cooking" } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "I'll leave you to the sauce.", next = "END" },
@@ -71,7 +71,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     morgan = {
-      lines = { { id = "m_default", text = "My sister's boy, and a good cook, though he'd rather taste his way across the world than stand at a stove. Theramore suits him; it's damp and full of strange food." },
+      lines = { { id = "m_default", text = "My nephew Morgan, my sister's boy, and a good cook, though he'd rather taste his way across the world than stand at a stove. Theramore suits him; it's damp and full of strange food." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -79,7 +79,7 @@ P:NPC {
       lines = { { id = "l_default", text = "Because the dish is the thing! A noble remembers a meal longer than a speech, and the kitchen that served it longer still." },
       },
       choices = {
-        { text = "All that for a noble's birthday, though?", next = "lengths_nobles" },
+        { text = "All that for the nobles, though?", next = "lengths_nobles" },
         { text = "Something else.", next = "BACK" },
       },
     },

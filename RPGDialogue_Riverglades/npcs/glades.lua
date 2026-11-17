@@ -30,7 +30,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Who sent you? Never mind, it doesn't matter now, because it's too late for me, stranger, and I won't be walking out of this one." },
+          text = "Who sent you? Never mind, it doesn't matter now, because it's too late for me, stranger, and I won't be walking out of this one, and Abigail will never know why." },
         { id = "h_saving", when = { questActive = TODO_QUEST("Saving Marshal Ryan") },
           text = "You came from Farholde, with my log in your hand. Then Demar read it, and I'm glad, though it's too late for me, stranger, and I won't be walking out of this one." },
         { id = "h_dying", when = { questActive = TODO_QUEST("Dying Wish") },
@@ -282,7 +282,7 @@ P:NPC {
       },
       choices = {
         { text = "What are you doing out here?", next = "why" },
-        { text = "Do you know Jazzle Cheapshot at the port?", next = "jazzle" },
+        { text = "Do you know Jazzle Cheapshot at the port?", next = "jazzle", when = { heardLine = "jazzle.h_default" } },
         { text = "What makes a good fighter, to you?", next = "fighter" },
         { text = "Here's a rank. Want to sign me?", next = "xpvp", when = { pvpRank = 3 } },
         { text = "I'll pass.", next = "END" },

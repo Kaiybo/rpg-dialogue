@@ -51,7 +51,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do you live out here alone?", next = "alone" },
-        { text = "You knew Bethor Iceshard?", next = "bethor" },
+        { text = "Did you have friends, before all this?", next = "bethor" },
         { text = "What were you, before the plague?", next = "dalaran" },
         { text = "Lillith Nefara. Who was she?", next = "lillith", when = { questDone = TODO_QUEST("Proving Allegiance") } },
         { text = "I was Kirin Tor too, before I died.", next = "kirin", when = { class = "MAGE", race = "Scourge" } },

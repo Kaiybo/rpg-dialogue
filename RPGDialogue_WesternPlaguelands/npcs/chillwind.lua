@@ -555,7 +555,7 @@ P:NPC {
         { id = "pr_default", text = "You ask it the way you'd ask for healing, but you hold the dead in your mind instead of the wounded. The Light knows the difference, and it answers hard when it finds something that oughtn't to be walking." },
       },
       choices = {
-        { text = "I'll try it at Felstone Field.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll try it at the first cauldron.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "That sounds like anger, not faith.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = -1 } } },
         { text = "Does the burning ever frighten you, Priestess?", tag = "Persuade", next = "priest_fear",
           check = { pass = { any = { { disposition = { min = 60 } }, { trait = "pious" }, { questDone = TODO_QUEST("Target: Felstone Field") } } } },
@@ -728,13 +728,13 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about the Scholomance.", next = "scholo" },
-        { text = "What's this key you're making?", next = "key" },
+        { text = "What else are you working on?", next = "key" },
         { text = "Is the pay really that bad?", next = "pay" },
         { text = "Could the Light help with your work?", next = "priest", when = { class = "PRIEST" } },
-        { text = "How does the focuser work?", next = "alch", when = { profession = "Alchemy" } },
+        { text = "How do you collect what you need from the dead?", next = "alch", when = { profession = "Alchemy" } },
         { text = "Did you study in Dalaran, Arbington?", next = "x_mage", when = { class = "MAGE" } },
         { text = "Fel and alchemy have more in common than you think.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Need anything fetched quietly from Caer Darrow?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Need anything fetched quietly from the Scholomance?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would the elements upset your work, Arbington?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The Scholomance is finished, Arbington. Gandling is dead.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
         { text = "I'll get what you need.", next = "END", fx = { affinity = 1 } },
@@ -782,7 +782,7 @@ P:NPC {
     },
     key = {
       lines = {
-        { id = "ke_default", text = "It's a skeleton key in the most literal sense, I'm sorry to say. Bone fragments for the body, a mold to shape it, a fire hot enough to set it, and Araj's scarab for the head, and every one of those is somebody else's errand, which is to say yours." },
+        { id = "ke_default", text = "A key to the Scholomance, and a skeleton key in the most literal sense, I'm sorry to say. Bone fragments for the body, a mold to shape it, a fire hot enough to set it, and Araj's scarab for the head, and every one of those is somebody else's errand, which is to say yours." },
       },
       choices = {
         { text = "Why a mold from Gadgetzan?", next = "key_krinkle" },
@@ -990,7 +990,7 @@ P:NPC {
       choices = {
         { text = "What happened at Caer Darrow?", next = "darrow" },
         { text = "Your brother has a claim too.", next = "claim" },
-        { text = "What's in these deeds?", next = "deeds" },
+        { text = "What exactly are you heir to?", next = "deeds" },
         { text = "My family lost everything in Lordaeron too.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },
         { text = "Was it worth it, now he's gone?", next = "worth", when = { questDone = TODO_QUEST("The Last Barov") } },
         { text = "Your brother might hire someone like me, you know.", next = "x_rogue", when = { class = "ROGUE" } },
@@ -1002,7 +1002,7 @@ P:NPC {
         { text = "I'll see what I can find.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Did your family really give Caer Darrow to the Cult?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "What did your family's bargain cost Lordaeron, Weldon?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What did your family's fall cost Lordaeron, Weldon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you really hire a sword against Alexi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Your family's hounds still roam Caer Darrow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Should Caer Darrow's lands be left to heal on their own?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -1051,7 +1051,7 @@ P:NPC {
         { id = "c_default", text = "A claim? He's a corpse, and corpses don't inherit, they get buried. I'd have done him the courtesy myself, if I'd had a shovel and a little more spine." },
       },
       choices = {
-        { text = "You spared him once, though.", next = "claim_spared" },
+        { text = "You had your chance once, then?", next = "claim_spared" },
         { text = "Whose name is on those deeds, Weldon? Don't lie to me.", tag = "Intimidate", next = "claim_truth",
           check = { pass = { any = { { power = { "above", "far_above" } }, { trait = "stern" }, { class = { "WARRIOR", "PALADIN" } } } } },
           fail = { next = "claim_guards", fx = { affinity = -1 } } },
@@ -1249,9 +1249,9 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like, friend; the Dawn's work keeps till you're done." },
       },
       choices = {
-        { text = "Why did you leave the Silver Hand?", next = "left" },
+        { text = "Where did the Argent Dawn come from?", next = "left" },
         { text = "What does the Dawn ask of me?", next = "commission" },
-        { text = "Who is Gregor, in Everlook?", next = "gregor" },
+        { text = "Does the Dawn keep people beyond the Plaguelands?", next = "gregor" },
         { text = "I serve the Light too. Where do priests stand?", next = "priest", when = { class = "PRIEST" } },
         { text = "I was raised in the Silver Hand's teachings.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Your soldiers don't look pleased to see me.", next = "horde", when = { faction = "Horde" } },

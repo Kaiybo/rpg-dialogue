@@ -181,8 +181,8 @@ P:NPC {
         { text = "You hunt these creatures for sport. That troubles me.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why hunt at all?", next = "why" },
         { text = "What's the most dangerous thing out there?", next = "danger" },
-        { text = "Barnil says you were a war hero.", next = "hero" },
-        { text = "Tell me about your students.", next = "students" },
+        { text = "Barnil says you were a war hero.", next = "hero", when = { heardLine = "barnil.h_default" } },
+        { text = "Who else hunts with you here?", next = "students" },
         { text = "What's the finest shot you ever took?", next = "shot", when = { class = "HUNTER" } },
         { text = "That's a fine rifle. Ironforge make?", next = "rifle", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Is there no cruelty in hunting for sport, Nesingwary?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -234,7 +234,7 @@ P:NPC {
         { id = "d_default", text = "Not the King, an' not the tigers. The raptors, because there's always one more than ye counted, an' the trolls, because they count too." },
       },
       choices = {
-        { text = "And the King? Bangalash?", next = "danger_king" },
+        { text = "And the King? Who is he?", next = "danger_king" },
         { text = "What about the Venture Company?", next = "danger_venture" },
         { text = "Something else.", next = "BACK" },
       },
@@ -353,7 +353,7 @@ P:NPC {
       },
       choices = {
         { text = "I earned it, and I'll prove it.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Tell me about your students.", next = "students" },
+        { text = "Who else hunts with you here?", next = "students" },
       },
     },
   },

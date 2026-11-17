@@ -48,7 +48,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Gramma does, and I don't argue with Gramma, but I'll say the soil on our side of the river has gone tired these last few years. If a druid can tell me whether it's a curse or just poor dirt, I'd be glad to know." } },
+      lines = { { id = "xdruid_default", text = "Gramma thinks the Maclures cursed them, and I don't argue with Gramma, but I'll say the soil on our side of the river has gone tired these last few years. If a druid can tell me whether it's a curse or just poor dirt, I'd be glad to know." } },
       choices = {
         { text = "It's tired soil, not a curse. The Maclures aren't to blame.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Could be a curse. I'd not put it past a Maclure.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
@@ -116,7 +116,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Come in and close the door, the bread's rising, and say a word for my necklace while you're at it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Well, you're just what this farm needs, because nobody believes me about that Maclure boy, and maybe they'll believe you." },
-        { id = "h_default", text = "Bernice Stonefield. Everyone calls me Auntie, whether they're kin or not. I bake, I mend, and I keep an eye on that vineyard." },
+        { id = "h_default", text = "Bernice Stonefield. Everyone calls me Auntie, whether they're kin or not. I bake, I mend, and I keep an eye on that vineyard, all the more since my necklace went missing." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Lost Necklace") },
           text = "My necklace is gone, and that Maclure boy's been hanging round the fence all week. You do the arithmetic." },
         { id = "h_pie", tags = { "news" }, when = { questActive = TODO_QUEST("Pie for Billy") },
@@ -141,9 +141,9 @@ P:NPC {
         { id = "h_again2", text = "Still here? Then make yourself useful and hand me that bowl." },
       },
       choices = {
-        { text = "What about the Maclures?", next = "maclures" },
+        { text = "Why keep an eye on the vineyard, Auntie?", next = "maclures" },
         { text = "Tell me about the necklace.", next = "necklace" },
-        { text = "What goes in a pork belly pie?", next = "pie" },
+        { text = "What sort of pies are those cooling?", next = "pie" },
         { text = "Billy let slip he dropped it.", next = "billy_slip", when = { heardLine = "billy.s_slip" } },
         { text = "You said those were your husband's.", next = "husband", when = { questDone = TODO_QUEST("Goldtooth") } },
         { text = "A gnome could build you a better oven, Auntie.", next = "gnome", when = { race = "Gnome" } },
@@ -153,7 +153,7 @@ P:NPC {
         { text = "Why do you want boar meat, Auntie?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would you forgive the Maclures, Auntie, if they asked?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you want done about the Maclure boy, Auntie?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Do you really think the Maclures cursed your turnips?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is something wrong with your turnips, Auntie?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does it bother you to feed a warlock, Auntie?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Who stole your necklace, Auntie Bernice?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your baking.", next = "END" },
@@ -353,7 +353,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Every way it could, and the young ones worst of all, because they've grown up hating folk they've never spoken to. Gramma says it's a waste of good years, and she's right, though I'd never tell her so." } },
+      lines = { { id = "xapriest_default", text = "The feud with the Maclures has, every way it could, and the young ones worst of all, because they've grown up hating folk they've never spoken to. Gramma says it's a waste of good years, and she's right, though I'd never tell her so." } },
       choices = {
         { text = "Then make peace, Ma. The young ones deserve better.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Old wounds run deep. Some things can't be mended.", next = "BACK", fx = { align = { light = -1 } } },
@@ -395,7 +395,7 @@ P:NPC {
       },
       choices = {
         { text = "Couldn't you talk to the Brackwells?", next = "brackwells" },
-        { text = "Tell me about Princess.", next = "princess" },
+        { text = "Tell me about this pig.", next = "princess" },
         { text = "How's the rest of the farm?", next = "farm" },
         { text = "What will you do with the collar?", next = "collar", when = { questDone = TODO_QUEST("Princess Must Die!") } },
         { text = "My pet could deal with her.", next = "hunter", when = { class = "HUNTER" } },
@@ -403,8 +403,8 @@ P:NPC {
         { text = "I could ask Princess to leave, the druid's way.", next = "druid", when = { class = "DRUID" } },
         { text = "Would you really want the pig killed in secret?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could my demon deal with the Brackwells' pig?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Is Princess really so dangerous, Ma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "How has the feud with the Maclures touched your family, Ma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is the Brackwells' pig really so dangerous, Ma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Has anything besides the pig troubled your family, Ma?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Couldn't the Brackwells be made to keep their pig penned?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a mage do anything about the Brackwells' pig, Ma?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is Princess really eating your whole crop, Ma?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -636,8 +636,8 @@ P:NPC {
       choices = {
         { text = "Are you sure you didn't take it?", next = "sure" },
         { text = "Where were you playing?", next = "mine", when = { any = { { questActive = TODO_QUEST("Goldtooth") }, { questDone = TODO_QUEST("Back to Billy") } } } },
-        { text = "Tell me about your sister.", next = "maybell" },
-        { text = "Aren't you scared of kobolds?", next = "kobolds" },
+        { text = "Do you have any brothers or sisters, Billy?", next = "maybell" },
+        { text = "Aren't you scared of kobolds?", next = "kobolds", when = { any = { { questActive = TODO_QUEST("Goldtooth") }, { questDone = TODO_QUEST("Back to Billy") } } } },
         { text = "I could teach you to lift a purse.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Would you really want a Stonefield turned into a sheep?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Who's Goldtooth, and why should a warrior fight him?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },

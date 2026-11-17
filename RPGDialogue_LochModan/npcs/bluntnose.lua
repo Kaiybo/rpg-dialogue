@@ -57,7 +57,7 @@ P:NPC {
       },
       choices = {
         { text = "What's wrong with Ironforge's soldiers?", next = "ironforge" },
-        { text = "Tell me about the ogres.", next = "ogres" },
+        { text = "Who's causing trouble on the loch these days?", next = "ogres" },
         { text = "What else threatens Thelsamar?", next = "threats" },
         { text = "What does a magistrate actually do here?", next = "duties" },
         { text = "The dam is vital. Who guards it?", next = "dam", when = { race = { "Dwarf", "Gnome" } } },
@@ -79,7 +79,7 @@ P:NPC {
     },
     ironforge_more = {
       lines = {
-        { id = "ifm_default", text = "I'd no' say failin', no' where anyone from the Mountaineers could hear me. I'd say it's a long way from the Great Forge tae Thelsamar, an' letters get slower the further south they travel." },
+        { id = "ifm_default", text = "I'd no' say failin', no' where Captain Rugelfuss or any o' his Mountaineers could hear me. I'd say it's a long way from the Great Forge tae Thelsamar, an' letters get slower the further south they travel." },
         { id = "ifm_warm", when = { disposition = { min = 65 } },
           text = "Between us, aye, it feels that way some days. Captain Rugelfuss does his best wi' what he's given, an' I'd no' say a word against him, but his best is out in the valley an' my door's right here." },
       },

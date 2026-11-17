@@ -128,7 +128,7 @@ P:NPC {
       choices = {
         { text = "What's making the bears mad?", next = "cause" },
         { text = "Why take a bear alive?", next = "alive" },
-        { text = "Do you work with Terenthis?", next = "terenthis_t" },
+        { text = "Is anyone else in Auberdine chasing this sickness?", next = "terenthis_t" },
         { text = "I've felt that sour note in bear form myself.", next = "druid_th", when = { class = "DRUID" } },
         { text = "Could my companion catch the sickness?", next = "hunter_th", when = { class = "HUNTER", pet = { named = true } } },
         { text = "I caught you a bear. What did you learn?", next = "caught", when = { questDone = TODO_QUEST("Plagued Lands") } },
@@ -147,7 +147,7 @@ P:NPC {
         { id = "c_default", text = "I do not know yet, and I will not guess aloud, because guesses spread faster than sickness. It came from the north and east, as everything wrong in Darkshore seems to, and it moves through the bears the way fever moves through a crowded house." },
       },
       choices = {
-        { text = "Could it be the same as the furbolgs' moss?", next = "cause2" },
+        { text = "Could it be what's turning the furbolgs?", next = "cause2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -190,7 +190,7 @@ P:NPC {
     },
     terenthis_t = {
       lines = {
-        { id = "t_default", text = "We share a moonwell and an argument. He burns moss in the hills and I brew cures by the shore, and each of us thinks the other is a little too slow." },
+        { id = "t_default", text = "Terenthis and I share a moonwell and an argument. He burns moss in the hills and I brew cures by the shore, and each of us thinks the other is a little too slow. Gwennyth has her dead sea creatures on the beach, too." },
         { id = "t_heard", when = { heardLine = "terenthis.h_default" },
           text = "You've heard him already, then, and he's told you the furbolgs are sick rather than evil. He's right, and I'd say the same of my bears, though I would say it more quietly." },
       },

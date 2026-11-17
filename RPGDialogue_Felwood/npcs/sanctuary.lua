@@ -149,7 +149,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! I wonder whether your arcane eye sees what the Jadefire satyrs are doing to the land, because to me it only looks like sickness and rot." },
         { id = "h_default", key = true,
-          text = "I am Eridan Bluewind, of the Emerald Circle. Felwood was green once, and under all of this, somewhere, it still is, and we mean to find it again." },
+          text = "I am Eridan Bluewind, of the Emerald Circle. Felwood was green once, and under all of this, somewhere, it still is, and we mean to find it again, even if I must plant a seed every morning that never takes." },
         { id = "h_jadefire", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("The Corruption of the Jadefire") }, { questActive = TODO_QUEST("Further Corruption") } } },
           text = "The Jadefire satyrs wear the corruption like a crown, so thin their numbers; every one that falls is a little less poison in the soil." },
         { id = "h_flute", when = { questActive = TODO_QUEST("Flute of Xavaric") },
@@ -592,7 +592,7 @@ P:NPC {
       },
       choices = {
         { text = "How do you mend a forest?", next = "mend" },
-        { text = "Why must I kill elementals to earn your trust?", next = "trust" },
+        { text = "Why must I kill elementals to earn your trust?", next = "trust", when = { any = { { questActive = TODO_QUEST("Cleansing Felwood") }, { questDone = TODO_QUEST("Cleansing Felwood") } } } },
         { text = "What is the Emerald Circle?", next = "circle" },
         { text = "What was Felwood before?", next = "past" },
         { text = "I'm an herbalist. What should I look for?", next = "herb", when = { profession = "Herbalism" } },
@@ -605,7 +605,7 @@ P:NPC {
         { text = "Where would I find clean plants in Felwood?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What does the Emerald Circle need most from me?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN" } },
+        { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN", any = { { questActive = TODO_QUEST("Cleansing Felwood") }, { questDone = TODO_QUEST("Cleansing Felwood") } } } },
         { text = "How can a paladin help mend Felwood, Maybess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can a mage's magic really heal a forest, Maybess?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'm here for what I can take, not to mend.", next = "END", fx = { align = { light = -1 } } },
@@ -803,7 +803,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "More than you'd think, because the corrupted things here don't like the Light, and my salve-bearers need someone at their backs on the road. The cleansing is slow and dull, though, and I've seen braver souls than you grow bored of it." } },
       choices = {
         { text = "Slow work done right is worth it. I'll stand guard.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'd rather strike at Jaedenar than guard flowerbeds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd rather strike at the demons themselves than guard flowerbeds.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -858,7 +858,7 @@ P:NPC {
         { text = "Does the curse here go deeper than the trees?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Why is it harder than war?", next = "harder" },
         { text = "Tell me about the flower.", next = "flower", when = { metBefore = true } },
-        { text = "Do you work with Maybess?", next = "maybess" },
+        { text = "Does anyone else work to cleanse this forest?", next = "maybess" },
         { text = "I've some herb lore.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Stormwind's laws allow warlocks. Why shouldn't the Circle?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Alliance send its spies into Felwood?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -891,7 +891,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     maybess = {
-      lines = { { id = "m_default", text = "Not side by side; our people won't allow it yet. But we use the same salve, and we leave each other notes by the road. The forest gets both of us." } },
+      lines = { { id = "m_default", text = "Maybess Riverbreeze does, to the north, though not side by side; our people won't allow it yet. But we use the same salve, and we leave each other notes by the road. The forest gets both of us." } },
       choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
     },
     herbs = {

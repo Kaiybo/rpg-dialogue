@@ -37,7 +37,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Gaxim Rustfizzle, of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences! It's my duty to show the night elves that a blend of magic, mixtures and mechanisms can help save their forests." },
+          text = "Gaxim Rustfizzle, of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences! It's my duty to show the night elves that a blend of magic, mixtures and mechanisms can help save their forests. Kaela keeps watch over the camp, and my old colleague Lomac Gearstrip in Tinker Town keeps me supplied, mostly." },
         { id = "h_arrive", tags = { "news" }, when = { questActive = TODO_QUEST("On Guard in Stonetalon") },
           text = "Someone from Ashenvale, come to check on us? Kaela will be thrilled, and I'm thrilled too, because I need a pair of hands that isn't holding a bow." },
         { id = "h_respite_before", when = { questBefore = TODO_QUEST("A Gnome's Respite") },
@@ -57,7 +57,7 @@ P:NPC {
       },
       choices = {
         { text = "What is the Enlightened Assembly?", next = "eaaaes" },
-        { text = "Explosives? In a forest?", next = "boom" },
+        { text = "How do you fight the goblins, Gaxim?", next = "boom" },
         { text = "Who is Lomac Gearstrip?", next = "lomac" },
         { text = "How do you and Kaela get along?", next = "kaela_g" },
         { text = "Show me what you're building.", next = "eng_gx", when = { any = { { profession = "Engineering" }, { race = "Gnome" } } } },
@@ -99,7 +99,7 @@ P:NPC {
     boom = {
       big = true,
       lines = {
-        { id = "bo_default", text = "Carefully placed! Along the mountains' edges, I can herd the goblins back with a few key detonations, and the trees don't mind as long as I aim at the cliffs. Don't worry, they're not as dangerous as everyone thinks." },
+        { id = "bo_default", text = "With explosives, carefully placed! Along the mountains' edges, I can herd the goblins back with a few key detonations, and the trees don't mind as long as I aim at the cliffs. Don't worry, they're not as dangerous as everyone thinks." },
       },
       choices = {
         { text = "Blow them all off the mountain.", next = "BACK", fx = { align = { light = -1 } } },
@@ -213,7 +213,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to the Charred Vale?", next = "vale" },
-        { text = "You miss Ashenvale.", next = "home" },
+        { text = "Do you miss your home, Kaela?", next = "home" },
         { text = "What do you make of Gaxim?", next = "gaxim_k" },
         { text = "Why are the treants corrupted?", next = "treants", when = { any = { { questActive = TODO_QUEST("Wounded Ancients") }, { questDone = TODO_QUEST("Enraged Spirits") } } } },
         { text = "I know Thenysil in Astranaar.", next = "thenysil", when = { questDone = TODO_QUEST("On Guard in Stonetalon") } },

@@ -53,7 +53,7 @@ P:NPC {
       },
       choices = {
         { text = "What did you see in Felwood?", next = "felwood" },
-        { text = "What's this about a wrecked camp to the south?", next = "camp" },
+        { text = "Any news from out in the wilds?", next = "camp" },
         { text = "How do you hear so much?", next = "ears" },
         { text = "What's the news in Everlook?", next = "everlook" },
         { text = "I can find things out quietly, Harlo.", next = "xrogue", when = { class = "ROGUE" } },

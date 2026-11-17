@@ -104,7 +104,7 @@ P:NPC {
         { text = "Why fight a war in a jungle that doesn't want you?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened to Kurzen?", next = "mind" },
         { text = "Why walk away? Why not stop him then and there?", next = "left" },
-        { text = "Who gave Thorsen away?", next = "informant" },
+        { text = "Has anyone betrayed your camp?", next = "informant" },
         { text = "How many of you are left?", next = "men" },
         { text = "I've followed a bad order before.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "My order fell apart too. Nobody told us why.", next = "squire", when = { origin = "human_paladin_squire" } },
@@ -112,7 +112,7 @@ P:NPC {
         { text = "I could pray over your dead, Lieutenant.", next = "priest_dead", when = { class = "PRIEST" } },
         { text = "What happened to your company, Lieutenant?", next = "xpt_doren", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'm here to help.", next = "END", fx = { affinity = 2, standing = { rebel_camp = 1 }, learn = { "kurzen" } } },
-        { text = "Thorsen was a spy. So am I, of sorts.", next = "k_rogue", when = { class = "ROGUE" } },
+        { text = "I know something of spying, Lieutenant.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "I could track Kurzen's patrols for you.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Could magic have turned Kurzen's mind?", next = "k_mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "Do you think the spirits drove Kurzen mad, Lieutenant?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -515,7 +515,7 @@ P:NPC {
       },
       choices = {
         { text = "What made them sick?", next = "elixir" },
-        { text = "A priest and an alchemist? Those don't often meet.", next = "craft" },
+        { text = "A priest who studies like an alchemist? That's unusual.", next = "craft" },
         { text = "How are the men holding up?", next = "men" },
         { text = "Pray with me, Brother.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Let me look at the residue.", next = "residue", when = { profession = "Alchemy" } },
@@ -574,7 +574,7 @@ P:NPC {
 
     craft = {
       lines = {
-        { id = "c_default", text = "More often than you'd think. Both are patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby, but out here it's the job." },
+        { id = "c_default", text = "More often than you'd think, for prayer and alchemy are both patience, clean hands, and knowing exactly what you put in. My abbot called it a hobby, but out here it's the job." },
       },
       choices = {
         { text = "Where did you learn?", next = "craft_learn" },
@@ -596,7 +596,7 @@ P:NPC {
       },
       choices = {
         { text = "Doesn't it?", next = "men_ledger", fx = { trait = { skeptical = 1 } } },
-        { text = "And Doren?", next = "men_doren" },
+        { text = "And the one who leads you now?", next = "men_doren" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -618,7 +618,7 @@ P:NPC {
       },
       choices = {
         { text = "For the men here.", next = "BACK", fx = { align = { light = 2 }, affinity = 2, trait = { pious = 1 } } },
-        { text = "For Kurzen.", next = "pray_kurzen", fx = { align = { light = 3 }, trait = { kind = 1 } } },
+        { text = "For your Colonel.", next = "pray_kurzen", fx = { align = { light = 3 }, trait = { kind = 1 } } },
       },
     },
     pray_kurzen = {
@@ -757,7 +757,7 @@ P:NPC {
       choices = {
         { text = "What was it like in there?", next = "inside" },
         { text = "What are they planning?", next = "plans" },
-        { text = "Do you know who gave you away?", next = "betrayed" },
+        { text = "How were you found out?", next = "betrayed" },
         { text = "You can talk to me. I'm good at going unseen too.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "What did you see inside Kurzen's camp, Thorsen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { order = 1 } } },

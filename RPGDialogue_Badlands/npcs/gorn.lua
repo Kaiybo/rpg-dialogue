@@ -48,9 +48,9 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but be quick about it." },
       },
       choices = {
-        { text = "Who are Blacklash and Hematus?", next = "drakes" },
+        { text = "Who are the two in chains?", next = "drakes" },
         { text = "Why kill them now, after all these years?", next = "honor" },
-        { text = "What happened with the ogres?", next = "ogres" },
+        { text = "Have you tried to reach those two before?", next = "ogres" },
         { text = "What was the Second War like?", next = "war" },
         { text = "My people never fought beside dragons.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Why free them first? Why not leave them chained?", next = "xcaster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },

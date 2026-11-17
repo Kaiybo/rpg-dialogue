@@ -60,7 +60,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened at the Thandol Span?", next = "span" },
-        { text = "Who was Ol' Rustlocke?", next = "rustlocke" },
+        { text = "Who did you lose defending the Span?", next = "rustlocke" },
         { text = "Tell me about Longbraid.", next = "longbraid" },
         { text = "Why hasn't Ironforge sent help?", next = "help" },
         { text = "I've spoken with King Magni about Dun Modr.", next = "king_word",

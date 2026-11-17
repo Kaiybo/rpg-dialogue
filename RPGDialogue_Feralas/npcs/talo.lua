@@ -54,7 +54,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened with the harpies?", next = "ambush" },
-        { text = "Who is Edana Hatetalon?", next = "edana" },
+        { text = "Who is Edana Hatetalon?", next = "edana", when = { any = { { questActive = TODO_QUEST("Dark Heart") }, { questDone = TODO_QUEST("Vengeance on the Northspring") } } } },
         { text = "What makes a good hunter, elder?", next = "hunting" },
         { text = "Tell me one of your stories.", next = "story" },
         { text = "I am a hunter too. Teach me something.", next = "teach", when = { class = "HUNTER" } },

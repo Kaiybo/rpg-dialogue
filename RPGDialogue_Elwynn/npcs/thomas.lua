@@ -147,7 +147,7 @@ P:NPC {
       choices = {
         { text = "What happened to your men?", next = "men", when = { questDone = TODO_QUEST("Find the Lost Guards") } },
         { text = "What's out east?", next = "east" },
-        { text = "What do you know about the murlocs?", next = "murlocs" },
+        { text = "Is anything else troubling this stretch of the forest?", next = "murlocs" },
         { text = "Why is the bridge so thinly held?", next = "army" },
         { text = "I came from Westfall. Nobody held a bridge for us.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I'll hold this bridge with you, Guard.", next = "warrior", when = { class = "WARRIOR" } },
@@ -217,7 +217,7 @@ P:NPC {
 
     murlocs = {
       lines = {
-        { id = "mu_default", text = "They've settled the streams of eastern Elwynn. Nobody knows why they came. They're aggressive, and cleverer than fish have any right to be." },
+        { id = "mu_default", text = "Murlocs, if you can believe it. They've settled the streams of eastern Elwynn. Nobody knows why they came. They're aggressive, and cleverer than fish have any right to be." },
         { id = "mu_remy", when = { heardClaim = "murlocs_in_elwynn" },
           text = "You've heard Remy's tale, then. Remy says a great many things. This once, I'm afraid he's right." },
       },

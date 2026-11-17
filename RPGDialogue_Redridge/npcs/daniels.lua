@@ -350,7 +350,7 @@ P:NPC {
       },
       choices = {
         { text = "A room, please.", next = "BUSINESS" },
-        { text = "Who's Narnie?", next = "narnie" },
+        { text = "Is that your pet by the hearth?", next = "narnie" },
         { text = "How's the town holding up?", next = "town" },
         { text = "Are there wounded under your roof?", next = "wounded", when = { class = "PRIEST" } },
         { text = "I could light every hearth in the inn tonight.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },

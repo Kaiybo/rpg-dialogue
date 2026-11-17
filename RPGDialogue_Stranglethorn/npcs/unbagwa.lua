@@ -45,19 +45,19 @@ P:NPC {
         { id = "h_again2", text = "Ask Unbagwa more, he don't mind." },
       },
       choices = {
-        { text = "Who is Mokk the Savage?", next = "mokk" },
+        { text = "Who's the biggest gorilla in these parts?", next = "mokk" },
         { text = "How do you call the gorillas?", next = "calling" },
         { text = "Why live out here alone?", next = "alone" },
         { text = "Do the apes ever hurt you?", next = "danger" },
         { text = "What do the spirits tell you, Unbagwa?", next = "xshaman", when = { class = { "SHAMAN", "PRIEST" }, race = { "Troll", "Orc", "Tauren" } } },
         { text = "Let my beast stand guard.", next = "xhunter", when = { class = "HUNTER" } },
-        { text = "I'll be back with a fang.", next = "END" },
+        { text = "I'll be back, witch doctor.", next = "END" },
       },
     },
 
     mokk = {
       lines = {
-        { id = "mo_default", text = "The biggest, angriest gorilla in Mistvale, with a heart that cure the fever, so the old stories say. The goblins in Booty Bay want his heart, and Mokk want to keep it, and Unbagwa just want to watch." },
+        { id = "mo_default", text = "Mokk the Savage, the biggest, angriest gorilla in Mistvale, with a heart that cure the fever, so the old stories say. The goblins in Booty Bay want his heart, and Mokk want to keep it, and Unbagwa just want to watch." },
       },
       choices = {
         { text = "Does the cure really work?", next = "mokk_cure" },

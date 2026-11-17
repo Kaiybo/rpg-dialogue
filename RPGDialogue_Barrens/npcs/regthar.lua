@@ -123,7 +123,7 @@ P:NPC {
     },
     stragglers = {
       big = true,
-      lines = { { id = "st_default", text = "Then say your piece, because I've grunts saddling wolves as we speak. A centaur who runs home is a centaur who comes back one day, and I'd rather not meet him twice." } },
+      lines = { { id = "st_default", text = "Then say your piece, because I've grunts saddling wolves as we speak. A centaur who runs home is a centaur who comes back one day, and I'd rather not meet him twice, whatever Lanti'gah says about sparing them." } },
       choices = {
         { text = "Let them run. Fear will hold the road better than graves.", next = "st_let",
           fx = { thread = { id = "kolkar_war", state = "resolved" }, affinity = -1, align = { light = 1 } },

@@ -56,7 +56,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened to Ban'aethal?", next = "banaethal" },
-        { text = "Who was Luminarian?", next = "luminarian" },
+        { text = "What did Ban'aethal make, before it fell?", next = "luminarian" },
         { text = "How are the refugees managing?", next = "refugees" },
         { text = "Is Zephras safe?", next = "zephras" },
         { text = "I'm glad Resaan's heirloom came home.", next = "heirloom", when = { questDone = TODO_QUEST("The Fate of a Loved One") } },
@@ -121,7 +121,7 @@ P:NPC {
     },
     luminarian = {
       lines = {
-        { id = "lu_default", text = "The greatest magesmith our people ever had. He came with our ancestors when they fled Kalimdor and worked in the Skyborne Isles for centuries after, and most of the arms and armor you see on Zephras today are still made in his style." },
+        { id = "lu_default", text = "Arms and armor, in the style of Luminarian, the greatest magesmith our people ever had. He came with our ancestors when they fled Kalimdor and worked in the Skyborne Isles for centuries after, and most of the arms and armor you see on Zephras today are still made in his style." },
       },
       choices = {
         { text = "How do you know his work?", next = "luminarian_mark" },
@@ -232,7 +232,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "<He leans heavily on the table.> I was a sailor, you know, before the trouble. The skycutters used to run between all the islands, and then one day it was too dangerous, or so they say, and I've been stuck on this rock ever since." },
-        { id = "h_donaal", text = "<He turns and bellows across the room.> WHAT ARE THEY KEEPING FROM US, DONAAL? <He turns back to you, quite calm.> He knows something; innkeepers always know something." },
+        { id = "h_donaal", text = "<He turns and bellows across the room.> WHAT ARE THEY KEEPING FROM US, DONAAL? <He turns back to you, quite calm.> He knows something; innkeepers always know something, and so did we skycutter men, back when anything still sailed." },
       },
       again = {
         { id = "h_again", text = "Where was I? Oh yes, being ignored. Go on, then." },
@@ -240,8 +240,8 @@ P:NPC {
       },
       choices = {
         { text = "You sailed between the islands?", next = "sailing" },
-        { text = "What did you see in the forest?", next = "forest" },
-        { text = "What do you think you're not being told?", next = "secret" },
+        { text = "Seen anything strange on the isle lately?", next = "forest" },
+        { text = "You don't believe what they tell you, do you?", next = "secret" },
         { text = "I came up on a skycutter from below.", next = "xcame", when = { ["not"] = { race = "Skyborne" } } },
         { text = "I walked the Peacekeepers' line at Shadowgale, Swimmers.", next = "xpeace", when = { origin = "skyborne_peacekeeper" } },
         { text = "Perhaps you've had enough, Swimmers.", next = "enough" },
@@ -512,7 +512,7 @@ P:NPC {
       },
       choices = {
         { text = "What kind of recipes do you teach?", next = "recipes" },
-        { text = "Why is crab a delicacy elsewhere?", next = "crab" },
+        { text = "Do you cook anything from the shore?", next = "crab" },
         { text = "What grows on Zephras?", next = "produce" },
         { text = "I could tell you about moonberries.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I'll be leaving the isle soon.", next = "xleave", when = { race = "Skyborne" } },

@@ -126,7 +126,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, here among our tauren friends. How curious. The Society keeps notes on Forsaken who cling to the old Light, and I'm afraid you've just become one." },
         { id = "h_default", key = true,
-          text = "I am Apothecary Zamah, and I represent the Royal Apothecary Society here among our tauren friends. Cairne lets us study, and in return we share our cures, mostly." },
+          text = "I am Apothecary Zamah, and I represent the Royal Apothecary Society here among our tauren friends. Cairne lets us study, and in return we share our cures, mostly, like the ones I brew from serpentbloom." },
         { id = "h_serpent", when = { questActive = TODO_QUEST("Serpentbloom") },
           text = "The serpentbloom grows in the Wailing Caverns, among the druids who've gone wrong down there. Bring me what you can, and mind the fumes." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Ah, a shaman. The elements are such fascinating subjects, and so very poor at holding still to be studied." },
@@ -273,7 +273,7 @@ P:NPC {
       choices = {
         { text = "Tradition has its strength. I'll respect it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A truer arrow is a truer arrow, whatever moves it.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Are you kin to Mull Thunderhorn?", next = "kin" },
+        { text = "Are there other Thunderhorns besides you?", next = "kin" },
       },
     },
     xdruid = {
@@ -311,7 +311,7 @@ P:NPC {
       },
       choices = {
         { text = "Do your hunters ever need a priest's mending, Holt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
-        { text = "Are you kin to Mull Thunderhorn?", next = "kin" },
+        { text = "Are there other Thunderhorns besides you?", next = "kin" },
         { text = "What does the Earth Mother ask of hunters?", next = "mother" },
         { text = "Can a shaman's wind really steady an arrow, Holt?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "A hunter and a rogue both learn patience, Holt.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -435,7 +435,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "None that I've heard of, because the Grimtotem hold to the old shamans and sneer at what Hamuul learned from the night elves. They'd say a tauren who borrows a stranger's teachings has forgotten the herd, and I'd say a tauren who turns his spear on his own kin has forgotten more." } },
+      lines = { { id = "xdruid_default", text = "The Grimtotem do, and they have none of their own, because they hold to the old shamans and sneer at what Hamuul learned from the night elves. They'd say a tauren who borrows a stranger's teachings has forgotten the herd, and I'd say a tauren who turns his spear on his own kin has forgotten more." } },
       choices = {
         { text = "Our own old ways should come first, before borrowed ones.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Learning from the night elves made us stronger, not weaker.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -476,7 +476,7 @@ P:NPC {
         { text = "How should a warrior use great strength, Ker?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do warriors and hunters train together here, Ker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Are your warriors trained to fight demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "Do the Grimtotem have druids of their own, Ker?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do any tauren still scorn the druid's path, Ker?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "How can a mage protect the herd, Ker?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Must the Light be used carefully, Ker?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Farewell.", next = "END" },

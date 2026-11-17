@@ -35,7 +35,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Mor'rogal, and I listen to the earth for Sun Rock. Something is amiss beneath these mountains, and the kobolds of Boulderslide Ravine are at the heart of it." },
+          text = "I am Mor'rogal, and I listen to the earth for Sun Rock. Something is amiss beneath these mountains, and the kobolds of Boulderslide Ravine are at the heart of it, digging toward something I fear may be one of the earthen." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Boulderslide Ravine") },
           text = "Southeast of here lies a deep cave in Boulderslide Ravine, where the kobolds frantically mine a rare crystal called Resonite. Bring me samples, and learn how deep that cave goes, because I must know what evil lurks under these mountains." },
         { id = "h_ravine_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Boulderslide Ravine"), days = 3 } },

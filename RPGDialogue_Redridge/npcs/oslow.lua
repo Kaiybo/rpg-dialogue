@@ -253,7 +253,7 @@ P:NPC {
       lines = { { id = "sn_default", text = "Iron pikes and iron rivets. A bridge is mostly the bits nobody looks at. Take them off the gnolls and I'll have a span up before the rains." } },
       choices = {
         { text = "Consider it done.", next = "BUSINESS", fx = { affinity = 1, standing = { lakeshire = 1 } } },
-        { text = "Gnolls with good iron. Verner must be furious.", next = "supplies_verner" },
+        { text = "Gnolls with good iron. The town smith must be furious.", next = "supplies_verner" },
       },
     },
     supplies_verner = {

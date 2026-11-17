@@ -268,7 +268,7 @@ P:NPC {
           text = "It was a tree branch. A big one, and very sharp, and it fell on me while I was being heroic. That's the story now, and I'm sticking to it." },
       },
       choices = {
-        { text = "Marek says it was a bear called Ol' Sooty.", next = "scar_truth" },
+        { text = "Marek says it was a bear called Ol' Sooty.", next = "scar_truth", when = { heardLine = "lm_marek.dsc_default" } },
         { text = "A knife against a cart-sized beast? Impressive.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },

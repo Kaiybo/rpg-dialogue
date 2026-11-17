@@ -142,9 +142,9 @@ P:NPC {
       },
       choices = {
         { text = "Do you believe in magic, Gramma?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Why do you help them?", next = "why" },
+        { text = "Why do you call the feud a waste, Gramma?", next = "why" },
         { text = "How did the feud start?", next = "feud" },
-        { text = "How do you know William Pestle?", next = "william" },
+        { text = "How do you know William Pestle?", next = "william", when = { any = { { questActive = TODO_QUEST("Note to William") }, { questDone = TODO_QUEST("Note to William") } } } },
         { text = "Tell me about the Stonefields.", next = "family" },
         { text = "Did she reach the river?", next = "escape_done", when = { questDone = TODO_QUEST("The Escape") } },
         { text = "I'll pray the two families make peace.", next = "priest", when = { class = "PRIEST" } },
@@ -236,7 +236,7 @@ P:NPC {
         { id = "fa_default", text = "Bernice bakes, Ma fights a pig, and the boy moons at the river. I sit here and watch the lot of them." },
       },
       choices = {
-        { text = "Bernice seems unhappy.", next = "family_bernice" },
+        { text = "Is Bernice all right?", next = "family_bernice" },
         { text = "A pig?", next = "family_pig" },
       },
     },

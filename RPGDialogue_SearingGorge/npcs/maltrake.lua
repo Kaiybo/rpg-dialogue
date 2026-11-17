@@ -47,9 +47,9 @@ P:NPC {
       },
       choices = {
         { text = "How long have you served Kalaran?", next = "service" },
-        { text = "What does the torch do?", next = "torch" },
-        { text = "Did the Dark Iron really kill his father?", next = "father" },
-        { text = "What happens when the towers burn?", next = "towers" },
+        { text = "What is your master working on?", next = "torch" },
+        { text = "Why does your master hate the Dark Iron?", next = "father" },
+        { text = "What happens when the towers burn?", next = "towers", when = { questDone = TODO_QUEST("Squire Maltrake") } },
         { text = "Your master isn't what he seems.", next = "xpaladin", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "Who are you really serving, Maltrake?", next = "truth", when = { questDone = TODO_QUEST("Squire Maltrake") } },
         { text = "I'll be going.", next = "END" },
@@ -78,7 +78,7 @@ P:NPC {
 
     torch = {
       lines = {
-        { id = "to_default", text = "It burns with a flame that no element or force can subdue, not water, not ice, not the Dark Iron's sorcery. You helped make it, so you should know, though I don't think you understood what you were making." },
+        { id = "to_default", text = "My master's Torch of Retribution burns with a flame that no element or force can subdue, not water, not ice, not the Dark Iron's sorcery. You helped make it, so you should know, though I don't think you understood what you were making." },
       },
       choices = {
         { text = "Where does a fire like that come from?", next = "torch_source" },

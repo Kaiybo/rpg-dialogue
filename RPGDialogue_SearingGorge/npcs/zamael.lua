@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "I wish to hear your tale.", next = "tale" },
-        { text = "What is the Prayer to Elune?", next = "prayer" },
+        { text = "Is there anything you still hope for?", next = "prayer" },
         { text = "Who keeps you here?", next = "hammer" },
         { text = "Can I free your spirit from this cage?", next = "free" },
         { text = "Elune forgives those who come back to her with clean hands.", next = "xelf", when = { race = "NightElf" } },
@@ -86,7 +86,7 @@ P:NPC {
         { id = "tv_default", text = "After many years, Elune came to me in a vision, and I saw what I had done the way she must have seen it. I wept for a night and a day, and then I began to carve my shame into gold, so it would last longer than I would." },
       },
       choices = {
-        { text = "The cult found out.", next = "tale_death" },
+        { text = "What happened to you then?", next = "tale_death" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -99,17 +99,17 @@ P:NPC {
 
     prayer = {
       lines = {
-        { id = "pr_default", text = "A prayer to the Moon, etched on a golden tablet with my own hands, and in it every wrong I could remember. It is not a plea for mercy, mortal, only a true account, and Elune deserves at least that from me." },
+        { id = "pr_default", text = "Only that my prayer to the Moon is heard, for I etched it on a golden tablet with my own hands, and in it every wrong I could remember. It is not a plea for mercy, mortal, only a true account, and Elune deserves at least that from me." },
       },
       choices = {
-        { text = "Why send it to Astarii Starseeker?", next = "prayer_astarii" },
+        { text = "Who should hear it?", next = "prayer_astarii" },
         { text = "Why not ask for forgiveness?", next = "prayer_forgive" },
         { text = "Something else.", next = "BACK" },
       },
     },
     prayer_astarii = {
       lines = {
-        { id = "pa_default", text = "Because she keeps the Temple of the Moon in Darnassus, and she will read it aloud where the goddess listens. I could not walk there in life, and I cannot walk there now, so it must go in your hands." },
+        { id = "pa_default", text = "Astarii Starseeker should, because she keeps the Temple of the Moon in Darnassus, and she will read it aloud where the goddess listens. I could not walk there in life, and I cannot walk there now, so it must go in your hands." },
       },
       choices = {
         { text = "I'll carry it to Darnassus for you.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },

@@ -804,7 +804,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Tell me you speak murloc, because I've been trying to reason with them for a year and they only ever answer in that dreadful gurgle." },
         { id = "h_default", key = true,
-          text = "Lieutenant Farren Orinelle, late of the Stormwind City Guard. Now I'm in charge of murlocs, in a fishing town, at the end of the world. I'm told it builds character." },
+          text = "Lieutenant Farren Orinelle, late of the Stormwind City Guard. Now I'm in charge of murlocs, and naga too, apparently, in a fishing town, at the end of the world. I'm told it builds character." },
         { id = "h_proof", tags = { "news" }, when = { questActive = TODO_QUEST("Farren's Proof") },
           text = "Redpath wants proof the murlocs are being dealt with. Deal with them, bring me proof, and I'll pass it up as if I'd been out there. Everyone wins." },
         { id = "h_stormwind", when = { questActive = TODO_QUEST("Stormwind Ho!") },
@@ -1085,7 +1085,7 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to storms instead o' the Light, hic! The old Hand would've had a fit, {class}, but I'm not the Hand anymore, so come an' tell me what the spirits think o' my stout." },
         { id = "h_default", key = true,
-          text = "Bilger, brewmeister, hic. Used to be a knight o' the Silver Hand, strict as a church bell, never touched a drop. Then the Hand broke, an' I found out what I'd been missin'." },
+          text = "Bilger, brewmeister, hic. Used to be a knight o' the Silver Hand, strict as a church bell, never touched a drop. Then the Hand broke, an' I found out what I'd been missin', mostly Foggy MacKreel's moonshine." },
         { id = "h_moonshine", tags = { "news" }, when = { questActive = TODO_QUEST("MacKreel's Moonshine") },
           text = "MacKreel's moonshine! Now that's a brew, hic. Get me a jug an' I'll tell ye a story about Uther that'll curl yer hair." },
         { id = "h_brew", when = { metBefore = true }, text = "New batch, hic, an' smoother than the last. The old Hand would've had me flogged for it, but the old Hand's gone an' the batch is here." },
@@ -1362,7 +1362,7 @@ P:NPC {
       choices = {
         { text = "What did the ogres do?", next = "ogres" },
         { text = "What are you looking for, exactly?", next = "grilek" },
-        { text = "Can you read the Syndicate's letters?", next = "ciphers" },
+        { text = "Can you read old ciphers too?", next = "ciphers" },
         { text = "Why not go to the ruins yourself?", next = "climb" },
         { text = "I could help with your enchanted parchments.", next = "mage", when = { class = "MAGE" } },
         { text = "I came out of Lordaeron myself.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },

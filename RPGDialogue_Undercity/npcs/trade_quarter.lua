@@ -269,7 +269,7 @@ P:NPC {
         { id = "h_again", text = "What else? I've got a fuse burning, but it's a long one." },
       },
       choices = {
-        { text = "What happened to your fingers?", next = "fingers" },
+        { text = "Have you ever had an accident at that bench?", next = "fingers" },
         { text = "Why do the dead need engineers?", next = "dead" },
         { text = "Teach me engineering.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "I'll leave before something explodes.", next = "END" },

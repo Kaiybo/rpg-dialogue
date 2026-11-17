@@ -50,7 +50,7 @@ P:NPC {
         { id = "h_again2", text = "Anything more? The pot doesn't stir itself." },
       },
       choices = {
-        { text = "What do you make from the claws?", next = "claws" },
+        { text = "What do you smith out here?", next = "claws" },
         { text = "Why guard this beach?", next = "post" },
         { text = "Tell me about the others here.", next = "camp" },
         { text = "What's in the stew?", next = "stew" },
@@ -104,7 +104,7 @@ P:NPC {
       },
       choices = {
         { text = "Why does Katar hate the sea?", next = "camp_katar" },
-        { text = "What about Dar in Stonard?", next = "camp_dar" },
+        { text = "Who supplies the camp from Stonard?", next = "camp_dar" },
         { text = "Something else.", next = "BACK" },
       },
     },

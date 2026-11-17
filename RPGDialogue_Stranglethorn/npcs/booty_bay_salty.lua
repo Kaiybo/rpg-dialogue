@@ -72,7 +72,7 @@ P:NPC {
         { text = "Why do they call you the Blade?", next = "blade" },
         { text = "Who are you, before the second cup?", next = "family" },
         { text = "What's life like with the Blackwater Raiders?", next = "raiders" },
-        { text = "Tell me about this \"Pretty Boy\" Duncan.", next = "duncan" },
+        { text = "Do you have enemies among the Bloodsail?", next = "duncan" },
         { text = "Who else drinks in the Salty Sailor?", next = "regulars" },
         { text = "What does a rogue need to know about the Bay?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Have you heard of a house in the Alterac hills?", next = "ravenholdt", when = { class = "ROGUE", minLevel = 24 } },
@@ -90,7 +90,7 @@ P:NPC {
       },
       choices = {
         { text = "How did you lose a knife fight?", next = "blade_lost" },
-        { text = "Why would an archmage own a troll dagger?", next = "blade_troll" },
+        { text = "Why would your father own a troll dagger?", next = "blade_troll" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -146,7 +146,7 @@ P:NPC {
         { id = "rd_again2", text = "Go on. Sailors love talking about their ships more than their sweethearts." },
       },
       choices = {
-        { text = "How does a girl from Dalaran join pirates?", next = "r_join" },
+        { text = "How did you come to join the Raiders?", next = "r_join" },
         { text = "What's the quarrel with the Bloodsail?", next = "r_bloodsail" },
         { text = "What's Seahorn like as a captain?", next = "r_seahorn" },
         { text = "Do the Raiders take on new hands?", next = "r_hire" },
@@ -250,7 +250,7 @@ P:NPC {
       lines = { { id = "ro_default", text = "Never rob anyone between the tunnel and the docks, because the Baron's Bruisers will throw you in the bay with weights on. Out past the reef the Bloodsail are fair game, and a Blackwater sailor will help you carry the loot if you share it." } },
       choices = {
         { text = "Who's the best mark on the coast?", next = "rogue_mark" },
-        { text = "Did you ever think about Strom's line of work?", next = "rogue_strom" },
+        { text = "Did you ever think about training as a rogue?", next = "rogue_strom" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -382,7 +382,7 @@ P:NPC {
         { text = "Who are the folk drinking in here?", next = "folk" },
         { text = "Can I have a pinch of that?", next = "pinch" },
         { text = "Do ye miss Ironforge, cousin?", next = "k_dwarf", when = { race = "Dwarf" } },
-        { text = "Is Seahorn's nose ring really in danger?", next = "k_tauren", when = { race = "Tauren" } },
+        { text = "Does Seahorn smoke a pipe too?", next = "k_tauren", when = { race = "Tauren" } },
         { text = "I'll leave you to your grumbling.", next = "END" },
       },
     },
@@ -500,7 +500,7 @@ P:NPC {
       },
     },
     k_tauren = {
-      lines = { { id = "kt_default", text = "It is, and I'll swear to it, because I've seen him light his pipe and singe his own snout three times this season. He laughs it off every time, but he's started making me light it for him, which is a great honor and a great nuisance." } },
+      lines = { { id = "kt_default", text = "He does, and he's a menace with it, because I've seen him light his pipe and singe his own snout three times this season. He laughs it off every time, but he's started making me light it for him, which is a great honor and a great nuisance." } },
       choices = {
         { text = "Seahorn should give up the pipe.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -616,7 +616,7 @@ P:NPC {
     glass_wizard = {
       lines = { { id = "glw_default", text = "He never gave his name, only said he'd come from Dalaran and was heading south, and he wanted a passage on one of our ships. He enchanted my eye on the dock while we were loading, and I never saw him again, though I suppose I didn't see him the first time either." } },
       choices = {
-        { text = "Dalaran? Catelyn's father is from there.", next = "glass_catelyn" },
+        { text = "Dalaran? Catelyn's father is from there.", next = "glass_catelyn", when = { heardLine = "catelyn.fm_default" } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -752,7 +752,7 @@ P:NPC {
         { text = "How does a man end up selling poison?", next = "origin" },
         { text = "Who buys from you?", next = "buyers" },
         { text = "Is it safe to keep poison in a tavern?", next = "safety" },
-        { text = "Strom says never buy from goblins on the docks.", next = "rogue_strom", when = { class = "ROGUE" } },
+        { text = "Strom says never buy from goblins on the docks.", next = "rogue_strom", when = { class = "ROGUE", any = { { heardLine = "ianstrom.trp_default" }, { heardLine = "ianstrom.trp_vet" } } } },
         { text = "Selling poison is a vile trade.", next = "xpala", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I'll be on my way.", next = "END" },
       },
@@ -893,7 +893,7 @@ P:NPC {
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What brings an Undermine trader to Booty Bay?", next = "origin" },
-        { text = "What happened to your start-up money?", next = "money" },
+        { text = "Why do your brothers owe you money?", next = "money" },
         { text = "Tell me about your brothers.", next = "brothers" },
         { text = "What kind of curiosities do you buy?", next = "relics", when = { minLevel = 50 } },
         { text = "What do you make of Booty Bay so far?", next = "bay" },

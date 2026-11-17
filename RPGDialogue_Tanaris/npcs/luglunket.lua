@@ -49,8 +49,8 @@ P:NPC {
       },
       choices = {
         { text = "Where does Gadgetzan's water come from?", next = "source" },
-        { text = "What's in a care package?", next = "package" },
-        { text = "Why do the Wastewanderers steal water?", next = "bandits" },
+        { text = "Does the Company reward folk who help?", next = "package" },
+        { text = "Who would steal water out here?", next = "bandits" },
         { text = "Do you ever stop saying huzzah?", next = "huzzah" },
         { text = "Show me those spigots.", next = "spigots", when = { profession = "Engineering" } },
         { text = "Couldn't the water just be shared, Luglunket?", next = "share", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
@@ -70,7 +70,7 @@ P:NPC {
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 1 } } },
     },
     package = {
-      lines = { { id = "p_default", text = "The Gadgetzan Water Company Care Package, Model 103-XB, and I'm not allowed to tell you what's inside before you've earned one. Company policy, friend, but I can tell you it's very well wrapped." } },
+      lines = { { id = "p_default", text = "It does, with the Gadgetzan Water Company Care Package, Model 103-XB, and I'm not allowed to tell you what's inside before you've earned one. Company policy, friend, but I can tell you it's very well wrapped." } },
       choices = {
         { text = "What happened to Models 1 through 102?", next = "package_old" },
         { text = "Something else.", next = "BACK" },
@@ -81,7 +81,7 @@ P:NPC {
       choices = { { text = "Now I have to know.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     bandits = {
-      lines = { { id = "b_default", text = "Because out here a full waterskin buys more than a purse of gold, pal, and they'd rather take ours than pay for it. The Wastewanderers raid the pumps, steal what they can carry, and leave us the bill." } },
+      lines = { { id = "b_default", text = "The Wastewanderers, pal, because out here a full waterskin buys more than a purse of gold, and they'd rather take ours than pay for it. They raid the pumps, steal what they can carry, and leave us the bill." } },
       choices = {
         { text = "Maybe they're just thirsty too.", next = "bandits_stance" },
         { text = "Then they should be stopped.", next = "bandits_stance" },

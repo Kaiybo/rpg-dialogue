@@ -311,7 +311,7 @@ P:NPC {
       },
       choices = {
         { text = "The kobolds, then?", next = "BACK", fx = { learn = { "gold_dust" } } },
-        { text = "Remy buys gold dust.", next = "mines_remy" },
+        { text = "Could a merchant be buying it up?", next = "mines_remy" },
       },
     },
     mines_remy = {
@@ -485,7 +485,7 @@ P:NPC {
       choices = {
         { text = "How did you come to be marshal here?", next = "dg_past" },
         { text = "How many guards do you really have?", next = "dg_guards" },
-        { text = "What do you make of McBride and Stoutmantle?", next = "dg_others" },
+        { text = "What do you make of the other marshals?", next = "dg_others" },
         { text = "What do you need from me, Marshal?", next = "dg_ask" },
         { text = "Should Elwynn's farmers arm themselves, Marshal?", next = "dg_militia" },
         { text = "I walked the Trade District for the Watch, Marshal.", next = "dg_watch", when = { origin = "human_city_guard" } },
@@ -570,7 +570,7 @@ P:NPC {
         { id = "dxm_default", text = "McBride and I go back to the Second War, and he's been right about the Defias more often than I'd like, which I'll deny if you repeat it. He sends me his recruits with their papers in order, and I send him back my worst news along with his own." },
       },
       choices = {
-        { text = "He thinks you're playing the Defias down.", next = "confront" },
+        { text = "Then why play the Defias down, Marshal?", next = "confront" },
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },

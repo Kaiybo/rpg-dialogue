@@ -1144,12 +1144,12 @@ P:NPC {
     brag = {
       lines = { { id = "br_default", text = "Everything worth knowing, and a fair bit that isn't, and the second part's cheaper, so it's a real bargain if you're not picky." } },
       choices = {
-        { text = "Prove it. What's Seahorn's weakness?", next = "brag_prove", fx = { trait = { curious = 1 } } },
+        { text = "Prove it. Tell me somebody's weakness.", next = "brag_prove", fx = { trait = { curious = 1 } } },
         { text = "I'll remember that.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     brag_prove = {
-      lines = { { id = "bp_default", text = "Rum, storms, and a hat he lost years ago and still talks about. That one's free, since everyone knows it, but the real one costs more than you've got on you, pal." } },
+      lines = { { id = "bp_default", text = "Seahorn's, then: rum, storms, and a hat he lost years ago and still talks about. That one's free, since everyone knows it, but the real one costs more than you've got on you, pal." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
@@ -1177,7 +1177,7 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK", fx = { affinity = 1 } },
-        { text = "The Baron sent me. He wants to hear about Crank Fizzlebub.", tag = "Deceive", next = "crank",
+        { text = "The Baron sent me. He wants your freshest news, Krazek.", tag = "Deceive", next = "crank",
           check = { pass = { any = { { class = "ROGUE" }, { trait = "witty" }, { disposition = { min = 60 } } } } },
           fail = { next = "crank_no", fx = { affinity = -1 } } },
       },
@@ -1610,10 +1610,10 @@ P:NPC {
         { text = "What do the jungle trolls' witch doctors do to your agents?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the Bloodscalp have casters I should worry about?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What exactly is the business?", next = "trade" },
-        { text = "Troll tusks sold as tiger fangs? That's fraud.", next = "fraud" },
+        { text = "Troll tusks sold as tiger fangs? That's fraud.", next = "fraud", when = { any = { { questActive = TODO_QUEST("Skullsplitter Tusks") }, { questDone = TODO_QUEST("Skullsplitter Tusks") } } } },
         { text = "What happened to your agents?", next = "agents" },
         { text = "I'm a troll, Kebok.", next = "troll", when = { race = "Troll" } },
-        { text = "I hunt tigers myself. You're selling troll tusks as fangs?", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "I hunt tigers myself. You're selling troll tusks as fangs?", next = "k_hunter", when = { class = "HUNTER", any = { { questActive = TODO_QUEST("Skullsplitter Tusks") }, { questDone = TODO_QUEST("Skullsplitter Tusks") } } } },
         { text = "What happened to your last three agents, Kebok?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you really hire a demon, Kebok?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you grieve for the agents you lost, Kebok?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -2297,8 +2297,8 @@ P:NPC {
         { text = "Shall I tell you whose tracks are outside your door, Shaky?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Who wants to break your legs, Shaky?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Your secret's safe. For now.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Pay MacKinley what you owe, and you'll stop shaking.", next = "END", fx = { align = { honor = 1 } } },
-        { text = "Want me to lean on MacKinley for you?", next = "k_warrior", when = { class = "WARRIOR" } },
+        { text = "Pay whatever you owe, and you'll stop shaking.", next = "END", fx = { align = { honor = 1 } } },
+        { text = "Want me to lean on this gambler for you?", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Who's looking for you, Shaky?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why would anyone send a demon after you, Shaky?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Who's looking for you, Shaky, and why should a druid care?", next = "xdruid", when = { class = "DRUID" } },
@@ -2312,8 +2312,8 @@ P:NPC {
           text = "Nothing! Nothing at all, now, though I still check every morning, just to be sure." },
       },
       choices = {
-        { text = "I could talk to MacKinley for you.", next = "debt_talk", fx = { trait = { generous = 1 } } },
-        { text = "Tell me the truth, Phillipe, or MacKinley hears where you hide.", tag = "Intimidate", next = "confess", when = { ["not"] = { questDone = TODO_QUEST("Scaring Shaky") } },
+        { text = "I could talk to this big man for you.", next = "debt_talk", fx = { trait = { generous = 1 } } },
+        { text = "Tell me the truth, Phillipe, or your big man hears where you hide.", tag = "Intimidate", next = "confess", when = { ["not"] = { questDone = TODO_QUEST("Scaring Shaky") } },
           check = { pass = { any = { { power = { "above", "far_above" } }, { class = { "WARRIOR", "ROGUE" } }, { trait = "stern" } } } },
           fail = { next = "confess_no", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -2539,7 +2539,7 @@ P:NPC {
         { text = "How could magic help the Blackwater against the Bloodsail?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Why do you hate them so much?", next = "hate" },
         { text = "How do you know they're planning something?", next = "proof" },
-        { text = "What's the Fleet Master like?", next = "seahorn" },
+        { text = "Who commands the Raiders, Crazz?", next = "seahorn" },
         { text = "Tell me about the Raiders, Crazz.", next = "c_raiders" },
         { text = "I've found the Bloodsail camp on the Wild Shore.", next = "c_wildshore", when = { questActive = TODO_QUEST("The Bloodsail Buccaneers") } },
         { text = "Firallon's at the bottom of the sea, Crazz.", next = "c_after", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") } },
@@ -2588,7 +2588,7 @@ P:NPC {
     },
     seahorn = {
       lines = {
-        { id = "sh_default", text = "Best captain on the South Seas! He laughs at cannon fire and pays on time, and if he tells the same storm story every night, I'll punch anyone who yawns, free of charge." },
+        { id = "sh_default", text = "Fleet Master Seahorn, the best captain on the South Seas! He laughs at cannon fire and pays on time, and if he tells the same storm story every night, I'll punch anyone who yawns, free of charge." },
       },
       choices = {
         { text = "Has he ever lost a ship?", next = "c_obreen" },
@@ -2640,7 +2640,7 @@ P:NPC {
       },
       choices = {
         { text = "How did you join the Raiders?", next = "c_joined" },
-        { text = "I met Fin Fizracket on the docks. He's in a bad way.", next = "c_fin" },
+        { text = "I met Fin Fizracket on the docks. He's in a bad way.", next = "c_fin", when = { heardLine = "fin.h_default" } },
         { text = "Do the Raiders get on with the Baron's Bruisers?", next = "c_bruisers" },
         { text = "How do the Raiders treat Horde folk?", next = "c_customers", when = { faction = "Horde" } },
         { text = "How do the Raiders treat Alliance folk?", next = "c_customers", when = { faction = "Alliance" } },
@@ -3713,12 +3713,12 @@ P:NPC {
         { text = "Has anyone tried a shaman's healing on the fever?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there magic in this fever, Fin, or only sickness?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "How did you catch it?", next = "caught" },
-        { text = "A gorilla's heart? Who says that works?", next = "cure" },
+        { text = "Is there any cure for this fever?", next = "cure" },
         { text = "Let me look at you.", next = "healer", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "What'll you do when you're well?", next = "after", when = { ["not"] = { questDone = TODO_QUEST("Stranglethorn Fever") } } },
         { text = "You're cured! What's first, Fin?", next = "f_cured", when = { questDone = TODO_QUEST("Stranglethorn Fever") } },
         { text = "Tell me about the Raiders, Fin.", next = "f_raiders" },
-        { text = "I could hunt the gorilla for you.", next = "k_hunter", when = { class = "HUNTER" } },
+        { text = "I'm a hunter. Is there anything I could track for you?", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Where did you catch the Stranglethorn Fever, Fin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can't a mage's magic cure your fever, Fin?", next = "xmage", when = { class = "MAGE" } },
         { text = "Can the fever really take down a warrior, Fin?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -3736,7 +3736,7 @@ P:NPC {
     },
     cure = {
       lines = {
-        { id = "cu_default", text = "A troll witch doctor, through a friend of a friend of a cousin, and I paid all three of them for the tip. Is it real? I don't know, and do I care, when I'm sweating through my second shirt today?" },
+        { id = "cu_default", text = "A gorilla's heart, from a big brute called Mokk, or so says a troll witch doctor, through a friend of a friend of a cousin, and I paid all three of them for the tip. Is it real? I don't know, and do I care, when I'm sweating through my second shirt today?" },
       },
       choices = {
         { text = "Then I'll get it.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
@@ -3770,7 +3770,7 @@ P:NPC {
       },
       choices = {
         { text = "Mokk won't be throwing anything for long.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "A gorilla's heart? Who says that works?", next = "cure" },
+        { text = "Is there any cure for this fever?", next = "cure" },
       },
     },
 
@@ -3787,7 +3787,7 @@ P:NPC {
       },
       choices = {
         { text = "Does your crew come to see you?", next = "f_crew" },
-        { text = "Does Seahorn still pay a sick sailor?", next = "f_wages" },
+        { text = "Do the Raiders still pay a sick sailor?", next = "f_wages" },
         { text = "What have you missed out there?", next = "f_missed" },
         { text = "My people know this fever, Fin. It's an old one.", next = "f_troll", when = { race = "Troll" } },
         { text = "I've had the fever myself. It passes in a day or two.", tag = "Deceive", next = "f_lie",
@@ -3865,7 +3865,7 @@ P:NPC {
         { id = "fcu_default", text = "First I'm going to eat something that isn't soup, and then I'm going to climb the mainmast just to prove I can. After that, Crazz has promised me a Bloodsail sloop to shout at, and I've been saving up some very good insults." },
       },
       choices = {
-        { text = "Save one for Firallon.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Save your best insult for the Bloodsail.", next = "BACK", fx = { affinity = 1 } },
         { text = "And the pond?", next = "f_pond" },
       },
     },
@@ -4041,7 +4041,7 @@ P:NPC {
         { text = "Who comes and goes that you'd rather didn't?", next = "who" },
         { text = "What happened with the fishmonger?", next = "fish", when = { metBefore = true } },
         { text = "Any ships to Stormwind or Menethil?", next = "ships", when = { faction = "Alliance" } },
-        { text = "What's in the Horde crate?", next = "crate", when = { faction = "Horde" } },
+        { text = "Anything on your dock for the Horde?", next = "crate", when = { faction = "Horde" } },
         { text = "How do you know who to trust?", next = "trust" },
         { text = "My people arrived by sky, not ship, wharfmaster.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "What sort of list have you put me on, Wharfmaster?", next = "xrogue", when = { class = "ROGUE" } },

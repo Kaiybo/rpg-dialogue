@@ -36,7 +36,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I be Bath'rah, and dey call me de Windwatcher because I watch dis place for de wind lord. I make weapons for great warriors, and I wait for one great enough to face him." },
+          text = "I be Bath'rah, and dey call me de Windwatcher because I watch dis place for Cyclonian, de wind lord. I make weapons from his storm for great warriors, and de spirits here hate me for it, but still I wait for one great enough to face him." },
         { id = "h_windwatcher", tags = { "news" }, when = { questActive = TODO_QUEST("The Windwatcher") },
           text = "You have traveled far, and I see fire in your eyes. You seek a weapon of great power, yes? I can help you with your quest, and you can help me with mine." },
         { id = "h_heart", tags = { "news" }, when = { questReady = TODO_QUEST("The Summoning") },

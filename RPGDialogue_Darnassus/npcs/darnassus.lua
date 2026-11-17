@@ -701,7 +701,7 @@ P:NPC {
       choices = {
         { text = "Why did you grow Teldrassil?", next = "tree" },
         { text = "What of Moonglade?", next = "moonglade" },
-        { text = "The High Priestess has her doubts about you.", next = "priestess" },
+        { text = "How do you and the High Priestess get along?", next = "priestess" },
         { text = "What was Malfurion like?", next = "malf" },
         { text = "I serve the Light, Archdruid. Not the Temple.", next = "priest_f",
           when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
@@ -1005,7 +1005,7 @@ P:NPC {
           text = "{companion} is a druid, I think; I felt the bear in them before I saw them. Druids travel well with others, though they'll go quiet for days and then speak to a tree, so be patient." },
         { id = "h_cl_mara", tags = { "news" }, when = { cleared = "Maraudon", faction = "Alliance" }, text = "Word came up from Desolace that someone reached the heart of Maraudon and put an end to Princess Theradras. Zaetar was Cenarius's own son, and every druid in this Enclave has grieved for him at some point, so I find I am grateful to you in a very old way." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Cenarion Enclave. Sit, if you like, for I've long wanted to ask one of your order how you decide when to heal and when to strike." },
-        { id = "h_default", text = "Mathrengyl Bearwalker. I train the druids of the Enclave. Once I stood at the Archdruid's side; now I stand with the young ones, which suits me better." },
+        { id = "h_default", text = "Mathrengyl Bearwalker. I train the druids of the Enclave, and I walk the path of the Druids of the Claw myself. Once I stood at the Archdruid's side; now I stand with the young ones, which suits me better." },
         { id = "h_call", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
           text = "You heard the call, and not everyone does. Sit, and we will speak of what it means to walk as more than one creature." },
         { id = "h_claw", when = { questActive = TODO_QUEST("Body and Heart") },
@@ -1036,7 +1036,7 @@ P:NPC {
         { text = "What is a Druid of the Claw?", next = "claw" },
         { text = "You serve the Archdruid?", next = "second" },
         { text = "Which parts of this world are mine, Mathrengyl? I can't tell yet.", next = "xwoke", when = { origin = "nightelf_druid_initiate" } },
-        { text = "What's wrong in Auberdine?", next = "auberdine" },
+        { text = "Is anything troubling the forests beyond Teldrassil?", next = "auberdine" },
         { text = "What can a priest learn from a druid?", next = "healers", when = { class = "PRIEST" } },
         { text = "Bear and warrior both stand in front. What's the difference?", next = "claw_w", when = { class = "WARRIOR" } },
         { text = "Why do the old druids step aside from a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -1090,7 +1090,7 @@ P:NPC {
     second = {
       lines = { { id = "s_default", text = "I was his assistant, and I'm his second still. He carries more than any of us see. I try to carry a little of it." } },
       choices = {
-        { text = "They say the Circle is divided.", next = "divided" },
+        { text = "Does the whole Circle stand behind him?", next = "divided" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1102,7 +1102,7 @@ P:NPC {
       },
     },
     auberdine = {
-      lines = { { id = "a_default", text = "Someone has been poisoning the animals there, and the village couldn't cure them. I'll confess it surprised me. Poison doesn't drift into a forest by chance." } },
+      lines = { { id = "a_default", text = "Someone has been poisoning the animals around Auberdine, and the village couldn't cure them. I'll confess it surprised me. Poison doesn't drift into a forest by chance." } },
       choices = {
         { text = "Who would do that?", next = "auberdine2" },
         { text = "Something else.", next = "BACK" },
@@ -1300,7 +1300,7 @@ P:NPC {
       choices = {
         { text = "What do you pray for?", next = "pray" },
         { text = "Tell me about Elune.", next = "elune" },
-        { text = "Who was Lady Sathrah?", next = "sathrah" },
+        { text = "Who was Lady Sathrah?", next = "sathrah", when = { any = { { questActive = TODO_QUEST("Tears of the Moon") }, { questActive = TODO_QUEST("Sathrah's Sacrifice") }, { questDone = TODO_QUEST("Sathrah's Sacrifice") } } } },
         { text = "Does Elune hear a priest of the Light?", next = "light",
           when = { class = "PRIEST", ["not"] = { race = "NightElf" } } },
         { text = "I'm a long way from Gnomeregan, Priestess.", next = "gnome_a", when = { race = "Gnome" } },
@@ -1507,7 +1507,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I study creatures that don't belong in this world, and I'm told your order has had a great deal of experience with those." },
-        { id = "h_default", text = "Gracina Spiritmight, priestess and scholar. I study the creatures that belong to this world alone. Lately, the ones that don't seem to belong to it at all." },
+        { id = "h_default", text = "Gracina Spiritmight, priestess and scholar. I study the creatures that belong to this world alone. Lately, the ones that don't seem to belong to it at all, insects from the south that the scouts call silithid." },
         { id = "h_pestlezugg", when = { heardLine = "pestlezugg.h_default" },
           text = "A goblin alchemist in Gadgetzan has been asking about my insect studies. A goblin, asking a priestess. Whatever is under the sand must be worse than I feared." },
         { id = "h_silithid", tags = { "news" }, when = { questActive = TODO_QUEST("Rise of the Silithid") },
