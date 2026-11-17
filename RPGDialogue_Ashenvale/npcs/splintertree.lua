@@ -17,6 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_forest", text = "Look at this forest, really look at it. Whatever happens tomorrow, it was beautiful today." },
     { id = "g_back", when = { metBefore = true }, text = "Still in one piece, I see; the Hunt hasn't eaten you yet, and that is good." },
+    { id = "g_axes_resolved", when = { thread = { id = "ashenvale_axes", state = "resolved" } }, text = "Kuray'bin says you went to Orgrimmar and heard that the Warchief himself reads Mastok's names. I'm glad someone does, though I wish someone in Orgrimmar would also count the trees." },
     { id = "g_narache", when = { origin = "tauren_narache_hunter" }, text = "A Narache hunter's child, I'd know that careful step anywhere. Your mother would have said her thanks over every beast in this forest, and I try to do the same, though the Warsong's axes make it hard to hear myself." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the forest has turned its colors a little since then, though I doubt the Warsong noticed. I'm glad you came back to see it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown much stronger since we last spoke, and I can see it in the way you move. Strength is a fine thing, so long as you remember to look up at the trees now and then." },

@@ -20,6 +20,7 @@ P:NPC {
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "If you're looking for the bar, it's behind you, and if you're looking for me, I'd wonder why." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you came in by the side stair this time. Somebody's been paying attention." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde or Alliance makes no difference at my table, since a purse cuts the same either way." },
+    { id = "g_eye_resolved", when = { thread = { id = "bloodsail_eye", state = "resolved" } }, text = "There's a new lad drying cups behind the bar, and he can't read a word, I checked. I find I've nobody to nod to in the evenings now, and I miss it more than I expected." },
   },
 
   notice = {

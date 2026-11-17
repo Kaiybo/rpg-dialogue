@@ -20,6 +20,7 @@ P:NPC {
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you first came through this gate, and the Barrens has noticed even if you haven't. Go and put it to use." },
     { id = "g_word_helped", when = { word = "helped" }, text = "My people tell me you've done honest work for the Crossroads. I don't hand out thanks lightly, so take this as one." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your lies was caught out in this town. I hold these roads by trust as much as by steel, so don't make a habit of it here." },
+    { id = "g_kw_resolved", when = { thread = { id = "kolkar_war", state = "resolved" } }, text = "Regthar let Krom'zar's stragglers run home, I hear, and the caravans have come through untouched ever since. I'd have ridden them down myself, but I can't argue with a quiet road." },
   },
 
   notice = {

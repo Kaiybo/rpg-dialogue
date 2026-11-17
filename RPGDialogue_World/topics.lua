@@ -165,6 +165,9 @@ P:Topic { id = "ortell", keywords = { "Ortell" }, name = "Hermit Ortell", catego
 P:Topic { id = "bronze_dragonflight", keywords = { "bronze dragonflight", "Brood of Nozdormu" }, name = "The bronze dragonflight", category = "lore", learned = "Baristolth of the Shifting Sands at Cenarion Hold, or Frankal Stonebridge at Bronzebeard's camp" }
 P:Topic { id = "cthun", keywords = { "C'Thun" }, name = "C'Thun", category = "threats", learned = "Commander Mar'alith, after Hive'Regal" }
 
+-- Battleground emissaries (0.78.0)
+P:Topic { id = "ashenvale", name = "Ashenvale", category = "places", learned = "the Warsong Gulch emissaries" }
+
 -- 0.78.0: the big subjects of the world, asked of anyone. Named NPCs answer in their own
 -- files; role pools (asks.lua) and town pools give everyone else a take.
 -- The dead and the north

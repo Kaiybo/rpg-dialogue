@@ -17,6 +17,7 @@ L.BINDING_ASK = "Ask About... (in a conversation)"
 -- Slash help
 L.HELP_HEADER = "Commands (/rpgd):"
 L.HELP_LINES = {
+  "version - show which version of RPG Dialogue you're running",
   "talk - talk to your target",
   "settings - open the settings panel",
   "capture - record your target (ID, name, place) for the content tools",
@@ -47,6 +48,7 @@ L.HELP_LINES = {
 -- Messages
 L.LOADED = "%s loaded. Type /rpgd for commands."
 L.VERSION_LINE = "RPG Dialogue %s"
+L.VERSION_SHORT = "version %s"
 L.RESTART_NEEDED = "%s was updated to %s, but the game still has the old file list (%s). Exit the game and start it again (a /reload isn't enough) so the new files load."
 L.DEV_ON = "Developer mode on."
 L.DEV_OFF = "Developer mode off."
@@ -223,6 +225,7 @@ L.J_TAB_SHEET = "Myself"
 L.J_TAB_NOTES = "Notes"
 L.J_UNDATED = "Earlier"
 L.J_SEARCH_HINT = "Search..."
+L.J_NOTES_HINT = "Click anywhere on the page to write. Your notes save as you type."
 L.J_COUNT_CHRONICLE = "%d entries"
 L.J_COUNT_PEOPLE = "%d met"
 L.J_COUNT_HEARD = "%d topics"
@@ -435,7 +438,7 @@ L.OPT_FONT_TEXT = "Font for what people say"
 L.OPT_FONT_NAME = "Font for names"
 L.FONT_PREVIEW = "Off the bench, puss. I only just wiped it."
 L.FONT_SAME = "Same as the text"
-L.FONT_AUTO = "The window's own (Friz Quadrata in the game style, Morpheus on wood)"
+L.FONT_AUTO = "Match the window (Friz Quadrata or Morpheus)"
 L.OPT_LOOK = "Window style"
 L.LOOK_GAME = "The game's own (like the quest window)"
 L.LOOK_WOOD = "Parchment and dark wood"
@@ -456,6 +459,7 @@ L.OPT_CONTRAST = "High-contrast theme"
 L.OPT_SOUNDS = "Sounds"
 L.OPT_SCALE = "Window scale"
 L.OPT_HEADER_PACKS = "Content packs"
+L.OPT_SUBTITLE = "How conversations look, sound and behave. Hover a cut-off choice to read all of it."
 L.OPT_PACKS_NOTE = "Turning a pack off takes effect after /reload."
 L.PACK_REFUSED = "needs a newer RPG Dialogue"
 L.PACK_NEEDS = "needs %s"

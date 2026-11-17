@@ -2,13 +2,86 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
-## 0.78.0 (2026-11-17)
+## 0.80.0 (2026-11-17)
 Much more to ask about. Every named NPC in every pack has new "Ask about..." answers, and townsfolk, guards and innkeepers everywhere have their own takes on the big subjects of the world. No new files, so a /reload is enough. Every pack got a minor version bump.
 
 - **52 new topics:** the Scourge, the Forsaken, Kel'Thuzad, Prince Arthas, the fall of Lordaeron, Stratholme, Shadowfang Keep, the internment camps, the Second War, Gilneas, Stromgarde, the Wildhammer; Thrall, Sylvanas, Cairne, Vol'jin and the Darkspear, Jaina, Bolvar, the missing king, Lady Prestor, Magni, Tyrande; Theramore, Booty Bay, Gadgetzan, Ratchet, Everlook, Dalaran and the Kirin Tor, Nordrassil, Zul'Gurub, Zul'Farrak, the Sunken Temple, Dire Maul, Razorfen, Maraudon, Blackfathom Deeps, the Gurubashi Arena, the Darkmoon Faire; Onyxia, the Emerald Dream, the green dragons, the centaur, the quilboar, the Timbermaw, Ravenholdt; the Holy Light, Elune, the Earth Mother, the spirits and the elements. Hear one named in conversation and it becomes a link, as usual.
 - **About 5,400 new answers from named NPCs** (plus about 460 from townsfolk and roles), 3 to 6 each, and 7 to 16 for leaders (Thrall, Cairne, Vol'jin, Sylvanas, Bolvar, Anduin, Magni, Tyrande, Jaina and others). Many react to who's asking: your faction, your race (Forsaken get their own answers), your class, or how much they like you.
 - **Topics that almost nobody answered now have plenty of answers**: the Deadmines, the Stockade, the Valley of Heroes, Heroes' Vigil, the Brotherhood of Northshire, the hives of Silithus, C'Thun, the Firegut, Dreadmaul and others.
 - **Everyone else:** each role (guards, innkeepers, citizens, soldiers, priests, scholars, nobles, vendors, trainers and more) answers the big topics with Alliance, Horde and Forsaken versions; every town's citizens have 2 to 6 local takes; capital guards and class trainers have their own; goblin staff in Booty Bay, Gadgetzan, Ratchet and Everlook stay neutral and talk business.
+
+## 0.79.0 (2026-11-17)
+A tidier settings page. No new files: a /reload is enough.
+
+- **Nothing overlaps any more.** Long options that wrap onto two lines no longer creep into the row above, and the font samples sit on their own line instead of running into the next button.
+- **Buttons fit their text.** The choice buttons are wider, and a name too long for one (like a font or the other-addons mode) is cut with "..." and shown in full when you hover it.
+- **Click the words, not just the box.** Clicking an option's text ticks its box, for options and content packs alike.
+- **Content packs in two columns**, without "RPG Dialogue:" on every line, so the page is about a third shorter.
+- A dark background behind the page so it stays readable over the game world, a short line under the title, more room between sections, and slider values in gold.
+- "Font for names" now offers "Match the window" instead of the long Friz Quadrata/Morpheus name.
+
+## 0.78.0 (2026-11-17)
+The Topper McNabb patch, plus everyone in Booty Bay, the battleground emissaries, Nikova Raskol, Sentinel guards, about 100 new people in the Horde capitals and the Barrens, eleven new Stories, and a journal fix. **New files: restart the game fully (a /reload won't load them).**
+
+### Topper McNabb (Stormwind, Trade District)
+- The Trade District's beggar now has one of the biggest conversations in the addon: about 140 conversation steps, 230 lines of his own and some 350 replies for you.
+- **The farm, four ways:** orcs, a dragon, a lord's card game, or (with a Persuade check) what really happened, which leads to his wife Elsie in Lakeshire and the Winter Veil letters he never sends.
+- **Life on the step:** the "blind man's miracle" act, armour shining with goose fat, the canal arch and the Duchess (a one-eared cat), the guards, the Cathedral's soup, why he doesn't work.
+- **The neighbourhood:** the auctioneers, the Gilded Rose, a cheese shop whose visitors never buy cheese, the orphans who borrow his hat, the gnomes, and something he saw by the canal after midnight (a Deceive check gets a description).
+- **Street news:** the missing king, Lady Prestor, Westfall, the Stockade, Redridge and the masons. **Stories for a copper:** the kobold's candle, the murloc, the gnoll in his hat, King Llane's turnip, the tram fish. He also asks about you.
+- He reacts to every class, to dwarves, gnomes, night elves, the Skyborne, the Horde and the Forsaken, to seven origins (Westfall farmhand, canal pickpocket, minor noble, stonemason's child, Lakeshire-born, Lordaeron refugee, Gnomeregan refugee), to clearing the Deadmines or the Stockade, to Stormwind exalted, and to your purse, your armour, your mount and how much you've had to drink.
+
+### Everyone in Booty Bay
+- **The trades:** Brikk Keencraft (who forged the brackets that hold the shark's jaws over the gate), Fargon Mortalak and Hurklor at the Plate-n-Chain, Grarnik and Blixrez Goodstitch (more of that family's squabbles), and Oglethorpe Obnoticus with his OOX robots and a grudge against Tinker Town.
+- **The Salty Sailor:** Catelyn the Blade (her knife, "Pretty Boy" Duncan and a hint for rogues), Deeg, Dizzy One-Eye, Sly Garrett and his "shady goods", and Pix Xizzix.
+- **The wharf:** Crazk Sparks (fireworks), Wigcik and Myizz Luckycatch (fish and fishing), Grimestack the stable master, Scooty and his transporter to Gadgetzan (sign the waiver), and the three auctioneers, Graves, Kresky and O'reely.
+- **Visitors and dockside:** the Zandalarian Emissary (Zul'Gurub, Hakkar, and a word for Darkspear "little cousins"), Dudd Fizzlescroll and his "aspirational" treasure maps, Rix Xizzix's Lost and Found, Privateer Bloads ("Akiris by the Bundle"), Caravaneer Ruzzgot ("The Caravan Road") and Grizzlowe of the Maiden's Fancy, who will tell you about the chowder.
+- **Flora Silverwind**, the herbalism trainer at All Things Flora: Stranglethorn's herbs, where not to pick them, and a sailor who never came home.
+- Each has class and race replies, and Grimestack and Crazk talk to hunters' pets by name.
+
+### Battleground emissaries (Stormwind, Ironforge, Darnassus, Orgrimmar, Undercity, Thunder Bluff)
+- **Warsong Gulch:** the **Silverwing Emissary** (a Sentinel far from her trees) and the **Warsong Emissary** (an Outrider who'll tell you why Orgrimmar needs Ashenvale's wood). The mill, the flag raids, Grom and Cenarius, from both sides.
+- **Arathi Basin:** the **League of Arathor Emissary** (Arathor's old heartland, Stromgarde, the Farm his grandmother's family worked) and the **Defilers Emissary** (a Forsaken carter who hauled grain out of the Highlands when he was alive, and won't say much about the opened barrows).
+- **Alterac Valley:** the **Stormpike Emissary** (a dwarf with a bad knee from Stonehearth, recruiting instead) and the **Frostwolf Emissary** (Durotan's clan, Drek'Thar, Thrall). Who has the right to the valley is argued on both sides.
+- **Alliance Brigadier General** and **Horde Warbringer**, who want a mark from every field: is it a war or a sport, the honor ranks, and what they think of dishonorable kills.
+- They notice your marks of honor, your standing with their faction, your rank and your honor kills, and say different things in each city they stand in. Each has lines for the races and classes they'd react to.
+
+### Nikova Raskol (Stormwind, Old Town)
+- **Nikova Raskol**, grandmother of Mac, the fourteen-year-old Stockade guard the Defias prisoners killed. Before, during and after "The Color of Blood": who Mac was, how a boy ended up guarding the Stockade, what she does with the bandanas, the Defias, Warden Thelwater, and Old Town. Former city guards, Stonemasons' children, priests and anyone who has cleared the Stockade get their own replies.
+
+### Sentinel guards
+- **Sentinels** in Darnassus, Dolanaar, Auberdine, Astranaar, Maestra's Post, Feathermoon, Stonetalon Peak and Talrendis Point no longer use the human town-watch talk (no more bread thieves or soggy boots). Ask who the Sentinels are, how long they have kept watch, why they are nearly all women, who commands them, what troubles their woods (different in each zone), what they make of the Horde and of their new allies (they answer humans, dwarves, gnomes and kin differently).
+- Opinion questions: whether a vow is worth ten thousand thankless years, how to deal with the Warsong, whether the young races will keep faith, and (night elves only) whether Teldrassil feels right.
+- Hunters can ask to learn tracking; Sentinel scouts and survivors of Hyjal (origins) get their own replies.
+
+### Horde capitals and the Barrens (about 100 new people)
+- **Orgrimmar** (24): Brakgul Deathbringer at the Warsong Gulch banner, Kildar and his wolves, Shenthul in the Cleft of Shadow, Dran and Malton at Droffers and Son, and the trainers and merchants of the Drag and the Valley of Honor.
+- **Undercity** (24): Carendin Halgar and his warlock's summons, Jeremiah Payson and his cockroaches, Aelthalyste, and trainers, merchants and a banker across every quarter, most with long memories of Lordaeron.
+- **Thunder Bluff** (24): Sage Truthseeker, Eyahn Eagletalon, Auld Stonespire, Veren Tallstrider, Magatha's attendant Rahauro, Bashana Runetotem, Mosarn, and the trainers of Hunter, Elder and Spirit Rise (the Forsaken embassy included).
+- **The Barrens** (26): Far Watch, the Crossroads and the Disciples of Naralex at the Wailing Caverns; Ratchet's folk, Klannoc Macleod's fighting ring on Fray Island, Gilthares Firebough in his Northwatch cell, and Doan Karhan.
+
+### Eleven new Stories
+Larger tales for the journal's Stories page, pieced together from several people.
+
+### Stories: Horde
+- **The Burning Blade's long reach** (Durotar to Orgrimmar): Zureetha, Galgar, Orgnil, Neeru Fireblade and Thrall, from cult daggers in the Valley of Trials to orders written in a careful hand.
+- **The Kolkar and the water** (the Barrens): Thork, Tonga, Regthar and Jorn on the centaur raids. After "Counterattack!", Regthar asks whether to ride down Krom'zar's stragglers. You decide.
+- **The new plague** (Brill to the Undercity): Johaan, Renferrel, Faranell, Varimathras and Sylvanas on the Apothecarium's work; then Thrall asks what you make of it, and remembers your answer.
+- **Arugal's children** (Silverpine): Hadrec, the Yoricks, Faerleia, Dalar and Wallace the Blind on the worgen, ending once Shadowfang Keep falls.
+- **The Grimtotem in the hills** (Thunder Bluff, Stonetalon, Thousand Needles): Magatha, Cairne, Tammra, Longhorn and Thalia.
+- **The Venture Company's reach** (Mulgore, Stonetalon, Ratchet): Mull, Seereth, Gazlowe and Sputtervalve, then Baine asks your counsel.
+
+### Stories: Alliance
+- **The missing diplomat** (Stormwind, Menethil, Theramore): DeLavey, Dashel, Mikhail, Tervosh and Jaina along "The Missing Diplomat".
+- **The broken Span** (Ironforge, Loch Modan, the Wetlands): Stoutfist, Longbraid, Rhag Garmason, King Magni and Nials. You carry Magni's word back to Dun Modr and choose how to tell it.
+
+### Stories: both factions
+- **The axes of Ashenvale:** the Warsong lumber camps, from Mastok, Kuray'bin and Thrall on one side and Raene, Shindrell and Tyrande on the other.
+- **The eye on the docks** (Booty Bay): Crazz, Lozgil, Ian Strom and the Baron on a Bloodsail spy. Tell Seahorn who it is, or keep the Baron's game going.
+- **Something under Silithus** (levels 48-60): Pestlezugg, Williden, Larksbane, Mar'alith and Baristolth on the hum under the sands.
+
+### Fixed
+- **Notes**: the page looked blank and clicking it did nothing. Now a hint tells you to click, a click anywhere on the page puts the cursor in, the page grows as you write and scrolls to follow the cursor, and your notes save as you type and when you click away.
 
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**

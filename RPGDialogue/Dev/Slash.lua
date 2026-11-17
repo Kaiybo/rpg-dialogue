@@ -19,6 +19,8 @@ commands.help = function()
   printList(L.HELP_HEADER, L.HELP_LINES)
 end
 
+commands.version = function() ns.Print(L.VERSION_SHORT:format(ns.VERSION)) end
+
 commands.dev = function(args)
   local on = args[1] ~= "off"
   if args[1] == nil then on = not ns.db.settings.dev end
@@ -227,7 +229,8 @@ C.SetGlobal("BINDING_NAME_RPGD_JOURNAL", L.BINDING_JOURNAL)
 C.SetGlobal("BINDING_NAME_RPGD_ASK", L.BINDING_ASK)
 
 ns.OnLogin(function()
-  if ns.db.settings.dev then ns.Print(L.LOADED:format(ns.VERSION)) end
+  if ns.db.settings.dev then ns.Print(L.LOADED:format(ns.VERSION))
+  else ns.Print(L.VERSION_SHORT:format(ns.VERSION)) end
   local listed = C.AddOnMeta(ns.name, "Version")
   if listed and listed ~= ns.VERSION then ns.Packs.TellRestart(L.ADDON_NAME, listed, ns.VERSION) end
 end)

@@ -2,8 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+
 ## 1.21.0 (2026-11-17)
-- Every named NPC answers more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics from World 1.35.0.
+- 26 new people: Far Watch, the Crossroads and the Disciples of Naralex (Kargal Battlescar, Ak'Zeloth, Thun'grim Firegaze, Uzzek, Ebru, Nalpak, Falla Sagewind, Lizzarik), and Ratchet, Fray Island and the roads south (Strahad Farsan, Klannoc Macleod, Twiggy Flathead, Gilthares Firebough, Doan Karhan). New files: restart the game fully (a /reload won't load them).
+- New story "The Kolkar and the water": Regthar lets you decide what happens to Krom'zar's stragglers; Thork and Jorn react.
 
 ## 1.20.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).

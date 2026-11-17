@@ -535,6 +535,8 @@ P:NPC {
           text = "A rogue, aye? Then ye'll have quiet feet, an' I'll need 'em, because the bugs out by the crystals feel every footstep in the sand." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, is it? Then tell me, when ye listen tae those crystals, does the hum sound like anythin' ye've heard from yer demons? Because it's no natural sound tae me." },
+        { id = "h_ss_resolved", tags = { "news" }, when = { thread = { id = "silithus_stirring", state = "resolved" } },
+          text = "Ye've been talkin' tae the bronze fellow, I hear. He told me once that the hum's older than my whole clan, an' I've counted it a bit more respectfully since." },
         { id = "h_default", key = true,
           text = "Can ye hear that? It's the crystals out in the sand, and the hum gets louder every day I'm here. I'm the Circle's geologist, for my sins, and I'm fair sure those stones are what's driving the bugs out of their heads." },
         { id = "h_mystery", tags = { "news" }, when = { questActive = TODO_QUEST("The Twilight Mystery") },

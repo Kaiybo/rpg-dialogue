@@ -2,8 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-17)
+- Named NPCs answer many more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics added in World 1.36.0.
+
 ## 1.20.0 (2026-11-17)
-- Every named NPC answers more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics from World 1.35.0.
+- New story "The Venture Company's reach": Baine asks your counsel on the Venture Company, and remembers it.
 
 ## 1.19.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.

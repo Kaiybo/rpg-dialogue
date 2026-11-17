@@ -48,6 +48,10 @@ P:NPC {
         { id = "h_desolace", when = { questActive = TODO_QUEST("The Kolkar of Desolace") },
           text = "The Kolkar who came at us from the west have kin in Desolace, and the Warchief wants them dealt with. The road is long, so don't dawdle." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 40 } }, text = "My scouts are running out of Kolkar to count, and they tell me whose work that is. Keep it up, because the ones you leave alive are the ones who learn." },
+        { id = "h_kw_resolved", tags = { "news" }, when = { thread = { id = "kolkar_war", state = "resolved" } },
+          text = "Lanti'gah's been insufferable since we let Krom'zar's stragglers go, because the road's been quiet ever since and he won't stop saying so. I'll grant him the quiet, and nothing else." },
+        { id = "h_kw_soured", tags = { "news" }, when = { thread = { id = "kolkar_war", state = "soured" } },
+          text = "Not one of Krom'zar's riders reached the hills, and my grunts sing about it at night. Lanti'gah doesn't sing, and he's taken to walking the perimeter facing west." },
       },
       again = {
         { id = "h_again", text = "What else? I've a war to run." },
@@ -59,6 +63,8 @@ P:NPC {
         { text = "This is your headquarters? A burrow and a pig farm?", next = "camp" },
         { text = "How do I fight a centaur?", next = "fighting", when = { class = { "WARRIOR", "HUNTER", "ROGUE" } } },
         { text = "Krom'zar is dead. What now?", next = "after", when = { questDone = TODO_QUEST("Counterattack!") } },
+        { text = "About Krom'zar's stragglers running west.", next = "stragglers",
+          when = { thread = { id = "kolkar_war", beat = "b5_regthar", state = { "stirring", "unfolding" } } } },
         { text = "Give me a task.", next = "BUSINESS" },
         { text = "For the Horde.", next = "END" },
       },
@@ -114,6 +120,33 @@ P:NPC {
         { text = "Close and fast. Got it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    stragglers = {
+      big = true,
+      lines = { { id = "st_default", text = "Then say your piece, because I've grunts saddling wolves as we speak. A centaur who runs home is a centaur who comes back one day, and I'd rather not meet him twice." } },
+      choices = {
+        { text = "Let them run. Fear will hold the road better than graves.", next = "st_let",
+          fx = { thread = { id = "kolkar_war", state = "resolved" }, affinity = -1, align = { light = 1 } },
+          journal = { first = "Told Regthar to let Krom'zar's stragglers run home to Desolace. He grumbled, and called his grunts off the wolves.",
+                      third = "{name} told Regthar Deathgate to let Krom'zar's stragglers run home, and he called off the hunt." } },
+        { text = "Ride them down. Not one of them reaches Desolace.", next = "st_ride",
+          fx = { thread = { id = "kolkar_war", state = "soured" }, affinity = 1, align = { light = -1 }, trait = { stern = 1 } },
+          journal = { first = "Told Regthar to ride Krom'zar's stragglers down. His grunts were mounted before I'd finished speaking.",
+                      third = "{name} told Regthar Deathgate to ride Krom'zar's stragglers down, and his grunts rode out at once." } },
+        { text = "Why does Lanti'gah want them spared?", next = "st_lanti" },
+      },
+    },
+    st_lanti = {
+      lines = { { id = "stl_default", text = "He says a centaur who runs home tells his clan what a Horde bunker costs, and a dead one tells them nothing. He also says he's tired of digging, and I believe that part more." } },
+      choices = { { text = "Back to the stragglers, then.", next = "stragglers" } },
+    },
+    st_let = {
+      lines = { { id = "sl_default", text = "Hmph. Lanti'gah will be unbearable, and you'd better be right, {class}. Let them carry it to Desolace, then, and let every Kolkar there hear what my bunkers cost." } },
+      choices = { { text = "For the Horde.", next = "END" } },
+    },
+    st_ride = {
+      lines = { { id = "sr_default", text = "That's what I wanted to hear. Mount up, the lot of you, and don't come back while there's a centaur track pointing west!" } },
+      choices = { { text = "For the Horde.", next = "END" } },
     },
     after = {
       lines = { { id = "af_default", text = "Now the Kolkar in the Barrens are leaderless, and the ones in Desolace will hear what happened to their kin. If the Warchief sends you west, you'll find out how they took the news." } },

@@ -36,6 +36,8 @@ P:NPC {
           text = "That's a big step for a doorway this size, and a deep voice to go with it. Whatever you are, friend, your coin weighs the same as anyone's." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Ah, you sound like Lordaeron, or near enough. It's been a long while since I heard an accent that didn't come out of a grave." },
+        { id = "h_wolves_quiet", tags = { "news" }, when = { thread = { id = "arugal_wolves", state = "resolved" } },
+          text = "The howling's gone ragged out there, friend, all out of order, like a choir that's lost its leader. Somebody did something up at that keep, and from the way you walk in, I've a feeling it was you." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "Late visitor, is it? Day and night are much the same to me, but the wolves out there seem to prefer the dark, so you're braver than most." },
       },

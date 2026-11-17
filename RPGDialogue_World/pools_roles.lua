@@ -2131,6 +2131,272 @@ P:Pool {
   },
 }
 
+---------------------------------------------------------------------------
+-- Sentinel tree (0.78.0): night elf guards in Darnassus and the Kalimdor towns the
+-- Sentinels hold. sentinelTree() returns a fresh copy for each pool, because indexing
+-- stamps every line with its pool's id. Community pools outrank guard_alliance, so this
+-- tree replaces the human-sounding watch tree for these guards only.
+---------------------------------------------------------------------------
+local function sentinelTree()
+  return {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Ishnu-alah, traveller. The Sentinels keep this place, and while I stand here, nothing passes that I have not seen. What do you need of me?" },
+        { id = "h_capital", when = { capital = true }, text = "You stand in Darnassus, beneath the boughs of Teldrassil, and the Sentinels keep her roots and her branches alike. Ask what you must, and walk softly afterwards." },
+        { id = "h_teldrassil", when = { zone = "Teldrassil" }, text = "Elune's light on you. The roads of Teldrassil are young, and so is the watch along them, but we are not careless. What brings you to me?" },
+        { id = "h_darkshore", when = { zone = "Darkshore" }, text = "The sea is loud tonight, as it has been every night since the Sundering. Speak up, traveller, and tell me what you need." },
+        { id = "h_ashenvale", when = { zone = "Ashenvale" }, text = "Keep your voice low. There are Warsong scouts in these woods, and they listen as well as we do. What is it?" },
+        { id = "h_feralas", when = { zone = "Feralas" }, text = "You came a long way for a stronghold on a rock in the sea. Shandris will be glad of another blade, and so will I. Speak." },
+        { id = "h_azshara", when = { zone = "Azshara" }, text = "This land still wears the name of the queen who drowned it, and none of us are glad to stand here. Still, we stand. What do you need?" },
+        { id = "h_stonetalon", when = { zone = "Stonetalon Mountains" }, text = "Listen, and you can hear the goblins' saws from here. The mountain is bleeding, traveller, so be quick with your question." },
+        { id = "h_kin", when = { race = "NightElf" }, text = "Elune keep you, kin. It is good to see one of our own on the road. What do you need of the watch?" },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "The moon is up, which makes this the best hour of the watch. What brings you out under her?" },
+        { id = "h_vet", when = { minLevel = 50 }, text = "I have heard your name spoken in the barracks, and not unkindly. The Sentinels remember those who fight beside us. What can I do for you?" },
+      },
+      again = {
+        { id = "a_more", text = "Something more? I can listen and watch at the same time; it is most of what we do." },
+        { id = "a_moon", text = "Ask, then. The moon has not moved far since you last spoke." },
+      },
+      choices = {
+        { text = "Who are the Sentinels, exactly?", next = "who" },
+        { text = "What troubles these woods?", next = "trouble" },
+        { text = "What do you make of your new allies?", next = "allies" },
+        { text = "I grew up under these boughs too.", next = "kin", when = { race = "NightElf" } },
+        { text = "Could you teach me to track the way you do?", next = "hunt", when = { class = "HUNTER" } },
+        { text = "I scouted for the Sentinels before I took this road.", next = "scout", when = { origin = "nightelf_sentinel_scout" } },
+        { text = "I was at Hyjal when the World Tree burned.", next = "hyjal", when = { origin = "nightelf_hyjal_survivor" } },
+        { text = "Elune keep you, Sentinel.", next = "END" },
+      },
+    },
+    who = {
+      lines = {
+        { id = "wh_default", text = "We are the army of the Kaldorei, sworn to the High Priestess and to Elune. For ten thousand years, while our druids slept in the Emerald Dream, we were the only blades that guarded these forests." },
+        { id = "wh_human", when = { race = "Human" }, text = "We are the Kaldorei's army, sworn to Tyrande Whisperwind and to Elune. We were keeping watch over these forests long before your first king laid his first stone, and we were doing it alone." },
+      },
+      choices = {
+        { text = "Ten thousand years? How long have you stood watch?", next = "vigil" },
+        { text = "Why are the Sentinels almost all women?", next = "women" },
+        { text = "Who commands you?", next = "command" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vigil = {
+      big = true,
+      lines = {
+        { id = "vg_default", text = "Longer than I care to count aloud. I have walked the same patrol through so many winters that the trees along it know my step. Tell me, traveller, could you keep a watch like that with no one to thank you for it?" },
+      },
+      choices = {
+        { text = "A vow is a vow, however long it runs.", next = "vigil_after", fx = { align = { honor = 1 }, trait = { stern = 1 }, affinity = 1 } },
+        { text = "No vow is worth ten thousand thankless years.", next = "vigil_after", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
+        { text = "Did you ever think of leaving?", next = "vigil_leave" },
+      },
+    },
+    vigil_after = {
+      lines = {
+        { id = "va_default", text = "Perhaps you are right. Most nights I do not ask whether it was worth it, because the forest is still here, and that is the only answer I have ever been given." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vigil_leave = {
+      lines = {
+        { id = "vl_default", text = "Once. A long time ago, I lost a friend to the satyrs and stood at her barrow wondering why I should hold a line no one remembered drawing. Then the High Priestess walked the patrol with me for a night, and said nothing at all, and in the morning I picked up my glaive." },
+      },
+      choices = {
+        { text = "She sounds like a good commander.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    women = {
+      lines = {
+        { id = "wo_default", text = "Because our men were druids, and the druids slept. When they went into the Dream, someone had to stay awake and hold a glaive, and so it fell to the sisters. A few men walk with us now, and we tease them without mercy, but they hold the line as well as anyone." },
+        { id = "wo_nelfman", when = { race = "NightElf", gender = "male" }, text = "You ask that as if you have not been asked it yourself. Our men went into the Dream, and the watch fell to the sisters. Now the Dream gives a few of you back, and some of you even pick up a blade; we tease them, but we are glad of them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    command = {
+      lines = {
+        { id = "cm_default", text = "Tyrande Whisperwind, High Priestess of Elune, and beneath her General Shandris Feathermoon, who would be a legend among your people if she ever sat still long enough to be sung about. The druids answer to Archdruid Staghelm, and that is a separate matter." },
+      },
+      choices = {
+        { text = "A separate matter?", next = "staghelm" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    staghelm = {
+      lines = {
+        { id = "sg_default", text = "The Archdruid speaks for the Circle, and the High Priestess speaks for the temple and the watch. They agree more often than the gossips in Darnassus would like. When they do not, we Sentinels keep our mouths shut and our glaives sharp." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trouble = {
+      lines = {
+        { id = "tr_default", text = "Satyrs in the old places, furbolgs gone mad in their dens and harpies on the cliffs. Every forest we have ever loved has something rotten growing in it now, and it takes more of us each year to cut it back." },
+        { id = "tr_capital", when = { capital = true }, text = "Inside the city, very little; a pickpocket from Stormwind now and then, and dwarves who mistake the moonwells for washbasins. Out on the tree it is the Gnarlpine, who were our friends once, and now they bare their teeth at us." },
+        { id = "tr_teldrassil", when = { zone = "Teldrassil" }, text = "The Gnarlpine furbolgs were our friends once, and now they bite. The timberlings are sickly, and some of the beasts on the tree fight like they have forgotten what fear is. Something on Teldrassil has gone wrong, and we cannot find the root of it." },
+        { id = "tr_darkshore", when = { zone = "Darkshore" }, text = "The Blackwood furbolgs have turned savage, the murlocs grow bolder every tide, and the sea keeps taking more of the coast. Ameth'Aran is full of restless dead now. Darkshore is dying slowly, and Auberdine is all that keeps it company." },
+        { id = "tr_ashenvale", when = { zone = "Ashenvale" }, text = "The Warsong orcs cut our trees for timber and call it the Horde's right. Satyrs breed in the south, and the Foulweald have gone the way of every other furbolg tribe. If you see smoke in the trees, do not go to it alone." },
+        { id = "tr_feralas", when = { zone = "Feralas" }, text = "Ogres in the Gordunni hills, Grimtotem in the north and Horde at Camp Mojache, close enough to smell their cooking. We hold Feathermoon because the sea keeps them off us, and because Shandris will not give up a stone of it." },
+        { id = "tr_azshara", when = { zone = "Azshara" }, text = "Satyrs, and the ghosts of the Highborne who made them. The Horde has a camp at Valormok and wants the ruins for whatever they can sell. Do not go into the old palaces alone; some of them still remember their queen." },
+        { id = "tr_stonetalon", when = { zone = "Stonetalon Mountains" }, text = "The Venture Company is stripping the mountain to the bone, and their machines burn whatever they cannot cut. The Charred Vale was green once. We cannot hold back an army of goblins with a handful of glaives, but we try." },
+      },
+      choices = {
+        { text = "And the Horde?", next = "horde" },
+        { text = "Then I'll cut some of it back for you.", next = "BACK", fx = { trait = { brave = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    horde = {
+      big = true,
+      lines = {
+        { id = "hd_default", text = "The orc who slew Cenarius is dead, and his clan still cuts our forests to warm their halls. Some of the priestesses say Thrall's Horde is not the old one, and we should talk. Some of us remember Cenarius. What do you say?" },
+      },
+      choices = {
+        { text = "Talk first. Thrall's Horde isn't the one that served the demons.", next = "horde_after", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Arrows are the only treaty the Warsong will honour.", next = "horde_after", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "What would you do, if it were yours to decide?", next = "horde_her" },
+      },
+    },
+    horde_after = {
+      lines = {
+        { id = "ha_default", text = "Then you have more of an answer than the council does. I will tell you this much: the next time a Warsong axe bites into an ancient, the Sentinel standing beside it will not be waiting for the council to finish talking." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    horde_her = {
+      lines = {
+        { id = "hh_default", text = "If it were mine? I would let them have the dead wood and the fallen trees, and put an arrow in any orc who touched a living one. That is not peace, but it is a line, and I have always been good at holding lines." },
+      },
+      choices = {
+        { text = "That sounds like a line worth holding.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    allies = {
+      lines = {
+        { id = "al_default", text = "We needed them at Hyjal, and we will need them again, and none of us enjoys needing anyone. The young races are loud and brief and build everything out of stone. They also stood with us when the Legion came, and I have not forgotten it." },
+        { id = "al_human", when = { race = "Human" }, text = "Your people are loud and brief, and they build everything out of stone, which the trees do not like. But Jaina Proudmoore's people stood with us at Hyjal when it would have been easier to run, and that buys a great deal of patience." },
+        { id = "al_dwarf", when = { race = "Dwarf" }, text = "Your Explorers' League digs in our ruins on the Darkshore coast and calls it scholarship. We call it something else. Still, your people fight like the mountain itself took offence, and I would rather have you beside me than across from me." },
+        { id = "al_gnome", when = { race = "Gnome" }, text = "Your machines smell of oil and burning, and the dryads complain of the noise whenever one of your people visits. I am told you lost your city. I am sorry for it; we have lost a few ourselves, and it does not get easier." },
+        { id = "al_kin", when = { race = "NightElf" }, text = "You know my mind already, because it is the mind of every one of us. We needed them, we still need them, and we have not yet learned how to be gracious about it." },
+      },
+      choices = {
+        { text = "Will they keep faith with you, do you think?", next = "faith" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    faith = {
+      big = true,
+      lines = {
+        { id = "fa_default", text = "That is the question the priestesses argue over in the temple. The young races live so briefly that a promise made by the grandfather is a story to the grandson. Tell me honestly, traveller: will they keep faith with us once they no longer need us?" },
+      },
+      choices = {
+        { text = "They will. An alliance is a promise, and promises are kept.", next = "faith_after", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Only for as long as it suits them.", next = "faith_after", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
+        { text = "Will your people keep faith with them?", next = "faith_us" },
+      },
+    },
+    faith_after = {
+      lines = {
+        { id = "fa2_default", text = "We shall see. I have time to watch, at least, and I will remember which of you were right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    faith_us = {
+      lines = {
+        { id = "fu_default", text = "That is a sharper question than most visitors ask. We keep our word for ten thousand years, but we also remember a slight for that long, and the young races give us plenty of slights to remember. Ask me again in a century." },
+      },
+      choices = {
+        { text = "I'll hold you to that.", next = "BACK", fx = { trait = { witty = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin = {
+      lines = {
+        { id = "kn_default", text = "Then you know what this place was before, and what it cost us to come here. Some nights I wake and reach for the smell of Nordrassil's bark, and it is not there. Do you feel it too, the difference in this tree?" },
+      },
+      choices = {
+        { text = "Something about Teldrassil feels wrong to me.", next = "tree" },
+        { text = "I feel nothing. She's our home now.", next = "tree_home" },
+        { text = "I'd serve beside you one day, if you'd have me.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    tree = {
+      big = true,
+      lines = {
+        { id = "tre_default", text = "Hush; say that softly in Darnassus. The Archdruid grew her without the blessing of the Aspects, and he says she will grow strong regardless. The priestesses say nothing at all, which troubles me more. What do you think?" },
+      },
+      choices = {
+        { text = "The Archdruid knows the land. We should trust him.", next = "tree_after", fx = { align = { order = 1 } } },
+        { text = "Staghelm grew her out of pride, not wisdom.", next = "tree_after", fx = { align = { order = -1 }, trait = { skeptical = 1 } } },
+        { text = "What does the High Priestess say?", next = "tree_tyrande" },
+      },
+    },
+    tree_after = {
+      lines = {
+        { id = "ta_default", text = "Then you have said it, and I have heard it, and neither of us will repeat it to the Cenarion Enclave. The tree holds us up whatever we think of her." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tree_tyrande = {
+      lines = {
+        { id = "tt_default", text = "The High Priestess says that Elune watches over all of us, the tree included. I have served her long enough to know when she is choosing her words carefully, and those words were very carefully chosen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tree_home = {
+      lines = {
+        { id = "th_default", text = "Then I envy you. Perhaps it is only the old ones like me who cannot let Hyjal go. Keep your eyes on the young ones, kin; they deserve a home that does not feel borrowed." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunt = {
+      lines = {
+        { id = "hu_default", text = "Watch the ground, not the trees. Bent grass, a print half in the moss, a stone turned wet side up: the forest tells you who passed if you are patient enough to listen. Your companion will learn it faster than you do, and you should let it." },
+        { id = "hu_dwarf", when = { race = "Dwarf" }, text = "With those boots? Forgive me. Watch the ground, not the trees: bent grass, a print half in the moss, a stone turned wet side up. And tread softer, or every beast in the forest will be tracking you." },
+      },
+      choices = {
+        { text = "Thank you. I'll practise.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scout = {
+      lines = {
+        { id = "sc_default", text = "Did you? Then you will remember the cold camps and the long silences, and the way a patrol learns to talk with its hands. Why did you leave us?" },
+      },
+      choices = {
+        { text = "I wanted to see the world beyond our forests.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "The world needs blades more than the watch does.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I'd rather not speak of it.", next = "BACK" },
+      },
+    },
+    hyjal = {
+      lines = {
+        { id = "hy_default", text = "Then we have both seen the worst night of the world, and survived it. I was on the slopes when the wisps came down. I still see that light when I close my eyes, and I am not sure I would give it back." },
+      },
+      choices = {
+        { text = "Nor would I. We won that night.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I would. It cost Nordrassil.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+  }
+end
+
 P:Pool {
   id = "guard_darnassus", role = "guard", community = "darnassus",
   greetings = {
@@ -2166,6 +2432,9 @@ P:Pool {
     { id = "l_tyrande", text = "The High Priestess keeps the Temple of the Moon, and her word is law beneath these boughs. If you seek an audience, the priestesses will tell you whether you may have one." },
   },
   choices = { { text = "Thank you, Sentinel.", next = "END" } },
+  tier = "service",
+  start = "hello",
+  nodes = sentinelTree(),
   topics = {
     tyrande = { { id = "w_tyrande", text = "The High Priestess holds court in the Temple of the Moon, and the Sentinels answer to her. Show her the respect she's due, or the Sentinels will show you the way out." } },
     elune = { { id = "w_elune", text = "Elune watches over this city, and the Sentinels watch over it for her. Walk softly in her temple, and do not raise your voice." } },
@@ -2178,6 +2447,17 @@ P:Pool {
     _none = { { id = "t_none", text = "The Sentinels do not speak of what they do not know." } },
   },
 }
+
+-- The Sentinel tree for the other towns the Sentinels hold (0.78.0). Lines, greetings and
+-- notices stay in each zone pack's own guard pool; these only carry the conversation.
+for _, town in ipairs({ "dolanaar", "auberdine", "astranaar", "maestras_post", "feathermoon", "stonetalon_peak", "talrendis_point" }) do
+  P:Pool {
+    id = "sentinel_tree_" .. town, role = "guard", community = town,
+    tier = "service",
+    start = "hello",
+    nodes = sentinelTree(),
+  }
+end
 
 P:Pool {
   id = "guard_orgrimmar", role = "guard", community = "orgrimmar",

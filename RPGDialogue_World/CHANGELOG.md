@@ -2,8 +2,13 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
-## 1.35.0 (2026-11-17)
+## 1.36.0 (2026-11-17)
 - Pools answer the 52 new "Ask about" topics: role pools for everyone, town pools for local takes, neutral goblin answers in Booty Bay, Gadgetzan, Ratchet and Everlook. Adds the 52 new topics (the Scourge, the Forsaken, Thrall, Sylvanas, Onyxia, Booty Bay, Dalaran, the Holy Light and more).
+
+## 1.35.0 (2026-11-17)
+- New: conversations for the battleground emissaries in the capitals (Silverwing, Warsong, League of Arathor, Defilers, Stormpike, Frostwolf, the Alliance Brigadier General and the Horde Warbringer), in `emissaries/`. New topic: Ashenvale. **New files: restart the game fully.**
+- Sentinel guards (Darnassus and the night elf towns of Kalimdor) get their own conversation tree instead of the human watch's.
+- Eleven new Stories (journal: Stories page) across Kalimdor and the Eastern Kingdoms, for both factions. New files: restart the game fully (a /reload won't load them).
 
 ## 1.34.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
