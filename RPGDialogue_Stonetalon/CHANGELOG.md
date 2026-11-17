@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.22.0 (2026-11-17)
+- New people to talk to: Tharm, Gereck and Kulwia at Sun Rock, Jeeda in Jin'Zil's cave. Teloren and Mor'rogal have more to say. New files: restart the game fully (a /reload won't load them).
+
 ## 1.21.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Searing Gorge |cff8a8a8a1.17.1|r
+## Title: RPG Dialogue: Searing Gorge |cff8a8a8a1.18.0|r
 ## Notes: Thorium Point: Dark Iron smiths who escaped Ragnaros, a blind lookout who swears by his drink, an enforcer who'd rather be resting, and a grieving stranger with a story that doesn't quite add up.
 ## Author: RPG Dialogue
-## Version: 1.17.1
+## Version: 1.18.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.searinggorge
