@@ -29,6 +29,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Older cellars than anyone admits to, cut before the city was rebuilt, and the Lamb's crypt is the deepest of them. I drew new streets over half of Stormwind after the Horde burned it, but the Quarter's masters wouldn't let my men dig below a certain line, and I've learned not to ask builders' questions of people who answer with fire." },
+      },
+      choices = {
+        { text = "Then the plans stay closed, as they should.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Show me the old plans. I'll find out myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Baros.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "The Park, and precious little else, because the nobles wanted halls and the masons gave them halls. I grew up on a Westfall farm, and some nights I think I built a city that has forgotten where its bread comes from." } },
@@ -131,6 +142,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I draw walls, but someone has to stand on them, and the drawings never mention how cold it gets up there." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the hills. Did you come in through the Valley of Heroes? Tell me honestly whether the statues look right from the road." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my streets. I laid most of these stones myself, so forgive me if I wonder what someone who shapes living things makes of them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The Slaughtered Lamb sits on foundations I've never been allowed to survey, and I'd wager you know why." },
       },
       again = {
         { id = "h_again", text = "What else? I've drains to redraw." },
@@ -151,6 +163,7 @@ P:NPC {
         { text = "Do you ever pray in the Cathedral you helped build?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would justice look like for the Stonemasons, Architect?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did you leave room for anything green when you drew the city, Architect?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What lies beneath the Mage Quarter, Baros?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

@@ -72,6 +72,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Skeletal", min = 30 } }, text = "The patrols say the cemetery road is quieter, and that the bones lying in the grass were put down by one hand. I'd guess whose hand that was, and I'd thank it, if the Watch said such things." },
         { id = "h_default", key = true,
           text = "I am Jonathan Carevin. The Watch keeps the lamps lit, while my household goes out past them after demons, the walking dead, and worse, because someone has to." },
         { id = "h_calor", when = { heardLine = "calor.h_default" },
@@ -315,6 +316,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Nightbane", min = 40 } }, text = "The Nightbane don't howl as close as they did, and I've a fair idea why. I've been shooting at them for years and never thinned them like you have, so I'll stop counting my arrows and start counting yours." },
         { id = "h_default", key = true,
           text = "I'm Calor. I stood a Night Watch post for years and watched the dark take a little more each season, until I joined Master Carevin, and now we take some of it back." },
         { id = "h_woods", tags = { "news" }, when = { questActive = TODO_QUEST("Worgen in the Woods") },
@@ -984,6 +986,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Everybody gets fed at the Raven, friend, because an empty belly is the one curse I know how to lift. Your imp, now, your imp eats in the yard, since the last time somebody's pet came into my kitchen I lost a whole pan of fritters and a good deal of my eyebrows." },
+        { id = "xlock_more1", text = "And don't tell the Night Watch what you are while you're eating, because they argue with their mouths full and it puts the other customers off." },
+      },
+      choices = {
+        { text = "The imp eats in the yard, then. Your kitchen, your rules.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My imp goes where I go, Grual, kitchen or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Grual.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Something hot, something heavy, and something you can still taste the next morning, so stew, friend! I've fed the Night Watch for years, and the ones who eat well come back more often than the ones who don't." } },
@@ -1043,6 +1057,7 @@ P:NPC {
           text = "A priest! Would you bless the stew? It's had a long week, the poor stew." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a double helping, then, because nobody swings a sword in this wood on an empty stomach, not twice anyway." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You're my new favourite customer, and you've arrived just as the stew's ready, which is a sign if ever I saw one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You're my favourite customer tonight, so long as that little demon of yours keeps its claws out of my crab cakes." },
       },
       again = {
         { id = "h_again", text = "What else? Taste this while you think, and no, don't ask what it is." },
@@ -1061,6 +1076,7 @@ P:NPC {
         { text = "What does a warrior eat before facing Duskwood's dead, Grual?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does your kitchen feed the Night Watch too, Grual?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you cook anything that grows wild in these woods?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do warlocks get fed at the Scarlet Raven, Grual?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just smelling, thanks.", next = "END" },
       },
     },
@@ -1592,6 +1608,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Cloth folk like you don't wear my steel, but I'll sharpen a dagger for you and put a proper edge on it, and I'll not ask what it cuts. I've had Morbent Fel's sort described to me by men who barely got away, so I'd ask you, quite plainly, not to go turning into that." },
+      },
+      choices = {
+        { text = "I won't. My arts have limits, and I keep them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fel was clumsy, Clarise. I won't be.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Clarise.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "You oil it every night, because Duskwood's damp eats steel faster than the ghouls eat flesh, and you sharpen it after every fight whether it needs it or not. Gavin will sell you the blade and Morg the plate, but the care is on you." } },
@@ -1666,6 +1693,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a proper one by the look of you! Mind where the sparks land, and show me that blade before you get yourself killed with it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting arrowheads that bite into worg hide, then, and they've a thick hide, I promise you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at my forge. Mind the sparks, because I don't care how close you are with nature, a hot coal still burns." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my forge. Keep your little friend out of the coals; it'll want to bathe in them, and I want them for steel." },
       },
       again = {
         { id = "h_again", text = "Something else? Talk over the hammer, because I won't stop." },
@@ -1681,6 +1709,7 @@ P:NPC {
         { text = "Does a smith's work ever need a blessing, Clarise?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could you teach me to keep my own hammer sound?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Darkshire's iron come from these woods, Clarise?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can you make anything for one of my calling, Clarise?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },

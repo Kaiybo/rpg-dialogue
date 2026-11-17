@@ -28,6 +28,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "My field doesn't need fixing, it needs those cursed watchers knocked down and kept down, and then it needs a man with a plough. I'll grant a fireball might do the first part quicker than a pitchfork, so long as you remember where the wheat ends and the scarecrows begin." },
+      },
+      choices = {
+        { text = "I'll aim carefully and leave the ploughing to you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If the field burns, at least the watchers burn too.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Saldean.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Slow and stupid, but they don't tire, and they swing those straw arms like flails. You'll want to take them apart limb by limb, and burn the bits, because I swear they put themselves back together." } },
@@ -93,6 +104,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Harvest", min = 30 } }, text = "You've been knocking down those harvest watchers, haven't you? I can see clear to the fence line for the first time in a month, and I'll not pretend I'm sorry about it." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "You've a strange way of looking at my rows, friend, like you're listening to them. My wife does that too, now and then." },
         { id = "h_default", text = "The name's Saldean, and this is my farm. The thieves ran all the neighbours off, but I'm still here, so make of that what you like." },
@@ -111,6 +123,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll not find much worth hunting in my field, except scarecrows that walk, and they don't make good eating." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Salma will want you blessing the soup pot, so go easy on my field and save some for her." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, is it? The watchers don't care for oaths, so I hope you hit as hard as you shine." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, is it? I'll not have you setting my field alight, even if it is the watchers you're aiming at." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it quick, because daylight's for working." },
@@ -130,6 +143,7 @@ P:NPC {
         { text = "What hunts around your farm, apart from the scarecrows?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you pray much, Saldean, out here on your own?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who protects the farms that still stand, Saldean?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could a spell or two fix your field, Saldean?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },

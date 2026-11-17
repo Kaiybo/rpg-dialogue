@@ -25,6 +25,17 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Plate would suit nobody who needs to move their hands freely, and mages need nothing else, so I'd counsel against it. But I've seen battle-mages in the old wars wear a mail shirt under their robes, and I've sold one or two since, discreetly, to Quarter folk who'd rather not be seen buying armour." },
+      },
+      choices = {
+        { text = "Then I'll wear it openly, Agustus, and without shame.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Discreetly, Agustus. Nobody needs to know.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Agustus.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Every guarding thing is a prayer, I'd say, though I've never been asked to bless a bear's breastplate. If you can find a smith to make it, I'll bless it gladly, and I'll want to see you wear it." } },
@@ -104,6 +115,7 @@ P:NPC {
           text = "A warlock in the Cathedral district. You're within the law, and I'll serve you within the law, but the paladins next door will look at you sideways." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, at the plate counter! You'll be wanting mail when you're seasoned, I suppose, and I'll have something waiting." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at Righteous Plates. You'll not be needing my plate, I imagine, because a bear in a breastplate would look very silly indeed." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at Righteous Plates? Theresa's robes are at the other counter, though I'll grant some of you prefer a little mail under the silk." },
       },
       again = {
         { id = "h_again", text = "Ask, friend, while the Cathedral bells are quiet and I can hear you." },
@@ -120,6 +132,7 @@ P:NPC {
         { text = "Why do you bless the armour you sell, Agustus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why call your shop Righteous Plates, Agustus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is armour still a prayer if a bear wears it, Agustus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would plate ever suit a mage, Agustus?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day, Agustus.", next = "END" },
       },
     },
@@ -171,6 +184,17 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The Light notices everyone, and I've sold robes to men who did terrible things and came back to the Cathedral for forgiveness, and I've watched some of them find it. I'll bless you when you leave, the same as everyone, and you can decide for yourself whether to keep it." },
+      },
+      choices = {
+        { text = "I'll take your blessing, Theresa, and keep it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Bless someone who needs it more, Theresa.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Theresa.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I would, and I'd not ask you to change a word of your own prayers in return. A blessing is a gift, and nobody asks whose god made a gift before they're glad of it." } },
@@ -240,6 +264,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at the robe rack! Are you buying for a priest, perhaps? Agustus has the plate on the other side, love." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I'm afraid robes aren't much use in a bramble patch, but I've a cloak or two that might suit." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You've a priestess's patience in your face, I think, and though your goddess isn't mine, I hope you'll take a blessing kindly all the same." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A quiet one, and in dark colours. I'll not try to sell you a white robe, then, though the Light might like to see you in one." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you'd like?" },
@@ -256,6 +281,7 @@ P:NPC {
         { text = "Why do the clergy fret about black robes?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you bless the paladins who come here, Theresa?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you bless someone who prays to Elune, Theresa?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would the Light take notice of someone like me, Theresa?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Light keep you, Theresa.", next = "END" },
       },
     },
@@ -309,6 +335,17 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They mind a sudden flash an' they mind it when the air goes cold, which happens near yer lot more than ye'd think. I've a hunter's cat that won't let a mage within ten paces since one froze its water bowl for a joke, an' I can't say I blame it." },
+      },
+      choices = {
+        { text = "Then I'll keep my tricks away from your beasts.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "It was a good joke, though.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jenova.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Aye, they kick in their sleep like they're runnin', an' the old mare whinnies at nothin' some nights. I take them out tae the Elwynn road when I can, but a stable's a stable, an' I'll not pretend otherwise." } },
@@ -376,6 +413,7 @@ P:NPC {
           text = "Hold there, the beasts are restless, an' I'd wager it's whatever's followin' at yer heels. Keep it back from the pens, if ye please." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at the stables! Ye've no beast tae leave wi' me, so I'll guess ye just like the smell o' hay. Most warriors do, deep down." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in my stables! The beasts have gone quiet, see, which they only do for a druid or a bad storm, an' ye don't smell like rain." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at my stables. Ye've no beasts tae leave, an' I'll not stable a sheep ye made out o' some poor fellow, either." },
       },
       again = {
         { id = "h_again", text = "What else? The ram in the third stall wants his supper." },
@@ -392,6 +430,7 @@ P:NPC {
         { text = "Do the beasts know who's kind to them, Jenova?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do knights mistreat their chargers, Jenova?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the beasts here dream of open fields, Jenova?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do your beasts mind magic, Jenova?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good day, Jenova.", next = "END" },
       },
     },
@@ -447,6 +486,17 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I'd love to, and I'd take very careful notes, right up until the moment it set my notes on fire, which I'm reliably told is what imps do. Lilliam says I'm not allowed near anything that explodes on purpose, only things that explode by accident, and I've decided not to argue the point." },
+      },
+      choices = {
+        { text = "Lilliam's right. Keep to your accidental explosions.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Measure it, Billibub. Notes are cheap.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Billibub.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Once, near Dun Morogh, and only a small fire, and it was mostly snow anyway, so it went out by itself. Lilliam says I owe the forest an apology, but I've never been sure where to send it." } },
@@ -526,6 +576,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! I have just the thing for you: a gnomish shield attachment that goes boom when you get hit. Oh, it's not finished, but it does go boom!" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Have you ever thought about a gnomish trap? They go snap and then boom, which is twice as effective as just snap!" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Please don't look at my blasting powder like that, because I only ever use it on rocks, and the rocks never complain." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Do you know, an imp is technically a combustion engine with legs? I've always wanted to measure one." },
       },
       again = {
         { id = "h_again", text = "What else? I've a gyromatic thingamajig that needs looking at." },
@@ -542,6 +593,7 @@ P:NPC {
         { text = "Does anyone ever get hurt by your goods, Billibub?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should engineering be used in battle, Billibub?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Has your blasting powder ever set the woods alight, Billibub?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you really measure my imp, Billibub?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Billibub.", next = "END" },
       },
     },

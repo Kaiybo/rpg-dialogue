@@ -28,6 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Fear it? They'd throw rocks at it and then come up to see where it came from, because the Brotherhood are thieves first and fools second. I'd rather you kept your little friend where the trees can't catch fire, if it's all the same to you." },
+        { id = "xlock_more1", text = "Still, Jordan always said a farm's best defended by whatever the other fellow didn't expect, and I doubt they expect you." },
+      },
+      choices = {
+        { text = "I'll keep it leashed and your trees safe, Daphne.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them come up the hill. My imp is hungry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Daphne.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Up the path from the beach, three or four at a time, thinking a woman alone is an easy morning's work. I've a pitchfork and a good fence, but a sword at the gate would make them think twice." } },
@@ -86,6 +98,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and just in time; the tide's turning, and the Brotherhood like to come up with it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Then you've seen what's left on the beach after the murlocs have been at it, and you know why I keep the gate shut." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid on my hill! The soil up here is tired, but the apple trees still try, bless them, and I suspect you'll notice." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my hill, and with something smoky trailing behind. Mind my apples, and we'll get along fine." },
       },
       again = {
         { id = "h_again", text = "What else, love? I've a whole basket of apples to sort." },
@@ -104,6 +117,7 @@ P:NPC {
         { text = "How do the Defias come at your farm, Daphne?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the murlocs come up as far as your farm?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Your orchard lives where the rest of Westfall died. How?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would the Defias below fear something like my imp?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Enjoy your apples.", next = "END" },
       },
     },

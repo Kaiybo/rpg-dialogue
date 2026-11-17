@@ -385,6 +385,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "They'll carry you, so long as your little friend stays put away while you ride, because a gryphon with fire on its back is a gryphon that goes wherever it likes. I had a gnome try it once, and he saw a lot more of Elwynn than he paid for." },
+      },
+      choices = {
+        { text = "Then I'll ride by your rules, Thor.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My imp goes where I go. Your birds can adjust.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Thor.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They mind the weight, but they don't complain, much. A warrior in plate is like a sack of stones to them, and they'll grumble the whole way to Stormwind, but they'll get you there." } },
@@ -451,6 +462,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your beast stays on the ground, I'm afraid; the gryphons don't share their backs with anything that might bite." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The birds don't mind your sort, since you smell of candles and not of blood." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Mind the plate, because it pinches the feathers, and the gryphons will let you know about it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep that imp off the perch, would you? The birds have long memories and short tempers." },
       },
       again = {
         { id = "h_again", text = "Anything else? Make it quick, the birds are restless." },
@@ -470,6 +482,7 @@ P:NPC {
         { text = "Has a hunter's beast ever ridden a gryphon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your gryphons ever carry the wounded back to Stormwind?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do your gryphons ever fly against the Defias, Thor?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Will your gryphons carry a warlock, Thor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -738,6 +751,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "A bowstring, maybe, if your imp chews through your satchel straps like I've heard they do. Otherwise you're wasting each other's time, though I'll say a warlock on Sentinel Hill is one more thing the Defias have to think about, and I like that well enough." },
+      },
+      choices = {
+        { text = "I'll pay for any string, at your price.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take what I need, and the hill can thank me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, William.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a warrior shoots once and then throws the bow down to draw a sword, and I've found my best work in a ditch more than once. Take a plain one, and save the good yew for the ones who'll keep it." } },
@@ -802,6 +826,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at a bowyer's bench. You'll not want a bow, I'd guess, but you're welcome to watch." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Hammers and maces for your lot, I know, so I've nothing for you but a fine bowstring to admire." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll have opinions about my staves, I expect, since I'm told your people grow the finest bow wood in the world." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my bench. You'll want a wand, not a bow, and I don't sell wands." },
       },
       again = {
         { id = "h_again", text = "Something else? I'm listening, though I'm waxing a string while I do." },
@@ -819,6 +844,7 @@ P:NPC {
         { text = "Have you ever made a bow for a priest, William?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever give a bow to a farmer who can't pay?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Where do you cut your wood, now Westfall's groves are gone?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is there anything a warlock would want from a bowyer?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just looking.", next = "END" },
       },
     },

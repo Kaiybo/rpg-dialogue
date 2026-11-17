@@ -268,6 +268,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "My dear, the Ridgewell collection buys anything rare, so long as it doesn't whisper at night, because the last piece that did was very bad for the servants. Bring me a relic from some cursed ruin and I'll pay handsomely, but I'll have a priest look it over before it goes anywhere near my display cases." },
+      },
+      choices = {
+        { text = "A priest should look it over, Count. Agreed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leave out the priest and I'll bring you something better.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Count.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I bought it from a sailor in Menethil who swore it washed up on the Darkshore, and I paid him handsomely for the story as much as the bowl. If it belongs to someone I suppose I'd return it, though I'd be very sad." } },
@@ -356,6 +367,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, at my side! Splendid; I never feel so safe in this chamber as when there's someone armed nearby who isn't a guard." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, my word! You must come across all kinds of curiosities in the wild, and I'm always, always interested in curiosities." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, how splendid. I've a carved kaldorei bowl in my collection that nobody can date, and I'd simply love your opinion on it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! How deliciously dangerous. Do mind the tapestries, they're older than your entire order." },
       },
       again = {
         { id = "h_again", text = "What else, what else? I do so love a little company." },
@@ -374,6 +386,7 @@ P:NPC {
         { text = "Shouldn't a holy relic be in the Cathedral, Count?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you truly buy a paladin's badge, Count?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How did a kaldorei bowl end up in your collection, Count?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would your collection buy anything a warlock found, Count?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Count.", next = "END" },
       },
     },

@@ -57,6 +57,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Defias", min = 40 } }, text = "Word reaches the hill of Defias found dead in the fields, and more of them than I'd dare hope for. The People's Militia thanks you, and I'll thank you myself, because every one of those masks was a farm we couldn't hold." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid of the kaldorei, out on my hill. I hope the land tells you something kinder than it tells me." },
         { id = "h_default", text = "I'm Gryan Stoutmantle, born and raised in Westfall. I came home from the war to find it in the hands of thieves, so I'm taking it back, one farm at a time." },

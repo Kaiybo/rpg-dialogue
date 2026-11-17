@@ -17,6 +17,39 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Because they'd throw it, and you with it, somewhere over Stranglethorn, and I'd have to explain that to the flight master in Booty Bay. They smell things the rest of us can't, and the smell on your sort sets them screaming in the roost all night." },
+      },
+      choices = {
+        { text = "Then the demon walks. Your birds know best.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your birds will learn to carry what I tell them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Felicia.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They mind the cold that comes off some of you, and they mind it when a rider starts casting halfway to Lakeshire, which one of your lot did last year. Sit still, keep your hands in your lap, and they'll carry you anywhere the Alliance has a roost." },
+      },
+      choices = {
+        { text = "I'll sit still and keep my hands in my lap.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If the bird balks, I'll make my own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Felicia.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Now and then, and I don't ask, because a flight's paid for in coin and not in answers. But the gryphons know when a rider's nervous, and the nervous ones always seem to be heading somewhere Commander Ebonlocke would want to hear about." },
+      },
+      choices = {
+        { text = "Then perhaps the Commander should hear about them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Best you keep not asking, Felicia.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Felicia.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Only as far as the next roost, and that's as close to the fight as I'll send them. A gryphon's a mount, not a war beast, and these birds have seen enough of Duskwood's dark already." } },
@@ -74,6 +107,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The gryphons will carry you, but don't go waving that blade near them, because they're nervous enough with the wolves howling." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll know how a frightened animal behaves, so you'll understand why my gryphons are so jumpy tonight." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! My gryphons have perked up at you, which is more than they've done for anything since the last full moon." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Quiet steps, those. The gryphons don't like being snuck up on, so whistle when you come near the roosts." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll fly like everyone else here, I hope, because the birds hate it when riders just appear beside them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll fly you, but your companion walks, and the gryphons will thank me for it." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds want their supper." },
@@ -88,6 +124,9 @@ P:NPC {
         { text = "Do your gryphons ever carry the dead home, Felicia?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could your gryphons carry word to Stormwind faster than letters?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why do your gryphons hate Duskwood's dark so much?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does anyone fly out of Darkshire who'd rather not be seen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the gryphons mind a mage on their backs?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why won't your gryphons carry my demon, Felicia?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Felicia.", next = "END" },
       },
     },
@@ -132,6 +171,39 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I'll sell to anyone fighting what's in that wood, and I'll not ask who taught you your tricks. But if I hear you've been up at Raven Hill doing what Morbent Fel did, I'll come looking for you myself, and I'll bring the axe." },
+      },
+      choices = {
+        { text = "Fair. If I ever go that far, come and find me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Morbent Fel had power, Gavin. Don't pretend otherwise.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gavin.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "A short blade, always, because spells run out and a worgen doesn't wait for you to catch your breath. I sold a dagger to a mage from Stormwind last autumn, and he laughed at me, and he came back a month later and bought a second one without saying a word." },
+      },
+      choices = {
+        { text = "Then I'll buy the dagger, Gavin, and learn to use it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If my spells run out, a dagger won't save me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gavin.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They'll bite, if you put them in the right place, which is under the arm or behind the knee, and not in the back like your lot always want to. A worgen's back is all muscle and fur, and the last man who tried it is buried up by the cemetery road." },
+      },
+      choices = {
+        { text = "Then I'll face it and go for the knee.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The back has always served me, Gavin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gavin.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "An axe, if I'm honest, because a ghoul doesn't stop for a cut but it stops for a missing limb. Swords are prettier, and most of the Watch carry them, but I'd rather be ugly and alive." } },
@@ -189,6 +261,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because I sell blades to people who'll use them, and you look like you've used plenty." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want a good knife for skinning and a better one for the worg that's skinning you, and I've both." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll fight with claws and teeth, I suppose, and the worgen have both, yet they still lose to a good axe." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A knife-fighter, by the way you walk. I've daggers, and they're good ones, but nobody stabs a worgen from behind twice." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I've a staff or two for your sort, though I'll be honest, they're mostly for walking." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I don't forge for demons, so if your friend wants a blade, it'll have to find its own." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -203,6 +278,9 @@ P:NPC {
         { text = "Do the folk who buy your blades ever come back, Gavin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What weapon do you trust against the dead, Gavin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Claws against claws seems fairer. Why should I want a blade?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do your daggers bite through worgen hide, Gavin?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is a blade any use to a mage in this wood, Gavin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you sell your steel to a warlock, Gavin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

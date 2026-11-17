@@ -30,6 +30,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "A little, if I'm honest, though I've seen worse than you come up this road in the last year, and they wore red masks. Theodore says we can't be choosy about who helps us anymore, and for once I think he's right." },
+      },
+      choices = {
+        { text = "I'll help where I can, Verna, and keep it gentle.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Theodore's right. Choosy folk don't keep their farms.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Verna.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every morning, and I'll not pretend otherwise. But if a warrior could take it back from the thieves, I'd want to go home, and Theodore would want to go home, and Blanchy would want her stall back." } },
@@ -98,6 +109,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and a weary one, I'd guess. Sit and eat; the stew's for anyone, and you look like you've earned it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down, dear, because I've been saying prayers for Blanchy and I'm not sure I'm saying them right." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Theodore will stand up straighter just looking at you, bless him." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, you've a little fellow with you, haven't you? Keep him away from Blanchy, dear, she's frightened enough as it is." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear?" },
@@ -117,6 +129,7 @@ P:NPC {
         { text = "Do you miss the farm, Verna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you keep your faith, Verna, after losing so much?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shall I take your farm back from the thieves, Verna?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does my sort frighten you, Verna?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Verna.", next = "END" },
       },
     },

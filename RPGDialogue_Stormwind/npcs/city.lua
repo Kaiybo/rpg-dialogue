@@ -644,6 +644,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Silence, chiefly, and the occasional errand to places where a robe would draw too much attention. The city's guard ignores my door because it suits them, but SI:7 watches it, and a rogue who keeps both sides happy is worth paying." },
+      },
+      choices = {
+        { text = "I'll keep your secrets and stay clear of SI:7's business.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "SI:7 pays better than you, Gakin. Remember that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gakin.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Only where the careless spill it, and I don't keep careless students for long. The Sanctum asks the same question in a less polite voice and gets the same answer, which is that nothing grows in a cellar anyway." } },
@@ -723,6 +734,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my cellar. Bold of you, and I appreciate boldness, though I'd appreciate discretion more." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You bind a beast with patience, and I bind mine with will, and I've always wondered which of us the creature resents less." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, beneath the Slaughtered Lamb. Your kind usually smells the fel on these stairs and turns back, so either you're brave or your nose is failing." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "One of the quiet folk. You keep your secrets as well as my students do, I see, and that alone earns you a word." },
       },
       again = {
         { id = "h_again", text = "Well? The candles don't last forever, and nor does my patience." },
@@ -744,6 +756,7 @@ P:NPC {
         { text = "Do you fear holy power, Gakin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the crown know what you teach down here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the fel down here seep into the soil beneath the city, Gakin?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What does the Slaughtered Lamb want from someone like me?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -888,6 +901,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "They do, quietly, and they tip well and break nothing, which is more than I can say for the guests who've just got rich at the auction house. I only ask that nothing comes out of a circle on my floorboards, love, because the last time I had the whole room re-scrubbed and it still smelled of sulphur." },
+      },
+      choices = {
+        { text = "No circles on your floorboards, Allison. You have my word.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your floorboards will survive, Allison. Probably.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Allison.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I'll keep the window open, love, but the shutters stay latched after dark, because this is the Trade District and not your forest. Last time I left one wide, a cat walked in and it turned out to be a guest." } },
@@ -972,6 +996,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit down before you fall down, love; you've the look of someone who's walked from Goldshire in full mail." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Wipe your boots, love, and if that's a fresh pelt you're carrying, leave it with the stable boy and not on my bar." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Gilded Rose, love! I've had your people stay before, and they always ask for the window open and the fire out, which puts the other guests in a fright." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, love? You'll want a room on the back side, then, away from the guests who've just come from the Cathedral." },
       },
       again = {
         { id = "h_again", text = "What else, love? I've bread in the oven." },
@@ -990,6 +1015,7 @@ P:NPC {
         { text = "Do people bring their troubles to the Gilded Rose, Allison?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Has the Gilded Rose ever needed a paladin, Allison?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you keep a room with the window open for a druid, Allison?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do warlocks stay at the Gilded Rose, Allison?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

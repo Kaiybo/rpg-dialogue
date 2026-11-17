@@ -397,6 +397,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "I asked, lad, an' they told me scrying costs money an' a lock o' the man's hair, an' I had neither. Henze went into the dark wi' the proof we gathered, an' I'll not rest till someone fetches him or tells me plain what's become of him." },
+      },
+      choices = {
+        { text = "Then I'll go looking myself, Gazin, without coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Quarter's right. Nobody works for free.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gazin.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "If they could talk, I'd buy every wolf in the forest a pint. Ye're the only one who's offered tae ask them, so I'll take it, though I'll keep prayin' all the same." } },
@@ -463,6 +474,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, aye. If Henze had had a warrior at his back that night, mebbe he'd be standin' here instead o' me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Ye'll know how tae follow a trail, then, which is more than the king's advisors seem able tae do with the one Henze an' I left 'em." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, eh? Ye've a nose for the wild, an' Henze is still out there somewhere wi' the Defias. If ye could track a man by the smell o' him, I'd be in yer debt." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, eh? Ye'll know a fair bit about readin' old scripts, I'd guess, an' Henze an' me had papers that needed readin'." },
       },
       again = {
         { id = "h_again", text = "Aye? What else?" },
@@ -480,6 +492,7 @@ P:NPC {
         { text = "Could the beasts of Elwynn tell us where Henze went, Gazin?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll bring him back.", next = "END", when = { class = "PALADIN" }, fx = { affinity = 1, align = { light = 1 } } },
         { text = "Henze is beyond saving, friend, so let him rest.", next = "END", when = { class = "PALADIN" }, fx = { align = { light = -1 } } },
+        { text = "Could the Mage Quarter help you find Henze, Gazin?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -562,6 +575,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Frighten? They'd climb all over your imp and ask it its name, and then they'd have nightmares for a week and I'd be the one up with them. These children have seen enough already, from the north and the farms and the war, so I'd thank you to keep your magic where they can't see it." },
+      },
+      choices = {
+        { text = "I'll keep it hidden, Stephanie. They've seen enough.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They'll see worse in this world. Better they learn now.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Stephanie.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "They'd love it, and they'd dig it up again by morning to see if it had roots yet. There's nowhere to plant one here anyway, unless the Archbishop lends me a corner of the square, and I'd not dare ask him." } },
@@ -634,6 +658,7 @@ P:NPC {
           text = "A mage! Oh, the children would go wild for a few sparks, if you've a minute, so long as nothing sets the curtains alight." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The boys will want to see your sword, and I'll thank you not to let them hold it, however nicely they ask." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Please don't change into anything in front of the children, love, because I'll never get them to sleep again after a bear." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, near the orphanage. Keep that creature close, please, the little ones will want to pet it." },
       },
       again = {
         { id = "h_again", text = "What else, love? Quick, I've a hem to finish." },
@@ -652,6 +677,7 @@ P:NPC {
         { text = "Could the children use someone to pray with them?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the boys really want to be paladins, Stephanie?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would the children like to plant a tree somewhere, Stephanie?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do the children frighten easily, Stephanie?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll keep you in mind.", next = "END" },
       },
     },
@@ -755,6 +781,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "I don't think so, she's hiding in my coat now, and she only does that when the guards' dogs go past. Dad says demons are bad and people who keep them are worse, but you don't look worse, you look tired, and maybe that's different." },
+      },
+      choices = {
+        { text = "Your dad means well, Timmy. Keep her away from it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your dad doesn't know everything, Timmy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Timmy.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "She'd love it, but she'd want to be the boss, because she's the boss of the whole bakery and the mice know it. Can you be a little cat, though, and not a big one, because a big one might eat her?" } },
@@ -823,6 +860,7 @@ P:NPC {
           text = "Are you a wizard? Can you make my dad say yes with a spell? Only a little spell, a nice one." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You've got a big sword! Is it heavy? My kitten's scared of swords, so please don't swing it near her, all right?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Can you turn into a cat? Because if you can, my kitten would have a friend, and then Dad would have to say yes." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that a demon? Is it a nice one? My kitten doesn't like it, she's gone all puffy." },
       },
       again = {
         { id = "h_again", text = "Do you want to hold her now? She's ready." },
@@ -840,6 +878,7 @@ P:NPC {
         { text = "Would you like me to say a prayer for your kitten, Timmy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shall I knight your kitten, Timmy?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think your kitten would like a cat for a friend, Timmy?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would your kitten like my imp, Timmy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Sorry, Timmy.", next = "END" },
       },
     },
@@ -911,6 +950,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The Light sees the dark as clearly as the day, though I'll grant it is more patient than the city guard. I've healed more of the king's quiet servants than you'd believe, and they all asked me that question, usually while I was stitching them up." },
+      },
+      choices = {
+        { text = "Then I'll try to give it less to be patient with.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Patience suits me. I'll keep working in the dark.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, High Priestess.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "The Light answers whoever turns to it, though mages are so used to commanding that they rarely think to ask. That's the lesson your kind find hardest, and it isn't in any of your books either." } },
@@ -967,6 +1017,7 @@ P:NPC {
           text = "A mage in the Cathedral. You'll want to know whether the Light and the arcane can share a room, and they can, if both keep their voices down." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the priests' hall. You've come for healing, I expect, or for the quiet; either is welcome here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You keep your distance in a fight, I'm told, which makes you very easy for a priest to love." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You stand at the edge of the light, child, and not in it, and I've taught enough students to know what that means." },
       },
       again = { { id = "h_again", text = "What else? Quietly; there's a service soon." }, { id = "h_again2", text = "Ask. I'll answer what I can, and tell you when I can't." } },
       choices = {
@@ -981,6 +1032,7 @@ P:NPC {
         { text = "How does a priest best help a warrior, High Priestess?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do priests often travel with hunters?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "How do a priest's prayers and a paladin's oath differ?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Light care what I do in the dark, High Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Thank you, High Priestess.", next = "END" },
       },
     },
@@ -1103,6 +1155,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "People ask that, and I tell them the arcane is something you take hold of, and the Light is something that takes hold of you, if you let it. I've no quarrel with Dalaran, but I've watched mages pray here, and the first thing they have to learn is how to stop trying to grip." },
+      },
+      choices = {
+        { text = "Then I'll try letting go, Brother.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'd rather keep my grip, Brother.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Warmer, I'd say, and louder, though the window can't help that. I've often wondered whether your goddess and my Light stand at the same window from two sides, and I'm content not to know." } },
@@ -1172,6 +1235,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at the altar. Stand there a moment; people listen better near it, and so, I think, will you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You've a stillness about you that most of my students take months to learn, and you probably learned it in a single cold morning." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the altar. You keep the moon's hours, I think, and I keep the dawn's, so between us we've the whole night watched." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, by the altar. Come and stand in the window's light a moment, it's warmer than any fire you can conjure." },
       },
       again = { { id = "h_again", text = "Something else?" } },
       choices = {
@@ -1184,6 +1248,7 @@ P:NPC {
         { text = "Would the Light still hear me, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do paladins come here to pray before they ride out?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the first light here feel anything like moonlight, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is the Light like the arcane, Brother?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Goodbye, Brother.", next = "END" },
       },
     },
@@ -1232,6 +1297,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Does it hurt, for a start, and does the demon talk back, and when it does, does it ever say anything true? Brother Joshua says I'm not to ask such things, because curiosity is how Morbent Fel and his like began, but I think a priest who won't ask questions is a priest who can't answer them either." },
+      },
+      choices = {
+        { text = "It does hurt, Brother, and it rarely tells the truth.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It tells truths you'd rather not hear, Brother.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "More than anything, though I suspect you'll tell me words won't do it justice, and you'll be right. I've only ever felt the Light come into me, and I'd like to know if it's at all the same as becoming something else." } },
@@ -1300,6 +1376,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Walk with me; I think better on my feet, and I suspect you do too." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, walking my hall. Keep up, then, because I don't stand still, and I'm told you lot are used to following things that move." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Oh, I've a thousand questions, and I promise to ask only nine hundred of them, so tell me first whether the changing hurts." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock in the eastern hall! Fascinating, and slightly alarming, and I've so many questions I don't know where to begin." },
       },
       again = { { id = "h_again", text = "Keep walking. What else?" } },
       choices = {
@@ -1312,6 +1389,7 @@ P:NPC {
         { text = "Do you ever get out of the city, Brother Benjamin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do you care how a paladin feels the Light?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you like to know what it feels like to change shape, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What questions would you ask a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye, Brother.", next = "END" },
       },
     },
@@ -1363,6 +1441,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "The Crusade burns your kind on the same pyre as the dead, and Grand Inquisitor Isillien would say I'm being generous telling you so. Lordaeron fell because men bargained with powers they couldn't hold, and you carry that same bargain in your satchel." },
+      },
+      choices = {
+        { text = "Then the Crusade and I will keep our distance.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your Crusade would burn the whole north to save it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Healed? No, it must be burned, root and branch, and every grove that drinks the plague must burn with it. Your people talk of balance, but there is no balance with the dead, and the Crusade will not wait for the trees to agree." } },
@@ -1438,6 +1527,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Good. The Crusade has use for strong arms, far more than this soft city does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The plaguelands are full of beasts twisted by the Scourge, and the Crusade needs eyes that can tell a sick wolf from a healthy one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Crusade has seen what the plague does to beasts and green things in the north, and I'd know whether your craft can burn it out or only soothe it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "You reek of the Burning Legion's craft, and you dare to stand in this Cathedral? Speak quickly." },
       },
       again = { { id = "h_again", text = "What else? The dead don't wait for questions." } },
       choices = {
@@ -1454,6 +1544,7 @@ P:NPC {
         { text = "I've sworn the Silver Hand's oath, not yours.", next = "paladin_oath", when = { class = "PALADIN" } },
         { text = "What would the Crusade ask of a priest, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you believe plagued land can be healed, Brother?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would the Crusade have any use for a warlock, Brother?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll fight the dead my own way, without your tabard.", next = "END", fx = { align = { order = -1 } } },
       },
     },
