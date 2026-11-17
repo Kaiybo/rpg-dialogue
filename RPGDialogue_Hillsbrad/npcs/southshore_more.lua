@@ -50,10 +50,10 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Hold the roads around the dome, chiefly, because the Syndicate camp on them and the Kirin Tor will not leave their towers to drive them off. I'm not permitted to say how few guards we have left, which I suppose tells you, so please don't repeat it." } },
+      lines = { { id = "xwarcl_default", text = "Hold the roads around Dalaran, chiefly, because the Syndicate camp on them and the Kirin Tor will not leave their towers to drive them off. I'm not permitted to say how few guards we have left, which I suppose tells you, so please don't repeat it." } },
       choices = {
         { text = "Dalaran's walls are worth defending. I'd stand on them.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Dalaran hid behind its dome. Let mages guard mages.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Dalaran hid behind its dome for years. Let mages guard mages.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Emissary.", next = "BACK" },
       },
     },
@@ -579,7 +579,7 @@ P:NPC {
         { id = "h_default", text = "Kelly's the name, and I keep the bar. Anderson keeps the beds, Bilger keeps the cellar, and I keep track of who's saying what about whom, which is the real business of any inn." },
         { id = "h_talk_done", when = { questDone = TODO_QUEST("Talk of the Town") },
           text = "You saw to that business of mine, and folk have been talking about you since, so you're part of the talk of the town now. Enjoy it while it lasts." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage at my bar, and you'll want something warm, I'd guess, since your lot never stop shivering after a ride down from the dome." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage at my bar, and you'll want something warm, I'd guess, since your lot never stop shivering after a ride down from Dalaran." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at my bar? You're braver than most, because the last one who came in here was chased out by Bilger with a broom and a lot of shouting about the Silver Hand." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest at my bar! Folk will mind their language for an hour or so, which is a rest for my ears, and Bilger might even come up from the cellar." },
@@ -711,7 +711,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Spiders bigger than they've any right to be in the Alterac foothills, and wolves that hunt by day near Dalaran's dome. My thought is the magic is souring something, but I've no proof, and a druid's eye might settle it." } },
+      lines = { { id = "xdruid_default", text = "Spiders bigger than they've any right to be in the Alterac foothills, and wolves that hunt by day near Dalaran's walls. My thought is the magic is souring something, but I've no proof, and a druid's eye might settle it." } },
       choices = {
         { text = "Then we kill the sick beasts before they spread it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Find the cause first. The beasts are victims too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },

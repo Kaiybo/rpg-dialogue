@@ -723,6 +723,10 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my fire. You won't need it to warm your hands, I suppose, but sit by it anyway." },
         { id = "h_cl_rfd", tags = { "news" }, when = { cleared = "Razorfen Downs", faction = "Horde" }, text = "Travellers up from the south say the cold has lifted off the Downs, and that somebody's been to the bottom of the place. If it was you, sit nearer the fire, because I've heard what lives down there." },
       },
+      again = {
+        { id = "h_again", text = "What else can I get you? The stew keeps, and so do I." },
+        { id = "h_again2", text = "Ask away. The kodo herders won't be in for supper for a while yet." },
+      },
       choices = {
         { text = "Do the hyenas' spirits trouble the camp at night?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Have the hyenas always plagued Camp Taurajo, Byula?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },

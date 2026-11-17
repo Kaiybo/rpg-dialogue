@@ -1148,6 +1148,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, by the grass seed on your boots. Sit down, because the druids who come down from Elder Rise always forget to eat, and I take that personally." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my inn! Sit, and I'll bring you stew, because spellwork burns through a body like a fire through grass." },
       },
+      again = {
+        { id = "h_again", text = "Is there something more you need, friend? Sit while you ask it." },
+        { id = "h_again2", text = "Ask what you like. The fire is warm, and I am in no hurry." },
+      },
       choices = {
         { text = "What's in the stew?", next = "stew" },
         { text = "Do the elders still bless the hearths in Bloodhoof, Kauth?", next = "xhsham", when = { class = "SHAMAN" } },

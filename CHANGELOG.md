@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.66.0 (2026-11-17)
+Bug fixes and quality control. No new files: /reload is enough.
+
+- **Dalaran is open now.** About twenty lines across Hillsbrad, Stormwind (Bolvar, the Mage Quarter), Undercity, Tirisfal, Silverpine, the Hinterlands, Chillwind Camp and the World townsfolk still called Dalaran sealed under its dome. They now speak of a city rebuilding and slow to open its gates, matching Forever and the Dalaran pack. Archmage Ansirem's "Why is the city sealed?" is now "Why was the city sealed so long?".
+- **Hidden replies fixed.** Thisalee Crow (Hyjal) and Krom'rosh (Riverglades) had seven always-on replies in their first menu, and only six fit, so one never showed. Each moved one into a follow-up topic.
+- **No more repeated greetings.** Byula (Taurajo), Grosk (Razor Hill), Kauth (Bloodhoof), Norman (Undercity) and the spirit healer had no short "anything else?" lines, so going back to their questions replayed the full greeting. They now have them.
+- **More reputations known.** Lines can now check standing with Booty Bay, Gadgetzan, Ratchet, Everlook, Ravenholdt, the Gelkis and Magram centaur, the Wintersaber Trainers, Shen'dralas, the Darkmoon Faire and the battleground factions.
+
 ## 0.65.0 (2026-11-17)
 Forever's new lands. **Three new folders and new files in two packs: exit the game fully, copy RPGDialogue_Dalaran, RPGDialogue_Hyjal and RPGDialogue_Shendralas in, tick them, and start the game again** (/reload won't load new files).
 

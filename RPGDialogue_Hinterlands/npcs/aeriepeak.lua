@@ -837,7 +837,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "No many, for the Wildhammer trust storms more than spellbooks. The odd one comes over from Dalaran's side o' the mountains, but they've been fewer since the city shut itself away behind its dome, an' they all complain about the stairs." } },
+      lines = { { id = "xmage_default", text = "No many, for the Wildhammer trust storms more than spellbooks. The odd one comes over from Dalaran's side o' the mountains, but they've been fewer since the city shut itself away behind its dome, an' it's only now openin' again, an' they all complain about the stairs." } },
       choices = {
         { text = "The Kirin Tor were right to seal Dalaran away.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Hiding behind a dome while Lordaeron burned was shameful.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.1 (2026-11-17)
+- Chillwind Camp now speaks of Dalaran rebuilding, not hidden behind its dome.
+
 ## 1.13.0 (2026-11-17)
 - Some people here notice who you travel with: a greeting about your companions, a reply to bring them up, and a conversation with stances to take. Needs RPG Dialogue 0.59.0.
 

@@ -610,7 +610,7 @@ P:NPC {
     },
     limits = {
       big = true,
-      lines = { { id = "limits_l", text = "Kel'Thuzad was a member of the Kirin Tor, and he thought not. Dalaran is a ruin under a dome because one of its own wanted to learn what death could teach, so yes, I think it should, and I think the line is wherever you'd be ashamed to explain yourself." } },
+      lines = { { id = "limits_l", text = "Kel'Thuzad was a member of the Kirin Tor, and he thought not. Dalaran is still rebuilding from the rubble because one of its own wanted to learn what death could teach, so yes, I think it should, and I think the line is wherever you'd be ashamed to explain yourself." } },
       choices = {
         { text = "Knowledge itself is never the danger.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
         { text = "Some doors should stay locked.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },

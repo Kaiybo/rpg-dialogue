@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.29.1 (2026-11-17)
+- The spirit healer no longer repeats a full greeting when you come back to the questions. Townsfolk from near Dalaran know its shield is down.
+
 ## 1.29.0 (2026-11-17)
 - Diary entries for your first steps on Mount Hyjal, in Shen'dralas and in Dalaran. Zephras Isle's villages (Thendal, Shen'dar, Falaath, the Shrine of Akir) now count as the isle for town standing.
 

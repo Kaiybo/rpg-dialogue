@@ -76,6 +76,11 @@ W.FACTION_IDS = {
   ["Argent Dawn"] = 529, ["Timbermaw Hold"] = 576, ["Cenarion Circle"] = 609, ["Thorium Brotherhood"] = 59,
   ["Steamwheedle Cartel"] = 169, ["Bloodsail Buccaneers"] = 87, ["Hydraxian Waterlords"] = 749,
   ["Brood of Nozdormu"] = 910, ["Zandalar Tribe"] = 270,
+  ["Booty Bay"] = 21, Gadgetzan = 369, Ratchet = 470, Everlook = 577, Ravenholdt = 349,
+  ["Gelkis Clan Centaur"] = 92, ["Magram Clan Centaur"] = 93, ["Wintersaber Trainers"] = 589,
+  ["Shen'dralas"] = 809, ["Darkmoon Faire"] = 909,
+  ["Silverwing Sentinels"] = 890, ["Warsong Outriders"] = 889, ["League of Arathor"] = 509,
+  ["The Defilers"] = 510, ["Stormpike Guard"] = 730, ["Frostwolf Clan"] = 729,
 }
 W.STANDINGS = { hated = 1, hostile = 2, unfriendly = 3, neutral = 4, friendly = 5, honored = 6, revered = 7, exalted = 8 }
 

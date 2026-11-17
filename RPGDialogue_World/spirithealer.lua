@@ -155,6 +155,10 @@ P:Pool {
         { id = "wcb_debt", once = true, priority = 30, when = { npcFlagBefore = "won_debt", timesTalked = { min = 1 } },
           text = "I keep turning over what you said about the dead. I have not found the flaw yet, though I am looking, and I am also, a little, hoping I never do." },
       },
+      again = {
+        { id = "h_again", text = "Ask what you will. Time moves differently here, and there is enough of it." },
+        { id = "h_again2", text = "Something else troubles you. Speak; the gray will wait." },
+      },
       choices = {
         { text = "Return me to life.", next = "BUSINESS" },
         { text = "What does my file say?", next = "record" },
