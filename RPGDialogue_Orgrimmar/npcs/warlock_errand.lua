@@ -115,8 +115,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_lock", when = { class = "WARLOCK" }, text = "Few have the ambition to seek true power, and fewer still the resolve to pay for it. Come closer, warlock, so I can hear what you're made of." },
-    { id = "g_other", text = "I am crippled by age and blinded by things I would rather not discuss. Surely an old orc like me has no business with you, {class}." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Most who come down here want power, and very few of them are willing to pay for it. Come closer, warlock, so I can hear which kind you are." },
+    { id = "g_other", text = "My legs are old and my eyes are gone, and I don't care to say how I lost them. What business could you possibly have with a blind old orc, {class}?" },
   },
 
   notice = {

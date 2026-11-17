@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.18.0 (2026-11-17)
+- New people to talk to: Highlord Demitrian, Windcaller Kaldon, Dirk Thunderwood, Zannok Hidepiercer, Marshal Bluewall, Captain Blackanvil, Janela Stouthammer, General Kirika.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.17.0 (2026-11-17)
 - Geologist Larksbane reacts to the new story "Something under Silithus".
 

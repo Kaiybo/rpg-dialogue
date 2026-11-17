@@ -109,7 +109,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hi", text = "Greetings and salutations, hero! I have the latest news from both continents and beyond, all for your consideration!" },
+    { id = "g_hi", text = "Hear ye, hero, hear ye! I've fresh news from both continents and further besides, and it's yours for the listening!" },
     { id = "g_back", when = { metBefore = true }, text = "You again! I've run the rises twice since we last spoke, and there's fresh news, I promise." },
   },
 
@@ -217,7 +217,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Ghede, and I keep the Circle's soil on this rise, because somebody has to, and the druids are too busy thinking. Arch Druid Runetotem wants Un'Goro soil studied in large quantities, and large quantities need someone shouting at them." },
         { id = "h_done", when = { questDone = TODO_QUEST("Un'Goro Soil") },
-          text = "Oh, that's right, Private {name}, don't make any effort to help me unload it up onto the piles! If the Great Spirits had wanted it done they'd have miracled it up there, now wouldn't they? Go on, the Arch Druid wants a word with you." },
+          text = "Oh, splendid work, Private {name}, dropping the sacks at the bottom and leaving me to haul them up! I suppose the Great Spirits will carry them for me, will they? Go on, the Arch Druid wants a word with you." },
       },
       again = {
         { id = "h_again", text = "Still here, Private? Ask, then, and quickly." },

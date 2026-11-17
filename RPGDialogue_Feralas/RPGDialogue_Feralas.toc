@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Feralas |cff8a8a8a1.24.0|r
+## Title: RPG Dialogue: Feralas |cff8a8a8a1.25.0|r
 ## Notes: Feathermoon Stronghold and Camp Mojache: Tyrande's adopted daughter on her island, a semi-retired paladin who sells leather, an orc sent to break the ogres, and a goblin who wants their ore.
 ## Author: RPG Dialogue
-## Version: 1.24.0
+## Version: 1.25.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.feralas

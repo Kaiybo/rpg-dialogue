@@ -117,7 +117,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Grunt Dogran, of the Crossroads, and of Camp Taurajo for all the good it did me. The Bristleback dragged me here after the raid, and they've been deciding what to do with me ever since." },
         { id = "h_drunk", when = { questDone = TODO_QUEST("Dogran's Captivity") },
-          text = "Foul tasting brew, but I can feel the strength in me now, enough to hobble away, anyway. My leg is gone for the rest of my life, though, and my arm too, I think." },
+          text = "That draught tastes like a kodo's bath, but there's strength in it, enough to limp out of here at least. The leg won't ever be right again, though, and I don't think the arm will either." },
       },
       again = {
         { id = "h_again", text = "What else? Talk quietly, they come round at dusk." },
@@ -152,7 +152,7 @@ P:NPC {
     },
     choice = {
       big = true,
-      lines = { { id = "ch_default", text = "I won't chain Zankaja to an invalid, I won't allow her that injustice, so I'll end my life in glorious battle instead of as a lifeless husk. Take the pendant, and please, don't tell my mate any of this, because I don't want guilt on her conscience." } },
+      lines = { { id = "ch_default", text = "Zankaja won't spend her life feeding a cripple, not if I can help it, so I'll find one last fight and die in it standing. Take the pendant, and don't tell her any of this, because I won't have her carrying the guilt." } },
       choices = {
         { text = "Live, Dogran. Let her decide what she can bear.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "A warrior's death is your right. I'll honour it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -197,9 +197,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Gann Stonespire, and the hills around Bael Modan were home and provider to my tribe long before the dwarves came with their blasting powder. Now terrible blasts drive holes into the ground, and noisy machines tear the hills apart." },
+        { id = "h_default", key = true, text = "I am Gann Stonespire, and the hills around Bael Modan fed and sheltered my tribe long before the dwarves came with their blasting powder. Now the ground shakes all day, and their machines chew the hills to gravel." },
         { id = "h_before", when = { faction = "Horde", questBefore = TODO_QUEST("Gann's Reclamation") },
-          text = "Attempts at a peaceful resolution have failed, so now is the time for decisive action. Drive the dwarves from the Bael Modan excavation by force, and bring me their prospector's journal, so I can learn what they want with my land." },
+          text = "I tried words, and words failed, so now I mean to act. Drive the dwarves out of the Bael Modan dig by force, and bring me their prospector's journal, so I can learn what they want with my land." },
         { id = "h_revenge", when = { questDone = TODO_QUEST("Gann's Reclamation") },
           text = "Khazgorm met the fate he earned, and I feel no remorse for the fool. His journal tells me exactly how they blast the ground apart, and I mean to give them a taste of their own medicine." },
         { id = "h_done", when = { questDone = TODO_QUEST("Revenge of Gann") },

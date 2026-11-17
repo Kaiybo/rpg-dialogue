@@ -356,7 +356,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Jes'rimon give you warm greetin's, {class}, as does the Shattered Hand. Do not look so surprised, because there be shadows even on the highest perches of Orgrimmar, and somethin' must hide in them." },
+        { id = "h_default", key = true, text = "Jes'rimon and the Shattered Hand both bid you welcome, {class}. Don't look so surprised, mon, because even the highest roofs in Orgrimmar throw a shadow, and somebody got to live in it." },
         { id = "h_claws", when = { questActive = TODO_QUEST("Bone-Bladed Weapons") },
           text = "You still be huntin' them white claws, mon? Un'Goro be far, me know, but the Hand's clients be patient only so long." },
         { id = "h_clawsdone", when = { questDone = TODO_QUEST("Bone-Bladed Weapons") },

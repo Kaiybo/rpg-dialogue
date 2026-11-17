@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.17.0 (2026-11-17)
+- New people to talk to: Mardant Strongoak, Alyissia, Frahun Shadewhisper, Ayanna Everstride, Shanda, Sentinel Kyra Starsong, Sentinel Arynia Cloudsbreak, Laurna Morninglight, Jannok Breezesong, Seriadne, Daryn Lightwind.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.16.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

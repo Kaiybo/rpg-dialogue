@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.0 (2026-11-17)
+- New people to talk to: Monika Sengutz, Christoph Jeffcoat, Theodore Mont Claire, Ott, Darla Harris, Wesley, Hal McAllister, Neema.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.27.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

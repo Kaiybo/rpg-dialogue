@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-17)
+- New people to talk to: Arantir, Hilary, Zem Leeward, Penny, Lindsay Ashlock, Crystal Boughman, Wilma Ranthal.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.20.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

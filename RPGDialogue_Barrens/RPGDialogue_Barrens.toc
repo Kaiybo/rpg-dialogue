@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: The Barrens |cff8a8a8a1.21.0|r
+## Title: RPG Dialogue: The Barrens |cff8a8a8a1.22.0|r
 ## Notes: The Crossroads: Thork and Sergra holding the road, a grieving orc watching the horizon, and the oases going bad.
 ## Author: RPG Dialogue
-## Version: 1.21.0
+## Version: 1.22.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.barrens
@@ -27,3 +27,7 @@ npcs\north_naralex.lua
 npcs\south_fray_island.lua
 npcs\south_ratchet_folk.lua
 npcs\south_roads.lua
+npcs\north_crossroads_more.lua
+npcs\south_coast_seers.lua
+npcs\south_ratchet_more.lua
+npcs\south_taurajo_roads.lua

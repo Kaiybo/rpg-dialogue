@@ -131,7 +131,7 @@ P:NPC {
         { id = "h_hunter", when = { class = "HUNTER", questDone = TODO_QUEST("Mahren Skyseer") },
           text = "A true hunter can stalk prey down any path, and mountains and swamps don't sway one, and neither does the sea. Are you ready to tread farther down the hunter's path?" },
         { id = "h_heart", when = { questDone = TODO_QUEST("Isha Awak") },
-          text = "You are one with Isha Awak now, and his spirit is with you. He lurks in your eyes, and one day those eyes will learn to see." },
+          text = "Isha Awak's heart beat for you, and now something of him stays with you. I can see him behind your eyes, and one day, if you're patient, they'll learn to see as he did." },
       },
       again = {
         { id = "h_again", text = "Ask, but keep your voice low. The sea carries sound." },

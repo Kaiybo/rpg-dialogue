@@ -134,7 +134,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Orokk Omosh, last of the Omosh, and twenty generations of us have held this hammer. A hundred thousand tons of metal our family has molded, and it all ends with Orokk, because Orokk has no kin and no children." },
+        { id = "h_default", key = true, text = "Orokk Omosh, last of the Omosh, and this hammer has passed through twenty pairs of Omosh hands. Mountains of iron our family has shaped, and it stops with Orokk, because Orokk has no kin left and no children to teach." },
         { id = "h_smith", when = { profession = "Blacksmithing" },
           text = "Orokk cannot let the secrets of Omosh die with him, so someone must carry the legacy, Omosh or not. Prove to Orokk that you are a blacksmith, and Orokk will teach you what his father taught him." },
         { id = "h_after", when = { questDone = TODO_QUEST("Barbaric Battlements") },

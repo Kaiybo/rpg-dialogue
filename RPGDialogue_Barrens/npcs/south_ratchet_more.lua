@@ -194,7 +194,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hi", text = "Step right up, step right up, but not too close to the apparatus, pal, it bites the unpaid." },
-    { id = "g_zando", when = { questActive = TODO_QUEST("Wrenix of Ratchet") }, text = "Another one? The last five that crazy troll sent me ended up as shark food. Let's hope you fare a little better, eh?" },
+    { id = "g_zando", when = { questActive = TODO_QUEST("Wrenix of Ratchet") }, text = "Zando'zan sent another one, huh? His last five went to feed the sharks, pal, so let's see if you can buck the trend." },
   },
 
   notice = {
@@ -212,7 +212,7 @@ P:NPC {
         { id = "h_rogue", when = { class = "ROGUE", questDone = TODO_QUEST("Wrenix of Ratchet") },
           text = "South along the coast you'll find the Tide Razor, the Southsea Freebooters' ship, and in the hold is the payoff, the Southsea treasure. Grab your tools from the apparatus first, because the last five went aboard without them, and look how that went." },
         { id = "h_done", when = { questDone = TODO_QUEST("Plundering the Plunderers") },
-          text = "Incredible, improbable, simply amazing! Either you've got real talent, pal, or you're the luckiest thief alive, and I'll take either one on my books." },
+          text = "You came back, pal, with the goods and all your fingers! Either that's talent or the luckiest streak on the coast, and I'll put either one on my books." },
       },
       again = {
         { id = "h_again", text = "What else, pal? Time's money, and you're spendin' mine." },

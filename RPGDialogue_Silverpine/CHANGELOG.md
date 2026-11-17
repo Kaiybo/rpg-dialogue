@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.19.0 (2026-11-17)
+- New people to talk to: Astor Hadren, Sarah Goode, Andrew Hilbert, Patrice Dwyer, Johan Focht, Nadia Vernon.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.18.0 (2026-11-17)
 - Wallace the Blind reacts to the new story "Arugal's children".
 

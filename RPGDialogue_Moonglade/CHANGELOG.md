@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.18.0 (2026-11-17)
+- New people to talk to: Geenia Sunshadow, Darnall, Meliri, Kharedon.
+- New files: restart the game fully (a /reload won't load them).
+
 ## 1.17.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 
