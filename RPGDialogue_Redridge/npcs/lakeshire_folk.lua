@@ -296,6 +296,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Good, because the count is getting to the point where I'd like someone who can stand in front of it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't suppose you can tell how many gnolls are in those trees just by sniffing, because I've lost count again." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll add you to the count, I suppose, though I'm not sure which column you go in." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Redridge", min = 40 } }, text = "For the first time since I took this post, the gnoll count's gone down instead of up, and I've a fair idea why. Keep at it, and I might have to learn to count backwards." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, please; I've lost count once today already." },

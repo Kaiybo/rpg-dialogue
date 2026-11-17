@@ -1220,6 +1220,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be some help with the orcs, I'd wager, and maybe even with the stones." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Don't let Oslow see you standing about, or he'll have you hauling stone in bear shape before supper." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Can your demon carry stone? Because the foreman would put it to work, and he'd still say it was slow." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Blackrock", min = 20 } }, text = "No Blackrock scouts have come down to the bridge in days, and Oslow's had to find something else to complain about. I hear we've you to thank, so thank you." },
       },
       again = {
         { id = "h_again", text = "Something else? Quick, the foreman's looking." },

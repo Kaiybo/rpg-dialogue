@@ -264,6 +264,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I've no time for trees an' moss, for I've a grudge tae tend, but ye're welcome tae stand an' listen while I tend it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! The Dark Irons blew the Span wi' powder, an' I'd like tae see them meet somethin' that burns hotter." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Fine by me, for I'd set every demon in the Nether on the Dark Irons if I thought it'd bring the Span back." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dark Iron", min = 30 } }, text = "Ye've been at the Dark Irons, I hear, an' there's fewer of them crawlin' over the Span's ruins than there were. It'll no' bring the bridge back, but it's a start, an' I thank ye for it." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? I've a vengeance to plan." },
@@ -415,6 +416,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Grand; the raptors come at the dig in packs, an' I could use someone who'll stand firm while they circle." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Ye'll be tellin' me the raptors are only doin' what raptors do, an' I'll be tellin' ye they killed my friends, so let's save each other the breath." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Good, for the raptors here are cleverer than they've any right tae be, an' I'd like tae see one try tae outwit a demon." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Mottled", min = 30 } }, text = "The raptors round the dig are fewer an' warier, an' the diggers swear it's because o' you. That's the first good news I've had out here in a month." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep yer eyes on the grass while ye ask." },

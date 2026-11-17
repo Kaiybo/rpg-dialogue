@@ -109,6 +109,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I count the boats back every evening, and when one comes back short, I'd be glad of someone who knows the words." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my docks. Mind the third plank from the end, because it doesn't care how holy you are." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my docks. Mind your step on the boards, and keep your pet away from the boats, because the fishermen are jumpy enough with the murlocs about." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Murloc", min = 30 } }, text = "The fishermen tell me the murlocs on the north shore are fewer than they were, and somebody's been leaving them on the rocks. I'll count that in my ledger as a good week." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'd say the tide's out, but it's a lake, so nothing's ever out. Ask away." },

@@ -110,6 +110,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be quiet, then, and you'll get into the vineyard without them hearing, which is more than the recruits manage." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, out here among the vines? If you can talk to grapes, tell them I'm coming back for them once the Defias are gone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you burn out the Defias in my vineyard? Only, leave the grapes, if you can manage it." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Defias", min = 20 } }, text = "The Defias in my vineyard have gone quiet these last days, and I hear it's your doing. I'd sleep easier if you kept at it until there's none left to pick my grapes." },
       },
       again = {
         { id = "h_again", text = "What else? You can talk while I sort these." },
