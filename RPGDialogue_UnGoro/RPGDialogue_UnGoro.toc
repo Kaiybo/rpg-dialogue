@@ -19,8 +19,6 @@ npcs\larion.lua
 npcs\karna.lua
 npcs\spark_nilminer.lua
 npcs\petra.lua
-npcs\refuge_tinkers.lua
 npcs\simone.lua
 npcs\fungal_rock.lua
 npcs\refuge_goblins.lua
-npcs\ame01.lua

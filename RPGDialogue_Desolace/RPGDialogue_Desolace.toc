@@ -26,4 +26,3 @@ npcs\shadowprey_docks.lua
 npcs\nijels_point_watch.lua
 npcs\cavindra.lua
 npcs\shadowprey.lua
-npcs\nijels_ghostwalker.lua

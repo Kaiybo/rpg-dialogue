@@ -22,4 +22,3 @@ npcs\exile.lua
 npcs\wildhammer_keep.lua
 npcs\aerie_riders.lua
 npcs\revantusk_kin.lua
-npcs\hinterlands_folk.lua

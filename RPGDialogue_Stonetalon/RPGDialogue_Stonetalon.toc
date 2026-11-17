@@ -23,5 +23,3 @@ npcs\traders_forever.lua
 npcs\sun_rock_traders.lua
 npcs\sun_rock_post.lua
 npcs\peak_and_crag.lua
-npcs\malakajin.lua
-npcs\stonetalon_folk.lua

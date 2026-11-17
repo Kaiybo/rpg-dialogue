@@ -21,9 +21,7 @@ npcs\katar.lua
 npcs\tokkar.lua
 npcs\itharius.lua
 npcs\thund.lua
-npcs\stonard_trainers.lua
 npcs\stonard_traders.lua
 npcs\pelluk.lua
 npcs\swamp_west.lua
 npcs\stonard_market.lua
-npcs\stonard_trainers.lua
