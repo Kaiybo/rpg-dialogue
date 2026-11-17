@@ -9,7 +9,7 @@
 
 ## Identity
 TODO_NPC · Arnok · Valley of Spirits, Orgrimmar · Horde · Orc · First Aid Trainer
-Personality: brisk, kind, tired
+Personality: brisk, kind, tired; dry bedside humor
 Speech: practical, patches grunts
 Knows and cares about: first aid, training-yard wounds
 Relationships: Overlord Runthak (petitioned)
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: Has asked Runthak to make first aid mandatory; the axe-catching grunt.
+Authored, not canon: Has asked Runthak to make first aid mandatory; the axe-catching grunt. Keeps a chalk tally of every grunt patched each season (a second mark for repeat wounds; one corner is all Grezz's recruits), and looks at it before wiping it clean. Pet peeve: grunts who take a bandage off early to show the wound. Keeps a spot by the door for warriors.
 
 ## Reliability
 Reliable about their trade; opinions are their own.
