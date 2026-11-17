@@ -164,3 +164,6 @@ P:Topic { id = "southwind", keywords = { "Southwind" }, name = "Southwind Villag
 P:Topic { id = "ortell", keywords = { "Ortell" }, name = "Hermit Ortell", category = "people", learned = "Geologist Larksbane at Cenarion Hold" }
 P:Topic { id = "bronze_dragonflight", keywords = { "bronze dragonflight", "Brood of Nozdormu" }, name = "The bronze dragonflight", category = "lore", learned = "Baristolth of the Shifting Sands at Cenarion Hold, or Frankal Stonebridge at Bronzebeard's camp" }
 P:Topic { id = "cthun", keywords = { "C'Thun" }, name = "C'Thun", category = "threats", learned = "Commander Mar'alith, after Hive'Regal" }
+
+-- Battleground emissaries (0.78.0)
+P:Topic { id = "ashenvale", name = "Ashenvale", category = "places", learned = "the Warsong Gulch emissaries" }

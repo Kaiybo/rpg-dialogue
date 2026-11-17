@@ -20,7 +20,35 @@ local function refreshUI()
   if UI.AskAbout.IsShown() then UI.AskAbout.Style() end
 end
 
-local LEFT, CONTROL_X, WIDTH = 16, 320, 600
+local LEFT, CONTROL_X, WIDTH, BUTTON_W = 16, 330, 640, 280
+
+-- Long choice names are cut with "..." on the button; the full name shows on hover.
+local function fitButton(b)
+  local fs = b:GetFontString()
+  if fs then
+    fs:SetWidth(b:GetWidth() - 16)
+    if fs.SetWordWrap then fs:SetWordWrap(false) end
+  end
+  b:SetScript("OnEnter", function(self)
+    local f = self:GetFontString()
+    if f and (not f.IsTruncated or f:IsTruncated()) then
+      GameTooltip:SetOwner(self, "ANCHOR_TOP")
+      GameTooltip:SetText(f:GetText(), 1, 1, 1, 1, true)
+      GameTooltip:Show()
+    end
+  end)
+  b:SetScript("OnLeave", function() GameTooltip:Hide() end)
+end
+
+-- The label to the left of a button or slider row.
+local function rowLabel(text, indent)
+  local fs = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  fs:SetPoint("TOPLEFT", LEFT + 4 + (indent or 0), y - 4)
+  fs:SetWidth(CONTROL_X - LEFT - 16 - (indent or 0))
+  fs:SetJustifyH("LEFT")
+  fs:SetText(text)
+  return fs
+end
 
 -- Sub-options are greyed out while the option they belong to is off.
 local function setEnabled(c, on)
@@ -38,7 +66,7 @@ local function refreshDeps()
 end
 
 local function header(text)
-  y = y - 10
+  y = y - 18
   local fs = content:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
   fs:SetPoint("TOPLEFT", LEFT, y)
   fs:SetText(text)
@@ -46,8 +74,8 @@ local function header(text)
   line:SetHeight(1)
   line:SetPoint("TOPLEFT", LEFT, y - 22)
   line:SetPoint("TOPRIGHT", content, "TOPLEFT", WIDTH - 20, y - 22)
-  line:SetColorTexture(1, 0.82, 0, 0.25)
-  y = y - 32
+  line:SetColorTexture(1, 0.82, 0, 0.35)
+  y = y - 34
 end
 
 local function note(text, indent)
@@ -72,10 +100,12 @@ local function checkbox(label, key, opts)
   b:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight", "ADD")
   b:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
   b.label = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  b.label:SetPoint("LEFT", b, "RIGHT", 4, 0)
+  b.label:SetPoint("TOPLEFT", b, "TOPRIGHT", 4, -5)
   b.label:SetWidth(WIDTH - 60 - indent)
   b.label:SetJustifyH("LEFT")
   b.label:SetText(label)
+  -- Clicking the words ticks the box too.
+  b:SetHitRectInsets(0, -math.min(b.label:GetStringWidth() or 0, WIDTH - 60 - indent) - 4, 0, 0)
   b:SetScript("OnClick", function(self)
     s()[key] = self:GetChecked() and true or false
     if opts.onChange then opts.onChange(s()[key]) end
@@ -86,7 +116,7 @@ local function checkbox(label, key, opts)
   b.dependsOn = opts.dependsOn
   controls[#controls + 1] = b
   local h = b.label:GetStringHeight() or 14
-  y = y - math.max(26, h + 10)
+  y = y - math.max(26, h + 12)
   return b
 end
 
@@ -96,14 +126,10 @@ local function slider(label, key, min, max, step, show, opts)
   opts = opts or {}
   local indent = opts.dependsOn and 20 or 0
   local sl = CreateFrame("Slider", nil, content)
-  sl.label = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  sl.label:SetPoint("TOPLEFT", LEFT + 4 + indent, y - 2)
-  sl.label:SetWidth(CONTROL_X - LEFT - 12 - indent)
-  sl.label:SetJustifyH("LEFT")
-  sl.label:SetText(label)
+  sl.label = rowLabel(label, indent)
   sl:SetOrientation("HORIZONTAL")
-  sl:SetSize(190, 16)
-  sl:SetPoint("TOPLEFT", CONTROL_X, y)
+  sl:SetSize(BUTTON_W - 60, 16)
+  sl:SetPoint("TOPLEFT", CONTROL_X + 4, y - 2)
   sl:SetMinMaxValues(min, max)
   sl:SetValueStep(step)
   sl:SetObeyStepOnDrag(true)
@@ -112,7 +138,8 @@ local function slider(label, key, min, max, step, show, opts)
   track:SetPoint("LEFT"); track:SetPoint("RIGHT"); track:SetHeight(6)
   track:SetColorTexture(0.3, 0.3, 0.3, 0.8)
   sl.value = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  sl.value:SetPoint("LEFT", sl, "RIGHT", 10, 0)
+  sl.value:SetPoint("LEFT", sl, "RIGHT", 12, 0)
+  sl.value:SetTextColor(1, 0.82, 0)
   local function text(v) sl.value:SetText(show and show(v) or tostring(v)) end
   sl:SetScript("OnValueChanged", function(_, v)
     v = math.floor(v / step + 0.5) * step
@@ -135,22 +162,24 @@ local function seconds(v) return string.format("%d s", v) end
 -- A font picker: a button that cycles through the fonts, and a sample line underneath
 -- in the chosen font.
 local function fontPicker(label, key, kind)
-  local text = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  text:SetPoint("TOPLEFT", LEFT + 4, y - 4)
-  text:SetText(label)
+  rowLabel(label)
   local choices = UI.Theme.FontChoices(kind)
   local b = CreateFrame("Button", nil, content, C.Template("button"))
-  b:SetSize(240, 22)
+  b:SetSize(BUTTON_W, 22)
   b:SetPoint("TOPLEFT", CONTROL_X, y)
+  fitButton(b)
+  -- A sample in the chosen font, on its own line under the row so it never runs into the next one.
   local sample = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  sample:SetPoint("TOPLEFT", CONTROL_X + 4, y - 26)
-  sample:SetWidth(WIDTH - CONTROL_X - 10)
+  sample:SetPoint("TOPLEFT", LEFT + 24, y - 28)
+  sample:SetWidth(WIDTH - LEFT - 40)
   sample:SetJustifyH("LEFT")
+  if sample.SetWordWrap then sample:SetWordWrap(false) end
   local function show()
     local cur = s()[key]
     for _, c in ipairs(choices) do if c.id == cur then b:SetText(c.label) end end
     UI.Theme.SetFont(sample, kind, 15)
     sample:SetText(kind == "name" and "Melika Isenstrider" or L.FONT_PREVIEW)
+    sample:SetTextColor(0.9, 0.85, 0.7)
   end
   b:SetScript("OnClick", function()
     local idx = 0
@@ -161,21 +190,18 @@ local function fontPicker(label, key, kind)
   end)
   b.refresh = show
   controls[#controls + 1] = b
-  y = y - 52
+  y = y - 58
   return b
 end
 
 -- A button that cycles through values (instead of a dropdown).
 local function cycle(label, key, values, labels, opts)
   opts = opts or {}
-  local text = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-  text:SetPoint("TOPLEFT", LEFT + 4, y - 4)
-  text:SetWidth(CONTROL_X - LEFT - 12)
-  text:SetJustifyH("LEFT")
-  text:SetText(label)
+  rowLabel(label)
   local b = CreateFrame("Button", nil, content, C.Template("button"))
-  b:SetSize(240, 22)
+  b:SetSize(BUTTON_W, 22)
   b:SetPoint("TOPLEFT", CONTROL_X, y)
+  fitButton(b)
   local function show()
     for i, v in ipairs(values) do if v == s()[key] then b:SetText(labels[i]) end end
   end
@@ -189,7 +215,20 @@ local function cycle(label, key, values, labels, opts)
   end)
   b.refresh = show
   controls[#controls + 1] = b
-  y = y - 28
+  y = y - 30
+  return b
+end
+
+-- A labelled row with one action button in the control column.
+local function buttonRow(label, text, func, indent)
+  rowLabel(label, indent)
+  local b = CreateFrame("Button", nil, content, C.Template("button"))
+  b:SetSize(BUTTON_W, 22)
+  b:SetPoint("TOPLEFT", CONTROL_X, y)
+  b:SetText(text)
+  fitButton(b)
+  b:SetScript("OnClick", func)
+  y = y - 30
   return b
 end
 
@@ -210,6 +249,10 @@ end
 local function build()
   panel = CreateFrame("Frame")
   panel.name = L.ADDON_NAME
+  -- Some clients draw the options canvas see-through; a dark wash keeps the text readable.
+  local bg = panel:CreateTexture(nil, "BACKGROUND")
+  bg:SetAllPoints()
+  bg:SetColorTexture(0, 0, 0, 0.55)
   local scroll = CreateFrame("ScrollFrame", nil, panel, C.Template("scroll"))
   scroll:SetPoint("TOPLEFT", 4, -8)
   scroll:SetPoint("BOTTOMRIGHT", -28, 8)
@@ -221,7 +264,12 @@ local function build()
   local title = content:CreateFontString(nil, "OVERLAY", "GameFontNormalHuge")
   title:SetPoint("TOPLEFT", LEFT, y)
   title:SetText(L.ADDON_NAME .. "  |cff8a8a8a" .. ns.VERSION .. "|r")
-  y = y - 34
+  y = y - 30
+  local sub = content:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+  sub:SetPoint("TOPLEFT", LEFT + 2, y)
+  sub:SetTextColor(0.7, 0.7, 0.7)
+  sub:SetText(L.OPT_SUBTITLE)
+  y = y - 22
   actions({
     { text = L.OPT_OPEN_JOURNAL, func = function() if ns.Journal and ns.Journal.Toggle then ns.Journal.Toggle() end end },
     { text = L.OPT_RESET_BUTTON, width = 220, func = function() ns.UI.Launcher.ResetPosition() end },
@@ -245,17 +293,8 @@ local function build()
   fontPicker(L.OPT_FONT_TEXT, "fontBody", "body")
   fontPicker(L.OPT_FONT_NAME, "fontName", "name")
   checkbox(L.OPT_CONTRAST, "highContrast")
-  do -- Put a dragged conversation box back where it opens by default (0.61.0).
-    local t = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-    t:SetPoint("TOPLEFT", LEFT + 4, y - 4)
-    t:SetText(L.OPT_RESET_POS_LABEL)
-    local b = CreateFrame("Button", nil, content, C.Template("button"))
-    b:SetSize(240, 22)
-    b:SetPoint("TOPLEFT", CONTROL_X, y)
-    b:SetText(L.OPT_RESET_POS)
-    b:SetScript("OnClick", function() UI.Dialogue.ResetPosition() end)
-    y = y - 28
-  end
+  -- Put a dragged conversation box back where it opens by default (0.61.0).
+  buttonRow(L.OPT_RESET_POS_LABEL, L.OPT_RESET_POS, function() UI.Dialogue.ResetPosition() end)
 
   -- Reading: how the text arrives.
   header(L.OPT_HEADER_ACCESS)
@@ -270,17 +309,8 @@ local function build()
     note(L.OPT_TTS_MISSING, 20)
   else
     checkbox(L.OPT_TTS_QUESTS, "ttsQuests", { dependsOn = "tts" })
-    do -- Hear the voices now; voice, speed and volume are the game's own TTS options.
-      local t = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-      t:SetPoint("TOPLEFT", LEFT + 24, y - 4)
-      t:SetText(L.OPT_TTS_TEST_LABEL)
-      local b = CreateFrame("Button", nil, content, C.Template("button"))
-      b:SetSize(240, 22)
-      b:SetPoint("TOPLEFT", CONTROL_X, y)
-      b:SetText(L.OPT_TTS_TEST)
-      b:SetScript("OnClick", function() ns.Slash.Handle("tts") end)
-      y = y - 28
-    end
+    -- Hear the voices now; voice, speed and volume are the game's own TTS options.
+    buttonRow(L.OPT_TTS_TEST_LABEL, L.OPT_TTS_TEST, function() ns.Slash.Handle("tts") end, 20)
     note(L.OPT_TTS_NOTE, 20)
   end
   checkbox(L.OPT_GAMEPAD, "gamepad")
@@ -324,25 +354,39 @@ local function build()
 
   header(L.OPT_HEADER_PACKS)
   note(L.OPT_PACKS_NOTE)
-  for _, p in ipairs(ns.Packs.List()) do
+  -- Two columns: fifty packs in one column made a very long page.
+  local packs = ns.Packs.List()
+  local half = math.ceil(#packs / 2)
+  local colW = math.floor((WIDTH - LEFT - 20) / 2)
+  local top = y
+  for i, p in ipairs(packs) do
     local id = p.id
+    local col = i > half and 1 or 0
+    local row = col == 1 and i - half - 1 or i - 1
     local b = CreateFrame("CheckButton", nil, content)
     b:SetSize(22, 22)
-    b:SetPoint("TOPLEFT", LEFT, y)
+    b:SetPoint("TOPLEFT", LEFT + col * colW, top - row * 24)
     b:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
     b:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+    b:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight", "ADD")
     local label = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
     label:SetPoint("LEFT", b, "RIGHT", 4, 0)
-    label:SetText(p.title .. (p.version and (" |cff8a8a8a" .. tostring(p.version) .. "|r") or "")
+    label:SetWidth(colW - 30)
+    label:SetJustifyH("LEFT")
+    if label.SetWordWrap then label:SetWordWrap(false) end
+    -- "RPG Dialogue: " on every line is noise under a "Content packs" heading.
+    local name = (p.title or id):gsub("^RPG Dialogue:%s*", "")
+    label:SetText(name .. (p.version and (" |cff8a8a8a" .. tostring(p.version) .. "|r") or "")
       .. (p.refused and (" |cffff4040(" .. L.PACK_REFUSED .. ")|r") or "")
       .. (#p.missing > 0 and (" (" .. L.PACK_NEEDS:format(table.concat(p.missing, ", ")) .. ")") or ""))
     b:SetScript("OnClick", function(self)
       if self:GetChecked() then s().packs[id] = nil else s().packs[id] = false end
     end)
+    b:SetHitRectInsets(0, -math.min(label:GetStringWidth() or 0, colW - 30) - 4, 0, 0)
     b.refresh = function() b:SetChecked(s().packs[id] ~= false) end
     controls[#controls + 1] = b
-    y = y - 24
   end
+  y = top - half * 24
 
   header(L.OPT_HEADER_DEV)
   checkbox(L.OPT_DEV, "dev")

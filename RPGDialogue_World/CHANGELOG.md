@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.35.0 (2026-11-17)
+- New: conversations for the battleground emissaries in the capitals (Silverwing, Warsong, League of Arathor, Defilers, Stormpike, Frostwolf, the Alliance Brigadier General and the Horde Warbringer), in `emissaries/`. New topic: Ashenvale. **New files: restart the game fully.**
+- Sentinel guards (Darnassus and the night elf towns of Kalimdor) get their own conversation tree instead of the human watch's.
+
 ## 1.34.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 
