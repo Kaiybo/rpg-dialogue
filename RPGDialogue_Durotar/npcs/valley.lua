@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "A few trolls each season, and the odd Forsaken who walked a long way to get here. They're quieter than the orcs and they take longer to settle, but by the time they leave the valley the grunts are asking for them by name." } },
+      choices = {
+        { text = "I'll earn that name, Kaltunk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I don't need the grunts' approval to do my work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a mottled boar will knock you flat if you stand wrong, and that's the first lesson every warrior needs. Gornek will put you to work, and once the boars stop knocking you over, the scorpids and the Burning Blade in the caves will teach you the rest." } },
@@ -78,6 +87,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, walking into the valley like everyone else. I'll send you to Gornek the same as the rest, but I'm glad you came." },
         { id = "h_default", key = true,
           text = "I'm Kaltunk, and every recruit who walks into this valley starts with me. I send you to Gornek in the Den, and he sends you to work." },
         { id = "h_place", tags = { "news" }, when = { questActive = TODO_QUEST("Your Place In The World") },
@@ -90,6 +100,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, new to the valley. You'll walk alone for now, but the day will come when a beast walks with you, and you'll wonder how you managed without it." },
       },
       choices = {
+        { text = "Are there many priests among the recruits, Kaltunk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What was it like when the orcs had no shamans?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did you come to Durotar?", next = "came" },
         { text = "What happens in the valley?", next = "valley" },
@@ -167,6 +178,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "The same as everyone, which is getting back up after you're knocked down, and helping the next one up after you. A priest who can do both will never want for friends in the Horde, though Frang will still shout at you." } },
+      choices = {
+        { text = "Then I'll help the next one up, every time.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll get up myself. Others can manage on their own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = {
@@ -189,6 +209,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Den makes Horde out of whatever walks in, and I'll be glad when what walks in can mend the rest of them." },
         { id = "h_default", key = true,
           text = "I'm Gornek, and I run the Den. The Valley of Trials makes Horde out of whatever walks in, though some days that takes longer than others." },
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Wayward Weapons") },
@@ -201,6 +222,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Rogue. Every season I get a few who think the Den's for warriors only, and every season they prove me wrong somewhere in the scrub." },
       },
       choices = {
+        { text = "What does the Den expect from a priest, Gornek?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What should a young shaman prove to you, Gornek?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do I need to prove?", next = "prove" },
         { text = "Teach me to fight, then. That's what I came for.", next = "warrior", when = { class = "WARRIOR" } },
@@ -306,6 +328,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Prayer alone won't, but a priest who keeps the recruits alive while they burn out the caves will do more than any prayer. I've watched too many young ones die in that smoke, so if you're going north, keep them breathing." } },
+      choices = {
+        { text = "Then I'll keep them breathing until the caves are clean.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The weak ones die in the smoke. That's the valley's way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Cultists, imps and Yarrog Baneshadow, if I'm right about who leads them, and I usually am. They chant over their fires and call imps in the dark, so go in with your blade ready, and don't let any of them finish a spell." } },
@@ -351,6 +382,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Burning Blade want the old fire back, the one that nearly burned us down, and I'd like to see what your prayers make of that." },
         { id = "h_default", key = true,
           text = "I'm Zureetha Fargaze. The Burning Blade have taken the caves to the north and they're spilling into the valley, so I watch them, and I send recruits to thin them." },
         { id = "h_familiars", when = { questActive = TODO_QUEST("Vile Familiars") },
@@ -365,6 +397,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, with sharp eyes, I hope. I've watched those caves for days, and I could use someone who notices what I've missed." },
       },
       choices = {
+        { text = "Can prayer stand against the Burning Blade's fire, Zureetha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Who are the Burning Blade?", next = "blade" },
         { text = "You draw on the same power the Blade do, don't you?", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The spirits here feel sick near those caves.", next = "shaman", when = { class = "SHAMAN" } },
@@ -442,6 +475,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "If it gets them gathering lumber, you can pray over them all day. Mind you, they'd probably sleep through it, because I once watched one nap through a scorpid crawling up his back, and honestly I was almost proud of him." } },
+      choices = {
+        { text = "Let them rest, Foreman. Tired hands make poor work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Work comes first. Wake them, and I'll pray after.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -487,6 +529,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You wouldn't happen to know a prayer for waking up lazy peons, would you, because I've tried everything else." },
         { id = "h_default", key = true,
           text = "I'm Foreman Thazz'ril. My peons are meant to be gathering lumber, but mostly they're gathering naps." },
         { id = "h_lazy", tags = { "news" }, when = { questActive = TODO_QUEST("Lazy Peons") },
@@ -500,6 +543,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, eh? If your beast could wake a sleeping peon, I'd hire it on the spot." },
       },
       choices = {
+        { text = "Should I pray over your sleeping peons, Foreman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shouldn't the spirits be called for better things than peons?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why not let them rest?", next = "rest" },
         { text = "I know a few things about blackjacks, Foreman.", next = "rogue", when = { class = "ROGUE" } },
@@ -557,6 +601,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They eat the same, but they complain less, which is a blessing of its own. The trolls always say a word over their bowls, and I've started saying one over the pot too, though I'd thank you not to tell Gornek." } },
+      choices = {
+        { text = "A blessing honours the food and the cook, Galgar.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Food is food. A prayer won't make it taste better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Scorpid meat, boar ribs and whatever the recruits bring back that isn't too charred to eat. A warrior who fights on an empty belly fights badly, so every one of Gornek's grunts gets a bowl before he goes out, whether he thanks me or not." } },
@@ -599,6 +652,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my fire! Bless the pot if you like; it could use the help, and so could the scorpid tails." },
         { id = "h_default", key = true,
           text = "I'm Galgar, and I feed the Den: recruits, grunts and peons alike. Nobody thanks the cook, but everybody notices when the pot's empty." },
         { id = "h_apples", tags = { "news" }, when = { questActive = TODO_QUEST("Galgar's Cactus Apple Surprise") },
@@ -610,6 +664,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll eat twice what a hunter does and complain half as much, which makes you my favourite kind of customer." },
       },
       choices = {
+        { text = "Do the recruits eat better after a priest blesses the food?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you ever thank the fire spirits for your cookfire?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Where did you learn to cook?", next = "cook" },
         { text = "What's the surprise?", next = "surprise" },
@@ -673,6 +728,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Everyone asks that, and the answer's no, because a discount for one is a discount for all. That said, a healer who's kept my customers alive has kept my trade alive, so I'll throw in a strap for your mace and call it even." } },
+      choices = {
+        { text = "A fair price is fair to everyone. I'll pay it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Healers deserve better than your fair price, Kzan.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -718,6 +782,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I'll sell you a mace, and I'll charge you for it, because the Light or the loa don't pay my rent." },
         { id = "h_default", key = true,
           text = "I'm Kzan Thornslash, and I keep the recruits armed while they keep dropping their weapons in the scrub. One of those jobs is harder than the other." },
         { id = "h_weapons", tags = { "news" }, when = { questActive = TODO_QUEST("Wayward Weapons") },
@@ -729,6 +794,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Keep your arrows in the quiver and your beast out of my stock, and we'll get along fine." },
       },
       choices = {
+        { text = "Do you ever give the healers a better price, Kzan?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do shamans bring you many weapons to mend?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What should a warrior carry out of this valley?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you sell anything for a rogue's hand?", next = "rogue", when = { class = "ROGUE" } },
