@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.20.0 (2026-11-17)
+- Zureetha and Orgnil react to the new story "The Burning Blade's long reach".
+
 ## 1.19.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

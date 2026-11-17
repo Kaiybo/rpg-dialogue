@@ -2054,6 +2054,8 @@ P:NPC {
         { id = "h_default", text = "The name's Mikhail. I used to work in Stormwind, and now I keep a bar I don't sell from, in a town where nothing happens. I like it that way, mostly." },
         { id = "h_diplomat", tags = { "news" }, when = { questActive = TODO_QUEST("The Missing Diplomat") },
           text = "Elling's business? Then it's serious, and it's quiet. Lean in. And if things get lively in here, step back and give it a moment." },
+        { id = "h_md_resolved", tags = { "news" }, when = { thread = { id = "missing_diplomat", state = "resolved" } },
+          text = "Elling wrote to me, which he never does, to say you followed that business all the way to Theramore. Most of the men I used to work with would have stopped at Menethil and called it a day." },
         { id = "h_elling", when = { heardLine = "elling.h_default" },
           text = "So Elling's found you, and his cheese. How is he? Don't tell him I asked. He'd take it as an invitation." },
         { id = "h_night", when = { timeOfDay = "night" },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.0 (2026-11-17)
+- Longhorn reacts to the new story "The Grimtotem in the hills".
+
 ## 1.26.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 
