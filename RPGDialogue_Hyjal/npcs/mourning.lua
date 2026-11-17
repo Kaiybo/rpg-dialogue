@@ -193,6 +193,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "I have circled this mountain since before your kingdoms had names. My story is mostly lunch." } },
     advice = { { id = "tp_ad", text = "Do not let the wailers get close. Even I find their crying hard to bear, and I have heard every sound a dying thing can make." } },
     burning_legion = { { id = "tp_bl", text = "Demons rot badly. Even I will not touch them, and I will touch almost anything." } },
+    scourge = {
+      { id = "tp_scourge", text = "The Scourge are a blight on the cycle, little meat, things that should be lying down to feed the rest of us and refuse. I find them offensive on a professional level." },
+      { id = "tp_scourge2", when = { race = "Scourge" }, text = "You know what I think of things that walk when they ought to be eaten, little meat. Keep your distance, and I'll keep my appetite to myself." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "They call themselves free, and perhaps they are, but they still walk, and they still will not lie down and rot properly. I've no patience for meals with opinions." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The great tree has stood longer than I've circled, and I've circled a very long time. Everything dies eventually, little meat, but that one is taking its time." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "A necromancer who keeps the dead from dying properly. If I ever find him, little meat, I'll show him how the cycle is supposed to end." } },
     _none = { { id = "tp_none", text = "If it is not dead, I do not much care about it, little meat." } },
   },
 }

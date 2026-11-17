@@ -156,6 +156,10 @@ P:NPC {
     fel_moss = { { id = "tp_felmoss", text = "I don't know that the moss on the timberlings and the fel moss on the Gnarlpine are the same thing, but I'd bet my seeds on it." } },
     teldrassil = { { id = "tp_tree", text = "It's young, for a world tree, and young things catch sicknesses. That's what I tell myself, anyway." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle tends the whole world's balance. I tend one lake's worth of timberlings, and some days that feels like too much." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I've walked the edges of the Dream a few times, and every seed there grows the way it was meant to. Then I wake and go back to fel moss, and I try not to resent it." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's flight sleeps beneath the great trees in Ashenvale and Feralas and the human lands. The ground around those trees grows strange lately, and I don't like it." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil grew from the Well's waters and Teldrassil grew from Fandral's will. I've kept seeds from both, and I'll let you guess which ones sprout more willingly." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the only furbolgs left untouched by the corruption, and they guard their tunnels in Felwood fiercely. Bring them clean seeds and they'll speak with you." } },
     _none = { { id = "tp_none", text = "I'm afraid that's outside my seed beds, friend. Ask someone at the Enclave." } },
   },
 }

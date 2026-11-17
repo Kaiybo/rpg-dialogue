@@ -156,6 +156,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "An herbalist with a healer's habits. I've spent more years kneeling in leaf litter than standing up, and I don't regret it." } },
     advice = { { id = "tp_ad", text = "Never pick a plant you can't name, friend. Ashenvale is generous, but it isn't always kind." } },
     sentinels = { { id = "tp_sentinels", text = "Brave, all of them, and too few. Bring them your bandages if you've any to spare." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune while I work, mostly for patience with the roots. She seems to answer that prayer more than others." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids tell me herbs in the Dream grow without blight. I'd like to see that, though I doubt I'd ever want to come back." } },
+    green_dragons = { { id = "tp_green_dragons", text = "There's a grove south of here where a green dragon sleeps, and the herbs there grow strangely. I gather near it carefully, and I don't stay long." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss creeps into the wrong places and kills what it touches. I pull it out where I can, and wash my hands three times after." } },
     _none = { { id = "tp_none", text = "That's beyond my herb bag, friend. Ask in Astranaar." } },
   },
 }

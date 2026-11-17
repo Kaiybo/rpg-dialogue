@@ -129,6 +129,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I tend green things. On this mountain, that mostly means killing them." } },
     advice = { { id = "tp_ad", text = "Never sit down on a slope you haven't looked at first." } },
     burning_legion = { { id = "tp_bl", text = "They've been gone for years, and I'm still pulling up what they left behind." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil's roots run through this whole mountain, and the poisoned growth reaches for them. I cut what reaches, because cutting is how this mountain heals." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream shows this mountain clean and green, the druids tell me. I keep that picture in my head while I cut, and it helps." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is a smaller cousin of what grows here. Burn it, never compost it, and never touch it with bare hands." } },
     _none = { { id = "tp_none", text = "Couldn't say. Ask me about weeds, and I'll talk all day." } },
   },
 }
@@ -241,6 +244,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Darkspear, born on da islands, now freezin' on a mountain. Life be funny dat way, mon." } },
     advice = { { id = "tp_ad", text = "Keep ya quiver full an' ya back ta da fire. Dat be all da wisdom I got." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be our chieftain, mon, and he don't send his Darkspear anywhere for nothin'. If he says freeze on a mountain, I freeze on a mountain." } },
+    thrall = { { id = "tp_thrall", text = "Thrall saved de Darkspear when de sea witch and de murlocs nearly finished us. I owe him, even if I be owin' him from up here in de snow." } },
+    echo_isles = { { id = "tp_echo_isles", text = "I miss da Echo Isles, mon, da warm water and da sun on my back. Up here, my back don't even remember what sun be." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Hakkar's people be stirrin' in Zul'Gurub, de Darkspear say. Dat be a bad thing, and I be glad I'm up here away from it." } },
+    scourge = { { id = "tp_scourge", text = "De dead came up dis mountain in de war, de old ones say. If dey come again, I be ready, mon, though I'd rather be warm when I do it." } },
     _none = { { id = "tp_none", text = "Don't know nothin' 'bout dat, mon. Ask somebody wit' more time ta think." } },
   },
 }

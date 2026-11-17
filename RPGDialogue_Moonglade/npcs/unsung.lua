@@ -194,6 +194,9 @@ P:NPC {
     cenarion_circle = { { id = "tp_cc", text = "The Circle keeps Moonglade for every druid, whoever they march with outside. I only keep the shop." } },
     background = { { id = "tp_bg", text = "I sell supplies in Nighthaven. I came chasing a druid, he took up with a bear, and I stayed anyway." } },
     advice = { { id = "tp_ad", text = "If you take the road through Felwood, keep to the Timbermaw tunnels and say nothing rude to the furbolgs." } },
+    timbermaw = { { id = "tp_timbermaw", text = "I came in through the Timbermaw tunnels the first time, chasing a druid. The furbolgs found it very funny, and they still laugh when they see me." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "My druid fell asleep for a week once and came back talking about the Dream. Then he took up with a bear, and I stopped asking about his dreams." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I'd go to the Darkmoon Faire if I weren't stuck selling rope in a druid glade. Some days I think about it very seriously." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Rabine Saturna might; he knows most things that happen in the grove." } },
   },
 }
@@ -376,6 +379,9 @@ P:NPC {
   topics = {
     malfurion = { { id = "tp_mal", text = "The Shan'do sleeps in the Dream, they say. I hope his dreams are gentler than mine." } },
     background = { { id = "tp_bg", text = "I tend the herbs of Nighthaven. I came to study them, and they've been studying me ever since." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The herbs here grow as though the Dream were just below the soil. I'm beginning to suspect it is." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Felwood's moss creeps toward the passes now and then, and I burn every patch I find. The glade will not have it." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw know the herbs of Felwood better than anyone alive. They've traded me seeds I couldn't find in any book." } },
     _none = { { id = "tp_none", text = "I don't know, but if you ask the plants, perhaps they'll tell you. They tell me things sometimes." } },
   },
 }
@@ -556,6 +562,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I sell bows in Nighthaven. I used to be a Sentinel, and I still like to see people leave well armed." } },
     advice = { { id = "tp_ad", text = "In Felwood, don't drink from anything green. You'll thank me." } },
+    thrall = { { id = "tp_thrall", text = "I fought orcs in Ashenvale when I was a Sentinel, and I don't forget the faces. Here, they're guests, and I sell them bows." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw use short bows, rough-cut but true. I've traded with them, and I'd trust their aim over mine." } },
+    centaur = { { id = "tp_centaur", text = "Centaur bows are strong, I hear, and their archers stronger. I'd rather not find out from the wrong end." } },
     _none = { { id = "tp_none", text = "I don't know. I sell bows; that's my whole wisdom." } },
   },
 }

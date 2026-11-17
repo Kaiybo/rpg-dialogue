@@ -237,6 +237,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't cross Lake Iris at night without a lantern, because the Sentinels on the bridge shoot first at shadows." } },
     sentinels = { { id = "tp_sent", text = "We answer to the High Priestess, and we stand where the forest needs us, which lately is everywhere." } },
     warsong = { { id = "tp_warsong", text = "The orcs' lumber camps are east of here, and every tree they fell is one we will not see grow again." } },
+    thrall = { { id = "tp_thrall", text = "Thrall's orcs fought beside us at Hyjal, and now they cut our forest. I don't know what that makes them, but it doesn't make them friends." } },
+    elune = { { id = "tp_elune", text = "Every Sentinel keeps a prayer to Elune ready before a watch. Mine is short and to the point, like me." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The drowned temple is cultist ground now, and naga ground. I've watched good Sentinels walk in there and fewer walk out." } },
+    centaur = { { id = "tp_centaur", text = "The southern patrols meet centaur from the Barrens. They're fast and hard to frighten, and we don't try." } },
     _none = { { id = "tp_none", text = "That is not a Sentinel's business. Ask Raene, or the innkeeper; between them they hear everything." } },
   },
 }
@@ -417,6 +421,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I raise hippogryphs and fly them where Astranaar needs them. That keeps me busy enough." } },
     advice = { { id = "tp_ad", text = "If you're flying east, keep your head down and let the bird do the thinking." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's too far for my birds, all the way across the Barrens. I send folk to the ships at Auberdine instead." } },
+    nordrassil = { { id = "tp_nordrassil", text = "My birds still turn north toward Hyjal on clear days. They know where the first tree is, even if they've never seen it." } },
+    everlook = { { id = "tp_everlook", text = "I've flown a druid to Everlook once, and my bird came back with ice in its feathers. Never again, I told her." } },
     _none = { { id = "tp_none", text = "I keep birds, not answers. Kimlya at the inn hears more than I do." } },
   },
 }

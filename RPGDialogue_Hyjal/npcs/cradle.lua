@@ -257,6 +257,16 @@ P:NPC {
     burning_legion = { { id = "tp_bl", text = "They are patient, and they are not finished. The ones hiding in Dae'gun are the least of them." } },
     highborne = { { id = "tp_hb", text = "Their hunger for magic called the Legion here the first time. I see little reason to admire them." } },
     malfurion = { { id = "tp_malf", text = "The Shan'do called the wisps and saved us all. He would not want me here, I think; he has never forgiven anyone who walked his brother's road." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil stood when the Legion came, and it still stands, scarred to the heartwood. I stood beneath it that night, and I do not go up to look at it now." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge marched before Archimonde on this mountain, and they died here in their thousands. Their master is still in the north, and he has not forgotten what he lost at Hyjal." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad is the lich who called Archimonde into this world at Dalaran, and the mountain paid for it. He leads the plague from Naxxramas now, and I would very much like to finish what Hyjal began." } },
+    tyrande = {
+      { id = "tp_tyrande", text = "The High Priestess does not trust me, and she is right not to. I would rather be distrusted by her than trusted by most." },
+      { id = "tp_tyrande2", when = { race = "NightElf" }, text = "Your Sentinels watch me as though I might turn at any moment, sister. Tell your High Priestess that I have not turned yet." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "The banshee queen of the Forsaken was once the Ranger-General of Quel'Thalas, and the Scourge made her what she is. I know something of being changed into a weapon, so I watch her closely." } },
+    thrall = { { id = "tp_thrall", text = "The orcs fought beside us on this mountain because Thrall chose to bring them. Whatever they are doing in Ashenvale now, that choice was made, and it held." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids look to the Dream for answers, and I look to the ground for demons. I find mine more often." } },
     _none = { { id = "tp_none", text = "I do not know, and if it is not a demon, I likely do not care." } },
   },
 }
@@ -370,6 +380,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I am old, and I am a raven, and I watch. That is all the history a raven needs." } },
     burning_legion = { { id = "tp_bl", text = "They came twice to this mountain. I would prefer they did not come a third time." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The great tree remembers, little one, and so do I. The songs say it was saved, but the songs never tell you what it cost." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is the green behind your eyelids, little one, and the ravens fly there too. Something nests in its far corners now that was not there before." } },
+    scourge = { { id = "tp_scourge", text = "The dead came up the mountain once, and they fed the ground for years after. The ravens remember them as a feast, little one, and the mountain remembers them as a wound." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children and I have known one another a long time, little one. They have stopped visiting, and I have stopped asking why." } },
+    highborne = { { id = "tp_highborne", text = "I remember the Highborne, little one, when they were beautiful and terrible. The songs make them only terrible, which is kinder than they deserve." } },
     _none = { { id = "tp_none", text = "That is not a thing the wind has carried to me, little one." } },
   },
 }

@@ -199,6 +199,10 @@ P:NPC {
     satyrs = { { id = "tp_satyrs", text = "Most of my cousins are rude, loud and fond of fire. I'm the charming one, and you'll find I'm also the only one who talks.", next = "satyrs" } },
     fel_moss = { { id = "tp_felmoss", text = "Ugly stuff, and nothing to do with me, whatever the druids whisper. Ask the grells in Fel Rock where it comes from." } },
     teldrassil = { { id = "tp_tree", text = "A very large tree full of very proud people. I'd have chosen somewhere warmer myself." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion, the Legion, everyone's always worried about the Legion. I'm only a humble satyr with a fondness for the forest, little one, and I've no idea what you're implying." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne were such fun, little one, before your people took offence at a few small bargains. I knew one or two of them, socially, a long time ago." } },
+    elune = { { id = "tp_elune", text = "Elune and I aren't on speaking terms, little one, which is her loss. I can be very good company." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids' green dream, all leaves and naps. I've never cared for it, and I believe the feeling is mutual." } },
     _none = { { id = "tp_none", text = "Never heard of it, and if I had, you couldn't afford it." } },
   },
 }

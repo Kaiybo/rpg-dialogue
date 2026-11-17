@@ -147,6 +147,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In these woods, the arrow comes before the sound. Keep your shield up even when it's quiet." } },
     warsong = { { id = "tp_warsong", text = "Hellscream's own clan, out there cutting timber for the Horde. Somebody has to guard them, and I'd rather it was me." } },
     sentinels = { { id = "tp_sentinels", text = "Good fighters, every one, and quieter than any orc. I like them better than I should." } },
+    thrall = { { id = "tp_thrall", text = "Thrall broke the chains on my people and gave us back our honour. I raid these woods because he needs the timber, and I'd raid anywhere he asked." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elves' high priestess, and her Sentinels are the best fighters I've ever faced. I'd like to meet her across a battlefield, just once." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion used my people once, and Grom paid for our freedom with his life at Ashenvale. I'll fight the demons any day, and I'll laugh while I do it." } },
+    centaur = { { id = "tp_centaur", text = "Centaur are a good fight, all charge and fury. I'd raid them for sport if the Warchief allowed it." } },
     _none = { { id = "tp_none", text = "No idea. Ask Ertog in Splintertree; he does the thinking." } },
   },
 }

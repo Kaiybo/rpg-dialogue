@@ -190,6 +190,9 @@ P:NPC {
     furbolgs = { { id = "tp_furb", text = "The Gnarlpine used to be peaceful, but now they snarl at anyone who goes near Ban'ethil. Shoot first if they come running." } },
     background = { { id = "tp_bg", text = "I make and sell bows in Dolanaar. My hands have more splinters than skin." } },
     advice = { { id = "tp_ad", text = "Carry twice the arrows you think you need. You'll lose half of them in the undergrowth." } },
+    centaur = { { id = "tp_centaur", text = "Centaur use short horn bows, I've heard, very strong and very stubborn to draw. I'd like to get my hands on one and see what I could learn." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw make bows of their own, rough-cut but true. I traded one off a Sentinel once, and I still use it to teach." } },
+    everlook = { { id = "tp_everlook", text = "Winterspring yew is the best there is, but the goblins of Everlook sell it at prices that make my splinters ache. I buy a little anyway." } },
     _none = { { id = "tp_none", text = "I don't know about that. Ask Keldamyr at the inn; everyone talks to her." } },
   },
 }
@@ -373,6 +376,9 @@ P:NPC {
     sentinels = { { id = "tp_sent", text = "The Sentinels guard our forests and our roads, and every warrior I train might one day stand beside them." } },
     background = { { id = "tp_bg", text = "I teach the first lessons of the blade in Dolanaar. Someone has to, and I like seeing them improve." } },
     advice = { { id = "tp_ad", text = "Fight one enemy at a time when you can. Pull them apart and you can beat them all." } },
+    centaur = { { id = "tp_centaur", text = "I teach the young ones to fight what's in front of them, but some will meet centaur down south one day. Tell them from me to plant their feet and keep their shields up." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong are the reason so many of my students go to Ashenvale. I train them hard because the orcs won't be gentle." } },
+    blackfathom = { { id = "tp_blackfathom", text = "When my students are ready, Blackfathom Deeps is where they go to find out. The ones who come back walk a little taller." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. My world is drills and bruises." } },
   },
 }
@@ -561,6 +567,9 @@ P:NPC {
     furbolgs = { { id = "tp_furb", text = "The Gnarlpine have gone wild, and I treat the wounds they leave. I pray Athridas finds a cure." } },
     background = { { id = "tp_bg", text = "I teach alchemy in Dolanaar, mostly to students who taste things they shouldn't." } },
     advice = { { id = "tp_ad", text = "Keep a healing potion on your belt, not in your pack. You won't have time to dig." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is where my students learn not to taste things. The ones who don't learn it are why I keep a bucket by the door." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream's herbs are perfect, and I'd love to brew with them. I'd love even more not to fall asleep doing it." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sells potions that will kill you or cure you, and the goblins won't say which until you've paid. My students learn better than that." } },
     _none = { { id = "tp_none", text = "I don't know, I'm sorry. Perhaps someone at the inn could tell you." } },
   },
 }
@@ -742,6 +751,10 @@ P:NPC {
     teldrassil = { { id = "tp_teld", text = "The tree is young and its soil is thin. It gives freely, but it can't give forever." } },
     camping = { { id = "tp_camp", text = "Lyreena teaches the fire, and I teach the herbs that go beside it. Ask her first." } },
     background = { { id = "tp_bg", text = "I teach herbalism in Dolanaar. I've walked every glade on this tree with my eyes on the ground." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "Every herb grows true in the Dream, the druids say, with no blight and no rot. I'd like to see it, though I'd probably spend the whole visit on my knees." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss creeps in the wrong places on this tree, and I pull it up wherever I find it. Wear gloves when you do, and don't breathe it in." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw know every herb in Felwood, including the ones that grow clean in all that rot. I'd give a lot to walk their tunnels with one." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The herbs on Hyjal's slopes grow under Nordrassil's shade, and they're stronger for it. I keep a few seeds I'm afraid to plant here." } },
     _none = { { id = "tp_none", text = "That is beyond my knowledge. The forest hasn't told me." } },
   },
 }
@@ -933,6 +946,9 @@ P:NPC {
     camping = { { id = "tp_camp", text = "A leatherworker brings the tent. Without one, a camp is just a fire and wet blankets." } },
     background = { { id = "tp_bg", text = "Radnaal and I keep a house up the road from Dolanaar, and I teach leatherworking from it." } },
     advice = { { id = "tp_ad", text = "Mend your armor before it tears. A small stitch today saves a big patch tomorrow." } },
+    centaur = { { id = "tp_centaur", text = "I've seen centaur hide on a Sentinel's quiver, and it's tougher than anything we tan here. I didn't ask where she'd got it." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins pay very well for winter furs, and Radnaal sends them some each year. I write the letters, because he won't." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw tan their hides with something I've never managed to copy. Radnaal thinks it's bark, and I think it's spite." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, dear. Ask in Dolanaar; they hear more news than we do out here." } },
   },
 }
@@ -1113,6 +1129,9 @@ P:NPC {
   topics = {
     camping = { { id = "tp_camp", text = "A skinner brings hides to sit on. Ask Lyreena about the rest." } },
     background = { { id = "tp_bg", text = "I skin, and I teach skinning. Nadyia does the talking for both of us." } },
+    timbermaw = { { id = "tp_timbermaw", text = "Timbermaw skin a beast in half the cuts I use. I watched one do it once, and I still think about it." } },
+    everlook = { { id = "tp_everlook", text = "Winterspring pelts, and Everlook buys them. That's all I need to know about the place." } },
+    centaur = { { id = "tp_centaur", text = "Centaur skin what they kill and wear it. Good work, ugly people." } },
     _none = { { id = "tp_none", text = "Don't know, so ask Nadyia." } },
   },
 }
@@ -1316,6 +1335,10 @@ P:NPC {
     teldrassil = { { id = "tp_teld", text = "From down here at the roots you can't even see the top. I've never minded; the sea is more interesting." } },
     background = { { id = "tp_bg", text = "I sell fishing supplies in Rut'theran. I've traded with Auberdine for longer than I can remember." } },
     advice = { { id = "tp_ad", text = "Bring bait you're willing to lose. The fish here are smarter than they look." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is a goblin port on the far side of the world where every fishing boat is a pirate ship on its days off. I'd love to fish there once, and I'd keep my coin in my boot." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's fishermen come up the coast now and then, and they swear their marsh fish are the best in Kalimdor. I've tasted them, and they're wrong, but I let them talk." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's waters were lovely fishing once, before the temple and the cultists. Now nothing I'd want to eat comes out of there." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a goblin port on the Barrens coast, and its fishing contests are rowdy and very well paid. Laird went once and came home with a sunburn and no prize." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that. Ask me about fish, though, and I'll talk until the boat leaves." } },
   },
 }
@@ -1494,6 +1517,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I teach fishing at Rut'theran. I've sat on this dock since the first boats came over from Auberdine." } },
     advice = { { id = "tp_ad", text = "Fish in the morning, when the water's still. And don't talk; the fish can hear you." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has a fishing contest that the whole world comes to, I hear, and the goblins take a cut of every catch. I'll sit on my quiet dock and keep my fish." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's goblins pay for good fish, and they pay quickly. That's more than I can say for anyone in Auberdine." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The deep water off Ashenvale had the best fishing on the coast once. Now the nagas fish there, and they don't share." } },
     _none = { { id = "tp_none", text = "I don't know about that. I know a fair bit about fish, though, if that helps." } },
   },
 }

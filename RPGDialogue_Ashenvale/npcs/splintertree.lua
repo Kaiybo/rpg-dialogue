@@ -177,6 +177,14 @@ P:NPC {
     advice = { { id = "tp_ad", text = "When you hunt, learn your quarry first; the kill is the smallest part of it." } },
     warsong = { { id = "tp_warsong", text = "They cut what they need, and a little more. I tell them so, and they don't listen." } },
     cenarion_circle = { { id = "tp_circle", text = "The druids would weep to see this war, and some of them do. I've met a few under the trees, where neither side was looking." } },
+    earth_mother = {
+      { id = "tp_earth_mother", text = "The Earth Mother made this forest as surely as she made the plains, and she is grieving it now. I hunt here to honour what she made, and I take only what the Hunt allows." },
+      { id = "tp_earth_mother2", when = { race = "Tauren" }, text = "You hear her too, then, in the roots here, and they are weeping. Walk softly in this forest, as I try to." },
+    },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the wisest chief our people have had, and he sent many of us to stand with the Horde. I trust his judgement more than my own." } },
+    thrall = { { id = "tp_thrall", text = "Thrall gave my people a place in the Horde, and he honours the Earth Mother in his own way. I follow him gladly, though I wish his orcs cut fewer trees." } },
+    elune = { { id = "tp_elune", text = "The elves call the moon Elune, and we call her Mu'sha, the Earth Mother's left eye. I think we see the same light." } },
+    centaur = { { id = "tp_centaur", text = "The centaur are cruel to my people in the Barrens, and they always have been. I hunt them without regret." } },
     _none = { { id = "tp_none", text = "I don't know. But walk out under those trees a while, and you might find out." } },
   },
 }
@@ -353,6 +361,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I count wagons. That's my whole story, and it's a good one." } },
     advice = { { id = "tp_ad", text = "Never ride on top of the lumber wagons, because the elves shoot at those first." } },
     warsong = { { id = "tp_warsong", text = "Grom's clan. They cut what the Warchief needs, and I count it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief needs wagons, so I count wagons. He doesn't need my opinions, which suits me." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet ships the timber and Ratchet takes a cut. Goblins, they're worse than people." } },
+    centaur = { { id = "tp_centaur", text = "Centaur hit the Barrens road and the wagons don't get through. I don't like centaur, and I don't like people, but I like wagons." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I've never been to Booty Bay and I never mean to go, because I hear it's nothing but people." } },
     _none = { { id = "tp_none", text = "That's not a wagon, so it's not my problem." } },
   },
 }
@@ -516,6 +528,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I be a Darkspear far from home, watchin' trees for elves. Not much more to it than that, mon." } },
     advice = { { id = "tp_ad", text = "Listen to the birds, mon, because when they stop singin', somebody be comin'." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be our chieftain, and he brought the Darkspear out of the Broken Isles alive. I'd follow him into any forest, mon, even dis one." } },
+    thrall = { { id = "tp_thrall", text = "Thrall saved the Darkspear when we had nowhere else to run. We pay him back by watchin' his trees for elves." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be proud and few, mon, and we don't forget who helped us or who didn't. I'm far from home, but I'm still Darkspear." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Hakkar's priests in Zul'Gurub be no friends of de Darkspear. If dey bring him back, we all be in trouble." } },
     _none = { { id = "tp_none", text = "Don't know, mon, so ask the shamans; they be talkin' to the spirits, not me." } },
   },
 }

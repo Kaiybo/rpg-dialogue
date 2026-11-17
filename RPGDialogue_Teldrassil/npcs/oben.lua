@@ -165,6 +165,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never leave your body unattended. I mean it more plainly than most people who say it." } },
     furbolgs = { { id = "tp_furbolgs", text = "The shaman are the ones to watch, because the warriors only do what the shaman tell them. Take the charm off a shaman and you take away half his tribe's mischief." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle keeps the balance, and some of us keep it by sleeping, which sounds easier than it is." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "I was in the Dream when the Gnarlpine trapped me in my sleep, and I can tell you it is a great deal nicer than a barrow. The food in both is terrible." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are a sensible clan, the only one left, and if I'd napped on their ground instead I'd have been fine. Lesson learned, and slowly, as I do everything." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The first tree, on Hyjal. I slept under it for a few centuries once, and I recommend it far more than a barrow full of Gnarlpine." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children watch over the Dream, and they've nudged me awake more than once when I wandered too deep. Very polite dragons, for dragons." } },
     _none = { { id = "tp_none", text = "I cannot say, friend. I have been asleep for a very long time, and then in no state to listen." } },
   },
 }

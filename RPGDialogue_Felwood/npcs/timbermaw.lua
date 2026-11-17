@@ -189,6 +189,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Grazle is Timbermaw, and Grazle guards the door." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "Grazle's grandmothers dreamed green, long ago. Grazle dreams of the door, and of who comes through it." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The fire-demons brought the sickness that took Grazle's cousins. Grazle guards the door so the sickness does not come in." } },
+    everlook = { { id = "tp_everlook", text = "The goblins of Everlook come through Grazle's door to trade. Grazle lets them pass because they bring honey and pay their way." } },
     _none = { { id = "tp_none", text = "Grazle does not know. Ask the elders inside, if they will let you in." } },
   },
 }
@@ -389,6 +392,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Nafien is Timbermaw, and Nafien hunts what our cousins became." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The demons' fire made Nafien's cousins into what Nafien hunts now. Nafien remembers their names, and that is why Nafien hunts carefully." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The old shamans spoke of the green dream. Nafien has not dreamed it since the sickness came, but Nafien still hopes." } },
+    satyrs = { { id = "tp_satyrs", text = "The goat-men are evil, and they work with the demons who sickened the forest. Nafien kills them with no sorrow at all." } },
     _none = { { id = "tp_none", text = "Nafien does not know, and does not pretend to." } },
   },
 }
@@ -567,6 +573,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Niby is almighty. That is all you need to know, and frankly more than you deserve." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion? Never heard of it, mortal, and Niby certainly doesn't take orders from it. Niby takes orders from no one, which is why Niby lives in a ruin." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The furbolgs throw things at Niby, which is very disrespectful to the Almighty. Niby will remember it when Niby rules the world, which should be any day now." } },
+    satyrs = { { id = "tp_satyrs", text = "Satyrs are dreadful company, mortal, all hooves and no manners. Niby has standards, even in Felwood." } },
+    elune = { { id = "tp_elune", text = "The elves' moon goddess! Niby has never met her, but Niby is sure she's heard of Niby. Everyone has, or will, very shortly." } },
     _none = { { id = "tp_none", text = "Niby knows everything, of course, but Niby chooses not to tell you that." } },
   },
 }

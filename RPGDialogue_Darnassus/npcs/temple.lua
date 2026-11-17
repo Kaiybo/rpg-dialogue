@@ -362,6 +362,13 @@ P:NPC {
     sisterhood_of_elune = { { id = "tp_sister", text = "We've healed and guarded our people since before the Sundering. Ask me about it properly and I'll tell you more.", next = "sisterhood" } },
     highborne = { { id = "tp_highborne", text = "They reached for power and called the Legion down on us. That is why I keep my hands folded around the arcane.", next = "arcane" } },
     malfurion = { { id = "tp_malfurion", text = "He sleeps in the Emerald Dream, and the High Priestess waits for him. So do we all, in our way." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The humans' Light and our Elune heal the same wounds, and I've taught enough of Laurena's priests to know their hearts are good. Their hymns are shorter, too, which the young ones appreciate." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You serve the Light and you've come to learn among Elune's priests, which pleases me. Pray how you like here, because the Temple has room for both." },
+    },
+    elune = { { id = "tp_elune", text = "Elune is patient, and she asks her priests to be patient too, which is the hardest thing I teach. The healing comes easily by comparison." } },
+    forsaken = { { id = "tp_forsaken", text = "The humans' dead who walk in the north, and some claim to have freed themselves. I pray for them, though I don't think they'd thank me." } },
+    scourge = { { id = "tp_scourge", text = "I've read the reports from the human lands, of whole towns rising as the dead. If there's one thing our priests are for, it's that." } },
     _none = { { id = "tp_none", text = "That is outside what a priestess of the Temple can speak to. The Sentinels or the Enclave might know more." } },
   },
 }
@@ -583,6 +590,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach, and I listen, and on the bad nights I sit with whoever is awake. It's a good life." } },
     advice = { { id = "tp_ad", text = "Don't carry what you can set down. Elune can hold it while you sleep." } },
     twilights_hammer = { { id = "tp_twilight", text = "A cult that worships something older and worse than demons. One of them found his way back to Elune, which gives me hope for the rest, a little." } },
+    elune = { { id = "tp_elune", text = "Elune shines on the night, and the night is when most people are lonely, which I don't think is a coincidence. She keeps company with whoever's awake." } },
+    blackfathom = { { id = "tp_blackfathom", text = "The Twilight's Hammer worship in the old temple at Blackfathom now, and it was Elune's temple once. I've prayed for it to be cleansed for longer than I like to say." } },
+    scourge = { { id = "tp_scourge", text = "We hear of the plague from human pilgrims, and some of them have lost everyone. I sit with them, and it helps a little, and I suppose that's all it can do." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids talk of the Dream as the world unspoiled, and I envy them a little. Then I remember they have to come back, and I don't envy them so much." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Alathea might; she's been teaching longer than I have." } },
   },
 }
@@ -766,6 +777,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach priests to heal without wasting themselves. That's all there is to me, and it's enough." } },
     advice = { { id = "tp_ad", text = "Save your strongest prayer for the wound that needs it. You'll know it when you see it." } },
     warsong = { { id = "tp_warsong", text = "Orcs with axes in Ashenvale, cutting down a forest older than their whole history. I mend what they leave behind." } },
+    holy_light = { { id = "tp_holy_light", text = "Light, Elune, whatever we call it, the wound still closes. I teach my students to spend it carefully whichever name they use." } },
+    scourge = { { id = "tp_scourge", text = "The plague does things to the body that healing struggles to undo, from what the human priests write. I'd like to study it, and I'd rather never see it." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' warchief seems a better sort than the warlords before him, by most accounts. I still have to heal what his Warsong do to our Sentinels." } },
+    centaur = { { id = "tp_centaur", text = "I've stitched centaur arrows out of Sentinels coming back from the south. They use barbed heads, which tells you what kind of people they are." } },
     _none = { { id = "tp_none", text = "Not my concern, I'm afraid. Ask Alathea; she likes questions." } },
   },
 }
@@ -948,6 +963,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I watch more than I speak, so I've gathered a little here and there. Ask, and I'll tell you what the water and the travellers have shown me." } },
     background = { { id = "tp_bg", text = "I teach priests and watch the pool. I'm content with both." } },
     advice = { { id = "tp_ad", text = "Look longer than you think you need to. Most people miss things by being in a hurry." } },
+    elune = { { id = "tp_elune", text = "Elune's light falls on the pool every night, and I watch it. Sometimes it's all the prayer I need to make." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The old tree on Hyjal is ours, and Teldrassil is ours too. I try not to choose between them, because a mother shouldn't." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Some of the novices slipped away to the Faire once, when it came close. They came back with painted faces and a great deal to confess." } },
     _none = { { id = "tp_none", text = "The pool hasn't shown me anything about that. Try Alathea." } },
   },
 }
@@ -1197,6 +1215,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a sister of the Temple, studying to be a priestess. I'm not very far along yet, but I'm trying." } },
     advice = { { id = "tp_ad", text = "Be kind to anyone who is hurting, even if it's a spider. Especially if it's a spider, A'moora would say." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We've guided and healed our people since before the Sundering. I'm the newest and least of us, but I'm part of it." } },
+    elune = { { id = "tp_elune", text = "Elune is the moon, and the moon's light, and the reason we're still here at all, I think. I'm still learning which of those the high priestesses mean when they say her name." } },
+    holy_light = { { id = "tp_holy_light", text = "Human priests visit sometimes, and they pray to the Light, which they say is everywhere. I asked one if Elune was part of it, and he looked very worried, so I stopped asking." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "A traveller told me the Darkmoon Faire has a fortune teller who's always right. I'd like to ask her if I'll ever finish my studies." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess is so kind to the novices, and she never tells us when we're making mistakes, she just looks at us until we notice. It works every time." } },
     _none = { { id = "tp_none", text = "Oh, I don't know that one. I could ask A'moora for you, if I remember." } },
   },
 }
@@ -1381,6 +1403,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "A banker hears a great deal and repeats very little. I can speak to a few matters, if you ask." } },
     background = { { id = "tp_bg", text = "I keep the bank's records and its keys. Both are always in order." } },
     advice = { { id = "tp_ad", text = "Don't carry everything you own into the wilds. The wilds will take a share." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblin bank in Booty Bay is very efficient, I'm told, and charges for the privilege of telling you so. We do not charge for honesty here." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's merchants send letters of credit on the Auberdine boat. They are always correct, which I appreciate more than they know." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "A goblin cartel, very organised and very expensive. Their ledgers are a marvel, though I'd never tell them that." } },
     _none = { { id = "tp_none", text = "I'm afraid that isn't a banking matter." } },
   },
 }

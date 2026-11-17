@@ -145,6 +145,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "A Sentinel, {class}. I hold a post and I don't leave it, and that's the whole of my story worth telling." } },
     advice = { { id = "tp_ad", text = "Don't drink from Mystral Lake, and don't trust anyone who tells you it's safe." } },
     sentinels = { { id = "tp_sentinels", text = "We hold more ground than we have warriors for. It's a habit of ours." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom's naga fill the coast like crabs, and the Twilight's Hammer feed them. I hold my post and I count every one I see." } },
+    centaur = { { id = "tp_centaur", text = "Centaur ride up from the Barrens sometimes, past Silverwind. I've learned to hear the hooves before I see the dust." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Horde's warchief keeps his orcs at war with us in Ashenvale, so his name is an enemy's name to me. I don't need more than that." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your warchief's orcs cut our trees, {class}, so I'll keep my bow ready while we talk." },
+    },
+    elune = { { id = "tp_elune", text = "Elune watches Silverwind at night, and I watch it by day. Between us we miss very little." } },
     _none = { { id = "tp_none", text = "I don't know, and I haven't time to find out. Ask in Astranaar." } },
   },
 }

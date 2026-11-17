@@ -234,6 +234,14 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Report what you saw, not what you think it meant. I can do the thinking." } },
     sentinels = { { id = "tp_sentinels", text = "We are the walls of Darnassus and the eyes of Ashenvale. Every one of us is needed, and every one we lose is felt." } },
     warsong = { { id = "tp_warsong", text = "Orcs who cut our forest and call it lumber. We answer them in Ashenvale, every season." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall's orcs fought at Hyjal, and I fought beside them. That's why I don't hate them, and it's also why I know how dangerous they are." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your warchief stood at Hyjal, and I respected him there. Tell him his Warsong are making that harder every season." },
+    },
+    centaur = { { id = "tp_centaur", text = "The centaur are a southern problem, but my patrols have met them on the edge of the Barrens. They don't give ground, so neither do we." } },
+    blackfathom = { { id = "tp_blackfathom", text = "Blackfathom Deeps is a drowned temple with cultists and nagas in it, and it's on my map in red. If you're going in, go with four others you trust." } },
+    burning_legion = { { id = "tp_burning_legion", text = "My Sentinels fought the Legion at Hyjal, and many didn't come back. If the demons return, we'll stand again, and hope it's enough." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon south of Theramore, according to the humans. I'm glad it's their swamp and not our forest." } },
     _none = { { id = "tp_none", text = "That isn't a Sentinel matter. Ask in the Temple or the Enclave." } },
   },
 }
@@ -496,6 +504,10 @@ P:NPC {
     knows = { { id = "tp_knows", text = "The Terrace hears what the patrols bring back. Ask, and I'll tell you if it's worth repeating." } },
     background = { { id = "tp_bg", text = "I train warriors and test the ones who think they're ready. Most aren't, yet." } },
     advice = { { id = "tp_ad", text = "Plant your feet before you swing. Everything else comes from the ground up." } },
+    centaur = { { id = "tp_centaur", text = "Centaur hit like a charging saber and keep coming. Brace your shield and let the earth carry their weight, not your arm." } },
+    blackfathom = { { id = "tp_blackfathom", text = "That's where young warriors learn what they're made of, in the drowned temple. Some don't like the answer." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "A troll arena in Stranglethorn, where people fight for gold and goblins bet on them. I'd rather fight for something." } },
+    onyxia = { { id = "tp_onyxia", text = "A dragon. I've told my students that if they're going after one, they should come back first and tell me, so I can say goodbye properly." } },
     _none = { { id = "tp_none", text = "That isn't a warrior's concern. Ask elsewhere." } },
   },
 }
@@ -728,6 +740,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a smith. I mend, I make, and I write long letters to dwarves about folding steel." } },
     advice = { { id = "tp_ad", text = "Have your gear seen to before it breaks, not after. It's cheaper, and you'll still be alive." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Klockmort's old home, overrun now. He writes about it as if it were a friend who'd fallen ill." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni writes back to me himself, sometimes, when his smiths are busy. He has opinions on night elf steel, and most of them are unkind." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Your king answered my letter on folding steel, and he signed it himself. I've framed it, and I won't tell you what it says." },
+    },
+    dark_iron = { { id = "tp_dark_iron", text = "The dwarven smiths talk of the Dark Iron forges under Blackrock with a hate that's almost envy. I'd give a great deal to see one, from a long way off." } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "A Dark Iron city under the mountain, the dwarves say, with forges hotter than any above ground. Bring me a piece of their steel and I'll study it for a month." } },
+    thrall = { { id = "tp_thrall", text = "The orcs' warchief carries a hammer that's older than his people's arrival here. I'd like to see how it was made, though I doubt he'd lend it." } },
     _none = { { id = "tp_none", text = "I couldn't say, friend, for I'm only a smith." } },
   },
 }
@@ -935,6 +954,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I hear what my students say between bouts. Ask, if you must." } },
     background = { { id = "tp_bg", text = "I teach warriors. I have done so for a long time." } },
     advice = { { id = "tp_ad", text = "Listen to your blade. It will tell you when you're careless." } },
+    centaur = { { id = "tp_centaur", text = "Centaur fight from horseback, but they have no horse to fall off. Go for the legs, and step aside quickly." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I've heard of the arena in Stranglethorn. Fighting for an audience teaches bad habits, but it does teach." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong are strong and they're proud of it. Proud fighters make mistakes, and that's where you put your blade." } },
     _none = { { id = "tp_none", text = "That is no matter for a warrior trainer." } },
   },
 }
@@ -1132,6 +1154,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the crier. I walk, I call, and I make sure nobody can say they weren't told." } },
     advice = { { id = "tp_ad", text = "Listen to the proclamations, hero. Half the adventures in Azeroth start with somebody shouting." } },
     rumors = { { id = "tp_rumors", text = "Officially, I only cry what's sealed and signed. Unofficially, the Sentinels say Ashenvale is busier than they'd like." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Hear ye, the Darkmoon Faire comes and goes like the moon, and when it's near I cry it. When it's far I cry something else, but I always cry something." } },
+    scourge = { { id = "tp_scourge", text = "Hear ye, the plague of the dead still holds the human north! I cry it every week so nobody can say they weren't told, though I'm told it gets less cheerful each time." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is Lady Proudmoore's city across the sea, and its ships come to Auberdine now and then. I announce them when I hear of them, which is never as early as I'd like." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar rules Stormwind for the boy king, the human dispatches say. I cry the news, though I've never worked out how to pronounce Fordragon." } },
+    onyxia = { { id = "tp_onyxia", text = "A dragon in the marshes south of Theramore. I've been asked not to cry that one too loudly, because it frightens the children." } },
     _none = { { id = "tp_none", text = "No proclamation about that, I'm afraid. Ask me again next week." } },
   },
 }
@@ -1304,6 +1331,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Everyone buys bread, and everyone talks while they do. Ask, and I'll tell you what I've heard over the counter." } },
     background = { { id = "tp_bg", text = "I sell supplies on the Terrace. I like to think I've fed a few heroes before they were famous." } },
     advice = { { id = "tp_ad", text = "Carry water. More quests end in thirst than in dragons." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I've a cousin who sells in Booty Bay, and he says the goblins sell salt by the pinch and air by the breath. I sell it by the sack, and I'm still in business." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire passes anywhere near, the young ones come in for travel food and come back for more. It's good for trade, whatever you think of the games." } },
+    everlook = { { id = "tp_everlook", text = "Goblin town in Winterspring. They pay well for good food, because nothing grows in the snow except prices." } },
     _none = { { id = "tp_none", text = "I wouldn't know about that, friend. I only sell the supplies." } },
   },
 }
@@ -1543,6 +1573,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I've read every one of Heralath's letters a dozen times, so I know more about the south than I ever meant to. Ask." } },
     background = { { id = "tp_bg", text = "I'm Heralath's wife, and I live above the shops on the Tradesmen's Terrace. That's all I've ever needed to be." } },
     advice = { { id = "tp_ad", text = "Write home, whoever waits for you. Write even when there's nothing to say." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Heralath took me to the Darkmoon Faire once, a long time ago, and won me a little stuffed saber. I still have it on the windowsill." } },
+    elune = { { id = "tp_elune", text = "I pray to Elune every evening, mostly to keep Heralath out of trouble. She hasn't failed me yet, though it's been close." } },
+    theramore = { { id = "tp_theramore", text = "My sister's son went to Theramore with a merchant's crew. He writes that the human food is heavy and the humans are kind, which sounds about right." } },
     _none = { { id = "tp_none", text = "I don't know, but Heralath would have." } },
   },
 }
@@ -1725,6 +1758,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I hear everything on the Terrace, because I'm the one sweeping it. Ask me!" } },
     background = { { id = "tp_bg", text = "I'm an apprentice leatherworker. I'm good at cutting and terrible at sitting still." } },
     advice = { { id = "tp_ad", text = "Measure twice! Faldron makes me say it every morning." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Oh, the Darkmoon Faire! I'd go tomorrow if the master would let me off, but he says I'd come back with a monkey and no leather." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I'd love to see Booty Bay, with all those pirates and jungle beasts. I could make armor from tiger hide, and nobody here would ever stop talking about it." } },
+    centaur = { { id = "tp_centaur", text = "Centaur leather is supposed to be tough. I've never seen any, and I suppose I'd rather not see where it came from." } },
     _none = { { id = "tp_none", text = "Oh, I don't know that one. Ask Telonis; he knows everything, or says he does." } },
   },
 }
