@@ -16,3 +16,6 @@ npcs\nighthaven.lua
 npcs\nighthaven_more.lua
 npcs\unsung.lua
 npcs\nighthaven_folk.lua
+npcs\shrine.lua
+npcs\lunar_festival.lua
+npcs\nighthaven_shops.lua
