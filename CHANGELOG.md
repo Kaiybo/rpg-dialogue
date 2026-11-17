@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.0 (2026-11-17)
+Mazen Mac'Nadir, the Academy's librarian in Stormwind. **New file: restart the game fully (a /reload won't load it).**
+
+- **A full conversation:** the library and its three fires, Khadgar's essays and "Mazen's Behest" (before, during and after), his hapless assistant Dellis and the plant in the Swamp of Sorrows, Watcher Mahar Ba's lonely letters, why some books stay locked away, and the strange happenings that send everyone to his door.
+- He reacts to mages, warlocks, gnomes, night elves and Explorers' League dwarves, to Dalaran-trained, Mage Quarter and Gnomeregan-student origins, and to you having delivered the essays.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
