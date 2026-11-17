@@ -30,6 +30,12 @@ Adair Gilroy has something to say. **New file: restart the game fully (a /reload
 
 - **Adair Gilroy, the Mage Quarter's Librarian**, now talks: a scroll-seller who calls himself a librarian even though everything he sells crumbles when it's read. Ask him how scrolls work and which to buy for your class, about his years copying in Dalaran's Violet Citadel, his monthly supper-and-argument with Milton Sheaf of the Royal Library, his apprentice, the Slaughtered Lamb's cellar, and the Quarter's cat. Mages, warlocks, rogues, priests, Dalaran strays and Mage Quarter natives get lines of their own.
 
+## 0.80.0 (2026-11-17)
+Mazen Mac'Nadir, the Academy's librarian in Stormwind. **New file: restart the game fully (a /reload won't load it).**
+
+- **A full conversation:** the library and its three fires, Khadgar's essays and "Mazen's Behest" (before, during and after), his hapless assistant Dellis and the plant in the Swamp of Sorrows, Watcher Mahar Ba's lonely letters, why some books stay locked away, and the strange happenings that send everyone to his door.
+- He reacts to mages, warlocks, gnomes, night elves and Explorers' League dwarves, to Dalaran-trained, Mage Quarter and Gnomeregan-student origins, and to you having delivered the essays.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
