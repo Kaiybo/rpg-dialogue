@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_watch_soldiers", when = { opinion = { topic = "night_watch", stance = "needs_soldiers" } }, text = "Ah, my ally in correspondence! The twelfth letter has gone, with your opinion in it underlined, and I await the Crown's thirteenth refusal with great interest." },
     { id = "g_mayor", text = "The mayor's time is precious, {class}, and Darkshire's is more precious still." },
     { id = "g_army", when = { minLevel = 25 }, text = "Has Stormwind sent you? Please, tell me that Stormwind has finally sent you." },
     { id = "g_hero", when = { townStanding = { town = "darkshire", min = 55 } }, text = "Ah, Darkshire's favourite! Come in, come in, and mind the council's chairs, because they're older than they look." },
@@ -36,6 +37,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_watch = {
+      lines = {
+        { id = "op_watch_a", text = "Every night, around the second bottle of Smitts's red. Councilman Millstipe says the Night Watch is all the army Darkshire will ever get, so we ought to stop begging and start drilling bakers. I say a baker with a pike is still a baker. Which of us is right?" },
+      },
+      choices = {
+        { text = "Millstipe's right. The Night Watch has held this long; trust it.", next = "op_watch_1", fx = { opinion = { night_watch = "holding", stormwind = "abandoned_its_own" }, align = { order = -1 } } },
+        { text = "You're right, Lord Mayor. Darkshire needs real soldiers. Keep writing.", next = "op_watch_2", fx = { opinion = { night_watch = "needs_soldiers", stormwind = "patience" }, align = { order = 1 }, affinity = 2 } },
+        { text = "Drill the bakers and keep writing. Do both.", next = "op_watch_3", fx = { opinion = { night_watch = "holding" }, trait = { practical = 1 }, affinity = 1 } },
+        { text = "Write to Ironforge instead. They answer letters.", next = "op_watch_4", when = { race = "Dwarf" }, fx = { opinion = { night_watch = "needs_soldiers", dwarves = "loyal" } } },
+        { text = "I'm sure the council knows best, Lord Mayor.", next = "BACK" },
+      },
+    },
+    op_watch_1 = {
+      lines = { { id = "op_watch_r1", text = "My kinswoman would agree with you, and she'd say it with a pike in her hand, which is a persuasive way to say anything. I'll keep writing all the same, because I'm a politician, and it's the only weapon I'm good with." } },
+      choices = { { text = "Something else, Lord Mayor.", next = "BACK" } },
+    },
+    op_watch_2 = {
+      lines = { { id = "op_watch_r2", text = "Thank you. I'll put that in the twelfth letter, that a traveller of some standing agrees with the Lord Mayor, and I'll underline it twice." } },
+      choices = { { text = "Something else, Lord Mayor.", next = "BACK" } },
+    },
+    op_watch_3 = {
+      lines = { { id = "op_watch_r3", text = "Both! Of course both; it's so obvious I'm embarrassed nobody on the council said it. I'll propose it as a motion and take the credit, if you don't mind." } },
+      choices = { { text = "Something else, Lord Mayor.", next = "BACK" } },
+    },
+    op_watch_4 = {
+      lines = { { id = "op_watch_r4", text = "I have, you know, twice, and I received a very courteous reply and a crate of something that exploded in the Town Hall. I'll write again, with your name in it." } },
+      choices = { { text = "Something else, Lord Mayor.", next = "BACK" } },
+    },
     xcl_stocks = {
       big = true,
       lines = { { id = "xcl_stocks_default", text = "Darkshire cares about one prisoner in that place, and the rest may rot or riot as they please. Ward sold our dead to a necromancer and I sentenced him for it, and the House of Nobles took him from us on a point of law, which I have not forgiven and do not intend to." } },
@@ -214,6 +243,7 @@ P:NPC {
         { id = "l_default", text = "Eleven this year, each more eloquent than the last, and the replies grow shorter every time. The latest was two lines and a seal, and I've had it framed." },
       },
       choices = {
+        { text = "Has the council ever thought of not asking Stormwind at all?", next = "op_watch" },
         { text = "What did the two lines say?", next = "letters_reply" },
         { text = "Something else.", next = "BACK" },
       },

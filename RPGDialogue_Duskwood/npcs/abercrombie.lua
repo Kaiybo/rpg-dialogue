@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_necro", when = { opinion = { topic = "necromancy", stance = "tempting" } }, text = "Ah, my understanding friend! Do come in. The work has come along wonderfully since we talked, and I'd so like a second opinion." },
     { id = "g_hermit", text = "A visitor, how lovely! I don't get many, dear, not living ones." },
     { id = "g_supplies", when = { questActive = TODO_QUEST("Supplies from Darkshire") }, text = "Back from Darkshire already, dear? No, of course not; everyone's so slow these days, though I'm not, not anymore." },
     { id = "g_after", when = { questDone = TODO_QUEST("Translation to Ello") }, text = "Oh, hello again, dear. It's been a busy week, and a busy week for everyone, I hear." },
@@ -32,6 +33,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_dead = {
+      lines = {
+        { id = "op_dead_a", text = "Would they, dear? The priests in Darkshire say so, and they say it very firmly, with their hands folded. But I've always thought that love is a sort of craft, and a craftsman doesn't stop just because the work is difficult. What do you think?" },
+      },
+      choices = {
+        { text = "The dead should rest. Holding on only hurts the living.", next = "op_dead_1", fx = { opinion = { undeath = "abomination", necromancy = "forbid" }, align = { light = 1 }, affinity = -2 } },
+        { text = "If I could bring someone back, I would. Hang the priests.", next = "op_dead_2", fx = { opinion = { necromancy = "tempting", undeath = "acceptable" }, align = { light = -1 }, affinity = 3 } },
+        { text = "Love doesn't end, but the body does. Let her go.", next = "op_dead_3", fx = { opinion = { necromancy = "forbid" }, trait = { kind = 1 } } },
+        { text = "The Light forbids what you're hinting at. It's a sin.", next = "op_dead_4", when = { class = "PRIEST" }, fx = { opinion = { necromancy = "forbid", the_light = "faith" }, affinity = -2 } },
+        { text = "That's between you and the Light, I think.", next = "BACK" },
+      },
+    },
+    op_dead_1 = {
+      lines = { { id = "op_dead_r1", text = "Oh. Yes, I suppose that's what they'd say at the Cathedral. Never mind, dear, never mind; it was only an old man's fancy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dead_2 = {
+      lines = { { id = "op_dead_r2", text = "Would you? Would you really? Oh, how lovely to meet someone who understands. Come back soon, dear, and I may have something to show you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dead_3 = {
+      lines = { { id = "op_dead_r3", text = "Let her go. Everyone says it so easily, as if she were a sparrow. You're kind to say it gently, dear, but I'm afraid I'm too old to learn new tricks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    op_dead_4 = {
+      lines = { { id = "op_dead_r4", text = "A sin! Such a heavy word for a little hobby, dear. You priests do so love your heavy words, and you never stay for supper." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Oh, all the time, friend, all the time. The dead are never very far in Duskwood, are they? I find them quite good company, really, once you get used to the smell." } },
@@ -181,6 +210,7 @@ P:NPC {
     didnt = {
       lines = { { id = "d_default", text = "I didn't bear the grief, dear, that's all I meant. I'm a hermit, and we're allowed to be strange about such things." } },
       choices = {
+        { text = "Some would say grief should end at the grave.", next = "op_dead" },
         { text = "Strange how?", next = "didnt_strange" },
         { text = "Something else.", next = "BACK" },
       },

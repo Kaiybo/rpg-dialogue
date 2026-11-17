@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_op_red_mercy", when = { opinion = { topic = "defias", stance = "mercy" } }, text = "Oh, it's you! You said I could come back from it. I've been saying it to myself every night since, mostly when the howling starts." },
     { id = "g_flinch", text = "Wh-who's there... oh, it's only a person, thank the Light, because you are a person, aren't you?" },
     { id = "g_food", when = { questActive = TODO_QUEST("Jitters' Growling Gut") }, text = "Is that food? Please tell me that's food you've got there." },
     { id = "g_after", when = { questDone = TODO_QUEST("Return to Sven") }, text = "Oh, it's you... you told him, didn't you, and it's fine, really, it's fine." },
@@ -32,6 +33,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_red = {
+      lines = {
+        { id = "op_red_a", text = "I d-don't know, that's what I keep asking the trees. The Brotherhood says once you've worn it, you're theirs till you're dead, and the Watch says the same thing from the other side. What do you think, honest? Can a man come back from it?" },
+      },
+      choices = {
+        { text = "Yes. You left. That already counts for something.", next = "op_red_1", fx = { opinion = { defias = "mercy" }, align = { light = 1 }, trait = { kind = 1 }, affinity = 3 } },
+        { text = "No. You chose the mask. You'll answer for it someday.", next = "op_red_2", fx = { opinion = { defias = "hardline" }, align = { light = -1 }, trait = { stern = 1 }, affinity = -2 } },
+        { text = "Depends what you do now. Help the Watch and earn it back.", next = "op_red_3", fx = { opinion = { defias = "sympathetic" }, align = { order = 1 }, trait = { practical = 1 } } },
+        { text = "The nobles put you in that mask. The shame's theirs.", next = "op_red_4", fx = { opinion = { defias = "masons_wronged", stormwind = "abandoned_its_own" }, align = { order = -1 } } },
+        { text = "That's not my question to answer.", next = "BACK" },
+      },
+    },
+    op_red_1 = {
+      lines = { { id = "op_red_r1", text = "It does? It does. Nobody's ever said that to me, not once, not even me. I'm going to sit here and think about that for a while, if that's all right." } },
+      choices = { { text = "C-can we talk about something else?", next = "BACK" } },
+    },
+    op_red_2 = {
+      lines = { { id = "op_red_r2", text = "I know, I know, I know. I just hoped someone would say different, that's all. You're probably right; you look like someone who's usually right." } },
+      choices = { { text = "C-can we talk about something else?", next = "BACK" } },
+    },
+    op_red_3 = {
+      lines = { { id = "op_red_r3", text = "The Watch? They'd hang me before I opened my mouth. Maybe if you were standing beside me, though, maybe then I could say it." } },
+      choices = { { text = "C-can we talk about something else?", next = "BACK" } },
+    },
+    op_red_4 = {
+      lines = { { id = "op_red_r4", text = "That's what the men in the mine used to say, round the fire. It sounded better there, but it doesn't change what I saw at the Yorgen farm." } },
+      choices = { { text = "C-can we talk about something else?", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I saw things, terrible things. They're still there, every time I close my eyes. Your spirits might chase them away." } },
@@ -214,6 +243,7 @@ P:NPC {
           fx = { learn = { "defias" } } },
       },
       choices = {
+        { text = "Do you think a man can take the red off again?", next = "op_red" },
         { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "The Night Watch should know.", next = "BACK", fx = { affinity = -2, align = { order = 1 }, trait = { stern = 1 } } },
       },
