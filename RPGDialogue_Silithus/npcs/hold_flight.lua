@@ -14,6 +14,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_cc_distrust", when = { gossip = { topic = "cenarion_circle", stance = "distrust" } }, text = "Proudhorn says you think the Circle asks everyone else to bleed. The wind riders bleed too, traveller, and they don't complain about it." },
     { id = "g_default", text = "The riders are rested and the sky is clear, for now. Where are you bound?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. The riders know your smell by now, which is a kind of welcome." },
   },

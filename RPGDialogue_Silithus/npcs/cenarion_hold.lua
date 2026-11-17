@@ -38,6 +38,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_fandral = {
+      lines = {
+        { id = "opf_q", text = "I don't ask, but travellers tell me anyway, and it helps me know which way the wind blows at home. You've likely heard Fandral Staghelm speak, so what do you make of the Arch Druid?" },
+      },
+      choices = {
+        { text = "A strong leader. Darnassus needs his certainty while Malfurion sleeps.", next = "op_fandral_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { fandral = "admire" } } },
+        { text = "Proud and cold. He shut the tauren out of the Circle.", next = "op_fandral_r2", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { fandral = "distrust" } } },
+        { text = "Teldrassil was his idea. I'm not sure it was a good one.", next = "op_fandral_r3", fx = { trait = { curious = 1 }, opinion = { fandral = "mixed" } } },
+        { text = "He's my Arch Druid, Commander, and I'll not speak against him.", next = "op_fandral_r4", fx = { opinion = { fandral = "loyal" } }, when = { race = "NightElf" } },
+        { text = "I'd rather not speak of him, Commander.", next = "BACK" },
+      },
+    },
+    op_fandral_r1 = {
+      lines = {
+        { id = "op_fandral_r1", text = "Certainty, yes, he has that in abundance. It's a useful thing in a war, and a heavy thing to argue with." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_fandral_r2 = {
+      lines = {
+        { id = "op_fandral_r2", text = "He opposed teaching them, and he lost that argument, which he has not forgotten. I'd keep that observation out of Darnassus if I were you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_fandral_r3 = {
+      lines = {
+        { id = "op_fandral_r3", text = "Many of us wonder about the tree, quietly. The forest there has not been quite right, and I hear it from Darkshore every month." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_fandral_r4 = {
+      lines = {
+        { id = "op_fandral_r4", text = "Loyal, and careful about it. That's a good habit in Darnassus, and a better one in a war camp." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_maralith = {
       big = true,
       lines = { { id = "xpt_maralith_default", text = "I'll gladly put you to work, but understand that the Hold is a druids' camp first and a fortress second, and my soldiers don't take orders from adventurers. Fight with us, follow the signals, and don't go chasing a hive on your own because you've counted five swords and think it enough." } },
@@ -219,6 +263,7 @@ P:NPC {
     circle_fandral = {
       lines = { { id = "cf_default", text = "The Circle agrees on very little these days, between Darnassus and Moonglade. But on Silithus, at least, the Arch Druid and the Keeper both send me soldiers, and I don't ask either of them what they say about the other." } },
       choices = {
+        { text = "What do you think of Staghelm yourself?", next = "op_fandral" },
         { text = "That's diplomatic of you.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -454,6 +499,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_magni = {
+      lines = {
+        { id = "opm_q", text = "Ironforge sends me letters and no help, and every letter has the king's seal on it. You've been through the mountain, so I'll ask ye straight: what do ye make of King Magni?" },
+      },
+      choices = {
+        { text = "A good king. He holds the Alliance together as much as anyone.", next = "op_magni_r1", fx = { affinity = 1, align = { order = 1 }, opinion = { magni = "admire" } } },
+        { text = "He forgets the dwarves who work far from the throne.", next = "op_magni_r2", fx = { affinity = 1, align = { order = -1 }, opinion = { magni = "distant" } } },
+        { text = "Kings are kings. I'd rather trust the stone.", next = "op_magni_r3", fx = { trait = { witty = 1 }, opinion = { magni = "mixed" } } },
+        { text = "He's my king, and there's none better under the mountain.", next = "op_magni_r4", fx = { affinity = 2, opinion = { magni = "loyal" } }, when = { race = "Dwarf" } },
+        { text = "I've never met the man, Larksbane.", next = "BACK" },
+      },
+    },
+    op_magni_r1 = {
+      lines = {
+        { id = "op_magni_r1", text = "Aye, he does, and he's a fine dwarf to share a drink with, they say. I only wish he'd spare a few for Silithus." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_magni_r2 = {
+      lines = {
+        { id = "op_magni_r2", text = "Ye've been reading my letters, I think! Still, he's got a whole kingdom to look after, and I've only got a desert full of humming rocks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_magni_r3 = {
+      lines = {
+        { id = "op_magni_r3", text = "Now that's a geologist's answer! The stone never lies, though it does mumble an awful lot down here." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_magni_r4 = {
+      lines = {
+        { id = "op_magni_r4", text = "Spoken like a true Bronzebeard! I'll raise my next mug to him, and to ye." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "They hum near anythin' with a bit o' power in it, which worries me more than it pleases me. Down in the hives the bugs guard them like treasure, an' I've a nasty feelin' the crystals are listenin' tae somethin' much older than the Light or any o' us." } },
@@ -659,7 +748,10 @@ P:NPC {
     },
     dwarf_home = {
       lines = { { id = "dh_default", text = "Every day it's this hot, which is every day. But stone's stone wherever ye find it, and this stone's got more to say than any I've met." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What do you think of King Magni?", next = "op_magni" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     priest_hum = {
       lines = {
@@ -752,6 +844,50 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    op_circle = {
+      lines = {
+        { id = "opc_q", text = "Alliance and Horde both supply this fort, and both grumble that the Circle asks too much of them. You've carried our crates, so tell me: what do you think of the Cenarion Circle?" },
+      },
+      choices = {
+        { text = "The Circle stands above the war. That makes it worth supporting.", next = "op_circle_r1", fx = { affinity = 2, align = { honor = 1 }, opinion = { cenarion_circle = "admire" } } },
+        { text = "It talks about balance and asks everyone else to bleed for it.", next = "op_circle_r2", fx = { affinity = -1, align = { honor = -1 }, opinion = { cenarion_circle = "distrust" } } },
+        { text = "It's useful, as long as both sides keep showing up.", next = "op_circle_r3", fx = { trait = { practical = 1 }, opinion = { cenarion_circle = "useful" } } },
+        { text = "I'm a druid, Windcaller. The Circle is my home.", next = "op_circle_r4", fx = { affinity = 2, opinion = { cenarion_circle = "loyal" } }, when = { class = "DRUID" } },
+        { text = "I'll carry crates and leave the opinions to you.", next = "BACK" },
+      },
+    },
+    op_circle_r1 = {
+      lines = {
+        { id = "op_circle_r1", text = "That's the spirit the supply lines run on. I'll note you down as a reliable carter, which from me is high praise." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_circle_r2 = {
+      lines = {
+        { id = "op_circle_r2", text = "Everyone bleeds out here, druid and soldier alike, and the silithid don't keep a ledger of whose blood it was. I'll still take your crates." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_circle_r3 = {
+      lines = {
+        { id = "op_circle_r3", text = "Useful is exactly the word I'd use in my reports, and the only one the Commander reads closely." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    op_circle_r4 = {
+      lines = {
+        { id = "op_circle_r4", text = "Then you'll understand why I count grain carts as carefully as any worm. The Circle is only as strong as its supply." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They tear at the air like a beast at a snare, and my caravans suffer for it. Tauren or dwarf, a shaman who can calm the winds is worth more to me than a dozen guards." } },
@@ -904,6 +1040,7 @@ P:NPC {
     victory = {
       lines = { { id = "v_default", text = "Certain, provided we hold this fort, provided the supplies keep coming, and provided Alliance and Horde remember who the enemy is. That's a great many provideds, I'll grant you, but I've seen worse odds turn." } },
       choices = {
+        { text = "What do the factions think of the Circle?", next = "op_circle" },
         { text = "Then I'll keep the road open for you.", next = "BACK", fx = { affinity = 1, align = { order = 1 }, standing = { cenarion_hold = 1 } } },
         { text = "Wars aren't won from ledgers, Windcaller.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1204,6 +1341,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "o_fan_distrust", when = { gossip = { topic = "fandral", stance = "distrust" } }, text = "The Commander mentioned you've no great love for the Arch Druid. Hush now, the sand has ears in a place like this, and some of them are Darnassian." },
     { id = "g_default", text = "Oh, look at you, sand from head to foot! Come in out of the sun." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to the oasis, dear. Your usual corner's free." },
     { id = "g_dumplings", when = { questDone = TODO_QUEST("Kitchen Assistance") }, text = "The dumplings are a hit, you know. I haven't told anyone where the recipe came from." },
