@@ -15,6 +15,7 @@ pools.lua
 npcs\chillwind.lua
 npcs\chillwind_folk.lua
 npcs\bulwark.lua
+npcs\bulwark_folk.lua
 npcs\wilds.lua
 npcs\roads.lua
 npcs\theldanis.lua

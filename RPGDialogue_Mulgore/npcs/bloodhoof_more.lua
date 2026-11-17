@@ -90,7 +90,7 @@ P:NPC {
       lines = { { id = "cl_default", text = "You defeated the great wolf, and you brought me the scarred hide so that I would know. My days of hunting are over, but I am honored that one of my old weapons will go on hunting with you." } },
       choices = {
         { text = "I'll carry it with honor.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Did his wound truly come from a demon?", next = "cl_wound" },
+        { text = "Did his wound really come from a demon?", next = "cl_wound" },
       },
     },
     cl_wound = {

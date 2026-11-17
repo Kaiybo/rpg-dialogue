@@ -21,3 +21,6 @@ npcs\vargus.lua
 npcs\mishta.lua
 npcs\aendel.lua
 npcs\hold_flight.lua
+npcs\hold_war.lua
+npcs\war_camps.lua
+npcs\demitrian.lua

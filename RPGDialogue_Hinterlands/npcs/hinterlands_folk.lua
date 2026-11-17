@@ -347,7 +347,7 @@ P:NPC {
         { id = "h_hunter", when = { class = "HUNTER" },
           text = "A hunter, mon, and a hunter always need more arrows than they think. Take a look, and take a few extra." },
         { id = "h_troll", when = { race = "Troll" },
-          text = "Darkspear, I can see it. Your people and mine, we both had to leave a home behind, and we both still know how to shoot straight." },
+          text = "Darkspear, I can see it. Your people and mine, we both know what it be to be few among enemies, and we both still shoot straight." },
       },
       again = {
         { id = "h_again", text = "What else, mon?" },

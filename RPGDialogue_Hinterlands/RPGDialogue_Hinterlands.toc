@@ -19,3 +19,4 @@ npcs\unsung.lua
 npcs\shindigger.lua
 npcs\agnar.lua
 npcs\exile.lua
+npcs\hinterlands_folk.lua

@@ -374,7 +374,7 @@ P:NPC {
   },
 
   notice = {
-    { id = "n_eng", cat = "class", when = { class = "WARRIOR" },
+    { id = "n_war", cat = "class", when = { class = "WARRIOR" },
       text = "Good arms on you. You could carry a crate of axes without dropping it, which is more than my last runner managed." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren. Your people look at our lumber camp like we're cutting off our own fingers, and I'd rather not argue it today." },
@@ -577,7 +577,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Qeeju is a troll who keeps Splintertree's stables, unhurried and amused by everything. The beasts in her pens are the calmest things in the whole post.",
+    first = "Qeeju is a troll who keeps Splintertree's stables, unhurried and amused by everything. The beasts in his pens are the calmest things in the whole post.",
     third = "{name} met Qeeju, the troll stable master at Splintertree Post.",
   },
 

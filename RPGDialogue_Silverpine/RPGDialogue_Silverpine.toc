@@ -13,6 +13,7 @@
 pack.lua
 pools.lua
 npcs\sepulcher.lua
+npcs\sepulcher_folk.lua
 npcs\roads.lua
 npcs\unsung.lua
 npcs\faerleia.lua
