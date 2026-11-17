@@ -12,7 +12,7 @@
 ## Identity
 Spirit of Kirith · Serpent's Coil, Blasted Lands · Horde (neutral to talk to) · ghost (race unstated) · lieutenant of Thrall's Grasp
 Personality: sardonic, urgent, ashamed, loyal to his captain
-Speech: clipped urgency but whole sentences; dark humour
+Speech: clipped urgency but whole sentences; dark humour; an orc soldier's pride and shame (Thrall's Grasp, the old demon chains, the ancestors)
 Knows and cares about: Razelikh, Grol, Lady Sevine, Archmage Allistarj, the amulet, his captain
 Relationships: the Fallen Hero (his captain, unnamed)
 Default attitudes: soldierly respect for anyone who fights the Legion

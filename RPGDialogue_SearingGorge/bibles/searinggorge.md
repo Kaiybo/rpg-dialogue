@@ -40,4 +40,4 @@ Persuade/Intimidate/Deceive checks: what a success reveals (authored, not canon,
 ### Their quests
 - none: service NPCs.
 ### Voices (authored, not canon)
-- Lanie: wry Bronzebeard, fair to the Brotherhood and honest it's strange. Grisha: blunt, watchful; the Blackrock orcs and the Dark Irons at war inside the mountain.
+- Lanie: wry Bronzebeard, fair to the Brotherhood and honest it's strange. Grisha: blunt, watchful, proud orc (Lok'tar, the camps, the Horde); the Blackrock orcs and the Dark Irons at war inside the mountain. Lanie keeps a light burr ("ye", "{g:lad|lass}").

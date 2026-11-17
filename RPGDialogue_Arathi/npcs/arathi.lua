@@ -253,8 +253,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fort", text = "You're in Hammerfall, where we fight now and soon we'll prosper. Which are you here for?" },
-    { id = "g_back", when = { metBefore = true }, text = "You again, good, because the hills won't clear themselves." },
+    { id = "g_fort", text = "You're in Hammerfall, {class}, built where the humans once kept us in chains, and here we fight now and soon we'll prosper. Which are you here for?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again, good, because the hills won't clear themselves, and your axe has honor in it." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and Hammerfall kept fighting without you. Now you're back, so fight with us." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when you last stood here, I can see it in your stance. The hills will notice it too." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The grunts say you've done good work for Hammerfall. That's how a stranger earns a place by our fire." },
@@ -322,7 +322,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A tauren druid in Hammerfall! The Earth Mother's children are welcome among us, and so are their claws, for the Boulderfist have plenty of hide to tear." },
         { id = "h_default", key = true,
-          text = "I am Drum Fel, and I lead Hammerfall. The Boulderfist ogres and the Witherbark trolls stand between us and the highlands, and once they fall, Hammerfall will thrive." },
+          text = "I am Drum Fel, and I lead Hammerfall, which we raised on the ashes of an internment camp in Orgrim Doomhammer's name. The Boulderfist ogres and the Witherbark trolls stand between us and the highlands, and once they fall, Hammerfall will thrive." },
         { id = "h_hammer", tags = { "news" }, when = { questActive = TODO_QUEST("The Hammer May Fall") },
           text = "The Boulderfist hit our walls and think we'll sit and take it. Show them otherwise." },
         { id = "h_tallow", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Hammer May Fall"), days = 2 } },
@@ -509,7 +509,7 @@ P:NPC {
     burning_blade = { { id = "tp_blade", text = "Not here, they're not; Doomhammer would have broken their necks himself." } },
     background = { { id = "tp_ba", text = "I beat an ogre called Or'Kalar once, years ago, and I've been fighting his kind ever since. That's the only story an orc in Hammerfall needs." } },
     advice = { { id = "tp_ad", text = "The Witherbark fight from the trees, so look up before you look ahead. The Boulderfist fight from the front, so look up anyway." } },
-    _none = { { id = "tp_none", text = "That's not my concern; Hammerfall is." } },
+    _none = { { id = "tp_none", text = "That's not my concern, {class}. Hammerfall is, and the Horde." } },
   },
 }
 
@@ -774,11 +774,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Come, rest. Hammerfall is hard stone, but there's a soft hide by my fire." },
-    { id = "g_home", when = { homeInn = { "Hammerfall" } }, text = "Welcome back to Hammerfall. Your place by the fire is waiting." },
-    { id = "g_away", when = { away = 14 }, text = "Ah, you be back after {away} away! Come sit by the fire, mon, because the stone don't get any softer while you be gone." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Somebody in Hammerfall been smilin' all day after talkin' with you. That be rare in this hard place, so Adegwa thank you for it." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "Somebody here be sour about you, mon, after whatever you said. Adegwa don't take sides, but maybe you sit with your back to the wall tonight." },
+    { id = "g_inn", text = "Come, rest. Hammerfall is hard stone, but there is a soft kodo hide by my fire, and the Earth Mother does not ask who you are before she lets you sleep." },
+    { id = "g_home", when = { homeInn = { "Hammerfall" } }, text = "Welcome back to Hammerfall, {class}. Your place by the fire is waiting, as the grass waits for the rain." },
+    { id = "g_away", when = { away = 14 }, text = "Ah, you have come back to us after {away} away. Come and sit by the fire, for the stone did not grow any softer while you were gone, and the Earth Mother kept your place warm." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in Hammerfall has been smiling all day after speaking with you. That is as rare in this hard place as rain on the Barrens, so I thank you for it." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone here has turned sour toward you, after whatever you said. I take no sides at my fire, but perhaps you should sit with your back to the wall tonight, as a wary calf keeps close to the herd." },
   },
 
   notice = {
@@ -951,8 +951,8 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Every traveller who warms himself at my fire leaves a story behind. Ask me, and I will share what the fire has heard." },
     },
-    background = { { id = "tp_ba", text = "I came where the Horde needed a fire, and Hammerfall needed one more than most. That's all there is to tell." } },
+    background = { { id = "tp_ba", text = "I came where the Horde needed a fire, and Hammerfall needed one more than most. That is all there is to tell, and may the Earth Mother keep you as you go." } },
     advice = { { id = "tp_ad", text = "Eat before you climb to Stromgarde. Nobody fights well hungry, not even an orc, though they'll swear otherwise." } },
-    _none = { { id = "tp_none", text = "Ask Drum Fel, for he knows the fort, and I know the fire." } },
+    _none = { { id = "tp_none", text = "Ask Drum Fel, for he knows the fort, and I know only the fire and the long grass of home." } },
   },
 }

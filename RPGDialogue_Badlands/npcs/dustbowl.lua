@@ -228,7 +228,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_camp", text = "Hm? Oh, a visitor! Mind Servo, he's harmless, mostly, and don't touch anything glowing, or humming, or warm." },
+    { id = "g_camp", text = "Hm? Oh, a visitor! Mind Servo, he's harmless, roughly ninety percent of the time, and don't touch anything glowing, or humming, or warm." },
   },
 
   notice = {
@@ -325,7 +325,7 @@ P:NPC {
         { id = "h_cl_ulda", tags = { "news" }, when = { cleared = "Uldaman" },
           text = "I'm told you've been to the very bottom of Uldaman and survived the stone keepers! I've a dozen questions about how they move, and Lucien says I'm only allowed to ask you three." },
         { id = "h_default", key = true,
-          text = "Lotwil Veriatus, founding member of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences, and that's the short name. I study the elements, rock mostly, since there's a great deal of it here." },
+          text = "Lotwil Veriatus, late of Gnomeregan and founding member of the Enlightened Assembly of Arcanology, Alchemy and Engineering Sciences, and that's the short name. I study the elements, rock mostly, since there's a great deal of it here and none of it is radioactive, which after home is a pleasant change." },
         { id = "h_rock", tags = { "news" }, when = { questActive = TODO_QUEST("Study of the Elements: Rock") },
           text = "Rock elementals! They wander the Dustbowl like they own it, and perhaps they do. Bring me what's left of a few, would you, for science?" },
         { id = "h_hard", when = { questActive = TODO_QUEST("This Is Going to Be Hard") },
@@ -339,7 +339,7 @@ P:NPC {
         { id = "h_texts", when = { origin = "gnome_forbidden_texts" },
           text = "Oh! You're the one who reads the books with the clasps on, aren't you? Word gets round the Assembly, you know. I'm all for every discipline sitting at the same table, but I do wish yours didn't keep bringing guests that set the tablecloth on fire." },
       },
-      again = { { id = "h_again", text = "More? Wonderful, but mind the sample tray." } },
+      again = { { id = "h_again", text = "More? Wonderful, every question is a data point, but do mind the sample tray." } },
       choices = {
         { text = "Do the elementals suffer under your experiments?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What's the Assembly?", next = "assembly" },
@@ -394,7 +394,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { opinion = { peace = "for" } } } },
     },
     lucien = {
-      lines = { { id = "l_default", text = "My assistant, patient, practical, and convinced I'll explode one day. He's not wrong to be convinced; he's just early." } },
+      lines = { { id = "l_default", text = "He's my assistant, patient and practical, and convinced I'll explode one day. He's not wrong to be convinced, statistically speaking; he's just early." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rock = {
@@ -402,7 +402,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     engineer = {
-      lines = { { id = "e_default", text = "A device to read what an elemental was thinking when it fell apart. It doesn't work yet. When it does, it'll be the most interesting failure I've ever had." } },
+      lines = { { id = "e_default", text = "It's a device to read what an elemental was thinking when it fell apart, and it doesn't work yet, though the third prototype only smoked a little. When it does work, it'll be the most interesting failure since Gnomeregan, and I mean that kindly." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
     assembly_members = {
@@ -459,7 +459,7 @@ P:NPC {
       { id = "tp_knows", text = "Oh, I know a great many things, and some of them are even about rocks! Ask me about any of these, and mind the sample tray." },
     },
     background = { { id = "tp_ba", text = "A scholar with too many subjects and one very patient assistant. The Assembly is the rest of my life's work, once it exists.", next = "assembly" } },
-    advice = { { id = "tp_ad", text = "Never assume a rock is just a rock. Out here, about one in fifty is an elemental having a nap." } },
+    advice = { { id = "tp_ad", text = "Never assume a rock is just a rock, because out here about one in fifty, or two percent by my last count, is an elemental having a nap." } },
     _none = { { id = "tp_none", text = "Fascinating! I know nothing about it, so tell me everything." } },
   },
 }

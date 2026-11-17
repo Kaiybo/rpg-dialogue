@@ -14,11 +14,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Stand straight when you speak to me, and speak plainly. I'm too old for riddles." },
+    { id = "g_default", text = "Stand straight when you speak to me, {class}, and speak plainly. I'm too old for riddles, and an orc's word should be as blunt as his axe." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, I had a use for you, and the last grunt I had a use for is still picking drake scales out of his teeth." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the drakes are still breathing in their ravine. Tell me you've come to change that." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've grown since I saw you last, and you carry yourself like you've earned it. Good, because Lethlor Ravine doesn't care how brave you feel." },
-    { id = "g_word_scared", when = { word = "intimidated" }, text = "Word is you've been frightening folk in Kargath. Save that for the Blackrock, who deserve it." },
+    { id = "g_word_scared", when = { word = "intimidated" }, text = "Word is you've been frightening folk in Kargath. Save that for the Blackrock, who deserve it, and leave your own clan their peace." },
   },
 
   notice = {
@@ -44,7 +44,7 @@ P:NPC {
           text = "One of the Forsaken. You know something about being used by masters who don't care whether you live, so you'll understand why I want these drakes dead." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak." },
+        { id = "h_again", text = "What else? Speak, then, the way a warrior should." },
         { id = "h_again2", text = "Ask, then, but be quick about it." },
       },
       choices = {
@@ -173,6 +173,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I fought in the Second War, sat in the camps after it, and walked out free when Thrall broke them open. Kargath is where I've chosen to be useful." } },
     advice = { { id = "tp_ad", text = "Never hire a mercenary who's stronger than the soldiers guarding your coin." } },
-    _none = { { id = "tp_none", text = "I don't know it, and I'm too old to pretend I do." } },
+    _none = { { id = "tp_none", text = "I don't know it, and I'm too old and too proud to pretend I do." } },
   },
 }

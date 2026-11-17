@@ -12,7 +12,7 @@
 ## Identity
 Sha'ni Proudtusk · Dreadmaul Rock, Burning Steppes · Horde · troll ghost · scout, quest giver
 Personality: fierce, sorrowful, practical even dead, loving
-Speech: plain and direct, little dialect (her quest text has none)
+Speech: plain and direct with a light Darkspear lilt ("mon", "be", "dis" once in a while; the loa, Bwonsamdi, the Echo Isles), never heavy (her quest text has none)
 Knows and cares about: Thal'trak, her platoon, Krom'Grul, the Firegut
 Relationships: Thal'trak (husband), Kargath Expeditionary Force
 Default attitudes: warm to trolls and soldiers; the dead keep no sides
