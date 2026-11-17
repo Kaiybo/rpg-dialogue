@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_dwarf = {
+      big = true,
+      lines = { { id = "xpt_dwarf_default", text = "It's hard being so near and so far at once, {g:lad|lass}, because I can see the Wetlands from the ridge on a clear day and can't get there without a boat or a broken neck. Your friend will understand: a dwarf goes where the work is, but his beard always points home." } },
+      choices = {
+        { text = "The Span should be rebuilt, and the road home opened.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Home is wherever you choose to stand your ground.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "That the earth was always talkin', {g:lad|lass}, an' most of us were too busy hammerin' to listen, which is a fair description o' my whole life. My forge fire's never once said a word to me, but I'll not tell ye it isn't listenin', for it's been in a mood all week." } },
@@ -96,6 +105,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_dwarf", tags = { "news" }, when = { party = { race = "Dwarf" }, faction = "Alliance" },
+          text = "{companion} has the look of Ironforge about them, and that does my heart good, for there aren't many of my own folk this side of the Thandol Span since the Dark Irons broke it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, an' one o' our own! I've seen a lot o' strange things in three wars, {class}, but a mountain dwarf callin' the lightning is a new one on me." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, welcome! Ye'll want a mace, then, for every priest I knew in Ironforge carried one, an' a good weight in the hand does wonders for a sermon when the Witherbark aren't listenin'." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a customer who knows what a hammer's for, an' ye'll forgive an old dwarf for lookin' at yer weapon before he looks at yer face." },
@@ -128,6 +139,7 @@ P:NPC {
         { text = "Do maces suit the work of taking back the Highlands?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you forge a mace for a warlock, Jannos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does an old smith make of a dwarf shaman, Jannos?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Is it hard being so far from Ironforge?", next = "xpt_dwarf", when = { party = { race = "Dwarf" }, faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

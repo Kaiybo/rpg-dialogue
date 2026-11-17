@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_company = {
+      big = true,
+      lines = { { id = "xpt_company_default", text = "Then you'll find plenty to fight, because the swamp breeds trouble faster than we can kill it, and Nethergarde's humans think the Horde has no business this side of the mountains. Stonard was built by orcs who stayed when the rest were rounded up into camps, and we don't intend to leave now." } },
+      choices = {
+        { text = "Stonard should hold, whatever the humans think.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "This swamp isn't worth Horde blood. Let the humans have it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_st = {
       big = true,
       lines = { { id = "xcl_st_default", text = "A scout never rests, but at least now he'll come home with all his blood. Stonard has watched that temple since the day we raised our walls, and I've written more names in the dispatch book for it than for the Alliance." } },
@@ -106,6 +115,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Horde" },
+          text = "Five of you, Horde all, and you've come to Stonard on your own feet, which is more than the reinforcements from Orgrimmar ever manage." },
         { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar", faction = "Horde" }, text = "My scouts came back from the Pool of Tears with nothing to report, and that's never happened before. I'm told it's because you went to the bottom of the Sunken Temple, so I'll stop sending them in pairs." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. I could use one in Stonard, if only to dry out the dispatches before the ink runs, because the swamp gets into everything." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'd make a better scout than half of mine, because you'd come back with something besides mud on your boots." },
@@ -152,6 +163,7 @@ P:NPC {
         { text = "What has the swamp done to your scouts, Commander?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Would you send a paladin into the swamp, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "The Sunken Temple is cleared, Commander. Your scouts can rest.", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar", faction = "Horde" } },
+        { text = "We came to fight for Stonard, Commander.", next = "xpt_company", when = { party = { size = 4 }, faction = "Horde" } },
         { text = "Send me out.", next = "END", fx = { affinity = 1, standing = { stonard = 1 } } },
       },
     },

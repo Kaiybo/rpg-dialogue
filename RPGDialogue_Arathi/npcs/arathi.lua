@@ -27,6 +27,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_company = {
+      big = true,
+      lines = { { id = "xpt_company_default", text = "Then fight for Stromgarde's people and not for its stones, because the stones have changed hands more times than I can count and the people only once, when they ran here. Hammerfall's orcs and the Syndicate both want this land, and I'd sooner see you guard a farmer than take back a tower." } },
+      choices = {
+        { text = "You're right. The people first, and the towers after.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Retake the towers and raise the banner. The people will follow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Who holds Stromgarde now, Captain?", next = "xpt_company2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpt_company2 = {
+      lines = { { id = "xpt_company2_default", text = "The Syndicate hold much of the old city and the ogres roam its edges, and the last of Stromgarde's soldiers keep a corner of it out of sheer stubbornness. The Trollbane banner still flies over the keep, if you can believe it, though I wonder some nights who's left to salute it." } },
+      choices = {
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Stromgarde will fight beside anyone who'll help us take back the keep, for I can't afford the luxury of choosing. The Syndicate and the ogres hold our walls, and if the stones of Arathor answer a dwarf before they answer us, then I'll thank you and ask them to answer faster." } },
@@ -46,6 +62,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
+          text = "A full company, and on my doorstep at that! Refuge Pointe holds because the Forsaken and the Boulderfist can't agree which of them wants it more, and five more blades on the wall changes that sum nicely." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've heard Ironforge's priests speak of the earth as the Titans' handiwork, {class}, not as a voice, so I'll judge what you bring to the field and leave the theology to others." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the Kaldorei, here in the Highlands? Stromgarde could use anyone who knows wild country, because the Witherbark know these hills far better than my soldiers do." },
@@ -75,6 +93,7 @@ P:NPC {
         { text = "Let me bless the badges before they go home.", next = "priest_badges", when = { class = "PRIEST", questActive = TODO_QUEST("Stromgarde Badges") } },
         { text = "The Syndicate use dark magic. Why not answer in kind?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Will Stromgarde fight beside a dwarf shaman, Captain?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "We've come to fight for the Highlands, Captain.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll fight for Stromgarde.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { refuge_pointe = 1 } } },
         { text = "The Syndicate wouldn't see me coming, Captain.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I can scout the Highlands for you.", next = "xhunter", when = { class = "HUNTER" } },

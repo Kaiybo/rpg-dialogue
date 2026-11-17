@@ -27,6 +27,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_pala = {
+      big = true,
+      lines = { { id = "xpt_pala_default", text = "I'd tell them the oath is to people and not to orders, because I broke an order to save an orc's life and the Light never left me for it. Lordaeron called me a traitor, but the Light judged differently, and it's the Light your friend should listen to." } },
+      choices = {
+        { text = "The oath is to the Light, even against one's king.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "An oath to the crown must be kept, or nothing holds.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Do you regret saving the orc?", next = "xpt_pala2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpt_pala2 = {
+      lines = { { id = "xpt_pala2_default", text = "Not for a single day, though I've regretted a great deal else, my wife and my son most of all. Eitrigg was an old soldier tired of killing, and he saved my life before I saved his, and some debts are worth an exile." } },
+      choices = {
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Once I'd have said the Light was the only true path, and then an orc showed me more honour than my own order did, and it cost me everything I had. I've learned to judge a soul by what it does, and if the spirits lead you against the Scourge, then we walk the same road, whatever we call the one who lit it." } },
@@ -67,6 +83,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_pala", tags = { "news" }, when = { party = { class = "PALADIN" } },
+          text = "You travel with {companion}, and they carry themselves like one of the Silver Hand, though I'd guess they never knew Uther. I was one of the first to take that oath, and I've been out here long enough to wonder whether the order still remembers my name." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who walks with the spirits, here by my river. I fought beside many dwarves in the Second War, {class}, stout friends every one, though none of them ever spoke to the wind the way you seem to." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, by the look of you. I've watched this river run grey with plague for a long while now, and I'd give a great deal to hear from someone who knows whether it will ever run clean." },
@@ -111,6 +129,7 @@ P:NPC {
         { text = "Do you still hunt these woods, Tirion?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you mean Eitrigg, Tirion?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Does a paladin of the old Hand trust a shaman, Tirion?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My companion is a paladin. What would you tell them?", next = "xpt_pala", when = { party = { class = "PALADIN" } } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { light = 1, honor = 1 } } },
         { text = "You chose an orc over your own people, and I can't respect that.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },

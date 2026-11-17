@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_troll = {
+      big = true,
+      lines = { { id = "xpt_troll_default", text = "The Darkspear be jungle trolls and we be forest trolls, so we argue about everything from the loa to the proper way to cook a raptor. But they kept faith with Thrall and so do we, and that makes us closer kin than the Vilebranch who share our blood." } },
+      choices = {
+        { text = "Oaths matter more than blood. The Horde comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Trolls should look after trolls before they look after orcs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_zg = {
       big = true,
       lines = { { id = "xcl_zg_default", text = "Then you done a thing the old empires never could. Hakkar ate the Gurubashi from the inside once already, and they had to drive his priests out to save themselves, and if the Vilebranch had ever got his blood in their bowls, they'd have come down on Revantusk with a god at their backs, so I be owin' you twice now." } },
@@ -85,6 +94,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_troll", tags = { "news" }, when = { party = { race = "Troll" }, faction = "Horde" },
+          text = "You travel with {companion}, a Darkspear by the tusks, and the Revantusk are glad of it, mon. There be few enough trolls in this Horde who remember what it means to keep faith with the orcs." },
         { id = "h_default", key = true,
           text = "I be Primal Torntusk, and I lead the Revantusk while my mate sits in a Vilebranch cage. They came at midnight, they took him up to Jintha'Alor, and every night since I been countin' how many of them owe me blood." },
         { id = "h_kidnap", tags = { "news" }, when = { questActive = TODO_QUEST("Kidnapped Elder Torntusk!") },
@@ -137,6 +148,7 @@ P:NPC {
         { text = "How do I show you I'm the other kind, Primal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will the Revantusk accept a Forsaken paladin as an ally, Primal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I stood in Zul'Gurub when Hakkar fell, Primal.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
+        { text = "My companion's a Darkspear. What do the Revantusk make of them?", next = "xpt_troll", when = { party = { race = "Troll" }, faction = "Horde" } },
         { text = "I'll go up to Jintha'Alor.", next = "END", fx = { affinity = 2, standing = { revantusk = 1 } } },
       },
     },

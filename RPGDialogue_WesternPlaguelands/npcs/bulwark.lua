@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_forsaken = {
+      big = true,
+      lines = { { id = "xpt_forsaken_default", text = "We fight it without any hope of going home, which makes us patient, and we know its tricks because we were its tricks. Your friend will tell you that every ghoul at these gates was somebody's neighbour once, and that is why we never miss." } },
+      choices = {
+        { text = "Burn every one of them, whoever they used to be.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "They were people once. They deserve a mercy before the blade.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_strat = {
       big = true,
       lines = { { id = "xcl_strat_default", text = "Then you've done what the Dark Lady's armies couldn't, and Undercity will be calling it policy by supper. The Baron served Kel'Thuzad in life before he ever served him in death, and I knew men who sat at his table, so I'll not pretend there's anything personal in it, except that there is." } },
@@ -93,6 +102,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" }, faction = "Horde" },
+          text = "You travel with {companion}, one of the Dark Lady's own, and that pleases me. The living fight the Scourge out of fear, but we fight it because we remember exactly what it did to us." },
         { id = "h_default", key = true,
           text = "High Executor Derrington. In Undercity they scheme over who sits nearest the throne, and here we scheme over who stays standing until morning, and I much prefer our kind of politics." },
         { id = "h_cauldrons", tags = { "news" }, when = { questActive = TODO_QUEST("The Scourge Cauldrons") },
@@ -141,6 +152,7 @@ P:NPC {
         { text = "What did your orcs hear from the earth at Andorhal, High Executor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do they truly whisper about paladins in the Undercity, High Executor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've come back from Stratholme, High Executor.", next = "xcl_strat", when = { cleared = "Stratholme", faction = "Horde" } },
+        { text = "Do the Forsaken fight the Scourge differently?", next = "xpt_forsaken", when = { party = { race = "Scourge" }, faction = "Horde" } },
         { text = "Send me east.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 } } },
       },
     },

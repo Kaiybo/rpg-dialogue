@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_rogue = {
+      big = true,
+      lines = { { id = "xpt_rogue_default", text = "Not every one, only the ones worth the ink, and the ones who travel in company tend to live long enough to become worth it. Your friend has chosen their companions well, I think, though I'd rather they had chosen Ravenholdt." } },
+      choices = {
+        { text = "Then watch over them, my lord. They'd be glad of a patron.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My friend answers to no guild, my lord, and neither do I.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than you'd think, for every quiet piece of work needs someone loud standing in the road while it's done. The Syndicate learned that from us, and now they hire Alterac's old men-at-arms to do the same against my people." } },
@@ -111,6 +120,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_rogue", tags = { "news" }, when = { party = { class = "ROGUE" } },
+          text = "You bring {companion} up my hill, and I see by the way they stand that someone who knows my house had a hand in their training. The Assassin's League keeps track of its own, {name}, and of the company they keep." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who speaks with the elements, at Ravenholdt. Ironforge does not often produce anything my house cannot predict, {class}, so you have my attention, which is rarer than my courtesy." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of Thrall's Horde, at Ravenholdt. The Warchief's people rebuilt an old faith out of ashes in a few short years, and I respect anyone who builds something that lasts." },
@@ -144,6 +155,7 @@ P:NPC {
         { text = "Did the Silver Hand ever know of Ravenholdt, my lord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does a house of shadows have any use for a warrior, my lord?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Your hills are full of game. Do you keep hounds here, my lord?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Does Ravenholdt watch every rogue in the land?", next = "xpt_rogue", when = { party = { class = "ROGUE" } } },
         { text = "I'll leave you to your counsel, my lord.", next = "END" },
       },
       again = {

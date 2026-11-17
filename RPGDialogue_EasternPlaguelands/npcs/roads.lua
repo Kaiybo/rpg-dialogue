@@ -610,6 +610,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_gnome = {
+      big = true,
+      lines = { { id = "xpt_gnome_default", text = "Not many, because most of us are still in Ironforge working out how to take Gnomeregan back, and I can't fault them for it. But the plague is a puzzle like any other, and I'd rather be solving it out here than staring at the gates of a city we lost." } },
+      choices = {
+        { text = "Gnomes are needed wherever there's a puzzle. Go where you're useful.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Every gnome should be working to retake Gnomeregan first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "By telling me whether it stings! If the holy part of my device bothers you, it'll bother the Cult of the Damned far worse, and if it doesn't, then I'll know you're more holy than dead, which would be fascinating either way." } },
@@ -686,6 +695,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_gnome", tags = { "news" }, when = { party = { race = "Gnome" } },
+          text = "Is that a gnome I see behind you? Oh, {companion}, come here and let me look at you, because I haven't seen another gnome this far north since the last Dawn caravan left Ironforge." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Oh, how lovely. You must tell me whether my holy vapours bother the plants, because I'd hate to make things worse out here." },
         { id = "h_default", key = true,
@@ -723,6 +734,7 @@ P:NPC {
         { text = "What would you need from a quiet sort, Betina?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would you want to bottle lightning, Betina?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How would a Forsaken paladin help your Gambit, Betina?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "My companion is a gnome. Do many gnomes fight out here?", next = "xpt_gnome", when = { party = { race = "Gnome" } } },
         { text = "Good luck with it.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I can talk and solder, mostly." } },

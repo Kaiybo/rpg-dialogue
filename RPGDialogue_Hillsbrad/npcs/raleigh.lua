@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_priest = {
+      big = true,
+      lines = { { id = "xpt_priest_default", text = "Tell them to sleep when they can and eat before they pray, because a healer who falls in the road heals nobody, and I've watched good priests burn out in a single season at Hillsbrad. And tell them that the ones they couldn't save were never theirs to save; I wish someone had told me that sooner." } },
+      choices = {
+        { text = "Wise words. A healer must look after themselves too.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A healer's duty doesn't stop for sleep while people bleed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_cath = {
       big = true,
       lines = { { id = "xcl_cath_default", text = "Then the High Inquisitor has met the judgement she handed out so freely, and I'll not pretend I'm sorry. She raised the fallen in the drill yard more than once, and the brothers called it a miracle, but I always wondered what answered her so quickly." } },
@@ -116,6 +125,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" }, faction = "Alliance" },
+          text = "You travel with {companion}, and I'd know a fellow priest by the way they bow their head at my door. Southshore has buried too many lately, and I find I'm glad of every healer who passes through." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf. The Crusade would have named you a heretic before you'd finished speaking, {class}, and once I'd have agreed with them, so sit down and let me hear what I'd have condemned." },
         { id = "h_default", key = true,
           text = "Raleigh. They call me the Devout, which is kind of them. I wore the Crusade's red once. Now I keep a room above an inn and watch the north road." },
@@ -153,6 +164,7 @@ P:NPC {
         { text = "Does the Crusade still blame Dalaran, Raleigh?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would the Crusade really call me a heretic, Raleigh?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been through the cathedral, Raleigh. Whitemane has fallen.", next = "xcl_cath", when = { cleared = "Scarlet Cathedral", faction = "Alliance" } },
+        { text = "My companion tends our wounds. Have you advice for them?", next = "xpt_priest", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
         { text = "I'll leave you to your window.", next = "END" },
       },
     },
