@@ -53,6 +53,9 @@ P:NPC {
         { text = "What are scourgestones?", next = "stones" },
         { text = "What do you make of the Scarlet Crusade?", next = "crusade" },
         { text = "You're a linguist?", next = "linguist" },
+        { text = "What is Lord Tyrosus like?", next = "tyrosus" },
+        { text = "Do your colleagues truly accept the Horde here?", next = "horde", when = { faction = "Horde" } },
+        { text = "Can a scholar read anything useful in Scourge runes?", next = "runes", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "What did the Balnazzar business mean for the Crusade?", next = "balnazzar", when = { questDone = TODO_QUEST("The Truth Comes Crashing Down") } },
         { text = "I study the Light, Duke. Does the Dawn need priests?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I'm here to trade.", next = "BUSINESS" },
@@ -118,7 +121,71 @@ P:NPC {
     balnazzar = {
       lines = { { id = "ba_default", text = "That the Crusade may have been steered by a demon for longer than any of them knows. Many of them are simply frightened men who wanted to save their homes, and somebody very old and very cruel made good use of that." } },
       choices = {
-        { text = "Will they believe it, if they're told?", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Will they believe it, if they're told?", next = "balnazzar_believe", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    balnazzar_believe = {
+      big = true,
+      lines = { { id = "bb_default", text = "Some will, and those are the ones worth saving, if the Crusade's ranks break. The rest will call it a lie of the Dawn's and burn the messenger. Should we reach out to the ones who doubt, do you think, or simply let the Crusade rot?" } },
+      choices = {
+        { text = "Reach out. Frightened men can still be redeemed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let it rot. They chose their masters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    tyrosus = {
+      lines = { { id = "ty_default", text = "A good man who has carried the Dawn for longer than any one man ought to. He left the Silver Hand when it became the Crusade, and he's never stopped grieving the difference, though he'd never say so." } },
+      choices = {
+        { text = "They say he refuses visitors.", next = "tyrosus_recluse" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tyrosus_recluse = {
+      lines = { { id = "tr_default", text = "He refuses idle ones, and the Plaguelands breed a great many idle questions. I take the visitors and the letters, he takes the decisions, and between the two of us the chapel holds." } },
+      choices = {
+        { text = "You're the face, and he's the will?", next = "tyrosus_face" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tyrosus_face = {
+      lines = { { id = "tf_default", text = "Something like that, though I'd put it more kindly to his face. A leader who listens to everyone hears nothing, and he's chosen to listen to very few, me among them, Light help him." } },
+      choices = {
+        { text = "He chose well, I think.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    horde = {
+      lines = { { id = "ho_default", text = "Most do, and the rest are learning, slowly, the way old soldiers learn anything. There's a knight inside who still lowers his voice when an orc walks past, and I've asked him to stop, twice." } },
+      choices = {
+        { text = "And you? You don't mind us?", next = "horde_you" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    horde_you = {
+      big = true,
+      lines = { { id = "hy_default", text = "I've read your histories, which is more than most of my peers can say, and I find the Horde no more alarming than Lordaeron's own nobility. Tell me honestly, though: do you trust us?" } },
+      choices = {
+        { text = "I trust anyone who bleeds against the Scourge.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "No. I'll use the Dawn while it serves my people.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    runes = {
+      lines = { { id = "ru_default", text = "A great deal, though not comfortably. The Cult writes its necromancy the way clerks write ledgers, neat and joyless, and that frightens me more than any ranting would." } },
+      choices = {
+        { text = "Why does neatness frighten you?", next = "runes_neat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    runes_neat = {
+      lines = { { id = "rn_default", text = "Because madmen burn out, {class}, and clerks don't. Whoever taught the Cult to raise the dead taught them to keep accounts of it, and that's a patience the living rarely match." } },
+      choices = {
+        { text = "Then we'll have to be more patient still.", next = "BACK", fx = { affinity = 1, trait = { patient = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -52,6 +52,9 @@ P:NPC {
         { text = "How does your blaster work?", next = "blaster" },
         { text = "Why do you hate the Scourge so much?", next = "hate" },
         { text = "How are you different from the Crusade?", next = "crusade" },
+        { text = "What's it like inside Stratholme's walls?", next = "streets" },
+        { text = "Have you met Augustus, the merchant in Terrordale?", next = "augustus" },
+        { text = "Which clan are you from, Egan?", next = "clan", when = { race = "Dwarf" } },
         { text = "Let me look at your machine.", next = "engineer", when = { profession = "Engineering" } },
         { text = "Can the Light free them instead?", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -111,6 +114,60 @@ P:NPC {
       choices = {
         { text = "It'll hold. Tighten the second bolt.", next = "BACK", fx = { affinity = 2 } },
         { text = "It's going to explode, Egan.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
+
+    streets = {
+      lines = { { id = "st_default", text = "Half of it belongs to the Scarlets, who've barricaded themselves in like it'll save them, and the other half belongs to the Baron and his dead. The ghosts wander between the two, and nobody on either side looks at them twice." } },
+      choices = {
+        { text = "Who is this Baron?", next = "streets_baron" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    streets_baron = {
+      lines = { { id = "sb_default", text = "Rivendare, a lord of Lordaeron who sold his own city to the Cult before the plague ever came. He sits in the Scourge's half like a spider in a web, and every ghost I free is one less thread for him to pull." } },
+      choices = {
+        { text = "Should the Dawn storm the city?", next = "streets_storm" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    streets_storm = {
+      big = true,
+      lines = { { id = "ss_default", text = "An army in those streets would trample the very souls I'm trying to save, and the Crusade would be glad of the chaos. What would you do with Stratholme, if it were yours to decide?" } },
+      choices = {
+        { text = "Go in quietly, a few at a time, and free who we can.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "March the whole Dawn in and end it in one blow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather not decide that, Egan.", next = "BACK" },
+      },
+    },
+
+    augustus = {
+      lines = { { id = "au_default", text = "The fellow the dead walk past? Aye, I've met him, and I'll admit I pointed the blaster at him for a good long while. There's a soul in there all right, but it's knotted up with the plague so tight I couldn't tell you which is holding which." } },
+      choices = {
+        { text = "Could your blaster free him?", next = "augustus_free" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    augustus_free = {
+      lines = { { id = "af_default", text = "Maybe, and maybe it'd just drop him dead in the street, and he didn't ask me to. So I bought a spool of wire from him instead and left him to his shop, and I still don't know if that was kindness or cowardice." } },
+      choices = {
+        { text = "It was kindness. He gets to choose.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    clan = {
+      lines = { { id = "cl_default", text = "Ironforge born, though I left young to chase gears in Gnomeregan, back when the gnomes still had it. Then my mother married a man from Stratholme, and I followed her east, and you know the rest." } },
+      choices = {
+        { text = "Do you ever think of going home?", next = "clan_home" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clan_home = {
+      lines = { { id = "ch_default", text = "Every winter, when the coil freezes and my fingers with it. But there's nobody in the mountain waiting on me, and there's a whole city of souls out here that is, so I stay." } },
+      choices = {
+        { text = "The mountain will keep. Raise a mug to it someday.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

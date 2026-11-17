@@ -38,3 +38,6 @@ Never says: anything about Naxxramas, the Scourge invasion or later Argent histo
 
 ## Topics
 - argent_dawn, scarlet_crusade, background, advice
+
+## 1.23 additions (authored, not canon)
+- He takes the visitors and letters, Tyrosus the decisions. A knight inside still lowers his voice near orcs. The Cult writes necromancy "like clerks write ledgers". Whether to reach out to doubting Crusaders after the Balnazzar reveal (stance node). Never states Tyrosus's Stratholme plan (that's Tyrosus's Persuade).
