@@ -281,7 +281,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_work", text = "I hope this interruption is for a good cause. I was busy." },
+    { id = "g_work", text = "I hope this interruption is for a good cause, because I was busy, and I have been busy since long before this city's first stone was laid." },
     { id = "g_sample", when = { questActive = TODO_QUEST("A Green Sample") }, text = "Well? Did you get into Dalaran, or did the Kirin Tor shoo you off?" },
   },
 
@@ -365,7 +365,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You've trampled two of my seedlings already, so stand still and tell me what you want." },
-        { id = "h_default", text = "Shylamiir. I train herbalists, when they can be trained, and in between I study what grows here, which is more than you'd think for a park full of humans." },
+        { id = "h_default", text = "Shylamiir. I train herbalists, when they can be trained, and in between I study what grows here, which is more than you would think for a park the humans planted only a few lifetimes ago." },
         { id = "h_sample", key = true, tags = { "news" }, when = { questBefore = TODO_QUEST("A Green Sample"), minLevel = 40 },
           text = "If you're going to bother me, you can make yourself useful. Dalaran has a surprising interest in botany for a city of mages, and I'd very much like a sample of whatever grows in their central garden." },
         { id = "h_sample_active", tags = { "news" }, when = { questActive = TODO_QUEST("A Green Sample") },
@@ -381,10 +381,10 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You walk past the herbs as if they were nothing, as warriors always do, and yet you'll be grateful for them when you bleed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then you've walked through more of the world than most who come to this Park, and you'll know how to look at what grows underfoot." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in my Park. The peacebloom will close if you linger, so be quick, and be useful if you can manage it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. An interruption, but perhaps a useful one. Do your spirits know where plants grow best?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, which is an interruption, but perhaps a useful one. Do your spirits know where plants grow best, or only where the stone is loudest?" },
       },
       again = {
-        { id = "h_again", text = "Something else? Quickly." },
+        { id = "h_again", text = "Something else? Ask it quickly, then, for I have centuries of work ahead of me and would like to begin it today." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Herbalism" } },
@@ -434,8 +434,8 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I know plants, and the people who walk through the Park on their way to somewhere else. Ask, but make it worth my time." },
     },
-    background = { { id = "tp_bg", text = "I study herbs, and I'm better at it than anyone in this city, so what more would you need to know?" } },
+    background = { { id = "tp_bg", text = "I tended the groves of Ashenvale for longer than this city has stood, and now I study herbs here, better than anyone in it. What more would you need to know?" } },
     advice = { { id = "tp_ad", text = "Take the leaf and leave the root. Then there's something to pick next year." } },
-    _none = { { id = "tp_none", text = "If it isn't a plant, I don't care, and neither should you." } },
+    _none = { { id = "tp_none", text = "If it isn't a plant, I don't care, and I have had a very long life in which to decide what deserves my care." } },
   },
 }

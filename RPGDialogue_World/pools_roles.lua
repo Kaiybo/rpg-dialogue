@@ -2367,7 +2367,7 @@ P:Pool {
   greetings = {
     { id = "g_strength", text = "Lok'tar. You're in Orgrimmar now, so act like it." },
     { id = "g_mage", when = { race = "Orc", class = "MAGE" }, text = "An orc with a staff and no axe? Don't set the Drag on fire." },
-    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}. Orgrimmar's still standing, so walk in like you never left." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and Orgrimmar still stands, as it will while there's blood in the Horde. Walk in proud, like you never left." },
     { id = "g_word_help", when = { word = "helped" }, text = "I had it from {source} that you've done the city a service. Lok'tar; walk proud in the Valley of Strength." },
   },
   notice = {
@@ -2388,8 +2388,8 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Skulking in the Warchief's city? Show yourself." } },
   lines = {
-    { id = "l_default", text = "Valley of Strength by the gate, the Drag for anything crooked, and Grommash Hold for the Warchief, but don't bother him." },
-    { id = "l_warrior", when = { class = "WARRIOR" }, text = "Warriors to the Valley of Honor. The weak train somewhere else, I'm told, but I've never found where." },
+    { id = "l_default", text = "The Valley of Strength lies by the gate, the Drag holds anything crooked, and Grommash Hold belongs to the Warchief. Go there with a deed to report, not with idle talk." },
+    { id = "l_warrior", when = { class = "WARRIOR" }, text = "Warriors train in the Valley of Honor, where blood is spilled and nobody weeps over it. The weak train somewhere else, I'm told, but I've never found where." },
     { id = "l_rogue", when = { class = "ROGUE" }, text = "Rogues gather in the Cleft of Shadow with the other things that crawl. Don't make me come down there to find you." },
     { id = "l_thrall", text = "The Warchief built this city with his own people's hands, and named it for the Warchief who came before him. Remember that when you walk under these gates." },
     { id = "l_burning", text = "Burning Blade cultists crawl about the Cleft and the canyons when they think no one is looking. If you see one, you won't need to ask us twice." },
@@ -2401,7 +2401,7 @@ P:Pool {
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've bled for the Horde, so I'll tell you what the grunts don't say in front of the officers." },
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer you because the Warchief says we answer, so make it worth my time." },
     },
-    _none = { { id = "t_none", text = "Not my business; find a shaman." } },
+    _none = { { id = "t_none", text = "That's not a guard's business. Find a shaman in the Valley of Wisdom, because the spirits talk more than I do." } },
   },
 }
 
@@ -2409,7 +2409,7 @@ P:Pool {
   id = "guard_thunderbluff", role = "guard", community = "thunder_bluff",
   greetings = {
     { id = "g_winds", text = "Walk with the Earth Mother. The lifts will take you down when you're done." },
-    { id = "g_away", when = { away = 7 }, text = "You have been away {away}. The bluffs are as they were, and the lifts still run." },
+    { id = "g_away", when = { away = 7 }, text = "You have been away {away}, and the grass below has grown and been grazed again. The bluffs are as they were, and the Earth Mother kept your place." },
     { id = "g_word_angry", when = { word = "angered" }, text = "The braves say you angered someone on the bluffs. Settle it peaceably, traveler, because we settle things no other way here." },
   },
   notice = {
@@ -2432,7 +2432,7 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Hiding on the bluffs? There is nowhere to fall but down, so come out." } },
   lines = {
-    { id = "l_default", text = "The rises and the bridges between them. Mind the edges; the wind does not ask permission." },
+    { id = "l_default", text = "The rises stand together like old bulls in a herd, and the bridges run between them. Mind the edges, for the wind does not ask permission." },
     { id = "l_warlock", when = { class = "WARLOCK" }, text = "The Earth Mother does not love the fel. Do your work below the bluffs, if you must do it at all." },
     { id = "l_cairne", text = "High Chieftain Cairne keeps his lodge on the central rise, and his door is open to any who come in peace. That is the tauren way, and it is his way most of all." },
     { id = "l_grimtotem", text = "The Grimtotem walk among us on the bluffs, and they smile, but their eyes do not. If one of them troubles you, come to a Bluffwatcher and not to your weapon." },
@@ -2451,8 +2451,8 @@ P:Pool {
 P:Pool {
   id = "guard_undercity", role = "guard", community = "undercity",
   greetings = {
-    { id = "g_dark", text = "You're in the Undercity. Keep to the paths and don't touch the green." },
-    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}. The Deathguard noticed, as they notice everything." },
+    { id = "g_dark", text = "Welcome to the Undercity, where the Dark Lady's will is the only law. Keep to the paths and don't touch the green, unless you'd like to join us sooner than you planned." },
+    { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, which is nothing at all to the dead. The Deathguard noticed all the same, as they notice everything." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word in the barracks is that a lie of yours was seen through. The Dark Lady's servants keep track of such things." },
   },
   notice = {

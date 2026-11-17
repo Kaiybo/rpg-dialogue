@@ -1232,7 +1232,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do your elementals have little personalities? My demons certainly do. One of them sulks. It's adorable." },
       },
       again = {
-        { id = "h_again", text = "What else? I love a good chat between customers." },
+        { id = "h_again", text = "What else? I love a good chat between customers, and by my own tally I sell eleven percent more grimoires while I'm talking." },
       },
       choices = {
         { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
