@@ -19,3 +19,5 @@ npcs\katar.lua
 npcs\tokkar.lua
 npcs\itharius.lua
 npcs\thund.lua
+npcs\stonard_trainers.lua
+npcs\stonard_traders.lua

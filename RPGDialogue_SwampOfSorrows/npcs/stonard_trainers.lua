@@ -1,0 +1,626 @@
+-- Stonard's trainers: Kartosh the warlock trainer, Ogromm the hunter trainer, Grokor the pet trainer and Rogvar the alchemist. Voice: bibles/stonard_trainers.md
+local P = RPGDialogueAPI:Pack("rpgd.swampofsorrows")
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+
+P:NPC {
+  key = "kartosh", id = TODO_NPC("Kartosh"), name = "Kartosh", title = "Warlock Trainer",
+  bible = "bibles/stonard_trainers.md", role = "trainer", tier = "service",
+  communities = { "stonard" }, temper = { "calm", "severe" }, values = { "disciplined", "wary" },
+  notices = { "class" },
+
+  impression = {
+    first = "Kartosh teaches warlocks a mile from the Dark Portal and says the place keeps his students humble. He speaks softly, as if something in the room were listening, and he talks about the fel the way a jailer talks about his keys.",
+    third = "{name} met Kartosh, the soft-spoken warlock trainer of Stonard.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Speak softly in this room, {class}. The things I teach about are listening, even when the students aren't." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock. Sit down and tell me what you've bound lately, and whether it's still afraid of you." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back, which means whatever you called up last time didn't eat you. That's a good start." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The Portal's glow shows on the clouds at night, if you know where to look to the south. I always know where to look." },
+  },
+
+  notice = {
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "There's ash on your sleeves and brimstone in your hair. Either your imp has been careless with its fire, or you've been careless with your imp." },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman at my door. The spirits turned away from my kind once, and with good reason, so I'll not ask you to come in." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I'm Kartosh, and I teach warlocks their craft, here where the old Horde's warlocks made the bargains that damned us. Your will isn't shaped for the forces I teach, {class}, but you may ask your questions." },
+        { id = "h_lock", when = { class = "WARLOCK" },
+          text = "Kartosh. You know enough to be a danger to yourself, which is how every student arrives, so let's make you a danger to someone else instead. The Portal stands a short ride south of here to remind you what happens when we get that wrong." },
+        { id = "h_shaman", when = { class = "SHAMAN" },
+          text = "You'll tell me what my kind did to the elements, and you'll be right, so let's not spend the breath on it. Ask what you came to ask, shaman." },
+        { id = "h_tauren", when = { race = "Tauren" },
+          text = "A tauren. Your people took us in when we came to Kalimdor, and I'm told some of your elders asked what warlocks were for. I've never had a good answer for them, but I'm still working on one." },
+        { id = "h_dead", when = { race = "Scourge" },
+          text = "You've been dead, so you've seen things on the far side that my students only read about. Don't describe them in here, because the young ones would want to go and look." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Keep your voice down." },
+        { id = "h_again2", text = "Go on. The demons aren't the only ones in Stonard with patience." },
+      },
+      choices = {
+        { text = "Teach me.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Why teach warlocks here, of all places?", next = "place" },
+        { text = "What's the first thing you teach?", next = "lesson" },
+        { text = "What do you make of Greshka?", next = "greshka" },
+        { text = "Do you know Fel'zerul, who watches the temple?", next = "felzerul" },
+        { text = "How do I keep my demons in hand?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "The elements remember what your kind did, Kartosh.", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "I'll leave you to your lessons.", next = "END" },
+      },
+    },
+
+    place = {
+      lines = {
+        { id = "pl_default", text = "The Dark Portal stands in the Blasted Lands to the south, and every warlock in the Horde wants to see it once, to stand where Gul'dan's council opened the way. Better they come through Stonard first and hear what I have to say before they go and look." },
+      },
+      choices = {
+        { text = "What do you tell them?", next = "place_tell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    place_tell = {
+      lines = {
+        { id = "pt_default", text = "That the land out there is dead because of what our people did, and that the demons still wandering it were once called friends by orcs who thought they'd be rewarded. Then I let them go and look, and most of them come back much quieter than they left." },
+      },
+      choices = {
+        { text = "The old warlocks were traitors. Their craft should die with them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their mistake was trusting demons, not wielding the power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    lesson = {
+      lines = {
+        { id = "le_default", text = "Humility comes first, then control, and only after both of those comes power. The young ones want them in the opposite order, and Greshka sells to them in that order, which is why I teach and she doesn't." },
+        { id = "le_lock", when = { class = "WARLOCK" },
+          text = "Humility, then control, then power, and you'll want to skip the first two as every student does. Don't, because I've seen what's left of the ones who did." },
+      },
+      choices = {
+        { text = "Isn't humility a strange lesson for a warlock?", next = "lesson_humble" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lesson_humble = {
+      lines = {
+        { id = "lh_default", text = "It's the strangest lesson and the most needed, because the moment a warlock believes his demon serves out of fear, the demon starts to plan. I've buried students who forgot that, and there's more of this swamp in their graves than there is of them." },
+      },
+      choices = {
+        { text = "Strict rules keep a warlock alive. I'd follow yours.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules are for the timid. A real warlock finds his own way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    greshka = {
+      lines = {
+        { id = "gr_default", text = "She's clever, and she knows her grimoires better than anyone south of Orgrimmar, but she'd sell a felhunter's lessons to a child if the child had the silver. We disagree about that quietly, and Karakul seats us at opposite ends of the hall." },
+      },
+      choices = {
+        { text = "Isn't she right that power is just power?", next = "greshka_power" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    greshka_power = {
+      lines = {
+        { id = "gp_default", text = "Power is power the way fire is fire, and the fool who sets his own hut alight learns the difference between owning a fire and being owned by one. Greshka has never been burned, and that's exactly what worries me about her." },
+      },
+      choices = {
+        { text = "Let the students choose their own risks. It's their fire.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then her trade should be limited. The Warchief makes the laws.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    felzerul = {
+      lines = {
+        { id = "fe_default", text = "He's the Warchief's man, sent to watch the sunken temple, and some days he keeps the line Thrall drew for our kind better than I do. We don't talk much, because he thinks a teacher is a risk and I think a watcher is a waste, but I'd trust him at my back." },
+      },
+      choices = {
+        { text = "What do you think is in that temple?", next = "felzerul_temple" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    felzerul_temple = {
+      lines = {
+        { id = "ft_default", text = "Trolls who bargained with a blood god and sank for it, as far as I know and as far as I care. A warlock deals with demons who at least admit what they are, and I've always thought a god who demands that much blood is a demon with better manners." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "I'll go and see for myself.", next = "END" },
+      },
+    },
+
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xl_default", text = "By never forgetting that the leash pulls at both ends. Speak to your demon as you would to a prisoner who's been promised a key, and never let it see you tired, frightened or pleased with yourself." },
+      },
+      choices = {
+        { text = "Fear is all a demon understands. I'll rule mine with it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll call on mine sparingly, and only for the Horde.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshaman = {
+      big = true,
+      lines = {
+        { id = "xs_default", text = "They do, and they're right to, and I'll not argue with them or with you. I teach so that the next warlock who touches the fel knows exactly what it cost us, which is more than my own teachers ever told me." },
+      },
+      choices = {
+        { text = "The Warchief allows your craft, so I'll respect his word.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Warchief or not, this craft should end with you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_ba", text = "I was young when the camps opened and old by the time they closed, and I learned this craft from someone who should never have been allowed to teach it. That's all the story you need." } },
+    advice = { { id = "tp_ad", text = "If a demon ever thanks you, check your pockets, your soul and your back, in that order." } },
+    _none = { { id = "tp_none", text = "That's nothing I teach, so it's nothing I'll discuss. Ask Karakul, who will discuss anything." } },
+  },
+}
+
+P:NPC {
+  key = "ogromm", id = TODO_NPC("Ogromm"), name = "Ogromm", title = "Hunter Trainer",
+  bible = "bibles/stonard_trainers.md", role = "trainer", tier = "service",
+  communities = { "stonard" }, temper = { "curt", "gruff" }, values = { "patient", "proud" },
+  notices = { "class", "pet" },
+
+  impression = {
+    first = "Ogromm trains Stonard's hunters and has no time for anyone else, though he'll talk tracks and tides all day with someone who carries a bow. He thinks Grokor spoils the beasts, and says so to anyone in earshot.",
+    third = "{name} met Ogromm, the curt hunter trainer of Stonard.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Don't waste my time, {class}. If you've no bow and no beast, you've no business here." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, and with mud to the knee, so you've been out in the swamp already. Good, now we can talk." },
+    { id = "g_back", when = { metBefore = true, class = "HUNTER" }, text = "Back again, and still in one piece. The swamp must be teaching you something, too." },
+  },
+
+  notice = {
+    { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { type = "Beast" } },
+      text = "Your {pet} keeps its nose to the wind toward the Pool of Tears. It smells the jaguars over there, so trust it, because it's smarter than you about this swamp." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid. You'd make a fine quarry in cat shape, so don't go prowling round the hunters' camps after dark." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I'm Ogromm, and I train hunters, which you are not. Ask your question quickly, because I've a swamp full of tracks to read and none of them are yours." },
+        { id = "h_hunter", when = { class = "HUNTER" },
+          text = "Ogromm. I teach hunters to read this swamp, which is harder than reading any forest, because the water closes over a track before you've finished looking at it. Tell me what you need, and be quick about it." },
+        { id = "h_tauren", when = { class = "HUNTER", race = "Tauren" },
+          text = "A tauren hunter, raised on the open plains where a track stays in the dirt for days. The swamp will humble you, and I'll enjoy watching it, but you'll learn faster than most." },
+        { id = "h_troll", when = { class = "HUNTER", race = "Troll" },
+          text = "A Darkspear hunter. Your people hunted the jungle long before mine came to this world, so I'll not pretend I've much to teach you about wet ground, only about this particular wet ground." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The tracks are drying." },
+        { id = "h_again2", text = "Ask, then, and keep it short." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "How do you track anything in this swamp?", next = "tracking" },
+        { text = "What's worth hunting out here?", next = "quarry" },
+        { text = "You don't think much of Grokor, do you?", next = "grokor" },
+        { text = "The swamp's not so different from home, Ogromm.", next = "xtroll", when = { race = "Troll", class = "HUNTER" } },
+        { text = "I'm going.", next = "END" },
+      },
+    },
+
+    tracking = {
+      lines = {
+        { id = "tr_default", text = "You don't track the prints, because the water swallows them, so you track the things the water can't hide. Broken reeds, frightened frogs, the way the birds go quiet ahead of something heavy, and the smell of a jaguar that's just been in the water." },
+        { id = "tr_hunter", when = { class = "HUNTER" },
+          text = "Forget the prints, because the water swallows them before you can kneel. Watch the reeds and the frogs, listen for the birds going quiet, and let your beast's nose do half the work, since it's better at this than you'll ever be." },
+      },
+      choices = {
+        { text = "Who taught you that?", next = "tracking_who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tracking_who = {
+      lines = {
+        { id = "tw_default", text = "The swamp did, mostly by letting me walk into crocolisks until I stopped. A hunter learns patience or he learns what the inside of a crocolisk looks like, and I've taught both lessons in my time." },
+      },
+      choices = {
+        { text = "Patience is the whole craft. A hunter waits for the right shot.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sometimes you charge in and trust your instincts.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    quarry = {
+      lines = {
+        { id = "qu_default", text = "Swamp jaguars for the skins, sawtooth crocolisks for the meat Tok'Kar's always short of, and the deathstrike tarantulas if you've a death wish. Leave the dragon whelps near the ruins to the green dragons, because I don't care to find out how their elders feel about it." },
+      },
+      choices = {
+        { text = "Do you hunt for the town or for yourself?", next = "quarry_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quarry_why = {
+      lines = {
+        { id = "qw_default", text = "For the town, and Dar sees that it's fed, and Thultash sells what's left. The old Horde hunted for sport and glory and left nothing standing behind it, and look how well that ended for everyone." },
+      },
+      choices = {
+        { text = "Take only what the town needs. The swamp has to last.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The swamp's endless. Take what you like and sell the rest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    grokor = {
+      lines = {
+        { id = "gk_default", text = "Grokor talks to the beasts as if they were children, and feeds them better than he feeds himself. I train the hunter and he trains the beast, which is fair, but I'd like the beasts to remember they're beasts." },
+      },
+      choices = {
+        { text = "Is a coddled beast really worse in a fight?", next = "grokor_fight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grokor_fight = {
+      lines = {
+        { id = "gf_default", text = "No, and that's what annoys me most, because his beasts fight like demons and come when they're called. I've never told him so, and if you tell him I said it, I'll call you a liar to your face." },
+      },
+      choices = {
+        { text = "Your secret's safe with me, Ogromm.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xtroll = {
+      big = true,
+      lines = {
+        { id = "xt_default", text = "Then you'll do well here, but the jungle's beasts hunt you openly and these ones wait under the water for you to grow careless. What do the Darkspear do with a beast that's taken one of theirs?" },
+      },
+      choices = {
+        { text = "We hunt it down, mon. A debt's a debt.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Nothing. It was hungry, and we were careless.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_ba", text = "I've hunted this swamp longer than most of Stonard's walls have been patched. That's all you'll get." } },
+    advice = { { id = "tp_ad", text = "Never stand downwind of your quarry, and never stand at the water's edge with your back to the water." } },
+    _none = { { id = "tp_none", text = "Don't waste my time with that. Ask about tracks or ask somebody else." } },
+  },
+}
+
+P:NPC {
+  key = "grokor", id = TODO_NPC("Grokor"), name = "Grokor", title = "Pet Trainer",
+  bible = "bibles/stonard_trainers.md", role = "trainer", tier = "service",
+  communities = { "stonard" }, temper = { "warm", "patient" }, values = { "loyal", "gentle" },
+  notices = { "pet", "class" },
+
+  impression = {
+    first = "Grokor trains hunters' beasts and looks at them before he looks at their owners. He rode wolves as a boy, before the camps, and he still talks about them the way other orcs talk about their old clans.",
+    third = "{name} met Grokor, the gentle pet trainer of Stonard.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "If you've a beast with you, bring it closer so I can see it. If you haven't, you've come to the wrong orc." },
+    { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Let me look at your {pet} before you say a word, friend, because the beast tells me more than you will." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Let me see whether you've been feeding that beast properly." },
+  },
+
+  notice = {
+    { id = "n_pet", cat = "pet", when = { class = "HUNTER", pet = { type = "Beast" } },
+      text = "Your {pet} has mud to the shoulders and burrs in its coat. Brush it out tonight, because a beast that itches won't hold still in a fight." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "Keep your demon away from the pens, warlock. The beasts can smell it, and they don't like what they smell." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I'm Grokor, and I teach hunters' beasts what their masters can't. Jaguars, crocolisks and even the big spiders out past the Pool of Tears, I've trained them all, and every one of them learned faster than the hunter who brought it in." },
+        { id = "h_hunter", when = { class = "HUNTER" },
+          text = "Grokor, and I teach your beast the things you can't, a harder bite, a thicker hide and a growl that makes an ogre think twice. Bring me a beast that trusts you and I'll send back one that keeps you alive." },
+        { id = "h_druid", when = { class = "DRUID" },
+          text = "A druid! You've worn more beasts' shapes than I've trained, so I'll not tell you your business, but you might tell me what the jaguars are thinking." },
+        { id = "h_tauren", when = { race = "Tauren" },
+          text = "A tauren. Your people raise kodos and mine raised wolves, and I've always thought we'd have a good deal to say to each other about it." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The beasts are dozing, so there's time." },
+        { id = "h_again2", text = "Go on, I'm listening, and so is everything in the pens." },
+      },
+      choices = {
+        { text = "Show me what you can teach my beast.", next = "BUSINESS", when = { class = "HUNTER" } },
+        { text = "What does a beast actually learn from you?", next = "teach" },
+        { text = "Which swamp beasts are worth taming?", next = "swamp" },
+        { text = "How did you come to train beasts?", next = "past" },
+        { text = "So, what are the jaguars thinking?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What would you ask a kodo herder, Grokor?", next = "xtauren", when = { race = "Tauren" } },
+        { text = "Another time.", next = "END" },
+      },
+    },
+
+    teach = {
+      lines = {
+        { id = "te_default", text = "Skills, which are only habits drilled until they stick. A beast learns to bite harder, to shrug off fire or frost, and to keep its feet when the ground gives way, and every lesson costs the beast effort and its master silver." },
+      },
+      choices = {
+        { text = "Does the beast mind the lessons?", next = "teach_cost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teach_cost = {
+      lines = {
+        { id = "tc_default", text = "No more than you mind swinging an axe a thousand times, and it enjoys the praise far more than you would. The hunters who skimp on feeding are the ones whose beasts forget everything I taught them, and I can always tell." },
+      },
+      choices = {
+        { text = "A companion eats before I do. That's only right.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A beast is a tool. It eats when it's earned it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    swamp = {
+      lines = {
+        { id = "sw_default", text = "Swamp jaguars first and best, because they're quick and quiet and they mind the water less than you'd think. The sawtooth crocolisks make a hard-shelled companion if a slow one, and some hunters fancy the deathstrike tarantulas, though I'd sooner not have one in my pens." },
+      },
+      choices = {
+        { text = "Why not the spiders?", next = "swamp_spiders" },
+        { text = "And the crocolisks along the shore?", next = "swamp_croc" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    swamp_spiders = {
+      lines = {
+        { id = "ss_default", text = "Because a spider never loves you, it only stops trying to eat you, and it's hard to teach a beast that doesn't care whether I'm pleased. Still, they're patient and their bite is poison, so I train them when I must." },
+      },
+      choices = {
+        { text = "A beast doesn't need to love you, only obey you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Love's the only bond worth having with a beast.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    swamp_croc = {
+      lines = {
+        { id = "sc_default", text = "Tok'Kar on the beach will tell you the crocolisks are better eaten than tamed, and Dar sends hunters out for their flanks, so you'll not be popular for taming the cook's supper. Spare the young ones, though, because they grow into the big beasts I'd like to see." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "I'll go and find one.", next = "END" },
+      },
+    },
+
+    past = {
+      lines = {
+        { id = "pa_default", text = "I rode wolves before I could walk properly, back when the Horde kept them by the hundred, and when the wolves were gone I took whatever beasts the land gave me. A jaguar isn't a wolf, but it's honest in the same way, and I've had less luck with orcs." },
+      },
+      choices = {
+        { text = "What happened to the wolves?", next = "past_wolves" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past_wolves = {
+      lines = {
+        { id = "pw_default", text = "Most died in the war, and the rest were lost or ran wild when we were penned in the humans' camps. The Frostwolves kept theirs, and the Warchief rides one, so the line isn't broken, but I've not had a wolf of my own since." },
+      },
+      choices = {
+        { text = "The camps are behind us. Look forward, Grokor.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The humans took your wolves. They should pay for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xdruid = {
+      big = true,
+      lines = {
+        { id = "xd_default", text = "I'd guess they're thinking about the frogs, the water and whether you'd make a good meal, in roughly that order. You'd know better than me, having worn the shape, but I'd like to hear whether a druid thinks I'm doing right by them." },
+      },
+      choices = {
+        { text = "Wild beasts belong to the wild, Grokor, not the pens.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A beast cared for is a beast at peace. You do right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtauren = {
+      big = true,
+      lines = {
+        { id = "xt_default", text = "Whether a kodo can be taught anything at all, mostly, and how you keep one calm in a storm. The wolves I knew would bolt at thunder, and I've wondered for years whether it's the beast or the rider who's frightened first." },
+      },
+      choices = {
+        { text = "The rider, always. Beasts read fear like tracks.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_ba", text = "I grew up among wolves and I'll grow old among jaguars, and in between there were the camps, which I don't talk about." } },
+    advice = { { id = "tp_ad", text = "Feed your beast before yourself, every night, and it'll die for you. Forget, and it'll only fight for you." } },
+    _none = { { id = "tp_none", text = "I couldn't say, friend. Ask me about something with four legs and I'll talk until dark." } },
+  },
+}
+
+P:NPC {
+  key = "rogvar", id = TODO_NPC("Rogvar"), name = "Rogvar", title = "Alchemy Trainer",
+  bible = "bibles/stonard_trainers.md", role = "trainer", tier = "service",
+  communities = { "stonard" }, temper = { "cheerful", "earnest" }, values = { "curious", "loyal" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "Rogvar is the only orc in Stonard who seems glad to be there. Thrall himself sent him, he says, and he talks about the swamp's mud like a garden, though his own eyes stream from whatever's boiling on his bench.",
+    third = "{name} met Rogvar, Stonard's cheerful alchemy trainer, who was sent there by Thrall himself.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Mind the bench, friend, and mind the green flask especially. It's been bubbling since morning and I'm not entirely sure why." },
+    { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist! Come and smell this, and tell me honestly whether it smells like progress or like something died in it." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, because I've three new failures to show you and one thing that might be a success." },
+  },
+
+  notice = {
+    { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
+      text = "Your fingers are stained green to the knuckle, which means you've been working with swamp herbs or you've been very unlucky. Either way, wash before you eat." },
+    { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
+      text = "You've a pack full of herbs, I can smell them from here. If there's any Blindweed in it, Rartar by the wall will be glad of it, and so will I." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I'm Rogvar, and I teach alchemy. Warchief Thrall himself asked me to come out here, and I was honored to obey, and I'll tell you it's no hardship, because just about any herb I could want grows in the muck around these walls." },
+        { id = "h_alch", when = { profession = "Alchemy" },
+          text = "Rogvar, and you've come to the right orc, because there's no better posting for an alchemist in the Eastern Kingdoms. Thrall sent me here himself, and every morning the swamp hands me something new to boil." },
+        { id = "h_shaman", when = { class = "SHAMAN" },
+          text = "A shaman! I always thank the earth when I pull a root, which is more than most herbalists do, so I hope the spirits haven't any complaints about me." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Keep talking, I'm only stirring." },
+        { id = "h_again2", text = "Go on, the flask needs another few minutes anyway." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { profession = "Alchemy" } },
+        { text = "Thrall sent you here himself?", next = "thrall" },
+        { text = "What grows in this swamp worth having?", next = "herbs" },
+        { text = "What's in the green flask?", next = "flask" },
+        { text = "Do you brew for anyone in Stonard?", next = "bengor" },
+        { text = "Do the spirits mind you boiling their roots?", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "I've heard the Undercity's apothecaries trade in swamp herbs.", next = "xforsaken", when = { race = "Scourge" } },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+
+    thrall = {
+      lines = {
+        { id = "th_default", text = "He did, and he said the Horde needed someone at Stonard who understood what grows here, because a war is won with potions as much as with axes. I'd have come for less than that, but I won't pretend I didn't stand a little taller afterward." },
+      },
+      choices = {
+        { text = "Why would the Warchief care about swamp herbs?", next = "thrall_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thrall_why = {
+      lines = {
+        { id = "tw_default", text = "Because Orgrimmar sits in a desert, and the Barrens are dry, and a healing draught needs things that only grow where it's wet. Every flask I send north on Breyk's riders is one fewer warrior buried, and the Warchief can count as well as I can." },
+      },
+      choices = {
+        { text = "The Warchief chose well. Serve him gladly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Serve the work, not the Warchief. Herbs don't care who rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    herbs = {
+      lines = {
+        { id = "he_default", text = "Blindweed in the wettest corners, which is why my eyes water every evening, and Sungrass where the light breaks through the trees. There's Liferoot near the Pool of Tears too, though the trolls in those old ruins make gathering it a nervous business." },
+      },
+      choices = {
+        { text = "Why does Blindweed make your eyes water?", next = "herbs_blind" },
+        { text = "Where do you get your vials, out here?", next = "herbs_vials" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    herbs_blind = {
+      lines = {
+        { id = "hb_default", text = "Because I boil it, and because I'm stubborn, and because nobody's shown me a better way to draw out the good in it. Karakul says the great hall smells of it on still nights, and he's asked me twice now to work further from the door." },
+      },
+      choices = {
+        { text = "Then move the bench. A town has to live together.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Work where you like. Karakul can open a window.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    herbs_vials = {
+      lines = {
+        { id = "hv_default", text = "Rartar sells them by the wall, and Thultazor too, though they quarrel about who has the better glass. They both buy from the same caravan, so I've never seen the difference, but I've learned not to say so to either of them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+        { text = "I'll go and buy from both.", next = "END" },
+      },
+    },
+
+    flask = {
+      lines = {
+        { id = "fl_default", text = "Swamp water, crocolisk bile and a pinch of something I'd rather not name, and I'm trying to learn whether it keeps the rot out of a wound. So far it keeps everything out of a wound, healing included, so I've some way to go yet." },
+      },
+      choices = {
+        { text = "Would you test it on a soldier?", next = "flask_test" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flask_test = {
+      lines = {
+        { id = "ft_default", text = "Not until I've tried it on myself, and there's a burn on my wrist that says I've started. An alchemist who tests on others first isn't an alchemist at all, just a poisoner with a tidier shelf." },
+      },
+      choices = {
+        { text = "Testing on yourself first is the honest way.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A few soldiers' risk could save hundreds. Use them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    bengor = {
+      lines = {
+        { id = "be_default", text = "I brew a draught for old Bengor, who took a murloc's spear in the skull and can't walk or eat the way he used to. It dulls the pain, though he'll never admit there's any pain to dull, and he glares at me every morning, which I take as a sign it's working." },
+      },
+      choices = {
+        { text = "Can't anything heal him properly?", next = "bengor_heal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bengor_heal = {
+      lines = {
+        { id = "bh_default", text = "Not that I know of, and I've read every recipe I own twice over looking. Some wounds go deeper than a potion reaches, so the best I can do is keep him comfortable, and keep trying, and not let him see me trying." },
+      },
+      choices = {
+        { text = "Keep trying, Rogvar. He'd do the same for you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xshaman = {
+      big = true,
+      lines = {
+        { id = "xs_default", text = "They've never told me so, and I thank the earth for every root, as I said. If they object, I expect they'll tell me with a bad batch, and I get plenty of those already, so perhaps they've been telling me for years." },
+      },
+      choices = {
+        { text = "Thank them from the heart. Empty words mean nothing to spirits.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The earth gives freely. Thanks are just a habit.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xforsaken = {
+      big = true,
+      lines = {
+        { id = "xf_default", text = "They do, and their letters come on the zeppelin to Grom'gol asking for swamp samples, very politely. I've sent a few, though I'd dearly like to know what the Royal Apothecaries want with this much Blindweed and bog water." },
+      },
+      choices = {
+        { text = "They serve the Dark Lady. That's reason enough to trust them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Don't send them anything more. I don't trust them either.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_ba", text = "I mixed salves in the camps out of whatever the guards threw away, and I've been mixing things ever since. Now the Warchief sends me letters, and I keep every one of them." } },
+    advice = { { id = "tp_ad", text = "Never taste anything green before you've smelled it, and never smell anything that's smoking." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you, friend, but if it grows in the swamp, ask me again and I'll talk your ears off." } },
+  },
+}
