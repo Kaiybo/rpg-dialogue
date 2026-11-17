@@ -6,6 +6,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "cairne", id = TODO_NPC("Cairne Bloodhoof"), name = "Cairne Bloodhoof",
+  rivals = { "magatha" },
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "honorable", "gentle", "wise" },
   notices = { "race", "class" },
@@ -87,6 +88,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "You have been up on Elder Rise, listening to Magatha. She is clever and she is patient, and I would ask you to be careful how much of her patience you mistake for kindness." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "Magatha speaks poorly of you, which in this city is a kind of recommendation. Sit by the fire, and tell me what passed between you." },
         { id = "h_default", key = true,
           text = "I am Cairne Bloodhoof, and I lead the Bloodhoof and all the tribes who call Mulgore home. We wandered for generations, but now we have a home, and I mean to keep it." },
         { id = "h_baine", when = { heardLine = "baine.h_default" },
@@ -229,6 +234,7 @@ P:NPC {
 
 P:NPC {
   key = "hamuul", id = TODO_NPC("Arch Druid Hamuul Runetotem"), name = "Arch Druid Hamuul Runetotem",
+  rivals = { "magatha" },
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "wise", "balanced" },
   notices = { "form", "race" },
@@ -305,6 +311,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "Magatha has been generous with her time where you are concerned. The Grimtotem give nothing for free, young one, so think on what she may want from you in return." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "I hear Magatha's people would rather you stayed away from Elder Rise. The Earth Mother does not ask her children to love the Grimtotem, and you are welcome here." },
         { id = "h_default", key = true,
           text = "Hamuul Runetotem. I asked Malfurion Stormrage to teach me, after the war, and he said yes when others said no. I've tried to be worth that yes ever since." },
         { id = "h_rau", when = { heardLine = "rau.h_default" },
@@ -576,6 +586,7 @@ P:NPC {
 
 P:NPC {
   key = "magatha", id = TODO_NPC("Magatha Grimtotem"), name = "Magatha Grimtotem",
+  rivals = { "cairne", "hamuul" },
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "cunning" }, values = { "proud", "ambitious" },
   notices = { "race", "class" },
@@ -665,6 +676,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "You have been sitting at Cairne's fire, or at Runetotem's, and they have filled your head with talk of peace and patience. I will not hold it against you, but I will not pretend to be pleased." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "So you have worn out your welcome on the High Rise. Then perhaps you will find Elder Rise more hospitable than the old bull's lodge." },
         { id = "h_default", key = true,
           text = "Magatha, Elder Crone of the Grimtotem. Cairne lets me live up here so he can keep an eye on me. I let him think it works." },
         { id = "h_crone", tags = { "news" }, when = { questActive = TODO_QUEST("The Elder Crone") },

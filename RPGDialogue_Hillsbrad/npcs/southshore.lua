@@ -4,6 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "redpath", id = TODO_NPC("Marshal Redpath"), name = "Marshal Redpath",
+  rivals = { "maleb" },
   bible = "bibles/hillsbrad.md", role = "soldier", tier = "major",
   communities = { "southshore" }, temper = { "steady" }, values = { "dutiful", "protective" },
   notices = { "soldier", "kit" },
@@ -55,6 +56,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "The Magistrate says you've been a great help with his papers. Good, somebody has to read them, while the rest of us stand on the road where the Syndicate actually is." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "Maleb says you weren't much use to him, which is about the best reference a soldier can get in Southshore. What do you need?" },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A night elf druid in Southshore. Your folk pass through now and then on the road to Ironforge, but few of them stop, and fewer ask about the hills, which is a shame, because the hills need asking about." },
         { id = "h_default", key = true,
@@ -340,6 +345,7 @@ P:NPC {
 
 P:NPC {
   key = "maleb", id = TODO_NPC("Magistrate Henry Maleb"), name = "Magistrate Henry Maleb",
+  rivals = { "redpath" },
   bible = "bibles/hillsbrad.md", role = "noble", tier = "quest",
   communities = { "southshore" }, temper = { "weary" }, values = { "lawful", "dutiful" },
   notices = { "status" },
@@ -410,6 +416,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "Redpath tells me you've been out on the road with his men. Good work, I'm sure, but the Syndicate is beaten in my ledgers as much as on the road, and the Marshal never quite believes that." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "The Marshal had harsh words about you, I gather. Redpath has harsh words for anyone who isn't holding a sword, so I shouldn't let it trouble you." },
         { id = "h_default", key = true,
           text = "Henry Maleb, Magistrate of Southshore. I was thrilled to be given the post so young. Some evenings I wonder if I'd have done better as a clerk in Stormwind." },
         { id = "h_assassins", tags = { "news" }, when = { questActive = TODO_QUEST("Syndicate Assassins") },

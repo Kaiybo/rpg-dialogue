@@ -9,6 +9,9 @@
 --     * your alignment, when they value it (lawful/dutiful and Order,
 --       devout/pious and Light, honest and Honor):                    +-5
 --     * a hostile or unfriendly unit reaction:                        -10
+--     * their rivals (`rivals` on the NPC, 0.55.0): your affinity with each
+--       rival x3 against you (to -15), or, if you've crossed the rival,
+--       x1 in your favour (to +5)
 --   Clamped to 0-100. Words: Hostile, Cold, Wary, Neutral, Warm, Friendly, Devoted.
 --
 -- It's addon-only: it never changes prices or how anyone really behaves in the game. It
@@ -36,6 +39,35 @@ Disp.OPPOSITE = {
 }
 Disp.WARM_TEMPER = { warm = true, jovial = true, gentle = true, kind = true, friendly = true }
 Disp.COLD_TEMPER = { gruff = true, cold = true, surly = true, hostile = true, bitter = true }
+
+-- Rivals (0.55.0): an NPC's `rivals` is a list of other NPCs' keys. Pleasing one cools the
+-- other; crossing one warms the other a little. Declare both sides in content.
+Disp.RIVAL_PENALTY = 3
+
+function Disp.Rivals(def)
+  local r = def and def.rivals
+  if type(r) == "string" then return { r } end
+  return type(r) == "table" and r or {}
+end
+
+-- A rival's display name: their memory record, else their definition, else the key.
+function Disp.RivalName(key)
+  local m = ns.char.npc and ns.char.npc[key]
+  if m and m.name then return m.name end
+  local d = ns.Data and ns.Data.npcs and ns.Data.npcs[key]
+  return d and d.name or key
+end
+
+-- Rivals of this NPC the player has pleased (affinity > 0) and met, best first: { key, affinity }.
+function Disp.FavouredRivals(def)
+  local out = {}
+  for _, r in ipairs(Disp.Rivals(def)) do
+    local m = ns.char.npc and ns.char.npc[r]
+    if m and (m.affinity or 0) > 0 then out[#out + 1] = { key = r, affinity = m.affinity } end
+  end
+  table.sort(out, function(a, b) return a.affinity > b.affinity end)
+  return out
+end
 
 local function clamp(v, lo, hi) return math.max(lo, math.min(hi, v)) end
 
@@ -85,6 +117,12 @@ function Disp.Compute(info, mem, ctx)
   byAxis("order", { "lawful", "dutiful" })
   byAxis("light", { "devout", "pious" })
   byAxis("honor", { "honest" })
+  for _, r in ipairs(Disp.Rivals(def)) do
+    local rm = ns.char.npc and ns.char.npc[r]
+    local ra = rm and rm.affinity or 0
+    if ra > 0 then add(-math.min(ra * Disp.RIVAL_PENALTY, 15), "rival:" .. r)
+    elseif ra < 0 then add(math.min(-ra, 5), "rivalfoe:" .. r) end
+  end
   local reaction = ctx and ctx.npcReaction
   if type(reaction) == "number" and reaction <= 3 then add(-10, "unfriendly") end
   return clamp(v, 0, 100), why

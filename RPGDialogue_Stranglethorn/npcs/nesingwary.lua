@@ -5,6 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "nesingwary", id = TODO_NPC("Hemet Nesingwary"), name = "Hemet Nesingwary",
+  rivals = { "kebok" },
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "major",
   communities = { "nesingwary_camp" }, temper = { "gruff" }, values = { "brave", "proud" },
   notices = { "class", "pet", "kit" },
@@ -106,6 +107,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "I hear you've been doing business with that Kebok fellow in Booty Bay. Mind his tiger fangs, because I've seen the tusks they're carved from, and no tiger ever wore them." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "Kebok has been running my name down at the bar, I'm told, and yours along with it. A man who sells false trophies should be careful whom he calls a cheat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Well now, a priest, an' a quiet one I hope, for the game in this jungle hears a footfall from a hundred paces an' a hymn from twice that." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now there's a fine sight in this camp, for I've hunted wi' warriors an' rangers, but I've never had one o' the Silver Hand stalk a tiger wi' me." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Yer folk talk tae the spirits o' beasts, I hear, so ye can tell the great cat I'm comin' for him." },

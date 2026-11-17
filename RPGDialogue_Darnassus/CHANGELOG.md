@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.13.0 (2026-11-17)
+- Tyrande and Fandral are rivals: siding with one cools the other, and each greets you accordingly. No new files. Needs RPG Dialogue 0.55.0.
+
 ## 1.12.0 (2026-11-17)
 - Druids are noticed: 27 people greet a druid as one, with a question to ask and something to argue about. No new files. Needs RPG Dialogue 0.53.0.
 

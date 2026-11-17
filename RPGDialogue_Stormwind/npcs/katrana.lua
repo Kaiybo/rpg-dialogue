@@ -5,6 +5,7 @@ local TODO_NPC = P.TODO_NPC
 
 P:NPC {
   key = "katrana", id = TODO_NPC("Lady Katrana Prestor"), name = "Lady Katrana Prestor",
+  rivals = { "baros" },
   bible = "bibles/katrana.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "proud" }, values = { "ambitious", "cunning" },
   notices = { "status", "ambition" },
@@ -89,6 +90,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "I'm told you've been listening to the City Architect's grievances. Baros is a capable man, but grievance is a poor habit in a servant of the crown, and it spreads." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "Baros Alexston tells me you were short with him. I'm sure you had your reasons; the man does go on about his masons." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. How sweet, the Church sends its little lights to court as if the Regent might forget it exists." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and a polished one. The Regent does so love to be surrounded by his own reflection." },
         { id = "h_default", key = true, text = "Lady Prestor. I advise the Regent on the use of the kingdom's resources. Someone must, and the Regent is so very busy being noble." },

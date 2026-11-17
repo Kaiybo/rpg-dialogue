@@ -7,6 +7,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "tyrande", id = TODO_NPC("Tyrande Whisperwind"), name = "Tyrande Whisperwind",
+  rivals = { "fandral" },
   bible = "bibles/darnassus.md", role = "noble", tier = "major",
   communities = { "darnassus" }, temper = { "fierce" }, values = { "protective", "devout" },
   spiritSensitive = true,
@@ -146,6 +147,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "You have spent your time at the Enclave, and Fandral speaks well of you, which tells me what you said to him. I will still hear you out, but I will listen more carefully." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "I hear you left the Enclave with the Arch Druid's temper behind you. Fandral needs more people who will tell him no, and fewer who nod while he lectures." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Whatever you pray to, you've come to the house of Elune, and here we heal the wounded first and ask their names after." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kingdoms have suffered much, and I have not forgotten that humans and dwarves stood beside us at Mount Hyjal." },
         { id = "h_default", key = true,
@@ -429,6 +434,7 @@ P:NPC {
 
 P:NPC {
   key = "fandral", id = TODO_NPC("Arch Druid Fandral Staghelm"), name = "Arch Druid Fandral Staghelm",
+  rivals = { "tyrande" },
   bible = "bibles/darnassus.md", role = "noble", tier = "major",
   communities = { "darnassus" }, temper = { "abrasive" }, values = { "proud", "ambitious" },
   notices = { "race", "class" },
@@ -542,6 +548,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
+          text = "The High Priestess has taken a liking to you, I'm told. Her priestesses keep the temple well, but the forest is not tended by prayer, and you would do well to remember that here." },
+        { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
+          text = "Tyrande was not pleased with you, I hear. Do not take it to heart: she has long mistaken her own certainty for Elune's, and you are hardly the first to suffer for it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The Temple will want you, I suppose, though I'd ask you to remember that the forest was here before any prayers were said over it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The humans sent their soldiers to us once before, at Hyjal, and I'll grant you they fought well, though they understood nothing of what they defended." },
         { id = "h_default", key = true,

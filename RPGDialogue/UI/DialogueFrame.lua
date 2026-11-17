@@ -797,6 +797,10 @@ function D.DispositionTooltip(owner)
     elseif key:find("^town:") then
       local town = ns.Data.towns and ns.Data.towns[key:sub(6)]
       text = L.DISP_WHY_TOWN:format(town and town.name or key:sub(6))
+    elseif key:find("^rival:") then
+      text = L.DISP_WHY_RIVAL:format(ns.Disposition.RivalName(key:sub(7)))
+    elseif key:find("^rivalfoe:") then
+      text = L.DISP_WHY_RIVALFOE:format(ns.Disposition.RivalName(key:sub(10)))
     elseif key:find("^values ") then
       text = L.DISP_WHY_VALUES:format(key:sub(8))
     elseif key:find("^dislikes ") then
