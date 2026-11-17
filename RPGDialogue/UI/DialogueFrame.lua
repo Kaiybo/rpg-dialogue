@@ -165,6 +165,8 @@ local function makeButton(i)
   b.marker:Hide()
   b:SetScript("OnClick", function() D.Click(i) end)
   b:SetScript("OnEnter", function(self)
+    -- Once the keys are in use, the mouse moves the same selection (one marker, not two).
+    if navMode and not self.locked and selected ~= i then D.Select(i) end
     Theme.TextColor(self.label, self.locked and "locked" or "hover")
     -- A reward on a quest page: the game's item tooltip.
     if self.tooltip then C.ShowQuestItemTooltip(self, self.tooltip.kind, self.tooltip.index, self.tooltip.itemID) end
@@ -231,6 +233,13 @@ local function create()
   frame.rule = Theme.Divider(frame)
   frame.replyRule = Theme.Divider(frame)
 
+  -- What you just said, quiet, above their answer (0.61.0).
+  frame.said = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+  frame.said:SetJustifyH("LEFT")
+  frame.said:SetJustifyV("TOP")
+  frame.said:SetWordWrap(true)
+  frame.said:Hide()
+
   frame.text = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.text:SetJustifyH("LEFT")
   frame.text:SetJustifyV("TOP")
@@ -278,6 +287,19 @@ local function create()
     GameTooltip:Show()
   end)
   frame.flag:SetScript("OnLeave", function(self) self:SetAlpha(0.55); GameTooltip:Hide() end)
+
+  -- This visit so far: what they said and what you said, on hover (0.61.0).
+  frame.history = CreateFrame("Button", nil, frame)
+  frame.history:SetSize(16, 16)
+  frame.history:SetAlpha(0.55)
+  frame.history.icon = frame.history:CreateTexture(nil, "ARTWORK")
+  frame.history.icon:SetAllPoints()
+  frame.history.icon:SetTexture("Interface\\Icons\\INV_Misc_Book_09")
+  frame.history:SetScript("OnEnter", function(self)
+    self:SetAlpha(1)
+    D.HistoryTooltip(self)
+  end)
+  frame.history:SetScript("OnLeave", function(self) self:SetAlpha(0.55); GameTooltip:Hide() end)
 
   -- "Aa": text size, line spacing and fonts, changed live (UI/TextOptions.lua).
   frame.textBtn = CreateFrame("Button", nil, frame)
@@ -362,8 +384,9 @@ local function placeParts(game)
   frame:SetWidth(W)
   local n, sub = frame.name, frame.subtitle
   n:ClearAllPoints(); sub:ClearAllPoints()
-  frame.text:ClearAllPoints()
+  frame.said:ClearAllPoints()
   frame.close:ClearAllPoints()
+  frame.history:ClearAllPoints()
   frame.flag:ClearAllPoints()
   frame.textBtn:ClearAllPoints()
   frame.ask:ClearAllPoints()
@@ -381,8 +404,10 @@ local function placeParts(game)
     sub:SetPoint("TOPLEFT", 62, -32)
     sub:SetPoint("TOPRIGHT", -12, -32)
     sub:SetJustifyH("CENTER")
-    frame.text:SetPoint("TOPLEFT", GAME_TEXT_X, GAME_TEXT_Y)
+    frame.said:SetPoint("TOPLEFT", GAME_TEXT_X, GAME_TEXT_Y)
     frame.close:SetPoint("TOPRIGHT", 1, 0)
+    frame.history:SetSize(14, 14)
+    frame.history:SetPoint("TOPRIGHT", -66, -4)
     frame.flag:SetSize(14, 14)
     frame.flag:SetPoint("TOPRIGHT", -26, -4)
     frame.textBtn:SetPoint("TOPRIGHT", -44, -3)
@@ -400,8 +425,10 @@ local function placeParts(game)
     sub:SetJustifyH("LEFT")
     frame.rule:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -6)
     frame.rule:SetPoint("RIGHT", frame, "RIGHT", -PAD - 46, 0)
-    frame.text:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -14)
+    frame.said:SetPoint("TOPLEFT", sub, "BOTTOMLEFT", 0, -14)
     frame.close:SetPoint("TOPRIGHT", -12, -12)
+    frame.history:SetSize(16, 16)
+    frame.history:SetPoint("TOPRIGHT", -84, -14)
     frame.flag:SetSize(16, 16)
     frame.flag:SetPoint("TOPRIGHT", -38, -14)
     frame.textBtn:SetPoint("TOPRIGHT", -60, -14)
@@ -452,6 +479,9 @@ function D.Style()
   Theme.TextColor(frame.textBtn.label, "title")
   Theme.SetFont(frame.text, "body", size)
   Theme.SetFont(frame.reaction, "body", size - 1)
+  Theme.SetFont(frame.said, "body", size - 1)
+  Theme.TextColor(frame.said, "dim")
+  frame.said:SetSpacing(settings().lineSpacing or 3)
   Theme.SetFont(frame.flagHint, "body", size - 3)
   Theme.SetFont(frame.disp.label, "body", size - 2)
   Theme.Shadow(frame.disp.label, false)
@@ -480,6 +510,15 @@ function D.Layout()
   local W, tw = width(), textWidth()
   frame.text:SetWidth(tw)
   frame.reaction:SetWidth(tw)
+  frame.said:SetWidth(tw)
+  -- The text sits under what you said, or where that line would be.
+  local saidH = frame.said:IsShown() and ((frame.said:GetStringHeight() or 14) + 8) or 0
+  frame.text:ClearAllPoints()
+  if saidH > 0 then
+    frame.text:SetPoint("TOPLEFT", frame.said, "BOTTOMLEFT", 0, -8)
+  else
+    frame.text:SetPoint("TOPLEFT", frame.said, "TOPLEFT")
+  end
   -- Measure with the full text so the window doesn't grow while typing.
   local current = frame.text:GetText()
   frame.text:SetText(reveal.full)
@@ -490,9 +529,9 @@ function D.Layout()
   local rowGap = 2
   if game then
     rowLeft, rowWidth, rowGap = GAME_ROW_X, GAME_ROW_W, 1
-    y = GAME_TEXT_Y - textH - reactionH - GAME_SPACER
+    y = GAME_TEXT_Y - saidH - textH - reactionH - GAME_SPACER
   else
-    local h = (frame.name:GetStringHeight() or 20) + (frame.subtitle:GetStringHeight() or 0) + 12 + textH + reactionH
+    local h = (frame.name:GetStringHeight() or 20) + (frame.subtitle:GetStringHeight() or 0) + 12 + saidH + textH + reactionH
     rowLeft, rowWidth = PAD, W - 2 * PAD
     y = -(PAD + math.max(PORTRAIT, h) + 16)
     frame.replyRule:ClearAllPoints()
@@ -587,6 +626,7 @@ function D.Show(v)
   frame.subtitle:SetText(v.subtitle and ("<" .. v.subtitle .. ">") or "")
   frame.reaction:SetText("")
   frame.reaction:Hide()
+  D.SetSaid(v.said)
   if v.unit and frame.model.SetUnit then
     frame.model:ClearModel()
     frame.model:SetUnit(v.unit)
@@ -738,6 +778,7 @@ function D.ShowAnswer(text, topicName, linked)
   if not frame or not frame:IsShown() then return end
   frame.reaction:SetText("")
   frame.reaction:Hide()
+  D.SetSaid(nil)
   reveal.full = text or ""
   reveal.linked = linked
   reveal.total = utf8Len(reveal.full)
@@ -814,6 +855,50 @@ function D.DispositionTooltip(owner)
     GameTooltip:AddDoubleLine(text, (delta > 0 and "+" or "") .. delta, 0.9, 0.9, 0.9, r1, g1, 0.3)
   end
   GameTooltip:Show()
+end
+
+-- The reply you just picked, shown above their answer ("You: ..."), or nothing.
+function D.SetSaid(text)
+  if text and text ~= "" then
+    frame.said:SetText(L.YOU_SAID:format(text))
+    frame.said:Show()
+  else
+    frame.said:SetText("")
+    frame.said:Hide()
+  end
+end
+
+-- Hover on the book: this visit's exchange so far, newest last, long lines shortened.
+local HISTORY_MAX, HISTORY_CHARS = 12, 180
+function D.HistoryTooltip(owner)
+  GameTooltip:SetOwner(owner, "ANCHOR_RIGHT")
+  GameTooltip:SetText(L.HISTORY_TITLE)
+  local s = ns.Conversation.session
+  local log = s and s.log or {}
+  if #log == 0 then
+    GameTooltip:AddLine(L.HISTORY_EMPTY, 0.8, 0.8, 0.8, true)
+  else
+    local who = (view and view.name) or ""
+    for k = math.max(1, #log - HISTORY_MAX + 1), #log do
+      local e = log[k]
+      local text = e.text:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", ""):gsub("\n+", " ")
+      if utf8Len(text) > HISTORY_CHARS then text = text:sub(1, utf8Cut(text, HISTORY_CHARS)) .. "..." end
+      if e.who == "you" then
+        GameTooltip:AddLine(L.YOU_SAID:format(text), 1, 0.82, 0, true)
+      elseif e.who == "ask" then
+        GameTooltip:AddLine(L.HISTORY_ASKED:format(text), 1, 0.82, 0, true)
+      else
+        GameTooltip:AddLine(who ~= "" and (who .. ": " .. text) or text, 1, 1, 1, true)
+      end
+    end
+  end
+  GameTooltip:Show()
+end
+
+-- Settings: put the box back where it opens by default.
+function D.ResetPosition()
+  settings().pos.dialogue = nil
+  if frame and frame:IsShown() then place(ns.Conversation.session and ns.Conversation.session.blizz) end
 end
 
 function D.ShowReaction(text)

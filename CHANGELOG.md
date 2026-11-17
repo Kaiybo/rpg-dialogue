@@ -2,6 +2,15 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.61.0 (2026-11-17)
+Core only; no pack changes. No new files: /reload is enough.
+
+### The conversation box
+- **What you said stays on screen.** The reply you picked now sits quietly above their answer ("You: ..."), so you can read their words against yours. Settings → "Look and text" → "Show what you said above their answer" turns it off.
+- **This conversation so far.** A small book in the box's title bar: hover it to read this visit's exchange, what they said and what you said (and what you asked about), newest last.
+- **Mouse and keys agree.** Once you've moved the selection with the arrow keys, Tab or a gamepad, hovering a reply moves that same selection, so Enter always takes the one you're pointing at.
+- **Reset the box's position.** Settings → "Look and text" → "Conversation box position: Reset to default" puts a dragged box back where it opens by default (at once, if it's open).
+
 ## 0.60.0 (2026-11-17)
 Core only; no pack changes. Includes 0.59.0 (party reactions). No new files in 0.60.0: /reload is enough if you have 0.39.0 or later.
 

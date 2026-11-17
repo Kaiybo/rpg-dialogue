@@ -171,6 +171,18 @@ local function build()
   slider(L.OPT_SPACING, "lineSpacing", 0, 10, 1)
   fontPicker(L.OPT_FONT_TEXT, "fontBody", "body")
   fontPicker(L.OPT_FONT_NAME, "fontName", "name")
+  checkbox(L.OPT_ECHO, "echoReply")
+  do
+    local b = CreateFrame("Button", nil, content, C.Template("button"))
+    b:SetSize(220, 22)
+    b:SetPoint("TOPLEFT", 300, y)
+    b:SetText(L.OPT_RESET_POS)
+    b:SetScript("OnClick", function() UI.Dialogue.ResetPosition() end)
+    local t = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+    t:SetPoint("TOPLEFT", 20, y - 4)
+    t:SetText(L.OPT_RESET_POS_LABEL)
+    y = y - 28
+  end
 
   y = y - 8
   header(L.OPT_HEADER_OTHERS)
