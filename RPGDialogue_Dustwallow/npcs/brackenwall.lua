@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_krog = {
+      big = true,
+      lines = { { id = "xpt_krog_default", text = "The truth is that the Shady Rest burned and both sides are blaming the other, and the Warchief's peace is only as strong as the next rumor. A war band like yours could ask hard questions on either side of the marsh, so long as you don't start the war I'm trying to stop." } },
+      choices = {
+        { text = "We'll keep the peace, Krog. Thrall gave his word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the humans did it, we strike first and ask later.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "No. They'd see one of the dead wearing their Light and decide you stole it, and the peace is thin enough without that. Keep to the Horde's side of the marsh until I find who burned that inn." } },
@@ -120,6 +129,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_krog", tags = { "news" }, when = { party = { size = 4 }, faction = "Horde" },
+          text = "A full war band, walking into Brackenwall like you own it. Good, because if the Theramore humans are lying about that inn, we may need every one of you." },
         { id = "h_cl_ony", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Horde" }, text = "The grunts say you went into the dragon's cave in the Wyrmbog and came out with her dead. Good, because Onyxia's whelps have been raiding our patrols since before Brackenwall had a wall." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. Good, because if this turns to blood with Theramore I want axes I can count on, though I'd rather it never came to that." },
@@ -171,6 +182,7 @@ P:NPC {
         { text = "Do you expect the fighting to start again, Krog?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you fear from Theramore's mages, Krog?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Onyxia is dead, Krog. Her lair is empty.", next = "xcl_ony", when = { cleared = "Onyxia's Lair", faction = "Horde" } },
+        { text = "We fight together, Krog. Point us at the truth.", next = "xpt_krog", when = { party = { size = 4 }, faction = "Horde" } },
         { text = "I'll find the truth.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { brackenwall = 1 } } },
         { text = "Where would you have me look for the truth, Krog?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why keep my demons off the road, Krog?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },

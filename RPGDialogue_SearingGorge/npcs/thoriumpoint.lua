@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_dwarf = {
+      big = true,
+      lines = { { id = "xpt_dwarf_default", text = "Peace is a long word for dwarves and we've a few centuries of grudges to work through first, but trade is a short one, and the Brotherhood has always been good at trade. Ironforge buys our thorium and we buy their bread, and nobody asks too many questions about who fought whom in the War of the Three Hammers." } },
+      choices = {
+        { text = "That war is long done. It's time to make peace.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Ironforge shouldn't trust a Dark Iron, Brotherhood or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Trust's earned here, by everyone, an' we know somethin' about servin' a dark master an' walkin' away. If the Light took ye back after the Scourge had ye, then ye're not so different from us, an' I'll give ye the same chance I'd give any o' my own." } },
@@ -127,6 +136,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_dwarf", tags = { "news" }, when = { party = { race = "Dwarf" } },
+          text = "You bring a Bronzebeard to Thorium Point, I see, and {companion} has the look of someone who came expecting to hate me. We broke with Thaurissan's empire, friend, so your companion can let that hand rest a little further from the axe." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dark Iron", min = 40 } }, text = "Ye've been cuttin' down a great many Dark Irons in the Gorge, I'm told. They were my kin once, so I'll no' cheer, but I'll no' grieve either, for they chose the mountain." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Ye'll find nothin' worth liftin' at Thorium Point that the Brotherhood hasnae counted twice, but the Dark Irons up the road keep plenty they shouldnae." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -169,6 +180,7 @@ P:NPC {
         { text = "What do the Dark Irons up the road keep that they shouldn't, Overseer?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Will your Brotherhood trust a Forsaken paladin, Overseer?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ragnaros has fallen in the Molten Core, Overseer.", next = "xcl_mc", when = { cleared = "Molten Core" } },
+        { text = "Can Dark Iron and Bronzebeard ever make peace, Overseer?", next = "xpt_dwarf", when = { party = { race = "Dwarf" } } },
         { text = "I'll work with the Brotherhood.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
@@ -426,6 +438,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_hunter = {
+      big = true,
+      lines = { { id = "xpt_hunter_default", text = "Dark Iron patrols out of the Cauldron, mostly, and the odd fire elemental that wanders off from wherever they boil up. A good hunter sees the dust before the army, and that's all a lookout really is, a hunter who never gets to shoot." } },
+      choices = {
+        { text = "Better to watch and warn than charge in blind.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Better to hunt them down before they reach the ridge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Oiled steel, sweat an' a bit o' bravado, aye, that's a warrior, while a Dark Iron from the Cauldron smells o' soot an' sulfur. My eyes are long gone, but my nose has never let the Point down, an' I'll put it up against any lookout in Khaz Modan." } },
@@ -494,6 +515,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_hunter", tags = { "news" }, when = { party = { class = "HUNTER" } },
+          text = "{companion}'s got a hunter's eye; I saw them mark the ridge line before you'd even said hello. I'd trade two of my lookouts for one pair of eyes like that." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Ye smell o' rain an' wolf, which is a rare thing in the Gorge, where everythin' else smells o' sulfur an' Dark Iron." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, an' I can smell it on ye, though no' the incense o' the Cathedral, somethin' older an' stranger. Stand where I can smell ye, an' we'll get along fine." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? I can smell the incense on ye from here, an' it's a welcome change from sulfur, so stand upwind o' me a while, if ye'd be so kind." },
@@ -526,6 +549,7 @@ P:NPC {
         { text = "What does a hunter smell like, Captain?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What can you smell on a priest, Captain?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "What does the Gorge smell like to you, Captain?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do you watch for from up here, Captain?", next = "xpt_hunter", when = { party = { class = "HUNTER" } } },
         { text = "I'll hunt Maltorius.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },

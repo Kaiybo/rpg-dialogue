@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_williden = {
+      big = true,
+      lines = { { id = "xpt_williden_default", text = "The crater happened, mostly; the raptors took the base camps and the devilsaurs took whatever the raptors left. A company is the only sensible way to cross Un'Goro, but even a company has to remember that this place was here long before us, and it doesn't care whose map it's on." } },
+      choices = {
+        { text = "Then we'll tame it bit by bit. That's how frontiers are won.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "We'll respect it and take only what we need.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "We welcome anyone who'll help, and we've learned not to be picky. I'll only ask you to keep your demon away from the scholars, because J.D. Collie gets twitchy around anything that glows that isn't one of his crystals, and he's twitchy enough already." } },
@@ -83,6 +92,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_williden", tags = { "news" }, when = { party = { size = 4 } },
+          text = "Five of you, and you all made it through the crater's mouth in one piece! That's a better record than my last expedition had, so I'm very glad to see you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Gorishi", min = 40 } },
           text = "The Gorishi are fewer around the old camp sites, and I'd swear the hives sound quieter at night. Keep that up, and I might even get my camps back someday." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -123,6 +134,7 @@ P:NPC {
         { text = "Would you like words said for the people you lost, Williden?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What happened to your base camps, Williden?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the expedition welcome warlocks, Williden?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What happened to your last expedition, Williden?", next = "xpt_williden", when = { party = { size = 4 } } },
         { text = "I'll help the expedition.", next = "END", fx = { affinity = 2, standing = { marshals_refuge = 1 } } },
       },
     },

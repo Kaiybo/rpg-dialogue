@@ -49,7 +49,7 @@ function Barks.Try(unit, force)
   if not w then return false end
   ns.Memory.MarkSeen(w.gid, w.line)
   lastGlobal, lastByNpc[key] = now, now
-  say(info, ns.Tokens.Render(w.line.text, ctx, env))
+  say(info, ns.Tokens.Render(w.line.text, ctx, env, w.line.when))
   return true
 end
 
@@ -75,7 +75,7 @@ function Barks.React(event)
           local w = ns.Engine.PickReaction(info, event, ctx, env)
           if w then
             lastByNpc[key] = now
-            say(info, ns.Tokens.Render(w.line.text, ctx, env))
+            say(info, ns.Tokens.Render(w.line.text, ctx, env, w.line.when))
             return
           end
         end

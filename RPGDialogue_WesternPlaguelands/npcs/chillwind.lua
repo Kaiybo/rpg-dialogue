@@ -28,6 +28,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_company = {
+      big = true,
+      lines = { { id = "xpt_company_default", text = "Then I'll tell you what I tell every company: stay together north of the river, don't split to chase a straggler, and burn what you kill, because what you leave lying in the Plaguelands gets up again by morning. The Scourge would sooner take one of you than kill all five, since one of you is a new soldier for them." } },
+      choices = {
+        { text = "No one gets left behind. We bring back our own.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If one falls, the rest press on. The fight comes first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Why would the Scourge want just one of us?", next = "xpt_company2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpt_company2 = {
+      lines = { { id = "xpt_company2_default", text = "Because the Cult of the Damned will raise a fallen hero far more gladly than a fallen farmer, and they're patient about it. I've seen men I trained walking with the Scourge at Andorhal, and I'd rather not see you there too." } },
+      choices = {
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_scholo = {
       big = true,
       lines = { { id = "xcl_scholo_default", text = "Then the school that taught Kel'Thuzad's students to raise our dead has lost its headmaster, and I'll write that to Stormwind in my own hand. Half the necromancers in Andorhal learned their trade on that island, so you've done more for my soldiers than a regiment of reinforcements would have." } },
@@ -63,6 +79,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
+          text = "Five of you, and every one looking like they can hold a line, which is more than I can say for half the volunteers Stormwind sends me. The Scourge come at Chillwind in numbers, so I think in numbers too, and you've just made my count a good deal kinder." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've a handful of soldiers to break Andorhal with, {class}, so I'll not be choosy about where my help comes from, and I suspect the earth here could do with someone listening." },
         { id = "h_default", key = true,
           text = "Commander Ashlam Valorfist. Stormwind sent me to hold this camp and break Andorhal with a handful of soldiers, a priestess, an alchemist and whoever walks through that gate, and today that's you." },
@@ -118,6 +136,7 @@ P:NPC {
         { text = "Should the Scourge's farms be burned, or reclaimed?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can a shaman be of use against Andorhal, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Darkmaster Gandling is dead, Commander. The Scholomance has no master.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
+        { text = "We're here to fight the Scourge as a company, Commander.", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "Point me at the dead.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, trait = { brave = 1 } } },
       },
     },
@@ -342,6 +361,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_pala = {
+      big = true,
+      lines = { { id = "xpt_pala_default", text = "The Silver Hand was broken when Uther fell, and what's left of it is scattered among the Argent Dawn and the Crusade and a few stubborn souls who keep the old oaths alone. I pray every night that someone gathers them again before the Crusade finishes twisting what's left." } },
+      choices = {
+        { text = "The order should be raised again under one banner.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Light needs no order. Each paladin answers to conscience.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_strat = {
       big = true,
       lines = { { id = "xcl_strat_default", text = "Then you've seen what a Scourge city looks like from the inside, and I don't envy you the dreams. Every cauldron in these fields was brewed to a plan drawn up somewhere, and I always suspected Stratholme, so whatever you broke in there, my cauldrons will be the poorer for it." } },
@@ -398,6 +426,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_pala", tags = { "news" }, when = { party = { class = "PALADIN" }, faction = "Alliance" },
+          text = "You've brought {companion} to Chillwind, and I'd know a paladin's bearing anywhere, for I've buried enough of them. It does me good to see the Light still carried in armour after everything Lordaeron has seen." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and an Ironforge dwarf! The Light burns the Scourge out of the land, {class}, and I'm told your elements burn it too, so I'll not quibble over which fire does the work." },
         { id = "h_default", key = true,
           text = "I'm High Priestess MacDonnell. The commander handles the war and I handle the cauldrons, those great pots breathing plague on every farm in the west, and I mean to give the Scourge a dose of its own brew." },
@@ -444,6 +474,7 @@ P:NPC {
         { text = "Can the cauldrons' plague be cleansed from the soil?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does a shaman's fire offend the Light, High Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Stratholme, High Priestess.", next = "xcl_strat", when = { cleared = "Stratholme", faction = "Alliance" } },
+        { text = "My companion is a paladin. What became of the Silver Hand?", next = "xpt_pala", when = { party = { class = "PALADIN" }, faction = "Alliance" } },
         { text = "I'll get your samples.", next = "END", fx = { affinity = 1, standing = { chillwind_camp = 1 }, learn = { "plague_cauldrons" } } },
       },
     },
@@ -825,6 +856,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_company = {
+      big = true,
+      lines = { { id = "xpt_company_default", text = "Anyone with land in Lordaeron and the deeds to prove it, which these days means me, my brother Alexi, and a few desperate barons hiding in Southshore. Caer Darrow was ours before Kel'Thuzad's lot took it, and the family that clears it will keep it." } },
+      choices = {
+        { text = "The family that pays best will have our swords.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "We fight the Scourge, not for anyone's deeds.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_scholo = {
       big = true,
       lines = { { id = "xcl_scholo_default", text = "Quiet's a mercy, and more than they ever gave the servants. Father and Mother are still in there, I suppose, in whatever state Kel'Thuzad left them, and my sister Jandice too, and I'll confess I didn't send you in to bring any of them home." } },
@@ -899,6 +939,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
+          text = "A full company of hardened adventurers, and here I am without a contract to offer you, which is a tragedy for us both. My brother at the Bulwark would hire you in a heartbeat, so do remember which Barov spoke to you first." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to spirits? Then perhaps you can tell my brother's spirit to stop walking about and accept that Caer Darrow is mine, {class}, because he certainly isn't listening to me." },
         { id = "h_default", key = true,
           text = "I am Weldon Barov, the last living Barov and the rightful heir to Caer Darrow, Brill, Tarren Mill and Southshore. My brother disagrees, but my brother is also dead, he simply refuses to lie down.",
@@ -942,6 +984,7 @@ P:NPC {
         { text = "Did the Barovs know Kel'Thuzad well?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you have me speak to your brother's spirit, Weldon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been through Caer Darrow, Weldon. Your family's house is quiet.", next = "xcl_scholo", when = { cleared = "Scholomance", faction = "Alliance" } },
+        { text = "Who would hire a company like ours out here?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll see what I can find.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I won't help a man who'd murder his own brother.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Did your family really give Caer Darrow to the Cult?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1104,6 +1147,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_priest = {
+      big = true,
+      lines = { { id = "xpt_priest_default", text = "Rarer than it should be, because half the bold young things who come north think a sharp blade is all they need, and the plague teaches them otherwise within a day or two. The Dawn will take any soul willing to fight the Scourge, but I'll always think a little better of the ones who plan on coming back." } },
+      choices = {
+        { text = "Every company should travel with a healer. It's only sense.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A quick blade ends the fight before healing ever matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcl_strat = {
       big = true,
       lines = { { id = "xcl_strat_default", text = "Then you've seen what Arthas left behind, and what moved into the rooms after him. The Dawn lost good people trying to map those streets, living and Forsaken both, and I'll be writing to whoever they left behind that the city has answered for them at last." } },
@@ -1151,6 +1203,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" }, faction = "Alliance" },
+          text = "You keep a priest by your side in {companion}, and that's the wisest thing I've seen a party do this week. The Plaguelands kill through sickness as often as through the sword, and the ones who come back are the ones who brought someone to cleanse it." },
         { id = "h_default", key = true,
           text = "Argent Officer Pureheart, of the Argent Dawn. We're no kingdom, only people who fight the Scourge, and anyone who fights it is our friend. Alliance and Horde are all one to the dead." },
         { id = "h_commission", tags = { "news" }, when = { questActive = TODO_QUEST("Argent Dawn Commission") },
@@ -1194,6 +1248,7 @@ P:NPC {
         { text = "Do Horde and Alliance hunters really work together here?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Is there life left under the Plaguelands' rot?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I fought my way through Stratholme, Officer.", next = "xcl_strat", when = { cleared = "Stratholme" } },
+        { text = "Our healer keeps the plague off us. Is that rare out here?", next = "xpt_priest", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
       },
     },

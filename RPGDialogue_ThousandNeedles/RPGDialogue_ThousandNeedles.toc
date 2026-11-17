@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Thousand Needles |cff8a8a8a1.20.0|r
+## Title: RPG Dialogue: Thousand Needles |cff8a8a8a1.21.0|r
 ## Notes: Freewind Post and the Mirage Raceway: tauren on the mesas watching for centaur, and a gnome and a goblin racing across the salt to settle an argument.
 ## Author: RPG Dialogue
-## Version: 1.20.0
+## Version: 1.21.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.thousandneedles

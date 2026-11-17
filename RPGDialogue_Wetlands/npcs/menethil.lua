@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_dwarf = {
+      big = true,
+      lines = { { id = "xpt_dwarf_default", text = "Well enough, for the humans built the harbour and we hold the road, and between us the Dragonmaw stay up at Grim Batol where they belong. But Menethil's a human town at heart, and a dwarf here learns to like fish whether he wants to or not." } },
+      choices = {
+        { text = "Humans and dwarves holding a road together. That's the Alliance.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Every folk should hold its own lands and leave the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I would, an' I'd no' sleep easy for it. The Horde had warlocks o' their own in the old war, an' I've seen what fel fire does tae a stone wall, so if ye mean tae fight the Dragonmaw wi' the same, ye'll fight from the far end where I can see ye." } },
@@ -95,6 +104,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_dwarf", tags = { "news" }, when = { party = { race = "Dwarf" }, faction = "Alliance" },
+          text = "{companion} is a dwarf of Ironforge by the look of them, and you've no idea how good that is to see in a harbour full of humans and soggy boots." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Good; I've sailors on the wall who need tae see what a holy hammer looks like comin' down on an orc." },
         { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths", faction = "Alliance" },
           text = "I hear Thaurissan's dead in his own hall. The Dark Iron at Dun Modr havenae heard yet, or if they have, they're no' showin' it, but they will." },
@@ -154,6 +165,7 @@ P:NPC {
         { text = "Where would a paladin serve Menethil best, Captain?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you put a warlock on your wall, Captain?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thaurissan is dead, Captain. I saw it done.", next = "xcl_brd", when = { cleared = "Blackrock Depths", faction = "Alliance" } },
+        { text = "My companion's from Ironforge. How does Menethil sit with dwarves?", next = "xpt_dwarf", when = { party = { race = "Dwarf" }, faction = "Alliance" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -1471,6 +1483,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_company = {
+      big = true,
+      lines = { { id = "xpt_company_default", text = "Aye, turn round, but you won't, so I'll say this instead: the Dragonmaw keep red drakes up there, and a company of five looks like a meal to a drake, not a threat. Stay low and stay in the trees, and come back here to dry out, because I'll want the story." } },
+      choices = {
+        { text = "We'll go carefully, as you say, and keep to the trees.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We'll meet the drakes head on. Five of us is plenty.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "About everythin'. The sailors want ye tae bless their boats, the soldiers want ye tae curse the orcs, an' the diggers want tae know if the earth's angry at them for diggin'. I tell them all tae buy a drink first, an' most o' them forget what they were askin'." } },
@@ -1558,6 +1579,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
+          text = "Five of you, all dripping on my floor at once, which is the Wetlands way of saying hello. Sit by the fire and wring out your boots, and tell me where you're bound." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless the stew if ye like, but it's been blessed by the cook already, an' that's mostly salt." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in the Deepwater! Mind yer hammer on the beams, for they're older than me an' about as steady." },
         { id = "h_default", text = "Helbrek. I keep the Deepwater. Sailors, soldiers, diggers, an' one first mate who's been sittin' outside my door since before I owned it." },
@@ -1592,6 +1615,7 @@ P:NPC {
         { text = "Do the soldiers bring trouble into the Deepwater, Helbrek?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do mages ever stay at the Deepwater, Helbrek?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Are your regulars superstitious about shamans, Helbrek?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "We're bound for the hills below Grim Batol. Any advice?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "Just drying off.", next = "END" },
       },
     },

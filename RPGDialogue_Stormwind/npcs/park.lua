@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_sheldras = {
+      big = true,
+      lines = { { id = "xpt_sheldras_default", text = "Not at first, for your kind talk quickly and build quickly and forget quickly, and we do none of those things. But a company is a small forest of its own, and in time the roots find each other, if nobody insists on pulling them up to check." } },
+      choices = {
+        { text = "We should learn your patience. It would serve us well.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Quickness keeps us alive. Your people could learn that from us.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "We share a listening, I think, though we answer different voices. Cenarius taught us; I wonder who taught you." } },
@@ -89,6 +98,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_sheldras", tags = { "news" }, when = { party = { race = "NightElf" } },
+          text = "You travel with one of my people, I see. {companion} carries the forest with them, even here among the stones, and I'd guess they make the city feel a little less like a cage to you as well." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the human Light. You carry it like a lantern held high, young one, and I wonder whether you ever let it rest." },
         { id = "h_default", text = "I am Sheldras Moontree. Even within cold stone walls like these, one may find tranquillity, and in truth you may find it anywhere at all, if you look inside yourself for balance. The Park only makes it easier." },
         { id = "h_druid", when = { class = "DRUID" },
@@ -131,6 +142,7 @@ P:NPC {
         { text = "Should a paladin's Light ever rest, Sheldras?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is there balance in what I do, Sheldras?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you think shamans and druids share a path, Sheldras?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Does a night elf feel at home in a company of humans?", next = "xpt_sheldras", when = { party = { race = "NightElf" } } },
         { text = "Peace be with you.", next = "END" },
       },
     },

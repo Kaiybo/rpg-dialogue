@@ -221,7 +221,7 @@ Ctx.DUMP_ORDER = {
   "pvpRank", "pvpRankName", "pvpFlagged", "honorKills", "dishonorKills",
   "npcName", "npcID", "npcLevel", "npcElite", "npcReaction", "npcSubtitle", "power", "levelDiff",
   "zone", "subzone", "mapID", "capital", "resting", "atInn", "inInstance", "hour", "tod", "holiday",
-  "form", "mounted", "stealthed", "ghost", "pet", "debuffTypes", "resSick", "camping", "drunk", "outOfPlace",
+  "party", "form", "mounted", "stealthed", "ghost", "pet", "debuffTypes", "resSick", "camping", "drunk", "outOfPlace",
 }
 
 -- opts: { unit = "npc", spoof = { key = value } }
@@ -258,7 +258,13 @@ function Ctx.Describe(ctx)
   for _, k in ipairs(Ctx.DUMP_ORDER) do
     local v = ctx[k]
     local s
-    if type(v) == "table" then
+    if k == "party" and type(v) == "table" then
+      local parts = {}
+      for _, m in ipairs(v) do
+        parts[#parts + 1] = tostring(m.name or "?") .. " (" .. tostring(m.race) .. " " .. tostring(m.class) .. ")"
+      end
+      s = #parts > 0 and table.concat(parts, ", ") or "alone"
+    elseif type(v) == "table" then
       local parts = {}
       for kk, vv in pairs(v) do parts[#parts + 1] = (vv == true) and tostring(kk) or (tostring(kk) .. "=" .. tostring(vv)) end
       table.sort(parts)

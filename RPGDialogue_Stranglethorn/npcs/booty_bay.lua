@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_revilgaz = {
+      big = true,
+      lines = { { id = "xpt_revilgaz_default", text = "Honest is a word I hear a great deal from people standing on my docks, and I've learned to value it at about a copper an ounce. Still, a crew that keeps its word is worth more to me than any cargo, because the Bloodsail would have this whole bay if the honest ones ever went home." } },
+      choices = {
+        { text = "Then you'll find us good to our word, Baron.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Honesty is for people without enemies. We do what pays.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_zg = {
       big = true,
       lines = { { id = "xcl_zg_default", text = "Fallen is a strong word for a city that size, but its god is gone, and that god was what kept the priests united. Every goblin in this cove has spent good coin on the hope that the trolls stay at each other's throats, and I'd rather not lose that bet now." } },
@@ -126,6 +135,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_revilgaz", tags = { "news" }, when = { party = { size = 4 } },
+          text = "A whole crew walks into my town, and I don't recall signing your papers. Booty Bay welcomes any crew that pays its dock fees and settles its fights outside the harbor." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub" }, text = "Word reached my balcony that Hakkar is dead in Zul'Gurub and the Gurubashi priests are scattering into the jungle. That's good for shipping and bad for the price of troll relics, and I'm still deciding which matters more." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my balcony, polished to a shine. The Light is welcome in Booty Bay, friend, provided it pays its docking fees like everyone else." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde under my balcony. Keep your lightning away from my ships, and we'll get along nicely." },
@@ -176,6 +187,7 @@ P:NPC {
         { text = "Does the Light count for anything in a Cartel port, Baron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Booty Bay have room for a dwarf shaman, Baron?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Hakkar is dead, Baron. Zul'Gurub has fallen.", next = "xcl_zg", when = { cleared = "Zul'Gurub" } },
+        { text = "We're no pirates, Baron. We're honest adventurers.", next = "xpt_revilgaz", when = { party = { size = 4 } } },
         { text = "Good day, Baron.", next = "END" },
       },
     },
@@ -1405,6 +1417,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_skindle = {
+      big = true,
+      lines = { { id = "xpt_skindle_default", text = "Bandages and nerve, you say, as though I haven't heard that one at the bar every night this season. The jungle's full of trolls with poisoned spears, and nerve has never once pulled the poison out of anybody I've known." } },
+      choices = {
+        { text = "You're right. We'll find a healer before we go back out.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We'll take our chances. Healers just slow a company down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Anyone with a bad conscience, and in this room that's most of them. The Bruisers keep the peace, but a dead knight with the Light in hand gives my regulars two reasons to sit with their backs to the wall." } },
@@ -1500,6 +1521,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_skindle", tags = { "news" }, when = { class = { "WARRIOR", "ROGUE", "MAGE", "WARLOCK", "HUNTER" }, party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true } },
+          text = "No healer among the lot of you? Then you'll be wanting rooms close to the stairs, because I've carried enough half-dead adventurers up them to know how this ends." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Salty Sailor, there's a sight. Keep your blessings quiet near the stairs, if you would, because the Baron's men don't care for anything they can't put a price on." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin, in here? Take a seat by the wall, friend, where you can see the door, because half my customers would sooner not be seen drinking near the Silver Hand." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Salty Sailor. If you can do anything about the damp in my rooms, the first rum is on the house." },
@@ -1537,6 +1560,7 @@ P:NPC {
         { text = "Do the hunters who stay here tell good stories, Skindle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Has a druid really turned into a bear in your inn, Skindle?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Who in Booty Bay fears a Forsaken paladin, Skindle?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "We manage without a healer, Skindle. Bandages and nerve do the job.", next = "xpt_skindle", when = { class = { "WARRIOR", "ROGUE", "MAGE", "WARLOCK", "HUNTER" }, party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true } } },
         { text = "Just passing through.", next = "END" },
       },
     },

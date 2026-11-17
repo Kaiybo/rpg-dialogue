@@ -32,6 +32,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_cairne = {
+      big = true,
+      lines = { { id = "xpt_cairne_default", text = "I believe so, though I've lost sleep over it. The Earth Mother teaches that all things return to her in time, and the Forsaken were torn out of that circle by the Scourge, so perhaps the kindest thing we can do is give them somewhere to stand until they find their own way back." } },
+      choices = {
+        { text = "They deserve a place among us. I'd trust mine with my life.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead belong in the earth, Chieftain, not in the Horde.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Do your elders still oppose them?", next = "xpt_cairne2" },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    xpt_cairne2 = {
+      lines = { { id = "xpt_cairne2_default", text = "Some do, and Magatha speaks loudest of them, though I suspect she would object to anything I supported. The rest will be won over slowly, by Forsaken who keep their word and by travellers like you who stand beside them." } },
+      choices = {
+        { text = "Then I'll help win them over.", next = "BACK" },
+      },
+    },
     xcl_rfd = {
       big = true,
       lines = { { id = "xcl_rfd_default", text = "Then the dead have one less nest in Kalimdor, and I am grateful. When the Forsaken came to us, they told us how the plague took Lordaeron one village at a time, and I swore it would not take Mulgore the same way. The quilboar were foolish to welcome that lich, but I do not wish their fate on any people, even those who have raided our herds." } },
@@ -101,6 +117,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
+          text = "You walk with one of the Forsaken, I see, and you've not flinched from them. I asked Thrall to welcome Sylvanas's people when many of my own elders called it a mistake, so it does an old bull good to see that trust repaid in small ways." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "You have been up on Elder Rise, listening to Magatha. She is clever and she is patient, and I would ask you to be careful how much of her patience you mistake for kindness." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -134,6 +152,7 @@ P:NPC {
         { text = "What does a hunt teach the tauren, Cairne?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You allied with a Horde that has warlocks, chieftain.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "The Scourge are broken in Razorfen Downs, Chieftain.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
+        { text = "My companion is Forsaken. Was the Horde right to take them?", next = "xpt_cairne", when = { party = { race = "Scourge" } } },
         { text = "Earth Mother keep you, chieftain.", next = "END", fx = { affinity = 1 } },
       },
       again = {
@@ -272,6 +291,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_hamuul = {
+      big = true,
+      lines = { { id = "xpt_hamuul_default", text = "To Moonglade, in time, where the Cenarion Circle gathers under Keeper Remulos and night elf and tauren sit at the same fire. There are elves there who still believe we should never have been taught at all, so your friend will need patience as well as skill." } },
+      choices = {
+        { text = "Nature's knowledge belongs to everyone who would protect it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The elves are right to guard their secrets carefully.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Arch Druid.", next = "BACK" },
+      },
+    },
     xcl_wc = {
       big = true,
       lines = { { id = "xcl_wc_default", text = "Then you did what his own disciples could not, and what I could not either. Naralex was a night elf of the Cenarion Circle who wanted to make the Barrens green again, so he went into the Emerald Dream to do it, and the Dream turned to nightmare around him. His followers went down to help him and were twisted into the Druids of the Fang, and every young druid who rides up the lift should know that story before they try to bend the land." } },
@@ -359,6 +387,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_druid", tags = { "news" }, when = { party = { class = "DRUID" } },
+          text = "Your companion {companion} wears the old ways lightly, but I can see them all the same. Few tauren walked the druid's path before Malfurion's people taught me, so every druid I meet on these bluffs feels like a seed I helped to plant." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. Malfurion said yes to me when others said no, so I will not be the one who says no to you." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "Magatha has been generous with her time where you are concerned. The Grimtotem give nothing for free, young one, so think on what she may want from you in return." },
@@ -397,6 +427,7 @@ P:NPC {
         { text = "What can a rogue learn from a druid, Arch Druid?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Will the druids accept a Forsaken paladin, Arch Druid?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went into the Wailing Caverns to wake Naralex, Arch Druid.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
+        { text = "My companion is a druid. Where should they go to learn more?", next = "xpt_hamuul", when = { party = { class = "DRUID" } } },
         { text = "Farewell, Arch Druid.", next = "END" },
       },
       again = {
@@ -704,6 +735,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_magatha = {
+      big = true,
+      lines = { { id = "xpt_magatha_default", text = "Plainly, then: the Forsaken are a bargain Cairne made without asking the elders, and bargains made in haste are paid for later. I've nothing against your friend in particular, child, only against a chieftain who no longer listens to those who walked these plains before him." } },
+      choices = {
+        { text = "Cairne was right, and the elders should follow him.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Perhaps the elders deserve a stronger voice than Cairne allows.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Who would you rather see lead the tauren?", next = "xpt_magatha2" },
+        { text = "Something else, Elder Crone.", next = "BACK" },
+      },
+    },
+    xpt_magatha2 = {
+      lines = { { id = "xpt_magatha2_default", text = "I would rather see the tauren led by those who remember the old ways, and I'll say no more than that in a city full of Bloodhoof ears. Go and enjoy your walk with your friend, and think on what I've told you." } },
+      choices = {
+        { text = "I'll think on it.", next = "BACK" },
+      },
+    },
     xcl_mara = {
       big = true,
       lines = { { id = "xcl_mara_default", text = "Defeated, you say, which is a fine word for something that cannot truly die. Theradras is a daughter of the Stonemother, and the earth itself listened when she wept, so Desolace became the wasteland it is now. My Grimtotem have always known the earth is not gentle, whatever Cairne's druids say, and Maraudon is the proof of it." } },
@@ -791,6 +838,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
+          text = "You bring one of the walking dead up onto my bluff and expect me to smile. Cairne may open his arms to every stray Thrall drags in, but the Grimtotem remember what the Earth Mother intended for the dead, and it was not this." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. How very interesting. Cairne sees a strange ally, I suspect. I see something else entirely." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "You have been sitting at Cairne's fire, or at Runetotem's, and they have filled your head with talk of peace and patience. I will not hold it against you, but I will not pretend to be pleased." },
@@ -826,6 +875,7 @@ P:NPC {
         { text = "Do the Grimtotem fear demons, Elder Crone?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do you see in me, Magatha?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I defeated Princess Theradras in Maraudon, Elder Crone.", next = "xcl_mara", when = { cleared = "Maraudon", faction = "Horde" } },
+        { text = "My companion is Forsaken. Will you speak plainly about it?", next = "xpt_magatha", when = { party = { race = "Scourge" } } },
         { text = "I'll go.", next = "END" },
       },
       again = {
@@ -918,6 +968,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_pala = {
+      big = true,
+      lines = { { id = "xpt_pala_default", text = "That's for each traveller to decide, but I'll tell you what I've noticed from behind this counter. The companies made of one people argue less on the first night and more on the tenth, and the mixed ones are the other way around, so it all evens out by the time they reach Feralas." } },
+      choices = {
+        { text = "Mixed companies are stronger, since each brings something different.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Kin understand each other, and that's worth more than variety.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Thanks, Pala.", next = "BACK" },
+      },
+    },
     xcl_wc = {
       big = true,
       lines = { { id = "xcl_wc_default", text = "Then you'll have heard the moaning in the stone, which the young ones say is the cave itself crying. My cousin's boy went in with a hunting party and talked in his sleep about snakes for a month after, and he still won't eat eel. I feed them all when they come back up, because it's the only cure I know." } },
@@ -1014,6 +1073,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_kin", tags = { "news" }, when = { party = { kin = true } },
+          text = "You travel with your own people, I see, and that's a comfort on the long roads. The best companies I've seen at this hearth, though, were the ones that mixed, because each of them knew something the others didn't." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! Everyone gets the same welcome and the same stew at the Cat and the Shaman, even if you don't eat it." },
         { id = "h_default", text = "I'm Pala, and I keep the Cat and the Shaman. Warriors, druids, traders off the lifts: everyone gets the same welcome and the same stew." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Horde" },
@@ -1043,6 +1104,7 @@ P:NPC {
         { text = "Is a warlock welcome at the Cat and the Shaman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does Thunder Bluff welcome paladins, Pala?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been down the Wailing Caverns, Pala.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Horde" } },
+        { text = "Should a company keep to its own kind, Pala?", next = "xpt_pala", when = { party = { kin = true } } },
         { text = "Just resting.", next = "END" },
       },
       again = {

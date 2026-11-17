@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_doren = {
+      big = true,
+      lines = { { id = "xpt_doren_default", text = "Kurzen happened, or whatever got into his head out here; one day he was our commander and the next he was something else, and most of the men followed him. A company is only as good as the one leading it, so remember that before you follow anyone into this jungle." } },
+      choices = {
+        { text = "A soldier follows orders, Lieutenant. That's what discipline means.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No one should follow a leader blindly. Your men chose wrong.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_zg = {
       big = true,
       lines = { { id = "xcl_zg_default", text = "Safer, maybe, but this jungle never forgets anything, and a troll empire doesn't go quiet because one god dies. Kurzen came here to fight trolls, remember, and somewhere along the way the jungle turned him into something I had to walk away from." } },
@@ -59,6 +68,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_doren", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
+          text = "Five blades at once. I haven't seen that many friendly swords together since the Colonel took the rest of my company into the jungle, so you'll forgive me for staring." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Alliance" }, text = "One of my lads says you came back out of Zul'Gurub after its blood god fell, and I didn't believe him until I saw your face. That city ate whole patrols in the old days, and nobody ever learned where the bodies went." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kurzen", min = 30 } }, text = "The scouts say Kurzen's patrols are thinner on the river road, and they say it's your doing. Good work, but keep your head down, because the Colonel counts his dead too." },
         { id = "h_druidx", when = { class = "DRUID" },
@@ -95,6 +106,7 @@ P:NPC {
         { text = "My order fell apart too. Nobody told us why.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "It's done. Kurzen's dead.", next = "done", when = { questDone = TODO_QUEST("Colonel Kurzen") } },
         { text = "I could pray over your dead, Lieutenant.", next = "priest_dead", when = { class = "PRIEST" } },
+        { text = "What happened to your company, Lieutenant?", next = "xpt_doren", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'm here to help.", next = "END", fx = { affinity = 2, standing = { rebel_camp = 1 }, learn = { "kurzen" } } },
         { text = "Thorsen was a spy. So am I, of sorts.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "I could track Kurzen's patrols for you.", next = "k_hunter", when = { class = "HUNTER" } },
@@ -389,6 +401,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_nimetz = {
+      big = true,
+      lines = { { id = "xpt_nimetz_default", text = "It might ease it, but I'm a man of glassware as well as faith, and I want to know what causes it before I start praying at it. Faith without study gave Stormwind half its quack cures, and study without faith gave us Kel'Thuzad." } },
+      choices = {
+        { text = "Trust the Light, Brother. Some things can't be measured in glass.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Study first. Faith alone has let too many sick men die.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_zg = {
       big = true,
       lines = { { id = "xcl_zg_default", text = "I believe you, because I've treated men who only heard the drums from a distance and woke screaming for weeks. Whatever the Gurubashi priests served, it fed on the blood of the living, and I've spent years at this table trying to understand what such a hunger does to a mind." } },
@@ -463,6 +484,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_nimetz", tags = { "news" }, when = { party = { class = "PRIEST" }, faction = "Alliance" },
+          text = "You travel with a priest, I see. I'd like a word with {companion} before you go, because the madness that took Kurzen's men wasn't a fever, and I'm beginning to think medicine alone won't cure it." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Alliance" }, text = "You've been to the heart of Zul'Gurub and come back whole, which I hadn't thought possible, and the Light be thanked for it. I'd like to hear what you saw there, if you have the stomach to tell me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Mind the glassware as you pass, friend, because there's residue in those flasks that I'd rather nobody carried out of this camp in a pocket." },
         { id = "h_default", key = true,
@@ -495,6 +518,7 @@ P:NPC {
         { text = "What did the madness do to Kurzen's soldiers, Brother?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What plants are you looking for, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What's in those flasks that I shouldn't pocket, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Could the Light cure Kurzen's madness, Brother?", next = "xpt_nimetz", when = { party = { class = "PRIEST" }, faction = "Alliance" } },
         { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A druid could help with the cure, Brother.", next = "k_druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Do you suspect magic drove Kurzen's men mad, Brother?", next = "xmage", when = { class = "MAGE" } },

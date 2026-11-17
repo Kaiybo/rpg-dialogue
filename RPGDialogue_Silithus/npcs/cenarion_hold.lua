@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_maralith = {
+      big = true,
+      lines = { { id = "xpt_maralith_default", text = "I'll gladly put you to work, but understand that the Hold is a druids' camp first and a fortress second, and my soldiers don't take orders from adventurers. Fight with us, follow the signals, and don't go chasing a hive on your own because you've counted five swords and think it enough." } },
+      choices = {
+        { text = "We'll follow your signals, Commander. The Hold's order comes first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We fight our own way. Just point us at the hives.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_aq20 = {
       big = true,
       lines = { { id = "xcl_aq20_default", text = "Quiet is not empty, and the Circle has learned that lesson in blood. Natalia went out toward those hives to understand them, and I have spent every day since wondering whether the thing you killed ever knew her name." } },
@@ -116,6 +125,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_maralith", tags = { "news" }, when = { party = { size = 4 } },
+          text = "A full company at Cenarion Hold. Good, because the silithid don't come at us one at a time, and neither should anyone who goes out to meet them." },
         { id = "h_cl_aq20", tags = { "news" }, when = { cleared = "Ruins of Ahn'Qiraj" }, text = "They say you went into the Ruins of Ahn'Qiraj and that Ossirian the Unscarred lies broken in the sand. The Hold will sleep easier tonight, and perhaps, for once, so will I." },
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin of the Alliance, at Cenarion Hold. You are welcome, as is anyone who will stand against the swarm, though I confess I hoped the Light might have answers I have not found." },
@@ -166,6 +177,7 @@ P:NPC {
         { text = "What answers are you looking for, Commander?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "What answers do you seek from the Light, Commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ossirian is dead, Commander. The Ruins are quiet for now.", next = "xcl_aq20", when = { cleared = "Ruins of Ahn'Qiraj" } },
+        { text = "Put us to work, Commander. We'll hold the line.", next = "xpt_maralith", when = { party = { size = 4 } } },
         { text = "I'll leave you to your work, Commander.", next = "END", fx = { affinity = 1, standing = { cenarion_hold = 1 } } },
       },
     },
@@ -954,6 +966,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_vish_kozus = {
+      big = true,
+      lines = { { id = "xpt_vish_kozus_default", text = "I don't see, I listen, and listening has kept me alive longer than my eyes ever did. The silithid tunnel under the sand before they strike, and a healer who stands too near the edge of a fight hears them a moment too late." } },
+      choices = {
+        { text = "We guard our healer first, Captain. That's only sense.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Our healer can look after themself. We all carry our weight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -1031,6 +1052,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_vish_kozus", tags = { "news" }, when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } } },
+          text = "You've brought a healer. I can hear it in how the rest of you walk, like people who expect to be patched up, so keep {companion} in the middle where the bugs can't reach." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? I can hear your totems knocking together from up here, so don't bother sneaking. If the elements have anything useful to say about the hives, I'm listening; if not, the poster's by the door." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Don't bother casting anything to see behind the blindfold; better minds than yours have tried, and none of them got an answer." },
@@ -1068,6 +1091,7 @@ P:NPC {
         { text = "What does the Hold's guard need from a priest, Captain?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How does the Commander fare since his wife vanished?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What makes Deathclasp so hard to bring down, Captain?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "How can you see anything with that blindfold, Captain?", next = "xpt_vish_kozus", when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } } } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },

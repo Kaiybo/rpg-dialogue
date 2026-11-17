@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_katrana = {
+      big = true,
+      lines = { { id = "xpt_katrana_default", text = "The court is grateful, of course, in the way one is grateful for rain: it's useful, and nobody wants to see it indoors. Some lords would rather the Crown paid soldiers, and some would rather it paid nothing at all, but they all agree that armed wanderers make them nervous." } },
+      choices = {
+        { text = "We serve the Crown, my lady, and gladly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them be nervous. We answer to our own consciences.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "The court trusts what serves the kingdom. Spirits and totems are such orcish things, don't you agree? One wonders where your loyalties lie." } },
@@ -99,6 +108,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_katrana", tags = { "news" }, when = { party = true },
+          text = "How charming, a little band of heroes in the throne room. Do keep them close, {name}; the court can be so unkind to people it doesn't know, and one never quite knows who's listening." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "I'm told you've been listening to the City Architect's grievances. Baros is a capable man, but grievance is a poor habit in a servant of the crown, and it spreads." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -145,6 +156,7 @@ P:NPC {
         { text = "What do you think of the Silver Hand, my lady?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does the court think of the night elves, my lady?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does the court trust shamans, Lady Prestor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What does the court make of companies like ours, my lady?", next = "xpt_katrana", when = { party = true } },
         { text = "Excuse me.", next = "END" },
       },
     },

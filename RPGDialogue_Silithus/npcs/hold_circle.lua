@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_bor_wildmane = {
+      big = true,
+      lines = { { id = "xpt_bor_wildmane_default", text = "Because we listen to the land, and the land here is screaming about what's buried under it. The crazies want that thing awake, and every druid in the Hold is one more voice telling the world to let it sleep." } },
+      choices = {
+        { text = "Some cultists might be saved. Not all of them chose this.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Every cultist we find dies. That's all there is to it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Ha, I'd show you, but the scholars took them off to study, and I only kept the ones with the funniest drawings! There's a great deal about the wind stones and something called the Abyssal Council, and I'd much rather you burned their camps than read their scribbles." } },
@@ -105,6 +114,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_bor_wildmane", tags = { "news" }, when = { party = { class = "DRUID" } },
+          text = "Ho, a druid in your company! {companion} and I can trade stories about the crazies, because the Twilight's Hammer hate druids more than they hate anyone." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Twilight", min = 40 } },
           text = "Ha, I've been keeping score, and you're well ahead of the last fellow! The Twilight crazies are fewer around the wind stones, and the ones left are jumping at every shadow." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -147,6 +158,7 @@ P:NPC {
         { text = "Do the Twilight's Hammer leave much of a trail, Bor?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What do you need from a paladin against the cult, Bor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can I see the papers you've collected, Bor?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why do the cultists hate druids so much, Bor?", next = "xpt_bor_wildmane", when = { party = { class = "DRUID" } } },
         { text = "I'll bring you whatever I find on them.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },

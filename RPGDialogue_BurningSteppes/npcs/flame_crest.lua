@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_crowd = {
+      big = true,
+      lines = { { id = "xpt_crowd_default", text = "Lonely? Me? I've got the stars and the ash and a jug of something that bites back, and that's three more friends than most folk have. But I'll not lie to you, it's nice when people come up the hill in a bunch, laughing, because it reminds me that I used to." } },
+      choices = {
+        { text = "Some folk are meant for the hills. Stay where you're happy.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Come down off the hill, John. You'd do well among people.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Orcs, mostly, an' big ones, Rend's lot, who'd sooner die than lose a fight an' generally manage both. Windsor walked up that road wi' his head high an' his sword out, an' I'll say no more about it until I've had another cup." } },
@@ -122,6 +131,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_crowd", tags = { "news" }, when = { party = { size = { min = 2 } }, faction = "Alliance" },
+          text = "Well, well, a whole parade up my hill! {companion} there looks thirsty, and so do you, and Ragged John hasn't had a crowd to talk at in a dog's age." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my cave! *hic* Tell the fire spirits out there tae calm down, would ye, because they've been rumblin' under the Steppes since before I moved in, an' I'd like a quiet night." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp in my cave? *hic* Mind it keeps off the cask, for the last thing I need is fel in my ale, an' the second last thing is a burnin' beard." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can ye chill a cask, friend? A cold ale in the Burnin' Steppes is worth more than all the gold in the Depths, an' I've been dreamin' of one for years." },
@@ -170,6 +181,7 @@ P:NPC {
         { text = "Was it always ash here, John, or do you remember it green?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the fire spirits of the Steppes trouble you, John?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I've been to the bottom of Blackrock Depths, John.", next = "xcl_brd", when = { cleared = "Blackrock Depths" } },
+        { text = "Don't you get lonely up here, John?", next = "xpt_crowd", when = { party = { size = { min = 2 } }, faction = "Alliance" } },
         { text = "I'll leave you to your cask.", next = "END" },
       },
     },

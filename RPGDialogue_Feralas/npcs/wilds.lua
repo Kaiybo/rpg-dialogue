@@ -362,6 +362,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xpt_kindal = {
+      big = true,
+      lines = { { id = "xpt_kindal_default", text = "A druid can help it heal itself, which is a different and slower thing. The harpies and the Grimtotem have taken a great deal from these woods, and I'd sooner see the land given time than forced back into green by someone in a hurry." } },
+      choices = {
+        { text = "Then we'll drive out whoever harms it. That helps fastest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Patience, then. The land knows its own healing best.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "They chain them, starve them and sell them, and they call on the earth while they do it. If your spirits are honest, they'll weep with me." } },
@@ -439,6 +448,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_kindal", tags = { "news" }, when = { party = { class = "DRUID" }, faction = "Alliance" },
+          text = "There's a druid of the Circle in your company. {companion} will feel it as I do, that the forest here is sick at the edges and struggling to remember what it was." },
         { id = "h_default", key = true, text = "I am Kindal Moonweaver. The Grimtotem have been trapping the wild creatures of Feralas and caging them, and I mean to see every one of them freed." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Freedom for All Creatures") }, text = "The cages are in the Grimtotem compound. Open them, and the creatures will find their own way home; they know these woods better than we do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -471,6 +482,7 @@ P:NPC {
         { text = "What justice do the caged beasts need, Kindal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why do the Grimtotem cage these creatures, Kindal?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What have the Grimtotem done to these creatures, Kindal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Can a druid heal a forest, Kindal?", next = "xpt_kindal", when = { party = { class = "DRUID" }, faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

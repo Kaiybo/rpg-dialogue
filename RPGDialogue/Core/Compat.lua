@@ -718,14 +718,20 @@ function C.ArmorPiecesWorn()
   return n
 end
 
+-- The other members of your party (not raid subgroups beyond your own): race and class
+-- tokens, name, level, gender. 0.59.0 added name/level/gender.
 function C.Party()
   local out = {}
-  local n = call("GetNumSubgroupMembers") or 0
+  local n = call({ "GetNumSubgroupMembers", "GetNumPartyMembers" }) or 0
+  if n > 4 then n = 4 end
   for i = 1, n do
     local unit = "party" .. i
     local _, race = C.Race(unit)
     local _, class = C.Class(unit)
-    if race or class then out[#out + 1] = { race = race, class = class } end
+    if race or class then
+      out[#out + 1] = { race = race, class = class, name = C.Name(unit), level = clean(call("UnitLevel", unit)),
+        gender = C.Sex(unit) }
+    end
   end
   return out
 end

@@ -759,6 +759,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_ariasta = {
+      big = true,
+      lines = { { id = "xpt_ariasta_default", text = "That they will be trusted to hold, and that no one will thank them for it, because a warrior who holds well is only noticed when they fall. Tell your companion that I said they are seen, and that it matters." } },
+      choices = {
+        { text = "I'll thank them, then. They've earned it every time.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Holding is a warrior's work. Thanks won't change that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I can, and yours is unusual. Spirits walk with you, and they shape you. Be careful they do not lead." } },
@@ -867,6 +876,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_ariasta", tags = { "news" }, when = { party = { class = "WARRIOR" } },
+          text = "You walk with a warrior. {companion} carries a blade the way a sentinel would want it carried, low and ready, and I would guess they have stood in front of you more than once." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I teach only those with the warrior's spirit, but I'll grant that some healers have more of it than the fighters they heal." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You may have the warrior's spirit, {class}, though I'll want to see it for myself before I say so." },
         { id = "h_default", text = "I am Arias'ta Bladesinger, and I teach the art of war on this Terrace. I can see the warrior's spirit in those who have it, and I teach only them." },
@@ -892,6 +903,7 @@ P:NPC {
         { text = "What do you see in a druid's spirit, Arias'ta?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is there a warrior's spirit in a mage, Arias'ta?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can you truly see a warrior's spirit, Arias'ta?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What should a warrior expect from a company?", next = "xpt_ariasta", when = { party = { class = "WARRIOR" } } },
         { text = "Farewell.", next = "END" },
       },
     },

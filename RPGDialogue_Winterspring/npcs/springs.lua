@@ -243,6 +243,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_mauari = {
+      big = true,
+      lines = { { id = "xpt_mauari_default", text = "For the juju, mon, because the spirits up here are old and cold and they remember things the jungle forgot. Mau'ari would sooner freeze learning than stay warm and ignorant, and maybe your troll friend understands that too." } },
+      choices = {
+        { text = "Some old spirits are best left forgotten, Mau'ari.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Old spirits hold power. You're right to seek it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Because a beast dat dies afraid gives you only fear, mon, and fear be useless juju. A beast dat dies quick and proud gives its strength, so a rogue who strikes clean makes de best E'ko of all, and Mau'ari pay attention to such things." } },
@@ -308,6 +317,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_mauari", tags = { "news" }, when = { party = { race = "Troll" } },
+          text = "Mau'ari sees a troll walking with you, and that warms her more than the fire. {companion} knows what the cold does to troll bones, so you be keeping each other close up here." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Chillwind", min = 25 } },
           text = "De chillwind beasts be fewer in de hills, mon, and Mau'ari know who been huntin' dem. Bring de E'ko, and maybe de spirits forgive you dat many." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -342,6 +353,7 @@ P:NPC {
         { text = "Do the spirits respect warriors, Mau'ari?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the beasts' spirits fear the Light, Mau'ari?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why does the E'ko come easier from an unseen kill, Mau'ari?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why does a troll come up into the ice, Mau'ari?", next = "xpt_mauari", when = { party = { race = "Troll" } } },
         { text = "I'll bring E'ko.", next = "END", fx = { affinity = 2 } },
       },
     },

@@ -37,6 +37,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_benedictus = {
+      big = true,
+      lines = { { id = "xpt_benedictus_default", text = "By remembering that you are not the one who mends them, for the Light does that, and you are only the hand it passes through. The healers who break are the ones who come to believe that every death in their company was theirs to prevent." } },
+      choices = {
+        { text = "Then I'll trust the Light to carry what I can't.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll trust my own hands before any sermon, Archbishop.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_strat = {
       big = true,
       lines = { { id = "xcl_strat_default", text = "I pray that's so. Rivendare was a lord of Lordaeron before he gave himself to the Scourge, and a man who chooses that has made a darker bargain than any poor soul the plague took unawares. Archbishop Faol taught that the Light is offered even to such men, though I confess I find it hard to say over this one." } },
@@ -93,6 +102,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_benedictus", tags = { "news" }, when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } },
+          text = "You've brought a company to the Cathedral, and not one of them carries a healer's training, unless I misjudge them, which I seldom do. You'll be the one they turn to when the blood runs, my child, so be sure the Light has you before they need it to." },
         { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme" },
           text = "You've been inside Stratholme, I'm told, and come out again, which is more than the city's own people managed when the plague came. I'll say a prayer tonight for the ones who still walk its streets." },
         { id = "h_default", text = "Benedictus. I tend the Church as Archbishop Faol tended it before me. He built it to hold people. I try to keep the doors open." },
@@ -145,6 +156,7 @@ P:NPC {
         { text = "Does the Light care about the wild places, Archbishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is Elune so very different from your Light, Your Grace?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Baron Rivendare is dead, Archbishop. Stratholme's dead can rest a little easier.", next = "xcl_strat", when = { cleared = "Stratholme" } },
+        { text = "I'm my company's only healer. How do I bear it?", next = "xpt_benedictus", when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } } },
         { text = "Thank you, Your Grace.", next = "END" },
       },
     },
@@ -1001,6 +1013,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_laurena = {
+      big = true,
+      lines = { { id = "xpt_laurena_default", text = "A paladin teaches you to stand your ground when your instinct is to step back and mend, and you teach them that the Light is not only a hammer. The best pairs I've known argued constantly and never once let the other fall." } },
+      choices = {
+        { text = "Then I'll stand my ground beside them, whatever comes.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll let them stand. A fallen healer helps nobody.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_whitemane = {
       big = true,
       lines = { { id = "xcl_whitemane_default", text = "Then the Light answered her even at the end, or she believed it did, and I can't say which troubles me more. A priest's power isn't proof of a priest's righteousness, and that's the hardest thing I teach, because most students want the one to mean the other." } },
@@ -1077,6 +1098,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_laurena", tags = { "news" }, when = { party = { class = "PALADIN" }, class = "PRIEST" },
+          text = "{companion} carries the Light in plate, I see, and you carry it in your hands. Between the two of you, someone in that company will come home who otherwise wouldn't." },
         { id = "h_cl_whitemane", tags = { "news" }, when = { cleared = "Scarlet Cathedral" },
           text = "They say Whitemane is dead in her own cathedral in Tirisfal, and that you were there to see it. She learned the same prayers every priest in this hall learned, and I've been wondering all morning where her road and ours parted." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Light speaks to you differently than to my students, but it speaks, and I'd like to hear what you've done with it." },
@@ -1113,6 +1136,7 @@ P:NPC {
         { text = "Does the Light care what I do in the dark, High Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you think the spirits and the Light can stand together?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I saw Whitemane fall. She raised the dead to fight beside her.", next = "xcl_whitemane", when = { cleared = "Scarlet Cathedral" } },
+        { text = "What should a priest and a paladin learn from each other?", next = "xpt_laurena", when = { party = { class = "PALADIN" }, class = "PRIEST" } },
         { text = "Thank you, High Priestess.", next = "END" },
       },
     },

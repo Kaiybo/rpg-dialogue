@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_company = {
+      big = true,
+      lines = { { id = "xpt_company_default", text = "Because the road from Stormwind runs through the Swamp of Sorrows and past the orcs at Stonard, and every driver who's made the trip twice asks for double pay the third time. The Blasted Lands are the edge of the world, friend, and nobody hurries to the edge." } },
+      choices = {
+        { text = "Nethergarde deserves better. Stormwind should send more.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A garrison out here should learn to fend for itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "If you can tell me when the next caravan from Darkshire's in trouble, you'd be the most useful soul in the keep. The fel out there sours everything, though, and I'd wager it sours your spirits too." } },
@@ -71,6 +80,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
+          text = "A whole company, and here I am with half a storeroom and the Stormwind wagons three weeks late. Visitors eat what the garrison eats at Nethergarde, which is salt pork and good intentions." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. My crates go missing between Darkshire and here often enough without help, so please tell me you're the kind who brings things back." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! The tower lot will be glad of you, and so will I, because every mage up there wants powerstones, and every powerstone comes through my ledger." },
         { id = "h_default", key = true,
@@ -108,6 +119,7 @@ P:NPC {
         { text = "Who takes your crates on the road?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why won't anything grow around Nethergarde, Quartermaster?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does Nethergarde have any use for a shaman, Quartermaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Why are your supply wagons always late?", next = "xpt_company", when = { party = { size = 4 }, faction = "Alliance" } },
         { text = "I'll keep an eye out for your crates.", next = "END", fx = { affinity = 1, standing = { nethergarde = 1 } } },
       },
     },
@@ -354,6 +366,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_mage = {
+      big = true,
+      lines = { { id = "xpt_mage_default", text = "Like a door left open in winter, with the cold of somewhere else still clinging to it, though the gate has been dead since the far side was destroyed. We watch it anyway, because nobody who saw the Horde come through it ever trusts a closed door again." } },
+      choices = {
+        { text = "Nethergarde's watch is wise. Keep it, whatever it costs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The gate is dead. Dalaran's mages are needed elsewhere.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Hold the stair, I should think, the way the Alliance's soldiers held the ground here at the end of the Second War while Khadgar did his work. We measure and we ward, but if anything comes through that gate again, it'll be steel at the bottom of the steps that buys us time to finish." } },
@@ -401,6 +422,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_mage", tags = { "news" }, when = { party = { class = "MAGE" }, faction = "Alliance" },
+          text = "You travel with a mage, I see, and {companion} will feel the Portal before they see it, as all of us did when we first came. Nethergarde was raised by Dalaran's mages to watch that gate, and we have not stopped watching." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, here? Then you'll know how to stand still and watch without being noticed, which is most of what we do in Nethergarde, though we write it all down afterward." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior! The garrison downstairs keeps the Dreadmaul off our wards while we take our readings, and I'm more grateful to your sort than I ever remember to say." },
@@ -440,6 +463,7 @@ P:NPC {
         { text = "What would a warrior do if the Portal woke, Watcher?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What happens to the beasts that live near the Portal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does a Watcher need that a rogue could help with, Mahar Ba?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "My companion is a mage. What does the Portal feel like?", next = "xpt_mage", when = { party = { class = "MAGE" }, faction = "Alliance" } },
         { text = "I'll leave you to your readings.", next = "END" },
       },
     },

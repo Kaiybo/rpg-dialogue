@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_company = {
+      big = true,
+      lines = { { id = "xpt_company_default", text = "Then fight it as the Dawn does, with patience, because Stratholme won't fall to a single charge and the Scourge have more dead to spend than we have living. A company that comes back again and again does more good than a hero who dies gloriously on the first day." } },
+      choices = {
+        { text = "Patience, then. We'll come back as often as it takes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "One bold strike at the heart beats a hundred patrols.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The Dawn welcomes anyone who stands against the Scourge, and you stand with the Light besides, which is more than many of my knights can say on a bad day. Some of them will look at you and see what they lost, and you'll have to forgive them that, because it's grief, not hatred." } },
@@ -78,6 +87,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 } },
+          text = "A company of five at the chapel, and I'll not pretend I'm not counting swords, for the Dawn needs every one it can get in the east of Lordaeron." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid at Light's Hope. The Dawn welcomes any who stand against the Scourge, and I suspect you grieve for these lands more openly than my knights do." },
         { id = "h_default", key = true,
@@ -117,6 +128,7 @@ P:NPC {
         { text = "What strangeness have your scouts seen in the beasts?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Is the Dawn truly open to shamans, my lord?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Will the Argent Dawn welcome a Forsaken paladin, Lord Tyrosus?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "We came north to fight the Scourge, my lord.", next = "xpt_company", when = { party = { size = 4 } } },
         { text = "How can I help?", next = "END", fx = { affinity = 2, standing = { light_hope = 1 } } },
       },
     },
@@ -289,6 +301,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_priest = {
+      big = true,
+      lines = { { id = "xpt_priest_default", text = "Because so many died here holding it, and died in faith, that the ground itself remembers, and the dead cannot rise where the Light has been paid for so dearly. I tell the young priests that the chapel is a prayer that never ended." } },
+      choices = {
+        { text = "Then faith is the strongest weapon we have against them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith didn't save those who died here. Better steel might have.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They trust my blade, which is more than I expected, but they won't share a fire with me. I understand it, for a soldier who has fought the Scourge for years learns to strike at anything that looks like me, and that instinct has kept them alive." } },
@@ -338,6 +359,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_priest", tags = { "news" }, when = { party = { class = "PRIEST" } },
+          text = "{companion} has the look of a priest, and you've brought them to the one chapel in all of Lordaeron where the Scourge has never set foot. Kneel a while, both of you, if you've the time; this ground has a way of mending more than wounds." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid. I was told your kind can feel the sickness in the earth, and I wonder whether you feel it in me too, for I am made of the same plague." },
         { id = "h_default", key = true,
@@ -371,6 +394,7 @@ P:NPC {
         { text = "Can beasts tell that you aren't Scourge, Leonid?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why didn't you join the Deathstalkers, Revered?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How do the spirits see you, Revered?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why has the Scourge never taken this chapel?", next = "xpt_priest", when = { party = { class = "PRIEST" } } },
         { text = "I'd like to help the Dawn, if you'll have me.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'll work with the dead when I must, but I won't trust them.", next = "END", fx = { align = { light = -1 } } },
       },

@@ -39,6 +39,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_mcbride = {
+      big = true,
+      lines = { { id = "xpt_mcbride_default", text = "They do, and they'll tell you so at length, though they'll also want you to stay for vespers. My own concern is simpler: so long as there are kobolds in Echo Ridge and Defias in the vineyards, I'll welcome anyone who can hold a blade." } },
+      choices = {
+        { text = "The monks' prayers do as much good as any blade.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Blades keep the abbey safe, Marshal. Prayer comes after.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The vineyard, where the Defias pick at our grapes, and the kobold camps to the east, where the miners stopped going. Llane has your training, but I have the map, and the map's mostly red." } },
@@ -85,6 +94,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_mcbride", tags = { "news" }, when = { party = true },
+          text = "You've brought a company back to Northshire. Good; the abbey has always done better when its graduates come home with friends than when they come home alone and wounded." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A healer. Anetta will claim you, but the barracks will claim you first, so sleep where you can." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Sammuel will have you, but the garrison needs you more, so don't spend all day in the chapel." },
         { id = "h_default", text = "The garrison's spread thin, so I'll be brief. What do you need?" },
@@ -166,6 +177,7 @@ P:NPC {
         { text = "Where is the line thinnest in Northshire, Marshal?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How many recruits do you lose, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where does a paladin serve best, Marshal?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the monks of Northshire welcome travellers like us?", next = "xpt_mcbride", when = { party = true } },
         { text = "That's all, Marshal.", next = "END" },
       },
     },

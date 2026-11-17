@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_pozzik = {
+      big = true,
+      lines = { { id = "xpt_pozzik_default", text = "The goblin car, obviously, because it's built by people who know what speed is for, which is getting paid. The gnomes build to show off, and they'll keep losing to us until they learn the difference." } },
+      choices = {
+        { text = "Hard work and hunger win races. Go goblins.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Clever design wins in the end. My coin's on the gnomes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Brains build the car, but muscle gets it out of the crater, and on this track that happens more than I'd like. Half my crew used to bust heads for the cartels, and they can change a wheel faster than any gnome with a wrench." } },
@@ -87,6 +96,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_pozzik", tags = { "news" }, when = { party = { size = 4 } },
+          text = "A whole crowd! Grab a spot on the rocks, and if any of you fancy a wager on the next heat, I'll tell you for free that the goblin car is the smart bet." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "Word around the pits is you've been handing the gnomes your best advice. Fine, it's a free track, but don't expect me to show you the new fuel mixture." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -137,6 +148,7 @@ P:NPC {
         { text = "Do you play fair against the gnomes, Pozzik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does your crew need strength more than brains, Pozzik?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have any beasts ever raced on your track, Pozzik?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Who do you think will win the next race, Pozzik?", next = "xpt_pozzik", when = { party = { size = 4 } } },
         { text = "Good luck out there.", next = "END" },
       },
     },

@@ -32,6 +32,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_thrall = {
+      big = true,
+      lines = { { id = "xpt_thrall_default", text = "Then you already understand what took me years to teach. The Horde I lead is orc and troll and tauren and now the Forsaken, and none of them owe the others anything but the word they gave, so the only thing holding us together is people like you choosing to stand beside each other." } },
+      choices = {
+        { text = "A word given is worth more than shared blood, Warchief.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Alliances like ours last only as long as they're useful.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Do you truly trust the Forsaken, Warchief?", next = "xpt_thrall2" },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
+    xpt_thrall2 = {
+      lines = { { id = "xpt_thrall2_default", text = "I trust that they hate the Scourge as much as we do, and for now that is enough to build on. Cairne counselled me to give them a chance and I have, but I keep my eyes open, and I'd ask you to do the same without letting your suspicion show." } },
+      choices = {
+        { text = "I'll keep my eyes open, Warchief.", next = "BACK" },
+      },
+    },
     xcl_rend = {
       big = true,
       lines = { { id = "xcl_rend_default", text = "Then the last of Blackhand's line to claim my title is gone. Rend gathered the Blackrock who would not follow me and gave them to the black dragons in the Spire, and he called that rabble the true Horde. He thought the Horde was a weapon to be pointed at the world, and I have spent my life proving it can be a people instead." } },
@@ -120,6 +136,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
+          text = "A full war band at my door, and every one of you armed. When I was a slave in Durnholde I dreamed of orcs gathering like this by their own choice and not at a warlord's order, so forgive me if I look at you a moment longer than I should." },
+        { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
+          text = "You travel with one of Sylvanas's people, I see. Some of my warriors still make the sign against the dead when the Forsaken pass, and I would rather they learned from you than from me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Darkspear brought their healers across the sea with them, and now the Forsaken bring theirs from Lordaeron, and I am still learning what each of them prays to." },
         { id = "h_default", key = true,
           text = "Thrall, Warchief of the Horde. Orgrim Doomhammer gave me his hammer and his people with his last breath. I've spent every day since trying to deserve both." },
@@ -159,6 +179,7 @@ P:NPC {
         { text = "Did the Frostwolves teach you to hunt, Warchief?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I've cleared Ragefire Chasm, Warchief.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "Rend Blackhand is dead, Warchief. I was there.", next = "xcl_rend", when = { killed = { name = "Rend Blackhand" }, faction = "Horde" } },
+        { text = "These are my companions, Warchief. We fight as one.", next = "xpt_thrall", when = { party = true } },
         { text = "For the Horde.", next = "END", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "I fight for myself first, Warchief.", next = "END", fx = { align = { honor = -1 } } },
       },
@@ -311,6 +332,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_voljin = {
+      big = true,
+      lines = { { id = "xpt_voljin_default", text = "Know that we were nearly wiped out, mon, hunted by the sea witch's murlocs and by our own kin, until Thrall's ships came through the storm and took us off the Echo Isles. A Darkspear remembers every debt, good and bad, so be the kind of friend they owe something to and not the other kind." } },
+      choices = {
+        { text = "I'll stand by my companion as Thrall stood by you.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Debts are for merchants. I fight for what I can take.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Vol'jin.", next = "BACK" },
+      },
+    },
     xcl_zg = {
       big = true,
       lines = { { id = "xcl_zg_default", text = "Quiet for now, mon. The Gurubashi call that Soulflayer into the world because they want their empire back, and they forget that a god who drink blood never stop at the enemy's. My people lose our place in that jungle long ago, and I won't pretend I grieve for the ones who drive us out, but no troll should be food for Hakkar." } },
@@ -385,6 +415,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_troll", tags = { "news" }, when = { party = { race = "Troll" } },
+          text = "You run with a Darkspear, mon, and that tells me more about you than any badge of rank. My people don't trust easy after everything that's been done to us, so if {companion} walks beside you, you earned it somewhere." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead man carryin' the Light of the humans. Now dat be interestin', and Vol'jin only talks to the interestin' ones." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, and one of the Horde's own. The loa watch who do the healin' and who do the hurtin', and the best of my people learn to do both when the time be right." },
         { id = "h_default", key = true,
@@ -411,6 +443,7 @@ P:NPC {
         { text = "Who threatens the Darkspear now, Vol'jin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Does a Forsaken with the Light trouble you, Vol'jin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Hakkar is cast down, Vol'jin. Zul'Gurub is quiet.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
+        { text = "My companion is Darkspear. What should I know of your people?", next = "xpt_voljin", when = { party = { race = "Troll" } } },
         { text = "Farewell, Vol'jin.", next = "END" },
       },
       again = {
@@ -532,6 +565,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_neeru = {
+      big = true,
+      lines = { { id = "xpt_neeru_default", text = "Then your companion is braver than most, because the warlocks of the old Horde are blamed for every wound our people still carry. I teach the young ones to command what they summon and never to beg it for favours, and if your friend has learned that, they'll outlive their critics." } },
+      choices = {
+        { text = "My companion's power keeps us alive, and I welcome it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Fel magic damned the Horde once. I don't like it near me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Is there no cost to what warlocks summon?", next = "xpt_neeru2" },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
+    xpt_neeru2 = {
+      lines = { { id = "xpt_neeru2_default", text = "There is always a cost, friend, and the trick is making certain someone else pays it. That was a joke, mostly; the demons take whatever they can, and a good warlock simply gives them nothing they can use." } },
+      choices = {
+        { text = "I'll remember that, Neeru.", next = "BACK" },
+      },
+    },
     xcl_rfc = {
       big = true,
       lines = { { id = "xcl_rfc_default", text = "Broken is such a strong word, though I suppose it will do. The cultists down there were young and loud and terribly eager, and eagerness is how a cult gets itself noticed by the wrong people. Taragaman was always hungrier than they understood, so perhaps they were fortunate you found them first." } },
@@ -616,6 +665,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_lock", tags = { "news" }, when = { party = { class = "WARLOCK" } },
+          text = "Your friend {companion} carries the smell of sulfur and doesn't seem ashamed of it. Most orcs in this city look away from my sort, so it warms me to see someone who keeps such honest company." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who still calls on the Light. How very unusual. I make it my business to know everyone in Orgrimmar who handles a dangerous fire, and you are certainly one of them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. How refreshing; most of the Horde's spellcasters come to the Cleft of Shadow for something less wholesome than prayer." },
         { id = "h_default", key = true,
@@ -649,6 +700,7 @@ P:NPC {
         { text = "Why do beasts shy away from the Cleft, Neeru?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is the Light a dangerous fire, Neeru?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "The Searing Blade in Ragefire are broken, Neeru.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
+        { text = "My companion studies the same arts you do, Neeru.", next = "xpt_neeru", when = { party = { class = "WARLOCK" } } },
         { text = "I'll be going.", next = "END" },
       },
       again = {
@@ -759,6 +811,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_gryshka = {
+      big = true,
+      lines = { { id = "xpt_gryshka_default", text = "Pick your companions the way you'd pick a wolf, for loyalty first and teeth second, because I've seen more war bands broken by quarrels over loot than by any Alliance blade. The ones who come back to my inn every season are the ones who share the coin evenly and the night watches fairly." } },
+      choices = {
+        { text = "Every share equal. That's how a company holds together.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whoever does the most work should take the most loot.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Thanks, Gryshka.", next = "BACK" },
+      },
+    },
     xcl_rfc = {
       big = true,
       lines = { { id = "xcl_rfc_default", text = "Good, because some nights my cellar smells of brimstone, and I've told the guards so twice. The recruits joke that there's a whole city of troggs and cultists under the Cleft, and after a few ales they dare each other to go and look, and most of them come back limping. I patch them up and feed them and tell them to wait until they're grown." } },
@@ -852,6 +913,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
+          text = "Five of you, and every one of you looking hungry. Sit at the long table by the fire and keep your weapons off it, because the last war band that drank here broke two benches and a grunt's nose." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Do the dead even eat? Never mind, a paladin is a paladin, and nobody leaves the Broken Tusk hungry, not even one who glows a little." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the Broken Tusk! Good, because half my customers leave with a black eye, and the other half give it to them." },
         { id = "h_default", text = "I'm Gryshka, and I keep the Broken Tusk, and I keep it fed. Nobody leaves my inn hungry, and a few leave too full to walk." },
@@ -879,6 +942,7 @@ P:NPC {
         { text = "Mind if my imp warms itself at your fire?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does a Forsaken paladin bother your guests, Gryshka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went down Ragefire Chasm, Gryshka. It's quiet now.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
+        { text = "We're a company now, Gryshka. Any advice for us?", next = "xpt_gryshka", when = { party = { size = { min = 2 } } } },
         { text = "Just resting.", next = "END" },
       },
       again = {

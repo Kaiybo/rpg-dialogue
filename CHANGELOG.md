@@ -2,6 +2,15 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.59.0 (2026-11-17)
+Packs: 32 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.59.0: /reload is enough if you have 0.39.0 or later.
+
+### Who you travel with
+- **People notice your party.** About 125 people across Azeroth now greet you differently depending on who's with you, with a reply to bring your companions up and a conversation with stances to take. For example, Bolvar sizing up a full company, Benedictus and Rohan when you're the only healer in the group, Laurena when a priest travels with a paladin, Magni when a dwarf walks beside you (and an all-dwarf company if you're one yourself), Tyrande and Fandral on outsiders in Darnassus, Jaina on a mixed company in Theramore, Tirion on a paladin companion, Falstad on a dwarf among the Wildhammer, Thrall on a full war band or a Forsaken at your side, Cairne and Magatha on the Forsaken, Sylvanas on the living.
+- **They use your companion's name.** Many greetings name the party member they're talking about.
+- **Guards, townsfolk and innkeepers notice too**: a full company in the streets, a night elf or dwarf friend far from home, two of you on the road together, a party with no healer.
+- For pack writers: `party` now takes `true`, `size` (others only: `size = 4` is a party of five), `gender`, `kin`, `sameClass`, and `["not"] = true` (in a party, but with nobody like that). Its weight went from 5 to 25. New token `{companion}`.
+
 ## 0.58.0 (2026-11-17)
 Packs: 41 packs have new versions (`python3 tools/version.py` lists them). No new files in 0.58.0: /reload is enough if you have 0.39.0 or later.
 

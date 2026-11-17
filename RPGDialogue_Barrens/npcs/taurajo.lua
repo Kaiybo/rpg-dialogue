@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_jorn = {
+      big = true,
+      lines = { { id = "xpt_jorn_default", text = "Because we would choose those who agree with us, and we learn nothing from them. Cairne chose to march beside the orcs when many tauren thought them savages, and now Mulgore is safe from the centaur, so I'd say the Earth Mother knew best." } },
+      choices = {
+        { text = "Strangers become kin once they've shared the hunt.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some strangers stay strangers. I trust my own judgment.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jorn.", next = "BACK" },
+      },
+    },
     xcl_rfk = {
       big = true,
       lines = { { id = "xcl_rfk_default", text = "Then you've seen where the quilboar were born, or where they believe they were. The Kraul grew from the body of Agamaggan, the great boar, and the quilboar guard it like a temple while their crone Charlga whispers to powers that should never have been invited in. I've hunted the Barrens all my life, and I've never once sent a student in there." } },
@@ -110,6 +119,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_tauren", tags = { "news" }, when = { party = { race = "Tauren" } },
+          text = "You walk with one of my people, and the winds tell me {companion} has been watching your back for many miles. The Earth Mother sends us the companions we need, though rarely the ones we would have chosen." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. Sit still a moment, if you can, and let the Barrens look at you." },
         { id = "h_default", key = true,
           text = "Jorn Skyseer is my name, and I teach young hunters the ways of the wild, here where it's safe enough to learn. The Barrens are full of life for those with the patience to see it." },
@@ -142,6 +153,7 @@ P:NPC {
         { text = "Is there anything a warlock can learn from a hunter?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the Barrens see in me, Jorn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the heart of Razorfen Kraul, Jorn.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul", faction = "Horde" } },
+        { text = "Why would she send companions we wouldn't choose?", next = "xpt_jorn", when = { party = { race = "Tauren" } } },
         { text = "Thank you, teacher.", next = "END" },
       },
       again = {
@@ -236,6 +248,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_mangletooth = {
+      big = true,
+      lines = { { id = "xpt_mangletooth_default", text = "Not fear, no, because they fear only Charlga and the voices she listens to, but they will count you, and quilboar who are busy counting enemies make mistakes. Go in many and come out many, and Mangletooth will hear the squealing from here and be glad." } },
+      choices = {
+        { text = "We'll free your people, Mangletooth. That's why we're going.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "We go for plunder. Your people are your own problem.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Mangletooth.", next = "BACK" },
+      },
+    },
     xcl_rfk = {
       big = true,
       lines = { { id = "xcl_rfk_default", text = "*snort* Then you walked on the bones of Agamaggan, and the thorns let you live, so maybe the great boar did not mind you so much. Charlga Razorflank sits in the deep of it with her Death's Head priests, and she wanted all the tribes to kneel, but the Razormane knelt to no one. If you made her bleed, Mangletooth is not sorry, though he will not say so to the other quilboar." } },
@@ -330,6 +351,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
+          text = "Mangletooth sees many of you, many sharp things, and that is good. The Death's Head would be afraid of a pack this size, and Mangletooth likes it when they are afraid." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "*snort* Dead one that shines! Mangletooth has seen many things in this cage, but not this. Shining dead are strange." },
         { id = "h_default", key = true,
           text = "*snort* Mangletooth is of the Razormane, strongest of the quilboar, and the Bristlebacks are weak. Kill them, and Mangletooth will tell you things." },
@@ -361,6 +384,7 @@ P:NPC {
         { text = "Do the Razormane have priests of their own, Mangletooth?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does Mangletooth fear the Light?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went into Razorfen Kraul, Mangletooth.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul" } },
+        { text = "Will the Razorfen fear a company like ours, Mangletooth?", next = "xpt_mangletooth", when = { party = { size = { min = 2 } } } },
         { text = "You're not getting out of that cage.", next = "END", fx = { affinity = -1 } },
       },
       again = {
@@ -570,6 +594,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_byula = {
+      big = true,
+      lines = { { id = "xpt_byula_default", text = "Dangerous enough that I count the braves who ride out each morning and count them again at dusk, and the numbers don't always match. Companies that travel close come home, so I tell everyone who drinks here the same thing." } },
+      choices = {
+        { text = "Then we'll ride close and come home together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Danger is the price of glory. We'll ride as we like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Thanks, Byula.", next = "BACK" },
+      },
+    },
     xcl_rfd = {
       big = true,
       lines = { { id = "xcl_rfd_default", text = "Then you've seen the dead walking among the quilboar, which I'd never have believed if the herders hadn't seen it too. Something cold came out of the north and made a nest in the Downs, and the quilboar there took it in like an honoured guest. The kodo won't graze within a day's walk of the place, and the kodo are wiser than most of my guests." } },
@@ -675,6 +708,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_kin", tags = { "news" }, when = { party = { kin = true } },
+          text = "You've come with your own people, and that's good to see down here, where the dwarves at Bael Modan and the quilboar both like to pick off stragglers. Stay together on the road to the Razorfen, and stay inside the palisade at night." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. The kodo herders eat first, because they've earned it, but there's stew enough for a curious stranger." },
         { id = "h_default", key = true,
           text = "I'm Byula, and I keep the inn. Everyone who crosses the southern Barrens stops at Taurajo eventually, and I make sure they leave rested." },
@@ -700,6 +735,7 @@ P:NPC {
         { text = "Do mages come through Taurajo often, Byula?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does Taurajo welcome a Forsaken paladin, Byula?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went to the bottom of Razorfen Downs, Byula.", next = "xcl_rfd", when = { cleared = "Razorfen Downs", faction = "Horde" } },
+        { text = "Is the southern Barrens really so dangerous, Byula?", next = "xpt_byula", when = { party = { kin = true } } },
         { text = "Just a rest, thanks.", next = "END" },
       },
     },

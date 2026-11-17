@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_remulos = {
+      big = true,
+      lines = { { id = "xpt_remulos_default", text = "Because a company of adventurers moves through the world like a storm, and a druid among them is the one who remembers that the world has to recover afterward. I have seen many heroes leave scorched ground behind their victories, and it is usually the druids who come back to replant it." } },
+      choices = {
+        { text = "We'll tread lightly, Keeper. The land matters as much as the battle.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Victory comes first. The land can recover later.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_st = {
       big = true,
       lines = { { id = "xcl_st_default", text = "Ysera set him to guard the temple she drowned, and he was her consort, so she trusted him with it above all others. But the Atal'ai's hunger seeped into his sleep, and the watcher became something that hates what it watches, and the shade below is only the part of him that could not stay away." } },
@@ -156,6 +165,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_remulos", tags = { "news" }, when = { party = { class = "DRUID" } },
+          text = "{companion} wears the Circle's teaching lightly, but I can see it, and I'm glad you travel with a druid. Moonglade is quieter when a sister or brother of the Circle walks in it." },
         { id = "h_cl_st", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" }, text = "Something in the Dream eased tonight, little one, and I think it was your doing. You have walked to the bottom of the Sunken Temple, where Eranikus's green children keep their long and unhappy watch." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of the Horde, in my father's glade. The spirits walk with you, little one, and they are welcome here, as you are, though I will not pretend it is a simple thing for me to say." },
@@ -210,6 +221,7 @@ P:NPC {
         { text = "Why is it not simple to welcome a shaman, Keeper?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Why should a dwarf's spirits interest you, Keeper?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "What happened to Eranikus, Keeper?", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
+        { text = "Why does a druid in our company matter to you, Keeper?", next = "xpt_remulos", when = { party = { class = "DRUID" } } },
         { text = "I'll leave you to the glade.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -434,6 +446,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_rabine = {
+      big = true,
+      lines = { { id = "xpt_rabine_default", text = "It is, because the Keeper wills it and the Circle keeps it, and nobody who has broken that peace has been welcomed back. I've watched sworn enemies share the same bridge here without a word between them, and it is the most hopeful thing I know." } },
+      choices = {
+        { text = "Neutral ground matters. Some places should stand above war.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Peace by decree only lasts while someone's watching.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "More than most of the Circle would admit. The spirits of this glade are old and patient, and if they've drawn a dwarf all the way from Ironforge, I'd look for their reason by the lake." } },
@@ -538,6 +559,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_rabine", tags = { "news" }, when = { party = { size = 4 } },
+          text = "Five of you, all at once, in the Keeper's own glade. Keep your voices low and your weapons sheathed, because Moonglade has been at peace since long before any of your kingdoms were born." },
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" },
           text = "A shaman of the Horde. I don't believe in chance, so I'll assume the spirits sent you here for a reason, and I'd very much like to learn what it is." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -586,6 +609,7 @@ P:NPC {
         { text = "Why do you think I was sent here, Rabine?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the spirits and the Circle work together, Rabine?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
         { text = "Do the spirits and the Circle work together, Rabine?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Is Moonglade truly safe for both Horde and Alliance, Rabine?", next = "xpt_rabine", when = { party = { size = 4 } } },
         { text = "Goodbye, Rabine.", next = "END" },
       },
     },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.0 (2026-11-17)
+- Guards, townsfolk and innkeepers notice who you travel with: a full company, a companion of another race, a pair on the road, a party with no healer. Needs RPG Dialogue 0.59.0.
+
 ## 1.27.0 (2026-11-17)
 - Guards, townsfolk and innkeepers notice the dungeons and raids you've cleared (the Stockade, Ragefire, the Scarlet Monastery, Uldaman, Zul'Farrak, Blackrock Depths, the Plaguelands' halls, Molten Core and more). An innkeeper line that promised a free drink now doesn't. Needs RPG Dialogue 0.58.0.
 

@@ -365,6 +365,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_loramus = {
+      big = true,
+      lines = { { id = "xpt_loramus_default", text = "Dangerous to everyone but the demons, who are the only ones who profit from the bargain in the end. I have hunted demons since before your kingdoms had names, and I've never met a warlock who believed they'd be the one to slip, so watch yours closely." } },
+      choices = {
+        { text = "Fel magic should be burned out, whoever uses it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A strong warlock keeps the demons leashed. Power is power.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_dm = {
       big = true,
       lines = { { id = "xcl_dm_default", text = "I know Prince Tortheldrin, by name and by crime, and the pylons that keep a creature of the Nether chained in the city's heart so the Shen'dralar can drink from it. That is the sickness of the Highborne in one sentence: they would rather leash a horror than live without its power." } },
@@ -465,6 +474,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_loramus", tags = { "news" }, when = { party = { class = "WARLOCK" } },
+          text = "You travel with a warlock. I can smell the fel on {companion} from across the water, and I'll tell you what I tell all of their kind, that the demons are patient and the warlock never is." },
         { id = "h_cl_dm", tags = { "news" }, when = { cleared = "Dire Maul" }, text = "You've been through Eldre'Thalas, which your people call Dire Maul, and come back with the Nether still clinging to you. The Highborne who stayed in that city have fed on it for ten thousand years, mortal, and I wonder how much of them you left." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. You glow like a lamp to my eyes, and the things at the tide line can see it too, so stand behind me if you'd rather they didn't come for you first." },
@@ -514,6 +525,7 @@ P:NPC {
         { text = "What do you see in Azshara's woods that I can't?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do demons fear a paladin's Light, Loramus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I've been through Dire Maul, Loramus. What do you know of it?", next = "xcl_dm", when = { cleared = "Dire Maul" } },
+        { text = "Is a warlock really so dangerous to travel with, Loramus?", next = "xpt_loramus", when = { party = { class = "WARLOCK" } } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },

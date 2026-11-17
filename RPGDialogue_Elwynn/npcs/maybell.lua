@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_maybell = {
+      big = true,
+      lines = { { id = "xpt_maybell_default", text = "I think about it every time one rides past, if I'm honest, and then I think about Tommy Joe on the other side of the river and I stay put. Running off is only romantic if you're running toward something, and he's right here." } },
+      choices = {
+        { text = "Your family needs you. Don't throw that away lightly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Follow your heart, Maybell. Rules are no reason to stay.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Maybe, but don't tell Pa! I've never been very good at rules, and your spirits wouldn't tell, would they?" } },
@@ -99,6 +108,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_maybell", tags = { "news" }, when = { party = { race = "Human", gender = "male" } },
+          text = "Is that your companion? {companion} is very handsome, if you don't mind me saying, though not as handsome as Tommy Joe, and please don't tell my father I said either of those things." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You won't tell Pa I've been at the river, will you? You've got an honest face, and that's the trouble with honest faces." },
         { id = "h_default", text = "Maclures and Stonefields don't speak. That's the rule, older than me. I've never been very good at rules." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Young Lovers") },
@@ -145,6 +156,7 @@ P:NPC {
         { text = "Would you want me to lie for you, Maybell?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would talking to me make you wicked, Maybell?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Is there a boy across the river, Maybell?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Would you ever run off with a company of adventurers, Maybell?", next = "xpt_maybell", when = { party = true } },
         { text = "Your secret's safe with me.", next = "END", fx = { affinity = 1, opinion = { maybell_tommy = "romantic" } } },
       },
     },

@@ -894,6 +894,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xpt_mokthardin = {
+      big = true,
+      lines = { { id = "xpt_mokthardin_default", text = "Because the trolls here have bled this land for their gods for longer than any orc has lived, and the earth remembers every drop. Ask your shaman to listen closely while you hunt, because a war band that ignores the spirits in this jungle tends not to come home." } },
+      choices = {
+        { text = "We'll respect the spirits. The land deserves that much.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The spirits can wait. We came to fight trolls.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xcl_zg = {
       big = true,
       lines = { { id = "xcl_zg_default", text = "Some do, and some never will, because blood spilled for a false god does not sink back into the earth quietly. The Gurubashi bent the jungle's power to feed their Soulflayer, and it will take the shaman of the Horde many years to coax it back to its own nature." } },
@@ -976,6 +985,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_pt_mokthardin", tags = { "news" }, when = { party = { class = "SHAMAN" }, faction = "Horde" },
+          text = "The spirits told me a shaman was coming, though they didn't say {companion} would bring friends. Sit a while, because the jungle's spirits are restless and I'd hear what fresh ears make of them." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Horde" }, text = "The beasts of Stranglethorn are calmer tonight, and I felt it before any runner told me. They say you went into Zul'Gurub and silenced the blood god, and the spirits around this fire agree." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The beasts of this jungle carry old power, and you'll feel it if you sit by my fire, though it isn't the kind your prayers were made for." },
         { id = "h_druidx", when = { class = "DRUID" },
@@ -1014,6 +1025,7 @@ P:NPC {
         { text = "Can a priest's prayers reach the power in these beasts, Far Seer?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Light sit well with a far seer, Mok'thardin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Hakkar is dead, Far Seer. Do the spirits rest now?", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
+        { text = "Why are the jungle's spirits restless, Far Seer?", next = "xpt_mokthardin", when = { party = { class = "SHAMAN" }, faction = "Horde" } },
         { text = "Thank you, far seer.", next = "END" },
       },
     },
