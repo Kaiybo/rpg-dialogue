@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.0 (2026-11-17)
+- New: Hal McAllister on Southshore's jetty hates the Forsaken (and warlocks), and Christoph Jeffcoat in Tarren Mill, Southshore-born, hates orcs and the town that turned him away. Each can be softened with a [Persuade].
+- New file: needs a full game restart, not /reload.
+
 ## 1.27.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 
