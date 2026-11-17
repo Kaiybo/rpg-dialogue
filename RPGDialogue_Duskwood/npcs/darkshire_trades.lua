@@ -187,7 +187,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Nothing I sell, honestly. But a shaman's lightning might keep the dead at bay a little longer." } },
       choices = {
         { text = "Then I'll fight with honest steel and lightning both.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If nothing's enough, why bother?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "If nothing's ever enough, there's no point bothering.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

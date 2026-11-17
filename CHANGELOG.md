@@ -2,6 +2,28 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.65.0 (2026-11-17)
+Forever's new lands. **Three new folders and new files in two packs: exit the game fully, copy RPGDialogue_Dalaran, RPGDialogue_Hyjal and RPGDialogue_Shendralas in, tick them, and start the game again** (/reload won't load new files).
+
+### Dalaran (new pack)
+- The city with its dome opened and the Kirin Tor rebuilding: Archmage Modera (the broken parlor, the council's secrecy, the Alliance welcome from An Alarming Request to Friend of the Kirin Tor), Archmage Celindra and her wards, Alvareaux the quartermaster, Arcanist Laurain at the skycutter landing, the Skyborne's Denaaris Stargale, Belanaa Windveil and the druid Alfina Nightgaze, the shopkeepers Brammold, Lizi and Pollero, and Rexxie Copperclutch down in the Underbelly.
+- Guards, townsfolk, masons and apprentices talk about the repairs, the Skyborne and the cats in every doorway.
+
+### Mount Hyjal (new pack)
+- Past Darkwhisper Gorge: Thisalee Crow of the Druids of the Talon, the blademaster Yashiro at Dae'gun, the demon hunter Maerion and Jereman at the Cradle of Tranquility, the Wild God Marrosis at Mourning's Rest, Thylaen and Zet'gan. Hyjal's sentinels, tenders and traders have lines for every corner of the mountain.
+
+### Shen'dralas (new pack)
+- Archmage Mordent Evenshade keeps watch over the Highborne temple (and the Dawn Waker's secret, if you carry the right things); Orgrul of the Magram Front, Hagiak, and Nerlokh of the Gelkis in the Valley of Bones. The Shen'dralar spirits speak too.
+
+### Zephras Isle and the Riverglades, deeper
+- **Zephras Isle**: ten new Skyborne (Rorian, Aetheen, Myriaal, Halaan, Ventaari, Falorne, Ealaane, Swimmers, Donaal, Nyalah), and High Elder Talaanis now tells the isle's story as it happened. Visitors from Dalaran and Mulgore get their own reactions.
+- **The Riverglades' Horde side**: Rog'mar (Krom'rosh, Neza, Tan'jani, Kreza) and the ogres of Bolder'ok (Clugfist, Jom-jom), plus Marshal Ryan, Sleebo Fizzlespout and Jezap Jinglesprocket out in the glades.
+
+### Also
+- Your diary notes your first steps on Mount Hyjal, in Shen'dralas and in Dalaran. Ansirem Runeweaver stands at Dalaran's opened gate.
+
+Packs: Dalaran 1.0.0, Hyjal 1.0.0, Shendralas 1.0.0 (new), Zephras 1.7.0, Riverglades 1.10.0, World 1.29.0, Hillsbrad 1.22.0 (the rest as in 0.64.0). Includes 0.64.0's text-to-speech fixes..
+
 ## 0.64.0 (2026-11-17)
 Core only; no pack changes. No new files: /reload is enough if you have 0.39.0 or later.
 

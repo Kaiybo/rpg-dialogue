@@ -53,6 +53,9 @@ move-folders:
   RPGDialogue/RPGDialogue_Azshara: RPGDialogue_Azshara
   RPGDialogue/RPGDialogue_Silithus: RPGDialogue_Silithus
   RPGDialogue/RPGDialogue_EasternPlaguelands: RPGDialogue_EasternPlaguelands
+  RPGDialogue/RPGDialogue_Dalaran: RPGDialogue_Dalaran
+  RPGDialogue/RPGDialogue_Hyjal: RPGDialogue_Hyjal
+  RPGDialogue/RPGDialogue_Shendralas: RPGDialogue_Shendralas
 
 # Paths are from the repo root; "*.md" matches at any depth (bash case patterns), which
 # keeps voice bibles, PLAN.md files and pack changelogs out of the zip.

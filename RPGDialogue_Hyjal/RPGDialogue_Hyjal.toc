@@ -1,0 +1,19 @@
+## Interface: 16001, 16002
+## Title: RPG Dialogue: Mount Hyjal |cff8a8a8a1.0.0|r
+## Notes: Mount Hyjal after Archimonde: the wounded World Tree and the people healing the mountain.
+## Author: RPG Dialogue
+## Version: 1.0.0
+## Dependencies: RPGDialogue
+## LoadOnDemand: 1
+## X-RPGD-Pack: rpgd.hyjal
+## X-RPGD-Format: 1
+## X-RPGD-Load: zone
+## X-RPGD-Zones: Mount_Hyjal
+
+pack.lua
+pools.lua
+npcs\talon.lua
+npcs\daegun.lua
+npcs\cradle.lua
+npcs\mourning.lua
+npcs\slopes.lua

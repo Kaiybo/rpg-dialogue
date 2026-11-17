@@ -2,6 +2,12 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.7.0 (2026-11-17)
+- Ten new people to talk to, written from the zone's documented story: in Thendal Village, Rorian the Dayseeker, Aetheen of the Gales, the rangers Myriaal Mistwake and Halaan Hawk-Eye, Ventaari Brightwish of the Windshapers and Falorne Fallwind of the High Order; in Valanaar, the Ban'aethal refugee Ealaane Nimbuswalker, "Swimmers" Starfeather and Donaal Downbreeze at the Calmbreeze Inn, and Nyalah Brightfire the cook. Visitors from Dalaran and Mulgore get their own reactions, by race and class.
+- High Elder Talaanis Shadowsong now tells the story as it happened (the Shal'nan's abdication, the wards and Lorthuna's beacon, who stood against Rohash), and can talk about Lorthuna, the refugees, the relics of the fallen and what Valanaar makes of mainlanders.
+- Peacekeepers, innkeepers, traders and townsfolk mention the skydocks, the anchor pylons, refugees, Luminarian's craft and the cult's grey robes; Zephras townsfolk now have their own lines.
+- New files: needs a full game restart, not /reload.
+
 ## 1.6.0 (2026-11-17)
 - Every class this place could plausibly meet now gets a greeting and its own conversation, including this server's Forsaken paladins and dwarf shamans where they'd be welcome. Some people here also notice when you've been thinning out the local trouble.
 

@@ -469,8 +469,8 @@ end)
 -- Your best affinity with any of this NPC's `rivals` (0.55.0): { min = , max = }, or a
 -- number as a minimum. With max only, it's your worst (you've crossed a rival).
 def("rivalFavor", 30, "hinge", nil, function(ctx, v, env)
-  local def = env.info and env.info.def
-  local rivals = ns.Disposition and ns.Disposition.Rivals(def) or {}
+  local npcDef = env.info and env.info.def
+  local rivals = ns.Disposition and ns.Disposition.Rivals(npcDef) or {}
   if #rivals == 0 then return false, "no rivals" end
   local best, worst
   for _, r in ipairs(rivals) do

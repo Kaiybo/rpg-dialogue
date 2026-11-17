@@ -217,8 +217,8 @@ P:NPC {
   communities = { "dalaran" }, temper = { "proud" }, values = { "learned", "dutiful" },
   notices = { "class" },
   impression = {
-    first = "Archmage Ansirem Runeweaver stands outside the violet dome over Dalaran as if waiting for it to finish a sentence. He speaks of the city's walls with the fondness of a man who helped build them.",
-    third = "{name} met Archmage Ansirem Runeweaver of the Kirin Tor, keeping watch outside Dalaran's sealed dome.",
+    first = "Archmage Ansirem Runeweaver stands at Dalaran's gate, where the violet dome has only lately opened, as if waiting for the city to finish a sentence. He speaks of the city's walls with the fondness of a man who helped build them.",
+    third = "{name} met Archmage Ansirem Runeweaver of the Kirin Tor, keeping watch at Dalaran's newly opened gate.",
   },
 
   greetings = {
@@ -329,7 +329,7 @@ P:NPC {
           text = "Archmage Ansirem Runeweaver of the Kirin Tor, at your service, within reason. Dalaran is closed while we rebuild, and I keep an eye on those who would rather it stayed broken." },
         { id = "h_cl_sfk", tags = { "news" }, when = { cleared = "Shadowfang Keep", faction = "Alliance" },
           text = "There's a rumour in the camps that Arugal is dead and his keep has gone quiet, and I find I want very badly for it to be true. If you were the one who climbed those stairs, I'd rather hear it from you than from the guards." },
-        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing outside Dalaran's dome. I'd ask you not to test our wards, because they are less forgiving than I am, and I am not especially forgiving." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing at Dalaran's gate. I'd ask you not to test our wards, because they are less forgiving than I am, and I am not especially forgiving." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, at Dalaran's very gate. You'll understand if I keep my hand near my staff, because the last of your school I knew well was Kel'Thuzad, and look what came of him." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Light at Dalaran's gate. The Kirin Tor are not a pious order, I'll admit, but we buried a great many of our own after Archimonde came through, and we were glad of every priest who came to say the words." },

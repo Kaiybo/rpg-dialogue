@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.29.0 (2026-11-17)
+- Diary entries for your first steps on Mount Hyjal, in Shen'dralas and in Dalaran. Zephras Isle's villages (Thendal, Shen'dar, Falaath, the Shrine of Akir) now count as the isle for town standing.
+
 ## 1.28.0 (2026-11-17)
 - Guards, townsfolk and innkeepers notice who you travel with: a full company, a companion of another race, a pair on the road, a party with no healer. Needs RPG Dialogue 0.59.0.
 

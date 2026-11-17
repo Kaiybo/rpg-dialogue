@@ -634,7 +634,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Some come from the marsh and some from further off, and I find it best not to say which. I'll tell you this much: the Wetlands are generous with things that kill, and stingy with almost everything else." } },
       choices = {
         { text = "Poison is a coward's tool. You profit from cruelty.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Nature poisons freely. Why shouldn't we?", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Nature poisons freely, so we should too.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

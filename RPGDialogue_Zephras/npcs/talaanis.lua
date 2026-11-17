@@ -1,6 +1,6 @@
 -- High Elder Talaanis Shadowsong, Zephras Isle. Voice: bibles/talaanis.md
--- Everything here comes from the Skyborne lore brief (build prompt §10). Where it is silent,
--- she is silent too.
+-- Facts from the Skyborne lore brief (build prompt §10) and, since 1.7.0, warcraft.wiki.gg
+-- (sources in bibles/zephras.md). Where they are silent, she is silent too.
 local P = RPGDialogueAPI:Pack("rpgd.zephras")
 local TODO_NPC = P.TODO_NPC
 
@@ -58,7 +58,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "To the winds, mostly, out of long habit, though the patrons who sheltered us are gone and nobody knows where. Some of the young ones have begun to ask about Elune since the High Order went to the Alliance, and I don't discourage them, but I won't tell them what to find." } },
+      lines = { { id = "xapriest_default", text = "To the winds, mostly, out of long habit, though the patrons who sheltered us are gone and nobody knows where. The only priests this isle ever knew were Lorthuna's Al'Aketh, so you'll find people wary of the robe, but some of the young have begun asking about Elune, and I won't tell them what to find." } },
       choices = {
         { text = "Let them find their own faith. That's as it should be.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "A people needs a shared faith. Guide them, Elder.", next = "BACK", fx = { align = { order = 1 } } },
@@ -118,6 +118,18 @@ P:NPC {
         { id = "h_nightclaw", when = { origin = "skyborne_nightclaw" },
           text = "You came down out of Shadowgale Forest, I'm told, and the Nightclaw don't send their own to the Council's door lightly. Whatever they've taught you, child, keep their secrets; they've kept ours long enough." },
         { id = "h_default", text = "Talaanis Shadowsong, High Elder, by the Council's choice and much against my own. Ask what you need to." },
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Kaldorei, in Valanaar. Our ancestors fled your cousins' city ten thousand years ago, and here you stand speaking our tongue as if no time had passed at all; forgive me if I stare." },
+        { id = "h_kirin", when = { race = { "Human", "Gnome" } },
+          text = "One of the Alliance, come up on the High Order's skycutter from Dalaran. The Kirin Tor answered us when we had nobody else, guest, so you'll find Valanaar glad of you." },
+        { id = "h_dwarf", when = { race = "Dwarf" },
+          text = "A dwarf of the Alliance, come up from Dalaran. I'm told your people live inside mountains, so I imagine our sky seems very large to you, and very thin underfoot." },
+        { id = "h_tauren", when = { race = "Tauren" },
+          text = "One of the tauren who took in our Windshapers at Skywatcher Plateau. The Council owes your people thanks, guest, and I'm glad to give it in person." },
+        { id = "h_hordeout", when = { race = { "Orc", "Troll" } },
+          text = "One of the Horde, come up from Mulgore on the Windshapers' skycutter. Ayessa tells me your people keep their word, guest, and I'd like to find out for myself." },
+        { id = "h_forsaken", when = { race = "Scourge" },
+          text = "One of the Horde's dead who walk, come up from Mulgore. We scatter our own to the wind, guest, so you'll forgive the children for hiding, but you're welcome in Valanaar while you keep the peace." },
         { id = "h_alliance", when = { race = "Skyborne", faction = "Alliance" },
           text = "The High Order has gone to the Kirin Tor. Elaadrin Evengale leads them from the Sky Enclave in Dalaran. Go with my blessing, and with your temper in hand." },
         { id = "h_horde", when = { race = "Skyborne", faction = "Horde" },
@@ -132,11 +144,15 @@ P:NPC {
         { id = "h_again2", text = "What else? Ask it now, while I've the patience for it." },
       },
       choices = {
-        { text = "Why did we leave Skywall?", next = "skywall", when = { race = "Skyborne" } },
+        { text = "Why are our people going down to Azeroth?", next = "skywall", when = { race = "Skyborne" } },
         { text = "Who are the Skyborne?", next = "who", when = { ["not"] = { race = "Skyborne" } } },
         { text = "Why do the two orders quarrel?", next = "orders" },
         { text = "What became of the Shal'nan?", next = "shalnan" },
         { text = "How does the Council of Elders work?", next = "council" },
+        { text = "What became of Lorthuna?", next = "lorthuna" },
+        { text = "Where are all these refugees from?", next = "refugees" },
+        { text = "What happens to the relics of the fallen?", next = "relics", when = { race = "Skyborne" } },
+        { text = "What do your people make of us mainlanders?", next = "outsiders", when = { ["not"] = { race = "Skyborne" } } },
         { text = "I'm one of the few druids among us.", next = "druid", when = { race = "Skyborne", class = "DRUID" } },
         { text = "The High Order sent me to the Kirin Tor's mages.", next = "mage", when = { race = "Skyborne", class = "MAGE" } },
         { text = "I've passed the Windshaper trials.", next = "shaman", when = { race = "Skyborne", class = "SHAMAN" } },
@@ -154,7 +170,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "s_default", key = true,
-          text = "Our patrons vanished, the pylons failed and the islands drifted. Then the Al'Aketh lit a beacon for the Windlord's faithful, and Rohash threatened to tell him where we were." },
+          text = "Our patrons vanished, the pylons began to fail and the islands drifted apart. Then the Al'Aketh brought down the wards that hid us, Lorthuna lit a beacon, and Rohash of the Windlord's Conclave came and promised to tell Al'Akir exactly where we are." },
       },
       choices = {
         { text = "And so we left.", next = "windlord" },
@@ -193,7 +209,7 @@ P:NPC {
     },
     allies = {
       lines = {
-        { id = "al_default", text = "Ansirem Runeweaver of the Kirin Tor, and Muln Earthfury of the Earthen Ring, helped us break Lorthuna's forces when it mattered. Remember their names, child, for we owe them both, and we haven't finished paying." },
+        { id = "al_default", text = "The High Order, the Windshapers and the Peacekeepers broke the cult together at the Shrine of Akir, and then Ansirem Runeweaver of the Kirin Tor and Muln Earthfury of the Earthen Ring came through to stand against Rohash's elementals. Muln talked him into withdrawing, and we owe them both a debt we haven't finished paying." },
       },
       choices = {
         { text = "Debts can hold people together.", next = "BACK", fx = { affinity = 1, learn = { "al_aketh" } } },
@@ -235,7 +251,7 @@ P:NPC {
     },
     leaders = {
       lines = {
-        { id = "le_default", text = "Elaadrin Evengale leads the High Order from the Sky Enclave in Dalaran, under the Kirin Tor, and Ayessa Dawnsinger leads the Windshapers from Camp Gev'rek in Mulgore. I've told them both the same thing, which is that I'd like them both alive in ten years." },
+        { id = "le_default", text = "Elaadrin Evengale, Supreme Magister, has taken the High Order to the Kirin Tor and the Sky Enclave in Dalaran, and Ayessa Dawnsinger, Grand Skyseer, has taken the Windshapers to the Earthen Ring at Camp Gev'rek in Mulgore. Both still swear the truce at the Shrine of Akir was only for the moment, and I've told them both I'd like them alive in ten years." },
       },
       choices = {
         { text = "That seems a modest hope.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 }, learn = { "two_orders" } } },
@@ -244,7 +260,7 @@ P:NPC {
     },
     shalnan = {
       lines = {
-        { id = "sh_default", text = "The Shal'nan was our first leader, until the seat was given up and the Shal'nan vanished along with the spirits. Where they went, nobody knows, which is why we have a Council." },
+        { id = "sh_default", text = "The Shal'nan led the rebellion against Tortheldrin and brought our ancestors to Skywall, and he gave up his rule to a council of elders when the Shrine of the Four Winds was begun. He went on tending our bond with the spirits for a very long time, and now he's gone as they are, and not even Valennia Stormfist, who captained his Empyrean Blades for nearly nine centuries, can say why." },
       },
       choices = {
         { text = "I hope they're found.", next = "BACK", fx = { affinity = 1 } },
@@ -253,7 +269,7 @@ P:NPC {
     },
     council = {
       lines = {
-        { id = "c_default", text = "We elect it, and have since the Shal'nan gave up the seat, and the Council chose me to speak for it, which I did not ask for. Most of the work is listening to people who are frightened, and telling them the truth without making it worse." },
+        { id = "c_default", text = "We elect it, and have since the Shal'nan handed his rule to the elders of the provinces, and the Council chose me to speak for it, which I did not ask for. Most of the work is listening to people who are frightened, and telling them the truth without making it worse." },
       },
       choices = {
         { text = "That sounds exhausting.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -307,6 +323,77 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    lorthuna = {
+      big = true,
+      lines = {
+        { id = "lo_default", key = true, text = "I set young people to watch her, and a broken recall crystal told us at last what she meant to do: bring down the wards that hid Zephras and let the Windlord in. When Rohash came to her beacon she begged to be brought before Al'Akir, and he struck her aside into the open sky, and nobody has seen her since." },
+      },
+      choices = {
+        { text = "Do you think she's dead?", next = "lorthuna2" },
+        { text = "She earned that fall.", next = "BACK", fx = { align = { light = -1 }, learn = { "al_aketh" } } },
+        { text = "Even she deserved better than that.", next = "BACK", fx = { affinity = 1, align = { light = 1 }, learn = { "al_aketh" } } },
+      },
+    },
+    lorthuna2 = {
+      lines = {
+        { id = "lo2_default", text = "I don't know, child, and I'd ask you not to guess aloud near Ayessa Dawnsinger. Lorthuna is her sister, and whatever the Grand Skyseer says about the cult, she has not said one word to me about that." },
+      },
+      choices = {
+        { text = "I'll hold my tongue.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 }, learn = { "al_aketh" } } },
+        { text = "Something else, Elder.", next = "BACK", fx = { learn = { "al_aketh" } } },
+      },
+    },
+    refugees = {
+      lines = {
+        { id = "rf_default", text = "From everywhere that has fallen: Ban'aethal on this isle, and Shen'dramar out in the sky, whose last few got away on the last skycutters to leave it. Valanaar takes in all it can, and it's never enough, so some have turned to banditry and some to the Al'Aketh simply to eat." },
+      },
+      choices = {
+        { text = "What becomes of the ones who turn bandit?", next = "refugees2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    refugees2 = {
+      big = true,
+      lines = {
+        { id = "rf2_default", text = "The Peacekeepers hold one now who killed one of their own for windstones, a man whose whole family died after they fled Shen'dramar. The law says he hangs, and the law isn't wrong, and I still haven't signed it." },
+      },
+      choices = {
+        { text = "Spare him. Grief made him what he is.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sign it. Mercy for him is cruelty to the Peacekeepers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    relics = {
+      lines = {
+        { id = "rl_default", text = "They come back to me, child. When one of us dies, the relic is recovered and kept in a common collection in my care, and in time it goes to another youngster coming of age, so your own passed through my hands before it reached yours." },
+      },
+      choices = {
+        { text = "And if a relic can't be recovered?", next = "relics2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    relics2 = {
+      lines = {
+        { id = "rl2_default", text = "Then someone goes and gets it, if it can be done at all; the Nightclaw druids brought back even the fallen cultists' relics after the Al'Aketh attacked them. Too many are lying in Ban'aethal still, and I'd be grateful to anyone who brought one home." },
+      },
+      choices = {
+        { text = "I'll bring back any I find.", next = "BACK", fx = { affinity = 2, standing = { zephras_isle = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    outsiders = {
+      big = true,
+      lines = {
+        { id = "ou_default", text = "Half of Valanaar wants to touch your armor to see whether it's real, and the other half wants you gone before the Windlord notices you as well. I'm in neither half, guest; I'm only glad we're not alone anymore." },
+        { id = "ou_nelf", when = { race = "NightElf" },
+          text = "You most of all, kaldorei, confuse them. You speak our tongue and wear our ancestors' faces, and half of Valanaar wants to embrace you while the other half remembers that Eldre'Thalas once sent ships after us." },
+      },
+      choices = {
+        { text = "Your people were right to open their doors.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Be careful. Not every mainlander means you well.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     orders_council = {
       lines = {
         { id = "oc_default", text = "What the High Elder fears is the Council's business, child, and the Council is a patient listener. Ask me something I can answer." },
@@ -322,7 +409,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I'm High Elder because the Council chose me, and I stayed High Elder because nobody else would take it.", next = "council" } },
     advice = { { id = "tp_ad", text = "Never believe anyone who says they know what Al'Akir will do. I don't, and I've thought about it more than anyone." } },
-    al_aketh = { { id = "tp_aketh", text = "Grey robes, shaved heads, and worship for a Windlord our own patrons would hardly speak of. Ansirem Runeweaver and Muln Earthfury helped us break them once. Once may not be enough." } },
+    al_aketh = { { id = "tp_aketh", text = "Grey robes, shaved heads, and worship for a Windlord our own patrons would hardly speak of. We broke them once at the Shrine of Akir, and once may not be enough.", next = "lorthuna" } },
     two_orders = { { id = "tp_orders", text = "Two roads out of the same house. I'd like them both to come home for dinner, someday." } },
     shal_nan = { { id = "tp_shalnan", text = "Gone with the spirits, and if you hear anything, anything at all, you bring it to me first." } },
     windstones = { { id = "tp_windstones", text = "They light our lamps and fill our purses. When they fail, I suspect we'll learn which mattered more." } },

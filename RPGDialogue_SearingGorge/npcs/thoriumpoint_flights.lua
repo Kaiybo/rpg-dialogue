@@ -105,7 +105,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Only the young ones, and only once, because they learn soon enough that you smell much the same as the rest of this place. The old birds have flown through so much sulfur that a little brimstone hardly turns their heads anymore, which I find both sad and useful." } },
       choices = {
         { text = "I'll keep my demon away from the young ones.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "If the old birds don't mind, why should I?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "If the old birds don't mind, then neither do I.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

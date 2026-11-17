@@ -965,7 +965,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Oh, a good deal, dear, because collectors like Count Ridgewell will pay handsomely for a bit of history. I always ask whether the seller has the right to part with it, though." } },
       choices = {
         { text = "The crest shouldn't be sold for profit, Jaxon.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If someone pays well, why not sell the crest?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "If someone pays well, I'd sell the crest.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
