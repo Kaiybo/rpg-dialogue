@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oh, all the time, sugar, mostly on their way to fight the Winterfall or coming back from them with claw marks. They eat like bears and sleep like bears, and every one of them swears they'll kill my beetle and then leaves it alive." } },
+      choices = {
+        { text = "In a neutral town, a warrior keeps the blade sheathed and the temper too.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If someone starts trouble at your fire, I'll finish it, Bruisers or no.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, sugar.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Something in their firewater, the trappers say, and it's made them nasty all the way up the valley. They used to come and trade at the gate, and now nobody goes past the edge of town without a sword." } },
       choices = {
@@ -100,6 +109,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, and dressed for it! Stamp the snow off those boots at the door, sugar, and if you see a beetle on the hearth, you have my permission to cut it in half." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, sugar, tell me the spirits don't send bugs, because if one of your totems starts buzzing it's going straight outside." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You've got good eyes and quick hands, so if you see anything with too many legs scuttling about my rafters, you squash it, and I'll love you forever." },
@@ -137,6 +148,7 @@ P:NPC {
         { text = "I'm afraid the Light doesn't do beetles. What else brings priests here?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Everlook see much trouble, with Horde and Alliance under one roof?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do the folk at your fire need most, Vizzie?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you get many warriors through Everlook, Vizzie?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -202,6 +214,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a scare's no good if it only frightens goblins, and I want to know it would make a proper fighter jump too! Legacki screams at anything, but if a warrior in plate takes one step back, then I'll know the yeti's ready." } },
+      choices = {
+        { text = "A trained warrior holds the line, Umi. Your yeti won't move me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd charge it on sight and smash it to bits. That's half the fun.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, before it starts ticking.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I do, I truly do, because you've tracked the yetis out in the Ice Thistle Hills, and I've only ever seen their fur on a skinner's table. If a hunter can't tell mine from the real thing at twenty paces, then Legacki certainly won't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} away from the bench, please! The last animal that sniffed this fur decided it was a rival and bit the yeti's leg off." },
+      },
+      choices = {
+        { text = "I'll judge it fairly, but a prank should stay harmless, Umi.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Make it walk like a real one and let all Everlook panic.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     gnome_um = {
       lines = {
         { id = "gum_default", text = "Finally, someone with taste! The goblins here think a sense of humour is something you sell by the pound. Bring me the fur and the springs, and I'll put your name on the schematic, small, in the corner, but it'll be there." },
@@ -258,6 +291,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Stand still a moment, would you? I need to know how tall a yeti has to be before somebody in armour stops being brave about it." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Oh, you'll know a real yeti's tracks better than anybody, so tell me honestly, does mine walk like one or like a gnome in a fur coat?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you think the spirits would mind a mechanical yeti? I'd hate to offend the snow, because it's been so good to me." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Could you make something glow? No, wait, don't, the last spark nearly set my yeti's fur alight, and that fur took me three weeks to get." },
@@ -287,6 +324,8 @@ P:NPC {
         { text = "Slip a part into someone's shop? Whose?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is all this mischief really worth the trouble, Umi?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is your mechanical yeti truly just a harmless prank, Umi?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why measure your yeti against a warrior, Umi?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do you want a hunter's opinion of your yeti, Umi?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll find parts.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -343,6 +382,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Someone who stands still when the ghouls come, mostly, because the dead never tire and a line that breaks once breaks for good. The Plaguelands are full of brave fighters who charged in alone, and the Scourge raised every one of them." } },
+      choices = {
+        { text = "Then I'll hold the line and leave the glory to others.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd sooner cut down their necromancers from behind than wait in a line.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gregor.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It could, because half the trouble there is the beasts the plague has twisted, and a hunter knows how a sick animal moves. Our scouts tell me the wolves of the eastern Plaguelands have turned on anything living, and I'd like someone who understands wolves to see why." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close if you go east, though, and keep it away from the corpses. The plague takes beasts as easily as men, and I'd hate to see it turn on you." },
+      },
+      choices = {
+        { text = "A sick beast deserves a clean end. I'll give them that much.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll skin whatever's worth skinning and leave the rest to rot.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "It is, in the Plaguelands at least, where the very soil has gone grey and the rivers carry it downstream. Some in the Dawn think it can be scrubbed clean in a generation, and others say it must be burned out and begun again." } },
       choices = {
@@ -400,6 +460,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, and a seasoned one by the look of your shield. The Dawn always needs steady arms at Light's Hope Chapel, though Everlook is quieter work than that." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Your eyes would serve the Dawn well in the east, where the plaguebats and the twisted hounds run ahead of the dead themselves." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome. The Dawn has learned to value every kind of strength against the Scourge, and the spirits you speak to hate the plague as much as we do." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. The Argent Dawn welcomes anyone who fights the Scourge, and I'll hold to that, but forgive me if I ask what you mean to do with that power here in Everlook." },
@@ -426,6 +490,8 @@ P:NPC {
         { text = "Does the Dawn really accept warlocks?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How bad is it in the Plaguelands now?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would the Argent Dawn take a Horde priest's help, Gregor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What does the Dawn need from a warrior, Gregor?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Could the Dawn use a hunter in the Plaguelands?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll carry word.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I carry the Light. Does the Dawn need paladins?", next = "paladin_gr", when = { class = "PALADIN" } },
         { text = "The Dawn can carry its own reports; I've business of my own.", next = "END", fx = { align = { light = -1 } } },

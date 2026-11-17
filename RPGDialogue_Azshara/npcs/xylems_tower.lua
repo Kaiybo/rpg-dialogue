@@ -33,6 +33,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The same use a scholar has for a door, my dear, and a very sturdy one at that. Morphaz is sleeping in the drowned temple with my apprentice in his belly and my shard in his hoard, and I need someone to go and knock." } },
+      choices = {
+        { text = "I'll go for your shard, and for the apprentice he ate.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll go for the shard. The apprentice was your problem.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Drakes, sirens and whatever eats my books, mostly, and the blue dragonflight takes a dim view of my interest in drakes. A hunter could track down the beasts of this coast that swallowed my stolen fragments, and I'd be grateful, in an academic sort of way." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do keep {pet} from chewing anything in the tower. The last beast that came up here ate a page of Highborne poetry, and I'm told it hasn't been right since." },
+      },
+      choices = {
+        { text = "I'll track the beasts carefully and bring every fragment intact.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll kill anything that might have eaten a page. It saves time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warlock_xy = {
       big = true,
       lines = {
@@ -74,6 +95,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, in my tower. How refreshing, a visitor who won't touch my books, if only because you can't read the language." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. You'll not be interested in my research, I suppose, unless it involves something with fur and teeth, which, now that I think of it, it often does." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my tower? How quaint. I suppose you've come to tell me the Highborne relics upset the local spirits, and I suppose I'll pretend to listen." },
         { id = "h_default", key = true,
           text = "Archmage Xylem, at your service, or rather, you at mine, if you're any use. I study what the Highborne left on this coast, which is a great deal, guarded by a great many things that would rather I didn't." },
@@ -116,6 +141,8 @@ P:NPC {
         { text = "The Highborne's power interests me too. The darker parts.", next = "warlock_xy", when = { class = "WARLOCK" } },
         { text = "My ancestors were Highborne of Eldre'Thalas.", next = "sky_xy", when = { race = "Skyborne" } },
         { text = "What does an archmage make of a priest's power, Xylem?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What use has an archmage for a warrior?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What beasts does your research involve, Archmage?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good day, Archmage.", next = "END" },
       },
     },
@@ -348,6 +375,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "My master needs a great many things, and most of them are hit with swords, apparently, which is why you lot keep coming up here. I'd tell you to be polite to him, but warriors never are, so just try not to break the furniture." } },
+      choices = {
+        { text = "I'll be polite to the Archmage, which is more than you are.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll be whatever I like to the Archmage. Just send me up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Sanath.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "My master would let a kodo into the tower if it brought him a relic, but I would not, and I am the one who sends you up. Your beast stays down here with me, and if it sheds on the stones, I'll know whom to blame." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I suppose {pet} is better company than most of my master's visitors, if only because it doesn't talk." },
+      },
+      choices = {
+        { text = "Fine. My beast will wait here, as you ask.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast goes where I go, servant.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Rocks, wind and a very long drop, which I look at every day and care for less each time. The Highborne built all along this coast, and my master says their magic still hums in the stone, though to me it only hums. If your spirits are listening, ask them to carry me somewhere warm." } },
@@ -395,6 +443,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, smelling of sweat and old leather, how charming. My master doesn't need muscle, but I'm obliged to send you up, so do try not to dent anything." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, with a beast, in my master's courtyard. Keep that thing off the stones; they were laid by the Highborne, and they don't wash." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, smelling of smoke and earth, as your sort always do. My master won't care what you are, so I suppose neither will I." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, of course, skulking about in those dreadful leathers. If you think to rob my master's tower, you'll find the wards are less forgiving than I am, and I am not forgiving at all." },
@@ -423,6 +475,8 @@ P:NPC {
         { text = "Does Xylem study demonology too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does your master have no use for the Light at all?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does your master hate all priests, Sanath?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does your master need a warrior's help, Sanath?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Will your master let my beast into the tower?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your sulking.", next = "END" },
       },
     },

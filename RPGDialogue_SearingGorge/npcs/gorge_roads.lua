@@ -19,6 +19,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They fight like dwarves who've spent their lives workin' for a fire lord, which is tae say without fear an' without mercy. Their golems an' their slavers will come at ye together, so keep yer shield up an' yer back tae the rock." } },
+      choices = {
+        { text = "I'll stand beside you and face them squarely, Dorius.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Better to slip past them than fight them in the open.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Dwarf boots, heavy ones, an' the ruts o' a cart full o' diggin' tools, for that's what my team carried when they went on ahead. The basilisks an' the lava spiders trample over everythin', but a good hunter can tell a dwarf's print from a beast's, I'd hope." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dwarf boots, heavy ones, an' the ruts o' a cart full o' diggin' tools, for that's what my team carried when they went on ahead. The basilisks an' the lava spiders trample over everythin', but a good hunter can tell a dwarf's print from a beast's, I'd hope. Yer {pet} might sniff them out faster than either of us, for my lads didnae wash often, an' a dwarf who's been diggin' all day leaves a scent ye'll not forget." },
+      },
+      choices = {
+        { text = "I'll find them, Dorius, alive if they can be found.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're likely dead. I'll look, but don't hope too much.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Green hills an' honest mines, if the old Ironforge records are right, before Thaurissan called up Ragnaros an' set the whole mountain alight. That was more than two hundred years gone, an' the Gorge still hasnae cooled." } },
       choices = {
@@ -77,6 +98,8 @@ P:NPC {
           text = "Dorius Stonetender, of the Explorers' League, an' I came here for the Suntara Stones. My team went ahead an' never came back, an' I'll no' leave the Gorge without them." },
         { id = "h_stones", when = { questActive = TODO_QUEST("Suntara Stones") },
           text = "Ye'll walk wi' me, then? Good, for I've a feelin' the Dark Irons have been waitin' for me as much as I've been lookin' for them." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, thank the stones! The Dark Iron took my team somewhere along this road, an' I'd feel a great deal better wi' a shield beside me than without one." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll see tracks I'd miss, an' maybe ye'll find where my team went, for I've seen nothin' but spiders an' basilisks since I came down here." },
       },
       again = {
         { id = "h_again", text = "What else? We cannae linger here long." },
@@ -92,6 +115,8 @@ P:NPC {
         { text = "Why would the Dark Irons want the Suntara Stones?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Should I pray for your missing team, Dorius?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the Firelord truly behind the Dark Irons here, Dorius?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the Dark Iron fight like any other dwarves, Dorius?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What tracks should I look for, Dorius?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Be careful, Dorius.", next = "END" },
       },
     },

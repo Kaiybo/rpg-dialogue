@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Jadefire satyrs, mostly, and the fel that leaks from their camps into the soil. A warrior can't heal the ground, but every satyr you put down in Jadefire Glen is one less hand pouring poison into it." } },
+      choices = {
+        { text = "Then I'll fight them to protect your work, Eridan.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fight them for the bounty. The seedlings are your business.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Eridan.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "One, a fawn by the sanctuary's edge that drank from our cleansed water and grew up with clear eyes. It's a small thing, but I count it, because if one fawn can be saved, then the forest is only sick, not dead." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And look at {pet}, healthy and bright-eyed in the middle of Felwood! That does my heart more good than you know." },
+      },
+      choices = {
+        { text = "Then there's hope for the rest. I'll help you find it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "One fawn proves nothing. The forest's beasts are lost.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I have never seen fel touch a living thing and leave it better, and I have looked, because I am the hopeful sort. Perhaps a warlock can hold it without spilling it, but Felwood is what happens when even one hand slips." } },
@@ -65,6 +86,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! I won't ask you to plant seeds, though I'll warn you that half the work of mending a forest is clearing away what tries to kill the seedlings." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You've seen what the corruption does to the beasts, then, and I'd love to hear whether any of them are getting better." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock at the Emerald Sanctuary. The jadefire satyrs burn with the same flame you carry, and I'll ask you to keep it far from my seedlings while you're here." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -96,6 +121,8 @@ P:NPC {
         { text = "Is fel always poison, or only in the wrong hands?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What are the satyrs doing to the land?", next = "xmage", when = { class = "MAGE" } },
         { text = "Could a priest's prayer help your seedlings take root, Eridan?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What kills your seedlings, Eridan?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Have you seen any of Felwood's beasts recover, Eridan?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Could a priest's prayers help your seedlings take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'm here for the satyrs, not for the trees.", next = "END", fx = { align = { light = -1 } } },
@@ -187,6 +214,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Safer, but not safe, because I hear the Shadow Council at Jaedenar tempts warriors with strength instead of knowledge, and some take it. They come back with green eyes and a bigger swing, and they stop being themselves soon after." } },
+      choices = {
+        { text = "I'll trust my own strength. The fel can keep its gifts.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If that strength beats the Council, maybe it's worth the price.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Greta.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Made them hungry and angry and wrong, like the felpaw wolves who'll chase you to the edge of the sanctuary and then stand there snarling at the trees. I pity them, but I won't let one near the camp, and I'd ask you to do the same." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close to you while you're in the forest. I've seen beasts turn after a single night of drinking from the wrong stream." },
+      },
+      choices = {
+        { text = "I'll keep my beast close and leashed. Felwood demands care.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast runs free. If it turns, I'll deal with it then.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They do, and the elements are losing, which is the worst of it. The Shadow Council at Jaedenar drew fel up through the roots until the earth itself turned sour, and now even the fire in this forest burns green. A shaman who listens too closely here may find something other than the spirits listening back." } },
@@ -234,6 +282,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Good, steel is honest, and it can't be tempted by the fel the way a spell can, so you may be the safest visitor I've had all month." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Then you'll have seen what the fel does to the beasts here, and you'll understand why I keep my stone in my pocket." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here? Then you'll feel the fel in this place pulling at you, so mind you don't answer it; I've watched stronger spirits than yours bend." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You move very quietly for someone in a camp full of druids, rogue. Quiet is good in Felwood; the Deadwood furbolgs hear everything else." },
@@ -265,6 +317,8 @@ P:NPC {
         { text = "Have you had trouble with thieves out here?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Shouldn't someone study the corruption to understand it?", next = "xmage", when = { class = "MAGE" } },
         { text = "What did the Shadow Council reach for, Greta?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is a warrior safer from Felwood's temptations, Greta?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What has the fel done to Felwood's beasts, Greta?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Do you truly think the Light could be turned to corruption?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Power's power, and I'll take what this forest offers.", next = "END", fx = { align = { light = -1 } } },
@@ -337,6 +391,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than you'd think, because the corrupted plants fight back, and the things guarding the Irontree Caverns fight harder. You'll clear the way, I'll lay the salve, and between us we'll make one corner of Felwood a little greener." } },
+      choices = {
+        { text = "Then I'll follow your lead and guard the menders.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll fight where I please. The menders can keep up.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Maybess.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Where the beasts still graze, mostly, because they know better than we do which leaves are safe. Follow a deer that's still healthy and it'll lead you to the last clean patches in the forest, if you're patient and don't spook it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} might sniff them out faster than either of us. Animals know a sick plant from a clean one, even when I can't." },
+      },
+      choices = {
+        { text = "I'll follow the deer gently and leave them in peace.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Easier to follow the deer, then have it for supper.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     shaman_mb = {
       lines = {
         { id = "smb_default", text = "Not these ones, I'm afraid. The elementals in Felwood are twisted by the corruption, the way the furbolgs are, and there isn't anything left in them to call kin. Ask your spirits, if you doubt me; I think they'll tell you the same." },
@@ -375,6 +450,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior! I know, I know, you came to fight, and I'm going to ask you to mend instead, but bear with me, because this forest needs both." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter! Oh, you could help me so much, because you know how to find things that don't want to be found, and the cleanest plants in Felwood are the best hidden." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock of the Horde, here among the menders! I won't pretend that doesn't worry me a little, but I'll take any hands willing to help, and I mean that." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
@@ -405,6 +484,8 @@ P:NPC {
         { text = "Would you really let a warlock help the cleansing?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do you need someone to get close to?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does Felwood need mending most, Maybess?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What use is a warrior in mending a forest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Where would I find clean plants in Felwood?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll help mend it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Must I kill elementals? The spirits are my kin.", next = "shaman_mb", when = { class = "SHAMAN" } },
         { text = "I'm here for what I can take, not to mend.", next = "END", fx = { align = { light = -1 } } },
@@ -513,6 +594,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because cleansing is like a long stalk, waiting for the moment the plant is ready and not a moment before. Most of the Alliance's soldiers want it finished in an afternoon, but a hunter knows that some prey takes days." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} may help, I think. The plants here seem to grow a little cleaner where something healthy has walked, though I can't prove it." },
+      },
+      choices = {
+        { text = "Then I'll be patient and do it properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Patience is fine, but I'd rather burn the sick plants and start again.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warrior_ar = {
       lines = {
         { id = "war_default", text = "So would I, most days, and there's plenty in Felwood you can hit. But a warrior who only knows how to win a fight will lose this forest, because there's nothing here to defeat, only something to outlast." },
@@ -578,6 +671,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter of the Alliance! Then you have patience, which is the one thing the curse can't take from us, and the thing it tests hardest." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A Horde shaman. I'll say plainly that it's the Alliance I ask for help, but I won't pretend your kind don't know the land's voice, so speak." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock of the Alliance, and in my camp. Stormwind permits your kind, I know, but I will be honest with you: I would rather you left your demon outside the sanctuary." },
@@ -607,6 +702,7 @@ P:NPC {
         { text = "Stormwind's laws allow warlocks. Why shouldn't the Circle?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does the Alliance send its spies into Felwood?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you accept a Horde priest's help against the curse?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why would a hunter make a good cleanser, Arathandris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll help cleanse it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'd rather fight something I can hit.", next = "warrior_ar", when = { class = "WARRIOR" } },
         { text = "How are your people holding up against the curse?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },

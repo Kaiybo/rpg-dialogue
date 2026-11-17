@@ -29,6 +29,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Whatever they've earned and nothing more, which is a rule I find very restful. Bring me Scourgestones and the Dawn's trust in you grows, and as it grows I'm allowed to sell you things that hit harder and hold longer." } },
+      choices = {
+        { text = "Earned trust is the only kind worth having. It's a fair rule.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ledgers in a war zone? Sell to whoever's still alive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Quartermaster.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because every scout in the Plaguelands shoots at shadows, and the shadows here are usually worth shooting. The fletchers are working day and night, but good feathers are hard to come by when half the birds are plagued." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And I'll thank you to keep {pet} off the sacks of meal, {class}. They're entered in the ledger as feed for soldiers, and I'd hate to rewrite the ledger." },
+      },
+      choices = {
+        { text = "I'll gather my arrows and keep an honest count of what I take.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take what I need off the dead and say nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Quartermaster.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Some would like them to be, and some would rather forget the Silver Hand altogether, after how it ended. I don't take sides in that, because I keep the stores, and a plate of armour weighs the same whatever crest is painted on it." } },
@@ -61,6 +82,10 @@ P:NPC {
           text = "A priest, and welcome, {class}. The Dawn takes its faith from the Cathedral and its funding from anyone kind enough to give it, and my ledgers know which is which." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! The Dawn has a great many knights who once wore the Silver Hand's tabard, and every one of them counts their supplies as carefully as I do, or I make them." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. I keep a crate of whetstones under the counter for your sort, {class}, since nothing goes out of the Dawn's stores faster except bandages." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. The Dawn's stores are short on arrows again, {class}, so bring your own, and gather them up afterwards if you can." },
       },
       again = {
         { id = "h_again", text = "What else can the Dawn's quartermaster do for you today?" },
@@ -75,6 +100,8 @@ P:NPC {
         { text = "Does the Dawn trust rogues as far as paladins?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does the Dawn welcome priests of the Cathedral, Quartermaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the Dawn's knights the Silver Hand by another name?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What does the Dawn give the soldiers who fight for it?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why are the Dawn's stores short on arrows?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -152,6 +179,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every plate you wear hangs off a leather strap somewhere, and soldiers forget it until one snaps in the middle of a fight. I saw a fellow lose his breastplate on Sorrow Hill, and he only lived because the skeletons were as surprised as he was." } },
+      choices = {
+        { text = "I'll check my straps every night. Good advice, Leonard.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a strap snaps, I'll fight on without the plate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Leonard.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Up in the hills toward Alterac, where the wind carries the cauldron stink the other way. There are fewer of them every season, mind, and the ones that come down to the farms have usually caught something." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a fine coat on {pet}, {class}, and I'm a leatherworker, so I'll say that once and never again. Keep it away from the Felstone wolves, for their sickness gets into the fur first." },
+      },
+      choices = {
+        { text = "Then I'll leave the last clean packs alone to breed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Clean pelts fetch the best price. I'll take them while they last.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Leonard.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Saddles and sword belts, every year before the plague, and they paid on the nail and never haggled, which I can't say for this lot. I made Uther a belt once, and I don't know where it lies now, but I hope it's with him." } },
@@ -182,6 +230,10 @@ P:NPC {
           text = "A priest! If you're heading into the fields, {class}, you'll want gloves, because a plagued hide can sicken you through a cut finger before you ever know it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I'll have a look at those gauntlet straps if you like, because the damp up here rots good leather faster than the ghouls do." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. Your armour straps are near worn through, {class}, and a strap that breaks at the wrong moment will kill you quicker than any ghoul." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter, good, for you'll know a clean pelt when you skin one, {class}, which is more than I can say for most of the soldiers who bring me hides." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've hides soaking, and they won't wait long." },
@@ -196,6 +248,8 @@ P:NPC {
         { text = "Can you tell a plagued hide from a clean one?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can the Light cleanse a plagued hide, Leonard?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did the Silver Hand ever buy leather from you?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does leather really matter to a warrior in plate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Where do the clean wolves still run, Leonard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

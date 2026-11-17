@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every day I think it, and every day I'm told the Dark Lady's people need me here instead. The Syndicate killed my brothers in the very keep where the Warchief was once held prisoner, and I won't rest well until that courtyard is ours." } },
+      choices = {
+        { text = "Then we go when you're ordered, and not before.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget orders. Your brothers deserve vengeance now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Krusk.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "If you can follow their scouts back to the keep, I'll know which gate they watch and which they don't. They saw us coming because we marched straight up the road like fools, and I won't make that mistake twice." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have smelled them in the shadows long before we walked into that courtyard. Keep it close at Durnholde, and listen when it growls." },
+      },
+      choices = {
+        { text = "I'll find them, and you can face them openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find them, and we'll take them in their sleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Swordsmen in black, more than we could count, and behind them a few men in robes throwing shadow at us from the walls. I could fight the swords, but those casters knocked Tog'thar flat before he ever reached them." } },
@@ -93,6 +114,8 @@ P:NPC {
           text = "Gol'dir is free. He led us here, and he's been hauling stone for human thieves in Strahnbrad since, and the first thing he asked was who leads us now. I'm ashamed to say it's me." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. If you'd been with my band at Durnholde, perhaps the humans wouldn't have caught us by surprise, and I'd have more friends left to drink with." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The old Horde's warlocks sold us to the demons once, and no orc who remembers the camps has forgotten it, so I'll be watching you." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! At last, someone in this town who fights with a blade and still breathes air. Sit, and tell me you've come to help me pay back the Syndicate." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter of the Horde. The Syndicate hid in the Durnholde ruins like rats, and I'd have given much for someone who could track rats." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I sharpen." },
@@ -110,6 +133,8 @@ P:NPC {
         { text = "I'm Forsaken. Speak plainly about us.", next = "scourge", when = { race = "Scourge" } },
         { text = "How did the Syndicate catch your band at Durnholde, Krusk?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you think warlocks still endanger the Horde, Krusk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you mean to go back to Durnholde, Krusk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Should I track the Syndicate at Durnholde for you, Krusk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll find your brothers.", next = "END", fx = { affinity = 2, standing = { tarren_mill = 1 } } },
       },
     },
@@ -195,6 +220,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I'd set you on the ones who carried the torches, and they're old men now, sitting in the inn and boasting about the night they killed a necromancer. Once Helcular rises, they'll have something new to talk about, though not for very long." } },
+      choices = {
+        { text = "Old men with pitchforks aren't worth my blade.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They chose the mob. Let them face what they made.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Thaivand.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The mob dragged them out and burned them in the yard, because they said anything a necromancer loved must be cursed. They were only dogs, and they howled for him, and I think that's what the peasants couldn't stand." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close if you go near Southshore, hunter. They've killed loyal beasts before for the master they served, and I doubt they've grown any kinder since." },
+      },
+      choices = {
+        { text = "Grief is no reason to raise the dead. Let him rest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then raise him, and let the mob reap what it sowed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "His spirit was torn out of him by a mob of farmers with pitchforks, and nobody asked his will then. When I call him back he will thank me, and the first thing he will do is visit Southshore's churchyard and return the favour." } },
@@ -224,6 +270,8 @@ P:NPC {
         { id = "h_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Helcular's Revenge"), days = 3 } },
           text = "They say Southshore's guards fought something in their churchyard, and that it called up the dead around it. I wish I had been there to see it, but I'll settle for hearing it from you." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You could slip into Southshore far more easily than I can, and there are things buried in their graveyard that belong to my master." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The peasants of Southshore struck down my master with pitchforks and torches, and I'd dearly love to see how they fare against real steel." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My master kept hounds once, great black beasts the peasants burned along with him, and I've never forgiven them for that either." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick; I have rites to study." },
@@ -237,6 +285,8 @@ P:NPC {
         { text = "I know something of necromancy myself.", next = "warlock", when = { class = { "WARLOCK", "MAGE" } } },
         { text = "I was a priest of the Light once.", next = "priest", when = { class = "PRIEST", race = "Scourge" } },
         { text = "What's buried in Southshore's graveyard, Thaivand?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would you set a warrior on Southshore's farmers, Thaivand?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What happened to Helcular's hounds, Thaivand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Good luck, novice.", next = "END" },
       },
     },
@@ -312,6 +362,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "To dwarves from Dun Garok, who crept into camp while I was on watch and took everything that wasn't strapped to me. A warrior without his blade is a scarecrow with a grudge, and the other Deathguards have started calling me exactly that." } },
+      choices = {
+        { text = "Report it honestly and take your punishment. That's a soldier's way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the report. Raid Dun Garok and take it back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Humbert.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Only that it's a dwarven fort dug into the hills to the south, full of riflemen and mountaineers who never seem to sleep. A spell or two through the gate would make them a good deal less smug, and I'd like to be there to see it, borrowed club and all." } },
@@ -364,6 +423,7 @@ P:NPC {
           text = "My sword! I've been wearing it everywhere, even indoors. Samsa says I'm overdoing it, but Samsa never lost his." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. If you'd been standing watch with me, perhaps those dwarves wouldn't have walked off with my gear, so I'll not pretend I'm glad to see you." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'd ask your demon to guard my tent, but I suppose it would steal more than the dwarves ever did." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and fully armed, which is more than I can say for myself. Don't look at my belt, please, because there's no sword on it, and I know." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm still on watch, technically." },
@@ -378,6 +438,7 @@ P:NPC {
         { text = "A Forsaken without a sword? Shameful.", next = "scourge", when = { race = "Scourge" } },
         { text = "How did the dwarves steal your gear, Humbert?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you really trust a demon to guard your tent, Humbert?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How does a Deathguard lose his sword, Humbert?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -453,6 +514,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The good ones do, I'm sure, since a hunter without a trophy is just someone who went for a walk with a bow. I named my skulls after the farms they came from, which I thought was clever, though Darthalia says it's morbid, and she's dead." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} like skulls? I'd let it have one of the small ones, but I've grown attached to them all, so perhaps just a sniff." },
+      },
+      choices = {
+        { text = "A hunter honors the kill. Skulls on a gate are mockery.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Trophies remind the enemy who's winning. Keep collecting.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Samsa.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "The farmers run, mostly, though the guards from Southshore stand their ground and shout for help. I'd love to see what happens when someone answers them with a spell, but since nobody lets me leave this door, you'll have to go and tell me afterward." } },
@@ -505,6 +578,7 @@ P:NPC {
           text = "Thirty! I've arranged them on the wall behind the inn, and Shay says it puts the customers off. The customers here are dead, Shay." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You'd be good at collecting skulls, I think, since you could get close enough to take them without anyone noticing." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you make one of my skulls glow? I've always wanted a lantern with a face, and the apothecaries won't help me." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Do you take trophies? I've a dozen skulls by the gate, and I'd love to hear how a proper hunter keeps them clean." },
       },
       again = {
         { id = "h_again", text = "Anything else? I have nowhere to be." },
@@ -520,6 +594,7 @@ P:NPC {
         { text = "The living Horde find this grim.", next = "living", when = { race = { "Orc", "Tauren", "Troll" } } },
         { text = "Why do you collect skulls, Samsa?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why won't the apothecaries help with your skulls, Samsa?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you think hunters really keep trophies, Samsa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll bring you skulls.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -591,6 +666,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Watch the Stromgarde roads and count the soldiers marching on them, since the orcs are poor at counting and worse at waiting. The Witherbark in the hills will want your scalp, so don't spend too long admiring the view." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks sturdier than half the reinforcements I've sent east. Bring it back alive if you can, because a good beast is harder to replace than a recruit." },
+      },
+      choices = {
+        { text = "Send help that can survive, Tallow. Lives aren't cheap.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair enough. The weak ones only slow the rest down.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Tallow.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Their magi, who throw fire from the back of the mound while the brutes swing clubs at the front. Kill the magi first and the rest fall apart, or so Drum Fel tells me, and he's lived long enough to be right about these things." } },
@@ -643,6 +730,7 @@ P:NPC {
           text = "You came back from Arathi on your own legs. Drum Fel must be pleased, or desperate; probably both." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be no use at Hammerfall, where the orcs need shields and axes, but I suppose you could slip past the Stromgarde lines and see what they're planning." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Your demon could hold a line at Hammerfall for a while, I suppose, which is more than most of the soft-skinned ones I'm sent could manage." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Hammerfall needs scouts as much as shields, I'm told, so you might be some use to the orcs, if you don't die on the way." },
       },
       again = {
         { id = "h_again", text = "Something else? Say it." },
@@ -656,6 +744,7 @@ P:NPC {
         { text = "I'm a warrior. Test me yourself.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "What is Stromgarde planning against Hammerfall, Tallow?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you think demons belong on the Horde's battlefields, Tallow?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What would a hunter do at Hammerfall, Tallow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -717,6 +806,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They mind noise and weight and anyone who grips the harness like it owes them money, so yes, warriors are their least favourite riders. The warriors are also the ones who scream loudest on the way down to the Undercity, which the bats find very satisfying." } },
+      choices = {
+        { text = "I'll treat your bats with respect. They're carrying me, after all.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A mount is a mount. It'll carry me whatever I do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Zarise.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "You could try, and some hunters tame bats out in the wild, where they're fewer and hungrier. Mine were raised in the Undercity, though, and they'd sooner bite you than follow you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} is staring at my bats the way a cat stares at a bird, and the bats are staring back the same way. I'd step between them if I were you, because nobody wins that argument." },
+      },
+      choices = {
+        { text = "Bats bred and trained in the Undercity serve better.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wild beasts are fiercer and freer. I'd take one any day.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Southshore's gryphon riders have tried it over the river, and once a dwarf with a rifle got lucky. A rider who can throw something back at them is the best escort a bat could hope for, and the bats remember who looks after them." } },
@@ -767,6 +877,8 @@ P:NPC {
           text = "Night is when they like to fly, and so do I, if I'm honest. Southshore's archers can't see a bat in the dark." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. The bats like your kind, I've noticed, since you move quietly and don't flap your arms about the way the warriors do." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You could teleport, I suppose, but the bats are cheaper and they don't drop you in the wrong city, unless you've been rude to them." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leave the shield on the ground before you climb on, because the bats don't like being thumped with it every time you turn around." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The bats will be curious about your beast, so keep it calm, because a curious bat is a nibbling bat." },
       },
       again = {
         { id = "h_again", text = "Anything else? They're restless." },
@@ -779,6 +891,8 @@ P:NPC {
         { text = "Do they ever drop anyone?", next = "drop" },
         { text = "Why do bats like quiet folk, Zarise?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Have the bats ever dropped a rude rider, Zarise?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the bats really mind warriors that much, Zarise?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Could a hunter ever tame one of your bats, Zarise?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -829,6 +943,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Bandages, which surprises the Deathguards, since they've forgotten how much the living bleed. The orcs who pass through on the way to Hammerfall buy them by the armful, and I've started ordering more from the Undercity just to keep up." } },
+      choices = {
+        { text = "A good soldier carries supplies. Readiness wins wars.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Real warriors fight through it. Bandages are for later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kayren.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Reagents, mostly, because the caravans from the Undercity come over the hills slowly and the Syndicate rob every third one. A spellcaster riding guard on the next one would be worth more to this town than any shipment I could order." } },
@@ -877,6 +1000,7 @@ P:NPC {
           text = "Kayren Soothallow, general goods. The dead need less than the living, but we still need rope, and somebody has to sell it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want rope, I'd guess, and flash powder, and perhaps a little food for the road, since I hear the living still eat." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I've a shelf for the living allies, if you're one of them, and a few things for spellcasters, though I'll warn you that candles go faster here than anywhere else." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I've whetstones, bandages and rations for the living, and I keep them on the shelf furthest from the embalming salts, so you'll not get them muddled." },
       },
       again = {
         { id = "h_again", text = "Anything else on your list?" },
@@ -890,6 +1014,7 @@ P:NPC {
         { text = "Do the dead buy much?", next = "dead" },
         { text = "Do you sell much to rogues in Tarren Mill, Kayren?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why do candles go so fast in Tarren Mill, Kayren?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What do warriors buy from you most, Kayren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Nothing today.", next = "END" },
       },
     },

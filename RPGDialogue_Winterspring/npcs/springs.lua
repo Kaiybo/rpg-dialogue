@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They were never gentle, but they fought like folk, wi' sense an' a reason. Now they come on like they cannae feel the blade, an' that's the firewater, which makes me think whoever's brewin' it wants an army, no' a tribe." } },
+      choices = {
+        { text = "Then I'll fight them hard but cleanly. They're sick, not wicked.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Sick or not, they're dangerous. I'll cut them down without pity.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Somethin' else, Donova.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They used tae walk straight an' purposeful, from camp tae spring an' back, an' now they stagger an' double back an' fight each other over nothin'. A hunter's eye on 'em would tell me more than I'll ever learn from goo in a jar." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' keep {pet} away from their camps, aye? I found a fox by the springs that had been lappin' at a spilled barrel, an' it was no' a pretty thing tae see." },
+      },
+      choices = {
+        { text = "I'll track them honestly and tell you what I see.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll follow one home and steal a barrel for you to study.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Somethin' else.", next = "BACK" },
+      },
+    },
     dwarf_dn = {
       lines = {
         { id = "ddn_default", text = "Aye, an' we're the only two daft enough! The cold's no bother tae a Dun Morogh lass; it's the furbolgs I worry about, for they used tae trade wi' me for honey an' now they throw rocks." },
@@ -75,6 +96,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, aye? Good, because the Winterfall'll no' be talked down, an' when they come at ye half-mad on firewater, ye'll want a shield between ye an' them." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Ye'll have seen the Winterfall's tracks, then, an' how they've changed, wanderin' in circles like a beast wi' a fever." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, is it? Then mebbe ye can tell me what's in the firewater the Winterfall are drinkin', because it smells of somethin' a good deal worse than whisky." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -104,6 +129,8 @@ P:NPC {
         { text = "Why sneak into the Winterfall camps?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Are the Winterfall beyond saving, Donova?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What sickness do you see in the Winterfall, Donova?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Are the Winterfall dangerous fighters, Donova?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What have you noticed about the Winterfall's tracks?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll look into the furbolgs.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -190,6 +217,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Dey respect strength, mon, and dey respect a warrior who know when strength be enough and when it not. Every beast you kill up here leave a little E'ko behind, and a warrior who bring dat to Mau'ari learn what juju be good for." } },
+      choices = {
+        { text = "I'll take the E'ko with respect for the spirits, Mau'ari.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Spirits or not, I'll take whatever makes me stronger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Somethin' else, Mau'ari.", next = "BACK" },
+      },
+    },
     hunter_ma = {
       lines = {
         { id = "hma_default", text = "Ha! Every beast carry it, mon, and dat one carry plenty, but Mau'ari ain't gonna take it from a beast dat still be breathin' and followin' you round. Keep it close; a hunter's companion be better juju than anything Mau'ari make." },
@@ -228,6 +264,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, mon, come all de way up de mountain wit a big blade! Mau'ari like dat, because de spirits up here respect anyone who walk in de cold wit no magic to keep him warm." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Ah, a warlock come up de mountain! Mau'ari feel de demon on you, mon, cold as dis snow and twice as hungry, so you be careful which spirit you be feedin'." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -251,6 +289,7 @@ P:NPC {
         { text = "Is your juju so different from my magic?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does your juju cost?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the loa reach this far north, Mau'ari?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the spirits respect warriors, Mau'ari?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "I'll bring E'ko.", next = "END", fx = { affinity = 2 } },
       },
     },

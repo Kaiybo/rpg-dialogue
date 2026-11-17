@@ -29,6 +29,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Riding, raiding and terror, as the old Horde did, and they're good at all three. When I was young every orc who could fight had a wolf at his side, and seeing Rend's riders on that road makes me ache for those days and hate myself for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. Good teeth, good eyes. If you take it up the Spire road, keep it close, because Blackrock worgs go for other beasts first." },
+      },
+      choices = {
+        { text = "The old ways had strength. Don't be ashamed of missing them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Thrall's Horde is better. Leave the old ways to Rend.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Not while the Spire stands, I think, for nothing grows within a day's march of it and the orcs inside like it that way. Ask me again when Blackrock has fallen, and I'll give you a better answer." } },
       choices = {
@@ -83,6 +95,8 @@ P:NPC {
           text = "The Butcher of Blackrock is dead, and the 109th can rest! Wear that medallion where everyone in Kargath can see it, and let them ask you about it." },
         { id = "h_thrall", when = { heardLine = "thrall.h_default" },
           text = "You've stood before Thrall, so you know why we hold this rock. He sent us here, and here we stay." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. The worgs up at the Spire are bred for war, {class}, and I'd give a great deal to see one of ours run them down." },
       },
       again = {
         { id = "h_again", text = "More? Good, talking keeps me from counting vultures." },
@@ -103,6 +117,7 @@ P:NPC {
         { text = "Send me up the Spire, Warlord. I won't clank.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you put mages on Kargath's walls, Warlord?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I stand with Thrall, Warlord. My demons serve the Horde.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do the Blackrock use their worgs for?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Point me at the Dark Irons.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { kargath = 1 } } },
       },
     },
@@ -309,6 +324,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Constantly, darling, and every basilisk grows a foot each time it's mentioned. Vivian swears one of the scouts claimed to have killed a black dragon with a spear, and I'd dearly love to see the spear, because I suspect it's a broomstick." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And this is {pet}! Oh, it's adorable, darling, in a terrifying sort of way. Does it bite? No, don't answer, I'd rather wonder." },
+      },
+      choices = {
+        { text = "My hunts need no embellishing, Hierophant. They speak for themselves.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good story's worth more than the kill. I'll tell it bigger.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Hierophant.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Only rumour, darling, but the rumour is very good. They say the Dark Irons called a fire lord up out of the earth centuries ago and have been his servants ever since, which would explain the heat, and the tempers, and the abysmal manners." } },
@@ -375,6 +402,8 @@ P:NPC {
           text = "Initials, darling, etched into every one of those shards, and a rank beside them, as if the golems were soldiers. There's a gnome out in the Dustbowl called Lotwil who knows about such things, so do go and bother him." },
         { id = "h_goretooth", when = { heardLine = "goretooth.h_default" },
           text = "Did the Warlord tell you about his dreams, the glorious death and the hundred foes? He tells everyone, and we nod, because it's kinder." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter, darling! Do tell me what you've shot, because the Warlord's grunts only ever bring me stories, and I'd love something with a little more meat on it." },
       },
       again = {
         { id = "h_again", text = "More? Oh, you are a treat. Go on, darling." },
@@ -394,6 +423,7 @@ P:NPC {
         { text = "You don't flinch at my demons, Hierophant.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "What's the best secret in Kargath, Hierophant?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does Vivian study that a mage wouldn't?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the grunts tell tall stories about hunting, Hierophant?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -529,6 +559,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A clear path, mostly, because the Dark Irons guard their secrets with golems and fire elementals, and I can't study anything while it's trying to set me alight. If you break a golem, bring me its core, because there's a bound elemental inside every one, and I'd very much like to know how they did it." } },
+      choices = {
+        { text = "I'll clear your path and follow your lead in the mountain.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll break golems my own way. You can sort the pieces.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Vivian.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Trouble me? It thrills me, though I suppose it shouldn't. The Dark Irons trap fire and earth inside their golems to make them walk, and if I learn how, the Expeditionary Force could do it too, which I admit sounds worse when I say it to a shaman." } },
@@ -573,6 +612,8 @@ P:NPC {
           text = "The Darkstone Tablet holds the secret recipes of a dwarf alchemist who's been dead for ages, and it's somewhere in Blackrock Spire. Bring it to me carefully, because I mean to read every scratch on it!" },
         { id = "h_element_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Last Element"), days = 3 } },
           text = "Your essences went off to the Undercity by courier this morning, every one of them. I do hope you spent your payment on something frivolous; it's what I'd do." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "Oh! A warrior, and you clank, which is good, because at least I heard you coming, and I'm perfectly composed, thank you." },
       },
       again = {
         { id = "h_again", text = "Yes? I'm perfectly composed, so ask away." },
@@ -591,6 +632,7 @@ P:NPC {
         { text = "Do you miss the Undercity?", next = "undercity", when = { race = "Scourge" } },
         { text = "A troll who deals with demons. Does that interest you?", next = "k_troll_lock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "I could steal that Thunderbrew recipe for you, Vivian.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What does a Shadowmage need from a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll find it.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -752,6 +794,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Grark Lorkrub sold our plans to the Blackrock, and someone has to bring him in alive, which means fighting through his guards without killing him by mistake. That's harder for your kind than you'd think, because a warrior's swing doesn't always stop where it's told." } },
+      choices = {
+        { text = "I'll bring him back alive. Discipline's half the fight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Traitors don't deserve a cell. I'll make no promises.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If they'll take orders, I'll take them on, though nothing I've met takes orders well. The earth under Blackrock Mountain shakes when something moves deep inside, so you tell me what it's saying and I'll tell you whether to worry." } },
@@ -807,6 +858,8 @@ P:NPC {
         { id = "h_report", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bijou's Reconnaissance Report"), days = 3 } },
           text = "Bijou's reports are good, which annoys me more than if they'd been worthless. She's wriggled out of trouble again, and the K.E.F. is the better for it." },
         { id = "h_seen", when = { metBefore = true }, text = "You came in by the south path at noon; I know, because I always know. Don't take it personally." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. You'll do for the loud work, and there's plenty of that, since the Spire's full of orcs who'd sooner fight than talk." },
       },
       again = {
         { id = "h_again", text = "Something else. Quickly." },
@@ -823,6 +876,7 @@ P:NPC {
         { text = "Grark's in your custody now.", next = "grark_done", when = { questDone = TODO_QUEST("Precarious Predicament") } },
         { text = "Why do you call spells loud?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Couldn't a demon watch the Spire for you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What loud work do you have, Lexlort?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll be your hands.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My beast can be your eyes too.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "I'm nobody's hands, Lexlort. I work for myself.", next = "END", fx = { align = { order = -1 } } },
@@ -955,6 +1009,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Neeka's scouts bring in a buzzard now and then, but they're stringy things, and the basilisks taste like boot leather. A hunter who brought in anything that didn't taste of dust would be the most popular face in Kargath for a week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out of the kitchen, friend. The grunts would forgive a beast a great many things, but not a bite out of tomorrow's stew." },
+      },
+      choices = {
+        { text = "I'll bring what I can. Kargath's grunts deserve a decent meal.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll sell what I catch, and the grunts can bid for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Shul'kar.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "All night, every night, and my favourite is the one about the young Warchief calling the elements down on the internment camps to free his people. I know it's mostly true, which makes it better, and the grunts tell it as if they'd been standing next to him." } },
@@ -1012,6 +1078,8 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Shul'kar, and I keep the inn. Out here a hot meal and a dry bunk are worth more than gold, and I don't charge much more than gold for them." },
         { id = "h_story", when = { metBefore = true }, text = "A grunt told me last night he fought a Dark Iron the size of a door, and then it was two doors, and by morning it was a castle. Good story, though." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter at my fire. If you've anything fresh, I'll take it for the pot, because the grunts are sick of salted coyote, and so am I." },
       },
       again = { { id = "h_again", text = "Anything else, while the pot's still on?" } },
       choices = {
@@ -1027,6 +1095,7 @@ P:NPC {
         { text = "Do the grunts really think I'd rob them?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why would a mage eat your stew instead of conjured bread?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Did an imp really ruin your stew?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Does anyone hunt for Kargath's pot, Shul'kar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "A bunk, please.", next = "END", fx = { affinity = 1 } },
       },
     },

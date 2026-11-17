@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "As big as a frostsaber, if the moonwell water does what I think it does, and twice as fierce! *cackles* Warriors always want something to fight beside them, and I want to see what Felwood can make out of one little cat." } },
+      choices = {
+        { text = "Twisting a beast like that is wicked, Winna. Leave the cat be.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A cat that size at my side? I'd fight beside it gladly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Winna.", next = "BACK" },
+      },
+    },
     warlock_w = {
       big = true,
       lines = {
@@ -76,6 +85,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior! Oh, splendid, you look sturdy enough to carry my kitten when it gets much bigger, and it is going to get much bigger. *cackles*" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, do tell me what the fire spirits think of my cauldron, because it bubbles in colours I've never seen and I'd love a second opinion. *cackles*" },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, how lovely! You lot always know which bottle not to drink from, and that makes you twice as useful to me as anyone in this post. *cackles*" },
@@ -110,6 +121,7 @@ P:NPC {
         { text = "Your work could poison a whole Alliance camp, couldn't it?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What does the corrupted moonwell actually do to the water?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is anything in Felwood beyond mending, Winna?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "How big is your kitten going to get, Winna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -227,6 +239,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "No, and it never will, because Orgrimmar sends scouts and wants reports while the forest sends satyrs and wants blood. I'd trade every report I've written for a dozen grunts with sense enough to keep out of the river." } },
+      choices = {
+        { text = "Then I'll hold this post and follow your orders, Trull.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the post. I'll take the fight to Jaedenar myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Trull.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Wrong enough that the bears turn on their own cubs, and the owlbeasts at the Winterspring border attack anything that walks, as if somebody told them to guard something. That's what I sent you up there to find out, and I still don't like the answer." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} out of the river, if you value it. I watched a scout's wolf drink from it once, and he had to put it down himself the next morning." },
+      },
+      choices = {
+        { text = "Then I'll put the sick ones down quickly and spare them pain.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Sick beasts make fierce ones. I'd tame one if I could.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     rogue_tr = {
       lines = {
         { id = "rtr_default", text = "Good, because the Deadwood furbolgs post sentries in the dark, and the satyrs at Jadefire Run see better in it than you do. Count their numbers, find their chiefs, and come back alive; dead eyes don't report." },
@@ -276,6 +309,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. Good, Bloodvenom needs more of your kind than it gets, because the satyrs and the Deadwood don't wait for a scout to finish counting them." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter, good. The beasts of Felwood are wrong, every one of them, and I want someone who knows what a healthy wolf looks like telling me how far wrong." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. Orgrimmar's shamans see things a scout misses, and in Felwood I'll take every pair of eyes I can get." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Good; I've seen things in this forest I can't name, and you might put names to them before they get to Orgrimmar ahead of my report." },
@@ -308,6 +345,8 @@ P:NPC {
         { text = "What have you seen that you can't name?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why watch me? I serve the Horde like you.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What have your eyes seen at Jaedenar, Trull?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does Bloodvenom Post have enough warriors, Trull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How wrong are the beasts of Felwood, Trull?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll be your eyes too.", next = "END", fx = { affinity = 1, standing = { bloodvenom_post = 1 } } },
       },
     },

@@ -30,6 +30,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Orcs, mostly, an' big ones, Rend's lot, who'd sooner die than lose a fight an' generally manage both. Windsor walked up that road wi' his head high an' his sword out, an' I'll say no more about it until I've had another cup." } },
+      choices = {
+        { text = "Then I'll walk up it the same way, head high.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Head high gets you killed. I'll go quiet and take them from behind.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, John.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "All over the bloody place, but thickest round the Altar of Storms an' up toward the Spire, where Rend's orcs breed 'em big an' mean. I used tae hunt in Dun Morogh, back when I could see straight, an' I never met a wolf that hated me like a Blackrock worg does." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out o' my ale, would ye? *hic* The last beast that got intae it slept for two days an' woke up thinkin' it was a dwarf." },
+      },
+      choices = {
+        { text = "The worgs aren't to blame. Rend's orcs made them cruel.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A worg's a worg. I'll kill every one I see.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, John.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Aye, an' that was the trouble, because he charged the Dark Irons like there was honour to be had in it, an' there wasnae. I'm alive because I ran, an' he's not here because he didn't, an' I've had a long while tae wonder which o' us was the fool." } },
@@ -84,6 +105,10 @@ P:NPC {
           text = "A priest in my cave! Ye've come tae save my soul, I'll wager, an' ye're welcome tae try, but ye'll have tae get past a good deal o' ale first." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Now that's a sight, a knight o' the Light in a goblin camp, an' standin' next tae me, the worst-behaved dwarf in the Steppes." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! *hic* Now there's a sight, all that steel an' hardly a dent in it, which means ye haven't been up tae the Spire yet, an' I'd keep it that way." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "Is that a hunter? *hic* Ye'll find nothin' worth shootin' in the Steppes, friend, except the worgs, an' they shoot back, more or less." },
       },
       again = {
         { id = "h_again", text = "What else, eh? *hic* I've got nowhere to be, and that's the best thing about this cave." },
@@ -103,6 +128,8 @@ P:NPC {
         { text = "Does fel worry you, John?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does the Light have any place in the Burning Steppes, John?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did Marshal Windsor fight like a knight, John?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What's waiting at the Spire for a warrior, John?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Where do the Blackrock worgs run, John?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your cask.", next = "END" },
       },
     },
@@ -331,6 +358,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Anything with old script on it, anything that glows, and anything the Dark Irons look particularly cross about losing. The Seven left their works scattered all over these ruins, and a strong arm is worth more to me than a clever tongue, since I already have the tongue." } },
+      choices = {
+        { text = "I'll fight for the relics, but they go to scholars, not buyers.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Treasure's treasure. I'll carry it out and we'll split the gold.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Maxwort.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I don't see why not, for Kibler swears his worg pups can find a scrap of meat under a yard of ash. If they can find meat they can find a buried Dark Iron coffer, and if they can find a coffer, I can retire." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let me see {pet} sniff at this old Dark Iron coin, would you? If its tail wags, I'll know I've been carrying the real thing about all along." },
+      },
+      choices = {
+        { text = "My beast won't dig up the dead for coin, Maxwort.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it can find gold, it'll find gold. Show me the coin.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Maxwort.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Dangerous, yes, and profitable, which is how I prefer my work. The Dark Irons called up something in the mountain that burned their own city, and anything that survived that fire is worth a fortune to the right collector in Stormwind." } },
@@ -364,6 +412,10 @@ P:NPC {
           text = "I take it out every night and just look at it, the size of your fist and twice as beautiful as I imagined. Don't tell anyone where I keep it, and don't ask." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Now there's a fine thing, because the Dark Irons have a great many relics of Thaurissan's old faith, and I could use someone who'll tell me which ones are cursed before I sell them." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Good, because the Dark Irons guard their old relics with hammers the size of my cave, and I need someone who can stand up to that and still carry treasure." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, eh? I've no interest in pelts, my friend, but if your beasts can sniff out old gold, you and I are about to become very good partners." },
       },
       again = {
         { id = "h_again", text = "What else? Time is money, and I'm generously giving you mine for free." },
@@ -378,6 +430,8 @@ P:NPC {
         { text = "The Seven's sorcery interests me, Maxwort. Professionally.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "What would you have me take from the Dark Irons?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Isn't trading in Dark Iron relics dangerous, Maxwort?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do you need carried out of the Dark Iron ruins?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "You think a beast can sniff out treasure?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good hunting, Maxwort.", next = "END" },
       },
     },
@@ -489,6 +543,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Everything, but mostly that they come in fours and fives, and their mothers come in ones that are much, much bigger. A warrior with a good shield could hold the little ones off for a minute or two, which is all I need to get the Draco-Incarcinatrix running." } },
+      choices = {
+        { text = "I'll hold them off while you work. We stick to your plan.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Holding back's for cowards. I'll charge the nest and clear it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Tinkee.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "A very generous gentleman who pays very generously and doesn't like his name in anyone's mouth, so I'll just call him my patron. He wants to know about dragonkin, and I want to know about dragonkin, so we get along wonderfully, I'm sure." } },
@@ -547,6 +610,8 @@ P:NPC {
           text = "A priest! Do dragons have souls, do you think? I've been meaning to ask someone qualified, and nobody at Flame Crest is qualified for anything." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, all shining and serious! You won't smash my gadgets, will you? They're perfectly harmless, mostly, and the ones that aren't are for dragons." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Oh, excellent, could you stand between me and the whelps while I take a measurement? They're only small, but they bite, and they're on fire, which hardly seems fair." },
       },
       again = {
         { id = "h_again", text = "What else? I'm all ears, and only slightly singed ones." },
@@ -564,6 +629,7 @@ P:NPC {
         { text = "Who else wants your schematics, Tinkee?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why do you care whether dragons have souls, Tinkee?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who is your patron, Tinkee, and what does he want?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What's so dangerous about the whelps, Tinkee?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Good luck with the dragons.", next = "END" },
       },
     },
@@ -688,6 +754,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only when they want something, which is always, so I sell to them too. Don't look at me like that, because a merchant who only sells to her friends doesn't stay a merchant for long, and the Dark Irons pay in good iron." } },
+      choices = {
+        { text = "Selling to the Dark Irons arms the enemy. That's wrong, Yuka.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Good business is good business. I'd do the same.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Yuka.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because it comes up the road through Searing Gorge, past more Dark Irons than you'd believe, and every cart I lose puts up the price of the rest. You'd be amazed how many carts the worgs have eaten this season, and they don't even like the taste." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And don't let {pet} chew on the blasting powder, please. I know it smells interesting, but the last beast that tried it learned to fly, very briefly." },
+      },
+      choices = {
+        { text = "A fair price for a hard road. I'll pay it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll loot my shot off the Dark Iron dead, thanks.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Yuka.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "A paladin would ask a lot of questions about it first, I'd guess, and I'd answer them honestly, because I've nothing to hide. Ribbly owes the family, the family wants him home, and how he comes home is up to Ribbly." } },
@@ -740,6 +827,10 @@ P:NPC {
           text = "A priest! If you're here to pray for Ribbly, don't bother, because the Screwspigot family has already decided what he's owed, and it's not a prayer." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Lovely armour, and very shiny, and if it ever needs bolts or a new hinge, I'm the only shop for leagues that sells them." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Your armour's been chewed on by Dark Irons, I can tell from here, and I've got rivets, plates and a very reasonable price list for exactly that." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Ammunition's two shelves down, and I'll warn you now, it's dearer up here, because every bullet in the Steppes had to climb a mountain to reach me." },
       },
       again = {
         { id = "h_again", text = "Anything else? Browsing's free, but only for so long." },
@@ -756,6 +847,8 @@ P:NPC {
         { text = "Could my imp find Ribbly for you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Doesn't family count for anything with you, Yuka?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would a paladin collect Ribbly's bounty, Yuka?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the Dark Irons give you much trouble, Yuka?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why is your shot so expensive, Yuka?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye, Yuka.", next = "END" },
       },
     },
@@ -854,6 +947,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "With the right handling it would fight beside you and die for you, which is what the Blackrock orcs know and Stormwind has forgotten. I once watched a Blackrock rider and his worg fight back to back, and Opus kept quiet for a whole day afterwards." } },
+      choices = {
+        { text = "A fighting beast should be raised with care, not cruelty.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Worgs are weapons. Train them hard and point them at the enemy.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Kibler.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Stolen's a strong word, my friend, when the alternative is the pups growing up to carry orcs into Lakeshire. I'd call it rescue, and a profitable rescue at that, which is the best kind." } },
@@ -906,6 +1008,8 @@ P:NPC {
           text = "A priest! You'll bless my little worgs, won't you? They've had a hard start in life up in the Spire, and a blessing couldn't hurt their prospects with the buyers." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Mind the worg cage, if you please, because the pups can smell holy folk, and they get excited about it in a way I haven't worked out yet." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! I don't suppose you've come for a pet, but I always say there's a beast for every soldier, and a well-raised worg pup is the finest shield-mate in the Steppes." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Opus is listening, so mind your language; he'll repeat it to customers." },
@@ -922,6 +1026,7 @@ P:NPC {
         { text = "How do your worg pups always find their way back?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a Blackrock worg pup really be gentled, Kibler?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it right to sell pups stolen from the Blackrock orcs?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could a worg pup really fight beside a soldier?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Goodbye, Kibler.", next = "END" },
       },
     },
@@ -1028,6 +1133,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Very little, I'm afraid, though my people's rangers held the forests of Quel'Thalas for thousands of years with nothing more than bow and blade. They held right up until the Scourge came, which I suppose makes my point for me." } },
+      choices = {
+        { text = "Your rangers fought honestly to the end. That counts for something.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll let others face the spells, and strike when they're spent.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I will ask something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I knew a great many of them, as one knows the soldiers one passes in the street, and I thought very little of them at the time. They died on the borders while scholars like me fled with our books, and the librams are no comfort at all when I remember that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches me as though I were prey, {class}. It may be right, for I'm not what I was, and beasts always know it before people do." },
+      },
+      choices = {
+        { text = "Honour their sacrifice, Mathredis. Make your work worth it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Guilt's no use to the dead. Take your librams and move on.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I will ask something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "To sell it, of course, to someone like me, for more than it is worth to anyone but me. Your kind have picked over the ruins of Quel'Thalas since the Scourge came through, so I know exactly what you are, and I pay accordingly." } },
@@ -1044,6 +1170,10 @@ P:NPC {
           text = "Mathredis Firestar, of Quel'Thalas, while there was a Quel'Thalas. I seek the lost librams of the elven masters, and if you bring me one, I will make you something of power, at a price you will find high." },
         { id = "h_libram", when = { questActive = TODO_QUEST("Libram of Rumination") },
           text = "You have the libram and the components, I see. Lay them down and let me drink what's written in them, and then you'll have your trinket." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, come to stand in my light. You think that sword makes you safe in these lands, but the Seven would have unmade you before you finished drawing it." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. The rangers of Quel'Thalas walked as you walk, and they went to war with a bow and a hawk, and very few of them came home." },
       },
       again = {
         { id = "h_again", text = "Is there more? Be quick; I don't care for idle company." },
@@ -1059,6 +1189,8 @@ P:NPC {
         { text = "My people are Highborne too, from Eldre'Thalas.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "I know that hunger. Mine comes from the Nether.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "What would a rogue want with an elven libram?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What use is a sword against magic like that?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Did you know any of the rangers of Quel'Thalas?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you.", next = "END" },
       },
     },
@@ -1177,6 +1309,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They fight well, and that's what makes it worse, because they fight well for a dragon. The old Horde made warriors like that, all fury and no sense, and Thrall spent years teaching us to be better." } },
+      choices = {
+        { text = "Thrall is right. Fury needs a leash.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fury wins battles. The old Horde understood that much.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "No, but they respect each other, which out here is the same thing. A wind rider sees a wolf the way a wolf sees a rabbit, so I keep them apart, and nobody gets eaten." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} is watching my riders. Good, because they're watching it back, and out here the first to blink is usually lunch." },
+      },
+      choices = {
+        { text = "Then I'll keep them apart, as you do.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them settle it themselves. That's how the wild works.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because from up there you see how far the Blackrock reach, right to the edge of the mountain, and how few of us hold Flame Crest. A mage who has seen that spends fire more carefully." } },
@@ -1201,6 +1354,10 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could open your own way home, but my riders show you the Steppes on the way, and the Steppes should be seen once, burning." },
         { id = "h_default", key = true,
           text = "Vahgruk. I keep the Horde's wind riders at Flame Crest, so that anyone the Warchief sends this far north has a way home again." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. The riders will take you, and the armour, but they'll want you to sit still, and warriors never sit still." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. Keep your beasts away from the riders' feed, because a wind rider will eat anything that fits in its mouth, and some things that don't." },
       },
       again = { { id = "h_again", text = "Anything else, or do you want a rider?" } },
       choices = {
@@ -1209,6 +1366,8 @@ P:NPC {
         { text = "Show me the routes.", next = "BUSINESS" },
         { text = "Why should I see the Steppes from above?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the Blackrock still have warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do you make of Rend's warriors, Vahgruk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do wind riders and hunters' beasts get along?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

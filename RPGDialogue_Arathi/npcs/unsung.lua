@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A heavy mace, for trolls heal faster than any beast I've known, an' a blade's cut closes near as fast as ye made it. Crack the bone, though, an' even a troll has tae stop an' think about it." } },
+      choices = {
+        { text = "Steel and discipline will win back the Highlands.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Win it back however we can. Rules won't break bone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Jannos.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "When the hunters ask, an' they ask more now the raptors have come down from the hills tae pick at the soldiers' camps. A good point'll go through raptor hide like it's cloth, an' I've seen what a bad one does, which is bounce." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} has been sniffin' round my anvil since ye walked in, an' I'll take that as a compliment tae my work. Mind its nose, though, for the iron's still hot." },
+      },
+      choices = {
+        { text = "Good work deserves fair coin. I'll pay your price.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A hunter's purse is thin. I'll haggle you down.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "It is in my experience, because a blade asks ye tae cut, but a mace only asks ye tae stop somethin' that's comin' at ye, which suits the gentler sort. I've made maces for chaplains longer than ye've been alive, an' not one o' them ever complained o' the balance." } },
@@ -56,6 +77,8 @@ P:NPC {
           text = "A mage! I've a mace or two that'd take an enchantment well, {class}, though I'll warn ye now I've no coin tae pay for it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "They tell me a rogue's no use wi' a mace, {class}, but I've seen a quiet {g:lad|lass} wi' a cudgel do more damage behind a Syndicate camp than a whole squad." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who knows the worth o' a good mace. I forge 'em for every soldier at Refuge Pointe, an' they come back dented, which is how I know they're bein' used." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I've a few arrowheads coolin' by the forge, an' I'll tell ye now, a dwarf's arrowhead weighs twice what a human's does an' flies twice as true." },
       },
       again = {
         { id = "h_again", text = "What else d'ye want to know about the Pointe?" },
@@ -70,6 +93,8 @@ P:NPC {
         { text = "Do the Syndicate use rogues of their own?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is a mace really a priest's weapon, Jannos?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the soldiers of Refuge Pointe carry into battle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What's the best weapon against the Witherbark, Jannos?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you forge arrowheads as well as maces, Jannos?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

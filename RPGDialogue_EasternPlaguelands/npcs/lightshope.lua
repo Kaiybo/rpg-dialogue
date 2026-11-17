@@ -29,6 +29,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Dawn asks for a strong arm and a clear conscience, and the Light is welcome but never required. Some of the best I've known were soldiers of Lordaeron's old army who simply refused to stop fighting when their kingdom did." } },
+      choices = {
+        { text = "Then I'll fight for the Dawn as Lordaeron's soldiers did.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I fight for myself, my lord, though the Dawn may follow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Plaguebats roosting in daylight, wolves running toward Stratholme in packs too large to be natural, and birds that won't fly over Corin's Crossing at all. I'm a soldier, not a woodsman, but I know a sign of the enemy when I see one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed and clear-eyed, which is more than I can say for most creatures in these lands. The Dawn's stables are open to it, {class}, if it needs a quiet night." },
+      },
+      choices = {
+        { text = "I'll scout carefully and bring every report to your officers.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll follow the packs alone and strike when I see fit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Hold it, first, for there is nothing to heal while the dead still march out of Stratholme and the Plaguewood. When they stop rising, I'll hand you every acre of this ground gladly and pray you know what to do with it." } },
       choices = {
@@ -53,6 +74,10 @@ P:NPC {
           text = "A mage, and welcome, {class}. We lost many of the Kirin Tor when Lordaeron fell, and those who came to the Dawn brought fire the Scourge still remembers." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You came in quieter than most of my knights, {class}, which shames them more than it ought to impress me, though it does both." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, and welcome. Half my knights were squires of the Silver Hand who never took their oaths, {class}, and they could stand to watch a soldier who learned to fight without one." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter at Light's Hope. My scouts tell me the beasts of the Eastweald have gone strange, {class}, and I'd value an expert's eye on what it means." },
       },
       again = { { id = "h_again", text = "What else? Speak freely; the chapel keeps no secrets from its own." } },
       choices = {
@@ -68,6 +93,8 @@ P:NPC {
         { text = "Ironforge sends you little, my lord. I came anyway.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Why would Kirin Tor mages join the Dawn and not Dalaran?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the Argent Dawn have a use for rogues?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Can a warrior serve the Dawn without the Light?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What strangeness have your scouts seen in the beasts?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How can I help?", next = "END", fx = { affinity = 2, standing = { light_hope = 1 } } },
       },
     },
@@ -240,6 +267,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They trust my blade, which is more than I expected, but they won't share a fire with me. I understand it, for a soldier who has fought the Scourge for years learns to strike at anything that looks like me, and that instinct has kept them alive." } },
+      choices = {
+        { text = "I'll judge you by your deeds, Leonid, not by your face.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'm with your soldiers. The dead get no place at my fire.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Revered.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They can't, and they're right not to try, for I smell exactly as the Scourge smells. I've been bitten twice by the Dawn's own horses, and I took it as a compliment to their training." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is growling at me, {class}, and I'd ask you not to quiet it. A beast that hates the smell of the plague is a sentry worth keeping." },
+      },
+      choices = {
+        { text = "My beast will learn to tell friend from foe, given time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast's instincts are sound. I'll let it growl.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Revered.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I feel it as a kind of kinship, which is the cruellest thing the Scourge left me. The plague in the soil and the plague in my bones answer to the same masters, and I mean to see both cut off from them." } },
       choices = {
@@ -262,6 +310,10 @@ P:NPC {
           text = "A warlock. The Dawn's living members flinch at us both, {class}, but I think the Scourge flinches more, and that is all I ask of my own darkness." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. Forgive my face, {class}, for the plague took it before the Banshee Queen gave me back my mind, and mages in particular tend to stare." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. You needn't grip your sword so tightly, {class}, for I am dead, but I am on your side, and the dead of Light's Hope are the only ones you may safely turn your back on." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. The beasts of these lands flinch from me as they would from any Scourge, {class}, so forgive me if your companions bare their teeth." },
       },
       again = { { id = "h_again", text = "Yes? I have time; it's one of the few things the dead have plenty of." } },
       choices = {
@@ -273,6 +325,8 @@ P:NPC {
         { text = "The Light answers me too, Revered.", next = "x_paladin", when = { race = "Scourge", class = "PALADIN" } },
         { text = "Do you see your undeath as a weapon too?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does the Dawn ask of its mages, Leonid?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do the Dawn's living soldiers trust you, Leonid?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Can beasts tell that you aren't Scourge, Leonid?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'd like to help the Dawn, if you'll have me.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'll work with the dead when I must, but I won't trust them.", next = "END", fx = { align = { light = -1 } } },
       },

@@ -29,6 +29,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A few, on their way to Winterspring or back from Felwood, and they always look a little lost here, as if they keep waiting for something to attack them. I tell them to sit by the lake for a day, and some of them do, and they leave looking ten years younger." } },
+      choices = {
+        { text = "A disciplined warrior rests when there's time. I'll sit a while.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sitting still makes me restless. I'll be on my way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Daeolyn.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Warm clothes for Winterspring and clean water for Felwood, because you can't drink anything in that forest, and arrows for both. The road south runs through the Timbermaw tunnels, so keep on good terms with the furbolgs, or you'll be walking a long way around." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And something for {pet}, of course! I keep dried meat for the travelers' beasts, and they always look at me as if I'm the kindest person in Kalimdor." },
+      },
+      choices = {
+        { text = "I'll go through the tunnels and keep the Timbermaw's trust.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll slip through the tunnels whether the furbolgs like it or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "On most of them, if they stay long enough, and priests seem to catch it quickest of all. I sold a Forsaken priest a bag last spring, and he sat by the lake for three days and left without a word, but he was smiling, or near enough." } },
@@ -67,6 +88,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, welcome! You'll want a few bags, I'd guess, because warriors always carry more than they need and never have anywhere to put it." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, welcome! You'll want arrows and food for your companion, I expect, and I keep both, though Narianna's arrows are better than mine." },
         { id = "h_default", text = "I'm Daeolyn Summerleaf, and I keep the general goods for Nighthaven: water, thread, bags and the small things that travelers run short of. Most who come here are druids, but anyone the grove lets in may buy from me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, welcome to Nighthaven! The grove is quieter than any temple, and I've seen priests of every sort stay a day longer than they meant to." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, welcome! You needn't keep to the shadows here, because nobody in Nighthaven is looking for anyone, and that's the whole charm of the place." },
@@ -85,6 +110,8 @@ P:NPC {
         { text = "Is no one in Nighthaven ever looking for anyone, Daeolyn?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Are the druids truly prickly about magic, Daeolyn?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the grove truly let in anyone at all, Daeolyn?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do many warriors come through Nighthaven, Daeolyn?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What does a hunter need for the roads out of Moonglade?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell, Daeolyn.", next = "END" },
       },
     },
@@ -150,6 +177,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I believe so, though I can't prove it, because they grow a little differently each night, as if they'd been somewhere and come back changed. A warrior who walks gently here might find the plants lean toward them, and I've seen it happen." } },
+      choices = {
+        { text = "Then I'll walk gently here. A warrior can be careful.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Plants are plants. I'll walk where I like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Malvor.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Only the ones they need, which is the strange thing, because a deer here will pass a whole bed of herbs and nibble only one leaf. I think they know what's dreaming and what's awake, and leave the dreaming ones alone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} sniffs only at the peacebloom, I see, the most wakeful of them all. Your beast has good taste, friend." },
+      },
+      choices = {
+        { text = "Then the beasts should be left to their grazing. I'll respect that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If the beasts can eat them, so can I. Herbs are herbs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Not with ears, but they lean toward a kind voice the way they lean toward the moon, I'm sure of it. A troll priest once prayed over my peacebloom, and it flowered twice that season, though I suppose it might have been the rain." } },
@@ -188,6 +236,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, among my herbs. Do step carefully, please, because the plants here dream, and I think heavy boots give them nightmares." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, among my herbs. You'll know the wild plants, I expect, the ones that grow by the trails, and you'll know which ones the beasts eat." },
         { id = "h_default", text = "I am Malvor, and I tend the herbs of Moonglade and teach those who wish to learn herbalism. Everything here grows a little differently, because the grove sits so close to the Dream." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here among the herbs. Moonglade's plants grow so close to the Dream that some say they listen to prayers, so do keep yours gentle." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, among my herbs. You'll know your poisons, I expect, and I'm afraid Moonglade's plants are too sleepy and too gentle to give you any." },
@@ -206,6 +258,8 @@ P:NPC {
         { text = "Are there truly no poisons growing in Moonglade, Malvor?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What would the arcane do to a dreaming plant, Malvor?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do Moonglade's herbs really shrink from the fel, Malvor?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do the herbs of Moonglade really dream, Malvor?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the beasts of Moonglade eat your herbs?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell, Malvor.", next = "END" },
       },
     },
@@ -268,6 +322,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a satyr in Felwood will throw fel fire from the trees, and a warrior who has to run thirty paces to reach it arrives half-burnt. A bow won't make you a hunter, but it'll make the satyr come down to you." } },
+      choices = {
+        { text = "A warrior closes the distance and faces the enemy. No bow.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A bow from cover suits me fine. Let them come to me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Narianna.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Moonglade's wood, which grows slow and close to the Dream and doesn't warp in the cold, and that matters when you're on your way to Winterspring. I won't cut a living tree, so I use what the storms bring down, which is why I never have more than a dozen to sell." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} deserves a hunter who doesn't miss, so take your time choosing. A good bow is a kindness to your beast as much as to you." },
+      },
+      choices = {
+        { text = "A bow from fallen wood is the only honest kind.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Living wood makes a better bow. I'd cut it myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "A good prayer can mend the hole an arrow leaves, I'll grant you, but it's a poor shield before it lands. Every traveller who leaves this grove meets furbolgs and worse on the road, so take a friend with a bow, if you won't take one yourself." } },
@@ -306,6 +381,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. You'll want a bow for when your enemies keep their distance, I'd say, and don't look at me like that, because even a warrior has to reach sometimes." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Then you'll know a good bow when you see one, and you'll know these aren't the cheap ones they sell in the cities." },
         { id = "h_default", text = "I'm Narianna, and I sell bows, arrows and quivers here in Nighthaven. Nobody fights inside the grove, but everyone who comes here has to leave again, and the roads out are not so kind." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll not want a bow, I imagine, but the roads out of Moonglade run through Felwood and Winterspring, and a prayer can't stop an arrow." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want a bow for when the dagger doesn't reach, and I'll not ask what you're aiming at, so long as it's outside the grove." },
@@ -324,6 +403,8 @@ P:NPC {
         { text = "Do you sell to rogues knowing what they'll do, Narianna?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is an arrow truly better than a spell, Narianna?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the druids really dislike summoning so much, Narianna?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why would a warrior need a bow, Narianna?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What makes your bows better than a city bowyer's?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell, Narianna.", next = "END" },
       },
     },

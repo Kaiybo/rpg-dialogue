@@ -15,6 +15,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A great deal, honestly, because the raptors from the fens don't wait for me to finish an incantation. My students run their errands with a fighter beside them when they've any sense, and the ones who don't come back singed." } },
+      choices = {
+        { text = "I'll guard any caster gladly. That's what a sword is for.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Mages ought to fight their own battles, Tabetha.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The crocolisks in the shallows, first, because they lie as still as logs until you're standing on them, and then the black whelps that come down from the Wyrmbog. The whelps are the worst, since they're clever and they burn, and they've started roosting closer to my hut than I'd like." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} had better stay out of my herb beds, because the mud here grows nothing easily and I've fought for every leaf." },
+      },
+      choices = {
+        { text = "I'll drive those whelps back toward the Wyrmbog for you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your hut's your problem, Tabetha. I hunt what pays.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = {
@@ -72,6 +93,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, out here? You'll want to keep that sword away from my wards, because they take a dim view of anything that clanks." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! The marsh is full of things worth tracking, and most of them would like to track you back, so I'm glad to see you've come prepared." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, all the way out here? I'll warn you now that I'm not in want of saving, but if you're after a cup of tea and an honest opinion about the marsh, you've come to the right hut." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll feel the mana in this marsh as a hum in the ground, I suspect, and I'd love to know whether it hums the same for you as it does for me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I don't get many visitors who pray, so you'll forgive me if I'm curious about who's answering, and whether they mind all the mana sloshing about out here." },
@@ -95,6 +120,8 @@ P:NPC {
         { text = "What wards do you keep around your hut, Tabetha?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does fel magic spoil the mana here, Tabetha?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Doesn't living alone in this swamp weigh on you, Tabetha?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What use is a warrior to a mage in this swamp?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What should a hunter watch for in the southern marsh?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -143,6 +170,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "In the marsh, the one who's heard first gets eaten first, and you clank like a tinker's cart. Theramore's soldiers come out here in full plate and wonder why the raptors find them, and I just sit on my porch and watch." } },
+      choices = {
+        { text = "Theramore's soldiers keep this road safe. Show them some respect.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll leave the plate behind and fight the marsh's way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I've tracked more than I let on, and a fair bit of it walks on two legs and keeps well off the road, which is never a good sign. The raptors I can live with, because at least they don't lie about being hungry." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has a good nose, I'll grant it. If it starts growling at my turnip patch, though, you tell it Swamp Eye has a long memory." },
+      },
+      choices = {
+        { text = "Whatever lurks out here, Theramore should hear about it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What a man does off the road is his own business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Ghost lights, I reckon, or something wearing them, out past the burned inn on the road where nobody goes anymore. The Theramore lot say it's swamp gas, but swamp gas doesn't hum, and that's what I heard." } },
@@ -198,6 +246,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "You've a big sword and heavy boots, and Swamp Eye heard you coming a mile off, along with every crocolisk between here and the road." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Now you're someone who knows what it is to watch, so we'll get along fine, provided you don't watch my house." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light, out in my bit of swamp! I've watched folk come and go past my house for years, and I'll tell you true, not many of 'em were headed anywhere holy." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You see the marsh with different eyes, I suppose, but mine see plenty, and I don't need spirits to tell me who's sneaking about." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Then maybe you'll believe me about the lights over the water, because the Theramore lot certainly don't, and they ought to." },
@@ -221,6 +273,8 @@ P:NPC {
         { text = "Who set your turnips on fire, Jarl?", next = "xmage", when = { class = "MAGE" } },
         { text = "Have you seen other warlocks pass through the marsh, Jarl?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What have you seen pass by your house, Jarl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are heavy boots really such a problem in the marsh, Jarl?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What have you tracked out in the marsh, Jarl?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -269,6 +323,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Ogres fight like hungry, mostly, and then they fight like tired, and then they run away. Ogron watch human soldiers in Theramore with their shields all in a line, and Ogron think that very clever, because nobody in a line has to fight alone." } },
+      choices = {
+        { text = "The line is everything. Nobody fights alone in it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A line is slow. Strike hard and strike first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Ogron hunt turtle, because turtle slow and Ogron also slow. Raptors too fast for Ogron, and black dragons too big, so Ogron leave them for clever hunters like you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ogron like {pet}! {pet} not scared of Ogron, and that very rare, because most things run when they see ogre." },
+      },
+      choices = {
+        { text = "You've earned my trust, Ogron. That's enough for me.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll trust you when Reethe's caught, and not before.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Ogre magi very clever, and they whisper in the big ogre's ear until the big ogre does what they want. Ogron not like that, because Ogron think if you want something, you ask for it with your own mouth." } },
@@ -307,6 +382,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "You strong one, Ogron see. Good, because Reethe have friends, and Ogron not want to fight them all by himself." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "You hunter! Ogron like hunters, because hunters watch quiet and not ask Ogron why ogre want to help." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "You priest of the little-people Light! Ogron not pray to it, but Ogron see it make hurt people better, so Ogron think it good magic, and Ogron glad you here." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "You shiny one! Ogron see shiny ones in Theramore with big hammers, and they look at Ogron like Ogron is next to get hammered, so you please not do that." },
         { id = "h_default", key = true, text = "Ogron is ogre, but Ogron not want to smash Alliance. Ogron want to help find who burn the inn, because Ogron see things too, and nobody ask Ogron." },
@@ -325,6 +404,8 @@ P:NPC {
         { text = "Why does my magic smell like the ogre magi, Ogron?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why did you leave your clan's ways behind, Ogron?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the soldiers of Theramore treat you fairly, Ogron?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do ogres fight like warriors, Ogron?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do you hunt in the marsh, Ogron?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -373,6 +454,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every week the tracks come a little nearer, and last night something big went round the base of the tower twice and didn't leave. The lads say it's only the fog playing tricks, but fog doesn't leave claw marks on the door." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Could {pet} have a sniff round the tower before you go? A beast's nose would settle the argument faster than the three of us ever will." },
+      },
+      choices = {
+        { text = "Report it to Theramore. They need to know.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the reports. I'll hunt the thing down tonight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Mostly it hides the road, and whoever's on it, which is the trouble. Since the inn burned, every shape in the fog looks like a Horde raider to my lads, and I'm the one who tells them it's only a heron." } },
       choices = {
@@ -419,6 +512,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter, good. If you came up the north road you'll have seen the raptor tracks, and you can tell me whether they're getting closer to the tower, because I swear they are." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest out at Sentry Point! Most of what comes up this road wants to kill us, so it's a rare thing to see someone who might patch us up instead." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Lady Proudmoore keeps the peace with the Horde and I keep my orders, but I won't pretend it doesn't steady me to see one of the Silver Hand on this road." },
         { id = "h_default", key = true, text = "Private Hendel, Theramore Guard, posted at Sentry Point. We watch the northern road so Theramore knows what's coming before it arrives, and lately what's coming is trouble." },
@@ -440,6 +535,7 @@ P:NPC {
         { text = "Why does Sentry Point need a ward, Hendel?", next = "xmage", when = { class = "MAGE" } },
         { text = "What's coming up the northern road lately, Private?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does keeping the peace with the Horde sit well with you?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are the raptors really closing in on Sentry Point?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -488,6 +584,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Mok'Morokk hunt black dragon, one day, and wear its head for hat! Today Mok'Morokk eat tortoise, because black dragon very big and Mok'Morokk very busy being overlord." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} look tasty, but Mok'Morokk not eat it, because hunter look angry when Mok'Morokk say that." },
+      },
+      choices = {
+        { text = "A real boss would hunt the dragon himself, Overlord.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let others die for the dragon's head. That's what bosses do.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Need magic to kill black dragon that killed old chief! Mok'Morokk want big fire, bigger than Draz'Zilb's, and then Stonemaul go home." } },
@@ -535,6 +643,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "Hunter! Mok'Morokk like hunter, because hunter bring meat, and Mok'Morokk always hungry." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You shaman! Orc shaman talk to rocks, and rocks listen. Mok'Morokk talk to rocks, and rocks do nothing." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You priest! Mok'Morokk not care which god you talk to, as long as you fix Stonemaul when they get hurt." },
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "Sneaky one! Mok'Morokk see you coming, because Mok'Morokk not stupid, so you keep hands off Mok'Morokk's food." },
@@ -555,6 +665,7 @@ P:NPC {
         { text = "Should the Stonemaul serve the Horde?", next = "s_1" },
         { text = "Do you trust Draz'Zilb's magic, Overlord?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why would you want a demon, Overlord?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What does the overlord like to hunt, then?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -603,6 +714,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Stonemaul value whatever won the last fight, and for an ogre that is usually strength, which is why the overlord's chair is so large. I have found that wits only earn respect when they arrive standing behind a large club, so I keep several large friends." } },
+      choices = {
+        { text = "Strength should serve wise counsel, not the other way round.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Strength rules, and wits should know their place.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That they are not simply wild beasts, and that something in the Wyrmbog wants the Stonemaul gone from this marsh entirely. The black dragon killed our chieftain, and I have studied every scale and claw your kind have brought back since." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking south, toward the Wyrmbog. Beasts smell a dragon's lair long before an ogre can, so heed it." },
+      },
+      choices = {
+        { text = "Then I'll hunt the brood until the Stonemaul are avenged.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your chieftain's death isn't my fight, advisor.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "A home that is ours, and a leader who can think past his next meal, though I would never say that within the overlord's hearing. Until then I keep the Stonemaul fed and the orcs friendly, which is harder than any spell I know." } },
@@ -649,6 +781,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. The overlord respects anyone who can lift more than he can, which is a short list, so you will find him easy to impress." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. The black whelps of the Wyrmbog are clever, and they learn from every hunter who misses, so do try not to teach them anything." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of Thrall's Horde. The Warchief's restoring of your old ways is the reason the Stonemaul trusted the orcs at all." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Stonemaul have little use for prayer, but they have a great deal of use for healing, and I would be grateful if you offered the second without preaching the first." },
         { id = "h_default", key = true, text = "I am Draz'Zilb, advisor to Overlord Mok'Morokk. While he leads the Stonemaul with his fists, I lead them with knowledge, and between us we keep Brackenwall standing." },
@@ -669,6 +805,8 @@ P:NPC {
         { text = "Is your overlord a good leader?", next = "s_1" },
         { text = "Do you keep spies in Brackenwall, Draz'Zilb?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Did the ogre magi learn their power from demons, Draz'Zilb?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the Stonemaul value strength over wits, Draz'Zilb?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do you know of the black dragonflight's whelps, Draz'Zilb?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },

@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "One or two, for the fields toward Tarren Mill, where the Forsaken patrol by night. I sell it as fishing line and they buy it as fishing line, and Donald thinks we've had a very good season for anglers." } },
+      choices = {
+        { text = "Tripwires are a coward's trick. Fight them face to face.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whatever brings down a Forsaken patrol. Sell them more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Lindea.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "More than you'd think, since the hills are thin this year and the bay never quite is. Donald says a hunter who fishes is only being sensible, and I say a hunter who fishes couldn't find a lion, and we both enjoy the argument." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} will want the fish, I suppose, which is fair, since your beast is the only one in Southshore who'll eat Donald's catch without complaining about the bones." },
+      },
+      choices = {
+        { text = "I share what I catch. That's how a town survives.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I keep what I catch. Others can find their own.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Once or twice, to see the refugee boats in after the plague, and they carried children up the pier in their arms as if they weighed nothing. Donald still talks about it, though he pretends he doesn't." } },
@@ -76,6 +97,8 @@ P:NPC {
           text = "A priest buying fishing line? Well, I suppose even the Light's servants want a quiet evening, and the docks are the quietest place in Southshore." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, and in all that plate! If you fall off my dock you'll sink like an anchor, so mind the loose board by the third post." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll not want fishing line, I expect, though it makes a handy bowstring in a pinch, and a handier tripwire." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want snares and line, I suppose, and maybe a hook or two in case the hills turn out stingy." },
       },
       again = {
         { id = "h_again", text = "What else, love? The tide waits for no one, but I can." },
@@ -91,6 +114,8 @@ P:NPC {
         { text = "Would Donald really be disappointed in me, Lindea?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the fishermen pray before they sail, Lindea?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did knights of the Silver Hand ever come down to the docks?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have soldiers bought your line for tripwires, Lindea?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters buy fishing gear from you, Lindea?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good fishing to you.", next = "END" },
       },
     },
@@ -184,6 +209,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "None that I can promise, if I'm honest, though I've a draught that helps against the common poisons and buys time against the worse ones. I read every label twice and still lie awake wondering whether it's enough." } },
+      choices = {
+        { text = "I'll trust your draught and the Light. Both will see me through.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Antidotes are guesswork. I'll trust my blade and nothing else.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Nandar.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The ones running down from Tarren Mill, by the smell, and the ones near the Hillsbrad farms, by the dead fish. A gatherer brought me a bundle from the lower banks last month, and I burned the lot, because I'll not sell anything that might have drunk the plague." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Don't let {pet} drink from those streams, please, because a beast can't read a warning, and I'd hate for it to learn the hard way." },
+      },
+      choices = {
+        { text = "Better burned than risked. You were right to be careful.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You burned good herbs on a guess. That's waste.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Because the Syndicate holds most of the hills, the ogres hold the rest, and the Forsaken have been poisoning the springs. I pay a premium for anything a gatherer manages to bring down alive, and they don't always come back." } },
@@ -208,6 +254,8 @@ P:NPC {
           text = "Nandar Branson, alchemy supplies. I keep the vials clean and the reagents dry, and I try not to think too much about what the apothecaries in Tarren Mill are mixing up there in their cauldrons." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want reagents for your spells, and I'll warn you that the good ones come from the Alterac hills, which means they're expensive and hard won." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want soul shards, I suppose, and I'll tell you now that I don't sell them, and I'd rather not know where you get them." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be one of those who goes up toward Tarren Mill, then, and I'd beg you to carry an antidote, because what they're brewing up there won't care how thick your armour is." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're out in the hills, I'd pay well for herbs from the higher slopes, so long as you pick them above the streams the Forsaken have been fouling." },
       },
       again = {
         { id = "h_again", text = "Yes? Is there something else, friend?" },
@@ -221,6 +269,8 @@ P:NPC {
         { text = "The Light could help those sick farms.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Why are reagents from Alterac so hard to come by, Nandar?", next = "xmage", when = { class = "MAGE" } },
         { text = "What reagents do you sell to warlocks, Nandar?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What antidote would protect me from the Forsaken, Nandar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Which streams have the Forsaken fouled, Nandar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -312,6 +362,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The careful ones do, and the rest wait until something falls off in the middle of a fight. Kundric swears a lost buckle once decided a battle in these hills, and I don't believe him, but I've sold more buckles since he started telling it." } },
+      choices = {
+        { text = "Mend your gear every night. Discipline keeps you alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Gear breaks. A good fighter adapts and keeps swinging.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Micha.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bear and lion, mostly, since the soldiers want sturdy jerkins and the farmers want gloves that won't tear on a fence. I keep a list of who's waiting on what, and it's longer than the Magistrate's list of Syndicate camps." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a lovely coat, and before you glare at me, I only mean someone's clearly been brushing it. I'd never sell a hunter's companion, I promise." },
+      },
+      choices = {
+        { text = "I'll take only what the crafters need. Waste is a sin.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Every hide is coin. I'll skin whatever I find.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Hardly any since the Silver Hand broke, and I used to sell more buckles and polish than anything else on the cart. Now it's mostly Stormwind soldiers passing through, and they don't keep their kit half so well." } },
@@ -358,6 +429,8 @@ P:NPC {
           text = "A priest! You'll be wanting linen, I expect, because the camp up in the Plaguelands buys it by the bolt for bandages and shrouds, and I can never keep enough of it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll want oil and polish for that plate, I'd wager, because the damp in Hillsbrad will rust a buckle overnight." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want leather strips and heavy thread for those straps, I'd guess, since every soldier who comes back from the fields has something torn." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Bring me good hides from the hills and I'll find a crafter who needs them, since half of Southshore's leatherworkers are short on everything but complaints." },
       },
       again = {
         { id = "h_again", text = "Ask on; I've a cart to unload, but my tongue works fine while I do." },
@@ -372,6 +445,8 @@ P:NPC {
         { text = "Do many mages buy cloth and dye in Southshore, Micha?", next = "xmage", when = { class = "MAGE" } },
         { text = "Shrouds by the bolt? Who orders them, Micha?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you outfit many knights these days, Micha?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the soldiers mend their own gear here, Micha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What hides do Southshore's crafters need most, Micha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -453,6 +528,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Whetstones, rivets, and a little something to stop the shakes after a long fight, and I sell the same to both towns, which keeps the prices honest. Tarren Mill buys the heavy stuff and Southshore buys the cheap stuff, and I'll let you guess who's winning." } },
+      choices = {
+        { text = "Selling arms to both sides is no better than treason.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Smart business. War's good for anyone with a wagon.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Zixil.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Scare it? They chase it, pal, and then they walk into trees, which is how I lost a perfectly good Overwatch unit to a bear last spring. The bear's fine, in case you're wondering, and it's still got one of my gears." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the robots, will ya, because they've got a thing about anything with fur, and I'm still payin' off the last one." },
+      },
+      choices = {
+        { text = "Your machines should stay on the road where they belong.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them roam. A little chaos keeps the road interesting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "I sell wares to customers, pal, and the customers decide what's a weapon. Tarren Mill buys rope and lamp oil, Southshore buys rope and lamp oil, and what either side does with it is a moral question for folk in better armour than mine." } },
@@ -525,6 +621,8 @@ P:NPC {
           text = "A priest from the Southshore side! I've holy candles, blessed salt and a very convincing reliquary, and I'll swear on my robots that the salt is blessed." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I've had knights try to arrest me before, so let's get it out of the way: everything I sell is legal in at least one of the two towns I sell it in." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, pal! You look like you break a lot of things, and I sell a lot of things to replace 'em, so I think we're gonna be friends." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You got the look of someone who needs ammo, and I got the look of someone who sells it, so let's skip the haggling and go straight to the paying." },
       },
       again = {
         { id = "h_again", text = "What else, customer? Talk while you walk; I've a schedule." },
@@ -542,6 +640,8 @@ P:NPC {
         { text = "How did an imp short out your robot, Zixil?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Who blessed your salt, Zixil?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you sell weapons to the Forsaken, Zixil?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What does a goblin sell a warrior, Zixil?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do your robots ever scare off the game, Zixil?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Safe travels.", next = "END" },
       },
     },

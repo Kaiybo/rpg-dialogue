@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because everything down there's either trying to eat ye or glowing with something, and I've seen what crater meat did to a guard's belly. A warrior needs bread and salt pork and a steady stomach when the devilsaurs come, not a gutful of who knows what." } },
+      choices = {
+        { text = "Plain rations and a steady stomach. That's how soldiers march.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I live off the land wherever I fight. It's served me fine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not a scrap, and don't ye wave a raptor flank at me either, because I've seen what crater beasts eat, and some of it was a scholar's boot. Ammunition's another matter, and ye'll be wanting plenty of that down there." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} can eat what it likes, mind, because beasts have stronger stomachs than dwarves, but don't let it lick my counter after." },
+      },
+      choices = {
+        { text = "Your caution's sound. Stick with the old rations.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The land provides. You'd do well to eat from it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "More than I care to count, and the crater kept half of them, so I've buried empty sacks with names stitched on. Say what ye like about the Forsaken, but I'd not want anything walking out o' that crater that I'd put in the ground." } },
@@ -103,6 +124,10 @@ P:NPC {
           text = "A priest, is it? Then ye'll have seen what the crater does to folk, and if ye haven't, give it a day and ye will." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! The Refuge could use a bit of honest steel and holy fire, because the raptors have been getting bold, and they don't respect a shopkeeper's ladle." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, and ye'll be wanting a proper meal before ye go down into that pit, because I'll not have ye eating what lives down there." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, eh? Ye'll be bringing me crater meat, I suppose, and I'll be telling ye no, same as I tell everyone." },
       },
       again = {
         { id = "h_again", text = "Anything more ye need from the stores, friend, before I get back to my crates?" },
@@ -119,6 +144,8 @@ P:NPC {
         { text = "What does the crater do to people, Nergal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have you buried many from the expeditions, Nergal?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should the Refuge be fortified, or abandoned?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why won't you eat anything that grows in the crater, Nergal?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Won't you even buy devilsaur meat from a hunter, Nergal?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -172,6 +199,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The pterrordax try it every week, and every week my flyers leave them flapping behind, because I only buy the fast ones. Still, I'd sleep easier knowing a warrior was riding along who could swing at anything that got close." } },
+      choices = {
+        { text = "On a flyer I'd hold still and let the bird work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a pterrordax comes near, I'll swing at it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not the ones on the ground, because a devilsaur can't climb and a raptor can't jump that high, though I've seen one try. It's the pterrordax that worry me, and a hunter who thinned out their roosts on the ridge would make my whole week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} from eyeing my flyers' legs before takeoff, will you, because a bird that's been stared at all morning flies sulky and lands worse." },
+      },
+      choices = {
+        { text = "Pterrordax hunt to live. Thinning them isn't my place.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Clear the roosts. Your flyers matter more than they do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Every last one, friend, Horde and Alliance alike, and the Forsaken pray loudest, which surprised me, given they've already been dead once. The updrafts off that volcano will make a believer of anybody." } },
@@ -238,6 +286,10 @@ P:NPC {
           text = "Ah, a mage. Planning to teleport out and save yourself the fare? Go on, break a goblin's heart." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You lot fly heavy, so stand still while I check the straps, because a paladin's armor has made more than one bird regret its career." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! You fly with me, you strap that axe down tight, because a loose blade in a headwind over Fire Plume Ridge is a very expensive mistake." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, and with a beast! Flyers don't mind passengers, but they do mind passengers with claws, so let's have a little talk first." },
       },
       again = {
         { id = "h_again", text = "What else? The flyer's getting twitchy." },
@@ -253,6 +305,8 @@ P:NPC {
         { text = "Mages can't teleport to Gadgetzan, Gryfe.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you fly the Horde as gladly as the Alliance?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do your passengers really pray on the flight, Gryfe?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Have your flyers ever been attacked over the crater, Gryfe?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the crater beasts ever threaten your flyers, Gryfe?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },

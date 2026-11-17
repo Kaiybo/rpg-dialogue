@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "As well as coal and iron allow, and both cost a fortune to haul over the Gorge road. The Dark Irons have all the iron they want under their mountain, which isn't fair, because they're the ones trying to kill everybody." } },
+      choices = {
+        { text = "Then the Horde's smiths deserve your coal at a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Raid the Dark Irons for iron and never pay goblin prices.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jazzrik.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Terrible, because the coyotes and basilisks love the mines as much as I do, and they never pay for anything. I lose a mule a month to the basilisks, and I've started charging the orcs extra for the mule, which they don't appreciate." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} off my coal cart! I had a beast roll in it once, and its owner tried to charge me for the bath." },
+      },
+      choices = {
+        { text = "Charging the Horde for your dead mule is plain swindling.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Charging extra for the mule? That's sharp business, goblin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jazzrik.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If it minded, it should've said so before I signed the contracts. I buy my ore off miners who dig out near Uldaman, and the only thing in the Badlands that's ever complained is the troggs, and they complain about everything." } },
@@ -76,6 +97,10 @@ P:NPC {
           text = "A mage! You don't need iron bars, I suppose, but if you ever want to buy some just to be friendly, I won't stop you." },
         { id = "h_default", key = true,
           text = "Jazzrik, blacksmithing supplies! I keep the warlord's smiths fed with coal and iron, and in return the warlord doesn't feed me to anything, which I think is a very good arrangement for both of us." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior! You'll want your blade sharpened and your armour mended, and the warlord's smiths need my coal for both, so really, I'm the reason you're still standing." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter! No coal for you, I suppose, unless your beasts eat it, but I've arrowheads, good iron ones, at a price that'll only make you cry a little." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Talk fast; I'm paid by the sale, not the chat." },
@@ -92,6 +117,8 @@ P:NPC {
         { text = "How do the orcs here treat my people?", next = "forsaken", when = { race = "Scourge" } },
         { text = "What do you keep that's worth stealing, Jazzrik?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "My imp doesn't eat coal, Jazzrik.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do Kargath's smiths keep the warriors well armed?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What's the hunting like around the mines, Jazzrik?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

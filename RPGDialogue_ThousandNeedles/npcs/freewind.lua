@@ -27,6 +27,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Back to their camps on the canyon floor, by paths that change with every raid, because they know we watch from the mesas. Follow the hoofprints west toward their hold and you'll find them, though I'd go in daylight, because the Galak scouts see well at night." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close on the canyon floor. The Galak shoot at anything that moves down there, and they won't stop to ask whether it's wild." },
+      },
+      choices = {
+        { text = "I'll find their camps, and Freewind can strike them openly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find their camps and burn them while they sleep.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The grass will come back, the elders say, once the hooves stop coming. Whether the hooves stop depends on us, and on how hard we are willing to strike." } },
       choices = {
@@ -55,6 +67,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. From up here I can see every Galak raiding party long before they see us, but I can't follow them into the canyons, and you can." },
         { id = "h_default", key = true,
           text = "Cliffwatcher Longhorn. Freewind keeps watch over the Needles, and when the Galak raid whatever walks below us, we answer them." },
         { id = "h_message", tags = { "news" }, when = { questActive = TODO_QUEST("Message to Freewind Post") },
@@ -101,6 +115,7 @@ P:NPC {
         { text = "What do the Galak windchasers call down on the canyon?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Could a rogue be of use against the Galak?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "You think my power no better than the centaurs' magic?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Where do the Galak raiders go after a raid, Cliffwatcher?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -304,6 +319,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Great battles, mostly, centaur against centaur and clan against clan, and very few of them seem to end with anyone winning. The Galak carve their heroes trampling their enemies, and I've begun to wonder if they've ever carved anything else." } },
+      choices = {
+        { text = "War without honor is just slaughter. The carvings prove it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Victory is victory. The Galak simply remember theirs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They do, and their carvings show it, with great hunts drawn round the walls in red ochre. What puzzles me is that the beasts in the oldest carvings are larger than anything in the Needles now, and I can't tell whether the centaur exaggerated or something has been lost." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} would make a fine carving, you know. The centaur only ever drew beasts being hunted, and I'd like to see one drawn standing proudly beside its hunter." },
+      },
+      choices = {
+        { text = "Trust the bones and the evidence, not painted boasts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Trust the carvings. Old tales hold truths that bones don't.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "That's what I think, but I've no proof, and a scholar who thinks without proof is only a dreamer. If you ever get close enough to the flame to sense what feeds it, I'd be grateful for the word, because I'd rather know than guess." } },
@@ -324,6 +360,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior, good! If you go down to the Galak camps, mind the carvings on the walls, because some are older than the centaur who live there now, and I'd hate to lose them to a stray axe." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter! You'll have seen the centaur's game trails in the canyons, and I'd love to know if any of them lead near the Cloven Hoof." },
         { id = "h_default", key = true,
           text = "Rau Cliffrunner. The centaur keep a relic in their hold, the Cloven Hoof, behind a flame that never goes out. I'd very much like to know why." },
         { id = "h_flame", tags = { "news" }, when = { questActive = TODO_QUEST("The Sacred Flame") },
@@ -348,6 +388,8 @@ P:NPC {
         { text = "Do the spirits speak through the Cloven Hoof?", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "A flame without fuel must be magic, Rau.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "You think something darker answers the centaur?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do the centaur carvings show of their wars, Rau?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the centaur hunt the beasts of the canyon, Rau?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -457,6 +499,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Then I'll be very polite to her and you'll be very brave, which seems a fair division of labour to me. Anything that lays an egg that size is something I'd like to meet from a respectful distance, with a warrior standing helpfully in between." } },
+      choices = {
+        { text = "Then leave the egg. Its mother has the better claim.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the mother comes, I'll handle her. Go get your egg.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Something with wings, I'm nearly sure, because no beast that walks would choose to nest this high. I've heard old tales of great fliers over the Needles, and I'd give a great deal to know whether one is waiting to be born." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} sniff at the canyon nests when you pass? I'd trust its nose over any map I bought in Thunder Bluff." },
+      },
+      choices = {
+        { text = "Some eggs should stay in their nests, Hagar.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Find it before the Galak do, whatever hatches.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "A fair question, and I asked it myself, briefly. But if something like that hatches out there with no one watching, it will be the Needles that pay, and I'd rather it hatched where I could see it." } },
       choices = {
@@ -485,6 +548,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior! Splendid, because if I do find that egg, whatever laid it may want it back, and I'd rather it found you first." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter! Then you'll know every nest and den in these canyons, and I've been wondering for days which of them might hide an egg the size of a kodo's head." },
         { id = "h_default", key = true,
           text = "Hagar Lightninghoof, of Thunder Bluff. I heard these canyons hid an egg unlike anything a wind serpent ever laid, so I came to see for myself." },
         { id = "h_egg", tags = { "news" }, when = { questActive = TODO_QUEST("Alien Egg") },
@@ -516,6 +583,8 @@ P:NPC {
         { text = "Could magic help you find this egg of yours?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "A strange egg might well hold magic, Hagar.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "You want me to steal an egg?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What if the egg's mother comes looking, Hagar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do you think will hatch from this egg, Hagar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Good luck with your egg.", next = "END" },
       },
     },
@@ -633,6 +702,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A good one might, if they climbed at night and didn't mind the drop, because the braves pull the ropes up behind them. I've tried it twice and come back with nothing but torn hands, so I sit here, and I wait, and I hate myself for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} might catch Lakota's scent on the rocks, if any of her is left up there. Let it smell this cord; she tied the first knots in it herself." },
+      },
+      choices = {
+        { text = "Waiting isn't weakness. Going up alone would be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Waiting won't save her. Climbing might.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They say the land belongs to the tauren alone, and every other race is a weed to be pulled. Somewhere along that road, they started pulling tauren too." } },
       choices = {
@@ -661,6 +742,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. Arnak's braves leave tracks up the pinnacle like any beast, and I've followed them to the foot of the cliff a dozen times and never any further." },
         { id = "h_default", key = true,
           text = "Thalia Amberhide. Arnak Grimtotem carried off my friend Lakota Windsong and killed her brother when he tried to stop it, and every trail leads up to the Grimtotem's pinnacle. So I sit here and wait, and I'm poor company for it." },
         { id = "h_free", tags = { "news" }, when = { questActive = TODO_QUEST("Free at Last") },
@@ -694,6 +777,7 @@ P:NPC {
         { text = "Could magic help find Lakota?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Could I get Lakota out quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Vengeance doesn't need the Earth Mother's blessing.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Could a hunter follow the Grimtotem up the pinnacle?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'm sorry.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -826,6 +910,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Easier than anywhere, I think, because the Galak can't reach us up here and the Grimtotem keep to their own pinnacle. The warriors who sleep here say the wind sounds like drums at night, and some of them sleep better for it, and some of them don't sleep at all." } },
+      choices = {
+        { text = "The drums are a comfort. Let the wind keep watch.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Drums mean war. I'll keep my axe close tonight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Only their lunches, because the hawks have learned that anyone eating on the ledge isn't watching the sky. Nyse says her wind riders chase them off the roost, but the hawks were here before Freewind, and I think they consider us the guests." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And there's {pet}, sniffing at the stew pot already. It can have the bones once the guests are fed, because nothing goes to waste up here." },
+      },
+      choices = {
+        { text = "The hawks were here first. Let them have their share.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A mesa's no place for thieves, even feathered ones.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "My grandmother said it carries the voices of those who fell from the mesas, which is why I tell guests not to look down. Most nights I think it's only the wind, and some nights I'm not so sure." } },
       choices = {
@@ -854,6 +959,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior! Leave your axe by the door, please, because the last one who brought his to the table turned round to look at the view and cut the stew in half." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter! If you bring a beast up here, keep it back from the edge, please, because the last hunter's cat tried to follow a hawk and gave us all a fright." },
         { id = "h_default", key = true,
           text = "The inn at Freewind: beds, stew, and a view that will turn your knees to water if you look down. So don't look down." },
         { id = "h_bridges", when = { metBefore = true }, text = "A young brave fell asleep on the rope bridge last night, on it, and we found him at dawn, snoring, swinging in the wind. Tauren sleep anywhere." },
@@ -883,6 +992,8 @@ P:NPC {
         { text = "Does the wind up here do anything to magic?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Mages aren't hearth-keepers, Abeqwa.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "The lift's too slow and too open.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do warriors rest easy up here on the mesa, Abeqwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the hawks of the mesa trouble your guests, Abeqwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Just a bed, thank you.", next = "END" },
       },
     },

@@ -28,6 +28,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "If anyone can, it's your kind, because they leave no tracks a grunt would see, but they leave them all the same. Find where they camp past the northern bluffs, and I'll have my answer for the dead of Valormok." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And send {pet} ahead of you through the trees. The elves' mages set traps, and I'd rather lose a sniffing nose than another warrior." },
+      },
+      choices = {
+        { text = "I'll find them and bring you the truth, not just their heads.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find them and finish them before they ever see me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Ag'tor.", next = "BACK" },
+      },
+    },
     warrior_ag = {
       lines = {
         { id = "wag_default", text = "Answer for them, then, and do it properly. They died in a ruin, betrayed and outnumbered, without a chance to see who killed them; whatever you do in their name, make sure the elf sees your face." },
@@ -77,6 +89,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. Good, because the elves have scouts in those woods who hide better than any orc, and I need someone who can find their trail." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage of the Horde. The last mage who came to Valormok was an elf, and she killed my warriors, so forgive me if I watch your hands." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
@@ -105,6 +119,7 @@ P:NPC {
         { text = "Do you think warlocks shame the Horde?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Who's scouting Valormok?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would your fallen want a priest's words, Ag'tor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Can a hunter find the elves who betrayed you?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Lok'tar, Ag'tor.", next = "END", fx = { affinity = 1, standing = { valormok = 1 } } },
       },
     },
@@ -220,6 +235,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Plenty, because the naga sit on the tablets and the naga don't sell, so somebody has to take them. You hit things, I sell things, and the Archmage pays for whatever we bring him, so everyone ends up happy except the naga." } },
+      choices = {
+        { text = "I fight for the Horde's honour, not for your profit.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then let's talk about my cut, partner.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jediga.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Nothing useful, which is what bothers me, because they guard them like treasure and can't read a word. A hunter who can slip past their patrols could bring the tablets out and leave the naga none the wiser until it was too late." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} out of the water by the ruins, because the naga eat anything that swims, and I can't sell a tablet with teeth marks in it." },
+      },
+      choices = {
+        { text = "I'll take them openly. I'm no thief, Jediga.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll slip in, take them, and never be seen.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     mage_jd = {
       lines = {
         { id = "mjd_default", text = "An orc mage, out here with the tablets? Somebody in Orgrimmar's going to have kittens about that. Read all you like, but you'll pay what Magatha's agents pay, because a mage's curiosity is worth more to me than his loyalty." },
@@ -269,6 +305,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. Let me guess, you're here for glory, which is very noble and doesn't pay, so you'll forgive me if I talk business instead." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. You'll know the Ruins of Eldarath, then, because there's game around them, and naga, and somewhere in all that, my tablets." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and I can already hear the lecture about respecting dead elves. Save it, because the tablets don't mind where they end up." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "A rogue! Finally, someone who understands business. I've got tablets to sell and buyers to find, and I could use someone who knows how to move goods quietly." },
@@ -299,6 +339,8 @@ P:NPC {
         { text = "Who buys Highborne tablets out here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Are there demonic tablets among the Highborne ruins?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What would it take to send you home, Jediga?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is there business here for a warrior, Jediga?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do the naga do with the tablets, Jediga?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Good luck, Jediga.", next = "END" },
       },
     },
@@ -403,6 +445,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "No. My riders carry warriors to the fight and bring them home, and that's all, because a wind rider that fights the naga doesn't come back. You do the fighting, and I'll be here when you're done." } },
+      choices = {
+        { text = "Fair enough. Everyone has a place, and yours is here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A beast that won't fight is a beast wasted.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They mind the salt wind, the naga and the noise from Ag'tor's camp, but a quiet beast doesn't bother them. If yours starts barking, though, they'll bite it, and then you'll be walking home." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} can stay by the perch while you wait. The riders won't mind it, if it doesn't mind them." },
+      },
+      choices = {
+        { text = "A trained beast stays calm. That's the whole of the art.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast barks when it wants. That's its right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Couldn't say, shaman, but it troubles the beasts. The wind comes off the bay full of salt and storm, and they shake their heads at it as if it stings. Talk to it if you like, and I'll keep the harness oiled." } },
@@ -441,6 +504,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "Warrior. Good. You won't complain about the wind, I hope, because everyone else does." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "Hunter. Your beast is quiet, and the riders like that." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Shaman. The beasts like you better than they like me, so maybe you'll calm them before you fly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "Warlock. Keep your demon away from the wind riders." },
@@ -459,6 +526,8 @@ P:NPC {
         { text = "Do your wind riders fear demons?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you ever fly scouts over the elf camps?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why do your riders hate Azshara so, Kroum?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do your wind riders ever fly into the fighting, Kroum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do your wind riders mind my beast, Kroum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

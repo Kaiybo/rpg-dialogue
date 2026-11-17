@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Against me, quite useless, but against my enemies in this land, perhaps not. The Flight has use for a strong arm that does what it is told and asks for payment afterwards, if it lives to ask." } },
+      choices = {
+        { text = "I'm no dragon's sword. I'll fight my own battles.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Point me at your enemies. Payment afterwards suits me fine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I will speak of something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "We hunt, little one, as you never could, with the whole sky for a blind and fire for a bow. Your hunters track a stag for a day, while I have tracked a single enemy for a hundred years, and I am patient enough to wait a hundred more." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the good sense to be afraid of me. You would do well to learn from it." },
+      },
+      choices = {
+        { text = "Patience is a hunter's first virtue. I respect that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A hunter who waits a hundred years has already lost.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I will speak of something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Humility, first, though few of you survive the lesson. Your spells are borrowed light, mortal, and fire like mine was old before your first wizard drew breath, so study it if you must, but from a distance." } },
@@ -55,6 +76,10 @@ P:NPC {
           text = "You seek the Flight's favour, then prove yourself worthy of it: bring me the molt, or face my minion and live. Either will do, and I suspect neither will be easy for you." },
         { id = "h_fire", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Taste of Flame"), days = 7 } },
           text = "The mountain's fire still burns in me, and it is sweeter than anything you could imagine. Take your prize and leave my sight before I remember that I am hungry." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. You stand as though steel could save you from me, little one, which is either courage or stupidity, and among your kind I have rarely seen the difference." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. How charming that you think yourself the predator here." },
       },
       again = {
         { id = "h_again", text = "You are still here, mortal, and still talking. Go on, then; amuse me." },
@@ -69,6 +94,8 @@ P:NPC {
         { text = "I bargain with demons. A dragon doesn't frighten me.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "What would a dragon teach a mage?", next = "xmage", when = { class = "MAGE" } },
         { text = "Dragons hoard and I take. Are we so different?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Would steel truly be useless against you, dragon?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do dragons hunt, Cyrus, or only hoard?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll be going.", next = "END" },
       },
     },

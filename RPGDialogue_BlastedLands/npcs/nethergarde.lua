@@ -332,6 +332,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Hold the stair, I should think, the way the Alliance's soldiers held the ground here at the end of the Second War while Khadgar did his work. We measure and we ward, but if anything comes through that gate again, it'll be steel at the bottom of the steps that buys us time to finish." } },
+      choices = {
+        { text = "Then I'd hold it, and trust the Watchers to finish their work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Steel shouldn't wait on wards. I'd strike first and measure afterward.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They change, slowly, and we've been writing it down for years: the boars come back from the Portal's shadow with thicker hides and worse tempers, and the basilisks grow stone along their spines. If you hunt down there, tell me what you notice, because a hunter's eye sees what my instruments can't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out of the Tainted Scar, I beg you. I've seen what that ground does to a creature that drinks from its pools, and I'd hate to have to write it in my ledger." },
+      },
+      choices = {
+        { text = "I'll tell you what I see. Your records matter.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Twisted beasts get an arrow, Watcher, not a ledger entry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Its knights were at the Portal at the end of the Second War, when the Alliance broke the Horde's hold on it, and some of them crossed over with Khadgar and never came back. I keep a list of their names, because the official histories only remember the generals." } },
@@ -349,6 +370,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! The garrison downstairs keeps the Dreadmaul off our wards while we take our readings, and I'm more grateful to your sort than I ever remember to say." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter, out here? There's precious little left alive in the Blasted Lands to track, though what's left has grown strange enough to keep you busy." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. I read in the old books that your people once healed a world. I hope you've brought a little of that here." },
         { id = "h_default", key = true,
@@ -380,6 +405,8 @@ P:NPC {
         { text = "The stone here is screaming, Watcher.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Could a druid heal this land?", next = "k_druid", when = { class = "DRUID" } },
         { text = "Did the Silver Hand fight at the Dark Portal, Watcher?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would a warrior do if the Portal woke, Watcher?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What happens to the beasts that live near the Portal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to your readings.", next = "END" },
       },
     },
@@ -593,6 +620,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Aye, we fight frae the sky, wi' a storm hammer thrown off a gryphon's back, an' the Bronzebeards fight frae behind a wall o' shields an' call it discipline. Both'll kill an orc, mind, but only one o' them has ever seen the orc's face frae above." } },
+      choices = {
+        { text = "A shield wall keeps the line. Discipline wins wars.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Give me the sky and the hammer, and nobody's orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Both, like a good axe, an' it depends entirely on whose hand is on the haft. I've seen things in the chalk that I'd rather not have seen, an' I've found lost gryphons an' lost children, an' I'll not be ashamed o' the second for fear o' the first." } },
@@ -630,6 +666,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior, eh? Ye've the shoulders for a Wildhammer storm hammer, if ye ever tire o' whatever it is ye're carryin' now." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I find lost things, an' ye find things that werenae lost till ye came along, so in a way we're in the same trade." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Watchers downstairs think my chantin' is old superstition, an' I think their sums are, so we get along by no' talkin' at all." },
         { id = "h_druidx", when = { class = "DRUID" },
@@ -666,6 +704,7 @@ P:NPC {
         { text = "Is divination real magic, Thadius?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could your divination find stolen goods?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is divination a gift or a danger, Thadius?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do Wildhammer warriors fight differently from Ironforge's?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll leave you to your chalk.", next = "END" },
       },
     },
@@ -850,6 +889,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The servants of the Burning Legion, which is a far older enemy than any orc. The Alliance spends good swords on Horde patrols in Ashenvale while the Shadowsworn bleed onto altars a few miles from this keep, and I find that very difficult to watch politely." } },
+      choices = {
+        { text = "You're right. Demon-worshippers first, old grudges after.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Horde earned my blade. I won't forget that for you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The Tainted Scar, where men in robes bleed onto altars and call it worship, and the beasts around it have learned to give the place a wide berth. When the animals know where the danger lies and the garrison doesn't, someone ought to be asking why." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps its eyes on the south too, I notice. Animals are honest about demons in a way that diplomats are not, myself included." },
+      },
+      choices = {
+        { text = "Then I'll scout the Scar and tell the keep what I find.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I hunt for coin, Ambassador, not for warnings.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "I speak for those who remember what Archimonde did to Dalaran, which ought to be everyone and is almost nobody. The Kirin Tor are scattered, and while they rebuild, the Alliance and the Horde sharpen their swords on each other." } },
@@ -870,6 +930,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. I'd ask whose blood you've been trained to spill, though I suspect the answer is orcs, and I'd suggest very gently that the orcs are not the ones building altars south of this keep." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter, and you've been looking at me the way you'd look at a trail, wondering where it leads. It leads south, if you'd like to know, toward the cultists nobody here cares to talk about." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be wondering who I truly work for, I expect, and I'll tell you what I tell the captain: someone who would rather you lived." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Then you know, as I do, that Dalaran was not the Legion's first target, and it will not be the last." },
         { id = "h_default", key = true,
@@ -897,6 +961,8 @@ P:NPC {
         { text = "My ancestors were Highborne, Ambassador.", next = "k_sky", when = { race = "Skyborne" } },
         { text = "Do you speak for Dalaran, Ambassador?", next = "xmage", when = { class = "MAGE" } },
         { text = "Every spy says that, Ambassador.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Who should a warrior be fighting, then, Ambassador?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What's south of the keep that you keep watching, Ambassador?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Ambassador.", next = "END" },
       },
     },
@@ -1076,6 +1142,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "One mug steadies yer hand an' two makes ye brave, an' by the third ye're the bravest corpse the Dreadmaul ever ate. My granda carried a flask through the whole o' the Second War, an' he always said the trick was knowin' which side o' the battle tae drink on." } },
+      choices = {
+        { text = "I fight sober. Duty first, and ale after the line holds.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A warrior should fight the way he drinks, with his whole heart.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Precious little that's fit tae eat, I'll tell ye, because the boars taste o' brimstone an' the scorpids taste o' nothin' at all. Back in Dun Morogh we'd hunt boar in the snow an' roast it by the brewhouse, an' I'll admit I think on that more often than a soldier should." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' who's this, then? {pet}, is it? Keep yer beast away from the barrels, because the last one that got its nose in a keg o' Thunderbrew slept for two days an' woke up mean." },
+      },
+      choices = {
+        { text = "Your post is here, Enohar. Dun Morogh will keep.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Go home, then. Nobody should rot out here for duty.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Needs? No. Wants? Aye, an' there's a difference, though the captain doesnae always see it. My kin brew the finest ale in Khaz Modan an' I'm stuck at the end o' the world watchin' a gate, so ye'll forgive me a wee comfort." } },
@@ -1122,6 +1209,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! Good, sit doon an' have one, because ye'll be wantin' it after a day out by the Dreadmaul camps." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter, eh? If ye bag a boar out there, I'll tell ye my cousin's way o' roastin' it, because it's wasted on the bread an' cheese they serve in this keep." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at Nethergarde. Well, there's a sight; most o' the folk in this keep would sooner see the Portal open than one o' yer kind on the wall." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could ye put a wee frost on this mug? Nethergarde's ale comes in warm an' stays warm, an' it's an insult tae every Thunderbrew livin'." },
         { id = "h_druidx", when = { class = "DRUID" },
@@ -1153,6 +1244,8 @@ P:NPC {
         { text = "Why do they mistrust warlocks here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do the soldiers at Nethergarde keep any faith, Enohar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does a dwarf on duty need a mug in hand, Enohar?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is a mug before battle good for a warrior, Enohar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What's worth hunting out in the Blasted Lands?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Enjoy your brew, Enohar.", next = "END" },
       },
     },
@@ -1257,6 +1350,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They can, and they do, though they grumble about it the whole way to Darkshire, and I don't blame them. The Wildhammer flew riders straight into the Horde's lines in the Second War, so I tell my birds a soldier in plate is nothing their kind hasn't carried before." } },
+      choices = {
+        { text = "I'll leave the heavy plate behind. Your birds deserve better.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A gryphon is a beast of war. It can carry me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Clean water carried down from Darkshire, meat that hasn't been within a mile of the Tainted Scar, and long rests after every flight south. The worst of it is the dust, which gets into their feathers and their lungs, and I spend half my evenings combing it out." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} has the dust all down its coat as well, poor thing. Comb it out every night, because a beast that can't breathe can't hunt, whatever it tells you." },
+      },
+      choices = {
+        { text = "Your care keeps the keep's letters moving. That matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Send them somewhere kinder. This land isn't for gryphons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "The black drake the soldiers talk about took three of my best out of the air in a single week, and nothing I've tried has kept it away. The keep wants letters carried and I keep sending birds out, and I hate every minute of it." } },
@@ -1295,6 +1409,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. You'll be heavy in the saddle, so mind how you mount, because my birds remember who kicked them on the way up." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! Then you'll understand what it is to keep an animal alive in a place that wants it dead, which is more than I can say for most visitors." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep your demon well away from the roost, because a gryphon that smells a demon won't fly for a day." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. If you're flying, keep your hands in your lap; the last one cast a frost spell to cool off, and my bird came down at Darkshire with ice on its wings." },
         { id = "h_default", key = true,
@@ -1315,6 +1433,8 @@ P:NPC {
         { text = "Why do gryphons fear demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do your gryphons fear the Dark Portal, Alexandra?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What happened to your gryphons this spring, Alexandra?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can a gryphon carry a warrior in full plate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How do you keep your gryphons healthy here, Alexandra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1369,6 +1489,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That they're big and stupid and very hard to kill, mostly, and that there's always more of them coming down from Dreadmaul Hold. One of the lads swears an ogre ate his shield, which I don't believe, though I'll admit I never saw the shield again." } },
+      choices = {
+        { text = "Ogres or not, I'd stand that watch beside them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the ogres have the watch. I'll take the cheese.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Scorpid, once, roasted on a shield over the fire, and the lad who tried it couldn't feel his tongue for a week. I tell them it's bread, cheese and water or nothing, because nothing in the Blasted Lands was ever meant to be eaten." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's {pet}, is it? Keep it away from the cheese wheels, friend, because the last dog that found them is still the most popular soldier in the keep." },
+      },
+      choices = {
+        { text = "The men deserve better. I'll hunt the wastes for them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Bread will do. I'm not risking my neck for their supper.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Me, mostly, and the Quartermaster, though he'd never admit to anything so soft. The soldiers here are the Alliance's last watch on the Dark Portal, and nobody remembers them, so I make sure they at least eat well." } },
@@ -1407,6 +1548,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! You'll want the big loaf, then, because the soldiers who stand the morning watch by the Portal come back hungrier than the ogres." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! I don't suppose you've brought anything fresh in from the wastes, because I've served bread and cheese so long the men have started dreaming about meat." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I know every soldier's business in this keep, so if you're after gossip you've come to the right counter, and if you're after the cheese, you haven't." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! You won't be buying bread, I suppose, since you can make your own, though I'll tell you now, conjured bread is no match for a proper loaf." },
         { id = "h_default", key = true,
@@ -1427,6 +1572,8 @@ P:NPC {
         { text = "Who's stealing cheese in this keep, Bernie?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do Nethergarde's soldiers say about the Portal, Bernie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who keeps this garrison in good spirits, Bernie?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do the soldiers say about the Dreadmaul, Bernie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What's the strangest thing the soldiers have tried to eat here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not hungry, thanks.", next = "END" },
       },
     },
@@ -1485,6 +1632,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It grinds, is what it does, every link against the next till the rings wear thin as paper. Oil it every night, or ye'll be stood in front o' a basilisk wi' nothin' between ye an' it but good intentions." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' brush the grit out o' {pet}'s coat while ye're at it, because I've seen beasts here rubbed raw under the collar." },
+      },
+      choices = {
+        { text = "I'll oil it nightly. Good gear is discipline.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I move fast. The mail can wear thin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Some days. When the wind comes off the Portal at night they sleep badly an' dream worse, an' I can mend a dent but I cannae mend that. Ye can try, if ye've the stomach for it." } },
@@ -1514,6 +1673,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "Hunter, is it? Mail, then, or leather wi' studs, an' either way ye'll want it seen tae before the dust gets in the links." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at my forge? Cloth doesnae need an anvil, friend, though I'll mend yer gloves if ye ask nicely." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Leather, is it? I'm an armorer, no' a tanner, but I'll stitch yer jerkin if ye don't mind it comin' back stiff." },
         { id = "h_default", key = true,
@@ -1530,6 +1691,7 @@ P:NPC {
         { text = "What do the Blasted Lands do to leather?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the mages upstairs ever need a smith?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the soldiers here need a priest more than an armorer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does this dust do to a hunter's mail?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Never mind.", next = "END" },
       },
     },

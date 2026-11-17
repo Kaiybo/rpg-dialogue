@@ -360,6 +360,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It took the discipline out of them first, which in a soldier is the most frightening thing to watch, and then it took their loyalty. Good men who had drilled together for years turned on each other almost overnight, and I am still trying to understand why." } },
+      choices = {
+        { text = "Discipline is a soldier's armor. Without it, anything gets in.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Discipline only holds so long. Every soldier breaks eventually.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Anything Kurzen's men might have eaten or brewed, because I've begun to wonder whether some of the madness came out of a pot rather than a curse. The trolls know which leaves turn a man's mind, and I'd wager somebody learned it from them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Anything Kurzen's men might have eaten or brewed, because I've begun to wonder whether some of the madness came out of a pot rather than a curse. The trolls know which leaves turn a man's mind, and I'd wager somebody learned it from them. And watch what {pet} eats out there, too, because if I'm right about those leaves, the beasts may know about them before we do." },
+      },
+      choices = {
+        { text = "If it's poison, it can be cured. I'll help you find it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Mad soldiers are dangerous. Better to put them down than cure them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "I suspect everything, and I can prove nothing, which is the worst place a healer can be. The troll ruins are full of old curses, and Kurzen's camp is close to more than one of them, so I'd not rule out a spell." } },
@@ -393,6 +414,8 @@ P:NPC {
           text = "I kept my vow, through your hands, and I said a prayer for him anyway. I'm not sure the Light approves of that, but I am." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Perhaps you can help me understand what drove Kurzen's men mad, since I've studied every herb and fever in the jungle and found nothing that explains it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be honest with you, the Light makes me wary of your craft, but I've seen worse in this jungle than anything you could summon." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Forgive my staring, but you hold yourself the way Kurzen's men did before the madness took them, and I find myself checking your eyes." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll go deeper into this jungle than any of us, so keep an eye out for strange leaves and roots, if you'd be so kind." },
       },
       again = {
         { id = "h_again", text = "Yes? Mind the flask by your elbow. That one I'm still not sure about." },
@@ -404,6 +427,8 @@ P:NPC {
         { text = "How are the men holding up?", next = "men" },
         { text = "Pray with me, Brother.", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Let me look at the residue.", next = "residue", when = { profession = "Alchemy" } },
+        { text = "What did the madness do to Kurzen's soldiers, Brother?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What plants are you looking for, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A druid could help with the cure, Brother.", next = "k_druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Do you suspect magic drove Kurzen's men mad, Brother?", next = "xmage", when = { class = "MAGE" } },

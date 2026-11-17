@@ -15,6 +15,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I'd rather you went and fought all of it, every stinger in the desert, but I'll settle for you bringing back the bits I need. The thing that got me came out of the sand so fast I never saw it, so keep your shield low and your boots moving." } },
+      choices = {
+        { text = "I'll bring back what you need. Nobody should suffer like this.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You picked a fight with the desert. You'll heal or you won't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I was picking herbs with my head down, and then my leg was on fire and something was skittering off into the dunes. Beetix says scorpid, the druids say worse, and I say whatever it was, I hope a hunter's beast eats it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Can {pet} smell the venom on me? Because if it can, take it out and follow the stink back to whatever did this, and I'll be grateful, even if I'm too broke to show it." },
+      },
+      choices = {
+        { text = "Next time take a guard. The desert punishes the careless.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Bad luck, nothing more. It could have happened to anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Once, when a shipment of mine fell off a zeppelin, and it never came back, so I've not bothered since. But I'll make an exception today, because this venom's got me seeing things, and one of them looked a lot like a bill from Beetix." } },
@@ -51,6 +72,10 @@ P:NPC {
         { id = "h_default", key = true, text = "Noggle Ficklespragg, and yes, I'm related to Beetix, and no, I don't want to talk about it. I got stung by something nasty out in the desert, and now I'm stuck here until somebody brings me the makings of a cure." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Noggle's Last Hope") }, text = "The venom sacs, friend, from the stingers out there. Bring me enough and I can brew my own cure, and then I'm leaving Silithus forever." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Finally, somebody who can fix me without making me drink anything, so lay on hands, or chant, or whatever it is you lot do, and be quick about it." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior? Great, more muscle wandering past my bed while I lie here sweating out poison. Don't suppose you've got a stinger in your pocket?" },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, eh? You lot know where the nasty things nest, so maybe you can tell me what bit me, because nobody else here will." },
       },
       again = { { id = "h_again", text = "What else? Talking hurts, so make it quick." }, { id = "h_again2", text = "Ask, if you must." } },
       choices = {
@@ -62,6 +87,8 @@ P:NPC {
         { text = "How did you get poisoned?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there truly no cure for your venom?", next = "xmage", when = { class = "MAGE" } },
         { text = "Have you ever prayed for anything yourself, Noggle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Would you rather I went and fought what stung you, Noggle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do you really not know what stung you, Noggle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -110,6 +137,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Fought, yes, and fought, and fought again, until the arms of every warrior in Kalimdor are heavy as stone. The swarm does not tire, and what stirs beneath it does not sleep forever, so fight if you must, but do not mistake it for winning." } },
+      choices = {
+        { text = "Even a losing fight is worth fighting, for others' sake.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll take what I can before the end comes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Tunnels where no worm dug them, and hives that hum like a great heart beating, and once a silithid that stopped and looked at me as a hunter looks at prey. The beasts of the desert flee north, and you should ask yourself what they know." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} knows, I think, for it watches the ground and not the sky, and the beasts were always wiser than the prophets." },
+      },
+      choices = {
+        { text = "Then we watch the beasts and prepare. Panic helps nobody.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If the beasts flee, I'll go with them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "They say the swarm is only the hands, priest, and that whatever moves those hands is still sleeping far below! Pray with me while there is still time to pray, because soon there will only be time to run." } },
@@ -155,6 +203,10 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, who reads the stars and the books and thinks they are wise! Wisdom will not save you when the hives open, but perhaps it will let you understand your doom." },
         { id = "h_default", key = true, text = "I am Jonathan the Revelator, and I have seen what lies beneath these sands. The silithid swarm is only the beginning, and something older and darker stirs below them." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior comes to the edge of the end! Sharpen your blade, then, for there will be more of them than you have strokes left in your arm." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You track the beasts, but who tracks the hunter? The swarm does, from beneath, and it is very patient." },
       },
       again = { { id = "h_again", text = "Ask while there's still time to ask, for the end draws nearer with every grain of sand!" }, { id = "h_again2", text = "Ask, while there is still time!" } },
       choices = {
@@ -167,6 +219,8 @@ P:NPC {
         { text = "Do you think warlocks will bring the end?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What do you think is beneath the sand?", next = "xmage", when = { class = "MAGE" } },
         { text = "What do the voices beneath the sand say, Jonathan?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you really think the swarm can't be fought, Revelator?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What have you seen beneath the sands, Revelator?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -215,6 +269,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Scouts who can read the sand and come back alive to tell me what they read. Any fool can die in the hives, but a hunter who returns with numbers is worth ten warriors who return with nothing but scars." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} close and quiet in the dunes, for a beast that bays at the swarm brings the swarm, and I have buried enough scouts this season." },
+      },
+      choices = {
+        { text = "I'll scout and report as ordered. That's how wars are won.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll strike when I see the chance, orders or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "It needs them badly, and I would say so to the Warchief's face, because the silithid poison every wound they make. Keep my grunts breathing long enough to swing an axe, and I will call you as much a warrior as any of them." } },
@@ -261,6 +327,8 @@ P:NPC {
           text = "A warlock. I've seen your demons fight, and I'll admit they hit hard, so bring them to the hives and let them earn their keep." },
         { id = "h_default", key = true, text = "I am Krug Skullsplit, and I speak for the Horde's forces here in Silithus. The silithids are a threat to all of Kalimdor, and the Horde will not let them overrun our lands." },
         { id = "h_c0", when = { faction = "Horde" }, text = "A child of the Horde, here at the front! The Warchief's eyes are on Silithus, and your service will be remembered." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter of the Horde. Your arrows will not stop a swarm, but your eyes might see one coming, and that is worth more." },
       },
       again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Speak, and quickly." } },
       choices = {
@@ -273,6 +341,7 @@ P:NPC {
         { text = "What does the Horde need from a rogue here?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do warlocks fight well against the silithid?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does the Horde's war effort need priests, Krug?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What does the Horde need from its hunters here, Krug?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -321,6 +390,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "There's a truce, and I keep it, because the silithid don't care whose banner they're tearing down. But every time Krug's warriors come back from the hives with more kills than mine, I hear about it, and I'd sooner my soldiers did the talking." } },
+      choices = {
+        { text = "We fight the swarm side by side. Keep the truce.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let our kills speak louder than theirs. Pride matters too.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I trust them to report what the Circle wants reported, and that's not quite the same as what Stormwind needs to know. A hunter of ours who watched the hives and the Horde camps both would be worth more to me than another squad of footmen." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} would make a fine sentry by the Alliance tents at night, because Krug's lot don't sneak much, but the silithid do." },
+      },
+      choices = {
+        { text = "I'll share what I see with everyone. The Circle earns honesty.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll watch the Horde for you. Trust has its limits.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Watching everyone, I'd imagine, including the Circle and the cult. I keep my soldiers honest and my eyes on the swarm, and whatever the spies do in the shadows is their business, not mine." } },
@@ -347,6 +437,10 @@ P:NPC {
           text = "A mage of the Alliance! The bugs burn well, I'm told, and we could use every fireball you've got on the front lines." },
         { id = "h_default", key = true, text = "Merok Longstride, Alliance commander here at Cenarion Hold. The silithids threaten everyone, and the Alliance has sent me to make sure we're ready when the time comes to strike." },
         { id = "h_c0", when = { faction = "Alliance" }, text = "A fellow member of the Alliance! Stormwind and Ironforge have both pledged support, and soldiers like you make that pledge real." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior of the Alliance. Good, there are more Horde blades in this courtyard than ours, and I'd like that balance to change." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter of the Alliance! The Circle's scouts are good, but I'd trust one of our own to tell me plainly what's moving out by the hives." },
       },
       again = { { id = "h_again", text = "Anything else?" }, { id = "h_again2", text = "Ask, friend." } },
       choices = {
@@ -357,6 +451,8 @@ P:NPC {
         { text = "Should we trust the Horde here?", next = "s_1" },
         { text = "Is SI:7 watching the Horde here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How goes the fight against the silithid?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Is there rivalry with the Horde here, Commander?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Don't you trust the Circle's scouts, Commander?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

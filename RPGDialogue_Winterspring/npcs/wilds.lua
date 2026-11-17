@@ -18,6 +18,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A warrior who earns one could, though the saber decides how much it carries and how far it will charge. They are not warhorses, and a rider who drives a frostsaber into a fight it doesn't want will be thrown into the snow." } },
+      choices = {
+        { text = "Then I'll earn the saber's trust before I ask it to fight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A mount is a mount. It'll charge when I tell it to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Rivern.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some do, and some never will, for a frostsaber is jealous of its territory and has no patience for a rival. The cubs are curious, though, and they've learned more from the hunters' cats than from anything I could teach them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has kept still since you came in, and the old sabers have noticed it. That's a good sign, and a rare one." },
+      },
+      choices = {
+        { text = "A good beast obeys. I train mine as carefully as you train yours.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast follows me by choice. I've never trained it to obey.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "We don't keep them, druid, we earn them, and the bond goes both ways or not at all. The Winterfall would kill them for their pelts, so I'd rather they stand beside us than lie in a furbolg's hut." } },
       choices = {
@@ -55,6 +76,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior of the Alliance. The Sentinels who train beside me fight much as you do, with blade and shield, though they've learned to fight from the saddle as well." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter of the Alliance. The sabers watch your beast before they watch you, and they'll judge you both by how well it obeys." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue. A wintersaber can hear a rogue's step from the far side of the valley, so do not think to sneak up on mine, because they will think you are prey." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -78,6 +103,8 @@ P:NPC {
         { text = "Could a wintersaber be trained to hunt quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why do the frostsabers distrust the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does it take to earn a frostsaber's trust?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could a warrior learn to fight from a frostsaber, Rivern?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your frostsabers accept a hunter's beast?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to your cats.", next = "END" },
       },
     },
@@ -146,6 +173,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Timbermaw welcome deeds, not words, and a warrior's deeds are easy to count. Bring Salfa the beads the Winterfall wear, and every bead will tell the elders that you have stood against the madness for us." } },
+      choices = {
+        { text = "I'll fight the Winterfall and earn the Timbermaw's trust honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the beads however I can. Deeds are deeds.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Salfa.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "To Winterfall Village in the east, and to their camps on the ridges, and always back to wherever the firewater is kept. Salfa has followed them himself, and the tracks of a furbolg who drinks it wander like a sick wolf's." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} smells the tunnels behind Salfa and is not afraid, which is good. Many beasts will not come near the Timbermaw's door." },
+      },
+      choices = {
+        { text = "The Winterfall were your kin. I'll hunt them only as needed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Mad beasts get put down. I'll hunt every one I find.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Salfa.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "The young ones, perhaps, if the firewater is taken from them before it takes them. The old shamans who pour it are lost, Salfa thinks, and a druid who tries to save them will only be bitten." } },
       choices = {
@@ -192,6 +240,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Salfa sees the scars on your hands, outsider, and he would rather you used them on the Winterfall than on the Timbermaw." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Salfa watches you read the snow, outsider, and he thinks you see the Winterfall tracks as clearly as he does." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Salfa smells the demon on you, outsider. The Winterfall stink of something like it now, and Salfa is slow to trust anyone who carries that stink near our door." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -217,6 +269,8 @@ P:NPC {
         { text = "Is there anything a quiet walker could do for the Timbermaw?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What drove the Winterfall to madness, Salfa?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the Timbermaw need from a priest, Salfa?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Would the Timbermaw welcome a warrior's help, Salfa?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Where do the Winterfall tracks lead, Salfa?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Stay warm, Salfa.", next = "END" },
       },
     },
@@ -285,6 +339,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Someone who stays beside me when I stop to light the torches, because I can't light them and run at the same time, and I've tried. The Winterfall and the wild things come quickly once the flames catch, and I need to know they'll meet steel before they meet me." } },
+      choices = {
+        { text = "I'll stand beside you until every torch is lit, Ranshalla.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll go ahead and ambush whatever's waiting before it ambushes us.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Ranshalla.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Owlbeasts, mostly, the moontouched ones, who nest near the old stones because the moonlight still gathers there. I can't bring myself to hate them for it, since they love Elune's light as much as I do, but they do not share." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can walk ahead of us, if it likes. I think the owlbeasts will be slower to attack a creature that doesn't fear them." },
+      },
+      choices = {
+        { text = "Then I'll drive the owlbeasts off rather than kill them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If they guard the altars, they'll have to die. Simple as that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Something, I think, because the beasts gather near them as though they remember the light. When I light the torches they grow restless, and I can't tell whether they're angry or only waking." } },
       choices = {
@@ -322,6 +397,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Oh, good, because I'll be honest with you, I'm no fighter, and the things around the altars don't care much how kind I am." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You'll see the trail to the altars before I do, and the eyes watching it, which I'll confess I usually notice far too late." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde? I didn't think one of you would come to an altar of Elune, but the spirits and the Mother Moon both watch these hills, so perhaps you belong here more than I thought." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You'll be useful when we reach the altars, I think, because whatever lurks in those old places will not expect a spell from behind me." },
@@ -344,6 +423,8 @@ P:NPC {
         { text = "I'd be honoured to pray at the altar with you.", next = "priest", when = { class = "PRIEST" } },
         { text = "What lurks around the old altars?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why go to the altars if they're so dangerous?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What kind of guard do you need at the altars?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What watches the trail to the altars, Ranshalla?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Elune keep you, Ranshalla.", next = "END" },
       },
     },
@@ -412,6 +493,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than a fool's spellbook, I grant you. Steel does not tear holes in the world or call the Legion through them, and if every mortal had kept to it, my flight would have far less to guard." } },
+      choices = {
+        { text = "Then steel is enough for me. Let the dragons keep the magic.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Steel serves me now, but I'll take power wherever I find it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They try, and they boast of it, and a few even succeed against whelps who have not yet learned to fear them. The blue flight remembers every scale taken, mortal, and the ones who took them are not forgotten either." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the sense to keep its head low in my presence, which is more sense than most mortals show." },
+      },
+      choices = {
+        { text = "I hunt beasts, not dragons. I'll leave your flight in peace.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Any beast can be hunted, Haleh, and a dragon is no different.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The ice was here long before us, mortal, for Winterspring has always been cold. We chose these caves because the frost keeps out the curious and keeps in what we guard. If the spirits of the ice speak to you, they will tell you they tolerate us, which is more than they offer you." } },
@@ -450,6 +552,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. You trust in steel and muscle, mortal, which at least has the virtue of honesty, since you have never pretended to understand magic." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, in Mazthoril. You track beasts through the snow, mortal, and I suppose you think yourself a hunter of dragons too, as the young ones always do." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You at least bargain with the powers you use instead of stealing them, which puts you a step above the mages, though not a large one." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, in Mazthoril. You trade with the Legion's creatures, mortal, and my flight remembers what the Burning Legion did to this world, even if your kind have forgotten." },
@@ -472,6 +578,8 @@ P:NPC {
         { text = "The blue dragonflight fought the Legion?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do dragons have any use for rogues?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What does the blue flight think of priests, Haleh?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is a warrior's steel worth anything to a blue dragon?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do mortals hunt your kind, Haleh?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -540,6 +648,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not his hold, no, for that is written and sealed in fel. But demons are proud, and if you cut down enough of his servants he will come himself to see who dares, and then your steel may do what my bargaining never could." } },
+      choices = {
+        { text = "Then I'll call him out openly and face him myself.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll let him come to me and strike while he gloats.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Lorax.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "With a promise of power, as they snare everyone, and I walked to it gladly because I thought I was the hunter. The satyrs in these hills were all taken the same way, and every one of them still believes, somewhere, that he made a good bargain." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks at me as though it smells something rotten, and it is right to. Beasts know what we are long before mortals do." },
+      },
+      choices = {
+        { text = "Then you were snared, Lorax, and the snared can still be freed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then you walked into the snare yourself. You got what you chose.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Less than Felwood, but it reached. Demons still keep to Darkwhisper Gorge in the south of this valley, and the snow around it is never quite clean. I could tell you the spirits fled, shaman, but I think they simply turned their backs, which is what anyone sensible does with a satyr." } },
@@ -578,6 +707,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. The demon who holds my contract fears steel more than he lets on, for the Legion's lieutenants are proud, and pride bleeds as well as anything." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. You know how a snare works, then, how the beast walks into it of its own accord because something sweet lies waiting. I was that beast, once." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The spirits must loathe me, I suppose, and I would in their place, for I gave away everything they would have given me freely." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. The Highborne were mages once, before the demons came, and look what I became when I followed them, so mind the books you open." },
@@ -600,6 +733,8 @@ P:NPC {
         { text = "How did a Highborne mage become a satyr?", next = "xmage", when = { class = "MAGE" } },
         { text = "You want me to steal your contract from a demon?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is there no redemption left for a satyr, Lorax?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could a warrior break your demon's hold, Lorax?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "How did the Legion snare you, Lorax?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll think on your tale.", next = "END" },
       },
     },
@@ -668,6 +803,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Meat, and more meat, and a heel of bread to push it around with, because a warrior on an empty stomach is a warrior who loses to a Winterfall. I bring the salt meat over the pass from Felwood, mind, though none of it ever grew there, because nobody should eat anything that grew in that forest." } },
+      choices = {
+        { text = "I'll pay full price. A warrior shouldn't cheat the cook.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll eat now and settle up after the next furbolg camp.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Himmik.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A little, I'll admit, like eating a snowball with gristle in it, but the customers love it because it's local. Mind you, local in Winterspring means something that tried to freeze you first, so I charge extra for the danger." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is {pet} hungry? Don't answer that, I can see it is, and I can see it looking at my soup pot like it's an old friend." },
+      },
+      choices = {
+        { text = "I'll sell you only what I kill cleanly and quickly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll sell you whatever I find dead in the snow. Nobody would know.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Spoil them? It keeps them, friend, it's the best larder in Kalimdor! The trouble is getting the stores here at all, through the tunnels or over the pass, and the snow shuts one or the other every week. The way I see it, the frost spirits and I have a deal: they keep my meat cold, and I don't complain about the wind." } },
@@ -724,6 +880,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! You'll want a double helping, I can tell, because nobody empties a bowl faster than someone who's been swinging an axe at furbolgs all day." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You don't bring me meat, do you? Because I'd pay for good chimaera steaks, and the last hunter who sold me some swore they don't taste of frost." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You'll be wanting something hot, I'll bet, because no spirit I ever heard of can make a stew in this cold." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! You look like you've been crouching in a snowbank all day, so let me get you a bowl of something hot before your fingers freeze to your daggers." },
@@ -752,6 +912,8 @@ P:NPC {
         { text = "Could I really warm your soup with magic?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do many come down off the mountain needing help?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is your soup truly a miracle, Himmik?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What do you feed a warrior in Winterspring, Himmik?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do chimaera steaks really taste of frost, Himmik?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Keep the soup warm.", next = "END" },
       },
     },

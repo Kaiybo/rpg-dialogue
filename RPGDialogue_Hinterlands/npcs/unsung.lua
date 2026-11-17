@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Aye, the grandsires o' these very birds, droppin' riders an' storm hammers on the Horde while the Alliance footmen held the ground below. A gryphon remembers a battle in its blood, an' ye'll feel it in the saddle when ye fly over the Vilebranch." } },
+      choices = {
+        { text = "Then I'll honor them by flying into the fight bravely.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Gryphons are weapons of war, Guthrum. Nothing more.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Guthrum.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Depends on the beast an' the bird, same as people. A wolf they'll tolerate an' a cat they'll watch, but anythin' wi' feathers they'll fight, so if yer companion's an owl, keep it well away from the roost." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet}, is it? My birds are lookin' at it already, an' I'll say it's lucky they've eaten this mornin'." },
+      },
+      choices = {
+        { text = "Beasts deserve respect, whether they carry us or hunt beside us.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A beast serves its master. Respect is for people.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Aye, an' gladly, though ye'll feel every wingbeat in yer spine. My birds have carried dwarves in plate tae Jintha'Alor an' back, an' they've a fondness for riders who stand their ground when the trolls start throwin' spears." } },
@@ -49,6 +70,8 @@ P:NPC {
           text = "A mage, an' ye still want a gryphon? Good, {class}, for I've never trusted a spell that drops ye in a city wi' no view on the way." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Ye walked up on my birds without a sound, {class}, an' that's a fine way tae lose a hand around here, for gryphons like tae see who's comin'." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, an' ye'll be wantin' tae fly tae the fightin', no doubt. My birds carried the Wildhammer intae the Second War, so they know a soldier when they see one." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll understand my birds better than most, then, for ye know a beast's a comrade an' no a saddle wi' feathers." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The birds are restless, and so am I." },
@@ -63,6 +86,8 @@ P:NPC {
         { text = "Don't you envy a mage's teleport, Guthrum?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could you fly me somewhere, no questions asked?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Will your gryphons bear a paladin's weight, Guthrum?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Did your gryphons fight in the Second War, Guthrum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do your gryphons get along with a hunter's beast, Guthrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Fair winds.", next = "END" },
       },
     },
@@ -171,6 +196,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Hard as the road up, which is hard indeed, wi' Witherbark watchin' from the trees an' every cart half its weight in iron. The smiths say they cannae make enough armour for the riders, an' I say they cannae make it wi'out me, an' we both grumble about it." } },
+      choices = {
+        { text = "Your work matters as much as any warrior's. Be proud.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Hauling coal isn't fighting. Warriors earn the glory.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Harggan.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Twice this season, an' both times they went for the mules first, which is cleverer than I'd like. A troll knows a cart wi'out a mule is just a pile o' iron sittin' in the road, waitin' for them tae come back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} would make a fine guard for a cart, an' I'd pay it in scraps if ye'd lend it tae me, though I suppose ye wouldnae." },
+      },
+      choices = {
+        { text = "I'll watch your road. Aerie Peak needs that iron.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll watch it, for a cut of the iron.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -179,6 +225,8 @@ P:NPC {
           text = "Ye smell o' sulphur, {class}, an' I'd know, for I've hauled enough brimstone up this mountain tae smell it in my sleep. Keep yer fires tae yerself an' we'll get on." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I saw yer eyes go tae my strongbox, {class}, an' I'll tell ye now it's empty, for every copper I have goes on haulin' coal up this mountain." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. That armour came from somebody's forge, an' that forge burned coal I hauled up this mountain, so ye're welcome, though ye didnae know tae thank me." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If ye're headin' down the road, keep an eye on the treeline for me, for the Witherbark like tae watch my carts from cover." },
       },
       again = {
         { id = "h_again", text = "What else, then?" },
@@ -192,6 +240,8 @@ P:NPC {
         { text = "I'm a smith myself.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "Does a warlock's custom bother the Wildhammer?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you lose much on that mountain path?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is it hard keeping the Wildhammer forges supplied, Harggan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have the Witherbark ever attacked your carts, Harggan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

@@ -30,6 +30,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I have watched orcs come through that gate with axes, and humans meet them with swords, and every one of them was certain he fought for something noble. The fragments you bring me do not care which of you held the blade, and neither, I find, do I." } },
+      choices = {
+        { text = "I fight for those behind me, not for plunder.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Every war has its spoils. I won't pretend otherwise.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "We did, though not as you do, and I will not speak of the land we hunted. Here I hunt nothing but fragments in the dust, and the beasts of this place keep their distance from me, which is wise of them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} watches me with more honesty than you do, hunter. A beast wants its supper and makes no speeches about it, and I find I prefer that." },
+      },
+      choices = {
+        { text = "I hunt to eat and nothing more. There's no greed in that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I hunt for pelts and coin. Call it greed if you like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "Because someone must remember what was here before. Every root and stone tells me something. Bring me what you find, and I will tell you what it once was, before the Portal took it." } },
       choices = {
@@ -56,6 +77,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, and you smell of iron and greed together, as all your kind do. You would cut down anything that stood between you and a prize." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. You carry the stink of greed like the rest, though a hunter's greed is at least the honest kind, and ends when the belly is full." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A thief, yes. You smell of greed more strongly than any of them, though at least you do not pretend otherwise." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You smell of borrowed power, and of greed for more of it, like all the rest." },
         { id = "h_druidx", when = { class = "DRUID" },
@@ -88,6 +113,8 @@ P:NPC {
         { text = "My people hoard nothing, Kum'isha.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "What do your crystals have to do with magic?", next = "xmage", when = { class = "MAGE" } },
         { text = "If I'm greedy, why trust me with your crystals?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you think every warrior fights for greed, Kum'isha?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Did your people hunt, before you came here?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll keep my eyes open for crystals.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -419,6 +446,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The same thing that keeps a wounded basilisk crawling toward its den: a spirit that refuses the body's verdict. You would call it rage, I suspect, or discipline, but I have watched the beasts here endure far worse than you, and they never needed a name for it." } },
+      choices = {
+        { text = "Discipline. Rage burns out, but training holds.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rage. Discipline breaks long before fury does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I could, and I would learn more from it than from a hundred basilisk brains, though I suspect you would not care for my methods. A beast that trusts its master endures pain that would kill a wild one, and I want to know why." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Look how {pet} watches me, weighing whether I'm prey or threat. Its mind is quicker than you give it credit for, and I'd wager it has already decided I'm neither." },
+      },
+      choices = {
+        { text = "Our bond isn't something for your vials, Bloodmage.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Study away. Whatever makes us stronger is worth knowing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Perhaps not, but you can't tell me how it works either, only that it does, and I find that a very poor argument from people who call my work blasphemy. I'll keep my brains in jars and you keep your prayers, and we'll see which of us learns more." } },
@@ -448,6 +496,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. My brother would want to bottle your strength, but I would rather know what keeps you standing after the strength has run out." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. You would make a better study than my brother's vials, because you and your animals learn each other's minds, and that interests me far more than muscle." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll have noticed the taint in the vultures, then, and how they feed on it rather than die of it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Perhaps you'll understand my work better than my brother does, since you spend your life training the mind to hold more than it should." },
         { id = "h_default", key = true,
@@ -474,6 +526,8 @@ P:NPC {
         { text = "What do basilisk minds teach you, Lynnore?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why don't the vultures die of the taint?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "The Light isn't a beast's instinct, Lynnore.", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What keeps a warrior standing, then, Lynnore?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Could you study the bond between a hunter and a beast?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to observe.", next = "END" },
       },
     },
@@ -565,8 +619,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The same as any of us, only paid slower: your knees, your sleep, and the friends who stood beside you and didn't get up. My students pay with their souls, all at once, and I sometimes think yours is the crueller bargain." } },
+      choices = {
+        { text = "What I pay is mine to give. No demon takes it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Any price is worth it, if the strength is real.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Only in that both of them would turn on you if they could, though your beast has the decency to forget the urge. A demon remembers every command it ever resented, and it waits, which is the first thing I teach and the last thing anyone believes." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} won't come near my altar, and that's wisdom, not cowardice. Animals know the smell of the Twisting Nether long before men do." },
+      },
+      choices = {
+        { text = "My beast follows me by trust. That's nothing like your chains.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fear or love, obedience is obedience, old man.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior comes to Daio's altar. You've no use for demons, I know, but I'd guess you know a thing or two about the price of power." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, come to an old man's altar. My students keep their creatures by chains and fear, and I'd be curious to know whether yours obey you from love." },
         { id = "h_default", key = true,
           text = "Daio, they call me, and the Decrepit, which I've earned. I teach suppression and control to those who would master demons rather than serve them, and I teach them sacrifice, which is the lesson nobody wants." },
         { id = "h_bindings", when = { questActive = TODO_QUEST("The Prison's Bindings") },
@@ -587,6 +666,8 @@ P:NPC {
         { text = "I have come to learn, Daio.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "You trade in damnation, old man.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Mages bind things too, old man.", next = "k_mage", when = { class = "MAGE" } },
+        { text = "What price does a warrior pay for strength, Daio?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Is a demon anything like a hunter's beast, Daio?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your altar.", next = "END" },
       },
     },

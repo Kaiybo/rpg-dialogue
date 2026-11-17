@@ -24,6 +24,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "He was a farmer who could fight, which is the hardest kind of soldier to break. When the Scourge came out of the north he didn't wait for help from anyone; he put every man who could hold a pitchfork into a line across the square, and held it longer than any of us had a right to." } },
+      choices = {
+        { text = "Joseph's stand saved lives, Carlin. Hold on to that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "He should have run with the rest. He might be alive.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Carlin.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They knew, and we shut them in the barn to quiet them, because nobody wanted to believe a dog over his own eyes. I've listened to every beast's warning since, and I'd tell any hunter to trust their animal before they trust a sentry." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch how {pet} carries its ears near the old road, {class}. If it goes still and stares north, don't wait to see what it's staring at." },
+      },
+      choices = {
+        { text = "It wasn't your fault, Carlin. Nobody listens to dogs.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Someone should have listened. Darrowshire paid for that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Carlin.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "To the end and past it, if that's possible, because he stood his ground at Darrowshire when the order could send him no help. I've heard men say the Silver Hand failed Lordaeron, but it didn't fail at Darrowshire, because Joseph was there." } },
@@ -70,6 +91,10 @@ P:NPC {
           text = "A priest. There were good priests in Darrowshire once, and they stayed with the wounded when the Scourge broke through the gate, and none of them came out again." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. Joseph would have liked you, I think, because he always said the Silver Hand was the best of Lordaeron, even after it started to fail." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Joseph would have liked you, {class}, because he always said a town is only as safe as the last person still standing in its square." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. We had a fellow in Darrowshire who kept hounds for the harvest-fair hunts, {class}, and the night the town fell, those hounds howled for an hour before any of us saw a ghoul." },
       },
       choices = {
         { text = "Will anything grow in Darrowshire again?", next = "druid_q", when = { class = "DRUID" } },
@@ -81,6 +106,8 @@ P:NPC {
         { text = "What would you have done with more warning?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Were Darrowshire's priests ever laid to rest, Carlin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did Joseph stay loyal to the Silver Hand until the end?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Was Joseph much of a fighter, Carlin?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "The hounds knew the Scourge was coming before you did?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your memories.", next = "END" },
       },
       again = { { id = "h_again", text = "What else would you hear? I've little but stories now, but I've plenty of those." } },
@@ -163,6 +190,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Lots and lots, all in the square with Papa, and they were very loud and then they were very quiet. Auntie Marlene said I mustn't look, so I didn't look, and I'm still being good about it." } },
+      choices = {
+        { text = "Your papa's soldiers fought hard, Pamela, but they're gone now.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep not looking, Pamela. Some things are better not known.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Can I ask something else?", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "She ran into the woods behind the house when everyone started shouting, and she didn't come back for supper. If you find her, she's grey with one white foot, and you mustn't be cross with her, because she was frightened." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? Can I pet it? Oh, it's gone all funny and backed away, so I'll just wave instead, hello, {pet}!" },
+      },
+      choices = {
+        { text = "I'll look for her, Pamela, but she may be gone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'm sure she's hiding somewhere safe, waiting for you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Can I ask something else?", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -171,12 +219,18 @@ P:NPC {
           text = "Did you find my dolly? The pale people tore her into pieces and threw them all around the houses, and I can't find her head anywhere." },
         { id = "h_marlene", when = { questActive = TODO_QUEST("Auntie Marlene") },
           text = "Auntie Marlene lives on the big hill in the west! Please tell her I've been good, and that I still have the hairpin she gave me." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "Are you a knight? You've got a big sword like Papa's soldiers had, and Papa said soldiers always come back, so maybe you've come back too." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "Are you a hunter? Papa said hunters can follow anything, even rabbits, and I had a kitten once that ran off when the pale people came." },
       },
       choices = {
         { text = "Would you like me to hold your hand a while?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Where is your papa, Pamela?", next = "papa" },
         { text = "Who are the pale people?", next = "pale" },
         { text = "Do you have any family left?", next = "family" },
+        { text = "Did your papa have many soldiers, Pamela?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What happened to your kitten, Pamela?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I have to go now, Pamela.", next = "END" },
       },
       again = { { id = "h_again", text = "Do you want to hear something else? I know lots of things, mostly about dollies." } },
@@ -240,6 +294,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Rub it intae yer boots an' straps an' the plague slides off like rain off a slate roof, or so I tell the Dawn, an' they've no' complained yet. It smells like a ghoul's armpit, mind, but a warrior who smells bad lives longer than one who smells sweet." } },
+      choices = {
+        { text = "If it works, I'll wear the stink of the dead gladly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Smearing Scourge remains on my gear feels like desecration.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, Smokey.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Aye, when I can get them, for a plaguebat's wing has more sickness in it than a whole ghoul. Ye cannae make a cure without knowin' the disease, an' the beasts carry the disease the way a bucket carries water." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from my crates, {class}, for I've a jar o' plaguebat livers in there that'd send a hound mad wi' wantin' it, an' madder still once it had it." },
+      },
+      choices = {
+        { text = "I'll bring what you need, and tell the Dawn what it's for.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fetch your bits, and nobody need know where they went.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Smokey.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Approve? They hold their noses an' sign the requisitions, which is as close as a knight comes tae approvin' o' anythin' that smells. Honour's a fine thing, but it doesnae keep a soldier's feet from rottin' off in a plague bog." } },
@@ -282,6 +357,10 @@ P:NPC {
           text = "A priest, is it? Ye'll want tae hold yer nose an' say a wee prayer, because what I brew in here would turn a saint's stomach, an' I've had saints in here before." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Ye'll be wantin' tae smite somethin' after a whiff o' my workshop, an' I'll no' blame ye, but smite it outside, if ye please." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Grand, for warriors make the best collectors, {class}, since ye're already up tae yer elbows in the dead an' might as well bring a bit back for old Smokey." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, eh? Then ye'll know how tae skin a thing neatly, {class}, an' that's half the battle wi' Scourge bits, though the other half's no' bein' sick." },
       },
       choices = {
         { text = "What does the plague do to the beasts out here?", next = "druid_q", when = { class = "DRUID" } },
@@ -291,6 +370,8 @@ P:NPC {
         { text = "What exactly do you want cut off the dead?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Isn't brewing with Scourge parts a kind of desecration, Smokey?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Dawn's knights approve of your work, Smokey?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does your brew do anything for a soldier's armour?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do you brew with plagued beasts too, Smokey?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to it.", next = "END" },
       },
       again = { { id = "h_again", text = "Still here? Fine, but ye're breathin' my smoke." } },
@@ -356,6 +437,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Carry them into the Scholomance, mostly, because the Cult won't let a gnome near the place and I'm too short to hit anything. You'd be amazed what a little blessed vapour does to a necromancer's concentration, or at least I hope you'd be amazed, as I haven't tested it yet." } },
+      choices = {
+        { text = "I'll carry your device in and follow your instructions exactly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll carry it, but if it fails, I'm using my sword.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Betina.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I gave it a nose that followed the strongest scent, and the strongest scent in the Plaguelands is always rot, so it ran straight into a ghoul pit. Real beasts know when not to follow their noses, which is something I've never managed to build." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "May I watch {pet} for a minute? Only to see how it decides where to look, {class}, because I think it might solve a problem I've had with my gyroscope for weeks." },
+      },
+      choices = {
+        { text = "Some things should stay alive and wild. Leave hounds to nature.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Build it better. A hound that never tires would be invaluable.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Betina.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Because knights keep going in and not coming out, and a device doesn't leave a widow behind when it fails. I'd much rather send a box full of holy vapour into that place than one more brave person, if I can help it." } },
@@ -398,6 +500,10 @@ P:NPC {
           text = "A priest! Oh, good, because I'm adding holy water to the Gambit, and I'm never quite sure whether the blessing survives being pumped through copper tubing." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Do you think you could look over my Gambit for me? I've tried to make it as holy as a gnome can make anything, and I'd love a second opinion." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Oh, splendid, could you hold this for me? It's only a little holy-water condenser, {class}, and it's quite safe unless you shake it, so please don't shake it." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Do you know, {class}, I built a mechanical hound once, and it chased its own tail until it caught fire, so I've a great deal of respect for the real ones." },
       },
       choices = {
         { text = "Do your devices harm the land, Betina?", next = "druid_q", when = { class = "DRUID" } },
@@ -409,6 +515,8 @@ P:NPC {
         { text = "What's your device for, Betina?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a blessing work through gnomish machinery, Betina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why fight the Scholomance with devices instead of knights, Betina?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would a warrior do with your devices, Betina?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "A mechanical hound? What went wrong, Betina?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good luck with it.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I can talk and solder, mostly." } },

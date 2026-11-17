@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Nothing a little goblin genius couldn't patch, and the zeppelin only dipped a bit over the Barrens. Warriors always get restless on the ride, so stand at the rail and glare at the clouds, and you'll reach Orgrimmar with every rope where it should be." } },
+      choices = {
+        { text = "Fair. A warrior keeps discipline, even on a zeppelin.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If I'm bored, I'll swing my axe wherever I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some do, and raptors are the worst, because they panic when the ground goes away and then they bite whoever's nearest. Keep your beast low and close, talk to it the whole way, and it'll land in Orgrimmar a happier animal than it took off." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and raptors are the worst, because they panic when the ground goes away and then they bite whoever's nearest. Keep your beast low and close, talk to it the whole way, and it'll land in Orgrimmar a happier animal than it took off. And {pet} looks sturdy enough, but I'll be standing well back during the launch, pal, no offense meant." },
+      },
+      choices = {
+        { text = "I'll keep my beast close and calm the whole way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast'll ride how it likes. It's a wild animal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Then you'd better have a spell that floats, pal, because the jungle down there is all teeth. We had one come down hard over the coast once, and the crew who walked out of the trees didn't want to talk about the walk." } },
@@ -74,6 +95,8 @@ P:NPC {
           text = "Night runs are the quiet ones, pal, and the jungle down there sounds like it's eating itself. Up here you just hear the engine and the wind, and that's how I like it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, the zeppelin's perfectly safe, pal, and I'll thank you not to go poking around the engine, because it doesn't like being poked." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You'll be teleporting to Orgrimmar, I suppose, and leaving my zeppelin empty, which is a crying shame, pal." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Keep that axe sheathed on the deck, pal, because the last fellow who practiced his swings up there cut through a rope we really needed." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Beasts ride free on my zeppelin, pal, but if yours gets airsick, you're the one cleaning the deck." },
       },
       again = {
         { id = "h_again", text = "Anything else, pal? The zeppelin waits for nobody, except when it does." },
@@ -87,6 +110,8 @@ P:NPC {
         { text = "Do you see much from up here?", next = "view" },
         { text = "Is the zeppelin really perfectly safe, Nez'raz?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do many mages skip the zeppelin, Nez'raz?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What happened to the rope, Nez'raz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do beasts really get airsick on your zeppelin, Nez'raz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll catch the next one.", next = "END" },
       },
     },
@@ -162,6 +187,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They threaten everyone on the road, but they test warriors first, to see whether you'll chase them up into the ridges. Don't, because that's exactly where they want you, with spears above you and nothing behind you." } },
+      choices = {
+        { text = "I'll hold the road and let them come down to me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If they test me, I'll go up and teach them a lesson.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Since the walls went up, and they've never once come down while the wind riders are in the air, which tells me they're smarter than the grunts believe. A good hunter could learn their paths, and I'd sleep better knowing which way they go home." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Since the walls went up, and they've never once come down while the wind riders are in the air, which tells me they're smarter than the grunts believe. A good hunter could learn their paths, and I'd sleep better knowing which way they go home. Your {pet} keeps looking up at the ridges, too, and I trust a beast's nose over a grunt's eyes any day." },
+      },
+      choices = {
+        { text = "I'll scout their paths and report them plainly to the Commander.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather pick them off one by one up there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Safe enough in the air, but the landings are another matter. The swamp at Stonard has things in the water, and the Badlands around Kargath have ogres and worse, so keep a spell ready when you climb down." } },
@@ -207,6 +253,8 @@ P:NPC {
           text = "Thysta, wind rider master. From Grom'gol the riders go to Kargath and Stonard, and to the goblins at Booty Bay, if you've any business that far south." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'll be wanting to scout the ridges, I suppose, and I'll warn you that the trolls up there see more than they let on." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wind riders don't care for your companion, so I'll ask you to keep it on the ground while I saddle your mount." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't mind your armor, but they hate the noise of it, so climb on slowly and try not to clank." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll have noticed the trolls on the ridges watching us, I expect, since your kind usually does." },
       },
       again = {
         { id = "h_again", text = "Ask, then. The wind riders are fed and resting, so I have a moment." },
@@ -220,6 +268,8 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "What do the trolls on the ridges see, Thysta?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why don't wind riders like demons, Thysta?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the ridge trolls threaten warriors on the road, Thysta?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How long have the ridge trolls been watching, Thysta?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -282,6 +332,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More bandages than you think, because the trolls coat their spears with something nasty, and a cut left open turns green by morning. Whetstones too, since the damp blunts an edge in a day, and nobody believes me until they're facing a raptor." } },
+      choices = {
+        { text = "Good. A warrior who prepares properly lives longer.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I travel light. Speed matters more than supplies.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because everything comes in by zeppelin, the goblins charge by the crate, and half the hunters at this camp fire at anything that moves in the trees. Buy enough for a week and aim properly, and you won't need to come back to me complaining." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because everything comes in by zeppelin, the goblins charge by the crate, and half the hunters at this camp fire at anything that moves in the trees. Buy enough for a week and aim properly, and you won't need to come back to me complaining. And food for {pet} as well, I suppose, unless it's learned to hunt for itself, which out here it had better." },
+      },
+      choices = {
+        { text = "Every arrow should count. I don't waste shots.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll shoot as much as I need. The jungle's full of targets.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Reagents first, because the damp spoils them, and then clean water, because the jungle water gives you the shakes. Bring your own if you can, and if you can't, buy mine and don't complain about the price." } },
@@ -327,6 +398,8 @@ P:NPC {
           text = "Uthok, general supplies. Everything I sell came off a zeppelin, and the jungle will rot it or eat it in a week, so buy what you need and use it fast." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I'll be watching my stock while you're here, so don't take it personally, because I watch everyone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want food and water, I'd guess, unless you're the kind who conjures his own and leaves honest merchants with nothing to sell." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want bandages, rations and a whetstone, and you'll want them now, before the jungle eats my stock." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Arrows and shot are in the back, and they're dearer here than in Orgrimmar, so don't waste them on monkeys." },
       },
       again = {
         { id = "h_again", text = "What else?" },
@@ -340,6 +413,8 @@ P:NPC {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Has anyone stolen from you at Grom'gol, Uthok?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Does conjured food hurt your trade, Uthok?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What should a warrior carry in this jungle, Uthok?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Why are arrows so dear at Grom'gol, Uthok?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Nothing today.", next = "END" },
       },
     },

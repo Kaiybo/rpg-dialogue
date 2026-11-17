@@ -24,6 +24,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because there are more orcs down there than either of us could fight, and because Phin wants to know what they're doing, not merely stop it. Kinelory has a plan for the courier, and she'll need someone loud when it goes wrong, so stay close to her." } },
+      choices = {
+        { text = "I'll protect Kinelory. She shouldn't face this alone.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Kinelory's plan is her own. I'll look after myself.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Wagons, and the crates on them, and who signs for them when they arrive. The orcs are farming nothing I'd eat, and the wagons come from the west, from the Forsaken lands, which is why Phin sent us up here." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} still, please, because the orcs keep wolves down there, and a wolf can smell a beast on the ridge as easily as you can see it." },
+      },
+      choices = {
+        { text = "If it's plague, we stop it, whatever it costs.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Watch and report. What the Forsaken brew isn't our concern.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Farming, they say, though nothing I'd eat grows in that soil anymore. Kinelory swears they're bringing their plague into the highlands one barrel at a time." } },
       choices = {
@@ -54,6 +75,8 @@ P:NPC {
           text = "A mage, {class}? Then maybe you can read the courier's papers, for I can't make out half of it, and the half I can, I don't like." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "You've a quiet way of standing, {class}, and Phin would like the look of you. Sit down, and keep your head below the ridge." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, keep low, please, because armour flashes in the sun and the orcs at Go'Shek notice anything that flashes." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, good. Your eyes are probably better than mine, so tell me what you see moving down at Go'Shek Farm, and keep your voice down." },
       },
       choices = {
         { text = "What are the Forsaken doing at Go'Shek Farm?", next = "druid_q", when = { class = "DRUID" } },
@@ -64,6 +87,8 @@ P:NPC {
         { text = "What kind of writing is on the courier's papers?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What are the Forsaken doing at Go'Shek Farm?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you fear the plague is coming to the Highlands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why not just attack Go'Shek Farm outright, Quae?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should I watch for at Go'Shek Farm, Quae?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Stay low, then. Farewell.", next = "END" },
       },
       again = {
@@ -152,6 +177,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Would you? I'll still be the one walking up to him, because Quae says I'm the least suspicious-looking of us, which I don't think was a compliment. But if I know someone's watching from the trees, I might stop shaking long enough to grab the papers." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} will be watching too, won't it? That helps, actually, because a beast doesn't hesitate, and I hesitate quite a lot." },
+      },
+      choices = {
+        { text = "I'll stay close and keep you safe. That's a promise.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll cover you, but if it goes wrong, I'm leaving.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kinelory.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Because somebody has to, and Phin trusted me with this, and if I let fear decide for me then I'd never do anything at all. I've been scared since the day we got here, honestly, and I've found I can be scared and still keep walking." } },
@@ -182,6 +219,7 @@ P:NPC {
           text = "A warlock! Oh dear, please don't take that the wrong way, {class}, it's only that the courier is Forsaken, and I'd rather not be surrounded by spooky things." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Oh, you're quiet, {class}, quieter than me by a mile, and I've been practising all week so the courier won't hear me coming." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Oh, a hunter, that's, well, that's very good, because you can shoot the courier's guards from a distance, and then I won't have to see them coming." },
       },
       choices = {
         { text = "I'll take the loud part. Stealth was never my way.", next = "warrior", when = { class = "WARRIOR" } },
@@ -192,6 +230,7 @@ P:NPC {
         { text = "Want some help ambushing the Forsaken courier?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "You're frightened, Kinelory. Why go after the courier yourself?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do you know of the courier's route?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Shall I cover you from the trees when you face the courier?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today, I'm afraid.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Talking helps, honestly, so please do." } },
@@ -273,6 +312,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Only the ones between me and the coast, if you'd be so kind, which by my count is all of them. I've calculated that a warrior walking ahead of me cuts my chances of being bitten by seven parts in ten, though I confess the figures are rough." } },
+      choices = {
+        { text = "Stay behind me and keep to the path, Professor.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the path. We charge straight through and run for it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Professor.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Against my will, yes, and I've concluded that they track by candle smoke and earwax, which is not a sentence I ever expected to write. A real tracker would tell me if I'm wrong, though I'd rather you told me after we've left." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is the first creature in this gorge that hasn't tried to steal from me, and I'm prepared to name a chapter after it. Do keep it beside me while we walk." },
+      },
+      choices = {
+        { text = "Finish your notes properly, Professor. Science needs rigour.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the notes. Some things aren't worth knowing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Then the land is full of candle thieves with very poor manners. I came to Drywhisker to study the minerals of the gorge, and I've learned more about kobold teeth than I ever wished to." } },
       choices = {
@@ -289,6 +349,8 @@ P:NPC {
           text = "Professor Phizzlethorpe, scholar and, at present, hostage to circumstance. I came to Drywhisker Gorge for my research, and the kobolds came for my candles." },
         { id = "h_escort", tags = { "news" }, when = { questActive = TODO_QUEST("Sunken Treasure") },
           text = "Lead on, then, and keep the kobolds off my coattails! My work waits for me down at the coast, and so does a very dull goblin." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, splendid! The kobolds respect nothing but the sharp end of things, and you appear to have several sharp ends about your person." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Perhaps you can tell me whether kobolds count as wildlife, then, because I've been keeping notes, and I'm undecided." },
       },
       choices = {
         { text = "Kobolds belong to the land too, Professor.", next = "druid_q", when = { class = "DRUID" } },
@@ -296,6 +358,8 @@ P:NPC {
         { text = "What were you researching here?", next = "research" },
         { text = "Why do the kobolds want candles?", next = "kobolds" },
         { text = "Who waits for you at the coast?", next = "coast" },
+        { text = "Shall I clear the kobolds from your path, Professor?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Have you studied the kobolds while you've been stuck here?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good luck, Professor.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes, yes? Quickly, before they come back for the rest of my wax." } },

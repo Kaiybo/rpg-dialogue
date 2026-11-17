@@ -26,6 +26,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Something remembers, for the wolves do not howl near the old camp, and I have listened every night for years. A hunter would know if that is grief or only habit, and I would be grateful to hear which." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is quiet near me, which most things are not anymore. Perhaps it smells the old camp on me and knows to be gentle." },
+      },
+      choices = {
+        { text = "It's grief, and grief can heal. Give it time, Gor'mul.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's only habit. The dead don't stir the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = {
@@ -68,6 +80,7 @@ P:NPC {
           text = "I smell the green fire on you, {class}, the same that burned in the old Horde's blood. The Warchief broke us free of that, and you walk back into it." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You move like the grunt who slipped his chains the night the Warchief came, {class}, and vanished into the dark before the guards ever saw him go." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Doomhammer fell not far from here, and the beasts in the hills watched it, I think, though nobody asks a raptor what it saw." },
       },
       again = {
         { id = "h_again", text = "Something more? Ask, then, for all the good it will do." },
@@ -85,6 +98,7 @@ P:NPC {
         { text = "The dead don't always stay dead, orc.", next = "forsaken", when = { race = "Scourge" } },
         { text = "The Warchief freed you from chains, not from fire.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you wish you had run that night too?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do you think the beasts remember that night, Gor'mul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Leave him be.", next = "END" },
       },
     },
@@ -202,6 +216,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The spirits care about everything, mon, though they don't always say so. An orc who fight for Hammerfall heal faster than one who fight because he don't know how to stop, and Tor'gan see it in the wounds every week." } },
+      choices = {
+        { text = "I fight for those behind me. That's reason enough.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I fight because I'm good at it. The spirits can watch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tor'gan.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "This ground held a prison, and before that a battlefield, and the stones remember every chain. I be coaxing them back slow, but the Witherbark be singing to their own dark loa just over the hills." } },
       choices = {
@@ -230,6 +253,7 @@ P:NPC {
           text = "You carry somethin' the spirits don't like, {class}, and they be whisperin' about it in my ear like gossips. Sit down, and let them have a good look." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "Mage fire be hot and quick, {class}, and Tor'gan's fire be slow and patient. Both burn, mon, they just burn different things." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. The spirits like a warrior who know why he fight, and they don't much like one who only know how." },
       },
       again = {
         { id = "h_again", text = "What else be on your mind, friend?" },
@@ -246,6 +270,7 @@ P:NPC {
         { text = "Can a Forsaken be healed by spirits?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Can the spirits forgive a warlock, Tor'gan?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What does your slow fire burn, Tor'gan?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do the spirits care why a warrior fights, Tor'gan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll help Gor'mul.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -359,6 +384,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not a beast's, and not a man's, but something between, moving in the dark around my husband's banner. I would not ask a grunt to look, for he would tell Drum Fel, but a hunter keeps what he finds until he is ready to speak." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} watches the door the way my stones watch the night, and I trust a beast's eyes nearly as much as the spirits'. Keep it near you in Stromgarde." },
+      },
+      choices = {
+        { text = "Drum Fel should know. Secrets between mates protect no one.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep your secret. I'll watch, and tell only you.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Korin.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "That the ogres are not the only danger in Stromgarde, and that Drum will not live to see the highlands thrive unless he grows more careful. I have not told him, and I am asking you not to." } },
       choices = {
@@ -383,6 +420,7 @@ P:NPC {
           text = "A mage reads the world in lines and numbers, {class}, and I read it in smoke and bone. I wonder sometimes which of us sees further." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Keep your voice down, {class}. The auguries speak of a knife in the dark, and I would sooner it were yours than the Witherbark's." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The stones spoke of tracks in the ruins of Stromgarde last night, and I wonder now if they meant yours." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep your voice down." },
@@ -398,6 +436,7 @@ P:NPC {
         { text = "What do your bones say about demons, Korin?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do your auguries ever show you the arcane?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do the auguries say about a knife in the dark?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What tracks did your stones see in Stromgarde, Korin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll keep your secret.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -510,6 +549,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Thrown, no, but I've watched a grunt in full plate try to fight the wind with his shoulders and lose, and the beast had to dive halfway to the Witherbark camps to catch him. He walked back to Hammerfall, and he's flown with his helmet off ever since." } },
+      choices = {
+        { text = "Then I'll follow your rules in the air, Urda.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Wind or no wind, I'll ride as I see fit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Urda.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "They throw spears and curses both, and I'm not sure which I hate more, because a spear only misses but a curse leaves the wind rider sick for days. Their witch doctors work from the hills around their village, if you've a mind to answer them." } },
@@ -544,6 +592,7 @@ P:NPC {
           text = "A mage who flies, {class}? Good, for your teleports don't reach the Hinterlands, and my wind riders do." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Sneak up on a wind rider and you'll lose a hand, {class}. They smell fear and mischief equally well, and you've a whiff of both." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Climb on with your armour if you must, but the winds off Thoradin's Wall don't care how brave you are, and they've tipped heavier riders than you." },
       },
       again = {
         { id = "h_again", text = "Anything else? The wind's turning." },
@@ -557,6 +606,7 @@ P:NPC {
         { text = "Do the trolls shoot at your riders?", next = "trolls" },
         { text = "Do the Highlands' winds trouble your beasts?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Could I fly out without the guards knowing?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Has a wind rider ever thrown a warrior, Urda?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

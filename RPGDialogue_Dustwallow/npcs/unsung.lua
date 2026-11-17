@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oil for the steel, dry socks for the feet and the good sense to stay on the road, though I can only sell you the first two. The rest you'll have to pick up from Captain Vimes, who hands it out free to anyone who'll listen." } },
+      choices = {
+        { text = "Stick to the road. Good advice is worth taking.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Roads are for merchants. I'll take the marsh head on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Enough to keep me in arrows and bandages, and every one of them comes back telling me the marsh is more dangerous than they thought. The crocolisks get most of them, because nobody believes a log can bite until it does." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the flour sacks, please. The last hunter's cat slept on one for an hour, and I'm still finding hair in the bread." },
+      },
+      choices = {
+        { text = "Caution keeps a hunter alive. I'll watch the logs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fear's for townsfolk. I'll take my chances out there.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Less than you'd think, because Theramore is small and everyone knows whose boots went where. The real thief is the marsh, which eats through sacks and barrels faster than any pickpocket I've ever caught." } },
@@ -48,6 +69,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior. Whetstones are by the door and rope's on the shelf, and if you're after something to keep the damp out of your armor, so is everyone else." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! Arrows are in the barrel by the window, and I'll ask you to count them honestly, because I count them again after you leave." },
         { id = "h_default", key = true,
           text = "Charity Mipsy, general supplies. Everything Theramore needs that doesn't come out of a forge or a spellbook comes through my door, and the marsh eats through all of it faster than the ships can bring more." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You keep your hands in your pockets in a shop, which means either you're polite or you've already taken something, and I haven't decided which." },
@@ -64,6 +89,8 @@ P:NPC {
         { text = "What's life like here, under Lady Jaina?", next = "jaina" },
         { text = "Do you lose much stock to thieves, Charity?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the Theramore mages buy much from you, Charity?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What does a warrior need to survive the marsh, Charity?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do many hunters come through Theramore, Charity?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Nothing today, thanks.", next = "END" },
       },
     },
@@ -148,6 +175,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oak faced with iron, not solid steel, because steel rots out here before the season's done and oak only swells a little. I've made the guard's shields that way for years, and the soldiers grumble at the weight until a raptor's teeth stop an inch from their arm." } },
+      choices = {
+        { text = "Tested craft beats fashion. Oak and iron it is.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep my steel shield and oil it myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I can slow it down, which is the best anyone can promise in Dustwallow, with a good coat of tallow and a brushing every night. Hunters lie in the reeds for hours waiting on a crocolisk, and I've never met the mail that came out of those reeds the same as it went in." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} away from the tallow pot, because every hound in Theramore has had a go at it and none of them were sorry." },
+      },
+      choices = {
+        { text = "I'll tallow it every night. Neglect is how gear fails.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather move light and replace it when it rots.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not much, because the Guard wants plate and shields, and I've only got so many hours before the rust wins. Go and see Piter for blades, and if you need your leather patched, the marsh will rot it before I could anyway." } },
@@ -186,6 +234,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! Now there's someone who'll appreciate a good shield, provided you've the sense to oil it before the marsh gets at it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter. Mail, by the look of it, and full of mud in every link, which I can tell from here, so take it off before you sit down." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, and in cloth, thank the Light, so you're one customer who won't be bringing me rusted plate to scrape." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and in plate too, which means you'll be back here inside a week with rust in every joint, because this marsh eats steel the way the crocolisks eat the unwary." },
         { id = "h_default", key = true,
@@ -207,6 +259,8 @@ P:NPC {
         { text = "Why don't mages wear armor in the marsh, Hans?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you ever forge anything for the faithful, Hans?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do I keep my armor sound in this swamp?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How should a warrior choose a shield for this marsh, Hans?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can you keep a hunter's mail from rusting, Hans?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -291,6 +345,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A short-hafted axe, because a raptor comes in low and fast and you won't have room to swing anything longer. I've seen soldiers go out with greatswords and come back with a very different opinion of greatswords." } },
+      choices = {
+        { text = "I'll take the axe. Practical beats proud.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep the greatsword. The raptors can learn to respect it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Waxed string, oiled wood and a case that never sees the rain, though in Dustwallow the rain sees everything. The marsh's creatures are faster than they look, so I tell every hunter to carry a spare string and never trust the first one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's {pet}, is it? A fine beast, and a better sentry than any I've sold a bow to, because it hears the crocolisks long before you do." },
+      },
+      choices = {
+        { text = "A good hunter respects the prey. I make clean kills.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A kill's a kill. I don't care how clean it is.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Short swords and daggers, mostly, balanced for a quick hand rather than a heavy arm. The marsh's raptors are fast, so a slow blade gets you killed, and I'd rather send you out with something you can trust in the fog." } },
@@ -329,6 +404,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
+          text = "A warrior! I'll wager you'll want to feel the balance of everything on my rack before you decide, and I'd think less of you if you didn't." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
+          text = "A hunter! My bows are on the back wall, and I string them myself, because the damp here ruins a bow faster than it ruins a blade." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, welcome! I don't suppose you'll be buying a sword, but come in out of the damp all the same, because a shop's friendlier with someone in it who isn't haggling." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a mace, I expect, or a good hammer, and I've a few on the rack that would do the Silver Hand proud if you'd care to look." },
         { id = "h_default", key = true,
@@ -349,6 +428,8 @@ P:NPC {
         { text = "Do you make anything for mages, Piter?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does it trouble you to sell weapons in a city of peace?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Theramore ready itself for war even in peacetime?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What weapon would you take against a raptor, Piter?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How do you keep a bow strung in this damp, Piter?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not right now.", next = "END" },
       },
     },

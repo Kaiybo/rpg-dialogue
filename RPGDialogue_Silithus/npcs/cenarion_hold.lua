@@ -33,6 +33,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "By reading the sand as you would read a forest floor, for the hives send their scouts along the dunes before every swarm. Natalia could tell a silithid's track from a scorpid's at a glance, and forgive me, I did not mean to speak of my wife; watch the dunes for us, and tell my captain what you find." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would serve the Hold well on the perimeter, for a beast's senses reach where a sentry's cannot, and I would welcome every advantage against the hives." },
+      },
+      choices = {
+        { text = "I'll report to your captain. The Hold needs order, not heroics.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I hunt alone and strike wherever I see fit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Healers for the riders who come back from the hives, and steady hands that do not tremble at what they find in the sand. The silithid wound the body and the Twilight's Hammer wound the mind, and the Hold has too few who can mend either." } },
@@ -90,6 +102,8 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There you are. I find the Hold steadier when you're in it, which is a strange thing to say of someone who's rarely here." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Cenarion Hold. You are welcome here, as are all who stand against the swarm, though forgive me if my thoughts wander when I see a priest." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. The Circle has need of keen eyes in this desert, for the silithid move beneath the sand where no sentry can follow them." },
       },
       again = {
         { id = "h_again", text = "What else would you know? Ask, before the next runner finds me." },
@@ -111,6 +125,7 @@ P:NPC {
         { text = "What do the crystals have to do with the silithid?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you fear warlocks will join the Twilight's Hammer?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What does the Hold need from a priest, Commander?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "How can a hunter best serve the Hold, Commander?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your work, Commander.", next = "END", fx = { affinity = 1, standing = { cenarion_hold = 1 } } },
       },
     },
@@ -379,6 +394,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not to yer arm, but maybe to yer head, because I've watched silithid fight like they'd gone mad around them, and I'd not like to learn what that hum does to a body standing too close. If ye're holding a line near the crystals, keep yer wits about ye and yer shield up." } },
+      choices = {
+        { text = "A clear head holds the line. I'll keep my discipline.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the madness come. Fury's served me well enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Aye, I'd stake my hammer on it, though the Circle wants proof before it'll believe a dwarf with a feeling. Their tracks circle the crystals like moths round a lamp, and a good tracker could map the whole pull of them, if they were brave enough to follow." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch how {pet} acts near the crystals, will ye? If it goes stiff or won't settle, I'd like to know, because a beast hears what I can only feel through my boots." },
+      },
+      choices = {
+        { text = "Study the crystals carefully before anyone acts on them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Smash the crystals and be done with the mystery.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "That's what I'd like tae know, because they hum for the Twilight's Hammer too, an' I'd hate tae think ye had anythin' in common wi' them. It's somethin' in yer power, Light or shadow, an' the rocks o' Silithus are listenin' for it." } },
@@ -425,6 +461,10 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There's my favourite pair of ears! Pull up a crate, the comfortable one with the agate in it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest o' the Horde! Ye'll not mind if I ask ye tae hold still a moment, because the stones in my satchel have started hummin' since ye walked in." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, aye, and ye've the look of someone who'd swing at a crystal if it hummed at ye wrong. Please don't, because I need them in one piece." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Ye'll have noticed the silithid don't walk straight out there, then, all twitchy and turned about, like something's pulling at them." },
       },
       again = {
         { id = "h_again", text = "What else? I've got rocks to sort, but they're not going anywhere." },
@@ -444,6 +484,8 @@ P:NPC {
         { text = "Can the silithid really feel footsteps?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You think the crystals have a dark power?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why would the stones hum for a priest, Larksbane?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Are the crystals out there a danger to fighters, Larksbane?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Have the crystals changed how the silithid move, Larksbane?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll let you get back to your rocks.", next = "END" },
       },
     },
@@ -625,6 +667,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Patience, chiefly, assuming you can stand in the heat and watch an empty road for hours without wandering off after a scorpid. The worms take a cart from beneath, so a guard who keeps his eyes on the sand is worth ten who charge the dunes." } },
+      choices = {
+        { text = "Holding the road matters more than chasing glory.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Better to kill the worms in their nests than wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Grain comes in by caravan, and every wagon must be guarded across the open sand, where the silithid like to rise up beneath the wheels. A healer on the supply road is worth a dozen carts, because a driver who lives keeps driving." } },
@@ -697,6 +748,8 @@ P:NPC {
           text = "A priest of the Alliance, and very welcome, because the Hold goes through bandages faster than grain, and nobody has yet found a way to grow linen in sand." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I should like to put you down as a guard for the supply carts, provided you'll forgive me for writing your name in the same column as the grain." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Good; provided you can hold a cart road as well as you hold that blade, I have more work than I have soldiers." },
       },
       again = {
         { id = "h_again", text = "What else? I have ledgers, but I have ears too." },
@@ -715,6 +768,7 @@ P:NPC {
         { text = "Can the Hold truly win against the silithid, Windcaller?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do you keep the soldiers fed and whole, Windcaller?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the supply carts come under attack often?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What does holding the supply roads actually require, Windcaller?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "I'll keep an eye on the roads.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },
@@ -812,6 +866,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It's big, it's old, and it's killed every fool who went after it thinking a scorpid is just a scorpid. Bring me a pincer and I'll believe you killed it, and bring me a story and I'll believe you ran." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And don't send {pet} in first, unless you want it back in two pieces, because Deathclasp doesn't care who's holding the leash." },
+      },
+      choices = {
+        { text = "I'll face it myself. That's the only honest kill.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Traps and poison work. I'll take it any way I can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Fewer prayers and more bandaging, mostly, because my guards come back from Hive'Ashi with holes in places nobody should have holes. If you can keep a sentry on his feet through the night, you'll have earned your place on the wall." } },
@@ -882,6 +948,8 @@ P:NPC {
           text = "A priest. The barracks could use you more than the inn could, because half my guards come off the walls with stings they're too proud to mention." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin. I can hear the plate from here, so don't bother creeping, and don't bother telling me how bright your Light is either, because I wouldn't see it." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. Fine, you can make yourself useful, because Deathclasp is still out there and nobody's brought me a pincer yet." },
       },
       again = {
         { id = "h_again", text = "Anything else? The view won't watch itself." },
@@ -900,6 +968,7 @@ P:NPC {
         { text = "Are your guards holding up against the silithid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does the Hold's guard need from a priest, Captain?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How does the Commander fare since his wife vanished?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What makes Deathclasp so hard to bring down, Captain?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -1014,6 +1083,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every day, and the warriors are the worst, because they'll fight a silithid all afternoon and then walk in without a word about the stinger still in their leg. I've learned to feed them first and ask questions after, the way we did for the sailors back in Auberdine." } },
+      choices = {
+        { text = "Rest and care keep a soldier alive. You do good work.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A real warrior doesn't need fussing over.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Sandworm, mostly, which is bitter however long I stew it, though I'm told the cult cooks it well enough, which I find very irritating. A hunter brought me a scorpid tail once, and I'm still not sure whether he meant it as a gift or a dare." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks thirsty, you poor thing, so let it rest in the shade by the door while you're here, and don't let it near the worm stew." },
+      },
+      choices = {
+        { text = "A hunter should feed the Hold before himself.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I hunt for my own pot first. Others can manage.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Some of them do, dear, because they come back from the Twilight camps with nightmares that a bowl of worm stew won't touch. I'm only an innkeeper, so I give them a blanket and a lamp, but a priest might give them something more." } },
@@ -1075,6 +1165,10 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the Oasis Inn! Sit, dear, and rest your feet, whether you pray to the Light or the loa or something I'd rather not ask about." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Sit down and let me shake the sand from your robes, because I've seen Elune's priestesses come in tidier after a sandstorm, and you've clearly been through two." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "Oh, you poor thing, look at your armor, there's more sand in those joints than in the whole of Tanaris. Sit down before you creak yourself to pieces." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, oh, and your poor beast is covered in sand too! In Auberdine the worst it would have brought home was a little sea salt." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? I've a pot on, but it'll keep." },
@@ -1093,6 +1187,8 @@ P:NPC {
         { text = "What are you trying to cook?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you miss Auberdine, Calandrath?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the guests at the Oasis need more than a bed, Calandrath?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do many soldiers come back from the hives in a bad way?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What have hunters brought you to cook out here, Calandrath?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Thank you, Calandrath.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -1196,6 +1292,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Something with a stinger and a bad attitude, out north where he had no business picking herbs, and now I'm brewing antidotes at cost, which hurts me nearly as much as the venom hurts him. If you're fighting out there, buy your own antidotes before you go, because I'm not nursing two of you." } },
+      choices = {
+        { text = "Look after your own first. That's what family is for.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "He knew the risks. Let him pay the price.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every one, because you can't brew an antidote without the poison, and the poison doesn't come in a jar. A hunter who knows where to cut gets me a clean sac, and a warrior who doesn't gets me a splattered mess I can't use." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} back from the stingers when you're cutting them, though, because I'm already nursing one patient and I don't do animals, whatever Noggle says about my bedside manner." },
+      },
+      choices = {
+        { text = "I'll bring you what heals people. That's worth the hunt.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I hunt for the coin. What you brew is your business.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Only if you start charging, friend, and then we'd have to talk about splitting the market. Between you and me, the venom out of those stingers is nasty stuff, and if your Light or your loa can ease Noggle where my potions can't, I'll call it a fair trade." } },
@@ -1259,6 +1376,10 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and just in time, because Noggle's been moaning about dying all morning, and I'd love a second opinion that doesn't cost me reagents." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Oh, thank the Cartel, could you look at Noggle? I'll still need the samples, mind, because whatever's in him is too stubborn for one prayer." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! You look tough enough to take a scorpid's sting and walk it off, which is more than my idiot cousin managed." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Bring me venom sacs and stingers, because every bug and scorpid in this desert is a cure for something, eventually." },
       },
       again = {
         { id = "h_again", text = "What else? I've got a pot about to boil over, so make it snappy." },
@@ -1275,6 +1396,8 @@ P:NPC {
         { text = "Could a curse really help draw out venom?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How bad is Noggle's poisoning, truly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would a priest's healing put you out of business, Beetix?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What stung Noggle so badly, Beetix?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do hunters' kills really help you make cures, Beetix?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll keep an eye out for nasty things with stingers.", next = "END" },
       },
     },

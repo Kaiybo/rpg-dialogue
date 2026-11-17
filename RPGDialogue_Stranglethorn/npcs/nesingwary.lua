@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Aye, when the beast turns, which a great cat sometimes does, an' then ye want someone who'll stand an' take the charge while the rest of us reload. I lost a bearer tae a panther once because naebody would hold the line, so I'll no' mock a stout shield." } },
+      choices = {
+        { text = "I'd hold the line so the hunters can take their shot.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd charge the beast first and finish it myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "It's use, aye, but it's no sport. I watched a mage freeze a tiger once an' then stroll up tae it like it was a statue, an' there's no glory in that, only a cold cat an' a smug mage." } },
@@ -120,6 +129,7 @@ P:NPC {
           text = "The King's head, on my wall. I've wanted that for years, an' now I've got it I keep lookin' west anyway. There's always somethin' bigger." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Quiet, quiet! Ah, a rogue, which is the next best thing tae a hunter, since ye ken how tae move without scarin' the game." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, I don't suppose ye could freeze a panther in its tracks long enough for a proper shot? It'd make a dull story, but a very fine trophy." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? Ye'll scare the game clean out o' the valley wi' all that clankin', so stand still a moment an' let the cats come back." },
       },
       again = {
         { id = "h_again", text = "Aye? Out wi' it, then, for the light's goin'." },
@@ -138,6 +148,7 @@ P:NPC {
         { text = "That's a fine rifle. Ironforge make?", next = "rifle", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Is there no cruelty in hunting for sport, Nesingwary?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there honor in the hunt, Nesingwary?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is there any use for a warrior on a hunt, Nesingwary?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "I'll hunt for you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Some of those cats you hunt are my kin, Nesingwary.", next = "k_druid", when = { class = "DRUID" } },
         { text = "My people hunted this jungle before yours had rifles.", next = "k_troll", when = { race = "Troll" } },
@@ -337,6 +348,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A clean kill, a straight story, an' the hide in one piece, an' he cannae abide anybody who shoots a beast while it drinks. He's written it all in his book, the rules an' the hunts, so if ye find any loose pages out in the jungle, bring them back tae me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A clean kill, a straight story, an' the hide in one piece, an' he cannae abide anybody who shoots a beast while it drinks. He's written it all in his book, the rules an' the hunts, so if ye find any loose pages out in the jungle, bring them back tae me. An' that {pet} o' yers is a fine beast, but keep it off the master's tent, for he's sleepin', an' he snores like a basilisk." },
+      },
+      choices = {
+        { text = "His rules are right. A hunt without rules is just killing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules are fine in a book. I hunt to win.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "A gnome mage tried a findin' spell for me once, an' it led him straight tae a gorilla's nest. He found two pages an' lost his hat, an' the master still doesnae know any o' it happened." } },
@@ -416,6 +439,7 @@ P:NPC {
           text = "Every page back an' bound, an' he's never goin' tae know. Ye'll have a drink on me for that, an' ye'll never mention it either." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be good at finding loose pages, I'd guess, since you've an eye for things that aren't where they should be." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you dry out the camp a bit? The damp's getting into the pages, and Hemet won't hear of moving the book indoors." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Ye'll be wantin' tae see the master, I suppose, but wipe yer boots first, for I've only just swept the camp." },
       },
       again = {
         { id = "h_again", text = "Aye? I'm listenin'. My hands are busy, my ears aren't." },
@@ -432,6 +456,7 @@ P:NPC {
         { text = "What do you do all day?", next = "work" },
         { text = "Do the hunters here ever think about their own deaths?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shouldn't a hero of the Alliance be serving it, Barnil?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What does it take to impress Nesingwary, Barnil?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll look for the pages.", next = "END", fx = { affinity = 2 } },
         { text = "You miss a fight? I'm a warrior. Spar with me.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Why are the pages of Nesingwary's book loose, Barnil?", next = "xrogue", when = { class = "ROGUE" } },
@@ -552,6 +577,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "No, because Sin'Dall is mine to take with the bow, alone, the way my father would have done it. But the tigers and stalkers along the way don't care about my oaths, so a sword at my back on the way there would be welcome." } },
+      choices = {
+        { text = "Then the kill is yours alone. I respect that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A kill's a kill. I'd help bring him down, oath or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "It could, but I won't let it, because my father took his tigers with patience and a bow. If I find Sin'Dall with a spell, I'll have found him, but I won't have earned him, and that matters to me more than it ought to." } },
@@ -612,6 +646,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Tigers hunt at night, so I sleep in the day when I can. Hemet thinks it's lazy, but Hemet snores." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be wanting to know how to hunt Sin'Dall, I suppose, and I'll tell you the same as I tell everyone: you won't." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Keep your demon away from the trail, because Sin'Dall can smell anything strange a mile off, and I've spent too long tracking him to lose him now." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Steel's no use to me against Sin'Dall, but you'd be worth having at my back when the jungle stalkers come out at night." },
       },
       again = {
         { id = "h_again", text = "Anything else you'd like to know? I've a minute before the master needs me." },
@@ -626,6 +661,7 @@ P:NPC {
         { text = "Want to compare bows?", next = "bows", when = { class = "HUNTER" } },
         { text = "What about the cats that walk on two legs?", next = "druid", when = { class = "DRUID" } },
         { text = "Why are you so set on taking Sin'Dall, Ajeck?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would you hunt Sin'Dall with a warrior beside you, Ajeck?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Darkspear hunters track tigers too, Ajeck.", next = "k_troll", when = { race = "Troll" } },
         { text = "Why do you say no one else will take Sin'Dall, Ajeck?", next = "xrogue", when = { class = "ROGUE" } },
@@ -750,6 +786,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They treated them as furniture, mostly, polished and placed and forgotten until something needed defending. I sat in the House of Nobles beside men who'd never held a sword, sending men who had to die, and that is one of the reasons I hunt panthers now." } },
+      choices = {
+        { text = "A soldier's duty is to serve, even under poor masters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then soldiers should choose their own masters, as you did.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A panther wants to eat you and makes no secret of it, while a noble wants the same and smiles as he says otherwise. Out here I know exactly where I stand, and in Stormwind I never did." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A panther wants to eat you and makes no secret of it, while a noble wants the same and smiles as he says otherwise. Out here I know exactly where I stand, and in Stormwind I never did. Your {pet} would make a better lord than half the House of Nobles, and I say that with the deepest respect for your beast." },
+      },
+      choices = {
+        { text = "Honest danger beats false friends. You chose well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Nobles are prey too, if you know how to hunt them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "They feared what they couldn't buy, and a good mage can't be bought, only rented. I left because the House cared more for its rents than for the families the Defias were robbing, and I hunt panthers now because panthers don't pretend." } },
@@ -800,6 +857,8 @@ P:NPC {
         { id = "h_hemet", when = { heardLine = "nesingwary.h_default" }, text = "Hemet told you about the hunting? He tells everyone; it's the only story he knows, and he tells it better every time." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. I knew a few of your kind in Stormwind, when I still had a title worth stealing, and I'll admit I miss their company more than the nobles'." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The court in Stormwind was full of your kind, whispering in the nobles' ears, and I'll not pretend I trusted many of them." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. In Stormwind you'd be standing guard at some lord's door, but out here, at least, the panthers will give you a real fight." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Then you'll understand why I gave up a seat among the nobles for a tent in the mud, and you won't think me mad for it." },
       },
       again = {
         { id = "h_again", text = "Yes? I've time; I have nothing but time, which is rather the point of exile." },
@@ -813,6 +872,8 @@ P:NPC {
         { text = "What's in the letters they keep sending?", next = "letters", when = { metBefore = true } },
         { text = "My family sits in that House.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "The Defias drove my family off our farm.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
+        { text = "Did Stormwind's nobles treat their soldiers poorly, Sir Erlgadin?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why are panthers better company than nobles, Sir Erlgadin?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll hunt panthers.", next = "END", fx = { affinity = 2 } },
         { text = "A paladin doesn't walk away from his post, Sir.", next = "k_paladin", when = { class = "PALADIN" } },
         { text = "Why do you miss rogues more than nobles, Sir Erlgadin?", next = "xrogue", when = { class = "ROGUE" } },

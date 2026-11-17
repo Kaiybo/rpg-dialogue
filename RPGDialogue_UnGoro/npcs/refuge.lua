@@ -214,6 +214,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I remember throwing something that came back to my hand, which feels like a hunter's sort of memory, doesn't it? The rest went with the raft, but my feet still know how to follow a raptor through the ferns, and that has to count for something." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} looks at me like it's met me before, which is more than I can say for most people, so I'll take that as a good sign." },
+      },
+      choices = {
+        { text = "Rebuild who you were, Linken. Your past still matters.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the past. Be whoever you want to be now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "I think I would, friend, though I'm not sure, which I suppose is the whole trouble. Something bad happened before I woke in the marsh, I can feel that much, but the not knowing feels worse than any memory could." } },
@@ -295,6 +307,8 @@ P:NPC {
           text = "You're a priest? Can priests mend a head that's been hit, do you think, because mine was, and the rest of me is fine, but there are holes in it where things ought to be." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, with a shield like mine! I can't remember who taught me to use it, but my arm knows how, and I'm told that's a good sign." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! I think I used to know one, or maybe I was one, before the raft. No, I'm fairly sure it was a sword I carried, though I'm also fairly sure about a boomerang." },
       },
       again = { { id = "h_again", text = "Ask! Quickly, before I forget you asked." } },
       choices = {
@@ -311,6 +325,7 @@ P:NPC {
         { text = "Would you like me to pray over your memory, Linken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you want to remember, Linken, even if it hurt?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you think you were a knight, once?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you remember anything about hunting, Linken?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll help you remember.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },
@@ -386,6 +401,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because the right crystal makes a body stronger and the wrong one gives you a very short nap, and I've got notes on both! I watched a guard hold one and lift a crate he couldn't budge the day before, though he couldn't feel his thumbs for a while after." } },
+      choices = {
+        { text = "Strength should be trained, not borrowed from a stone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a crystal makes me stronger, hand it over.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I think they feel the hum in their feet, the same hum I feel in my teeth whenever I chip a sample, and they've the sense to steer clear. I haven't any sense, of course, so I keep walking right up to them with a notebook." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Has {pet} ever growled at a crystal? Tell me if it does, because a beast's nose might be the best instrument I could ask for, and it's certainly cheaper than a gnome's." },
+      },
+      choices = {
+        { text = "Trust the beasts' caution. Some things shouldn't be disturbed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Curiosity moves us forward. Keep walking right up to them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "They answer to something, because the red ones hum higher when someone prays over them, though that might just be the heat. I've a theory that something old grew them down here on purpose, and if so, a priest's touch might wake whatever they were meant for." } },
@@ -438,6 +474,10 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "The crystals don't like you, friend. I mean no offence, but the pylon readings went sour the moment you walked in, the same way they do near the fire elementals up on the ridge." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, splendid! The crystals hum a little louder when spellcasters come into the cave, and I'm dying to know whether they prefer the Light or the shadow." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Perfect timing, because I need someone who can carry a crystal without dropping it, and who won't mind too much if it gives them a little jolt." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! Have you noticed how the beasts down there go quiet around the big crystal clusters? I swear they know something we don't." },
       },
       again = { { id = "h_again", text = "Another question? Lovely, because questions are my favourite thing after crystals." } },
       choices = {
@@ -450,6 +490,8 @@ P:NPC {
         { text = "What do you hope the crystals will do?", next = "xmage", when = { class = "MAGE" } },
         { text = "Are you afraid of what I might do with them?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do your crystals really answer to a priest's power, J.D.?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why would a warrior want to carry your crystals, Collie?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why do the crater's beasts avoid the crystals, Collie?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll gather crystals.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },
@@ -518,6 +560,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "We did, a little, but Williden can't spare the guards, and the ones we have are needed on the ridge to keep the raptors out of the Refuge. I keep telling myself that's sensible, and I keep not believing it." } },
+      choices = {
+        { text = "Holding the ridge is the right call, however hard it is.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules be hanged. Someone should have gone after him.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Every night, though I'm not sure anyone's listening, because the crater is very loud and my prayers are very small. If yours are bigger, then please aim them south of the Refuge, because that's where he was heading." } },
@@ -589,6 +640,8 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Would you say a prayer for Ringo, please, any prayer at all, because he's been gone for days and I've run clean out of my own." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "You're a priest! Could you, I mean, would you say a prayer for Ringo, because he went off toward the volcano days ago and I keep thinking of him out there, all alone and thirsty and maybe hurt?" },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior? Oh, please, if you're going down toward the volcano, look for Ringo, and if anything's chasing him, hit it very hard." },
       },
       again = { { id = "h_again", text = "Anything else? Sorry, I'm a bit distracted, but I always am." } },
       choices = {
@@ -603,6 +656,7 @@ P:NPC {
         { text = "I can conjure water. Is that all he needs?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you think Ringo is still alive, Spraggle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have you prayed for Ringo yourself, Spraggle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why didn't anyone go after Ringo, Spraggle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "I'll look for Ringo.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },

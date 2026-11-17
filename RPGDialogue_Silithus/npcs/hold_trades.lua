@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A great deal, if you'd let us, though warriors always want their weapons to glow and never their armor to hold. A cloak enchanted against nature's venom would do more for you at the hives than any shining edge, but no warrior has ever thanked me for one." } },
+      choices = {
+        { text = "Sound defence before showy edges. You're right about that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A deadlier blade ends fights faster. I'll take the glow.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A truer draw and a steadier hand, yes, if you let me enchant your gloves and bracers rather than fuss over the bow itself. Most hunters only ask for agility, which is wise enough, if rather dull to enchant." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} is welcome to wait on the stair, where it can watch the door and keep its fur well away from my vellum." },
+      },
+      choices = {
+        { text = "A hunter's own skill matters more than any enchantment.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take every enchantment that gives me an edge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Against some of it, I think, though not the worst, because the Twilight's Hammer deal in powers that care little for runes and vellum. A ward holds best when someone faithful stands behind it, and I would rather sell to a priest than to a cultist with gold." } },
@@ -73,6 +94,10 @@ P:NPC {
           text = "A rogue! You've come up the stairs very quietly, which I appreciate, because the sand-shakers who stomp up here ruin my dusts." },
         { id = "h_default", key = true,
           text = "I am Kania, and I sell enchanting supplies to the Hold. Rods, vellum, dusts and a few rare formulae, kept up here in the inn where the sandstorms can't scour them." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. Please stand still while you're in here, because every step in those boots shakes sand into my dusts." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. If your beast sheds, keep it on the stair, please, for fur in a formula ruins it as surely as sand does." },
       },
       again = {
         { id = "h_again", text = "Was there something more you wished to ask?" },
@@ -86,6 +111,8 @@ P:NPC {
         { text = "Do warlocks buy much from you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could a rogue use any of your enchantments?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can enchantment ward against what the cult calls up, Kania?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is there anything an enchanter can do for a warrior, Kania?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Can enchanting do anything for a hunter, Kania?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -142,6 +169,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Against an orc or a man, perhaps, but against the silithid there is little honour to lose, for they do not fight as we do. The Earth Mother gave us venom and medicine from the same roots, and I do not think she meant one only for the rogues." } },
+      choices = {
+        { text = "My blade stays clean. Honour isn't something I set aside.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Against the swarm, any edge is fair. Coat the blade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That a beast's tracks tell you where the water is, and a scorpid's tracks tell you where not to sleep. We crossed the Barrens and the Needles together, and not one of us went thirsty, because the hunters read the land like a book." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of those beasts on the long road, steady and watchful, and I think it would have kept good company with them." },
+      },
+      choices = {
+        { text = "The land teaches those who listen. I listen.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The land's an obstacle. I just push through it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "As easily as the scorpid sits beside the cactus, friend, because both belong to the land and both serve a purpose. A priest who heals and a hunter who poisons may both be keeping the Hold alive, and I do not judge which is the gentler work." } },
@@ -178,6 +226,10 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Khur Hornstriker, and I sell reagents and poisons to those who stand with the Hold. Candles and powders for the casters, venom makings for the rogues, and plain good sense for anyone who'll take it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I sell candles for your prayers, friend, and poisons for less gentle work, and I find no shame in either." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior. You will want my herbs more than my poisons, I think, though I have seen warriors coat their blades when the hives grew close." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter. I walked from Mulgore with hunters who knew more of the land than I did, and I have been glad of their kind since." },
       },
       again = {
         { id = "h_again", text = "What else would you know, friend, while the desert wind is quiet?" },
@@ -190,6 +242,8 @@ P:NPC {
         { text = "Do many mages pass through the Hold?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you trust warlocks to use their reagents well?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does selling poison sit easily beside holy candles, Khur?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is it dishonourable for a warrior to poison his blade, Khur?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What did the hunters teach you on the road from Mulgore?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -244,6 +298,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a squire serves the ones who fight, and I mean to earn the right to fight beside them one day. For now I serve their beasts, and I'd sooner throw a scorpid over the wall than let one near a stall in my charge." } },
+      choices = {
+        { text = "Service is honourable. Earn it slowly and you'll earn it well.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Titles mean nothing. Pick up a sword and fight now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "I don't know, and that's what frightens me, because there isn't a mark on him, only a way of staring west as though something there were calling. I've tended him as well as a squire can, but this feels like work for a priest." } },
@@ -290,6 +353,8 @@ P:NPC {
           text = "A mage! Could you cool the stables with a spell, perhaps? The desert heat is terrible for the beasts, and I'm running out of water to keep them comfortable." },
         { id = "h_default", key = true,
           text = "Squire Leoren Mal'derath, stable master of Cenarion Hold! I board the companions of every hunter who comes to fight for the Circle, and I treat them as I would the commander's own mount." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Is your mount well? Not that I'd presume, but a war-mount in this sand needs looking after, and I'm the one who looks after them." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I've three stalls to muck out before the heat." },
@@ -303,6 +368,7 @@ P:NPC {
         { text = "Would you really turn away a demon?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How do you keep the beasts cool in the desert?", next = "xmage", when = { class = "MAGE" } },
         { text = "What happened to the mount from the Twilight camps, Leoren?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why do you take the title of squire so seriously, Leoren?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Hillsbrad Fields, where the farmers have been handed swords and told they are soldiers. Kill the ones who fight, let the rest run to Southshore with the story, and the Marshal will spend a month deciding what to do while we take another field." } },
+      choices = {
+        { text = "Kill those who fight and spare those who run.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Spare none. Fear spreads faster when no one escapes.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Their patrols, their couriers, and the gryphons that come down from the Wildhammer aeries, because Southshore's messages go north by air. Bring down a rider, and the dwarves will think twice before they offer the humans more help." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will be useful to the front as long as it obeys you. The Dark Lady has no patience for beasts that run wild, or for those who cannot hold their leash." },
+      },
+      choices = {
+        { text = "The Dark Lady's orders come first. I'll follow them to the letter.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I hunt my own way. Results matter more than orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "You tell me, druid, since you are the one who speaks with her. I only know that the soil of these hills took our bodies once and gave them back, and I owe it nothing either way." } },
       choices = {
@@ -89,6 +110,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because Southshore's farms are best taken quietly, and I have no patience for soldiers who announce themselves with a battle cry." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage of the Forsaken or the Horde, it hardly matters. The Dark Lady values any power that can break a human line, and you'll find plenty of lines to break here." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Lord Varimathras has given us many gifts, and I suspect you're one of the few who understands what they cost." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Good, because Southshore's farms are not taken by stealth alone, and when the humans finally form a line, I want someone who can break it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Southshore's patrols keep to the shore road, and I need someone who can follow them unseen and who doesn't mind what happens at the end of the trail." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief about it." },
@@ -112,6 +135,8 @@ P:NPC {
         { text = "How do you want Southshore's farms taken, High Executor?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What use does the Dark Lady have for mages, High Executor?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you trust Lord Varimathras, High Executor?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Where would you have me break the human line, High Executor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What should I track for you, High Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll take my leave.", next = "END" },
       },
     },
@@ -303,6 +328,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "On whatever wanders into the fields and doesn't wander out again, which is mostly rats and the occasional unlucky boar. I've never tested anything on Umpi, though, and I never will, which I suppose is the closest thing I still have to a principle." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "So that's {pet}. Keep it well clear of Umpi, please, because she's survived more than any frog should, and I'd rather she didn't end her days as a snack." },
+      },
+      choices = {
+        { text = "Beasts don't deserve your plague. Test it on the enemy.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Whatever serves the Dark Lady. Test on anything that breathes.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Lydon.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Master Faranell says the arcane is a crutch for people who can't measure, and I agree with him because agreeing is quicker. Still, the Syndicate's shadow mages are collecting blood for me in the hills, so I suppose the Society uses magic the way it uses everything else, at arm's length." } },
@@ -373,6 +410,7 @@ P:NPC {
           text = "A toxin to bleed the violence out of goblins. It needs innocent blood, and the Syndicate's shadow mages have been collecting it for me. How generous of them." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Don't touch the bottles, rogue, unless you'd like to find out what's in them the hard way, and some of them are designed to be found out the hard way." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll want to know whether I've a use for your shards, and the answer is no, since I've enough trouble keeping Umpi out of my reagents." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Keep your beast away from the table, because most of what's on it would kill it, and the rest would make it wish it had died." },
       },
       again = {
         { id = "h_again", text = "What else? Not that it matters." },
@@ -394,6 +432,7 @@ P:NPC {
         { text = "I studied in Dalaran before I died.", next = "xmage", when = { race = "Scourge", class = "MAGE" } },
         { text = "Do you make poisons for rogues too, Lydon?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is Umpi safe around my demon, Lydon?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you test your brews on beasts, Lydon?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -531,6 +570,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The living ones do, mostly about Southshore, and the dead ones about whatever they did before they died. I've learned to sleep through the shouting, which is easy when you don't actually sleep." } },
+      choices = {
+        { text = "A warrior should master his fears, not shout at them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them rage. Fury kept us alive through worse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Shay.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "The scouts who go down to the Hillsbrad farms, mostly, because the farmers there keep dogs and pitchforks and the Southshore guard is never far off. They come back to my bar complaining that one spell at the right moment would have saved them a long run home." } },
@@ -582,6 +630,7 @@ P:NPC {
         { id = "h_krusk", when = { heardLine = "krusk.h_default" }, text = "You've met Krusk, then. He's the only one in town who orders a hot meal, and he eats it with his back to the wall." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll find the inn makes a fine hiding place, since nobody looks twice at the corner tables anymore, and the dead don't gossip much." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll want something warm, I suppose, though warmth is wasted on most of my guests, and I've stopped heating the kettle out of habit." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leave the axe by the door, if you would, because the last one who brought his into the common room took a chunk out of my good table during a nightmare." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've all night, and every night after it." },
@@ -598,6 +647,7 @@ P:NPC {
         { text = "Is there anything here a living body can eat?", next = "food", when = { race = { "Orc", "Tauren", "Troll", "Skyborne" } } },
         { text = "Do you get many visitors who prefer to stay hidden, Shay?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Don't the Forsaken miss warmth, Shay?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do warriors have nightmares at your inn, Shay?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Just passing through.", next = "END" },
       },
     },

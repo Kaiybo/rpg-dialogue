@@ -187,6 +187,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Someone has to stand near the rock elementals while I take readings, and they agitate rather easily. The last time I tried it myself I spent an afternoon flattened under a boulder, and the readings were dreadful." } },
+      choices = {
+        { text = "I'll stand guard, but only if you follow safe procedure.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget procedure. I'll smash them and you can measure the pieces.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Lotwil.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "My working theory is that the beasts can hear the elementals grinding inside the rock long before we can. My other theory is that the beasts are simply cleverer than my assistants, which would also explain a great deal." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would {pet} let me put a little listening device near its ear? It's quite harmless, and it's only exploded twice, neither time near an ear." },
+      },
+      choices = {
+        { text = "Leave my beast out of your experiments, Lotwil.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it helps the Assembly, my beast can wear your device.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Lotwil.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Suffer is a strong word for something made of granite, though I'll admit they do get rather cross. Science needs a few cross elementals, I'm afraid, and the Badlands have plenty to spare." } },
       choices = {
@@ -217,6 +238,10 @@ P:NPC {
           text = "This is going to be hard, and that's not a warning, that's my working title. Lucien thinks it's funny; Lucien's my assistant." },
         { id = "h_machines", when = { questActive = TODO_QUEST("The Rise of the Machines") },
           text = "The Hierophant sent you about golems? Oh, I've wanted to see a Dark Iron golem up close for years, though ideally not too close." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "Ah, a warrior! You'd make a splendid control for my experiments, being so very solid, and the elementals only hit hard when they're agitated." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! You must have noticed that the beasts out here avoid the elementals, which is a fascinating behaviour I haven't been able to explain." },
       },
       again = { { id = "h_again", text = "More? Wonderful, but mind the sample tray." } },
       choices = {
@@ -228,6 +253,8 @@ P:NPC {
         { text = "I study magic too, Lotwil.", next = "k_mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "The elements speak to me. You only measure them.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "What would a thief want with rock elemental samples?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do you need a warrior for, Lotwil?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why do you think the beasts avoid the elementals?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "For science.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },

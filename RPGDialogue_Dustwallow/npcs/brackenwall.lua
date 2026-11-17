@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "If Thrall ordered it I'd march, and I'd do it well, but he hasn't, and I won't let some inn-burner give the order in his place. A warrior who swings at whoever he's told to hate is just a weapon in someone else's hand." } },
+      choices = {
+        { text = "The Warchief's word is the line. I hold it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If Theramore spills orc blood, I won't wait for orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Hoofprints, heavy ones, among the boot marks, and they lead off toward the hills rather than toward Brackenwall. I'm no tracker, but I know an orc's tread when I see one, and none of those were ours." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Put {pet} on the scent near the inn, because a beast's nose doesn't care whose story is convenient. Mine never did either." },
+      },
+      choices = {
+        { text = "I'll follow that trail wherever it leads, even into the Horde.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The trail leads where Brackenwall needs it to lead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "I think they wear her name like a stolen cloak. You'd know better than an orc whether the earth still answers them, but I know a traitor when I see one." } },
       choices = {
@@ -55,6 +76,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. Good, because if this turns to blood with Theramore I want axes I can count on, though I'd rather it never came to that." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. You read tracks, so go read the ones around the Shady Rest, and tell me what Theramore's soldiers missed." },
         { id = "h_default", key = true,
           text = "Krog. The Warchief ordered the Horde to leave Theramore's humans in peace, and now a human inn has burned with our name on it. I'll find who made a liar of him." },
         { id = "h_command", when = { any = { { questActive = TODO_QUEST("Warchief's Command: Dustwallow Marsh!") }, { questActive = TODO_QUEST("Flight to Brackenwall") } } },
@@ -97,6 +122,8 @@ P:NPC {
         { text = "I'll find the truth.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { brackenwall = 1 } } },
         { text = "Where would you have me look for the truth, Krog?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why keep my demons off the road, Krog?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Would you march on Theramore if the Warchief ordered it, Krog?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What tracks did you find near the Shady Rest, Krog?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Blame it on the humans and save us the trouble.", next = "END", fx = { affinity = -1, align = { honor = -1 } } },
       },
     },
@@ -264,6 +291,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every soldier drills, so it means nothing, unless it means something, and that's the whole of my trade. Proudmoore's guard is disciplined and well fed and very close to my doorstep, and a peace on paper doesn't make a sword any shorter." } },
+      choices = {
+        { text = "Drilling isn't war. Keep the peace until they break it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Strike before they're ready. Paper won't stop their blades.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "It means Lady Proudmoore can put more fire on a wall than all our shamans together, and she knows it, and so do I. I count her mages the way I count her soldiers, and I'd be glad of someone who can tell me what her towers are really for." } },
@@ -302,6 +338,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. Theramore's soldiers drill on their walls every morning where we can see them, and I'd like to know what someone like you makes of that." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'll hear the marsh better than my spies do, so tell me if the water ever carries a voice from Theramore." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, in the marsh. Theramore's chaplains will want to talk theology with you, so don't, because everything you tell them ends up in a report." },
         { id = "h_default", key = true,
@@ -336,6 +374,7 @@ P:NPC {
         { text = "I know wounds. Let me hear about Marg's.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Do Theramore's mages worry you, Nazeer?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you really send an imp to spy on Theramore, Nazeer?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Should Brackenwall worry about Theramore's soldiers drilling?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll keep my ears open.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },

@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Sell well? They sell twice, friend, once when a warrior buys a new blade and again when he outgrows it and lists the old one. The Horde bids on Alliance steel and the Alliance bids on Horde axes, and I take a cut every time, smiling." } },
+      choices = {
+        { text = "I'd sooner earn my blade in battle than buy it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Gold buys victories as surely as steel does.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because it hatched in the middle of a bidding war, and the winning bidder was frozen stiff before he'd paid. Now the Cartel's rule is that I can't list anything alive, which I think is very unfair to hunters, frankly." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not that I'd ever list {pet}, of course, so you can stop holding that lead quite so tight, friend; I'm smiling, but I mean it." },
+      },
+      choices = {
+        { text = "The Cartel's right. Live beasts shouldn't go up for bidding.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a hunter wants to sell a beast, that's his business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "I auction off anything the Cartel doesn't forbid, friend, and the Cartel only forbids what it can't sell. The troll who consigned it swore it was harmless, and the Forsaken who outbid everyone swore it was anything but." } },
@@ -85,6 +106,10 @@ P:NPC {
           text = "A mage! Wonderful, because enchanters' dust sells like water in a drought, and I've got bidders on both sides of the war waiting for it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin at my counter! Welcome, welcome, and before you ask, everything on the block is honestly listed, or at least honestly enough for Gadgetzan." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Selling or buying? Plate goes fast in this house, because every adventurer in Kalimdor thinks the next suit will be the one that stops the Sandfury." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter! I've got rifles, bows, quivers, and once, very briefly, a basilisk egg, until the Bruisers made me take it down." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The ledger's open." },
@@ -100,6 +125,8 @@ P:NPC {
         { text = "Mages and enchanters aren't the same thing, Beardo.", next = "xmage", when = { class = "MAGE" } },
         { text = "Does stolen gear ever turn up on your auction block?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you really auction off a loa mask, Beardo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do warriors' weapons sell well at your auction, Beardo?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why did the Bruisers make you take down the basilisk egg?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -173,6 +200,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Now and then, and I have to tell them a horse from Elwynn isn't built for Tanaris, so it spends the week in the shade drinking my water bill. You warriors ride your beasts as hard as you swing, and it's me who nurses them back after." } },
+      choices = {
+        { text = "A mount carries you into battle. It deserves better care.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A mount's a mount. Keep it fed and it'll do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "I'd be grateful, friend, if your sort tends to animals, because the last priest through only blessed the riders. The fever comes from something in the old wells, I think, and the Water Company swears it's my fault for buying cheap." } },
@@ -231,6 +267,8 @@ P:NPC {
           text = "No, I don't stable demons, before you ask. Last warlock who left his voidwalker with me came back to find it had eaten the shade over three stalls." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Can you conjure water? My beasts drink more than the Bruisers, and the Water Company charges me as if every horse were a dragon." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior, with no beast, which makes you my favorite kind of visitor today. You're not going to ask me to board a horse in this heat, are you?" },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got a raptor that wants its lunch." },
@@ -246,6 +284,7 @@ P:NPC {
         { text = "Voidwalkers don't eat, Laziphus.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I could conjure water for your beasts.", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you let me tend your sick beasts, Laziphus?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do warriors ever leave their mounts with you, Laziphus?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -314,6 +353,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than you'd think! A good bomb clears a line of Wastewanderers faster than any axe, and you get to stand further back while it does, which keeps all ten fingers where they belong." } },
+      choices = {
+        { text = "My own arm does the work. I don't need bombs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a bomb wins the fight, I'll throw it gladly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bit of black powder in the wrong housing, that's all, and the hunter kept his eye, which I count as a success. These days I test every scope out the back on the dune Blizrik isn't using, and I haven't lost a lens in a month." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the workbench, though, because the last curious nose in here found a fuse, and I had to explain to the bank why the smoke was drifting their way again." },
+      },
+      choices = {
+        { text = "Good hunting is patience and skill. Gadgets won't replace that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Any tool that gives me the edge, I'll use.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Lost? None, friend, though a few have come back shorter in the eyebrows or the fingers, and one of them still walks funny. If you want to pray for anybody in Gadgetzan, pray for my apprentices, because they don't listen to me and the powder doesn't forgive." } },
@@ -360,6 +420,10 @@ P:NPC {
           text = "A rogue! Your lot always want to know about the explosives, and I always want to know how many fingers you'll have left when you're done." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Your lot never understand engineering, because you can just wave a hand and make things happen. We have to build them, piece by piece." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior! Don't touch anything on the bench, please, because you've got the hands of someone who hits first and reads the label later." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter? I've got a scope that'll make your rifle see further than your beast can smell, and it only exploded the once." },
       },
       again = {
         { id = "h_again", text = "What else? I've got a fuse burning somewhere, I'm sure of it." },
@@ -374,6 +438,8 @@ P:NPC {
         { text = "Explosives are just another tool, Buzzek.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Engineering and magic aren't so different, Buzzek.", next = "xmage", when = { class = "MAGE" } },
         { text = "How many engineers have you lost to the boom, Buzzek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is engineering any use to a warrior, Buzzek?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What happened when your scope exploded, Buzzek?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -434,6 +500,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Anyone can learn to swing a pick, but a warrior's the one still standing when the Dunemaul come down to see who's digging in their hills. There's iron and mithril in the hills here, and thorium west in Un'Goro if you're braver than me." } },
+      choices = {
+        { text = "A warrior should master more than one trade.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My arm is for fighting, not for digging rocks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every day, because a basilisk will curl up on a vein of mithril like it's guarding gold, and it won't move for anybody. I've lost more good ore to sleeping basilisks than to the Wastewanderers, and the basilisks don't even spend it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If {pet} could learn to chase a basilisk off a vein without getting stared stiff, I'd call it the most useful beast in Tanaris." },
+      },
+      choices = {
+        { text = "The basilisks were there first. Mine around them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Ore's worth more than a basilisk's nap. Drive them off.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Every miner prays, friend, mostly that the roof holds and the vein runs deeper than the last fellow's. The old troll diggings near Zul'Farrak are the worst, because the trolls left curses in the walls and the walls haven't forgotten them." } },
@@ -480,6 +567,10 @@ P:NPC {
           text = "A rogue. You pick locks, I pick rock, and I'd wager my picks see a lot more honest work than yours do." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! You'll be after arcane crystals, then, because every mage who comes through asks me where the rich thorium is. Don't look so surprised, it's always the same question." },
+        { id = "h_warcl", when = { class = "WARRIOR" },
+          text = "A warrior? You've got the shoulders for a pick, I'll give you that, and the patience of someone who hits things for fun." },
+        { id = "h_huntcl", when = { class = "HUNTER" },
+          text = "A hunter, and you're looking at the hills instead of at me, which means you've already spotted something worth digging up or worth shooting." },
       },
       again = {
         { id = "h_again", text = "Anything else you want to know, or shall I get back to my ore samples?" },
@@ -493,6 +584,8 @@ P:NPC {
         { text = "Picking a lock takes more skill than mining.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Where would someone find arcane crystals?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do miners pray when they're deep in the earth, Pikkle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could a warrior learn mining from you, Pikkle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the beasts out in the hills bother your miners, Pikkle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },

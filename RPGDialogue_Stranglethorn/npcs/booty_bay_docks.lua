@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "That the fish decides when the fight starts, not you, and if you yank too early you lose him. I've watched young soldiers lose a hundred fights by swinging too soon, and I've never seen one lose by waiting a breath longer." } },
+      choices = {
+        { text = "You're right. Patience wins more fights than strength.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Waiting gets you killed. Strike first and strike hardest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Same thing, near enough: you learn where your quarry feeds, when it feeds and what it fancies, and then you wait. The difference is that a tiger can't snap your line, though a big enough tastyfish surely can." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Same thing, near enough: you learn where your quarry feeds, when it feeds and what it fancies, and then you wait. The difference is that a tiger can't snap your line, though a big enough tastyfish surely can. And your {pet} would sit still for a fish, I'd wager, which is more than most of the young anglers in the Baron's tournament can manage." },
+      },
+      choices = {
+        { text = "Fish and beasts both deserve a hunter's respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Bait, wait and catch. Respect has nothing to do with it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Down by the Vile Reef the naga have been stirring, and some mornings my hook comes up with weed on it that glows a faint green. I've fished these waters all my life and never seen that before, so I throw it back and fish somewhere else." } },
@@ -84,6 +105,8 @@ P:NPC {
           text = "Still at it, are you? Keep your line slack and your temper slacker, and the fish will come round in time." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, out on my docks. You'll make a fine fisherman, I reckon, since you already know how to sit still and wait for something to bite." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Don't you go freezing my fish in the water, now, because I've been fishing these docks for years and I've never once needed magic to fill my bucket." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, out on my docks. Sit a while if you like, because a fishing line teaches the patience a sword never will." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You'll understand fishing, then, since it's only hunting with a longer leash and wetter boots." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind? The fish aren't biting anyhow." },
@@ -99,6 +122,8 @@ P:NPC {
         { text = "Is fishing really like my line of work, Heming?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Have you ever seen magic used to fish, Heming?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does the sea teach patience the way prayer does?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What could a warrior learn from fishing, Heming?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Is fishing much like hunting to you, Heming?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -191,6 +216,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "You pull a raptor off the healer from across the clearing, that's what, and then it comes running at you instead of at somebody squishy. Every warrior I've sold a blunderbuss to has come back for more shot, which tells you everything." } },
+      choices = {
+        { text = "A warrior should meet the enemy close, steel to steel.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A shot from range is smart fighting. I'll take a rifle.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Range, punch and noise, and the noise is the part everybody forgets, because the shot that doesn't kill it still scares it out of the brush. Haren across the way will tell you a bow's quieter, and I'll tell you quiet is overrated." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Range, punch and noise, and the noise is the part everybody forgets, because the shot that doesn't kill it still scares it out of the brush. Haren across the way will tell you a bow's quieter, and I'll tell you quiet is overrated. Your {pet} will get used to the bang soon enough, they all do, and then it'll come running at every shot because it knows supper's down." },
+      },
+      choices = {
+        { text = "A quiet, clean shot honors the beast. Noise is lazy.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Loud's fine by me. Whatever drops the beast fastest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "The Kurzen deserters, if you can believe it, and they pay in Stormwind silver, so draw your own conclusions. Second place is the Bloodsail, who buy through middlemen and think I don't notice. I sell to both and sleep fine." } },
@@ -236,6 +282,8 @@ P:NPC {
           text = "Mazk Snipeshot, gunsmith to the finest pirates, hunters and lunatics in the South Seas. Everything on this table shoots straight, mostly, and anything that doesn't is on sale." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I know your sort likes things quiet, but let me tell you, pal, nothing ends an argument faster than a nice loud gun." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now that's something I've never sold a gun to, pal, though I'd bet a demon would look mighty fine with a blunderbuss on its shoulder." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Swords are lovely, pal, really, but a warrior with a good rifle on his back can start the argument from forty yards off and finish it up close." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Now, I know some of you are bow people, but believe me, pal, nothing introduces you to a tiger like a nice loud gun." },
       },
       again = {
         { id = "h_again", text = "What else can I sell you, pal? I mean, help you with?" },
@@ -249,6 +297,8 @@ P:NPC {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Why should a rogue carry a gun, Mazk?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you really sell a gun to a demon, Mazk?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What use is a gun to a warrior, Mazk?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why should a hunter carry a gun over a bow, Mazk?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -311,6 +361,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A soldier who can loose an arrow can pull a beast off a wounded friend, and I'd argue that matters more than a pretty swing. The old regiments drilled with bows as well as blades, as I understand it, and it never did them any harm." } },
+      choices = {
+        { text = "The old drills were right. Every soldier should know the bow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I trust my blade. Drills are for recruits.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Oil every morning, wax on the string every evening, and never leave it leaning against a wet tent, which is exactly what every hunter at Nesingwary's camp does. The damp gets into the wood and twists it, and then your shot goes left when you need it straight." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oil every morning, wax on the string every evening, and never leave it leaning against a wet tent, which is exactly what every hunter at Nesingwary's camp does. The damp gets into the wood and twists it, and then your shot goes left when you need it straight. Your {pet} has chewed a bow tip in its time, I'd guess, they all do, so keep the stave off the ground at night." },
+      },
+      choices = {
+        { text = "Oil and wax, every day, without fail. I'll keep the routine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll string it when I need it and trust my aim.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "A mage offered once, and the stave came back dry as a bone and cracked down the middle. I've decided the damp and I will have to come to our own terms, with oil and patience and a good deal of swearing." } },
@@ -384,6 +455,8 @@ P:NPC {
           text = "Haren Kanmae, bowyer. The jungle's damp warps a bow faster than anywhere I've worked, so I oil the staves every morning and pray the humidity breaks, which it never does." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want a bow that doesn't creak when you draw it, I suspect, and I make the quietest bows in Booty Bay, though nobody here appreciates quiet." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll not need a bow, I'd guess, but you're welcome to look, because a good bow is as much a work of craft as any spell." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. I make bows mostly for hunters, but I've strung a few for soldiers who knew that a line of archers can win a battle before the swords ever meet." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, at last, someone who'll actually listen to a bowyer go on about yew and string and the damp." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -400,6 +473,8 @@ P:NPC {
         { text = "Do you see bowmaking as a kind of art, Haren?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why stay in a jungle that ruins your work, Haren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you find it hard to keep faith in Booty Bay?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Should a warrior bother with a bow, Haren?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "How do you keep a bow true in this jungle, Haren?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },

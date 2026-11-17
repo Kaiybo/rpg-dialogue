@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The ones the ogres have taken, mostly, out past Dustwind Gulch, and the Dark Iron camps near Angor. My scouts can find them, but a scout who fights is a scout I have to replace, so I'd rather send someone built for it." } },
+      choices = {
+        { text = "Send me where you need me, Neeka. I'll follow the plan.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Point me at the ogres, and I'll decide how to clear them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Neeka.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "It might, if it doesn't mind the rocks, though the coyotes out here will think it's one of theirs and come sniffing. Run it down the gullies toward the Gorge and back, and if you beat my best scout, I'll never let her hear the end of it." } },
@@ -96,6 +105,8 @@ P:NPC {
           text = "So the report reached Stonard, and you with it. That's one outrunner who made it, which is more than I could say last season." },
         { id = "h_coyotes_done", when = { questDone = TODO_QUEST("Coyote Thieves") },
           text = "Not a coyote has been near the sacks since you went hunting, and the grunts are eating whole rations again. You know this country now, whether you like it or not." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. You'll be no use as a scout in all that iron, but the gullies need clearing as well as watching, and I can always use a strong arm." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask it quickly, because the light's going and I scout at dusk." },
@@ -114,6 +125,7 @@ P:NPC {
         { text = "My people were runners on the plains of Mulgore.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Teach me to read the ground, Neeka.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could my imp guard your grain sacks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Which gullies need clearing, Neeka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1, standing = { kargath = 1 } } },
       },
     },
@@ -269,6 +281,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Buzzard gizzards, coyote fangs, and whatever a basilisk be keeping in its belly, mon. The beasts of the Badlands be eating stone and dust their whole lives, and that make their insides very potent, if you don't mind the smell." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} be sniffing at my jars, mon, so tell it no, because what be in those jars would turn a good beast's stomach inside out." },
+      },
+      choices = {
+        { text = "I'll take only what you need, and leave the rest be.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll take every gizzard I find. Waste nothing, spare nothing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Jarkal.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Because what grows here be tough, and tough plants make strong potions, mon. I take only what I need, mostly, but the Expeditionary Force be needing a great deal." } },
       choices = {
@@ -311,6 +335,8 @@ P:NPC {
           text = "The gems and the power source, mon, both of them, or the necklace be only a pretty chain. Uldaman be keeping them deep, so go careful." },
         { id = "h_run_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Badlands Reagent Run"), days = 3 } },
           text = "My shelves be full again, and it be your doing! Now, about the fungus that grows under Uldaman, mon." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter! Jarkal be needing gizzards and fangs, mon, and you look like you know which end of a buzzard be which." },
       },
       again = {
         { id = "h_again", text = "What else, mon? Jarkal be listening while he stirs." },
@@ -326,6 +352,7 @@ P:NPC {
         { text = "The loa would frown on your bargaining, cousin.", next = "k_troll", when = { race = "Troll" } },
         { text = "Where do the best poison reagents grow, Jarkal?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do my soul shards frighten you, Jarkal?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Which beasts do you need for your potions, Jarkal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll bring you what you need.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -464,6 +491,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every day, back and forth to the Gorge and Hammerfall, and every one of them climbs off complaining about his legs. A wind rider doesn't care how fierce you are, only how heavy, and it'll let you know the moment you're too much." } },
+      choices = {
+        { text = "Then I'll respect the rider and keep my kit light.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A rider that can't carry a warrior isn't much of a mount.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Gorrik.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Once, and only because the wolf bit first, and neither has forgiven the other since. Riders are proud creatures, and a wind rider will let you fly it, but it will never let you forget who's carrying whom." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} in the sun, not the shade. My riders don't share shade, and in the Badlands, shade's worth fighting over." },
+      },
+      choices = {
+        { text = "Proud beasts deserve respect. I'll keep mine out of their way.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My beast goes where it likes. Your riders can learn manners.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Gorrik.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Ask, and if they listen, I'll owe you, though I've never known the Badlands to do anyone a kindness. The wind comes off the Searing Gorge hot enough to singe a rider's mane, and my beasts sulk in the shade every afternoon until it turns." } },
@@ -517,6 +565,10 @@ P:NPC {
           text = "Gorrik, wind rider master of Kargath. From here the riders go north to Hammerfall and the Undercity and south to Stonard, Grom'gol and Booty Bay, so pick one and stop wasting my shade." },
         { id = "h_noon", when = { timeOfDay = "day" },
           text = "Midday's the worst of it, because the rocks are hot enough to cook on and the riders won't leave the shade. You'll fly when they're ready, not before." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
+          text = "A warrior. Your armour weighs as much as you do, so the riders will grumble, and so will I, and then we'll fly." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. Mind your beasts don't wander into the riders' shade, because the riders are hot and cross, and they bite." },
       },
       again = {
         { id = "h_again", text = "Anything else? The riders are waiting." },
@@ -530,6 +582,8 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Could a little frost keep your riders from cooking, Gorrik?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Has anyone really tried to stow away?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do your wind riders carry many warriors?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do your riders really bite hunters' beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -590,6 +644,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because a buzzard's worth nothing but a gizzard for Jarkal, and an arrow's worth a coyote that's been at the grain sacks. Out here every shot should feed somebody or save something, or it shouldn't be fired at all." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} eats, I suppose. Then hunt its meat yourself, because there's nothing on these shelves I can spare for a beast." },
+      },
+      choices = {
+        { text = "Every arrow should count. I'll hunt only what Kargath needs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll shoot what I please. Arrows can be recovered or replaced.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Grawl.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "If you can, you'll save me a fortune, because every drop in Kargath comes up the Searing Gorge road or down on a wind rider. The last shaman through here said the earth was angry and dry, and nothing I've seen since has proved him wrong." } },
@@ -638,6 +704,8 @@ P:NPC {
           text = "A warlock. Your demon doesn't eat my food, I hope, because I count every ration and I'll know." },
         { id = "h_default", key = true,
           text = "Grawl, general goods. Everything that comes into Kargath comes over the Searing Gorge road or on a wind rider's back, so I don't waste it, and I'd rather you didn't either." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
+          text = "A hunter. You'll want arrows, and I've a crate, but the next one won't come over the Gorge road for weeks, so don't waste them on buzzards." },
       },
       again = {
         { id = "h_again", text = "What else? I've got stock to count." },
@@ -652,6 +720,7 @@ P:NPC {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Should I conjure water for your grunts, Grawl?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does much go missing from your stores?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why shouldn't I waste arrows on buzzards, Grawl?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Nothing today.", next = "END" },
       },
     },
