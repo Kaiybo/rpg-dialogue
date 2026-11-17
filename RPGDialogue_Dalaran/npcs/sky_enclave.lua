@@ -312,27 +312,39 @@ P:NPC {
   notices = { "skyborne" },
 
   impression = {
-    first = "Belanaa Windveil gathers cloth for the High Order and thanks people for it as if each bolt were a personal favour. She is careful not to say much about her people's crafts to outsiders.",
+    first = "Belanaa Windveil gathers cloth for the High Order and thanks people for it as if each bolt were a personal favour, though her fingers are already testing the weave while she does. She is careful not to say much about her people's crafts to outsiders.",
     third = "{name} met Belanaa Windveil, who collects cloth for the High Order in Dalaran's Sky Enclave.",
   },
 
   greetings = {
     { id = "g_default", text = "Have you any cloth to spare for the High Order?" },
     { id = "g_skyborne", when = { race = "Skyborne" }, text = "Winds be with you. Come to help clothe our people?" },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back, and I remember your last bundle, so I hope this one's been kept out of the rain." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "You've a tailor's hands, I can see the needle calluses from here. Come in, but please don't judge my seams, for I sew them in a hurry these days." },
   },
 
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Belanaa Windveil, and I act for the High Order here on Azeroth, in matters of cloth at least. If you've any to give, we'd be most grateful." },
+        { id = "h_default", key = true, text = "I'm Belanaa Windveil, and I act for the High Order here on Azeroth, in matters of cloth at least. If you've any to give, we'd be most grateful, and I promise every thread of it will be looked over properly." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Winds be with you. Every bolt you bring me becomes a cloak for someone still learning what snow is, so bring what you can." },
+        { id = "h_mage", when = { class = "MAGE" },
+          text = "You're a mage, so perhaps you can tell me why the Kirin Tor dye every curtain in this city the same violet. I've asked three of them, and each gave me a lecture instead of an answer." },
       },
-      again = { { id = "h_again", text = "Anything else I can tell you?" } },
+      again = {
+        { id = "h_again", text = "Anything else I can tell you?" },
+        { id = "h_again2", text = "Go on, I'm listening, though I'll keep sorting while you talk, if you don't mind." },
+        { id = "h_again3", text = "What else? This wool won't grade itself, more's the pity." },
+      },
       choices = {
         { text = "Why does the High Order need cloth?", next = "why" },
         { text = "Does clothcraft matter to your people?", next = "craft" },
+        { text = "What happens to the cloth once I give it?", next = "sorting" },
+        { text = "What do you make of Dalaran?", next = "violet" },
+        { text = "How are our people faring down here?", next = "kin", when = { race = "Skyborne" } },
+        { text = "I'm a tailor. Could I learn a Skyborne stitch?", next = "stitch", when = { profession = "Tailoring" } },
         { text = "I have cloth for you.", next = "BUSINESS" },
         { text = "Winds be with you.", next = "END" },
       },
@@ -352,11 +364,102 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    sorting = {
+      lines = {
+        { id = "so_default", text = "Every bundle is opened, shaken out and graded by hand, because a cloak is only as warm as its worst thread. Linen goes to wraps for the children, wool to cloaks, and silk I set aside for our weavers, who can do things with it I won't describe to you." },
+      },
+      choices = {
+        { text = "Graded? You sound particular.", next = "sorting_fussy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sorting_fussy = {
+      lines = {
+        { id = "sf_default", text = "Particular is a kind word for it, and my own cousin uses a less kind one. I've unpicked whole hems that came to me stitched by someone in a hurry, because a seam that gives way in the first snow is worse than no seam at all." },
+      },
+      choices = {
+        { text = "Don't people mind you unpicking their work?", next = "sorting_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sorting_ask = {
+      lines = {
+        { id = "sk_default", text = "They never see it, so they never mind. May I ask where your cloth tends to come from, though? Some of it reaches me with stains I'd rather not explain to a weaver." },
+      },
+      choices = {
+        { text = "From those I've fought. They had no further use for it.", next = "sk_fought", fx = { trait = { practical = 1 } } },
+        { text = "I bought it honestly, at market.", next = "sk_bought", fx = { affinity = 1, trait = { honest = 1 } } },
+        { text = "Better you don't ask, I think.", next = "sk_secret", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    sk_fought = {
+      lines = {
+        { id = "skf_default", text = "Then I'll scrub it twice and say nothing to the weavers, and the cloak won't know the difference. Still, I'd thank you to bring me less of the bloodied kind when you can manage it." },
+      },
+      choices = { { text = "I'll do what I can.", next = "BACK" } },
+    },
+    sk_bought = {
+      lines = {
+        { id = "skb_default", text = "Then you've paid for it twice, once at market and once by giving it away, and I'm grateful for both. I'll mark your name in the ledger beside the clean bundles, which is a very short list." },
+      },
+      choices = { { text = "Something else, Belanaa.", next = "BACK" } },
+    },
+    sk_secret = {
+      lines = {
+        { id = "sks_default", text = "Then I won't, and the snow won't ask either. I've learned a kind of tact on Azeroth, and I'm told it's mostly a matter of not looking too closely at a gift." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    violet = {
+      lines = {
+        { id = "vi_default", text = "It's a kind city to us, and I'd never say otherwise to the Kirin Tor's faces. But they dye every curtain, banner and robe the same violet, and after a month of it I've started to dream in purple." },
+      },
+      choices = {
+        { text = "What's wrong with violet?", next = "violet_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    violet_why = {
+      big = true,
+      lines = {
+        { id = "vw_default", text = "Nothing at all, in its place. At home a weaver chose a colour for the sky it would be worn under, pale for the high winds and dark for the storms, and here it seems colour is chosen so everyone knows who owns the building." },
+      },
+      choices = {
+        { text = "A city should show who keeps it. That's only right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Colour should belong to the wearer, not the council.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kin = {
+      lines = {
+        { id = "ki_default", text = "Better than when we first came down, and worse than I'd like. The young ones love the snow until their fingers go numb, and the elders ask me every day whether the isles have settled, which is not a question cloth can answer." },
+      },
+      choices = {
+        { text = "Then we'll keep them warm in the meantime.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stitch = {
+      lines = {
+        { id = "st_default", text = "I'm afraid not, though it's kind of you to ask so nicely. The old patterns belong to the weavers who keep them, and I'd sooner give away my own cloak than one of their stitches." },
+      },
+      choices = {
+        { text = "I understand. A craft is its keepers' to share.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Not even one small stitch?", next = "stitch_push" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stitch_push = {
+      lines = {
+        { id = "sp_default", text = "Well, there's one every Skyborne child learns, a double turn at the hem so the wind can't get under it, and you'd have worked it out yourself within a week. That's all you'll have from me, and you didn't hear it here." },
+      },
+      choices = { { text = "My lips are sealed, Belanaa.", next = "BACK" } },
+    },
   },
 
   topics = {
     two_orders = { { id = "tp_orders", text = "I keep the High Order's accounts, not its quarrels. Ask someone with a louder voice than mine." } },
-    _none = { { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it." } },
+    _none = { { id = "tp_none", text = "Forgive me, I only know cloth and the people who need it, and I'd rather not guess at the rest in a city where everyone else knows everything." } },
   },
 }
 

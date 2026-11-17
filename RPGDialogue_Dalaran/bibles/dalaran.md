@@ -72,11 +72,11 @@ New Forever content. Read on warcraft.wiki.gg (raw page text) on 2026-11-17. The
 - **Alvareaux:** apologetic quartermaster; ledgers and seasons; gentle jokes about wizards and logistics.
 - **Laurain:** cheerful greeter who runs on one breath, says the official line and then the honest one, laughs nervously.
 - **Denaaris:** courteous Skyborne, "Wind's greetings"; homesick, shy about Stormwind.
-- **Belanaa:** quiet, grateful, careful about her people's crafts with outsiders.
+- **Belanaa:** quiet, grateful, careful about her people's crafts with outsiders; an exacting grader of cloth who tests the weave while she thanks you, and is gently weary of the Kirin Tor's violet-everything.
 - **Alfina:** night elf calm; distrusts concentrated magic; dry about the Kirin Tor's promises.
 - **Brammold:** dwarf trader's burr ("ye", "sellin'"), likes old things and an honest price.
-- **Lizi:** quick gnome, fixes things, two cats underfoot that aren't hers.
-- **Pollero:** steady, a little wistful, walks his street every day.
+- **Lizi:** quick gnome, fixes things, two cats underfoot that aren't hers; counts every fault, keeps a running gears-versus-spells tally, and teases wizards' unrepairable wards.
+- **Pollero:** steady, a little wistful, walks his street every day; knows its 412 stones (nine crooked) by heart and flinches at floating masonry.
 - **Rexxie:** goblin patter ("pal", "sweetheart", dropped g's), bluffs as a "fellow Dalaranian", calls theft rescue.
 - **Pools:** guards say "everything's under control" and don't quite believe it; citizens are coming home to rebuilt streets full of cats; workers set stone under floating blocks; apprentices are flustered and kind.
 
@@ -137,11 +137,11 @@ New Forever content. Read on warcraft.wiki.gg (raw page text) on 2026-11-17. The
 - Alvareaux: cloth and metal go to scaffolds and wards first.
 - Laurain has kept her post only since the dome came down; she is one rung below archmagi.
 - Denaaris: the Kirin Tor asked that the portal stay for the High Order only; a Stormwind crier calls the Skyborne friends of the Kirin Tor (echoes the Stormwind pack); he is homesick.
-- Belanaa: the cloth becomes cloaks against Alterac's cold.
+- Belanaa: the cloth becomes cloaks against Alterac's cold. She grades every bundle by hand (linen for children's wraps, wool for cloaks, silk to the weavers), unpicks hasty hems, and keeps a ledger of clean donors. At home a weaver chose colours for the sky a cloak would face; the Kirin Tor's violet makes her dream in purple. Shares one stitch only (a double turn at the hem against the wind).
 - Alfina: came because the Skyborne asked for a teacher and the Cenarion Circle should know what they learn; the garden's blossoms are "Felwood's green".
 - Brammold buys from magi clearing cellars and families; keeps humming items with the Kirin Tor's leave.
-- Lizi: gnomes long studied in Dalaran; more came after Gnomeregan.
-- Pollero: the Path of Renewal was laid after the fall; he walks it daily.
+- Lizi: gnomes long studied in Dalaran; more came after Gnomeregan. Mends what the breach touched (circling factotums, a mirror showing the last person, seventeen lamps humming off-key); feeds and brushes Beepo and Niko while denying they're hers; Brammold's humming stock sets off her tuning forks, and his brass compass finds lost things.
+- Pollero: the Path of Renewal was laid after the fall; he walks it daily. 412 stones, nine crooked, reported to a council that passes it to the masons; a row of bookbinders stood there before the fall (he bought notebooks at the third door); keeps the faces he no longer sees to himself.
 - Pools: the watch's "under control" line; a citizen's lost magus brother; masons and floating blocks; an apprentice whose room sits on a ley line.
 
 ## Not written, on purpose

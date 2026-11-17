@@ -82,13 +82,15 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Lizi Silverstone of the Kirin Tor talks quickly and works quicker, with two cats underfoot that she insists aren't hers. She seems happiest when something needs fixing.",
+    first = "Lizi Silverstone of the Kirin Tor talks quickly and works quicker, with two cats underfoot that she insists aren't hers. She can't walk past a broken thing without counting what's wrong with it, and she'd rather trust a gear than a spell.",
     third = "{name} met Lizi Silverstone, a gnome of the Kirin Tor at Eclipse with Shears in Dalaran.",
   },
 
   greetings = {
     { id = "g_default", text = "Hello! Watch your feet; there's a cat under them, probably." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "Oh, a fellow gnome! Come in, and step over Beepo; he won't move." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! Good, you can hold this spring while I find out why it's sulking." },
+    { id = "g_engineer", when = { profession = "Engineering" }, text = "Is that engineering grease on your sleeve? Oh, come in, come in, and tell me you've got a spare screwdriver." },
   },
 
   notice = {
@@ -104,10 +106,18 @@ P:NPC {
         { id = "h_mage", when = { class = "MAGE" },
           text = "Another magus! Don't mind the mess; half this street was rubble not long ago, and the other half still thinks it is." },
       },
-      again = { { id = "h_again", text = "Anything else? Be quick, Niko's eyeing my notes." } },
+      again = {
+        { id = "h_again", text = "Anything else? Be quick, Niko's eyeing my notes." },
+        { id = "h_again2", text = "What else? I've three things half-mended and a fourth looking at me funny." },
+        { id = "h_again3", text = "Go on, ask away, I can talk and tighten at the same time." },
+      },
       choices = {
         { text = "A gnome in the Kirin Tor?", next = "gnome" },
         { text = "Why are there so many cats in Dalaran?", next = "cats" },
+        { text = "What are you fixing?", next = "fixing" },
+        { text = "What do you think of Brammold's antiques?", next = "brammold" },
+        { text = "I'm an engineer. Can I take a look?", next = "engineer", when = { profession = "Engineering" } },
+        { text = "The Kirin Tor's enchantments seem sound enough to me.", next = "mage_push", when = { class = "MAGE" } },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -130,13 +140,94 @@ P:NPC {
       lines = {
         { id = "ca_default", text = "Nobody knows! Since the dome came down, there's one in every doorway that's been rebuilt, as if they'd been waiting for someone to put the roofs back on." },
       },
+      choices = {
+        { text = "Are Beepo and Niko really not yours?", next = "cats_mine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cats_mine = {
+      lines = {
+        { id = "cm_default", text = "Absolutely not, and I'll thank you not to spread rumours. I simply feed them twice a day, brush them every evening and keep a cushion by the stove that nobody else may sit on, which is a very different thing from owning a cat." },
+      },
+      choices = { { text = "Of course it is, Lizi.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    fixing = {
+      lines = {
+        { id = "fx_default", text = "Everything the breach touched, which is most of this end of town. The factotums that sweep the street started sweeping in circles, the mirror in the shop shows you whoever stood there last, and I've counted seventeen lamps that hum in the wrong key." },
+      },
+      choices = {
+        { text = "Can't the Kirin Tor fix their own enchantments?", next = "fixing_wizards" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fixing_wizards = {
+      lines = {
+        { id = "fw_default", text = "They could, if they'd stop writing essays about it first. A magus will spend a week on a beautiful ward that a decent spring and a counterweight could manage by teatime, so tell me honestly, which would you trust with your life, a spell or a gear?" },
+      },
+      choices = {
+        { text = "A gear. Gears don't have moods.", next = "fa_gear", fx = { affinity = 1, trait = { practical = 1 } } },
+        { text = "A spell. Magic built this city.", next = "fa_spell", fx = { trait = { curious = 1 } } },
+        { text = "Neither. I trust my own two hands.", next = "fa_hands", fx = { trait = { independent = 1 } } },
+      },
+    },
+    fa_gear = {
+      lines = {
+        { id = "fag_default", text = "Ha! I knew I liked you, and Niko likes you too, or at least he's sitting on your foot, which is the same thing. That's one more for the gears, and the tally stands at forty-one to six." },
+      },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_spell = {
+      lines = {
+        { id = "fas_default", text = "Magic also knocked this city flat, but I'll put you down for the spells anyway, since I'm a fair-minded sort of gnome. That makes it forty to seven, and the spells are still losing badly." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fa_hands = {
+      lines = {
+        { id = "fah_default", text = "Well, hands are only gears with feelings, so I'll count that as half a vote for my side. Don't tell the Citadel I said so, or they'll want it in writing." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    brammold = {
+      lines = {
+        { id = "br_default", text = "Brammold's a dear and his prices are honest, but half of what he sells hums, and every time he moves a crate my tuning forks go off like a choir. I've asked him to label the loud ones, and he says that would spoil the surprise." },
+      },
+      choices = {
+        { text = "Does any of it actually work?", next = "brammold_work" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brammold_work = {
+      lines = {
+        { id = "bw_default", text = "Some of it works far too well, which is the trouble. I bought a little brass compass from him that points at whatever you've lost, and so far it has found two cats, a spoon and a magus who very much did not want to be found." },
+      },
+      choices = { { text = "Something else, Lizi.", next = "BACK" } },
+    },
+    engineer = {
+      lines = {
+        { id = "en_default", text = "An engineer! Oh, you've no idea how lonely it is being the only person on this street who thinks a wrench is a perfectly respectable instrument. Grab the other end of this lamp, and we'll see whether it's the wiring or the enchantment that's sulking." },
+      },
+      choices = {
+        { text = "It's the wiring. It's always the wiring.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mage_push = {
+      big = true,
+      lines = {
+        { id = "mp_default", text = "Sound enough to keep the roofs up, I'll grant you, and not one bit sounder. The Kirin Tor build wards the way poets write sonnets, all elegance, and nobody can repair them afterwards." },
+      },
+      choices = {
+        { text = "Leave the old wards be. Tinkering invites disaster.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then the Kirin Tor should learn from gnomes.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
     gnomeregan = { { id = "tp_gnomeregan", text = "Home, once. I won't talk about it here, if it's all the same." } },
-    _none = { { id = "tp_none", text = "No idea! Ask in the Citadel, they love a question." } },
+    _none = { { id = "tp_none", text = "No idea! Ask in the Citadel, they love a question, and they'll give you an answer three times longer than it needs to be." } },
   },
 }
 
@@ -147,14 +238,15 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Pollero Rene of the Kirin Tor keeps an eye on the Path of Renewal and speaks of it like a gardener speaks of a bed that's only just been planted. A cat named Zara keeps him company, on her own terms.",
+    first = "Pollero Rene of the Kirin Tor keeps an eye on the Path of Renewal and speaks of it like a gardener speaks of a bed that's only just been planted. He knows every stone on it by heart, and a cat named Zara keeps him company, on her own terms.",
     third = "{name} met Pollero Rene, a magus of the Kirin Tor who watches over Dalaran's Path of Renewal.",
   },
 
   greetings = {
     { id = "g_default", text = "Good day. Mind the fresh paving." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the street's had two new stretches of paving in that time. Mind them, please, for they're still fresh." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you've been kind to someone in the city. These streets are coming back slowly, and a kind word helps them along." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Word is you've been kind to someone in the city. These streets are coming back slowly, and a kind word helps them along." },
+    { id = "g_back", when = { metBefore = true }, text = "Back on the Path, are you? Mind the third stone past the lamp post, for it rocks, and I've reported it twice." },
   },
 
   start = "hello",
@@ -164,11 +256,21 @@ P:NPC {
         { id = "h_default", key = true, text = "Pollero Rene, of the Kirin Tor. I keep watch on the Path of Renewal, which is a grand name for a street that's still half scaffolding." },
         { id = "h_helped", when = { questDone = TODO_QUEST("Friend of the Kirin Tor") },
           text = "You're the one Modera speaks of. The street's been calmer since you went up the Citadel, and I've slept better for it." },
+        { id = "h_mage", when = { class = "MAGE" },
+          text = "A magus, so you'll understand why I flinch whenever the masons float another block overhead. I know exactly how many spells are holding it up, and it's fewer than you'd hope." },
       },
-      again = { { id = "h_again", text = "Anything else? Zara's waiting for her share of my attention." } },
+      again = {
+        { id = "h_again", text = "Anything else? Zara's waiting for her share of my attention." },
+        { id = "h_again2", text = "What else, friend? Walk with me, if you like, for I've the north stretch still to look over." },
+        { id = "h_again3", text = "Go on. Zara won't mind, so long as you don't stand in her sun." },
+      },
       choices = {
         { text = "Why call it the Path of Renewal?", next = "name" },
+        { text = "You seem very fond of this street.", next = "stones" },
+        { text = "What was here before the fall?", next = "before" },
         { text = "Is that your cat?", next = "zara" },
+        { text = "Lordaeron's people lost a great deal, too.", next = "human", when = { race = "Human" } },
+        { text = "Shall I say a prayer for what you lost?", next = "prayer", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -187,15 +289,90 @@ P:NPC {
       },
       choices = { { text = "Then I'll leave you to it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
+    stones = {
+      lines = {
+        { id = "st_default", text = "Fond is one word for it, and the masons have another. There are four hundred and twelve stones between the gate and the far corner, and I walk every one of them each morning, so I know when one's been chipped before the masons do." },
+      },
+      choices = {
+        { text = "Are they all laid properly?", next = "stones_crooked" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stones_crooked = {
+      big = true,
+      lines = {
+        { id = "sc_default", text = "Nine of them are crooked, and I've reported every one to the council, who sent it to the masons, who sent it back to me. I've started to wonder whether a few crooked stones are simply what a city looks like when it's lived in again." },
+      },
+      choices = {
+        { text = "Leave them crooked. A living street needn't be perfect.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Keep reporting them. Rebuild it properly or not at all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before = {
+      lines = {
+        { id = "bf_default", text = "Bookbinders, mostly, a whole row of them, and you could smell the glue and the leather from the corner. I used to buy my notebooks from a woman at the third door, and that door is a wall of scaffolding now." },
+      },
+      choices = {
+        { text = "That sounds like a fine street.", next = "before_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before_ask = {
+      lines = {
+        { id = "ba_default", text = "It was, and I'm glad someone asks. Tell me, did you ever see Dalaran before the fall, or is this the first you've known of it?" },
+      },
+      choices = {
+        { text = "Only the dome, from the road outside.", next = "ba_dome", fx = { trait = { curious = 1 } } },
+        { text = "Never. This is my first time here.", next = "ba_first", fx = { affinity = 1 } },
+        { text = "It's finer than the ruins I'd heard about.", next = "ba_kind", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    ba_dome = {
+      lines = {
+        { id = "bad_default", text = "Then you saw what most of the world saw, a violet bubble and a great deal of rumour. I'm glad you've come inside it at last, even if the inside is still mostly scaffolding." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ba_first = {
+      lines = {
+        { id = "baf_default", text = "Then you're seeing it as it will be, rather than as it was, and that's no bad thing. Walk the Path slowly, and you'll be the first person this month who has." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ba_kind = {
+      lines = {
+        { id = "bak_default", text = "That's kind of you, and the masons would be glad to hear it, though they'd never say so. The ruins were real enough, mind; we've only swept them to one side." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     zara = {
       lines = {
         { id = "za_default", text = "That's Zara, and she belongs to nobody, which she'd tell you herself if she cared to. She chose this street before any of us did." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    human = {
+      lines = {
+        { id = "hu_default", text = "They did, and a good many of them walked this street once, on their way to lessons or the market. I keep a list in my head of the faces I don't see any more, and I'd sooner keep it there than say it aloud." },
+      },
+      choices = {
+        { text = "Then I won't ask you to.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    prayer = {
+      lines = {
+        { id = "pr_default", text = "That's kind, and I'll not say no, though I'm a magus and I've never been sure the Light listens to us. Say it for the street, if you would, and for whoever walks it next." },
+      },
+      choices = {
+        { text = "For the street, then, and everyone on it.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "That's beyond my street, I'm afraid. Try the Citadel." } },
+    _none = { { id = "tp_none", text = "That's beyond my street, I'm afraid, and I've four hundred and twelve stones to mind already. Try the Citadel." } },
   },
 }
