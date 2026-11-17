@@ -33,6 +33,11 @@ A new conversation in Stormwind's Old Town. **New file: restart the game fully (
 
 ### New conversation (Stormwind, Old Town)
 - **Nikova Raskol**, grandmother of Mac, the fourteen-year-old Stockade guard the Defias prisoners killed. Before, during and after "The Color of Blood": who Mac was, how a boy ended up guarding the Stockade, what she does with the bandanas, the Defias, Warden Thelwater, and Old Town. Former city guards, Stonemasons' children, priests and anyone who has cleared the Stockade get their own replies.
+Night elf Sentinels have a conversation of their own. No new files: a /reload is enough.
+
+- **Sentinels** in Darnassus, Dolanaar, Auberdine, Astranaar, Maestra's Post, Feathermoon, Stonetalon Peak and Talrendis Point no longer use the human town-watch talk (no more bread thieves or soggy boots). Ask who the Sentinels are, how long they have kept watch, why they are nearly all women, who commands them, what troubles their woods (different in each zone), what they make of the Horde and of their new allies (they answer humans, dwarves, gnomes and kin differently).
+- Opinion questions: whether a vow is worth ten thousand thankless years, how to deal with the Warsong, whether the young races will keep faith, and (night elves only) whether Teldrassil feels right.
+- Hunters can ask to learn tracking; Sentinel scouts and survivors of Hyjal (origins) get their own replies.
 
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
