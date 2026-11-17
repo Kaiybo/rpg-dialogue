@@ -206,6 +206,8 @@ P:NPC {
         { text = "What are the coins of ancestry for?", next = "coins" },
         { text = "How do I summon Omen?", next = "summon", when = { minLevel = 55 } },
         { text = "My people honor the ancestors every day.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "Your sister seems to enjoy the festival rather loudly.", next = "fariel" },
+        { text = "Whom do you honour, Valadar?", next = "own_elder" },
         { text = "Elune's light on you, Valadar.", next = "END" },
       },
     },
@@ -280,6 +282,47 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    fariel = {
+      lines = {
+        { id = "fa_default", text = "She does, and Elune bless her for it, because left to me the festival would be very solemn and very quiet and nobody would come back the next year. Fariel lights the sky, and I try to make sure people remember why it's lit." },
+      },
+      choices = {
+        { text = "Do the two of you ever disagree?", next = "fariel_disagree" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fariel_disagree = {
+      big = true,
+      lines = {
+        { id = "fd_default", text = "About Omen, every year. She says Elune's blessing is a kindness and we're helping him rest, and I lie awake wondering whether we only keep him from it. Which of us do you think has the right of it?" },
+      },
+      choices = {
+        { text = "Fariel does. Elune's blessing is a kindness.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You do. Some things should be allowed to end.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    own_elder = {
+      lines = {
+        { id = "oe_default", text = "Our grandmother, who kept this festival before Fariel and I were old enough to carry the cakes. She remembered the world before the Sundering, or claimed she did, and she told us that the ones we honour are only truly gone when nobody says their names." },
+      },
+      choices = {
+        { text = "And who do you think I should honour?", next = "own_elder_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    own_elder_ask = {
+      big = true,
+      lines = {
+        { id = "oea_default", text = "That's for you to say, not me, but I'll ask you this: is there someone who taught you something you still use every day? Most people find their elder in that question, even if they've never thought of them that way." },
+        { id = "oea_scourge", when = { race = "Scourge" }, text = "That's for you to say, friend, and I know the question may be harder for you than for most. Is there someone from your first life whose lessons you still carry? The festival welcomes that memory as gladly as any other." },
+      },
+      choices = {
+        { text = "There is. I'll speak their name tonight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I've no use for the past. I look ahead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xtauren = {
       lines = {
         { id = "xt_default", text = "Then you already know what this festival is for, better than many of my own people do. The elders here will be glad of you, and you of them." },
@@ -330,12 +373,21 @@ P:NPC {
         { id = "h_default", key = true, text = "I fly the Alliance out of Moonglade, to the north and south and back to Rut'theran. The druids have their own birds, but mine will carry anyone who asks politely." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "You could fly with Silva, you know, on the Circle's own birds. But you're welcome to mine, and they'll be pleased you chose them." },
+        { id = "h_horde", when = { faction = "Horde" },
+          text = "My birds won't carry you, I'm afraid; your wind riders are across the glade with Faustron. But you're welcome to stand and talk, since nobody draws a blade in Moonglade." },
       },
-      again = { { id = "h_again", text = "Anything else, before you fly?" } },
+      again = {
+        { id = "h_again", text = "Anything else, before you fly?" },
+        { id = "h_again2", text = "Ask, if you like. The birds won't mind waiting a little longer." },
+      },
       choices = {
-        { text = "Show me where I can fly.", next = "BUSINESS" },
+        { text = "Show me where I can fly.", next = "BUSINESS", when = { faction = "Alliance" } },
         { text = "Why keep your birds out here, away from the village?", next = "edge" },
+        { text = "Where do your birds fly from here?", next = "routes" },
         { text = "Do Horde and Alliance really share this place?", next = "peace" },
+        { text = "Do you ever speak with the wind rider master?", next = "xhorde", when = { faction = "Horde" } },
+        { text = "Our shan'do sleeps beneath this glade, doesn't he?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Would your birds mind my companion?", next = "xpet", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -344,6 +396,87 @@ P:NPC {
         { id = "e_default", text = "Because the druids like their quiet, and hippogryphs are noisy, whatever the songs say. From here the birds can see the lake, and that keeps them calm." },
       },
       choices = {
+        { text = "Why should the lake calm them?", next = "edge_lake" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    edge_lake = {
+      lines = {
+        { id = "el_default", text = "Hippogryphs were the Mother Moon's creatures before they were ever ours, or so the priestesses say, and they settle wherever her light lies on still water. When I first came here I kept them by the road, and they screamed all night and plucked their own feathers." },
+        { id = "el_night", when = { timeOfDay = "night" }, text = "Look at them now, with the moon on Elune'ara, and you'll see what I mean. They're quiet as cats, every one of them." },
+      },
+      choices = {
+        { text = "They're lucky to have someone who listens to them.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    routes = {
+      lines = {
+        { id = "r_default", text = "South over Felwood to Talonbranch Glade, north to Everlook in Winterspring, and west across the water to Rut'theran, at the foot of Teldrassil. Every one of those flights crosses something the birds dislike, and Felwood is the worst of them." },
+      },
+      choices = {
+        { text = "What troubles them about Felwood?", next = "routes_felwood" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    routes_felwood = {
+      lines = {
+        { id = "rf_default", text = "The smell, first, because the whole forest reeks of fel and rot from above, and then the things that fly up out of the trees. I lost a young bird there last spring to something that came out of Jaedenar, and the rider walked the rest of the way to Talonbranch." },
+      },
+      choices = {
+        { text = "Then the corruption there has to be burned out.", next = "routes_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    routes_stance = {
+      big = true,
+      lines = {
+        { id = "rs_default", text = "Burned, or healed? The druids would say healed, and they'd say it slowly, over a hundred years. I only know that I'd like my birds to cross that forest without their feathers standing on end, and I'm not patient enough to wait a century for it." },
+      },
+      choices = {
+        { text = "Heal it, however long it takes. Burning only spreads the ruin.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn out the worst of it. Some things can't be saved.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhorde = {
+      lines = {
+        { id = "xh_default", text = "Now and then, when a wind rider and a hippogryph decide to quarrel over the same patch of sky. Faustron is a courteous orc, more courteous than I expected, and he keeps his beasts on his side of the glade as carefully as I keep mine." },
+      },
+      choices = {
+        { text = "It's strange, hearing an elf speak kindly of an orc.", next = "xhorde_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhorde_stance = {
+      big = true,
+      lines = {
+        { id = "xhs_default", text = "Here it's easy, because the Keeper makes it easy. In Ashenvale I'd have put an arrow in him and he'd have put an axe in me, and I don't know which of those two is the truer version of us. Do you?" },
+      },
+      choices = {
+        { text = "This one is. The war is what's false.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Ashenvale is the truth. This glade is a pause.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf = {
+      big = true,
+      lines = {
+        { id = "xn_default", text = "In the Barrow Dens by the lake, asleep and walking the Emerald Dream, as the druids do. I fly over that hill every day and I still lower my voice when I pass it, which is foolish, but I can't help it. Do you ever wish he'd wake?" },
+      },
+      choices = {
+        { text = "His work in the Dream matters. Let him sleep.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "We need him awake. Our people are struggling without him.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpet = {
+      lines = {
+        { id = "xp_default", text = "Not if it's polite, and most hunters' beasts are better mannered than their masters. Keep it from stalking the young ones, though, because a hippogryph that thinks it's being hunted will try to fly with the saddle half buckled." },
+        { id = "xp_cat", when = { pet = { family = "Cat" } }, text = "Oh, a cat. Keep {pet} close to you, please, and well away from the roost. The birds remember nightsabers, and not fondly." },
+      },
+      choices = {
+        { text = "I'll keep it close.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -409,11 +542,18 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid can fly with Bunthen on the Circle's birds, but my wind riders will carry you just the same, and they're faster, whatever he tells you." },
       },
-      again = { { id = "h_again", text = "Anything else, before you go?" } },
+      again = {
+        { id = "h_again", text = "Anything else, before you go?" },
+        { id = "h_again2", text = "Ask, then. The beasts aren't going anywhere without me." },
+      },
       choices = {
-        { text = "Show me where I can fly.", next = "BUSINESS" },
+        { text = "Show me where I can fly.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "How does an orc fare in Moonglade?", next = "orc" },
         { text = "Do you trust the Keeper's truce?", next = "truce" },
+        { text = "Where do your wind riders fly from here?", next = "routes" },
+        { text = "How do the beasts take to this place?", next = "beasts" },
+        { text = "The Earth Mother's children are at home here.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "I'm Alliance. Will you still talk to me?", next = "xalliance", when = { faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -422,6 +562,84 @@ P:NPC {
         { id = "o_default", text = "Quietly, which suits me. The night elves look at me as if they're remembering Ashenvale, and maybe they are, but no one here has raised a hand, and I've given them no reason to." },
       },
       choices = {
+        { text = "Ashenvale? You mean the Warsong's logging camps.", next = "orc_ashenvale" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orc_ashenvale = {
+      lines = {
+        { id = "oa_default", text = "I do. The Horde needs timber, and the forest is full of it, and the elves say every tree is sacred, so somebody bleeds every week at Splintertree. I understand both sides better than I'd like, which is likely why the Warchief sent me here and not there." },
+      },
+      choices = {
+        { text = "So who's in the right, the Warsong or the elves?", next = "orc_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orc_stance = {
+      big = true,
+      lines = {
+        { id = "os_default", text = "That's a question I don't answer on elf ground. I'll tell you what I think of whoever's asking, though, by what they say next, so go on and say it." },
+        { id = "os_alliance", when = { faction = "Alliance" }, text = "You're asking an orc that, in a glade full of druids? You have nerve, I'll give you that, so say what you think and I'll judge you by it." },
+      },
+      choices = {
+        { text = "A people has to live. The Horde needs that timber.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "It's their forest. The Horde should find another way.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    routes = {
+      lines = {
+        { id = "r_default", text = "South to Bloodvenom Post in Felwood, where the Horde holds a camp among the poison, and north to Everlook, where the goblins sell to anyone with coin. Past those it's a long way home to Orgrimmar or the Bluff, and the beasts know every mile of it." },
+      },
+      choices = {
+        { text = "What's it like flying over Felwood?", next = "routes_felwood" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    routes_felwood = {
+      lines = {
+        { id = "rf_default", text = "Like flying over a wound that's gone bad. The riders keep high so the beasts don't breathe it, and when they land at Bloodvenom they want water and a good long rest, and I don't blame them, because I've smelled that forest myself." },
+        { id = "rf_lock", when = { class = "WARLOCK" }, text = "You'd know the stink better than I would, warlock, since it's the same green fire your sort plays with. Burned into the trees by the Legion, the druids say, and it hasn't let go." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts = {
+      lines = {
+        { id = "b_default", text = "Badly, at first, because a wind rider likes hot rock and open sky, and Moonglade is all wet grass and quiet. They sulk in the rain and squabble with the hippogryphs across the glade, and I spend my mornings scraping up what they leave behind." },
+      },
+      choices = {
+        { text = "Squabble? Over what?", next = "beasts_sky" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts_sky = {
+      lines = {
+        { id = "bs_default", text = "Sky, mostly. A wind rider thinks every bit of air belongs to it, and so does a hippogryph, so Sindrayl and I have an arrangement about who takes off when. She's a fair elf, and she keeps to it better than some orcs I've served with." },
+      },
+      choices = {
+        { text = "An orc and an elf with an arrangement. Good.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtauren = {
+      lines = {
+        { id = "xt_default", text = "You are, and I'm glad of it, because the druids here look at a tauren and see one of their own. When they look at me they see an axe, so I stand near Bunthen when I can and let some of his welcome rub off." },
+      },
+      choices = {
+        { text = "You're welcome here too, Faustron. Earn it and they'll see.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xalliance = {
+      big = true,
+      lines = {
+        { id = "xa_default", text = "On this ground I will, and civilly, because the Keeper asks it and I keep my word. I won't fly you anywhere, and I won't pretend I'd greet you like this in Ashenvale, but here we're just two travellers far from home." },
+      },
+      choices = {
+        { text = "That's honest. I'll be civil in return.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Civility's easy when an ancient's watching. It means little.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -437,7 +655,7 @@ P:NPC {
     truce_hard = {
       big = true,
       lines = {
-        { id = "th_default", text = "Some days. Then I remember the mountain, where orc and elf fought the Legion side by side, and I think that if we could do it then, I can do it here." },
+        { id = "th_default", text = "Some days it is. Then I remember the mountain, where orc and elf fought the Legion side by side, and I think that if we could do it then, I can do it here." },
       },
       choices = {
         { text = "That peace is worth keeping. Good.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -449,7 +667,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A wind rider master, posted in a glade full of elves because the Warchief needs one here. I mind my manners and scrape a lot of droppings." } },
-    advice = { { id = "tp_ad", text = "Don't spit on the grass here. They notice." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask one of the druids, if they'll talk to you." } },
+    advice = { { id = "tp_ad", text = "Don't spit on the grass in Moonglade, because the druids notice, and they remember it longer than you'd think." } },
+    _none = { { id = "tp_none", text = "I don't know that, and I won't pretend to. Ask one of the druids, if they'll talk to you." } },
   },
 }

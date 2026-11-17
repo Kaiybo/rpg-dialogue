@@ -23,3 +23,4 @@ background, advice.
 
 ## Authored, not canon
 - Keeps the birds where they can see the lake; Remulos's peace over the glade.
+- (deepening pass) Routes: Talonbranch Glade, Everlook, Rut'theran. Lost a young bird over Jaedenar last spring. Hippogryphs settle where moonlight lies on still water (priestesses' saying). Has a take-off arrangement with Faustron and thinks him courteous; wonders whether Ashenvale or the glade is the "truer" them. Lowers her voice passing the Barrow Dens.

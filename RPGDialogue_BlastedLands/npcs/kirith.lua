@@ -49,6 +49,9 @@ P:NPC {
         { text = "How do we reach him?", next = "amulet" },
         { text = "What should I tell your captain?", next = "captain" },
         { text = "Let me give your spirit rest.", next = "xpriest", when = { class = { "PRIEST", "SHAMAN", "PALADIN" } } },
+        { text = "What happened to Thrall's Grasp?", next = "regiment" },
+        { text = "Why would a Horde soldier trust the Alliance?", next = "alliance", when = { faction = "Alliance" } },
+        { text = "Is there anything I can carry for you?", next = "last" },
         { text = "Rest, Kirith.", next = "END" },
       },
     },
@@ -124,6 +127,40 @@ P:NPC {
       },
       choices = {
         { text = "I'll tell him gently.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    regiment = {
+      lines = {
+        { id = "rg_default", text = "We were sent into these lands to keep watch on the demons, a whole regiment with Thrall's name on our banner, and we were proud of it. The Defiler took us anyway, a company at a time, and bound what was left of us with his stones." },
+        { id = "rg_orc", when = { race = "Orc" }, text = "We were sent here with Thrall's name on our banner to keep watch on the demons, and we were proud of it, as you'd be. The Defiler took us anyway, a company at a time, and bound what was left with his stones." },
+      },
+      choices = {
+        { text = "Did anyone else survive?", next = "regiment_rest" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    regiment_rest = {
+      big = true,
+      lines = { { id = "rr_default", text = "My captain, and that's all I know of, though there may be others bound in the stones who'd thank you for breaking them. We waited a long time for orders from Stonard, and they never came, and I've stopped asking why." } },
+      choices = {
+        { text = "Someone failed you. Those orders should have reached you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Soldiers hold without orders. You did your duty.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alliance = {
+      lines = { { id = "al_default", text = "Because you're the one standing here, and the Legion doesn't care what banner we fought under before it found us. My captain sent you, and he's no fool, so if he trusts you then I'll do the same, for the little time I have left." } },
+      choices = {
+        { text = "Then let's finish what your captain started.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    last = {
+      lines = { { id = "la_default", text = "Only the truth to my captain, and maybe my name, if anyone in Stonard ever asks what became of the soldiers who went south. Tell them Kirith broke, but that he was freed, and that the one who freed him went on to finish the job." } },
+      choices = {
+        { text = "I'll tell them, Kirith.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -38,3 +38,6 @@ Honest.
 
 ## Topics
 background, advice, _none.
+
+## Deepening pass
+New branches: Thrall's Grasp (sent to watch the demons; taken a company at a time and bound by the stones; the orders from Stonard that never came, stance), an Alliance-only "why trust me" branch, and a last request (the truth to his captain, his name to Stonard). Authored: his wish to be remembered in Stonard. Never: Trebor's name, what the orders said.
