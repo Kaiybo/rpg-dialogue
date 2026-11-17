@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Aye, once the scoutin's over an' the Witherbark have spotted us, which they do sooner or later. Then I want a {g:lad|lass} wi' a shield between me an' their axes while Kryten reads whatever we came for." } },
+      choices = {
+        { text = "Then I'll guard you both. A shield's no good unused.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll guard you, but the scouting's your problem, dwarf.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Skuerto.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Mages o' old Arathor, so Kryten tells me, an' they did it tae guard somethin' best left buried. Now the Syndicate an' the ogres go pokin' at the stones, an' the bindin's are frayin'." } },
       choices = {
@@ -75,6 +84,7 @@ P:NPC {
           text = "Ye've a smell about ye like a forge fire gone wrong, {class}, an' I'd ask ye kindly tae keep it away from the lad, for he's impressionable." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Another mage! Kryten's enough for one camp, {class}, an' he talks about Archmage Malin like the fellow walks on water." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, an' a loud one by the clank o' ye. If ye're comin' scoutin' wi' me, ye'll walk behind an' breathe through yer nose, or ye'll no come at all." },
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, I've maps tae draw." },
@@ -92,6 +102,7 @@ P:NPC {
         { text = "What did Trelane leave behind, Skuerto?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does anyone pray for the fallen of Stromgarde, Skuerto?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How do you want Kor'gresh's wand taken back?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could a warrior be any use to a scout, Skuerto?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Off I go.", next = "END" },
       },
     },
@@ -194,6 +205,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Sometimes, when the Witherbark are howling and my best spell is still halfway through its first syllable. Archmage Malin says a mage who needs a sword has already made a mistake, but I don't think he's ever been chased through a troll village." } },
+      choices = {
+        { text = "Your master's right. Master your own discipline first.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your master's wrong. Learn whatever keeps you alive.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kryten.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the raptors hunt in threes, the striders kick, and the Witherbark ride none of them, which surprised me. I'd love to know whether the trolls ever tamed anything here, so if you find a fetish shaped like a beast, I'd be terribly grateful." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, may I draw {pet}? I promise I'll be quick, and I'll get the ears right this time, because Skuerto says my last drawing of a wolf looked like a cushion." },
+      },
+      choices = {
+        { text = "Beasts deserve study, not just slaughter. Keep writing.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A dead raptor teaches enough. Skip the drawings.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Is it true your magic draws nothing from the arcane at all? Archmage Malin says all power comes from somewhere, and I can't decide whether yours comes from the trees or from you." } },
       choices = {
@@ -218,6 +250,8 @@ P:NPC {
           text = "A warlock! Archmage Malin says warlocks are mages who stopped asking questions, {class}, but I'm sure that's unfair, probably." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Oh! I didn't hear you come in, {class}, which is either very impressive or very worrying. Skuerto would know which, but he's out scouting." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, how reassuring! Skuerto says I'm too clumsy to scout, which is true, so it's comforting to meet someone even louder than me." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Skuerto says hunters make better scouts than dwarves, and then he says he never said it, so I've written it down twice." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've plenty of ink." },
@@ -232,6 +266,8 @@ P:NPC {
         { text = "Is it wise to study troll magic?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Do you think your master's right about warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you need anything taken from the Witherbark camps?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you ever wish you'd trained with a sword, Kryten?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What does your journal say about the Highland beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -325,6 +361,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "They screech, they sulk, and one of them dropped a footman's shield into the gorge under Thandol Span out of pure spite. Wildhammer birds know the difference between a rider and a load, and they'll let you know which one you are." } },
+      choices = {
+        { text = "Then I'll respect the bird and ride light.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The bird can sulk. It still has to carry me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Cedrik.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Whatever the hunters bring in, mostly, since the supply carts barely carry enough for the soldiers. Raptor's their favourite, and they'll fight over a haunch until the feathers fly, which is a sight to see if you're standing well back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} off the roost, please, because my birds have decided it looks like dinner, and gryphons don't take no for an answer." },
+      },
+      choices = {
+        { text = "Feed the soldiers first, then the birds. That's the right order.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Feed the birds first. Without them, the dispatches stop.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "When the Captain asks, aye, and she asks more often than I'd like. I fly them south wrapped in Stromgarde's colors, and there's always someone waiting at the other end, which is the worst part of the work by a long way." } },
@@ -355,6 +412,8 @@ P:NPC {
           text = "A mage who still pays for gryphons, {class}! Your teleport could have you home in a heartbeat, so I'll take the custom as a compliment." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Quiet on your feet, {class}, good, because the gryphons startle easily, and a startled gryphon is a hard thing to calm." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds can carry you, armour and all, though the gryphons do complain about plate when the wind's blowing off the coast." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll appreciate my gryphons, then, for there isn't a beast in the Highlands they couldn't take, though they're a sight harder to feed." },
       },
       again = {
         { id = "h_again", text = "Anything more? The gryphons smell trolls on the wind and won't settle until we're done." },
@@ -367,6 +426,8 @@ P:NPC {
         { text = "Do you ever carry messages you shouldn't read?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you carry the fallen home as well as the letters?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Refuge Pointe have the strength to hold, Cedrik?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do gryphons really complain about armoured riders, Cedrik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do you feed the gryphons at Refuge Pointe?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -436,6 +497,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Shorter than the Captain admits, though she knows, for she counts the same crates I do. The carts come up from the Wetlands when Thandol Span is clear, and the Syndicate have started watching the road, so every cart's a gamble now." } },
+      choices = {
+        { text = "Ration everyone fairly. Nobody fights well hungry.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Feed the fighters first. The rest can tighten their belts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Vikki.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "You could bring in meat, for a start, since the soldiers haven't seen fresh food in weeks. Raptor's tough but it's better than hardtack, and I'll trade arrows for it, which is the best bargain anyone's offered me since Stromgarde fell." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} eats, I suppose, which is one more mouth in a camp already counting crumbs. I'll not grudge it, though, for a beast that guards the camp earns its supper." },
+      },
+      choices = {
+        { text = "I'll share the meat with whoever's hungriest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll hunt, but I'm keeping the best cuts for myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Better than they were, though I count the bandages every morning and every morning there are fewer. Witherbark arrows go deep and the ogres don't leave much to mend at all, so the healers we have are worn to the bone." } },
@@ -456,6 +538,8 @@ P:NPC {
           text = "A mage! I don't suppose you've any spare conjured bread, {class}? The soldiers are tired of mine, and it's the only bread I've got." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I count every arrow and every loaf at the end of the day, {class}, so if something goes missing I'll know exactly when you were here." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be wanting rations, then, and whetstones, and I've enough of both for three more days if nobody else comes up the road." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll want arrows, I suppose, which is a pity, since I'm down to my last two quivers and the soldiers want those too." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a tally to finish." },
@@ -468,6 +552,8 @@ P:NPC {
         { text = "Do the soldiers really eat conjured bread?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Has anyone actually stolen from you, Vikki?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "How are the wounded at Refuge Pointe faring, Vikki?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Are supplies really that short at Refuge Pointe, Vikki?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can a hunter help with your supplies, Vikki?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "That's all.", next = "END" },
       },
     },

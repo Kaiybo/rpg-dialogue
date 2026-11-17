@@ -33,6 +33,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Too well, and for the wrong war. They teach you to hold a line against the Scourge, then they teach you the line runs through every village that won't wear the tabard, and by then you're too disciplined to ask why." } },
+      choices = {
+        { text = "Discipline is no sin. What matters is who gives the orders.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A soldier who can't refuse an order is only a weapon.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Raleigh.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "With trackers and hounds both, the Houndmaster's best, bred in the kennels at the Monastery. I've seen those dogs run down a man who'd only been accused, and I've wondered since whether the dogs knew more about mercy than their masters did." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't growled at me once, and the Houndmaster's beasts growled at anyone not wearing red. I take that as a kindness, and I've had few enough of those lately." },
+      },
+      choices = {
+        { text = "A deserter is still a deserter, and the hunt is lawful.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "No one should be hunted for leaving a cause gone rotten.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not openly, but they remember every face that turned away, and they don't take kindly to it. I saw what they did at Hearthglen to a brother they suspected of the plague, and I left the next night without saying goodbye." } },
@@ -63,6 +84,8 @@ P:NPC {
           text = "It's done, then. I won't celebrate, and neither should you. But there are people in Tirisfal tonight who'll live to see morning." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Close the door, and I'll ask you plainly: were you sent by the Crusade? You move like the men they send for those of us who left." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Crusade would have burned you before you finished speaking, and once I'd have lit the pyre myself, which is something I think about more than I'd like." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You stand like a soldier, and I used to drill men to stand like that, under a red banner I'd rather not name. Close the door, please, and sit with your back to the wall if it makes you easier." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you came up the stairs quietly, which I'm grateful for. The Crusade used trackers to find those of us who left, so forgive me if I check the window." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask away; I've stopped keeping secrets for them." },
@@ -77,6 +100,8 @@ P:NPC {
         { text = "Was it right, what I did there?", next = "after", when = { questDone = TODO_QUEST("In the Name of the Light") } },
         { text = "Does the Crusade hunt those who leave, Raleigh?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you still see me burned, Raleigh?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Did the Crusade train its warriors well, Raleigh?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "The Crusade hunts its deserters with trackers, Raleigh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to your window.", next = "END" },
       },
     },

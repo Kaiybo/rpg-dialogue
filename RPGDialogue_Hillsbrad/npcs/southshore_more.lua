@@ -30,6 +30,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Hold the roads around the dome, chiefly, because the Syndicate camp on them and the Kirin Tor will not leave their towers to drive them off. I'm not permitted to say how few guards we have left, which I suppose tells you, so please don't repeat it." } },
+      choices = {
+        { text = "Dalaran's walls are worth defending. I'd stand on them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Dalaran hid behind its dome. Let mages guard mages.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Emissary.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "If you find him, or what's left of him, I'd be grateful, though I fear the Syndicate found him first. He carried letters for the Magistrate, and if those letters reached Durnholde, someone there knows more about Dalaran's plans than I do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine nose, I imagine, and it might find a trail where an apprentice with a map would not. Please be careful, though, because the Syndicate shoot animals for sport." },
+      },
+      choices = {
+        { text = "If he's alive, I'll bring him home. He comes first.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The letters matter more. I'll find those and leave the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Because whatever threatens Dalaran threatens what's left of the northern kingdoms, and the Alliance can't afford another fallen city. I won't pretend the Kirin Tor were always good friends to your order, but I'd ask you to be a better friend to us than we were to you." } },
@@ -70,6 +91,8 @@ P:NPC {
           text = "A priest. I find it a comfort to see one in Southshore, I'll admit, because Dalaran's troubles are the sort that magic made and prayer might help to mend." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! The Kirin Tor and the Silver Hand never sat easily together, I'll confess, but I hope you'll judge Dalaran by its need and not by its pride." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Forgive me for staring, but I've spent weeks asking the Alliance for soldiers, and you're the first who has walked through the door without being sent." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll have walked the Alterac hills, then, and I'd be grateful for any word of the roads, because the last courier from Dalaran never arrived." },
       },
       again = {
         { id = "h_again", text = "Is there more? Ask it quietly, if you would." },
@@ -86,6 +109,8 @@ P:NPC {
         { text = "Is the Syndicate spying on Dalaran's envoy, Emissary?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What troubles in Dalaran need the Light's help, Emissary?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why should a paladin help the Kirin Tor, Emissary?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would Dalaran do with soldiers, Emissary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Shall I look for your missing courier on the Alterac roads?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll think on it, Emissary.", next = "END" },
       },
     },
@@ -214,6 +239,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Fishermen with boat hooks, mostly, and a company of Lordaeron's footmen who came down the coast road when the Horde burned the Hillsbrad farms. I have the captain's name somewhere, though the page got wet in the flood the year after, and now he's either Harlow or Harrow." } },
+      choices = {
+        { text = "Write his name as best you can. The fallen deserve remembering.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Names don't matter. Southshore stood, and that's history enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Kundric.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the lions came down out of Alterac after the war, when the ogres drove them from the high meadows, and the farmers have hated them ever since. Before that, my grandfather wrote, a wolf was the worst thing in the hills, and now it's barely worth a line." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would you mind if I wrote down {pet}'s name? A hunter's companion in Southshore during the Forsaken troubles is exactly the sort of detail historians a hundred years from now will thank me for." },
+      },
+      choices = {
+        { text = "Record it all. Someone should keep the town's memory straight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the past go. Southshore needs hunters, not historians.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Honestly, I'd say, though honesty is hard when the man who broke the order was a prince it had trained. Uther died at Arthas's hand, and the knights who were left scattered to Hearthglen and Stratholme and worse, and I can't find a gentle way to write any of it." } },
@@ -261,6 +307,8 @@ P:NPC {
           text = "A priest! I keep a record of every chapel bell in Hillsbrad and when it last rang, and I'm afraid most of the entries end in the plague year." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! I've three chapters on the founding of the Silver Hand and none on its ending, because nobody who saw it end will sit still long enough to tell me." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Stand still a moment while I note your arms, because my records of Southshore's defenders are very thin, and I've had to guess at the sword sizes." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Excellent, because the town records have a gap where the beasts of Hillsbrad ought to be, and nobody who knows about them has ever stood still long enough." },
       },
       again = {
         { id = "h_again", text = "What else? I'll keep writing while you think." },
@@ -277,6 +325,8 @@ P:NPC {
         { text = "How do the accounts of Dalaran's fall disagree, Kundric?", next = "xmage", when = { class = "MAGE" } },
         { text = "When did Hillsbrad's chapel bells stop ringing, Kundric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How should the Silver Hand's ending be written, Kundric?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Who defended Southshore in the Second War, Kundric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do the Southshore records say about the beasts here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to your notes.", next = "END" },
       },
     },
@@ -393,6 +443,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every young fool with a sword and a grudge, and half of them come back with a Deathguard's arrow in the shoulder and a story twice as long as it should be. The Marshal pretends he doesn't know, and I pretend I didn't sell them the courage." } },
+      choices = {
+        { text = "Raids without orders get men killed. The Marshal should stop them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good on them. Somebody has to hit back at the Forsaken.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kelly.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the lions are bolder, the Syndicate are hungrier, and something's been dragging sheep from the farms near Durnholde and leaving tracks nobody can name. Malvew swears it's a lion, but Malvew swears everything's a lion." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And what's {pet} drinking? I'm joking, of course, though the last hunter's cat lapped up half a mug of Bilger's stout and slept under the Lieutenant's chair, which is a story I still tell." },
+      },
+      choices = {
+        { text = "I'll tell you only what I've seen, not what I've guessed.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll trade you a good rumour, true or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "He says he rode with the Silver Hand once, and on a good night he's proud of it, and on a bad night he can't say Uther's name. I just pour, and I don't tell anyone which sort of night it was." } },
@@ -440,6 +511,8 @@ P:NPC {
           text = "A priest at my bar! Folk will mind their language for an hour or so, which is a rest for my ears, and Bilger might even come up from the cellar." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, eh? Then I'll warn you that Bilger will want a word, and once he starts on the old days he doesn't stop till the barrel's dry." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want the strong stuff, I'd guess, and the latest on who's been picking fights with Tarren Mill. I've both behind the bar, and the second one's free." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at my bar! Tell me what's moving in the hills, and I'll tell you what's moving in the town, and we'll both come out ahead." },
       },
       again = {
         { id = "h_again", text = "What else? I'm wiping the same mug, so I'm free." },
@@ -456,6 +529,8 @@ P:NPC {
         { text = "Did Bilger really chase a warlock out with a broom, Kelly?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does Southshore have a priest of its own, Kelly?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does Bilger say about the old days, Kelly?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Who's been picking fights with Tarren Mill, then?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What's the town saying about the hills these days, Kelly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -548,6 +623,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Desperately, though I'd never put it that way in front of Quae and Kinelory, because they'd be offended. They've gone up to the Highlands to watch a Forsaken farm, and I keep thinking that if anything goes wrong, nobody with a shield will be there." } },
+      choices = {
+        { text = "I'll stand in front of your friends. That's what warriors do.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll go if it pays. Shields aren't free, Phin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Phin.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Dead animals in places where nothing killed them, mainly, and water the deer won't drink. The apothecaries test their brews on whatever wanders past, and the beasts always know before we do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch {pet} closely up there, please, because if a beast won't drink from a stream, I'd take that as a warning, and I'd rather not lose anyone's companion to the Forsaken's experiments." },
+      },
+      choices = {
+        { text = "The Forsaken must be stopped before their plague spreads.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them poison their own hills. It's not our fight yet.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Watch, mostly, and be ready, because I can't prove what the Forsaken are brewing and Southshore can't afford to start a war on a guess. If it turns out I'm right, though, I'd rather a knight of the Light was the first to know." } },
@@ -598,6 +694,8 @@ P:NPC {
           text = "A priest! If the Forsaken really are brewing a new plague up at Tarren Mill, you're exactly who I'd want standing behind me when we find it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Good, because my little band are brave enough, but none of us can stand in front of a Forsaken and simply refuse to fall, which I gather is your speciality." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! My little band is all scholars and nerves, and we could badly use someone who stands in front when the Forsaken start shooting." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll notice things in the hills that my friends would walk straight past, so tell me if anything near Tarren Mill smells wrong, because I'm sure something does." },
       },
       again = {
         { id = "h_again", text = "What else? I'm sorting Quae's notes, and her handwriting needs a translator." },
@@ -614,6 +712,8 @@ P:NPC {
         { text = "Why did you really leave the Kirin Tor, Phin?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could the Light stop a Forsaken plague, Phin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin do at Tarren Mill?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does your band need someone to stand in front, Phin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should I watch for near Tarren Mill, Phin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good hunting, Phin.", next = "END" },
       },
     },
@@ -723,6 +823,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I've one or two big enough, though I'll not part with 'em lightly, 'cause plate an' a heavy rider wear a horse down quicker than anythin'. Merideth's the one who sells, an' she'll want to know you'll treat the beast right before she even names a price." } },
+      choices = {
+        { text = "A good horse deserves care. I'd tend it like a comrade.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A horse is a tool. I'll ride it as hard as I need.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Darren.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Every spring, regular as rain, on their way north an' back again. Ain't seen a column of 'em since the plague, an' the stable's been quieter for it, though I'd trade all the quiet in the world to hear 'em clatter in again." } },
@@ -783,6 +892,7 @@ P:NPC {
           text = "A priest! Say, would you say a word over my old gelding Barley? The lions got him last week, an' I buried him up the hill, but it don't feel finished somehow." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "Well, a paladin! My granddaddy shod horses for the Silver Hand, back when the knights still rode through Southshore, an' he said you could tell a paladin's mount by how calm it stood." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Now there's a warrior, an' I can tell by how you stand, 'cause you plant your feet like a draft horse. I mean that kindly, I swear on my granddaddy's grave." },
       },
       again = {
         { id = "h_again", text = "Something more? You can talk while I brush; the mare won't mind." },
@@ -799,6 +909,7 @@ P:NPC {
         { text = "Why not let a fiery horse in your stable, Darren?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Would the Light hear a prayer for a horse, Darren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did many Silver Hand knights ride through Southshore, Darren?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Have you a horse that could carry a warrior in full plate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -890,6 +1001,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Meat, and plenty of it, and a good thick stew with bread to wipe the bowl. The soldiers who march to Tarren Mill on my cooking come back, and the ones who march on Anderson's porridge come back grumbling, if they come back at all." } },
+      choices = {
+        { text = "Feed the men who fight before anyone else, Chef.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll pay for the best cut. The rest can have porridge.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Chef.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "A captain of the order ate here once on his way north, and he swore my bisque was the best thing he'd tasted since Stormwind. He rode on to Stratholme after that, and I never heard what became of him, though I've a fair guess." } },
@@ -938,6 +1058,7 @@ P:NPC {
           text = "A priest! You'll bless the bisque, I hope, because it's the closest thing Southshore has to a holy relic, and folk certainly pray for it." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll be hungry, then, because I've never fed a knight yet who didn't ask for seconds and then thirds." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now you'll eat properly, I hope, because a fighting man can't live on hardtack, and Southshore has the best cooking north of Stormwind, whatever Darkshire says." },
       },
       again = {
         { id = "h_again", text = "Something more? Mind the steam, and talk while I stir." },
@@ -954,6 +1075,7 @@ P:NPC {
         { text = "Did a mage really freeze your stew, Jessen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you cook for Southshore's mourners too, Jessen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did the Silver Hand ever eat at your table, Jessen?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What does a warrior need to eat, Chef?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Smells good. Goodbye.", next = "END" },
       },
     },
@@ -1035,6 +1157,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "One that won't bolt when the shouting starts, and that takes years to train, not weeks, whatever the quartermasters think. I'll sell you a steady animal if you swear to bring it home, because I've buried more of my horses than I care to count." } },
+      choices = {
+        { text = "I swear it. A warhorse is a comrade, not a tool.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "In battle, the horse goes where I need it. No promises.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Merideth.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A horse is bred for trust over generations, and your beast is wild trust given once and kept, which I'll admit is rarer. The Silver Hand never understood either kind, and they rode my horses as if a horse were a cart with legs." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} hasn't spooked a single horse in the paddock, and that's a beast that's been well loved. I'd sell to you on the strength of that alone, if you were buying." },
+      },
+      choices = {
+        { text = "Breeding and training make a sound animal. That's the right way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The wild makes the best companions. No pedigree needed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Because I said the Light could touch a beast as surely as a knight, and that a horse fed on blessed grain might carry its rider past death itself. They laughed at me, and the paladins laughed louder, and now they come to my door with gold and long faces." } },
@@ -1078,6 +1221,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, and you'll not need one of my horses, I suppose, since you've got your own fiery beast that doesn't need feeding or brushing." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest. You'll not call me mad, I hope, since your Cathedral was as quick as the Silver Hand to think it, though at least it was quieter about it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want a warhorse, I suppose, which is what the Silver Hand always wanted. They rode my stock to war and called me mad for asking where the horses went." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know what it is to trust an animal, then, which is more than I can say for most who come through that gate." },
       },
       again = {
         { id = "h_again", text = "Anything else? The horses are watching you, and so am I." },
@@ -1093,6 +1238,8 @@ P:NPC {
         { text = "Do you think rogues would really sell your horses, Merideth?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do warlocks' steeds offend you, Merideth?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Why did the Cathedral think you mad, Merideth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What sort of horse would you sell a warrior, Merideth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is a hunter's beast so different from one of your horses?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Fine horses. Good day.", next = "END" },
       },
     },
@@ -1181,6 +1328,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Patience, mostly, and knowing when to strike, which I'm told matters on a battlefield as much as on the bay. The best soldier I ever taught fished off this dock every morning before his patrol, and he never once lost his temper with a murloc." } },
+      choices = {
+        { text = "Patience and control win fights. Rage only wastes strength.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fury wins fights. Patience is for fishermen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Donald.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not so different, except the fish can't see you coming and the lions can. Hunters make fine anglers, in my experience, though they keep looking over their shoulders, as if a trout might sneak up on them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps eyeing my bucket, and I'll let it have the small ones, since the bay gives more than I need. Don't tell Lindea, though, because she counts the bait." },
+      },
+      choices = {
+        { text = "Take only what you need, from the bay or the hills.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Take all you can. The bay won't miss a few fish.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "That most of the work is waiting, and that you don't get to choose what comes up on the line. The Silver Hand rode out to save every town in Lordaeron at once, and I think they'd have done better to watch the water longer before they cast." } },
@@ -1238,6 +1406,8 @@ P:NPC {
           text = "A priest on my docks! The fishermen will want you to bless the boats, and I'd not say no to it myself, for the bay's taken more than fish these last years." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll not want fishing lessons, I'd guess, but sit a while anyway, because a man in heavy armour learns patience fast on a dock." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, all steel and impatience, I'd guess. Fishing might do you good, for there's no line in the world that'll bite faster because you glared at it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then we're in the same trade, more or less, since you wait for the beast and I wait for the fish, and we both know the waiting's the hard part." },
       },
       again = {
         { id = "h_again", text = "The line's in the water, so I've all the time in the world. Ask away." },
@@ -1253,6 +1423,8 @@ P:NPC {
         { text = "Why not use magic to fish, Donald?", next = "xmage", when = { class = "MAGE" } },
         { text = "What has the bay taken, Donald?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What can a knight learn from a fisherman, Donald?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can fishing really teach a warrior anything, Donald?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is fishing the bay so different from hunting the hills?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Tight lines.", next = "END" },
       },
     },

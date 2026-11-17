@@ -264,6 +264,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A rider who listens tae the bird before he listens tae his own temper. I've seen warriors try tae steer a gryphon intae a fight like a cart horse, an' the bird threw 'em off at the Vilebranch walls an' flew home wi'out 'em." } },
+      choices = {
+        { text = "Then I'll follow your rules, Gryphon Master, to the letter.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Gryphon or not, I'll fight where I choose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Talonaxe.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Too often, an' the worst o' it isnae the spears. The Vilebranch daub their arrows wi' somethin' foul from their altars, an' a bird struck wi' one sickens for days, so I sit up wi' them an' do what I can, which isnae much." } },
@@ -295,6 +304,7 @@ P:NPC {
           text = "A mage, is it? The gryphons don't like the crackle o' the arcane, {class}, so stand downwind o' the nests if ye please." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Keep yer hands where the birds can see 'em, {class}, for a gryphon knows a sneak by the smell, an' they bite first." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll want tae fight the trolls, I suppose, an' ye'll want a gryphon tae get there, an' ye'll want me tae trust ye wi' one, which I don't yet." },
       },
       again = { { id = "h_again", text = "What? Quick, they're wantin' fed." } },
       choices = {
@@ -307,6 +317,7 @@ P:NPC {
         { text = "Couldn't a mage simply teleport, instead of flying?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have the trolls ever crept into your aviary?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the gryphons ever come back hurt from the troll lands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What would it take for you to trust a warrior with a gryphon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -400,6 +411,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It cares what the warrior does when he gets where he's goin'. The Vilebranch shed blood on their altars an' the land weeps for it, an' a warrior who sheds blood tae stop them might be forgiven, so long as he doesnae grow tae like it." } },
+      choices = {
+        { text = "I'd fight only to stop the blood rites, nothing more.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Blood is blood. I'll shed what I must and not count it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I hear the owls an' the wolves, an' lately I hear them go quiet near Jintha'Alor, which troubles me. The beasts know when the land's sick, an' they flee the sickness long before we see it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet}, is it? A fine name, an' it suits the breath I hear. Keep it close in the forest, for the Vilebranch would take a hunter's beast for their altars as soon as the hunter." },
+      },
+      choices = {
+        { text = "The land is sick. Jintha'Alor must be cleansed.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Beasts flee from anything. It means nothing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Maybe, if neither one tries tae own the other. The Light mends what's broken in a body an' the spirits mend what's broken in the land, an' the Vilebranch have broken a great deal o' both up at their altars." } },
@@ -425,6 +457,8 @@ P:NPC {
           text = "Ye carry the arcane like a cold draught, {class}, an' the spirits shiver when ye pass. They've no love for it, though they'll forgive ye if ye mind yer manners." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "There's someone standin' on my blind side, an' the wind says they mean tae stay there. Speak up, {class}, an' let an old dwarf hear ye." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Ye stand heavy, like a dwarf in full mail, though I cannae see if ye are one. The land feels a warrior's step, an' it's no always glad of it." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I can hear yer beast breathin' beside ye, an' it's calmer than most, which tells me ye treat it well." },
       },
       again = { { id = "h_again", text = "Aye? I'm listenin', as I'm always listenin'." } },
       choices = {
@@ -436,6 +470,8 @@ P:NPC {
         { text = "Why do the spirits dislike the arcane?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "How did you know I was there, Fraggar?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can the Light and your spirits work together, Fraggar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does the land care if a warrior walks on it, Fraggar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can you hear the beasts of the Hinterlands, Fraggar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll help the spirits.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Your spirits flinch when I come near, old man.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The spirits can fend for themselves, old man.", next = "END", fx = { align = { light = -1 } } },
@@ -542,6 +578,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every one o' them, an' they tell the fight three times, each bigger than the last. By the third tellin', a single Witherbark scout has become a whole war party, an' I pour the next round anyway, because they've earned the tale." } },
+      choices = {
+        { text = "A true warrior tells it straight. No need to boast.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good tale's worth stretching. Pour another.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Thulfram.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "That the owls are gettin' bolder an' the wolves hungrier, an' that somethin' big's been crashin' about near the Overlook Cliffs. Half the riders think it's a troll an' half think it's a beast, an' nobody's been brave enough tae land an' settle it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's {pet}, is it? It can have the scraps from the kitchen, for the gryphons won't share an' the cat's too fat already." },
+      },
+      choices = {
+        { text = "I'll go and settle it. Rumours do nobody any good.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the mystery be. Not every beast needs hunting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "The sky, mostly, an' their birds, an' whoever's listenin' when the wind turns bad. Ye'll hear a fair few call on the Light too once they've had a drink, for there's no' a Wildhammer alive who'd turn down help over Jintha'Alor." } },
@@ -578,6 +635,8 @@ P:NPC {
           text = "A mage! Could ye warm the hearth a wee bit? I'm jokin', mostly, {class}, for I've no wish tae see my fire turn blue." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I count my mugs every night, {class}, an' I'll be countin' 'em twice tonight, no offence meant. Sit by the fire where I can see ye, an' we'll get on fine." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Set yer hammer by the door an' yer backside by the fire, for there's no a troll in the Hinterlands that'll find ye here." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, an' ye've brought the forest in on yer boots. Sit, an' tell me what's movin' out there, for the riders only see the trees from above." },
       },
       again = { { id = "h_again", text = "Anythin' else? Yer mug's no' empty yet." } },
       choices = {
@@ -589,6 +648,8 @@ P:NPC {
         { text = "Do you hear much worth knowing behind that bar?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do the riders pray to before they fly, Thulfram?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Wildhammer think well of paladins, innkeeper?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the Wildhammer warriors drink here after a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What do the riders say about the Hinterlands forests?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "A mug, please.", next = "END", fx = { affinity = 1 } },
       },
     },

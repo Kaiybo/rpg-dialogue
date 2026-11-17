@@ -25,6 +25,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The guards, mon, because the bars don't shoot arrows. The elves of Quel'Danil be fine archers and poor fighters up close, so get in close quick, and Rin'ji will run while you be busy." } },
+      choices = {
+        { text = "We leave when the guard changes. No brawling.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the plan. We break out and fight our way clear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Rin'ji.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Owls, mon, only owls, for their feathers fetch good trade. The elves said I was huntin' them, which be flattery, because an elf be much harder to find than an owl and taste much worse." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} got the look of a beast that never been in a cage, mon, and Rin'ji hope it stay that way. Elves cage anythin' they don't understand." },
+      },
+      choices = {
+        { text = "They had a right to guard their woods, Rin'ji.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Woods belong to no one. They had no right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -33,12 +54,16 @@ P:NPC {
           text = "If you be willin' to help me, that be good, mon, so get me past the elves' bows and out of their woods, and I run the rest of the way myself." },
         { id = "h_secret", when = { questActive = TODO_QUEST("Rin'ji's Secret") },
           text = "A promise be a promise, even to a stranger. Take what I told you and go find it before somebody else does." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, mon! You got arms like a bear, so maybe you bend these bars, and maybe you bend an elf or two on the way out." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, mon. Rin'ji was huntin' too, before the elves caught him, so you know how it feel to hold the bow, and how bad it feel when somebody else got it." },
       },
       choices = {
         { text = "Elves caged my people too, once. I'll get you out.", next = "troll", when = { race = "Troll" } },
         { text = "Why did the elves cage you?", next = "caged" },
         { text = "What secret could a prisoner have?", next = "secret" },
         { text = "Why should I trust a troll?", next = "trust" },
+        { text = "Should I break the bars or the guards first, Rin'ji?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What were you hunting when the elves caught you, Rin'ji?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good luck, Rin'ji.", next = "END" },
       },
       again = { { id = "h_again", text = "Talk faster, mon. The elves be changin' the guard soon." } },

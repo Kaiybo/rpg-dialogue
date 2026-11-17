@@ -24,6 +24,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than you'd think, for every quiet piece of work needs someone loud standing in the road while it's done. The Syndicate learned that from us, and now they hire Alterac's old men-at-arms to do the same against my people." } },
+      choices = {
+        { text = "I'd rather face a man than knife him. That's my way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Loud or quiet, a win is a win. I'll do either.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "We keep a few, and they're trained to follow the Syndicate's trail rather than a stag's. A hunter who can read the Alterac snow is worth more to this house than a dozen soft-footed apprentices, though I'd ask you not to tell them so." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} has been watching my steward since you arrived, and my steward has been watching {pet}. I think they've both concluded the other is dangerous, which makes them the two wisest creatures in the hall." },
+      },
+      choices = {
+        { text = "I hunt the Syndicate in the open, not from the shadows.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A clean shot from cover is still a clean shot.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "The knights of Lordaeron rode into Alterac when Perenolde betrayed the Alliance, and my people did quieter work on the same traitors. We never shared a table, but we shared an enemy, and that is as close as honour and shadow usually come." } },
@@ -106,6 +127,8 @@ P:NPC {
           text = "A priest of the Alliance at Ravenholdt, which is rarer than you might think. My guests seldom ask the Light for anything, and I suspect the Light prefers it that way." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin under my roof. The last knights of the Silver Hand to pass through Alterac came to root out traitors, and I confess I was glad of them, though they never learned my name." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior at Ravenholdt, and you came up the front path, which none of my guests have done in years. I admire the honesty, though I'd not recommend making a habit of it." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, and you found my house, which most trackers fail to do. I'd ask how, but I suspect your beast deserves the credit." },
       },
       choices = {
         { text = "Does your house keep this forest, my lord, or only hide in it?", next = "druid_q", when = { class = "DRUID" } },
@@ -118,6 +141,8 @@ P:NPC {
         { text = "Why does Ravenholdt watch warlocks so closely, my lord?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does a house of shadows need a priest's prayers, my lord?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did the Silver Hand ever know of Ravenholdt, my lord?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does a house of shadows have any use for a warrior, my lord?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Your hills are full of game. Do you keep hounds here, my lord?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll leave you to your counsel, my lord.", next = "END" },
       },
       again = {
@@ -194,6 +219,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "We had a few, and too many of us believed the wards would be enough on their own. Archimonde broke them like a man breaking ice on a pond, and the swordsmen who held the streets bought us time at a price we never repaid." } },
+      choices = {
+        { text = "Dalaran should keep a standing guard now, under strict command.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Trust no city's walls. Better to fight free in the hills.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bears, wolves and Syndicate scouts, in about that order of good manners. The Crushridge ogres have pushed the game down from the high meadows, and I'm told the deer now graze within sight of the dome, which they never dared before the war." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your companion, {pet}, has been staring at the dome since you arrived, which is more sense than many of my apprentices show. Animals can feel the wards, I think, and they don't care for them." },
+      },
+      choices = {
+        { text = "These hills should be cleared and brought back under Dalaran's law.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the hills run wild. The dome has meddled enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Perhaps, though we were busy quarrelling over Kel'Thuzad's books while Uther's knights were busy marching. If the two orders had trusted each other sooner, the plague might have been stopped before it reached Andorhal, and I think on that more often than an archmage should." } },
@@ -240,6 +286,8 @@ P:NPC {
           text = "A priest of the Light at Dalaran's gate. The Kirin Tor are not a pious order, I'll admit, but we buried a great many of our own after Archimonde came through, and we were glad of every priest who came to say the words." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin, here among the mages. Your order and mine never understood each other, but when Lordaeron burned we found ourselves standing on the same ground." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at the gates of Dalaran. The Kirin Tor learned too late how much we needed people like you on our walls, and I've not forgotten the lesson." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, out here among the Syndicate's hills. Do keep your arrows pointed away from the dome, because the wards are touchy about anything sharp and fast." },
       },
       choices = {
         { text = "Why is the city sealed?", next = "dome" },
@@ -249,6 +297,8 @@ P:NPC {
         { text = "Was Kel'Thuzad really one of the Kirin Tor, Archmage?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Were the Kirin Tor's dead given proper rites, Archmage?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Kirin Tor have stood with the Silver Hand sooner?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Did Dalaran have no soldiers when Archimonde came, Archmage?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What hunts the hills around Dalaran these days, Archmage?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Archmage.", next = "END" },
       },
       again = { { id = "h_again", text = "Yes? I have a little patience left, and the dome has none." } },
@@ -304,6 +354,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "With nets and arrows from the trees, the way cowards always fight. I killed two of them with my hands bound, and they've moved me from camp to camp ever since, because no guard wants to be the one I remember." } },
+      choices = {
+        { text = "Then we'll face them in the open and make them answer for it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Nets work. I'll turn their own tricks against them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gol'dir.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Mangy hounds, starved half to death so they'll bite anything that runs. I've called to them at night with the hunting calls my father taught me, and I think one of them would follow me out if the door were open." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a better coat and a fuller belly than any beast in these camps. Keep it close when you open my door, because the Syndicate's hounds will smell a free animal and lose their minds." },
+      },
+      choices = {
+        { text = "The hounds aren't to blame. I'll spare them if I can.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A guard dog is still a guard. I'll cut it down.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "They keep watch at night when the guards are drunk, and they question the prisoners when the guards grow bored of beating us. One of them asked me about Durotar for three days running, and his questions left marks the whip never did." } },
@@ -349,6 +420,8 @@ P:NPC {
           text = "An Alliance face, and you have not drawn steel. Strange times, when a human's enemy and an orc's enemy are the same men in black cloaks." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("Gol'dir") },
           text = "Krusk sent you? Then the old warrior did not forget me. Get these chains off, and I will walk back to Tarren Mill on my own feet." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior of the Horde! I'd know the stance anywhere, feet set and shoulders square, and I've not seen it in a free orc since the Syndicate took me." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter of the Horde, here in these camps. The humans keep their dogs on short chains, as they keep me, so perhaps your beast and I would understand each other." },
       },
       choices = {
         { text = "Did the spirits keep you company in your chains, Gol'dir?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -358,6 +431,8 @@ P:NPC {
         { text = "Who is Krusk to you?", next = "krusk" },
         { text = "What are they digging for at Strahnbrad?", next = "dig" },
         { text = "Lok'tar, brother. We'll get you home.", next = "BACK", when = { faction = "Horde" }, fx = { affinity = 2 } },
+        { text = "How did the Syndicate take a warrior like you, Gol'dir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the Syndicate keep dogs to guard you, Gol'dir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I can't free you today. I'm sorry.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? The guards come back at dusk, so be quick." } },
@@ -427,6 +502,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Something to close a wound and something to dull the pain, and for the Deathguards, something to stop the rot spreading faster than the wound. A warrior who carries three of my vials into Hillsbrad Fields comes back, and one who carries none comes back on a cart." } },
+      choices = {
+        { text = "Mend the wounded first. A victory means nothing if no one lives.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Save the draughts and brew more poison for the humans instead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Hinott.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Oils, mostly, and a draught that lets a Deathguard smell a living man at fifty paces, which he'd otherwise have forgotten how to do. The spider venom goes to Lydon, who has grander plans for it than I do, and I try not to ask what they are." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the bench, please, because half these jars smell like supper to a beast and none of them are. I'd hate to explain a dead companion to a hunter who only came for oils." },
+      },
+      choices = {
+        { text = "Oils, fine, but I won't feed beasts to a plague.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it serves the Dark Lady's plague, take whatever I bring.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Very little, and I'm proud of that, though a spellcaster who could keep a flask cold on the road to Hammerfall would save me a great deal of wasted silverleaf. The heat in these valleys turns half my draughts before the Deathguards ever drink them." } },
@@ -477,6 +573,8 @@ P:NPC {
           text = "A living one from Southshore's side of the hills. I'll not sell to you, but you can listen, I suppose, and then you can walk away quickly." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Then you'll want to know which of my bottles will put a man to sleep and which will put him under, and I'll tell you, because the Dark Lady's enemies deserve both." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Your craft and mine aren't so different: we both mix things that should never meet and hope we're standing back far enough." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want healing draughts, I expect, since your kind treat the front line as a place to stand rather than a place to leave." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Bring me the glands from the Hillsbrad bears and the venom from the Alterac spiders, and I'll pay you better than any tanner in Tarren Mill." },
       },
       choices = {
         { text = "Do your draughts and a shaman's herbs have anything in common?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -485,6 +583,8 @@ P:NPC {
         { text = "How do you get along with Apothecary Lydon?", next = "lydon" },
         { text = "What poisons does Tarren Mill make for its rogues, Serge?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you ever use fel reagents in your alchemy, Serge?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What would you brew for someone who fights on the front line?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do you make from the beasts I bring you, Hinott?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Good day.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? The flask on the left is about to do something interesting." } },
