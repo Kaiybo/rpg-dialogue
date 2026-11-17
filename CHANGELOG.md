@@ -25,6 +25,11 @@ Betty Quin has something to say. New file: restart the game fully (a /reload won
 
 - **Betty Quin** (Stormwind 1.27.0), who teaches enchanting upstairs at Cordell's in the Mage Quarter, now has a full conversation: what enchanting is and why you have to break things to make things, how a cooper's daughter from Goldshire ended up working for Lucan and Jessara Cordell, the jar from Dalaran that nobody should open, life in a Mage Quarter that the whole city now leans on, and her lesson for campers (Camping 101: Enchanting). She notices fellow enchanters, mages, paladins, young humans and anyone who grew up on the Mage Quarter's streets.
 
+## 0.80.0 (2026-11-17)
+Adair Gilroy has something to say. **New file: restart the game fully (a /reload won't load it).**
+
+- **Adair Gilroy, the Mage Quarter's Librarian**, now talks: a scroll-seller who calls himself a librarian even though everything he sells crumbles when it's read. Ask him how scrolls work and which to buy for your class, about his years copying in Dalaran's Violet Citadel, his monthly supper-and-argument with Milton Sheaf of the Royal Library, his apprentice, the Slaughtered Lamb's cellar, and the Quarter's cat. Mages, warlocks, rogues, priests, Dalaran strays and Mage Quarter natives get lines of their own.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
