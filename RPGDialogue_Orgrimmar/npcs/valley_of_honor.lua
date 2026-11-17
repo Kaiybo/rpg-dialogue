@@ -322,6 +322,8 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Let me see what you're carrying, warrior, and then let me guess what you should be carrying instead." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another weapon? Good, because there's always another weapon." },
+    { id = "g_grip", text = "Hold that up for me. No, the other way, the way you'd hold it if somebody were actually trying to kill you." },
+    { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior, and I can see from here you've been leaning on that weapon like a walking stick. We'll fix that, if you'll listen." },
   },
   notice = {
     { id = "n_gear", cat = "gear", when = { durability = { max = 25 } },
@@ -333,11 +335,21 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Sayoc, the weapon master, and I teach anyone how to use a weapon they don't know yet, for a fee. In the camps we fought with whatever the guards dropped, and if you've only ever swung one kind of blade, you've been fighting with one hand tied." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "I'm Sayoc, the weapon master, and you'll want daggers, I suppose, because your kind always does. Have you ever thought about a good mace, though?" },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "I'm Sayoc, and you're a hunter, so you've spent every hour on the bow and none on the axe at your hip. The day something gets close, you'll wish you'd come to me sooner." },
+        { id = "h_young", when = { maxLevel = 15 }, text = "I'm Sayoc, and you're young enough that nobody's broken your weapon for you yet. Learn a second one now, while you've still got time to be bad at it." },
       },
-      again = { { id = "h_again", text = "Anything else? I have blades to oil." } },
+      again = {
+        { id = "h_again", text = "Anything else? I have blades to oil." },
+        { id = "h_again2", text = "What else? And loosen that grip, you're strangling the poor thing." },
+      },
       choices = {
         { text = "Why learn more than one weapon?", next = "why" },
         { text = "What's the best weapon?", next = "best" },
+        { text = "What's the worst weapon you've ever seen?", next = "show" },
+        { text = "What do you make of Hanashi?", next = "hanashi" },
+        { text = "Judge my weapon, then.", next = "judge" },
+        { text = "I've mastered the axe. Why learn anything else?", next = "axe_only", when = { class = "WARRIOR" } },
+        { text = "Why a mace, for a rogue?", next = "rogue_mace", when = { class = "ROGUE" } },
         { text = "I want to learn a new weapon.", next = "BUSINESS" },
         { text = "Farewell, Sayoc.", next = "END" },
       },
@@ -362,9 +374,60 @@ P:NPC {
       lines = { { id = "be_default", text = "The one you know best, which is why so many fools die holding the one that looks best. Hanashi will tell you it's the staff, and I'll tell you it's the axe, and we're both a little bit wrong." } },
       choices = { { text = "Something else, Sayoc.", next = "BACK" } },
     },
+    show = {
+      lines = { { id = "sh_default", text = "A sword a merchant tried to sell me, with three rubies in the hilt and an edge you couldn't cut bread with. I'd sooner face a centaur with a fence post than with a weapon somebody made to be looked at." } },
+      choices = {
+        { text = "What did you do with it?", next = "show_after" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    show_after = {
+      lines = { { id = "sa_default", text = "I bought it for the price of the rubies, pried them out and sold them on, and now the sword holds my door open. It's the only honest work it's ever done." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hanashi = {
+      lines = { { id = "ha_default", text = "Hanashi talks to spears, and I'd laugh about it, except that Hanashi's students never drop theirs. We argue about axes and staves every evening by the practice dummies, and Hanashi wins more often than I'd like." } },
+      choices = {
+        { text = "Do you talk to your weapons, too?", next = "hanashi_secret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hanashi_secret = {
+      lines = { { id = "hs_default", text = "Certainly not, and if anyone tells you otherwise, it's a lie. I oil my axe every night and tell it what it did wrong that day, which is a different thing entirely." } },
+      choices = { { text = "Of course it is. Something else.", next = "BACK" } },
+    },
+    judge = {
+      big = true,
+      lines = { { id = "ju_default", text = "Before I judge it, tell me why you carry it. Most people never think about the reason, and it shows in the way they swing." } },
+      choices = {
+        { text = "It's the kind of weapon my father carried.", next = "ju_father", fx = { align = { order = 1 } } },
+        { text = "Whatever kills fastest. I don't care for tradition.", next = "ju_fast", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Because it looks fierce, mostly.", next = "ju_looks", fx = { affinity = -1, trait = { witty = 1 } } },
+      },
+    },
+    ju_father = {
+      lines = { { id = "jf_default", text = "Then carry it well, and learn something else beside it. Your father would rather you came home than came home holding the same kind of axe he did." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ju_fast = {
+      lines = { { id = "jk_default", text = "That's the first sensible answer I've had all week. Fast and ugly wins more fights than slow and proper, whatever the grunts tell each other round the fire." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ju_looks = {
+      lines = { { id = "jl_default", text = "You picked it because it looks fierce? Come back when it's saved your life, and then tell me how it looks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    axe_only = {
+      lines = { { id = "ao_default", text = "Because one day that axe will stick fast in a shield, and you'll hear my voice saying I told you so. A warrior who knows one weapon is half a warrior, however good the half is." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rogue_mace = {
+      lines = { { id = "rm_default", text = "Because a dagger needs an opening, and a mace makes one. Half the rogues in the Cleft could knock a man senseless with a good mace, if they'd stop admiring their knives long enough to learn." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
-    _none = { { id = "tp_none", text = "If it doesn't have an edge or a weight to it, I don't know about it. Ask some grunt who does." } },
+    _none = { { id = "tp_none", text = "If it doesn't have an edge or a weight to it, I don't know about it, and I don't much trust it either. Ask some grunt who does." } },
   },
 }
 
@@ -380,6 +443,8 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Every weapon got a spirit in it, mon, and some of them be sulking. Come and see." },
     { id = "g_troll", when = { race = "Troll" }, text = "A Darkspear! Good, you already know a spear be better than an axe, whatever the orcs say." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back, and you brought that weapon with you again. It looks a little happier this time." },
+    { id = "g_orc", when = { race = "Orc" }, text = "An orc come to ask the troll about weapons, eh? Don't worry, I won't tell Sayoc." },
   },
   notice = {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
@@ -391,11 +456,21 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Hanashi, weapon master, and I teach the weapons the orcs forget about. A staff or a thrown blade saved more Darkspear on the islands than any axe ever did." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "Hanashi, and you be a tauren, so you'll want to learn the staff or the mace, I think. Your people swing slow but hard, and that be no bad thing." },
+        { id = "h_shaman", when = { class = "SHAMAN" }, text = "Hanashi, and you be a shaman, so you already hear the spirits in the stone and the wind. The spirit in your mace be quieter than those, but it be there if you listen." },
       },
-      again = { { id = "h_again", text = "What else, mon? The spirits be waiting." } },
+      again = {
+        { id = "h_again", text = "What else, mon? The spirits be waiting." },
+        { id = "h_again2", text = "Go on, I got time. A staff teach you patience, if it teach you nothing else." },
+      },
       choices = {
         { text = "I've never heard of a weapon with a spirit.", next = "spirits" },
         { text = "What was it like on the islands?", next = "islands" },
+        { text = "Do you name your weapons?", next = "names" },
+        { text = "What does Sayoc really think of you?", next = "sayoc" },
+        { text = "What's so good about thrown weapons?", next = "thrown" },
+        { text = "Orcs don't talk to their axes.", next = "orc_axe", when = { race = "Orc" } },
+        { text = "The spirits I know live in earth and storm, not iron.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "I miss the Echo Isles too.", next = "troll_isles", when = { race = "Troll" } },
         { text = "I want to learn a new weapon.", next = "BUSINESS" },
         { text = "Farewell, Hanashi.", next = "END" },
       },
@@ -420,9 +495,61 @@ P:NPC {
       lines = { { id = "im_default", text = "Every day, mon, but the islands aren't ours right now, so I teach here and wait. Vol'jin says we'll go back one day, and I believe him, because he's never told us anything he couldn't keep." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "echo_isles" } } } },
     },
+    names = {
+      lines = { { id = "na_default", text = "Every one of them, and they answer better for it. This staff be called Old Patience, and that spear be Little Thunder, because it never stop complaining. What do you call yours?" } },
+      choices = {
+        { text = "It has a name, but I keep it to myself.", next = "na_secret", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "I'd name it now, if you'd help me.", next = "na_help", fx = { affinity = 1, trait = { curious = 1 } } },
+        { text = "I'd never name a lump of iron.", next = "na_never", fx = { trait = { skeptical = 1 } } },
+      },
+    },
+    na_secret = {
+      lines = { { id = "ns_default", text = "Good, that be the old way. A name you tell everybody be just a word, but a name you keep be a promise between you and the weapon." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    na_help = {
+      lines = { { id = "nh_default", text = "No, no, the weapon tell you its name, not me. Carry it a while, fight with it, and one day you'll call it something without thinking, and that be the name." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    na_never = {
+      lines = { { id = "nn_default", text = "That be what Sayoc says too, and then he goes and talks to his axe when he thinks nobody be watching. Give it time, mon." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    sayoc = {
+      lines = { { id = "sa_default", text = "Sayoc thinks I'm a soft old troll who talks to sticks, and he tells me so every evening by the practice dummies. But I seen him whisper to that axe of his when he oils it, so I know better." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    thrown = {
+      lines = { { id = "th_default", text = "A thrown blade be an honest weapon, because once it leave your hand, it go where you sent it and not where you wished. The orcs think a weapon you let go of be a weapon you lose, and that be why so few of them learn to throw." } },
+      choices = {
+        { text = "How do you learn to throw well?", next = "thrown_more" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thrown_more = {
+      lines = { { id = "tm_default", text = "Throw a thousand times at the same knot in the same post, and say a word to the blade before every one. The orcs understand the first part, and the second part be why I hit the knot and they hit the post." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    orc_axe = {
+      big = true,
+      lines = { { id = "oa_default", text = "No, they shout at them, which be much the same thing, only louder. Your axe don't mind the shouting, but it would like a kind word now and then." } },
+      choices = {
+        { text = "Maybe I'll try a kind word, then.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My axe gets blood, not words.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "Iron come out of the earth, mon, so you know that spirit better than you think. Ask your earth totem, and it'll tell you the mace be its cousin." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    troll_isles = {
+      lines = { { id = "ti_default", text = "Then you remember the smell of the sea in the morning, before the sea witch came. We carry it with us, and Sen'jin Village sits close enough to the water that the old spirits still find us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I know nothing about that, mon. Ask me about spears and staves." } },
+    _none = { { id = "tp_none", text = "I know nothing about that, mon, and my spears don't neither. Ask me about spears and staves." } },
   },
 }
 
@@ -441,6 +568,9 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Bring your beast here, let me see it. Oh, and you as well, I suppose." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Ah, {pet}! You be looking well, and you've been fed properly, I see." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back, and so did your beast, which be the more important part. Let me have a look." },
+    { id = "g_croc", when = { pet = { family = "Crocolisk" } }, text = "A crocolisk, and it already be looking at my ankles. Keep it fed, mon, because I still got the marks from the last one." },
+    { id = "g_nopet", when = { class = "HUNTER", ["not"] = { pet = { type = "Beast" } } }, text = "A hunter with no beast at your heel? Either you left it with the stable master or you lost it, and I hope for your sake it be the first." },
   },
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
@@ -452,11 +582,20 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Xao'tsu, and I train beasts, not hunters, mon. The loa put a spirit in every animal, and I teach your pet new tricks and better ways to fight, so the hunters who listen to me lose fewer beasts." },
         { id = "h_hunter", when = { class = "HUNTER" }, text = "Xao'tsu, pet trainer, and you be a hunter, so you'll want your beast to learn something new. Show me what it knows already, and we'll see." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "Xao'tsu, and you be a tauren, so your people already know a beast be a person with four legs. Most orcs need a few seasons in this valley to learn that." },
       },
-      again = { { id = "h_again", text = "Anything else? The beasts be getting hungry." } },
+      again = {
+        { id = "h_again", text = "Anything else? The beasts be getting hungry." },
+        { id = "h_again2", text = "Something else? Your beast be bored, I can tell, so be quick about it." },
+      },
       choices = {
         { text = "How do you train a beast?", next = "train" },
         { text = "What's the worst beast you've trained?", next = "worst" },
+        { text = "How do you know when a beast is unhappy?", next = "happy" },
+        { text = "What do you think of Kaja's guns?", next = "kaja" },
+        { text = "Why do you prefer beasts to people?", next = "prefer" },
+        { text = "Is this crocolisk anything like yours was?", next = "croc", when = { pet = { family = "Crocolisk" } } },
+        { text = "My boar charges at everything. Is that normal?", next = "boar", when = { pet = { family = "Boar" } } },
         { text = "Teach my beast something new.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Farewell, Xao'tsu.", next = "END" },
       },
@@ -481,9 +620,52 @@ P:NPC {
       lines = { { id = "wa_default", text = "Once it learned it got fed every day, it calmed down and became the sweetest beast in the valley. The hunter was very disappointed, but the beast was much happier." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    happy = {
+      lines = { { id = "ha_default", text = "It tells you, if you watch. A happy beast fights close and comes when it's called, and a hungry one that's ignored long enough will walk off into the Barrens one night and never come back." } },
+      choices = {
+        { text = "Does that happen often?", next = "happy_more" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    happy_more = {
+      lines = { { id = "hm_default", text = "More often than hunters will admit, mon. They come to me wanting a new beast trained, and I ask what happened to the last one, and they look down at their boots." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    kaja = {
+      lines = { { id = "ka_default", text = "Every time that goblin tests a new gun, every beast in the valley jumps out of its fur, and Kildar's wolves howl for an hour after. Jin'sora complains about the noise for the sake of the bows, but I complain for the beasts, and mine be the better reason." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    prefer = {
+      lines = { { id = "pr_default", text = "Because a beast never lies to me about being hungry. But you asked me one, so I'll ask you one: what do you feed your beast, mon?" } },
+      choices = {
+        { text = "Whatever it likes best, even if it costs me.", next = "fd_best", fx = { affinity = 1, trait = { generous = 1 } } },
+        { text = "Whatever's cheapest. It eats or it goes hungry.", next = "fd_cheap", fx = { affinity = -1, trait = { greedy = 1 } } },
+        { text = "I don't have a beast yet. I'd like one.", next = "fd_none", fx = { trait = { curious = 1 } } },
+      },
+    },
+    fd_best = {
+      lines = { { id = "fb_default", text = "Good, that be the right answer, and your beast knows it even if your purse don't." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fd_cheap = {
+      lines = { { id = "fc_default", text = "Then don't be surprised when it looks at you the way you look at it. A beast keeps accounts too, it just keeps them quietly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fd_none = {
+      lines = { { id = "fn_default", text = "Then go out to the Barrens and look for one that looks back at you. The right beast always does, and the wrong one only looks at your lunch." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    croc = {
+      lines = { { id = "cr_default", text = "Very like, and look, it already be eyeing my ankle the same way. Feed it before you bring it down to the valley, and we'll both keep our toes." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    boar = {
+      lines = { { id = "bo_default", text = "For a boar, that be good manners. Teach it when to stop, not when to start, because no boar ever needed help starting." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Ask your beast, mon. It probably knows more than I do about that." } },
+    _none = { { id = "tp_none", text = "Ask your beast, mon. It probably knows more than I do about that, and it'll tell you more honestly." } },
   },
 }
 
@@ -568,6 +750,8 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "A good bow be quiet, mon. Not like that goblin's noisy sticks across the way." },
     { id = "g_back", when = { metBefore = true }, text = "Back for a better bow, I hope, and not for that goblin's thunder." },
+    { id = "g_flinch", text = "Did you hear that bang just now? That be the third one this morning, and every bird in the valley flown off to the Barrens because of it." },
+    { id = "g_troll", when = { race = "Troll" }, text = "A Darkspear, good! You'll know a proper bow when you hold one, not like these orcs who think louder be better." },
   },
   notice = {
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
@@ -578,12 +762,21 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Jin'sora, and I sell bows and arrows, the best you'll find in the Valley of Honor. Kaja will tell you a gun be better, but a gun scares off everything in the forest for a mile, and a bow lets you take two shots before anyone knows you're there." },
+        { id = "h_engineer", when = { profession = "Engineering" }, text = "Jin'sora, and I can smell the black powder on you from here, so you be one of the gun-makers. I'll sell to you anyway, because I be a patient troll, but don't touch the strings with those hands." },
       },
-      again = { { id = "h_again", text = "What else, mon? I got strings to wax." } },
+      again = {
+        { id = "h_again", text = "What else, mon? I got strings to wax." },
+        { id = "h_again2", text = "Ask quick, before that goblin fires off another one and I forget what I was saying." },
+      },
       choices = {
         { text = "Most hunters I've met seem to favor guns.", next = "guns" },
         { text = "Where does your wood come from?", next = "wood" },
+        { text = "What makes a good bowstring?", next = "strings" },
+        { text = "Do you and Kaja really hate each other?", next = "kaja" },
+        { text = "Have you ever fired a gun yourself?", next = "fired" },
         { text = "I'm a hunter. What bow would you recommend?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "I make guns, you know. They're not so bad.", next = "engineer", when = { profession = "Engineering" } },
+        { text = "I'm a warrior. Why would I want a bow?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "Farewell, Jin'sora.", next = "END" },
       },
@@ -601,12 +794,67 @@ P:NPC {
       lines = { { id = "wo_default", text = "Ashenvale, mostly, from what the Warsong bring back. The night elves would kill me for saying so, but their trees make the best bows on Kalimdor." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    strings = {
+      lines = { { id = "st_default", text = "Sinew, twisted tight and waxed every morning before the sun touches it, and no shortcuts. A dry string sings flat and a wet one stretches, and either way your arrow lands somewhere you didn't ask it to." } },
+      choices = {
+        { text = "Every single morning?", next = "strings_more" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strings_more = {
+      lines = { { id = "sm_default", text = "Every single morning, mon, since I was small on the islands, and I've never once missed. The one day I miss will be the day a centaur comes over the hill, so I don't plan to find out." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    kaja = {
+      lines = { { id = "ka_default", text = "Hate be a strong word, mon. We trade insults across the path every morning, Kaja about my sticks and me about that goblin's thunder, and the grunts stop to listen like it be a show." } },
+      choices = {
+        { text = "So you'd miss Kaja if the stall closed?", next = "kaja_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kaja_miss = {
+      lines = { { id = "km_default", text = "I would never say that out loud, and you won't either, if you want to buy from me again. Who else would I argue with all day long?" } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
+    },
+    fired = {
+      lines = { { id = "fi_default", text = "Once, to see what all the noise was about, and I couldn't hear out of my left ear for two days. Now you tell me true, mon: have you ever fired one of those things?" } },
+      choices = {
+        { text = "I have, and I liked it.", next = "fi_liked", fx = { affinity = -1, trait = { honest = 1 } } },
+        { text = "Never. I trust a bowstring over powder.", next = "fi_never", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Once, and I nearly lost my eyebrows.", next = "fi_brows", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
+    fi_liked = {
+      lines = { { id = "fl_default", text = "Well, at least you be honest about it, which be more than I can say for half the hunters who buy from Kaja in the morning and from me at night." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fi_never = {
+      lines = { { id = "fn_default", text = "Good, and keep it that way. Your ears will thank you when you be old and can still hear a raptor in the grass." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fi_brows = {
+      lines = { { id = "fb_default", text = "Ha! Then you've learned the lesson cheaper than most. Kaja's cousins lose their eyebrows every season, and Kaja calls it the cost of doing business." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hunter = {
       lines = { { id = "hu_default", text = "The strongest one you can pull without shaking, mon, and not the prettiest. A pretty bow you can't draw be just a decoration for your back." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    engineer = {
+      big = true,
+      lines = { { id = "en_default", text = "Not so bad, says the one who builds them, while the rest of the valley picks the soot out of its ears. Tell me, gun-maker, what do you think a weapon should be?" } },
+      choices = {
+        { text = "Loud and frightening. Fear wins half the fight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Quiet and reliable. You've a point there.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warrior = {
+      lines = { { id = "wa_default", text = "Because sometimes the thing you want to hit be on the other side of a river, and shouting at it don't work. Even a warrior can pull a bow, mon, and the enemy come running to you, which you like anyway." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I don't know that, mon. Ask me about bows instead." } },
+    _none = { { id = "tp_none", text = "I don't know that, mon, and I can't hear myself think over that goblin's banging. Ask me about bows instead." } },
   },
 }

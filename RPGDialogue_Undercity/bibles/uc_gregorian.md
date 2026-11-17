@@ -9,7 +9,7 @@
 ## Identity
 Josef Gregorian · Artisan Enchanter · Magic Quarter · Undercity · Forsaken · tier service
 Personality: proud, precise, snobbish, haunted
-Speech: courtly, exact
+Speech: courtly, exact; talks about dust like wine
 Knows and cares about: rods, dust, artisan standards
 Relationships: Lavinia Crowe teaches the basics before him
 Default attitudes: the living Horde get a cooler, curious welcome; Forsaken are 'one of ours'
@@ -36,3 +36,6 @@ Never says: anything after Year 1; no betrayal hints about Varimathras or the So
 
 ## Authored, not canon
 - Junior to the court enchanter at the palace; was polishing a ceremonial blade the day Arthas returned.
+- Claims he can tell a farmhand's strange dust from a soldier's blindfolded, by how it settles and hums.
+- Respects Lavinia Crowe but wishes she'd stop letting students handle rods barehanded.
+- Disdains enchanters who disenchant everything.

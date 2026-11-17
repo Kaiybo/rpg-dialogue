@@ -8,8 +8,8 @@
 
 ## Identity
 Bowen Brisboise · Tailoring Trainer · Undercity · Undercity · Forsaken · tier service
-Personality: fussy, proud, bitter about Arthas
-Speech: 'oh dear', 'my dear', critiques of hems
+Personality: fussy, proud, bitter about Arthas; thinks cloth has character
+Speech: 'oh dear', 'my dear', critiques of hems and drape
 Knows and cares about: fabric, the old court
 Relationships: Arthas (hates him)
 Default attitudes: the living Horde get a cooler, curious welcome; Forsaken are 'one of ours'
@@ -36,3 +36,6 @@ Never says: anything after Year 1; no betrayal hints about Varimathras or the So
 
 ## Authored, not canon
 - Court tailor; made a blue-and-gold riding coat for Prince Arthas.
+- Cloth as character: linen honest, wool loyal and dull, silk a flatterer, mageweave a clever Dalaran boy, runecloth as stubborn as he is.
+- Calls Arthur Moore's leather 'a cow with opinions'.
+- Never tuck a robe into a belt.

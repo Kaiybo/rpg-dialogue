@@ -9,8 +9,8 @@
 
 ## Identity
 TODO_NPC · Mirket · Cleft of Shadow, Orgrimmar · Horde · Orc (confirm) · Warlock Trainer
-Personality: sharp, unapologetic
-Speech: dry contempt for demons and critics
+Personality: sharp, unapologetic, a pedant about precision who counts mistakes and wasted minutes
+Speech: dry contempt for demons, critics and theatrics; talks of power as arithmetic; inspects students' nails for chalk
 Knows and cares about: why warlocks are tolerated, leash vs bowing
 Relationships: Kardris, Zevrost
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: Has buried three careless students.
+Authored, not canon: Has buried three careless students behind Ragefire; makes students draw a hundred practice circles; thinks Zevrost is half theater; finds Forsaken chalk circles irritatingly neat; asks students why they want the power.
 
 ## Reliability
 Reliable about their trade; opinions are their own.

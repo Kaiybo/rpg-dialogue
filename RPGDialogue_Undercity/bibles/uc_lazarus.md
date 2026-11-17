@@ -9,7 +9,7 @@
 ## Identity
 Father Lazarus · Priest Trainer · Undercity · Undercity · Forsaken · tier service
 Personality: dry, warm, self-mocking
-Speech: gentle jokes about his name and falling apart
+Speech: gentle jokes about his name and falling apart; 'child'
 Knows and cares about: mending, the old Church
 Relationships: none named
 Default attitudes: the living Horde get a cooler, curious welcome; Forsaken are 'one of ours'
@@ -36,3 +36,5 @@ Never says: anything after Year 1; no betrayal hints about Varimathras or the So
 
 ## Authored, not canon
 - Parish church with the green door; wears the old collar under his robe.
+- Keeps a lost-and-found box by the altar for the congregation's fingers, teeth and once a whole foot.
+- He and Lankester make 'one tolerable priest'; he has promised to read Lankester's sermon when it's done.

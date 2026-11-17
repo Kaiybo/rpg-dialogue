@@ -9,8 +9,8 @@
 
 ## Identity
 TODO_NPC · Xao'tsu · Valley of Honor, Orgrimmar · Horde · Darkspear Troll · Pet Trainer
-Personality: kind, patient, prefers beasts to people
-Speech: Darkspear 'mon', 'be'
+Personality: kind, patient, prefers beasts to people; talks to the beast first and judges hunters by how well fed their pets are
+Speech: Darkspear 'mon', 'be'; addresses the pet before the owner
 Knows and cares about: pet training, beast welfare
 Relationships: hunters of the valley
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: The crocolisk anecdote.
+Authored, not canon: The crocolisk anecdote (still has the marks); asks hunters what they feed their beasts; complains about Kaja's test shots frightening the beasts and setting Kildar's wolves howling; knows many hunters whose unhappy pets walked off.
 
 ## Reliability
 Reliable about their trade; opinions are their own.

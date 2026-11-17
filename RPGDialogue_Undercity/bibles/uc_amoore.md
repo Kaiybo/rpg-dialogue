@@ -8,8 +8,8 @@
 
 ## Identity
 Arthur Moore · Leatherworking Trainer · Undercity · Undercity · Forsaken · tier service
-Personality: gruff, dry, quietly sentimental
-Speech: plain tradesman
+Personality: gruff, dry, quietly sentimental; reads hides by touch
+Speech: plain tradesman; works while he talks
 Knows and cares about: hides from Tirisfal, Silverpine, the Plaguelands
 Relationships: his late wife
 Default attitudes: the living Horde get a cooler, curious welcome; Forsaken are 'one of ours'
@@ -36,3 +36,7 @@ Never says: anything after Year 1; no betrayal hints about Varimathras or the So
 
 ## Authored, not canon
 - Thirty years a tanner in the capital; misses smells, not the tannery.
+- Reads a hide with his thumb since he can't smell it: how it lived, how it died, who skinned it badly.
+- Pet peeve: hurried skinners who leave holes; every hole is a Deathguard boot never made.
+- Friendly rivalry with Bowen Brisboise: cloth is for people who don't expect to be hit.
+- Hides the bearskins when a druid visits.

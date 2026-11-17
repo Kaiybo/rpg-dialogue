@@ -8,8 +8,8 @@
 
 ## Identity
 Franklin Lloyd · Engineering Supplies · Undercity · Undercity · Forsaken · tier service
-Personality: gloomy, dry, fatalistic
-Speech: deadpan
+Personality: gloomy, dry, fatalistic, fussy about dry powder
+Speech: deadpan; assumes the worst and is calm about it
 Knows and cares about: supplies via goblins and Ratchet
 Relationships: Graham Van Talen
 Default attitudes: the living Horde get a cooler, curious welcome; Forsaken are 'one of ours'
@@ -36,3 +36,6 @@ Never says: anything after Year 1; no betrayal hints about Varimathras or the So
 
 ## Authored, not canon
 - Six years beside Graham; supplies from goblins via the zeppelin.
+- Keeps a chalk tally on the back wall: one mark per powder customer who never came back.
+- Dries every goblin powder barrel himself; wet powder is his pet peeve.
+- Graham's dragonling number six singed his awning and a little of him; he is still sweeping it up.

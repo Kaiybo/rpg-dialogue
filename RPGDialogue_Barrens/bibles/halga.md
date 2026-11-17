@@ -8,9 +8,9 @@
 
 ## Identity
 Halga Bloodeye · the Crossroads · Horde · Orc · trader
-Personality: blunt, loud, loyal to Sergra
-Speech: Haggler's bark
-Relationships: Sergra (admires), Kargal (mocks)
+Personality: blunt, loud, loyal to Sergra; treats every haggle as a duel and despises anyone who pays full price
+Speech: Haggler's bark; fight metaphors for trade ("the one who blinks first pays full price")
+Relationships: Sergra (admires), Kargal (mocks), Lizzarik (resents his roadside undercutting)
 Never says: anything after Year 1; no foreshadowing.
 
 ## Threads they could carry
@@ -27,6 +27,8 @@ Speaks from their own post and biases.
 
 ## Authored, not canon
 - Name from a burst vessel carrying a crate up the tower
+- Claims she hasn't lost a haggle since the eye; offers practice haggles (never real sales)
+- Calls Lizzarik's bodyguards "hired lumps"; says he dodges Sergra's levy
 
 ## What they notice   (2–3 things)
 1. Gender (Horde women)

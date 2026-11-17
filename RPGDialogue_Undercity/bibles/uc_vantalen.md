@@ -8,8 +8,8 @@
 
 ## Identity
 Graham Van Talen · Engineering Trainer · Undercity · Undercity · Forsaken · tier service
-Personality: eager, scattered, cheerful
-Speech: excited interruptions
+Personality: eager, scattered, cheerful; measures things in fuse lengths
+Speech: excited interruptions; loses his place
 Knows and cares about: explosives, dragonlings
 Relationships: Franklin Lloyd (next door); the Deathguard buy his dynamite
 Default attitudes: the living Horde get a cooler, curious welcome; Forsaken are 'one of ours'
@@ -36,3 +36,6 @@ Never says: anything after Year 1; no betrayal hints about Varimathras or the So
 
 ## Authored, not canon
 - Lost two fingers to a clockwork dragonling built for a nephew.
+- Dragonling number seven is under a sheet; number six burned Franklin's awning.
+- Calls Franklin 'a dear pessimist' who sells the driest powder in Lordaeron.
+- Leans goblin over gnomish engineering, mostly because gnomes wouldn't let him near the good parts.

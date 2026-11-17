@@ -9,8 +9,8 @@
 
 ## Identity
 TODO_NPC · Hagrus · Cleft of Shadow, Orgrimmar · Horde · Orc (confirm) · Reagent Vendor
-Personality: grumbling, honest
-Speech: complains about every customer
+Personality: grumbling, honest, a professional complainer who is quietly proud he has never shorted a customer
+Speech: complains about every customer; counts stock aloud; prefers honest criticism to flattery
 Knows and cares about: reagents for mages, shamans, warlocks
 Relationships: the Drag stallholders
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: Moved to the Cleft because the Drag disliked the smell; refuses anything soul-related.
+Authored, not canon: Moved to the Cleft because the Drag disliked the smell; refuses anything soul-related; Shenthul's students pilfer from him, and after he complained once the pouches came back with a copper on top; distrusts Rekkul's smile.
 
 ## Reliability
 Reliable about their trade; opinions are their own.

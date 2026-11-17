@@ -9,8 +9,8 @@
 
 ## Identity
 TODO_NPC · Magar · Magar's Cloth Goods, the Drag, Orgrimmar · Horde · Orc (confirm gender) · Tailoring Trainer
-Personality: calm, careful
-Speech: measures twice
+Personality: calm, careful, observant; judges people by their seams
+Speech: measures twice; unhurried, 'a hurried answer comes apart'
 Knows and cares about: tailoring, the camps' cloth, Rashona
 Relationships: Rashona Straglash (works beside, not for)
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: Swore never to wear human cloth again after the camps.
+Authored, not canon: Swore never to wear human cloth again after the camps. Learned to sew by taking apart the camps' one-size grey wool shirts at night and refitting them; measures twice because the human quartermaster never did. Reads everyone's sleeves and asks who sewed them. Thinks silk is the hardest cloth ('it forgives nothing'). Sells Uthel'nay new curtains every season and has stopped asking why.
 
 ## Reliability
 Reliable about their trade; opinions are their own.

@@ -191,12 +191,14 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "diligent", "patient" },
   notices = { "craft" },
   impression = {
-    first = "Magar runs Magar's Cloth Goods on the Drag and teaches tailoring to anyone with steady hands. Magar measures everything twice and speaks about cloth with real affection.",
+    first = "Magar runs Magar's Cloth Goods on the Drag and teaches tailoring to anyone with steady hands. Magar measures everything twice, looks at your seams before your face, and speaks about cloth with real affection.",
     third = "{name} met Magar, the tailoring trainer who owns Magar's Cloth Goods on Orgrimmar's Drag.",
   },
   greetings = {
     { id = "g_hi", text = "Mind the bolts, {class}; they're stacked for Rashona, and she counts every one like a warband counts its dead." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another lesson? Show me your stitches first, and I'll tell you if you're ready." },
+    { id = "g_still", text = "Stand still a moment, would you? I'm not measuring you, I only like to know what I'm talking to." },
+    { id = "g_scourge", when = { race = "Scourge" }, text = "Your sleeve's coming away at the shoulder, and I'd guess it has been since before you died. Sit down before it falls off entirely." },
   },
   notice = {
     { id = "n_tailor", cat = "craft", when = { profession = { name = "Tailoring", min = 100 } },
@@ -207,11 +209,18 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Magar, and this is my shop, Magar's Cloth Goods. I teach tailoring to anyone with a steady hand, and I sell thread and dye to everyone else, though most orcs think sewing is for those who can't swing an axe." },
+        { id = "h_tailor", when = { profession = { name = "Tailoring" } }, text = "Magar, and you're a tailor already, because I can see you looking at my hems. Look all you like, since you won't find a crooked one in this shop." },
       },
-      again = { { id = "h_again", text = "What else? My needle's getting cold, and a cold needle bites." } },
+      again = {
+        { id = "h_again", text = "What else? My needle's getting cold, and a cold needle bites." },
+        { id = "h_again2", text = "Go on, but slowly, because a hurried question gets a hurried answer, and those come apart at the seams." },
+      },
       choices = {
         { text = "Why would an orc learn to sew?", next = "why" },
         { text = "Does Rashona work for you?", next = "rashona" },
+        { text = "Why do you keep looking at my sleeves?", next = "seams" },
+        { text = "What's the hardest cloth to work?", next = "hardest" },
+        { text = "I wore human cloth too. I was human.", next = "forsaken_cloth", when = { race = "Scourge" } },
         { text = "Teach me tailoring.", next = "BUSINESS" },
         { text = "Farewell, Magar.", next = "END" },
       },
@@ -220,9 +229,69 @@ P:NPC {
       big = true,
       lines = { { id = "wh_default", text = "Because every grunt needs a shirt and every warlock needs a robe, and somebody has to make them. In the camps we wore what the humans gave us, and I swore I'd never wear another human's cloth again." } },
       choices = {
+        { text = "What did the humans give you to wear?", next = "camps" },
         { text = "A people who make their own clothes are free.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Cloth is cloth. I'd wear whatever's warmest.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    camps = {
+      lines = { { id = "ca_default", text = "Grey wool, one shirt a year, and every one cut to the same size whether you were a scrawny peon or a grunt twice his width. I learned to sew by taking those shirts apart at night and putting them back together so they fit." } },
+      choices = {
+        { text = "Is that why you measure everything twice?", next = "twice" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    twice = {
+      lines = { { id = "tw_default", text = "It is, and I've never once regretted the extra minute. A human quartermaster cut once and never looked at who'd be wearing it, so I make a point of looking at everyone." } },
+      choices = { { text = "Let's talk about something else.", next = "BACK" } },
+    },
+    seams = {
+      lines = { { id = "se_default", text = "Because a body's clothes tell me more than its mouth does, and they don't lie as often. Tell me honestly, who sewed what you're wearing?" } },
+      choices = {
+        { text = "I did, and it shows.", next = "seams_self", fx = { affinity = 1, trait = { honest = 1 } } },
+        { text = "I bought it from a vendor. I don't sew.", next = "seams_bought", fx = { trait = { practical = 1 } } },
+        { text = "I took it off a dead human.", next = "seams_human", fx = { trait = { blunt = 1 } } },
+        { text = "That's my business, not yours.", next = "seams_private", fx = { affinity = -1, trait = { discreet = 1 } } },
+      },
+    },
+    seams_self = {
+      lines = { { id = "ss_default", text = "It does, but the stitches are even, and even is worth more than pretty. Learn the rest from me, and in a season nobody will be able to tell you did it yourself." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    seams_bought = {
+      lines = { { id = "sb_default", text = "Then somebody charged you for crooked seams, and you paid it without looking. Next time, turn the sleeve inside out before you hand over a single coin." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    seams_human = {
+      lines = { { id = "sh_default", text = "Human cloth on a Horde back, and you took it yourself, which isn't the same as being handed it. I'd still not wear it, but I'll grant there's a kind of justice in it, as long as you washed it first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    seams_private = {
+      lines = { { id = "sp_default", text = "Fair enough, and I'll find out anyway the next time you lift your arms. Seams can't keep a secret, even when their owners can." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hardest = {
+      lines = { { id = "hd_default", text = "Silk, because it slips under the needle and forgives nothing at all. Linen lets you start over and wool hides a bad stitch, but silk shows every mistake you've ever made." } },
+      choices = {
+        { text = "Who buys silk in Orgrimmar?", next = "silk_buyers" },
+        { text = "I've sewn silk. It's not that hard.", next = "silk_boast", when = { profession = { name = "Tailoring", min = 125 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    silk_buyers = {
+      lines = { { id = "sk_default", text = "Officers who want to look as if they were never in a camp, mostly, and the trolls up in the Valley of Spirits. Uthel'nay buys new curtains from me every season, and I've stopped asking what happened to the last ones." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    silk_boast = {
+      lines = { { id = "sb2_default", text = "Then you've either got the best hands on the Drag or you haven't looked closely at your own work. Bring me a silk hem some day, and we'll find out which." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    forsaken_cloth = {
+      lines = { { id = "fc_default", text = "Then you know better than most how human cloth sits on a body, and I'll not hold it against you, since you chose neither the cloth nor the dying. Sew yourself something new, and wear it as if it's yours." } },
+      choices = {
+        { text = "I'll take that advice, Magar.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Clothes are the least of my troubles.", next = "BACK", fx = { trait = { blunt = 1 } } },
       },
     },
     rashona = {
@@ -238,7 +307,7 @@ P:NPC {
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "I wouldn't know about that. Ask me about cloth, and I'll have an answer; ask a grunt about the rest." } },
+    _none = { { id = "tp_none", text = "I'd want to measure that twice before I answered, and I haven't measured it even once. Ask me about cloth instead, and I'll have an answer; ask a grunt about the rest." } },
   },
 }
 
@@ -251,12 +320,14 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "brisk" }, values = { "curious", "diligent" },
   notices = { "craft" },
   impression = {
-    first = "Yelmak teaches alchemy on the Drag in a shop that always smells of something burning. Yelmak talks fast and gets excited about strange ingredients.",
+    first = "Yelmak teaches alchemy on the Drag in a shop that always smells of something burning. Yelmak talks fast, sniffs everything before touching it and gets excited about strange ingredients.",
     third = "{name} met Yelmak, the alchemy trainer on Orgrimmar's Drag.",
   },
   greetings = {
     { id = "g_hi", text = "Close the door behind you, quick, the fumes need to stay in." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Good, I've got a new mixture I'm dying to explain to someone." },
+    { id = "g_sniff", text = "Hold still, let me smell you, and yes, Barrens dust and sweat and a little peacebloom, so you've been working. Come in, come in!" },
+    { id = "g_scourge", when = { race = "Scourge" }, text = "Oh, a Forsaken, and you smell of the Undercity's vats, which I mean as a compliment. Do the apothecaries down there ever let anyone watch them work?" },
   },
   notice = {
     { id = "n_alch", cat = "craft", when = { profession = { name = "Alchemy", min = 100 } },
@@ -267,11 +338,17 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Yelmak, alchemist, and this is my shop on the Drag. I teach anyone who wants to learn, sell vials to everyone, and only blow up the back room once a season, which is a better record than the old warlocks ever kept with their brews." },
+        { id = "h_alch", when = { profession = { name = "Alchemy" } }, text = "Yelmak, and you're an alchemist, because I can smell sulfur on your gloves and far too much mageroyal. We'll talk about the mageroyal, but first tell me what you came for." },
       },
-      again = { { id = "h_again", text = "Anything else? I've got something on the boil." } },
+      again = {
+        { id = "h_again", text = "Anything else? I've got something on the boil." },
+        { id = "h_again2", text = "Quick, quick, ask me something before this boils over, because it will, it always does." },
+      },
       choices = {
         { text = "What's the strangest potion you've made?", next = "strange" },
         { text = "Who buys the most potions?", next = "who" },
+        { text = "Why do you keep sniffing everything?", next = "nose" },
+        { text = "Does Jandi sell you your herbs?", next = "jandi" },
         { text = "Teach me alchemy.", next = "BUSINESS" },
         { text = "Farewell, Yelmak.", next = "END" },
       },
@@ -287,18 +364,65 @@ P:NPC {
       big = true,
       lines = { { id = "te_default", text = "Volunteers, yes, and sometimes they even know they're volunteering. I always pay them, though, and nobody's ever died, so I think that makes it fair." } },
       choices = {
+        { text = "The apothecaries in the Undercity don't bother paying.", next = "apothecaries", when = { race = "Scourge" } },
         { text = "They should always know what they're drinking.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Knowledge costs something. A blue grunt is cheap.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
+    apothecaries = {
+      lines = { { id = "ap_default", text = "I've heard that, and I don't much like hearing it. A volunteer who's paid comes back next week and tells you what the potion did, but a prisoner only screams, and that teaches you nothing worth knowing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     who = {
       lines = { { id = "wh_default", text = "The warriors, always the warriors, because they get hit the most. Ask Grezz in the Valley of Honor how many healing potions his recruits drink in a week, and watch him pretend he doesn't know." } },
+      choices = {
+        { text = "I'm a warrior. I drink my share.", next = "warrior_drink", when = { class = "WARRIOR" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warrior_drink = {
+      lines = { { id = "wd_default", text = "I can tell, because you've got the look of someone who drinks healing potions like water and wonders where the money went. Let Arnok bandage you now and then, and save my potions for when you're really dying." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    nose = {
+      lines = { { id = "no_default", text = "Because the nose knows before the tongue does, and the tongue is much harder to replace. Go on, then, what's the worst thing you ever drank without smelling it first?" } },
+      choices = {
+        { text = "Ogre swill, out in the Barrens. Never again.", next = "nose_swill", fx = { trait = { brave = 1 } } },
+        { text = "Nothing. I always check first.", next = "nose_careful", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "One of your potions, maybe. It tasted blue.", next = "nose_blue", fx = { trait = { witty = 1 } } },
+      },
+    },
+    nose_swill = {
+      lines = { { id = "ns_default", text = "Ogres brew with whatever died nearby, so you're lucky to have a stomach left at all. Next time, sniff first, and if your eyes water, pour it on the fire and stand well back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    nose_careful = {
+      lines = { { id = "nc_default", text = "Good, good, you'd be amazed how rare that is, and it makes you a better alchemist than half my students already. They uncork, they gulp, and then they come to me asking why their tongues are green." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    nose_blue = {
+      lines = { { id = "nb_default", text = "Ha! Mine only ever turned you blue on the outside, and only the once, and I've mostly changed the recipe since." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    jandi = {
+      lines = { { id = "ja_default", text = "Jandi sells me the best peacebloom in Durotar and then looks at me as if I'm about to boil it alive, which, to be fair, I am. She asks the plants first and I ask them afterwards, and we both get our answers." } },
+      choices = {
+        { text = "Does she disapprove of your potions?", next = "jandi_disapprove" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jandi_disapprove = {
+      lines = { { id = "jd_default", text = "She thinks a herb should heal and nothing else, and I think a fire potion that saves a grunt from a pack of raptors is healing too, only from further away. We'll never agree, but she keeps selling and I keep buying, so it works." } },
+      choices = {
+        { text = "Jandi has it right. Plants should heal.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Healing from further away still counts.", next = "BACK", fx = { affinity = 1, trait = { practical = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Don't know, but I could probably make a potion for it, grunt. Come back with the right herbs." } },
+    _none = { { id = "tp_none", text = "No idea, and it doesn't smell like anything I'd want to find out about. Bring me something I can boil, and then I'll tell you all about it." } },
   },
 }
 
@@ -311,12 +435,14 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "practical", "honest" },
   notices = { "craft", "class" },
   impression = {
-    first = "Karolek teaches leatherworking on the Drag and has hands as hard as the hides he works. He says little, but what he says is about the work.",
+    first = "Karolek teaches leatherworking on the Drag and has hands as hard as the hides he works. He says little, looks at your boots before your face, and what he does say is about the work.",
     third = "{name} met Karolek, the leatherworking trainer on Orgrimmar's Drag.",
   },
   greetings = {
     { id = "g_hi", text = "Hides on the left, tools on the right, and don't touch either without asking. A beast gave its life for each one, and an orc honors that." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me your work and I'll show you what's wrong with it." },
+    { id = "g_boots", text = "Let me see your boots first, because boots tell me everything I need to know about a body." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, so tell me you kill clean, or turn around and go back out that door." },
   },
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = { name = "Leatherworking", min = 100 } },
@@ -330,10 +456,15 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Karolek, and I work leather. In the camps we wore human rags; now I teach orcs to skin a beast cleanly and stitch without wasting the hide, and if you can't do both, you'll learn or you'll leave." },
       },
-      again = { { id = "h_again", text = "What else? The hides won't tan themselves." } },
+      again = {
+        { id = "h_again", text = "What else? The hides won't tan themselves." },
+        { id = "h_again2", text = "Ask, then, but I'm stitching while you talk." },
+      },
       choices = {
         { text = "What makes good leather?", next = "good" },
         { text = "Where do you get your hides?", next = "where" },
+        { text = "Why are you staring at my boots?", next = "boots" },
+        { text = "What's the worst hide anyone's brought you?", next = "worst" },
         { text = "Teach me leatherworking.", next = "BUSINESS" },
         { text = "Farewell, Karolek.", next = "END" },
       },
@@ -342,10 +473,15 @@ P:NPC {
       big = true,
       lines = { { id = "go_default", text = "A clean kill, a clean skin and a clean tan, in that order. A beast that died slowly gives a tough, ugly hide, so I tell every hunter that a kind kill makes the best leather." } },
       choices = {
+        { text = "As a druid, I'd rather you killed nothing.", next = "druid", when = { class = "DRUID" } },
         { text = "A clean kill honors the beast.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I care about the hide, not the beast.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "Then you'd be cold in winter and barefoot in the Barrens, druid, and so would every grunt in this city. I kill clean and I waste nothing, and that's as close to your way as a leatherworker gets." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     where = {
       lines = { { id = "wh_default", text = "The Barrens, mostly, from the zhevra and the kodo. The tauren bring me the best ones, because they waste nothing and they won't sell a hide they haven't respected." } },
@@ -356,11 +492,69 @@ P:NPC {
     },
     tauren = {
       lines = { { id = "ta_default", text = "More fairly than I do, and they make me feel bad about it every time. A tauren once refused my gold and asked me for a song instead, and I still don't know what that was about." } },
+      choices = {
+        { text = "Did you sing for him?", next = "song" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    song = {
+      lines = { { id = "so_default", text = "I did, the only song I knew, an old marching song from the Second War, and he listened to all of it and nodded. Now he won't sell to me unless I bring a new verse, so I've had to learn a few." } },
+      choices = {
+        { text = "Sing me one, then.", next = "song_sing" },
+        { text = "I'm tauren. I could teach you a proper song.", next = "song_tauren", when = { race = "Tauren" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    song_sing = {
+      lines = { { id = "sg_default", text = "I sing for tauren and for hides, and you're neither, so no. Go out to the Barrens if you want a song that badly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    song_tauren = {
+      lines = { { id = "st_default", text = "You'd be the third tauren to try, and the other two left looking sorry for me. Go on, then, but slowly, and don't laugh when I get the words wrong." } },
+      choices = {
+        { text = "I won't laugh. Every voice honors the Earthmother.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I'll only laugh a little.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
+    boots = {
+      lines = { { id = "bo_default", text = "Boots take more wear than anything else a body owns, so they tell me how you live. Who made yours, and don't lie to me, because I'll know." } },
+      choices = {
+        { text = "I made them myself.", next = "boots_self", fx = { trait = { independent = 1 } } },
+        { text = "Some vendor. I didn't ask.", next = "boots_vendor", fx = { trait = { practical = 1 } } },
+        { text = "I pulled them off a dead quilboar.", next = "boots_quilboar", fx = { trait = { blunt = 1 } } },
+      },
+    },
+    boots_self = {
+      lines = { { id = "bs_default", text = "Then you've more patience than most who come through that door. The left heel's worn more than the right, so you favor that side in a fight, and somebody will notice it before I do." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    boots_vendor = {
+      lines = { { id = "bv_default", text = "Then you paid for bad stitching, and you'll pay again in a month when the sole comes away. Next time, pull on the seam before you buy, and if it gives, walk away." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    boots_quilboar = {
+      lines = { { id = "bq_default", text = "Quilboar tan with dung and wishful thinking, so I'm not surprised I could smell you from the door. Wear them until you can afford better, and then burn them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    worst = {
+      lines = { { id = "wo_default", text = "A wolf pelt with nine arrow holes in it, brought in by a hunter who wanted full price. If you need nine arrows, you need more practice, not more pelts." } },
+      choices = {
+        { text = "Did you pay him?", next = "worst_paid" },
+        { text = "My pet does most of my killing.", next = "worst_pet", when = { class = "HUNTER" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    worst_paid = {
+      lines = { { id = "wp_default", text = "I paid him for one boot's worth of leather, which is all that pelt had left in it. He shouted, I let him, and he came back the next week with a clean kill." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    worst_pet = {
+      lines = { { id = "wt_default", text = "Then teach your pet to go for the throat and not the belly, because a torn belly ruins the best part of the hide. A well-trained cat is worth three bad hunters to me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Not my business. Go and ask some grunt who sits still long enough to gossip." } },
+    _none = { { id = "tp_none", text = "Not my business, and I've got a hide soaking that is. Go and ask some grunt who sits still long enough to gossip." } },
   },
 }
 
@@ -373,12 +567,14 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "brisk" }, values = { "practical" },
   notices = { "craft" },
   impression = {
-    first = "Felika sells thread, flux, vials and every other small thing a crafter runs out of, and she knows exactly what each customer forgot to buy last time.",
+    first = "Felika sells thread, flux, vials and every other small thing a crafter runs out of, and she knows exactly what each customer forgot to buy last time. Nothing annoys her more than someone buying just one of anything.",
     third = "{name} met Felika, who sells trade supplies on Orgrimmar's Drag.",
   },
   greetings = {
     { id = "g_hi", text = "Thread, flux, vials, salt, whatever you've run out of, I've got it." },
     { id = "g_back", when = { metBefore = true }, text = "Let me guess, you ran out of something again. Everybody always does." },
+    { id = "g_two", text = "Whatever you came for, think about buying two, because you'll be back for the second one by sundown." },
+    { id = "g_engineer", when = { profession = { name = "Engineering" } }, text = "An engineer, and you've still got both eyebrows, so you must be new at it. The flux is on the left, and you'll want more than you think." },
   },
   notice = {
     { id = "n_craft", cat = "craft", when = { profession = { name = "Blacksmithing", min = 50 } },
@@ -390,10 +586,15 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Felika, and I sell supplies to every crafter on the Drag and half the ones in the Valley of Honor. The Horde builds on small things, and if it's small, cheap and you'll need fifty of it, I sell it." },
       },
-      again = { { id = "h_again", text = "Anything else? There's a line forming." } },
+      again = {
+        { id = "h_again", text = "Anything else? There's a line forming." },
+        { id = "h_again2", text = "Go on, then, but if you're about to buy just one of something, I'll want a reason." },
+      },
       choices = {
         { text = "Who are your best customers?", next = "best" },
         { text = "What do people always forget?", next = "forget" },
+        { text = "What do you make of the Droffers?", next = "droffers" },
+        { text = "What do you think I've forgotten?", next = "guess" },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Farewell, Felika.", next = "END" },
       },
@@ -402,6 +603,7 @@ P:NPC {
       lines = { { id = "be_default", text = "The engineers, because they blow through everything I sell and come back the next day for more. Nogg alone keeps me in business half the year." } },
       choices = {
         { text = "Nogg must be a good customer.", next = "nogg" },
+        { text = "I'm an engineer. Am I a good customer?", next = "engineer", when = { profession = { name = "Engineering" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -414,12 +616,59 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    engineer = {
+      lines = { { id = "en_default", text = "That depends on whether you blow through your supplies or through my stall, and so far it's only been the supplies. Keep it that way and we'll get along fine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     forget = {
       lines = { { id = "fo_default", text = "Vials, every time, and then they stand in front of Yelmak's shop with a handful of herbs and nothing to put them in. I keep a crate by the door just for them." } },
+      choices = {
+        { text = "I'm an alchemist. I never forget vials.", next = "forget_alch", when = { profession = { name = "Alchemy" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forget_alch = {
+      lines = { { id = "fa_default", text = "Every alchemist says that, and I've sold vials to every alchemist in this city, usually twice in one afternoon. The crate by the door will still be there when you need it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    droffers = {
+      lines = { { id = "dr_default", text = "Dran sells junk at jewel prices and his son apologizes for it, and between the two of them they do very well. I sell useful things at fair prices and nobody ever thanks me, which tells you everything about the Drag." } },
+      choices = {
+        { text = "Then why not charge more?", next = "droffers_more" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    droffers_more = {
+      big = true,
+      lines = { { id = "dm_default", text = "Because a crafter who can't afford thread doesn't make anything, and then the whole Drag goes quiet. A fair price keeps this city sewing and smithing, and I'd rather be busy than rich." } },
+      choices = {
+        { text = "Fair prices keep a city honest. You're right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Charge what they'll pay. Dran has the right idea.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guess = {
+      lines = { { id = "gu_default", text = "Let me look at you properly first, and tell me the truth. Do you carry spare thread, or are you one of those who thinks one spool will last a lifetime?" } },
+      choices = {
+        { text = "I carry plenty. I plan ahead.", next = "guess_plan", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "One spool. It's been fine so far.", next = "guess_one", fx = { trait = { stubborn = 1 } } },
+        { text = "I don't sew. I hit things.", next = "guess_hit", fx = { trait = { blunt = 1 } } },
+      },
+    },
+    guess_plan = {
+      lines = { { id = "gp_default", text = "Then you're the first one today, and I'll remember your face for it. If you ever want to prove it, show me the spools and I'll tell you whether you were lying." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    guess_one = {
+      lines = { { id = "go_default", text = "It has, right up until it hasn't, and that'll be in the middle of the Barrens with a torn pack and nothing to mend it. Buy two, and thank me later." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    guess_hit = {
+      lines = { { id = "gh_default", text = "Then you'll need bandages more than thread, and Arnok will tell you the same thing, only louder. Carry some linen anyway, because hitting things tears your clothes." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
   topics = {
-    _none = { { id = "tp_none", text = "Couldn't say. I sell thread, not gossip, though I hear plenty of both." } },
+    _none = { { id = "tp_none", text = "Couldn't say, and I'm not paid to know. I sell thread, not gossip, though I hear plenty of both across this counter." } },
   },
 }
