@@ -747,6 +747,21 @@ function C.Zone()
   return zone, sub, mapID
 end
 
+-- The zone the map puts you in (map type 3 zone or 4 dungeon), climbing from a micro map.
+-- GetRealZoneText reports some indoor rooms ("Southshore Town Hall") as the zone; this doesn't.
+function C.MapZone()
+  local mapID = clean(call("C_Map.GetBestMapForUnit", "player"))
+  for _ = 1, 6 do
+    if not mapID then return nil end
+    local info = call("C_Map.GetMapInfo", mapID)
+    if type(info) ~= "table" then return nil end
+    local t = info.mapType
+    if t == 3 or t == 4 then return clean(info.name) end
+    if t and t < 3 then return nil end
+    mapID = info.parentMapID
+  end
+end
+
 function C.MapPosition()
   local mapID = clean(call("C_Map.GetBestMapForUnit", "player"))
   if not mapID then return nil end
