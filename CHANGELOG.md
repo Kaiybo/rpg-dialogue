@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.1 (2026-11-17)
+Spoogledorf, as he really is. No new files: a /reload is enough (a full restart if you're coming from before 0.80.0).
+
+- **Spoogledorf rewritten to match the game:** he's an old gnome in Stormwind, not a travelling hunter. Now he's a Gnomeregan refugee who founded Uber Town and keeps its two ledgers (one for coin, one for promises), with new talk about his name (a "spoogle" is a watch spring), Tinker Town and the day he fled, Stormwind's too-tall stairs, and whether the gnomes should retake Gnomeregan or build anew.
+- Uber Town's young members are still there, Biscuit the bad-tempered pet now belongs to their hunter, and you can still ask to join (the Horde get an honorary line in the promise ledger). Gnome, dwarf and human players get their own lines.
+
 ## 0.80.0 (2026-11-17)
 Spoogledorf of Uber Town has something to say. **New file: restart the game fully (a /reload won't load it).**
 

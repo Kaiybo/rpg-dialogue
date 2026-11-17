@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.36.1 (2026-11-17)
+- Spoogledorf rewritten as the old Gnomeregan gnome he is in Stormwind.
+
 ## 1.36.0 (2026-11-17)
 - New: a conversation for Spoogledorf of Uber Town (`wanderers/spoogledorf.lua`). **New file: restart the game fully.**
 
