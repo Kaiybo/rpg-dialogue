@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.0 (2026-11-17)
+- New Forever-only characters (new files: full game restart): Aka'rai at Shadowprey and the centaur Umarak.
+
 ## 1.26.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

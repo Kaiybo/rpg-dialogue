@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.12.0 (2026-11-17)
+- New Forever-only characters (new files: full game restart): Nineteen islanders: quest givers Ailee Farheart, Windshaper Boro, Elaadrin Evengale, Dondallion Whisperwind, Iaadaria Bitterwind, Quel'ana Quickgale, Seena Skybreaker, Riaani Nightwind, Alvarion Windfield and Urs'endris; the adventurer Raan Wildwind; Blademaster Ren, Tai'ree Farsight, Destin Thriceforged, Othesia Evengale, Gelia Shardsong, the High Order Dockmaster, Melasa Fairmend, Brother Zendraas.
+
 ## 1.11.1 (2026-11-17)
 - Writing pass on the characters added in 0.74.0: stock phrases ("fair enough", "truly", "worth more than") rewritten.
 

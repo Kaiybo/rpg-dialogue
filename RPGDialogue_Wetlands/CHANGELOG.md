@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-17)
+- New Forever-only characters (new files: full game restart): Agriel Firebrew, Ardin Grassman, and the Horde's Deathstalker Agent.
+
 ## 1.20.0 (2026-11-17)
 - New story "The broken Span": tell Rhag Garmason what King Magni said about Dun Modr; Mikhail reacts to "The missing diplomat".
 

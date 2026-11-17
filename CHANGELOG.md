@@ -2,6 +2,18 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.0 (2026-11-17)
+The Forever patch: about 145 characters who exist only in World of Warcraft: Forever now talk. **New files: restart the game fully (a /reload won't load them).**
+
+- **Forsaken paladins.** Bandarion Keep and its order (Danitha Morr, Breton Samuels, Hilda the Breaker and the rest), Shari Stilwell in Brill, Bareth Dawnstone, Morbin Lightbane and Tanis Alderwood in the Undercity. A Forsaken paladin hears things nobody else does.
+- **Tirisfal and Silverpine:** Deathknell's trainers, Hadric Harlson, Deathguard Kristof, the Bulwark, the Sepulcher's Baldren, Tabitha Heartweaver and Trevan Rol, Lumina Windsinger, and the Image of Archmage Modera.
+- **Horde capitals:** fourteen new Undercity residents (Glix Xizzix, Rugbul Boomfirst and more), Thatog and the Valley of Wisdom children, the Skyborne Windshapers in Grommash Hold, Borook Gallfist, and the **Darkspear Emissary** in every Horde capital.
+- **Horde lands:** Durotar (Turroc, Pa'zula, Pal'juh, Slizzy Kreeg and the Den), Gur'ak at the Crossroads, Camp Narache's new trainers, Aka'rai and Umarak in Desolace, Tuu'li and Xaphod in Stonetalon.
+- **Alliance:** Elwynn's new trainers and quest givers (Josephine Carson, Tordrin Sternblade, Kelsey Fargo, Blixie Fitzwink), Stormwind Harbor and Abigail Lawson, the Odd Child in Moonbrook, Old Ironforge and Dun Morogh (Afadra Dunwall, Thom Filch, Earthseer Farsen, Grund and Gozwin), Aldrassil's trainers, Teuren in Darnassus, Agriel Firebrew and Ardin Grassman in the Wetlands, Muggol Breezebeard, Pelluk, and the dragon Doraan.
+- **Dalaran:** the archivists, the Skyborne scholars at Tempered Tomes, Ranath Nightstride, and the Orphanage (with its rabbits and Luna).
+- **Zephras Isle:** nineteen more islanders, including every quest giver we'd missed and the camping teacher Raan Wildwind.
+- Gabbi Goodwhistle, the goblin peddler, in case she turns up outside the beta event.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

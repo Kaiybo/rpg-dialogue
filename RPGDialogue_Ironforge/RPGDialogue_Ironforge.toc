@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Ironforge |cff8a8a8a1.21.1|r
+## Title: RPG Dialogue: Ironforge |cff8a8a8a1.22.0|r
 ## Notes: The High Seat, the Hall of Mysteries, the Commons and the gates.
 ## Author: RPG Dialogue
-## Version: 1.21.1
+## Version: 1.22.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.ironforge
@@ -31,3 +31,5 @@ npcs\nori_pridedrift.lua
 npcs\mountaineer_thalos.lua
 npcs\pilot_stonegear.lua
 npcs\razzle_sprysprocket.lua
+npcs\old_ironforge_forever.lua
+npcs\dunmorogh_forever.lua

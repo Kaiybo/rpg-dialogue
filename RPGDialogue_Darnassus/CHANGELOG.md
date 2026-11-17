@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.20.0 (2026-11-17)
+- New Forever-only characters (new files: full game restart): Teuren Vineshade.
+
 ## 1.19.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

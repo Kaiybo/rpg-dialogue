@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.26.0 (2026-11-17)
+- New Forever-only characters (new files: full game restart): Doraan.
+
 ## 1.25.1 (2026-11-17)
 - Fix: one of Do'gol's replies about the burned inn was a question carrying alignment; it's a statement now.
 
