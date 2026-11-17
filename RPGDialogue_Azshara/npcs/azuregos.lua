@@ -67,7 +67,7 @@ P:NPC {
     },
     guard_fail = {
       lines = { { id = "gf_default", text = "Nice try. If I told every adventurer who asked nicely, I'd have to fight every adventurer who heard about it, and I have enough of those already." } },
-      choices = { { text = "Fair enough.", next = "BACK" } },
+      choices = { { text = "Worth a try. I'll keep my secrets, then.", next = "BACK" } },
     },
     guard_true = {
       big = true,

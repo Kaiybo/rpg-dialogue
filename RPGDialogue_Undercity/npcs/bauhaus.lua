@@ -91,7 +91,7 @@ P:NPC {
     names_own = {
       lines = { { id = "no_default", text = "I did not, and that is all I intend to say on the matter. A clerk who keeps everyone else's secrets is entitled to one or two of his own." } },
       choices = {
-        { text = "Fair enough, Overseer.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Understood, Overseer.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

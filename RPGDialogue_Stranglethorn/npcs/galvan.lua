@@ -36,7 +36,7 @@ P:NPC {
         { id = "h_smelt", tags = { "news" }, when = { questActive = TODO_QUEST("Smelt On, Smelt Off") },
           text = "Forty bars of iron and forty of mithril, and every one dug and smelted yourself, or Galvan will know! There can be no blacksmithing without mining, and that's the first lesson." },
         { id = "h_silver", tags = { "news" }, when = { questActive = TODO_QUEST("The Great Silver Deceiver") },
-          text = "Forty bars of mithril and five of truesilver, and you'll learn that truesilver is a liar! She's a cruel mistress, and Galvan learned it the hard way." },
+          text = "Forty bars of mithril and five of truesilver, and you'll learn that truesilver is a liar! She's a cruel mistress, and Galvan has the burned eyebrows to prove it." },
         { id = "h_expert", tags = { "news" }, when = { questRecent = { TODO_QUEST("Expert Blacksmith!"), days = 3 } },
           text = "One of Galvan's finest pupils, and Galvan knew it the day you walked in! You gave up a trinket of power just to meet Galvan, and such devotion deserves a better one." },
         { id = "h_felbane", tags = { "news" }, when = { questActive = TODO_QUEST("Enchanted Azsharite Fel Weaponry") },

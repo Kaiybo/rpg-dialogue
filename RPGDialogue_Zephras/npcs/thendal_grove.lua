@@ -65,7 +65,7 @@ P:NPC {
     },
     sprites = {
       lines = {
-        { id = "s_default", text = "Little manifestations of the wind, not truly aware the way the old spirits were. They answer whatever moves around them, fear or calm or anger, the way water takes the shape of a cup." },
+        { id = "s_default", text = "Little manifestations of the wind, not aware the way the old spirits were. They answer whatever moves around them, fear or calm or anger, the way water takes the shape of a cup." },
       },
       choices = {
         { text = "So someone filled the cup with anger.", next = "cult" },
@@ -254,7 +254,7 @@ P:NPC {
     },
     rangers_mind = {
       lines = {
-        { id = "rm_default", text = "Someone has to, and I'm good at it. There's no glory in it, but a boy can play at the foot of the elder tree without being stung, and that's worth more than glory." },
+        { id = "rm_default", text = "Someone has to, and I'm good at it. There's no glory in it, but a boy can play at the foot of the elder tree without being stung, and I'll take that over a song any day." },
       },
       choices = {
         { text = "That's a fine way to see it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -419,7 +419,7 @@ P:NPC {
     { id = "g_done", when = { questDone = TODO_QUEST("Harvesting Windstones") }, text = "Thank you again for those stones. Every one matters now." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}? You didn't bring me any windstones, I suppose. No, I didn't think so." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you went crystal-hunting for me. I hope you kept one of those manuals." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "People in the village speak well of you. That's worth more than a windstone, very nearly." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "People in the village speak well of you. I'd trade a windstone for that, very nearly." },
   },
 
   notice = {

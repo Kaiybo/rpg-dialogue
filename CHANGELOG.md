@@ -2,6 +2,21 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.77.0 (2026-11-17)
+More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
+
+### New conversations (Booty Bay)
+- **Ian Strom**, the Salty Sailor's rogue trainer: the trade's rules, poisons and who buys them, a quiet hint about a house in the Alterac hills, and a polite lesson in exits for anyone who isn't a rogue.
+- **Tokal**, an orc hiding out and waiting for a boat: follows "On the Lam", "Cherry for Your Thoughts?" and "No Honor Among Thieves", and has plenty to say about Illari Duskfeather once you've bought her that grog.
+- **Elril Everlight**, a night elf in plate with a hammer. Is she a paladin? She won't say. "The Light doesn't check your ears." Press her with Persuade, or try a lie.
+- **Captain Aransas** of the Gull's Wager: her crew, the Bloodsail, Kurzen, and (for rogues) her missing cook Wendel Mathers, before and after you bring him home.
+- **Markel Smythe**, Booty Bay's sworn witness for wagers, cargo counts and goblin weddings, who the Baron once bought as "salvage".
+
+### Blackwater Raiders
+- **Fleet Master Seahorn** (+22 topics) and **First Mate Crazz** (+20): the Raiders' history, code and shares, life aboard, the Bloodsail captains, a spy on the docks (Persuade checks).
+- **Fin Fizracket** (+11), and **Shakes O'Breen** and **Captain Steelgut** at Faldir's Cove (+12 each): an Intimidate check over O'Breen's unsent letters, and what Steelgut saw under the reef.
+- Unnamed Booty Bay townsfolk now have a short conversation of their own, in the Raiders' flavour.
+
 ## 0.76.0 (2026-11-17)
 Goblins sound like goblins now. No new files, so a /reload is enough.
 
@@ -10,6 +25,12 @@ Goblins sound like goblins now. No new files, so a /reload is enough.
 - **Who:** Booty Bay (Revilgaz, Krazek, Kebok, Crank Fizzlebub, the shops and the Bruisers), Gadgetzan (Noggenfogger, Sprinkle, Bilgewhizzle, the trades and the Bruisers), Ratchet (Gazlowe, Sputtervalve, Dizzywig and the bruisers), Everlook (Vizzie, Legacki, Harlo and the trades), Powderfuse Port, the Shimmering Flats, Flame Crest, Un'Goro's goblins, the Ficklespraggs at Cenarion Hold, and goblins on the road (Kzixx, Zixil, Rexxie, Rezlak, Nogg, Renzik, Ziz Fizziks, Smeed, Kim'jael and others).
 - The citizens of Booty Bay, Gadgetzan and Everlook speak as goblins too.
 - **Fixed:** a few goblins offered free rum or a few coppers off, which the addon can't give, so those offers are gone.
+
+## 0.75.0 (2026-11-17)
+A small fix and polish release. No new files: /reload is enough.
+
+- **The centaur clans know where you stand.** Orgrul, Hagiak and Nerlokh in Shen'dralas, and Warug and Uthek in Desolace, now react to your Magram and Gelkis reputation, not only to how many centaur you've killed. Doing quests for one clan counts too. A clan that hates you greets you coldly (three new lines).
+- **Writing pass on 0.74.0's new people.** The 69 characters added in 0.74.0 missed the 0.73.0 writing pass. Their stock phrases ("fair enough", "I won't pretend", "truly", "worth more than", "the hard way") are rewritten, including Azuregos, Duke Zverenhoff, Caretaker Alen, Angus Stern, Collin Mauren, Galvan and Yohwa.
 
 ## 0.74.0 (2026-11-17)
 69 more new people to talk to, and fixes for the characters added in 0.73.0. **New files: restart the game fully (a /reload won't load them).**

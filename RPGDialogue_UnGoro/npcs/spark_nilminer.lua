@@ -95,7 +95,7 @@ P:NPC {
     },
     dadanga_unkind = {
       lines = { { id = "du_default", text = "It's honest, pal, which is different. Petra's lovely, the kodo's lovely, and I'd still rather sleep upwind of both of 'em." } },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Upwind of both. I'll remember that.", next = "BACK", fx = { affinity = 1 } } },
     },
     marshals = {
       lines = { { id = "m_default", text = "Officially, they think the bones are dug up, the old-fashioned way, by me. Unofficially, pal, I'm a very good digger when you're the one doing the digging, and I'm a very good manager when it comes to taking the credit." } },
