@@ -407,6 +407,17 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons took Dun Modr off us, up north. One enemy at a time, I keep tellin' the lads, an' they keep askin' which one." } },
     explorers_league = { { id = "tp_league", text = "The League's man upstairs wants an escort to his dig. I've no men to spare for bones." } },
     _none = { { id = "tp_none", text = "That's no' my concern, I'm afraid; my concern's the wall." } },
+    grim_batol = {
+      { id = "tp_grim_batol", text = "Grim Batol's the Dragonmaw's den, east past the highlands, an' in the war they kept a red dragon queen chained there. She's free now, they say, but the place still stinks o' dragon an' worse." },
+      { id = "tp_grim_batol2", when = { disposition = { min = 65 } }, text = "Between us, the old dwarves won't even say its name, for it was the Wildhammer's home before the Dark Irons cursed it. I've sent scouts past it, but never in, an' I never will." },
+    },
+    magni = { { id = "tp_magni", text = "King Magni gave me this wall an' this harbour, an' he expects both standin' when he next asks. I write tae him every month, an' I've never once had tae write bad news about the wall." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer fly patrols over the highlands when it suits them, an' I'm glad o' the eyes. Mind, gettin' a report out o' a Wildhammer is like gettin' a straight answer from a gryphon." } },
+    theramore = { { id = "tp_theramore", text = "Lady Jaina's ships come in from Theramore every week, an' her marines are good lads. Better sailors than soldiers, but I'll take either." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore made peace wi' the orcs over the sea, an' her own father died fightin' it. I don't know if she's right, but she's brave, an' I respect that." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge sits across the water in Lordaeron, an' the Thandol Span's the only dry road between them an' Ironforge. That's why we hold it, whatever it costs." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde was the strongest human kingdom in the north once, an' now it's a ruin wi' ogres in it. Their soldiers still hold Refuge Pointe, an' I send them what I can spare." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War when the orcs came up through Khaz Modan, an' I watched the Dragonmaw burn these hills wi' red dragons. Now they're back on the highland, an' I'm back on the wall." } },
   },
 }
 
@@ -677,6 +688,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never sail under a red sky, friend, or a red dragon, and mostly mind the dragon." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "Them, the very same, up in the hills now without their dragons. I hope they miss them as much as I miss my ship." } },
     _none = { { id = "tp_none", text = "Don't know, friend. Buy me a drink and ask me again; I'll know even less." } },
+    theramore = { { id = "tp_theramore", text = "The boat to Theramore leaves every few days, and I watch it go from this chair. The admiral's daughter rules there now, and I hear she's good to sailors." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore is the admiral's daughter, and she stood with the orcs when he came to Kalimdor to fight them. He died for it and she lived, and I'm still sorting out how I feel about that." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a goblin port where every sailor's welcome so long as his purse is full. I spent a month's wages there in one night once, and I'd do it again with a fuller purse." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail Buccaneers fly the red off the Stranglethorn coast, and no honest ship sails there without guns. I lost a mate to them once, and I don't forgive easy." } },
   },
 }
 
@@ -992,6 +1007,10 @@ P:NPC {
     dragonmaw = { { id = "tp_dragonmaw", text = "I bury what the Captain's lads bring back, so ask him about the orcs an' ask me about the buryin'." } },
     northshire_abbey = { { id = "tp_abbey", text = "Good bells, good bread, an' novices who've never seen a murloc. Lucky them." } },
     _none = { { id = "tp_none", text = "Hmph. That's no' my problem, an' I've plenty o' my own." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light's no' just for humans, ye know; dwarves sang tae it in the Great Forge long before I came out here. I pray over every body the tide brings in, whatever they were." } },
+    scourge = { { id = "tp_scourge", text = "I've seen bodies wash up from across the water that didnae stay still on the slab. I keep a hammer by the burial ground now, an' a prayer, an' I use both." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Menethil was Lordaeron's harbour once, an' it's still full o' folk who fled the plague wi' nothin' but the clothes on their backs. I hear their confessions, an' some o' them I'll carry tae my grave." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn writes tae every priest on this coast askin' for help in the plaguelands. I've sent two o' my acolytes, an' I pray for them every mornin'." } },
   },
 }
 
@@ -1229,6 +1248,9 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "They put me in this bed. I'll put a few o' them in worse. That's a promise, no' a threat." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "The orcs are the Captain's problem; mine's up north. Everyone's got a problem in the Wetlands." } },
     _none = { { id = "tp_none", text = "Ask someone who can walk." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol's a cursed place, an' every dwarf in Longbraid's regiment knows it. We'd sooner fight Dark Irons at Dun Modr than walk under that mountain." } },
+    magni = { { id = "tp_magni", text = "King Magni'll have the Span back, mark me, an' I'll be standin' on it when he does. I cannae stand yet, but I will." } },
+    wildhammer = { { id = "tp_wildhammer", text = "A Wildhammer gryphon rider pulled me off the Span when it fell, an' I never got his name. I'd stand him a barrel if I knew it." } },
   },
 }
 
@@ -1466,6 +1488,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Count your crates twice and your fingers three times. This coast takes both." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "They've cut the road east, so everything goes by sea now, which is good for me and bad for everyone else." } },
     _none = { { id = "tp_none", text = "Can't say. I only know what's in the crates, and not always that." } },
+    theramore = { { id = "tp_theramore", text = "Most of my cargo goes to Theramore these days: grain, nails, lamp oil and powder. Lady Jaina's building a city on a marsh, and marshes eat supplies." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay pays the best rates on the seas, but the harbourmaster takes a cut and so do the sharks. I'd sail there more if the Bloodsails didn't." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Before the plague, half the cargo out of this harbour went north to Lordaeron. Now nothing goes north, and the boats that tried it never came back." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The goblin cartel insures half the ships in these waters, and they charge for it as if the sea were their own property. I pay, because the sea does as it likes." } },
   },
 }
 
@@ -1693,6 +1719,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Hang yer cloak by the fire an' yer boots by the door. Never the other way round." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "The lads come back from the hills tired an' thirsty. That's how I know there's a war on." } },
     _none = { { id = "tp_none", text = "Ask the room. Sailors know everythin', an' what they don't know they'll make up." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Old soldiers at my bar won't say Grim Batol out loud; they just nod east an' drink. I've learned tae pour without askin'." } },
+    theramore = { { id = "tp_theramore", text = "Sailors off the Theramore boat drink here first, an' every one o' them says the marsh over there is worse than ours. I take that as a compliment tae the Wetlands." } },
+    magni = { { id = "tp_magni", text = "King Magni's portrait hangs over the fire, an' I dust it every mornin'. The damp's ruinin' his beard, but he's still the handsomest dwarf in Menethil." } },
+    scourge = { { id = "tp_scourge", text = "Folk off the boats from the north sometimes won't eat or speak for days. I give them a dry room an' don't ask, an' that's all an innkeeper can do." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire never comes tae Menethil, an' I cannae blame them, for their wagons would sink. I've heard their ale's good, but it cannae be as good as mine." } },
   },
 }
 
@@ -1944,6 +1975,10 @@ P:NPC {
     explorers_league = { { id = "tp_league", text = "Best job in the world, when ye're no' stuck in a tavern. Which I am." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "Orcs in the hills east o' the dig. I wrote to Ironforge. Ironforge wrote back to say there are orcs in the hills." } },
     _none = { { id = "tp_none", text = "If it's no' buried, I'm the wrong dwarf." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol's the finest ruin in Khaz Modan an' the one no archaeologist will touch. The Wildhammer left it, the Dark Irons cursed it an' the Dragonmaw fouled it, so there's three layers an' no' one o' them safe." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's where the real secrets are, down in the Badlands, an' Ironband's lot are dyin' tae get in. If I weren't stranded here, I'd be there wi' them." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer have the oldest songs o' any dwarves, an' half the League's theories started as a Wildhammer drinkin' song. They're no' wrong as often as ye'd think." } },
+    magni = { { id = "tp_magni", text = "King Magni funds the League out o' his own coffers, an' he reads every report we send. That's more than most kings would do for a pack o' diggers." } },
   },
 }
 
@@ -2171,5 +2206,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Sit where you can see the door. Hold a full mug, even if you never drink it. Nobody watches a man with a full mug." } },
     defias = { { id = "tp_defias", text = "That's Stormwind's trouble, and I left it there, though it keeps sending letters." } },
     _none = { { id = "tp_none", text = "Couldn't say. Wouldn't, either." } },
+    si7 = { { id = "tp_si7", text = "SI:7? I've heard the name, same as everyone. I keep bar now, and a barman hears a great deal but repeats very little." } },
+    varian = { { id = "tp_varian", text = "I served in Stormwind a long time, and I'll only say that kings don't go missing by accident. Pour yourself another and forget I said it." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor came to court after I'd left it, which I've come to think was good timing on my part. People who knew the court before her speak of it differently from those who didn't." } },
+    the_stockade = { { id = "tp_the_stockade", text = "I've seen the inside of the Stockade, from the side of the door with the keys. That's all I'll say about it." } },
   },
 }

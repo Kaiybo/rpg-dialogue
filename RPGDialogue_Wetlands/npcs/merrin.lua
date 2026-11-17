@@ -153,5 +153,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never turn yer back on a quiet raptor, for a quiet one's a hungry one." } },
     explorers_league = { { id = "tp_league", text = "We dig where nobody else will, an' sometimes we find out why." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, I've been on this ridge too long. Ask in Menethil, if ye get back before me." } },
+    grim_batol = { { id = "tp_grim_batol", text = "We dug as far east as we dared an' no further, because Grim Batol's past those hills. The League wanted samples, an' I told them tae fetch their own." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's the dig every Explorer dreams o', down in the Badlands. They say the titans built it, an' if that's true, half o' what we think we know about dwarves might be wrong." } },
+    magni = { { id = "tp_magni", text = "King Magni wants tae know where dwarves came from, an' he's payin' the League tae find out. I like a king wi' questions." } },
   },
 }

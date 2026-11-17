@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.19.0 (2026-11-17)
+- Every named NPC answers more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics from World 1.35.0.
+
 ## 1.18.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

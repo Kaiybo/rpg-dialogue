@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.35.0 (2026-11-17)
+- Pools answer the 52 new "Ask about" topics: role pools for everyone, town pools for local takes, neutral goblin answers in Booty Bay, Gadgetzan, Ratchet and Everlook. Adds the 52 new topics (the Scourge, the Forsaken, Thrall, Sylvanas, Onyxia, Booty Bay, Dalaran, the Holy Light and more).
+
 ## 1.34.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

@@ -170,5 +170,10 @@ P:NPC {
     dark_iron = { { id = "tp_di", text = "They took Dun Modr an' broke the Span, an' they'll want more. They always do." } },
     dragonmaw = { { id = "tp_dm", text = "Orcs on the hills tae the east, wi' red dragons over Grim Batol. As if we hadnae enough trouble." } },
     _none = { { id = "tp_none", text = "Cannae say, friend. Out here we hear about the Dark Irons an' little else." } },
+    grim_batol = { { id = "tp_grim_batol", text = "Grim Batol's east o' here over the hills, an' no dwarf wi' sense goes near it. It was the Wildhammer's hold once, the Dark Irons cursed it, an' then the orcs filled it wi' dragons, so that's three good reasons." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer were Ironforge's kin before the War o' the Three Hammers, an' they're kin still, if ye squint. They fly over the Span now an' then, an' I'll admit it's a fine sight." } },
+    magni = { { id = "tp_magni", text = "King Magni sent us tae hold Dun Modr's edge, an' we'll hold it till he says otherwise. He's a king who remembers his soldiers' names, an' that's worth a great deal." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's men held the north end o' the Span once, an' now Stromgarde itself is half ogres an' half ruins. They were good allies, an' I'd like them back." } },
+    scourge = { { id = "tp_scourge", text = "There are dead men walkin' in Lordaeron, I hear, an' the Span's the only dry road south for them. That's another reason we cannae let it fall." } },
   },
 }

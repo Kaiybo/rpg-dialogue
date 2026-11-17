@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.0 (2026-11-17)
+- Every named NPC answers more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics from World 1.35.0.
+
 ## 1.22.0 (2026-11-17)
 - New people to talk to (see the main changelog for 0.74.0). New files: restart the game fully (a /reload won't load them).
 

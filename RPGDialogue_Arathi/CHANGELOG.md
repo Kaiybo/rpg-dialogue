@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.0 (2026-11-17)
+- Every named NPC answers more "Ask about" topics (3 to 6 each, more for leaders), mostly the new world topics from World 1.35.0.
+
 ## 1.24.0 (2026-11-17)
 - Shakes O'Breen and Captain Steelgut at Faldir's Cove have much more to say about the Raiders, the wreck and each other.
 

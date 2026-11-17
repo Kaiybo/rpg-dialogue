@@ -167,5 +167,10 @@ P:NPC {
     stonewrought_dam = { { id = "tp_dam", text = "The most important wall in Khaz Modan, an' Ironforge sends me two guards for it.", next = "dam" } },
     dark_iron = { { id = "tp_di", text = "There's a poster about him, an' Kadrell's watchin' the road. I'll sleep easier when he's in irons." } },
     _none = { { id = "tp_none", text = "No' a matter for the magistrate, friend. Try the inn, for they know everythin' I don't." } },
+    magni = { { id = "tp_magni", text = "King Magni sends tae Thelsamar when it suits him, which is rarely. He's a fine king, but Loch Modan's a long way from the High Seat." } },
+    second_war = { { id = "tp_second_war", text = "The orcs came through Loch Modan in the Second War an' burned the valley tae the water's edge. We rebuilt, an' I'll see we never need tae again." } },
+    scourge = { { id = "tp_scourge", text = "Folk at the Stoutlager say the Scourge'll come down through the Thandol Span someday. I tell them that's what Menethil's for, an' I hope I'm right." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I wrote tae the Darkmoon Faire askin' them tae come tae Thelsamar. They said the road's too steep for their wagons, an' I said they've never tried." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are kin, whatever Ironforge says, an' they've been good friends tae Thelsamar. Their riders stop here now an' then, an' they drink like a whole regiment." } },
   },
 }

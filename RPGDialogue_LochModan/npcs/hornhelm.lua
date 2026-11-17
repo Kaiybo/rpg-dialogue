@@ -205,5 +205,9 @@ P:NPC {
     dark_iron = { { id = "tp_di", text = "They want our powder, an' I'd give a year's wages tae know what for.", next = "powder" } },
     troggs = { { id = "tp_troggs", text = "Ironband's got them in his trench an' Rugelfuss has them in the valley. They seem tae come up wherever a dwarf puts a shovel in." } },
     _none = { { id = "tp_none", text = "That's no' in any ledger o' mine, friend. Try the Stoutlager, for they keep a different sort o' book." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's down in the Badlands, an' the League wants in very badly. Ironband says the troggs came up out o' the same kind o' digs, an' I've the reports tae prove it." } },
+    magni = { { id = "tp_magni", text = "King Magni reads every report I send, or his clerks say he does. I write them neat just in case." } },
+    grim_batol = { { id = "tp_grim_batol", text = "The League's filed Grim Batol under 'dangerous, best left'. It's the only entry in our books wi' no reports at all, an' I like it that way." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes lost Gnomeregan tae troggs an' worse, an' the troggs here came out o' our own digs. I file those two reports side by side an' lose sleep over it." } },
   },
 }
