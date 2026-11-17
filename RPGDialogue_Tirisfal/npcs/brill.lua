@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Mend my Deathguard when the Crusade's arrows find them, because a corpse that cannot feel its wounds will walk until it falls apart. Beyond that, I want the zealots to see that faith did not die with Lordaeron, and that it answers to the Dark Lady now." } },
+      choices = {
+        { text = "I'll keep your Deathguard standing, Executor. That's duty enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My prayers serve me first, Executor, and your soldiers second.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -51,8 +60,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out of the Warchief's lands and into my fields. The Crusade burns anything it can't explain, so they'll aim at you before they aim at me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, in Tirisfal. The Crusade calls us unnatural, and I expect they'll call you the same, in between the arrows." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Crusade's scouts creep through the woods north of Brill, and I would rather they were tracked than merely counted." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, then. The Crusade burns priests of every kind but their own, so you'll be high on their lists, and I'd sooner you were high on mine." },
       },
       choices = {
+        { text = "What use does the Deathguard have for a priest, Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will the Deathguard fight beside the elements, Executor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there work here for a druid, Executor?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who are the Scarlet Crusade?", next = "crusade" },
@@ -201,6 +212,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "We cleared the mindless out of it in the first week and stacked the pews against the windows, and it has been a storehouse ever since. Some of the townsfolk would like it blessed again, though none of them can agree on by whom, and I would rather keep the peace than settle that argument." } },
+      choices = {
+        { text = "Brill deserves a place to grieve, Magistrate. Give them the chapel back.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A storehouse feeds people. Leave the pews against the windows.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -226,8 +246,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman in my town hall? Do mind the papers, because I've no wish to learn what lightning does to a ledger." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? Brill had a grove once, before the plague, and I've the deeds to it somewhere, though I wouldn't call it a grove now." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, in my town hall. Do keep your beast off the rugs, {class}; they're the last good ones in Brill." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest in my town hall. Brill had a chapel once, before the plague, and I've not yet decided what it ought to be now, so perhaps you have an opinion." },
       },
       choices = {
+        { text = "What became of Brill's old chapel, Magistrate?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Brill could use a shaman's totems, Magistrate. Where shall I plant them?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to Brill's grove, Magistrate?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Brill needs a sword more than a magistrate, Sevren.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -342,6 +364,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Whether it can be poisoned, quite simply, because the Scourge bound our souls once and a cure for that would be worth more than any plague. Bring me your thoughts on it, and perhaps a hair or two, and I'll write your name very small in the margin of my notes." } },
+      choices = {
+        { text = "A cure for binding souls is worth the work. I'll help.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Leave my soul out of your bottles, Johaan.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Escort my samples, mainly, because the Crusade burns whatever it can't understand, and it understands very little. And if a few of my test subjects should arrive bruised rather than dead, I'd be grateful, since corpses make poor results." } },
@@ -366,8 +397,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You speak to the elements, I'm told, and I would dearly like to know whether the elements have opinions about what I keep in these bottles." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how useful! You'll know your herbs better than any errand-runner, and I do hope you won't trample the doom weed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Do stand still, {class}, and keep that blade well away from my bottles, because some of them are only mostly safe." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Splendid, because I have a question about the soul that no apothecary has ever answered to my satisfaction, and you may be just the subject." },
       },
       choices = {
+        { text = "What do you want to know about the soul, Apothecary?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The earth here is sick, Apothecary. Do your brews make it worse?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You're growing something in these fields, Apothecary. What is it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "My hunting takes me into the fields. Do you need samples?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -478,6 +511,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I prayed for them every night I stood guard at their mills, and then the plague came in the grain and they asked me to die for them, so I did. I've stopped praying, but I find I still say their names before I sleep, or before I sit still, since I don't sleep anymore." } },
+      choices = {
+        { text = "Say their names, Coleman. That's a kind of prayer too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They used you. You owe them nothing, not even their names.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -501,8 +543,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Gallows' End! Sit down, friend; the ale's thin, but I'm told the spirits are generous, and I mean the other kind." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? The Agamands kept a little orchard behind the manor, and I'd dearly like to see you turn it into brambles out of spite." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, at the Gallows' End! The Darkhounds roam the fields by the Agamand Mills these days, and I'd say they make better neighbours than the Agamands ever did." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the Gallows' End. You may have come too late for the Agamands, I'm afraid, because I prayed for them in life and look how that turned out." },
       },
       choices = {
+        { text = "Do you still pray for the Agamands, Coleman?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I ask the spirits about the Agamands, Coleman?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Shall I let the Agamands' orchard go wild, Coleman?", next = "druid_q", when = { class = "DRUID" } },
         { text = "That's a heavy grudge.", next = "grudge" },
@@ -602,6 +646,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I'd ask it to make me cold again, because I can't feel it warm me and I can't feel the night without it either. The old priest in Brill used to tell us the Light was a fire that never went out, and I sit here hoping some of it is in this hearth after all." } },
+      choices = {
+        { text = "Some warmth is still in you, Gretchen. Keep sitting by it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light lied to you, Gretchen. Find something truer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -624,8 +677,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, dear? I've heard your sort can call down frost, and I'd give a good deal to feel a shiver again." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, sitting with me by the fire? I'm told your sort can go about in a bear's fur, and I'll wager that's warm." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, dear? Come and sit, and tell me about the cold places you've tracked through, because I'd like to remember what a frost feels like." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You're a priest, aren't you? I can tell by the way you look at the fire, as though you were asking it something." },
       },
       choices = {
+        { text = "What would you ask of the fire, Gretchen?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I call the frost for you, Gretchen?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Shall I take bear form, Gretchen, so you can touch the fur?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Your fields need guarding, Gretchen. I can swing an axe.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -736,6 +791,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "More often than they ask for drinks, honestly, though they never call it praying. They sit at the bar and tell me who they lost, and I listen, which is what I'd want a priest to do, and I'll leave the shadows and the Light to you." } },
+      choices = {
+        { text = "Listening is holy work, Renee. You do it well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Grief keeps them weak. They should let it go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -744,8 +808,10 @@ P:NPC {
           text = "You're after the deal, are you? Quietly, then, because not every bargain in this town wants an audience." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman under my roof! Sit by the hearth, love, and if the fire starts talking to you, do tell me what it says." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, love? You've got leaves in your fur and I've only just swept, but sit down anyway." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my bar. Sit down, and I'll pour you something you can't taste, and you can tell me who you were praying for when you came in." },
       },
       choices = {
+        { text = "Do the dead of Brill ever ask you for prayers, Renee?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the Forsaken mind a shaman's spirits in here, Renee?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there any green left in Tirisfal, Renee?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'm a warrior, Renee. What should a fighter know about Brill?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -861,6 +927,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Because I knelt in their chapels once, in Lordaeron, before they decided that every grieving face belonged to a spy. I keep my own small prayers now, by the fire and away from them, and I find the habit hard to break and harder to explain." } },
+      choices = {
+        { text = "Keep your prayers, Eleanor. The Crusade doesn't own them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every Crusader prays too. Your prayers prove nothing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Back to the fire and face to the dark, and never let the fire grow so bright that you can't see past it. A good camp is a small fort, {class}, and I've watched soldiers forget that the moment they sit down." } },
@@ -894,8 +969,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, a long way from Mulgore! You'll find Tirisfal's woods sadder than your plains, though I've learned to love them a little." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, on the Tirisfal road! You'll know how to stand a watch, I expect, and that's half of keeping a good camp." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Then you know the woods better than most who come down this road, and you'll have eaten well, which is more than I can say." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and not one of the Crusade's, I can see that plainly. I'll say it before you ask: neither am I." },
       },
       choices = {
+        { text = "Why do you keep telling everyone you're not with the Crusade?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you light your fires with flint, Eleanor, or ask them?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why stay in a dead land, Eleanor, when the world is wide?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why camp, when there are inns?", next = "why" },

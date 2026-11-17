@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "It ought to be, by every rule I know, but the Church never formally dissolved and I refuse to close an account on a rumour. I keep it balanced, to the copper, in case someone with the proper seal ever comes asking." } },
+      choices = {
+        { text = "Keep it open, William. Rules are rules, even now.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Close it and spend it on the living city.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Considerably, since nobody has yet robbed the vaults of the Undercity, and a great many people have robbed dead warriors. Leave what you don't need with me, and you'll have it again when you come back, if you come back." } },
@@ -56,12 +65,14 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, at the bank. I confess I've never understood what a druid keeps in a vault, since you seem to carry everything in your fur." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll be wanting a safe place for your spare arms, I expect, since carrying three swords into the Crusade's camps seems excessive." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I'd ask that your beast wait outside the counting room, {class}; it isn't personal, but the ledgers are very old and very dry." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The old Church of the Light kept an account here before the city fell, and I confess I've never known quite whom to close it in favour of." },
       },
       again = {
         { id = "h_again", text = "Anything further? I have accounts to balance." },
         { id = "h_again2", text = "Ask, by all means. I have been dead for some years and have learned to be patient about interruptions." },
       },
       choices = {
+        { text = "Should the old Church's account be closed, William?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you trust the Horde's gold, Mister Montague?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do the Forsaken keep in your vaults, Mister Montague?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Open my vault.", next = "BUSINESS" },
@@ -178,6 +189,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They feared me for a long time, because they could smell what I was, and nothing I did would change it. Patience did it in the end, and a great deal of quiet, which I suspect is more of a prayer than anything Duesten ever taught." } },
+      choices = {
+        { text = "Patience like yours is a kind of faith, Anya.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Beasts fear the dead for good reason. Let them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Some would, the hounds especially, because they like someone who stands still and doesn't flinch. You'll never be a hunter, {class}, but if you've a kind hand and a little patience, there are one or two in here who'd let you scratch their ears." } },
@@ -194,9 +214,11 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my stables. The beasts always settle a little when one of your sort walks in, and I've never known why." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how lovely. The beasts are watching you, see, the way they watch each other, and not the way they watch me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The beasts down here don't mind your sort, oddly enough, because you smell of steel and sweat and not of anything worse." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, down here with my animals. Speak softly, if you would, because the beasts don't care what you pray to and they startle at loud voices." },
       },
       again = { { id = "h_again", text = "Anything else? Keep your voice gentle, if you would." } },
       choices = {
+        { text = "Do the beasts here fear the Forsaken, Anya?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I ask the beasts' spirits to trust you, Anya?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does it hurt, Anya, that the beasts fear you?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I need the stables.", next = "BUSINESS", when = { class = "HUNTER" } },
@@ -308,6 +330,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Every one of you, if you ask me, because the Scourge doesn't wait for you to finish your prayer. A staff or a mace, properly held, and you'll live long enough to say amen, or whatever the Forsaken say now." } },
+      choices = {
+        { text = "Then teach me, Archibald. I'll not rely on prayer alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My prayers will serve me better than your racks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Whichever one you'll practise with every day, {class}, and a warrior should be able to pick up anything on the rack and use it. Learn the sword and the polearm both, because the battlefield doesn't care what you'd prefer." } },
@@ -337,9 +368,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my yard. You'll want a staff, I expect, since claws can't be bought or sold." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, at last! Most of my recruits want daggers or crossbows these days, so it does me good to see someone who'll take a proper blade seriously." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! I teach the crossbow, which the Deathguard swear by, and you'll find nothing in the Undercity that kills at range more reliably." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the weapon racks? Your lot usually leave the blades to us, though I've seen a priest swing a mace in my time, and swing it well." },
       },
       again = { { id = "h_again", text = "What else? Be quick; I've recruits at the target butts." } },
       choices = {
+        { text = "Should a priest learn to fight, Archibald?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will you teach a shaman the mace, weapon master?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is a staff worth learning, when I fight with claws?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me a new weapon.", next = "BUSINESS" },
@@ -450,6 +483,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "If someone asked me to, I suppose I would, though I don't know what I'd fill it with now. The work was the same as any other, and that's the part I miss, not the prayers, though I'll admit the smell of the incense still comes back to me at the forge some nights." } },
+      choices = {
+        { text = "Forge one, Van Brunt. Someone will be glad of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Leave the Church's trinkets in the past.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Mail now, and plate when you're strong enough to carry it, and always armour that's been fitted to you rather than pulled off a corpse. The Deathguard learned that the hard way, because a breastplate that doesn't fit is just a heavy way to die." } },
@@ -479,9 +521,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll have no use for my plate, I expect, since it doesn't change shape when you do." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Your armour's taken a beating, {class}, and I can hear the rivets rattling from here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll be wanting mail one day, {class}, and something quiet enough to stalk in, and I can't promise you both." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I made censers for the Church once, before the plague, and I've not made one since. I'd half forgotten how they were shaped." },
       },
       again = { { id = "h_again", text = "What else? The iron's cooling." } },
       choices = {
+        { text = "Would you forge a censer again, Van Brunt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could the earth spirits help your smithing, Van Brunt?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Does a smith ever tire of the same work, Van Brunt?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me blacksmithing.", next = "BUSINESS" },
@@ -590,6 +634,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "The old kings buried their dead under Lordaeron, and when we dig we find them, nicely laid out and not at all mindless, thank goodness. I put the stones back where I found them and say sorry, which is as near to a prayer as a miner gets." } },
+      choices = {
+        { text = "Saying sorry is a good prayer, Brom. Keep it up.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're dead stones, Brom. Dig through them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than you'd think, because the ore you dig is the armour you wear, and a warrior who mines never pays a smith for the iron. Besides, swinging a pick all day does wonders for the arm, dead or alive." } },
@@ -618,9 +671,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Before you ask, no, I don't think the hills mind the mines, and I've been underground long enough to know their moods." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've got the shoulders for a pick, {class}, and I've always said a good miner and a good soldier are the same animal underneath." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll be up in the hills more than most, so keep an eye out for copper in the rocks, because nobody else bothers to look." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll want to say a word over the tunnels, I expect, since half of them were crypts before they were mines." },
       },
       again = { { id = "h_again", text = "Something else? Ask it, then; the rocks will still be there when we're done." } },
       choices = {
+        { text = "Were these tunnels really crypts, Brom?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do miners ever thank the earth, Killian?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What moods do the hills have, Killian?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me mining.", next = "BUSINESS" },
@@ -731,6 +786,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Not that I can measure, and I have measured, with every rod I own. The soldiers swear by it all the same, and I've learned that a soldier who believes his sword is blessed fights as though it were, which is an enchantment of a sort." } },
+      choices = {
+        { text = "Belief is a real power, Lavinia. Don't dismiss it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If you can't measure it, it isn't there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It could, if you bring me the dust and the essences and have the patience to let it be done properly. A good enchantment on a blade is worth three on a robe, though you'd never hear my mages admit it." } },
@@ -760,9 +824,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You change your shape the way I change an item's nature, though you, at least, can change back." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in the Magic Quarter? Mind your elbows, {class}, because a dropped essence is a week of work gone." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll come across plenty of things worth disenchanting on your travels, so do bring them to someone who knows what to do with them." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in the Magic Quarter. I enchant things, and you bless them, and I've always wondered which of us does more good to a sword." },
       },
       again = { { id = "h_again", text = "Something else? Ask, but quietly; the rods hum when people shout." } },
       choices = {
+        { text = "Does a blessing do anything to a blade, Lavinia?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is my totem craft so different from your enchanting, Lavinia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could you enchant something to change as I do, Lavinia?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me enchanting.", next = "BUSINESS" },
@@ -881,6 +947,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I trust anyone who serves the Dark Lady and keeps their mouth shut, and a priest hears more secrets than any rogue. If you ever hear something in confession that she ought to know, you'll find me here, and I won't ask how you came by it." } },
+      choices = {
+        { text = "Confessions stay with me, Carolyn. That's not for sale.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the Dark Lady needs to know, she'll know.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Now and then, when the work calls for a distraction that can survive being noticed. You walk in the front and make a great deal of noise, and my people walk out the back with whatever the Dark Lady wanted." } },
@@ -910,9 +985,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my quarter. You've a cat's step, I'll grant you, and I'd like to know how quietly you move when it's properly dark." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You're loud, {class}, and you'll never be anything else, but loud has its uses when someone needs the guards looking the wrong way." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know how to wait and how to watch, which is more than half my students can manage." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I've known priests who made fine liars, because people tell them everything, and I wonder which kind you are." },
       },
       again = { { id = "h_again", text = "Something else? Make it brief; I'm expected elsewhere." } },
       choices = {
+        { text = "Do you trust priests, Carolyn?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your rogues ever work with the Horde's shamans, Carolyn?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you take a druid into your trade, Carolyn?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
@@ -1015,6 +1092,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "More often than you'd think, because a shadow priest's spells and a good poison share a certain philosophy about the body. I'd never sell to one who meant to use it on the Dark Lady's people, of course, and I've a very good memory for faces." } },
+      choices = {
+        { text = "Poison has no place in a priest's hands.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every tool has its use. Show me your stock.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Anything green on a Crusader's knife and anything sticky on a spider's fang, and the plague, of course, which is the oldest poison in Lordaeron and still my favourite to study. Keep an antivenom in your pack and you'll outlive most of my customers' targets." } },
@@ -1044,9 +1130,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Your lot can cure a poison with a touch, I'm told, and I've never been so offended by a profession in my life." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll not want poisons yourself, I expect, but you'll want to know what's on the blades pointed at you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Now there's a customer who understands venom, since half the beasts you hunt carry something interesting in their glands." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! How lovely. You heal, and I sell things that make healing necessary, so I'd say we're natural friends." },
       },
       again = { { id = "h_again", text = "Something else? Take your time; poisons are patient things." } },
       choices = {
+        { text = "Do you ever sell to priests, Ezekiel?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your poisons trouble a shaman's work, Graves?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Shouldn't you be glad someone can cure them, Graves?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let me see what you have.", next = "BUSINESS" },
@@ -1159,6 +1247,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Hardly ever, because they think dying once makes them clever about it. A priest's word carries further than a bandage, so if you tell them to come see me, I'd be grateful, and I'll do the stitching." } },
+      choices = {
+        { text = "I'll send them to you, Mary. We'll mend them together.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they won't heed a wound, let them learn the hard way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Everything, but mostly they ignore the small ones until the small ones fester. A Forsaken warrior can walk around for a week with a crossbow bolt in his back, so check yourself after every fight, and if you can't reach, ask someone." } },
@@ -1188,9 +1285,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, good. You'll know your herbs, so I won't have to explain why we don't put mud on a wound." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Sit down and let me look at you, because you lot carry more wounds than you know about and boast about the ones you do." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beasts get hurt as often as you do, I imagine, and I hope you're better at noticing their wounds than your own." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because you'll know that a Forsaken who can't feel the wound will bleed out on his feet, and I'd like your help reminding them." },
       },
       again = { { id = "h_again", text = "What else? And sit still while you ask." } },
       choices = {
+        { text = "Do the Forsaken listen to healers, Mary?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you think my healing makes your bandages useless, Mary?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you ever tend tauren, Mary, or only the Forsaken?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me first aid.", next = "BUSINESS" },
@@ -1299,6 +1398,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "It's the nearest thing I've got, sitting still and hoping for something from below that you can't see. My old priest used to say patience is the first gift, and I've had a great deal of time to practise it since he died." } },
+      choices = {
+        { text = "Patience is a gift, Armand. You've got plenty.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Waiting for gifts is a fool's game. Take what you need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "That the thing you want comes when it's ready and not when you swing at it. I've watched warriors take up a rod after a hard campaign, and they're the stillest anglers I know, once they've stopped thrashing the water." } },
@@ -1328,9 +1436,11 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, come to fish? I'd wager you could just turn into something with flippers and save yourself the trouble." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, at the canal's edge! Patience isn't your trade, I'd wager, but fishing might teach you a little of it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll know all about waiting for your quarry, so you're halfway to being a fisherman already." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You won't find much to bless in these canals, I'm afraid, though I've been trying to bless them myself for years with a hook and a lot of patience." },
       },
       again = { { id = "h_again", text = "Something else? There's no hurry; there never is with fishing." } },
       choices = {
+        { text = "Is fishing a kind of prayer, Armand?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I ask the water spirits about the canals, Armand?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Don't you miss the taste of what you catch, Armand?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me to fish.", next = "BUSINESS" },

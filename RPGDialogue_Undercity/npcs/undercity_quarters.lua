@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They carry anyone with the coin and the stomach for it, priest or rogue, alive or otherwise. I'd say a prayer before you climb on, though, because they've a habit of diving when they spot a moth, and nobody's prayers have ever stopped them." } },
+      choices = {
+        { text = "I'll trust your bats, Michael, and pray anyway.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayer won't keep me in the saddle. I'll hold on tight.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Heavy ones, and fidgety, because they don't like sitting still while something else does the work. Hold the harness, keep your shield off the bat's wing, and you'll reach the Sepulcher with your dignity and most of your armour." } },
@@ -57,12 +66,14 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You can run like a cat, I'm told, but there's no running across Lordamere Lake, so you'll want a bat." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The bats carry armour well enough, {class}, though they'll complain about the weight the whole way to Tarren Mill." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The bats don't love your beasts, but they've learned to put up with them, which is more than the beasts manage in return." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the bat roost. They won't mind you, the bats, but they'll want to know if you've got anything to eat, which is about all they want from anyone." },
       },
       again = {
         { id = "h_again", text = "What else? The bats are waiting, but bats are patient." },
         { id = "h_again2", text = "Anything more?" },
       },
       choices = {
+        { text = "Do the bats ever carry priests, Michael?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your bats fear the storm, Garrett?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the bats mind a living rider, Garrett?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why bats and not wyverns?", next = "bats" },
@@ -176,6 +187,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "The Light was, certainly, because it promised everything and explained nothing, and then it let us die. The shadow priests at least talk of will and discipline, which is closer to a method, and I'll grant them that much grudgingly." } },
+      choices = {
+        { text = "Faith isn't a method, Anastasia. It's something more.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Will and discipline are what matter. I agree.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Some of them do, and they're fools, because every mage who ever lived has owed their life to someone with a shield standing in front of them. I'd trade a lesser student for one steady warrior on a bad day, and I've had a great many bad days." } },
@@ -192,12 +212,14 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in the Magic Quarter. Your elements are crude and loud, but I'll grant they're effective, and effective is all I ask of anyone." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. I read your Cenarion Circle's writings, the few that reached Dalaran before it fell, and I thought them sentimental." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in the Magic Quarter. Do try not to break anything, {class}, because the furniture is older than you are, and so am I." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in the Magic Quarter. I teach mages to think precisely, and in my experience priests prefer to feel things rather than think them, so do prove me wrong." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask it plainly; I have apprentices to correct and little patience left." },
         { id = "h_again2", text = "Anything further?" },
       },
       choices = {
+        { text = "Is faith really so imprecise, Anastasia?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Crude, you say? Have you ever stood in a storm, Anastasia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Sentimental how, Anastasia?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Do the mages ever look down on hunters, Anastasia?", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -322,6 +344,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "It did, or something in the room did, and the priest who said it swore it was coincidence. I've kept the vial and labelled it, and one day I'll know which of us was right, though I suspect neither of us will like the answer." } },
+      choices = {
+        { text = "Some things aren't meant to be measured, Zinge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Test it properly, Zinge. Faith can bear scrutiny.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -341,12 +372,14 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call anything up in here, please, because I've three mixtures reducing and I'd rather not explain lightning in my notes." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and living. Stand away from the vats, please, because those vapours aren't kind to lungs that still work, and they're less kind to anything with fur." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beasts look healthier than my prisoners, {class}, and I'll admit I've wondered why." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Don't touch anything on this bench, please, and don't bless it either, because I've had a vial go cloudy after a blessing and I've not worked out why." },
       },
       again = {
         { id = "h_again", text = "What else? My mixture is reducing." },
         { id = "h_again2", text = "Ask, and quickly." },
       },
       choices = {
+        { text = "Did a blessing really cloud your vial, Zinge?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do your mixtures do to the earth, Zinge?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are those vapours made for, Zinge?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You test your work on prisoners, Zinge?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },

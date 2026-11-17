@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "None, mostly, because I never knew the right ones and Sarvis says there aren't any. I just lay them in straight and shovel gently, and if a priest wants to say something, the dead won't mind and I'd rather like to hear it." } },
+      choices = {
+        { text = "I'll say the words, Mordo. They deserve that much.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Sarvis is right. Words are wasted on the dead.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -45,8 +54,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in Deathknell? The earth here's been dug over so often it's half graves, so mind where you set those totems down." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll want to see the old yew by the chapel, I expect; it's the only thing in Deathknell that died and didn't get back up." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, risen with an eye for tracks still in your head. The only beasts around Deathknell are the ones that come sniffing at the graves, I'm afraid." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, risen like the rest. I bury those who don't wake, and I'd be glad of someone to say a word over them, whatever the word is." },
       },
       choices = {
+        { text = "What words do you say over the ones who don't wake?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the earth mind holding so many dead, Mordo?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could the old yew be brought back, Mordo?", next = "druid_q", when = { class = "DRUID" } },
         { text = "My hands still know a sword. Is that normal?", next = "warrior", when = { class = "WARRIOR" } },
@@ -165,6 +176,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Will, more than anything, because the shadow isn't a god and it won't carry you the way the Light pretended to. Learn to make your own faith out of what you've got, and you'll find it's harder to lose than the old kind." } },
+      choices = {
+        { text = "Faith I make myself is faith no one can take back.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The Light still answers me, Sarvis, whatever you say.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -190,8 +210,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here. You talk to spirits, I'm told, and the spirits talk back, which is more than the Light ever did for me." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my chapel. You serve the land, I gather, and the land around here has been rather busy serving the Scourge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, risen and still looking for tracks. The Light never taught anyone to read a trail, so you've kept the more useful habit." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Another priest, with a new voice answering your prayers, I hope. Whatever you called on before let you die, so I trust you've noticed the shadows were the only thing waiting when you woke." },
       },
       choices = {
+        { text = "What does the shadow ask of a priest, Sarvis?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "You trust the shadow, Sarvis. Why not the spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Can the land here be cleansed, Sarvis?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I woke with a sword arm and no prayers, Sarvis.", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -322,6 +344,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Solliden Farmstead, where the Crusade's scouts shoot from the hedges and run before we can answer them. Keep my soldiers on their feet out there, and leave the sermons for Sarvis, who seems to enjoy them." } },
+      choices = {
+        { text = "Your soldiers will stand, Executor. I'll see to it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll mend who I choose, Executor, and preach as I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -347,8 +378,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the Crusade's camp burns well, and I'm told you can call fire." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Can you fight? Then Deathknell has a use for you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Crusade's camp sits in open ground, and I want eyes on it from the treeline." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I'll want you mending my Deathguard, not preaching to them, so keep that in mind when you speak." },
       },
       choices = {
+        { text = "Where do your Deathguard need mending most, Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Where do you want the lightning, Executor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I fight in claw and fur, Executor. Will that do?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do the Crusaders hate us?", next = "hate" },
@@ -462,6 +495,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Because the pain is how I know it's still there, and I'd sooner burn than feel nothing at all. Sarvis thinks I'm a fool, and perhaps I am, but a forge hurts the iron too, and nobody calls the blade foolish afterward." } },
+      choices = {
+        { text = "Then burn, Aramis. The Light is worth the pain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light abandoned us. Let it go and stop burning.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It has room for anyone who'll bear it, though I won't pretend it's comfortable for any of us. A soldier who stands firm while it burns is learning the same lesson I am, and the pain is a forge whether you pray or not." } },
@@ -495,8 +537,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, come into the church. Your people have been kinder to mine than we had any right to expect, so sit, and be welcome." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I can still tell a soldier by how they stand, {class}, and you stand like someone who means to stay standing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You walk softly, which is a kindness in a church where most of the risen still stumble into the pews." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll have felt the Light sting, as I have, or you'll have turned away from it, and either way you'll know what I mean when I say it burns." },
       },
       choices = {
+        { text = "Why do you hold on to the Light, Aramis, when it hurts?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Light ever speak to you, Aramis, as the spirits speak to me?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Your Light and my Earth Mother, Aramis. Are they so different?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why does the Light still answer us?", next = "why" },

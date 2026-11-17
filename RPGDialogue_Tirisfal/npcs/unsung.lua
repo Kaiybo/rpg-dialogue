@@ -30,6 +30,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They stood just behind us, and when the line bent they'd step into the gap and pray loud enough to shame us back into place. I don't know what you pray to now, but a voice behind the line still matters, so learn where to stand before you learn what to say." } },
+      choices = {
+        { text = "I'll stand behind your line and keep it whole.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll stand where I like. Lines are for soldiers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -49,8 +58,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. When I was alive, the orcs I fought had warlocks behind them, not shamans, and I'm told the difference matters a great deal to your people." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in Deathknell. I've no claws to teach you how to use, but stand where I can see you all the same." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, among my sword pupils. Stand where I can see you, then, and tell me why you keep your distance from the fight." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at a warrior's post. I trained beside priests of the Light in the old army, and they stood behind the line and kept it standing, so I'll not mock yours." },
       },
       choices = {
+        { text = "Did the old army's priests ever fight beside you, Dannal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "It matters, Dannal. Do you hold the old war against us?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is a beast's strength worth less than a sword's, Dannal?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
@@ -290,6 +301,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They need someone to tell them they're still people, I think, and the priests seem to be the ones doing it. I just sell the bread, but I notice the ones who've spoken to Sarvis or Duesten walk out a bit straighter than they came in." } },
+      choices = {
+        { text = "Then I'll tell them they're still people.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bread is more use to them than comfort.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Bread, water and a little thread to stitch your tabard, because the Crusade will cut it and the Scourge will tear it. I sell everything a soldier forgets until the moment they need it, and I sell it at an honest price." } },
@@ -318,8 +338,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? You'll be after herbs, I suppose, and I only sell the kind that's been baked into bread." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll want something solid in your stomach, then, because swinging a sword on an empty belly is a fine way to get killed twice." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, is it? I've no arrows, I'm afraid, but I've bread for the road and water that only tastes a little of the well." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! The dead still need bread and water, and now they need priests too. I'm beginning to think dying changed rather less than we were told." },
       },
       choices = {
+        { text = "Do the risen still need priests, Joshua?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the living buy your bread too, Kien?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Did you keep a garden before the plague, Kien?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me what you have.", next = "BUSINESS" },
@@ -421,6 +443,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "We both ask something unseen for power, and we both pay for it, though a priest's bill comes due more politely than mine. The difference, I'd suggest, is that I always read the contract, and in my experience your sort never thought to ask for one." } },
+      choices = {
+        { text = "Some powers shouldn't be bargained with, Rupert.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Perhaps I should start reading contracts too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Some of them, and some of them would very much like to try, which is why I keep them on a short leash. A warlock who can't stand behind a warrior doesn't stay a warlock for long, so I've always thought our two trades get along rather well." } },
@@ -449,8 +480,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You commune with the wilds and I commune with things that would eat the wilds, so I suspect we'll get on politely and no further." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in my parlour. You'd be surprised how many of my demons respect a good blade, {class}, and how few of them respect a good argument." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast and my demons are cousins of a sort, {class}, though yours were tamed with patience and mine with somewhat sterner methods." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in my trainers' corner. We both deal in things beyond the veil, I'd say, though your sort tends to look at mine as if I'd tracked something in on my boots." },
       },
       choices = {
+        { text = "Do you think priests and warlocks are so different, Rupert?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The fel nearly destroyed my people, Boch. Why should I trust you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do your demons fear nature, Boch?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
@@ -548,6 +581,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Potions, for anyone who can pay, because a potion doesn't care what you believe or how tired the priest is. Still, I've watched a prayer finish what my bottles started, so I'll not quarrel with you too loudly." } },
+      choices = {
+        { text = "Prayer reaches what bottles can't. Both have their place.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Bottles are honest. Prayer is a guess.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Healing draughts first, and a strength elixir if you can afford one, though I'd rather you kept your coin for the draughts. Peacebloom and silverleaf are all you need for the basics, and they grow by the roads if you can be bothered to look." } },
@@ -576,8 +618,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you know peacebloom from silverleaf, at least, which puts you ahead of most of my students." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll come back cut up more than the rest, so do yourself a favour and carry healing draughts, not just bandages." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll pass more herbs in a day than my students find in a week, so keep your eyes on the ground now and then." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, then you'll know that a healing potion and a healing prayer both work better on a patient who's been told to sit still." },
       },
       choices = {
+        { text = "Are potions or prayers better medicine, Carolai?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your potions work on the living, Carolai?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you pick herbs from the plagued fields, Carolai?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me alchemy.", next = "BUSINESS" },
@@ -674,6 +718,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Some of it can, though it stings the poor dears like nettles, and the shadow-priests' mending is gentler on the dead. I stitched the living for twenty years, and I'll take any healing that works, whatever voice it answers to." } },
+      choices = {
+        { text = "Whatever heals them is worth using, Neela.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light hurts us. Leave it to the living.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "You don't, dear, not in the middle of it, so you step back when there's a breath and wrap it tight and quick. The dead can't feel how badly they're hurt, so check yourself after every scrap, whether it smarts or not." } },
@@ -702,8 +755,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, dear? Sit down and let me see those paws, or hands, whichever you're using today." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, dear? Then you'll need bandages more than anyone, so come and learn before you bleed out somewhere I can't reach you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, dear? Your beast will come back cut up too, I expect, and I've stitched a wolf or two in my time, though they never thanked me." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Bless you for coming, because half of Brill walks around with wounds they can't feel, and I could use another pair of hands that know how to close them." },
       },
       choices = {
+        { text = "Can the Light still heal Forsaken flesh, Nurse?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would you teach me bandages, Neela, though spirits heal me?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you ever stitch up the living, Neela?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me first aid.", next = "BUSINESS" },
@@ -801,6 +856,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "One or two of them still shy at a church bell, which is a funny thing in a horse with no ears to speak of. I like to think it's the ones that pulled the carts to Sunday service, and I keep them away from the chapel road for their own sake." } },
+      choices = {
+        { text = "That's kind of you, Zachariah. They earned their rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're bones, Zachariah. Don't be sentimental.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Into it, through it and out the other side, because they've nothing left to fear and nothing left to lose. A living horse bolts when the Crusade's arrows fly, but mine just keep walking, which is a comfort when you're the one on top." } },
@@ -830,8 +894,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, looking at my horses with that face. Yes, they're dead, and no, they don't mind it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want a mount that doesn't flinch when the swords come out, and mine never flinch at anything." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll be comparing my horses to your beasts, I expect, so I'll tell you now that mine don't need feeding and never wander off." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! My horses don't need blessing, mind, since they're past all that, but I'll not stop you if you want to try." },
       },
       choices = {
+        { text = "Do your horses remember what they were, Zachariah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your horses mind a shaman on their backs, Zachariah?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Shouldn't these horses be allowed to rest, Zachariah?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your horses.", next = "BUSINESS" },

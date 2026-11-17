@@ -23,6 +23,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They're past caring, and I'm past asking, but the newly risen watch me drag them in, and a word over them seems to settle their stomachs, or whatever we have instead of stomachs. Bless them if you like, provided you do it quickly." } },
+      choices = {
+        { text = "They were people once. They'll have their blessing.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Waste of breath, Saltain. Just gather them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -44,8 +53,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in Deathknell? Then you can tell me whether your spirits want anything from those ruined houses, because my people have already stripped them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be wanting a look at our fields, I suppose, and I'll tell you now they're no better than they look." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because skins and sinew are worth as much to Deathknell as any scrap of cloth, and you'll know how to get them." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've corpses to gather from the field and a few of them might want a blessing before Mordo shovels them under." },
       },
       choices = {
+        { text = "Should the scavenged dead get a blessing, Saltain?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you leave anything for the dead, Deathguard?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could Deathknell's gardens grow again, Deathguard?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Need another blade on the road, Deathguard?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -319,6 +330,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I would, and I'd count it a fair test, since I've only ever fought fresh corpses who didn't know which end of the sword to hold. Whatever you pray to, I hope it's quick, because I mean to make you need it." } },
+      choices = {
+        { text = "I'll fight you fairly, Montague, and not heal once.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll heal as often as I like and still win.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Think it? I know it, deadman, because I've been brawling on this road since before you were buried, and you're still learning which end of the sword to hold. Bring your best, and mind your knees, because they look like they'd pop out." } },
@@ -339,8 +359,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here? I'll not wager against anyone who throws lightning, thank you, so put your hands down." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? I've heard your lot turn into cats, and I'll not fight a cat, because I've owned one and I know how that ends." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, are you? Splendid, then here's a fair fight at last, and none of the sneaking about that the last deadman tried." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've never fought one of you before, and I hear you'll heal yourself in the middle of a fight, which seems rather like cheating." },
       },
       choices = {
+        { text = "Would you fight a priest who heals himself, Montague?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Afraid of a little lightning, Montague?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How did it end with the cat, Montague?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I've been tracking something through these fields.", next = "xhhunt", when = { class = "HUNTER", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -467,6 +489,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Not where Master Faranell can see, because he says prayer is a hypothesis nobody bothers to test. I said a small one over my first batch, though, and it came out rather well, so I've been wondering whether the shadow takes requests." } },
+      choices = {
+        { text = "A little faith never spoiled good work, Holland.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faranell's right. Measure twice and leave the gods out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Muscle? Well, yes, actually, because the Scourge wander through the fields and trample everything, and I can't gather and fight at the same time. Johaan says a proper apothecary shouldn't need guarding, but Johaan doesn't gather his own weed." } },
@@ -498,8 +529,10 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'll know plants better than I do, so tell me honestly, does the doom weed look healthy to you?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Do mind the doom weed when you swing that thing, because I've only just got the graveyard patch growing properly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll be out in the fields more than I am, so keep an eye out for doom weed, would you? It's the dark one, and the roots are the part I want." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Do you think there's a prayer for doom weed? I'm only asking because I've watered it every way I know and it still won't grow faster." },
       },
       choices = {
+        { text = "Do the apothecaries pray, Holland?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does the Society really want with all this doom weed?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why does doom weed grow best in the graveyard, Holland?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I know my herbs. Could the Society use me?", next = "herb", when = { profession = { "Herbalism", "Alchemy" } } },
