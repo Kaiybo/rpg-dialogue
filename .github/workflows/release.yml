@@ -1,16 +1,32 @@
-# Tag a version (git tag v0.9.0 && git push --tags) to build the zip and upload it.
-# Secrets to add in the GitHub repo settings once the projects exist:
-#   CF_API_TOKEN (CurseForge), WAGO_API_TOKEN (Wago Addons).
-# Project IDs go in RPGDialogue/RPGDialogue.toc as ## X-Curse-Project-ID: / ## X-Wago-ID:.
+# Builds the zip with the BigWigs packager and uploads it to CurseForge (and Wago).
+# - Every push to claude/import: an alpha build (only players who opt into alphas get it).
+#   Pushes that only change docs, tools, tests or the CurseForge kit are skipped.
+# - A tag like v0.67.0: a release (v0.67.0-beta1 makes a beta), plus a GitHub release.
+# No checks run first (the user skips validation).
+# Setup: put ## X-Curse-Project-ID: <id> in RPGDialogue/RPGDialogue.toc and add the
+# CF_API_TOKEN secret (and WAGO_API_TOKEN / ## X-Wago-ID: for Wago). Without them the
+# packager builds the zip and skips the upload. Steps: curseforge/README.md.
 name: Package and release
 
 on:
   push:
+    branches:
+      - claude/import
     tags:
       - "v*"
+    paths-ignore:
+      - "**.md"
+      - "curseforge/**"
+      - "tools/**"
+      - "tests/**"
+      - "banned_phrases.txt"
 
 permissions:
   contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   release:
@@ -23,8 +39,4 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Install Lua and luacheck
-        run: sudo apt-get update && sudo apt-get install -y lua5.1 luarocks && sudo luarocks install luacheck
-      - name: All checks (release mode)
-        run: python3 tools/check_all.py --release --characters 800
       - uses: BigWigsMods/packager@v2
