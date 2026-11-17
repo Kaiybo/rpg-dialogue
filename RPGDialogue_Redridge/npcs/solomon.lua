@@ -30,6 +30,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_ubrs = {
+      big = true,
+      lines = { { id = "xcl_ubrs_default", text = "I said so in forty letters, and the forty-first is on my desk now, informing the Keep that the matter was resolved by a private citizen at no cost to the crown. I'd hoped to feel vindicated, but mostly I feel tired, because the Blackrock are still in my hills and no dragon's death will move them." } },
+      choices = {
+        { text = "Send the letter anyway, Magistrate. The record matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stop writing. Stormwind won't listen, so Lakeshire should act alone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Who was Drakkisath, Magistrate?", next = "xcl_ubrs2" },
+      },
+    },
+    xcl_ubrs2 = {
+      lines = { { id = "xcl_ubrs2_default", text = "A general of the black dragonflight, by the reports, who commanded the orcs from the top of the Spire while his masters stayed out of sight. The court does not know who those masters are, and it has stopped guessing aloud, because guessing aloud in this kingdom is how a magistrate loses his post." } },
+      choices = {
+        { text = "Keep guessing quietly, then, and I'll keep listening.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Not one of them. I carry Lakeshire's danger carefully, and too long. Your spirits might reach where my letters can't." } },
@@ -65,6 +80,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
+          text = "The court is informed that General Drakkisath is dead in Blackrock Spire, and that you were present. The court would like it entered in the record that Lakeshire said so first, and was told it lacked proof." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid of the kaldorei in Lakeshire. I confess I have little notion what your people make of ours." },
         { id = "h_default", key = true,
@@ -123,6 +140,7 @@ P:NPC {
         { text = "Someone in Stormwind may be reading your letters before the nobles do.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Morganth's tower belonged to a wizard once, didn't it?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Has Stormwind answered your letters, Magistrate?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Drakkisath is dead, Magistrate. Dragons stood behind the orcs, as you said.", next = "xcl_ubrs", when = { cleared = "Upper Blackrock Spire", faction = "Alliance" } },
         { text = "I'll leave you to your letters.", next = "END" },
       },
     },

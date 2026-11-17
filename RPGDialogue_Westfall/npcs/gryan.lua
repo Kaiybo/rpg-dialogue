@@ -31,6 +31,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_stocks = {
+      big = true,
+      lines = { { id = "xcl_stocks_default", text = "Good, though I'll tell you plainly that Westfall won't feel it. The men in that prison have been out of the fight for years, and the ones burning our farms are still out there, so a quiet Stockade means a quiet city and nothing more for us." } },
+      choices = {
+        { text = "Justice in the city still matters, Gryan. It's a start.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right. Westfall needs swords here, not jailers there.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Did you know Thredd, before all this?", next = "xcl_stocks2" },
+      },
+    },
+    xcl_stocks2 = {
+      lines = { { id = "xcl_stocks2_default", text = "Only by name, from the Watch's reports after the stonemasons marched on the House of Nobles over their wages. Thredd was angry then, and I can't fault a man for that, but anger and a knife made something else of him." } },
+      choices = {
+        { text = "Anger needs a better road than the Brotherhood's.", next = "BACK" },
+      },
+    },
     xmage = {
       lines = { { id = "xma_default", text = "Then you've walked past the towers the Stonemasons raised there, and you know the city never paid them in full. I've nothing against the Mage Quarter, but I'd not have you think Stormwind's hands were ever as clean as its streets." } },
       choices = {
@@ -57,6 +72,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
+          text = "I hear the Stockade riot's done and Bazil Thredd with it, and that you were the one who ended it. Thredd was one of Edwin's lieutenants, and I'd hoped he'd hang in Westfall where the farmers he robbed could watch." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Defias", min = 40 } }, text = "Word reaches the hill of Defias found dead in the fields, and more of them than I'd dare hope for. The People's Militia thanks you, and I'll thank you myself, because every one of those masks was a farm we couldn't hold." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid of the kaldorei, out on my hill. I hope the land tells you something kinder than it tells me." },
@@ -105,6 +122,7 @@ P:NPC {
         { text = "My family sits in the House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "About Magistrate Solomon's letter.", next = "solomon", when = { questActive = TODO_QUEST("Messenger to Westfall") } },
         { text = "VanCleef is dead. What happens now?", next = "after", when = { deed = "dungeon:The Deadmines" } },
+        { text = "Bazil Thredd is dead, Gryan. The Stockade riot is over.", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
         { text = "I'm at your service.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Put me on the wall, Stoutmantle. I'm a soldier.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I can track the Defias through these hills.", next = "hunter", when = { class = "HUNTER" } },

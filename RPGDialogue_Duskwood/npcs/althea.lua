@@ -31,6 +31,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_scholo = {
+      big = true,
+      lines = { { id = "xcl_scholo_default", text = "Good, though schools outlive their masters, and every necromancer who passed through that place is still out there with what he learned. Men like Morbent Fel don't find their trade in a book lying in a ditch, and I'd wager the road from Raven Hill runs north to Caer Darrow sooner or later." } },
+      choices = {
+        { text = "Burn every book they left. Necromancy has no place among the living.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Study their books instead. You can't fight what you don't understand.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "How do your watchers fight the dead, Commander?", next = "xcl_scholo2" },
+      },
+    },
+    xcl_scholo2 = {
+      lines = { { id = "xcl_scholo2_default", text = "With fire and steel, and lanterns at every crossroads, because the dead are slow and stupid until somebody clever stands behind them. Kill the clever one and the rest fall down, and that's the only lesson my watchers ever need to learn." } },
+      choices = {
+        { text = "Then I'll go after the clever ones, Commander.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Listen. My watchmen hear too late, and the dead don't make much noise until they're on you. If your spirits can give us a moment's warning, that's worth a dozen swords." } },
@@ -75,6 +90,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance" },
+          text = "My watchers tell me you've come back from the Scholomance, the school in Caer Darrow where the Scourge teaches men to raise the dead. If you learned anything there about how they do it, I'd like to hear it before the next night on Raven Hill." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
           text = "I hear the mayor has found a new admirer for his letters. Write all you like, but when the worgen come over the wall, it will be farmers with pikes who answer them." },
         { id = "h_rivalfoe", when = { rivalFavor = { max = -2 } },
@@ -127,6 +144,7 @@ P:NPC {
         { text = "A few wards around Darkshire would help your watch.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What does the Night Watch need from a paladin, Commander?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you have a shaman do for the Night Watch, Commander?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Gandling is dead, Commander. The Scholomance has lost its headmaster.", next = "xcl_scholo", when = { cleared = "Scholomance" } },
         { text = "I'll keep to the lamplight.", next = "END" },
       },
     },

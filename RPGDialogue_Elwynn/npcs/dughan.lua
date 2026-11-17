@@ -29,6 +29,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_stocks = {
+      big = true,
+      lines = { { id = "xcl_stocks_default", text = "Some of them will, when their sentences run out, because a cell never cured a hungry man of stealing. I've a handful of guards for a whole county, and I'd rather folk believed the Defias are a nuisance than a war, since a frightened town is harder to keep than an angry one." } },
+      choices = {
+        { text = "People have a right to the truth, Marshal, frightened or not.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep them calm, Marshal. A little quiet is worth a little lying.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "What becomes of a thief after the Stockade, Marshal?", next = "xcl_stocks2" },
+      },
+    },
+    xcl_stocks2 = {
+      lines = { { id = "xcl_stocks2_default", text = "Most come home to Goldshire with nothing, and the Brotherhood is waiting with a meal and a mask, so I see the same faces twice. I can't feed them all, so I watch them, and I hope the Light does better with the rest than I can." } },
+      choices = {
+        { text = "Then I'll keep an eye on them too, Marshal.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I trust anyone who kills gnolls and kobolds and doesn't loot the dead. Show me that, and I'll not care what you talk to at night." } },
@@ -84,6 +99,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
+          text = "I sent a good many of Goldshire's thieves to that Stockade, so I'm glad to hear you've put the riot down. Keep the tale short at the inn, if you would, because Elwynn has enough nerves about the Defias as it is." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because Josetta upstairs at the inn could use someone to share the wounded with, and my men keep finding new ways to get hurt." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in my office. If you've come to tell me the Light's on my side, I'll take it, but I'd sooner have your hammer on the west road." },
         { id = "h_default", text = "Marshal Dughan. If you've a complaint, take a number. If you've a sword, take a job." },
@@ -159,6 +176,7 @@ P:NPC {
         { text = "How many soldiers have you lost this season, Marshal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would a paladin do the most good in Elwynn, Marshal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you trust a shaman to fight for Goldshire, Marshal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "The Stockade's quiet now, Marshal. Your prisoners won't trouble Goldshire.", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },

@@ -32,6 +32,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_stocks = {
+      big = true,
+      lines = { { id = "xcl_stocks_default", text = "Enough to know the Brotherhood's reach goes higher than Westfall, and not enough to name a name in front of the House of Nobles. Prisoners talk when they think they'll live, and Thredd stopped thinking that the day the riot started." } },
+      choices = {
+        { text = "Next time I'll bring him to you in chains, Shaw.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't fight riots on SI:7's schedule, Shaw.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "How high does the Brotherhood reach, Shaw?", next = "xcl_stocks2" },
+      },
+    },
+    xcl_stocks2 = {
+      lines = { { id = "xcl_stocks2_default", text = "High enough that I won't say it in a room with a window, and that's all you'll get from me today. Keep your ears open in the Keep, though, because sooner or later somebody there will say something careless, and I'd like you to be the one who hears it." } },
+      choices = {
+        { text = "I'll keep listening, Shaw.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "SI:7 keeps a file on everything new, and you are new. The last shamans this kingdom met came in war paint. Habit, not malice." } },
@@ -70,6 +85,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
+          text = "Thredd's dead and the riot's over, which leaves one less Defias mouth in the Stockade for me to question. Next time you go down there, come to me first, because a living prisoner is worth ten dead ones to SI:7." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Silver Hand makes poor spies and honest witnesses, and I've a use for honest witnesses now and then." },
         { id = "h_default", key = true, text = "Shaw. I run SI:7. If you've heard of us, someone's been careless. If you haven't, we're doing our job." },
         { id = "h_si7", tags = { "news" }, when = { questActive = TODO_QUEST("SI:7") },
@@ -128,6 +145,7 @@ P:NPC {
         { text = "Does SI:7 trust paladins, Master Shaw?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does SI:7 keep a file on the night elves, Master Shaw?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does SI:7 really keep a file on every shaman?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Thredd's dead. Did SI:7 get anything out of him first?", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },

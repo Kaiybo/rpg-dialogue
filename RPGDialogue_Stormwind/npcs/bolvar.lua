@@ -29,6 +29,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_bwl = {
+      big = true,
+      lines = { { id = "xcl_bwl_default", text = "The Blackrock orcs have lost their master, and the Dark Irons below them have lost an ally, so for a season the Burning Steppes may be quieter than they've been since the Second War. I'd send men to hold the passes if I had them, but the honest answer is that I'll send letters and hope Lakeshire holds." } },
+      choices = {
+        { text = "Hold the passes with what you have. The kingdom mustn't overreach.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget the passes. Let free blades clean out the mountain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What was Nefarian building up there?", next = "xcl_bwl2" },
+      },
+    },
+    xcl_bwl2 = {
+      lines = { { id = "xcl_bwl2_default", text = "The reports from the Spire spoke of dragons bred in strange colours and orcs sworn to him like hounds, and I've no scholar who can tell me what he meant by any of it. Now that you've ended it, I'm content never to find out." } },
+      choices = {
+        { text = "Some secrets are better left in the ashes, Highlord.", next = "BACK" },
+      },
+    },
+    xcl_onyxia = {
+      big = true,
+      lines = { { id = "xcl_onyxia_default", text = "Then you saw an end I couldn't see coming for years, though I sat in the same chamber every day. I've ordered every decree she touched read again, and I'll answer for each one I signed, because the boy will ask me one day and he deserves the truth." } },
+      choices = {
+        { text = "Answer for it openly, Highlord. The people deserve the whole truth.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Read the old decrees quietly. Shame weakens a throne more than dragons.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "How did no one at court see it?", next = "xcl_onyxia2" },
+      },
+    },
+    xcl_onyxia2 = {
+      lines = { { id = "xcl_onyxia2_default", text = "A few nobles grumbled, but grumbling is the court's weather and I'd stopped listening to it. Dragons are patient and their magic is old, though I'll not hide behind that, since I sat closer than anyone." } },
+      choices = {
+        { text = "No one could have known, Highlord. Don't carry it alone.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "It does, so long as I hold this seat, though the House of Nobles asks what the Alliance owes a people it barely knows. Darnassus answered when we called, and I mean to answer when they do." } },
@@ -88,6 +118,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_bwl", tags = { "news" }, when = { cleared = "Blackwing Lair", faction = "Alliance" },
+          text = "Nefarian's head hangs at the city gate, and the guards have stopped making jokes about it, which tells me they understand what it means. You were at the top of Blackrock Mountain when he fell, and Stormwind won't forget it." },
+        { id = "h_cl_onyxia", tags = { "news" }, when = { cleared = "Onyxia's Lair", faction = "Alliance", questDone = TODO_QUEST("The Great Masquerade") },
+          text = "The dragon's head hangs over the city gate where every merchant has to pass beneath it, and I gave the order myself. I want Stormwind to remember how near she came, and how close I let her." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Alliance. The Archbishop's people have been good to this city in a hard year, and I'm glad of every one I see in these halls." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! It's been too long since I stood with the Silver Hand in the field rather than beside this throne, so forgive me if I look at your armour a little enviously." },
         { id = "h_default", text = "Bolvar Fordragon. I keep the kingdom for King Anduin until his father comes home, or until he's grown. Whichever the Light allows first." },
@@ -142,6 +176,8 @@ P:NPC {
         { text = "Do you ever find time to pray, Highlord?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you miss the field, Highlord?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Stormwind truly mean to stand by the night elves, Highlord?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Onyxia is dead, Highlord. I was there in her lair.", next = "xcl_onyxia", when = { cleared = "Onyxia's Lair", faction = "Alliance", questDone = TODO_QUEST("The Great Masquerade") } },
+        { text = "Nefarian is dead. What becomes of Blackrock Mountain now?", next = "xcl_bwl", when = { cleared = "Blackwing Lair", faction = "Alliance" } },
         { text = "I'll take my leave, Highlord.", next = "END" },
       },
     },

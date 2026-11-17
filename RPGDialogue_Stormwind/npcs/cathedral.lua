@@ -37,6 +37,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_strat = {
+      big = true,
+      lines = { { id = "xcl_strat_default", text = "I pray that's so. Rivendare was a lord of Lordaeron before he gave himself to the Scourge, and a man who chooses that has made a darker bargain than any poor soul the plague took unawares. Archbishop Faol taught that the Light is offered even to such men, though I confess I find it hard to say over this one." } },
+      choices = {
+        { text = "The Light is offered to all, Archbishop, even to him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some men are past saving. Rivendare chose his side.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Did you know anyone in Stratholme, Archbishop?", next = "xcl_strat2" },
+      },
+    },
+    xcl_strat2 = {
+      lines = { { id = "xcl_strat2_default", text = "Every priest of my years knew someone there, child, because Stratholme was the jewel of the north and the Church sent good people to serve in its chapels. I've stopped counting the names, though I haven't stopped saying them." } },
+      choices = {
+        { text = "Then I'll say them with you tonight, Archbishop.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I don't know, and I would be a poor Archbishop if I pretended to. High Priestess Laurena and I have talked of it many evenings, and we agree only that both teach mercy, which may be all that matters." } },
@@ -78,6 +93,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme" },
+          text = "You've been inside Stratholme, I'm told, and come out again, which is more than the city's own people managed when the plague came. I'll say a prayer tonight for the ones who still walk its streets." },
         { id = "h_default", text = "Benedictus. I tend the Church as Archbishop Faol tended it before me. He built it to hold people. I try to keep the doors open." },
         { id = "h_priest", when = { class = "PRIEST", minLevel = 20 },
           text = "You've grown since you first knelt here, child. The Light hasn't changed, but you have, and that is how it's meant to work." },
@@ -127,6 +144,7 @@ P:NPC {
         { text = "What does the Church ask of a warrior, Archbishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the Light care about the wild places, Archbishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Is Elune so very different from your Light, Your Grace?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Baron Rivendare is dead, Archbishop. Stratholme's dead can rest a little easier.", next = "xcl_strat", when = { cleared = "Stratholme" } },
         { text = "Thank you, Your Grace.", next = "END" },
       },
     },
@@ -983,6 +1001,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_whitemane = {
+      big = true,
+      lines = { { id = "xcl_whitemane_default", text = "Then the Light answered her even at the end, or she believed it did, and I can't say which troubles me more. A priest's power isn't proof of a priest's righteousness, and that's the hardest thing I teach, because most students want the one to mean the other." } },
+      choices = {
+        { text = "Faith needs humility, Priestess, or it ends on Whitemane's road.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Faith needs steel. Whitemane only forgot where to point it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Did the Church ever try to rein the Crusade in?", next = "xcl_whitemane2" },
+      },
+    },
+    xcl_whitemane2 = {
+      lines = { { id = "xcl_whitemane2_default", text = "The Archbishop has written to Tirisfal more than once, and the Crusade answers politely and does as it likes. They think the Church in Stormwind is too soft for the north, and some days, reading the reports from Lordaeron, I can't fault them for thinking it." } },
+      choices = {
+        { text = "Soft isn't the same as weak, Priestess.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I think the Light is not jealous, though some of my brothers would argue. But I have seen what spirits did for the orcs, and I am slow to trust them." } },
@@ -1044,6 +1077,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_whitemane", tags = { "news" }, when = { cleared = "Scarlet Cathedral" },
+          text = "They say Whitemane is dead in her own cathedral in Tirisfal, and that you were there to see it. She learned the same prayers every priest in this hall learned, and I've been wondering all morning where her road and ours parted." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Light speaks to you differently than to my students, but it speaks, and I'd like to hear what you've done with it." },
         { id = "h_default", key = true,
           text = "Laurena. I teach the priests the Abbey and Goldshire send me, once they've shown they can be trusted with more. Some of them can." },
@@ -1077,6 +1112,7 @@ P:NPC {
         { text = "How do a priest's prayers and a paladin's oath differ?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Light care what I do in the dark, High Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you think the spirits and the Light can stand together?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I saw Whitemane fall. She raised the dead to fight beside her.", next = "xcl_whitemane", when = { cleared = "Scarlet Cathedral" } },
         { text = "Thank you, High Priestess.", next = "END" },
       },
     },
@@ -1507,6 +1543,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xcl_sm = {
+      big = true,
+      lines = { { id = "xcl_sm_default", text = "It's a fortress in a land of walking corpses, so of course it's grim, and the men who hold it have buried more friends than you've ever met. Whatever you saw there, you saw it in a single day, and they've lived it every day since the plague came to Tirisfal." } },
+      choices = {
+        { text = "Torturing prisoners is no way to fight anything, Brother.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "War against the dead needs hard men. I won't judge them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Who leads the Crusade inside the Monastery?", next = "xcl_sm2" },
+      },
+    },
+    xcl_sm2 = {
+      lines = { { id = "xcl_sm2_default", text = "High Inquisitor Whitemane keeps the Cathedral, and Scarlet Commander Mograine stands beside her, the son of the Ashbringer himself. If you've raised a hand against either of them, I'd rather not hear it from you here." } },
+      choices = {
+        { text = "Then I won't tell you, Brother.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I count every heathen rite a door left unbarred, and I have seen what walks through such doors. Prove yourself, dwarf, if you can." } },
@@ -1586,6 +1637,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_cl_sm", tags = { "news" }, when = { cleared = "Scarlet Monastery" },
+          text = "You've walked the Monastery to its far doors, I'm told, and the brothers who are left are telling a different story about you than you'll tell me. I'll pray for whichever of us has it wrong." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light! Good, for the Crusade needs priests more than soldiers, since the dead fear the Light and the living keep forgetting it." },
         { id = "h_default", key = true,
           text = "Brother Crowley, emissary of the Scarlet Crusade. The dead walk in Lordaeron, and the Crusade stands against them while Stormwind counts its coins. I send the brave to Brother Anton, in Desolace." },
@@ -1617,6 +1670,7 @@ P:NPC {
         { text = "What would the Scarlet Crusade ask of a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Are the beasts of Lordaeron truly sick, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you count every shaman an enemy, Brother Crowley?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I've seen inside the Monastery, Brother. It isn't what you think.", next = "xcl_sm", when = { cleared = "Scarlet Monastery" } },
         { text = "I'll go to Brother Anton.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I've sworn the Silver Hand's oath, not yours.", next = "paladin_oath", when = { class = "PALADIN" } },
         { text = "What would the Crusade ask of a priest, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
