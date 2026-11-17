@@ -1,7 +1,7 @@
 -- Mount Hyjal's unnamed folk: the sentinels, wardens and watchers on the slopes, the druids and
 -- tenders healing the mountain, and the traders who came up through Darkwhisper Gorge.
 local P = RPGDialogueAPI:Pack("rpgd.hyjal")
-local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+local TODO_QUEST = P.TODO_QUEST
 
 P:Pool {
   id = "guard_hyjal", role = "guard", zone = "Mount Hyjal",

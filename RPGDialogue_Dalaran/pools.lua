@@ -3,7 +3,7 @@
 -- to Dalaran itself (its own zone, or its subzones inside the Alterac Mountains), so pooled NPCs elsewhere
 -- in Alterac never use them. Voice: bibles/dalaran.md
 local P = RPGDialogueAPI:Pack("rpgd.dalaran")
-local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+local TODO_QUEST = P.TODO_QUEST
 
 P:Pool {
   id = "guard_dalaran", role = "guard",

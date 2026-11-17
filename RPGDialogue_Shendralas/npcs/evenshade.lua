@@ -3,7 +3,7 @@
 -- Evenshade Overlook: Archmage Mordent Evenshade of the Shen'dralar, above the ruins north of Eldre'Thalas.
 -- Voice: bibles/shendralas.md
 local P = RPGDialogueAPI:Pack("rpgd.shendralas")
-local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
+local TODO_NPC = P.TODO_NPC
 
 P:NPC {
   key = "shd_evenshade", id = TODO_NPC("Archmage Mordent Evenshade"), name = "Archmage Mordent Evenshade",
