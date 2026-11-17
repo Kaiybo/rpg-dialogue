@@ -61,6 +61,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A tauren druid, in Tirisfal. The Crusade calls us unnatural, and I expect they'll call you the same, in between the arrows." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Crusade's scouts creep through the woods north of Brill, and I would rather they were tracked than merely counted." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, then. The Crusade burns priests of every kind but their own, so you'll be high on their lists, and I'd sooner you were high on mine." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Scarlet", min = 40 } }, text = "The Scarlet patrols near Brill have grown thin and nervous, and my deathguards tell me you're the reason. The Dark Lady values that kind of work, and so do I." },
       },
       choices = {
         { text = "What use does the Deathguard have for a priest, Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

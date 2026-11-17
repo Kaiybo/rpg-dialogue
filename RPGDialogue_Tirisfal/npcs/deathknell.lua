@@ -211,6 +211,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my chapel. You serve the land, I gather, and the land around here has been rather busy serving the Scourge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, risen and still looking for tracks. The Light never taught anyone to read a trail, so you've kept the more useful habit." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "Another priest, with a new voice answering your prayers, I hope. Whatever you called on before let you die, so I trust you've noticed the shadows were the only thing waiting when you woke." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Mindless", min = 20 } }, text = "You've laid a good many of the mindless ones to rest, and Deathknell is quieter for it. They were lost long before you found them, so don't let it trouble you." },
       },
       choices = {
         { text = "What does the shadow ask of a priest, Sarvis?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

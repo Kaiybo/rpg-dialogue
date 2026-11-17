@@ -91,6 +91,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The Warchief brought your craft back to us, so I'll expect you on the line when the Kul Tirans come, and not off somewhere talking to rocks." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, posted to Razor Hill. Nazgrel never had much use for spellcasters, but I've seen what fire does to a Kul Tiran shield wall." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock. I'll be plain, since that's my way: the last orcs who called demons nearly burned our people down to the bone." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kul Tiras", min = 30 } }, text = "The Kul Tiras marines at Tiragarde Keep are short of men, my scouts tell me, and I know who to thank for it. Keep pressing them, and they'll be sailing home before winter." },
       },
       choices = {
         { text = "Where does Razor Hill need a priest most, Commander?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -258,6 +259,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Hmph, a mage. At least your fire comes from the arcane and not the Legion, which already makes you cleaner than the cultists I hunt." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The Burning Blade run when they see an axe coming, which is the one thing about them I like." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Burning Blade keep imps and worse at their heels, and someone who can track a beast can track those too." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Burning Blade's cultists don't creep about Skull Rock as boldly as they did, and that's your doing. Every one of them you put down is one less traitor whispering to the Legion." },
       },
       choices = {
         { text = "How should a priest fight the Burning Blade, Orgnil?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

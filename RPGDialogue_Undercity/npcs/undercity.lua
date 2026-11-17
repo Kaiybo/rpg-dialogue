@@ -286,6 +286,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You smell of grass and wet fur, which is a novelty down here, though not one I'd ask you to repeat." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I have watched a great many mortal hunters stalk their prey, {class}, and I confess I still find it charming." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, before me. How interesting, because I have watched mortals pray to many things, and I have never once seen those things answer quickly." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hillsbrad", min = 30 } }, text = "Hillsbrad's farmers and footmen fall before you rather efficiently, I'm told. The Dark Lady will be pleased, and I make a point of remembering those who please her." },
       },
       choices = {
         { text = "What do you think of mortal priests, Varimathras?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

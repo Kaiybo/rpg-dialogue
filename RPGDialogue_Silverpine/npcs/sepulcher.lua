@@ -50,6 +50,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because Silverpine has more enemies than I have soldiers, and lightning is cheaper than a deathstalker." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in my Sepulcher. The Warchief's people keep surprising me, and I'm not easily surprised." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my deathstalkers come back in pieces, and I'd rather they came back in one." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Moonrage", min = 40 } }, text = "The Moonrage packs are fewer than they were, and my deathstalkers can walk the north road again without looking over their shoulders every step. You've done the Sepulcher real service." },
       },
       choices = {
         { text = "Where can a priest serve the Sepulcher best, High Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -517,6 +518,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. My watchers saw you coming, {class}, and you're not hard to see, with all that steel catching the light." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You read the forest the way my watchers read people, {class}, and I wonder which of you is the better at it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I heard one was coming, of course, and I'm pleased to see you look the part, for the Shadow could use more servants in Silverpine who know how to listen." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dalaran", min = 20 } }, text = "The Dalaran wizards at Ambermill have lost a good many of their number, and the survivors are keeping behind their walls. Whatever they're building there, you've slowed it down." },
       },
       choices = {
         { text = "What does the Forgotten Shadow ask of its priests, Allister?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

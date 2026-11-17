@@ -152,6 +152,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Sun Rock's beasts have grown restless since the vale burned, and a hunter who knows how to turn them back is worth more to me than a spear." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. Good, because I have wounded braves who need healing and a forest down the slope that needs it even more." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Sun Rock has wounded enough to keep you busy, so don't wait for me to ask." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodfury", min = 30 } }, text = "The Bloodfury harpies have been quieter on the cliffs since you went up among them, and my braves have noticed. Good work, and keep at it, because there are always more of them." },
       },
       again = {
         { id = "h_again", text = "What else? Say it plainly; I've no patience left for riddles." },
@@ -421,6 +422,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and I can see you've a feel for the land, so you'll know the beasts have been driven half mad by the burning." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I mend the ground and you mend people, and Sun Rock needs both." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Please keep your fire well away from my seedlings, because they've been burned once already." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 30 } }, text = "The braves say the Grimtotem have lost a good many warriors to you, and the trail down to Aparaje is safer. I'm glad of it, though it grieves me that they were tauren." },
       },
       again = {
         { id = "h_again", text = "Anything else, while my hands are in the dirt? I can listen and plant at once." },
@@ -1268,6 +1270,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, little one, with steel in your hands and a long road behind you. The grove will let you pass, so long as the steel stays sheathed among the trees." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, little one, and you'll know that the beasts of this forest belong to it as much as the trees do." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, little one, so far from your mountains and fields. The Silver Hand's vows are known even here, though the trees remember older ones." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodfury", min = 30 } }, text = "The Bloodfury are fewer over the Charred Vale, little one, and the druids can plant again where they could not before. You've done the grove a kindness, and it will remember." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, little one. The grove has time, and so do I." },

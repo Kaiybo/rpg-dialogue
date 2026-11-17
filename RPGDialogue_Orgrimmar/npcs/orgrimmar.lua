@@ -550,6 +550,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, down here in the Cleft of Shadow? The Warchief's tauren friends are always welcome, of course, though you'll find very little down here that grows." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, how refreshing. The Cleft sees so many curious young casters that it's good to be reminded the Horde still has strong arms to protect them from themselves." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the Cleft! We don't see many of your kind down here, because the beasts don't care for the smell of brimstone, and I can't say I blame them." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Searing Blade", min = 20 } }, text = "The Searing Blade in the chasm beneath the city have lost many of their number, and I hear you were among those responsible. The Warchief's enemies have fewer places to hide now." },
       },
       choices = {
         { text = "Do you watch the Horde's priests as closely as its warlocks?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

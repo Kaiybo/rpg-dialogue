@@ -77,6 +77,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid come to Sen'jin! The loa of the islands and your Earth Mother be old friends, I think, but Zalazane be twisting the spirits on the Echo Isles so bad that they barely know each other now." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You move quiet as a raptor in the grass, mon. Zalazane's hexed ones never hear you coming, I bet." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. Good, because the hexed Darkspear on the Echo Isles still swing their spears, even when Zalazane be the one pullin' the strings." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hexed", min = 20 } }, text = "Fewer of the hexed trolls stagger about the Echo Isles now, and my people say a stranger has been giving them rest. Zalazane will feel that, and he'll not like it." },
       },
       choices = {
         { text = "What did Zalazane do with the loa's gifts, Master Gadrin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },

@@ -118,6 +118,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because the Barrens is all open ground, and I need someone who can see the Kolkar coming before they reach my wall." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Crossroads sends more wounded back through that gate than I have beds for, so you'll find work here if you want it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at the Crossroads. I don't understand your spells, but I understand a fireball landing among the Kolkar, and my wall could use a few." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 30 } }, text = "The caravans have been getting through, and my scouts say the Kolkar have pulled back from the road. I hear your name in that, so keep it up, and the Crossroads will owe you." },
       },
       choices = {
         { text = "Do you need the spirits' help to hold the Crossroads?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -485,6 +486,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Olgra could track a quilboar across bare rock, and she taught me a little of it before... well, before." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you've come to tell me Olgra's spirit is at peace, save your breath, because I'll believe that when I've seen what the quilboar did to her." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. I know your spells can't bring back the dead, so don't offer, and don't look at me like that." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Razormane", min = 40 } }, text = "The Razormane are fewer than they were, and I know whose work that is. It doesn't bring her back, but I sleep a little better knowing they bleed too." },
       },
       choices = {
         { text = "Do you want me to listen for Olgra's spirit?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1015,6 +1017,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, eh? Loud, slow and very good at getting hit, which is exactly what I need standing in front of me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Nobody sneaks up on Darsok, and that includes your beast, so don't let it try." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, eh? Patch up my clients' victims and I'll be out of business, so do us both a favour and only heal the people who pay me." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Witchwing", min = 30 } }, text = "The Witchwing harpies have stopped circling over the road, and my scouts say their nests are thinning out. That's your work, I think, and the Crossroads is grateful." },
       },
       choices = {
         { text = "Have you ever fought beside a shaman, Darsok?", next = "xhsham", when = { class = "SHAMAN" } },

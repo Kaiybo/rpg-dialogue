@@ -85,6 +85,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "The spirits have touched you, young one, and I can see it in the way you stand. My mother would have wanted you beside her at the rites." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Narache. My mother would have welcomed you, because the Greatmother believed every healer was a gift from the Earth Mother, whatever name they gave it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock in Narache. My mother would have welcomed you, so I will too, but I will be watching you." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bristleback", min = 30 } }, text = "The braves say the Bristleback have gone quiet in the hills since you went among them. My mother would have been proud of you, and so am I." },
       },
       choices = {
         { text = "Tell me about the Greatmother.", next = "greatmother" },
@@ -253,6 +254,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You'd make a fine scout for my hunts, if you can keep up." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Can you light a fire without flint? My hunters would trade a lot for that." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. My father would want me to send you away, but I'd rather see what you can do." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Battleboar", min = 20 } }, text = "You've been thinning out the battleboars, and the hunters say the plains around the camp are safer for it. I'll make a hunter of you yet, whatever you call yourself." },
       },
       choices = {
         { text = "Will you lead well?", next = "lead" },

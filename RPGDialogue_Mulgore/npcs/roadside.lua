@@ -108,6 +108,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The braves who survived the ravaged caravan could have used you, and so could the ones who didn't." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid on the road. That is good, because the dwarves at Bael'dun have cut the earth open with their picks, and someone who hears the land should see what they have done." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage on the open road. The diggers to the north tear at the earth with machines, and I hope you don't tear at it with spells." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bael'dun", min = 20 } }, text = "The dwarves at the Bael'dun digsite are fewer than they were, and the earth there is a little quieter. I won't celebrate it, but I won't pretend I'm sorry, either." },
       },
       choices = {
         { text = "What are the dwarves digging for?", next = "dwarves" },
