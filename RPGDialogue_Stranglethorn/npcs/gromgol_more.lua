@@ -14,22 +14,22 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "The zeppelin to Orgrimmar leaves soon, or late, or soon-ish anyway, so stay near the tower!" },
+    { id = "g_default", text = "The zeppelin to Orgrimmar leaves soon, or late, or soon-ish anyway, pal, so stay near the tower and keep your ticket where you can find it!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! You're a regular, pal, and regulars get my best smile, which is free." },
   },
 
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
-      text = "Whoa, a big one! Stand in the middle of the deck when you ride, pal, so the zeppelin doesn't list to one side." },
+      text = "Whoa, whoa, a big one! Stand in the middle of the deck when you ride, pal, so the zeppelin doesn't list to one side, because the Cartel bills me for every degree." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
-      text = "You look rough, pal. Sit at the top of the tower while you wait, because nothing in the jungle climbs this high, mostly." },
+      text = "You look rough, buddy. Sit at the top of the tower while you wait, because nothing in the jungle climbs this high, mostly, and the view's free." },
   },
 
   start = "hello",
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Absolutely! You don't get airsick, you don't panic, and if anything happens, which it won't, you can heal yourself. I'd put you on a poster if I thought the Horde would buy it, but the orcs get nervous about the Light, I've noticed." } },
+      lines = { { id = "xfpala_default", text = "Absolutely! You don't get airsick, you don't panic, and if anything happens, which it won't, you can heal yourself, which saves me on the paperwork. I'd put you on a poster if I thought the Horde would buy it, but the orcs get nervous about the Light, I've noticed." } },
       choices = {
         { text = "Don't sell anyone false promises about your zeppelins.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Put me on the poster. A little legend never hurt.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -38,7 +38,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Nothing a little goblin genius couldn't patch, and the zeppelin only dipped a bit over the Barrens. Warriors always get restless on the ride, so stand at the rail and glare at the clouds, and you'll reach Orgrimmar with every rope where it should be." } },
+      lines = { { id = "xwarcl_default", text = "Nothing a little goblin genius and a lot of rope couldn't patch, and the zeppelin only dipped a bit over the Barrens. Warriors always get restless on the ride, so stand at the rail and glare at the clouds, and you'll reach Orgrimmar with every rope where it should be." } },
       choices = {
         { text = "Fair. A warrior keeps discipline, even on a zeppelin.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "If I'm bored, I'll swing my axe wherever I please.", next = "BACK", fx = { align = { order = -1 } } },
@@ -59,7 +59,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Then you'd better have a spell that floats, pal, because the jungle down there is all teeth. We had one come down hard over the coast once, and the crew who walked out of the trees didn't want to talk about the walk." } },
+      lines = { { id = "xhcast_default", text = "Then you'd better have a spell that floats, pal, because the jungle down there is all teeth. We had one come down hard over the coast once, nothing exploded, much, and the crew who walked out of the trees didn't want to talk about the walk." } },
       choices = {
         { text = "Then let's make sure it doesn't. Check those engines.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If it goes down, I'm jumping first and asking later.", next = "BACK", fx = { align = { order = -1 } } },
@@ -68,7 +68,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "All the time, and I tell the passengers it's perfectly safe, which is a lie I'm paid to tell. Put a shaman aboard, though, and the storms seem to step aside, so I've started giving your lot the good seats." } },
+      lines = { { id = "xhsham_default", text = "All the time, and I tell the passengers it's perfectly safe, which is a lie I'm paid very well to tell. Put a shaman aboard, though, and the storms seem to step aside, so I've started giving your lot the good seats at no extra charge." } },
       choices = {
         { text = "Tell your passengers the truth about the storms, Nez'raz.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A comforting lie keeps passengers calm. Keep telling it.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -77,7 +77,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Perfectly, pal, almost entirely, and I've only lost one crate over the side in the last month. The engine makes a funny noise now and then, but that's just it singing, and a happy engine is a safe engine." } },
+      lines = { { id = "xrogue_default", text = "Perfectly, pal, almost entirely, and I've only lost one crate over the side in the last month, and it was insured. The engine makes a funny noise now and then, but that's just it singing, and a happy engine is a safe engine." } },
       choices = {
         { text = "I'll trust your word. You know your zeppelin.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll check the engine myself, just in case.", next = "BACK", fx = { align = { order = -1 } } },
@@ -86,7 +86,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Every one of them who knows the spell, and they never even say goodbye. I tell them the view's better from the zeppelin, and it's true, but they'd rather blink and be home than spend an afternoon looking at the sea." } },
+      lines = { { id = "xmage_default", text = "Every one of them who knows the spell, and they never even say goodbye, or pay a fare. I tell them the view's better from the zeppelin, and it's true, but they'd rather blink and be home than spend an afternoon looking at the sea." } },
       choices = {
         { text = "I'll take the zeppelin. The view's worth it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll teleport. Time is too precious to waste.", next = "BACK", fx = { align = { light = -1 } } },
@@ -104,23 +104,23 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You wouldn't put in a word with the air spirits about the crosswinds, would you? The last crossing nearly put us in the sea." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You wouldn't put in a word with the air spirits about the crosswinds, would you, buddy? The last crossing nearly put us in the sea, and seawater does terrible things to an engine." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say a little something for the engine, would you, pal? It's been coughing since the last crossing." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! Your little buddy rides in the hold, pal, because the last imp we let up top set the balloon smoking." },
         { id = "h_default", key = true,
-          text = "Nez'raz, zeppelin master! The ship from this tower drops off at Orgrimmar, and the sun here beats the dust there any day of the week. Best post on the line, if you ask me, and nobody ever does." },
+          text = "Nez'raz, zeppelin master! The ship from this tower drops off at Orgrimmar, and the sun here beats the dust there any day of the week. It's the best post on the line, if you ask me, and nobody ever does, which is why I charge for my opinions." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "Night runs are the quiet ones, pal, and the jungle down there sounds like it's eating itself. Up here you just hear the engine and the wind, and that's how I like it." },
+          text = "Night runs are the quiet ones, pal, and the jungle down there sounds like it's eating itself. Up here you just hear the engine and the wind and the coins in the fare box, and that's how I like it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, the zeppelin's perfectly safe, pal, and I'll thank you not to go poking around the engine, because it doesn't like being poked." },
-        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You'll be teleporting to Orgrimmar, I suppose, and leaving my zeppelin empty, which is a crying shame, pal." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You'll be teleporting to Orgrimmar, I suppose, and leaving my zeppelin empty, which is a crying shame and a lost fare, pal." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Keep that axe sheathed on the deck, pal, because the last fellow who practiced his swings up there cut through a rope we really needed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Beasts ride free on my zeppelin, pal, but if yours gets airsick, you're the one cleaning the deck." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! I'll warn you now, the zeppelin's no place for a bear, but if you turn into something small you could ride the rigging and save me a seat." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! I'll warn you now, the zeppelin's no place for a bear, chum, but if you turn into something small you could ride the rigging and save me a seat to sell." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Perfectly safe zeppelins, perfectly safe, and even if they weren't, you're already dead, so really you're my ideal passenger." },
       },
       again = {
         { id = "h_again", text = "Anything else, pal? The zeppelin waits for nobody, except when it does." },
-        { id = "h_again2", text = "Ask away while we wait. I love a chat." },
+        { id = "h_again2", text = "Ask away while we wait, buddy. I love a chat, and chatting's free, unlike the zeppelin." },
       },
       choices = {
         { text = "Do the zeppelins ever fly through storms on the way?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -139,7 +139,7 @@ P:NPC {
     },
     safe = {
       lines = {
-        { id = "sa_default", text = "Safe as houses, pal, and goblin houses at that! The engines hum, the bags hold, and if anything goes wrong, well, you'll be the first to know, and you'll have a great view." },
+        { id = "sa_default", text = "Safe as houses, pal, and goblin houses at that, which only explode on holidays! The engines hum, the bags hold, and if anything goes wrong, well, you'll be the first to know, and you'll have a great view." },
         { id = "sa_gnome", when = { race = "Gnome" },
           text = "You're a gnome, so you'll look at the engine and frown, and I'll tell you right now it works, so don't touch it. Safe as houses, really." },
       },
@@ -156,7 +156,7 @@ P:NPC {
     },
     sun = {
       lines = {
-        { id = "su_default", text = "The sun, the sea, the breeze off the coast, and nobody asking for a bribe. Out in Durotar the wind blows sand into the gearbox, but here it just blows the smell of the jungle into your face, and I've gotten fond of it." },
+        { id = "su_default", text = "The sun, the sea, the breeze off the coast, and nobody asking for a bribe, which is a savings all by itself. Out in Durotar the wind blows sand into the gearbox, but here it just blows the smell of the jungle into your face, and I've gotten fond of it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -171,14 +171,14 @@ P:NPC {
     },
     view_trolls = {
       lines = {
-        { id = "vt_default", text = "They come and look and go away again. They don't like the zeppelin, I think, and I don't blame them, because a big bag of gas flying over your home would make anybody nervous." },
+        { id = "vt_default", text = "They come and look and go away again. They don't like the zeppelin, I think, and I don't blame them, kid, because a big bag of gas flying over your home would make anybody nervous, especially if they'd seen one go up." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I'm a goblin with a good job, a nice view and a tower all my own. Not much else to say, pal." } },
+    background = { { id = "tp_ba", text = "I'm a goblin with a good job, a nice view, a steady wage and a tower all my own. Not much else to say, pal." } },
     advice = { { id = "tp_ad", text = "Don't lean over the rail, pal. The ones who do always find out how far down it is." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and if it can't ride a zeppelin, I can't help." } },
   },

@@ -14,18 +14,18 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Yes? If you're buying, come in, and if you're browsing, browse quickly." },
-    { id = "g_hats", when = { questActive = TODO_QUEST("Pirate Hats Ahoy!") }, text = "Do you have all twenty hats? I don't believe you, so let me see them." },
+    { id = "g_default", text = "Yes? If you're buying, sweetie, come in, and if you're browsing, browse quickly, because my time is billed by the minute and you can't afford many." },
+    { id = "g_hats", when = { questActive = TODO_QUEST("Pirate Hats Ahoy!") }, text = "Do you have all twenty hats, sweetie? I don't believe you, so let me see them, and let me count them, twice." },
     { id = "g_hats_done", when = { questDone = TODO_QUEST("Pirate Hats Ahoy!") }, text = "Ah, my hat courier! You look almost presentable today, sweetie. Almost." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and wearing the same thing you left in, I see. We'll talk about that." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "People are saying nice things about you, sweetie. Imagine what they'd say if you dressed better." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and wearing the same thing you left in, I see. We'll talk about that, sweetie, and the talk will cost you." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "People are saying nice things about you, sweetie. Imagine what they'd say if you dressed better, and imagine what I'd charge to make it happen." },
   },
 
   notice = {
     { id = "n_rags", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Oh, sweetie, no. Those aren't clothes any more, those are a cry for help." },
     { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
-      text = "A tailor! Then you'll understand that what I do is art, and what you do is sewing. Don't take it personally." },
+      text = "A tailor! Then you'll understand that what I do is art, sweetie, and what you do is sewing, and art sells for thirty times as much. Don't take it personally." },
   },
 
   start = "hello",
@@ -34,9 +34,9 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am a procurer of fashionable apparel for the elite of Azerothian society. Kings and queens and warchiefs all wear what I decide is in style, and they pay through the nose for it, which is the best part." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Pirate Hats Ahoy!") },
-          text = "You're the help the Cartel sent? I suppose you'll do, so listen carefully, because this season's look is pirate, and I'm short on hats." },
+          text = "You're the help the Cartel sent? I suppose you'll do, sweetie, so listen carefully, because this season's look is pirate, I'm short on hats, and every day without them is gold walking out the door." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Pirate Hats Ahoy!") },
-          text = "Lost Rigger Cove, down the coast, and a great many pirate hats by whatever means you like. Pristine condition, mind you, because blood doesn't come out of felt." },
+          text = "Lost Rigger Cove, down the coast, and a great many pirate hats by whatever means you like. Pristine condition, mind you, because blood doesn't come out of felt and stained felt doesn't sell." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Pirate Hats Ahoy!"), days = 3 } },
           text = "Oh, you're a darling, even if it took longer than I'm used to. Once they're cleaned and personalized, these hats will make me a small fortune. Do spend some of your reward on a bath, sweetie." },
         { id = "h_nelf", when = { race = "NightElf" },
@@ -45,8 +45,8 @@ P:NPC {
           text = "Oh my, the horns. Nothing I sell will fit you, sweetie, but you're welcome to stand there and admire it." },
       },
       again = {
-        { id = "h_again", text = "Something else, sweetie? I charge for consultations, normally." },
-        { id = "h_again2", text = "Go on, then. You have until I lose interest." },
+        { id = "h_again", text = "Something else, sweetie? I charge for consultations, normally, and handsomely." },
+        { id = "h_again2", text = "Go on, then. You have until I lose interest, and my interest is very expensive." },
       },
       choices = {
         { text = "Who actually wears pirate hats?", next = "hats" },
@@ -67,7 +67,7 @@ P:NPC {
     },
     hats_stance = {
       big = true,
-      lines = { { id = "hs_default", text = "Stolen is such an ugly word. The pirates stole everything they own, I'm simply returning a little of it to polite society, with a markup for my trouble." } },
+      lines = { { id = "hs_default", text = "Stolen is such an ugly word, sweetie. The pirates stole everything they own, I'm simply returning a little of it to polite society, with a markup for my trouble, a generous one." } },
       choices = {
         { text = "Fair. Pirates have no claim on anything.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Profiting from the dead is low, even for you.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
@@ -86,7 +86,7 @@ P:NPC {
       choices = { { text = "Point taken.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     port = {
-      lines = { { id = "p_default", text = "Ships come in here from Booty Bay and Ratchet and everywhere else that matters, and that's where my buyers send their orders. The sand is dreadful for the fabrics, but the shipping rates are divine." } },
+      lines = { { id = "p_default", text = "Ships come in here from Booty Bay and Ratchet and everywhere else that matters, and that's where my buyers send their orders, with deposits. The sand is dreadful for the fabrics, but the shipping rates are divine." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dress = {
@@ -107,9 +107,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A goblin of taste in a world that has none. It's a lonely calling, but it pays." } },
+    background = { { id = "tp_bg", text = "A goblin of taste in a world that has none, sweetie. It's a lonely calling, but it pays, and it pays very well." } },
     advice = { { id = "tp_ad", text = "Charge what it's worth to them, not what it cost you. That's the only rule in fashion, and in life." } },
     bloodsail = { { id = "tp_bloodsail", text = "Dreadful pirates with dreadful hats, nothing like the Southsea ones. Red is so obvious." } },
-    _none = { { id = "tp_none", text = "I don't concern myself with that, sweetie. Is it wearable? No? Then it isn't my problem." } },
+    _none = { { id = "tp_none", text = "I don't concern myself with that, sweetie. Is it wearable? Is it sellable? No? Then it isn't my problem." } },
   },
 }
