@@ -32,3 +32,6 @@ Biased about the map.
 
 ## Topics
 background, advice, _none.
+
+## Content push (authored, not canon)
+He and Muigin tramped Kalimdor together for years (maps and seeds); the Marshals hired them for plant samples and a ridge map; he claims the crater's features move.

@@ -57,6 +57,9 @@ P:NPC {
         { text = "Do you want to go home?", next = "home" },
         { text = "The pests are zapped. Will you talk to him now?", next = "patient", when = { questDone = TODO_QUEST("Bloodpetal Zapper") } },
         { text = "Dwarves don't get lost. Who's really to blame?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "How long have you and Muigin been partners?", next = "partners" },
+        { text = "What do you make of the crater itself?", next = "crater" },
+        { text = "Those pests are only plants, Larion.", next = "plants", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Good luck with the pests.", next = "END" },
       },
@@ -106,6 +109,44 @@ P:NPC {
     patient = {
       lines = { { id = "p_default", text = "Maybe, once he says sorry first, which might take a while. And don't ye dare tell him I said I miss the old fool." } },
       choices = { { text = "Your secret's safe.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    partners = {
+      lines = { { id = "pa_default", text = "Longer than I'd admit to his face. We've tramped half of Kalimdor together, him with his seeds and me with my maps, and we never once got lost until this blasted crater." } },
+      choices = {
+        { text = "What brought you two to Un'Goro?", next = "partners_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    partners_why = {
+      lines = { { id = "pw_default", text = "The Marshals wanted samples of the crater's plants and a decent map of the ridges, so they hired the pair of us. He got his plants, I got my map half done, and then we got our argument, which is taking a good deal longer than either job." } },
+      choices = {
+        { text = "So who's going to say sorry first?", next = "partners_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    partners_stance = {
+      big = true,
+      lines = { { id = "ps_default", text = "Not me, that's for certain, unless ye think I should. Go on, ye've heard both of us by now, I'd wager, so tell me straight: who ought to bend first?" } },
+      choices = {
+        { text = "You should, Larion. The bigger heart bends first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "He should. He chose the shortcut, so he owns it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'm staying out of it.", next = "BACK", fx = { trait = { discreet = 1 } } },
+      },
+    },
+    crater = {
+      lines = { { id = "cr_default", text = "It's a fine place for a map, I'll give it that, every ridge and hot spring a mark worth making. But the ground's warm when it shouldn't be, the beasts are too big by half, and nothing in it stays where ye drew it." } },
+      choices = {
+        { text = "Nothing stays where you drew it?", next = "crater_moving" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crater_moving = {
+      lines = { { id = "cm_default", text = "Tar pits creep, the ferns grow over a path in a week, and I swear one of the crystal outcrops was a hundred yards further east last month. A dwarf can't map a place that won't hold still, and that's not an excuse, that's science." } },
+      choices = { { text = "Of course it is.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    plants = {
+      lines = { { id = "pl_default", text = "Plants that bite my ankles at breakfast, and that walk, and that come from his patch every time! I don't care if they're flowers or fiends, they're his, and the zapper doesn't ask questions." } },
+      choices = { { text = "Perhaps Muigin can't control them either.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     dwarf = {
       lines = { { id = "d_default", text = "Exactly my point! A dwarf with a map is never lost, so the only explanation is human interference. I've said so to anyone who'll listen, which is ye and the pests." } },

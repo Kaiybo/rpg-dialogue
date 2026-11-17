@@ -26,3 +26,6 @@ Honest.
 
 ## Topics
 background, advice, _none.
+
+## Content push (authored, not canon)
+Dadanga was orphaned as a calf by centaur raiders on the Barrens and fed from a waterskin; Petra was freed from the internment camps; Williden never asks about the war.
