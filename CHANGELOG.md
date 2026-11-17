@@ -53,6 +53,19 @@ Twelve new Stories for the journal, across both continents and both factions. **
 - **The ruins in the hills**: Feathermoon and Camp Mojache watch the Gordunni, each other and Dire Maul.
 - The people who carry these Stories greet you differently once one has ended.
 
+## 0.80.1 (2026-11-17)
+Spoogledorf, as he really is. No new files: a /reload is enough (a full restart if you're coming from before 0.80.0).
+
+- **Spoogledorf rewritten to match the game:** he's an old gnome in Stormwind, not a travelling hunter. Now he's a Gnomeregan refugee who founded Uber Town and keeps its two ledgers (one for coin, one for promises), with new talk about his name (a "spoogle" is a watch spring), Tinker Town and the day he fled, Stormwind's too-tall stairs, and whether the gnomes should retake Gnomeregan or build anew.
+- Uber Town's young members are still there, Biscuit the bad-tempered pet now belongs to their hunter, and you can still ask to join (the Horde get an honorary line in the promise ledger). Gnome, dwarf and human players get their own lines.
+
+## 0.80.0 (2026-11-17)
+Spoogledorf of Uber Town has something to say. **New file: restart the game fully (a /reload won't load it).**
+
+- **Spoogledorf**, the hunter of the adventuring company Uber Town, now has a full conversation: about 25 steps on his much-mocked family name (and a wanted poster over a pie he didn't steal), the six-ish members of Uber Town and their plan to buy a whole town with eleven gold, his bad-tempered pet Biscuit, the jobs they take, and his dream of ending up in a song.
+- Choices that shape your alignment (keep the name or change it, take an empty town or buy one, search a friend's bags or trust him, glory or getting home), a few class lines (hunters, mages, priests), Horde and Alliance versions of his work, and after a first meeting you can ask to join Uber Town.
+- Matched by his Forever NPC id (276591), so he talks wherever he stands. Not yet seen in game.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
