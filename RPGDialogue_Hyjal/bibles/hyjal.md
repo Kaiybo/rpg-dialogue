@@ -2,6 +2,50 @@
 
 New Forever zone (level 60, contested), reached on foot from Winterspring through Darkwhisper Gorge. Everything below was read on warcraft.wiki.gg on 2026-11-17. The Forever pages are thin: the subzone pages don't exist yet, only six NPCs and a handful of quests have pages, and the raids open on December 9. Where the wiki is silent, the characters stay modest and talk about their work, their place and each other.
 
+## Sources
+
+- https://warcraft.wiki.gg/wiki/Ashen_Lake
+- https://warcraft.wiki.gg/wiki/Barrow_Deeps_(instance
+- https://warcraft.wiki.gg/wiki/Battle_of_Mount_Hyjal
+- https://warcraft.wiki.gg/wiki/Befouled_Water_Globe_(Forever
+- https://warcraft.wiki.gg/wiki/Blackthorne_Intelligence
+- https://warcraft.wiki.gg/wiki/Celastrus_the_Bitter_(quest
+- https://warcraft.wiki.gg/wiki/Darkwhisper_Gorge
+- https://warcraft.wiki.gg/wiki/Deadwood_Key,
+- https://warcraft.wiki.gg/wiki/Death_Lotus,
+- https://warcraft.wiki.gg/wiki/Doomguard_Xarkul
+- https://warcraft.wiki.gg/wiki/Drop_of_Stolen_Life,
+- https://warcraft.wiki.gg/wiki/Feathers_in_Flight_(Alliance
+- https://warcraft.wiki.gg/wiki/Feathers_in_Flight_(Horde
+- https://warcraft.wiki.gg/wiki/Fel_Crystal_(Forever
+- https://warcraft.wiki.gg/wiki/Grove_of_Aessina
+- https://warcraft.wiki.gg/wiki/Hyjal_Summit_(instance
+- https://warcraft.wiki.gg/wiki/Jereman
+- https://warcraft.wiki.gg/wiki/Maerion_Thaelemaches
+- https://warcraft.wiki.gg/wiki/Marrosis
+- https://warcraft.wiki.gg/wiki/Mount_Hyjal_(Forever
+- https://warcraft.wiki.gg/wiki/Nordrassil
+- https://warcraft.wiki.gg/wiki/Regrowth_(subzone
+- https://warcraft.wiki.gg/wiki/Ring_of_the_Fallen_Soldier
+- https://warcraft.wiki.gg/wiki/Shrine_of_Aviana,
+- https://warcraft.wiki.gg/wiki/Shrine_of_Goldrinn
+- https://warcraft.wiki.gg/wiki/Thisalee_Crow
+- https://warcraft.wiki.gg/wiki/Venom-dripping_Heart,
+- https://warcraft.wiki.gg/wiki/Verdant_Thicket
+- https://warcraft.wiki.gg/wiki/World_of_Warcraft:_Forever
+- https://warcraft.wiki.gg/wiki/Yashiro%27s_Windwalk,
+- https://warcraft.wiki.gg/wiki/Yashiro,
+
+## Their quests
+
+- Belle's Ring
+- Blademaster's Bonfires
+- Celastrus the Bitter
+- Disturbed Grave
+- Feathers in Flight
+- Stolen Life
+- Yashiro's Windwalk
+
 ## Year 1 discipline
 - Set a few years after the Battle of Mount Hyjal (Third War). Archimonde is dead; Nordrassil is scorched and mending; the night elves are mortal; Teldrassil is their capital; Malfurion sleeps in the Emerald Dream (body in the Moonglade barrow dens); Felwood rots below.
 - Never: anything from Cataclysm Hyjal (Ragnaros, the Firelands, the Twilight's Hammer assault on Nordrassil, Malfurion awake, Aviana reborn, the Wormwing harpies, Sethria, Guardians of Hyjal as a faction, Sanctuary of Malorne quest hubs), Illidan's later fate (Outland, the Illidari), the Legion invasion, anything later.

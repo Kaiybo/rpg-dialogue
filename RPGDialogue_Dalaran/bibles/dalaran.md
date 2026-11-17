@@ -2,6 +2,64 @@
 
 New Forever content. Read on warcraft.wiki.gg (raw page text) on 2026-11-17. The wiki's Forever pages for Dalaran are young: most city NPCs have only a location and, at best, one gossip line. Where the wiki is silent, the characters talk about their work, their street and their neighbours, and nothing more.
 
+## Sources
+
+- https://warcraft.wiki.gg/wiki/A_Green_Sample
+- https://warcraft.wiki.gg/wiki/Alfina_Nightgaze
+- https://warcraft.wiki.gg/wiki/An_Alarming_Request
+- https://warcraft.wiki.gg/wiki/Arcanist_Laurain
+- https://warcraft.wiki.gg/wiki/Archmage_Alvareaux
+- https://warcraft.wiki.gg/wiki/Archmage_Ansirem_Runeweaver
+- https://warcraft.wiki.gg/wiki/Archmage_Celindra
+- https://warcraft.wiki.gg/wiki/Archmage_Modera
+- https://warcraft.wiki.gg/wiki/Atrexis_the_Grave_Knight,
+- https://warcraft.wiki.gg/wiki/Beepo,
+- https://warcraft.wiki.gg/wiki/Belanaa_Windveil
+- https://warcraft.wiki.gg/wiki/Blood_in_the_Streets,
+- https://warcraft.wiki.gg/wiki/Brammold_Deepmine
+- https://warcraft.wiki.gg/wiki/City_of_Dalaran
+- https://warcraft.wiki.gg/wiki/Dalar_Dawnweaver
+- https://warcraft.wiki.gg/wiki/Dalaran
+- https://warcraft.wiki.gg/wiki/Dalaran_Patrols
+- https://warcraft.wiki.gg/wiki/Denaaris_Stargale
+- https://warcraft.wiki.gg/wiki/Friend_of_the_Kirin_Tor
+- https://warcraft.wiki.gg/wiki/Fuzz
+- https://warcraft.wiki.gg/wiki/Heart_of_Disruption_(Alliance
+- https://warcraft.wiki.gg/wiki/Heart_of_Disruption_(Horde
+- https://warcraft.wiki.gg/wiki/High_Order_Dockmaster
+- https://warcraft.wiki.gg/wiki/Image_of_Archmage_Modera_(Forever
+- https://warcraft.wiki.gg/wiki/Key_to_the_City_(Forever
+- https://warcraft.wiki.gg/wiki/Kirin_Tor
+- https://warcraft.wiki.gg/wiki/Lizi_Silverstone,
+- https://warcraft.wiki.gg/wiki/Lulu_(Forever
+- https://warcraft.wiki.gg/wiki/Misifus,
+- https://warcraft.wiki.gg/wiki/Niko_(cat
+- https://warcraft.wiki.gg/wiki/Oliver_(Forever
+- https://warcraft.wiki.gg/wiki/Opportunistic_Education
+- https://warcraft.wiki.gg/wiki/Pancakes,
+- https://warcraft.wiki.gg/wiki/Pollero_Rene,
+- https://warcraft.wiki.gg/wiki/Power_Overwhelming_(Forever
+- https://warcraft.wiki.gg/wiki/Rexxie_Copperclutch,
+- https://warcraft.wiki.gg/wiki/Shade_of_the_Archmage
+- https://warcraft.wiki.gg/wiki/Shrewd_Negotiations
+- https://warcraft.wiki.gg/wiki/Skyborne_(playable
+- https://warcraft.wiki.gg/wiki/Starving_Arcane
+- https://warcraft.wiki.gg/wiki/The_Grave_Knight
+- https://warcraft.wiki.gg/wiki/What_Comes_Next_(Alliance
+- https://warcraft.wiki.gg/wiki/Zara
+- https://warcraft.wiki.gg/wiki/Zephras_Isle,
+
+## Their quests
+
+- A Green Sample
+- An Alarming Request
+- Friend of the Kirin Tor
+- Heart of Disruption
+- Opportunistic Education
+- Shrewd Negotiations
+- The Magical City of Dalaran
+- Welcome to Azeroth
+
 ## Year 1 discipline
 - Dalaran here is the city in the Alterac Mountains, rebuilding after Archimonde broke it in the Third War. The Kirin Tor lowered its dome early, while the city is still under repair. Nothing about Northrend, the Violet Hold, a floating city, Rhonin or anyone leading the Kirin Tor, Jaina's later history, the Sunreavers or the Silver Covenant, the Nexus War, or any later expansion.
 - Who leads the Kirin Tor now is never said. "The council" is all anyone names.

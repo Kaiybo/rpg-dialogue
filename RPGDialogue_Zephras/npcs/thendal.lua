@@ -4,8 +4,6 @@
 local P = RPGDialogueAPI:Pack("rpgd.zephras")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
-local ALLIANCE_OUT = { "Human", "Dwarf", "NightElf", "Gnome" }
-local HORDE_OUT = { "Orc", "Troll", "Tauren", "Scourge" }
 
 ---------------------------------------------------------------------------
 -- Rorian the Dayseeker: village leader at the greatfather tree. Gives the

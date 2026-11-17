@@ -230,7 +230,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll scout, and let your hunters take the kill fairly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Why scout when I can cut them down asleep?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Scouting's a waste. I'd rather cut them down asleep.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

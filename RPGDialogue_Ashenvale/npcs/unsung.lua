@@ -583,7 +583,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "The young ones come in starving after a week in the woods, and the old ones swear they don't need my bread and then eat three loaves. The forest feeds them less than it used to, with the Foulweald gone sour and the orcs scaring off the game." } },
       choices = {
         { text = "I'll pay for my bread and leave the forest's food alone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The forest's food is free. Why pay for bread?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "The forest's food is free. I won't pay for bread.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

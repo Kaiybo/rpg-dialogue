@@ -658,7 +658,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Not yet, and I'd like to keep it that way, since the springs are my retirement plan! The crater's dangerous enough without a demon scaring off the paying guests, so if you need to call something up, do it over by the tar pits, where nobody's paying attention." } },
       choices = {
         { text = "I'll keep my demon out of your springs, Krakle.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Maybe a demon would draw a crowd. Have you thought of that?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A demon would draw a crowd, you know. Think about it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -590,7 +590,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Worry? No. Annoy, aye. A miner wants tae think he found the seam by sweat an' skill, an' then some shaman walks past an' says the rock told him where it was. I've lost two customers tae a shaman's word, an' I'm still decidin' whether tae be cross." } },
       choices = {
         { text = "Sweat and skill are honest. I'd not take that from anyone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Why sweat, when the rock will tell you where to dig?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "No need to sweat when the rock tells you where to dig.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

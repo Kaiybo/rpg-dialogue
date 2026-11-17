@@ -216,7 +216,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Not yet, and I'd like to keep it that way, because a burning flyer over Fire Plume Ridge is a story nobody lives to tell. I don't care what you've bound, so long as it sits still, and so long as you pay in advance, because some of my passengers don't come back." } },
       choices = {
         { text = "Fair terms. My imp will sit still.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Pay in advance? Do you trust anyone, Gryfe?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Pay in advance? You don't trust anyone, Gryfe.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -3,6 +3,64 @@
 Covers `npcs/thendal.lua`, `npcs/thendal_orders.lua`, `npcs/valanaar.lua`, the 1.7.0 changes to `npcs/talaanis.lua` (her own bible: `talaanis.md`) and `pools.lua`.
 Facts come only from warcraft.wiki.gg (which cites the in-game text and Blizzard). Downloaded 2026-11-17. Many pages the wiki links to do not exist yet (Valanaar, Shrine of Akir, Shal'nan, Talaanis Shadowsong, Captured Bandit, Illaya Amberwind, Valennia Stormfist, Crab Season...); facts about them come from the pages that summarize them (mainly "Skyborne").
 
+## Sources
+
+- https://warcraft.wiki.gg/wiki/Aetheen_of_the_Gales_(quest
+- https://warcraft.wiki.gg/wiki/Aggressive_Encroachment
+- https://warcraft.wiki.gg/wiki/Al'Aketh_Thugs
+- https://warcraft.wiki.gg/wiki/Ayessa_Dawnsinger
+- https://warcraft.wiki.gg/wiki/Calmbreeze_Inn
+- https://warcraft.wiki.gg/wiki/Coming_of_Age_(Forever
+- https://warcraft.wiki.gg/wiki/Donaal_Downbreeze
+- https://warcraft.wiki.gg/wiki/Elaadrin_Evengale
+- https://warcraft.wiki.gg/wiki/Elemental_Unrest_(quest
+- https://warcraft.wiki.gg/wiki/Eluvi'ana_(quest
+- https://warcraft.wiki.gg/wiki/Falling_With_Style_(Skyborne
+- https://warcraft.wiki.gg/wiki/Falorne_Fallwind
+- https://warcraft.wiki.gg/wiki/Foul_Matriarch
+- https://warcraft.wiki.gg/wiki/Halaan_Hawk-Eye
+- https://warcraft.wiki.gg/wiki/Harmony_in_Balance
+- https://warcraft.wiki.gg/wiki/Harvesting_Windstones
+- https://warcraft.wiki.gg/wiki/High_Order_Dockmaster
+- https://warcraft.wiki.gg/wiki/High_Priestess_Lorthuna_(Forever
+- https://warcraft.wiki.gg/wiki/Muln_Earthfury
+- https://warcraft.wiki.gg/wiki/Myriaal_Mistwake
+- https://warcraft.wiki.gg/wiki/Nyalah_Brightfire
+- https://warcraft.wiki.gg/wiki/On_the_Shal'nan
+- https://warcraft.wiki.gg/wiki/Reading_the_Leylines
+- https://warcraft.wiki.gg/wiki/Return_to_Rorian
+- https://warcraft.wiki.gg/wiki/Rorian_the_Dayseeker
+- https://warcraft.wiki.gg/wiki/Shen'dar_Village
+- https://warcraft.wiki.gg/wiki/Sirocca_%22Swimmers%22_Starfeather
+- https://warcraft.wiki.gg/wiki/Skyborne
+- https://warcraft.wiki.gg/wiki/Skyborne_(playable
+- https://warcraft.wiki.gg/wiki/The_Anchors_of_Zephras
+- https://warcraft.wiki.gg/wiki/The_Ancient_Hilt
+- https://warcraft.wiki.gg/wiki/The_Gift_of_Skysight
+- https://warcraft.wiki.gg/wiki/The_Next_Step_(Skyborne
+- https://warcraft.wiki.gg/wiki/Thendal_Village
+- https://warcraft.wiki.gg/wiki/Ventaari_Brightwish
+- https://warcraft.wiki.gg/wiki/What_Comes_Next_(Alliance
+- https://warcraft.wiki.gg/wiki/What_Comes_Next_(Horde
+- https://warcraft.wiki.gg/wiki/What_Is_My_Purpose%3F
+- https://warcraft.wiki.gg/wiki/Zephras_Citizen
+- https://warcraft.wiki.gg/wiki/Zephras_Isle
+
+## Their quests
+
+- Coming of Age
+- Crab Season
+- Eluvi'ana
+- Falling With Style
+- Foul Matriarch
+- Reading the Leylines
+- Return to Rorian
+- The Anchors of Zephras
+- The Ancient Hilt
+- The Fate of a Loved One
+- The Gift of Skysight
+- What Comes Next
+
 ## Timing
 Year 1. Most people here speak as if the campaign is under way or just over: the Al'Aketh are a live threat, the orders feud, and the skycutters have started running. Lines that need the ending (orders gone to Dalaran and Mulgore, Lorthuna struck into the sky) are Talaanis's, or gated on `questDone = TODO_QUEST("What Comes Next")`. Nothing after Year 1; Al'Akir's judgement is a threat, never an event.
 

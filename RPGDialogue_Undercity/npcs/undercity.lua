@@ -866,7 +866,7 @@ P:NPC {
       lines = { { id = "xpt_norman_default", text = "More than you'd think and fewer than we'd like. Most of the orcs who come down here stand very close to the door, but now and again a troll sits at my counter with a Forsaken friend and tells jokes until closing, and I count those as good nights." } },
       choices = {
         { text = "The living and the dead should stand together against the Scourge.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The living will never truly trust the dead, and why should they?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The living will never truly trust the dead, and they shouldn't.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Thanks, Norman.", next = "BACK" },
       },
     },

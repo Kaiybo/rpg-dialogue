@@ -1073,7 +1073,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "I'd teach a murloc to fish if it sat still long enough, friend, and you're better company than a murloc. Only don't go conjuring anything over the water, for the fish here are skittish enough with the wrecks about." } },
       choices = {
         { text = "I'll learn it properly, with patience and a rod.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Why wait for fish when I can make them come?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I won't wait for fish when I can make them come.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Riggs.", next = "BACK" },
       },
     },
