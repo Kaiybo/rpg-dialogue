@@ -2,6 +2,21 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.62.0 (2026-11-17)
+Core only; no pack changes. No new files: /reload is enough if you have 0.39.0 or later.
+
+### A tidier settings panel
+- **Sorted into clear sections**: General, Look and text, Reading and accessibility, In the conversation, Around you, Journal, Other addons, Content packs, Developer. Window scale and high contrast moved in with the look; how often people notice you moved in with barks and insanity.
+- **Readable values.** Sliders show their value beside them ("35%", "1.00x", "4 s") instead of squeezing it into a long label.
+- **Sub-options grey out** when the option they belong to is off (auto-advance delay, insanity intensity, the Total RP 3 title).
+- **Dialogue addons and Total RP 3** now share one "Other addons" section.
+- **"Open the journal" and "Reset the journal button's place"** buttons at the top of the panel. The reset brings the on-screen book back to the right edge and shows it again if you'd hidden it.
+
+### Getting to your journal
+- **A journal button in every conversation**: the little book beside "Aa" in the box's top corner.
+- **The minimap button is always there now** (it used to appear only on clients without the addon compartment), with its own setting to hide it. Left-click opens the journal, right-click opens settings; drag it around the minimap.
+- The on-screen book, `/rpgd journal` and the key binding still work as before.
+
 ## 0.60.0 (2026-11-17)
 Core only; no pack changes. Includes 0.59.0 (party reactions). No new files in 0.60.0: /reload is enough if you have 0.39.0 or later.
 

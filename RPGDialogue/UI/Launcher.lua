@@ -1,4 +1,5 @@
--- Launcher: the addon compartment if the client has one, else a small minimap button.
+-- Launcher: the journal book on screen, a minimap button, and the addon compartment
+-- entry when the client has one. Left-click: journal; right-click: settings.
 local _, ns = ...
 
 local C = ns.Compat
@@ -17,7 +18,9 @@ local function onClick(button)
   end
 end
 
+local mini
 local function minimapButton()
+  if mini then return mini end
   local map = C.Minimap()
   if not map then return end
   local b = CreateFrame("Button", nil, map)
@@ -59,6 +62,8 @@ local function minimapButton()
   end)
   b:SetScript("OnLeave", function() GameTooltip:Hide() end)
   place()
+  mini = b
+  return b
 end
 
 -- The journal on screen: a book you click to open it (drag to move, right-click for settings).
@@ -112,14 +117,30 @@ end
 
 function Launcher.Refresh()
   if ns.db.settings.journalButton ~= false then Launcher.Book():Show() elseif book then book:Hide() end
+  -- The minimap button, unless turned off (the addon compartment entry stays either way).
+  if ns.db.settings.minimapButton ~= false then
+    local b = minimapButton()
+    if b then b:Show() end
+  elseif mini then
+    mini:Hide()
+  end
   Launcher.UpdateBadge()
 end
 
+-- Settings > "Reset the journal button's place": back to the right edge, and shown.
+function Launcher.ResetPosition()
+  ns.db.settings.pos.journalButton = nil
+  ns.db.settings.journalButton = true
+  local b = Launcher.Book()
+  b:ClearAllPoints()
+  b:SetPoint("RIGHT", UIParent, "RIGHT", -60, 120)
+  b:Show()
+end
+
 ns.OnLogin(function()
-  Launcher.Refresh()
-  local ok = C.RegisterCompartment({
+  C.RegisterCompartment({
     text = L.ADDON_NAME, icon = ICON, notCheckable = true,
     func = function(_, _, _, _, button) onClick(button) end,
   })
-  if not ok then minimapButton() end
+  Launcher.Refresh()
 end)
