@@ -37,6 +37,17 @@ rumors\hillsbrad.lua
 rumors\kalimdor.lua
 rumors\riverglades.lua
 books.lua
+letters.lua
+letters_random.lua
+letters\human.lua
+letters\dwarf.lua
+letters\gnome.lua
+letters\nightelf.lua
+letters\skyborne.lua
+letters\orc.lua
+letters\troll.lua
+letters\tauren.lua
+letters\forsaken.lua
 generic.lua
 pools.lua
 spirithealer.lua

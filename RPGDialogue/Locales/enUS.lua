@@ -38,6 +38,7 @@ L.HELP_LINES = {
   "topics [teach <id> | forget <id>] - topics you know",
   "die <cause> - record a fake death (falling, drowning, guard, trivial, boss, ...)",
   "journal - open the journal",
+  "letters [send <id> | random] - open your letters anywhere (send/random: deliver one now, for testing)",
   "errands - errands you've taken",
   "insanity <0-100> - set the insanity level (testing)",
   "export | import - save or restore this character's story as text",
@@ -383,6 +384,21 @@ L.OPT_HINTS = "Show alignment hints on replies"
 L.OPT_GAMEPAD = "Gamepad: D-pad to choose, A to confirm, B to get on with it, X to ask about"
 L.LOCKED_MARK = "(Locked)"
 L.OPT_BARKS = "Nearby NPCs speak up now and then"
+L.OPT_LETTERS = "People you've met send letters to your mailbox"
+L.LETTER_ARRIVED = "A letter from %s is waiting for you at the mailbox."
+L.LETTERS_ARRIVED = "%d letters are waiting for you at the mailbox."
+L.LETTER_JOURNAL = "A letter came from %s: \"%s\"."
+L.LETTER_JOURNAL_3 = "A letter reached them from %s: \"%s\"."
+L.LETTERS_TITLE = "Letters"
+L.LETTERS_NONE = "No letters."
+L.LETTER_FROM = "From %s"
+L.LETTER_BACK = "Back"
+L.LETTER_BURN = "Burn"
+L.LETTER_NEW = "new"
+L.LETTER_JUNK = "junk"
+L.LETTER_NO_RANDOM = "No random letter is left that could come to you right now."
+L.LETTER_ARRIVED_JUNK = "Something has been stuffed into your mailbox. It looks like junk."
+L.LETTER_UNKNOWN = "No letter called %s."
 L.OPT_INSANITY = "Insanity effects"
 L.OPT_INSANITY_LEVEL = "Insanity intensity"
 L.OPT_TTS = "Read dialogue aloud (text to speech)"

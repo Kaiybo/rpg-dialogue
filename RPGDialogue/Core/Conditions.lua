@@ -801,6 +801,16 @@ def("chance", 0, "gate", nil, function(_, v, env)
   return roll < v, ("chance %.2f, rolled %.2f"):format(v, roll)
 end)
 
+-- A letter you've opened (0.80.0): letter = "id", or { id = "id", ["not"] = true }.
+def("letter", 0, "gate", nil, function(_, v)
+  local negate = type(v) == "table" and v["not"] == true
+  local id = type(v) == "table" and (v.id or v[1]) or v
+  local r = ns.char.letters and ns.char.letters[id]
+  local read = r ~= nil and r.read ~= nil
+  if negate then return not read, "letter " .. tostring(id) .. (read and " read" or " unread") end
+  return read, "letter " .. tostring(id) .. (read and " read" or " unread")
+end)
+
 def("flag", 0, "gate", nil, function(_, v)
   return ns.char.flags[v] ~= nil, "flag " .. tostring(v)
 end)

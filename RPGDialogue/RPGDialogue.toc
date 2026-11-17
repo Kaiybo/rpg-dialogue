@@ -37,6 +37,7 @@ Systems\Insanity.lua
 Systems\Barks.lua
 Systems\Errands.lua
 Systems\Diary.lua
+Systems\Letters.lua
 Systems\Origins.lua
 Systems\Export.lua
 
@@ -53,6 +54,7 @@ UI\Launcher.lua
 UI\AskAbout.lua
 UI\Journal.lua
 UI\ExportFrame.lua
+UI\Letters.lua
 
 Core\Conversation.lua
 

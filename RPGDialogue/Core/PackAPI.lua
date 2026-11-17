@@ -11,7 +11,7 @@ local Data = {
   byName = {},    -- normalized name -> key (for TODO ids)
   pools = {},     -- list
   generic = {},   -- list
-  threads = {}, claims = {}, topics = {}, towns = {}, origins = {}, rumors = {}, books = {}, errands = {},
+  threads = {}, claims = {}, topics = {}, towns = {}, origins = {}, rumors = {}, books = {}, errands = {}, letters = {},
   arrivals = {},  -- zone name -> list of diary entries for a first arrival (first match wins)
   lines = {},     -- global line id -> { line = , owner = , slot = }
 }
@@ -182,6 +182,7 @@ kinds.Claim = simpleKind("claims")
 kinds.Topic = simpleKind("topics")
 kinds.Book = simpleKind("books")
 kinds.Errand = simpleKind("errands")
+kinds.Letter = simpleKind("letters")
 kinds.Town = simpleKind("towns")
 kinds.Origin = simpleKind("origins")
 -- Arrivals: what the character writes in the diary the first time they reach a zone.
