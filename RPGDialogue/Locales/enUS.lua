@@ -27,6 +27,7 @@ L.HELP_LINES = {
   "why - explain the last line choice",
   "mem - memory used by the addon and each content pack",
   "probe - list which game APIs this client has",
+  "tts - test text to speech and show what it's using",
   "auras - list your current auras with spell IDs",
   "flagged - list lines you flagged as wrong",
   "packs - list content packs",
@@ -347,6 +348,13 @@ L.OPT_INSANITY = "Insanity effects"
 L.OPT_INSANITY_LEVEL = "Insanity intensity"
 L.OPT_TTS = "Read dialogue aloud (text to speech)"
 L.OPT_TTS_MISSING = "Text to speech isn't available in this client."
+L.OPT_TTS_QUESTS = "Also read quest and gossip pages aloud"
+L.OPT_TTS_TEST_LABEL = "Voices"
+L.OPT_TTS_TEST = "Test the voices"
+L.OPT_TTS_NOTE = "Men speak in the game's Standard voice, women in its Alternate voice. Pick them, and the speed and volume, in the game's Options > Accessibility > Text to Speech."
+L.TTS_HEADER = "Text to speech:"
+L.TTS_TEST_MALE = "Well met, traveler. This is how the men of Azeroth will sound."
+L.TTS_TEST_FEMALE = "And this is how the women of Azeroth will sound. Light keep you."
 L.OPT_HEADER_ACCESS = "Reading and accessibility"
 L.OPT_HEADER_TEXT = "Look and text"
 L.OPT_PAGES = "Keep the NPC's menus, pages and quests in the conversation box (the game's own window only for vendors, trainers and the like)"

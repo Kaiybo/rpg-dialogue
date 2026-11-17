@@ -2,6 +2,18 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.63.0 (2026-11-17)
+Core only; no pack changes. Includes 0.62.0 (tidier settings, journal button). No new files: /reload is enough if you have 0.39.0 or later.
+
+### Text to speech that actually speaks
+- **It talks now.** The game changed how its speech call takes its arguments, and on newer clients our old call ended up playing every line at volume 0. RPG Dialogue now speaks through the game's own text-to-speech routine first, so it matches whatever your client expects.
+- **Men and women sound different.** Men speak in the game's Standard voice and women in its Alternate voice (Options → Accessibility → Text to Speech, where you also set speed and volume). If both are set to the same voice, it picks a fitting one by name.
+- **Clean reading.** Colour codes, links, icons and *<emotes in brackets>* are no longer read out.
+- **Lines don't swallow each other.** Moving to the next line stops the old one and starts the new one a moment later, so the new line isn't cut off with it.
+- **Quest and gossip pages are read too** (Settings → "Reading and accessibility" → "Also read quest and gossip pages aloud", on by default when reading aloud is on).
+- **Test it:** the "Test the voices" button in settings, or `/rpgd tts`, reads one line in each voice and prints what it's using (voices found, which voice for men and women, speed, volume, and any error).
+- Reminder: turn on "Read dialogue aloud" in Settings → "Reading and accessibility"; it's off by default.
+
 ## 0.62.0 (2026-11-17)
 Core only; no pack changes. No new files: /reload is enough if you have 0.39.0 or later.
 

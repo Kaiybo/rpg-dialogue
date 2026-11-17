@@ -723,8 +723,16 @@ function Conv.ShowNode(nodeId)
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
     askCount = ns.Topics and ns.Topics.Count(), disposition = Conv.DispositionView(s),
   })
-  if ns.db.settings.tts then C.StopSpeaking(); C.Speak(body) end
+  if ns.db.settings.tts then Conv.Speak(s, body) end
 end
+
+-- Read a page aloud in a voice that fits the speaker (see Compat's text to speech).
+function Conv.Speak(s, text)
+  if not ns.db.settings.tts then return end
+  local gender = s.unit and C.Exists(s.unit) and C.Sex(s.unit) or (s.info and s.info.gender)
+  C.Speak(text, gender)
+end
+C.TTSEvents(ns.On)
 
 -- Choices for a node: errands (first node only), the node's own, and (when insanity is
 -- strong) an intrusive extra. At most Engine.MAX_CHOICES.
@@ -1437,6 +1445,7 @@ function Conv.ShowGamePage(kind)
     choices = toChoices(entries), canAsk = false,
     lastLabel = L.GOODBYE,
   })
+  if ns.db.settings.ttsQuests ~= false then Conv.Speak(s, stripLinks(text)) end
 end
 
 -- The game sent an item's details: draw the quest page again in place (the text keeps

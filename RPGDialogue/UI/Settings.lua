@@ -266,7 +266,23 @@ local function build()
   checkbox(L.OPT_REDUCE_MOTION, "reduceMotion")
   checkbox(L.OPT_SOUNDS, "sounds")
   checkbox(L.OPT_TTS, "tts")
-  if not C.TTSAvailable() then note(L.OPT_TTS_MISSING, 20) end
+  if not C.TTSAvailable() then
+    note(L.OPT_TTS_MISSING, 20)
+  else
+    checkbox(L.OPT_TTS_QUESTS, "ttsQuests", { dependsOn = "tts" })
+    do -- Hear the voices now; voice, speed and volume are the game's own TTS options.
+      local t = content:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+      t:SetPoint("TOPLEFT", LEFT + 24, y - 4)
+      t:SetText(L.OPT_TTS_TEST_LABEL)
+      local b = CreateFrame("Button", nil, content, C.Template("button"))
+      b:SetSize(240, 22)
+      b:SetPoint("TOPLEFT", CONTROL_X, y)
+      b:SetText(L.OPT_TTS_TEST)
+      b:SetScript("OnClick", function() ns.Slash.Handle("tts") end)
+      y = y - 28
+    end
+    note(L.OPT_TTS_NOTE, 20)
+  end
   checkbox(L.OPT_GAMEPAD, "gamepad")
 
   -- In the conversation: what the box shows besides the words.
