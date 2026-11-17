@@ -442,6 +442,15 @@ P:NPC {
         { text = "That's unsettling.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Both, I fear, though the land's slower to complain. The ground round the big clusters has gone dead as slag, not a root nor a beetle in it, and I can't say whether the stones did that or only moved in after something else did." } },
+      choices = {
+        { text = "Study them first. Breaking what we don't understand is how deserts start.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Smash the lot. Some things aren't worth understanding.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -465,12 +474,14 @@ P:NPC {
           text = "A warrior, aye, and ye've the look of someone who'd swing at a crystal if it hummed at ye wrong. Please don't, because I need them in one piece." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Ye'll have noticed the silithid don't walk straight out there, then, all twitchy and turned about, like something's pulling at them." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle, and about time too. Ye'll feel the crystals better than my instruments do, I'd wager, so tell me if they make yer teeth ache as well." },
       },
       again = {
         { id = "h_again", text = "What else? I've got rocks to sort, but they're not going anywhere." },
         { id = "h_again2", text = "Go on, ask. It's nice to talk to something that answers back." },
       },
       choices = {
+        { text = "Do the crystals harm the land, or only the bugs?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What is that humming?", next = "crystals" },
         { text = "What brings a geologist to the Circle?", next = "work" },
         { text = "What do the cult's tablets say?", next = "tablets", when = { questDone = TODO_QUEST("The Twilight Mystery") } },
@@ -932,6 +943,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The Circle's druids would tell you the land guards itself, and I'd tell them the land didn't stop the bugs from taking Southwind Village. I keep soldiers on the walls and druids in the tents, and between the two we've lost nobody this month." } },
+      choices = {
+        { text = "Swords keep people alive. Trust your guards first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Trust the land. Walls only slow the swarm down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? I can hear your totems knocking together from up here, so don't bother sneaking. If the elements have anything useful to say about the hives, I'm listening; if not, the poster's by the door." },
@@ -950,12 +970,14 @@ P:NPC {
           text = "A paladin. I can hear the plate from here, so don't bother creeping, and don't bother telling me how bright your Light is either, because I wouldn't see it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Fine, you can make yourself useful, because Deathclasp is still out there and nobody's brought me a pincer yet." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Good; the Commander trusts your kind more than he trusts swords, and lately he trusts very little at all." },
       },
       again = {
         { id = "h_again", text = "Anything else? The view won't watch itself." },
         { id = "h_again2", text = "Go on, and be quick about it." },
       },
       choices = {
+        { text = "Should druids guard this hold instead of soldiers?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The hives make the earth itself tremble. Have you felt it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What's wrong with the Commander?", next = "cmd" },
         { text = "Tell me about this Deathclasp.", next = "deathclasp" },
@@ -1149,6 +1171,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The oasis gives it, and I take only what the guests drink, which is a habit I learned in Ashenvale long before I ever saw sand. The druids say this spring once fed a great forest, and some nights I almost believe I can smell it." } },
+      choices = {
+        { text = "Take only what you need. The oasis will repay you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Hold needs water more than the oasis does. Take it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman at the Oasis Inn? You're welcome, of course, and if you can ask the water here to stay sweet a while longer, I'll be grateful to you and to it." },
@@ -1169,12 +1200,14 @@ P:NPC {
           text = "Oh, you poor thing, look at your armor, there's more sand in those joints than in the whole of Tanaris. Sit down before you creak yourself to pieces." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, oh, and your poor beast is covered in sand too! In Auberdine the worst it would have brought home was a little sea salt." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at my hearth! The Circle keeps its own tents out by the Hold, but your kind always seem to end up here when the sand gets into their fur." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? I've a pot on, but it'll keep." },
         { id = "h_again2", text = "Go on. It's nice to talk to someone who isn't counting arrows." },
       },
       choices = {
+        { text = "How do you keep the water clean in Silithus?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does the oasis water hold out against all this sand?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You're a long way from home.", next = "auberdine" },
         { text = "What's there to eat out here?", next = "food" },
@@ -1358,6 +1391,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Maybe, if your healing's as good as everyone says. The druids here sang over him for an hour and he stopped twitching, but the venom's still in him, so I figure magic slows it and chemistry finishes it, and I'm the chemistry." } },
+      choices = {
+        { text = "Work with the druids. Noggle's life matters more than credit.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep your own cure. The druids would only take the credit.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you heal venom with a totem, or a chant, or anything else that doesn't cost me reagents? Noggle's eating my profits faster than the venom's eating him." },
@@ -1380,12 +1422,14 @@ P:NPC {
           text = "A warrior! You look tough enough to take a scorpid's sting and walk it off, which is more than my idiot cousin managed." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Bring me venom sacs and stingers, because every bug and scorpid in this desert is a cure for something, eventually." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Perfect, you know poisons from the leaves out, and my cousin Noggle could use whatever trick you've got for silithid venom." },
       },
       again = {
         { id = "h_again", text = "What else? I've got a pot about to boil over, so make it snappy." },
         { id = "h_again2", text = "Go ahead. Noggle's not going anywhere." },
       },
       choices = {
+        { text = "Can druid craft cure Noggle where alchemy can't?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why is the venom in Silithus so much worse than elsewhere?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How is Noggle doing?", next = "noggle" },
         { text = "What do you brew for the Hold?", next = "work" },

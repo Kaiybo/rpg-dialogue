@@ -513,6 +513,15 @@ P:NPC {
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nothin' I'd tell a druid, or anyone else with a straight face. Let's say a car runs faster when the right man's paid, an' slower when the wrong man hasn't, an' leave the rest to the wind." } },
+      choices = {
+        { text = "Everyone cheats. At least you're honest about it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Cheating spoils the race. Stop it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -535,12 +544,14 @@ P:NPC {
           text = "A rogue, eh? Now there's someone I could do business with, quiet-like, if ye know what I mean. Both crews pay well for the right word in the right ear." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock at the races! I'll bet ye've got ways of makin' a car go wrong that'd leave no tracks at all. Not that I'd ever ask, of course." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? Ye've a nose for things that aren't what they seem, so I'll keep me distance, if it's all the same to ye." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? Quietly, now." },
         { id = "h_again2", text = "Aye? Lean in, the tent's thin." },
       },
       choices = {
+        { text = "What isn't what it seems on these flats, Kravel?", next = "xdruid", when = { class = "DRUID" } },
         { text = "You're rigging races. I could tell the crews.", tag = "Intimidate", next = "hush",
           check = { pass = { any = { { trait = "stern" }, { minLevel = 40 } } } },
           fail = { next = "laugh" } },

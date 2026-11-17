@@ -85,6 +85,15 @@ P:NPC {
         { text = "Never mind that for now.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Out of the hills to the west, where the Dark Irons left half their old workings behind. I'm just finishing what they started, really, and if you ask me, the hills are glad of the company after all those dwarves." } },
+      choices = {
+        { text = "Dig what's already dug. Leave the rest alone.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dig wherever the coal is. The Badlands won't notice.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Does your imp eat coal? Because if it does, I've got a whole cart, and I'd sell it at a very fair price." },
@@ -101,12 +110,14 @@ P:NPC {
           text = "A warrior! You'll want your blade sharpened and your armour mended, and the warlord's smiths need my coal for both, so really, I'm the reason you're still standing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter! No coal for you, I suppose, unless your beasts eat it, but I've arrowheads, good iron ones, at a price that'll only make you cry a little." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I sell coal and iron, so I'm sure you think I'm the worst thing that's happened to the Badlands, but I promise you the dragons got here first." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Talk fast; I'm paid by the sale, not the chat." },
         { id = "h_again2", text = "Anything else? Ask away!" },
       },
       choices = {
+        { text = "Where does your coal come from, Jazzrik?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you think the earth minds you digging up its iron, Jazzrik?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do you sell anything a spellcaster needs, Jazzrik?", next = "xhcast", when = { class = { "PRIEST", "MAGE" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Let me see your stock.", next = "BUSINESS" },

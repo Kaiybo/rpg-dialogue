@@ -94,6 +94,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Plenty of strange things, though I'm paid not to say which, so let's just say some of the deposits hum at night. Steamwheedle doesn't ask what goes in, only that it's paid for, and that rule has kept the peace in this town for years." } },
+      choices = {
+        { text = "Neutrality keeps the peace. Your rule is wise.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Some things shouldn't be kept, paid for or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the vault. Your totems may command the earth outside, but in here the earth is a floor, and the Bruisers stand on it." },
@@ -112,12 +121,14 @@ P:NPC {
           text = "A warrior. Kindly keep your weapon sheathed in the bank, since the Bruisers count a drawn blade as a withdrawal from your good standing." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Your beast stays outside the vault, I'm afraid, because the last one that came in ate a deposit slip and the dispute is still unresolved." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the bank. Bears don't carry much gold, I'd have thought, but you're welcome to keep what you have here, safe behind the Bruisers." },
       },
       again = {
         { id = "h_again", text = "Anything else, or shall I open your box?" },
         { id = "h_again2", text = "Still here? Time is money, friend, and so is the lamp oil." },
       },
       choices = {
+        { text = "Is there anything in your vaults a druid should worry about?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Gold comes from the earth. Does the Cartel ever give any back?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Open my box, please.", next = "BUSINESS" },
         { text = "Is anything in this town actually safe?", next = "safe" },
@@ -569,6 +580,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not a scrap, because nothing comes cheap in this desert! The hide goes to the leatherworkers, the bones go in the stock, and the bits nobody wants go to the vultures, and they're my best critics." } },
+      choices = {
+        { text = "Using everything honors the beast. Well done.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A beast is meat. It doesn't need honoring.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You talk to fire and I cook with it, and between the two of us I'll bet the fire likes me better, because I feed it the finest cuts in Azeroth." },
@@ -591,6 +611,7 @@ P:NPC {
           text = "A warrior! You look like you eat for three, and I cook for six, so you and I are going to be very good friends." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Ah, a fellow professional of the meat trade, and don't let anybody tell you otherwise." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Don't tell me you're one of those who won't eat meat, because I'll take it personally, and I've a cleaver right here." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, the grill's on." },
@@ -598,6 +619,7 @@ P:NPC {
         { id = "h_again3", text = "Go on, I can chop and listen at the same time." },
       },
       choices = {
+        { text = "Do you waste any of what you butcher, Dirge?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Where does all your meat come from, Dirge, in a drought?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let's see what you're selling.", next = "BUSINESS" },
         { text = "Where does the meat come from?", next = "meat" },
@@ -744,6 +766,15 @@ P:NPC {
         { text = "Never mind wands.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every one for a mile, and the hyenas have learned to keep clear of the dune out back. The druids at the gate grumble about it, but a scared hyena is a living hyena, which is more than I can say for one that wanders into town." } },
+      choices = {
+        { text = "Better scared than dead. That's a kindness, of sorts.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Just shoot the hyenas. Fewer pests that way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Lightning in a bottle, that's you, and lightning's the only thing in Tanaris louder than my rifles." },
@@ -760,12 +791,14 @@ P:NPC {
           text = "A warrior! You know, a rifle's just a sword that reaches further, and I've got a few in here that reach very far indeed." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Now you're a customer who understands craftsmanship, because a hunter's rifle has to work every time, not just on the test dune." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You've got claws, so I don't suppose you'll buy a rifle, but I've seen druids pay good coin to keep a hunter friend in shot." },
       },
       again = {
         { id = "h_again", text = "What else? I've got powder drying and it doesn't like to wait." },
         { id = "h_again2", text = "Go ahead, ask, but keep your fingers off the triggers." },
       },
       choices = {
+        { text = "Do your guns frighten the desert beasts?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does that dune you shoot at ever mind it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your guns.", next = "BUSINESS" },
         { text = "Guns in a town that bans fighting?", next = "peace" },
@@ -891,6 +924,15 @@ P:NPC {
         { text = "Something else, smith.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Something their smiths know and I don't, and I'll say no more than that. I've waited by this gate a long while for the right sort of adventurer to bring it back, and for all I know, you're that sort." } },
+      choices = {
+        { text = "Craft shouldn't be locked away. I'll help you get it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Their craft is theirs. Learn your own way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde at a kaldorei's anvil. Our peoples have little love between them, but the fire in this forge answers to neither, so you may stand and watch if you like." },
@@ -911,12 +953,14 @@ P:NPC {
           text = "A warrior. I can tell by the way you carry your weight, and by the nicks on that blade, that you've been fighting the Sandfury and not losing." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Your arrows are poorly fletched for this wind, and I would say so to any archer of Darnassus as plainly as I say it to you." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll know the trolls of Zul'Farrak keep their own beasts and their own gods, and neither is friendly to your kind or mine." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk while the iron heats." },
         { id = "h_again2", text = "Ask on. The forge is patient, and so am I." },
       },
       choices = {
+        { text = "What do you need from Zul'Farrak, Trenton?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The Sandfury temper their steel with more than fire. What do they use?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What is troll temper, exactly?", next = "temper" },
         { text = "What's Zul'Farrak like?", next = "zf" },

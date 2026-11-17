@@ -336,6 +336,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "As long as Jaina and Thrall want it to, and no longer than the first fool on either side decides otherwise. I watch, I report, and I don't trust the swamp to keep anyone's secrets, ours or theirs." } },
+      choices = {
+        { text = "Peace with humans is wet paper. Stay ready.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Hold to the peace. Thrall gave his word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -357,12 +366,14 @@ P:NPC {
         { id = "h_wet", when = { metBefore = true }, text = "Another report from Theramore, soaked through. Everything in this marsh is soaked through, even the secrets." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Theramore is full of your kind, Kirin Tor refugees with long memories, so I'd like to hear how you think one of them thinks." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your imp could slip under Theramore's walls easier than any of my spies, and I've thought about it more than once, I'll admit." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid in the marsh. Your people know this swamp better than mine, I'll grant you, and the Stonemaul trust you more than they trust me." },
       },
       again = {
         { id = "h_again", text = "Anything else? Lower your voice when you ask it." },
         { id = "h_again2", text = "Go on. Nobody's listening, and I've checked twice." },
       },
       choices = {
+        { text = "Will the peace with Theramore hold?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Does Theramore fear the shamans of the Horde?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does Theramore's magic mean for Brackenwall?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who was your agent near Theramore?", next = "marg" },

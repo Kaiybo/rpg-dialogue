@@ -364,6 +364,15 @@ P:NPC {
         { text = "I'll leave the chanting to them.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "To break it open, plain and simple. They said something old sleeps under the sand and that every crack in the earth lets a little more of its voice out, and I believed it until I heard that voice myself." } },
+      choices = {
+        { text = "You were right to leave. Some voices should never be answered.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. Maybe they should have listened harder.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_magecl", when = { class = "MAGE" },
@@ -385,12 +394,14 @@ P:NPC {
           text = "A warrior! Don't swing that thing, I'm a friend, an ex-cultist, the most reformed man in the whole desert. You'll tell the Hammer you didn't find me, won't you?" },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter? Oh, no, no, they've sent a tracker, I knew it, I told everyone Westfall and they've sent a tracker anyway." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? My brothers in the Hammer used to say your kind would be the first to go when the earth was remade, so you'll forgive me for being glad to see you breathing." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before someone sees your shadow at the door." },
         { id = "h_again2", text = "Go on, go on. I've had nobody to talk to for months but my own echo." },
       },
       choices = {
+        { text = "What did the Hammer want with the land here?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Larksbane sent me. I mean you no harm.", next = "peace", when = { questActive = TODO_QUEST("The Deserter") } },
         { text = "Why does the cult hunt you?", next = "hunted" },
         { text = "What is the Twilight's Hammer, really?", next = "cult" },
@@ -634,6 +645,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Glyphs, mostly, carved by hands that weren't troll or kaldorei, and I can't place them at all. The trouble is every time we clear a stone the bugs come sniffing, so I'm half convinced the ground doesn't want to be read." } },
+      choices = {
+        { text = "Keep digging. Knowledge is worth the risk.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Leave it buried. The land has its reasons.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'd not be the first Horde sort to wander into camp, and as long as ye keep yer hands off the finds, I'll not ask what ye're doing here." },
@@ -658,12 +678,14 @@ P:NPC {
           text = "A warrior! Good, because Brann's off somewhere with my last two guards, and this camp's held together with digging tools and bad language." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Are ye daft, wandering this desert with a beast that needs water? Come in out of the sun, the pair of ye." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid, out at Brann's dig! Yer people knew this land before it was sand, so I'll gladly hear whatever ye can tell me." },
       },
       again = {
         { id = "h_again", text = "What else? I've got rubbings to sort." },
         { id = "h_again2", text = "Spit it out, then." },
       },
       choices = {
+        { text = "What has the League dug up here, Rutgar?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "The ground here hums. What have your digs found under it?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to Natalia Mar'alith?", next = "natalia" },
         { text = "Where's Brann Bronzebeard?", next = "brann" },
@@ -840,6 +862,15 @@ P:NPC {
         { text = "I'll keep an eye on the sky.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because something here is worth watching, friend, and dragons don't waste their time on nothing. I've seen bronze scales catch the sun over the Scarab Wall, and I'd give a year's pay to know what they're guarding." } },
+      choices = {
+        { text = "Then we stand watch with them. Kalimdor is ours to defend.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let the dragons worry about their own wall.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then look up with me, friend, and tell me if ye feel it in the wind, because there's dragons over this desert and I'll not have it said Frankal Stonebridge was the only one who noticed!" },
@@ -858,12 +889,14 @@ P:NPC {
           text = "A warrior! Stand here with me and look up, friend, and tell me if that's a dragon over the dunes or just my eyes going." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Ye'll appreciate the monkey, then, because he's got better instincts than half the Explorers' League, and he doesn't like you yet." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You've a feel for the land, so tell me, does it feel to you like something's waking under this desert? Because it feels that way to me." },
       },
       again = {
         { id = "h_again", text = "What else? The sky's not going anywhere." },
         { id = "h_again2", text = "Go on, then, I do like an audience." },
       },
       choices = {
+        { text = "Why would dragons watch over Silithus now?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the dragons over Silithus trouble the winds?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What happened to Natalia, in the end?", next = "natalia" },
         { text = "Dragons? Over Silithus?", next = "skies" },

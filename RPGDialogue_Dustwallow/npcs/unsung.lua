@@ -67,6 +67,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Tar, prayer, and selling fast, in that order. One of the Circle told me the marsh only takes back what we borrowed from it, which was lovely to hear and no help whatsoever with my rope." } },
+      choices = {
+        { text = "Keep fighting it. That's how cities get built.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The druid was right. Work with the marsh, not against it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -77,12 +86,14 @@ P:NPC {
           text = "Charity Mipsy, general supplies. Everything Theramore needs that doesn't come out of a forge or a spellbook comes through my door, and the marsh eats through all of it faster than the ships can bring more." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You keep your hands in your pockets in a shop, which means either you're polite or you've already taken something, and I haven't decided which." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "Oh, a mage! If you need paper, ink or candles for your studies, I have them, though I can't promise the damp hasn't already got to the paper." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Then you'll know the marsh eats everything, and you'll not laugh when I tell you how often I replace the same rope." },
       },
       again = {
         { id = "h_again", text = "What else, dear? I'm only stacking flour sacks; I can listen." },
         { id = "h_again2", text = "Yes, dear? Ask away." },
       },
       choices = {
+        { text = "Is there a way to keep the marsh from rotting your goods?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "What do I need to survive the marsh?", next = "marsh" },
         { text = "How do supplies reach the isle?", next = "ships" },
@@ -232,6 +243,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Worse, if you can believe it, because leather rots where steel only rusts. I'd tell you to oil whatever you wear twice a week, but you druids just change into something with a pelt and forget about it, which I find terribly unfair." } },
+      choices = {
+        { text = "Good work deserves care. Oil your gear.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Gear wears out. Let it, and buy new.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -244,12 +264,14 @@ P:NPC {
           text = "Hans Weston, armorer and shieldsmith. I make the guard's plate and their shields, and I spend half my days scraping rust off what I made the week before, because this marsh rots steel faster than anywhere I've ever worked." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Leather, not plate, and from the look of you, you've never wanted to clank in your life. I don't hold it against you, though I'll say a good shield has saved more than one quiet fellow." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, wearing cloth into the marsh. Every year one of your lot comes back from the Bloodfen with three arrows in his robe and asks why I didn't sell him armor." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and no armor worth the name, I see. Still, a bear's hide is better than plate in this marsh, because at least it doesn't rust." },
       },
       again = {
         { id = "h_again", text = "What else? I've got plates cooling." },
         { id = "h_again2", text = "Speak up. The hammer drowns out quiet voices." },
       },
       choices = {
+        { text = "Does the marsh treat leather any better than steel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Let me see your armor.", next = "BUSINESS" },
         { text = "How do you fight the rust?", next = "rust" },
         { text = "Who do you make shields for?", next = "guard" },
@@ -402,6 +424,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Once, a set of iron caps for staves, and the druid who ordered them asked me to forge them without a single sharp edge. I've thought about it often since, a weapon made to keep from killing, and I'm still not sure I understood him." } },
+      choices = {
+        { text = "Mercy in steel is still mercy. He was wise.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A weapon that won't kill is only a walking stick.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -414,12 +445,14 @@ P:NPC {
           text = "Piter Verance, weaponsmith. I forge for the guard and sell to anyone who's headed into the marsh, which is everybody sooner or later, and I do my best to send you out with something that won't fail you in the mud." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? You'll be wanting something short and sharp, and I've got a few blades that'll do you proud, though I'll ask you to use them on the marsh and not on my customers." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage in a weapon shop! You'll want a staff or a dagger for the off hand, I'd guess, and I'll not pretend to know much about either beyond the wood and the steel." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll not want much from my forge, I suppose, but a staff with a good iron cap has saved more than one of your kind out in the marsh." },
       },
       again = {
         { id = "h_again", text = "Something else you need from the weapon racks?" },
         { id = "h_again2", text = "Ask away; Hans does the shouting in this part of town, not me." },
       },
       choices = {
+        { text = "Do you ever forge for the Circle?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What's the best weapon for the marsh?", next = "marsh" },
         { text = "Do you work alongside Hans Weston?", next = "hans" },

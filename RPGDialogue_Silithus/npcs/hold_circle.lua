@@ -273,6 +273,15 @@ P:NPC {
         { text = "I'll keep that in mind.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Perhaps, {name}, but not soon and not by us alone. The swarm poisons the soil and the Twilight's Hammer poisons the wind, and until both are driven out, the best we can do is keep a few green places alive and remember." } },
+      choices = {
+        { text = "Healing must start now, even while we fight.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn the hives and salt them. Healing can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -290,12 +299,14 @@ P:NPC {
           text = "A warrior. The land feels the weight of your step, {name}, and it asks whether you come to defend it or only to fight upon it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The spirits of the beasts here are restless, {name}, for the crystals and the cult have driven them from their old paths." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and welcome among your own. The Circle needs every claw and every root it can find in Silithus, for the land here has forgotten what it was." },
       },
       again = {
         { id = "h_again", text = "Ask what you will, {name}; the spirits have waited this long, and they can wait a little longer." },
         { id = "h_again2", text = "Go on, {name}. There is time, though less than there was." },
       },
       choices = {
+        { text = "Can Silithus ever be healed, Huum?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What story does the land tell?", next = "spirits" },
         { text = "What is the cult doing in the west?", next = "geolords" },
         { text = "Your brother calls them crazies.", next = "brother" },
@@ -461,6 +472,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Things that look like nothing much, mostly, which is the hard part. They want tools that don't scar the land and blades that don't shine in the sun, and once a whole crate of bronze stakes for the Hold's tents, which still puzzles me." } },
+      choices = {
+        { text = "Make what they ask. The Circle knows its business.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ask why. A craftsman should know what his work is for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. The druids say your kind hear the earth as they do, in a rougher dialect, and if that's so, perhaps you'll tell me whether the stone I'm working wants to be a lie." },
@@ -481,12 +501,14 @@ P:NPC {
           text = "A warrior. Your bearing would give you away in any cult camp, I'm afraid, for no cultist I've studied ever stood that straight." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Your companion would be a problem if I ever had to disguise you, for I have yet to make a cult robe for a beast." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle! Then you're kin to my best customers, and I'll treat you as well as I treat them, which is to say fairly and without haste." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk and work at once." },
         { id = "h_again2", text = "Ask on. My hands don't need my mouth." },
       },
       choices = {
+        { text = "What do druids want from a smith?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Can the wind stones tell a cultist from a disguise?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are you making?", next = "craft" },
         { text = "Who commands the Twilight's Hammer?", next = "council" },

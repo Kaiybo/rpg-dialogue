@@ -380,6 +380,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Ogron miss some things, like big fire and loud songs. But other ogres smash for nothing, and Ogron think smash should be for something, so Ogron stay here and help." } },
+      choices = {
+        { text = "You chose well, Ogron. Smashing needs a reason.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Ogres are ogres. You'll go back eventually.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -392,9 +401,11 @@ P:NPC {
         { id = "h_c0", when = { questActive = TODO_QUEST("Questioning Reethe") }, text = "Ogron go with you to find Reethe, and you ask the questions, because Ogron not good with words. But Ogron good at keeping you safe." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You make magic like Draz'Zilb! But Ogron think your magic is kinder, because you not use it to tell people what to do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ogron know that smell, because it is the same as the old ogre magi. Ogron not afraid, but Ogron stand a little farther away, if that is all right with you." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You druid! Ogron see you turn into bear, once, by the water, and Ogron think that very good trick." },
       },
       again = { { id = "h_again", text = "You want ask Ogron more?" }, { id = "h_again2", text = "Ogron listening, friend." } },
       choices = {
+        { text = "Do you miss living with the other ogres, Ogron?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why help the Alliance?", next = "b1_1" },
         { text = "What did you see?", next = "b2_1" },
         { text = "Where is your clan?", next = "b3_1" },
@@ -641,6 +652,15 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Stonemaul miss home, yes, but black dragon sit there now, big and mean. Mok'Morokk the boss here, so Mok'Morokk not miss it so much, but other ogres cry when they think boss not looking." } },
+      choices = {
+        { text = "Take your home back from the dragon one day.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Forget the old home. You're boss here now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -652,9 +672,11 @@ P:NPC {
         { id = "h_c0", when = { race = "Orc" }, text = "An orc! You good friends with Stonemaul, so Mok'Morokk let you talk. Talk fast, though." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "You make fire with your hands like Draz'Zilb! Mok'Morokk not like Draz'Zilb's fire, because it always point at Mok'Morokk when nobody look." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Your little demon smell like old Gul'dan stories! Mok'Morokk like strong magic, so maybe you make Mok'Morokk a demon too?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "You druid! Mok'Morokk know druid, turn into bear. Mok'Morokk not scared of bear, because Mok'Morokk eat bear." },
       },
       again = { { id = "h_again", text = "What else you want?" }, { id = "h_again2", text = "Speak! Mok'Morokk hungry." } },
       choices = {
+        { text = "Do the Stonemaul miss their old home?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do the Stonemaul have shamans of their own?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does Brackenwall need from a spellcaster?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
         { text = "Who in Brackenwall should I keep an eye on?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },

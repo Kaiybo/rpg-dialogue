@@ -84,6 +84,15 @@ P:NPC {
         { text = "I'll keep it in mind.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Every day, and then I sell them anyway. Magic has to come from somewhere, and I'd rather it came from a broken trinket than from the land, though I know some druids see little difference between the two." } },
+      choices = {
+        { text = "You choose the gentler source. That counts for something.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Magic is a tool. Where it comes from hardly matters.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems carry a little magic of their own, I think, though not the kind I sell, so look all you like, but please don't let them rattle near the vellum." },
@@ -98,12 +107,14 @@ P:NPC {
           text = "A warrior. Please stand still while you're in here, because every step in those boots shakes sand into my dusts." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. If your beast sheds, keep it on the stair, please, for fur in a formula ruins it as surely as sand does." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. The dusts I sell came out of things you'd probably rather were left whole, so I'll not take offence if you wrinkle your nose." },
       },
       again = {
         { id = "h_again", text = "Was there something more you wished to ask?" },
         { id = "h_again2", text = "I'm listening, though I'll keep sorting while we talk." },
       },
       choices = {
+        { text = "Do you ever think about where your dusts come from?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does the hum in the crystals here touch your enchanting?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Why keep your shop upstairs?", next = "upstairs" },
@@ -217,6 +228,15 @@ P:NPC {
         { text = "I'll take what I need.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Poison is only a plant that has learned to defend itself, druid, and I sell it to those who fight the swarm. The Circle knows what I keep, and they have never told me to stop." } },
+      choices = {
+        { text = "A tool is a tool. The swarm deserves every venom.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Poison has no place among healers.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_magecl", when = { class = "MAGE" },
@@ -230,12 +250,14 @@ P:NPC {
           text = "A warrior. You will want my herbs more than my poisons, I think, though I have seen warriors coat their blades when the hives grew close." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. I walked from Mulgore with hunters who knew more of the land than I did, and I have been glad of their kind since." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and welcome. I keep your herbs and seeds dry in the back, away from the sand, because the Earth Mother gives little enough in this place." },
       },
       again = {
         { id = "h_again", text = "What else would you know, friend, while the desert wind is quiet?" },
         { id = "h_again2", text = "Ask. I am in no hurry, and neither is the desert." },
       },
       choices = {
+        { text = "Is it right to sell poisons under the Circle's roof?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Let me see your reagents.", next = "BUSINESS" },
         { text = "A druid's ally who sells poison?", next = "poison" },
         { text = "What do the silithid do to people here?", next = "silithid" },
@@ -343,6 +365,15 @@ P:NPC {
         { text = "I'll leave you to your fanning.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Poorly, if I'm honest, and the wolves worst of all. I keep wet cloths over the cages at midday and walk them only at dusk, and still they pine for forests they've never seen, which seems a cruel thing to be born with." } },
+      choices = {
+        { text = "Send them north. No beast should suffer here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're fighting animals. Hardship will make them stronger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! Welcome, welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them, so you're exactly who I hoped would come." },
@@ -355,12 +386,14 @@ P:NPC {
           text = "Squire Leoren Mal'derath, stable master of Cenarion Hold! I board the companions of every hunter who comes to fight for the Circle, and I treat them as I would the commander's own mount." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Is your mount well? Not that I'd presume, but a war-mount in this sand needs looking after, and I'm the one who looks after them." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Then you'll understand my charges better than most of their own masters do, and you'll forgive me if I ask how the desert beasts seem to you." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I've three stalls to muck out before the heat." },
         { id = "h_again2", text = "Please, ask whatever you like. I enjoy the company." },
       },
       choices = {
+        { text = "How do the beasts fare in this heat?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What unsettles the beasts here at the Hold?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like to see my stabled pets.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Why call yourself a squire?", next = "squire" },
