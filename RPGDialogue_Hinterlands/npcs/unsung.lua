@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "We do, for the Hinterlands are wild an' we mean tae keep them that way. Ironforge would have tunnels under every hill if it could, an' we'd rather have sky an' trees, which is why we left them in the first place." } },
+      choices = {
+        { text = "Then keep Ironforge out. The Hinterlands should stay wild.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Ironforge is kin. Work with them, not against them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Somethin' else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Aye, the grandsires o' these very birds, droppin' riders an' storm hammers on the Horde while the Alliance footmen held the ground below. A gryphon remembers a battle in its blood, an' ye'll feel it in the saddle when ye fly over the Vilebranch." } },
@@ -72,6 +81,7 @@ P:NPC {
           text = "Ye walked up on my birds without a sound, {class}, an' that's a fine way tae lose a hand around here, for gryphons like tae see who's comin'." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, an' ye'll be wantin' tae fly tae the fightin', no doubt. My birds carried the Wildhammer intae the Second War, so they know a soldier when they see one." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ye'll understand my birds better than most, then, for ye know a beast's a comrade an' no a saddle wi' feathers." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The gryphons don't take kindly tae shapechangers, so stay on two legs on the platform, if ye please." },
       },
       again = {
         { id = "h_again", text = "Anythin' else? The birds are restless, and so am I." },
@@ -88,6 +98,7 @@ P:NPC {
         { text = "Will your gryphons bear a paladin's weight, Guthrum?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Did your gryphons fight in the Second War, Guthrum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons get along with a hunter's beast, Guthrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Wildhammer worry about the land, Guthrum?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Fair winds.", next = "END" },
       },
     },
@@ -196,6 +207,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some, aye, for every mine leaves a hole, and some leave a scar. But the Wildhammer mine less than Ironforge an' they put back what they can, an' I'd say we're kinder tae the hills than most." } },
+      choices = {
+        { text = "Kinder isn't kind enough. Mine less, Harggan.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A town needs iron. A few holes are the cost.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Somethin' else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Hard as the road up, which is hard indeed, wi' Witherbark watchin' from the trees an' every cart half its weight in iron. The smiths say they cannae make enough armour for the riders, an' I say they cannae make it wi'out me, an' we both grumble about it." } },
@@ -227,6 +247,7 @@ P:NPC {
           text = "I saw yer eyes go tae my strongbox, {class}, an' I'll tell ye now it's empty, for every copper I have goes on haulin' coal up this mountain." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. That armour came from somebody's forge, an' that forge burned coal I hauled up this mountain, so ye're welcome, though ye didnae know tae thank me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If ye're headin' down the road, keep an eye on the treeline for me, for the Witherbark like tae watch my carts from cover." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. Ye'll not want iron, I'd guess, but if ye're after a hand axe for kindling, I've plenty." },
       },
       again = {
         { id = "h_again", text = "What else, then?" },
@@ -242,6 +263,7 @@ P:NPC {
         { text = "Do you lose much on that mountain path?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is it hard keeping the Wildhammer forges supplied, Harggan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have the Witherbark ever attacked your carts, Harggan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the mining in these hills hurt the land?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

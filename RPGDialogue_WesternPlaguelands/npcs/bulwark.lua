@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Healed? I'd settle for held. The apothecaries talk of cleansing the soil with their brews, and your people talk of growing it back, and I'll take whichever works first, so long as the Scourge stays on the other side of the wall." } },
+      choices = {
+        { text = "Hold the wall first. Healing can wait.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Healing is how you win. Walls only buy time.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Andorhal, eventually, but not yet. I've watched too many brave living soldiers march down that road and come back to the Bulwark as Scourge, so I'd sooner you learned the ground first and fought second." } },
@@ -73,6 +82,7 @@ P:NPC {
           text = "A warrior of the Horde, and a sound one by the look of that shield. The Deathguard can hold a wall, {class}, but they can't take Andorhal without someone who enjoys the charge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. The beasts west of here are plagued to the marrow, {class}, so whatever you skin out there, don't eat it, and don't sell it to anyone you like." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid in the Bulwark. The land beyond the wall is dead, druid, and I doubt even your Earth Mother can do much about it." },
       },
       again = {
         { id = "h_again", text = "Something else? Make it useful, and make it quick." },
@@ -90,6 +100,7 @@ P:NPC {
         { text = "Do you hold every mage to account for Kel'Thuzad?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Where do you want another blade, Executor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the plagued beasts tell you about Andorhal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can the Plaguelands be healed, High Executor?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Send me east.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 } } },
       },
     },
@@ -246,6 +257,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The apothecaries mean to turn the plague back on the Scourge, which seems fitting to me. Your Earth Mother might not approve, but your Earth Mother isn't standing at the Bulwark, watching the dead walk the fields." } },
+      choices = {
+        { text = "Turn it on them. The Scourge earned the plague.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Plague has no masters. Don't trust it to choose.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It mends you well enough to stand and fight, which is all the Light ever promised a soldier anyway. It simply doesn't pretend to love you while it does it." } },
@@ -287,6 +307,7 @@ P:NPC {
           text = "A warrior. You'll bleed on my floor and expect me to mend it, {class}, which I will, though the shadow mends rougher than the Light ever did." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. The beasts that drink near the cauldrons die slowly, {class}, and I've wondered whether that's what the samples would do to us." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You'll find the earth here sick beyond anything you've known, but the Forgotten Shadow has seen sickness before, and we've learned to use it." },
       },
       again = {
         { id = "h_again", text = "Is there more? Ask it, then, I've samples waiting." },
@@ -303,6 +324,7 @@ P:NPC {
         { text = "Would you rather I fetched the samples quietly?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Will your shadow mend a soldier as well as the Light?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Have you studied what the cauldrons do to beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Should we turn the plague on its makers?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll fetch your samples.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 }, learn = { "plague_cauldrons" } } },
       },
     },
@@ -427,6 +449,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Oh, very much so, for the herbs that survive the cauldrons come up twisted, and some of them glow faintly at night. They're useful, I'll admit, but I wouldn't want to eat them, and I'm already dead." } },
+      choices = {
+        { text = "Then burn them. Nothing that grows from plague is safe.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Use them. A strange herb is still a useful one.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "It makes your heart beat as though it were trying to escape, which in my case it would have to restart first. Bring me the reagents and I'll brew you a bottle, though I'd recommend you drink it only once the ghouls are already close." } },
@@ -470,6 +501,7 @@ P:NPC {
           text = "A warrior! You'll be wanting the quickener, I expect, {class}, for it puts a spring in a soldier's step that I'm told is quite alarming to watch." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter, how lovely! Don't let anything of yours near the samples, {class}, for the last pet that licked a vial in here barked for three days and then barked backwards." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Do you know your herbs? Some of what I need grows only here now, and it's grown very strange in the poisoned soil." },
       },
       again = {
         { id = "h_again", text = "More questions? Marvelous, I love questions, they're so much tidier than answers." },
@@ -485,6 +517,7 @@ P:NPC {
         { text = "I'm not a cold box, apothecary.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does your quickener do to a warrior, exactly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What became of that poor pet, apothecary?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Does the plague change the herbs that grow here?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll gather what you need.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -599,6 +632,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Returned to the land? They should be returned to me, druid, once Weldon is dead and the Scholomance is a ruin. After that, if you'd like to plant a tree or two, I'll not stop you." } },
+      choices = {
+        { text = "The land doesn't care who owns it. Let it heal.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A Barov claim is still a claim. Fight for it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Barov.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Weldon took lessons from the finest fencing master in Lordaeron and spent them admiring his reflection in the blade. Find my deeds, and you'll have done more with a sword in a week than he has in his whole life." } },
@@ -641,6 +683,7 @@ P:NPC {
           text = "A warrior. My brother sleeps with a sword under his blanket, {class}, as though steel ever saved a Barov from anything, and I'd enjoy watching someone use one properly for once." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. My father kept hounds at Caer Darrow and rode them round the lake every autumn, {class}, and I've never forgiven the plague for the smell it left there instead." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. My family's lands were the finest in Lordaeron once, and now they grow nothing but bones, so you'll forgive me if I don't ask for your advice on gardening." },
       },
       again = {
         { id = "h_again", text = "You're still here, I see. Well, go on, amuse me." },
@@ -657,6 +700,7 @@ P:NPC {
         { text = "Does your brother even know how to use that sword?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Did your family hunt the woods around Caer Darrow?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll look for the deeds.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Should the Barov lands be returned to the land itself?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I won't do a Barov's dirty work, living or dead.", next = "END", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
@@ -793,6 +837,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Not with swords, it can't, but swords will clear the way for those who can. I've seen your kind make grass grow where the Scourge had walked, and I'd like to see that done on every field from here to Stratholme." } },
+      choices = {
+        { text = "Then let's clear the way. The Dawn fights for all.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Swords only make more corpses. Healing comes first.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I miss knowing every face in the line, but I don't miss what the old Horde fought for. Here a human, a dwarf and an orc hold the same ground against the same dead, and I've never felt cleaner in battle." } },
@@ -834,6 +887,7 @@ P:NPC {
           text = "A warrior, good. I was a grunt before I was anything else, {class}, and my old sergeant told me the Scourge never breaks, so you must never break first." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The Dawn needs eyes on these hills, {class}, and the plagued beasts know where the Scourge gathers long before any scout does." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The Argent Dawn has use for every healer and every claw, and yours would be welcome against the Scourge." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Ask it plain, and I'll answer plain." },
@@ -851,6 +905,7 @@ P:NPC {
         { text = "Does the Dawn have work for a quiet blade?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you miss fighting under the Horde's banner, Garush?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the sick beasts lead you to the Scourge, Garush?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Can the Argent Dawn heal the Plaguelands, Garush?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll bring you stones.", next = "END", fx = { affinity = 1, learn = { "argent_dawn" } } },
       },
     },

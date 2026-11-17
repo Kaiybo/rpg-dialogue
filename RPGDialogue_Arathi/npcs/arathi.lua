@@ -474,6 +474,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Trol'kalar was made to kill trolls, and Vol'jin say we turn it on the Gurubashi, who be worse than any human. I think there be justice in that, even if the sword don't care which troll it cut." } },
+      choices = {
+        { text = "Justice is justice. Use the sword against the Gurubashi.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A weapon made for slaughter should be broken.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else, mon.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Zengu trust you to carry it back here and nothin' more, mon. That blade been killin' trolls since the days of Arathor, and Zengu want to see it turned on the Gurubashi, which be the best joke in the whole Highlands." } },
@@ -522,6 +531,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "The Darkspear teach their young to move quiet in the jungle, {class}, and you got that same walk. Maybe you be the one to fetch Trol'kalar for Vol'jin, eh?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and a big one. Stromgarde keep a sword in their vaults made to kill trolls, and Zengu would like it carried by a warrior who know what to do with it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, mon. The loa of the wild must like you, 'cause you walk like one of their own." },
       },
       again = {
         { id = "h_again", text = "More? Zengu got all day, mon. Hunters always do." },
@@ -540,6 +550,7 @@ P:NPC {
         { text = "Do the Darkspear trust mages, Zengu?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why steal a human sword instead of forging your own?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you trust a warrior to carry Trol'kalar, Zengu?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Should we use a troll-killing sword against trolls?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Ha. Let's get it.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
       },
     },

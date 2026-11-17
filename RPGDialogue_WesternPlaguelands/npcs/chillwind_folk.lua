@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "With all who fight the Scourge, yes, but not with all who ask, for the stores are thin and the war is long. I'd give you anything on my shelves if I could, but I've got to keep something for tomorrow." } },
+      choices = {
+        { text = "Keep it for the ones who've earned it. That's fair.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Give freely. Thrift won't matter if the Scourge wins.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Whatever they've earned and nothing more, which is a rule I find very restful. Bring me Scourgestones and the Dawn's trust in you grows, and as it grows I'm allowed to sell you things that hit harder and hold longer." } },
@@ -86,6 +95,7 @@ P:NPC {
           text = "A warrior. I keep a crate of whetstones under the counter for your sort, {class}, since nothing goes out of the Dawn's stores faster except bandages." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The Dawn's stores are short on arrows again, {class}, so bring your own, and gather them up afterwards if you can." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The Dawn's stores are open to any friend of the Dawn, and a druid who heals the land is a very good friend indeed." },
       },
       again = {
         { id = "h_again", text = "What else can the Dawn's quartermaster do for you today?" },
@@ -102,6 +112,7 @@ P:NPC {
         { text = "Are the Dawn's knights the Silver Hand by another name?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does the Dawn give the soldiers who fight for it?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why are the Dawn's stores short on arrows?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Should the Dawn share its stores with all who ask?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },

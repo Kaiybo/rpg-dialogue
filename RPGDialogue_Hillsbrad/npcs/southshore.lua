@@ -360,6 +360,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I have reports on everything else, so I suppose I should have one on that. The farmers clear more of the hills every spring, and the ogres take it badly, and so do the wolves. I'd never thought of the land itself having an opinion." } },
+      choices = {
+        { text = "Let them clear the hills. People need the fields.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then slow them down. The hills were here first.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Durnholde Keep, if I had a hundred of you, but I don't, so start with the camps along the Alterac road. Every crate they bring down from the hills passes through there, and my clerk says they've begun posting guards who know which end of a sword to hold." } },
@@ -432,6 +441,7 @@ P:NPC {
           text = "A paladin, in my office! I'll tell you plainly that Southshore hasn't had a knight of the Light on its roads since the Silver Hand broke, and the Syndicate have noticed." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, thank goodness, because I've a list of Syndicate camps as long as my arm and nobody to send who won't drop his spear at the first shout." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, good! The farmers keep filing complaints about the lions taking their sheep, and I've no idea which department those belong to." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh! A night elf druid, in my town. I'm afraid I don't have a form for that, but I'm sure there's some proper way to welcome you, and I'll find it eventually." },
       },
       again = {
         { id = "h_again", text = "What else? The depositions will keep a minute." },
@@ -451,6 +461,7 @@ P:NPC {
         { text = "What can a paladin do for Southshore's law, Magistrate?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Which Syndicate camp would you send a warrior to first, Magistrate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you want the lions dealt with, Magistrate?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Southshore farms trouble the land here, Magistrate?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good day, Magistrate.", next = "END" },
       },
     },
@@ -854,6 +865,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "More than ye'd think! There's a bitter moss up by the Alterac falls that turns a plain ale into somethin' the Light itself would blush at. Course, I'm not supposed tae pick it, the ogres say, but I don't speak ogre, so who's to say?" } },
+      choices = {
+        { text = "Pick it sparingly, Bilger, and leave the rest to grow.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Take all you want. Moss grows back fast enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Somethin' else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every mornin', for about as long as it takes to pour the first mug. I stood in the line beside men who'd have died for Uther, an' some did, an' the rest of us learned the Hand could be broken by one prince with a grudge." } },
@@ -910,6 +930,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, hic, in me inn. In the old days, the Hand would've had ye in irons, an' now I'll just ask ye to keep the imp away from me barrels." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, hic, an' a proper one by the dents! I carried a hammer for the Hand once, an' I'll tell ye now, plate's heavier when ye've nothin' left to believe in." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, hic! Bring me somethin' wild for the pot an' I'll pour ye somethin' that'll make ye forget ye ever shot it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Hic! A druid, an' a night elf one at that. Ye don't, by chance, turn into a bear that drinks, do ye? I've been wantin' a proper drinkin' companion." },
       },
       again = {
         { id = "h_again", text = "Hic. What else, {g:lad|lass}?" },
@@ -927,6 +948,7 @@ P:NPC {
         { text = "Do you miss the Silver Hand, Bilger?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you miss carrying a hammer for the Silver Hand, Bilger?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you want game for the inn's kitchen, Bilger?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do you know of brewing with wild herbs, Bilger?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Cheers.", next = "END" },
       },
     },
@@ -1060,6 +1082,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Very little, I'm afraid, for Arathor's scholars thought the forest was a thing to be cleared. There's one fragment about sacred groves in Lordaeron's north, before the cities came, but the ogres used most of that scroll to light a cookfire." } },
+      choices = {
+        { text = "Then that knowledge was lost because men chose cities.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Arathor needed cities. You can't hold a kingdom in groves.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else, Loremaster.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I'd be in your debt, though I'll warn you that ogres defend their kindling as fiercely as a dwarf defends his beer. Anything bearing the Perenolde seal, please bring back even if it's half ash, because half a page is still a page." } },
@@ -1139,6 +1170,7 @@ P:NPC {
           text = "A paladin! I've a pile of old Silver Hand writs from the hills, and I'd dearly love someone to tell me what half the seals mean." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because the Crushridge ogres have three more crates of Alterac's library at their camp, and I can't very well read them out of the fire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be out in the hills more than I am, then, and if you see loose pages blowing about the ogre camps, I'd count it a great kindness if you'd pick them up." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! The old Arathorian scrolls mention your people, you know, though always as a rumor from over the sea. It's a pleasure to find the rumor standing in my doorway." },
       },
       again = {
         { id = "h_again", text = "Another question? Good, for questions are the only thing I collect faster than books." },
@@ -1157,6 +1189,7 @@ P:NPC {
         { text = "Silver Hand writs from Alterac? What do they say?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I fight the ogres for your books, Loremaster?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does Alterac's history say anything about hunting, Loremaster?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Did the old kingdom know anything of druids?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Good luck with the books.", next = "END" },
       },
     },
@@ -1268,6 +1301,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I'd guess it's the noise, the fish smell and the soldiers, though I'm biased toward the fish. One of yours stayed a week last summer and spent every evening out by the shore, talking to the turtles, and I never did find out what they said back." } },
+      choices = {
+        { text = "Turtles are good company. Better than soldiers, some nights.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A town needs soldiers. The turtles won't stop the Forsaken.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every patrol that comes back from the Tarren Mill fields, and they sleep with their boots on, which is hard on the blankets. The lieutenant's the only soldier who ever asked for the good chair, and he's never once given it back." } },
@@ -1342,6 +1384,7 @@ P:NPC {
           text = "A paladin under my roof! Bilger will either be thrilled or hide in the cellar, and I honestly couldn't tell you which." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and dripping on my floor like everyone else. Hang that mail by the fire, will you, because rust and rain are the two things Southshore has more of than fish." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you've brought in more mud than the rain did. Wipe your boots, and tell me what's out in the hills, because nobody else will." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? Most night elves who come through just want a room and a quiet corner, and you look like you'd sooner sleep under a tree." },
       },
       again = {
         { id = "h_again", text = "Anything else? The stew's hot and the chairs are dry, mostly." },
@@ -1357,6 +1400,7 @@ P:NPC {
         { text = "Why would Bilger hide from a paladin, Anderson?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do soldiers stay at your inn often, Anderson?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would you buy game for the inn, Anderson?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Why do so few of my people stay in Southshore?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

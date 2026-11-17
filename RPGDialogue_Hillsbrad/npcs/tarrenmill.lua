@@ -570,6 +570,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The trees still grow, if that's what you mean, though they've grown strange since the plague, and the birds don't nest in them. I've no strong feelings on it myself, but the bats seem to like it." } },
+      choices = {
+        { text = "The land will heal, given time and care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Strange is fine. The dead don't need songbirds.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The living ones do, mostly about Southshore, and the dead ones about whatever they did before they died. I've learned to sleep through the shouting, which is easy when you don't actually sleep." } },
@@ -631,6 +640,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll find the inn makes a fine hiding place, since nobody looks twice at the corner tables anymore, and the dead don't gossip much." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll want something warm, I suppose, though warmth is wasted on most of my guests, and I've stopped heating the kettle out of habit." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leave the axe by the door, if you would, because the last one who brought his into the common room took a chunk out of my good table during a nightmare." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid in Tarren Mill. Most of the living find it hard to stay here long, so I'll not take offense if you don't take a room." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've all night, and every night after it." },
@@ -648,6 +658,7 @@ P:NPC {
         { text = "Do you get many visitors who prefer to stay hidden, Shay?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Don't the Forsaken miss warmth, Shay?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do warriors have nightmares at your inn, Shay?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Does the land around Tarren Mill still live?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Just passing through.", next = "END" },
       },
     },

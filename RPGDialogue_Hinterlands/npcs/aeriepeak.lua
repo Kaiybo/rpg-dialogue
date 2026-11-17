@@ -264,6 +264,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Aye, for every night they come tae steal eggs or kill the young. The Vilebranch an' the Witherbark think the Hinterlands are theirs, an' we think they're ours, an' the gryphons just want tae be left alone." } },
+      choices = {
+        { text = "Drive them out. The gryphons deserve safe aeries.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Guard the aeries, but leave the trolls their hills.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Somethin' else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A rider who listens tae the bird before he listens tae his own temper. I've seen warriors try tae steer a gryphon intae a fight like a cart horse, an' the bird threw 'em off at the Vilebranch walls an' flew home wi'out 'em." } },
@@ -305,6 +314,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Keep yer hands where the birds can see 'em, {class}, for a gryphon knows a sneak by the smell, an' they bite first." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll want tae fight the trolls, I suppose, an' ye'll want a gryphon tae get there, an' ye'll want me tae trust ye wi' one, which I don't yet." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The gryphons are wary of ye, I can tell, but they'll settle once they know ye're no threat tae the aeries." },
       },
       again = { { id = "h_again", text = "What? Quick, they're wantin' fed." } },
       choices = {
@@ -318,6 +328,7 @@ P:NPC {
         { text = "Have the trolls ever crept into your aviary?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the gryphons ever come back hurt from the troll lands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would it take for you to trust a warrior with a gryphon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Should the trolls be driven from the aeries for good?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -578,6 +589,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "In their own way, aye. They don't have the Moon or yer Circle, but they speak tae the winds an' the earth, an' they'd never cut down a tree without a word of thanks. Ironforge thinks it's all superstition, mind." } },
+      choices = {
+        { text = "Ironforge is wrong. The Wildhammer have the right of it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Each people honors the land in their own way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Somethin' else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every one o' them, an' they tell the fight three times, each bigger than the last. By the third tellin', a single Witherbark scout has become a whole war party, an' I pour the next round anyway, because they've earned the tale." } },
@@ -637,6 +657,7 @@ P:NPC {
           text = "I count my mugs every night, {class}, an' I'll be countin' 'em twice tonight, no offence meant. Sit by the fire where I can see ye, an' we'll get on fine." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Set yer hammer by the door an' yer backside by the fire, for there's no a troll in the Hinterlands that'll find ye here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, an' ye've brought the forest in on yer boots. Sit, an' tell me what's movin' out there, for the riders only see the trees from above." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei! The Wildhammer have shamans o' their own, an' they'll be wantin' tae talk wi' ye, I'd wager." },
       },
       again = { { id = "h_again", text = "Anythin' else? Yer mug's no' empty yet." } },
       choices = {
@@ -650,6 +671,7 @@ P:NPC {
         { text = "Do the Wildhammer think well of paladins, innkeeper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Wildhammer warriors drink here after a fight?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the riders say about the Hinterlands forests?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Wildhammer revere the wild as my people do?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "A mug, please.", next = "END", fx = { affinity = 1 } },
       },
     },

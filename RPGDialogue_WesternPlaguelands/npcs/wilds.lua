@@ -23,6 +23,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Left to the wild? But it's our farm, and Pa says we'll plant again in spring, once the sickness passes. Oh, but the sickness doesn't pass, does it? I keep forgetting that." } },
+      choices = {
+        { text = "Let the wild have it, Janice. It's time to rest.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your family's farm should stay yours, even now.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Men from Andorhal, John said, to march the families south before the sickness reached the fields. You'll wait for the package, won't you, because I can't leave without it, and I can't think why the horse is so quiet." } },
@@ -71,6 +80,7 @@ P:NPC {
           text = "Oh, you're a soldier! Has the army come at last? John said they'd send someone to see the farms safe, and I've been keeping the kettle warm for days." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "Are you a hunter? John used to go after the foxes that came for our hens, though lately the foxes have been ever so strange, and the hens won't lay at all." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid? Oh, the farm's gone so quiet, there aren't any animals left, not even the barn cats. Can you hear them? I can't hear them anymore." },
       },
       again = {
         { id = "h_again", text = "You're still here, aren't you, and I'm glad of it, the house is so quiet when nobody talks." },
@@ -88,6 +98,7 @@ P:NPC {
         { text = "Janice, do you know what I am?", next = "x_forsaken", when = { race = "Scourge" } },
         { text = "Janice, which soldiers were you expecting?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's wrong with the foxes, Janice?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Should the farm be left to the wild now, Janice?", next = "xdruid", when = { class = "DRUID" } },
       },
     },
     john = {
@@ -375,6 +386,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Seek her, please, for I can't rest until I know. If she's still somewhere, I want her found, and if she's gone, I want to know she's at peace. Either way, I want to stop waiting." } },
+      choices = {
+        { text = "I'll find her. You deserve to know.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Some answers are better left unfound, Marlene.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every one of them, for they were farmers and millers who'd only borrowed their armour for the day. They stood with Joseph in the square so the rest of us could run, and I've wondered every night since whether Pamela ran fast enough." } },
@@ -398,6 +418,7 @@ P:NPC {
           text = "This was a good house once, and Joseph used to stop here on the road to Darrowshire. He'd bring Pamela, and she'd chase the chickens all over the yard, but there are no chickens now." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A soldier. The defenders of Darrowshire wore armour like yours, {class}, and I watched them march down the lane to the square and never saw one of them come back up it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid? Pamela loved the animals, you know. She'd have followed you all the way to your forest if you'd let her." },
       },
       again = {
         { id = "h_again", text = "Is there something more you'd like to know? I don't have many visitors to talk to." },
@@ -411,6 +432,7 @@ P:NPC {
         { text = "Shall I say a prayer with you?", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I can track a lost child, Marlene.", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Did you know the soldiers who defended Darrowshire?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Should we seek out Pamela, or let her memory rest?", next = "xdruid", when = { class = "DRUID" } },
       },
     },
     darrowshire = {
@@ -703,6 +725,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Regrown, I'd hope, though I'm not sure anything that grows there now would be safe. The roses have gone black and the hedges move at night, and I'd sooner see them burned than see them become what the house became." } },
+      choices = {
+        { text = "Burn them, Eva. Start again from ash.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Regrow them. Even a corrupted garden can be saved.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Those who stood their ground were killed, and those who killed them made use of them afterwards, which is the way of the Scholomance. If you go in, you'll meet faces I once served supper to, and I'd ask you to put them down quickly." } },
@@ -746,6 +777,7 @@ P:NPC {
           text = "A warrior. The house kept guards at the gate in the old days, {class}, good men, and I've seen several of them since, walking the halls in the wrong colours." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The master's hunting horns still hang in the long gallery, {class}, and on certain nights they sound by themselves, though no one living has blown them in years." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, at Caer Darrow? The gardens were lovely once, and Lucien and I tended them ourselves, but they've gone wild and wrong since the Scholomance took the house." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you wish to know? I shall answer as well as I'm able." },
@@ -763,6 +795,7 @@ P:NPC {
         { text = "What became of House Barov's guards, Eva?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Did House Barov hunt much, Mistress Sarkhoff?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll help you rest.", next = "END", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "Should Caer Darrow's gardens be burned clean or regrown?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'm here for the Scholomance, not for ghosts.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
