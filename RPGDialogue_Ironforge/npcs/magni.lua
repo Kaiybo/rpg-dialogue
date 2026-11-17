@@ -41,21 +41,49 @@ P:NPC {
         { id = "opn_horde_q", text = "The Regent's envoys tell me the orcs have a new warchief, this Thrall, who talks o' peace an' keeps tae his own corner o' Kalimdor. I fought his people when they burned Khaz Modan, so I'm no' the one tae ask. What d'ye make o' him?" },
       },
       choices = {
-        { text = "He's kept his word so far. I'd give him the chance.", next = "opn_horde_r", fx = { align = { light = 1 }, opinion = { warchief = "trust" } } },
-        { text = "An orc's word lasts until he's hungry, Your Majesty.", next = "opn_horde_r", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 }, opinion = { warchief = "distrust" } } },
-        { text = "Watch him and keep the axes sharp. Both can be true.", next = "opn_horde_r", fx = { trait = { practical = 1 }, opinion = { warchief = "wary" } } },
-        { text = "They burned Khaz Modan. No treaty buys that back.", next = "opn_horde_r", when = { race = "Dwarf" }, fx = { affinity = 1, align = { light = -1 }, opinion = { horde = "hate" } } },
+        { text = "He's kept his word so far. I'd give him the chance.", next = "opn_horde_r_trust", fx = { align = { light = 1 }, opinion = { warchief = "trust" } } },
+        { text = "An orc's word lasts until he's hungry, Your Majesty.", next = "opn_horde_r_distrust", fx = { affinity = 1, align = { light = -1 }, trait = { stern = 1 }, opinion = { warchief = "distrust" } } },
+        { text = "Watch him and keep the axes sharp. Both can be true.", next = "opn_horde_r_wary", fx = { trait = { practical = 1 }, opinion = { warchief = "wary" } } },
+        { text = "They burned Khaz Modan. No treaty buys that back.", next = "opn_horde_r_hate", when = { race = "Dwarf" }, fx = { affinity = 1, align = { light = -1 }, opinion = { horde = "hate" } } },
         { text = "I came out of Lordaeron. I've worse enemies than orcs now.", next = "opn_horde_r", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { horde = "lesser_evil", scourge = "hate" } } },
         { text = "That's for kings to judge, not me.", next = "BACK" },
       },
     },
     opn_horde_r = {
       lines = {
-        { id = "opn_horde_r_trust", when = { opinion = { topic = "warchief", stance = "trust" } }, text = "Then I hope ye're right, an' I hope ye're there tae tell me so if ye're wrong. I've buried enough friends who trusted an orc's smile." },
-        { id = "opn_horde_r_distrust", when = { opinion = { topic = "warchief", stance = "distrust" } }, text = "Ha! Ye'd do well in my Senate, though ye'd frighten half o' them. I'll no' argue wi' ye, for I've seen what hungry orcs do." },
-        { id = "opn_horde_r_wary", when = { opinion = { topic = "warchief", stance = "wary" } }, text = "That's a soldier's answer, an' it's near enough the one I give the Regent. Peace is a fine thing tae have on the table, so long as the axe stays under it." },
-        { id = "opn_horde_r_hate", when = { opinion = { topic = "horde", stance = "hate" } }, text = "No, it doesnae, an' I'll no' insult the dead by pretendin' otherwise. But mind ye don't let the grudge do yer thinkin', or ye'll end up like the Dark Iron." },
         { id = "opn_horde_r_default", text = "Aye, the Plague's taught us all new arithmetic. I'll still count the orcs, mind, but I'll count the dead first." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_trust = {
+      lines = {
+        { id = "opn_horde_r_trust", text = "Then I hope ye're right, an' I hope ye're there tae tell me so if ye're wrong. I've buried enough friends who trusted an orc's smile." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_distrust = {
+      lines = {
+        { id = "opn_horde_r_distrust", text = "Ha! Ye'd do well in my Senate, though ye'd frighten half o' them. I'll no' argue wi' ye, for I've seen what hungry orcs do." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_wary = {
+      lines = {
+        { id = "opn_horde_r_wary", text = "That's a soldier's answer, an' it's near enough the one I give the Regent. Peace is a fine thing tae have on the table, so long as the axe stays under it." },
+      },
+      choices = {
+        { text = "Something else, Your Majesty.", next = "BACK" },
+      },
+    },
+    opn_horde_r_hate = {
+      lines = {
+        { id = "opn_horde_r_hate", text = "No, it doesnae, an' I'll no' insult the dead by pretendin' otherwise. But mind ye don't let the grudge do yer thinkin', or ye'll end up like the Dark Iron." },
       },
       choices = {
         { text = "Something else, Your Majesty.", next = "BACK" },

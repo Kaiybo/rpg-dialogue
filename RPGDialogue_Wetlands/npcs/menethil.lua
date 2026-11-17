@@ -42,20 +42,48 @@ P:NPC {
         { id = "opn_jaina_q", text = "The Admiral's daughter. She stood wi' the orcs against her own father, an' now she keeps a peace wi' them across the water that the sailors swear by an' the old soldiers swear at. My boats run tae her harbour, so I've a stake in it. What's yer view?" },
       },
       choices = {
-        { text = "She keeps the peace. That's worth more than a grudge.", next = "opn_jaina_r", fx = { align = { light = 1 }, opinion = { jaina = "admire", peace = "peace" } } },
-        { text = "She turned on her own father for orcs. I'd not trust her.", next = "opn_jaina_r", fx = { affinity = 1, align = { light = -1 }, opinion = { jaina = "traitor" } } },
-        { text = "Brave, but young. Peace with orcs won't outlast her.", next = "opn_jaina_r", fx = { trait = { skeptical = 1 }, opinion = { jaina = "naive" } } },
-        { text = "She's a mage of the Kirin Tor. She knows her mind.", next = "opn_jaina_r", when = { class = "MAGE" }, fx = { opinion = { jaina = "respect" } } },
+        { text = "She keeps the peace. That's worth more than a grudge.", next = "opn_jaina_r_admire", fx = { align = { light = 1 }, opinion = { jaina = "admire", peace = "peace" } } },
+        { text = "She turned on her own father for orcs. I'd not trust her.", next = "opn_jaina_r_traitor", fx = { affinity = 1, align = { light = -1 }, opinion = { jaina = "traitor" } } },
+        { text = "Brave, but young. Peace with orcs won't outlast her.", next = "opn_jaina_r_naive", fx = { trait = { skeptical = 1 }, opinion = { jaina = "naive" } } },
+        { text = "She's a mage of the Kirin Tor. She knows her mind.", next = "opn_jaina_r_respect", when = { class = "MAGE" }, fx = { opinion = { jaina = "respect" } } },
         { text = "I've never met her, Captain.", next = "BACK" },
       },
     },
     opn_jaina_r = {
       lines = {
-        { id = "opn_jaina_r_admire", when = { opinion = { topic = "jaina", stance = "admire" } }, text = "Maybe so, an' my sailors would kiss ye for sayin' it. I'll keep my walls manned all the same, for a peace across the water doesnae reach Grim Batol." },
-        { id = "opn_jaina_r_traitor", when = { opinion = { topic = "jaina", stance = "traitor" } }, text = "Hard words for a lass who saved more lives than I've got men. I'll no' say ye're wrong, mind, for the Admiral's sailors still drink in my tavern, an' they don't toast her." },
-        { id = "opn_jaina_r_naive", when = { opinion = { topic = "jaina", stance = "naive" } }, text = "Aye, that's my fear too, put neater than I'd put it. Peace is a fine thing until the one who made it is gone, an' then it's just a wall wi' no guards." },
-        { id = "opn_jaina_r_respect", when = { opinion = { topic = "jaina", stance = "respect" } }, text = "Ye'd know better than an old soldier. I only know her ships pay their dues an' her captains don't lie about cargo, an' that's more than I can say for Booty Bay." },
         { id = "opn_jaina_r_default", text = "Nor have I, an' I'd like tae keep it that way, for the last Proudmoore I met shouted at me for an hour about the harbour." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_jaina_r_admire = {
+      lines = {
+        { id = "opn_jaina_r_admire", text = "Maybe so, an' my sailors would kiss ye for sayin' it. I'll keep my walls manned all the same, for a peace across the water doesnae reach Grim Batol." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_jaina_r_traitor = {
+      lines = {
+        { id = "opn_jaina_r_traitor", text = "Hard words for a lass who saved more lives than I've got men. I'll no' say ye're wrong, mind, for the Admiral's sailors still drink in my tavern, an' they don't toast her." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_jaina_r_naive = {
+      lines = {
+        { id = "opn_jaina_r_naive", text = "Aye, that's my fear too, put neater than I'd put it. Peace is a fine thing until the one who made it is gone, an' then it's just a wall wi' no guards." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_jaina_r_respect = {
+      lines = {
+        { id = "opn_jaina_r_respect", text = "Ye'd know better than an old soldier. I only know her ships pay their dues an' her captains don't lie about cargo, an' that's more than I can say for Booty Bay." },
       },
       choices = {
         { text = "Something else, Captain.", next = "BACK" },

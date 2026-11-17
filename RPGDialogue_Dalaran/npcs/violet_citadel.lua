@@ -46,19 +46,40 @@ P:NPC {
         { id = "opn_kirintor_q", text = "That's the argument upstairs every evening, and it ends the same way, which is with nobody agreeing. Half the council says Dalaran is an Alliance city and should act like one, and the other half says a city of scholars should belong to no banner at all. I'd like to hear it from someone who has to live with the answer." },
       },
       choices = {
-        { text = "The Alliance. Dalaran was founded among men, and they need you.", next = "opn_kirintor_r", fx = { align = { order = 1 }, opinion = { kirin_tor = "alliance" } } },
-        { text = "No banner. Knowledge shouldn't wear a tabard.", next = "opn_kirintor_r", fx = { affinity = 1, align = { order = -1 }, opinion = { kirin_tor = "neutral" } } },
-        { text = "Whichever side keeps the Scourge out of your cellars.", next = "opn_kirintor_r", fx = { trait = { practical = 1 }, opinion = { kirin_tor = "useful" } } },
-        { text = "The Horde fought the Legion too. Remember that, Archmage.", next = "opn_kirintor_r", when = { faction = "Horde" }, fx = { affinity = 1, opinion = { kirin_tor = "neutral", horde = "proud" } } },
+        { text = "The Alliance. Dalaran was founded among men, and they need you.", next = "opn_kirintor_r_alliance", fx = { align = { order = 1 }, opinion = { kirin_tor = "alliance" } } },
+        { text = "No banner. Knowledge shouldn't wear a tabard.", next = "opn_kirintor_r_neutral", fx = { affinity = 1, align = { order = -1 }, opinion = { kirin_tor = "neutral" } } },
+        { text = "Whichever side keeps the Scourge out of your cellars.", next = "opn_kirintor_r_useful", fx = { trait = { practical = 1 }, opinion = { kirin_tor = "useful" } } },
+        { text = "The Horde fought the Legion too. Remember that, Archmage.", next = "opn_kirintor_r_neutral", when = { faction = "Horde" }, fx = { affinity = 1, opinion = { kirin_tor = "neutral", horde = "proud" } } },
         { text = "I'll leave that to the council.", next = "BACK" },
       },
     },
     opn_kirintor_r = {
       lines = {
-        { id = "opn_kirintor_r_alliance", when = { opinion = { topic = "kirin_tor", stance = "alliance" } }, text = "Founded among men, yes, and burned among them too. You're not wrong, and the Alliance would agree with you loudly, which is rather the trouble." },
-        { id = "opn_kirintor_r_neutral", when = { opinion = { topic = "kirin_tor", stance = "neutral" } }, text = "Knowledge shouldn't wear a tabard. I'm going to steal that, I'm afraid, and say it upstairs as if I'd thought of it myself." },
-        { id = "opn_kirintor_r_useful", when = { opinion = { topic = "kirin_tor", stance = "useful" } }, text = "A practical answer, and the one the council always arrives at after six hours of the impractical ones. Thank you for saving me the six hours." },
         { id = "opn_kirintor_r_default", text = "It's very good at leaving things to itself. That's how we ended up behind a dome." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_alliance = {
+      lines = {
+        { id = "opn_kirintor_r_alliance", text = "Founded among men, yes, and burned among them too. You're not wrong, and the Alliance would agree with you loudly, which is rather the trouble." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_neutral = {
+      lines = {
+        { id = "opn_kirintor_r_neutral", text = "Knowledge shouldn't wear a tabard. I'm going to steal that, I'm afraid, and say it upstairs as if I'd thought of it myself." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_useful = {
+      lines = {
+        { id = "opn_kirintor_r_useful", text = "A practical answer, and the one the council always arrives at after six hours of the impractical ones. Thank you for saving me the six hours." },
       },
       choices = {
         { text = "Something else, Archmage.", next = "BACK" },
@@ -405,19 +426,40 @@ P:NPC {
         { id = "opn_necro_q", text = "Kel'Thuzad asked the council that exact question, years ago, and they expelled him for it, and then he came back with an army of corpses. Some of us think the answer was right and the man was wrong. Be brief, but be honest: what do you think?" },
       },
       choices = {
-        { text = "Never. That road leads to Kel'Thuzad every time.", next = "opn_necro_r", fx = { align = { light = 1 }, opinion = { necromancy = "forbid" } } },
-        { text = "Know your enemy. Study it, carefully.", next = "opn_necro_r", fx = { affinity = 1, align = { light = -1 }, opinion = { necromancy = "study" } } },
-        { text = "Study it, but never alone, and never in secret.", next = "opn_necro_r", fx = { trait = { careful = 1 }, opinion = { necromancy = "watched" } } },
-        { text = "I am what necromancy made. Burn every page.", next = "opn_necro_r", when = { race = "Scourge" }, fx = { opinion = { necromancy = "forbid", undeath = "curse" } } },
+        { text = "Never. That road leads to Kel'Thuzad every time.", next = "opn_necro_r_forbid", fx = { align = { light = 1 }, opinion = { necromancy = "forbid" } } },
+        { text = "Know your enemy. Study it, carefully.", next = "opn_necro_r_study", fx = { affinity = 1, align = { light = -1 }, opinion = { necromancy = "study" } } },
+        { text = "Study it, but never alone, and never in secret.", next = "opn_necro_r_watched", fx = { trait = { careful = 1 }, opinion = { necromancy = "watched" } } },
+        { text = "I am what necromancy made. Burn every page.", next = "opn_necro_r_forbid", when = { race = "Scourge" }, fx = { opinion = { necromancy = "forbid", undeath = "curse" } } },
         { text = "That's for wiser heads than mine.", next = "BACK" },
       },
     },
     opn_necro_r = {
       lines = {
-        { id = "opn_necro_r_forbid", when = { opinion = { topic = "necromancy", stance = "forbid" } }, text = "Every time, yes. Antonidas said the same, and he was right, and he died anyway, which is the part that keeps me in this room at night." },
-        { id = "opn_necro_r_study", when = { opinion = { topic = "necromancy", stance = "study" } }, text = "Carefully. Everyone says carefully, and Kel'Thuzad said it too. I don't disagree with you, which is precisely what frightens me." },
-        { id = "opn_necro_r_watched", when = { opinion = { topic = "necromancy", stance = "watched" } }, text = "Never alone and never in secret. That's the one rule we broke with him, and it's a good one to put over a door. Now, please, I have wards to see to." },
         { id = "opn_necro_r_default", text = "There are fewer wiser heads than there used to be. Ask me again when the towers are finished." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_necro_r_forbid = {
+      lines = {
+        { id = "opn_necro_r_forbid", text = "Every time, yes. Antonidas said the same, and he was right, and he died anyway, which is the part that keeps me in this room at night." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_necro_r_study = {
+      lines = {
+        { id = "opn_necro_r_study", text = "Carefully. Everyone says carefully, and Kel'Thuzad said it too. I don't disagree with you, which is precisely what frightens me." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_necro_r_watched = {
+      lines = {
+        { id = "opn_necro_r_watched", text = "Never alone and never in secret. That's the one rule we broke with him, and it's a good one to put over a door. Now, please, I have wards to see to." },
       },
       choices = {
         { text = "Something else, Archmage.", next = "BACK" },

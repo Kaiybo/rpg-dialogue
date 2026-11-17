@@ -38,20 +38,48 @@ P:NPC {
         { id = "opn_hand_q", text = "Raised by whom? The best of them died with Uther, the angriest went off to the Crusade, and the rest drink quietly in Anderson's taproom and don't wear the tabard. I hear talk of it, though, every time a paladin rides through. What do you think?" },
       },
       choices = {
-        { text = "Yes. Lordaeron needs the Hand more than ever.", next = "opn_hand_r", fx = { affinity = 1, align = { order = 1 }, opinion = { silver_hand = "restore" } } },
-        { text = "Let it rest. Orders like that turn into crusades.", next = "opn_hand_r", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { silver_hand = "let_rest" } } },
-        { text = "The Argent Dawn does the Hand's work now, without the pride.", next = "opn_hand_r", fx = { opinion = { silver_hand = "replaced", argent_dawn = "trust" } } },
-        { text = "I carry its oaths still, Marshal. The Hand isn't gone.", next = "opn_hand_r", when = { class = "PALADIN" }, fx = { affinity = 2, trait = { pious = 1 }, opinion = { silver_hand = "keep" } } },
+        { text = "Yes. Lordaeron needs the Hand more than ever.", next = "opn_hand_r_restore", fx = { affinity = 1, align = { order = 1 }, opinion = { silver_hand = "restore" } } },
+        { text = "Let it rest. Orders like that turn into crusades.", next = "opn_hand_r_let_rest", fx = { align = { order = -1 }, trait = { skeptical = 1 }, opinion = { silver_hand = "let_rest" } } },
+        { text = "The Argent Dawn does the Hand's work now, without the pride.", next = "opn_hand_r_replaced", fx = { opinion = { silver_hand = "replaced", argent_dawn = "trust" } } },
+        { text = "I carry its oaths still, Marshal. The Hand isn't gone.", next = "opn_hand_r_keep", when = { class = "PALADIN" }, fx = { affinity = 2, trait = { pious = 1 }, opinion = { silver_hand = "keep" } } },
         { text = "I don't know enough of it to say.", next = "BACK" },
       },
     },
     opn_hand_r = {
       lines = {
-        { id = "opn_hand_r_restore", when = { opinion = { topic = "silver_hand", stance = "restore" } }, text = "More than ever, yes, and fewer to do it than ever. If you find a man fit to lead it, send him to Southshore first; we'll feed him." },
-        { id = "opn_hand_r_rest", when = { opinion = { topic = "silver_hand", stance = "let_rest" } }, text = "That's Raleigh's view, more or less, and he'd know better than either of us. I'd still rather have the Hand than the Crusade, given the choice." },
-        { id = "opn_hand_r_replaced", when = { opinion = { topic = "silver_hand", stance = "replaced" } }, text = "The Argent Dawn. I've heard of them, out at the Plaguelands' edge. If they're half what the Hand was, I'll take them, and gladly." },
-        { id = "opn_hand_r_keep", when = { opinion = { topic = "silver_hand", stance = "keep" } }, text = "Then it isn't, not while there's someone saying so out loud. The old knights in the taproom will want to buy you a drink; let them." },
         { id = "opn_hand_r_default", text = "Then ask the old knights in the taproom. They'll tell you more than you want and less than they know." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    opn_hand_r_restore = {
+      lines = {
+        { id = "opn_hand_r_restore", text = "More than ever, yes, and fewer to do it than ever. If you find a man fit to lead it, send him to Southshore first; we'll feed him." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    opn_hand_r_let_rest = {
+      lines = {
+        { id = "opn_hand_r_rest", text = "That's Raleigh's view, more or less, and he'd know better than either of us. I'd still rather have the Hand than the Crusade, given the choice." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    opn_hand_r_replaced = {
+      lines = {
+        { id = "opn_hand_r_replaced", text = "The Argent Dawn. I've heard of them, out at the Plaguelands' edge. If they're half what the Hand was, I'll take them, and gladly." },
+      },
+      choices = {
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
+    opn_hand_r_keep = {
+      lines = {
+        { id = "opn_hand_r_keep", text = "Then it isn't, not while there's someone saying so out loud. The old knights in the taproom will want to buy you a drink; let them." },
       },
       choices = {
         { text = "Something else, Marshal.", next = "BACK" },
@@ -464,20 +492,48 @@ P:NPC {
         { id = "opn_bolvar_q", text = "Stormwind sends magistrates and forms, and very few soldiers. Highlord Bolvar is a good man with a missing king and a court full of opinions, and Lady Prestor has more of those than most. I'd value an outside view, off the record, if you have one." },
       },
       choices = {
-        { text = "Bolvar holds a kingdom together alone. Give him time.", next = "opn_bolvar_r", fx = { affinity = 1, align = { order = 1 }, opinion = { bolvar = "trust" } } },
-        { text = "Stormwind forgot the north the day the plague came.", next = "opn_bolvar_r", fx = { align = { order = -1 }, opinion = { stormwind = "abandoned", bolvar = "neglect" } } },
-        { text = "I'd look harder at who has the Regent's ear.", next = "opn_bolvar_r", fx = { trait = { skeptical = 1 }, opinion = { prestor = "distrust" } } },
-        { text = "Lady Prestor seems to keep the court steady.", next = "opn_bolvar_r", when = { origin = "human_minor_noble" }, fx = { opinion = { prestor = "trust" } } },
+        { text = "Bolvar holds a kingdom together alone. Give him time.", next = "opn_bolvar_r_trust", fx = { affinity = 1, align = { order = 1 }, opinion = { bolvar = "trust" } } },
+        { text = "Stormwind forgot the north the day the plague came.", next = "opn_bolvar_r_neglect", fx = { align = { order = -1 }, opinion = { stormwind = "abandoned", bolvar = "neglect" } } },
+        { text = "I'd look harder at who has the Regent's ear.", next = "opn_bolvar_r_distrust", fx = { trait = { skeptical = 1 }, opinion = { prestor = "distrust" } } },
+        { text = "Lady Prestor seems to keep the court steady.", next = "opn_bolvar_r_prestor_trust", when = { origin = "human_minor_noble" }, fx = { opinion = { prestor = "trust" } } },
         { text = "I'd rather not, Magistrate.", next = "BACK" },
       },
     },
     opn_bolvar_r = {
       lines = {
-        { id = "opn_bolvar_r_trust", when = { opinion = { topic = "bolvar", stance = "trust" } }, text = "Time is the one thing I can't requisition, but I take your point. He answered my last letter himself, which is more than his predecessors did." },
-        { id = "opn_bolvar_r_neglect", when = { opinion = { topic = "bolvar", stance = "neglect" } }, text = "I couldn't possibly agree with that in writing. Out loud, in this office, with the shutters closed, I'll only say the last shipment of soldiers was three men and a cook." },
-        { id = "opn_bolvar_r_prestor", when = { opinion = { topic = "prestor", stance = "distrust" } }, text = "That's a dangerous thing to say about a noblewoman, and I'll pretend I didn't hear it. I'll also pretend I haven't thought it myself, reading her letters." },
-        { id = "opn_bolvar_r_prestortrust", when = { opinion = { topic = "prestor", stance = "trust" } }, text = "Steady is a word for it. The court hasn't been so quiet in years, which I'd find more reassuring if Southshore's requests didn't keep vanishing into that quiet." },
         { id = "opn_bolvar_r_default", text = "Wise. I've a form for opinions, but it's never once been filled in." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_bolvar_r_trust = {
+      lines = {
+        { id = "opn_bolvar_r_trust", text = "Time is the one thing I can't requisition, but I take your point. He answered my last letter himself, which is more than his predecessors did." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_bolvar_r_neglect = {
+      lines = {
+        { id = "opn_bolvar_r_neglect", text = "I couldn't possibly agree with that in writing. Out loud, in this office, with the shutters closed, I'll only say the last shipment of soldiers was three men and a cook." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_bolvar_r_distrust = {
+      lines = {
+        { id = "opn_bolvar_r_prestor", text = "That's a dangerous thing to say about a noblewoman, and I'll pretend I didn't hear it. I'll also pretend I haven't thought it myself, reading her letters." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_bolvar_r_prestor_trust = {
+      lines = {
+        { id = "opn_bolvar_r_prestortrust", text = "Steady is a word for it. The court hasn't been so quiet in years, which I'd find more reassuring if Southshore's requests didn't keep vanishing into that quiet." },
       },
       choices = {
         { text = "Something else, Magistrate.", next = "BACK" },
@@ -770,19 +826,40 @@ P:NPC {
         { id = "opn_varian_q", text = "The King? He sailed for Theramore and never arrived, and everyone in the Keep says 'missing' in the voice they use for 'dead'. I say he's alive, because I'm a Stormwind man and that's our job, but you've been further than I have. Well?" },
       },
       choices = {
-        { text = "He's alive somewhere, and he'll come home.", next = "opn_varian_r", fx = { affinity = 2, align = { light = 1 }, opinion = { varian = "alive" } } },
-        { text = "He's gone, Lieutenant. Stormwind needs to accept it.", next = "opn_varian_r", fx = { affinity = -1, align = { light = -1 }, opinion = { varian = "dead" } } },
-        { text = "Someone wanted him gone. I'd ask who.", next = "opn_varian_r", fx = { trait = { skeptical = 1 }, opinion = { varian = "betrayed" } } },
-        { text = "Prince Anduin needs his father. I hope he's found.", next = "opn_varian_r", when = { race = "Human" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { varian = "alive" } } },
+        { text = "He's alive somewhere, and he'll come home.", next = "opn_varian_r_alive", fx = { affinity = 2, align = { light = 1 }, opinion = { varian = "alive" } } },
+        { text = "He's gone, Lieutenant. Stormwind needs to accept it.", next = "opn_varian_r_dead", fx = { affinity = -1, align = { light = -1 }, opinion = { varian = "dead" } } },
+        { text = "Someone wanted him gone. I'd ask who.", next = "opn_varian_r_betrayed", fx = { trait = { skeptical = 1 }, opinion = { varian = "betrayed" } } },
+        { text = "Prince Anduin needs his father. I hope he's found.", next = "opn_varian_r_alive", when = { race = "Human" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { varian = "alive" } } },
         { text = "I couldn't say.", next = "BACK" },
       },
     },
     opn_varian_r = {
       lines = {
-        { id = "opn_varian_r_alive", when = { opinion = { topic = "varian", stance = "alive" } }, text = "Ha! There, finally, someone who isn't from the Keep and still says it. I'll write that to Samuelson tonight, along with my transfer request." },
-        { id = "opn_varian_r_dead", when = { opinion = { topic = "varian", stance = "dead" } }, text = "Well, you sound exactly like the Keep, then. I'll thank you not to say it again in here; I've enough reasons to be miserable in Southshore without that one." },
-        { id = "opn_varian_r_betrayed", when = { opinion = { topic = "varian", stance = "betrayed" } }, text = "Who? Oh, no, I'm not touching that, not with a stranded lieutenant's career. Keep your voice down, and don't say it near the Magistrate's forms." },
         { id = "opn_varian_r_default", text = "Nobody can, which is the worst part. Go and kill murlocs; at least that's simple." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_varian_r_alive = {
+      lines = {
+        { id = "opn_varian_r_alive", text = "Ha! There, finally, someone who isn't from the Keep and still says it. I'll write that to Samuelson tonight, along with my transfer request." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_varian_r_dead = {
+      lines = {
+        { id = "opn_varian_r_dead", text = "Well, you sound exactly like the Keep, then. I'll thank you not to say it again in here; I've enough reasons to be miserable in Southshore without that one." },
+      },
+      choices = {
+        { text = "Something else, Lieutenant.", next = "BACK" },
+      },
+    },
+    opn_varian_r_betrayed = {
+      lines = {
+        { id = "opn_varian_r_betrayed", text = "Who? Oh, no, I'm not touching that, not with a stranded lieutenant's career. Keep your voice down, and don't say it near the Magistrate's forms." },
       },
       choices = {
         { text = "Something else, Lieutenant.", next = "BACK" },

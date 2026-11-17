@@ -29,20 +29,48 @@ P:NPC {
         { id = "opn_alterac_q", text = "My house has watched the Perenoldes for a long time, and it has had very little reason to admire what it saw. Stromgarde wants the land, the Syndicate wants the titles, and the ogres want the furniture. Whose claim would you honour, if anyone's?" },
       },
       choices = {
-        { text = "Stromgarde's. They bled for it when Alterac betrayed them.", next = "opn_alterac_r", fx = { align = { honor = 1 }, opinion = { alterac = "stromgarde_claim", stromgarde = "retake" } } },
-        { text = "Nobody's. Let the mountains keep it.", next = "opn_alterac_r", fx = { affinity = 1, align = { honor = -1 }, opinion = { alterac = "dead" } } },
-        { text = "Whoever pays the house best, my lord.", next = "opn_alterac_r", when = { class = "ROGUE" }, fx = { affinity = 2, trait = { cunning = 1 }, opinion = { alterac = "for_sale" } } },
-        { text = "Its common folk deserve better than any of them.", next = "opn_alterac_r", fx = { trait = { kind = 1 }, opinion = { alterac = "pity" } } },
+        { text = "Stromgarde's. They bled for it when Alterac betrayed them.", next = "opn_alterac_r_stromgarde_claim", fx = { align = { honor = 1 }, opinion = { alterac = "stromgarde_claim", stromgarde = "retake" } } },
+        { text = "Nobody's. Let the mountains keep it.", next = "opn_alterac_r_dead", fx = { affinity = 1, align = { honor = -1 }, opinion = { alterac = "dead" } } },
+        { text = "Whoever pays the house best, my lord.", next = "opn_alterac_r_for_sale", when = { class = "ROGUE" }, fx = { affinity = 2, trait = { cunning = 1 }, opinion = { alterac = "for_sale" } } },
+        { text = "Its common folk deserve better than any of them.", next = "opn_alterac_r_pity", fx = { trait = { kind = 1 }, opinion = { alterac = "pity" } } },
         { text = "I'd rather not choose sides in Alterac.", next = "BACK" },
       },
     },
     opn_alterac_r = {
       lines = {
-        { id = "opn_alterac_r_stromgarde", when = { opinion = { topic = "alterac", stance = "stromgarde_claim" } }, text = "An honest claim, and an expensive one. Stromgarde cannot hold its own keep at present, so it will be some time before it holds anyone else's." },
-        { id = "opn_alterac_r_dead", when = { opinion = { topic = "alterac", stance = "dead" } }, text = "The mountains are excellent keepers. They do not sell their secrets, which is more than I can say for the Perenoldes." },
-        { id = "opn_alterac_r_sale", when = { opinion = { topic = "alterac", stance = "for_sale" } }, text = "Spoken like one of mine. I'll pretend that was a jest, and keep a note that it wasn't." },
-        { id = "opn_alterac_r_pity", when = { opinion = { topic = "alterac", stance = "pity" } }, text = "They do, and they will not get it. Still, it is pleasant to hear someone say it at Ravenholdt, where we seldom say anything pleasant." },
         { id = "opn_alterac_r_default", text = "Wise. Alterac has a long habit of punishing those who choose sides." },
+      },
+      choices = {
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_stromgarde_claim = {
+      lines = {
+        { id = "opn_alterac_r_stromgarde", text = "An honest claim, and an expensive one. Stromgarde cannot hold its own keep at present, so it will be some time before it holds anyone else's." },
+      },
+      choices = {
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_dead = {
+      lines = {
+        { id = "opn_alterac_r_dead", text = "The mountains are excellent keepers. They do not sell their secrets, which is more than I can say for the Perenoldes." },
+      },
+      choices = {
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_for_sale = {
+      lines = {
+        { id = "opn_alterac_r_sale", text = "Spoken like one of mine. I'll pretend that was a jest, and keep a note that it wasn't." },
+      },
+      choices = {
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
+    opn_alterac_r_pity = {
+      lines = {
+        { id = "opn_alterac_r_pity", text = "They do, and they will not get it. Still, it is pleasant to hear someone say it at Ravenholdt, where we seldom say anything pleasant." },
       },
       choices = {
         { text = "Something else, my lord.", next = "BACK" },
@@ -264,20 +292,48 @@ P:NPC {
         { id = "opn_kirintor_q", text = "That is the question the Council asks of itself behind this barrier, and the one the rest of the Alliance asks of us in less polite language. Kel'Thuzad was one of ours, and Stormwind's lords have not forgotten it. What is your verdict?" },
       },
       choices = {
-        { text = "Rebuild it. The world needs the Kirin Tor's learning.", next = "opn_kirintor_r", fx = { affinity = 2, align = { order = 1 }, opinion = { kirin_tor = "rebuild" } } },
-        { text = "Your arrogance bred the Cult of the Damned. Let it lie.", next = "opn_kirintor_r", fx = { affinity = -2, align = { order = -1 }, opinion = { kirin_tor = "arrogant" } } },
-        { text = "Rebuild it, but let someone watch the watchers.", next = "opn_kirintor_r", fx = { trait = { careful = 1 }, opinion = { kirin_tor = "watched" } } },
-        { text = "Magic is a craft. Teach it openly and the rot can't hide.", next = "opn_kirintor_r", when = { class = "MAGE" }, fx = { opinion = { kirin_tor = "reform", arcane_magic = "craft" } } },
+        { text = "Rebuild it. The world needs the Kirin Tor's learning.", next = "opn_kirintor_r_rebuild", fx = { affinity = 2, align = { order = 1 }, opinion = { kirin_tor = "rebuild" } } },
+        { text = "Your arrogance bred the Cult of the Damned. Let it lie.", next = "opn_kirintor_r_arrogant", fx = { affinity = -2, align = { order = -1 }, opinion = { kirin_tor = "arrogant" } } },
+        { text = "Rebuild it, but let someone watch the watchers.", next = "opn_kirintor_r_watched", fx = { trait = { careful = 1 }, opinion = { kirin_tor = "watched" } } },
+        { text = "Magic is a craft. Teach it openly and the rot can't hide.", next = "opn_kirintor_r_reform", when = { class = "MAGE" }, fx = { opinion = { kirin_tor = "reform", arcane_magic = "craft" } } },
         { text = "That's for the Council to judge, Archmage.", next = "BACK" },
       },
     },
     opn_kirintor_r = {
       lines = {
-        { id = "opn_kirintor_r_rebuild", when = { opinion = { topic = "kirin_tor", stance = "rebuild" } }, text = "It does, though it rarely says so. I'll mention to the Council that one traveller at our walls had sense, and they'll ask your name and then forget it." },
-        { id = "opn_kirintor_r_arrogant", when = { opinion = { topic = "kirin_tor", stance = "arrogant" } }, text = "Kel'Thuzad was expelled long before he raised a single corpse, and we paid for him in our own blood. Arrogant we may be, but we were not the only ones who failed to see it." },
-        { id = "opn_kirintor_r_watched", when = { opinion = { topic = "kirin_tor", stance = "watched" } }, text = "The Kirin Tor watching itself has a mixed record, I'll grant you. Perhaps Modera would agree, though she would say it in a footnote." },
-        { id = "opn_kirintor_r_reform", when = { opinion = { topic = "kirin_tor", stance = "reform" } }, text = "Openly. The old masters would faint at the word, and the masters in Stormwind would say they do it already. Perhaps you're right, but not this century." },
         { id = "opn_kirintor_r_default", text = "It will, eventually, at length, and in committee." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_rebuild = {
+      lines = {
+        { id = "opn_kirintor_r_rebuild", text = "It does, though it rarely says so. I'll mention to the Council that one traveller at our walls had sense, and they'll ask your name and then forget it." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_arrogant = {
+      lines = {
+        { id = "opn_kirintor_r_arrogant", text = "Kel'Thuzad was expelled long before he raised a single corpse, and we paid for him in our own blood. Arrogant we may be, but we were not the only ones who failed to see it." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_watched = {
+      lines = {
+        { id = "opn_kirintor_r_watched", text = "The Kirin Tor watching itself has a mixed record, I'll grant you. Perhaps Modera would agree, though she would say it in a footnote." },
+      },
+      choices = {
+        { text = "Something else, Archmage.", next = "BACK" },
+      },
+    },
+    opn_kirintor_r_reform = {
+      lines = {
+        { id = "opn_kirintor_r_reform", text = "Openly. The old masters would faint at the word, and the masters in Stormwind would say they do it already. Perhaps you're right, but not this century." },
       },
       choices = {
         { text = "Something else, Archmage.", next = "BACK" },

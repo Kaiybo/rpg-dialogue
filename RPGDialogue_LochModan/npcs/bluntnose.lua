@@ -39,20 +39,48 @@ P:NPC {
         { id = "opn_alliance_q", text = "Ye'd have me answer that wi' a Mountaineer in earshot? The King gave his word after the Second War, an' half our Reserve's off at the front keepin' it while my farmers count ogres. I've a ledger for everythin' but that, so ye tell me, is it worth it?" },
       },
       choices = {
-        { text = "The Alliance took this mountain back for you. It's a debt.", next = "opn_alliance_r", fx = { align = { honor = 1 }, opinion = { alliance = "loyal" } } },
-        { text = "Not while your own valleys bleed, Magistrate.", next = "opn_alliance_r", fx = { affinity = 1, align = { honor = -1 }, opinion = { alliance = "burden" } } },
-        { text = "Alone, Ironforge falls. Together, it only bleeds.", next = "opn_alliance_r", fx = { trait = { practical = 1 }, opinion = { alliance = "necessary" } } },
-        { text = "Stormwind's never paid back a single debt to Lordaeron's people.", next = "opn_alliance_r", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { alliance = "broken", stormwind = "distrust" } } },
+        { text = "The Alliance took this mountain back for you. It's a debt.", next = "opn_alliance_r_loyal", fx = { align = { honor = 1 }, opinion = { alliance = "loyal" } } },
+        { text = "Not while your own valleys bleed, Magistrate.", next = "opn_alliance_r_burden", fx = { affinity = 1, align = { honor = -1 }, opinion = { alliance = "burden" } } },
+        { text = "Alone, Ironforge falls. Together, it only bleeds.", next = "opn_alliance_r_necessary", fx = { trait = { practical = 1 }, opinion = { alliance = "necessary" } } },
+        { text = "Stormwind's never paid back a single debt to Lordaeron's people.", next = "opn_alliance_r_broken", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { alliance = "broken", stormwind = "distrust" } } },
         { text = "I'll leave the ledger to you, Magistrate.", next = "BACK" },
       },
     },
     opn_alliance_r = {
       lines = {
-        { id = "opn_alliance_r_loyal", when = { opinion = { topic = "alliance", stance = "loyal" } }, text = "A debt, aye, an' we're payin' it in sons. I'll write ye down as a loyal sort, which is a fine thing tae be in Ironforge, an' a lonelier thing in Thelsamar." },
-        { id = "opn_alliance_r_burden", when = { opinion = { topic = "alliance", stance = "burden" } }, text = "Ye've said in one breath what I've been tryin' tae say tae Ironforge in three letters. Don't say it near Rugelfuss, mind; he's a captain, an' captains say 'Yes, my king.'" },
-        { id = "opn_alliance_r_necessary", when = { opinion = { topic = "alliance", stance = "necessary" } }, text = "Hmph. That's the answer o' someone who's never had tae pay for a funeral out o' a town fund. Still, I cannae say it's wrong." },
-        { id = "opn_alliance_r_broken", when = { opinion = { topic = "alliance", stance = "broken" } }, text = "Then ye've more cause tae grumble than me, an' I'll stop my grumblin' while ye're at the counter. Sit, if ye like; I've a chair for folk wi' worse ledgers." },
         { id = "opn_alliance_r_default", text = "Wise. Folk who settle that question tend tae end up on my desk as a complaint." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_loyal = {
+      lines = {
+        { id = "opn_alliance_r_loyal", text = "A debt, aye, an' we're payin' it in sons. I'll write ye down as a loyal sort, which is a fine thing tae be in Ironforge, an' a lonelier thing in Thelsamar." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_burden = {
+      lines = {
+        { id = "opn_alliance_r_burden", text = "Ye've said in one breath what I've been tryin' tae say tae Ironforge in three letters. Don't say it near Rugelfuss, mind; he's a captain, an' captains say 'Yes, my king.'" },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_necessary = {
+      lines = {
+        { id = "opn_alliance_r_necessary", text = "Hmph. That's the answer o' someone who's never had tae pay for a funeral out o' a town fund. Still, I cannae say it's wrong." },
+      },
+      choices = {
+        { text = "Something else, Magistrate.", next = "BACK" },
+      },
+    },
+    opn_alliance_r_broken = {
+      lines = {
+        { id = "opn_alliance_r_broken", text = "Then ye've more cause tae grumble than me, an' I'll stop my grumblin' while ye're at the counter. Sit, if ye like; I've a chair for folk wi' worse ledgers." },
       },
       choices = {
         { text = "Something else, Magistrate.", next = "BACK" },

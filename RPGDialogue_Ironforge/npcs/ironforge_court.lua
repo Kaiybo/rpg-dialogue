@@ -41,21 +41,49 @@ P:NPC {
         { id = "opn_gnomeregan_q", text = "Half my council says we must go home, and the other half says we ought to build somewhere new and let the old city keep its ghosts. I'm the High Tinker, so I'm obliged to say 'home', but you're not obliged to anything. What would you do?" },
       },
       choices = {
-        { text = "Take it back. A people needs its home.", next = "opn_gnomeregan_r", fx = { affinity = 1, align = { honor = 1 }, opinion = { gnomeregan = "retake" } } },
-        { text = "Build somewhere new. Gnomeregan is a grave now.", next = "opn_gnomeregan_r", fx = { align = { honor = -1 }, trait = { practical = 1 }, opinion = { gnomeregan = "abandon" } } },
-        { text = "Seal it and let the dwarves guard the door.", next = "opn_gnomeregan_r", fx = { affinity = -1, trait = { stern = 1 }, opinion = { gnomeregan = "seal" } } },
-        { text = "I want to go home, High Tinker. That's all.", next = "opn_gnomeregan_r", when = { race = "Gnome" }, fx = { affinity = 2, opinion = { gnomeregan = "retake" } } },
-        { text = "Ironforge has room. Your people can stay as long as they like.", next = "opn_gnomeregan_r", when = { race = "Dwarf" }, fx = { affinity = 1, opinion = { gnomes = "welcome" } } },
+        { text = "Take it back. A people needs its home.", next = "opn_gnomeregan_r_retake", fx = { affinity = 1, align = { honor = 1 }, opinion = { gnomeregan = "retake" } } },
+        { text = "Build somewhere new. Gnomeregan is a grave now.", next = "opn_gnomeregan_r_abandon", fx = { align = { honor = -1 }, trait = { practical = 1 }, opinion = { gnomeregan = "abandon" } } },
+        { text = "Seal it and let the dwarves guard the door.", next = "opn_gnomeregan_r_seal", fx = { affinity = -1, trait = { stern = 1 }, opinion = { gnomeregan = "seal" } } },
+        { text = "I want to go home, High Tinker. That's all.", next = "opn_gnomeregan_r_retake", when = { race = "Gnome" }, fx = { affinity = 2, opinion = { gnomeregan = "retake" } } },
+        { text = "Ironforge has room. Your people can stay as long as they like.", next = "opn_gnomeregan_r_welcome", when = { race = "Dwarf" }, fx = { affinity = 1, opinion = { gnomes = "welcome" } } },
         { text = "That's not mine to say, High Tinker.", next = "BACK" },
       },
     },
     opn_gnomeregan_r = {
       lines = {
-        { id = "opn_gnomeregan_r_retake", when = { opinion = { topic = "gnomeregan", stance = "retake" } }, text = "Yes! Oh, good, I hoped you'd say that, and I'm going to write it down, because I need something cheerful in the file for the next council meeting." },
-        { id = "opn_gnomeregan_r_abandon", when = { opinion = { topic = "gnomeregan", stance = "abandon" } }, text = "Ah. Well, that's honest, and honesty's a useful measurement even when it's not the one you wanted. I'll keep it on the bench, but I'm still going home." },
-        { id = "opn_gnomeregan_r_seal", when = { opinion = { topic = "gnomeregan", stance = "seal" } }, text = "Seal it with our own people still inside? No, no, I can't, and I'd thank you not to say that in Tinker Town, because they'd take it rather badly." },
-        { id = "opn_gnomeregan_r_welcome", when = { opinion = { topic = "gnomes", stance = "welcome" } }, text = "That's very kind, and I'll tell the King you said so, though he'd say it himself. We'll try not to blow up too much of it while we're here." },
         { id = "opn_gnomeregan_r_default", text = "Then I'll do the deciding, which is what they elected me for, and you can tell me afterwards whether I got it right." },
+      },
+      choices = {
+        { text = "Something else, High Tinker.", next = "BACK" },
+      },
+    },
+    opn_gnomeregan_r_retake = {
+      lines = {
+        { id = "opn_gnomeregan_r_retake", text = "Yes! Oh, good, I hoped you'd say that, and I'm going to write it down, because I need something cheerful in the file for the next council meeting." },
+      },
+      choices = {
+        { text = "Something else, High Tinker.", next = "BACK" },
+      },
+    },
+    opn_gnomeregan_r_abandon = {
+      lines = {
+        { id = "opn_gnomeregan_r_abandon", text = "Ah. Well, that's honest, and honesty's a useful measurement even when it's not the one you wanted. I'll keep it on the bench, but I'm still going home." },
+      },
+      choices = {
+        { text = "Something else, High Tinker.", next = "BACK" },
+      },
+    },
+    opn_gnomeregan_r_seal = {
+      lines = {
+        { id = "opn_gnomeregan_r_seal", text = "Seal it with our own people still inside? No, no, I can't, and I'd thank you not to say that in Tinker Town, because they'd take it rather badly." },
+      },
+      choices = {
+        { text = "Something else, High Tinker.", next = "BACK" },
+      },
+    },
+    opn_gnomeregan_r_welcome = {
+      lines = {
+        { id = "opn_gnomeregan_r_welcome", text = "That's very kind, and I'll tell the King you said so, though he'd say it himself. We'll try not to blow up too much of it while we're here." },
       },
       choices = {
         { text = "Something else, High Tinker.", next = "BACK" },
@@ -816,20 +844,48 @@ P:NPC {
         { id = "opn_league_q", text = "Some do, and some of them sit in the Senate and say it every season. The troggs came up out of our digs, I'll grant them that much, but I'd like to hear it from someone who isn't counting the coin. What do you make of the League?" },
       },
       choices = {
-        { text = "A people that forgets its past is lost. Keep digging.", next = "opn_league_r", fx = { affinity = 2, align = { order = -1 }, opinion = { explorers_league = "admire" } } },
-        { text = "Some things were buried for a reason, High Explorer.", next = "opn_league_r", fx = { affinity = -1, align = { order = 1 }, trait = { careful = 1 }, opinion = { explorers_league = "dangerous" } } },
-        { text = "Your maps keep soldiers alive. That's reason enough.", next = "opn_league_r", fx = { trait = { practical = 1 }, opinion = { explorers_league = "useful" } } },
-        { text = "Your diggers in Darkshore disturb our dead.", next = "opn_league_r", when = { race = "NightElf" }, fx = { affinity = -1, opinion = { explorers_league = "intrusive" } } },
+        { text = "A people that forgets its past is lost. Keep digging.", next = "opn_league_r_admire", fx = { affinity = 2, align = { order = -1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Some things were buried for a reason, High Explorer.", next = "opn_league_r_dangerous", fx = { affinity = -1, align = { order = 1 }, trait = { careful = 1 }, opinion = { explorers_league = "dangerous" } } },
+        { text = "Your maps keep soldiers alive. That's reason enough.", next = "opn_league_r_useful", fx = { trait = { practical = 1 }, opinion = { explorers_league = "useful" } } },
+        { text = "Your diggers in Darkshore disturb our dead.", next = "opn_league_r_intrusive", when = { race = "NightElf" }, fx = { affinity = -1, opinion = { explorers_league = "intrusive" } } },
         { text = "I'd rather hear about the finds.", next = "BACK" },
       },
     },
     opn_league_r = {
       lines = {
-        { id = "opn_league_r_admire", when = { opinion = { topic = "explorers_league", stance = "admire" } }, text = "Now that's a thing I'd like carved over the door! Come back whenever you like, and I'll find you something old to hold." },
-        { id = "opn_league_r_dangerous", when = { opinion = { topic = "explorers_league", stance = "dangerous" } }, text = "Hmph. You sound like Senator Stonehallow, and he's a League man himself, which makes it worse. A reason, maybe, but nobody's told me what it was." },
-        { id = "opn_league_r_useful", when = { opinion = { topic = "explorers_league", stance = "useful" } }, text = "They do, and the Mountaineers say so when they remember to. I'd rather we were loved for the halls than the maps, but I'll take thanks where I find it." },
-        { id = "opn_league_r_intrusive", when = { opinion = { topic = "explorers_league", stance = "intrusive" } }, text = "That's fair, and I've heard it from your Sentinels in sharper words. I've told my diggers to ask before they lift anything, and to put it back if the answer's no." },
         { id = "opn_league_r_default", text = "Well, you've given it some thought, which is more than the Senate does." },
+      },
+      choices = {
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    opn_league_r_admire = {
+      lines = {
+        { id = "opn_league_r_admire", text = "Now that's a thing I'd like carved over the door! Come back whenever you like, and I'll find you something old to hold." },
+      },
+      choices = {
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    opn_league_r_dangerous = {
+      lines = {
+        { id = "opn_league_r_dangerous", text = "Hmph. You sound like Senator Stonehallow, and he's a League man himself, which makes it worse. A reason, maybe, but nobody's told me what it was." },
+      },
+      choices = {
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    opn_league_r_useful = {
+      lines = {
+        { id = "opn_league_r_useful", text = "They do, and the Mountaineers say so when they remember to. I'd rather we were loved for the halls than the maps, but I'll take thanks where I find it." },
+      },
+      choices = {
+        { text = "Something else, High Explorer.", next = "BACK" },
+      },
+    },
+    opn_league_r_intrusive = {
+      lines = {
+        { id = "opn_league_r_intrusive", text = "That's fair, and I've heard it from your Sentinels in sharper words. I've told my diggers to ask before they lift anything, and to put it back if the answer's no." },
       },
       choices = {
         { text = "Something else, High Explorer.", next = "BACK" },
@@ -1410,19 +1466,40 @@ P:NPC {
         { id = "opn_senate_q", text = "Ye'd ask a senator that? Well, I'll tell ye it's slow an' it's quarrelsome, an' it's kept more than one bad idea from the King's ear. But ye've been listenin' tae the city, so go on, what does an outsider make of us?" },
       },
       choices = {
-        { text = "A king needs someone to tell him no. Keep at it.", next = "opn_senate_r", fx = { affinity = 1, align = { order = 1 }, opinion = { ironforge_senate = "respect" } } },
-        { text = "A room full of talkers while the troggs dig.", next = "opn_senate_r", fx = { affinity = -1, align = { order = -1 }, opinion = { ironforge_senate = "useless" } } },
-        { text = "I'd look harder at who's sitting in it, Senator.", next = "opn_senate_r", fx = { trait = { skeptical = 1 }, opinion = { ironforge_senate = "corrupt" } } },
-        { text = "The King's word should be enough for any dwarf.", next = "opn_senate_r", when = { race = "Dwarf" }, fx = { align = { order = 1 }, opinion = { ironforge_senate = "useless", magni = "loyal" } } },
+        { text = "A king needs someone to tell him no. Keep at it.", next = "opn_senate_r_respect", fx = { affinity = 1, align = { order = 1 }, opinion = { ironforge_senate = "respect" } } },
+        { text = "A room full of talkers while the troggs dig.", next = "opn_senate_r_useless", fx = { affinity = -1, align = { order = -1 }, opinion = { ironforge_senate = "useless" } } },
+        { text = "I'd look harder at who's sitting in it, Senator.", next = "opn_senate_r_corrupt", fx = { trait = { skeptical = 1 }, opinion = { ironforge_senate = "corrupt" } } },
+        { text = "The King's word should be enough for any dwarf.", next = "opn_senate_r_useless", when = { race = "Dwarf" }, fx = { align = { order = 1 }, opinion = { ironforge_senate = "useless", magni = "loyal" } } },
         { text = "I don't follow politics, Senator.", next = "BACK" },
       },
     },
     opn_senate_r = {
       lines = {
-        { id = "opn_senate_r_respect", when = { opinion = { topic = "ironforge_senate", stance = "respect" } }, text = "Ha! I'll have that read intae the minutes, if I can find a clerk who's awake. It's no' often anyone thanks us for sayin' no." },
-        { id = "opn_senate_r_useless", when = { opinion = { topic = "ironforge_senate", stance = "useless" } }, text = "Aye, well, ye're no' the first tae say it, an' some days I'm the second. But the talkin's what keeps the King from sendin' every axe he's got south at once." },
-        { id = "opn_senate_r_corrupt", when = { opinion = { topic = "ironforge_senate", stance = "corrupt" } }, text = "Keep yer voice down. I've seen soot on beards that came from no forge o' ours, an' I've said so, an' they laugh at me for it. Ye're the first who hasnae." },
         { id = "opn_senate_r_default", text = "Then ye're luckier than me, an' ye'll sleep better for it." },
+      },
+      choices = {
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
+    opn_senate_r_respect = {
+      lines = {
+        { id = "opn_senate_r_respect", text = "Ha! I'll have that read intae the minutes, if I can find a clerk who's awake. It's no' often anyone thanks us for sayin' no." },
+      },
+      choices = {
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
+    opn_senate_r_useless = {
+      lines = {
+        { id = "opn_senate_r_useless", text = "Aye, well, ye're no' the first tae say it, an' some days I'm the second. But the talkin's what keeps the King from sendin' every axe he's got south at once." },
+      },
+      choices = {
+        { text = "Something else, Senator.", next = "BACK" },
+      },
+    },
+    opn_senate_r_corrupt = {
+      lines = {
+        { id = "opn_senate_r_corrupt", text = "Keep yer voice down. I've seen soot on beards that came from no forge o' ours, an' I've said so, an' they laugh at me for it. Ye're the first who hasnae." },
       },
       choices = {
         { text = "Something else, Senator.", next = "BACK" },

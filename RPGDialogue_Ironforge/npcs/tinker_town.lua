@@ -34,20 +34,48 @@ P:NPC {
         { id = "opn_goblins_q", text = "Trust one? I'd sooner trust a steam boiler with no valve, and at least the boiler doesn't send you an invoice afterwards. But you've been out among them, I expect, in Booty Bay and Ratchet. What do you think of the little profiteers?" },
       },
       choices = {
-        { text = "They sell to both sides. That's all you need to know.", next = "opn_goblins_r", fx = { affinity = 1, align = { order = 1 }, opinion = { goblins = "distrust" } } },
-        { text = "Their gear works, and they don't ask permission. I like that.", next = "opn_goblins_r", fx = { affinity = -1, align = { order = -1 }, opinion = { goblins = "admire" } } },
-        { text = "A goblin's useful as long as you read the contract twice.", next = "opn_goblins_r", fx = { trait = { practical = 1 }, opinion = { goblins = "useful" } } },
-        { text = "Goblin engineering is noise and fire. Gnomes do it properly.", next = "opn_goblins_r", when = { race = "Gnome" }, fx = { affinity = 2, opinion = { goblins = "contempt" } } },
+        { text = "They sell to both sides. That's all you need to know.", next = "opn_goblins_r_distrust", fx = { affinity = 1, align = { order = 1 }, opinion = { goblins = "distrust" } } },
+        { text = "Their gear works, and they don't ask permission. I like that.", next = "opn_goblins_r_admire", fx = { affinity = -1, align = { order = -1 }, opinion = { goblins = "admire" } } },
+        { text = "A goblin's useful as long as you read the contract twice.", next = "opn_goblins_r_useful", fx = { trait = { practical = 1 }, opinion = { goblins = "useful" } } },
+        { text = "Goblin engineering is noise and fire. Gnomes do it properly.", next = "opn_goblins_r_contempt", when = { race = "Gnome" }, fx = { affinity = 2, opinion = { goblins = "contempt" } } },
         { text = "I've never met one, Tinkmaster.", next = "BACK" },
       },
     },
     opn_goblins_r = {
       lines = {
-        { id = "opn_goblins_r_distrust", when = { opinion = { topic = "goblins", stance = "distrust" } }, text = "Exactly so! I've said the same to the council for years, and now I can say a well-travelled adventurer agrees with me, which sounds much better in the minutes." },
-        { id = "opn_goblins_r_admire", when = { opinion = { topic = "goblins", stance = "admire" } }, text = "Permission is what keeps the roof on, my friend! Well, I suppose a goblin's roof comes off rather often, and they seem to like it that way, but I'll not have that talk in my workshop." },
-        { id = "opn_goblins_r_useful", when = { opinion = { topic = "goblins", stance = "useful" } }, text = "Twice? I read them three times and then have a dwarf read them aloud, and I still find a clause about my eyebrows. But yes, I suppose they have their uses." },
-        { id = "opn_goblins_r_contempt", when = { opinion = { topic = "goblins", stance = "contempt" } }, text = "Ha! That's the spirit, and that's the pledge, and I'll hear no more about Booty Bay's clever little rockets in this room." },
         { id = "opn_goblins_r_default", text = "Well, you'll meet one soon enough, and when you do, count your fingers after the handshake." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_distrust = {
+      lines = {
+        { id = "opn_goblins_r_distrust", text = "Exactly so! I've said the same to the council for years, and now I can say a well-travelled adventurer agrees with me, which sounds much better in the minutes." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_admire = {
+      lines = {
+        { id = "opn_goblins_r_admire", text = "Permission is what keeps the roof on, my friend! Well, I suppose a goblin's roof comes off rather often, and they seem to like it that way, but I'll not have that talk in my workshop." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_useful = {
+      lines = {
+        { id = "opn_goblins_r_useful", text = "Twice? I read them three times and then have a dwarf read them aloud, and I still find a clause about my eyebrows. But yes, I suppose they have their uses." },
+      },
+      choices = {
+        { text = "Something else, Tinkmaster.", next = "BACK" },
+      },
+    },
+    opn_goblins_r_contempt = {
+      lines = {
+        { id = "opn_goblins_r_contempt", text = "Ha! That's the spirit, and that's the pledge, and I'll hear no more about Booty Bay's clever little rockets in this room." },
       },
       choices = {
         { text = "Something else, Tinkmaster.", next = "BACK" },

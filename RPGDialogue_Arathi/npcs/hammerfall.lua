@@ -31,20 +31,48 @@ P:NPC {
         { id = "opn_thrall_q", text = "Go on, then, and don't dress it up for an old orc with one bad leg. I've heard enough songs about him at Drum's fire to fill a camp." },
       },
       choices = {
-        { text = "He's the best thing that's happened to our people.", next = "opn_thrall_r", fx = { affinity = -1, align = { light = 1 }, opinion = { warchief = "trust" } } },
-        { text = "He's a good chieftain. He's no Doomhammer.", next = "opn_thrall_r", fx = { affinity = 1, align = { light = -1 }, opinion = { warchief = "lesser" } } },
-        { text = "He keeps faith with his people. That's all I ask.", next = "opn_thrall_r", fx = { trait = { practical = 1 }, opinion = { warchief = "respect" } } },
-        { text = "He was a slave in a camp too. He knows, Gor'mul.", next = "opn_thrall_r", when = { faction = "Horde" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { warchief = "kin" } } },
+        { text = "He's the best thing that's happened to our people.", next = "opn_thrall_r_trust", fx = { affinity = -1, align = { light = 1 }, opinion = { warchief = "trust" } } },
+        { text = "He's a good chieftain. He's no Doomhammer.", next = "opn_thrall_r_lesser", fx = { affinity = 1, align = { light = -1 }, opinion = { warchief = "lesser" } } },
+        { text = "He keeps faith with his people. That's all I ask.", next = "opn_thrall_r_respect", fx = { trait = { practical = 1 }, opinion = { warchief = "respect" } } },
+        { text = "He was a slave in a camp too. He knows, Gor'mul.", next = "opn_thrall_r_kin", when = { faction = "Horde" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { warchief = "kin" } } },
         { text = "On second thought, I'll keep it to myself.", next = "BACK" },
       },
     },
     opn_thrall_r = {
       lines = {
-        { id = "opn_thrall_r_trust", when = { opinion = { topic = "warchief", stance = "trust" } }, text = "The best thing. Doomhammer was the best thing, too, until a knight came out of the dark behind him. I hope your Warchief watches his back." },
-        { id = "opn_thrall_r_lesser", when = { opinion = { topic = "warchief", stance = "lesser" } }, text = "No, he isn't. Nobody is, and I'd be a liar to say I'd follow anyone the way I followed him. Thank you for not singing at me." },
-        { id = "opn_thrall_r_respect", when = { opinion = { topic = "warchief", stance = "respect" } }, text = "That is all anyone should ask, and more than most chieftains give. Perhaps I'll believe in him a little, then, on the days my leg doesn't ache." },
-        { id = "opn_thrall_r_kin", when = { opinion = { topic = "warchief", stance = "kin" } }, text = "He was, they say, in Durnholde. Then he knows the smell. That is worth more to me than any song Drum's fire can sing." },
         { id = "opn_thrall_r_default", text = "Wise. Words about a warchief have a way of finding their way back to him." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_trust = {
+      lines = {
+        { id = "opn_thrall_r_trust", text = "The best thing. Doomhammer was the best thing, too, until a knight came out of the dark behind him. I hope your Warchief watches his back." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_lesser = {
+      lines = {
+        { id = "opn_thrall_r_lesser", text = "No, he isn't. Nobody is, and I'd be a liar to say I'd follow anyone the way I followed him. Thank you for not singing at me." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_respect = {
+      lines = {
+        { id = "opn_thrall_r_respect", text = "That is all anyone should ask, and more than most chieftains give. Perhaps I'll believe in him a little, then, on the days my leg doesn't ache." },
+      },
+      choices = {
+        { text = "Something else, Gor'mul.", next = "BACK" },
+      },
+    },
+    opn_thrall_r_kin = {
+      lines = {
+        { id = "opn_thrall_r_kin", text = "He was, they say, in Durnholde. Then he knows the smell. That is worth more to me than any song Drum's fire can sing." },
       },
       choices = {
         { text = "Something else, Gor'mul.", next = "BACK" },

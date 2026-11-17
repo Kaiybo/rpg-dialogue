@@ -38,19 +38,40 @@ P:NPC {
         { id = "opn_elements_q", text = "The question is better turned around, so I will turn it. Your shaman call the spirits of earth and fire friends and ask them politely for favours, and the warlocks before them called them tools. What do you believe they are?" },
       },
       choices = {
-        { text = "Spirits to be respected and asked, never commanded.", next = "opn_elements_r", fx = { affinity = -1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
-        { text = "Power. Whoever's strong enough should take it.", next = "opn_elements_r", fx = { affinity = 2, align = { light = -1 }, opinion = { the_elements = "power" } } },
-        { text = "Dangerous things best left alone.", next = "opn_elements_r", fx = { trait = { careful = 1 }, opinion = { the_elements = "dangerous" } } },
-        { text = "I speak with them every day. They aren't yours to chain.", next = "opn_elements_r", when = { class = "SHAMAN" }, fx = { affinity = -2, opinion = { the_elements = "respect", twilights_hammer = "enemy" } } },
+        { text = "Spirits to be respected and asked, never commanded.", next = "opn_elements_r_respect", fx = { affinity = -1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
+        { text = "Power. Whoever's strong enough should take it.", next = "opn_elements_r_power", fx = { affinity = 2, align = { light = -1 }, opinion = { the_elements = "power" } } },
+        { text = "Dangerous things best left alone.", next = "opn_elements_r_dangerous", fx = { trait = { careful = 1 }, opinion = { the_elements = "dangerous" } } },
+        { text = "I speak with them every day. They aren't yours to chain.", next = "opn_elements_r_respect", when = { class = "SHAMAN" }, fx = { affinity = -2, opinion = { the_elements = "respect", twilights_hammer = "enemy" } } },
         { text = "I don't think about it much.", next = "BACK" },
       },
     },
     opn_elements_r = {
       lines = {
-        { id = "opn_elements_r_respect", when = { opinion = { topic = "the_elements", stance = "respect" } }, text = "Polite. Yes, that is the word I hear from all of you, and the earth is very old, and very tired of politeness. We shall see who it answers when it wakes." },
-        { id = "opn_elements_r_power", when = { opinion = { topic = "the_elements", stance = "power" } }, text = "Then you understand more than most in this camp. Come back when Drum Fel is not watching, and we will speak of strength in a quieter voice." },
-        { id = "opn_elements_r_dangerous", when = { opinion = { topic = "the_elements", stance = "dangerous" } }, text = "Dangerous, yes, to those who stand in their way. A wise answer, and a frightened one, but frightened people live longer, for a while." },
         { id = "opn_elements_r_default", text = "Then the world will think about it for you, and you may not like its conclusions." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    opn_elements_r_respect = {
+      lines = {
+        { id = "opn_elements_r_respect", text = "Polite. Yes, that is the word I hear from all of you, and the earth is very old, and very tired of politeness. We shall see who it answers when it wakes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    opn_elements_r_power = {
+      lines = {
+        { id = "opn_elements_r_power", text = "Then you understand more than most in this camp. Come back when Drum Fel is not watching, and we will speak of strength in a quieter voice." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    opn_elements_r_dangerous = {
+      lines = {
+        { id = "opn_elements_r_dangerous", text = "Dangerous, yes, to those who stand in their way. A wise answer, and a frightened one, but frightened people live longer, for a while." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

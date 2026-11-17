@@ -37,19 +37,40 @@ P:NPC {
         { id = "opn_magni_q", text = "Magni? He's a fine dwarf for one who lives in a hole, an' he's never once flown, which tells ye most o' what ye need tae know. Our grandfathers fell out over Grim Batol an' we've been politely annoyed ever since. But ye've stood in his hall, so tell me what ye think o' him." },
       },
       choices = {
-        { text = "A good king. Your clans should stand closer together.", next = "opn_magni_r", fx = { affinity = -1, align = { order = 1 }, opinion = { magni = "respect", wildhammer = "kin" } } },
-        { text = "Stuffy, and too fond of his Senate. Your sky suits me better.", next = "opn_magni_r", fx = { affinity = 2, align = { order = -1 }, opinion = { magni = "stuffy", wildhammer = "admire" } } },
-        { text = "He keeps his word to the Alliance. Can you say the same?", next = "opn_magni_r", fx = { affinity = -1, trait = { stern = 1 }, opinion = { magni = "loyal" } } },
-        { text = "He's grieving, Thane. Muradin's loss sits heavy on him.", next = "opn_magni_r", when = { heardLine = "magni.bl_default" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { magni = "respect" } } },
+        { text = "A good king. Your clans should stand closer together.", next = "opn_magni_r_respect", fx = { affinity = -1, align = { order = 1 }, opinion = { magni = "respect", wildhammer = "kin" } } },
+        { text = "Stuffy, and too fond of his Senate. Your sky suits me better.", next = "opn_magni_r_stuffy", fx = { affinity = 2, align = { order = -1 }, opinion = { magni = "stuffy", wildhammer = "admire" } } },
+        { text = "He keeps his word to the Alliance. Can you say the same?", next = "opn_magni_r_loyal", fx = { affinity = -1, trait = { stern = 1 }, opinion = { magni = "loyal" } } },
+        { text = "He's grieving, Thane. Muradin's loss sits heavy on him.", next = "opn_magni_r_respect", when = { heardLine = "magni.bl_default" }, fx = { affinity = 1, trait = { kind = 1 }, opinion = { magni = "respect" } } },
         { text = "I'll keep out of dwarf feuds, Thane.", next = "BACK" },
       },
     },
     opn_magni_r = {
       lines = {
-        { id = "opn_magni_r_respect", when = { opinion = { topic = "magni", stance = "respect" } }, text = "Closer! Ha, ye sound like a Bronzebeard envoy. I'll stand beside 'em in a war, an' I have, but I'll no' stand under their mountain." },
-        { id = "opn_magni_r_stuffy", when = { opinion = { topic = "magni", stance = "stuffy" } }, text = "Ha! That's the truest thing a flatlander's said in my hall this season. Thulfram, a mug for this one, an' put it on the Bronzebeards' tab!" },
-        { id = "opn_magni_r_loyal", when = { opinion = { topic = "magni", stance = "loyal" } }, text = "Careful. The Wildhammer bled for the Alliance in the Second War an' sent Kurdran through the Portal wi' it, so dinnae lecture me on keepin' faith." },
         { id = "opn_magni_r_default", text = "Wise. Dwarf feuds outlast everyone who starts 'em, an' most who finish 'em too." },
+      },
+      choices = {
+        { text = "Something else, Thane.", next = "BACK" },
+      },
+    },
+    opn_magni_r_respect = {
+      lines = {
+        { id = "opn_magni_r_respect", text = "Closer! Ha, ye sound like a Bronzebeard envoy. I'll stand beside 'em in a war, an' I have, but I'll no' stand under their mountain." },
+      },
+      choices = {
+        { text = "Something else, Thane.", next = "BACK" },
+      },
+    },
+    opn_magni_r_stuffy = {
+      lines = {
+        { id = "opn_magni_r_stuffy", text = "Ha! That's the truest thing a flatlander's said in my hall this season. Thulfram, a mug for this one, an' put it on the Bronzebeards' tab!" },
+      },
+      choices = {
+        { text = "Something else, Thane.", next = "BACK" },
+      },
+    },
+    opn_magni_r_loyal = {
+      lines = {
+        { id = "opn_magni_r_loyal", text = "Careful. The Wildhammer bled for the Alliance in the Second War an' sent Kurdran through the Portal wi' it, so dinnae lecture me on keepin' faith." },
       },
       choices = {
         { text = "Something else, Thane.", next = "BACK" },
@@ -548,19 +569,40 @@ P:NPC {
         { id = "opn_trolls_q", text = "The riders say so, an' they've buried enough friends tae say it loud. The spirits say different, but the spirits are kinder than most dwarves. The Revantusk on the coast never bled a gryphon on an altar, as far as I know. What d'ye think, then?" },
       },
       choices = {
-        { text = "A troll is a troll. They'll all turn on you.", next = "opn_trolls_r", fx = { align = { light = -1 }, opinion = { trolls = "hate" } } },
-        { text = "The Vilebranch are the enemy. Leave the coast tribe be.", next = "opn_trolls_r", fx = { affinity = 1, align = { light = 1 }, opinion = { trolls = "some_good" } } },
-        { text = "They're bleeding the spirits as much as us. I pity them.", next = "opn_trolls_r", fx = { trait = { kind = 1 }, opinion = { trolls = "pity" } } },
-        { text = "The spirits answer trolls too. That's enough for me.", next = "opn_trolls_r", when = { class = "SHAMAN" }, fx = { affinity = 2, opinion = { trolls = "some_good", the_elements = "respect" } } },
+        { text = "A troll is a troll. They'll all turn on you.", next = "opn_trolls_r_hate", fx = { align = { light = -1 }, opinion = { trolls = "hate" } } },
+        { text = "The Vilebranch are the enemy. Leave the coast tribe be.", next = "opn_trolls_r_some_good", fx = { affinity = 1, align = { light = 1 }, opinion = { trolls = "some_good" } } },
+        { text = "They're bleeding the spirits as much as us. I pity them.", next = "opn_trolls_r_pity", fx = { trait = { kind = 1 }, opinion = { trolls = "pity" } } },
+        { text = "The spirits answer trolls too. That's enough for me.", next = "opn_trolls_r_some_good", when = { class = "SHAMAN" }, fx = { affinity = 2, opinion = { trolls = "some_good", the_elements = "respect" } } },
         { text = "I can't say, Fraggar.", next = "BACK" },
       },
     },
     opn_trolls_r = {
       lines = {
-        { id = "opn_trolls_r_hate", when = { opinion = { topic = "trolls", stance = "hate" } }, text = "Ye'll be welcome at the bar wi' that, an' I'll no' argue wi' a dwarf's grief. But the spirits dinnae care whose blood it is on the altar, an' I'd rather ye listened tae them than tae the riders." },
-        { id = "opn_trolls_r_some_good", when = { opinion = { topic = "trolls", stance = "some_good" } }, text = "Aye. Dinnae say it too loud near Talonaxe, but aye. The spirits'll be glad o' ye, an' so am I." },
-        { id = "opn_trolls_r_pity", when = { opinion = { topic = "trolls", stance = "pity" } }, text = "Pity's a heavy thing tae carry intae Jintha'Alor, {g:lad|lass}. Carry it anyway, but carry an axe beside it." },
         { id = "opn_trolls_r_default", text = "Nor can I, most days. My eyes are bad an' my heart's worse at it." },
+      },
+      choices = {
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
+    opn_trolls_r_hate = {
+      lines = {
+        { id = "opn_trolls_r_hate", text = "Ye'll be welcome at the bar wi' that, an' I'll no' argue wi' a dwarf's grief. But the spirits dinnae care whose blood it is on the altar, an' I'd rather ye listened tae them than tae the riders." },
+      },
+      choices = {
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
+    opn_trolls_r_some_good = {
+      lines = {
+        { id = "opn_trolls_r_some_good", text = "Aye. Dinnae say it too loud near Talonaxe, but aye. The spirits'll be glad o' ye, an' so am I." },
+      },
+      choices = {
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
+    opn_trolls_r_pity = {
+      lines = {
+        { id = "opn_trolls_r_pity", text = "Pity's a heavy thing tae carry intae Jintha'Alor, {g:lad|lass}. Carry it anyway, but carry an axe beside it." },
       },
       choices = {
         { text = "Something else, Fraggar.", next = "BACK" },

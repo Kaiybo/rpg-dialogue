@@ -29,21 +29,49 @@ P:NPC {
         { id = "opn_forsaken_q", text = "Honestly? I've watched that farm for weeks, and they bury nobody, they eat nothing, and they work through the night on things they won't let the wind near. Kinelory says some of them were Lordaeron farmers once, and maybe they were. You've seen more of them than I have; tell me what you think." },
       },
       choices = {
-        { text = "Walking corpses with a plague. Burn the lot.", next = "opn_forsaken_r", fx = { affinity = 1, align = { light = -1 }, opinion = { forsaken = "hate" } } },
-        { text = "They were people once. Some still are.", next = "opn_forsaken_r", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { forsaken = "pity" } } },
-        { text = "Watch them, like you're doing. That's enough for now.", next = "opn_forsaken_r", fx = { trait = { careful = 1 }, opinion = { forsaken = "watch" } } },
-        { text = "I knew some of them, living. I can't hate them.", next = "opn_forsaken_r", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { forsaken = "pity" } } },
-        { text = "Their plague is the problem, not them.", next = "opn_forsaken_r", fx = { opinion = { new_plague = "dangerous" } } },
+        { text = "Walking corpses with a plague. Burn the lot.", next = "opn_forsaken_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { forsaken = "hate" } } },
+        { text = "They were people once. Some still are.", next = "opn_forsaken_r_pity", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { forsaken = "pity" } } },
+        { text = "Watch them, like you're doing. That's enough for now.", next = "opn_forsaken_r_watch", fx = { trait = { careful = 1 }, opinion = { forsaken = "watch" } } },
+        { text = "I knew some of them, living. I can't hate them.", next = "opn_forsaken_r_pity", when = { origin = "human_lordaeron_refugee" }, fx = { opinion = { forsaken = "pity" } } },
+        { text = "Their plague is the problem, not them.", next = "opn_forsaken_r_dangerous", fx = { opinion = { new_plague = "dangerous" } } },
         { text = "Let's just get those papers.", next = "BACK" },
       },
     },
     opn_forsaken_r = {
       lines = {
-        { id = "opn_forsaken_r_hate", when = { opinion = { topic = "forsaken", stance = "hate" } }, text = "I'd like to, believe me, but there's two of us on this ridge and a farm full of them down there. Papers first, fire later." },
-        { id = "opn_forsaken_r_pity", when = { opinion = { topic = "forsaken", stance = "pity" } }, text = "Maybe. Kinelory would kiss you for saying it, and then she'd faint. I'll keep watching them all the same, people or not." },
-        { id = "opn_forsaken_r_watch", when = { opinion = { topic = "forsaken", stance = "watch" } }, text = "Glad someone thinks so, because my feet have stopped complaining and started filing reports of their own." },
-        { id = "opn_forsaken_r_plague", when = { opinion = { topic = "new_plague", stance = "dangerous" } }, text = "That's the part that keeps me on this ridge. Whatever they are, what they're brewing doesn't care which flag you fly." },
         { id = "opn_forsaken_r_default", text = "Agreed. Talk later, papers now." },
+      },
+      choices = {
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
+    opn_forsaken_r_hate = {
+      lines = {
+        { id = "opn_forsaken_r_hate", text = "I'd like to, believe me, but there's two of us on this ridge and a farm full of them down there. Papers first, fire later." },
+      },
+      choices = {
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
+    opn_forsaken_r_pity = {
+      lines = {
+        { id = "opn_forsaken_r_pity", text = "Maybe. Kinelory would kiss you for saying it, and then she'd faint. I'll keep watching them all the same, people or not." },
+      },
+      choices = {
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
+    opn_forsaken_r_watch = {
+      lines = {
+        { id = "opn_forsaken_r_watch", text = "Glad someone thinks so, because my feet have stopped complaining and started filing reports of their own." },
+      },
+      choices = {
+        { text = "Something else, Quae.", next = "BACK" },
+      },
+    },
+    opn_forsaken_r_dangerous = {
+      lines = {
+        { id = "opn_forsaken_r_plague", text = "That's the part that keeps me on this ridge. Whatever they are, what they're brewing doesn't care which flag you fly." },
       },
       choices = {
         { text = "Something else, Quae.", next = "BACK" },

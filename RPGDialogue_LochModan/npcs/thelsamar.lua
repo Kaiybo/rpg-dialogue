@@ -36,20 +36,48 @@ P:NPC {
         { id = "opn_orcs_q", text = "After the war? They went intae the camps, an' then a good many o' them walked out again under this Thrall. My da says they should've been put tae the axe, an' my mam says they were sick wi' some warlock's poison an' couldnae help it. Where d'ye stand, then?" },
       },
       choices = {
-        { text = "They burned this valley. Your da's right.", next = "opn_orcs_r", fx = { affinity = 1, align = { light = -1 }, opinion = { orcs = "hate" } } },
-        { text = "Your mam's right. They were poisoned by their own warlocks.", next = "opn_orcs_r", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { orcs = "pity" } } },
-        { text = "It doesn't matter now. They're free, and they're on Kalimdor.", next = "opn_orcs_r", fx = { trait = { practical = 1 }, opinion = { orcs = "wary" } } },
-        { text = "I've met orcs since. Some are honest enough.", next = "opn_orcs_r", when = { minLevel = 30 }, fx = { opinion = { orcs = "respect" } } },
+        { text = "They burned this valley. Your da's right.", next = "opn_orcs_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { orcs = "hate" } } },
+        { text = "Your mam's right. They were poisoned by their own warlocks.", next = "opn_orcs_r_pity", fx = { align = { light = 1 }, trait = { kind = 1 }, opinion = { orcs = "pity" } } },
+        { text = "It doesn't matter now. They're free, and they're on Kalimdor.", next = "opn_orcs_r_wary", fx = { trait = { practical = 1 }, opinion = { orcs = "wary" } } },
+        { text = "I've met orcs since. Some are honest enough.", next = "opn_orcs_r_respect", when = { minLevel = 30 }, fx = { opinion = { orcs = "respect" } } },
         { text = "I'd rather hear about the loch.", next = "BACK" },
       },
     },
     opn_orcs_r = {
       lines = {
-        { id = "opn_orcs_r_hate", when = { opinion = { topic = "orcs", stance = "hate" } }, text = "Ha! I'll tell him a {class} agreed wi' him, an' he'll be insufferable at supper for a week. There's catapults on the bottom o' this loch that'd agree wi' ye too." },
-        { id = "opn_orcs_r_pity", when = { opinion = { topic = "orcs", stance = "pity" } }, text = "Mam'll be glad tae hear it, though I'll no' tell da. I've never met one, ye see, so I don't know what tae think, only what they think." },
-        { id = "opn_orcs_r_wary", when = { opinion = { topic = "orcs", stance = "wary" } }, text = "Aye, an' Kalimdor's a long way off, an' I'd like it tae stay that way. That's the sort o' answer my captain gives when he doesnae want tae argue." },
-        { id = "opn_orcs_r_respect", when = { opinion = { topic = "orcs", stance = "respect" } }, text = "Have ye now? Ye'll have tae tell me about it some time, quietly, an' no' anywhere near the Stoutlager." },
         { id = "opn_orcs_r_default", text = "The loch it is, then. It's a safer subject, unless ye're a fish." },
+      },
+      choices = {
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_hate = {
+      lines = {
+        { id = "opn_orcs_r_hate", text = "Ha! I'll tell him a {class} agreed wi' him, an' he'll be insufferable at supper for a week. There's catapults on the bottom o' this loch that'd agree wi' ye too." },
+      },
+      choices = {
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_pity = {
+      lines = {
+        { id = "opn_orcs_r_pity", text = "Mam'll be glad tae hear it, though I'll no' tell da. I've never met one, ye see, so I don't know what tae think, only what they think." },
+      },
+      choices = {
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_wary = {
+      lines = {
+        { id = "opn_orcs_r_wary", text = "Aye, an' Kalimdor's a long way off, an' I'd like it tae stay that way. That's the sort o' answer my captain gives when he doesnae want tae argue." },
+      },
+      choices = {
+        { text = "Something else, Kadrell.", next = "BACK" },
+      },
+    },
+    opn_orcs_r_respect = {
+      lines = {
+        { id = "opn_orcs_r_respect", text = "Have ye now? Ye'll have tae tell me about it some time, quietly, an' no' anywhere near the Stoutlager." },
       },
       choices = {
         { text = "Something else, Kadrell.", next = "BACK" },
@@ -346,20 +374,48 @@ P:NPC {
         { id = "opn_dig_q", text = "Magellas would have my beard for askin', but I've asked it myself at three in the mornin' wi' the troggs howlin' in the trench. Ye've seen the dig an' ye've seen what came up out of it. What would ye do in my boots?" },
       },
       choices = {
-        { text = "Keep digging. The past is worth the risk.", next = "opn_dig_r", fx = { affinity = 1, align = { order = -1 }, opinion = { explorers_league = "admire" } } },
-        { text = "Fill in the trench. Some doors should stay shut.", next = "opn_dig_r", fx = { affinity = -1, align = { order = 1 }, opinion = { explorers_league = "dangerous" } } },
-        { text = "Dig, but put a garrison on the hole first.", next = "opn_dig_r", fx = { trait = { practical = 1 }, opinion = { explorers_league = "useful" } } },
-        { text = "The earth is restless. Listen to it before you dig.", next = "opn_dig_r", when = { class = "SHAMAN" }, fx = { affinity = 1, opinion = { explorers_league = "careless", the_elements = "listen" } } },
+        { text = "Keep digging. The past is worth the risk.", next = "opn_dig_r_admire", fx = { affinity = 1, align = { order = -1 }, opinion = { explorers_league = "admire" } } },
+        { text = "Fill in the trench. Some doors should stay shut.", next = "opn_dig_r_dangerous", fx = { affinity = -1, align = { order = 1 }, opinion = { explorers_league = "dangerous" } } },
+        { text = "Dig, but put a garrison on the hole first.", next = "opn_dig_r_useful", fx = { trait = { practical = 1 }, opinion = { explorers_league = "useful" } } },
+        { text = "The earth is restless. Listen to it before you dig.", next = "opn_dig_r_careless", when = { class = "SHAMAN" }, fx = { affinity = 1, opinion = { explorers_league = "careless", the_elements = "listen" } } },
         { text = "That's for the League to decide.", next = "BACK" },
       },
     },
     opn_dig_r = {
       lines = {
-        { id = "opn_dig_r_admire", when = { opinion = { topic = "explorers_league", stance = "admire" } }, text = "That's what I tell myself at dawn, an' it's good tae hear it from someone else for a change. I'll keep diggin', then, an' keep a sword by the trowels." },
-        { id = "opn_dig_r_dangerous", when = { opinion = { topic = "explorers_league", stance = "dangerous" } }, text = "Shut? We're the ones who opened it, so we're the ones who have tae stand in it. I hear ye, mind, an' I'll no' pretend I've an answer that'd satisfy ye." },
-        { id = "opn_dig_r_useful", when = { opinion = { topic = "explorers_league", stance = "useful" } }, text = "A garrison! I've asked for one twice, an' Rugelfuss sends me his regrets an' a Mountaineer wi' a cold. Still, ye're right, an' I'll ask again." },
-        { id = "opn_dig_r_careless", when = { opinion = { topic = "explorers_league", stance = "careless" } }, text = "Listen tae it, aye, an' if it says anythin' useful, ye'll come straight back an' tell me, for I've been listenin' for months an' all I hear is troggs." },
         { id = "opn_dig_r_default", text = "Aye, an' the League decides from a warm hall in Ironforge. Never mind me; I'm only tired." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    opn_dig_r_admire = {
+      lines = {
+        { id = "opn_dig_r_admire", text = "That's what I tell myself at dawn, an' it's good tae hear it from someone else for a change. I'll keep diggin', then, an' keep a sword by the trowels." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    opn_dig_r_dangerous = {
+      lines = {
+        { id = "opn_dig_r_dangerous", text = "Shut? We're the ones who opened it, so we're the ones who have tae stand in it. I hear ye, mind, an' I'll no' pretend I've an answer that'd satisfy ye." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    opn_dig_r_useful = {
+      lines = {
+        { id = "opn_dig_r_useful", text = "A garrison! I've asked for one twice, an' Rugelfuss sends me his regrets an' a Mountaineer wi' a cold. Still, ye're right, an' I'll ask again." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    opn_dig_r_careless = {
+      lines = {
+        { id = "opn_dig_r_careless", text = "Listen tae it, aye, an' if it says anythin' useful, ye'll come straight back an' tell me, for I've been listenin' for months an' all I hear is troggs." },
       },
       choices = {
         { text = "Something else, Prospector.", next = "BACK" },
@@ -1063,20 +1119,48 @@ P:NPC {
         { id = "opn_wildhammer_q", text = "Officially, Captain Rugelfuss has no opinion on the Wildhammer clan, who are allies of the throne. Unofficially, the captain notes they fly about on gryphons with their beards in braids and never once filled a garrison roster. What does the traveller think?" },
       },
       choices = {
-        { text = "They fought the Horde at Grim Batol. That's worth respect.", next = "opn_wildhammer_r", fx = { affinity = -1, align = { order = -1 }, opinion = { wildhammer = "respect" } } },
-        { text = "Undisciplined and proud of it. Ironforge is better off.", next = "opn_wildhammer_r", fx = { affinity = 1, align = { order = 1 }, opinion = { wildhammer = "distrust" } } },
-        { text = "Brothers who fell out. Both statues still face the same pass.", next = "opn_wildhammer_r", fx = { trait = { kind = 1 }, opinion = { wildhammer = "kin" } } },
-        { text = "The Wildhammer are my clan, Captain. Mind your roster.", next = "opn_wildhammer_r", when = { race = "Dwarf", origin = "dwarf_wildhammer_kin" }, fx = { affinity = -1, opinion = { wildhammer = "proud" } } },
+        { text = "They fought the Horde at Grim Batol. That's worth respect.", next = "opn_wildhammer_r_respect", fx = { affinity = -1, align = { order = -1 }, opinion = { wildhammer = "respect" } } },
+        { text = "Undisciplined and proud of it. Ironforge is better off.", next = "opn_wildhammer_r_distrust", fx = { affinity = 1, align = { order = 1 }, opinion = { wildhammer = "distrust" } } },
+        { text = "Brothers who fell out. Both statues still face the same pass.", next = "opn_wildhammer_r_kin", fx = { trait = { kind = 1 }, opinion = { wildhammer = "kin" } } },
+        { text = "The Wildhammer are my clan, Captain. Mind your roster.", next = "opn_wildhammer_r_proud", when = { race = "Dwarf", origin = "dwarf_wildhammer_kin" }, fx = { affinity = -1, opinion = { wildhammer = "proud" } } },
         { text = "I couldn't say, Captain.", next = "BACK" },
       },
     },
     opn_wildhammer_r = {
       lines = {
-        { id = "opn_wildhammer_r_respect", when = { opinion = { topic = "wildhammer", stance = "respect" } }, text = "Grim Batol was a long time ago and a long way from the Valley of Kings. The captain will grant it was well fought, and note that it is not on his roster." },
-        { id = "opn_wildhammer_r_distrust", when = { opinion = { topic = "wildhammer", stance = "distrust" } }, text = "The captain could not possibly agree with you in uniform. He will, however, buy you a drink at the Stoutlager when he is out of it." },
-        { id = "opn_wildhammer_r_kin", when = { opinion = { topic = "wildhammer", stance = "kin" } }, text = "They do, don't they? I'd never thought of it that way. Madoran and Khardros, looking south together, and neither one of them willing to turn his head." },
-        { id = "opn_wildhammer_r_proud", when = { opinion = { topic = "wildhammer", stance = "proud" } }, text = "The captain meant no offence to any clan of the Alliance, and he will mind his roster. He would mind it better, mind you, if a few of your cousins were on it." },
         { id = "opn_wildhammer_r_default", text = "A careful answer. You'd make a fine captain, which I mean as a warning." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_respect = {
+      lines = {
+        { id = "opn_wildhammer_r_respect", text = "Grim Batol was a long time ago and a long way from the Valley of Kings. The captain will grant it was well fought, and note that it is not on his roster." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_distrust = {
+      lines = {
+        { id = "opn_wildhammer_r_distrust", text = "The captain could not possibly agree with you in uniform. He will, however, buy you a drink at the Stoutlager when he is out of it." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_kin = {
+      lines = {
+        { id = "opn_wildhammer_r_kin", text = "They do, don't they? I'd never thought of it that way. Madoran and Khardros, looking south together, and neither one of them willing to turn his head." },
+      },
+      choices = {
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    opn_wildhammer_r_proud = {
+      lines = {
+        { id = "opn_wildhammer_r_proud", text = "The captain meant no offence to any clan of the Alliance, and he will mind his roster. He would mind it better, mind you, if a few of your cousins were on it." },
       },
       choices = {
         { text = "Something else, Captain.", next = "BACK" },

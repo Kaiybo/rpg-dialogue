@@ -46,22 +46,57 @@ P:NPC {
         { id = "opn_light_q", text = "Now there's a question that's emptied a few tankards in this Hall. Some o' my priests say it shines on everyone whether they like it or no', an' some say ye have tae reach for it first. Which way d'ye lean, yerself?" },
       },
       choices = {
-        { text = "It shines on everyone. That's what makes it the Light.", next = "opn_light_r", fx = { affinity = 1, align = { light = 1 }, opinion = { the_light = "faith" } } },
-        { text = "It's a power like any other, Father. Use it well.", next = "opn_light_r", fx = { align = { light = -1 }, trait = { practical = 1 }, opinion = { the_light = "tool" } } },
-        { text = "I've seen too many prayers go unanswered to say.", next = "opn_light_r", fx = { trait = { skeptical = 1 }, opinion = { the_light = "doubt" } } },
-        { text = "It answers those who keep their oaths. I've felt it.", next = "opn_light_r", when = { class = { "PALADIN", "PRIEST" } }, fx = { affinity = 1, trait = { pious = 1 }, opinion = { the_light = "devotion" } } },
-        { text = "The stone was here before the Light, Father.", next = "opn_light_r", when = { class = "SHAMAN" }, fx = { opinion = { the_light = "stranger", the_elements = "first" } } },
+        { text = "It shines on everyone. That's what makes it the Light.", next = "opn_light_r_faith", fx = { affinity = 1, align = { light = 1 }, opinion = { the_light = "faith" } } },
+        { text = "It's a power like any other, Father. Use it well.", next = "opn_light_r_tool", fx = { align = { light = -1 }, trait = { practical = 1 }, opinion = { the_light = "tool" } } },
+        { text = "I've seen too many prayers go unanswered to say.", next = "opn_light_r_doubt", fx = { trait = { skeptical = 1 }, opinion = { the_light = "doubt" } } },
+        { text = "It answers those who keep their oaths. I've felt it.", next = "opn_light_r_devotion", when = { class = { "PALADIN", "PRIEST" } }, fx = { affinity = 1, trait = { pious = 1 }, opinion = { the_light = "devotion" } } },
+        { text = "The stone was here before the Light, Father.", next = "opn_light_r_stranger", when = { class = "SHAMAN" }, fx = { opinion = { the_light = "stranger", the_elements = "first" } } },
         { text = "I'll leave theology to the priests.", next = "BACK" },
       },
     },
     opn_light_r = {
       lines = {
-        { id = "opn_light_r_faith", when = { opinion = { topic = "the_light", stance = "faith" } }, text = "That's my lean too, though I'll warn ye it makes for a crowded Hall. Come an' help wi' the soup some evenin', an' ye'll see who it shines on." },
-        { id = "opn_light_r_tool", when = { opinion = { topic = "the_light", stance = "tool" } }, text = "A hammer's a power like any other, too, an' ye'll notice nobody prays tae their hammer. Use it well, aye, but don't forget it's lookin' back at ye." },
-        { id = "opn_light_r_doubt", when = { opinion = { topic = "the_light", stance = "doubt" } }, text = "So have I, {g:lad|lass}, so have I. Doubt's no' the opposite o' faith; it's only faith wi' its eyes open, an' I'd rather that than the other kind." },
-        { id = "opn_light_r_devotion", when = { opinion = { topic = "the_light", stance = "devotion" } }, text = "Aye, an' keep feelin' it on the days ye've broken one, for those are the days it matters. Brandur would like ye; he says the same thing louder." },
-        { id = "opn_light_r_stranger", when = { opinion = { topic = "the_light", stance = "stranger" } }, text = "So it was, an' I'll no' quarrel wi' the stone. The Light never claimed tae be the oldest thing under the mountain, only the kindest." },
         { id = "opn_light_r_default", text = "Wise of ye. The priests have been arguin' it for a thousand years an' havenae finished yet." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    opn_light_r_faith = {
+      lines = {
+        { id = "opn_light_r_faith", text = "That's my lean too, though I'll warn ye it makes for a crowded Hall. Come an' help wi' the soup some evenin', an' ye'll see who it shines on." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    opn_light_r_tool = {
+      lines = {
+        { id = "opn_light_r_tool", text = "A hammer's a power like any other, too, an' ye'll notice nobody prays tae their hammer. Use it well, aye, but don't forget it's lookin' back at ye." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    opn_light_r_doubt = {
+      lines = {
+        { id = "opn_light_r_doubt", text = "So have I, {g:lad|lass}, so have I. Doubt's no' the opposite o' faith; it's only faith wi' its eyes open, an' I'd rather that than the other kind." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    opn_light_r_devotion = {
+      lines = {
+        { id = "opn_light_r_devotion", text = "Aye, an' keep feelin' it on the days ye've broken one, for those are the days it matters. Brandur would like ye; he says the same thing louder." },
+      },
+      choices = {
+        { text = "Something else, Father.", next = "BACK" },
+      },
+    },
+    opn_light_r_stranger = {
+      lines = {
+        { id = "opn_light_r_stranger", text = "So it was, an' I'll no' quarrel wi' the stone. The Light never claimed tae be the oldest thing under the mountain, only the kindest." },
       },
       choices = {
         { text = "Something else, Father.", next = "BACK" },

@@ -38,19 +38,40 @@ P:NPC {
         { id = "opn_marsh_q", text = "The dwarves built their road across me, and the men of the harbour would drain me for barley if they could. They believe the land is theirs because they have cut it. You are one of the short-lived, small one, so tell me what your people believe." },
       },
       choices = {
-        { text = "The land should feed people. Farms and roads are worth it.", next = "opn_marsh_r", fx = { affinity = -1, align = { order = 1 }, opinion = { wl_marsh = "tame" } } },
-        { text = "Leave the marsh as it is. It was here first.", next = "opn_marsh_r", fx = { affinity = 1, align = { order = -1 }, opinion = { wl_marsh = "protect" } } },
-        { text = "Take only what you need, and give some back.", next = "opn_marsh_r", fx = { trait = { kind = 1 }, opinion = { wl_marsh = "balance" } } },
-        { text = "The Dream holds every marsh. We are bound to tend it.", next = "opn_marsh_r", when = { class = "DRUID" }, fx = { affinity = 2, opinion = { wl_marsh = "protect", druidism = "duty" } } },
+        { text = "The land should feed people. Farms and roads are worth it.", next = "opn_marsh_r_tame", fx = { affinity = -1, align = { order = 1 }, opinion = { wl_marsh = "tame" } } },
+        { text = "Leave the marsh as it is. It was here first.", next = "opn_marsh_r_protect", fx = { affinity = 1, align = { order = -1 }, opinion = { wl_marsh = "protect" } } },
+        { text = "Take only what you need, and give some back.", next = "opn_marsh_r_balance", fx = { trait = { kind = 1 }, opinion = { wl_marsh = "balance" } } },
+        { text = "The Dream holds every marsh. We are bound to tend it.", next = "opn_marsh_r_protect", when = { class = "DRUID" }, fx = { affinity = 2, opinion = { wl_marsh = "protect", druidism = "duty" } } },
         { text = "I couldn't speak for my people.", next = "BACK" },
       },
     },
     opn_marsh_r = {
       lines = {
-        { id = "opn_marsh_r_tame", when = { opinion = { topic = "wl_marsh", stance = "tame" } }, text = "Then you are honest, at least, and honesty is rarer than barley. The marsh will outlast your farms, small one, as it has outlasted every road before them." },
-        { id = "opn_marsh_r_protect", when = { opinion = { topic = "wl_marsh", stance = "protect" } }, text = "Here first, and here last. I will remember that you said it, and the reeds will remember too, for they are slower to forget than I am." },
-        { id = "opn_marsh_r_balance", when = { opinion = { topic = "wl_marsh", stance = "balance" } }, text = "That is the oldest bargain there is, and the one your kind forgets first. Remember it when your hunger grows, which it will." },
         { id = "opn_marsh_r_default", text = "Then speak for yourself, in time. There is no hurry, for me." },
+      },
+      choices = {
+        { text = "Something else, Greenwarden.", next = "BACK" },
+      },
+    },
+    opn_marsh_r_tame = {
+      lines = {
+        { id = "opn_marsh_r_tame", text = "Then you are honest, at least, and honesty is rarer than barley. The marsh will outlast your farms, small one, as it has outlasted every road before them." },
+      },
+      choices = {
+        { text = "Something else, Greenwarden.", next = "BACK" },
+      },
+    },
+    opn_marsh_r_protect = {
+      lines = {
+        { id = "opn_marsh_r_protect", text = "Here first, and here last. I will remember that you said it, and the reeds will remember too, for they are slower to forget than I am." },
+      },
+      choices = {
+        { text = "Something else, Greenwarden.", next = "BACK" },
+      },
+    },
+    opn_marsh_r_balance = {
+      lines = {
+        { id = "opn_marsh_r_balance", text = "That is the oldest bargain there is, and the one your kind forgets first. Remember it when your hunger grows, which it will." },
       },
       choices = {
         { text = "Something else, Greenwarden.", next = "BACK" },

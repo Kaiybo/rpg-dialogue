@@ -881,19 +881,40 @@ P:NPC {
         { id = "opn_darkiron_q", text = "Thieves an' fire-worshippers, an' they cannae brew tae save their lives, which is why they steal ours. Mind ye, my pappy used tae say they were Bronzebeards once, near enough. What's yer view o' the soot-beards?" },
       },
       choices = {
-        { text = "Thieves and murderers. Ironforge should root them out.", next = "opn_darkiron_r", fx = { affinity = 1, align = { light = -1 }, opinion = { dark_iron = "hate" } } },
-        { text = "They were kin once. Some might be again.", next = "opn_darkiron_r", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 }, opinion = { dark_iron = "kin" } } },
-        { text = "I'd fear Ragnaros more than any dwarf down there.", next = "opn_darkiron_r", fx = { trait = { careful = 1 }, opinion = { dark_iron = "enslaved" } } },
-        { text = "Stealing a dwarf's ale is the worst thing they've done.", next = "opn_darkiron_r", when = { race = "Dwarf" }, fx = { affinity = 2, trait = { witty = 1 }, opinion = { dark_iron = "hate" } } },
+        { text = "Thieves and murderers. Ironforge should root them out.", next = "opn_darkiron_r_hate", fx = { affinity = 1, align = { light = -1 }, opinion = { dark_iron = "hate" } } },
+        { text = "They were kin once. Some might be again.", next = "opn_darkiron_r_kin", fx = { affinity = -1, align = { light = 1 }, trait = { kind = 1 }, opinion = { dark_iron = "kin" } } },
+        { text = "I'd fear Ragnaros more than any dwarf down there.", next = "opn_darkiron_r_enslaved", fx = { trait = { careful = 1 }, opinion = { dark_iron = "enslaved" } } },
+        { text = "Stealing a dwarf's ale is the worst thing they've done.", next = "opn_darkiron_r_hate", when = { race = "Dwarf" }, fx = { affinity = 2, trait = { witty = 1 }, opinion = { dark_iron = "hate" } } },
         { text = "I'd rather talk about ale.", next = "BACK" },
       },
     },
     opn_darkiron_r = {
       lines = {
-        { id = "opn_darkiron_r_hate", when = { opinion = { topic = "dark_iron", stance = "hate" } }, text = "Ha! That's the spirit, an' if ye bring back my recipe while ye're rootin', there's a barrel in it for yer name on the wall." },
-        { id = "opn_darkiron_r_kin", when = { opinion = { topic = "dark_iron", stance = "kin" } }, text = "Kin? Hmph. Ye've a softer heart than a Thunderbrew, an' I'll no' say that tae anyone in Kharanos who lost a cousin at the Loch." },
-        { id = "opn_darkiron_r_enslaved", when = { opinion = { topic = "dark_iron", stance = "enslaved" } }, text = "The fire lord, aye. I've heard the tales an' I don't like 'em, so I'll stick tae hatin' the dwarves, if it's all the same tae ye." },
         { id = "opn_darkiron_r_default", text = "Then have a pint an' think on it, an' if ye decide ye hate 'em, have another." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r_hate = {
+      lines = {
+        { id = "opn_darkiron_r_hate", text = "Ha! That's the spirit, an' if ye bring back my recipe while ye're rootin', there's a barrel in it for yer name on the wall." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r_kin = {
+      lines = {
+        { id = "opn_darkiron_r_kin", text = "Kin? Hmph. Ye've a softer heart than a Thunderbrew, an' I'll no' say that tae anyone in Kharanos who lost a cousin at the Loch." },
+      },
+      choices = {
+        { text = "Something else, Ragnar.", next = "BACK" },
+      },
+    },
+    opn_darkiron_r_enslaved = {
+      lines = {
+        { id = "opn_darkiron_r_enslaved", text = "The fire lord, aye. I've heard the tales an' I don't like 'em, so I'll stick tae hatin' the dwarves, if it's all the same tae ye." },
       },
       choices = {
         { text = "Something else, Ragnar.", next = "BACK" },

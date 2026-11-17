@@ -38,20 +38,48 @@ P:NPC {
         { id = "opn_elves_q", text = "The ones who hunted here were the finest trackers I ever drank wi', an' then Quel'Thalas walked out o' the Alliance after the war like a guest leavin' before the bill. Now there's precious little left o' Quel'Thalas tae walk anywhere. Ye've an opinion, by yer face, so let's have it." },
       },
       choices = {
-        { text = "They left the Alliance when it needed them. I don't forget that.", next = "opn_elves_r", fx = { affinity = 1, align = { honor = 1 }, opinion = { high_elves = "distrust" } } },
-        { text = "They've paid for it a hundred times over. Leave them be.", next = "opn_elves_r", fx = { align = { honor = -1 }, trait = { kind = 1 }, opinion = { high_elves = "pity" } } },
-        { text = "Proud, but the best archers I've ever seen.", next = "opn_elves_r", fx = { opinion = { high_elves = "admire" } } },
-        { text = "My cousins in Quel'Thalas are dead. Speak gently.", next = "opn_elves_r", when = { race = "NightElf" }, fx = { affinity = -1, opinion = { high_elves = "kin" } } },
+        { text = "They left the Alliance when it needed them. I don't forget that.", next = "opn_elves_r_distrust", fx = { affinity = 1, align = { honor = 1 }, opinion = { high_elves = "distrust" } } },
+        { text = "They've paid for it a hundred times over. Leave them be.", next = "opn_elves_r_pity", fx = { align = { honor = -1 }, trait = { kind = 1 }, opinion = { high_elves = "pity" } } },
+        { text = "Proud, but the best archers I've ever seen.", next = "opn_elves_r_admire", fx = { opinion = { high_elves = "admire" } } },
+        { text = "My cousins in Quel'Thalas are dead. Speak gently.", next = "opn_elves_r_kin", when = { race = "NightElf" }, fx = { affinity = -1, opinion = { high_elves = "kin" } } },
         { text = "I'd rather talk hunting.", next = "BACK" },
       },
     },
     opn_elves_r = {
       lines = {
-        { id = "opn_elves_r_distrust", when = { opinion = { topic = "high_elves", stance = "distrust" } }, text = "Ha! Hold a grudge like a dwarf, do ye? I'll drink tae that, though I'll drink tae the rangers too, for they never left the lodge till they were called home." },
-        { id = "opn_elves_r_pity", when = { opinion = { topic = "high_elves", stance = "pity" } }, text = "Aye, they have, an' I'll no' kick a beast that's already down. Their rangers still come through now an' then, an' they look like folk who've buried everyone they knew." },
-        { id = "opn_elves_r_admire", when = { opinion = { topic = "high_elves", stance = "admire" } }, text = "Best I've seen too, though I'll deny I said it if Daryl asks. Proud's no crime in a hunter, so long as ye can back it up." },
-        { id = "opn_elves_r_kin", when = { opinion = { topic = "high_elves", stance = "kin" } }, text = "Cousins, is it? I didnae know yer folk still claimed 'em. Gently, then, an' I'm sorry for yer loss." },
         { id = "opn_elves_r_default", text = "Huntin' it is. Ye'll learn more from a bear than from me about elves anyway." },
+      },
+      choices = {
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
+    opn_elves_r_distrust = {
+      lines = {
+        { id = "opn_elves_r_distrust", text = "Ha! Hold a grudge like a dwarf, do ye? I'll drink tae that, though I'll drink tae the rangers too, for they never left the lodge till they were called home." },
+      },
+      choices = {
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
+    opn_elves_r_pity = {
+      lines = {
+        { id = "opn_elves_r_pity", text = "Aye, they have, an' I'll no' kick a beast that's already down. Their rangers still come through now an' then, an' they look like folk who've buried everyone they knew." },
+      },
+      choices = {
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
+    opn_elves_r_admire = {
+      lines = {
+        { id = "opn_elves_r_admire", text = "Best I've seen too, though I'll deny I said it if Daryl asks. Proud's no crime in a hunter, so long as ye can back it up." },
+      },
+      choices = {
+        { text = "Something else, Marek.", next = "BACK" },
+      },
+    },
+    opn_elves_r_kin = {
+      lines = {
+        { id = "opn_elves_r_kin", text = "Cousins, is it? I didnae know yer folk still claimed 'em. Gently, then, an' I'm sorry for yer loss." },
       },
       choices = {
         { text = "Something else, Marek.", next = "BACK" },
