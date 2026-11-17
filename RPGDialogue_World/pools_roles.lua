@@ -618,6 +618,15 @@ P:Pool {
     },
   },
   topics = {
+    holy_light = {
+      { id = "w_light", text = "The Light is the strength in your arm when your arm has nothing left, and it asks only that you use it for others. Uther taught us that, and every paladin since has had to learn it the hard way." },
+    },
+    arthas = {
+      { id = "w_arthas", text = "He was one of ours, ordained by Uther's own hand, and he broke the order when he broke his father's kingdom. We teach his name to every squire, so that none of them think the Light makes them incapable of falling." },
+    },
+    scourge = {
+      { id = "w_scourge", text = "The dead fear the Light more than any blade, and a paladin who stands firm is a wall they can't climb. Go north when you're ready, and not a day before." },
+    },
     knows = {
       { id = "t_kn1", text = "The Light asks us to share whatever might help another, so I will. Ask me of these, and I'll answer you honestly." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You carry yourself with honor, and I'd gladly tell you all I know, and pray you use it well." },
@@ -705,6 +714,17 @@ P:Pool {
     },
   },
   topics = {
+    holy_light = {
+      { id = "w_light_a", when = { faction = "Alliance" }, text = "The Light dwells in compassion and in sacrifice, and a priest's whole work is to make room for it. Practise kindness until it's as natural to you as breathing, and the Light will do the rest." },
+      { id = "w_light_h", when = { faction = "Horde" }, text = "The Light is a power like any other, and it answers whoever has the will to command it. Learn to call it, and don't let anyone tell you that you must first be worthy." },
+      { id = "w_light_ud", when = { faction = "Horde", race = "Scourge" }, text = "We died and the Light still answers us, which the Cathedral has never managed to explain. Use it, and let them keep their sermons." },
+    },
+    elune = {
+      { id = "w_elune", when = { race = "NightElf" }, text = "Elune hears your prayers as surely as the Light hears a human's, and the Sisterhood has healed under her moon for ten thousand years. Pray to her by name, child; she likes to be asked." },
+    },
+    scourge = {
+      { id = "w_scourge", text = "The Scourge are what happens when death is denied its due. Heal the living, give the dead their rest, and you'll have done more than most." },
+    },
     knows = {
       { id = "t_kn1", text = "The sick tell me everything, and the healthy tell me the rest. Here is what I can speak to without breaking a confidence." },
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer you, because I answer everyone, but I'll choose my words with care." },
@@ -797,6 +817,15 @@ P:Pool {
     },
   },
   topics = {
+    dalaran = {
+      { id = "w_dalaran", text = "Every school of the arcane worth the name traces itself back to Dalaran, and I'd give a great deal to see its libraries again. The Kirin Tor are rebuilding behind their dome, and they'll open the gates when they're good and ready, and not a moment sooner." },
+    },
+    kirin_tor = {
+      { id = "w_kirintor", text = "The Council of Six rule Dalaran and guard its secrets, and they don't share them lightly. Earn their notice someday, and you'll learn more in a month than I can teach you in a year." },
+    },
+    kelthuzad = {
+      { id = "w_kelthuzad", text = "He sat on the Council of Six, and he left it for necromancy, and now he commands the dead in the north. Every mage should study him, the way a sailor studies a shipwreck." },
+    },
     knows = {
       { id = "t_kn1", text = "Knowledge is the one thing a mage may hoard without shame, though I'll lend a little of mine. Here's what I've read, or overheard in the library." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've studied properly, so I'll open the better books for you." },
@@ -897,6 +926,15 @@ P:Pool {
     },
   },
   topics = {
+    kelthuzad = {
+      { id = "w_kelthuzad", text = "Kel'Thuzad reached for power over death and found a master waiting for him on the other side. Bind what you summon, never let it bind you, and you'll never end up like him." },
+    },
+    scourge = {
+      { id = "w_scourge", text = "The Scourge are what happens when someone else holds the leash. Learn from that, and keep a firm grip on your own." },
+    },
+    second_war = {
+      { id = "w_secondwar_h", when = { faction = "Horde" }, text = "Gul'dan's warlocks led the old Horde to ruin in that war, and no orc has forgotten it. We teach the craft differently now, and we watch our students very closely." },
+    },
     knows = {
       { id = "t_kn1", text = "I make it my business to know what others would rather keep hidden. Some of it I can share, so choose carefully." },
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "You'll get what I care to give, which is very little, and these are all of it." },
@@ -995,6 +1033,15 @@ P:Pool {
     },
   },
   topics = {
+    centaur = {
+      { id = "w_centaur", text = "Centaur are the best hunters on the plains, after us, and they know it. Learn to read their tracks and you'll never be caught out on open ground." },
+    },
+    quilboar = {
+      { id = "w_quilboar", text = "The quilboar keep boars as war beasts, and the beasts are better trained than the riders. Watch how they handle them, and you'll learn something, much as it pains me to say so." },
+    },
+    green_dragons = {
+      { id = "w_greendragons", text = "I've tracked a lot of beasts in my time, but I've never followed a green dragon, and I never will. They sleep in strange groves, and whatever they're dreaming, it's not something you want to wake." },
+    },
     knows = {
       { id = "t_kn1", text = "Tracks tell you where something's been, and travellers tell you the rest. Here's what I've picked up on the trail." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've a good eye and a patient hand, so I'll share what I'd tell my own students by the fire." },
@@ -1090,6 +1137,15 @@ P:Pool {
     },
   },
   topics = {
+    the_elements = {
+      { id = "w_elements", text = "Earth, fire, water and air are spirits, not tools, and they help us because we ask with respect. The warlocks forgot that, and the Horde paid for it in blood." },
+    },
+    earth_mother = {
+      { id = "w_earthmother", text = "The tauren call the land the Earth Mother, and the elements are her children. Thrall learned that from them, and we're all wiser for it." },
+    },
+    thrall = {
+      { id = "w_thrall", text = "The Warchief is the greatest shaman of our age, and he brought the old ways back to the orcs. Speak to the spirits as he does, with respect, and they'll listen." },
+    },
     knows = {
       { id = "t_kn1", text = "The spirits speak, and so do the people who come to hear them. These are things I can tell you of." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "The elements sit calm around you today, which tells me you can be trusted with more than most." },
@@ -1198,6 +1254,18 @@ P:Pool {
     },
   },
   topics = {
+    emerald_dream = {
+      { id = "w_dream", text = "The Emerald Dream is the world as it was meant to be, and our Archdruid walks there in his sleep. Something troubles the Dream now, and the Circle is worried." },
+    },
+    nordrassil = {
+      { id = "w_nordrassil", text = "The World Tree on Hyjal gave the night elves their immortality, and they gave it up to defeat the Legion. A druid ought to visit it once in their life, if only to understand what was lost." },
+    },
+    green_dragons = {
+      { id = "w_greendragons", text = "Ysera's flight guards the Dream, and they're appearing in strange places now, sleeping by the old portals. The Circle watches them very closely and says very little." },
+    },
+    elune = {
+      { id = "w_elune", text = "Elune is the moon's light, and Cenarius was her son, so we honour her in every grove. A druid serves the wild, but the wild was always hers as well." },
+    },
     knows = {
       { id = "t_kn1", text = "The wild carries word on the wind, and the Circle carries the rest. Ask of these, and I'll tell you what I've learned." },
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "The wild is patient with you, and I'm trying to be. Ask one of these, and listen to the answer." },
@@ -1297,6 +1365,15 @@ P:Pool {
     },
   },
   topics = {
+    ravenholdt = {
+      { id = "w_ravenholdt", text = "There's a manor in the Alterac hills where the best of our trade gather, and you'll not find it unless you're invited. Do good work and keep quiet about it, and one day the invitation might find you." },
+    },
+    prestor = {
+      { id = "w_prestor_a", when = { faction = "Alliance" }, text = "Lady Prestor's the most watched woman in Stormwind, and nobody's ever caught her doing anything at all. That's either innocence or talent, and I'd dearly like to know which." },
+    },
+    booty_bay = {
+      { id = "w_bootybay", text = "Booty Bay is the best place in the world for our sort, because nobody asks questions and everyone has something to hide. Mind the bruisers, though, because they don't ask questions either." },
+    },
     knows = {
       { id = "t_kn1", text = "Information is the only coin that's worth more after you've spent it. Here's what I can afford to give away." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've kept your mouth shut when it counted, so I'll open mine a little." },
@@ -1392,6 +1469,16 @@ P:Pool {
     },
   },
   topics = {
+    gurubashi_arena = {
+      { id = "w_arena", text = "The Gurubashi Arena is where warriors go to find out what they're really worth, and most of them find out it's less than they thought. Go, by all means, but come back and tell me what you learned." },
+    },
+    second_war = {
+      { id = "w_secondwar_a", when = { faction = "Alliance" }, text = "The Second War taught us that a line that holds wins more battles than any hero. Learn to stand with others, and you'll outlive the ones who don't." },
+      { id = "w_secondwar_h", when = { faction = "Horde" }, text = "The old Horde won every fight but the last one, because it never learned to stand still. Learn to hold, and then learn when to charge." },
+    },
+    internment = {
+      { id = "w_intern_h", when = { faction = "Horde" }, text = "Some of the best warriors I know learned to fight in the human camps, for the guards' amusement. They fight for themselves now, and they fight better." },
+    },
     knows = {
       { id = "t_kn1", text = "Soldiers talk in the training yard between bruises, and I listen. Here's what I've heard." },
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Talk comes after you've learned to keep your guard up, so take one of these and get back to the drills." },
@@ -1984,6 +2071,10 @@ P:Pool {
   },
   choices = { { text = "Thanks for the directions.", next = "END" } },
   topics = {
+    bolvar = { { id = "w_bolvar", text = "The Highlord commands the city in the king's absence, and the watch answers to him. He's a good man and a better soldier, and I'd follow him anywhere." } },
+    varian = { { id = "w_varian", text = "His Majesty's absence is not a matter for the street, citizen. If you've information, take it to the Keep; if you haven't, move along." } },
+    prestor = { { id = "w_prestor", text = "Lady Prestor is a guest of the court, and the court has its own guards. I'd mind my tongue if I were you." } },
+    the_stockade = { { id = "w_the_stockade", text = "The Stockade's by the canals, full of Defias and worse, and the prisoners have been restless lately. If you hear the bells ring from that way, keep clear." } },
     knows = {
       { id = "t_kn1", text = "The Watch hears everything in this city eventually, usually at the worst hour. Here's what I'm free to tell you." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've done right by Stormwind, so I'll tell you what we say in the barracks as well." },
@@ -2028,6 +2119,9 @@ P:Pool {
   },
   choices = { { text = "Thanks.", next = "END" } },
   topics = {
+    magni = { { id = "w_magni", text = "King Magni holds court in the High Seat, an' he's the finest king this mountain's ever had. Show some respect when ye go in, an' take yer hat off before the throne." } },
+    wildhammer = { { id = "w_wildhammer", text = "Our cousins from the Hinterlands come through now an' then on their gryphons, an' they cause a fair bit o' trouble in the taverns. Still, they're kin, an' we let 'em be." } },
+    second_war = { { id = "w_second_war", text = "The gates o' Ironforge held through the Second War, an' they'll hold through the next one too. Ye've my word on that, as a guard o' this mountain." } },
     knows = {
       { id = "t_kn1", text = "Under the mountain, news echoes, so ye hear it whether ye want to or no. Here's what's been bouncin' off the walls." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "Ye've been good to the mountain, so pull up a stool, an' I'll tell ye the lot." },
@@ -2073,6 +2167,9 @@ P:Pool {
   },
   choices = { { text = "Thank you, Sentinel.", next = "END" } },
   topics = {
+    tyrande = { { id = "w_tyrande", text = "The High Priestess holds court in the Temple of the Moon, and the Sentinels answer to her. Show her the respect she's due, or the Sentinels will show you the way out." } },
+    elune = { { id = "w_elune", text = "Elune watches over this city, and the Sentinels watch over it for her. Walk softly in her temple, and do not raise your voice." } },
+    nordrassil = { { id = "w_nordrassil", text = "Teldrassil is our home now, though the World Tree still stands on Hyjal. We gave up much to save it, and we'd do it again." } },
     knows = {
       { id = "t_kn1", text = "The Sentinels watch, and what we watch, we remember. I may tell you of these things." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "Elune has smiled on you, I think, and so I will speak more freely than I would to others." },
@@ -2116,6 +2213,9 @@ P:Pool {
   },
   choices = { { text = "Lok'tar.", next = "END" } },
   topics = {
+    thrall = { { id = "w_thrall", text = "The Warchief holds Grommash Hold, at the heart of the city, and he'll see you if your business is worth his time. Don't waste it, or you'll answer to me." } },
+    voljin = { { id = "w_voljin", text = "Vol'jin is the Darkspear chieftain, and his trolls hold the Valley of Spirits. He's the Warchief's friend, and that makes him ours." } },
+    internment = { { id = "w_internment", text = "Every orc on this wall remembers the camps, or remembers someone who does. We built Orgrimmar so we'd never see one again." } },
     knows = {
       { id = "t_kn1", text = "The gate hears everything that comes in from the Barrens, and plenty that crawls up out of the Drag. Here's what I know of it." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've bled for the Horde, so I'll tell you what the grunts don't say in front of the officers." },
@@ -2159,6 +2259,9 @@ P:Pool {
   },
   choices = { { text = "Thank you.", next = "END" } },
   topics = {
+    cairne = { { id = "w_cairne", text = "The High Chieftain holds council in the great tent on the central rise. If your business is with him, go humbly, and he'll hear you out." } },
+    earth_mother = { { id = "w_earth_mother", text = "The Earth Mother's eyes watch over these bluffs, and the braves who guard them do it in her name. Be welcome here, so long as you honour her." } },
+    centaur = { { id = "w_centaur", text = "The centaur drove us from our lands, and we came here to be safe from them. The bluffs are high, and the centaur can't climb them." } },
     knows = {
       { id = "t_kn1", text = "The wind carries word up the bluffs, and the Bluffwatchers hear it first. These things I can speak of." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You walk gently among our people, so I will share what the elders have let us hear." },
@@ -2204,6 +2307,9 @@ P:Pool {
   },
   choices = { { text = "Understood.", next = "END" } },
   topics = {
+    sylvanas = { { id = "w_sylvanas", text = "The Dark Lady holds court in the Royal Quarter, and she does not receive visitors lightly. If you've business with her, you'd better be very sure of it." } },
+    forsaken = { { id = "w_forsaken", text = "We are the Forsaken, and this is our city, beneath the ruins of the one we died in. Respect it, or join us more permanently." } },
+    scourge = { { id = "w_scourge", text = "The Scourge are our enemy, and our former masters, and some of them are still our kin. We put them down, every one, and we don't look at their faces." } },
     knows = {
       { id = "t_kn1", text = "The dead hear more than the living suspect, and we have nowhere else to be. Here is what has drifted down to us." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've done the Dark Lady good service, so I'll tell you what the Deathguard whisper among themselves." },
@@ -2397,6 +2503,9 @@ P:Pool {
     },
   },
   topics = {
+    ratchet = { { id = "w_ratchet", text = "Ratchet's the Cartel's door on the Barrens, pal, and I'm the guy who keeps it from gettin' kicked in. Everybody's welcome, everybody pays, and nobody fights on the docks." } },
+    booty_bay = { { id = "w_booty_bay", text = "The boat to Booty Bay leaves right off the end of the pier, pal, and it's cheap at twice the price. Don't start nothin' on board, 'cause the sharks are hungry and the captain's got a long memory." } },
+    centaur = { { id = "w_centaur", text = "Centaur raid the caravans comin' in from the Barrens, and then they try to sell the goods back to us. We don't buy, pal, on principle and also 'cause they never got the paperwork." } },
     steamwheedle = { { id = "t_cartel", text = "Same Cartel as Booty Bay, Gadgetzan and Everlook, pal, and Ratchet's the one that keeps the Barrens supplied. Everything that crosses the sea comes through our docks first and pays its toll on the way." } },
     _none = { { id = "t_none", text = "Ask Gazlowe, pal. He knows everything, and he'll tell you whether you asked or not, and then he'll tell you what it cost him." } },
   },
