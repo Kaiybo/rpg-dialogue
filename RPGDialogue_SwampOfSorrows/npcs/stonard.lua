@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Murlocs in the reeds, crocolisks in the shallows and worse near the Pool of Tears, and none of it shows itself until it has you by the leg. I've lost more scouts to this swamp than to any enemy, and I'd send a warrior with every one of them if I had enough." } },
+      choices = {
+        { text = "Send me out with them. I'll keep them alive.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Scouts who can't handle the swamp shouldn't be scouts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They say the water around the Pool of Tears is wrong, warm where it should be cold and quiet where it should be loud. I can't put that on a map, but I write it down anyway, because I've learned to listen to what my scouts won't say twice." } },
@@ -92,6 +101,7 @@ P:NPC {
           text = "I relayed those orders, whatever anyone out on that road is implying. Find Bengor if you want the rest of it, and mind where you stick your nose." },
         { id = "h_talker_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Swamp Talker"), days = 3 } },
           text = "So the orders turned up in a murloc's cave, where they'd been all along. I'll not pretend that's comfort, but at least nobody can say Stonard didn't send them." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Stonard's walls need warriors, but my scouts need someone to pull them out of the mud when the swamp turns on them, and that may be your job today." },
       },
       again = {
         { id = "h_again", text = "Next item. Keep it short; I've dispatches waiting." },
@@ -113,6 +123,7 @@ P:NPC {
         { text = "This swamp suits my kind, Commander.", next = "k_scourge", when = { race = "Scourge" } },
         { text = "What do your scouts miss out there, Commander?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could magic carry your messages faster than runners?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What has the swamp done to your scouts, Commander?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Send me out.", next = "END", fx = { affinity = 1, standing = { stonard = 1 } } },
       },
     },
@@ -328,6 +339,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Atal'ai still keep their rites in the drowned halls, and other things guard the deep places that I will not name. A warrior can cut down a priest, but not what the priest prays to, so if you go in, go with others and go prepared." } },
+      choices = {
+        { text = "I'll go in with a full warband, properly prepared.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll go in alone and cut my way through.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Wards are the least of it, because the temple was sunk to stop the Atal'ai, and they're still down there chanting. A mage might break a ward, but a ward is only a lock, and I'm more worried about what's behind the door." } },
@@ -360,6 +380,7 @@ P:NPC {
           text = "Into the temple, then, and bring enough friends, and then bring more than that." },
         { id = "h_fetishes", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Temple of Atal'Hakkar"), days = 3 } },
           text = "Twenty fetishes, and every one of them hums like a hornet in a jar. They'll go to Orgrimmar under guard, and I'll sleep better once they're gone." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Steel will not help much against what lies in that temple, but I would rather have you here than not." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly; the temple doesn't wait." },
@@ -376,6 +397,7 @@ P:NPC {
         { text = "The spirits told me what warlocks did to our people.", next = "k_shaman", when = { race = "Orc", class = "SHAMAN" } },
         { text = "Could a mage break the temple's wards?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "How close can I get to the temple unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What lies in the Temple of Atal'Hakkar, Fel'zerul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },
@@ -522,6 +544,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "In the swamp, aye, because heavy feet sink and the murlocs come at you from the reeds before you can turn. Neeka says a warrior's strength is in holding ground, but there's no solid ground out there to hold, so you'd better learn to move." } },
+      choices = {
+        { text = "Then I'll learn to hold ground wherever I stand.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll shed the armor and run with you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "I never thought to, because I'm not clever, as I said, but now you've put it in my head I'll be asking them every morning. If I reach Kargath a day early, I'll tell Neeka Bloodscar it was your doing." } },
@@ -582,6 +613,7 @@ P:NPC {
         { id = "h_report_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Report to Helgrum"), days = 3 } },
           text = "Neeka's report says the Alliance has troubles of its own up north, and some of their enemies are ours too. Funny, the things you learn when a letter finally arrives." },
         { id = "h_fast", when = { metBefore = true }, text = "I ran to the edge of the swamp and back this morning, before breakfast, and don't ask me why, because I wasn't thinking. I'm the swift one, remember." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll never be fast in all that armor, but I'll grant you'd be a lot harder to knock down than me." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, I've got a run at noon." },
@@ -598,6 +630,7 @@ P:NPC {
         { text = "I ran the plains of Mulgore. Swamp's no different.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Fast is good, Helgrum, but quiet is better.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Blink only goes a few yards, Helgrum.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Is speed better than armor in the swamp, Helgrum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "I'll look for her.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -695,6 +728,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "You could, for they leave tracks like ducks in the mud and smell like a week-old fish market, but there are many of them and only one of you. Hunt them carefully, and remember what they did to me before you get too close." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You could, for they leave tracks like ducks in the mud and smell like a week-old fish market, but there are many of them and only one of you. Hunt them carefully, and remember what they did to me before you get too close. Keep {pet} close out there, for the murlocs throw nets, and I saw a wolf caught in one once, and it did not end well." },
+      },
+      choices = {
+        { text = "I'll hunt them carefully and honor what they took from you.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt every one of them down, any way I can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Not in words, but some nights I wake with the faces of my company as clear as day, and the swamp goes quiet around me. I think they want the orders found as much as I do, so I keep remembering for them." } },
@@ -738,6 +783,7 @@ P:NPC {
           text = "The Swamp Talker, that one took the orders from my hand while a spear went into my head. East, in a cave, if your stomach is stronger than mine was." },
         { id = "h_tired", when = { metBefore = true },
           text = "You came back to sit with a broken old grunt, and few do that. The healers come with their tube and their kind words, and I would rather have your company." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I could use your eyes, for mine are bad now, and I'd like to know whether the murlocs are still nesting in the reeds by the water." },
       },
       again = { { id = "h_again", text = "More? I have breath for a little more, if you speak slowly." } },
       choices = {
@@ -750,6 +796,7 @@ P:NPC {
         { text = "I got the orders back, Bengor.", next = "orders_back", when = { questDone = TODO_QUEST("The Swamp Talker") } },
         { text = "I'm a soldier too, Bengor. Tell me what happened.", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Could I find the Swamp Talker's cave unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could I track the murlocs who hurt you, Bengor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },

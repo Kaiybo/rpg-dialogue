@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because we're close enough to the Blasted Lands to smell them, and the demons that still wander out there don't care whose stones these are. These old walls were built to hold, and a warrior on top of them makes them hold a good deal better." } },
+      choices = {
+        { text = "I'll stand on the walls and keep them safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather go out and meet the demons than wait for them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Swamp jaguars, if you're quick, and the big crocolisks along the shore if you're brave, and the spiders if you're daft. None of it tastes good, but Karakul will cook anything you bring him and never asks what it was." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Swamp jaguars, if you're quick, and the big crocolisks along the shore if you're brave, and the spiders if you're daft. None of it tastes good, but Karakul will cook anything you bring him and never asks what it was. Your {pet} looks like it would enjoy chasing a jaguar through the reeds, so let it, and bring back whatever's left." },
+      },
+      choices = {
+        { text = "I hunt only what the town needs, no more.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I hunt for the sport of it. The swamp has plenty.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Probably that they've been through a war, a defeat and a great deal of rain, and that nobody's thanked them for any of it. I'm no shaman, but I've stood here long enough to feel that much." } },
@@ -77,6 +98,8 @@ P:NPC {
           text = "I'm Dar. Stonard's a bit short on comforts, as you've noticed, but there's enough history in these stones that it must matter to somebody, and I suppose that's why I stay. It isn't for the scenery, I'll tell you that." },
         { id = "h_meat_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Lack of Surplus"), days = 3 } },
           text = "Tok'Kar got his sawtooth flanks, and his soldiers ate well, and I hear he said something about my face while he was at it. He always does, so I'll take it as thanks." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll find Stonard's walls a comfort, at least, since they're about the only comfort here." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. There's not much to hunt round Stonard but crocolisks and spiders, though I'm told a swamp jaguar is good eating, if you can catch one." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got the time, which is the one thing Stonard has plenty of." },
@@ -92,6 +115,8 @@ P:NPC {
         { text = "The swamp feels like home to me, Dar.", next = "k_troll", when = { race = "Troll" } },
         { text = "Nothing worth stealing at all, Dar?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What do you know of Stonard's old warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Why does Stonard need warriors on its walls, Dar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What's worth hunting around Stonard, Dar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -211,6 +236,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Heavy and slow, which in a fight is the same thing, and a rider in plate on a wet beast is a rider who goes down in the swamp. I dry their wings every morning before they fly, and I'd ask a warrior to wait for it rather than complain." } },
+      choices = {
+        { text = "I'll wait. Patience is part of any soldier's work.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd fly now and take the risk. Waiting wastes daylight.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Dry them every day, check their feet for rot and keep the leeches off, because a swamp leech will drain a beast weaker than any wound. It's dull work, but a hunter who skips it ends up with a sick animal and no idea why." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dry them every day, check their feet for rot and keep the leeches off, because a swamp leech will drain a beast weaker than any wound. It's dull work, but a hunter who skips it ends up with a sick animal and no idea why. Check {pet}'s paws tonight, I'd say, because the mud gets between the pads and festers if you leave it." },
+      },
+      choices = {
+        { text = "Daily care is a hunter's first duty to his beast.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Beasts are tough. They'll manage without the fuss.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Something rises out of that water that no rider likes, and I can't see it, but they can. I fly them the long way round the Pool of Tears now, and nobody's complained about the extra hour yet." } },
@@ -260,6 +306,8 @@ P:NPC {
           text = "Breyk, wind rider master. From Stonard the riders go north to Kargath over the Steppes, and west to Grom'gol and Booty Bay, and they hate every minute of the wet before they leave." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The riders don't like flying out of here at night, because the mist sits so low they can't see the trees. They'll go, but they'll grumble the whole way." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't like the weight of plate when their wings are wet, so I'll ask you to be patient while they shake off the damp." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know how to look after a beast in this wet, I hope, because most folk don't and their animals suffer for it." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got harness to scrape." },
@@ -273,6 +321,8 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "I could try drying your riders, Breyk.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Who would cut a wind rider's harness?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do wet wings make the wind riders dangerous, Breyk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How do you keep beasts healthy in this swamp, Breyk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -332,6 +382,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I don't dislike them, I simply have nothing to sell them, which is worse. Warriors think a demon can be killed like any other beast, and they're usually right, which annoys my customers no end." } },
+      choices = {
+        { text = "Warlocks play with fire. A warrior's steel is cleaner.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Demons are tools. A warrior could learn from warlocks.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and in the end I'd rather have something that hates me honestly." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and in the end I'd rather have something that hates me honestly. Your {pet} would be torn to pieces by a felhunter in a heartbeat, but I'll grant it looks happier than any demon I've ever bound." },
+      },
+      choices = {
+        { text = "A beast's loyalty is worth more than any bound demon.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A demon that obeys is worth ten loyal beasts.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "Because the Warchief allows it, and because warlocks know things your elements never will. Thrall's people can talk to the wind all they like, but when a demon walks out of the Blasted Lands, it's my customers who'll know its name." } },
@@ -382,6 +453,8 @@ P:NPC {
           text = "I sell grimoires to warlocks, and you aren't one. If you've a question, make it quick, and then go and bother Karakul instead." },
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "Greshka. I sell the grimoires that teach your servants new tricks, the Blood Pact and the Firebolt and the rest. You know enough to be dangerous, but you still need training, so let's see what you can pay for." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You've no use for grimoires and I've no use for you, but Malosh is out in the yard if you want somebody to hit." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and you keep beasts, which is a pity, though I suppose they're loyal." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief." },
@@ -396,6 +469,8 @@ P:NPC {
         { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Is the arcane really any cleaner than the fel?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do your grimoires really bite?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why do you dislike warriors so much, Greshka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Are demons really better than beasts, Greshka?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -464,6 +539,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "When I can get them, aye, because a warrior who's only fought other warriors will freeze the first time a swamp jaguar comes at him out of the reeds. A hunter's beast makes a fine sparring partner, if it's patient and the hunter keeps a hand on the lead." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When I can get them, aye, because a warrior who's only fought other warriors will freeze the first time a swamp jaguar comes at him out of the reeds. A hunter's beast makes a fine sparring partner, if it's patient and the hunter keeps a hand on the lead. Your {pet} looks like it would give my recruits a good fright, which is exactly what they need." },
+      },
+      choices = {
+        { text = "Disciplined sparring saves lives in the field. It's worth doing.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Real fights teach more than any yard ever will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They respect anyone who stays standing in this mud, and your lot stay standing longer than most, because you keep putting the rest of us back on our feet. I'll grant that a totem on the field is worth a grunt or two." } },
@@ -513,6 +600,7 @@ P:NPC {
           text = "I'm Malosh, and I teach warriors in Stonard. Fight in this mud long enough and you'll be able to fight anywhere, because nothing else is harder on your feet." },
         { id = "h_war", when = { class = "WARRIOR" },
           text = "A warrior, and you've walked through the swamp to get here, so your legs are already half trained. Let's see about the other half." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, in my yard. A hunter's beast fights better in this mud than half my warriors do, and I don't mind saying so." },
       },
       again = {
         { id = "h_again", text = "More questions? Swing a blade while you ask them." },
@@ -526,6 +614,7 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
         { text = "Would you let a rogue teach your warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can a warrior learn anything from a mage?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do your warriors ever train against beasts, Malosh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Another time.", next = "END" },
       },
     },

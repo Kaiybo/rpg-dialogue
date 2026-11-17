@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because I'm a trader, friend, not a soldier, and there were about twenty of them and one of me, and they had nets. A warrior like you would have scattered them in a heartbeat, which is exactly why you should be the one to get me out." } },
+      choices = {
+        { text = "I'll free you and see you safely on your way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll free you once you tell me what's in that strongbox.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Into their huts by the water, I imagine, because murlocs love anything shiny and haven't the faintest idea what's actually in it. Follow the smell of fish and the trail of wet footprints, and you'll find it, I'm certain." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Into their huts by the water, I imagine, because murlocs love anything shiny and haven't the faintest idea what's actually in it. Follow the smell of fish and the trail of wet footprints, and you'll find it, I'm certain. And maybe {pet} could sniff it out, since it smells of me, and I haven't washed in a week, which is the one thing working in our favor." },
+      },
+      choices = {
+        { text = "I'll find your strongbox and return it untouched.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Finders keepers, Galen, unless the reward's worth it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "They chant at the water every night and wave my strongbox at it, which I'd find funny if it weren't mine. If they think their gods want my coin, their gods have excellent taste, but I'd rather they didn't get it." } },
@@ -111,6 +132,8 @@ P:NPC {
           text = "We're going, we're going! Stay close to me, friend, and keep those fish-men off my back until we're clear of this place." },
         { id = "h_done", when = { questDone = TODO_QUEST("Galen's Escape") },
           text = "You saved my neck, friend, and I'll not forget it, not for a good while anyway. Did you find my strongbox, by any chance?" },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Oh, thank goodness, you look like you could bend these bars with your bare hands, and I'd be ever so grateful if you tried." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You wouldn't have a sharp eye for things that glitter, would you, because my strongbox is out there somewhere in a murloc's nest." },
       },
       again = {
         { id = "h_again", text = "Anything else? Ask quickly, please, before they come back." },
@@ -128,6 +151,8 @@ P:NPC {
         { text = "Shall I turn your guards into sheep, Galen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Did you really pray every night, Galen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why would murlocs run from a paladin, Galen?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why didn't you fight off the murlocs, Galen?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Where might the murlocs have taken your strongbox, Galen?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll be back.", next = "END" },
       },
     },
@@ -218,6 +243,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The best I ever knew, and the most loyal, which is why they held their ground and waited for orders that never came. I trained them to obey, and their obedience killed them, and I have had a long time to wonder whether I trained them wrong." } },
+      choices = {
+        { text = "Obedience is a soldier's duty, even when it costs everything.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A good soldier knows when to break from orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Signs of whoever was sent to us and never arrived: bones, a satchel, tracks in the red earth that end too soon. Someone or something stopped them, and I would know what, before I am allowed to rest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Signs of whoever was sent to us and never arrived: bones, a satchel, tracks in the red earth that end too soon. Someone or something stopped them, and I would know what, before I am allowed to rest. Your {pet} will smell the old blood out there before you see it, and it will not like what it finds." },
+      },
+      choices = {
+        { text = "I'll find the truth, whatever it costs, and bring it back plainly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some truths are better left buried, spirit.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhsham = {
       big = true,
       lines = { { id = "xhsham_default", text = "The ancestors cannot give what only the truth can, shaman. When I know who held back those orders, my soldiers will rest and I will follow them, but not one hour before." } },
@@ -269,6 +315,8 @@ P:NPC {
           text = "I led a regiment of the Horde called Thrall's Grasp, and it was destroyed in the lands beyond this swamp. Nineteen of my soldiers could have been spared, had the orders reached us, and I cannot rest until I know why they did not." },
         { id = "h_quest", when = { questActive = TODO_QUEST("The Disgraced One") },
           text = "Go to Stonard and speak to Dispatch Commander Ruag. He will know what became of the orders, or he will know who does." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I led warriors once, in Thrall's Grasp, and I see their faces in yours, so forgive me if I stare." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You see what others pass over, and that is what I need, for the truth of what befell my regiment is buried somewhere out there." },
       },
       again = {
         { id = "h_again", text = "What more would you hear?" },
@@ -283,6 +331,8 @@ P:NPC {
         { text = "Ruag swears he sent those orders.", next = "ruag", when = { questDone = TODO_QUEST("The Missing Orders") } },
         { text = "Do my demons trouble your rest, spirit?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you think someone stole your orders?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What kind of warriors were Thrall's Grasp?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What should a hunter look for out there, spirit?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll leave you to your road.", next = "END" },
       },
     },

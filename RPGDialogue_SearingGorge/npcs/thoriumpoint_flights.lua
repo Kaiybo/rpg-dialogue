@@ -26,6 +26,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Welcome is a strong word, but you'd not be thrown off the cliff, which is more than our grandfathers would have said. Our clans have been at each other since the War of the Three Hammers, and I still flinch at the soot on their beards, but these ones turned their backs on the mountain, and I give them their due." } },
+      choices = {
+        { text = "Old wars should stay old. These Dark Irons earned a chance.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A Dark Iron's a Dark Iron. I'll keep my hand near my sword.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Poorly, though they'll never admit it, for they're mountain birds and this place is all ash and sulfur. I water them twice as often as I would in Ironforge, and they still fly out of here a good deal faster than they fly in." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Poorly, though they'll never admit it, for they're mountain birds and this place is all ash and sulfur. I water them twice as often as I would in Ironforge, and they still fly out of here a good deal faster than they fly in. And {pet} looks hot and bothered too, poor thing, so give it a drink before you go, because the Gorge is cruel to anything with fur." },
+      },
+      choices = {
+        { text = "A beast in pain should be cared for, whatever the cost.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They'll toughen up. A beast adapts or it doesn't.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "They hate the heat and they hate the ash, and most of all they hate the fire elementals that rise off the slag heaps like sparks off a forge. I can't say I blame them." } },
       choices = {
@@ -71,6 +92,8 @@ P:NPC {
           text = "A night elf druid! The gryphons don't trust the Gorge any more than you would, and they'll fly you out of here gladly, back to where things still grow." },
         { id = "h_default", key = true,
           text = "Lanie Reed, gryphon master for the Alliance here at Thorium Point. My birds fly to Ironforge and to Morgan's Vigil in the Burning Steppes, and anywhere else the Alliance has a roost, and they're glad to leave every time." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Keep your hand off that hilt while you're at the Point, because the Dark Irons here are friends, or near enough, and they notice these things." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! My gryphons are restless round strange beasts, so if you've one with you, keep it close and don't let it eye the birds like supper." },
       },
       again = {
         { id = "h_again", text = "What else? The birds are getting twitchy in this smoke." },
@@ -84,6 +107,8 @@ P:NPC {
         { text = "Why fly when I could teleport home, Lanie?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the Dark Irons here ever try to read your letters?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Is it hard keeping faith among the Dark Irons, Lanie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would a Bronzebeard warrior be welcome at Thorium Point, Lanie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How do your gryphons fare in the Gorge's heat, Lanie?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -139,6 +164,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "I trust them as far as my wind riders could throw them, which isn't far, but they keep their word and they've never once cheated me. A warrior learns to judge a fighter by what they do, not by who their grandfather served, and these ones have done well enough." } },
+      choices = {
+        { text = "Judge them by their deeds. That's only fair.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Dwarves are dwarves. I'll keep my axe ready.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They hate it, all smoke and fire and no clean wind, so I fly them out early in the day before the heat comes up off the Cauldron. They're tough beasts, but they weren't made for this place, and neither was I." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They hate it, all smoke and fire and no clean wind, so I fly them out early in the day before the heat comes up off the Cauldron. They're tough beasts, but they weren't made for this place, and neither was I. Your {pet} looks like it's handling the heat better than my riders, so whatever you're feeding it, keep on doing it." },
+      },
+      choices = {
+        { text = "A strict routine keeps a beast healthy anywhere.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them fly when they want. A beast knows best.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "Better than the gryphons, but only because they're too stubborn to complain. The ash gets in their wings and the heat makes them cross, and I spend my evenings picking cinders out of their manes." } },
       choices = {
@@ -173,6 +219,8 @@ P:NPC {
           text = "A tauren druid at Thorium Point. My wind riders will sniff you over, because you smell of grass and they haven't had that in a while." },
         { id = "h_default", key = true,
           text = "Grisha, wind rider master for the Horde at Thorium Point. My beasts fly to Kargath in the Badlands and to Flame Crest in the Burning Steppes, and from there anywhere you like." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Keep your axe on your back while you're here, because the dwarves have long memories and short tempers, and I'd rather not lose a customer." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll understand my beasts, then, and why I won't let anyone near them who doesn't know how to treat an animal." },
       },
       again = {
         { id = "h_again", text = "What else? The riders smell the lava and they want to be gone." },
@@ -185,6 +233,8 @@ P:NPC {
         { text = "Do you get along with the gryphon master?", next = "lanie" },
         { text = "Do your riders mind carrying a mage?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do your riders hate demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do you trust the Dark Irons here, Grisha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "How do your wind riders handle the Gorge, Grisha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

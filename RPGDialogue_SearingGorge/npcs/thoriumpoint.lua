@@ -27,6 +27,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Surface steel, too soft at the heart, an' it'll take a notch the first time it meets Dark Iron plate. Earn the Brotherhood's trust, an' our smiths might one day show ye what steel can be when it's made right." } },
+      choices = {
+        { text = "I'll earn your trust honestly, Overseer, one task at a time.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd sooner buy the secret. Trust takes too long.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Lava spiders, glassweb spiders an' the blackened basilisks, an' not one o' them has the decency tae die quietly. The spiders have taken tae troublin' the bairns at the Point, too, so I'll not complain if ye thin them out." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Lava spiders, glassweb spiders an' the blackened basilisks, an' not one o' them has the decency tae die quietly. The spiders have taken tae troublin' the bairns at the Point, too, so I'll not complain if ye thin them out. Keep {pet} back from the webs, mind, for they spin them over the vents, an' a beast that blunders through one is cooked before ye can pull it free." },
+      },
+      choices = {
+        { text = "I'll clear the spiders and help keep the Point safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt what I like in the Gorge, for my own reasons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_q = {
       lines = { { id = "dq_default", text = "If the Firelord ever stops breathin' under it, aye, maybe. Our forefathers called him up an' burned this land tae ash, so I reckon the Brotherhood owes it somethin', though I couldnae tell ye what." } },
       choices = {
@@ -89,6 +110,8 @@ P:NPC {
           text = "The forges never go cold, even now, out o' habit. Down in the mountain, cold forges meant punishment, an' we keep 'em lit for different reasons now." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "You again. The Brotherhood trades with anyone who pays, but trust's another matter, an' ye've no' bought any yet." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. We forged arms for Ragnaros's armies down in that mountain, so I can tell ye from here what's wrong wi' yer blade, whether ye want tae hear it or no." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. There's nothin' in the Gorge worth eatin', I'll warn ye, but there's plenty that'll try tae eat you." },
       },
       again = { { id = "h_again", text = "Aye? Speak up over the forge." } },
       choices = {
@@ -103,6 +126,8 @@ P:NPC {
         { text = "What did Thaurissan think he was summoning, Overseer?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Did the Dark Irons ever know the Light, Overseer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin do in the Gorge, Overseer?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What's wrong with my blade, Overseer?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What beasts hunt in the Searing Gorge, Overseer?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll work with the Brotherhood.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
@@ -326,6 +351,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oiled steel, sweat an' a bit o' bravado, aye, that's a warrior, while a Dark Iron from the Cauldron smells o' soot an' sulfur. My eyes are long gone, but my nose has never let the Point down, an' I'll put it up against any lookout in Khaz Modan." } },
+      choices = {
+        { text = "Your nose has kept the Point safe. That deserves respect.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A blind lookout's a danger, Captain, nose or no nose.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Fur an' leather an' trail mud, an' a wee bit o' whatever the beast last rolled in, which is never roses. I'd know a hunter in the dark, which is lucky, because for me it's always dark." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Fur an' leather an' trail mud, an' a wee bit o' whatever the beast last rolled in, which is never roses. I'd know a hunter in the dark, which is lucky, because for me it's always dark. An' yer {pet} smells like it's been chasin' basilisks, which is a brave thing for a beast tae do down here, so give it a scratch from me." },
+      },
+      choices = {
+        { text = "A good hunter trusts every sense, as you do.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I trust my eyes and my instincts. Noses can lie.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Arcane leaves a smell like a storm that hasnae broken yet, an' ye're wearin' it like perfume. I've a nose for trouble, an' yer kind are trouble that usually means well, which is the worst sort." } },
@@ -367,6 +413,8 @@ P:NPC {
           text = "Maltorius is overseer o' the Dark Iron slaves in the Gorge, an' a cruel one. The poster's up, so bring me his head, an' I'll... know it when I feel it." },
         { id = "h_drink", when = { metBefore = true },
           text = "Folk say I drink too much for a lookout, an' I say I'd see nothin' at all without it. They've no answer tae that, an' neither have I, come tae think of it." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "Ah, I can smell the oil on yer armor an' hear it clankin' from here, so ye're either a warrior or a very loud thief, an' I'm hopin' for warrior." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "Ah, a hunter, for I can smell the beast on ye, an' it's a fine healthy smell, so ye must feed it well." },
       },
       again = { { id = "h_again", text = "Aye, aye, still here. I can hear ye fidgetin'." } },
       choices = {
@@ -378,6 +426,8 @@ P:NPC {
         { text = "How can you smell that I'm a mage?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does my imp bother you, Captain?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "You can smell the Light on me, Captain?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can you really smell a warrior coming, Captain?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What does a hunter smell like, Captain?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll hunt Maltorius.", next = "END", fx = { affinity = 1, standing = { thorium_point = 1 } } },
       },
     },
@@ -459,6 +509,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "In blood, as my father paid, and in fear, so that they remember who came for them. You're a warrior, so you understand that some debts are only settled with steel, and I'd rather not say more of it than that." } },
+      choices = {
+        { text = "Vengeance won't bring your father back, Kalaran.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then we'll settle the debt in blood together.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I follow them as you'd follow any prey, for they leave signs like any other: soot on the rocks, ash on the wind and the cries of their slaves. When I find the ones who did it, I'll take them as cleanly as any hunter takes a wolf." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I follow them as you'd follow any prey, for they leave signs like any other: soot on the rocks, ash on the wind and the cries of their slaves. When I find the ones who did it, I'll take them as cleanly as any hunter takes a wolf. Your {pet} would find their trail sooner than I could, I think, for a beast doesn't let grief cloud its nose." },
+      },
+      choices = {
+        { text = "Take only the guilty, Kalaran, not everything in reach.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hunt them all down. Every Dark Iron shares the blame.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "I've had years to tell it, and grief wears smooth with handling, like a stone in a river. If you doubt me, ask the Dark Iron what they did here, and then ask yourself why they're so eager to deny it." } },
@@ -490,6 +561,8 @@ P:NPC {
           text = "The torch is nearly ready. Every piece you bring brings my father's killers closer to the reckoning they deserve." },
         { id = "h_father", when = { metBefore = true },
           text = "I dream of him, and of what they did. You'd think the dreams would fade, but they don't, and good; I don't want them to." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Good, for I need a strong arm against the Dark Iron, and one that won't hesitate when the moment comes to strike." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. Then you know how to follow a quarry for days and wait for the right moment, which is a skill I have had to learn." },
       },
       again = { { id = "h_again", text = "What else? We have work to do." } },
       choices = {
@@ -499,6 +572,8 @@ P:NPC {
         { text = "Lolo says you don't smell of grief.", next = "lolo", when = { heardLine = "lolo.h_kalaran" } },
         { text = "You tell your story very smoothly, Kalaran.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What kind of fire does your torch need?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How do you want the Dark Iron to pay, Kalaran?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do you hunt the Dark Iron like beasts, Kalaran?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Vengeance isn't justice, Kalaran. I'm a paladin.", next = "k_paladin", when = { class = "PALADIN" } },
         { text = "Vengeance won't bring your father back, Kalaran.", next = "END", fx = { align = { light = 1 } } },

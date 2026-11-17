@@ -28,6 +28,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a sword cuts, but a mace convinces, and when you're facing a Mosh'Ogg brute in his iron scraps you need a lot of convincing. Every Bloodsail bosun I ever saw wore a coat of mail, and I watched a Blackwater raider put one down with a single swing of my best." } },
+      choices = {
+        { text = "The right weapon for the fight. That's sense, not fashion.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll fight with whatever I've got and make it work.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Not a thing, friend, since your sort take to a mace about as well as a goblin takes to swimming, though I've had hunters buy one to crack coconuts. I'd sell your beast a mace head to chew on, if anybody had ever asked." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not a thing, friend, since your sort take to a mace about as well as a goblin takes to swimming, though I've had hunters buy one to crack coconuts. I'd sell your beast a mace head to chew on, if anybody had ever asked. Look at {pet}, now, eyeing my stock like it knows good steel, and I'd say it's got better taste than most of my customers." },
+      },
+      choices = {
+        { text = "Every hunter to his own weapon. I'll stick to the bow.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd swing a mace if I pleased. Nobody tells me otherwise.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Of course! A mage with a mace is a mage who doesn't die when the raptor gets close. I'll even sell you a light one, so you can still wave your hands about afterwards." } },
@@ -74,6 +95,8 @@ P:NPC {
           text = "A servant of the Light, in my shop! Your lot are my best customers, you know, because whoever wrote your rules about edges was a friend to the mace trade." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I know your kind prefers a little blade, but let me tell you, friend, a mace has a poetry all its own, and nobody ever argues with it twice." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my shop! Now, you won't need a mace, I suppose, but a fine one makes a lovely ornament for a summoning circle, if I do say so myself." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Now you're my sort of customer, because you know that when the armor's thick a sword just bounces, and a good mace goes right through to the bone." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. You lot never buy a mace, more's the pity, so I'll just admire your bow and sigh a little." },
       },
       again = {
         { id = "h_again", text = "What else? I've got all day, and the maces aren't going anywhere unless you buy them." },
@@ -90,6 +113,8 @@ P:NPC {
         { text = "A mace is a dwarf's weapon, goblin.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "What could a mace offer someone who fights from the shadows, Kizz?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do warlocks really buy maces for their circles, Kizz?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why carry a mace instead of a sword, Kizz?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Is there really nothing in your shop for a hunter, Kizz?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Just looking.", next = "END" },
       },
     },
@@ -195,6 +220,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Straps, buckles and padding, friend, because your armor is only as good as what holds it together, and the salt air eats leather faster than a troll eats a raider. I've seen a breastplate fall clean off a warrior halfway through a fight because the strap rotted." } },
+      choices = {
+        { text = "I check my straps every morning. Discipline keeps you alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If a strap breaks, I'll fight in my shirt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Basilisk scales for mages who want to know why basilisks turn people to stone, and black panther hide for priests of the darker sort. The strangest was a warlock who wanted a hide that had never seen sunlight, and I didn't ask how he planned to check." } },
@@ -240,6 +274,7 @@ P:NPC {
           text = "Rikqiz, leatherworking supplies. The jungle's full of tigers, raptors and basilisks, and all of them are wearing hides that somebody wants, so I sell the somebodies what they need to turn them into armor." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I'll bet you've got a few hides in that pack you'd rather not explain, and I'm the very goblin who won't ask you to." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want dyes for your robes, I'd guess, and I've got every color from Kirin Tor violet to Bloodsail red, though I'd not recommend the red in Booty Bay." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! You'll want leather under that plate, or the jungle heat will cook you like a crab in a pot, and I've the thread and hides to make it." },
       },
       again = {
         { id = "h_again", text = "What else, friend? Ask quick; the salt's drawing damp." },
@@ -255,6 +290,7 @@ P:NPC {
         { text = "I hunt here. What should I bring you?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Do you buy hides without asking where they came from, Rikqiz?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why not wear Bloodsail red in Booty Bay, Rikqiz?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What does a warrior need from a leather shop, Rikqiz?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Nothing today.", next = "END" },
       },
     },
@@ -344,6 +380,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Healing first, then something for poison, because the Skullsplitters use it, and then a rage potion if you're the sort who likes to fight angry. Keep them corked, clean and in a padded case, and they'll be there when you need them." } },
+      choices = {
+        { text = "A careful warrior keeps a calm head and a clean kit.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A warrior fights angry. That's what the rage potion's for.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The jungle spiders and the basilisks, and the river snakes are worse than both, so check yourself after every hunt. Nobody listens until they turn green, and then they come running to my shop." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The jungle spiders and the basilisks, and the river snakes are worse than both, so check yourself after every hunt. Nobody listens until they turn green, and then they come running to my shop. And check {pet} as well, because beasts don't complain until it's too late, and nobody's ever brewed a potion just for them." },
+      },
+      choices = {
+        { text = "I prepare for the worst. That's how a hunter survives.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I trust my instincts. Potions are for the careless.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "It spoils them, rots them and sometimes makes them explode, which is why I seal everything in wax twice. The other shops seal it once, if at all, so you can buy their reagents and find out for yourself." } },
@@ -408,6 +465,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? You'll be wanting vials for your poisons, and I'll ask you to clean them before you bring them back, because I've seen what's left in some of them." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You'll want reagents for your spells, I suppose, and I've got the cleanest in Booty Bay, though I'll warn you the jungle damp gets into everything eventually." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I'll sell you candles and chalk, but I'll ask you not to summon anything in my shop, because the last time someone tried, the soot took me a week to scrub out." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, and you'll want healing potions, of course, but please don't carry them loose in your pack, because broken glass in a wound is the last thing you need." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You'll want antivenom, I'd guess, because every spider and snake in this jungle bites, and every hunter thinks it won't happen to them." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep your hands off the shelves while you think." },
@@ -425,6 +484,8 @@ P:NPC {
         { text = "How do you keep your reagents dry in this jungle, Glyx?", next = "xmage", when = { class = "MAGE" } },
         { text = "Did someone really summon a demon in your shop, Glyx?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do people come to you for cures as well as reagents?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What potions should a warrior carry, Glyx?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Which beasts are the most venomous here, Glyx?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -512,6 +573,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not to me, but every repair in this town starts with my iron, and I can tell a good warrior from the state of their gear. The careful ones come in with a scratch or two, and the reckless ones come in with half a breastplate." } },
+      choices = {
+        { text = "A warrior looks after his gear before it fails him.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Armor's meant to take a beating. That's its whole job.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some do, for the big game, because a cheap point won't go through a basilisk's scales, and Nesingwary's people come down for good steel heads twice a year. They're particular about it, too, and I respect that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, for the big game, because a cheap point won't go through a basilisk's scales, and Nesingwary's people come down for good steel heads twice a year. They're particular about it, too, and I respect that. Your {pet} has been sniffing at my coal sacks, which is a strange thing for a beast to fancy, but there's no accounting for taste." },
+      },
+      choices = {
+        { text = "A clean kill needs good steel. I'll pay for the best.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Cheap points kill just as well if you aim right.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Not much, I'll grant you, unless a staff wants shoeing or a wand wants setting in iron. Mostly I see your kind when an enchanter wants a plain rod to work on, and the plain ones take a spell better than fancy ones, because there's nothing in them to argue with it." } },
@@ -579,6 +661,8 @@ P:NPC {
           text = "A dwarf in the shop, so I'll have to mind my prices; your folk know what iron's worth better than anyone. Jansen Underwood, blacksmithing supplies, and I'll not try to cheat you." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll not need coal or iron, I'd guess, but if you want a blade sharpened properly, I keep a good whetstone, and I'll not ask what you've been cutting." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I don't sell much your sort would want, but I've had a few come in looking for iron filings and pure flux, and I never asked why." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. I can tell from the dents in your armor that there's a smith somewhere who's tired of seeing you, and I'm the man who sells that smith his coal." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. You'll not need much from me, I expect, but if you ever want proper arrowheads made, every smith in town works my iron." },
       },
       again = {
         { id = "h_again", text = "Need anything else from the bins?" },
@@ -596,6 +680,8 @@ P:NPC {
         { text = "Why would a mage need iron filings and flux, Jansen?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you miss the north, Jansen?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you sell to anyone, even the Bloodsail?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do warriors come to you for their repairs, Jansen?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the hunters here want iron arrowheads, Jansen?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good day, Jansen.", next = "END" },
       },
     },
@@ -688,6 +774,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Mostly gold they meant to spend on armor and never quite did, because warriors are oddly careful savers. They come in covered in blood and count their silver to the copper, and I've a soft spot for them, though I'd never say so outside this vault." } },
+      choices = {
+        { text = "A careful warrior plans for the day after the fight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Gold's for spending. I'll be dead before I need savings.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because a beast doesn't care about locks, friend, and I've heard of a hunter's cat squeezing through gaps a goblin couldn't. I check the doors three times as it is, and I'd rather not start checking for paw prints as well." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a beast doesn't care about locks, friend, and I've heard of a hunter's cat squeezing through gaps a goblin couldn't. I check the doors three times as it is, and I'd rather not start checking for paw prints as well. Your {pet} looks well behaved, I'll admit, but I've written its name down all the same, and I'll be checking the vault floor tonight." },
+      },
+      choices = {
+        { text = "Fair enough. Rules are rules, even for beasts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast goes where it likes. It's earned the right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "I trust neither, which is why I use both, and then I check them. A lock can be picked and a ward can be broken, but nobody has ever got past both while I was counting, and I am always counting." } },
@@ -733,6 +840,8 @@ P:NPC {
           text = "Rickle Goldgrubber, banker to the Steamwheedle Cartel. I keep your valuables in a vault that's never once been robbed, and I'd like to keep saying that, so I check every box twice and the doors three times." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. I'll be counting every coin twice while you're here, so don't take it personally, because I count everyone's twice." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I'll warn you now, friend, the vault has wards against spells, so don't try to conjure any extra coins into your box." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You'll want to deposit something heavy, I'd guess, and I'll ask you not to drop it on my counter, because the last one cracked it." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. If you've a beast with you, keep it away from the vault door, please, because they all sniff at it and it makes me nervous." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I'm in the middle of a count." },
@@ -747,6 +856,8 @@ P:NPC {
         { text = "Can I reach my Stormwind box from here?", next = "reach" },
         { text = "Do you really count everyone's coins twice, Rickle?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Has a mage ever tried to conjure coins into the vault, Rickle?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What do warriors keep in your vault, Rickle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why do beasts make you nervous at the vault, Rickle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Nothing, thanks.", next = "END" },
       },
     },
@@ -821,6 +932,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every week, friend, because a warrior who wears his plate without a good shirt underneath gets sores that would make a priest wince. I don't sell armor, but I sell what makes armor bearable, and I'd argue that's more important." } },
+      choices = {
+        { text = "A sore warrior fights badly. Looking after yourself is discipline.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A real warrior ignores the sores and fights anyway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because a tiger hears a wool cloak brushing a fern from fifty paces, and then it's gone, or worse, it's coming for you. Silk moves quiet and dries fast, which is why I sell it to every hunter clever enough to ask." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a tiger hears a wool cloak brushing a fern from fifty paces, and then it's gone, or worse, it's coming for you. Silk moves quiet and dries fast, which is why I sell it to every hunter clever enough to ask. Your {pet} hears you coming from a mile off as it is, so you might as well make it a little harder for the rest of the jungle." },
+      },
+      choices = {
+        { text = "A careful hunter prepares every detail. I'll take the silk.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I hunt by instinct, not by tailoring.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "All of them, and the trolls laugh at the rest of us, because they're used to it. The Forsaken don't sweat at all, lucky things, but they come in for high collars to hide the stitching, and I always tell them stitching is my specialty too." } },
@@ -876,6 +1008,8 @@ P:NPC {
           text = "A priest, good! Your robes up north are all heavy velvet and gold thread, which looks lovely in the Cathedral and terrible in a jungle. Qixdi Goodstitch, cloth armor, and I can fix that." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, please tell me you're not wearing wool in this jungle, because I can see from here that you're sweating through it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! You'll want something dark, I'd guess, but not too heavy, because summoning in this heat is hard enough without a thick robe on top of it." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Now don't laugh, but I've sold more padded cloth shirts to warriors than to mages, because nobody wants plate rubbing on bare skin in this heat." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I don't sell much to your sort, more's the pity, but I've a cloak or two lined with silk that turns the rain and doesn't rustle." },
       },
       again = {
         { id = "h_again", text = "What else? Don't be shy; I've heard every question about trousers there is." },
@@ -891,6 +1025,8 @@ P:NPC {
         { text = "Where does your cloth come from?", next = "cloth" },
         { text = "What should a mage wear in the jungle, Qixdi?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do warlocks really care so much about their robes, Qixdi?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do warriors really buy cloth from you, Qixdi?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why should a hunter care about rustling, Qixdi?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'm fine, thanks.", next = "END" },
       },
     },
@@ -975,6 +1111,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not as many as I'd like, because warriors who come this deep into the jungle already have their axes and they're very attached to them. I only get the ones whose old axe broke on a troll's skull, and they always want the biggest thing in the tent." } },
+      choices = {
+        { text = "A warrior should keep his weapon in repair, not replace it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "When it breaks, get a bigger one. That's my rule.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Safe as anywhere in this jungle, which is to say not very. The raptors come through at dusk, and a caster busy with a long spell is exactly what they look for, so stand near a hunter, cast short and keep your back to a tree." } },
@@ -1040,6 +1185,7 @@ P:NPC {
           text = "Jaquilina Dramet, and I sell axes. The hunters here all carry bows, but when a panther gets inside your shot, a bow won't save you, so sooner or later they all come to my tent." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be wanting a small axe, I'd guess, something you can throw or hide, and I'll show you how to hold one properly before you hurt yourself." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, out at Nesingwary's camp. Keep your demon away from the game, because Hemet will have words with you if it scares off his cats." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "Now there's someone who holds a haft properly, which I almost never see in this camp of bow-pullers, so you've made my whole week." },
       },
       again = {
         { id = "h_again", text = "What else? The brush grows back faster than I can talk." },
@@ -1057,6 +1203,7 @@ P:NPC {
         { text = "Would Nesingwary really mind my demon scaring the game, Jaquilina?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is an axe any use to a priest, Jaquilina?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why judge a fighter by their grip, Jaquilina?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you sell many axes to warriors out here, Jaquilina?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Not right now.", next = "END" },
       },
     },
@@ -1138,6 +1285,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Fish, mostly, since it's fresh and it's everywhere, and plenty of salt to replace what you sweat out in that armor. I've seen strong men fall over in the jungle heat because they forgot to eat, and it's a shameful way to lose a fight." } },
+      choices = {
+        { text = "A warrior who forgets to eat is a careless warrior.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll eat when the fighting's done, not before.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Crocolisk, without question, if you soak it overnight and pepper it hard, though tiger's not bad if you stew it long enough. The hunters at Nesingwary's camp eat dry jerky out of their packs, and I've never forgiven them for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Crocolisk, without question, if you soak it overnight and pepper it hard, though tiger's not bad if you stew it long enough. The hunters at Nesingwary's camp eat dry jerky out of their packs, and I've never forgiven them for it. And {pet} would love a bit of crocolisk too, I'd wager, but you didn't hear that from me." },
+      },
+      choices = {
+        { text = "I hunt to eat, not for sport.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I hunt for the thrill. The meat's an afterthought.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "A mage once tried to cook a fish with a fireball and served me a lump of charcoal with fins. Cooking is patience, salt and a decent pan, and I'll teach any of you who'll listen, but nobody ever listens." } },
@@ -1193,6 +1361,8 @@ P:NPC {
           text = "Kelsey Yance, cook. I sell spices and recipes for the things that swim and crawl round Booty Bay, because a sailor who eats well fights well, and a sailor who eats badly ends up in the infirmary." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You'll want something light to carry on the road, I suppose, and I've got recipes for dried clam strips that'll keep you going for days without slowing you down." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, I know you can conjure your own food, but you can't conjure pepper, and without pepper, life's not worth living." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Sit down and eat something, because you look like you've been living on hardtack and pride, and neither will keep you on your feet." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Bring a crocolisk tail or two past my stall some time, and I'll tell you how to cook it so you never look at hardtack again." },
       },
       again = {
         { id = "h_again", text = "What else? Ask, and I'll tell you how to cook it." },
@@ -1208,6 +1378,8 @@ P:NPC {
         { text = "Dried clam strips? Are they any good, Kelsey?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why does pepper matter so much, Kelsey?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do sailors pray before they eat, Kelsey?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What should a warrior eat in Stranglethorn, Kelsey?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What's the best thing to cook from the jungle, Kelsey?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll pass, thanks.", next = "END" },
       },
     },
@@ -1284,6 +1456,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "For when ten trolls rush you at once, of course, and you need to make it nine, or eight, or a crater. I've sold plenty to warriors who swore they'd never use it, and every one of them came back for more." } },
+      choices = {
+        { text = "A warrior wins with skill and steel, not explosives.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whatever wins the fight is the right tool.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They work beautifully, most of the time, and when they don't, they make a very impressive noise. I've fitted a dozen rifles for Nesingwary's camp this season and only one of them blew up, which in engineering is a triumph." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They work beautifully, most of the time, and when they don't, they make a very impressive noise. I've fitted a dozen rifles for Nesingwary's camp this season and only one of them blew up, which in engineering is a triumph. Keep {pet} back while I'm fitting the scope, though, because it'll be the first thing singed if anything goes wrong." },
+      },
+      choices = {
+        { text = "I trust my own eye and skill, not a gadget.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it helps me hit the beast, I'll strap it on.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "They could, and they do, if you don't mind losing your eyebrows! I've been trying to wire a mana crystal into a lantern, and it lights beautifully for about four seconds before it lights everything else." } },
@@ -1329,6 +1522,8 @@ P:NPC {
           text = "Gnaz Blunderflame, engineering supplies! I sell the gears, the powder and the bolts that every tinkerer from here to Gadgetzan needs, and I've only blown up the shop once this year, which is a personal record." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now, I've got flash powder, smoke bombs and a little something that goes bang very quietly, if you know what I mean, and I'm sure you do." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, I've heard your kind say engineering is just magic for people who can't cast spells, and I'll tell you right now that's not true." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Ever thought of a stick of dynamite on your belt, friend, just for the moments when a sword's not quite loud enough?" },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Now, I've got scopes, friend, real goblin ones, that'll put your shot through a tiger's eye at a hundred paces, more or less." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, I've got something on the bench that's ticking." },
@@ -1343,6 +1538,8 @@ P:NPC {
         { text = "Does all this work, or is it just noise?", next = "work" },
         { text = "How does something go bang quietly, Gnaz?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is engineering really so different from magic, Gnaz?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Why would a warrior carry dynamite, Gnaz?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do goblin scopes really work, Gnaz?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll keep my distance, thanks.", next = "END" },
       },
     },

@@ -317,6 +317,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Maybe you can, but the Bloodscalp don't leave a trail they don't want followed, and I think the boy be in their camps now. Find me their paths through the jungle, and Kin'weelay and I do the rest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Maybe you can, but the Bloodscalp don't leave a trail they don't want followed, and I think the boy be in their camps now. Find me their paths through the jungle, and Kin'weelay and I do the rest. Your {pet} smell the Bloodscalp before we see them, maybe, and that be worth more to me than ten grunts with torches." },
+      },
+      choices = {
+        { text = "I'll scout patiently, and we strike only when the boy is safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let me loose my beast on their camp and drive them out.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Somewhere north, in the Bloodscalp ruins, where they keep their captives close and their headhunters closer. Every time Nimboya come near, the drums start, so I need somebody who can get in without being heard." } },
@@ -356,6 +368,7 @@ P:NPC {
         { id = "h_dream", when = { metBefore = true }, text = "Nimboya dream of Yenniku last night, small, like when he was a boy. Nimboya wake up and sharpen the spear." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You could slip into the Bloodscalp camps and look for Yenniku, maybe, where a warrior like me only start a war." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your power might frighten the Bloodscalp into giving up Yenniku, but I not risk the boy's life on a demon's temper." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon. Your eyes be good in this jungle, and good eyes might find the tracks of Yenniku where mine see only mud." },
       },
       again = {
         { id = "h_again", text = "What else? Nimboya listening, but not for long." },
@@ -369,6 +382,7 @@ P:NPC {
         { text = "Do the Darkspear miss this jungle?", next = "walls" },
         { text = "I'm Darkspear. Tell me what the chief needs.", next = "kin", when = { race = "Troll" } },
         { text = "His soul is free. Is it over?", next = "after", when = { questDone = TODO_QUEST("Saving Yenniku") } },
+        { text = "Could I track Yenniku through the jungle, Nimboya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "I'll help you find him.", next = "END", fx = { affinity = 2, align = { honor = 1 }, learn = { "yenniku" } } },
         { text = "The spirits might know where Yenniku is.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "Where do you think the Bloodscalp hold Yenniku, Nimboya?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -532,6 +546,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a warrior hide nothing, mon, you stand in the open and shout who you be, and the spirits respect that more than any whisper. The Bloodscalp hide behind their juju, and that be why the spirits laugh at them." } },
+      choices = {
+        { text = "I'll fight in the open. There's no shame in being seen.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Laughing spirits or not, I'll use whatever wins.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They do, mon, and a hunter who take only what he need be left alone, but one who kill for fun get bad luck on the trail. Mok'thardin pull old power out of the bones, and I tell him to thank them, but he just nod at me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, mon, and a hunter who take only what he need be left alone, but one who kill for fun get bad luck on the trail. Mok'thardin pull old power out of the bones, and I tell him to thank them, but he just nod at me. Your {pet} got a strong spirit in it, mon, and it like you, so treat it right and it never let you down." },
+      },
+      choices = {
+        { text = "I take what I need and thank the beast for it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Spirits or no spirits, a kill is a kill.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = {
@@ -595,6 +630,8 @@ P:NPC {
         { id = "h_spirits", when = { metBefore = true }, text = "De jungle spirits be loud here, mon, louder than at home. Dey not friendly and dey not unfriendly, dey just loud." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, mon! You move quiet like the spirits do, and they be noticing you too, so watch your step around Kin'weelay's fire." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, mon! Your magic be loud and bright, and the spirits don't like that much, so keep it quiet around Kin'weelay's fire." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon! The spirits like your kind more than you think, because you be loud and honest, and they always know where you are." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon! The beasts out here got spirits in them too, old ones, and they be watching how you take them down." },
       },
       again = {
         { id = "h_again", text = "More questions? The spirits got more answers, if they in the mood." },
@@ -613,6 +650,8 @@ P:NPC {
         { text = "Do the loa have anything to say about the dead, witch doctor?", next = "k_scourge", when = { race = "Scourge" } },
         { text = "Do the spirits really notice rogues, Kin'weelay?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why don't the spirits like a mage's magic, Kin'weelay?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Why would the spirits like a warrior, Kin'weelay?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the beasts' spirits watch the hunters, Kin'weelay?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Farewell, witch doctor.", next = "END" },
       },
     },
@@ -788,6 +827,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The same way the beasts do, for they rage only when the hunt calls for it and rest the moment it's done. Our people let the blood-rage rule them once, and you know what it cost us, so be fierce when you must and calm the rest of the time." } },
+      choices = {
+        { text = "Fury should serve me, not the other way round.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My fury is my strength. I won't chain it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still lingers in the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Old power, from the days when the trolls of this jungle worshipped the beast gods, and some of it still lingers in the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills. Your {pet} feels it too, I think, the old power in this jungle, which is why it watches the trees more closely than you do." },
+      },
+      choices = {
+        { text = "Clean kills only. The beasts deserve that much.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power's power. How the beast dies doesn't matter.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     druid_talk = {
       lines = { { id = "dt_default", text = "The Gurubashi trolls call on gods that were old before the Horde came to this world. Their priests wake things in the jungle that should sleep. We watch them, and we do not sleep well either." } },
       choices = {
@@ -827,6 +887,8 @@ P:NPC {
         { id = "h_bones", when = { metBefore = true }, text = "A raptor's bones sing differently than a panther's, and I can hear it now. At night, I wish I couldn't." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You walk softly, which is good, because the beasts of Stranglethorn have sharp ears and sharper teeth, and I would not see you hunted." },
         { id = "h_magecl", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Your magic is not the elements' way, but I have seen it used with wisdom, and I will listen to you as I would to any seeker." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I can feel the blood in you running hot, like the tigers out there, so keep hold of it, or it will keep hold of you." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The beasts of Stranglethorn carry power in their bones, and you, of all people, should know how to take it with respect." },
       },
       again = {
         { id = "h_again", text = "There's more you wish to know? The fire has time, and so do I." },
@@ -844,6 +906,8 @@ P:NPC {
         { text = "I took the warlock's path, far seer. Like our grandfathers.", next = "k_lock", when = { race = "Orc", class = "WARLOCK" } },
         { text = "Why do you want the old power out of the beasts, Far Seer?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a mage learn wisdom from the elements, Far Seer?", next = "xmage", when = { class = "MAGE", race = { "Troll", "Scourge" } } },
+        { text = "How do I keep hold of the fury, Far Seer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What power do you draw from the beasts, Far Seer?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Thank you, far seer.", next = "END" },
       },
     },
@@ -980,6 +1044,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The one where you stood your ground when everybody else ran, because that's the only story worth a bed in Grom'gol. Every grunt on that wall has one, and I've heard them all twice, so make yours new." } },
+      choices = {
+        { text = "I held my ground when it mattered. That's my only story.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My best story is the one where I ran and lived.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Every night, and the best is about a troll mage who froze a raptor mid-leap and forgot to thaw it, so it stood outside the gate for a day like a statue. The worst is about a warlock, and I don't let them tell that one at supper." } },
@@ -1027,6 +1100,7 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "The jungle never sleeps. Listen, and you'll hear that everything out there is either hunting or hiding, so eat your stew." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Sit down and tell me a story, and make it a good one, since I trade beds for stories and you look like you've got a few." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could light the fire with a flick of your hand, I suppose, but I'd rather you told me a story instead, since I've plenty of wood." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Sit, eat, and tell me who you've fought this week, because a warrior always has the best stories and the worst table manners." },
       },
       again = { { id = "h_again", text = "Still here? Good, the stew's still hot, so what else?" } },
       choices = {
@@ -1041,6 +1115,7 @@ P:NPC {
         { text = "This jungle was my people's home once.", next = "k_troll", when = { race = "Troll" } },
         { text = "What sort of stories do you like best, Thulbek?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would you rather a story than a spell, Thulbek?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "What story would you want from a warrior, Thulbek?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },

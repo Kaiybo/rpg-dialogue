@@ -35,6 +35,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "When the Bloodsail get bold, I hire anyone who can hold a gangplank, and I pay by the day rather than by the head, because heads are far too easy to fake. What I cannot abide is a sellsword who changes ships halfway through the fight." } },
+      choices = {
+        { text = "Once I take a contract, I hold it to the end.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I fight for the best offer, and offers change.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Pelts for Gadgetzan, tusks for Ratchet, and panther skins for every lord in Stormwind who wants a rug that snarls. The jungle is a warehouse with teeth, and you lot are the ones brave enough to open the doors." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Pelts for Gadgetzan, tusks for Ratchet, and panther skins for every lord in Stormwind who wants a rug that snarls. The jungle is a warehouse with teeth, and you lot are the ones brave enough to open the doors. Your {pet} looks well fed, which in this port means you're either a very good hunter or it's been eating my dock rats, and I'm grateful either way." },
+      },
+      choices = {
+        { text = "I hunt fair, Baron, and I won't strip a jungle for coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it pays, it's a pelt. Point me at your buyers.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Mend the ward-lanterns on the outer piers, for a start, because the Bloodsail keep sending something across the water at night that my Bruisers can't hit with a club. The Cartel pays well for magic that keeps the cargo dry and the pirates wet." } },
@@ -91,6 +112,8 @@ P:NPC {
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "Back again, and still not spending much. My balcony is for paying customers, friend, so make your question worth the climb." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, on my balcony. I've had three of your kind offer to ward my vault, and every one of them quoted a price that made Viznik weep, so I'll hear your offer with a straight face." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, all plate and patience. The Bruisers keep the peace on my piers, but I always find room in my ledger for someone who can hold a line when the Bloodsail come calling." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, with the jungle still on your boots. Kebok downstairs deals in pelts and tusks, and somehow a sliver of every deal finds its way into my ledger, so happy hunting." },
       },
       again = {
         { id = "h_again", text = "Go on. Every minute on this balcony is a minute I'm not counting something." },
@@ -112,6 +135,8 @@ P:NPC {
         { text = "This was troll country before it was Cartel country, Baron.", next = "k_troll", when = { race = "Troll" } },
         { text = "Will the Baron let a warlock keep rooms here?", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "Does the Cartel ever hire mages, Baron?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Do you ever hire warriors to guard the Cartel's cargo, Baron?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What does the Cartel make from the jungle's beasts, Baron?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Good day, Baron.", next = "END" },
       },
     },
@@ -328,6 +353,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Loud, wet and over faster than you'd think, because whoever holds the rail in the first minute holds the ship. I once watched one stubborn warrior with a shield keep a whole crew of buccaneers on their own deck until our cannons finished the argument." } },
+      choices = {
+        { text = "Hold the rail and keep the line. That's how it's done.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the line. I'd leap in among them and start swinging.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Now and then, when we run down the coast to Jaguero Isle and want fresh meat that didn't come out of a barrel. A good hunter can drop a Bloodsail lookout from his crow's nest at a hundred paces, too, and I'll not pretend I've never been glad of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now and then, when we run down the coast to Jaguero Isle and want fresh meat that didn't come out of a barrel. A good hunter can drop a Bloodsail lookout from his crow's nest at a hundred paces, too, and I'll not pretend I've never been glad of it. Mind, if {pet} comes aboard, it'll want to fight the ship's cat, and the ship's cat has never lost." },
+      },
+      choices = {
+        { text = "I'd hunt for the galley, not shoot sailors for coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A lookout's an easy shot. I'd take it and the coin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "We take on anyone who can climb a rope and keep their mouth shut, and a rogue does both better than most. The Bloodsail have spies in every tavern on this coast, so a sharp pair of eyes on our side is worth a great deal to me." } },
@@ -378,6 +424,8 @@ P:NPC {
         { id = "h_crazz", when = { heardLine = "crazz.h_default" }, text = "Crazz has been at you about the Bloodsail? He's a good lad, if too eager, but I was just as eager once myself, and it got me a fleet." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Ha, you'd fit right in on the Blackwater ships, though I'll warn you that my sailors guard their rum better than the Baron guards his vault." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You could freeze the Bloodsail's sails solid from the docks, I'd wager, and I'd buy you a drink for every ship you stopped." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "Ha! Now there's someone built for a boarding action. You'd look grand swinging onto a Bloodsail deck, provided you don't miss the rope the way my last three did." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! There's a parrot on my flagship that has bitten every hand in the fleet, so if you understand beasts, I'd dearly love to have it explained to me." },
       },
       again = {
         { id = "h_again", text = "Ha! Got more for me? Out with it, then, before the tide turns." },
@@ -397,6 +445,8 @@ P:NPC {
         { text = "Have the Blackwater ever used mages against the Bloodsail, Fleet Master?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the Blackwater Raiders put much faith in the Light?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "How can a pirate be an honest man, Fleet Master?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What's a boarding action like against the Bloodsail, Fleet Master?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do hunters ever sail with the Blackwater Raiders?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Fair winds, Fleet Master.", next = "END" },
       },
     },
@@ -547,6 +597,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The Mosh'Ogg ogres up in the hills, the Kurzen men in the north, and the Gurubashi Arena, where every few hours a chest gets dropped in the pit and everybody kills each other for it. Personally I'd take the ogres, because they don't hold grudges past supper." } },
+      choices = {
+        { text = "I'd rather fight ogres for the town than brawl for a chest.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The Arena sounds right. I'll take that chest however I can.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Tiger pelts are down, since Nesingwary's lot keep flooding the market, but basilisk scales are up, and a white tiger's hide would buy you a house here if anyone ever came back from King Bangalash alive." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tiger pelts are down, since Nesingwary's lot keep flooding the market, but basilisk scales are up, and a white tiger's hide would buy you a house here if anyone ever came back from King Bangalash alive. And don't think of selling me {pet}, friend, because I've seen that look in a hunter's eye and it's never the look of somebody who sells." },
+      },
+      choices = {
+        { text = "I'd take Bangalash for the hunt, not for your buyers.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll hunt whatever sells highest this week.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Oh, the best one is that a Venture Company man on the coast is buying up those singing crystals to power something he won't name. The second best is that Zanzil's been seen brewing by the shore again, and the third is about you, but I'm saving that one." } },
@@ -614,6 +685,8 @@ P:NPC {
         { id = "h_smotts", when = { heardLine = "smotts.h_default" }, text = "Smotts told you about the giants? He tells everyone, and I think the giants have heard it by now too." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Now, you'd be just the type to appreciate some of the trinkets that come up out of the old troll ruins, and I've got a crate of them that hum when you get close." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now there's a customer who knows the value of a deal with something bigger than himself, and I've got a few deals that might interest you." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Steel's dear down here, friend, since everything rusts, so I hope you've oiled that armor or you'll be paying Zarena for new plates by the end of the week." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, good! I've buyers for panther pelts, raptor hides and basilisk scales, and not one of my buyers has ever asked how the animal felt about it." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, quick, the Baron rings that bell every four minutes." },
@@ -631,6 +704,8 @@ P:NPC {
         { text = "Where do these humming trinkets come from, Krazek?", next = "xmage", when = { class = "MAGE" } },
         { text = "What deals do you have for warlocks, Krazek?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does Booty Bay have any use for a priest, Krazek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What does this jungle hold that's worth a warrior's time, Krazek?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Which beasts are fetching the best prices this month, Krazek?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Thanks, Krazek.", next = "END" },
       },
     },
@@ -784,6 +859,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "When a debtor hides behind his friends, aye, I send somebody broad enough to make the friends reconsider. I don't need anyone hurt, mind, since a dead man pays slowly and a frightened one pays tomorrow." } },
+      choices = {
+        { text = "I won't break bones over another man's debts.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A debt's a debt. I'd collect it however I had to.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Some of them run off into the jungle thinking I'll not follow, and they're right, because I won't, but you might. A frightened man leaves a trail like a wounded boar, and I'd pay attention to where it ends." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some of them run off into the jungle thinking I'll not follow, and they're right, because I won't, but you might. A frightened man leaves a trail like a wounded boar, and I'd pay attention to where it ends. Your {pet} has the nose for it, I'd wager, and a beast never forgets a smell, which is more than I can say for my debtors." },
+      },
+      choices = {
+        { text = "I track beasts, MacKinley, not frightened men.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Point me at the debtor. Tracking is tracking.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "A gnome once paid me in conjured gold, and it went to air the minute he was out the door. I found him in the end, and he paid twice, once for the debt and once for the insult, and he does his sums in real coin now." } },
@@ -848,6 +944,8 @@ P:NPC {
         { id = "h_knuckle", when = { metBefore = true }, text = "Won three hands of knucklebones this morning and lost one. The one I lost, I'll be collecting on." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage at my table, eh? Don't go conjuring any extra dice, friend, because I count every pair in this tavern, and I'd know." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I'll be honest with you, I'd rather owe money to the Bloodsail than to a demon, and I've owed plenty to the Bloodsail." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? There are a few names on my list who've been dodging me for months, and you look like the sort who could knock on a door without needing it opened." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, and they tell me your kind can track anything at all. I've a debtor or two who would be very surprised to hear that." },
       },
       again = {
         { id = "h_again", text = "Still here? Then talk, since talking's free, for now." },
@@ -867,6 +965,8 @@ P:NPC {
         { text = "Has a mage ever cheated you at dice, MacKinley?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why would you rather owe the Bloodsail than a demon, MacKinley?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is there no mercy in your ledger, MacKinley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you use warriors to collect your debts, MacKinley?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Could a hunter track down your debtors, MacKinley?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll keep my purse closed, thanks.", next = "END" },
       },
     },
@@ -972,6 +1072,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A warrior makes a better corpse-preventer, which is what I really need, since the Skullsplitters take the head off anyone carrying my crates. Walk my goods past their camps and still have your head at the end of it, and I'll call it a good season." } },
+      choices = {
+        { text = "I'd carry your goods openly and meet any troll head on.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd rather sneak the crates past them at night.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Their witch doctors, and they're the reason my agents come back as bones in a basket, when they come back at all. Kill a witch doctor and the rest scatter like gulls, which is what I call an efficient investment." } },
@@ -1034,6 +1143,7 @@ P:NPC {
         { id = "h_agents", when = { metBefore = true }, text = "Lost another agent to the trolls last week, a good man and terrible at running, so I'm hiring faster runners now." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now you're the kind of agent I can use, friend, because my last three came back in pieces, and I'm sure a quiet one would last longer." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, I don't suppose your demon could do a little work for me? I pay in gold, of course, though I imagine it'd prefer souls." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! The trolls keep killing my agents, friend, but they were mostly clerks with knives, and you look a great deal harder to kill." },
       },
       again = {
         { id = "h_again", text = "Still interested? Excellent; interest compounds, you know." },
@@ -1050,6 +1160,7 @@ P:NPC {
         { text = "What happened to your last three agents, Kebok?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you really hire a demon, Kebok?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you grieve for the agents you lost, Kebok?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Would a warrior make a better agent than your clerks, Kebok?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Not interested.", next = "END" },
       },
     },
@@ -1150,6 +1261,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every night the fleet's in, and the Bruisers only come running if the Baron's guests are bleeding. I'd sooner have one steady warrior at the bar who can end a brawl with a look than six goons who end it with a table." } },
+      choices = {
+        { text = "A good warrior ends a fight before it starts.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some brawls are worth letting run. They clear the air.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They tell the biggest lies in the South Seas, and every one of them has very nearly killed King Bangalash. The ones from Nesingwary's camp come down for rum and a real bed, and they leave mud all over the stairs the Baron has to walk up." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They tell the biggest lies in the South Seas, and every one of them has very nearly killed King Bangalash. The ones from Nesingwary's camp come down for rum and a real bed, and they leave mud all over the stairs the Baron has to walk up. Keep {pet} by the hearth where I can see it, and well away from the kitchen and that cleaver." },
+      },
+      choices = {
+        { text = "A hunter who lies about a kill dishonors the beast.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good story's worth a little embroidery, Skindle.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Something done about the cellar, honestly. The damp gets into the casks, the rats get into the damp, and last week something bigger than a rat got in after them, and none of my staff will go down past the third step." } },
@@ -1217,6 +1349,8 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" }, text = "Night in Booty Bay means lanterns on the water, music on every deck and somebody falling off a pier, like clockwork." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue at my inn. Keep your voice down near the stairs, because the Baron's ears reach farther than you'd think, and I'd rather not lose my license." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! The last one who stayed here left a candle burning that never went out, and I still can't figure out how to snuff it." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, in my common room. Lean your shield by the door if you like, because the last fellow who drank with his on knocked three tankards and a sailor off the bar." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, eh? If you've a beast with you, keep it out of my kitchen, because the cook throws cleavers at anything with fur and she rarely misses." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've three tabs to chase and one of them's armed." },
@@ -1235,6 +1369,8 @@ P:NPC {
         { text = "Is that magic candle still burning, Skindle?", next = "xmage", when = { class = "MAGE" } },
         { text = "What do the sailors confess over their rum, Skindle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who in Booty Bay fears the Silver Hand, Skindle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do fights break out often in the Salty Sailor, Skindle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the hunters who stay here tell good stories, Skindle?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -1329,6 +1465,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not alone, since Gorlash took my first ship in one swing, but a giant has knees like any other brute, and knees can be broken. Hold your ground in the shallows and the beast will come to you, which is more than my crew ever managed." } },
+      choices = {
+        { text = "Patience and a steady shield will bring a giant down.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd charge it head on and let fury do the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "By the wreckage, mostly, since they leave a trail of broken hulls from the Cape down to the Wild Shore. You'll see them wading the shallows near the old wrecks, and anyone who says they can't be hunted has never lost two ships to them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "By the wreckage, mostly, since they leave a trail of broken hulls from the Cape down to the Wild Shore. You'll see them wading the shallows near the old wrecks, and anyone who says they can't be hunted has never lost two ships to them. Keep {pet} out of the surf when you go, because a giant won't notice a beast underfoot until it's stepped on it." },
+      },
+      choices = {
+        { text = "Revenge isn't hunting, Captain. You should let them go.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then we'll hunt them down and take every one.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "They came up out of the water like hills with arms and pulled my ships apart plank by plank. I lost two good crews and a fortune in cargo, and I've sworn I'll see them dead or die trying." } },
@@ -1361,6 +1518,8 @@ P:NPC {
           text = "Negolash is gone, and I keep waiting to feel lighter. I feel exactly as heavy, just with a cutlass." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you call up a storm and sink those three sea giants for me? I'd pay well, and I'd pay double if you made it painful." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I'll admit I've thought about hiring one of your demons to deal with those giants, but I'm told they want more than gold." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Good, because I'm done hiring sailors; what I need is someone who'll stand toe to toe with a sea giant and not lose their nerve." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I've been hunting three sea giants for years, so we're in the same trade, you and I, only my quarry keeps sinking my boats." },
       },
       again = {
         { id = "h_again", text = "Aye, something else? Ask away, for I've nowhere to be, nowhere at all." },
@@ -1375,6 +1534,8 @@ P:NPC {
           when = { origin = { "human_lordaeron_refugee", "gnome_gnomeregan_refugee", "nightelf_hyjal_survivor" } } },
         { text = "Negolash is dead. How does it feel?", next = "after", when = { questDone = TODO_QUEST("Facing Negolash") } },
         { text = "Shall I say words for your crew, Captain?", next = "priest_words", when = { class = "PRIEST" } },
+        { text = "Could a warrior really stand against a sea giant, Captain?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "How would you track a sea giant, Captain?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll get your things back.", next = "END", fx = { affinity = 2, standing = { booty_bay = 1 } } },
         { text = "The sea spirits took your crews, Captain. Not luck.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "How did the sea giants sink your ships, Captain?", next = "xmage", when = { class = "MAGE" } },
@@ -1499,6 +1660,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "No! I mean, yes, but only if they're small tracks, and only if they're leaving. A hunter can read who's been where, can't they, so you'd know if a large man from the Sea Wolf's table had been waiting about, and I'd sleep a great deal better for knowing." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "No! I mean, yes, but only if they're small tracks, and only if they're leaving. A hunter can read who's been where, can't they, so you'd know if a large man from the Sea Wolf's table had been waiting about, and I'd sleep a great deal better for knowing. And could {pet} sit by my door tonight, perhaps, just for a little while, since nobody knocks on a door with a beast in front of it?" },
+      },
+      choices = {
+        { text = "Pay your debts, Shaky, and you won't need a guard.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I could hide you where nobody tracks, for the right price.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Could it? Could it really? I've thought of a ward on the door, or a glyph, or something to make my room look like a wall. Only MacKinley knows a fellow who knows a fellow, and they'd just send somebody who can see through walls." } },
@@ -1558,6 +1731,7 @@ P:NPC {
           text = "I paid, every last coin, and I'm never playing knucklebones again. I'm never looking at meat again, either." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage? Could you make me invisible, just for a few days? There's a large man with a gambling habit looking for me, and I'd really rather he didn't find me." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Oh no, did he send you? Please tell me he didn't hire a demon to collect, because I really can't afford that." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You don't happen to have seen big footprints near my door, have you, the heavy kind, belonging to somebody very large who likes to gamble?" },
       },
       again = {
         { id = "h_again", text = "What else? Is there someone standing behind me? Don't look, just tell me, quietly." },
@@ -1572,6 +1746,7 @@ P:NPC {
         { text = "MacKinley asked me to check on you.", next = "panic", when = { heardLine = "mackinley.h_default" } },
         { text = "Want me to teach you to hide properly?", next = "hide", when = { class = "ROGUE" } },
         { text = "You seem afraid for your life, Shaky. What happened?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Shall I tell you whose tracks are outside your door, Shaky?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Your secret's safe. For now.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Pay MacKinley what you owe, and you'll stop shaking.", next = "END", fx = { align = { honor = 1 } } },
         { text = "Want me to lean on MacKinley for you?", next = "k_warrior", when = { class = "WARRIOR" } },
@@ -1702,6 +1877,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "On their decks if we can, on the beach if we must, and never in open water, where their cannons outnumber ours. They're brave when they've the numbers and cowards when they haven't, so a warrior who holds firm through the first rush breaks them nine times in ten." } },
+      choices = {
+        { text = "I'll meet them face to face on their own decks.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Burn their camps at night. Pirates deserve no fair fight.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The Bloodsail scouts who land at night down the coast and creep up toward town, then vanish before morning. Find where they come ashore and I'll know where they're anchored, and then the Raiders can pay them a visit." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The Bloodsail scouts who land at night down the coast and creep up toward town, then vanish before morning. Find where they come ashore and I'll know where they're anchored, and then the Raiders can pay them a visit. Your {pet} would sniff them out quicker than any of us, since a pirate who hasn't washed in a month leaves a trail a blind dog could follow." },
+      },
+      choices = {
+        { text = "I'll track them, but I won't lead you to murder them asleep.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Show me where they land. I'll take them myself, quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Their ships run on secrecy, so find their coves, read their orders and burn their powder before it's ever loaded. Fleet Master Seahorn won't put it in writing, but a spell in the right hold is worth twenty cannons." } },
@@ -1771,6 +1967,8 @@ P:NPC {
           text = "Spotted a red sail on the horizon last night, and it was gone by morning. They're watching us, which suits me fine; let them watch us coming." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Good, because the Bloodsail have a few spellcasters of their own, and I'd love to see one of them on the wrong end of a fireball for once." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, I hate the Bloodsail more than I hate anything, so if your demon fancies a few red bandanas, I'll point the way." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Good, because the Bloodsail don't parley, and I'd rather have a shield beside me than another fool asking about terms." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. Can you follow a man across sand after the tide's been at it? Because that's what I need, and none of my lads can manage it." },
       },
       again = {
         { id = "h_again", text = "What else? Make it about the Bloodsail, if you can." },
@@ -1787,6 +1985,8 @@ P:NPC {
         { text = "A goblin pirate who hates pirates?", next = "goblin", when = { race = "Goblin" } },
         { text = "Do you hate the Bloodsail for what they've done?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Should the Bloodsail be fought openly, or undermined?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How do you fight the Bloodsail, First Mate?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Who are you trying to track across the sand, First Mate?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll find their plan.", next = "END", fx = { affinity = 2, standing = { booty_bay = 1 }, learn = { "bloodsail" } } },
         { text = "I could slip aboard a Bloodsail ship for you.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Do the Bloodsail really have mages, Crazz?", next = "xmage", when = { class = "MAGE" } },
@@ -1891,6 +2091,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Oh, crates that need carrying through ogre country, a debt that needs a little persuading, and a raptor nest somebody promised a buyer in Gadgetzan. Strength is an investment, pal, and I'm a goblin who loves an investment." } },
+      choices = {
+        { text = "I'll take honest work, Crank, not your shady deals.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I don't care what's in the crates. Name the price.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Rich goblins in Gadgetzan and Undermine who want a panther in a cage beside the fountain, mostly, and a raptor egg fetches a fortune if it hatches on the ship and not before. The trick is keeping the stock alive, and frankly that's where I always lose money." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rich goblins in Gadgetzan and Undermine who want a panther in a cage beside the fountain, mostly, and a raptor egg fetches a fortune if it hatches on the ship and not before. The trick is keeping the stock alive, and frankly that's where I always lose money. Now don't look at me like that, pal, because I'd never try to buy {pet}, at least not while you're standing right there." },
+      },
+      choices = {
+        { text = "A beast deserves a clean hunt, not a cage in Undermine.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If they pay that well, I'll fill a few cages.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Selling them, I'd guess, or using them for something that hums, but nobody's ever told me, and that's what hurts. If you hear a proper answer, I'll pay for it, and if it's worth anything, I'll pay you less and sell it on." } },
@@ -1942,6 +2163,8 @@ P:NPC {
           text = "You know Kravel, at the Raceway? Lovely fellow, very competitive, and we have an arrangement. You didn't hear that from me." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now you look like someone who appreciates a good bargain, and I've got some that aren't exactly on the Baron's books." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, I've got a few crystals that hum a strange tune when you hold them near a demon, and I'd love to know what that means." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "Now here's a strong arm with a short memory, I hope! Warriors are my favorite customers, pal, because they never ask how dangerous a job is until they're halfway through it." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, and I've just the opportunity for you, pal: live exotic animals, top prices from the collectors in Gadgetzan, very few questions asked." },
       },
       again = {
         { id = "h_again", text = "Still here? That's a good sign; it means you smell opportunity too." },
@@ -1954,6 +2177,8 @@ P:NPC {
         { text = "What do singing crystals actually do?", next = "crystals" },
         { text = "What's your arrangement with Kravel?", next = "kravel", when = { any = { { heardLine = "kravel.h_default" }, { topicKnown = "mirage_raceway" } } } },
         { text = "I'm a gnome. I know a scheme when I see one.", next = "gnome", when = { race = "Gnome" } },
+        { text = "What sort of work do you have for a warrior, Crank?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Who buys live animals out of Stranglethorn, Crank?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'm listening, so tell me the job.", next = "END", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I don't work for swindlers, Crank.", next = "END", fx = { align = { honor = 1 } } },
         { text = "Those singing crystals are just quartz. I'm a mage.", next = "k_mage", when = { class = "MAGE" } },
@@ -2085,6 +2310,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every night, and they all toast their old regiments, Stromgarde and Lordaeron and Stormwind, and then they weep for the ones who didn't come home. I've learned more about the Second War at this bar than any scholar ever wrote down, and I've forgotten most of it by morning." } },
+      choices = {
+        { text = "A soldier keeps faith with his regiment, drunk or sober.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The regiments are gone. A soldier's free to forget.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Ha! If anyone could, it'd be one of your sort, because I'd know the smell of that port anywhere, and I'd swear it left a trail of happy scoundrels behind it. It was the finest in the South Seas, and somewhere out there somebody is drinking it without me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ha! If anyone could, it'd be one of your sort, because I'd know the smell of that port anywhere, and I'd swear it left a trail of happy scoundrels behind it. It was the finest in the South Seas, and somewhere out there somebody is drinking it without me. Even {pet} could follow that scent, friend, and if your beast finds it first, I'll forgive it for having a little sip." },
+      },
+      choices = {
+        { text = "I'll find your port and bring it back to you honestly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If I find that port, I might just keep it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Could you? Oh, could you! It's somewhere in the Hinterlands, and if you've a spell that finds a cask by smell, I'll toast you every night until my liver gives out, which may not be long." } },
@@ -2146,6 +2392,8 @@ P:NPC {
           text = "To {name}, who brought back my port! I've had a glass, and then another, and I'll toast you properly as soon as the room stops leaning." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Here's to you, friend, and here's to anyone who can slip a cask out from under a troll's nose, because that's exactly what my poor port needs." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Here's to you, and here's to magic, which I hear can make a cask of water taste like the finest port, if you know the right words." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! To your health, friend, and to your armor, which I hope is better at keeping out a sword than my cellar was at keeping out thieves." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! I'll drink to the hunt, friend, and to whatever you brought down last, unless it was a boar, because I had a very bad night with a boar once." },
       },
       again = {
         { id = "h_again", text = "A toast, to more questions! Ask away, my friend." },
@@ -2162,6 +2410,8 @@ P:NPC {
         { text = "Where exactly did your port go missing, Slim?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can magic really make water taste like port, Slim?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is drink all you have to comfort you, Slim?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you drink with many old soldiers here, Slim?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Could a hunter track down your lost port, Slim?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Cheers.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -2252,6 +2502,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Is it any use! A good padded jerkin stops the rings biting and the rust spreading, and in this heat it's the difference between fighting all day and fainting by noon. I've dressed Blackwater bosuns who swore by it, and the ones who didn't swore at the heat instead." } },
+      choices = {
+        { text = "Good armor is discipline. I look after mine properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I fight in whatever I've got and fix it when it breaks.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Raptor for toughness, panther for suppleness, and crocolisk for anything that has to stand up to sea water, which in Booty Bay is everything. Skin it clean, keep it out of the sun, and bring it to me before the flies find it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Raptor for toughness, panther for suppleness, and crocolisk for anything that has to stand up to sea water, which in Booty Bay is everything. Skin it clean, keep it out of the sun, and bring it to me before the flies find it. And keep {pet} away from my drying racks, if you please, because last week a hunter's cat ate half a crocolisk hide and I'm still not over it." },
+      },
+      choices = {
+        { text = "I skin clean and waste nothing. The beast is owed that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll skin whatever pays best and leave the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Gloves, mostly, because casters set fire to their own hands more often than they'll admit. And satchels with strong seams, since a reagent pouch that splits in the jungle means a mage with no spells and a raptor with no manners." } },
@@ -2301,6 +2572,8 @@ P:NPC {
           text = "Somebody ordered a pair of boots from me yesterday and paid in advance! In advance! I almost fainted, so I'm making them extra gorgeous out of pure shock." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You'll want leather that doesn't creak, and I'm the only goblin on this coast who can make it, so you've come to the right place." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I'll tell you now, I've never made anything for a demon, but I'd be willing to try, as long as it holds still while I measure it." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior in mail, and mail is all very well, but under it you want padded crocolisk leather, the finest in the South Seas, which happens to be mine." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You've brought me hides, I hope, because I can turn a raptor skin into a jerkin that would make a Stormwind tailor faint dead away." },
       },
       again = {
         { id = "h_again", text = "More? Ask anything you like, but touch nothing." },
@@ -2316,6 +2589,8 @@ P:NPC {
         { text = "A druid thinks twice about wearing a beast's hide.", next = "x_druid", when = { class = "DRUID" } },
         { text = "What makes your leather so quiet, Drizzlik?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you really make armor for a demon, Drizzlik?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is your leather any use under a warrior's mail, Drizzlik?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Which jungle hides make the best leather, Drizzlik?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -2383,6 +2658,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The bosun did, with a boarding axe, and he stood at the rail while the rest of us ran, and the giant took him and the rail together. I think about him every time somebody tells me a brave man can hold anything." } },
+      choices = {
+        { text = "He held his post. That's the best any of us can do.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Brave and dead. He should have run with the rest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Boar when we could get it, crocolisk tail when we couldn't, and once a whole panther that the Captain swore blind was venison. Fresh meat keeps a crew happy at sea, and I still miss having a crew to cook for." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar when we could get it, crocolisk tail when we couldn't, and once a whole panther that the Captain swore blind was venison. Fresh meat keeps a crew happy at sea, and I still miss having a crew to cook for. Your {pet} looks like it'd eat anything I put down, which is the highest compliment a cook gets these days." },
+      },
+      choices = {
+        { text = "A cook keeps a crew alive. That matters as much as fighting.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Meat's meat. Nobody remembers who cooked it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "We had a goblin with a wand aboard, and he got off one bolt before the first giant put a hand through the hull. I don't think it was a matter of magic; the sea wanted that ship, and the sea usually gets what it wants." } },
@@ -2434,6 +2730,8 @@ P:NPC {
           text = "Is it true he's gone? Then I'm going to sleep tonight, all night. You can wake me if the sea comes up, but it won't, not now." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be wanting to know where the Captain keeps his gold, I suppose, and I'll tell you that it's at the bottom of the sea with his ships." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The Captain's been talking about hiring a demon to kill those giants, and I'll ask you not to encourage him, because he's not thinking clearly." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. The Captain could have used one of you on the Revenge, though I doubt even you could have stopped what came up out of the water." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. Back on the ship I cooked whatever the shore parties brought me, and the hunters always brought the best meat, so you're welcome by my pot." },
       },
       again = {
         { id = "h_again", text = "Something else? I can do a stew while we talk; I always do a stew." },
@@ -2450,6 +2748,8 @@ P:NPC {
         { text = "I conjure my own food, cook.", next = "k_mage", when = { class = "MAGE" } },
         { text = "How did you survive the sea giants, Sprogger?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is the Captain really considering a demon, Sprogger?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Did any of the crew fight the giants, Sprogger?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What did you cook from the jungle back then, Sprogger?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'm glad you made it.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -2545,6 +2845,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It took one of our bosuns, who once held a gangplank against four Bloodsail by himself, and laid him out shaking for a fortnight. The fever doesn't care how hard you hit, pal, so get your medicine before you go swinging at trolls." } },
+      choices = {
+        { text = "Strength isn't everything. A warrior should know his limits.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll fight through any fever. Pain's no reason to stop.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "The physician says it's the jungle air, and the troll from Grom'gol said it was the jungle's rot, and they both charged me for saying so. If there's a spell in it, I'd like to know whose, so I can send them the bill." } },
@@ -2594,6 +2903,7 @@ P:NPC {
           text = "I'm better, look at me, standing on my own two feet! The heart tasted awful and I'd eat ten more, or actually no, never again, but I'd think about it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, eh? Don't come any closer than you have to, pal, because this fever doesn't care how sneaky you are, and I'd hate to share it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I don't suppose you know a spell for fever, do you? I've tried everything in Booty Bay, and the only thing that helps is lying very still." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? Keep your distance, pal, because I've seen big strong types go down with this fever faster than anybody, and it isn't scared of a sword arm." },
       },
       again = {
         { id = "h_again", text = "Something else? Talk loud; my ears are ringing." },
@@ -2609,6 +2919,7 @@ P:NPC {
         { text = "I could hunt the gorilla for you.", next = "k_hunter", when = { class = "HUNTER" } },
         { text = "Where did you catch the Stranglethorn Fever, Fin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can't a mage's magic cure your fever, Fin?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Can the fever really take down a warrior, Fin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Feel better.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -2691,6 +3002,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Someone to hold the end of the pier while my dockhands get the crates and the passengers clear, because pirates always go for the cargo first. I've worked out who stands where and who runs where, and I'd want you at the narrow end." } },
+      choices = {
+        { text = "Give me the narrow end. I'll hold it as long as needed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather go after the pirates than wait on a pier.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Because animals come off the boats as well as on, and I've had a Barrens hyena loose in the hold of the Ratchet boat and a crocolisk asleep on my scales. Everything that walks through Booty Bay goes past me first, and that includes things with four legs." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because animals come off the boats as well as on, and I've had a Barrens hyena loose in the hold of the Ratchet boat and a crocolisk asleep on my scales. Everything that walks through Booty Bay goes past me first, and that includes things with four legs. Your {pet} looks well behaved enough, so it can go on the good list, provided it stays off my crates." },
+      },
+      choices = {
+        { text = "Fair enough. Rules keep a busy dock safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My beast goes where I go, list or no list.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "Crates marked as glassware that hum when you put your ear to them, mostly, and they go north to people who don't sign their names. I don't open cargo, but I do write it down, and the Baron reads everything I write." } },
@@ -2762,6 +3094,8 @@ P:NPC {
           text = "Saw a sailor slip a letter to a fishmonger this morning, and fishmongers don't read. I've made a note of it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. I've already put you on a list, friend, and it's not the bad list yet, so let's keep it that way." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be noting your companion on the manifest, since anything that walks off a boat in Booty Bay gets counted, demon or not." },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You go on the list of people I'd want beside me if the Bloodsail ever land at the docks, which is a short list, so try to stay on it." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I'll need to see whatever's on that lead before it gets on any boat, because the last hunter's beast ate a crate of bananas and bit a ship's captain." },
       },
       again = {
         { id = "h_again", text = "Yes? Keep one eye on the water while you ask." },
@@ -2780,6 +3114,8 @@ P:NPC {
         { text = "Do you really count demons on the manifest, Wharfmaster?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Who comes through Booty Bay that worries you most?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is Booty Bay a safe harbor for wicked men?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you need from a warrior if pirates landed, Wharfmaster?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why do you inspect hunters' beasts, Wharfmaster?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'll watch my purse.", next = "END", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },
