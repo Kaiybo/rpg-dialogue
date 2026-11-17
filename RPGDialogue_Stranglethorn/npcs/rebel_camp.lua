@@ -399,8 +399,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Traces of the elixir Kurzen's medicine men hand out to their soldiers, which makes a frightened man brave and a brave man reckless. A rogue might think it a fine thing to carry into a fight, and I'd rather nobody learned the hard way what it does to the mind." } },
+      choices = {
+        { text = "I'll leave it alone, Brother. It's your study.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A little courage in a bottle might be useful, Brother.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Mind the glassware as you pass, friend, because there's residue in those flasks that I'd rather nobody carried out of this camp in a pocket." },
         { id = "h_default", key = true,
           text = "Brother Nimetz. I came with the Colonel's expedition to tend the sick, and now I study what made them sick in the mind." },
         { id = "h_mystery", when = { questActive = TODO_QUEST("Kurzen's Mystery") },
@@ -429,6 +439,7 @@ P:NPC {
         { text = "Let me look at the residue.", next = "residue", when = { profession = "Alchemy" } },
         { text = "What did the madness do to Kurzen's soldiers, Brother?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What plants are you looking for, Brother?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What's in those flasks that I shouldn't pocket, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The Light keep you, Brother.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A druid could help with the cure, Brother.", next = "k_druid", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Do you suspect magic drove Kurzen's men mad, Brother?", next = "xmage", when = { class = "MAGE" } },

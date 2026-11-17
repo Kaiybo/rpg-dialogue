@@ -94,8 +94,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They'll carry you, but they'll grumble the whole way, because a gryphon knows what's been near you and doesn't care for it. Dismiss your demon before you mount, keep a light hand on the reins, and the bird will take you north without any trouble at all." } },
+      choices = {
+        { text = "I'll dismiss it. Your birds deserve that courtesy.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon goes where I go, Gyll.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep your demon well back from the ledge, please, because a gryphon that smells one will try to throw its rider into the cove, and I've had to fish two out already." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Flying north, I hope, because the birds are restless today and a calm passenger settles them better than any treat, though they'd tell you they want something other than fish." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The birds like a rider in plate, strange as it sounds, because it sits them steady, though your armor will smell of fish by the time you land." },
         { id = "h_default", key = true,
@@ -124,6 +134,7 @@ P:NPC {
         { text = "Do gryphon riders ever fight from the saddle, Gyll?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you train a gryphon to carry riders, Gyll?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your gryphons fear shapeshifters, Gyll, or only the ones that smell wrong?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will your gryphons really carry a warlock, Gyll?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -434,8 +445,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Safer than any chapel collection box, I promise you, because the Cartel has never lost a deposit in this town, and few priests can say the same of their poor box. Pirates and paladins both sleep better knowing their coin is in here, and I sleep best of all, since I'm the one holding the key." } },
+      choices = {
+        { text = "Trustworthy keeping is worth the fee, Viznik.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather carry my own coin than trust the Cartel.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your coin is welcome in my vault, and I'd guess you've less of it than a pirate and keep it far more carefully, which makes you my favorite kind of customer." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Your coin is welcome in my vault, of course, though I've never yet understood why the faithful keep so little of it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. Your coin is welcome here, and so are you, provided the lightning stays outside the vault." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! The Cartel holds relics for many faiths, all of them insured and none of them guaranteed, and yours would be in very good company." },
@@ -467,6 +488,7 @@ P:NPC {
         { text = "Do warriors leave much in your vault, Viznik?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you store pelts and trophies, Viznik?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "A box sprouted in your vault, Viznik? What did you do with it?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Is a Steamwheedle vault really safe for a paladin's savings, Viznik?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -586,8 +608,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The sailor swore it did, and he swore it on his mother, though I later learned he swore everything on his mother, so make of that what you will. Every blade has a story, friend, and the price depends on how much of the story you choose to believe." } },
+      choices = {
+        { text = "Sell it honestly, Jutak, story and doubts together.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A good story sells a blade. I'd do the same.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpriest = {
+      big = true,
+      lines = { { id = "xpriest_default", text = "It came up out of the troll ruins on a jungle trader's belt, with a carved bone handle and an edge still sharp after who knows how long. Some say it cut offerings for the old troll gods and some say it peeled fruit, and I sell it to whichever customer believes the better story." } },
+      choices = {
+        { text = "If it was used for sacrifice, it shouldn't be sold.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A knife is a knife, Jutak. Sell it to whoever pays.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Honestly, friend, I'd hoped you could tell me, since it came off a drowned Bloodsail and it's hummed ever since, mostly at night. I keep it in a crate under the counter, and the rats won't go near that crate, which is either a very good sign or a very bad one." } },
+      choices = {
+        { text = "Something that hums like that is best destroyed, Jutak.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Sell it to me. I'll learn what's inside it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I've a dagger that hums when nobody's holding it, and I'd sell it to you before it makes the other customers nervous." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've a ritual knife from the old troll ruins, and I'd love to hear what you think it was for, though I'd rather you didn't tell the customers." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've a ceremonial knife here that came out of the old troll ruins, and I'd like you to tell me whether it's holy or just old, because the price depends on it." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I've a hammer here that belonged to a knight of the Silver Hand, or so the sailor who sold it swore, and I'd let it go to the right owner at a fair price." },
         { id = "h_default", key = true,
           text = "Jutak, trader in blades. Every sword that comes through this harbor passes my counter sooner or later, off a sailor short of rent or a pirate short of luck." },
         { id = "h_back", when = { metBefore = true },
@@ -609,6 +662,9 @@ P:NPC {
         { text = "Did a Stromgarde captain really own that sword, Jutak?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Which white tiger did that knife skin, Jutak?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you have anything a druid could use, Jutak?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Did that hammer truly belong to a knight of the Silver Hand, Jutak?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What's this ceremonial knife you keep talking about, Jutak?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "Why does that dagger of yours hum, Jutak?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -938,8 +994,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because nobody's watching you in Booty Bay, friend, or rather everybody is and nobody cares, which comes to the same thing. Half my customers are serious folk from Stormwind and Orgrimmar who want one evening of pretending to be a buccaneer, and the other half are buccaneers who lost their hats." } },
+      choices = {
+        { text = "A knight should look like a knight, Narkk.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "One evening as a pirate couldn't hurt. Show me the hats.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Have you ever thought about an eyepatch, friend? Nobody expects a holy knight in an eyepatch, and that's half the fun of a costume." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've got a hat with a feather that'd make your totems jealous, friend, and it's on sale today." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Even a holy sort needs a good hat in this sun, friend, and mine come with a feather at no extra charge." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock! I've got an eyepatch that'd fit your imp, friend, and nobody else in the South Seas can say that." },
@@ -966,6 +1032,7 @@ P:NPC {
         { text = "Do warriors really buy pirate costumes, Narkk?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why would a hunter want a stuffed parrot, Narkk?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Will your hat really stay on through a shapeshift, Narkk?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why would a paladin ever wear a pirate costume, Narkk?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -1106,8 +1173,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Plenty of water, salt fish and something sweet, because plate sweats the life right out of you and the salt is what you lose first. I've watched knights faint on the pier from marching about in this sun, and every one of them told me afterward they'd skipped lunch." } },
+      choices = {
+        { text = "Then I'll eat on schedule, like a good soldier.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I eat when I'm hungry, schedule or no schedule.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit down, sit down, because you've been marching about in all that plate in this heat, and you look like someone who's forgotten the last meal that wasn't a ration." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Sit down, sit down, because every priest I've ever fed was far too thin, and I can't stand the sight of someone who blesses other people's meals and never eats one of their own." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Come and eat, because I hear calling all those elements works up an appetite like nothing else." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Sit, eat, and say a blessing if you like; I'll take any help I can get with the fish." },
@@ -1137,6 +1214,7 @@ P:NPC {
         { text = "What should a warrior eat before a fight, Nixxrax?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where does your meat come from, Nixxrax?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What do you serve that a druid would eat, Nixxrax?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What do you feed someone wearing plate in this heat, Nixxrax?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'm not hungry.", next = "END" },
       },
     },
@@ -1253,8 +1331,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It matters to anyone who looks at you, friend, and a paladin's tabard is the first thing they look at, before the hammer and long before the face. If you're going to wear your order's colors through a pirate town, wear them mended, because a tatty tabard says nobody cares about you, and the Bloodsail notice that sort of thing." } },
+      choices = {
+        { text = "You're right. I'll have it mended properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them judge my deeds, not my tabard.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and look at that tabard, frayed at the hem and stained at the shoulder. You polish your plate like a mirror and treat the cloth like a dishrag, and I see it every single time." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your robes are a disgrace, and I say that with respect, because I can mend them at very reasonable prices." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in that robe? Whatever you serve, I'm sure it never asked you to sweat through it." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Your sleeves are scorched at the cuffs, which tells me everything about your last fight and nothing good about your tailor." },
@@ -1277,6 +1365,7 @@ P:NPC {
         { text = "Why does a torn tabard bother you so much, Xizk?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What cloth holds up best in the jungle, Xizk?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What happens to a druid's robes when the druid becomes a bear?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does a frayed tabard really matter that much, Xizk?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Later.", next = "END" },
       },
     },

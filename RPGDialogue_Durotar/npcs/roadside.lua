@@ -91,6 +91,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Spells won't bring my Kron back, so don't offer, because I've heard every kind word there is and none of them dug a grave. If you want to help, go and take his amulet back from the beasts on the hill, and use whatever fire you like while you do it." },
+      },
+      choices = {
+        { text = "I'll bring his amulet home, Misha, whatever it takes.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'm sorry for your loss, but I have my own road.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Then you'll know how to speak to a mother who's lost her son, and you'll know not to say it was meant to be." },
@@ -106,6 +117,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I can smell the fel on you, warlock. I remember that smell from before the camps, when our warlocks still walked among us." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The grunts used to pass my hut when Kron was small, and he'd watch them go by and swing a stick like an axe." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, with a beast at your heel. Kron hunted too, and he'd have loved a companion like that." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Can your spells find a dead boy's amulet? No, I thought not." },
       },
       choices = {
         { text = "Would you like me to say a prayer for Kron?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -119,6 +131,7 @@ P:NPC {
         { text = "Do you need a warrior to guard this hut, Misha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What did Kron hunt, Misha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do you remember of the old warlocks, Misha?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Can my spells help you at all, Misha?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
       again = {
@@ -399,6 +412,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "They watch everyone, and they've no quarrel with a quiet step, because the wind itself moves without being seen. What they mind is a blade that strikes without cause, so keep yours for the Horde's enemies and the elements will leave you be." },
+      },
+      choices = {
+        { text = "My blade strikes only when it must.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A blade strikes where it's paid to strike.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The elements don't answer you, I think, but something does, and I'll not pretend I can't feel it." },
@@ -409,6 +433,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The spirits go quiet when you're near, warlock, the way birds go quiet when a hawk is overhead. I don't need them to tell me what you carry." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The elements notice you, though you don't notice them, because the earth feels every step you take toward a fight." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The spirits of the beasts walk with you, and I can hear them complaining about the heat, as everyone does in Durotar." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, come to a shaman's fire. The spirits don't mind you, but they always notice you, however quietly you walk." },
       },
       choices = {
         { text = "Do the elements resent the shadow a priest draws on?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -419,6 +444,7 @@ P:NPC {
         { text = "What do the spirits say of Durotar's wars, Swart?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the spirits of the beasts speak to you, Swart?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can a shaman ever trust a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the spirits watch rogues, Swart?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Farewell, Swart.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more? The elements are patient, and so am I." } },
@@ -528,6 +554,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "How to stand, because a warlock who falls the first time a boar reaches them never learned to brace their feet. Watch my recruits for a morning, and you'll know where a blow is going to land before it does." },
+      },
+      choices = {
+        { text = "I'll watch and learn. No shame in learning from a warrior.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My demon takes the blows, so I needn't bother.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because my recruits learn faster when they know someone will pick them back up." },
@@ -539,6 +576,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "Mages always stand behind my warriors and act surprised when the quilboar get round them. Which kind are you?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "Back again? Good. Show me where you got hit since I last saw you, because every bruise is a lesson you paid for." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast takes the hits for you, which is clever, but I've seen what happens when the beast goes down first." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock in my yard. You won't need my lessons, but you'll need to know how to stand when your demon goes down." },
       },
       choices = {
         { text = "Do you want a priest to heal your recruits mid-lesson?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -550,6 +588,7 @@ P:NPC {
         { text = "How should a mage fight beside your warriors?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "How do I stay alive longer, Tarshaw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What happens when the beast goes down first, Tarshaw?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What can a warrior teach a warlock, Tarshaw?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
       again = { { id = "h_again", text = "You're still here, so ask your question and let me get back to watching the road." } },

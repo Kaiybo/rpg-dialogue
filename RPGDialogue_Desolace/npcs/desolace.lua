@@ -110,6 +110,7 @@ P:NPC {
           text = "A druid of the Circle at Nijel's Point. Keeper Marandis has his own business in Desolace, and I'd be obliged if one of you told me what it is." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and from the look of you, one who can throw fire farther than my archers can shoot. I won't ask where you studied, so long as you're willing to do it from my ridge." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at Nijel's Point. I'll be plain with you: the last people out here who trafficked with demons were the Burning Blade, and I've buried soldiers they sent to me in pieces." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 40 } }, text = "The Kolkar have been licking their wounds since you went through their camps, and the other clans have noticed. I'd call that a useful kind of message." },
       },
       again = { { id = "h_again", text = "Anything else? Make it count; the drums are starting." } },
       choices = {
@@ -311,6 +312,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Perhaps. The Gelkis and the Magram both send scouts close to our camp, and I would know which clan watches us, and why, before either decides we are worth the trouble. A druid in the shape of a cat can do it, but my sisters are few and Desolace is wide." } },
+      choices = {
+        { text = "I'll watch them for you, and tell you only the truth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll watch them, but I'll decide what you need to know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Let me ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -325,6 +335,7 @@ P:NPC {
           text = "You've grown strong, so hear it: a princess of the earth, Theradras, holds the body of one dear to the Circle, and we mean to take it back." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "You carry the scent of the arcane, and my people remember where that scent led the Highborne. Still, you came to the Circle's camp openly, so I will speak with you." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "The fel clings to you as smoke clings to cloth, and I can smell it from across the clearing. Say what you have come to say, and do not call anything here." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came into the clearing without a sound, and the birds did not stir. That is a gift the Circle respects, though I would know what you meant to do with it." },
       },
       again = { { id = "h_again", text = "You have another question; ask it plainly." } },
       choices = {
@@ -339,6 +350,7 @@ P:NPC {
         { text = "Can the Light do anything for a land this broken?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is there evil here a paladin should root out, Keeper?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Cenarion Circle ever need a warrior, Keeper?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Has the Circle any use for someone who walks unseen, Keeper?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -487,6 +499,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Some o' it does, aye. There's stones out by Maraudon that hum when ye hold 'em, an' Keeper Marandis told me tae leave 'em be, so I did, though I'll confess it near broke me heart tae walk away from a find like that." } },
+      choices = {
+        { text = "He was right. Some things should stay buried.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If it hums, it's worth studying. Sell it to someone careful.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -507,6 +528,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Light-fingered sort, are ye? I can tell by how ye looked at me crates afore ye looked at me, an' I'll ask ye to keep yer hands where Reclaimers Inc. can see 'em." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Grand, because I've a crate o' scrolls an' trinkets from the old ruins that might be priceless or might explode, an' I've no way o' tellin' which." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, is it? Ye're welcome to warm yer hands, but if anythin' o' yours gets into me reagents, ye'll be payin' for the lot." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now dinnae give me that look, because everythin' I dig up out o' this dust was dead long afore Reclaimers Inc. came along." },
       },
       again = { { id = "h_again", text = "Anythin' else? Mind the crates." } },
       choices = {
@@ -522,6 +544,7 @@ P:NPC {
         { text = "Is salvage from the fallen honest work, Kreldig?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What arms have the Reclaimers pulled from Desolace, Kreldig?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the scorpids drag back to their holes, Kreldig?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does nothing you dig up here trouble you, Kreldig?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -632,6 +655,15 @@ P:NPC {
         { text = "Something else, Brother.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The Crusade welcomes anyone who will put the dead back in their graves, friend. I'll be honest, though: there are brothers in Lordaeron who would call your moon goddess a heresy, and I pray you never have to meet them." } },
+      choices = {
+        { text = "Then I'll fight the Scourge, but never under your banner.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The dead are a common enemy. I'll stand with you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -652,6 +684,7 @@ P:NPC {
           text = "Raleigh sends his blessing, you said. I think of it every night when the valley goes quiet, and it helps." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You move like someone who has slipped through a few doors, friend. The Crusade has use for such skills, though we'd ask you to use them only against the Scourge." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and still among the living, praise the Light. Dalaran's fall cost us so many of your kind, and the Crusade would welcome your fire against the Scourge." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the night elves. You don't kneel to the Light, I know, but the Scourge hate every living thing alike, and that makes us allies whether you like it or not." },
       },
       again = { { id = "h_again", text = "Yes, friend? The Light hears every question." } },
       choices = {
@@ -661,6 +694,7 @@ P:NPC {
         { text = "Pray with me, Brother.", next = "pray", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "Raleigh read your letter, Brother.", next = "raleigh",
           when = { thread = { id = "scarlet_path", beat = "b3_raleigh", state = { "stirring", "unfolding" } } } },
+        { text = "Does the Crusade truly welcome those who don't follow the Light?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll go to the valley.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Would the Crusade take a warlock, Brother?", next = "warlock_an", when = { class = "WARLOCK" } },
         { text = "What would the Crusade want with someone like me, Brother?", next = "xrogue", when = { class = "ROGUE" } },
@@ -824,6 +858,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Most come back thinner and quieter, and some don't come back at all. The soldiers lose friends to the Kolkar and the Magram, and Brother Anton tells them the Light is with them, though I've noticed he never sits by the fire long enough to hear what they say back." } },
+      choices = {
+        { text = "I'll sit by the fire with them, then, and listen.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Soldiers need orders and steel, not someone to talk to.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Vahlarriel came up from Thunder Axe Fortress with stories that kept the whole Point awake for a week, and Dalinda Malem was taken by the same cult. A warlock walking in here reminds them of all that, however polite you are about it." } },
+      choices = {
+        { text = "I'll keep my demon out of sight, for their sake.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They'll have to get used to me. I've earned my place.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -839,6 +891,8 @@ P:NPC {
           text = "A druid, come down to Desolace. Most of your kind take one look at the dust and go straight back to Feralas, and I can't say I blame them." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Walk as softly as you like, but my floorboards have learned every trick, and they'll tell me if you come down for a midnight snack. Sit, and I'll bring you something honestly." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you warm the hearth a little? I'm only joking, though the dust does make the fire sulk, and I'd not say no." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand, at the edge of Desolace. Sit, and let me feed you before you go down, because I've seen what that dust does to armour, and to the people inside it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You're welcome at my hearth like anyone else, but leave your companion outside, please, because the soldiers here have seen what the Burning Blade do with theirs." },
       },
       again = { { id = "h_again", text = "Something else? I'll keep sweeping." } },
       choices = {
@@ -851,6 +905,8 @@ P:NPC {
         { text = "What do travelers bring back up from Desolace?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do many warriors rest here before going down, Lyshaerya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beasts still live down in Desolace, Lyshaerya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What becomes of the folk who go down there, Lyshaerya?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why do the soldiers fear warlocks so much, Lyshaerya?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Just a room, thank you.", next = "END" },
       },
     },
@@ -959,6 +1015,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "They rot from the edges inward, and no poultice we brought from Orgrimmar slows it. Maurin says it's fel, and he would know, so I need healers who will close a wound first and ask whose fault it was afterward." } },
+      choices = {
+        { text = "I'll heal anyone who bleeds for the Horde here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'll heal those who pull their weight. The careless can wait.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -977,6 +1042,8 @@ P:NPC {
           text = "A druid. You'll feel the satyrs' rot in the soil long before you see their horns, and that's reason enough to help me thin them." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because the Burning Blade fear knives in the dark more than axes in daylight, and I want them afraid." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Your fire is not fel, so I have no quarrel with it, but do not let anyone at Ghost Walker Post mistake you for the Blade." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The warriors here take wounds from satyr claws that fester, and I'll take any healer who can stand the smell of Desolace." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Burning Blade", min = 30 } }, text = "The Blade's cultists are fewer at Thunder Axe this week, and I hear it was your doing. Keep at it, because a cult this size breaks once enough of its knees do." },
       },
       again = {
         { id = "h_again", text = "Something else? Say it and be done." },
@@ -997,6 +1064,7 @@ P:NPC {
         { text = "How do you want the Blade hunted, Takata?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the tauren here fear mages, Takata?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "How do the Burning Blade hide among the satyrs, Takata?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do the satyrs' wounds do to your warriors, Takata?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
     },

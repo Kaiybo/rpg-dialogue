@@ -326,6 +326,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Kravel Koalbeard, if I had to bet, because he's always near the workshop and his story never quite adds up. But I can't prove it, and Pozzik would laugh himself sick if I accused a dwarf who works for both teams." } },
+      choices = {
+        { text = "I'll watch Kravel for you and bring you proof.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget proof. Throw him off the Flats.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Constantly. The heat swells the pistons, the salt eats the gears and the lightning makes the compass spin, and every time Pozzik says it's my engineering. I'd love to know whether the elements here simply dislike machines." } },
+      choices = {
+        { text = "Respect the land, and it may treat your machines kinder.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Build better machines. The elements don't care.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -356,6 +374,8 @@ P:NPC {
           text = "Stand very still, priest, because that pipe is under pressure! There, now, hello, and if you happen to have any healing about you, Wizzle burned his hand on the manifold again this morning." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Stand still, please, because plate armor and an open fuel line are a combination I've only seen once, and I'd prefer not to see it again." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! I'll ask you straight, are you working for Pozzik? Because I've had three spanners and an indurium coil go missing this month, and I'm running out of suspects." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now, I don't hold with spirits much, being an engineer, but I've seen a lightning storm melt a perfectly good engine, so I'll be polite." },
       },
       again = {
         { id = "h_again", text = "Yes? Yes? Quickly, the pistons are cooling!" },
@@ -376,6 +396,8 @@ P:NPC {
         { text = "Do you trust Pozzik to race honestly?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is engineering anything like fighting, Fizzle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the flats' creatures ever damage your car, Fizzle?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Who do you think has been stealing from you, Fizzle?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do the elements ever interfere with your machines, Fizzle?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll stand very still. Goodbye.", next = "END" },
       },
     },

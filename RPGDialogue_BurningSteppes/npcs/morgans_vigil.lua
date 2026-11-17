@@ -1392,8 +1392,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Aye, once the demon's gone an' the smell's faded a bit, which takes longer than ye'd think. They've enough tae fear in these skies wi' the black dragons an' the Blackrock arrows, so I'll no' have them frightened on their own perch." } },
+      choices = {
+        { text = "I'll put it away. The birds come first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon's none of your birds' business, Borgus.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Borgus.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, eh? The birds can smell a demon a mile off, an' they'll no' let ye near if yer pet's out, so tuck it away before ye come up tae the perch." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, is it? Mind, the birds know a light step when they hear one, an' they hate bein' crept up on more than they hate the smoke." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, wantin' a gryphon? Ye could pop off tae Ironforge in a flash o' light, but I'll no' say no tae a customer who likes the long way round." },
         { id = "h_default", key = true,
@@ -1422,6 +1432,7 @@ P:NPC {
         { text = "Have your gryphons ever carried soldiers into battle?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons hunt anything in the Steppes?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Could a druid help your gryphons with the ash, Borgus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will your gryphons carry a warlock at all, Borgus?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not today, Borgus.", next = "END" },
       },
     },

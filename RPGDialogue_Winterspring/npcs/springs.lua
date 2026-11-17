@@ -26,6 +26,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The way it turns 'em, for one, because drink makes a body foolish, no' cruel. The Winterfall used tae trade wi' Everlook peaceable enough, an' now they'd as soon tear yer arm off, an' I've seen satyr tracks round their stores that have nae business bein' there." } },
+      choices = {
+        { text = "I'll find who's brewing it and stop them for good.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Bring proof to Everlook first. The town should judge it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I cannae say, friend, for it's no' a plague like they've got in the east. It's firewater, brewed strong an' brewed wrong, an' I've a mind somethin' fel is mixed in the barrels, so if yer Light can see that, it'll see it at Winterfall Village." } },
+      choices = {
+        { text = "Then I'll try to heal them, not just fight them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whatever's in them, I'll put down the ones who attack.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They were never gentle, but they fought like folk, wi' sense an' a reason. Now they come on like they cannae feel the blade, an' that's the firewater, which makes me think whoever's brewin' it wants an army, no' a tribe." } },
@@ -96,6 +114,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage! Ye'll have a sharper eye for magic than I do, an' I've a feelin' there's more than drink in that Winterfall firewater, so look close if ye go near their camps." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, aye? Good, for there's a sickness on the Winterfall, an' I've been wonderin' whether a bit o' holy light might show us what's at the root of it." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, aye? Good, because the Winterfall'll no' be talked down, an' when they come at ye half-mad on firewater, ye'll want a shield between ye an' them." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -131,6 +153,8 @@ P:NPC {
         { text = "What sickness do you see in the Winterfall, Donova?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Are the Winterfall dangerous fighters, Donova?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What have you noticed about the Winterfall's tracks?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Could the Light cure what ails the Winterfall, Donova?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What makes you think there's magic in the firewater, Donova?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll look into the furbolgs.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -217,6 +241,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a beast dat dies afraid gives you only fear, mon, and fear be useless juju. A beast dat dies quick and proud gives its strength, so a rogue who strikes clean makes de best E'ko of all, and Mau'ari pay attention to such things." } },
+      choices = {
+        { text = "I'll make it quick and clean, then. They deserve that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll make it however I like, so long as you pay.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Some do, some don't, mon, same as people. De E'ko be de spirit stuff of de beasts, and when Mau'ari puts it in de juju, it carry a little of what de beast was, so a frostsaber's E'ko be proud and a yeti's be angry, and none of dem care much for your Light." } },
+      choices = {
+        { text = "Then I'll respect the beasts and leave their spirits in peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Spirits torn from beasts? That sounds like dark work to me.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Dey respect strength, mon, and dey respect a warrior who know when strength be enough and when it not. Every beast you kill up here leave a little E'ko behind, and a warrior who bring dat to Mau'ari learn what juju be good for." } },
@@ -264,6 +306,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "Ah, a rogue, mon, with quiet feet. Mau'ari like quiet feet, because de beasts don't run from dem, and de E'ko come easier when de beast never see you comin'." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin come to Mau'ari's fire, mon! Your Light don't burn so cold as you'd think up here, and Mau'ari wonder if de spirits of de beasts be likin' it or fearin' it." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, mon, come all de way up de mountain wit a big blade! Mau'ari like dat, because de spirits up here respect anyone who walk in de cold wit no magic to keep him warm." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -290,6 +336,8 @@ P:NPC {
         { text = "What does your juju cost?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the loa reach this far north, Mau'ari?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the spirits respect warriors, Mau'ari?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do the beasts' spirits fear the Light, Mau'ari?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why does the E'ko come easier from an unseen kill, Mau'ari?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll bring E'ko.", next = "END", fx = { affinity = 2 } },
       },
     },

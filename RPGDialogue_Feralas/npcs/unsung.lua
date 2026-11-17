@@ -84,6 +84,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Too often, since the naga began shooting at anything that flies low over the coast. I tend their wings myself, and the Sentinel priestesses pray over the worst, though I have learned that a bird mends best when it is allowed to rest and not hurried back to the sky." } },
+      choices = {
+        { text = "Let them rest as long as they need. They've earned it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Sentinels need scouts. The birds must fly when called.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They were Cenarius's own creatures, raised wild in the forests, and they remember the Sundering in their blood if not in their minds. The old Highborne ruins across the water make them restless even now, and they never fly over Eldre'Thalas if I let them choose." } },
+      choices = {
+        { text = "I'll keep my magic away from them, then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They'll have to grow used to it. Magic isn't going anywhere.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -101,6 +119,8 @@ P:NPC {
           text = "A warrior. Keep your weapon sheathed near the roost, if you would; my birds startle at drawn steel, and a startled hippogryph is a dangerous thing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. My birds have already marked your companion, and they are deciding whether it is a friend of the roost." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light. The hippogryphs do not know your faith, but they know a calm hand, and I think they will take to you." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Keep your spells quiet near the roost, if you would, because my birds can smell the arcane and they do not care for it." },
       },
       again = {
         { id = "h_again", text = "Would you ask more of the roost, or of the isle?" },
@@ -118,6 +138,8 @@ P:NPC {
         { text = "Are your hippogryphs uneasy around the Light?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are hippogryphs truly that skittish around warriors, Fyldren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do your hippogryphs judge another beast, Fyldren?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do your hippogryphs ever come back hurt, Fyldren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why do hippogryphs dislike the arcane, Fyldren?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -236,6 +258,42 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Everything comes across the water from the mainland or up the coast by boat, and the naga have made both harder this season. I keep a careful count because a missing bolt of cloth means a Sentinel goes out with a torn cloak, and that is how scouts are seen." } },
+      choices = {
+        { text = "Then I'll take only what I need and leave the rest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sentinels can mend their own cloaks. I'll buy what I want.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "The scouts who return from the mainland, always. Angelas's people come back from the ruins with wounds that close slowly, and the priestesses ask me for more linen than the boats can bring, so I ration it, though I hate to." } },
+      choices = {
+        { text = "Ration it to the worst hurt first. That's fair.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Give it to those who'll fight again soonest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because across the water stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and I do not believe any bargain with a demon ends better than theirs did." } },
+      choices = {
+        { text = "I understand. I'll prove my bargain is different.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My bargains are my own affair, Vivianna.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Thread for their healing pouches, mostly, and dried herbs from Ashenvale, because the rain here spoils anything grown on the isle before it dries. I think they also come to see a friendly face before they go into the woods, though they'd never say so." } },
+      choices = {
+        { text = "A friendly face matters. Thank you for keeping it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Druids should live off the land, not off your stores.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -248,6 +306,10 @@ P:NPC {
           text = "A warrior. If you've come for leather to mend your straps, I'll need it counted out and signed for, because the Sentinels' stores are not a charity." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. If you bring me hides from the mainland I'll take them gladly, but bring them dry, because wet leather is worth half." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. If you need your plate mended, I can sell you the oil and the rivets, but the Sentinels' smith works only for the Sentinels, so you'll do the work yourself." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light. I've candles and linen for bandages, if you've come for those, and I'd be glad to see them go to someone who will use them well." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell you what's on my shelves, because Darnassus says I must, but I'll ask you to make your purchase quickly and keep your hands where I can see them." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. I keep a store of herbs for your kind, because the Circle's people come through often, and they always seem to need something I've just run out of." },
       },
       again = {
         { id = "h_again", text = "Is there anything else you need from the stores?" },
@@ -262,6 +324,10 @@ P:NPC {
         { text = "You think I'd steal from the Sentinels?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why count every strap so carefully, Vivianna?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What hides do the Sentinels need most, Vivianna?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Are supplies really so tight on the isle, Vivianna?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Who on the isle needs bandages most, Vivianna?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Why are you so wary of warlocks, Vivianna?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What do the Circle's people need here, Vivianna?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -553,6 +619,15 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Respect, and an end that's quick and clean. The Earth Mother gave us the beasts to feed and clothe us, but she didn't give them to us to waste, and I've seen too many hides left to rot in Feralas by hunters who only wanted the trophy." } },
+      choices = {
+        { text = "Then I'll waste nothing, and take only what I need.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A hunt is a hunt. The beasts don't care what's taken.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -566,6 +641,7 @@ P:NPC {
           text = "A rogue. You'll know how to take a hide quickly and cleanly, because your knives are sharp, but I hope you take your time with them too." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. You kill many beasts, I think, but do you take anything from them, or do you leave them for the crows?" },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You walk in the shapes of beasts, so you'll know better than most what a hunt costs them, and I'll expect you to honor it." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly." },
@@ -582,6 +658,7 @@ P:NPC {
         { text = "A soul shard is a tool, Kulleg.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "A quick cut is the best cut, Kulleg.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why should a warrior care what's left behind after a kill?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What does a druid owe the beasts we hunt, Kulleg?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -717,6 +794,15 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They think they do, and then I have three of them sick in their tents with purple tongues. The plants here aren't like the ones in Mulgore, and the caravans only bring so much food, so we have to learn the forest or go hungry." } },
+      choices = {
+        { text = "I'll teach them which plants to trust. The forest provides.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Let them learn the hard way. It's how I learned.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -732,6 +818,7 @@ P:NPC {
           text = "A warrior. Good, the next caravan from Thunder Bluff needs guarding through the Needles, and the last guards spent more time drinking than guarding." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. You'll have come down through the Needles, then, and seen what that road does to a kodo's feet." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I'll sell you herbs and cloth like anyone, but if you could tell me which of the plants out here are safe to eat, I'd count that a fair trade." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -748,6 +835,7 @@ P:NPC {
         { text = "I'd pay well for good cloth, Sheendra.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What threatens the caravans on the road from Thunder Bluff?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do the kodos hold up on the long road, Sheendra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do the braves not know which plants are safe, Sheendra?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

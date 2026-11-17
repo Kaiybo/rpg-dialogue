@@ -76,6 +76,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Water, bandages and patience, in that order, and I can only sell them the first two. The caravan's late more often than it's on time, so I keep a little back for the soldiers when supplies run thin, and I don't put that on anyone's tab." } },
+      choices = {
+        { text = "That's a kindness the Point won't forget.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You should charge them. They're paid soldiers.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not badly, just carefully, because the Burning Blade are only a few days' walk south and everyone's heard what goes on at Thunder Axe. Spend your coin, keep your temper, and they'll come round, the way they did with me when I first set up shop." } },
+      choices = {
+        { text = "Fair enough. I'll earn their trust slowly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Their fear isn't my problem to fix.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "The Circle does, out near their camp, and Keeper Marandis buys my seeds a dozen packets at a time. He says the trouble is in the earth itself, deep down, so I suppose he's planting more out of hope than sense." } },
+      choices = {
+        { text = "Hope is how every forest started. Keep selling him seeds.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's a waste of good seed. Desolace is finished.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -87,6 +114,9 @@ P:NPC {
           text = "Christi Galvanis, general goods. Nijel's Point is the last bit of green before the whole of Desolace turns to dust, so whatever you need for the trip down, buy it from me, because nobody else is going to sell it to you." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, browsing my shelves with both hands in plain sight. I appreciate the courtesy, truly, because in Desolace most thieves can't be bothered to pretend." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I don't suppose you could conjure me a shipment that arrives on time, because the caravan certainly can't." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want more water than you think and less armor than you're wearing, though I don't expect you'll take my advice on the second." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, browsing my shelves. Soul shards I don't stock, and I'll thank you not to ask where I'd even get them." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've seeds for sale, if you think there's anywhere down in Desolace they might take, though I've never sold a packet to anyone who came back to tell me it worked." },
       },
       again = {
         { id = "h_again", text = "What else? I'm not going anywhere, and neither is the dust." },
@@ -102,6 +132,9 @@ P:NPC {
         { text = "Do many people come back up from Desolace changed?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do warriors usually forget to buy, Christi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do hunters bring anything back up from Desolace, Christi?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do the soldiers here run short of most, Christi?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do people at Nijel's Point treat warlocks badly, Christi?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do people really try to plant things down there, Christi?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -245,6 +278,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Only when the caravan's late, and then it's soldiers, and I can't hold it against them. I leave a loaf on the windowsill most nights now, and it's always gone by morning, though I've never once caught who takes it." } },
+      choices = {
+        { text = "That's generous. I'll pay for my bread, Janet.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A hungry soldier takes what he needs. That's fair.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Janet.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -259,6 +301,7 @@ P:NPC {
           text = "A druid! Sit down and eat, dear, because there's nothing growing down there worth putting in your mouth." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "Are you a mage? Then promise me you'll eat my bread before you eat that conjured stuff, because it can't be good for you to live on magic and water." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Well, everyone eats, and I'll feed you as well as anyone, but please keep the little red thing off my tables, because it bit the last loaf I set out." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You there, with the quiet boots. If you're hungry, you only have to ask, dear, because I'd far rather feed you than count my loaves after you've gone." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear?" },
@@ -276,6 +319,7 @@ P:NPC {
         { text = "What does Nijel's Point need most from someone like me?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the soldiers here eat well enough to fight, Janet?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's fit to eat down in Desolace, Janet?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do people steal food here often, Janet?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
       },
     },

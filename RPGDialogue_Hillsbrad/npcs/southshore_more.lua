@@ -316,6 +316,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That the orcs brought them, mostly, and the Horde's warlocks blackened half the hills in the Second War before Durnholde's camps took the orcs in. But there are older pages about Alterac's court magi dabbling where they shouldn't, and those I keep under the floorboards, because nobody in Southshore wants to read that their grandparents' lords were no better." } },
+      choices = {
+        { text = "Write it all down, Kundric. The truth should be kept.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Some pages are better burned than kept, Kundric.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll ask about something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kundric Zanden, historian of Southshore. Everyone else in town fishes, farms or fights, and someone has to write down what happened while they were doing it." },
@@ -330,6 +339,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Stand still a moment while I note your arms, because my records of Southshore's defenders are very thin, and I've had to guess at the sword sizes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Excellent, because the town records have a gap where the beasts of Hillsbrad ought to be, and nobody who knows about them has ever stood still long enough." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei! I've a whole shelf of guesses about your people and not one proper source, so if you've an hour, I've a quill." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now that's a thing I've not had the chance to write down properly. Hillsbrad's histories are full of your kind, mostly as the reason something burned." },
       },
       again = {
         { id = "h_again", text = "What else? I'll keep writing while you think." },
@@ -349,6 +359,7 @@ P:NPC {
         { text = "Who defended Southshore in the Second War, Kundric?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the Southshore records say about the beasts here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What would you write about the druids, historian?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What do Hillsbrad's histories say about warlocks, Kundric?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your notes.", next = "END" },
       },
     },
@@ -920,6 +931,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "I asked one o' your lot that very thing last spring, an' he put a glowin' ward round the paddock that spooked every horse I own an' didn't bother the lions one bit. Took me a week to calm 'em down, so I'll stick to good timber an' a sharp eye, thank you kindly." } },
+      choices = {
+        { text = "Timber and a sharp eye. That's honest work, Darren.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A better mage would have done it right. Try again.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Somethin' else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -937,6 +957,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "Well, a paladin! My granddaddy shod horses for the Silver Hand, back when the knights still rode through Southshore, an' he said you could tell a paladin's mount by how calm it stood." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Now there's a warrior, an' I can tell by how you stand, 'cause you plant your feet like a draft horse. I mean that kindly, I swear on my granddaddy's grave." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, eh? You Dalaran folk can conjure up a whole feast, I hear, so maybe you can conjure me a fence the mountain lions can't jump." },
       },
       again = {
         { id = "h_again", text = "Something more? You can talk while I brush; the mare won't mind." },
@@ -954,6 +975,7 @@ P:NPC {
         { text = "Would the Light hear a prayer for a horse, Darren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Did many Silver Hand knights ride through Southshore, Darren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you a horse that could carry a warrior in full plate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Could magic keep the lions off your horses, Darren?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll keep an eye out.", next = "END" },
       },
     },
@@ -1099,6 +1121,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I cook for anyone who pays and doesn't complain, and you'd be surprised how short that list is in Southshore. A good meal doesn't ask where you learned your trade, it only asks you to sit down and eat it hot, and I'd say the same to a Forsaken if one ever sat at my table without frightening the soldiers." } },
+      choices = {
+        { text = "Good food for all who pay. That's a fair kitchen.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Forsaken at your table? They'd poison the soup.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Chef.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1113,6 +1144,7 @@ P:NPC {
           text = "A paladin! You'll be hungry, then, because I've never fed a knight yet who didn't ask for seconds and then thirds." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now you'll eat properly, I hope, because a fighting man can't live on hardtack, and Southshore has the best cooking north of Stormwind, whatever Darkshire says." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Perhaps you can tell me what's happened to the turtles, for my bisque has been ruined by their absence." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my kitchen? Fine, but if that imp of yours so much as breathes on my stock pot, I'll cook it, and I'll serve it to Bilger, and he won't notice." },
       },
       again = {
         { id = "h_again", text = "Something more? Mind the steam, and talk while I stir." },
@@ -1131,6 +1163,7 @@ P:NPC {
         { text = "Did the Silver Hand ever eat at your table, Jessen?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does a warrior need to eat, Chef?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What has happened to the turtles here?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you really cook for anyone, Jessen, even warlocks?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Smells good. Goodbye.", next = "END" },
       },
     },
@@ -1269,6 +1302,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Not mine, because I train them from foals with every sort of noise and flash I can make, and a crackle of frost is nothing to a Carlson horse. The Silver Hand's grooms called that mad as well, but their chargers bolted at the first Scourge bonfire, and mine never did." } },
+      choices = {
+        { text = "Patience in the training shows. You were right, Merideth.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A steady horse is less use than a fast one.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Merideth.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1288,6 +1330,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want a warhorse, I suppose, which is what the Silver Hand always wanted. They rode my stock to war and called me mad for asking where the horses went." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know what it is to trust an animal, then, which is more than I can say for most who come through that gate." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid among my horses! They're shy of the cat-folk, I find, so I'd ask you to stay on two legs while you're in the paddock." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll want a horse that won't bolt the first time you set your sleeves on fire, I expect, and I breed them steady, but only for Stormwind's own." },
       },
       again = {
         { id = "h_again", text = "Anything else? The horses are watching you, and so am I." },
@@ -1306,6 +1349,7 @@ P:NPC {
         { text = "What sort of horse would you sell a warrior, Merideth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is a hunter's beast so different from one of your horses?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you work your horses too hard, Merideth?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do your horses mind a mage on their backs, Merideth?", next = "xmage", when = { class = "MAGE" } },
         { text = "Fine horses. Good day.", next = "END" },
       },
     },
@@ -1459,6 +1503,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "That you can't make a fish bite, no matter what you've got whispering at your shoulder, and some of your kind find that a hard lesson. The bay takes its own time, and the ones who learn to sit easy with that tend to come back calmer, which can only be good for a person in your line of work." } },
+      choices = {
+        { text = "Patience is a discipline. I'll learn it gladly, Donald.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I don't wait on fish. I'll find another way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Donald.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -1474,6 +1527,7 @@ P:NPC {
           text = "A paladin! You'll not want fishing lessons, I'd guess, but sit a while anyway, because a man in heavy armour learns patience fast on a dock." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, all steel and impatience, I'd guess. Fishing might do you good, for there's no line in the world that'll bite faster because you glared at it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Then we're in the same trade, more or less, since you wait for the beast and I wait for the fish, and we both know the waiting's the hard part." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You'll find fishing a strange trade after yours, I expect, because there's nothing to bind and nothing to command, only the line and the water and the waiting." },
       },
       again = {
         { id = "h_again", text = "The line's in the water, so I've all the time in the world. Ask away." },
@@ -1491,6 +1545,7 @@ P:NPC {
         { text = "What can a knight learn from a fisherman, Donald?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Can fishing really teach a warrior anything, Donald?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is fishing the bay so different from hunting the hills?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can a warlock learn anything from fishing, Donald?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Tight lines.", next = "END" },
       },
     },

@@ -54,6 +54,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "If the ogres come down from Alterac or the Forsaken push past the farms, I'll take any blade that points the right way, and I won't ask what it was forged in. But the mothers in this town remember the orcs and their demons, so do your work outside the walls and don't make me answer for you." } },
+      choices = {
+        { text = "Fair terms, Marshal. I'll keep my craft beyond the walls.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll use my craft where it's needed, walls or no walls.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -76,6 +85,7 @@ P:NPC {
           text = "Night's when the horses go missing, so I keep a lantern lit by the stables, not that the dead need the light." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've the look of someone who knows the Syndicate's tricks from the inside, and I'd rather have that on my side than on theirs, so welcome to Southshore." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Emissary Jacques will want a word with you, because the Kirin Tor seem to need every friend they can find these days." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in Southshore. I'll not turn you away, because I've turned away too many already, but the folk here lost their homes to things very like your little friend, so keep it on a short leash." },
       },
       again = {
         { id = "h_again", text = "Anything more? Ask as we go; I've the wall to inspect." },
@@ -100,6 +110,7 @@ P:NPC {
         { text = "My people came to Dalaran from the sky.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "How bad is the Syndicate in Hillsbrad these days, Marshal?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Will the Alliance help Dalaran, Marshal?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Will Southshore fight beside a warlock, Marshal?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },
@@ -664,6 +675,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Don't tempt me, because I've sat in this chair long enough to consider worse ideas. But if Major Samuelson ever heard I'd sent a demon to do my duty, I'd be guarding murlocs for the rest of my life, and I mean to see Stormwind again." } },
+      choices = {
+        { text = "Do your own duty, Lieutenant. Demons are no shortcut.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A shortcut's a shortcut. Samuelson needn't ever hear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, then.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -686,6 +706,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Don't suppose you could bless the murlocs into leaving? I've tried everything else, short of actually going out there myself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Splendid, because I've been told murlocs count as wildlife, and if that's true, they're surely your department rather than mine." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Wonderful. In Stormwind we'd have had you followed by two guards and a magistrate's clerk, and here I've only got murlocs, so I suppose you're the least of my worries." },
       },
       again = {
         { id = "h_again", text = "Still here? Fine, I wasn't going anywhere; I never am." },
@@ -706,6 +727,7 @@ P:NPC {
         { text = "Why not freeze the bay, Lieutenant?", next = "xmage", when = { class = "MAGE" } },
         { text = "Have you asked the Light for help with your murlocs, Lieutenant?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Shall I hunt your murlocs for you, Lieutenant?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Could my imp handle your murlocs for you, Lieutenant?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your chair.", next = "END" },
       },
     },
@@ -923,6 +945,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Uther did, hic, an' he'd sit wi' a cutpurse in the stocks an' talk to him like a brother. I thought he was soft, an' then I found out the cutpurse fought beside us at Hearthglen an' died there, an' I've been less sure about a great many things ever since." } },
+      choices = {
+        { text = "Uther was right. Anyone can choose a better road.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Uther was soft. A thief serves himself first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Bilger.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -941,6 +972,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, hic, an' a proper one by the dents! I carried a hammer for the Hand once, an' I'll tell ye now, plate's heavier when ye've nothin' left to believe in." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, hic! Bring me somethin' wild for the pot an' I'll pour ye somethin' that'll make ye forget ye ever shot it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Hic! A druid, an' a night elf one at that. Ye don't, by chance, turn into a bear that drinks, do ye? I've been wantin' a proper drinkin' companion." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, hic, an' I'll warn ye now: the good casks are the ones ye can't lift, so don't bother. The knights o' the Hand used to say a thief's hands were the Light's hardest work." },
       },
       again = {
         { id = "h_again", text = "Hic. What else, {g:lad|lass}?" },
@@ -959,6 +991,7 @@ P:NPC {
         { text = "Do you miss carrying a hammer for the Silver Hand, Bilger?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you want game for the inn's kitchen, Bilger?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do you know of brewing with wild herbs, Bilger?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Did the Silver Hand really think thieves could be saved, Bilger?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Cheers.", next = "END" },
       },
     },
@@ -1377,6 +1410,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "One or two a season, coming down from Dalaran's way or up from Stormwind on some business they won't name. They pay on time and tip better than the soldiers, I'll give them that, but the room always smells of sulphur after, and the fishermen won't take it for days." } },
+      choices = {
+        { text = "I'll leave the room as I found it, Anderson.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The fishermen can sleep somewhere else, then.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Anderson's the name, and I keep the inn: fishermen, soldiers, and a lieutenant who's been sitting in that chair since last spring." },
@@ -1395,6 +1437,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and dripping on my floor like everyone else. Hang that mail by the fire, will you, because rust and rain are the two things Southshore has more of than fish." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you've brought in more mud than the rain did. Wipe your boots, and tell me what's out in the hills, because nobody else will." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? Most night elves who come through just want a room and a quiet corner, and you look like you'd sooner sleep under a tree." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, is it? I'll rent you a bed like anyone else, but I'll ask you to keep whatever you've got on a leash off the stairs, because the last time a guest's pet got loose, Kelly didn't sleep for a week." },
       },
       again = {
         { id = "h_again", text = "Anything else? The stew's hot and the chairs are dry, mostly." },
@@ -1411,6 +1454,7 @@ P:NPC {
         { text = "Do soldiers stay at your inn often, Anderson?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Would you buy game for the inn, Anderson?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do so few of my people stay in Southshore?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Have you had many warlocks under your roof, Anderson?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Just resting.", next = "END" },
       },
     },

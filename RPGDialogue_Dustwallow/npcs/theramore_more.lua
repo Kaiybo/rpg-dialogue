@@ -75,6 +75,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Their feathers rot if I'm not careful, and their tempers rot faster. I lost an old bird last winter to a cough that wouldnae quit, and I'll tell ye, I buried him proper, behind the roost, an' I'm not ashamed of it." } },
+      choices = {
+        { text = "He served well. A proper burial was right.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It was only a beast, Baldruc. Don't grieve too long.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -89,6 +98,7 @@ P:NPC {
           text = "A druid, is it? If you can talk to beasts, tell my gryphons the damp won't kill them, because they won't believe it from me." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Don't even think about borrowing a gryphon after dark, because they'll bite whoever's sitting on them and then come straight back to me." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and you'll be wanting to teleport home instead of using my gryphons, I suppose. That's fine, but don't come crying to me when you land somewhere damp." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bless the birds if you like, because they've earned it, flyin' through this rain day in and day out without one word o' complaint, unlike me." },
       },
       again = {
         { id = "h_again", text = "Something else, or shall I saddle one?" },
@@ -106,6 +116,7 @@ P:NPC {
         { text = "Do mages really never use your gryphons, Baldruc?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do your gryphons ever carry soldiers into battle, Baldruc?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons hunt in the marsh, Baldruc?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the gryphons suffer in this weather, Baldruc?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -261,6 +272,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Nobody, if I can help it, though the boats come late and the marsh only gives so much. The refugees from Lordaeron eat first in my kitchen, and the officers grumble about it, but they grumble about everything, so I don't mind." } },
+      choices = {
+        { text = "Feeding the refugees first is right.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Officers keep this city safe. They should eat first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Once, and it ate a whole wheel of cheese before its master noticed, and then it tried to blame the cat. I made the warlock pay for the cheese and wash every pot, and he came back the next week to say sorry, which was nice of him." } },
+      choices = {
+        { text = "I'll keep my imp out of your kitchen, Morgan.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If he's hungry, he eats. That's how it works.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -279,6 +308,9 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You smell of nothing at all, which in my kitchen is suspicious, because everyone else smells of tortoise and onions. Rogues and cooks both like to go unnoticed, I suppose." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! I'll make you a deal: you don't conjure any of that tasteless bread near my kitchen, and I won't sneer at your tea." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The marsh gives us plenty, if you know where to look, and I imagine you know better than I do." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit, sit, you'll have soup before anything else, because I've never seen a holy warrior yet who couldn't do with a second bowl." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in my kitchen! You can stay, but if that imp of yours puts so much as a claw in my soup pot, I'll ladle him straight back to wherever he came from." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Mudrock", min = 30 } }, text = "You've been thinning out the Mudrock tortoises, I can tell, because the fishermen say the shore's safe to walk again. If any of those came home in a sack, my soup pot's waiting." },
       },
       again = {
         { id = "h_again", text = "What else, while it simmers?" },
@@ -292,6 +324,8 @@ P:NPC {
         { text = "I know a thing or two about stews.", next = "x_cook", when = { profession = "Cooking" } },
         { text = "Troll cooking would put fire in that pot.", next = "x_troll", when = { race = "Troll" } },
         { text = "Does feeding the soldiers feel like holy work, Morgan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Who goes hungry in Theramore, Morgan?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Has a demon really been in your kitchen before, Morgan?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll bring you those tongues.", next = "END", fx = { affinity = 2, standing = { theramore = 1 } } },
         { text = "Do you ever catch thieves in your kitchen, Morgan?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you resent conjured food, Morgan?", next = "xmage", when = { class = "MAGE" } },
@@ -437,6 +471,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "More than the Archmage would like me to say. A misjudged fireball burns the caster as easily as the target, and a frost spell held too long will take a finger. I bandage them, I tell them to be careful, and they come back the next month with the other hand." } },
+      choices = {
+        { text = "I'll practice with care. Recklessness helps no one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Power has a price. A few burns are part of learning.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -453,6 +496,7 @@ P:NPC {
           text = "You came through triage with your head clear and your hands steady. There are surgeons with letters after their names who couldn't say the same." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the hands of someone who knows where to put a blade, and I'm glad to see they're steady. The marsh teaches me what poisons do to a body, and I suspect you've studied them from the other side." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be frank, I have bandaged too many soldiers who met the wrong end of the old Horde's warlocks to feel easy, but a patient is a patient, so tell me where it hurts." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The tower sends me apprentices now and then with burns on their hands from spells gone wrong, and I'd be glad if you weren't the next." },
       },
       again = {
         { id = "h_again", text = "Anything else? Quickly, I've dressings to change." },
@@ -469,6 +513,7 @@ P:NPC {
         { text = "Have you treated fel wounds before, Doctor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What wounds do you see most from the soldiers, Doctor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you ever treat beasts as well as soldiers, Doctor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do mages often come to you hurt, Doctor?", next = "xmage", when = { class = "MAGE" } },
         { text = "Goodbye, Doctor.", next = "END" },
       },
     },

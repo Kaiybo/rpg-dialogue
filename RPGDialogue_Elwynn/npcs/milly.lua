@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "You could, if you can tell a grape from a bandit when they're all in the same row. The Defias have my crates in their camp, and I want every one of them back, so freeze the thieves and leave the fruit alone." } },
+      choices = {
+        { text = "I'll bring back every crate, Milly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll clear the bandits first. The grapes come second.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Milly.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "They trampled the north rows and cut whole branches for kindling, the brutes, because they couldn't be bothered to find dead wood. Vines that old take years to come back, and I'll be counting every one of them." } },
@@ -100,6 +109,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Then you can carry crates, and you can carry them past the Defias, which is twice what I hoped for." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be quiet, then, and you'll get into the vineyard without them hearing, which is more than the recruits manage." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, out here among the vines? If you can talk to grapes, tell them I'm coming back for them once the Defias are gone." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you burn out the Defias in my vineyard? Only, leave the grapes, if you can manage it." },
       },
       again = {
         { id = "h_again", text = "What else? You can talk while I sort these." },
@@ -118,6 +128,7 @@ P:NPC {
         { text = "How many Defias are in the vineyard, Milly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can I come at the Defias quietly through the vineyard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have the Defias hurt the vines, or only stolen the grapes?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Could a mage help get your harvest back, Milly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Good luck with the harvest.", next = "END" },
       },
     },

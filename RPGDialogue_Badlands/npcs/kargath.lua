@@ -76,8 +76,18 @@ P:NPC {
         { text = "Something else, Warlord.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Need them? I'd trade three grunts for one good healer, and the grunts would thank me for it, because every raid on the Dark Irons sends half of them back with burns that won't close. Shul'kar's stew can only do so much, and Vivian says her shadows don't mend anyone." } },
+      choices = {
+        { text = "Put me where I'm needed, Warlord. I'll hold the post.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I heal where I choose, Warlord, not where I'm posted.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Warlord.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Kargath's walls have seen plenty of wounded since the Dark Irons started pushing, and too few hands to mend them, so you're welcome on my tower." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Up at the Spire, Rend's orcs still keep the old ways, fel and all, and I'd like to know which side of that line you stand on." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, eh? The old Horde had warlocks and no mages, and I've decided I like your lot better, because at least you set the right things on fire." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I've always wished I could send someone up the Spire road who didn't clank, because my grunts sound like a smithy falling down the stairs." },
@@ -118,6 +128,7 @@ P:NPC {
         { text = "Would you put mages on Kargath's walls, Warlord?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I stand with Thrall, Warlord. My demons serve the Horde.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the Blackrock use their worgs for?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you need healers at Kargath, Warlord?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Point me at the Dark Irons.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { kargath = 1 } } },
       },
     },

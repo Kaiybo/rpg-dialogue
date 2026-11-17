@@ -33,6 +33,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Because Ogtinc has seen what their magic did to this land, and it did not end well for them, or for the land. The Circle watches the ruins, and Ogtinc watches the Circle's fire, and he would rather you came back to it alive than walked into the ruins looking for power." } },
+      choices = {
+        { text = "Knowledge isn't evil. I'll study it, but carefully.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll leave the ruins be. The Circle knows best here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Old magic, Ogtinc thinks, the Highborne's magic that went wrong and never went quiet. The ghosts walk the same paths they walked before the sea took their city, and Ogtinc does not know whether they suffer, but he hopes your Light might grant them rest, if anything can." } },
+      choices = {
+        { text = "I'll grant them rest. They've suffered long enough.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are the Circle's business, not mine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The lingering Highborne, who are dead already and only too stubborn to know it, and the naga, who would drown this whole coast if they could. The coursers and the wavethrashers are only what the land made them, and Ogtinc asks you to take from them only what the Circle needs." } },
@@ -89,6 +107,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Ogtinc smells the arcane on you, as he smells it on the ruins, and he hopes you will not go poking at what the Highborne left behind." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. Ogtinc has seen your kind fight the dead, and he is glad, for the courser ghosts in the ruins below are restless, and they do not rest for Ogtinc's words." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Ogtinc sees the weight of your blade, and he hopes you know that not every creature in these ruins must die." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and welcome. My people had shamans before the corruption, and you remind me of the elders who taught me to hear the forest." },
@@ -134,6 +156,8 @@ P:NPC {
         { text = "Why hunt the coursers at all?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do the Ruins of Eldarath need from a healer, Ogtinc?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Which creatures here deserve the blade, Ogtinc?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What troubles the ghosts in the ruins, Ogtinc?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why shouldn't I study what the Highborne left, Ogtinc?", next = "xmage", when = { class = "MAGE" } },
         { text = "Walk the divine path, Ogtinc.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -337,6 +361,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, or so I'm told. I don't ask what a customer does with my scales once they leave, but I do keep a list of names who didn't come back, and you'd be surprised how many were warlocks." } },
+      choices = {
+        { text = "Then I'll keep my demon out of the dragons' sight.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them come. My demon could use the practice.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because I keep a list of customers who went looking for dragonscale and didn't come back, and it's longer than I'd like. The blue dragons over the ruins don't care what your spirits say about it, so you'd best ask your elements for luck before you ask them for anything else." } },
+      choices = {
+        { text = "The spirits will guide me. I'll be careful with the dragons.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take what scales I need and come back for more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because your kind walk up to the dragon and hit it, and the dragon breathes, and then I add a name to my list. The ones who come back are the ones who brought a dozen friends and a priest, and even they come back singed." } },
@@ -414,6 +456,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, in my camp. You'll want dragonscale like the rest of them, I expect, though I'll warn you now that dragons don't care for demons any more than they care for me." },
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, in my camp! Dragons don't care about the spirits any more than they care about banners, but you're welcome all the same, and I'll offer my condolences before you go hunting anything with scales." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. You'll want dragonscale, I expect, and I'll teach you to work it, though I'd rather you didn't go and fetch it yourself." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -445,6 +491,8 @@ P:NPC {
         { text = "Why shouldn't a warrior hunt dragons, Peter?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have hunters brought you dragonscale before?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does it trouble you, working the hides of dragons?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why offer condolences to a shaman, Peter?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the dragons really dislike demons, Peter?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell, Peter.", next = "END" },
       },
     },
@@ -501,6 +549,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Frighten, chase, chew on, I'm not picky, so long as I get my equipment back! They thought they could knife a loyal goblin partner and keep his gear, and I'd like them to learn otherwise, so name your price, and I'll pay half of it." } },
+      choices = {
+        { text = "Half? I'll do it for the full price, goblin.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll help you, but no demon chews on anyone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They hired me as a scout, and then they turned on me with knives, and then they kept my equipment, the thieves! I'm not asking you to smite them, exactly, although I wouldn't mind, but I'd very much like my gear back before someone else claims it." } },
+      choices = {
+        { text = "I'll recover your gear, but the elves deserve justice, not revenge.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll take back your gear, and teach them not to steal.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because Kim'jael is a goblin of business, not a goblin of punching, and also because they had swords and I had a stuffed chicken. You have a sword, so you see how this works out better for everybody, especially me." } },
@@ -587,6 +653,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! Now there's a useful sort, because those elves who called me little rat are mages, and nothing frightens a mage like a demon at the door." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Good, very good, valuable even, because those elves who called me little rat will have a much harder time knifing me with a shiny holy fellow standing right there." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Good, very good, valuable employee, because Kim'jael needs his equipment back and the elves who took it are big, and mean, and very rude." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -625,6 +695,8 @@ P:NPC {
         { text = "Why didn't you fight the elves yourself, Kim'jael?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How did you lose all your equipment, Kim'jael?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Did the satyrs treat the land as badly as they treated you?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Will you tell me what the elves did to you, Kim'jael?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you want my demon to frighten the elves, Kim'jael?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Later, Kim'jael.", next = "END" },
       },
     },
@@ -720,6 +792,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because they watched the Horizon Scout go down with half our crew aboard, and they still hear the naga singing at night. They're good men, but they've seen enough monsters for one lifetime, and they'd rather not wake to see a demon sitting by the fire." } },
+      choices = {
+        { text = "I'll keep my demon away from your crew, Captain.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your crew should get used to it. The naga are worse.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -770,6 +851,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, on my beach. I've sailors here who'd jump at their own shadows after what the naga did, so keep that creature quiet and close, and we'll get along fine." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, ahoy! Can you shoot naga from the barricade? My sailors can barely shoot straight on a calm sea, never mind with the naga coming up the beach." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -796,6 +879,7 @@ P:NPC {
         { text = "What cargo did the naga take?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you blame yourself for the Horizon Scout, Captain?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a hunter help hold your barricade, Captain?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why are your sailors so afraid, Captain?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll stand with your crew if they come.", next = "END", fx = { affinity = 1, trait = { brave = 1 } } },
       },
     },
@@ -888,6 +972,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Once, an' once was plenty! An imp got into the engine an' I thought she'd catch fire over the sea, an' I swear it laughed the whole way down. So ye'll forgive me if I ask ye tae keep it on a short leash while I'm flyin' these rubbings north." } },
+      choices = {
+        { text = "A short leash it is. Your flyer's safe with me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My imp goes where it pleases. You'll manage.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Naga, mostly, an' the ghosts o' the Highborne, who don't take kindly tae folk rubbin' their walls wi' charcoal. A warrior's handy, because when they come at ye there's no time for spells, only for standin' yer ground." } },
@@ -965,6 +1058,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
+          text = "A warlock, wantin' a lift? Fine by me, so long as yer wee beastie doesn't chew the fuel line, because I'll not be explainin' that tae Ironforge." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior, eh? Well, the gyrocopter's a wee thing, but if ye leave the shield on the ground I can just about manage ye, an' the naga'll never see us comin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -997,6 +1092,7 @@ P:NPC {
         { text = "What dangers wait in the Ruins of Eldarath, Xiggs?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Have you seen much from the air over Azshara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What does the Explorers' League want with these ruins?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Have you had trouble with demons in your flyer, Xiggs?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Safe flight, Xiggs.", next = "END" },
       },
     },

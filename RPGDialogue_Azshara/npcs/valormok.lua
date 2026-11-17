@@ -467,6 +467,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They hate the sea, the salt, the naga, and the elves on the cliffs. I don't blame them; I hate most of it too, and Valormok is no place for beasts that were born to fly over the Barrens. Warm them, and they'll fly you anywhere, so long as it's away from here." } },
+      choices = {
+        { text = "I'll warm them. Your riders deserve better than salt and wind.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They're beasts. They'll fly wherever they're told.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "No. My riders carry warriors to the fight and bring them home, and that's all, because a wind rider that fights the naga doesn't come back. You do the fighting, and I'll be here when you're done." } },
@@ -535,6 +544,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
+          text = "Mage. You can keep my riders warm with a little fire, if you'd do it quickly. They hate the salt wind, and so do I." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "Warrior. Good. You won't complain about the wind, I hope, because everyone else does." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -561,6 +572,7 @@ P:NPC {
         { text = "Do your wind riders ever fly into the fighting, Kroum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your wind riders mind my beast, Kroum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do your wind riders fly well over Azshara?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do your riders truly hate this place, Kroum?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

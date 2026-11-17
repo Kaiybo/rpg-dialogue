@@ -379,8 +379,18 @@ P:NPC {
         { text = "Thank you. Let me ask something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The Portal itself is quiet, but the Dreadmaul ogres and the Shadowsworn cultists come and go around it at all hours, and nobody knows who sends them. A quiet pair of eyes on the cultists' camps would tell me more than another month of readings from this tower." } },
+      choices = {
+        { text = "I'll watch and report exactly what I see, Watcher.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll watch, and decide myself what's worth reporting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Watcher.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, here? Then you'll know how to stand still and watch without being noticed, which is most of what we do in Nethergarde, though we write it all down afterward." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior! The garrison downstairs keeps the Dreadmaul off our wards while we take our readings, and I'm more grateful to your sort than I ever remember to say." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -418,6 +428,7 @@ P:NPC {
         { text = "Did the Silver Hand fight at the Dark Portal, Watcher?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would a warrior do if the Portal woke, Watcher?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What happens to the beasts that live near the Portal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What does a Watcher need that a rogue could help with, Mahar Ba?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll leave you to your readings.", next = "END" },
       },
     },
@@ -1438,8 +1449,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Every one of them, and I'd think less of them if they didn't, because in this land anything that creeps up on you usually means to eat you. Walk up to them openly and let them see your hands, and they'll carry you anywhere you need to go, even a rogue." } },
+      choices = {
+        { text = "Fair enough. I'll walk up openly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep creeping. It's good practice, birds or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. Stay clear of the roost if you can't help creeping, because a gryphon that hears someone sneak up behind it will bite first and think about it afterward." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior. You'll be heavy in the saddle, so mind how you mount, because my birds remember who kicked them on the way up." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -1468,6 +1489,7 @@ P:NPC {
         { text = "Can a gryphon carry a warrior in full plate?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do you keep your gryphons healthy here, Alexandra?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do the Blasted Lands do to your gryphons, Alexandra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do your gryphons really bite anyone who sneaks up on them, Alexandra?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1588,8 +1610,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not much, I'll be honest, because every one of them has stood a watch facing the Dark Portal and wondered what might come through it. Sit with your back to the wall and eat what you're given without any fuss, and by the third meal they'll stop staring, mostly." } },
+      choices = {
+        { text = "I'll keep my head down and earn their trust.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them stare. I don't need their trust.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in my kitchen! Keep the imp off the counter, friend, because the last one that got in here ate a wheel of cheese and blamed the dwarves, and the dwarves have not forgotten." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior! You'll want the big loaf, then, because the soldiers who stand the morning watch by the Portal come back hungrier than the ogres." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -1618,6 +1650,7 @@ P:NPC {
         { text = "What do the soldiers say about the Dreadmaul, Bernie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's the strangest thing the soldiers have tried to eat here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Has anyone tried to grow food here, Bernie?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do the soldiers here trust a warlock at their table, Bernie?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not hungry, thanks.", next = "END" },
       },
     },
@@ -1724,8 +1757,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Aye, if the coin's good an' the armor's no' smokin'. I've seen what comes out o' that Portal, so I'll no' pretend I like yer trade, but a smith who turned away every customer he disliked would starve in a week out here." } },
+      choices = {
+        { text = "Fair dealing's all I ask, Strumner.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Keep your opinions and just do the work, dwarf.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I mend armor, no' souls, so if it's yer demon that needs fixin', ye've come tae the wrong dwarf." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "Hunter, is it? Mail, then, or leather wi' studs, an' either way ye'll want it seen tae before the dust gets in the links." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, at my forge? Cloth doesnae need an anvil, friend, though I'll mend yer gloves if ye ask nicely." },
@@ -1747,6 +1790,7 @@ P:NPC {
         { text = "Do the soldiers here need a priest more than an armorer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does this dust do to a hunter's mail?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you mend much druid armor out here, Strumner?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you mend armor for a warlock, Strumner?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Never mind.", next = "END" },
       },
     },

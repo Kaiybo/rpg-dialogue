@@ -61,6 +61,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "We do not, because the wind answers us as a friend and not as a tool, and I would rather not say more of our ways than that. The Horde's mages have been kind to us, though, and I would only ask that you be careful with fire on these plains, which we owe to the tauren." },
+      },
+      choices = {
+        { text = "I'll be careful, Elder. Mulgore is the tauren's gift to you.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My magic is my own affair, Elder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "We fear what we don't understand, and we don't understand the things you call, though the orcs have told us their story. Gev'rek owes Thunder Bluff its welcome, so I would ask you to keep your demon out of our camp, out of respect for them and for us." },
+      },
+      choices = {
+        { text = "I'll keep it out of your camp, Elder.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your people will have to get used to me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -68,6 +90,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warrior. The Horde gave us a place to stand, and its warriors are the reason that place stays standing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A hunter, with a beast that walks beside you. These plains hold creatures I'm still learning to name." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Windshapers pray to the winds and not to gods, but Mulgore has taught me that the Horde holds many faiths, and I would understand yours." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A mage, at Gev'rek. My people shape the wind, so we know a little of what it is to bend the world, and to be careful when we do." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } }, text = "A warlock. I'll be honest with you, as I try to be with everyone: the wind goes still around you, and my people notice." },
       },
       choices = {
         { text = "Why did you leave Skywall?", next = "skywall" },
@@ -80,6 +104,8 @@ P:NPC {
         { text = "Do the Windshapers need warriors, Elder?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Are the beasts of the plains strange to your people, Elder?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Do the Windshapers have healers of their own, Elder?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the Windshapers practise the arcane, Elder?", next = "xmage", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } } },
+        { text = "Do your people fear warlocks, Elder?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Winds be with you.", next = "END", fx = { affinity = 1, standing = { gevrek = 1 } } },
       },
       again = {

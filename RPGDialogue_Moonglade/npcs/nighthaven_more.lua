@@ -18,6 +18,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Not favour, exactly, but the Circle notices who comes to mend and who comes to take, and shamans usually come to mend. Your people have tauren among the Circle's druids, so you'll find friends in Moonglade, and my wares will be waiting when you've earned them." } },
+      choices = {
+        { text = "I'll earn your wares fairly, like anyone else.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the Circle trusts my people, it should trust me now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The same way anyone does, by helping the land rather than taking from it. The Timbermaw tunnels, the furbolgs of Felwood, the corruption in the woods, all of it needs mending, and a paladin who spends a season on that work will find my shelves much more generous." } },
+      choices = {
+        { text = "I'll earn it honestly, through good work.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Trust ought to be given, not traded for chores.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "By fighting the things the Circle cannot heal, mostly, the corrupted beasts of Felwood and the cultists who trouble Cenarion Hold in Silithus. The druids would rather mend than kill, but some things are past mending, and the Circle remembers who stood beside it then." } },
@@ -86,6 +104,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman of the Horde. The Circle sells its wares to those it trusts, and I've a feeling you'll grow that trust faster than most, since the land already speaks to you." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. The Circle sells its wares to those it trusts, and trust in Moonglade is grown, not bought, so I'll be curious to see what you grow while you're here." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. The Circle's goods are for its friends, and the Circle has few warriors among them, but the Keeper says friendship is grown, so let us see what you grow." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -114,6 +136,8 @@ P:NPC {
         { text = "How does a warrior grow the Circle's friendship?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Does the Circle trust hunters more than others?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How does one earn the Circle's trust, Lorelae?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "How does a paladin earn the Circle's trust, Lorelae?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the Circle favour shamans, Lorelae?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Thank you, Lorelae.", next = "END" },
       },
     },

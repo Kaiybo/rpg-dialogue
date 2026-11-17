@@ -86,6 +86,17 @@ P:NPC {
         { text = "Who else trains in the valley?", next = "valley" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They think you hide behind them, and they're right, but a good mage makes it worth their while. Burn whatever's hitting them, and they'll stand in front of you until they drop, because that's what warriors are for." },
+      },
+      choices = {
+        { text = "I'll guard their backs as they guard mine.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're there to bleed. I'm there to win.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest in the Valley of Honor! Good, because my warriors bleed faster than they learn, and I'm tired of carrying them to the Valley of Spirits." },
@@ -95,6 +106,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman on my training ground! The Warchief swings the Doomhammer and calls the storm with the same arm, so don't tell me your kind are too soft for real fighting." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "Back again, warrior? Show me your stance before you say a word, because your feet tell me more than your mouth ever will." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the Valley of Honor? Ormak's lot are over by the range, but stay if you like, because a hunter who can hold a blade survives longer." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You won't need my lessons, but you'll need my warriors in front of you, so treat them well." },
       },
       choices = {
         { text = "Do your warriors respect a priest who never swings an axe?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -106,6 +118,7 @@ P:NPC {
         { text = "What makes a warrior of the Horde, Grezz?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should a hunter learn to fight up close, Grezz?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do warlocks have any honor, Grezz?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What do your warriors think of mages, Grezz?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell, Grezz.", next = "END" },
       },
       again = { { id = "h_again", text = "Still standing there? Then ask, and ask loudly." } },
@@ -215,6 +228,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "The same way I judge a hunter's beast, by whether it fights well and whether it trusts you, though I doubt any demon trusts anyone. Keep it fed and keep it leashed, and never let it near my students' pets, because they can smell it." },
+      },
+      choices = {
+        { text = "I'll keep it leashed and away from your pets.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My demon goes wherever I send it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I've no lessons for you, but if a hunter's pet comes back torn, I'd rather send it to you than to anyone in this valley." },
@@ -224,6 +248,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid at the hunters' range. You hunt with your own teeth instead of a bow, which I respect, though I'd like to see you tame a boar that way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior at the hunters' range? Stay a while, because you could do worse than learn to throw an axe straight." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "One of mine, and with a beast in tow. Show me how it heels, because a pet that doesn't heel is a pet that gets you killed." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your companion's a demon, so I won't ask to see it, but I'll ask how you treat it." },
       },
       choices = {
         { text = "Would you really trust a priest with a hunter's pet?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -235,6 +260,7 @@ P:NPC {
         { text = "My polymorph tames a beast faster than you can.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can a warrior learn from a hunter, Ormak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How should I train my companion, Ormak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "How would you judge a warlock's demon, Ormak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell, Ormak.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Make it quick, the wolves need feeding." } },
@@ -334,6 +360,17 @@ P:NPC {
         { text = "Why are the spirits restless?", next = "restless" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The elements care about balance, and a blade in the dark can tip the balance either way. Use yours for the Horde and against those who poison the land, and the spirits won't trouble you, but use it for your own greed and they'll remember." },
+      },
+      choices = {
+        { text = "My blade serves the Horde, not my purse.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Greed's an honest reason, Kardris.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The spirits speak to me, and something else speaks to you, and I would very much like to hear what it says." },
@@ -342,6 +379,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren, welcome to the Valley of Wisdom. Your people kept faith with the Earth Mother while mine forgot the spirits entirely, and we have learned a great deal at your elders' fires." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior in the Valley of Wisdom. Good, because the elements respect a strong spirit as much as a wise one, and you may have more of the first than you think." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a beast who walks with you. The spirits of the wild are close to the elements, and I can feel them gathered around you both." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in the Valley of Wisdom. The spirits see you, even when nobody else does." },
       },
       choices = {
         { text = "Do the spirits mind that a priest prays to something else?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -352,6 +390,7 @@ P:NPC {
         { text = "Do the elements care for warriors, Kardris?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the spirits watch over my companion, Kardris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "The spirits must hate me, Kardris.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do the elements care what a rogue does?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you wish. Wisdom grows by sharing it." } },

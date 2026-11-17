@@ -94,6 +94,7 @@ P:NPC {
           text = "You came up the lift without a sound, and I watch that lift all day. The Galak would pay well for feet like yours, so I'm glad they belong to the Horde." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock on my watch. The Galak have their own dark-hearted shamans, and I like their fires no better than yours, but you at least stand on the right side of the cliff." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 40 } }, text = "The Galak raid less these days, and the scouts say it's because you've cut down so many of their warriors. Freewind is grateful, though the centaur will remember you." },
       },
       again = {
         { id = "h_again", text = "What else? Speak, but keep one eye on the canyon while you do." },
@@ -358,6 +359,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Only to see the Cloven Hoof up close, and to learn why the centaur keep it behind a flame that never dies. I don't want it stolen, because a relic taken by force stops telling you anything, and I've waited too long to learn its story." } },
+      choices = {
+        { text = "Then I'll look and leave it where it lies.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Easier to take it and study it here, Rau.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I think it is old, and that the centaur believe it holy, which may be the same thing to them. The night elves say their moonwells were blessed in a similar way, so I've begun to wonder whether every people finds a fire and decides it must be sacred." } },
+      choices = {
+        { text = "Every faith deserves respect, even the centaur's.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The centaur are raiders. Their fire is no holier than a torch.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -374,6 +393,8 @@ P:NPC {
           text = "A mage! You'll want to hear about the flame that guards the Cloven Hoof, because it burns without fuel, and I've never been able to decide whether it's magic or the centaur are simply very good at lying." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock. The Galak call on the spirits of their dead khans before they raid, and I've often wondered whether what answers them is a spirit at all." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You came up the lift without making the ropes sing, and that is rare. I could use someone who can walk into the Galak hold without being heard." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. You'll know something of holy fire, I hope, because the flame that guards the Cloven Hoof burns without wood and without end." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'll warn you, I can talk about centaur until the moon sets." },
@@ -390,6 +411,8 @@ P:NPC {
         { text = "You think something darker answers the centaur?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do the centaur carvings show of their wars, Rau?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the centaur hunt the beasts of the canyon, Rau?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do you want from the Galak hold, Rau?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do you think the flame is holy, Rau?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -760,6 +783,7 @@ P:NPC {
           text = "You move like someone who could get up to the pinnacle without the Grimtotem seeing. I've thought of nothing else since Lakota was taken." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "Warlock. I have prayed to the Earth Mother every night for Lakota, and I am starting to wonder if your kind of power answers faster." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 30 } }, text = "You've been killing Grimtotem, haven't you? It doesn't bring Lakota home, but I'll admit it helps me sleep, and I'm not proud of that." },
       },
       again = {
         { id = "h_again", text = "What else? Say it, and then let me be." },

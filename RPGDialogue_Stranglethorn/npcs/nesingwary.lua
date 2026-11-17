@@ -636,8 +636,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Only if you can walk quiet, and I've never met a paladin who could, though I've met a few who tried very hard. Sin'Dall has outlived every hunter who went after him alone, so I'd take a shield at my back if it kept its mouth shut and let me take the shot." } },
+      choices = {
+        { text = "The kill is yours, Ajeck. I'll guard your back.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If I get the shot first, I'm taking it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Keep that plate from clanking if you come with me, because Sin'Dall hears metal long before he sees it, and he never lets anyone see him twice." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Keep still while I string this, and don't pray too loud, because the tigers out here can hear a pin drop and a sermon from twice as far." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You'd hear the jungle better than I can, so tell me if Sin'Dall is prowling close, because I've waited a long while." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you pray before a hunt, pray for Sin'Dall to show himself; I've done it myself and had no answer." },
@@ -667,6 +677,7 @@ P:NPC {
         { text = "What about the cats that walk on two legs?", next = "druid", when = { class = "DRUID" } },
         { text = "Why are you so set on taking Sin'Dall, Ajeck?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you hunt Sin'Dall with a warrior beside you, Ajeck?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Would you take a paladin on the hunt for Sin'Dall, Ajeck?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Darkspear hunters track tigers too, Ajeck.", next = "k_troll", when = { race = "Troll" } },
         { text = "Why do you say no one else will take Sin'Dall, Ajeck?", next = "xrogue", when = { class = "ROGUE" } },

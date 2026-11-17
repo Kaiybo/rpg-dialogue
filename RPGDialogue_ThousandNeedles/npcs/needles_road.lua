@@ -195,6 +195,24 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Because they believe all the Needles are theirs, and every tauren who passes is a thief to them. I do not hate them for it, but I will not let them take another of our people, and I've seen too many of our wounded left in the canyons." } },
+      choices = {
+        { text = "I'll heal anyone the Galak hurt, and stand with you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Galak earned what's coming to them. I'll fight first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They fear what they don't understand, like any people. The Galak have their own shamans, crude ones, but a ball of fire falling from the sky sends them running faster than anything my spear can do." } },
+      choices = {
+        { text = "I'll use only as much fire as I must.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll rain fire until they never come back.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -209,6 +227,9 @@ P:NPC {
           text = "You walk softly, friend. The Grimtotem and the Galak both keep watch, but neither of them would hear you coming." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock. The winds grow still when you pass, and I wonder what they fear. You are of the Horde, so I welcome you, but I ask you to walk carefully here." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, on the road beneath Freewind. I'd be glad of your company, because the Galak strike at travellers in the canyons, and they do not spare the wounded." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. The Galak fear fire more than spears, so I'd be glad to have you close if they come down from the cliffs." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 25 } }, text = "The Galak below the mesa are fewer than they were, and I have seen you on the canyon road often enough to know why. Be careful, because they will come looking for you." },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Speak, friend." } },
       choices = {
@@ -222,6 +243,8 @@ P:NPC {
         { text = "The winds fear my power?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why would the Galak send killers after you, Kanati?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Which of the Galak's trails should I follow, Kanati?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why do the Galak strike at travellers, Kanati?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the centaur fear magic, Kanati?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -461,6 +484,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I know they are, and they know I know, and they think I'm sabotaging them too, which I am, a little. It's racing, friend, and a race without a bit of mischief is just two cars driving in a circle." } },
+      choices = {
+        { text = "Win it honestly. Sabotage cheapens the race.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If they're cheating, you'd be a fool not to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -483,6 +515,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, at the track? You'd better stand behind the barrels, because if this engine goes, you'll be busy patching me up before the dust settles." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! How fast can you run in that cat shape of yours, anyway? Because I bet I can beat you, and I know the gnomes can't." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You've come to bless the car, I hope, because the gnomes have been at it with their spanners and I could use all the help I can get." },
       },
       again = { { id = "h_again", text = "What else? Talk quick, like me." }, { id = "h_again2", text = "More? Sure, I got a minute between laps." } },
       choices = {
@@ -499,6 +532,7 @@ P:NPC {
         { text = "Aren't you afraid of dying in that car?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does a racer need a warrior's nerve, Razzeric?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the flats' beasts ever wander onto the track, Razzeric?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you think the gnomes are sabotaging you, Razzeric?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -613,6 +647,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "After every race, from whoever came second. Pozzik and Fizzle both swear I favour the other side, which I take as proof I'm doing the job right, because if only one of them were angry I'd be in trouble." } },
+      choices = {
+        { text = "Fair times are worth a little anger. Stay honest.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Tilt the clock a little. Nobody would know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Enough that I keep a count of it on the back of my time sheets, and the count's not small. Pozzik says it's part of the sport, but I've seen a driver pulled from a fire, and I didn't think it looked much like sport." } },
+      choices = {
+        { text = "Then I'll stay close, and help when it happens.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They know the danger when they climb in.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -628,6 +680,8 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "You've got quick hands, I can tell. Keep them away from my stopwatch, because there's more than one crew that would pay to have it run slow." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! If you ever want your running shape timed on the track, I'll do it, though the racers might get jealous." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Good, maybe the drivers will stop accusing me of fixing the times if someone like you is standing next to me." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Stand over here, by the clock, because I'd rather you were close when the next car comes off the track." },
       },
       again = { { id = "h_again", text = "What else, hon?" }, { id = "h_again2", text = "Make it fast; the cars sure are." } },
       choices = {
@@ -641,6 +695,8 @@ P:NPC {
         { text = "Who would pay to fix the times?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do brawls ever stop the races, Daisy?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How do you keep time on cars that fast, Daisy?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do people really accuse you of cheating, Daisy?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do many racers get hurt, Daisy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -762,6 +818,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Him, or somebody he pays, because parts don't just walk off a gnome's workbench. I've started keeping my fuel injector under my pillow, and I'll tell you, it's not comfortable, but it's there in the morning." } },
+      choices = {
+        { text = "I'll help you catch the thief, honestly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Steal one of his back. Fair's fair.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because gnomish engineering is precise and goblin engineering is loud, and somebody has to prove that precise wins. I know the Horde favours the goblins, but a good machine is a good machine, and I'd like you to see ours run." } },
+      choices = {
+        { text = "I'll keep the winds out of it. Win it fairly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "For the right price, the winds might shift.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -782,6 +856,8 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! Do you know, your armor has a lovely articulation at the elbow, and I'd love a look at the hinge, purely for engineering reasons, of course." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Fascinating, simply fascinating; I'd love to know how your shapeshifting works, mechanically speaking, if you'd ever let me take a few measurements." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Hold on, are you here from Pozzik's crew? Because you've got that sneaky look about you, and the last time I saw that look, my fuel line went missing." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Could you ask the winds to blow the goblin car off the track? No? Not even a little gust?" },
       },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Questions? I love questions!" } },
       choices = {
@@ -795,6 +871,8 @@ P:NPC {
         { text = "Is the rivalry with the goblins ever settled fairly?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could racing armor plate work for a warrior, Wizzle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could a machine ever replace a hunter's beast, Wizzle?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Has Pozzik really been stealing your parts, Wizzle?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why do you want to beat the goblins so badly, Wizzle?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell.", next = "END" },
       },
     },

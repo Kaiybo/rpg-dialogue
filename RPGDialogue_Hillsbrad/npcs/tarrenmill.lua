@@ -83,6 +83,15 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Soldiers who don't fall, first, and soldiers who fall and rise again, second. The Deathguard who die in Hillsbrad's fields are carried back to the Mill, and I would rather a priest mend them in the evening than Lydon stitch them in the morning, for he enjoys it far too much." } },
+      choices = {
+        { text = "I'll mend your soldiers, High Executor. That's the work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll heal who I choose. Your line is your affair.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, High Executor.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -112,6 +121,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Lord Varimathras has given us many gifts, and I suspect you're one of the few who understands what they cost." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Good, because Southshore's farms are not taken by stealth alone, and when the humans finally form a line, I want someone who can break it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Southshore's patrols keep to the shore road, and I need someone who can follow them unseen and who doesn't mind what happens at the end of the trail." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Light abandoned Lordaeron's dead, so I care very little which god or shadow you pray to, so long as my soldiers stand back up after you're done with them." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief about it." },
@@ -137,6 +147,7 @@ P:NPC {
         { text = "Do you trust Lord Varimathras, High Executor?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Where would you have me break the human line, High Executor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should I track for you, High Executor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do you need from a priest at Tarren Mill, High Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll take my leave.", next = "END" },
       },
     },

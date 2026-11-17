@@ -356,8 +356,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "The Bloodscalp put a hold on the boy's spirit, and it take more than a blade to break it, maybe. If your prayers can touch a soul held that tight, you stay close, because Nimboya will need you on the day we find him." } },
+      choices = {
+        { text = "I'll pray for him and stand with you, Nimboya.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Prayers won't free him, Nimboya. Strength will.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Maybe it could, mon, if your magic can tell a lost troll from a Bloodscalp at a hundred paces, because the boy wear their paint now. Burn their camps if you must, but you look twice before you throw your fire, because the chief's son might be standing in it." } },
+      choices = {
+        { text = "I'll take care, Nimboya. The boy comes first.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If they stand together, Nimboya, they burn together.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Your fire be welcome against the Bloodscalp, and Nimboya hope your eyes be sharp for one lost young troll among them." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Pray for Yenniku, then, because the Bloodscalp hold him somewhere in this jungle, and Nimboya need every voice that can reach the spirits." },
         { id = "h_default", key = true,
           text = "The chief's son be lost in this jungle, Yenniku. I come from Orgrimmar to find him, and I don't go back without him." },
         { id = "h_hunt", tags = { "news" }, when = { questActive = TODO_QUEST("Hunt for Yenniku") },
@@ -393,6 +413,8 @@ P:NPC {
         { text = "I'm Darkspear. Tell me what the chief needs.", next = "kin", when = { race = "Troll" } },
         { text = "His soul is free. Is it over?", next = "after", when = { questDone = TODO_QUEST("Saving Yenniku") } },
         { text = "Could I track Yenniku through the jungle, Nimboya?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What can a priest do for Yenniku, Nimboya?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could my magic help find Yenniku, Nimboya?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll help you find him.", next = "END", fx = { affinity = 2, align = { honor = 1 }, learn = { "yenniku" } } },
         { text = "The spirits might know where Yenniku is.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "Where do you think the Bloodscalp hold Yenniku, Nimboya?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -885,8 +907,18 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Perhaps, though the power in a raptor's blood is older than any prayer, and it answers to the earth before it answers to anyone's god. Your shadows and your loa have their own ways, priest, and I'll not tell you yours, but I'd ask you not to waste what the beasts give when they fall." } },
+      choices = {
+        { text = "I'll honor what the beasts give, Far Seer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Power is power. I'll take whatever serves me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The beasts of this jungle carry old power, and you'll feel it if you sit by my fire, though it isn't the kind your prayers were made for." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "Earthmother keep you, druid. Thunder Bluff is far, but the spirits of this jungle know your kind." },
         { id = "h_default", key = true,
@@ -919,6 +951,7 @@ P:NPC {
         { text = "Can a mage learn wisdom from the elements, Far Seer?", next = "xmage", when = { class = "MAGE", race = { "Troll", "Scourge" } } },
         { text = "How do I keep hold of the fury, Far Seer?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What power do you draw from the beasts, Far Seer?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can a priest's prayers reach the power in these beasts, Far Seer?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Thank you, far seer.", next = "END" },
       },
     },

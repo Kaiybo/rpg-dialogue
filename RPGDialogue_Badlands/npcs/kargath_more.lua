@@ -319,8 +319,28 @@ P:NPC {
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Better, maybe, because a potion don't ask what you done to get hurt, mon, and it work the same for the faithful and the faithless. Your prayers be fine things, but Jarkal see plenty of grunts at Kargath who'd rather drink their healing than kneel for it." } },
+      choices = {
+        { text = "Prayer gives more than mending, Jarkal. It gives purpose.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A potion that works beats a sermon, Jarkal.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The shards hold a little of the earth's anger, mon, and somebody who know what he doing can grind it into something useful, so Jarkal need them for his own brews first. You bring Jarkal his share from the Badlands, and maybe he show you which shards be worth keeping." } },
+      choices = {
+        { text = "Fair trade, Jarkal. Your share first, then mine.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll keep the best shards for myself, Jarkal.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, mon! Jarkal sell good reagents to your kind, though the best thing in this land for spells be the shards off the rock elementals, and Jarkal want those too." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Jarkal be selling to your kind too, mon, and the potions do half your mending for you, so maybe we both be healers in our way." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Jarkal be selling to your kind too, mon, but the shards you carry, those Jarkal don't touch, because souls be bad for the stomach." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You be wanting poisons, I think, and Jarkal don't sell poison, mon, but Jarkal know where the reagents grow, and that be nearly the same thing." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -353,6 +373,8 @@ P:NPC {
         { text = "Where do the best poison reagents grow, Jarkal?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do my soul shards frighten you, Jarkal?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Which beasts do you need for your potions, Jarkal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Are your potions really as good as a priest's prayers, Jarkal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What does a mage want with rock elemental shards, Jarkal?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll bring you what you need.", next = "END", fx = { affinity = 1 } },
       },
     },

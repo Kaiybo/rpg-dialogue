@@ -200,6 +200,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They do, and they're picky about it, which I like in a customer. One of them asked me for something that grows only on graves, and I told him I don't gather in Duskwood and never will, and he went off looking disappointed." } },
+      choices = {
+        { text = "You're right not to gather there, Pomeroy.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Grave herbs have their uses. You're missing out.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Pomeroy.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Earthroot, chewed, for a bruise that won't settle, and bark of the silver birch for a sore head. Mallory will tell you a potion's better, and she's right, but a root in your pocket costs nothing." } },
@@ -271,6 +280,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You'll be wanting herbs for your inks, I suppose, and I can spare a few, though not the best ones." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the herb house. Stand still, now, because you've knocked my drying rack twice already." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've heard your sort pick certain herbs by moonlight, and I'd love to know which ones, if you're willing to tell." },
       },
       again = {
         { id = "h_again", text = "What else, dear? I've roots drying and nowhere to be." },
@@ -288,6 +298,7 @@ P:NPC {
         { text = "What should a hunter learn to look for underfoot?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do herbs and prayer heal the same way, Pomeroy?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who in Elwynn needs your herbs most, Pomeroy?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do warlocks ever buy herbs from you, Pomeroy?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day to you.", next = "END" },
       },
     },

@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I think both take something unseen and bind it into the world, but I'm only an enchanter, and I sell rods and dust, not theology. The sand scours everything here, so whatever you've bound into your armour, I'd keep it under a cloak when the storms come." } },
+      choices = {
+        { text = "The Light is faith, not a craft. They aren't alike.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. It's all just binding in the end.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A great deal, if you'd let us, though warriors always want their weapons to glow and never their armor to hold. A cloak enchanted against nature's venom would do more for you at the hives than any shining edge, but no warrior has ever thanked me for one." } },
@@ -95,6 +104,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, among my formulae. Some say an enchanter's craft and your Light are distant cousins, and I wonder whether you would agree, or whether you'd call it blasphemy." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your totems carry a little magic of their own, I think, though not the kind I sell, so look all you like, but please don't let them rattle near the vellum." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, browsing my formulae. Some say a priest's power and an enchanter's are distant cousins, and you may tell me if they're wrong." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -124,6 +135,7 @@ P:NPC {
         { text = "Can enchantment ward against what the cult calls up, Kania?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there anything an enchanter can do for a warrior, Kania?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can enchanting do anything for a hunter, Kania?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Is an enchanter's craft like the Light, Kania?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -180,6 +192,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the Earth Mother made the scorpid's sting and the flower's nectar both, and she did not ask which was more righteous. I sell to those who fight the swarm, and if a rogue's blade ends a silithid faster than your hammer does, I count it as the same good work." } },
+      choices = {
+        { text = "A clean fight is better. Poison has no honour in it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whatever ends the swarm is honourable enough.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Against an orc or a man, perhaps, but against the silithid there is little honour to lose, for they do not fight as we do. The Earth Mother gave us venom and medicine from the same roots, and I do not think she meant one only for the rogues." } },
@@ -239,6 +260,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. You will want candles for your prayers, I think, and I sell those, and poisons for darker work, and I find no shame in either, though you may." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage. You'll be wanting arcane powder for your portals, I expect, and I keep plenty, since the Hold's a long way from any city." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -266,6 +289,7 @@ P:NPC {
         { text = "Does selling poison sit easily beside holy candles, Khur?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is it dishonourable for a warrior to poison his blade, Khur?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What did the hunters teach you on the road from Mulgore?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "How can you sell poison with a clear conscience, Khur?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -320,6 +344,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Hard enough to send a grown tauren into the water trough, which I saw happen last week, and I wasn't allowed to laugh. If you need to slip in and out quietly, use the side door, and I'll pretend I didn't see you, but only if you're on the Hold's business." } },
+      choices = {
+        { text = "I'm always on the Hold's business, squire.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pretend you didn't see me, and leave it at that.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Oh, I'm kaldorei, so the Light isn't really our way, but I do dream of being a proper knight of the Hold, with a mount of my own and a banner. Until then I keep the stables, and every boarded beast is a soldier in my charge, and I'll not have one of them come back hurt if I can help it." } },
+      choices = {
+        { text = "Keep that spirit, squire. It'll serve you well.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Dreams are fine, but stable work is still stable work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a squire serves the ones who fight, and I mean to earn the right to fight beside them one day. For now I serve their beasts, and I'd sooner throw a scorpid over the wall than let one near a stall in my charge." } },
@@ -376,6 +418,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! I don't suppose you've any beast for the stables, but you're welcome all the same, and please don't sneak up on the horses, because they kick." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Welcome to the stables, and if your charger needs grooming, you'll find I treat every mount here as I would the commander's own, which is to say very well." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde! Welcome, welcome; the beasts in my care have been restless lately, and I've wondered whether something in the earth unsettles them, so you're exactly who I hoped would come." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde! Welcome to the stables, and please, if you've a blessing to spare, one of my mounts came back from the Twilight camps and hasn't eaten since." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -402,6 +448,8 @@ P:NPC {
         { text = "How do you keep the beasts cool in the desert?", next = "xmage", when = { class = "MAGE" } },
         { text = "What happened to the mount from the Twilight camps, Leoren?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why do you take the title of squire so seriously, Leoren?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Do you dream of being a paladin yourself, Leoren?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the horses really kick that hard, Leoren?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
       },
     },

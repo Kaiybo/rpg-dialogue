@@ -74,6 +74,24 @@ P:NPC {
         { text = "Let me ask something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Not if I can help it. But the Grimtotem want a war, and some of the grunts here want one too, because they never stopped fighting in their heads, so I need someone in Brackenwall who can calm them as well as heal them." } },
+      choices = {
+        { text = "I'll calm them. The Warchief's peace is worth keeping.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them have their anger. The humans earned it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Fear is the wrong word. Their Lady could have burned Brackenwall to the mud any night she liked, and she hasn't, which tells me more about her than any treaty. Still, I'd like to know what Archmage Tervosh keeps in that tower of his." } },
+      choices = {
+        { text = "I'll respect their peace. They've kept their word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find out what's in that tower, quietly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
@@ -102,6 +120,9 @@ P:NPC {
           text = "A tauren druid in Brackenwall, good. You'll know better than I do what the Earth Mother makes of tauren who'd start a war in her name." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Good, because the truth about that inn won't be found by shouting at the gates of Theramore, and you know how to listen where others stomp." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Thrall forgives the old ways in those who serve him well, and I'll do the same, but keep your demons away from the human road while the inn still smokes." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Good, because if this turns ugly with Theramore there'll be wounded on both sides of the marsh, and I'd rather you were here than there." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Theramore's full of your kind, wearing blue and doing the Lady's bidding, and I'd like someone on our side who knows what they're capable of." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Grimtotem", min = 20 } }, text = "Word is the Grimtotem in the marsh are a good deal fewer than they were, and they're not happy about it. Neither am I, though only because I'd have liked to watch." },
       },
       again = {
         { id = "h_again", text = "What else? Make it useful." },
@@ -119,6 +140,8 @@ P:NPC {
         { text = "Thrall's peace with the humans sits badly with me.", next = "x_orc", when = { race = "Orc" } },
         { text = "The spirits of this marsh are angry, Krog.", next = "x_shaman", when = { class = "SHAMAN" } },
         { text = "The Forsaken would gladly see Theramore burn.", next = "x_forsaken", when = { race = "Scourge" } },
+        { text = "Do you expect the fighting to start again, Krog?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What do you fear from Theramore's mages, Krog?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "I'll find the truth.", next = "END", fx = { affinity = 2, align = { honor = 1 }, standing = { brackenwall = 1 } } },
         { text = "Where would you have me look for the truth, Krog?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why keep my demons off the road, Krog?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },

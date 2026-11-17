@@ -47,6 +47,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I do. He was an old warrior hiding from his own Horde, and he saved my life, and when my own people would have killed him for it, I couldn't stand by. They took my lands and my name, and they told my son I was a traitor, and I'd make the same choice again tomorrow, though I'd give a great deal to have Taelan understand it." } },
+      choices = {
+        { text = "You chose rightly, Tirion. Honour knows no colours.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your own people came first. You should have remembered that.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Tirion.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -73,6 +82,7 @@ P:NPC {
           text = "You came down the bank so quietly the fish never noticed, {class}, and neither did I until just now. That's a rare gift, and I hope you use it kindly." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Mirador doesn't startle at you, {class}, which tells me you've a quiet way with beasts, and I've always trusted people the animals trust." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde, here by my river. Sit, {class}, if you like; an orc once taught me more about honour than my own order ever did, and I've never been sorry I listened." },
       },
       again = { { id = "h_again", text = "Sit a while longer; the fish aren't biting anyway." } },
       choices = {
@@ -89,6 +99,7 @@ P:NPC {
         { text = "Do you blame Dalaran for not stopping the plague?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does a paladin think less of someone who works unseen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you still hunt these woods, Tirion?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you mean Eitrigg, Tirion?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 2, align = { light = 1, honor = 1 } } },
         { text = "You chose an orc over your own people, and I can't respect that.", next = "END", fx = { affinity = -1, align = { light = -1 } } },
       },
@@ -285,6 +296,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "I trust the ones who've stopped pretending the dead can be saved, and who mend a ranger's arm so he can draw a bow again. Out here a healer who stays back from the line is just another mouth, so if you mean to serve the Queen at Marris Stead, stand where the plaguebats can reach you." } },
+      choices = {
+        { text = "I'll stand at the line, Blightcaller. Where I'm needed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll stand where I please. Healers don't take orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Blightcaller.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "The land? Perhaps, given a hundred years and a great many fires. But I hunted these woods when I was living, and I'll tell you plainly that I don't care if a single tree grows here again, so long as nothing that killed me walks here either." } },
+      choices = {
+        { text = "The land deserves healing, Blightcaller, not just vengeance.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Vengeance first. The trees can wait a hundred years.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Blightcaller.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -303,6 +332,8 @@ P:NPC {
           text = "A rogue. The Banshee Queen's Deathstalkers move as you do, {class}, and I've found them far more useful than soldiers who announce themselves." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. The Banshee Queen has soldiers enough to hold a line, {class}, so I'll want to see whether you can do more than stand where you're put." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Dark Lady's priests have found what the Light never gave us, {class}, and I trust you're not one of the soft ones who still pray to the old Cathedral's god." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your spirits will find little to talk to out here, {class}, for the Scourge has killed the land as surely as it killed me." },
       },
       again = {
         { id = "h_again", text = "More? Ask it quickly, because the plaguebats won't wait on your curiosity." },
@@ -318,6 +349,8 @@ P:NPC {
         { text = "Do you trust mages, Blightcaller?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you set me on the Scarlet zealots, Blightcaller?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What more would you have a warrior do, Blightcaller?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do you trust any priest, Blightcaller?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you think the land can be brought back, Blightcaller?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll clear the fields.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hunt where I please, Blightcaller, not where you point.", next = "END", fx = { align = { order = -1 } } },
       },

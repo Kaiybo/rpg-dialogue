@@ -883,6 +883,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Once, a troll froze me to the floor and everybody stepped over me for an hour, which was almost restful. I was a warrior before, you know, and I'd rather be hit than pitied, so do whichever you like." },
+      },
+      choices = {
+        { text = "Nobody should be knocked down for sport, Gamon.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Get up and fight back, or stay on the floor.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You've come to look at my bruises, I suppose, and I'll tell you now that most of them are old ones." },
@@ -892,6 +903,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Don't call lightning down on me, please, because I've been hit by most other things in this inn and I'd like to keep that one off the list." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. If you can turn into a bear, please don't do it near me, because I've been knocked down by orcs and trolls and I'd rather not add a bear to the list." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "Oh, a hunter. Mind your beast doesn't lick my face, because the last one did, and I couldn't get up to stop it." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Don't set me on fire, that's all I ask, because people usually settle for punching me." },
       },
       choices = {
         { text = "Why don't you let someone heal you, Gamon?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -903,6 +915,7 @@ P:NPC {
         { text = "Does my demon frighten you, Gamon?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I won't hit you.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "You were a warrior once. What happened?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Has a mage ever knocked you down, Gamon?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Bye, Gamon.", next = "END" },
       },
       again = {

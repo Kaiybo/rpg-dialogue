@@ -409,6 +409,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but they'll flatten their feathers and fly fast, and I've had one try to shake a rider off over the Thandol Span. Treat the bird well and keep your demon out of its sight, and you'll land where you meant to." } },
+      choices = {
+        { text = "I'll treat your birds with respect, Cedrik.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The bird will carry me whether it likes it or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Cedrik.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! If you're flying south, I'll ask you to say a word for the birds before you go, because the Highland wind is a cruel thing and my gryphons have been through enough of it this season." },
@@ -424,6 +433,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My birds can carry you, armour and all, though the gryphons do complain about plate when the wind's blowing off the coast." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll appreciate my gryphons, then, for there isn't a beast in the Highlands they couldn't take, though they're a sight harder to feed." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Your people have their hippogryphs, I know, but I'll wager you'll find a gryphon just as steady." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The gryphons don't care for whatever you've got following you, {class}, so leave it on the ground when you fly, and I'll leave the bird's temper to the bird." },
       },
       again = {
         { id = "h_again", text = "Anything more? The gryphons smell trolls on the wind and won't settle until we're done." },
@@ -439,6 +449,7 @@ P:NPC {
         { text = "Do gryphons really complain about armoured riders, Cedrik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do you feed the gryphons at Refuge Pointe?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do gryphons and hippogryphs get along, Cedrik?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will your gryphons carry a warlock at all, Cedrik?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -547,6 +558,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Short of everything, if I'm honest, because the carts from Southshore come when the Syndicate let them, and the Syndicate don't let them often. The soldiers make do with what I've got, and I make do with counting it twice, but a paladin on the road from the Thandol Span would do more for my shelves than any coin." } },
+      choices = {
+        { text = "I'll ride the Span road and see your carts safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The road isn't my fight, Vikki. I've a war to win.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Vikki.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I've bandages if you're running short, and I'd take it kindly if you looked in on the wounded before you buy anything, because they're the ones using most of what I stock." },
@@ -561,6 +581,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be wanting rations, then, and whetstones, and I've enough of both for three more days if nobody else comes up the road." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll want arrows, I suppose, which is a pity, since I'm down to my last two quivers and the soldiers want those too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. If you're after herbs, the Highlands have plenty, but watch out for the ogres in the east, because they think everything in the hills belongs to them." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be wanting oil for that plate and the good bandages, and I'll warn you now, {class}, the Captain's sergeants have already asked me for both." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a tally to finish." },
@@ -576,6 +597,7 @@ P:NPC {
         { text = "Are supplies really that short at Refuge Pointe, Vikki?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a hunter help with your supplies, Vikki?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the Highlands still have wild places worth saving?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is Refuge Pointe short of more than bandages, Vikki?", next = "xapala", when = { class = "PALADIN" } },
         { text = "That's all.", next = "END" },
       },
     },

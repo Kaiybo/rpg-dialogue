@@ -59,8 +59,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Troggs out o' the deep places, stone things that shouldnae move, an' Shadowforge dwarves pokin' about after the same relics we were. Ye're welcome tae take yer demon down there an' scare a few o' them, an' if it brings Hammertoe out alive, I'll stop glarin' at it." } },
+      choices = {
+        { text = "I'll keep my demon in check down there, Prospector.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll let it loose on the troggs and see what's left.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, is it? I'll no' pretend I like it, but there's worse than demons in Uldaman just now, an' Hammertoe's still down there somewhere." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Then say a word for Hammertoe, would ye, for I've said all the ones I know, an' the Light's no' answered me yet." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! If ye can make heads or tails o' Hammertoe's scribbles before ye take 'em tae Ironforge, I'd be glad tae hear it, for they read like a fever dream tae me." },
@@ -85,6 +95,7 @@ P:NPC {
         { text = "Could I slip into the dig unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What did Hammertoe write that troubles you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would you like me to pray for Hammertoe, Prospector?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What's in Uldaman that's worse than demons, Prospector?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -225,8 +236,29 @@ P:NPC {
         { text = "Let's talk science instead.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That's precisely what I'd like to know! The elementals answer to the elements and nothing else as far as I can tell, so if the Light rattles them at all, it would mean the Light reaches places the Kirin Tor swears it can't, and probably nothing is exactly where the best discoveries start." } },
+      choices = {
+        { text = "The Light isn't a test subject, Lotwil.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fine. I'll stand by your rock and see what happens.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpriest = {
+      big = true,
+      lines = { { id = "xpriest_default", text = "I honestly don't know, and it's driving me to distraction, because I've written down every reaction it has and prayer is the only thing that makes it grind its teeth, if it has teeth. My guess is that anything with a will of its own unsettles it, since it's had nothing but rock and my shackles for company." } },
+      choices = {
+        { text = "Keep it bound, Lotwil. Rock that thinks is dangerous.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Perhaps it simply wants to be free, Lotwil.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I'd be awfully grateful if you didn't pray at the elemental, because whatever it is you pray to, it doesn't seem to approve." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Do keep your voice down near the shackles, please, because the elemental doesn't care for chanting, and the last time someone prayed nearby it cracked a shackle clean through." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, splendid, do stand by the elemental there, because I've always wondered whether holy light makes a rock elemental flinch, and nobody has ever volunteered." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! I didn't hear you come in, which is either very impressive or very worrying. You're not after my samples, are you?" },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Splendid, a fellow practitioner of the natural sciences, though you'd call them something prettier, I expect. Tell me, can you feel the elementals in these rocks the way I measure them?" },
@@ -255,6 +287,8 @@ P:NPC {
         { text = "What would a thief want with rock elemental samples?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What do you need a warrior for, Lotwil?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why do you think the beasts avoid the elementals?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why would holy light make a rock elemental flinch, Lotwil?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why doesn't your elemental like prayer, Lotwil?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "For science.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },

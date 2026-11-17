@@ -75,8 +75,18 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I knew the orcs when they were only shamans and hunters, before their warlocks taught them fel and before they turned it on us. You tell me the earth and wind answer you, but I remember when the elements of Draenor answered too, and they could not stop what came after." } },
+      choices = {
+        { text = "The Horde has turned from the fel. We remember our path.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "What was done is done, Kum'isha. I owe you nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The orc shamans spoke to the elements on my world once, before they found darker teachers, and my people paid for that lesson." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and you smell of iron and greed together, as all your kind do. You would cut down anything that stood between you and a prize." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -115,6 +125,7 @@ P:NPC {
         { text = "If I'm greedy, why trust me with your crystals?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you think every warrior fights for greed, Kum'isha?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Did your people hunt, before you came here?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Did you know shamans on your world, Kum'isha?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll keep my eyes open for crystals.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -330,8 +341,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because my sister thinks the strength of these beasts lives in their spirits and I think it lives in their blood, and you're the first person I've met who might settle it. If the spirits are sick here, then she's wrong, and I would dearly love to tell her so." } },
+      choices = {
+        { text = "The spirits here are in pain. That's not for sport.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll help you win the argument, Drazial.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits of the beasts out here still speak to you, or has the fel drowned them out? Either answer would be fascinating, and I'll want notes." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Tell me honestly, do you think the fel in this soil is what makes the boars so strong? I've a theory, and you're the first person I've met who might confirm it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A fellow student of the arcane! My sister calls my work alchemy with pretensions, but you'll appreciate the subtler parts, I'm sure." },
         { id = "h_default", key = true,
@@ -360,6 +381,7 @@ P:NPC {
         { text = "Does the fel make the beasts strong?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Is the Light just another strength to bottle, Drazial?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What have you learned from the beasts out here, Drazial?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why do you care what the spirits say, Drazial?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -505,8 +527,28 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Everything worth knowing, because a basilisk lies so still on the rocks that you step on it before you see it, and then you stop moving altogether. My brother bottles their strength, but I would rather understand their patience, which no elixir has ever captured." } },
+      choices = {
+        { text = "Patience is a discipline. I'll study it, Lynnore.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd sooner bottle the strength and be done with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Its instinct and its will to live, the thing that makes a basilisk freeze and a vulture wait, and it can be drawn out and studied if one is careful. You would call it sacred and I would call it data, but we both agree it is real, which already puts us ahead of my brother." } },
+      choices = {
+        { text = "A spirit isn't data, Lynnore. It deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Study it as you like. Knowledge is knowledge.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You claim to hear the spirits of beasts and I study them, so we may be the only two people in this wasteland who believe they exist." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You move like a basilisk, slow until it matters, and I'd find that admirable if I thought you'd learned it from watching basilisks." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. My brother would want to bottle your strength, but I would rather know what keeps you standing after the strength has run out." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -539,6 +581,8 @@ P:NPC {
         { text = "The Light isn't a beast's instinct, Lynnore.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What keeps a warrior standing, then, Lynnore?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could you study the bond between a hunter and a beast?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What do basilisks know about moving quietly, Lynnore?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do you think a beast's spirit is, Lynnore?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll leave you to observe.", next = "END" },
       },
     },
@@ -660,8 +704,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because a demon always knows what it gave you, child, and it comes back for payment at a time of its choosing, usually the worst one. I have lived beside this altar long enough to watch many clever thieves try, and you can see by my face how the cleverest bargain went." } },
+      choices = {
+        { text = "A bargain should be honored, even with a demon.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then the trick is never to be found, old man.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I know better than anyone, since I helped in my small way. Every bargain struck at this altar leaves a little rot in the soil, and the Scar has been taking bargains since the first orcs came through the Portal, so weep for it if you like, but don't expect it to weep back." } },
+      choices = {
+        { text = "Then I'll stand against those who bargain here, Daio.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Rot or not, power is power. Teach me, Daio.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, at my altar? The elements will not follow you here, I'm afraid, because the Tainted Scar has fed on demons so long that the earth itself has gone sour." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You take what you want and leave before anyone can name the price, which is a fine way to live, though it never works with demons." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior comes to Daio's altar. You've no use for demons, I know, but I'd guess you know a thing or two about the price of power." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -690,6 +754,8 @@ P:NPC {
         { text = "What price does a warrior pay for strength, Daio?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is a demon anything like a hunter's beast, Daio?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How is a druid anything like a demon-binder, Daio?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why doesn't stealing work with demons, Daio?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What has the fel done to this earth, Daio?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll leave you to your altar.", next = "END" },
       },
     },

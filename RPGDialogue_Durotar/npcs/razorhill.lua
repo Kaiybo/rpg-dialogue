@@ -402,6 +402,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Trolls from Sen'jin, mostly, on their way to Orgrimmar, and the odd Forsaken with a book under one arm. They're quiet guests, which I like, but one of them froze the ale barrel to keep it cool, and I still haven't decided whether to thank him." },
+      },
+      choices = {
+        { text = "Your inn, your rules. My spells stay outside.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If your ale wants freezing, I'll freeze it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my inn. The beds are clean, and the ale isn't holy, but it'll do." },
@@ -417,6 +428,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "I'll rent you a bed, warlock, but the imp sleeps outside. The last one set fire to the straw just to see what would happen." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a thirsty one by the look of you. Sit, and I'll pour something before you tell me how many quilboar you killed today." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Leave the beast by the door if it's muddy and bring yourself in, because the scorpids aren't going anywhere." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want a bed that isn't on fire, I suppose, so keep your spells outside." },
       },
       choices = {
         { text = "Do travellers ever come here needing more than a bed?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -426,6 +438,7 @@ P:NPC {
         { text = "Who troubles Razor Hill most, Grosk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do hunters bring you to cook, Grosk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do many warlocks stop at the inn?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do many mages stay at your inn, Grosk?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },
@@ -507,6 +520,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "A few, out near Skull Rock, where the Burning Blade hide in the caves and whisper to whatever answers them. The Warchief has made it plain that a warlock serves the Horde or answers to it, and I write that in my journal beside every warlock I meet, just so I remember." },
+      },
+      choices = {
+        { text = "Write that I serve the Horde, Brakk.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Write what you like. My power is my own.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on the road. Sit by the fire, then, and tell me what you pray to out here, because I've always wondered what holy folk say when there's nobody listening." },
@@ -520,6 +544,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Ha, a rogue! I wrote about one in my journal once, though I never saw her face, only my purse leaving my belt." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage on the road! You'll be warm at night, at least, and I'd trade half my journal for a fire that lit itself." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've the look of somebody who'd make a good page in my journal, all scars and stories." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock at my fire. Sit, but tell your demon to keep to the dark side of it." },
       },
       choices = {
         { text = "What do you pray to on the road, Brakk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -530,6 +555,7 @@ P:NPC {
         { text = "Did you ever get your purse back?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you ever wish you could conjure your own fire?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What would you write about me, Brakk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Have you met many warlocks on the road, Brakk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Lok'tar, Brakk.", next = "END" },
       },
       again = {

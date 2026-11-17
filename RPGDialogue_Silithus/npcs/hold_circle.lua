@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Ha, I'd show you, but the scholars took them off to study, and I only kept the ones with the funniest drawings! There's a great deal about the wind stones and something called the Abyssal Council, and I'd much rather you burned their camps than read their scribbles." } },
+      choices = {
+        { text = "Their writing could reveal their plans. It must be studied.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Burn the camps, then. Knowledge like that should die with them.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Their papers, mostly, the secret ones they carry in their robes! I can't read a word of them, but the Hold's scholars can, and every one you bring me tells us a little more about what they're doing at their wind stones, and I keep score, so you'd better beat the last fellow." } },
+      choices = {
+        { text = "I'll bring every paper I can. The cult must be stopped.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keeping score? I'll take the challenge and win it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -87,6 +105,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "Ha, a mage! You'll be able to read those Twilight papers, won't you, because I can't make heads or tails of them, and I'm fairly sure half are upside down." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "Ha, a paladin! You'll be wanting to know about the Twilight crazies, I expect, because your sort can't abide a cult, and neither can I, so we'll get on splendidly." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Ha, a shaman! You'll know better than anyone what those Twilight crazies are doing to the elements out west, and my brother and I would love to hear it from someone who can feel it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Big brother says you lot can read the crazies' papers before they know they've lost them, and I'd believe it, because I can't read a word of them myself." },
@@ -121,6 +143,8 @@ P:NPC {
         { text = "What do the Twilight's Hammer want in Silithus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the Twilight's Hammer pray to anything, Bor?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the Twilight's Hammer leave much of a trail, Bor?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What do you need from a paladin against the cult, Bor?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Can I see the papers you've collected, Bor?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll bring you whatever I find on them.", next = "END", fx = { standing = { cenarion_hold = 1 } } },
       },
     },
@@ -225,6 +249,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I would have them stopped, and the Earth Mother does not care how. The cult's Templars gather around their wind stones and call to something that should never be called, and if a quiet blade ends that call sooner than a war band, the land will be grateful." } },
+      choices = {
+        { text = "Then I'll end them quietly, and take no joy in it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll strike from shadow, and enjoy every minute.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because the spirits of this land are frightened, and they remember a war of light and fire long ago. The cult dances among their bones, and they cannot tell one bright thing from another, so strike the cult hard, but do not burn what you do not need to." } },
+      choices = {
+        { text = "I'll strike only the cult, and leave the land in peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "War leaves scars. I'll not hold back for the land's comfort.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "There is, though many warriors never learn it until the land has bled dry around them. The Twilight's Hammer fight upon Silithus for their own ends, and you may strike them down, but only if you remember the land is not your enemy." } },
@@ -284,6 +326,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue. You walk softly, as the land likes, and I think the cult's leaders will not hear you until you are already among them." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. The land of Silithus weeps, and your Light shines bright in a place that has been dark for a long time, so I ask you to shine it gently." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock walks among us, and the spirits of Silithus fall silent. You carry something that does not belong in this land, and the land knows it." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -318,6 +364,8 @@ P:NPC {
         { text = "What wounds the land here most, Huum?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is there a difference between defending and fighting, Huum?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How has the cult disturbed the beasts of Silithus, Huum?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why should I shine the Light gently here, Huum?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would you have me strike the cult's leaders unseen, Huum?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "May the Earth Mother watch over you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -608,6 +656,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The sands, the hive, and the wall the kaldorei raised to hold back what lies behind it. I was told to remain as long as I must, and so I watch for the day the sands shift again, and I would rather the eyes that watch beside me were patient ones." } },
+      choices = {
+        { text = "I'll be patient, then, and watch with you.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Watching gets nothing done. I'd rather act.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I have seen it carried into many battles, mortal, and I have seen it carried out again by fewer hands. Time does not care for faith, but it remembers those who keep their promises, and I made one here a thousand years ago that I keep still." } },
+      choices = {
+        { text = "Then I'll keep my oaths as you keep yours.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Promises bind only those foolish enough to make them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A thousand years past I stood among many, and I fell among many, and the master's breath bound me to watch where I would otherwise have died. The courage of those who held that day is why the wall still stands, and I remember every one of them." } },
@@ -667,6 +733,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue, mortal, who watches from the edges as I do. We are alike in that, though I have watched for a thousand years, and you, I think, for rather less." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, mortal. Your Light is young, younger than the wall that stands behind me, yet I have watched it burn steadily in some of your kind, and that is worth something." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You hear the land as it was meant to be heard, mortal, and so you know already that it is afraid of what sleeps behind the wall." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mortal, and of the Horde. Your prayers are young beside what sleeps behind the Scarab Wall, yet even a young flame shines in the dark." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -699,6 +769,8 @@ P:NPC {
         { text = "What can a priest do against the swarm, Baristolth?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Did you stand before the hive yourself, Baristolth?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "How does one read the tracks of the hive, Baristolth?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What has a dragon seen of the Light, Baristolth?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What have you watched for a thousand years, Baristolth?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Farewell, Baristolth.", next = "END" },
       },
     },

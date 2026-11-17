@@ -18,6 +18,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Some come only to look at us, as the Highborne once looked at everything. The Timbermaw remember the old elves, and Grazle tests every outsider before they are let near his people, so if you wish to help, prove it against the Deadwood, not with spells over our tunnels." } },
+      choices = {
+        { text = "I'll prove myself against the Deadwood, Grazle.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll help you, but I'll study what I like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "With Deadwood feathers, and with patience, for the Timbermaw count deeds over many seasons, not over one fight. A warrior who kills one Deadwood is a stranger with a sharp axe, but one who keeps coming back is a friend." } },
@@ -95,6 +104,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_magecl", when = { class = "MAGE" },
+          text = "A mage. Grazle smells the arcane on you, and he wonders whether you have come to help the Timbermaw or only to study us." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Grazle sees your weapon and your scars, outsider, and the Timbermaw respect both, though we watch where you point them." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -129,6 +140,7 @@ P:NPC {
         { text = "What do the Timbermaw ask of a stranger who prays?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How can a warrior earn the Timbermaw's trust?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the Timbermaw hunt, Grazle?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do mages trouble the Timbermaw, Grazle?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -197,6 +209,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It troubles Nafien greatly, for the corruption of Felwood began with demons, and the Deadwood are what the corruption made. But Nafien judges by deeds, not smells, and if you hunt the Deadwood beside him, he will know whose side you are on." } },
+      choices = {
+        { text = "Judge me by my deeds, Nafien. I'll fight beside you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The fel is a tool. You shouldn't fear what you don't understand.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The corruption took them, as it took the Winterfall in the north and the forest all around. They were furbolgs once, as Nafien is, and he takes no joy in hunting them, but if they are left alone, they will spread the sickness to every tribe that still lives clean." } },
+      choices = {
+        { text = "I'll fight them with sorrow, not hatred.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If they're lost, they must be destroyed. No pity.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Like a furbolg who has forgotten everything but anger, and that makes them fierce and foolish both. They will charge a warrior who stands firm and break themselves on the shield, and Nafien has seen it happen, though he takes no joy in watching." } },
@@ -262,6 +292,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock. Nafien smells the fel on you, as he smells it on the Deadwood, and he does not like it, but he will speak with you because the Deadwood are worse." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. Nafien has heard that your kind fight the dead, and he wonders if you would fight the Deadwood, who are not dead, only lost to the corruption." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. Nafien is glad, for the Deadwood fight with claws and fury now, and a shield is a good answer to both." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and Nafien is glad of it, because a shaman knows a totem when he sees one, and the Deadwood carve theirs wrong now." },
@@ -292,6 +326,8 @@ P:NPC {
         { text = "Is there any rite left for the Deadwood dead, Nafien?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How do the Deadwood fight, Nafien?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is there a cure for the Deadwood's madness?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What happened to the Deadwood, Nafien?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the fel on me trouble you, Nafien?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good hunting, Nafien.", next = "END" },
       },
     },
@@ -360,6 +396,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "No, no, no, the Almighty is far too important to be smote! Niby is merely a humble ruler of these ruins, misunderstood by the Shadow Council and underappreciated by the world, and a paladin of your obvious wisdom will surely see that Niby means no harm, mostly." } },
+      choices = {
+        { text = "An imp is still a demon. I'm watching you, Niby.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're harmless. I'll let you rule your ruins in peace.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because the Almighty's enemies are many and his arms are, admittedly, short. The Shadow Council at Jaedenar think Niby is a joke, and when Niby has his way, a large warrior will explain to them why they are wrong." } },
@@ -428,6 +473,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin? Niby supposes even the Almighty must suffer visitors who glow, so glow quietly, and don't point any of that holy light at my imp." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Niby supposes every great master needs some brute to stand in front of him, and you're quite the size for it, so congratulations." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -458,6 +505,7 @@ P:NPC {
         { text = "Why would a great master need a warrior, Niby?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is Impsy really your pet, Niby?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does a demon want with Felwood, Niby?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Should I point my holy light at you instead, Niby?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Almighty One.", next = "END" },
       },
     },

@@ -58,6 +58,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "It is, and there are knights here who still find that hard, and I don't scold them for it, only for letting it slow their hand. The chapel stands on ground that refused the Scourge when everything around it fell, and I've never been sure whether that was the Light's doing, or the land's, or both." } },
+      choices = {
+        { text = "Both, I think. The Light and the land stand together.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The land did it alone. Your Light just took the credit.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, my lord.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -78,6 +87,7 @@ P:NPC {
           text = "A warrior, and welcome. Half my knights were squires of the Silver Hand who never took their oaths, {class}, and they could stand to watch a soldier who learned to fight without one." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter at Light's Hope. My scouts tell me the beasts of the Eastweald have gone strange, {class}, and I'd value an expert's eye on what it means." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and welcome to Light's Hope. The Dawn asks no one which crown they serve, {class}, and we've learned that the spirits of the land are as much the Scourge's enemy as the Light is." },
       },
       again = { { id = "h_again", text = "What else? Speak freely; the chapel keeps no secrets from its own." } },
       choices = {
@@ -95,6 +105,7 @@ P:NPC {
         { text = "Does the Argent Dawn have a use for rogues?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can a warrior serve the Dawn without the Light?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What strangeness have your scouts seen in the beasts?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Is the Dawn truly open to shamans, my lord?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "How can I help?", next = "END", fx = { affinity = 2, standing = { light_hope = 1 } } },
       },
     },
@@ -296,6 +307,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the Banshee Queen gave me back my mind, and I didn't think it right to hand it straight back to her. I owe her my freedom, and I'll never speak against her, but the Dawn fights the Scourge for everyone, and that's a cause I can carry without looking over my shoulder." } },
+      choices = {
+        { text = "A free mind should serve the many. You chose well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You owe the Dark Lady more than you've given her.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Revered.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I've asked two shamans that, and one turned away and the other wept, so I've stopped asking. I think the land knows what was done to me, and knows I didn't choose it, and I take some comfort in thinking it holds no grudge, even if I can't be sure." } },
+      choices = {
+        { text = "The land holds no grudge. You chose your path well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead belong in the earth, Revered. Even you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Revered.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -314,6 +343,8 @@ P:NPC {
           text = "A warrior. You needn't grip your sword so tightly, {class}, for I am dead, but I am on your side, and the dead of Light's Hope are the only ones you may safely turn your back on." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The beasts of these lands flinch from me as they would from any Scourge, {class}, so forgive me if your companions bare their teeth." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You walk quietly, {class}, like the Deathstalkers who came looking for me after I joined the Dawn. I sent them away, but gently, for they were only doing what the Banshee Queen asked." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here in the chapel. The spirits must find me a puzzle, {class}, for I'm dead and the Light answers me anyway, and I'm not sure I understand it either." },
       },
       again = { { id = "h_again", text = "Yes? I have time; it's one of the few things the dead have plenty of." } },
       choices = {
@@ -327,6 +358,8 @@ P:NPC {
         { text = "What does the Dawn ask of its mages, Leonid?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the Dawn's living soldiers trust you, Leonid?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can beasts tell that you aren't Scourge, Leonid?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why didn't you join the Deathstalkers, Revered?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "How do the spirits see you, Revered?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'd like to help the Dawn, if you'll have me.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "I'll work with the dead when I must, but I won't trust them.", next = "END", fx = { align = { light = -1 } } },
       },

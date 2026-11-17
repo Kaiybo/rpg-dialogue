@@ -91,6 +91,15 @@ P:NPC {
         { text = "Something else, Tabetha.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because I won't live behind Theramore's walls, and in some minds that makes a mage either mad or dangerous. Lady Jaina trusts me well enough to send her students out here, which ought to settle it, though it never quite does." } },
+      choices = {
+        { text = "Jaina's trust is good enough for me.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A mage alone with this much power should be watched.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -106,6 +115,7 @@ P:NPC {
           text = "A druid! Before you say it, dear: yes, I draw on the swamp's mana, and no, I don't believe it minds." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You crept up on my hut very nicely, I'll give you that, but my wards noticed you three bushes back, so you may as well come and sit down." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. You've come to a house built on mana, so please don't spill anything fel near it, because I'd have to clean the whole ley pool and I've only just finished." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be wanting to know whether a woman living alone in the swamp with all this mana is up to anything wicked, and the answer, dear, is no." },
       },
       again = { { id = "h_again", text = "What else, dear? Visitors are so rare out here that I'm glad of every question." }, { id = "h_again2", text = "Ask, dear. I've time." } },
       choices = {
@@ -122,6 +132,7 @@ P:NPC {
         { text = "Doesn't living alone in this swamp weigh on you, Tabetha?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What use is a warrior to a mage in this swamp?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What should a hunter watch for in the southern marsh?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why do people think you're up to something, Tabetha?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -244,6 +255,24 @@ P:NPC {
         { text = "Something else, Jarl.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because they're too busy guarding the Lady's walls, that's why, and nobody guards old Jarl. Swamp Eye sees what comes up from the south at night, and if they ever cared to ask him, he'd tell them, but they never do." } },
+      choices = {
+        { text = "Then I'll ask, and I'll pass it on to Theramore.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You're right to keep it to yourself. Theramore ignores you.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Patience, and a good window, and not sleeping much, if you must know. Swamp Eye watches the reeds move, and he knows a crocolisk from a soldier from a sneak like you, because each one moves the reeds a different way." } },
+      choices = {
+        { text = "I'll leave your house alone, Jarl. You've earned that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then I'll just have to move the reeds more cleverly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -259,6 +288,7 @@ P:NPC {
           text = "A druid, creeping about in animal skins! Don't think Swamp Eye can't tell a real crocolisk from a pretend one, because he can." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, eh? Don't go waving your hands about near my house, because the last one who did lit my turnips on fire and never paid for them." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, out here in my marsh. Swamp Eye doesn't miss things, and he certainly won't miss that little imp skulking about behind you." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, clanking up to my door! Swamp Eye's seen your sort in Theramore, all polished and proper, and he's yet to see one come out here and sit in the mud." },
       },
       again = { { id = "h_again", text = "What else? Speak up, I'm watching the reeds." }, { id = "h_again2", text = "Anything more? Make it quick." } },
       choices = {
@@ -275,6 +305,8 @@ P:NPC {
         { text = "What have you seen pass by your house, Jarl?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are heavy boots really such a problem in the marsh, Jarl?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What have you tracked out in the marsh, Jarl?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why don't Theramore's paladins come out to the marsh, Jarl?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How do you see everything out here, Jarl?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -389,6 +421,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Ogron hide in the reeds and watch, because nobody look for an ogre in the reeds, they think Ogron too big. Ogron see the men with Reethe, and Ogron see they not all wear Theramore colors, so Ogron think somebody lie." } },
+      choices = {
+        { text = "Then we'll find the liars, and bring them to Theramore.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "We'll find them, and deal with them ourselves.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -402,6 +443,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "You make magic like Draz'Zilb! But Ogron think your magic is kinder, because you not use it to tell people what to do." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Ogron know that smell, because it is the same as the old ogre magi. Ogron not afraid, but Ogron stand a little farther away, if that is all right with you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You druid! Ogron see you turn into bear, once, by the water, and Ogron think that very good trick." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You quiet one! Ogron not hear you come, and Ogron have very big ears, so you must be very good at sneaking." },
       },
       again = { { id = "h_again", text = "You want ask Ogron more?" }, { id = "h_again2", text = "Ogron listening, friend." } },
       choices = {
@@ -417,6 +459,7 @@ P:NPC {
         { text = "Do the soldiers of Theramore treat you fairly, Ogron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do ogres fight like warriors, Ogron?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do you hunt in the marsh, Ogron?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "How did you learn what happened at the inn, Ogron?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -521,6 +564,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Raptors, mostly, and Horde scouts who say they're only passing through, and a deal fewer travellers than ought to come down this road. I keep my orders and I watch the north, and I don't ask what happens in Theramore after I've sent a report." } },
+      choices = {
+        { text = "Good. Orders are what keep a post like this alive.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Maybe you should ask. Orders aren't everything.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -533,6 +585,8 @@ P:NPC {
           text = "A night elf druid out at Sentry Point? Don't go changing into anything large near the tower, because the lads on watch shoot first in this fog." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You came up the road without the watchtower spotting you, which is either impressive or a sign I need to have words with the lad on the ladder." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage on the north road? Good, because Archmage Tervosh is always on about sending us a ward for the tower, and you're the closest thing I've seen to one." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at Sentry Point. Keep that thing on a short leash, because the lads on the tower have seen what comes out of the fog and they don't need to see what comes out of you." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodfen", min = 30 } }, text = "The lads on the tower say the raptor calls have gone quiet along the road, and I think we have you to thank. It's the first quiet night we've had in a month." },
       },
       again = { { id = "h_again", text = "Anything else, citizen?" }, { id = "h_again2", text = "Make it quick; I'm on watch." } },
       choices = {
@@ -547,6 +601,7 @@ P:NPC {
         { text = "What's coming up the northern road lately, Private?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does keeping the peace with the Horde sit well with you?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are the raptors really closing in on Sentry Point?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What comes out of the fog, Private?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },

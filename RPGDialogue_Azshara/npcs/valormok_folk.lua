@@ -25,6 +25,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because the naga are in the water and the elves are on the cliffs, and a camp that drinks dies in its sleep. I lost friends to that mage's betrayal, and I'll not lose more because someone was too drunk to hold a sword, so you'll get milk, and you'll thank me for it." } },
+      choices = {
+        { text = "A clear head is wise here. Milk it is.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll drink what I like, Kurll, grog or no grog.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a drunk warrior is a dead warrior when the naga come up the shore at night, and Ag'tor has buried enough of us already. He wants this camp sharp, and so do I, so drink your milk and keep your head." } },
@@ -93,6 +102,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
+          text = "A warlock. You'll take milk and bread like everyone else, and no grog, because a warlock who can't keep his head is a danger to the whole camp." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "A warrior. You'll be asking for grog, then, and I'll tell you what I tell every warrior in this camp: milk, juice or water, take your pick." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
@@ -122,6 +133,7 @@ P:NPC {
         { text = "Why won't you serve grog to warriors, Kurll?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What meat is safe to eat in Azshara, Kurll?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is any of the food out here safe to eat?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Why no grog at Valormok, Kurll?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

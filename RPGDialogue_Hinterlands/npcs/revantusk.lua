@@ -50,6 +50,15 @@ P:NPC {
         { text = "Something else, Primal.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Keep my warriors on their feet when they climb Jintha'Alor, and keep their heads clear when Hexx starts her chantin', for her magic gets in the mind before it gets in the blood. A healer who stands fast on that hill be worth more to me than ten spears." } },
+      choices = {
+        { text = "I'll stand fast on the hill. Your warriors will rise.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll heal who I can. I won't die for your mate.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Primal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -74,6 +83,7 @@ P:NPC {
           text = "You move like a Revantusk scout, {class}, low and quiet and lookin' at the exits. Good, because Jintha'Alor be full of eyes, and the Vilebranch never see the quiet ones comin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Revantusk be a hunting people, mon, and we know a good tracker by how they walk, so walk with us, and the forest be kinder to you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. My mate be caged at Jintha'Alor while you walk free, and I be wantin' to know if your claws be as sharp as they say." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Vilebranch have priests too, {class}, with blood on their hands up to the elbow, so you show me you be the other kind, and I be glad to have you." },
       },
       again = {
         { id = "h_again", text = "What else do you need, then? Say it quick." },
@@ -96,6 +106,7 @@ P:NPC {
         { text = "Could someone quiet slip into Jintha'Alor unseen?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What do the Revantusk hunt in the Hinterlands, Primal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Should we rescue your mate, or punish the Vilebranch first?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "How do I show you I'm the other kind, Primal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll go up to Jintha'Alor.", next = "END", fx = { affinity = 2, standing = { revantusk = 1 } } },
       },
     },

@@ -99,6 +99,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Old troll cities, older than Zul'Farrak, and things the trolls themselves were afraid of, if the carvings are tae be believed. I dig for the League's knowledge, not for power, an' I'd ask ye tae respect the difference while ye're at my camp." } },
+      choices = {
+        { text = "I'll respect it. Some things should stay buried.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "If there's power down there, it's wasted on dust.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? I've no great love for the Horde, but out here the sand's the enemy of us all, so say yer piece and mind the dig." },
@@ -118,6 +127,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Ye'll have seen the hyenas trailing ye in from the road, then; they've learned that diggers drop their lunch when they run." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Tanaris! Ye'll not find much growing out here, but I've found a root or two buried deep that'd interest ye." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at my dig, is it? Keep yer wee beastie away from the tomb mouths, because I've a feelin' some o' what's buried out here would be glad o' the company." },
       },
       again = { { id = "h_again", text = "Anything more, friend?" }, { id = "h_again2", text = "Go on, ask; the sand'll wait." } },
       choices = {
@@ -135,6 +145,7 @@ P:NPC {
         { text = "What does the Explorers' League need from a paladin out here?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you need someone to guard your digs, Ironboot?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What beasts plague your digs out here, Ironboot?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What do you think is buried under Tanaris, Ironboot?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -210,6 +221,51 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because Torta is Tooga's, and Tooga is Torta's, and that is how it has been for a very long time. Tooga only went for a little walk, and then the little walk became a big walk, and now Torta is far away and probably cross." } },
+      choices = {
+        { text = "Then I'll carry you to her myself if I must.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You wandered off, Tooga. You can walk yourself home.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "The scorpids, because they are fast, and Tooga is not fast. Tooga hides in Tooga's shell, and the scorpids tap on it, tap tap tap, and Tooga waits until they get bored, which is a long time." } },
+      choices = {
+        { text = "I'll keep the scorpids off you all the way to Torta.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hide in your shell, Tooga. That's what it's for.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Tooga asked a goblin once, and he wanted a lot of gold, and Tooga does not have gold, only a shell. Also Tooga thinks Torta would want Tooga to walk, so that Tooga learns not to wander off so much." } },
+      choices = {
+        { text = "Torta's right. Walking home will teach you something.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the lesson. I'd rush you home if I could.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A little, because it looks at Tooga like the scorpids do. But you came to help Tooga, and Tooga thinks a person who helps a turtle cannot be all bad, even if their friend has horns." } },
+      choices = {
+        { text = "He won't harm you, Tooga. I'll make sure of it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "He goes where I send him. Stay close and you'll be fine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Pray that Torta is not too cross, and that the sun is not too hot, and that the scorpids are asleep. That is three prayers, so maybe pray slowly, like Tooga walks, so none of them fall out." } },
+      choices = {
+        { text = "I'll pray for all three, and walk beside you too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prayers won't move your legs, Tooga. Let's just go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You smell like rain and stone, and Tooga likes that smell. Can you ask the sky to make a little water for a lost turtle?" },
@@ -218,6 +274,11 @@ P:NPC {
         { id = "h_c0", when = { questActive = TODO_QUEST("Tooga's Quest") }, text = "You will take Tooga to Torta? Tooga is slow, so please be patient, and please do not let the scorpids eat Tooga." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "Tooga sees the big shield and the big sword. Tooga thinks you could keep the scorpids away, if you walk slowly, very slowly, like Tooga." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "Tooga sees a shiny shell, like Tooga's, but on the outside of a person! Tooga thinks you must be very safe in there." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Tooga did not hear you, and Tooga always hears things, very slowly. You are a quiet one, and Tooga likes quiet ones." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "Tooga smells something sparkly on you! Can you make Tooga go fast, very fast, all the way to Feralas?" },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Tooga sees your little friend with the horns, and Tooga is going to stay in Tooga's shell for a while, if that is all right with you." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "You smell like candles and quiet singing. Tooga thinks you must be a kind person, and Tooga hopes you are, because Tooga needs a kind person." },
       },
       again = { { id = "h_again", text = "What else? Tooga listens slowly." }, { id = "h_again2", text = "Tooga is here." } },
       choices = {
@@ -229,6 +290,11 @@ P:NPC {
         { text = "Should you have stayed home?", next = "s_1" },
         { text = "What would you have me pray for, Tooga?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Are you afraid of the things in the desert, Tooga?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why do you want to go back to Torta so badly, Tooga?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What scares you most out here, Tooga?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why don't you ask someone to teleport you home, Tooga?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Are you afraid of my demon, Tooga?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What would you have me pray for, Tooga?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -339,6 +405,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Only on myself, and only a very little, and I couldn't feel my left foot for a week. The goblins laughed, but I learned that the stone begins at the skin and works inward, which is more than anyone in Gadgetzan knew before." } },
+      choices = {
+        { text = "Science is worth a numb foot. Keep at it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Be careful, Curgle. No discovery is worth your life.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I would dearly love a basilisk egg, still whole, from the nests south of town. The Bruisers took the last one off me at the gate, so this time I'd prefer nobody knew I had it." } },
+      choices = {
+        { text = "No eggs in town, Curgle. The Bruisers have a point.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll get you an egg, and the Bruisers will never know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Now, I've read that your people speak with the elements, which is either superstition or the most fascinating field study in Kalimdor, and I'd dearly like to know which." },
@@ -355,6 +439,8 @@ P:NPC {
           text = "A priest! Oh, wonderful, because I've been wondering whether the Light works the same on a basilisk as on a person, and nobody in Gadgetzan will let me find out." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! You'll forgive me for staring at the dents in your armor, but I can tell a scorpid's sting from a basilisk's bite at ten paces, and you've met both." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, wonderful, do you know I've always wondered whether a basilisk's gaze works on someone who's glowing with the Light? Purely academic, of course." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh, you startled me! You move like a sand scorpid, all quiet and sudden, and I mean that as a compliment, a scientific one." },
       },
       again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "More questions? Wonderful!" } },
       choices = {
@@ -370,6 +456,8 @@ P:NPC {
         { text = "Does the desert make sickness worse, Curgle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you study the way faith works, Curgle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can you really read a fight from my armor, Curgle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Have you ever tested the basilisk gaze on a person, Curgle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you need anything collected quietly, Curgle?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -502,6 +590,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Nothing! Well, nothing much, because Jabbey can't always say where a thing came from, only where it went next. A crate comes in from Steamwheedle Port and Jabbey doesn't ask, because asking makes the crates stop coming." } },
+      choices = {
+        { text = "You should ask. Stolen goods hurt somebody.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A merchant can't question every crate. That's fair enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then you'll be wanting ankhs, and I keep a few under the counter for your sort, priced like everything else here: fair, more or less." },
@@ -520,6 +617,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Now, Jabbey doesn't sell meat, but if your beast's hungry I know a fellow named Dirge who asks very few questions about where his comes from." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've got seeds, herbs, and something in a jar I'm told used to be a cactus, so you'll find something here, I promise." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at Jabbey's stall! Jabbey sells honest goods to honest folk, mostly, and Jabbey would like you to remember the honest part." },
       },
       again = { { id = "h_again", text = "What else? Jabbey's always open." }, { id = "h_again2", text = "More? Jabbey loves questions that end in sales." } },
       choices = {
@@ -535,6 +633,7 @@ P:NPC {
         { text = "Holy water of mostly reliable origin, Jabbey?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does a warrior actually need from your stall, Jabbey?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you sell anything for a hunter, Jabbey?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What's not honest about your goods, Jabbey?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -646,6 +745,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It can, dearie, because it's what's under the plate that matters in this heat. A good linen padding, washed every few days, and you'll stop smelling like a forge, which the Road Warrior would appreciate." } },
+      choices = {
+        { text = "Comfort keeps a fighter going. I'll take your advice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Plate is meant to be endured, not made comfortable.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Cloth is cloth, dearie, and I don't ask what it's going to be used for. Dark wool for a cloak keeps the night cold out, and if it also keeps the Bruisers from seeing someone, that's hardly my stitching's fault." } },
+      choices = {
+        { text = "You should ask. Somebody pays for what's done in the dark.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good. A tailor sells cloth, not judgment.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, with totems clattering off your belt and a hem the wind's been chewing on. I'd ask the spirits for better tailoring, if I were you." },
@@ -662,6 +779,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! I can always tell, because you're the only folk who walk in with fur on your sleeves that isn't part of the design." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You wear fur half the time and robes the other half, so I'm guessing you're hard on clothes, and I can help with that." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, dearie, and baking inside all that plate! Let me line it with something cool, or at least something that doesn't chafe, because I can see you walking stiff from here." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, dearie, in leathers that creak in this heat! Let me show you some dark cloth that doesn't make a sound, because you'll hear your own sleeves before you hear the guards." },
       },
       again = { { id = "h_again", text = "What else, dearie?" }, { id = "h_again2", text = "Anything more? I've got a needle waiting." } },
       choices = {
@@ -676,6 +795,8 @@ P:NPC {
         { text = "Does it matter what a priest wears, Vizzklick?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Can cloth really do anything for someone in plate, Vizzklick?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters bring you anything useful, Vizzklick?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Can cloth really help someone in plate, Vizzklick?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you really sell to anyone who asks, Vizzklick?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Farewell.", next = "END" },
       },
     },

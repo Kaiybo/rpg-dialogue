@@ -82,8 +82,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They're polite to everyone, which isn't the same as trust, and a knight of the Light reminds them of every Bronzebeard who ever marched on Blackrock. Be civil, mind your tongue around Oilfist, and remember that every one of them walked away from Thaurissan with nothing but their hands." } },
+      choices = {
+        { text = "They broke free. That earns my respect, Lanie.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A Dark Iron is a Dark Iron. I'll keep watch.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only the young ones, and only once, because they learn soon enough that you smell much the same as the rest of this place. The old birds have flown through so much sulfur that a little brimstone hardly turns their heads anymore, which I find both sad and useful." } },
+      choices = {
+        { text = "I'll keep my demon away from the young ones.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If the old birds don't mind, why should I?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep your demon on the ground, please, because a gryphon in the Gorge has enough to worry about with fire elementals and doesn't need a passenger that smells of brimstone." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be glad of a gryphon here, I'd wager, because there's nothing in the Gorge a knight can charge that doesn't either bite back or burst into flames." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the Light, and a fellow Alliance face besides! Thorium Point's a long way from the Cathedral, so if you've a blessing to spare, my birds and I won't turn it down." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. If you're here to read the letters my birds carry, they're sealed, they're dull, and the birds bite." },
@@ -109,6 +129,8 @@ P:NPC {
         { text = "Is it hard keeping faith among the Dark Irons, Lanie?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would a Bronzebeard warrior be welcome at Thorium Point, Lanie?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do your gryphons fare in the Gorge's heat, Lanie?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do the Dark Irons here trust a paladin, Lanie?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do your gryphons ever refuse a warlock, Lanie?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -211,8 +233,38 @@ P:NPC {
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "As closely as I watch them, which is very closely indeed, because every one of them swears he left the mountain behind and none of us can prove it. They trade fair and keep their word, so far, but I sleep with my axe by the bed and I'd advise you to do the same." } },
+      choices = {
+        { text = "They've kept their word. That should count, Grisha.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fair enough. I'll watch them and trust none.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "More than I'd like, since the fire elementals throw flame at anything in the air and the Dark Iron watchtowers throw everything else. I patch them up as best I can, and if you'd lay a hand on the worst of them before you fly, I'd count it a kindness." } },
+      choices = {
+        { text = "I'll tend your riders gladly before I go, Grisha.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Beasts heal on their own, Grisha. I'll save my prayers.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Heat off the Cauldron, ash off Blackrock and the fire spirits the Dark Irons keep stirring up, all of it churning together until a wind rider can't find a straight line through. I've lost no riders yet, but I've lost a great deal of sleep, and I'd give a week's pay for one calm crossing." } },
+      choices = {
+        { text = "Keep flying the routes, Grisha. The Horde relies on them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Ground the riders on bad days, Grisha. They come first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The air over the Gorge is angry and my riders feel it in their wings, so if you can make it behave, you'll be the most popular passenger I've ever had." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because the riders come back from the Cauldron singed and limping, and I can only bandage so much before I run out of linen." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. The Dark Irons here keep their doors locked and their eyes open, so whatever you're planning, don't plan it near my perch." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Keep your demon on the far side of the perch, because my riders have long memories and short tempers, and they don't like demons." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. You could teleport home and leave my riders idle, but you came to me, so I'll take it as a compliment." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -235,6 +287,9 @@ P:NPC {
         { text = "Why do your riders hate demons so much?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you trust the Dark Irons here, Grisha?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do your wind riders handle the Gorge, Grisha?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do the Dark Irons here watch the Horde closely, Grisha?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Are your wind riders often hurt over the Gorge, Grisha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What makes the air over the Gorge so angry, Grisha?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -102,8 +102,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That you can't hurry a fish and you can't bully the sea, and most folk learn both too late. You paladins charge at things, which suits a battlefield, but out here the patient man eats and the hasty one goes home with an empty line and a sore temper." } },
+      choices = {
+        { text = "I'll mind that, Heming. Patience is a discipline.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd rather charge and miss than sit and wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, by the tides! Sit down a spell if your armor lets you, though I'll warn you that anyone in plate who falls off this dock goes straight to the bottom and stays there." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, by the tides! Sit down and hold this rod a moment, because I've always thought the Light must favor fishermen, seeing how much patience we need and how little we're paid for it." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Your folk know water better than most, so I'd wager you can tell a good fishing day before the fish can." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Say one for the fish, would you? They never get a word said for them, and I've eaten enough to owe them that." },
@@ -135,6 +145,7 @@ P:NPC {
         { text = "What could a warrior learn from fishing, Heming?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Is fishing much like hunting to you, Heming?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would a fish say about your bait, old man?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What has the sea taught you that a paladin should know, Heming?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -293,8 +304,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not trade, friend, add! You keep the hammer for the troll right in front of you and the gun for the one in the trees, and the Light can sort out which one deserved it. Every paladin says no the first time, and half of them come back after their first Bloodsail ambush." } },
+      choices = {
+        { text = "My hammer and the Light serve me well enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fair point. Show me what you've got, Mazk.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Hammers are fine, friend, but have you ever thought about what you could do with a hammer that fires? Don't answer yet, just let it sink in." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Lightning's grand, but it never lands quite where you point it, and that's why I sell guns." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll be needing protection, pal, because prayers are slow and a blunderbuss isn't." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage, eh? Fireballs are flashy, pal, but when you're out of mana, a pistol's still loaded." },
@@ -321,6 +342,7 @@ P:NPC {
         { text = "What use is a gun to a warrior, Mazk?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why should a hunter carry a gun over a bow, Mazk?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why would a druid ever buy a gun from you, Mazk?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why would a paladin ever trade his hammer for a gun, Mazk?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Not today.", next = "END" },
       },
     },

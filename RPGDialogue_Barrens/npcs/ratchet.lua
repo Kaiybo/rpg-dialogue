@@ -394,6 +394,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They do, though they never tell me what for, and I never ask, because that's how a goblin stays in business. Bring me a few raptor horns and I'll mix you something to keep your hands steady while you're shouting at a demon." },
+      },
+      choices = {
+        { text = "A deal's a deal, Mebok. I'll bring the horns.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll take the tonic now and see about the horns later.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -405,6 +416,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! You'll be wanting a little something to steady the nerves before a fight, and I've got just the thing." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Now you're exactly the sort of customer I like, because you go places I wouldn't, and you bring back interesting bits." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Now there's a customer who appreciates a good restorative, and I've got tonics that'll put a bit of zip back in your prayers." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now there's a customer with interesting tastes, and I've got a tonic for nearly every taste there is." },
       },
       choices = {
         { text = "Do your tonics anger the spirits of the beasts you use?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -418,6 +430,7 @@ P:NPC {
         { text = "What do you sell for warriors, Mebok?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What ingredients do you need from the Barrens, Mebok?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would a priest want with your tonics, Mebok?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do warlocks ever buy your tonics, Mebok?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Maybe later.", next = "END" },
       },
       again = { { id = "h_again", text = "Another question, friend? Mebok's always happy to talk, especially about Mebok." } },
@@ -540,6 +553,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "A demon that watches crates? It'd eat the crates, or the dockhands, and then I'd have to write it all down. No, my shipments go missing on the coast south of town, where the Southsea pirates camp, so if you want to help, take your demon there and leave my docks alone." },
+      },
+      choices = {
+        { text = "I'll get your shipments back, wharfmaster.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll get them back, for a share of what's inside.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -551,6 +575,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You've got the look of somebody who could stand on my docks and make crates stop wandering off." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. You'll be shipping hides out of Ratchet, I expect, and every one of them will go through my ledger." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Unless you can pray my missing crates back onto the dock, I'm afraid I've no time for blessings, though I'll note your visit in the ledger." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock on my docks. Keep that imp of yours off the cargo, because I've no column in the ledger for things set on fire by imps." },
       },
       choices = {
         { text = "Do your sailors ask the sea spirits for safe passage?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -564,6 +589,7 @@ P:NPC {
         { text = "Who's stealing from your docks, Dizzywig?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters' goods sell well off Ratchet's docks, Dizzywig?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Has anyone on the docks needed a priest lately?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could a demon help guard your docks, Dizzywig?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "I'll let you work.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Make it quick, because the tide doesn't wait and neither do my crews." } },

@@ -53,6 +53,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They do, because they eat like the rest of us, and some of them are still living, which makes it a little tricky. I warn the living ones off the grey caps and sell them the brown, and I've not lost a customer yet, as far as I know." },
+      },
+      choices = {
+        { text = "I'll trust your word, Gwyn.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd want to see you eat one first.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Gwyn Farrow, and I sell mushrooms to the Sepulcher. They grow well in the dark and the damp, which is the only thing this forest has more of than worgen." },
@@ -61,6 +72,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll be hungry after the worgen, I'd wager, and I've a few mushrooms that won't hurt you even if you're still breathing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll walk past more mushrooms in a day than I find in a week, so look down now and then, would you?" },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, how lovely! Mind the purple caps at the end of the table, dear, because they'd have you seeing visions you never prayed for." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Can you tell what a mushroom is just by looking at it? No? Then you'll have to trust me." },
       },
       choices = {
         { text = "Do any of your mushrooms help with healing, Gwyn?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -73,6 +85,7 @@ P:NPC {
         { text = "Do mushrooms grow where demons have walked, Gwyn?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Are your mushrooms safe for a warrior to eat, Gwyn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where do the best mushrooms grow in Silverpine, Gwyn?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do mages buy your mushrooms, Gwyn?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, dear? I've got all night, and so do the mushrooms." } },
@@ -193,6 +206,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The buckles, for a start, because they rattle, and a rogue who rattles is a rogue who dies in a Silverpine ditch. I sell cloth, not leather, but I'll tell you what any good seamstress would: tie it tight and pad whatever clinks." },
+      },
+      choices = {
+        { text = "Thank you. I'll fix the buckles right away.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My gear's fine as it is, Andrea.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Andrea Boynton, clothier, and I sell robes and cloth armor to the Sepulcher's mages and priests. Most of them come to me looking like they dressed in the dark, which I suppose they did." },
@@ -201,6 +225,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I don't sell anything you'd wear, {class}, but I'll say this much: that tabard needs mending, and badly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, tracking mud across my floor. Your lot are always the worst, because you've been crawling through the undergrowth for days." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and in robes that have seen far too many roads. Come here and let me look at that hem before it drags you into a bog." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! Dark leather, I suppose, and all of it buckled wrong. Stand still and let me look at you." },
       },
       choices = {
         { text = "Did you make vestments in life, Andrea?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -213,6 +238,7 @@ P:NPC {
         { text = "My demon keeps scorching my robes, Andrea.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does a warrior need anything from a clothier, Andrea?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is there anything here for a hunter, Andrea?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What would you change about my gear, Andrea?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? Make it quick, I have hems to finish." } },
@@ -331,6 +357,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "For anyone, because the worgen in the north don't care what you carry, and they come in packs. A demon's a fine thing to put between you and a worgen, but buy food and water anyway, because the demon won't share." },
+      },
+      choices = {
+        { text = "I'll pack well and watch for worgen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the worgen come. My demon's hungry.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Edwin Harly, and I keep the supplies for the Sepulcher. Silverpine is a forest that eats travelers, so everything I sell is meant to help you get out of it alive, or as alive as you were when you came in." },
@@ -339,6 +376,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll need more than a sword to get through Silverpine, {class}, so buy rations and water before you start swinging." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll eat off the land, I expect, and I'd advise against it, because half the land in Silverpine is trying to eat you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, you can pray over the bandages I sell, because Silverpine goes through them faster than I can stock them." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your demon won't need food, but you will, and this forest eats travelers who forget." },
       },
       choices = {
         { text = "How many travellers does Silverpine take, Edwin?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -351,6 +389,7 @@ P:NPC {
         { text = "Which way through Silverpine keeps me out of sight?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does a warrior need most out here, Harly?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is the game in Silverpine safe to eat, Harly?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Is Silverpine dangerous for a warlock, Harly?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, or can I get back to counting what the last cart brought in?" } },

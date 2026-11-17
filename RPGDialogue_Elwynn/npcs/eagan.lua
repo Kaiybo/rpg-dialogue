@@ -35,6 +35,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "For a night, maybe, but they're hungry, and hunger comes back faster than fear does. Kill the worst of them and bring me their meat, and the rest will think twice about the ridge." } },
+      choices = {
+        { text = "I'll kill them cleanly and spare the pelts.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll burn them out. Pelts aren't my concern.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Eagan.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "From behind, and in pairs, the way hungry ones always do. One shows you its teeth while the other goes for your legs, so watch the one you can't see and let the noisy one wait." } },
@@ -117,6 +126,7 @@ P:NPC {
           text = "Keep whatever that is on a short leash, because the wolves smell it and it puts them in a temper." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, by the look of those shoulders. The wolves won't care how hard you swing, so keep your back to a tree." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in Northshire. Good; the wolves pushing over the ridge need thinning by someone who knows the job." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Burn those wolves if you must, but leave me the pelts, for a scorched pelt's worth nothing in Goldshire." },
       },
       again = {
         { id = "h_again", text = "Something else? Be quick about it; the traps don't check themselves." },
@@ -135,6 +145,7 @@ P:NPC {
         { text = "How would you have a hunter take these wolves?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you ever say a word over the wolves you kill, Eagan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the wolves a danger to the Abbey itself, Eagan?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would fire drive the wolves back over the ridge, Eagan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

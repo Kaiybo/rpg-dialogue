@@ -38,6 +38,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "It troubles me as any power taken from the Nether troubles me, because that is what drove us into hiding ten thousand years ago. I won't judge you by your craft alone, since I've known honest people with stranger habits, but you'll find that many on this isle have longer memories than I do." } },
+      choices = {
+        { text = "I understand. I'll keep my craft to myself while I'm here.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Old fears shouldn't bind your people forever, Elder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhcast = {
+      big = true,
+      lines = { { id = "xhcast_default", text = "I gave Ayessa Dawnsinger my blessing, and I meant it, though I'll admit it pains me to watch our people split between two banners. The two orders quarrel enough on this isle without the Horde and the Alliance quarrelling over them as well, and I'd ask you to remember that when you meet the High Order's people." } },
+      choices = {
+        { text = "I'll treat the High Order's people with respect, Elder.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Alliance chose its side. The Horde owes them nothing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "To the winds, mostly, out of long habit, though the patrons who sheltered us are gone and nobody knows where. Some of the young ones have begun to ask about Elune since the High Order went to the Alliance, and I don't discourage them, but I won't tell them what to find." } },
+      choices = {
+        { text = "Let them find their own faith. That's as it should be.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A people needs a shared faith. Guide them, Elder.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "None that I know of, and I'd rather tell you that plainly than invent something to please you. Our ancestors owed everything to the wind spirits, and since they vanished, most of us are still working out what we believe, so a guest so certain of their faith is something of a curiosity here." } },
+      choices = {
+        { text = "Faith takes time. I hope your people find their own.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Better to trust your own strength than any power above.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     warrior_ta = {
       lines = {
         { id = "wta_default", text = "Everywhere, and that's the trouble. The Peacekeepers are stretched between the Al'Aketh and the two orders, and a blade that keeps its temper is worth more to me just now than one that only keeps its edge." },
@@ -71,6 +107,14 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, on Zephras Isle. I'll speak with you, guest, but you should know that our ancestors left Eldre'Thalas rather than kneel to a prince who drank from the Nether." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
+          text = "A priest of the Horde, on Zephras Isle. The Windshapers have gone to your people at Camp Gev'rek, guest, so I suppose we're allies of a sort, and you're welcome here." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
+          text = "A priest of the Alliance, on Zephras Isle. Our druids put the elements before Elune, guest, so you'll find few here who pray as you do, but you'll find nobody who'll mock you for it." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, on Zephras Isle. We've no paladins of our own, guest, and I won't pretend to understand your Light, but you're welcome here so long as you keep the peace." },
         { id = "h_nightclaw", when = { origin = "skyborne_nightclaw" },
           text = "You came down out of Shadowgale Forest, I'm told, and the Nightclaw don't send their own to the Council's door lightly. Whatever they've taught you, child, keep their secrets; they've kept ours long enough." },
         { id = "h_default", text = "Talaanis Shadowsong, High Elder, by the Council's choice and much against my own. Ask what you need to." },
@@ -99,6 +143,10 @@ P:NPC {
         { text = "I trained with the Peacekeepers. Where am I needed?", next = "warrior_ta", when = { race = "Skyborne", class = "WARRIOR" } },
         { text = "I ranged with the hunters of Thendal Grove.", next = "hunter_ta", when = { race = "Skyborne", class = "HUNTER" } },
         { text = "I work quietly, Elder. Is there a place for that?", next = "rogue_ta", when = { race = "Skyborne", class = "ROGUE" } },
+        { text = "Do the Skyborne have any faith in the Light, Elder?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Who do the Skyborne pray to, Elder?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "What do you make of the Windshapers joining the Horde, Elder?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does my craft trouble you, Elder?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Winds be with you, Elder.", next = "END" },
       },
     },

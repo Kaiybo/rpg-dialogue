@@ -71,6 +71,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "He was a fair man, Joseph, and he'd judge you by what you did, not what you were. He used to say the orcs in the internment camps deserved a better peace than we gave them, and I never understood him until I saw the Dawn take your people and mine under one banner." } },
+      choices = {
+        { text = "Joseph sounds a wise man. I'd have been glad to know him.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Peace with the Horde is a soldier's daydream.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Carlin.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They came behind the Scourge, raising our dead as fast as we fell, so that every man Joseph lost came back to fight against him. I still see their robes when I close my eyes, so if you've any honest work for the Dawn, I'd be glad to see dark magic turned the other way for once." } },
+      choices = {
+        { text = "I'll turn my power on the Cult, Carlin. I promise.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Power is power. The Cult just used it better.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Carlin.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -95,6 +113,8 @@ P:NPC {
           text = "A warrior. Joseph would have liked you, {class}, because he always said a town is only as safe as the last person still standing in its square." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. We had a fellow in Darrowshire who kept hounds for the harvest-fair hunts, {class}, and the night the town fell, those hounds howled for an hour before any of us saw a ghoul." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. My brother fought orcs in the Second War, {class}, and he'd have been surprised to see one of you at Light's Hope, but not unhappy, I think." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll not turn you away, {class}, for the Dawn doesn't, but I saw the Cult of the Damned's necromancers at Darrowshire, and you'll forgive me if it takes a moment to remember you're not one of them." },
       },
       choices = {
         { text = "Will anything grow in Darrowshire again?", next = "druid_q", when = { class = "DRUID" } },
@@ -108,6 +128,8 @@ P:NPC {
         { text = "Did Joseph stay loyal to the Silver Hand until the end?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Was Joseph much of a fighter, Carlin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "The hounds knew the Scourge was coming before you did?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What would Joseph have made of the Horde today, Carlin?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Were the Cult's necromancers at Darrowshire, Carlin?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to your memories.", next = "END" },
       },
       again = { { id = "h_again", text = "What else would you hear? I've little but stories now, but I've plenty of those." } },
@@ -211,6 +233,51 @@ P:NPC {
         { text = "Can I ask something else?", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "In the cupboard under the stairs, with my dolly and my hairpin, and I didn't make a single sound, not even when they knocked everything over. Papa said I was the best hider in all of Darrowshire, and I think he was right, because even he hasn't found me." } },
+      choices = {
+        { text = "You were very brave, Pamela. I'll find your papa.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Hiding won't bring him back, Pamela.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Pamela.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "He fought them a long time ago, before I was born, and he said they were very big and very fierce, but some of them were sad, too. He said a sad orc and a sad human aren't so different, which I didn't understand, but I think I do now." } },
+      choices = {
+        { text = "Your papa was wise, Pamela. He was right.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your papa was being kind. Orcs and humans are different.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Pamela.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Yes, please, the pretty kind, not the burny kind, because the pale people had burny kind and it was horrid. Auntie Marlene said that one day I could go to Dalaran and learn to make my own, but now I don't think I'll go anywhere at all." } },
+      choices = {
+        { text = "Here, Pamela. The pretty kind, just for you.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "No time for sparkles. There's work to do.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Pamela.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A bit, but not as much as the pale people, because they were big and smelled bad and they broke my dolly. If your monster's nice to me, I'll be nice to it, and maybe it can help find my dolly's pieces, because it looks very good at finding things." } },
+      choices = {
+        { text = "It'll be nice to you, Pamela. I promise.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It doesn't do nice, Pamela. Keep your distance.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Pamela.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Whiskers, because she had the longest whiskers in Darrowshire, and Papa said she was the best mouser on our street. If you turn into a cat, maybe she'll hear you and come home, and then I wouldn't be so lonely waiting." } },
+      choices = {
+        { text = "I'll look for Whiskers, Pamela, and for your papa.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Whiskers is gone, Pamela. You must let her go.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Pamela.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -223,6 +290,11 @@ P:NPC {
           text = "Are you a knight? You've got a big sword like Papa's soldiers had, and Papa said soldiers always come back, so maybe you've come back too." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "Are you a hunter? Papa said hunters can follow anything, even rabbits, and I had a kitten once that ran off when the pale people came." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "You're good at hiding! I'm good at hiding too, because Papa taught me, and I've been hiding for ever so long, only nobody's come to find me yet." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "Oh, you're from the Horde! Papa said the Horde was scary, but you don't look scary, you look nice, and you smell like rain." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "Can you do magic? Real magic? Auntie Marlene said mages could make sparkles come out of their fingers, and I always wanted to see." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that a little monster? It's got horns, but it's ever so small, and I don't think it'll hurt me, will it? Will it?" },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "Can you really turn into animals? I had a kitten once, and she ran away when the pale people came, and I miss her ever so much." },
       },
       choices = {
         { text = "Would you like me to hold your hand a while?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
@@ -231,6 +303,11 @@ P:NPC {
         { text = "Do you have any family left?", next = "family" },
         { text = "Did your papa have many soldiers, Pamela?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What happened to your kitten, Pamela?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Where did you hide when the pale people came, Pamela?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Did your papa tell you stories about the Horde, Pamela?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Would you like to see some sparkles, Pamela?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Are you frightened of my little friend, Pamela?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What was your kitten's name, Pamela?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I have to go now, Pamela.", next = "END" },
       },
       again = { { id = "h_again", text = "Do you want to hear something else? I know lots of things, mostly about dollies." } },
@@ -341,6 +418,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every day, an' twice on a bad one, but I've no time tae wonder long. The Dawn's soldiers need somethin' tae keep the plague off their boots, an' if I have tae boil a ghoul's toes tae make it, then I'll boil 'em an' say sorry tae the toes after." } },
+      choices = {
+        { text = "Necessity forgives much, Smokey. Keep brewing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "There must be a cleaner way, Smokey. Find it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Smokey.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "It could, if ye kept it steady, for the brew curdles if it's too hot an' turns tae sludge if it's too cold, an' coal's never steady. A mage from Stratholme used tae help me before the fall, an' I've no idea what became o' him, but I'd give a fair bit tae have his hands back on me pots." } },
+      choices = {
+        { text = "I'll keep your fire steady. The Dawn needs the brew.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Do it yourself, Smokey. I'm no kitchen hand.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Smokey.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -361,6 +456,8 @@ P:NPC {
           text = "A warrior! Grand, for warriors make the best collectors, {class}, since ye're already up tae yer elbows in the dead an' might as well bring a bit back for old Smokey." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Then ye'll know how tae skin a thing neatly, {class}, an' that's half the battle wi' Scourge bits, though the other half's no' bein' sick." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'll not like what I do, {class}, cuttin' bits off the dead an' boilin' 'em, but the spirits can take it up wi' the Scourge, for they started it." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Ye wouldnae be able tae keep a pot boilin' wi'out a fire, would ye, {class}? Me coal's run out again, an' the Dawn's carts are late." },
       },
       choices = {
         { text = "What does the plague do to the beasts out here?", next = "druid_q", when = { class = "DRUID" } },
@@ -372,6 +469,8 @@ P:NPC {
         { text = "Do the Dawn's knights approve of your work, Smokey?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does your brew do anything for a soldier's armour?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you brew with plagued beasts too, Smokey?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you ever wonder what the spirits think of your brews, Smokey?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Can magic really help with your brewing, Smokey?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to it.", next = "END" },
       },
       again = { { id = "h_again", text = "Still here? Fine, but ye're breathin' my smoke." } },
@@ -484,6 +583,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Someone to get my devices into the Scholomance without the Cult noticing, which is harder than it sounds, because my devices tend to whistle. I'm working on a quieter one, but in the meantime a steady pair of hands and a good sense of timing would be worth more to me than a whole squadron of knights." } },
+      choices = {
+        { text = "I'll carry your devices in, Betina. Quietly.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Send knights, Betina. Open battle is the honest way.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Betina.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "To power a device that doesn't need coal or oil or a gnome to wind it, which would be very useful out here, where all three are scarce. I suspect you'll tell me the spirits wouldn't care for it, and I suspect you'll be right, but a girl can dream." } },
+      choices = {
+        { text = "Lightning's not yours to bottle, Betina. Respect it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Try it. The spirits can sort out the rest.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else, Betina.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -504,6 +621,8 @@ P:NPC {
           text = "A warrior! Oh, splendid, could you hold this for me? It's only a little holy-water condenser, {class}, and it's quite safe unless you shake it, so please don't shake it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Do you know, {class}, I built a mechanical hound once, and it chased its own tail until it caught fire, so I've a great deal of respect for the real ones." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! You crept up on me, and I'm usually quite good at noticing things, {class}, so either you're very good or I've been staring at this gear too long." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've always wanted to ask one of you, {class}, whether lightning can be bottled, because I've a few designs that would be ever so much simpler if it could." },
       },
       choices = {
         { text = "Do your devices harm the land, Betina?", next = "druid_q", when = { class = "DRUID" } },
@@ -517,6 +636,8 @@ P:NPC {
         { text = "Why fight the Scholomance with devices instead of knights, Betina?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would a warrior do with your devices, Betina?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "A mechanical hound? What went wrong, Betina?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What would you need from a quiet sort, Betina?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why would you want to bottle lightning, Betina?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Good luck with it.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I can talk and solder, mostly." } },

@@ -75,6 +75,17 @@ P:NPC {
         { text = "What's the first thing a hunter learns?", next = "first" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Patience, if you'll take it, because a hunter waits for the beast to come to him, and I think your kind is too used to calling things that come at once. Watch the herds on the plain for an hour before you go after the centaur, and you'll see more than your demon ever told you." },
+      },
+      choices = {
+        { text = "I'll learn your stillness, Jorn. Power can wait.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I've no time for waiting. My power answers now.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -90,6 +101,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at Taurajo. The Earth Mother speaks to you through the elements and to me through the beasts, and I think we would both tell you to sit quietly and listen." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior in Taurajo. You've come to the right place, because the Barrens teach patience to anyone who listens, even those who carry axes." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. You will not find many of your kind among my students, but sit, because stillness is a lesson for anyone who listens." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock in Taurajo. Sit, then, and be still, because stillness is a lesson for every path, even yours." },
       },
       choices = {
         { text = "Do the great beasts of the Barrens carry strong spirits?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -103,6 +115,7 @@ P:NPC {
         { text = "The beasts seem uneasy when I cast near them.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can a warrior learn from you, Jorn?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Does a hunter have need of a priest, Jorn?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Is there anything a warlock can learn from a hunter?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Thank you, teacher.", next = "END" },
       },
       again = {
@@ -409,6 +422,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Everything belongs in it, because the Warchief wants to know what every people fights with, and I write it all down whether or not I like it. I'll note what your demon does to the quilboar, but I'll also note that the Burning Blade called on the same powers, so mind how your page reads." },
+      },
+      choices = {
+        { text = "Write it plainly. I serve the Horde, as you do.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Write what you like. I'll fight how I choose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -418,6 +442,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Let me see that weapon you carry, because I've met hunters with a dozen different bows and guns, and every one tells a story." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've a chapter on the Horde's holy implements still to write for the Warchief, and I'd be grateful to know whether yours have ever been used in anger." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I've a chapter for the Warchief on how each people fights, and your kind fight in whatever shape suits the moment, which makes for very difficult notes." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! I've studied every weapon the Barrens has shown me, but never the kind you keep on a leash." },
       },
       choices = {
         { text = "What have you learned so far?", next = "learned" },
@@ -428,6 +453,7 @@ P:NPC {
         { text = "I carry a staff and a wand. Write that down.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What does my weapon tell you, Tatternack?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do priests carry weapons worth writing down, Tatternack?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do warlocks belong in your study, Tatternack?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
       again = {
@@ -551,6 +577,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Not often, and mostly trolls on their way south toward the Needles. The kodo herders were uneasy about the first one until she lit the cookfire without a spark, and now they ask every mage who stops here to do it again." },
+      },
+      choices = {
+        { text = "I'll light your cookfire gladly, Byula.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My spells aren't for cooking, innkeeper.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -562,6 +599,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and covered in dust from the road south. Taurajo welcomes you, and so does my fire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Jorn Skyseer will want to meet you, if you haven't already met him, because he teaches every hunter who passes through." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at Taurajo! Sit by the fire, because the herders come in limping every night and I can only do so much with stew." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at my fire. You won't need it to warm your hands, I suppose, but sit by it anyway." },
       },
       choices = {
         { text = "Do the hyenas' spirits trouble the camp at night?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -572,6 +610,7 @@ P:NPC {
         { text = "What should a hunter know about the southern Barrens, Byula?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is my demon welcome by your fire, Byula?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the kodo herders need tending, Byula?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do mages come through Taurajo often, Byula?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Just a rest, thanks.", next = "END" },
       },
     },

@@ -1239,6 +1239,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They'd burn anything they think the shadow's touched, and they'd sing hymns while they did it. My father built that mill with his own hands and two hired men from Hearthglen, and I'd sooner see it standing with Crusaders in it than ashes with none, so whatever you do there, keep your fire off the timber." } },
+      choices = {
+        { text = "Your father's mill will stand. You have my word.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If burning it clears the Crusade out, so be it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Nathaniel.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1261,6 +1270,7 @@ P:NPC {
           text = "A warrior! The Crusade's got a dozen guards at my father's mill, {class}, and I was hoping someone like you might walk in the front door while the termites see to the back." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. There used to be good deer in the woods round Northridge, {class}, and my father traded planks for venison with the trappers every winter." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take your help against the Crusade gladly, {class}, but they've a long memory for your kind, and they'll burn the mill down around us before they let a demon walk in." },
       },
       again = {
         { id = "h_again", text = "Something else you wanted to ask? Go ahead, I don't mind talking." },
@@ -1274,6 +1284,7 @@ P:NPC {
         { text = "Termites in a mill? Nature can be cruel.", next = "x_druid", when = { class = "DRUID" } },
         { text = "Would the mill still run, if you got it back?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the Crusade doing in your father's mill?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Would the Crusade really burn your father's mill, Nathaniel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll help you take it back.", next = "END", fx = { affinity = 2, standing = { chillwind_camp = 1 } } },
         { text = "Would you want the mill blessed after the Crusade leaves?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the Crusaders in Northridge still knights, or only squatters?", next = "xapala", when = { class = "PALADIN" } },
@@ -1442,6 +1453,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Biscuits, mostly, and a little gnomish ingenuity, for I've a bellows here that blows the sulphur smell downwind before the birds catch it. It works nine times in ten, and the tenth time you land in Aerie Peak a bit faster than you meant to, but nobody's fallen off yet." } },
+      choices = {
+        { text = "Clever work, Bibilfaz. I'll be gentle with the birds.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Nine in ten? I'll risk it. Strap me in.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Bibilfaz.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1461,6 +1481,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! The gryphons like your sort, {class}, because you smell of the woods rather than the plague, and that's a real treat for them up here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Oh, the gryphons won't like that, no, not one bit, {class}, but they'll fly you anyway, because I've told them you're on our side, and I'm very persuasive." },
       },
       again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time." } },
       choices = {
@@ -1475,6 +1496,7 @@ P:NPC {
         { text = "Do your gryphons mind carrying heavy armour?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your gryphons get along with hunters' beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do the gryphons hate flying over the Plaguelands?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "How do you persuade a gryphon to carry a warlock, Bibilfaz?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
       },
     },
     xrogue = {

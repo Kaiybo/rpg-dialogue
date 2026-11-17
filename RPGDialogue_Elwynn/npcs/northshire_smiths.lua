@@ -18,6 +18,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Not much, because my armor's meant to be heard and seen, and yours is meant to be neither. Kerridan sends his students to me for a buckler now and then, and I tell them a shield is no shame, even for a sneak." } },
+      choices = {
+        { text = "A shield is no shame. I'll carry one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A shield's for those who get caught.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Never, because bark peels away when the spell runs out, and my mail is still there in the morning. I'll grant it's lighter, mind, and the recruits do complain about the weight." } },
@@ -96,6 +105,7 @@ P:NPC {
           text = "A warlock, and La Salle's student, I'd wager. You'll have nothing to do with my forge, then, unless you need a cage." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll want mail that bends at the shoulder, so the bow doesn't fight you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and not a link of mail on you, which offends me as an armorer and impresses me as a man. I suppose that bark-skin trick serves you well enough." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. You'll want leather, not my mail, I expect, but you'll be glad of whoever's wearing it when you're caught." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've rivets cooling." },
@@ -112,6 +122,7 @@ P:NPC {
         { text = "Do you ever pray over your work, Godric?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should a paladin know about plate, Godric?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you ever trust barkskin over your own mail?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you make anything for a rogue, Godric?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -296,6 +307,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "A plain dagger, for the times when the spell fails and the wolf doesn't. La Salle's students always want something curved and wicked-looking, and I tell them a straight blade cuts just as deep and doesn't make the guards nervous." } },
+      choices = {
+        { text = "Plain it is. I've no need to frighten anyone.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll take the wicked-looking one. Fear has its uses.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "We love what's under it, mostly, the ore and the stone, though I'll admit Dun Morogh's pines smell better than any forge. You keep the trees and I'll keep the iron, and we'll get on fine." } },
@@ -375,6 +395,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who'll hold a blade like it means somethin', or I'll know why." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do ye carry a gun, or one o' those bows? I'll forgive the bow, if ye're a good shot." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf! I've not seen one of your folk since Ironforge, and never one who walked into a smithy on purpose." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell daggers and staves, and I'll sell one to you, though I'd guess you mean to do your killing some other way." },
       },
       again = {
         { id = "h_again", text = "What else is on your mind, then? Out with it." },
@@ -391,6 +412,7 @@ P:NPC {
         { text = "Do dwarves pray before battle, Janos?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you forge a hammer for a paladin, Janos?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do dwarves have any love for the forest, Janos?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Which blade would you sell a warlock, Janos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -435,6 +457,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "I do, because the Light doesn't ask what you were doing when you got hurt, and neither do I. Kerridan's students come to me with the strangest wounds, and I mend them without a word, though I do pray a little longer over some of them." } },
+      choices = {
+        { text = "Thank you, Brother. I'll try to deserve it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Save your prayers, Brother. The bandages are enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I've done it once, for a cub caught in a snare by the vineyard, and the Brothers scolded me for a week. The Light doesn't ask whether you've got fur, as far as I can tell, though I keep that opinion out of the chapel." } },
@@ -513,6 +544,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be the reason I walk the long way round to the barracks, I expect, with linen in both hands." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I mend your beasts too, you know, if they'll let me close enough." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, here at the Abbey! If you can mend a wolf bite, I'll gladly share the work, because the recruits bring me more than I can carry." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I mend whatever the kobolds leave of the recruits, and I'll mend you too, whatever you were doing when they caught you." },
       },
       again = {
         { id = "h_again", text = "Something else on your mind, child?" },
@@ -528,6 +560,7 @@ P:NPC {
         { text = "What's the hardest wound you've mended on these grounds, Brother?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you ever need a paladin beside you on your rounds, Brother?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever heal the wolves too, if they're wounded?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you heal rogues the same as anyone else, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Good day, Brother.", next = "END" },
       },
     },

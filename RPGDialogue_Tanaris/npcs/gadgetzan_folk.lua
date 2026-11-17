@@ -103,6 +103,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not in the least, because gold is gold and a vault doesn't take sides. That's the whole point of Gadgetzan, friend: everyone's money is safe here, and so everyone's safe here, which is more than you can say for most places in Kalimdor." } },
+      choices = {
+        { text = "A neutral vault keeps the peace. That's worth respecting.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some gold is bought with blood. You should care whose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Twice, and the second time the box started knocking from the inside at midnight. I sent for the Bruisers, who sent for a mage, who sent for a priest, and in the end we buried it in the dunes and charged the owner for the trouble." } },
+      choices = {
+        { text = "Sensible. Some things shouldn't be kept at all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You buried something valuable. That was a waste.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the vault. Your totems may command the earth outside, but in here the earth is a floor, and the Bruisers stand on it." },
@@ -122,6 +140,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Your beast stays outside the vault, I'm afraid, because the last one that came in ate a deposit slip and the dispute is still unresolved." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the bank. Bears don't carry much gold, I'd have thought, but you're welcome to keep what you have here, safe behind the Bruisers." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at the bank. I'll keep your gold safe, friend, but I'll remind you that the Cartel's vault holds Horde gold too, and I won't hear any complaints about it." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll take your gold and keep it safe, but anything that glows, smokes or whispers stays out of my vault, by order of the Cartel." },
       },
       again = {
         { id = "h_again", text = "Anything else, or shall I open your box?" },
@@ -141,6 +161,8 @@ P:NPC {
         { text = "Does the Cartel's gold ever buy anything holy, Gimblethorn?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you trust warriors less than other customers, Gimblethorn?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What happened with the beast that ate the deposit slip?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Doesn't it bother you to hold the Horde's gold, Gimblethorn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Has someone tried to bank something cursed, Gimblethorn?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -266,6 +288,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They'll carry ye, so long as the demon stays dismissed until ye land. I had a bird refuse tae fly once wi' an imp on the saddle, an' it took me an hour tae talk her down from the roof." } },
+      choices = {
+        { text = "Fair enough. I'll dismiss him before I ride.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My demon goes where I go, Bera.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -286,6 +317,7 @@ P:NPC {
           text = "A warrior of the Alliance! Good, I've a crate of dispatches for Theramore that keeps drawing bandits, and they could stand to meet you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, and one of ours! Mind your beast near my gryphons, though, because they're sick of the sand and in no mood to be sniffed." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep yer demon away from the roost, because my gryphons are jumpy enough in this heat, an' they've no love for anythin' that smells o' brimstone." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are restless in this heat." },
@@ -302,6 +334,7 @@ P:NPC {
         { text = "Does the orc across the yard give you any trouble?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are the Wastewanderers raiding your gryphon crates, Bera?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "How do your gryphons get on with hunters' beasts, Bera?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Will your gryphons carry a warlock at all, Bera?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -423,6 +456,15 @@ P:NPC {
         { text = "Something else, then.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "More than you'd think, because a portal costs reagents and a wind rider costs a few coins and a strong stomach. The beasts don't care for the smell of the arcane, though, so I'll ask you to keep your hands still while you're on one." } },
+      choices = {
+        { text = "I'll ride quietly. Your beasts deserve that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If the beast doesn't like it, it can get used to it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde. The wind riders are calmer when one of you is near, and so am I, so speak freely." },
@@ -441,6 +483,7 @@ P:NPC {
           text = "A warrior of the Horde. Good, my wind riders respect a strong arm, and they bite the weak ones." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter of the Horde. My wind riders smell your beast already, so let it stand where they can see it, and they will settle." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could open a portal to Orgrimmar and save my wind riders the trouble, so I suppose you're here to tell me you like the view." },
       },
       again = {
         { id = "h_again", text = "Speak, then. The riders are fed." },
@@ -457,6 +500,7 @@ P:NPC {
         { text = "Do the wounded fly out through you, Bulkrek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do your wind riders really bite weak riders, Bulkrek?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do wind riders accept other beasts near them, Bulkrek?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do mages ever use your wind riders, Bulkrek?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -589,6 +633,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The desert, friend, all of it, and fresher than you'd find in Stormwind. Basilisk, scorpid, hyena when I'm desperate, and every bit of it cooked so well you'd never guess what it used to be, which is the real art of the thing." } },
+      choices = {
+        { text = "Honest food from honest hunting. I respect that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Hiding what it used to be sounds like a trick, Dirge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "One or two a season, mostly after my chimaerok chops, because word gets round. The last one got away with a whole rack, and the next week I saw it on a menu in Booty Bay, and that's the only time I've ever wanted to leave Gadgetzan." } },
+      choices = {
+        { text = "Stealing a chef's recipe is low. I'd never do it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it's good enough to steal, it's good enough to sell.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You talk to fire and I cook with it, and between the two of us I'll bet the fire likes me better, because I feed it the finest cuts in Azeroth." },
@@ -612,6 +674,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Ah, a fellow professional of the meat trade, and don't let anybody tell you otherwise." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Don't tell me you're one of those who won't eat meat, because I'll take it personally, and I've a cleaver right here." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Now you look like someone who appreciates a proper meal, because nobody swings a hammer that size on a stomach full of conjured bread." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Hands off the cleaver, friend, because I'll know if it's moved, and I'll know who moved it, and I'm faster with it than you'd think." },
       },
       again = {
         { id = "h_again", text = "What else? Talk fast, the grill's on." },
@@ -632,6 +696,8 @@ P:NPC {
         { text = "Where does your meat come from in a drought, Dirge?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What does the greatest living chef feed a warrior, Dirge?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you buy meat from hunters, Dirge?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Where does all your meat come from, Dirge?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you get many thieves in your kitchen, Dirge?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -775,6 +841,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Everyone, friend, Horde and Alliance both, and they all ask me not to sell to the other lot. I tell them yes and sell to both, because that's what neutral means, and because the Bruisers are better armed than either." } },
+      choices = {
+        { text = "Selling to both sides keeps the peace here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "You profit from both sides killing each other.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only the dune out back, and only on purpose, mostly. I test every rifle before I sell it, and I've only lost my eyebrows twice, which for a gunsmith in Gadgetzan is a very good record." } },
+      choices = {
+        { text = "I'll keep him well away. Your eyebrows have suffered enough.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "He does what he likes. Move the kegs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Not much, because a rifle in the right hands keeps the bandits off the road. I'll admit I don't sleep well when I hear about a raid that used my rifles on the wrong side, but I can't follow every gun out of the shop." } },
+      choices = {
+        { text = "You can choose who to sell to. That's on you.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A gunsmith can't answer for every buyer.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Lightning in a bottle, that's you, and lightning's the only thing in Tanaris louder than my rifles." },
@@ -792,6 +885,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Now you're a customer who understands craftsmanship, because a hunter's rifle has to work every time, not just on the test dune." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You've got claws, so I don't suppose you'll buy a rifle, but I've seen druids pay good coin to keep a hunter friend in shot." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You're a hammer sort, I can tell, but have you ever thought about the advantages of hitting someone from a very long way off?" },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Keep your little friend away from the powder kegs, please, because I don't want to find out what happens when an imp sneezes near them." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, in a gun shop! I won't ask you to buy anything, but if you could bless a crate of powder so it doesn't go off on the boat, I'd consider that a great service." },
       },
       again = {
         { id = "h_again", text = "What else? I've got powder drying and it doesn't like to wait." },
@@ -808,6 +904,9 @@ P:NPC {
         { text = "Do you ever think about who your guns are pointed at, Blizrik?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a warrior need a gun, Blizrik?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What makes a good hunting rifle in this heat, Blizrik?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Who buys most of your guns, Blizrik?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Has anything ever exploded in your shop, Blizrik?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Does it trouble you, selling weapons all day, Blizrik?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -933,6 +1032,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Because the Sandfury trolls have a way of tempering steel that no smith in Ironforge or Gadgetzan can match, and they keep it in stoppered flasks. I've spent years trying to work out what's in it, and the only way to learn is to get it in my hands." } },
+      choices = {
+        { text = "I'll bring it honestly, and only from those who attack us.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll take it from whoever has it. Trolls won't miss it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That it was forged well and swung often, and that someone's been patching it in the field with the wrong metal. If you bring me a little troll temper from Zul'Farrak, I'll show you what a properly tempered head can take." } },
+      choices = {
+        { text = "I'll keep using it until it breaks. That's its purpose.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll take better care of it from now on.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Every day, because a smith who doesn't is a fool. I sell to those who fight the Sandfury and the Wastewanders, mostly, and I like to think I'm making the road safer, though I know some of my steel ends up in the wrong hands." } },
+      choices = {
+        { text = "Choose your buyers carefully, and the Light will judge you fairly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Steel is steel. Don't lose sleep over it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman of the Horde at a kaldorei's anvil. Our peoples have little love between them, but the fire in this forge answers to neither, so you may stand and watch if you like." },
@@ -954,6 +1080,10 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. Your arrows are poorly fletched for this wind, and I would say so to any archer of Darnassus as plainly as I say it to you." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll know the trolls of Zul'Farrak keep their own beasts and their own gods, and neither is friendly to your kind or mine." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. If you're headed to Zul'Farrak, you'll get in and out quieter than anyone, and that's exactly the sort I need to bring me troll temper." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your hammer's seen good use, I can tell, and I'd be glad to look at the head, though I won't touch it without asking." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You're welcome at my forge, though I'll warn you the noise is not good for prayer, and the heat isn't either." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Sandfury", min = 40 } }, text = "You've been in among the Sandfury, I can tell, because there's been talk at the gate that their patrols are short of fighters. If any of them were carrying temper, I'd like to know." },
       },
       again = {
         { id = "h_again", text = "What else? I can talk while the iron heats." },
@@ -969,6 +1099,9 @@ P:NPC {
         { text = "Not every mage follows the Highborne's road.", next = "xmage", when = { class = "MAGE" } },
         { text = "You'll still work for a warlock?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Which kind of priest would you trust, Trenton?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why do you need troll temper so badly, Trenton?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What can you tell from my hammer, Trenton?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you ever think about what your weapons are used for, Trenton?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I'll bring you their temper.", next = "END", when = { questBefore = TODO_QUEST("Troll Temper") }, fx = { affinity = 2 } },
         { text = "What do the Zul'Farrak trolls have that a smith needs?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What's wrong with my fletching for the desert wind, Trenton?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -1115,6 +1248,24 @@ P:NPC {
         { text = "Let's talk of other things.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because a danger you don't understand is a danger you can't fight, mon. The Atal'ai still worship the Soulflayer down in the Sunken Temple, and somebody has to know his ways, even if knowin' them keeps that somebody up at night." } },
+      choices = {
+        { text = "Know your enemy. Your work is worth the risk.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some knowledge corrupts. Leave Hakkar alone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "No, mon, but the ones that are terrible are very terrible, and Hakkar is the worst. The loa give and take as they please, and a troll learns young to bargain with them carefully, because they always want somethin' back." } },
+      choices = {
+        { text = "The Light asks nothing back. Perhaps you'd find peace there.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Every power wants something. At least the loa are honest.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1142,6 +1293,8 @@ P:NPC {
           text = "A warrior, mon. Yeh'kinya sees the weight of the axe on you, and the weight of all the trolls it's cut down out there in the sand." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, mon! Yeh'kinya's people hunted the jungle long before there was any sand here, and your beast walks like it knows the old ways." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Light, come to sit by an old troll? Sit, then, mon, but don't be preachin' at me, because I've heard all of it before." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest of the Light. My people have their own gods, mon, and some of them are terrible, so I'm glad of anybody who prays to somethin' kinder." },
       },
       again = {
         { id = "h_again", text = "More questions? The spirits don't mind, and neither does Yeh'kinya." },
@@ -1159,6 +1312,8 @@ P:NPC {
         { text = "Which loa should a priest fear in Tanaris, Yeh'kinya?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you mourn the Sandfury trolls I've fought, Yeh'kinya?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What were the old ways of the troll hunters, Yeh'kinya?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why study Hakkar if he's so dangerous, Yeh'kinya?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are all your people's gods terrible, Yeh'kinya?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -29,6 +29,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "They never quite tell me, but they always come back calmer. I think the spirits here are kinder than in most places, since nobody's fought over Moonglade in a long, long time, and that kind of peace leaves a mark on the land as surely as a war does." } },
+      choices = {
+        { text = "I'll sit by the lake and listen, then.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Peace like this is rare. It won't last forever.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Not many, but the ones who come tend to stay a day longer than they meant, because the grove is quieter than any temple. I've a theory that the peace here rubs off on anyone who stays long enough, and I've watched a few stern knights leave smiling, so I'd say it holds." } },
+      choices = {
+        { text = "A little peace would do me good, Daeolyn.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Peace makes a warrior soft. I'll not linger.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "A few, on their way to Winterspring or back from Felwood, and they always look a little lost here, as if they keep waiting for something to attack them. I tell them to sit by the lake for a day, and some of them do, and they leave looking ten years younger." } },
@@ -97,6 +115,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, welcome to Nighthaven! The grove's quieter than anywhere on the Barrens, and I've seen shamans sit by the lake for hours, just listening." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, welcome to Nighthaven! You'll want supplies for the road, I expect, and I've plenty, along with a quiet corner by the lake if you'd like to set down that heavy armour a while." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, welcome! You'll want a few bags, I'd guess, because warriors always carry more than they need and never have anywhere to put it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -123,6 +145,8 @@ P:NPC {
         { text = "Do many warriors come through Nighthaven, Daeolyn?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What does a hunter need for the roads out of Moonglade?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you get many travelers who aren't druids?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do many paladins stay in Nighthaven, Daeolyn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What do the shamans hear by the lake, Daeolyn?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell, Daeolyn.", next = "END" },
       },
     },
@@ -188,6 +212,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I think they dream, which is nearly the same thing, and the closer they grow to the lake, the deeper their dreams seem. A shaman might hear them better than I can, so if you ever do, I'd love to know what a mageroyal dreams about, because I suspect it's something sweet." } },
+      choices = {
+        { text = "I'll listen for you, Malvor, and tell you what I hear.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Herbs are for gathering. Spirits are a different matter.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I think so, though I've no proof but a feeling. The silverleaf droops when the guards march past and lifts again when the druids walk by, and I've always wondered what a plant would make of the Light, which is a different sort of brightness than the moon's." } },
+      choices = {
+        { text = "I'll walk lightly among them, then, and not disturb them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Plants don't notice anything. They're just plants.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "I believe so, though I can't prove it, because they grow a little differently each night, as if they'd been somewhere and come back changed. A warrior who walks gently here might find the plants lean toward them, and I've seen it happen." } },
@@ -256,6 +298,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman, among the herbs! You'll know better than I whether plants have spirits, since you speak with the elements, and I've wondered for years." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, here among the herbs. Do step carefully, because the plants of Moonglade grow so close to the Dream that I swear they notice when someone in armour walks past." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, among my herbs. Do step carefully, please, because the plants here dream, and I think heavy boots give them nightmares." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -282,6 +328,8 @@ P:NPC {
         { text = "Do the herbs of Moonglade really dream, Malvor?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the beasts of Moonglade eat your herbs?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Should Moonglade's herbs be sold to anyone who asks?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do the plants really notice who walks by, Malvor?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you think the herbs of Moonglade have spirits, Malvor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell, Malvor.", next = "END" },
       },
     },
@@ -344,6 +392,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Because Felwood's spirits are sick, and sick things don't always answer. I've heard tauren say they called to the earth there and got nothing back but a moan, so I'd carry something with an edge, just in case the elements are having a bad day." } },
+      choices = {
+        { text = "The spirits won't fail me. I trust them.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Good advice. I'll carry a blade as well.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Because it's peaceful here, and nowhere else is, and the travellers who leave have to cross Felwood to get home. I'd rather sell a bow to someone who never uses it than bury someone who needed one, and I've done more of the second than I'd like." } },
+      choices = {
+        { text = "A sensible choice. Peace needs protecting too.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Weapons in a sanctuary? It seems a betrayal of the place.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a satyr in Felwood will throw fel fire from the trees, and a warrior who has to run thirty paces to reach it arrives half-burnt. A bow won't make you a hunter, but it'll make the satyr come down to you." } },
@@ -412,6 +478,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" },
+          text = "A shaman. You'll not want a bow, I imagine, but a bow doesn't need the spirits' permission to fire, and that's worth remembering in Felwood." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin. You'll not want a bow, I imagine, but the roads out of Moonglade run through Felwood and Winterspring, and a hammer doesn't reach very far." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior. You'll want a bow for when your enemies keep their distance, I'd say, and don't look at me like that, because even a warrior has to reach sometimes." },
         { id = "h_huntcl", when = { class = "HUNTER" },
@@ -438,6 +508,8 @@ P:NPC {
         { text = "Why would a warrior need a bow, Narianna?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What makes your bows better than a city bowyer's?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do the Circle's druids ever take up the bow?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why sell bows in the most peaceful place in Kalimdor, Narianna?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why would the spirits refuse me in Felwood, Narianna?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Farewell, Narianna.", next = "END" },
       },
     },

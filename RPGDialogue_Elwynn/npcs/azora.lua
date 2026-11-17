@@ -25,6 +25,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "More than I'd like, though most of it's the apprentices borrowing and forgetting. Theocritus is certain it's thieves from Jerod's Landing, and I haven't the heart to tell him his own students are the culprits." } },
+      choices = {
+        { text = "Tell him the truth, Dawn. He ought to know.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Let him blame strangers. It keeps the peace.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Dawn.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Silverleaf and peacebloom, mostly, which the gnomes gather by the lake and bring up in sacks. Master Theocritus says plants are only magic that hasn't learned to sit still, and I've never had the courage to tell him how that sounds." } },
@@ -93,6 +102,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, all the way up our stairs in all that steel! Sit a moment, because Theocritus keeps the windows shut and the climb is warmer than it looks." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in the tower! Mind the gnomes on the stairs, please, because they startle, and your beast startles them." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei, all the way up the tower stairs! Mind the shelves, because Master Theocritus counts the vials and I'd rather he didn't count them twice." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, all the way up the tower stairs. Do mind the shelves, because Theocritus counts the vials and blames me for every one that goes missing." },
       },
       again = {
         { id = "h_again", text = "What else can I help you with? I've a delivery list to finish." },
@@ -110,6 +120,7 @@ P:NPC {
         { text = "Does anyone in this tower ever pray, Dawn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a mage's tower want with a paladin, Dawn?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does anything on your shelves come from the forest below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does much go missing from the tower stores, Dawn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Good day, Dawn.", next = "END" },
       },
     },
@@ -180,6 +191,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "It would, and I'd rather teach you to put one there yourself, because a rogue who knows how an enchantment's made can spot a fake one. Half the enchanted daggers sold in Stormwind's back alleys are plain steel with a bit of glitter, and the buyers never know until it matters." } },
+      choices = {
+        { text = "Then I'll learn the craft properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Glitter daggers sound like a fine business, honestly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Kitta.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Because a blade holds an enchantment for years, and I've always wondered how long a living oak might hold one. Theocritus says the tree would have something to say about it, and I suppose you'd know better than either of us whether it would mind." } },
@@ -259,6 +279,7 @@ P:NPC {
           text = "I'd ask that you keep your imp away from my dust, because a spark in the wrong pouch costs me a week of work." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've always wanted to try enchanting a bow, and nobody ever brings me one, so you're very welcome." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! Do you know nobody in this tower has ever let me enchant anything that grows? I've asked, and I've been told no very firmly." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'd be surprised how many of your sort climb up here to ask about enchanting, and how few of them want to learn it honestly." },
       },
       again = {
         { id = "h_again", text = "What else? I could talk about this all afternoon, and I usually do." },
@@ -277,6 +298,7 @@ P:NPC {
         { text = "Could an enchanter's rune ever hold a blessing, Kitta?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you enchant a paladin's hammer, Kitta?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would you want to enchant a living thing?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would an enchantment help a rogue's blades, Kitta?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll come back another time.", next = "END" },
       },
     },

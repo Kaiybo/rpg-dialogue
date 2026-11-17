@@ -633,6 +633,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Everyone's welcome who keeps the worgen out and pays for the slab. The Dark Lady's warlocks pass through on their way to deal with the Dalaran wizards at Ambermill, and they've always been perfectly polite guests, which I find a little unsettling." },
+      },
+      choices = {
+        { text = "I'll be a polite guest too, Bates.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll be whatever kind of guest I please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -642,6 +653,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my crypt! Sit down, and if your spirits want a chair as well, they'll have to share with the spiders." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, under my roof! You'll want somewhere soft to sleep, and I'm afraid all I've got are slabs, though I've thrown a fur over the east one." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Welcome to the slabs, I mean the beds; you'll find the crypt quiet, mostly, though the spiders hear every prayer said aloud." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your demon will have to share a slab with the spiders, I'm afraid, because the good slabs are taken." },
       },
       choices = {
         { text = "Do your guests ever ask for last rites, Bates?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -652,6 +664,7 @@ P:NPC {
         { text = "Do you get many living guests out here?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Anyone in your crypt worth watching, Bates?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Your crypt's cold, Bates. Want a fire?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Are warlocks welcome in your crypt, Bates?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just a rest, thanks.", next = "END" },
       },
       again = {

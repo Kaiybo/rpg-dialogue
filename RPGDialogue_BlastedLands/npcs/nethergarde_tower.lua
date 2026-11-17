@@ -94,8 +94,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Mana potions and anything that settles the stomach, mostly, since summoning near the Portal leaves people green for days. The Watchers keep an eye on who comes up these stairs, so buy what you need and keep your demon downstairs, and nobody will make trouble for you." } },
+      choices = {
+        { text = "I'll keep my demon downstairs, Nina. Rules are rules.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon stays with me, Watchers or no Watchers.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll be wanting something to settle you, I expect, because everyone who calls up demons this close to the Portal comes up these stairs sooner or later looking pale." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior, all the way up the tower stairs! Healing potions are on the left shelf, and yes, I know you'll want the large ones." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -126,6 +136,7 @@ P:NPC {
         { text = "Which potion should a warrior carry near the Portal, Nina?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do the plants out here poison the animals, Nina?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What grows in the Blasted Lands that interests an alchemist, Nina?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What do warlocks usually buy from you, Nina?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

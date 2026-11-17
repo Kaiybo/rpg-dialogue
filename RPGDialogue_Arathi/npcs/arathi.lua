@@ -259,6 +259,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "On the wall, when the ogres come, and in the yard after, when the young ones come back from the Witherbark with poisoned cuts. Tor'gan does what he can with the spirits, but he's one troll and he has Gor'mul to look after, and I won't lose a warrior because the shaman was busy with a ghost." } },
+      choices = {
+        { text = "Then I'll stand on the wall with your warriors.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Gor'mul's a lost cause. Tor'gan should tend the living.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, chieftain.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -279,6 +288,7 @@ P:NPC {
           text = "A quiet one, {class}. Hammerfall could use eyes among the Witherbark, for the trolls watch our walls and I would like to watch them back." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior of the Horde! Hammerfall carries the Doomhammer's name, and it'll be built by warriors like you, one cracked ogre skull at a time." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! These hills are thick with raptors and worse, and every beast you bring down is one less to trouble our caravans when they come." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Hammerfall bleeds every time the Boulderfist hit the walls, {class}, and I'd sooner have one healer on the parapet than ten more mouths in the barracks." },
       },
       again = {
         { id = "h_again", text = "What else? Say it plain; Hammerfall has no time for riddles." },
@@ -300,6 +310,7 @@ P:NPC {
         { text = "What should I look for among the Witherbark?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does Hammerfall need most from its warriors, Drum Fel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should I hunt the raptors along the caravan roads, Drum Fel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Where does Hammerfall need a healer most, Drum Fel?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, standing = { hammerfall = 1 } } },
       },
     },

@@ -96,8 +96,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Trouble me? They keep me warm, friend, an' they've set my beard alight twice, so call it even. The whole land's been burnin' since the Dark Irons called up their master, an' if ye can talk sense intae fire, ye're a better drinker than me." } },
+      choices = {
+        { text = "Those spirits are bound and suffering, John.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fire's fire, John. Pour me one and let it burn.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else, John.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my cave! *hic* Tell the fire spirits out there tae calm down, would ye, because they've been rumblin' under the Steppes since before I moved in, an' I'd like a quiet night." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp in my cave? *hic* Mind it keeps off the cask, for the last thing I need is fel in my ale, an' the second last thing is a burnin' beard." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can ye chill a cask, friend? A cold ale in the Burnin' Steppes is worth more than all the gold in the Depths, an' I've been dreamin' of one for years." },
         { id = "h_default", key = true,
@@ -141,6 +151,7 @@ P:NPC {
         { text = "What's waiting at the Spire for a warrior, John?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where do the Blackrock worgs run, John?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Was it always ash here, John, or do you remember it green?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do the fire spirits of the Steppes trouble you, John?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll leave you to your cask.", next = "END" },
       },
     },
@@ -417,8 +428,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Where the Seven hid their best work, for a start, because the Dark Irons buried half their history under Blackrock Mountain and the other half under rubble. You talk to stone and I sell what's under it, so we'd make a fine pair, if your spirits don't mind a modest commission." } },
+      choices = {
+        { text = "The earth's secrets aren't for sale, Maxwort.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "For a fair cut, I might ask the stones for you.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The earth here is full of Dark Iron secrets, and if it's ever in the mood to whisper one, I'd pay handsomely to hear what it says." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now there's a professional I respect, because the Dark Irons won't sell me what I want, and you look like someone who doesn't take no for an answer." },
         { id = "h_default", key = true,
           text = "Maxwort Uberglint, treasure hunter. I came to the Steppes chasing the legends of the Seven, because where you find old knowledge you find power, and where you find power, my friend, you find wealth." },
@@ -454,6 +475,7 @@ P:NPC {
         { text = "What do you need carried out of the Dark Iron ruins?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "You think a beast can sniff out treasure?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Could a druid really sniff out treasure for you, Maxwort?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What would you pay the earth to tell you, Maxwort?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Good hunting, Maxwort.", next = "END" },
       },
     },
@@ -619,8 +641,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "For science, and for my patron, who pays for every measurement I send him and never says what he does with them. I'd rather be studying the dragons, honestly, but fire is fire, and if I understand how it moves, I might keep my eyebrows a little longer." } },
+      choices = {
+        { text = "If he pays, that's his business, Tinkee.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Ask your patron what he wants with it, Tinkee.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Only a little, and only if it volunteers, since I'm a scientist and not a monster. The whelps keep scorching my workbench, you see, and if I can build something an imp can't burn through, I'll have something a whelp can't either, which is the theory." } },
+      choices = {
+        { text = "My imp isn't a test subject, Tinkee.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Go ahead. It could use the discipline.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Is it true imps can breathe fire? I've been trying to build a whelp-proof furnace, and an imp would make a lovely test subject, if it doesn't mind." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you think the fire elementals around the mountain would hold still long enough for me to measure them? No? I didn't think so either, but I had to ask." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Ooh, are you here to steal my schematics? You can't, because I keep them in my head, mostly, and the rest are on fire." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you do frost? My device is supposed to freeze dragon eggs, but you could probably do it with a flick of your wrist, and I'd love to compare results." },
         { id = "h_default", key = true,
@@ -663,6 +705,8 @@ P:NPC {
         { text = "Who is your patron, Tinkee, and what does he want?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's so dangerous about the whelps, Tinkee?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What have you learned about the dragons of the Steppes, Tinkee?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why do you want to measure fire elementals, Tinkee?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Would you really test your furnace on my imp, Tinkee?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck with the dragons.", next = "END" },
       },
     },
@@ -853,8 +897,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Only near the stock, friend, because one spark in the wrong place and Flame Crest gets a new crater. Otherwise I'd sell to a shaman as happily as anyone, since your coin spends like everybody's, and my dear brother Ribbly never paid me in anything but excuses." } },
+      choices = {
+        { text = "I'll keep my lightning to myself in here, Yuka.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If your stock can't take a spark, that's your trouble.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Mind your lightning near the blasting powder, friend, because I've a whole crate of it under the counter and my insurance is very particular about weather." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Lovely, though I'm told imps are terrible around engineering supplies, so do keep yours outside where it can't ruin my stock." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Don't conjure anything in my shop, please, because the last mage who did set off a crate of sappers, and I'm still billing him for it." },
         { id = "h_default", key = true,
@@ -893,6 +947,7 @@ P:NPC {
         { text = "Do the Dark Irons give you much trouble, Yuka?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why is your shot so expensive, Yuka?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why did the last druid frown at your wares, Yuka?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does a shaman make you nervous, Yuka?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Goodbye, Yuka.", next = "END" },
       },
     },
@@ -1036,8 +1091,18 @@ P:NPC {
         { text = "Something else, Kibler.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "I reckon they smell the wolves on you, friend, since your people ride them, and a pup knows its betters by the smell. These are Blackrock worgs, mind you, bred mean by Rend's handlers, so if you can gentle one with a look, I'll want to know how you do it." } },
+      choices = {
+        { text = "Pups taken from their pack shouldn't be sold, Kibler.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A pup's a pup. Sell them to whoever pays.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The worg pups go quiet when your sort walks in, which is either respect or fear, and Opus says it's fear, but Opus says a lot of things." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You're not here to pinch a worg pup out of the cage, are you? They bite, they howl, and they always find their way back to me." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can you turn things into sheep? I've had clients ask for a sheep that used to be a worg, and I haven't the faintest idea where to start." },
         { id = "h_default", key = true,
@@ -1071,6 +1136,7 @@ P:NPC {
         { text = "Can a Blackrock worg pup really be gentled, Kibler?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is it right to sell pups stolen from the Blackrock orcs?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a worg pup really fight beside a soldier?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why do the worg pups go quiet around me, Kibler?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Goodbye, Kibler.", next = "END" },
       },
     },
@@ -1216,8 +1282,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Beside the Sunwell everything is small, and I say that without pride, because I no longer have the Sunwell either. Your elements answer when you ask politely, and the arcane answered my people whenever they commanded it, and I sometimes wonder which of us was wiser." } },
+      choices = {
+        { text = "Asking is wiser than commanding, Mathredis.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Command is power. Your people had the right of it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, standing in my light. You commune with spirits of stone and wind, I'm told, which seems a very small sort of magic beside what my people once commanded." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing in my light. At least you have the decency to do it quietly, which is more than I can say for most who come here." },
         { id = "h_default", key = true,
           text = "Mathredis Firestar, of Quel'Thalas, while there was a Quel'Thalas. I seek the lost librams of the elven masters, and if you bring me one, I will make you something of power, at a price you will find high." },
@@ -1246,6 +1322,7 @@ P:NPC {
         { text = "What use is a sword against magic like that?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Did you know any of the rangers of Quel'Thalas?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What did the druids warn the elves about, Mathredis?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Is the magic of the elements really so small, Mathredis?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I'll leave you.", next = "END" },
       },
     },
@@ -1412,8 +1489,38 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "They bite anyone who surprises them, because in this land a surprise usually comes with a Blackrock axe behind it. Walk heavy and speak before you reach the perch, and they'll carry you home without a scratch." } },
+      choices = {
+        { text = "Understood. I'll walk heavy and speak first.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll go quiet anyway. It keeps me sharp.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "More every week, since Rend's orcs started holding the Spire like a fortress and every fool with an axe wants a piece of him. I strap them to the saddle and send them to Kargath, and the riders know to fly smooth when the passenger is bleeding." } },
+      choices = {
+        { text = "Then I'll tend them before they fly, Vahgruk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fools who charge the Spire earn their wounds.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Every flight, because the air above the mountain is hot and wrong, and it bucks a rider like a bad wolf. The old shamans say the fire under Blackrock is bound to something that hates the sky, and after a few years here, I believe them." } },
+      choices = {
+        { text = "Fly the routes anyway, Vahgruk. The Horde needs them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "On the worst days, ground the riders and wait.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. The sky over the Steppes is thick with ash and angry fire, and my riders feel it, so if the spirits have anything to say about it, tell them to say it quietly." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Wounded come through Flame Crest on their way home from the mountain, and most of them wish they'd met you sooner." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. My riders don't like anyone they can't hear coming, so walk heavy near the perch, or you'll learn how sharp their beaks are." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The Blackrock up on the mountain keep warlocks too, the old kind, and my riders can't tell the difference by smell." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could open your own way home, but my riders show you the Steppes on the way, and the Steppes should be seen once, burning." },
         { id = "h_default", key = true,
@@ -1434,6 +1541,9 @@ P:NPC {
         { text = "What do you make of Rend's warriors, Vahgruk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do wind riders and hunters' beasts get along?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why do the wind riders hate the Steppes' sky, Vahgruk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do your wind riders really bite anyone they can't hear, Vahgruk?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do many wounded fly out of Flame Crest, Vahgruk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the elements here trouble your wind riders, Vahgruk?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Not today.", next = "END" },
       },
     },

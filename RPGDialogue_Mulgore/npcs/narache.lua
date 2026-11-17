@@ -57,6 +57,17 @@ P:NPC {
         { text = "Will you tell me about the Greatmother?", next = "greatmother" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I'll trust what you do, not what you carry, because my mother taught me that much before the Bristleback took her. The orcs say their warlocks once nearly destroyed them, so serve the Horde and I'll remember it, and if you serve something else, I'll remember that too." },
+      },
+      choices = {
+        { text = "I serve the Horde, Chief, and I'll show it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I serve my own path. Judge me by my deeds.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -73,6 +84,7 @@ P:NPC {
           text = "They came to our camp with fire and spears, and now we go to theirs. Make them remember the Hawkwind." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "The spirits have touched you, young one, and I can see it in the way you stand. My mother would have wanted you beside her at the rites." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Narache. My mother would have welcomed you, because the Greatmother believed every healer was a gift from the Earth Mother, whatever name they gave it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock in Narache. My mother would have welcomed you, so I will too, but I will be watching you." },
       },
       choices = {
         { text = "Tell me about the Greatmother.", next = "greatmother" },
@@ -84,6 +96,7 @@ P:NPC {
         { text = "The Bristleback won't see me coming, Chief.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could the arcane have saved the Greatmother, Chief?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Would you want a prayer said for the Greatmother, Chief?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Will you trust a warlock in your camp, Chief?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll do what's asked.", next = "END", fx = { affinity = 2, standing = { narache = 1 } } },
       },
       again = {
@@ -189,6 +202,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "You could, because the plainstriders spook at every tauren hoof and you'd get close enough to count them. Watch the Bristleback camps for me too, because they've been bold since they killed my grandmother, and I want to know where they sleep." },
+      },
+      choices = {
+        { text = "I'll scout, and let your hunters take the kill fairly.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Why scout when I can cut them down asleep?", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Welcome, but not with fire, because the grass of Red Cloud Mesa burns and so would all of us. Bring your frost and slow the plainstriders for my braves, and you'll eat first at the feast." },
+      },
+      choices = {
+        { text = "I'll follow your lead on the hunt, Grull.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll hunt my own way, frost or fire.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "He doesn't trust anything that might bite the hand that feeds it, and the orcs say demons always do. I'm curious, though, so if you and your demon hunt the Bristleback with my braves, I'll judge you by what you bring home." },
+      },
+      choices = {
+        { text = "Then I'll hunt beside your braves and honor your father's camp.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your father's trust isn't something I need.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -204,6 +250,9 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Good, because the hunt goes better when the wind is on our side, and you can ask it nicely." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll be facing the Rite of Strength, then, because every brave of Narache must prove themselves before they go down to Bloodhoof." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Narache's hunts come home with plenty of scratches, so stay close, because I'd rather lead a hunt with a healer than without one." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You'd make a fine scout for my hunts, if you can keep up." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Can you light a fire without flint? My hunters would trade a lot for that." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. My father would want me to send you away, but I'd rather see what you can do." },
       },
       choices = {
         { text = "Will you lead well?", next = "lead" },
@@ -211,6 +260,9 @@ P:NPC {
         { text = "Should a shaman hunt, Grull, or only bless the hunters?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does the Rite of Strength ask of a warrior, Grull?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Will you take a priest on your next hunt, Grull?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Could a rogue scout your hunts, Grull?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Would a mage be welcome on your hunts, Grull?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Your father doesn't trust warlocks, Grull?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Good hunting, Grull.", next = "END" },
       },
       again = {

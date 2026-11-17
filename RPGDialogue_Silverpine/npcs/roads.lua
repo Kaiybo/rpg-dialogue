@@ -374,6 +374,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because your spells take you to the Undercity and nowhere else, and my bats go to Tarren Mill and back again. They don't care for magic, though, so keep your hands still in the saddle and they won't drop you in the lake." },
+      },
+      choices = {
+        { text = "I'll ride gently. Your bats deserve that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A bat that drops me becomes a frozen bat.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -382,6 +393,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You can outrun my bats on the flat, I'm told, but you'll not run across Lordamere Lake." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. My bats can carry your weight, but they'd rather you left some of that iron behind." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The bats don't need praying over, so if that's why you came, you can go back down the hill." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could teleport, I suppose, but a bat doesn't need a reagent, so here we are." },
       },
       choices = {
         { text = "Do the bats sense what you are, Karos?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -393,6 +405,7 @@ P:NPC {
         { text = "Can I ride a bat out quietly, Karos?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would your bats tolerate a demon riding along?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Can your bats carry a warrior in full mail, Karos?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Why would a mage need your bats, Karos?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Just passing.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? The bats are getting restless." } },

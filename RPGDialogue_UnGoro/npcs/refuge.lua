@@ -27,6 +27,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "We welcome anyone who'll help, and we've learned not to be picky. I'll only ask you to keep your demon away from the scholars, because J.D. Collie gets twitchy around anything that glows that isn't one of his crystals, and he's twitchy enough already." } },
+      choices = {
+        { text = "I'll keep my demon clear of the scholars.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Collie will have to get used to it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "The crater happened, mostly, raptors and devilsaurs and the Gorishi silithid in their hives, and we fell back up here to the Refuge. I still love this place, Light help me, but I've learned to respect it, and I'd ask you to do the same before you go charging into it." } },
+      choices = {
+        { text = "I'll respect the crater, and help you take back your camps.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Respect won't save anyone. Strength will.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhcast = {
       big = true,
       lines = { { id = "xhcast_default", text = "I would, though I'm not sure which words fit, because the crater never left us anything to bury. The raptors and the oozes and the things in the tar don't keep graves, so say them over the camps, if you would, and I'll know they've been said." } },
@@ -65,6 +83,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, here at the Refuge! Well, the expedition takes all sorts, and the crater's dangerous enough that I'm glad of anyone who can call up a little help." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, here at the Refuge! The crater's taken three of my camps and a few good people with them, and I'd be glad of someone with a steady hand and a steadier faith." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at the Refuge! Then perhaps you can tell me what the crater wants, because it's certainly made clear that it doesn't want my base camps." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here at the Refuge! The crater's taken three of my camps and a few good people with them, and I'd be glad of someone who knows the proper words for that." },
         { id = "h_default", key = true,
@@ -97,6 +119,8 @@ P:NPC {
         { text = "What do you think the crystals are, Williden?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you have work for someone who goes unnoticed?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you like words said for the people you lost, Williden?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What happened to your base camps, Williden?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the expedition welcome warlocks, Williden?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll help the expedition.", next = "END", fx = { affinity = 2, standing = { marshals_refuge = 1 } } },
       },
     },
@@ -214,6 +238,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not much, only that I think I'm a warrior, because it feels right, and I think I came from somewhere far away, because nothing here feels like home. Your demon's looking at me as though it knows something I don't, and I'd rather it didn't tell me, if it's all the same to you." } },
+      choices = {
+        { text = "Your past will come back in time. Be patient.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Maybe some memories are better left forgotten.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -290,6 +323,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! You know, I have the oddest feeling I've met warlocks before, but I can't remember where, and I'm not sure whether that's a good thing or a bad thing." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I feel like I've met people who talk to the wind before, though I can't for the life of me remember where, which I suppose is the trouble with everything lately." },
         { id = "h_default", key = true,
           text = "They call me Linken, and I think it's my name. I came to this crater on a mission from somewhere far away, and then my raft broke up in the marsh, something hit my head, and the rest went with the raft." },
@@ -326,6 +361,7 @@ P:NPC {
         { text = "Would you want to remember, Linken, even if it hurt?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you think you were a knight, once?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you remember anything about hunting, Linken?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you remember anything of who you were, Linken?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll help you remember.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },
@@ -401,6 +437,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Crystals, every colour, from all over the crater, and quietly, because the beasts get territorial about them. Put the right ones together and you get something wonderful, put the wrong ones together and you get singed, and I'd love to know which is which before the next eyebrow goes." } },
+      choices = {
+        { text = "I'll fetch your crystals, but you'll pay me fairly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll gather them for the expedition's sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "They respond to everything, which is what makes them so marvellous! Red ones warm, blue ones hum, green ones do something I'm still working out, and if you'd stand near the yellow ones for a moment, I could find out whether they're fond of you or about to explode." } },
+      choices = {
+        { text = "I'll stand near them, for science. Be careful, though.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Explode? Find someone else for your experiments.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because the right crystal makes a body stronger and the wrong one gives you a very short nap, and I've got notes on both! I watched a guard hold one and lift a crate he couldn't budge the day before, though he couldn't feel his thumbs for a while after." } },
@@ -459,6 +513,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_roguecl", when = { class = "ROGUE" },
+          text = "A rogue! You've got quick hands, and that's exactly what I need, because the crystals out in the crater are guarded by things that bite, and I'd rather lose your patience than my other eyebrow." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, splendid! The crystals hum a little louder when the Light comes into the cave, and I've been dying to know whether they like it or whether they're complaining." },
         { id = "h_default", key = true,
           text = "J.D. Collie, of the Marshal Expedition! I study the crystals, every color, all over the crater, all doing different things. Put the right ones together and you get something wonderful; put the wrong ones together and you get singed." },
         { id = "h_sense", tags = { "news" }, when = { questActive = TODO_QUEST("Making Sense of It") },
@@ -492,6 +550,8 @@ P:NPC {
         { text = "Do your crystals really answer to a priest's power, J.D.?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a warrior want to carry your crystals, Collie?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why do the crater's beasts avoid the crystals, Collie?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do the crystals really respond to the Light, J.D.?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What would you have a rogue fetch for you, J.D.?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll gather crystals.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
     },
@@ -560,6 +620,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I don't know, I don't know anything about demons, but I'd ask the devilsaurs themselves if I thought they'd tell me where he is! Ringo's my dearest friend and he gets lost in his own tent, so out in the crater he must be terrified, and I'm running out of ideas." } },
+      choices = {
+        { text = "I'll look for him myself. My demon stays leashed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My demon will find him, whatever it takes.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "He's my dearest friend, and he wandered off into the crater after a crystal, and nobody's seen him since. Ringo's always been a wanderer, but he's never been gone this long, and I keep imagining him lost and thirsty somewhere in the ferns." } },
+      choices = {
+        { text = "I'll find him, Spraggle, and bring him home safe.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He chose to wander. You shouldn't worry so much.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "We did, a little, but Williden can't spare the guards, and the ones we have are needed on the ridge to keep the raptors out of the Refuge. I keep telling myself that's sensible, and I keep not believing it." } },
@@ -624,6 +702,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock! Oh, could your demon find Ringo, do you think, because it can see things in the dark, can't it, and he's been missing for days." },
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Would you say a prayer for Ringo, please, any prayer at all, because he's been gone for days and I've run clean out of my own." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Can you ask the spirits where Ringo is? I know that's probably not how it works, but I'm asking everybody, and you'd be the first who might actually know." },
         { id = "h_default", key = true,
           text = "Spraggle Frock, Marshal Expedition! I run supplies, or I did before the camps fell, and now I mostly worry, mostly about Ringo. He went off toward the volcano and he hasn't come back." },
@@ -657,6 +739,8 @@ P:NPC {
         { text = "Do you think Ringo is still alive, Spraggle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Have you prayed for Ringo yourself, Spraggle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why didn't anyone go after Ringo, Spraggle?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Who is Ringo, and why do you worry for him?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you think a demon could find Ringo, Spraggle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll look for Ringo.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
       },
     },

@@ -55,6 +55,60 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "'Cause Rin'ji ain't done nothin' but walk in the wrong woods, and the elves caged me for it without so much as a question. Your Light be about mercy, so the stories say, and Rin'ji be very curious to know if the stories be true." } },
+      choices = {
+        { text = "The Light is mercy. I'll get you out, Rin'ji.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A caged troll is a troll who can't hurt anyone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Rin'ji.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Rin'ji got careless, mon, chasin' a rumour of somethin' buried in these hills, and the elves of Quel'Danil got sharper eyes than Rin'ji thought. They watch the cage all day, but they change the guard at dusk, and a quiet one could slip in then." } },
+      choices = {
+        { text = "Dusk, then. I'll get you out clean.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "I'll get you out, but not by sneaking. I'll face them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else, Rin'ji.", next = "BACK" },
+      },
+    },
+    xpriest = {
+      big = true,
+      lines = { { id = "xpriest_default", text = "Sometimes they listen, mon, but they don't answer how you want, and Rin'ji think that be the loa's little joke. Maybe they sent you, and maybe they didn't, but Rin'ji ain't fussy about who answer the prayer, so long as somebody does." } },
+      choices = {
+        { text = "Someone answered. I'll get you out of there.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Nobody sent me, Rin'ji. You're on your own.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Rin'ji.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "Just a way out, and a little luck on the run home, 'cause the elves shoot straight and the woods be thick. If the spirits of the wind feel like blowin' some dust in elven eyes, Rin'ji wouldn't complain, no sir." } },
+      choices = {
+        { text = "The spirits will guard you home, Rin'ji.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Forget the spirits. I'll just cut the elves down.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Rin'ji.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "The kind that hurt, mon, and that sing out to the elves when anybody try to open it the wrong way. The high elves always did love their wards, ever since they first drove the Amani from their forests, and Rin'ji think they love them more than they love their own kin." } },
+      choices = {
+        { text = "I'll undo the ward carefully. No alarms, Rin'ji.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll just blast it open. Let them come.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Rin'ji.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "No, mon, and Rin'ji spit on their altars, for they feed their own people to the blood loa and call it worship. The elves don't know one troll from another and don't care to learn, so you get me out, and you be helpin' a troll who never made a sacrifice in his life." } },
+      choices = {
+        { text = "Then I'll help the right trolls. You're free, Rin'ji.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "One troll's much like another. Your secret had better be good.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Rin'ji.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -66,6 +120,12 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, mon! You got arms like a bear, so maybe you bend these bars, and maybe you bend an elf or two on the way out." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, mon. Rin'ji was huntin' too, before the elves caught him, so you know how it feel to hold the bow, and how bad it feel when somebody else got it." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, mon? You talk to the trees, so maybe you tell 'em to open this cage, 'cause Rin'ji's been askin' nicely and nothin' be happenin'." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, mon? Your people and mine been fightin' since the Amani wars, so Rin'ji be very surprised if you let a troll out of a cage, but Rin'ji still be askin'." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "Now you be the kind Rin'ji like to see, mon, quiet and quick. You get these locks open without the elves noticin', and Rin'ji make it worth your trouble." },
+        { id = "h_priestcl", when = { class = "PRIEST" }, text = "A priest? You gonna pray over Rin'ji, or you gonna help him? 'Cause Rin'ji been prayin' to every loa he know, and none of 'em been pickin' locks lately." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The spirits must be lookin' after Rin'ji after all, mon, 'cause you be the first friendly face to come by this cage in many days." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, mon. The elves put a little spell on this lock, Rin'ji think, 'cause it hum when Rin'ji touch it, so maybe you know how to make it stop." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Ooh, you got a little demon, mon. The Vilebranch got plenty of dark friends too, but Rin'ji ain't Vilebranch, and Rin'ji ain't fussy about who open this cage." },
       },
       choices = {
         { text = "Elves caged my people too, once. I'll get you out.", next = "troll", when = { race = "Troll" } },
@@ -75,6 +135,12 @@ P:NPC {
         { text = "Should I break the bars or the guards first, Rin'ji?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What were you hunting when the elves caught you, Rin'ji?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why did the elves of Quel'Danil cage you, Rin'ji?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Why should a paladin free a troll, Rin'ji?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How did the elves catch you, Rin'ji?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do the loa listen to you, Rin'ji?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "What do you need from a shaman, Rin'ji?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What kind of spell is on the lock, Rin'ji?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Are you one of the Vilebranch, Rin'ji?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Good luck, Rin'ji.", next = "END" },
       },
       again = { { id = "h_again", text = "Talk faster, mon. The elves be changin' the guard soon." } },

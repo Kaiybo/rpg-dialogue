@@ -81,6 +81,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "They blame Kel'Thuzad, who was one of yours, and from him it's a short walk to blaming every robe in the kingdom. I heard it preached in the Monastery's chapel, and the men around me cheered, and I said nothing, which I'm told is how most terrible things begin." } },
+      choices = {
+        { text = "Kel'Thuzad's crimes were his own. Dalaran paid for them too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Dalaran did breed Kel'Thuzad. The Crusade isn't entirely wrong.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -96,6 +105,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "You stand like a soldier, and I used to drill men to stand like that, under a red banner I'd rather not name. Close the door, please, and sit with your back to the wall if it makes you easier." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you came up the stairs quietly, which I'm grateful for. The Crusade used trackers to find those of us who left, so forgive me if I check the window." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, here in Southshore. I spent years being told your kind were heathens, and I'm ashamed of how readily I believed it." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The Crusade counts Dalaran among the reasons Lordaeron fell, and I believed it once, because it was easier than believing we had failed on our own." },
       },
       again = {
         { id = "h_again", text = "Something else? Ask away; I've stopped keeping secrets for them." },
@@ -113,6 +123,7 @@ P:NPC {
         { text = "Did the Crusade train its warriors well, Raleigh?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "The Crusade hunts its deserters with trackers, Raleigh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "You wore the Crusade's red. Would they have burned me?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Does the Crusade still blame Dalaran, Raleigh?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to your window.", next = "END" },
       },
     },

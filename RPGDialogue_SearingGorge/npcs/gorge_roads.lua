@@ -84,8 +84,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Because nobody rightly knows what the Stones are, an' the Dark Irons want them badly enough tae kill my diggers over them. If there's power in them, I'd sooner it went tae Ironforge than intae anythin' wi' horns, an' I'll no' apologize for sayin' so." } },
+      choices = {
+        { text = "Fair enough. The Stones belong with Ironforge's scholars.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If they hold power, I'd study them myself, Dorius.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Dorius.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take any help I can get findin' my team, though I'd ask ye keep yer demon well clear o' the Suntara Stones, for I've enough trouble wi' fire in this place already." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, thank the Light! I've walked half the Gorge wi' no one tae speak a word over my lost team, an' I'd rest easier knowin' someone would, if it comes tae that." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "Is the Firelord truly behind the Dark Irons here, Dorius?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Dark Iron fight like any other dwarves, Dorius?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What tracks should I look for, Dorius?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Why keep my demon away from the Suntara Stones, Dorius?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Be careful, Dorius.", next = "END" },
       },
     },

@@ -244,6 +244,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "That you carry a heavy blade and a light step, and that you been in places the living don't usually come back from. The spirits don't judge that, mon, they only ask that the shadows you walk in don't follow you home, because a quiet one with a heavy heart be a sad thing to watch." } },
+      choices = {
+        { text = "My shadows stay where I leave them, Tor'gan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The shadows are where I live. They can follow.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tor'gan.", next = "BACK" },
+      },
+    },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Maybe they could, if he let you near, but Gor'mul's wound be in the spirit, not the flesh, and he cursed the last healer who touched his shoulder. Sit with him a while if you like, and talk about the Warchief and the new Horde, and don't try to fix nothin', because that be the hardest kind of medicine." } },
+      choices = {
+        { text = "I'll sit with him and listen. That's healing too.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "If he won't be healed, leave him to his despair.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Tor'gan.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -265,6 +283,8 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "Mage fire be hot and quick, {class}, and Tor'gan's fire be slow and patient. Both burn, mon, they just burn different things." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. The spirits like a warrior who know why he fight, and they don't much like one who only know how." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You walk so soft the spirits almost miss you, {class}, and that be a rare thing. Come sit, and don't worry, Tor'gan don't tell nobody what the spirits whisper about a quiet one." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, come to Hammerfall! You speak to the Light or the loa or the shadow, and Tor'gan speak to the spirits, but we both be in the business of mendin' what's broken." },
       },
       again = {
         { id = "h_again", text = "What else be on your mind, friend?" },
@@ -282,6 +302,8 @@ P:NPC {
         { text = "Can the spirits forgive a warlock, Tor'gan?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What does your slow fire burn, Tor'gan?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the spirits care why a warrior fights, Tor'gan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "What do the spirits whisper about me, Tor'gan?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Could my prayers help Gor'mul, Tor'gan?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "I'll help Gor'mul.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },

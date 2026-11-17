@@ -94,6 +94,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = {
+        { id = "xlock_default", text = "Because he's old enough to remember what demon magic did to the Horde, and so am I, near enough. The Warchief says a warlock who serves the Horde is better than one who serves the Burning Blade at Skull Rock, so go and prove him right." },
+      },
+      choices = {
+        { text = "I'll serve the Horde and prove the Warchief right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I serve my own power, and the Horde benefits anyway.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, walking into the valley like everyone else. I'll send you to Gornek the same as the rest, but I'm glad you came." },
@@ -108,6 +119,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, fresh to the Valley. You'll want Un'Thuwa in Sen'jin village eventually, but every recruit starts with Gornek." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, fresh in the valley! Every one of you thinks you'll lead a warband by the end of the week, and every one of you starts with boars." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, new to the valley. You'll walk alone for now, but the day will come when a beast walks with you, and you'll wonder how you managed without it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, fresh in the valley. Gornek won't like it, and neither do I, but the Warchief says you can serve, so you'll serve." },
       },
       choices = {
         { text = "Are there many priests among the recruits, Kaltunk?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -121,6 +133,7 @@ P:NPC {
         { text = "Do the orcs here trust the arcane at all?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do warriors start with boars, Kaltunk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What should a new hunter tame first, Kaltunk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why won't Gornek like a warlock, Kaltunk?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'm on my way.", next = "END" },
       },
       again = {
@@ -703,6 +716,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Every one of them tries, and every one of them thinks I don't notice, but the cook always knows when the pot's lighter. Bring me cactus apples from the valley instead, and you can eat your fill without sneaking." },
+      },
+      choices = {
+        { text = "I'll bring you the apples honestly, Galgar.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A rogue who gets caught isn't much of a rogue.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at my fire! Bless the pot if you like; it could use the help, and so could the scorpid tails." },
@@ -716,6 +740,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You can conjure your own bread, I hear, so you won't be wanting my cooking. Your loss, because my scorpid tail is famous." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Warlock, keep that imp away from my pot. The last one spat in my stew, and the grunts haven't forgiven me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You'll eat twice what a hunter does and complain half as much, which makes you my favourite kind of customer." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, eh? Keep your fingers out of the pot, because I count every scorpid tail in it." },
       },
       choices = {
         { text = "Do the recruits eat better after a priest blesses the food?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -728,6 +753,7 @@ P:NPC {
         { text = "Do you mind that mages can conjure their own food?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do you feed the recruits, Galgar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Would you still feed a warlock, Galgar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "Do rogues steal from your pot, Galgar?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Thanks, Galgar.", next = "END" },
       },
       again = {

@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Trust is a strong word, friend, and I asked Dughan for soldiers, not whatever you are. Still, I sent Rolf and Malakai north along the river and they didn't come back, so if your craft can find out what happened to them, I'll not ask how." } },
+      choices = {
+        { text = "I'll find them, Thomas, and bring you the truth.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll look, but I'll do it my own way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Thomas.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Murlocs along the river and wolves in the thickets, and the two men I sent north along the water never came back. Your kind might find it peaceful, but I've stopped going in without good reason." } },
@@ -118,6 +127,7 @@ P:NPC {
           text = "A mage. Stand behind me on the bridge if there's trouble, because I'd rather you burned the wolves than me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you can read tracks, I've some by the lake I'd like explained, and none of them are friendly." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at my bridge. If you've come from the east, you'll know the forest grows less friendly with every mile." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take what help I can get on this bridge, but I'll ask you to keep your demons on the east side of it." },
       },
       again = {
         { id = "h_again", text = "Anything further, citizen?" },
@@ -136,6 +146,7 @@ P:NPC {
         { text = "Do you pray for the men under your command, Thomas?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin do at your bridge, Thomas?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What makes the forest east of here so unfriendly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you trust a warlock on your bridge, Thomas?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Carry on, guard.", next = "END" },
       },
     },

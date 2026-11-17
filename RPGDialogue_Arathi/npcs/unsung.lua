@@ -76,6 +76,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'd forge one for anybody who means to swing it at the Syndicate or the Boulderfist, an' the League o' Arathor needs every arm it can get. But I fought the Horde's warlocks in the Second War, an' I watched what their fire did to Stromgarde's walls, so ye'll forgive me if I keep one eye on that imp." } },
+      choices = {
+        { text = "That's fair, Jannos. I'll earn your trust.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Watch all you like. My fire's on your side now.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Jannos.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, welcome! Ye'll want a mace, then, for every priest I knew in Ironforge carried one, an' a good weight in the hand does wonders for a sermon when the Witherbark aren't listenin'." },
@@ -89,6 +98,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now there's someone who knows the worth o' a good mace. I forge 'em for every soldier at Refuge Pointe, an' they come back dented, which is how I know they're bein' used." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I've a few arrowheads coolin' by the forge, an' I'll tell ye now, a dwarf's arrowhead weighs twice what a human's does an' flies twice as true." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid in Refuge Pointe! I doubt ye'll need a mace, but ye're welcome to admire one." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll sell ye a mace if ye want one, lad, though I've a feelin' ye'll rarely swing it, an' I'll ask ye to keep yer wee beastie off me anvil." },
       },
       again = {
         { id = "h_again", text = "What else d'ye want to know about the Pointe?" },
@@ -106,6 +116,7 @@ P:NPC {
         { text = "What's the best weapon against the Witherbark, Jannos?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you forge arrowheads as well as maces, Jannos?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do maces suit the work of taking back the Highlands?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would you forge a mace for a warlock, Jannos?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },

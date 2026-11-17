@@ -291,6 +291,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Aye, more than most, for the Vilebranch priests work blood magic on their altars, an' I've heard it said their curses slide off the Light like rain off a slate roof. But I'll no' send ye up there on a bird tae play the hero, for Sharpbeak's the one that matters, an' a dead paladin cannae carry a gryphon chick home." } },
+      choices = {
+        { text = "The chick first, then. Glory can wait, Talonaxe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll smash their altars first. The chick can wait.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Talonaxe.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "She'd attack anythin' that smells wrong near her nest, an' ye smell wrong, {g:lad|lass}, no offence meant. The Vilebranch shadow hunters reek o' the same dark stuff, so as far as she's concerned, ye might be one o' them in an Alliance coat, an' I'll no' be arguin' wi' a mother gryphon on yer behalf." } },
+      choices = {
+        { text = "Fair enough. I'll stay well clear of her nest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then keep her leashed. I go where I need to.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Talonaxe.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -315,6 +333,8 @@ P:NPC {
           text = "Keep yer hands where the birds can see 'em, {class}, for a gryphon knows a sneak by the smell, an' they bite first." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Ye'll want tae fight the trolls, I suppose, an' ye'll want a gryphon tae get there, an' ye'll want me tae trust ye wi' one, which I don't yet." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The gryphons are wary of ye, I can tell, but they'll settle once they know ye're no threat tae the aeries." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The birds'll moan about the weight o' that plate, {class}, but they'll carry ye, an' I'd wager the trolls at Jintha'Alor have never seen holy light come down on 'em from the sky." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep that thing o' yours well away from the nests, {class}, for Keenclaw's still twitchy after the trolls took her young one, an' she'll take yer arm off tae protect what's left." },
       },
       again = { { id = "h_again", text = "What? Quick, they're wantin' fed." } },
       choices = {
@@ -329,6 +349,8 @@ P:NPC {
         { text = "Do the gryphons ever come back hurt from the troll lands?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would it take for you to trust a warrior with a gryphon?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Should the trolls be driven from the aeries for good?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Would a paladin be any use against Jintha'Alor, Talonaxe?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would Keenclaw truly attack a warlock, Talonaxe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll go.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -452,6 +474,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "I've always thought so, though there's priests in Ironforge who'd call me a heathen for sayin' it. The Light's a fire ye carry, an' the spirits are the ground ye walk on, an' it's the Vilebranch who've poisoned both wi' their altars, so I'll take any lantern that helps me see them burned out." } },
+      choices = {
+        { text = "Light and land together, Fraggar. That's how it should be.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Light stands alone. Spirits are a lesser thing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Fraggar.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -470,6 +501,7 @@ P:NPC {
           text = "There's someone standin' on my blind side, an' the wind says they mean tae stay there. Speak up, {class}, an' let an old dwarf hear ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Ye stand heavy, like a dwarf in full mail, though I cannae see if ye are one. The land feels a warrior's step, an' it's no always glad of it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I can hear yer beast breathin' beside ye, an' it's calmer than most, which tells me ye treat it well." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Ye carry the Light like a lantern, {class}, an' the spirits o' this land don't quite know what tae make o' ye, though they're no' unfriendly." },
       },
       again = { { id = "h_again", text = "Aye? I'm listenin', as I'm always listenin'." } },
       choices = {
@@ -483,6 +515,7 @@ P:NPC {
         { text = "Can the Light and your spirits work together, Fraggar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does the land care if a warrior walks on it, Fraggar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can you hear the beasts of the Hinterlands, Fraggar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can the Light and the spirits stand together, Fraggar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll help the spirits.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Your spirits flinch when I come near, old man.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "The spirits can fend for themselves, old man.", next = "END", fx = { align = { light = -1 } } },

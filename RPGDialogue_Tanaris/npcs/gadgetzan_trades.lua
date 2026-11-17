@@ -101,6 +101,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Cursed rings, haunted swords, a jar that a gnome swore had a demon in it and turned out to have a very angry beetle. I've learned to look at everything twice, and when in doubt, I call the Bruisers and let them open it." } },
+      choices = {
+        { text = "Sensible rules. I'll keep to them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Rules like that cost you the best sales, Beardo.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Anything that comes out of Zul'Farrak, for a start, because the trolls put curses on things the way other folk put locks. I sell them all the same, mind you, but I write 'buyer beware' on the tag, and I mean it." } },
+      choices = {
+        { text = "Selling cursed goods is wrong, warning or not.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A warning's fair. Buyers can decide for themselves.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Carved totems sell well, by the way, and if your spirits ever want to put anything up for auction, I'll take the usual cut and ask no questions." },
@@ -120,6 +138,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! I've got rifles, bows, quivers, and once, very briefly, a basilisk egg, until the Bruisers made me take it down." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the auction house. I sell a lot of herbs here, and a few things you'd likely call cruel, so let's keep to the herbs, shall we?" },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock at the auction house! Bid on what you like, friend, but if you're selling, the Cartel's rules say nothing that bites, burns or whispers goes on my block." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, at the auction house! Are you buying or blessing? Because I've got a few lots that could use a blessing before anyone touches them." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The ledger's open." },
@@ -138,6 +158,8 @@ P:NPC {
         { text = "Would you really auction off a loa mask, Beardo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warriors' weapons sell well at your auction, Beardo?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why did the Bruisers make you take down the basilisk egg?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What sort of things have people tried to sell here, Beardo?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Which lots need a blessing, Beardo?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -264,6 +286,33 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Shade, water and patience, and a lot more of the last than the first two. The hunters leave me cats and wolves and scorpids and once, a turtle, and I treat every one the same, because a frightened beast in a small pen is a danger to everyone." } },
+      choices = {
+        { text = "Treating them all the same is fair and right.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A scorpid isn't worth the same care as a wolf.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      big = true,
+      lines = { { id = "xrogue_default", text = "Once, a goblin who wanted a hunter's cat to sell in Booty Bay, and the cat had other ideas. I found him the next morning up on the roof, and the cat asleep under it, and I've never had a lock on the pens since, because I've never needed one." } },
+      choices = {
+        { text = "I've no interest in stealing beasts. Your pens are safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A better thief would have charmed the cat first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Too often, because the heat gets into them, and some of the hunters leave them longer than they should. I've buried two this year whose masters never came back from the desert, and I didn't know whether to feel sorry for the beasts or the hunters." } },
+      choices = {
+        { text = "Both deserve mourning. I'll pray for them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're only beasts. You did all you could.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, good. The beasts settle when your kind are about, which is more than I can say for the Water Company's collectors." },
@@ -280,6 +329,9 @@ P:NPC {
           text = "A mage! Can you conjure water? My beasts drink more than the Bruisers, and the Water Company charges me as if every horse were a dragon." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, with no beast, which makes you my favorite kind of visitor today. You're not going to ask me to board a horse in this heat, are you?" },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You've got no beast for me, I suppose, unless that charger of yours needs stabling, and I'll warn you it'd hate the heat as much as you do." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue at my stables. If you're thinking of taking a beast that isn't yours, I'll tell you now that every one of them bites, and the scorpids do worse." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll find the beasts here don't care for prayers, but they do like a calm voice, and you look like you've got one." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got a raptor that wants its lunch." },
@@ -296,6 +348,9 @@ P:NPC {
         { text = "I could conjure water for your beasts.", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you let me tend your sick beasts, Laziphus?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do warriors ever leave their mounts with you, Laziphus?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "How do you keep the beasts calm in this heat, Laziphus?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Has anyone tried to steal from your stables, Laziphus?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do the beasts here ever fall ill, Laziphus?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -430,6 +485,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Only me, friend, and only by accident, and only when I'm working too fast. I teach every student the same thing: measure twice, light once, and stand behind something heavy, because that's the only way to get old in this trade." } },
+      choices = {
+        { text = "Good advice. Care keeps everyone safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Risk is the price of progress. Light the fuse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "I'll admit I've wondered, because they don't mind heat and they're small enough to fit into the boilers. But the one time I tried it, the imp set the bellows on fire and laughed, and I don't think it was on my side." } },
+      choices = {
+        { text = "Demons don't belong in workshops. Leave it be.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I could train mine to help, given time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Burns, mostly, and the odd broken finger, and once a gnome who blew himself clear over the town wall and landed in a cactus. They all come back, though, which tells you something about engineers." } },
+      choices = {
+        { text = "I'll keep bandages ready for your students.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They choose the risk. Let them learn from it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! You call down lightning for free and I spend a fortune trying to bottle it, so I'd say that makes us colleagues, or rivals, or something in between." },
@@ -445,6 +527,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter? I've got a scope that'll make your rifle see further than your beast can smell, and it only exploded the once." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You're probably here to complain about the noise, so get in line behind the vultures, because they were here first." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You're not here to tell me that explosives are against the Light, are you? Because I've heard that one, and the Light never seems to mind when it's an ogre on the other end." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Keep that imp away from my workbench, because it's the only thing in Gadgetzan more likely to set things on fire than my students." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, at the engineering hut! You're the first one who's come here without singed eyebrows, so either you're careful or you're lost." },
       },
       again = {
         { id = "h_again", text = "What else? I've got a fuse burning somewhere, I'm sure of it." },
@@ -462,6 +547,9 @@ P:NPC {
         { text = "How many engineers have you lost to the boom, Buzzek?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Is engineering any use to a warrior, Buzzek?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What happened when your scope exploded, Buzzek?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do your explosives ever hurt the wrong people, Buzzek?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Could an imp actually be useful to an engineer, Buzzek?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do your students often get hurt, Buzzek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -588,6 +676,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "More than they should, and the Wastewanders are the worst, because they'll wait until you've dug out a nice vein and then take the whole lot. I tell my students to mine fast, mine quiet, and never mine alone." } },
+      choices = {
+        { text = "Then I'll guard the miners while they dig.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Miners should learn to defend their own claims.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Every warlock who's tried tells me the same, so I'd guess so. Voidwalkers are strong enough, but they just stand there looking at the rock, and imps only want to set it on fire, which doesn't help anyone get the ore out." } },
+      choices = {
+        { text = "A pick and honest sweat, then. I'll learn it properly.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mine could learn. It only needs the right orders.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "It's hard everywhere, but out here it's hot too, and the sand gets into the tunnels faster than you can clear it. I lost a student last year to a collapse, and I've made everyone mine in pairs ever since." } },
+      choices = {
+        { text = "I'll pray for him, and dig carefully.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Accidents happen. You can't save everyone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? You'll be telling me the earth has feelings, and I'll be telling you it has thorium, and we'll both be right, but only one of us gets paid." },
@@ -603,6 +718,9 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, and you're looking at the hills instead of at me, which means you've already spotted something worth digging up or worth shooting." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I know your kind don't love a pick in the ground, but I only dig where nothing grows, and out here that's nearly everywhere." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Good, because there's ogres and bandits in half the hills worth mining around here, and I'd sooner send students with someone like you than on their own." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! You won't need a pick, I suppose, with a demon to do the digging, though I've never yet seen one that would." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, wanting to learn mining? Well, I've taught stranger, and the ore doesn't care who's swinging the pick." },
       },
       again = {
         { id = "h_again", text = "Anything else you want to know, or shall I get back to my ore samples?" },
@@ -619,6 +737,9 @@ P:NPC {
         { text = "Do miners pray when they're deep in the earth, Pikkle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Could a warrior learn mining from you, Pikkle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the beasts out in the hills bother your miners, Pikkle?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do the miners often get attacked, Pikkle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Would a demon really refuse to dig, Pikkle?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Is mining hard work out here, Pikkle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },
     },

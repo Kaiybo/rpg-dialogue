@@ -58,6 +58,15 @@ P:NPC {
         { text = "Let me ask about something else, my lady.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "It means a great deal, because I watched Uther hold Lordaeron together with nothing but faith and stubbornness. I also watched what became of Arthas, and I learned that the Light does not keep anyone safe from his own choices." } },
+      choices = {
+        { text = "Then I'll guard my choices as carefully as my oath.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light failed Arthas. Faith alone isn't enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let's speak of something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
@@ -75,6 +84,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the Cenarion Circle in Theramore. I stood beside your people on Mount Hyjal, and I haven't forgotten what the forest gave to stop the Legion there." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You have the light step of someone who prefers not to be noticed, and I won't ask whom you've been reporting to. Theramore has nothing to hide from friends." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Silver Hand. I knew Uther well, and I knew another of your order better, so forgive me if I look at you a little longer than I should." },
       },
       again = {
         { id = "h_again", text = "What else? I have a few minutes before the next dispatch." },
@@ -96,6 +106,7 @@ P:NPC {
         { text = "Dwarves helped build these walls, I hear.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Does Theramore have enemies inside its walls, my lady?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do the marsh's beasts threaten Theramore, my lady?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Does the Silver Hand still mean something to you, my lady?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, my lady.", next = "END" },
       },
     },
@@ -544,6 +555,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "That whoever burned the inn wanted it found, and wanted Horde blamed. Orcs on a raid don't leave a Theramore badge in the cinders, and they don't hang a black shield over the hearth like a calling card." } },
+      choices = {
+        { text = "Then we follow the evidence, wherever it leads.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Evidence can be argued. The Horde is still the Horde.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "James Hyal lost his wife and child when the Shady Rest burned, and he's not been the same since. Half of Theramore wants to hang an orc for it, and if they see a warlock walking about, some of them will want to hang you too." } },
+      choices = {
+        { text = "Then I'll keep my distance and help you find the truth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them try. I'm not hiding for anyone's comfort.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -558,6 +587,8 @@ P:NPC {
           text = "A black shield, found where it shouldn't be. Somebody's trying very hard to make this look like something it isn't." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You read a room before you walked into it, and I noticed. That's useful, because I need someone who sees what's hidden rather than what's convenient." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Archmage Tervosh is too busy to help me, so maybe you can tell me whether a fire looks different when someone starts it with magic." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Before you tell me the Horde burned the Shady Rest because they're the Horde, hear me out, because I've stood in those ashes and they don't tell me that." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in Theramore. I'll not ask what you keep at your heel, but I'll ask you to keep it away from the Hyal family, because they've lost enough." },
       },
       again = { { id = "h_again", text = "Next question, then; I've a case on." }, { id = "h_again2", text = "Go on." } },
       choices = {
@@ -568,6 +599,8 @@ P:NPC {
         { text = "Let me read the tracks myself.", next = "tracks", when = { class = { "HUNTER", "ROGUE", "DRUID" } } },
         { text = "I could sit with James Hyal.", next = "priest_hyal", when = { class = "PRIEST" } },
         { text = "Want another sword in the Guard, Captain?", next = "x_warrior", when = { class = "WARRIOR" } },
+        { text = "What did the ashes tell you, Captain?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What happened to the Hyal family, Captain?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, align = { order = 1 }, standing = { theramore = 1 } } },
         { text = "What do you think is hidden in the Shady Rest case, Captain?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you suspect magic started the inn fire, Captain?", next = "xmage", when = { class = "MAGE" } },
@@ -727,6 +760,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapriest = {
+      big = true,
+      lines = { { id = "xapriest_default", text = "Mostly raptors and fever, and a few lost on patrol in the fog who were never found. The record tells me who and when, but it doesn't tell me how to write to their families, and that is the part I find hardest." } },
+      choices = {
+        { text = "I'll help you write to the families, Adjutant.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Families need facts, not comfort. The record is enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -743,6 +785,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I don't have a ledger for you, since the Kirin Tor keep their own records, but I'll note your arrival anyway, because I note everything." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll need your name for the ledger, and I'll need it twice, once for you and once for whatever you've got following you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Theramore. I'll have to add you to the record, since only a handful of your kind have come through the gates since the city was founded." },
+        { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I'll note your arrival, and I'll note also that the chapel could use another pair of hands, since the Guard has had more funerals this year than the record likes." },
       },
       again = { { id = "h_again", text = "Anything else? I'll note it either way." } },
       choices = {
@@ -758,6 +801,7 @@ P:NPC {
         { text = "Must you record my demon too, Adjutant?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What makes a soldier desert, Adjutant?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What do the scouts' records say about the marsh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "What do the records say about this year's dead, Adjutant?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Thank you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -908,6 +952,24 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "A few, though not as many as came over from Lordaeron at the start. They're quiet when they drink, and they'll always sit with a grieving soldier, which is more than most, and the soldiers notice it." } },
+      choices = {
+        { text = "Then I'll sit with them too, before I sleep.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I came here to rest, not to tend to others.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Worse, love. They won't whistle aboard ship, they won't sail without a coin under the mast, and one of them wouldn't touch his stew last month because a gull looked at it funny. A demon in the common room and I'd lose the lot of them to the docks." } },
+      choices = {
+        { text = "Fair enough. I'll keep him outside for your sake.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Superstition's their problem. He stays where I stay.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
@@ -922,6 +984,8 @@ P:NPC {
           text = "A druid at my tables! Sit down, dear, and tell me the truth: is it the marsh air, or does everyone from Darnassus look this tired when they first arrive?" },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You moved through my common room without spilling a drink or bumping a chair, which is more than most soldiers manage, so I suppose that makes you a rogue." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "Another mage at my tables! Half of Theramore's tower eats here, and they all want their tea hotter than I can make it, so don't you start." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my tables, love! Sit by the fire, because the damp gets into plate faster than anything, and I've seen your lot rattle when they stand up." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, love? Leave the little fellow by the door and don't let him near the bread, because the sailors are a superstitious lot and they'll not eat a crumb he's breathed on." },
       },
       again = { { id = "h_again", text = "Anything else, love?" } },
       choices = {
@@ -936,6 +1000,8 @@ P:NPC {
         { text = "Do the Theramore mages eat with everyone else, Janene?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do many soldiers come here after a watch, Janene?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What's worth hunting for your kitchen, Janene?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Do many of the Silver Hand come through Theramore, Janene?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are the sailors truly that superstitious, Janene?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Just passing through.", next = "END" },
       },
     },

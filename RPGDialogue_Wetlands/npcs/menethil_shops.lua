@@ -27,6 +27,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "They will, for they'll carry anybody who pays the fare an' doesnae pull feathers. Only keep yer demon well away from the roost, for a bird that takes fright over the mountains takes a week tae find again." } },
+      choices = {
+        { text = "I'll respect your birds, Shellei. No tricks aboard.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your birds will have to get used to me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Shellei.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They can, though they'll complain the whole way to Thelsamar, and so would you if you had to fly in this damp. Sit still, lean forward over the mountains, and don't swing anything near their wings." } },
@@ -104,6 +113,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, is it? You'll be heavy, then, so I'll give you one of the stronger birds." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, then you'll know better than to let your beast near my birds." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you not to startle my roost, since my gryphons are cross enough about the rain without a bear wandering past." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. My gryphons dinnae care for the smell o' brimstone, so ye'll forgive them if they ruffle up when ye climb on." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are waiting, and they don't wait patiently in the rain." },
@@ -121,6 +131,7 @@ P:NPC {
         { text = "Do your birds carry the wounded east to Ironforge, Shellei?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the flight east safe, with the Dragonmaw in the hills?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is there anything that eases your gryphons in this damp?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will your gryphons carry a warlock, Shellei?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thank you, Shellei.", next = "END" },
       },
     },
@@ -183,6 +194,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "No' much, for I sell guns an' powder, an' yer sort carries wands an' daggers. But the damp gets intae a wand as quick as it gets intae a rifle in this swamp, so keep yers wrapped in oilcloth like a sensible body." } },
+      choices = {
+        { text = "Good advice. I'll keep my kit in order, Murndan.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My fire dries anything I carry. Damp's no matter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Murndan.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Aye, for a warrior wi' a rifle can pull a Dragonmaw scout down off a ridge an' then go an' finish him wi' the axe. Just keep it oiled, for this swamp'll rust a barrel in a week if ye let it." } },
@@ -263,6 +283,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll want an axe, no' a gun, but ye might want a gun for the times the axe cannae reach." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Now there's a customer, for there's no dwarf hunter born who doesnae want a better rifle." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Ye'll be wantin' no guns, I'd wager, an' that's fine by me, for there's few left in this harbour the damp hasnae ruined." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I'd sell ye a gun if ye could fire one, but I've a feelin' ye'd rather burn folk some other way." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -280,6 +301,7 @@ P:NPC {
         { text = "Does the garrison have much need of a priest, Murndan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the garrison well armed against the Dragonmaw, Murndan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Dragonmaw's red dragons ever fly near the harbour?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is there anything in your shop for a warlock, Murndan?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Murndan.", next = "END" },
       },
     },
@@ -340,6 +362,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Heavy cloth and good thread, mostly, and I've noticed your kind always wants a great many candles. Whatever you do with them, do it outside town, please, because the last fellow who did it in his room upset the whole Deepwater." } },
+      choices = {
+        { text = "I'll keep my work outside the walls, Neal.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Where I work is my own business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Neal.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Whetstones, rope, a spare waterskin, and now and then a stick of blasting powder for a door they'd rather not open. The gnomes tell me that's not what it's for, but it works, so I sell it." } },
@@ -420,6 +451,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? You'll want rope and rations before blasting powder, I'd guess, though you'd be surprised what warriors buy." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I keep shot and arrows in the back, and the dwarves buy the shot faster than I can stock it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Mind the blasting powder, because it's sealed tight, but I'd not trust any jar near someone who can turn into a bear." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I sell candles, cloth and a few things your trade might use, and I don't ask what they're for, which is good business." },
       },
       again = {
         { id = "h_again", text = "Anything else you need?" },
@@ -437,6 +469,7 @@ P:NPC {
         { text = "Does the garrison come to you for bandages, Neal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do your goods ever reach Dun Modr's defenders, Neal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does all that blasting powder end up in the marsh, Neal?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you stock much for my trade, Neal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Thanks, Neal.", next = "END" },
       },
     },
@@ -497,6 +530,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Often enough, and they're my favourite customers, because they never complain about what's in the jar. I do insist they leave the demon at the bottom of the stairs, though, for the last imp that came up here ate something from a crate and was ill for a week." } },
+      choices = {
+        { text = "Then our business stays quiet, Samor.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "I don't share a trade with poisoners, Samor.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Samor.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = { { id = "xmage_default", text = "Very little, I'd hope, for your kind can kill a man from across a room without staining your hands. Still, there are folk in Theramore and Stormwind who'd pay well to know what's in a cup before they drink it, and a mage who knew poisons could earn a fine living warding against them." } },
+      choices = {
+        { text = "I'd learn your trade only to stop it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fire or poison, a death is a death.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Samor.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Now and then a warrior wanders up here by mistake, and I send him back down to the bar, for my goods are no use to a sword and shield. I find warriors prefer their fights loud and fair, which is admirable, and bad for business." } },
@@ -556,6 +607,8 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You'll have no need of my goods, I imagine, though I've been surprised before." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I've nothing for your beast, I'm afraid, though you might find something for your arrows elsewhere." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, browsing the poisons. Your kind know more about what grows deadly in the wild than my suppliers ever will, I suspect." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I can't think what you'd want with my goods, unless you've lost patience with fireballs and want something quieter." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Now there's a customer I understand, for we both deal in things the Captain would rather not hear about." },
       },
       again = {
         { id = "h_again", text = "Anything else? Softly, please." },
@@ -571,6 +624,8 @@ P:NPC {
         { text = "Does your trade ever harm the innocent, Samor?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Give me one reason not to report your trade, Samor.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you gather your poisons from the marsh itself, Samor?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "What would a mage want with your goods, Samor?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you sell to warlocks often, Samor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },

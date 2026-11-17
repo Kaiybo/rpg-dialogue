@@ -373,6 +373,42 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "All the time, and that's why the parts sell! A crash means a new axle, and a new axle means coin for Jinky, though I'll admit I flinch every time one of them comes off the track in a ball of fire." } },
+      choices = {
+        { text = "Profiting from crashes isn't right, Jinky.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Crashes are part of the sport. Sell the axles.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhsham = {
+      big = true,
+      lines = { { id = "xhsham_default", text = "More than the drivers, sometimes. The salt flats bake by noon, and the heat warps the axles, and when a storm comes in from the Needles it's like driving on glass. I sell more parts after a bad weather day than a whole month of clean racing." } },
+      choices = {
+        { text = "I'll leave the winds be. The racers deserve a fair track.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little weather makes the races interesting.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Why not? An imp would never fit, but a felhunter's got legs on it, and a voidwalker never gets tired. I tried pitching it to Pozzik and he told me to get out of his garage, but I still think it'd sell tickets." } },
+      choices = {
+        { text = "Demons don't belong on a race track. Forget it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd lend you my demon for a cut of the purse.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhpriest = {
+      big = true,
+      lines = { { id = "xhpriest_default", text = "Once a day, give or take, and some days twice. Most walk away with a sore head and a bent fender, but the Flats are hard as stone when you hit them fast, and I've seen a few carried off on boards." } },
+      choices = {
+        { text = "I'll tend the injured, whatever team they race for.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They chose to race. The risk is theirs to carry.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -388,6 +424,10 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Say a little prayer over the racers if you've got one spare, because they fly off that track at speeds the Light never had in mind." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid on the Flats! You're the first one I've seen who didn't stare at the cars like they killed somebody's grandmother." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll be wanting a cog, a gear or a spare tire, I'd bet, because even holy warriors need something to sit on between races." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Don't go stirring up the wind on race day, because a crosswind on the Flats has blown more cars off the track than all the sabotage put together." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now that's interesting, because I've always wondered whether a demon could pull a race car, and nobody's let me try." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Good, because if anyone crashes while you're standing there, you'll be on the clock for free, and we've got two races before supper." },
       },
       again = {
         { id = "h_again", text = "Anything else? The next race starts soon!" },
@@ -403,6 +443,10 @@ P:NPC {
         { text = "Do the racers get hurt often, Jinky?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the racing crews ever come to blows, Jinky?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What lives out on the salt flats, Jinky?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do the racers ever get hurt, Jinky?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does the weather really matter so much to the races, Jinky?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "You want a demon to pull a race car, Jinky?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "How often do the racers crash, Jinky?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Goodbye.", next = "END" },
       },
     },

@@ -98,6 +98,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They fear anything that smells of the Twisting Nether, and they're right to, because a frightened wind rider throws its rider over the Barrens. Send your demon away before you climb up, and they'll carry you anywhere, from Ratchet to Orgrimmar." },
+      },
+      choices = {
+        { text = "I'll dismiss it before I fly. They've earned that.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They'll learn to carry whatever I bring.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Devrak, and I keep the wind riders of the Crossroads. They'll take you to Orgrimmar, Thunder Bluff, Ratchet and anywhere else the Horde has a roost, faster than any kodo." },
@@ -106,6 +117,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't care how hard you hit, so hold on tight and keep your axe strapped down." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast will want its feet back on the ground the moment you land, but the wind riders don't mind sharing the sky with it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Wind riders don't care what you pray to, but if you're one of the Forsaken, give them a moment to get used to you before you climb on." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wind riders smell your demon before they see you, so wait at the foot of the tower while I calm them down." },
       },
       choices = {
         { text = "Do you ever feel the air spirits on the roost?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -118,6 +130,7 @@ P:NPC {
         { text = "Do the wind riders hunt for themselves, Devrak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Where are warriors needed most, Devrak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your riders ever need a priest, Devrak?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the wind riders fear my demon, Devrak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? The beasts are restless, and so am I." } },
@@ -212,6 +225,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Water, same as everyone, because nobody sneaks far across the Barrens with a dry throat. I've had rogues come in boasting about the Kolkar camps they crept through, and every one of them came back with cracked lips and bought two skins." },
+      },
+      choices = {
+        { text = "I'll pay for my water like anyone else.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Easier to take water from the Kolkar's wells.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because conjured water keeps you alive and nothing else does, and the Barrens takes more than water out of you. You'll want bread, thread and a pack that won't split, and you'll want to share that water with the grunts on the road, because they can't make their own." },
+      },
+      choices = {
+        { text = "I'll share my water with anyone who needs it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My water's for me. The grunts can buy their own.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I don't know and I don't want to know, but I know you do, because demons don't carry packs. Buy your own water and bread, and keep that thing out of my sacks, because the last imp in here got into the flour and I'm still finding sooty handprints." },
+      },
+      choices = {
+        { text = "I'll keep my imp out of your sacks.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My imp goes where it likes, Barg.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Barg, and I sell supplies at the Crossroads. Every traveler in the Barrens comes through here sooner or later, and most of them have run out of water by the time they arrive." },
@@ -220,6 +266,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and I'll bet your waterskin's empty and your bandages are gone. They always are." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast drinks as much as you do, I'd wager, and you never plan for it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll want water, same as everyone, because praying doesn't keep a body from drying out in the Barrens, does it?" },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'll want to fill your pockets with things that aren't yours, so fill a waterskin first, at least." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You can conjure your own water, can't you? Then you're the only customer I can't sell it to, and I don't like that one bit." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your demon doesn't drink, I hope, because I'm not selling it water." },
       },
       choices = {
         { text = "Can a shaman really find water out here?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -230,6 +279,9 @@ P:NPC {
         { text = "What should I carry in the Barrens?", next = "carry" },
         { text = "Who comes through the Crossroads?", next = "who" },
         { text = "How many travelers come in needing more than water, Barg?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What does a rogue need from you, Barg?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why would a mage need your supplies, Barg?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Does a warlock's demon need supplies, Barg?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? I have more customers waiting." } },
@@ -339,6 +391,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Flash powder, mon, for when you need to vanish, and the herbs that make your blades sting, though you get your poisons from the trainers. I ask no questions about who it be for, but if it be a tauren, I don't want to hear it." },
+      },
+      choices = {
+        { text = "My blades are for the Horde's enemies, nobody else.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Who it's for is between me and my blade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Hula'mahi, and I sell reagents and herbs at the Crossroads. Mages, priests, shaman, they all come to me sooner or later, because spells need more than words, mon." },
@@ -346,6 +409,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon. You don't buy many reagents, but you pass more herbs out on the plains than any of my customers." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon! You be wanting sacred candles, and Hula'mahi got them, though don't be telling the Forsaken I sell the same candles to the trolls." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, mon! You be one of my best customers, because your kind need wild thornroot and maple seeds for the bigger spells, and Hula'mahi keep them fresh." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue, mon. You be wanting powders for your tricks, and Hula'mahi know just which ones." },
       },
       choices = {
         { text = "Show me your wares.", next = "BUSINESS" },
@@ -357,6 +421,7 @@ P:NPC {
         { text = "Do warriors ever buy reagents, Hula'mahi?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you sell anything that feeds a demon, Hula'mahi?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you pray to the loa yourself, Hula'mahi?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you sell what a rogue needs, Hula'mahi?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "What else you want to know, mon? Ask while the shop be quiet." } },
@@ -450,6 +515,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Every rogue should, because you can pull a Kolkar scout off his feet from the grass and never step into the open. A gun's louder, and loud is the opposite of what you want, so for once I'll tell you to buy the bow." },
+      },
+      choices = {
+        { text = "I'll fight close and look them in the eye.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A shot from cover is still a kill.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Not often, because you carry wands, which are sticks with a bit of spark in them if you ask me, though I'll admit they do the job when your mana's spent. The raptors close fast out here, so keep frost between you and them, and stay near the grunts on the road." },
+      },
+      choices = {
+        { text = "I'll fight beside the grunts, not off on my own.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I fight alone, and I like it that way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Not many, because a wand does most of what you want and the demon does the rest. The ones who come back are the ones whose demon got sent home in the middle of a fight, and they always want something that shoots, fast." },
+      },
+      choices = {
+        { text = "I'll face my enemies myself, demon or no demon.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let the demon take the blows. That's what it's for.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Uthrok, and I sell bows and guns at the Crossroads. Out in the Barrens you can see an enemy coming from a long way off, so you might as well shoot them before they get close." },
@@ -458,6 +556,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll be wanting a gun for when the centaur keep their distance, because they're not foolish enough to stand still for an axe." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know a good bow when you see one, so I won't waste your time with the cheap ones." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Can't shoot worth a thing, I'd wager, but you can keep a hunter alive long enough to learn how, so you're welcome at my counter." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue! You throw knives, I bet, but a good bow reaches further, and you'll want one when the knives run out." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You throw fire, so you'll tell me you don't need a bow, but your fire runs out and my arrows don't." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You've a demon to stand in front of you, so I suppose you don't need a gun, but you'd be surprised how many warlocks buy one anyway." },
       },
       choices = {
         { text = "Which hits harder, lightning or a bullet, Uthrok?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -468,6 +569,9 @@ P:NPC {
         { text = "Bow or gun, which is better?", next = "which" },
         { text = "Where do the guns come from?", next = "guns" },
         { text = "Would you rather have a priest or a good gun, Uthrok?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Should a rogue carry a bow, Uthrok?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Do mages ever buy from you, Uthrok?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do warlocks buy weapons from you, Uthrok?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? I've got arrows to fletch." } },
@@ -590,6 +694,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They'll carry anyone the Horde trusts, and they don't care whether you carry a spear or a spellbook. What troubles them is the south, where the dwarves have dug in at Bael Modan and the quilboar are stirring, so they come back tense from every flight that way." },
+      },
+      choices = {
+        { text = "The dwarves are digging, not fighting. Leave them be.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The dwarves should be driven out of Bael Modan.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Omusa Thunderhorn, and I keep the wind riders of Camp Taurajo. From here they fly north to the Crossroads and further, and they carry the camp's news to Thunder Bluff." },
@@ -598,6 +713,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The dwarves at Bael Modan carry guns, and a warrior is the first thing they'll shoot at, so I hope you're as tough as you look." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My wind riders see a great deal from the sky, and they tell me the lions of the southern Barrens are hungrier than usual." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. My wind riders are calm around you, which is more than I can say for most strangers who come to Taurajo." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at Taurajo. The wind riders don't mind your magic, though they snort at the smell of the burning." },
       },
       choices = {
         { text = "What are the dwarves disturbing at Bael Modan?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -610,6 +726,7 @@ P:NPC {
         { text = "Why are the southern lions hungry, Omusa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do your wind riders shy from my demon?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does Taurajo need a priest's help, Omusa?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Will the wind riders carry a mage, Omusa?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything more, friend? The wind is patient today." } },
@@ -703,6 +820,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "I trust my wind riders, and the goblins as far as their prices let me, which isn't far. The Southsea pirates on the coast steal from the goblins, and a rogue who watches them closely might learn where all that stolen cargo ends up." },
+      },
+      choices = {
+        { text = "Thieves are thieves, whoever they rob. I'll stop them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd rather learn where it goes and take a share.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because a teleport takes you home and nowhere else, and my wind riders go wherever the Horde keeps a perch. You'll see the Barrens from above, too, which is worth more than the goblins charge for anything in this town." },
+      },
+      choices = {
+        { text = "Fair enough. I'll fly the Horde's way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My way is faster, and faster is what matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Because they've got more sense than most orcs had back when the Horde drank what the Legion poured for it. Keep the thing dismissed while you fly, and I'll not ask what you do with it on the ground." },
+      },
+      choices = {
+        { text = "I'll dismiss it. The beasts deserve that much.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My demon stays. Your beasts can learn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Bragok, and I keep the flight beasts here in Ratchet. The goblins run the town, but they let me keep my roost, because people who fly in spend money." },
@@ -711,6 +861,9 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Ratchet's goblins'll sell you anything, but they won't fight for you, so I'm glad to see somebody who will." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The crocolisks along the coast near Ratchet grow fat on the goblins' fish scraps, if you're after a fight." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because the goblins charge for everything here, and I'd bet they'd charge for praying too if they could work out how." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in Ratchet. You'll fit right in, since half the goblins here are thieves with ledgers." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You could probably teleport home cheaper than my wind riders fly, though the goblins would find a way to charge you for it." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wind riders won't like your demon, so put it away before you come near my perch." },
       },
       choices = {
         { text = "Do the spirits mind the goblins' smoke and steam?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -721,6 +874,9 @@ P:NPC {
         { text = "What do you think of Ratchet?", next = "ratchet" },
         { text = "Where does the boat go?", next = "boat" },
         { text = "Do you ever wish Ratchet had a proper temple, Bragok?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you trust anyone in Ratchet, Bragok?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "Why fly when I could teleport, Bragok?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Why do the wind riders hate demons, Bragok?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? Ask it quick, because the beasts are getting restless." } },
@@ -836,6 +992,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Black is for the ones who want to be seen being mysterious, and a clever rogue wears dusty brown, because the Barrens is brown and nobody looks twice at it. I learned that from a customer off a Booty Bay boat who wouldn't give his name, and he paid in gold, so I believed him." },
+      },
+      choices = {
+        { text = "I'll take the brown. Nobody needs to know I'm there.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I wear my colors openly. Let them see me coming.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Wenna Silkbeard, and I sell tailoring supplies here in Ratchet. Thread, dye, patterns, everything a tailor needs except the cloth itself, and you'll have to cut that off somebody yourself." },
@@ -844,6 +1011,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, are you? Well, you'll be needing your padding mended, I'd say, by the look of those tears." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. You'll have bags full of hides and linen from the beasts and the bandits, I'd wager, and not enough of them sorted." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Your robes could use a fresh hem, love, and I've thread in every colour the Barrens has to offer, even shadow-black if that's your taste." },
+        { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You'll want dark cloth, I expect, black and charcoal and that deep grey that hides a stain, and I keep plenty." },
       },
       choices = {
         { text = "Where do your earthy dyes come from, Wenna?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -856,6 +1024,7 @@ P:NPC {
         { text = "Is there good cloth to be had in the Barrens, Wenna?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do warlocks dress any differently from other casters?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "What colours do the priests who visit you favour, Wenna?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What colors suit a rogue, Wenna?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Is there anything else, love, or shall I get back to untangling this silk?" } },
@@ -967,6 +1136,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Because demons get sent home at the worst moment, friend, and your spells take a breath to cast that a raptor won't give you. This dagger here came off a ship from Booty Bay, and every warlock who bought one before you is still alive, as far as I know." },
+      },
+      choices = {
+        { text = "Fair price, fair blade. I'll pay what it's worth.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll pay half, and you'll still turn a profit.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Ironzar's the name, and weapons are my game. Swords, axes, maces, you name it, and I've got it, and if I don't, I can get it for you for a price." },
@@ -975,6 +1155,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Now we're talking, pal, because I've got axes so sharp they'll cut you just for looking at 'em." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! I've got arrows, bullets and a few knives for when the beast gets too close, pal." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Now, I know you lot like a staff, and I've got a few that'd make the Razormane think twice, for the right price, of course." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, a warlock doesn't need a blade, I know, but a warlock with a good dagger is a warlock who doesn't panic when the imp dies." },
       },
       choices = {
         { text = "Does copper really carry lightning, Ironzar?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -987,6 +1168,7 @@ P:NPC {
         { text = "What's your best axe, Ironzar?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters buy much from you, Ironzar?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Does a priest really need one of your weapons, Ironzar?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Why would a warlock need your blades, Ironzar?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Not today.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else, friend? Time is money, you know." } },

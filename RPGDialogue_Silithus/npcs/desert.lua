@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Kaldorei, a thousand years ago, who stood against the Qiraji while the great wall was raised behind them. Some lie here and some were never found, and now others come to rest beside them, travellers and soldiers who fall in the wastes, and I tend them all the same." } },
+      choices = {
+        { text = "They deserve honour. I'll pay my respects before I go.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead are dead. It's the living who need defending.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Many who came to fight in these wastes, from more than one land and under more than one banner. I tend their graves because the desert forgets everyone who has no keeper, and their courage deserves to be remembered." } },
@@ -89,6 +98,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin, at Valor's Rest. The dead here fell holding the line against the swarm, and I think they would have understood your oaths, so walk among them gently." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman comes to Valor's Rest. The spirits of the fallen here are restless, {class}, and perhaps they would speak more easily to you than to me." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde at Valor's Rest. The dead here fell a thousand years ago holding back the swarm, and I would ask you to walk among them gently, whatever powers you serve." },
         { id = "h_magecl", when = { class = "MAGE" },
@@ -133,6 +144,7 @@ P:NPC {
         { text = "What do the dead of Valor's Rest want, Layo?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Who lies buried at Valor's Rest, Layo?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why do beasts gather near the graves at Valor's Rest?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Who were the dead of Valor's Rest, Layo?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Elune keep you, Layo.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -570,6 +582,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xlock = {
+      big = true,
+      lines = { { id = "xlock_default", text = "Not often, but the hives aren't often the place we dig. We've lost good people down there, an' I'll not pretend I'm fond o' demons, but a warlock knows what it looks like when somethin' crawls into a mind, an' after what happened tae Natalia, I'd value that." } },
+      choices = {
+        { text = "I'll watch for that kind of corruption. You have my word.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll take what the hives hold, whatever whispers in there.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The diggers, the finds and the beer, in reverse order, and ye'd be surprised what wanders up from the hives at night to look at all three. Ironforge won't send an army for a hunch, so I'll take one good warrior who doesn't ask daft questions." } },
@@ -656,6 +677,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_lockcl", when = { class = "WARLOCK" },
+          text = "A warlock, in Bronzebeard's camp? Well, the Explorers' League doesn't turn away a pair o' hands, so long as yer pet keeps its claws off the finds." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'd not be the first Horde sort to wander into camp, and as long as ye keep yer hands off the finds, I'll not ask what ye're doing here." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Are ye daft, wanderin' out here in robes? The sand gets in everywhere, an' I mean everywhere, so mind yer spellbooks." },
@@ -702,6 +725,7 @@ P:NPC {
         { text = "Do the silithid trouble the camp often?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you need guarded at the encampment, Rutgar?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What wanders into your camp from the desert at night, Rutgar?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Does the League often take warlocks into the hives, Rutgar?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -805,6 +829,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xapala = {
+      big = true,
+      lines = { { id = "xapala_default", text = "Aye, an' ye can laugh, like Rutgar does, but I've seen 'em wheelin' high over the Scarab Wall, an' they weren't the colour o' any dragon I know. Somethin's watchin' this place, paladin, an' I'd sooner know what before it decides to come down an' have a look at us." } },
+      choices = {
+        { text = "I believe you. Keep watching, and report what you see.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If it comes down, I'll be the first to meet it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Die, mostly, but bravely, and I'd write it up in three languages for the folk back home! I've no notion what the bronze flight wants over Silithus, but if it comes to blades, I want someone with a shield standing between it and the monkey." } },
@@ -873,6 +906,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_apaladin", when = { class = "PALADIN" },
+          text = "A paladin! Look up, friend, look up, for there's dragons over Silithus, an' I've a mind that holy armour'd look very fine against the sky, if one of 'em comes down." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Then look up with me, friend, and tell me if ye feel it in the wind, because there's dragons over this desert and I'll not have it said Frankal Stonebridge was the only one who noticed!" },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Look up, friend, and say a prayer for whatever's flyin' over Silithus, because I've seen dragons out there and I doubt they're the friendly sort." },
         { id = "h_roguecl", when = { class = "ROGUE" },
@@ -909,6 +944,7 @@ P:NPC {
         { text = "What sort of dragons fly over Silithus, Frankal?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What would a warrior do against a dragon, Frankal?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why doesn't your monkey like me, Frankal?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Have you truly seen dragons over Silithus, Frankal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I'll let you watch your sky.", next = "END" },
       },
     },
