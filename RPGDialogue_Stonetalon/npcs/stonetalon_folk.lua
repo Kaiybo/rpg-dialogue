@@ -20,7 +20,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Keep swingin' at something, pal, anything, because if the shift boss sees us talkin' I'm docked a day and you're docked a head." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Gerenzo's Orders") }, text = "Okay, okay, watch the tunnel while I dig, and if a patrol comes, you hit it and I hide. That's the partnership." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Gerenzo's Orders") }, text = "Right, right, watch the tunnel while I dig, and if a patrol comes, you hit it and I hide. That's the partnership." },
     { id = "g_done", when = { questDone = TODO_QUEST("Gerenzo's Orders") }, text = "Ziz got the sample? Good, good, then somebody up there's finally payin' attention to what Gerenzo's diggin' up." },
     { id = "g_hidden", when = { stealthed = true }, text = "Whoa, whoa, where'd you come from? Do that again and I'll need a new pair of trousers, and those come out of my wages too." },
   },

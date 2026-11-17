@@ -23,3 +23,6 @@ npcs\magic_quarter.lua
 npcs\rogues_quarter.lua
 npcs\trade_quarter.lua
 npcs\war_quarter.lua
+npcs\uc_apothecarium_more.lua
+npcs\uc_trade_more.lua
+npcs\uc_royal_more.lua

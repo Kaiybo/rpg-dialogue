@@ -272,7 +272,7 @@ P:NPC {
 -- Shanda (priest trainer)
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "shanda", id = TODO_NPC("Shanda"), name = "Shanda", title = "Priestess Trainer",
+  key = "shanda", id = TODO_NPC("Shanda"), name = "Shanda", title = "Priest Trainer",
   bible = "bibles/aldrassil_trainers.md", role = "trainer", tier = "service",
   communities = { "shadowglen" }, temper = { "gentle", "calm" }, values = { "devout", "kind" },
   notices = { "class" },

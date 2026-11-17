@@ -282,7 +282,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Drulzegar Skraghook, mon, fisherman, or I was. My crew and I fished off Ranazjar Isle every season, until the naga came up out of the water one morning and killed every one of them but me." },
+          text = "They call me Drulzegar Skraghook, mon, and I be a fisherman, or I was. My crew and I fished off Ranazjar Isle every season, until the naga came up out of the water one morning and killed every one of them but me." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Other Fish to Fry") },
           text = "I can't fight them all, mon, but you can. Kill me Slitherblade: the naga, the myrmidons and the sorceresses, and I'll pay what I can from what's left of my nets." },
         { id = "h_active", when = { questActive = TODO_QUEST("Other Fish to Fry") },

@@ -100,7 +100,7 @@ P:NPC {
     politics = {
       lines = { { id = "po_default", text = "So I hear, and I'll grant it's clever, making them bleed each other so we don't have to. I'd still rather have my ears, because ears I can count, and the captain's schemes I can't." } },
       choices = {
-        { text = "Fair point.", next = "BACK", fx = { affinity = 1 } },
+        { text = "You're not wrong, Corporal.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -329,7 +329,7 @@ P:NPC {
         { id = "h_gelkis", when = { questActive = TODO_QUEST("Gelkis Alliance") },
           text = "The Gelkis are in the southwest. Slay the Magram until the Gelkis trust you, then find Uthek the Wise at the edge of their village." },
         { id = "h_done", tags = { "news" }, when = { any = { { questDone = TODO_QUEST("Magram Alliance") }, { questDone = TODO_QUEST("Gelkis Alliance") } } },
-          text = "You have a clan's ear now, {name}. Listen well to what they tell you, and don't forget whose side you're truly on." },
+          text = "You have a clan's ear now, {name}. Listen well to what they tell you, and don't forget whose side you're really on." },
       },
       again = {
         { id = "h_again", text = "What else? The spirits are patient, and so am I." },
