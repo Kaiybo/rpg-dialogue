@@ -82,10 +82,21 @@ P:NPC {
         { text = "Do the risen ever turn to warlockry, Mordo?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do beasts dig at your graves, Mordo?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Did you bury many paladins here, Mordo?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You were there when I woke, Mordo. Remember what I asked?", next = "xorig_binder", when = { origin = "forsaken_vengeful_binder" } },
         { text = "I'll find Sarvis.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Something else? Take your time; the graves aren't going anywhere." },
+      },
+    },
+    xorig_binder = {
+      lines = {
+        { id = "xbd_default", text = "You asked how to hurt him back. Not where you were, or who you'd been, only that, and I've buried enough of the fresh ones to know it's rare. Has the asking done you any good since?" },
+      },
+      choices = {
+        { text = "Every demon I bind is a debt the Lich King will pay.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I've started to wonder if there's more than revenge.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Less than I hoped, Mordo.", next = "BACK" },
       },
     },
     warrior = {

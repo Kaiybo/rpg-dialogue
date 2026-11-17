@@ -55,7 +55,27 @@ P:NPC {
         { text = "What does Magatha want for the tauren?", next = "magatha" },
         { text = "I was born Grimtotem. I chose the Bloodhoof.", next = "o_grim", when = { origin = "tauren_grimtotem_born" } },
         { text = "What task do you have?", next = "BUSINESS" },
+        { text = "I studied under the Elder Crone once, Rahauro.", next = "xorig_magatha", when = { origin = "tauren_magatha_acolyte" } },
         { text = "Good day, Rahauro.", next = "END" },
+      },
+    },
+    xorig_magatha = {
+      lines = {
+        { id = "xmg_default", text = "I remember. You sat at the back of her tent and listened a little too closely, and one morning you simply didn't come. The Elder Crone said nothing about it, which is how I knew she had noticed. Why did you leave her?" },
+      },
+      choices = {
+        { text = "I didn't like how she spoke of Cairne.", next = "xorig_magatha2", fx = { affinity = -1 } },
+        { text = "The elements called me elsewhere. That's all it was.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "That's between me and the Elder Crone.", next = "BACK" },
+      },
+    },
+    xorig_magatha2 = {
+      lines = {
+        { id = "xmg2_default", text = "Then you understood her better than most of her students ever do. I won't repeat what you just said, but I'd advise you not to say it again on the Elder Rise, where the tents are thin." },
+      },
+      choices = {
+        { text = "I won't hide from the Grimtotem, Rahauro.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Thank you for the warning.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     troggs = {

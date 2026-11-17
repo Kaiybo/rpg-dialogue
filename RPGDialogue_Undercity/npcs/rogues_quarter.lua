@@ -42,7 +42,18 @@ P:NPC {
         { text = "You were a cutpurse?", next = "purse" },
         { text = "What's the first lesson?", next = "lesson" },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
+        { text = "I worked the capital's markets too, Miles, before the plague.", next = "xorig_cutpurse", when = { origin = "forsaken_capital_cutpurse" } },
         { text = "I'll see myself out.", next = "END" },
+      },
+    },
+    xorig_cutpurse = {
+      lines = {
+        { id = "xcp_default", text = "Did you now? Then we've almost certainly robbed the same merchants, and quite possibly each other. Which corner was yours: the fish stalls by the gate, or the cloth sellers under the palace wall?" },
+      },
+      choices = {
+        { text = "The fish stalls. The smell kept the guards away.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "The cloth sellers. Richer pockets, slower owners.", next = "BACK", fx = { affinity = 1, trait = { greedy = 1 } } },
+        { text = "I'll keep that to myself, if it's all the same.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
     purse = {

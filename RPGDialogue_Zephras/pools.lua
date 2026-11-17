@@ -11,6 +11,9 @@ P:Pool {
     { id = "b_ruins", text = "Keep clear of Ban'aethal and Shadowgale Forest, by order of the Peacekeepers!" },
   },
   greetings = {
+    { id = "g_xrider", when = { origin = "skyborne_banaethal_rider" }, text = "You're the one who rode a Galestrider through the Ban'aethal ruins while the rest of us were ordered to stay out. I never did decide whether to arrest you or thank you." },
+    { id = "g_xcliff", when = { origin = "skyborne_siroccas_cliff_hunter" }, text = "You hunted the cliffs below Siroccas, didn't you? I've watched your arrows go farther than anyone's, though I always suspected the wind was doing half the work." },
+    { id = "g_xpylon", when = { origin = "skyborne_anvilas_pylon_guard" }, text = "You stood the watch at Anvilas while the pylons went, didn't you? We heard in Valanaar how the guard there held their posts until there was nothing left to guard, and I hope I'd have done the same." },
     { id = "g_winds", text = "Keep to the paths, traveller, for the edges crumble." },
     { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "Not one of ours, I see. Welcome, and keep your hands where I can see them, politely." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The hour's late, and the Peacekeepers don't sleep, so you might as well." },
@@ -18,6 +21,12 @@ P:Pool {
     { id = "g_shendar", when = { subzone = "Shen'dar Village" }, text = "Shen'dar Village. If you've business with the Peacekeepers here, Constable Aonda's the one to see." },
   },
   notice = {
+    { id = "n_xaketh", cat = "origin", when = { origin = "skyborne_former_alaketh" },
+      text = "Your hair's grown back, but I remember you in grey on the road to the Shrine of Akir. The Windshapers vouch for you now, and that's the only reason I'm not asking you to come along with me." },
+    { id = "n_xbetween", cat = "origin", when = { origin = "skyborne_go_between" },
+      text = "You're the go-between who stood between the orders at every quarrel over the shrines. I'd thank you for keeping the peace, but I have a feeling you'd only tell me how little of it there was." },
+    { id = "n_xrunner", cat = "origin", when = { origin = "skyborne_windstone_runner" },
+      text = "I know your face from the Shen'dramar road, friend, and I know you never once let the Council count what you carried. Keep walking, and keep your pockets quiet while you do." },
     { id = "n_druid", cat = "form", when = { form = { "cat", "bear", "travel" } },
       text = "One of the druids? There are so few of you that I forget what you look like, so now you'll be the one I picture." },
     { id = "n_stranger", cat = "kit", when = { ["not"] = { race = "Skyborne" } },
@@ -54,6 +63,8 @@ P:Pool {
     { id = "g_home", when = { homeInn = true }, text = "Home again. Your blanket's where you left it." },
   },
   notice = {
+    { id = "n_xheir", cat = "origin", when = { origin = "skyborne_heirloom_bearer" },
+      text = "You keep turning that ring while you talk, the way folk do with an heirloom they haven't grown into yet. Sit closer to the fire, friend, and tell me about whoever wore it first." },
     { id = "n_stranger", cat = "guest", when = { ["not"] = { race = "Skyborne" } },
       text = "A mainlander! Sit by the fire. You'll be all anyone in the common room talks about tonight, I warn you now." },
     { id = "n_drunk", cat = "drink", when = { drunk = { min = 2 } },
@@ -75,9 +86,12 @@ P:Pool {
 P:Pool {
   id = "vendor_zephras", role = "vendor", community = "zephras_isle",
   greetings = {
+    { id = "g_xrunner", when = { origin = "skyborne_windstone_runner" }, text = "Ah, it's you. Whatever you're selling, I'm not buying, and whatever you're buying, the Council will want to hear about it, so let's keep this to thread and bread, shall we?" },
     { id = "g_stones", text = "Windstones or coin? Either one is welcome here, friend." },
   },
   notice = {
+    { id = "n_xcloth", cat = "origin", when = { origin = "skyborne_valanaar_clothcrafter" },
+      text = "That's a Valanaar weave on your cloak, and I'd know your hand on it anywhere. Do you still take windstones for your work, or have you finally learned to ask for coin?" },
     { id = "n_stranger", cat = "kit", when = { ["not"] = { race = "Skyborne" } },
       text = "Mainland coin! I'll take it, but you'd do better with windstones up here, since they're our power and our purse both." },
   },
@@ -100,12 +114,22 @@ P:Pool {
     { id = "b_hair", text = "I will NOT shave my head for anyone's Windlord." },
   },
   greetings = {
+    { id = "g_xaketh", when = { origin = "skyborne_former_alaketh" }, text = "I know you. You wore the grey robes once, and I'd know that face under a shaved scalp or a full head of hair. If you've truly left them, I'm glad, but I'll be watching how you go." },
+    { id = "g_xbetween", when = { origin = "skyborne_go_between" }, text = "You're the one who carried messages between the orders, aren't you? I always wondered how you could stand there while the Windshapers and the High Order shouted past you, and now you look as if you've stopped wondering yourself." },
+    { id = "g_xheir", when = { origin = "skyborne_heirloom_bearer" }, text = "That ring on your hand was your grandmother's, wasn't it? I was on the cliffs when her ashes went to the wind over Shen'dramar, and she'd be glad to see it worn instead of kept in a box." },
+    { id = "g_xcloth", when = { origin = "skyborne_valanaar_clothcrafter" }, text = "You're the weaver from Valanaar! Half the feathers in my daughter's hair are your braiding, and she won't let anyone else near it, so I hope you're not leaving us for long." },
     { id = "g_winds", text = "Gale's greetings. Mind the wind; it's gusty today, as it is every day." },
     { id = "g_tidings", text = "Winds' tidings to you, friend. Can I help you with something?" },
     { id = "g_stranger", when = { ["not"] = { race = "Skyborne" } }, text = "Oh! You're from below the clouds, aren't you? I'm sorry for staring; I've never seen one of you up close." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be out. The cult's been quieter lately, but I still bar my door." },
   },
   notice = {
+    { id = "n_xlumin", cat = "origin", when = { origin = "skyborne_luminarian_scholar" },
+      text = "You keep glancing at the Peacekeepers' swords as if you're hunting for a maker's mark. You're one of the ones who studies Luminarian, I suppose, so tell me, have you ever found his mark on one?" },
+    { id = "n_xcircle", cat = "origin", when = { origin = "skyborne_circle_student" },
+      text = "You've been learning from the Cenarion Circle, haven't you? Hardly any of us go to them, so I have to ask: do they really pray to the moon, and does the moon ever answer?" },
+    { id = "n_xpylon", cat = "origin", when = { origin = "skyborne_anvilas_pylon_guard" },
+      text = "You're one of the Anvilas guards, aren't you? My cousin carried water up to your post more than once, and every time the ground shivers I think of you all standing by those pylons with nothing to swing a spear at." },
     { id = "n_sky", cat = "race", when = { race = "Skyborne", faction = "Alliance" },
       text = "You're High Order, aren't you? I can see it in your eyes, that little twinkle the old families have." },
     { id = "n_ws", cat = "race", when = { race = "Skyborne", faction = "Horde" },

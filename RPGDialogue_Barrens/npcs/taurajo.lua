@@ -159,11 +159,22 @@ P:NPC {
         { text = "What do the Barrens see in me, Jorn?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the heart of Razorfen Kraul, Jorn.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul", faction = "Horde" } },
         { text = "Why would she send companions we wouldn't choose?", next = "xpt_jorn", when = { party = { race = "Tauren" } } },
+        { text = "I herded kodo before the Kolkar took my herd, Jorn.", next = "xorig_kodo", when = { origin = "tauren_kodo_herder" } },
         { text = "Thank you, teacher.", next = "END" },
       },
       again = {
         { id = "h_again", text = "What else would you learn? Sit, there's light enough yet." },
         { id = "h_again2", text = "Another question? Good, because a hunter who stops asking soon stops seeing the grass." },
+      },
+    },
+    xorig_kodo = {
+      lines = {
+        { id = "xko_default", text = "Then you know the herds better than most of the hunters I teach, and you know what it is to lose one. The Kolkar still raid the trails west of here. Is it vengeance you want from them, or only the road back?" },
+      },
+      choices = {
+        { text = "Vengeance. They took my uncle, and they'll pay for it.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "I want the trails safe for the next herder, nothing more.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I haven't decided yet, Jorn.", next = "BACK" },
       },
     },
     hunter = {

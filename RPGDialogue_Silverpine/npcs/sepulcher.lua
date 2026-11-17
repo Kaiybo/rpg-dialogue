@@ -777,10 +777,21 @@ P:NPC {
         { text = "Your crypt's cold, Bates. Want a fire?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Are warlocks welcome in your crypt, Bates?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the spiders really mind the Light, Bates?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I cut timber in Silverpine, Bates, and drank in Pyrewood.", next = "xorig_woods", when = { origin = "forsaken_silverpine_woodsman" } },
         { text = "Just a rest, thanks.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Anything else? The fire's not going anywhere." },
+      },
+    },
+    xorig_woods = {
+      lines = {
+        { id = "xwd_default", text = "Pyrewood! Then you'll have drunk at the same inn I did, back when the beer was warm and so were we. They're still there, you know, the Pyrewood folk, and every night they turn into something with teeth. Do you ever think about going back?" },
+      },
+      choices = {
+        { text = "Never. I'd rather remember them as they were.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Sometimes. I'd like to know who's left.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Was the beer ever actually warm, Bates?", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     living = {

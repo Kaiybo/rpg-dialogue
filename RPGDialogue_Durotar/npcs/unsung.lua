@@ -778,6 +778,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_track = {
+      lines = { { id = "xtr_default", text = "Then you know Durotar hides its game the way a miser hides coin, and you have the scars to show for it. Which beast tracked you back, the time you nearly did not come home?" } },
+      choices = {
+        { text = "A raptor, out along the Southfury River.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "A scorpid, and I never even saw it coming.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The beasts shy from you, I see. They'll learn your scent, and the grunts will learn your glow, in time." },
@@ -803,6 +810,7 @@ P:NPC {
         { text = "Is a demon really so different from a hunter's pet?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What should a mage know about Durotar's beasts?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Why do the beasts shy from me, Thotar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I've tracked the scrub from the valley to the Barrens, Thotar.", next = "xorig_track", when = { origin = "orc_durotar_tracker" } },
         { text = "Farewell, Thotar.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Speak, and I will listen like a hunter listens." } },
@@ -931,6 +939,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_spy = {
+      lines = { { id = "xsy_default", text = "So you're the one paddling out past the reef while the rest of us sleep. Quiet work and good work, and nobody will ever sing about it, which is the best kind. Has Zalazane's lot ever come close to seeing you?" } },
+      choices = {
+        { text = "Once. I lay in the surf until dawn.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Never. They're hexed, not watchful.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin, here in my burrow. I didn't think your kind knew how to come in quietly. Most of them knock the door down." },
@@ -955,6 +970,7 @@ P:NPC {
         { text = "Can a hunter learn to move like a rogue, Kaplak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do rogues and warlocks ever work together?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you trust a paladin in your burrow, Kaplak?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I scout the Echo Isles by night, Kaplak.", next = "xorig_spy", when = { origin = "troll_echo_isles_spy" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Anything else? Make it quick, because I do not like company standing in my doorway." } },
@@ -1085,6 +1101,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_bwon = {
+      lines = { { id = "xbw_default", text = "Then you carry a heavy song, mon, and I hear you at the fires some nights when the wind come in off the sea. My brother fell on those isles when Zalazane turned, so if you ever have a verse to spare, would you sing his name for me?" } },
+      choices = {
+        { text = "I'll sing it tonight, Tai'jin.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Bwonsamdi already knows his name, Tai'jin.", next = "BACK", fx = { trait = { stern = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one carryin' the Light. Aye, mon, I mend grunts with my own gifts, and I never thought to see a Forsaken mend with that one." },
@@ -1110,6 +1133,7 @@ P:NPC {
         { text = "Do wounds from beasts go bad quickly here, Tai'jin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do the loa think of warlocks, Tai'jin?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Is my Light so different from yours, Tai'jin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I sing for Bwonsamdi, Tai'jin, for our dead on the isles.", next = "xorig_bwon", when = { origin = "troll_bwonsamdi_singer" } },
         { text = "Farewell, Tai'jin.", next = "END" },
       },
       again = {
@@ -1247,6 +1271,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_zand = {
+      lines = { { id = "xzd_default", text = "Zandalari scrolls, mon? Un'Thuwa would trade his best robe for one page of those, and you learned from them before you were half grown. The Zandalari be the oldest of all the trolls, so tell me, do you still have them?" } },
+      choices = {
+        { text = "They're safe, and they're staying that way.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Some. Others burned when I got a spell wrong.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I study the arcane, and I never study anything as strange as you, mon. Where you learn your first prayer?" },
@@ -1272,6 +1303,7 @@ P:NPC {
         { text = "Do beasts still roam the Echo Isles, Un'Thuwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is the arcane really so different from the fel?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does the Light interest a troll mage, Un'Thuwa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I learned my first spells from Zandalari scrolls, Un'Thuwa.", next = "xorig_zand", when = { origin = "troll_zandalari_scrolls" } },
         { text = "Goodbye.", next = "END" },
       },
       again = { { id = "h_again", text = "Something more, mon? Ask, the fire can wait." } },

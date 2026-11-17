@@ -100,6 +100,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_spear = {
+      lines = { { id = "xsp_default", text = "Then you're one of the spears keeping the Kolkar honest on the south road. Your village and my hill hold the same coast between us, and I've never once had to send a grunt to cover a gap in your watch. What do your people need most from Razor Hill?" } },
+      choices = {
+        { text = "Steel, Commander. Good spearheads are hard to come by.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Nothing, Commander. Sen'jin holds its own.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at Razor Hill. Nazgrel taught me to judge a soldier by his reports, not his glow, so report, and we'll see what you are." },
@@ -134,6 +141,7 @@ P:NPC {
         { text = "Will you still give orders to a warlock, Commander?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you take a Forsaken paladin's report, commander?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ragefire Chasm is cleared, commander.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
+        { text = "I hold the Sen'jin gate, Commander. We share a coast.", next = "xorig_spear", when = { origin = "troll_senjin_spear" } },
         { text = "Lok'tar, commander.", next = "END", fx = { affinity = 1, standing = { razor_hill = 1 } } },
       },
       again = {
@@ -301,6 +309,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_bhunt = {
+      lines = { { id = "xbh_default", text = "I know you have, because I've found their cultists with their throats cut and nobody claiming the work. Whoever taught you to move that quietly taught you well, but tell me plainly, why does someone so young spend their nights hunting the Blade?" } },
+      choices = {
+        { text = "Because they'd drag us back to the demons.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Somebody has to, and nobody else would.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead man with the Light in his hands. I hunt cultists who smile and hide what they serve, so forgive me for wanting a long look at you." },
@@ -331,6 +346,7 @@ P:NPC {
         { text = "Can a hunter track a demon, Orgnil?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do you suspect me, Orgnil?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "The cultists under Orgrimmar are dead, Orgnil.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
+        { text = "I've hunted the Blade in the caves myself, Orgnil.", next = "xorig_bhunt", when = { origin = "orc_blade_hunter" } },
         { text = "I'll hunt them with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
       },
       again = {

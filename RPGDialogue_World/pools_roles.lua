@@ -17,6 +17,8 @@ P:Pool {
     { id = "g_word_helped", when = { word = "helped" }, text = "Folk say you did the town a good turn. The animals don't care, but I do." },
   },
   notice = {
+    { id = "n_xrider", cat = "origin", when = { origin = "skyborne_banaethal_rider" },
+      text = "You stand like someone used to a big bird under you, and a bad-tempered one at that. Is it true your Galestriders will let only one rider near them, or did you just never bother to share?" },
     { id = "n_pet_hurt", cat = "pet", when = { pet = { type = "Beast" }, durability = { max = 0.3 } },
       text = "You look like you've been dragged through a briar. Does {pet} look the same under all that fur?" },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
@@ -2365,12 +2367,27 @@ end
 P:Pool {
   id = "guard_orgrimmar", role = "guard", community = "orgrimmar",
   greetings = {
+    { id = "g_xbdef", when = { origin = "orc_blade_defector" }, text = "I know that face, and the Burning Blade mark you used to wear with it. The Warchief says you walked away from them, so walk on, but I'll be watching where you go." },
     { id = "g_strength", text = "Lok'tar. You're in Orgrimmar now, so act like it." },
     { id = "g_mage", when = { race = "Orc", class = "MAGE" }, text = "An orc with a staff and no axe? Don't set the Drag on fire." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}. Orgrimmar's still standing, so walk in like you never left." },
     { id = "g_word_help", when = { word = "helped" }, text = "I had it from {source} that you've done the city a service. Lok'tar; walk proud in the Valley of Strength." },
   },
   notice = {
+    { id = "n_xvmage", cat = "origin", when = { origin = "troll_valley_of_spirits_mage" },
+      text = "Another one up from the Valley of Spirits, smelling of smoke. The trolls down there study things the rest of us walk past quickly, so don't set fire to my gate." },
+    { id = "n_xtsham", cat = "origin", when = { origin = "troll_orgrimmar_shaman" },
+      text = "A Darkspear learning at our shamans' fires. Thrall's own teachers walk the Valley of Wisdom, and if they've taken you in, you'll get no trouble from me." },
+    { id = "n_xraptor", cat = "origin", when = { origin = "troll_raptor_rider" },
+      text = "A raptor rider from Sen'jin, are you? The last one who came through the Valley of Strength let her beast eat half a butcher's stall, so keep yours on a short lead." },
+    { id = "n_xrevan", cat = "origin", when = { origin = "troll_revantusk_envoy" },
+      text = "Revantusk, by your markings. Your people hold the Hinterlands coast for the Horde, and the Warchief speaks well of them, so you're welcome at this gate." },
+    { id = "n_xvstud", cat = "origin", when = { origin = "orc_valley_of_spirits_student" },
+      text = "An orc who learns magic from the trolls in the Valley of Spirits. My captain says to check your kind for a green glow, so hold still and let me look at your eyes." },
+    { id = "n_xdrag", cat = "origin", when = { origin = "orc_drag_runner" },
+      text = "I remember you running knives through the Drag before you'd grown a proper tusk. Whatever business you're about these days, keep it off my watch." },
+    { id = "n_xdoom", cat = "origin", when = { origin = "orc_doomhammer_veteran" },
+      text = "You stood at Lordaeron's walls under Doomhammer, I'd wager, by the way you carry yourself. My father was there too, and he never lifted his axe again after the camps, so swing yours for him." },
     { id = "n_orc_mage", cat = "class", when = { race = "Orc", class = "MAGE" },
       text = "My grandfather would spit to see an orc mage, but my grandfather's dead. Learn it well, and use it for the Horde." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
@@ -2409,6 +2426,7 @@ P:Pool {
   id = "guard_thunderbluff", role = "guard", community = "thunder_bluff",
   greetings = {
     { id = "g_winds", text = "Walk with the Earth Mother. The lifts will take you down when you're done." },
+    { id = "g_xghost", when = { origin = "tauren_ghost_walker_scout" }, text = "You scouted out of Ghost Walker Post, the braves say. Desolace makes hard hunters, so the bluffs must seem very quiet to you after the centaur." },
     { id = "g_away", when = { away = 7 }, text = "You have been away {away}. The bluffs are as they were, and the lifts still run." },
     { id = "g_word_angry", when = { word = "angered" }, text = "The braves say you angered someone on the bluffs. Settle it peaceably, traveler, because we settle things no other way here." },
   },
@@ -2452,10 +2470,13 @@ P:Pool {
   id = "guard_undercity", role = "guard", community = "undercity",
   greetings = {
     { id = "g_dark", text = "You're in the Undercity. Keep to the paths and don't touch the green." },
+    { id = "g_xarchive", when = { origin = "forsaken_stratholme_archivist" }, text = "The Stratholme scholar, they say in the barracks. Don't ask the Deathguard about that city; some of them died there in the Culling, and they won't talk about it." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}. The Deathguard noticed, as they notice everything." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word in the barracks is that a lie of yours was seen through. The Dark Lady's servants keep track of such things." },
   },
   notice = {
+    { id = "n_xcutpurse", cat = "origin", when = { origin = "forsaken_capital_cutpurse" },
+      text = "Your hands keep drifting toward other people's belts. I'd heard some of the old capital's cutpurses came back with the rest of us, and now I know what one looks like." },
     { id = "n_paladin", cat = "class", when = { race = "Scourge", class = "PALADIN" },
       text = "One of us, wearing the Light like a coat. I don't know whether to salute or step back." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Skyborne" } },

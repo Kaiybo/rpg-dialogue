@@ -97,6 +97,13 @@ P:NPC {
         { text = "Something else, Primal.", next = "BACK" },
       },
     },
+    xorig_revan = {
+      lines = { { id = "xrv_default", text = "I remember sending you, mon, and I remember you grumbling all the way out of the village. So tell me true, now that you've walked their cities, be the orcs worth the faith we keep with them?" } },
+      choices = {
+        { text = "They keep their word, Primal, which the Amani never did.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'm still deciding, Primal.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_troll", tags = { "news" }, when = { party = { race = "Troll" }, faction = "Horde" },
@@ -154,6 +161,7 @@ P:NPC {
         { text = "Will the Revantusk accept a Forsaken paladin as an ally, Primal?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I stood in Zul'Gurub when Hakkar fell, Primal.", next = "xcl_zg", when = { cleared = "Zul'Gurub", faction = "Horde" } },
         { text = "My companion's a Darkspear. What do the Revantusk make of them?", next = "xpt_troll", when = { party = { race = "Troll" }, faction = "Horde" } },
+        { text = "You sent me to judge the Horde, Primal. I've come back.", next = "xorig_revan", when = { origin = "troll_revantusk_envoy" } },
         { text = "I'll go up to Jintha'Alor.", next = "END", fx = { affinity = 2, standing = { revantusk = 1 } } },
       },
     },

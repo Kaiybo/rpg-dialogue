@@ -32,6 +32,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xorig_doom = {
+      lines = { { id = "xdm_default", text = "Then we stood on the same field before Lordaeron's walls, you and I, though I doubt either of us saw much past the smoke. Tell me, when the lethargy finally lifted, what was the first thing you did with your hands?" } },
+      choices = {
+        { text = "I picked my axe back up.", next = "xorig_doom2", fx = { trait = { brave = 1 } } },
+        { text = "I wept, Eitrigg, and I'm not ashamed of it.", next = "xorig_doom2", fx = { affinity = 1, trait = { kind = 1 } } },
+      },
+    },
+    xorig_doom2 = {
+      lines = { { id = "xdm2_default", text = "I did both, though I had a human's hut to do it in and you had a fence. We are the last who remember the blood and the cage together, and the young ones need us to speak of both plainly, so do not let pride keep you quiet." } },
+      choices = {
+        { text = "I'll speak of it, Eitrigg.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Eitrigg.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Eitrigg. I fought for Blackhand and for Doomhammer, I left the Horde when I learned what it had become, and Thrall brought me home again. Now I stand in his hall and tell him what the old days cost us." },
@@ -60,6 +74,7 @@ P:NPC {
         { text = "Rend Blackhand is dead. I was there.", next = "rend_dead", when = { killed = { name = "Rend Blackhand" } } },
         { text = "How should a warrior carry his honor?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you hate my kind, being human once?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I fought under Doomhammer too, Eitrigg, and then sat in the camps.", next = "xorig_doom", when = { origin = "orc_doomhammer_veteran" } },
         { text = "I'll leave you to the Warchief.", next = "END" },
       },
     },

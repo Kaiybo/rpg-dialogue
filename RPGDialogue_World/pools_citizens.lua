@@ -95,6 +95,8 @@ P:Pool {
 P:Pool {
   id = "citizen_horde", role = "citizen", faction = "Horde",
   greetings = {
+    { id = "g_xbrock", when = { origin = "orc_blackrock_defector" }, text = "Blackrock, by the look of you, but not one of Rend's? Then you've chosen the harder road, and I'll say throm-ka and mean it." },
+    { id = "g_xlapsed", when = { origin = "orc_lapsed_warlock_shaman" }, text = "The spirits took you back, I hear, after you'd learned a warlock's tricks in the camps. That's a road few orcs walk twice, so walk it carefully." },
     { id = "g1", text = "Throm-ka. What do you want of me?" },
     { id = "g2", when = { timesTalked = { min = 2 } }, text = "You again. Good; I was starting to think nobody else in the Horde could hold a conversation." },
     { id = "g3", when = { timeOfDay = "night" }, text = "It's late, and the fires are banked. Speak quietly and I'll listen." },
@@ -105,6 +107,8 @@ P:Pool {
   },
   -- Origin notices only (0.71.0): origins with a public face that any stranger might recognise.
   notice = {
+    { id = "n_xghost", cat = "origin", when = { origin = "tauren_ghost_walker_scout" },
+      text = "You've the grey dust of Desolace on you, and the look of someone who sleeps facing the door. They say the dead walk at Ghost Walker Post, and the scouts there say the Kolkar are worse." },
     { id = "n_xcamp", cat = "origin", when = { origin = "orc_camp_born" },
       text = "Born behind the fence, were you? So was I, and so were half the grunts in Orgrimmar. The Warchief opened the gates for all of us, and none of us forget it." },
     { id = "n_xsailed", cat = "origin", when = { origin = "troll_sailed_with_thrall" },
@@ -345,6 +349,7 @@ P:Pool {
 P:Pool {
   id = "citizen_darnassus", role = "citizen", community = "darnassus",
   greetings = {
+    { id = "g_xdream", when = { origin = "nightelf_dreamer_kin" }, text = "You keep your father's house, don't you, though he sleeps in the Barrow Dens? I have seen you sweep the step at dawn as if he might walk up it any morning, and I hope that one day he does." },
     { id = "g_day", text = "Ishnu-alah. Be welcome among the branches, traveler, and walk softly; the tree hears more than you would think." },
     { id = "g_again", when = { timesTalked = { min = 2 } }, text = "You have returned. Our people count time in centuries, but I confess I noticed that it has been a few days." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Elune's light is on the water tonight. This is the hour my people love best, so forgive me if I am in no hurry." },
@@ -357,6 +362,10 @@ P:Pool {
     { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I am told you spoke falsely to someone in the city, and that they saw through it. Forgive me if I listen more carefully than I did before." },
   },
   notice = {
+    { id = "n_xwell", cat = "origin", when = { origin = "nightelf_astranaar_moonwell" },
+      text = "There is a priestess's calm on you, with a soldier's weariness under it, so I would guess you kept the moonwells in Ashenvale. Is it true what they say, that the keepers at Astranaar pray even for the orcs?" },
+    { id = "n_xgrove", cat = "origin", when = { origin = "nightelf_moonglade_keeper" },
+      text = "You smell of Moonglade, of moss and lake water, so you must be one of the Keeper's grove-tenders. The Circle sends your kind into Felwood now, I hear, and I do not envy you what you find there." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
       text = "A priest who prays to the Light, and not to Elune. I have often wondered whether the two are so very different, and I would like to hear your thoughts on it one day." },
     { id = "n_human", cat = "race", when = { race = "Human" },
@@ -404,6 +413,14 @@ P:Pool {
     { id = "b_zep", text = "The zeppelin's in, so if you're going to Tirisfal, run!" },
   },
   greetings = {
+    { id = "g_xfish", when = { origin = "troll_coast_fisher" }, text = "You smell of the sea, friend, and of the nets below Sen'jin, which is better than most smells on the Drag. Did you bring any of the catch up the road with you?" },
+    { id = "g_xhex", when = { origin = "troll_hex_breaker" }, text = "You're the Darkspear who goes down into the Cleft to learn the warlocks' craft. They say it's to fight Zalazane, and I'd like to believe it, so don't give me cause not to." },
+    { id = "g_xvmage", when = { origin = "troll_valley_of_spirits_mage" }, text = "Back from the Valley of Spirits, are you? I've walked past the trolls' fires often enough to know that smell of scorched cloth, so somebody's been practicing hard." },
+    { id = "g_xtsham", when = { origin = "troll_orgrimmar_shaman" }, text = "You're the troll who sits at the orc shamans' fires in the Valley of Wisdom. My grandmother didn't think a Darkspear could learn our way with the earth, and you're proving her wrong a little at a time." },
+    { id = "g_xrevan", when = { origin = "troll_revantusk_envoy" }, text = "Revantusk, from the Hinterlands? You're a long way from your own coast, and the Darkspear in the Valley of Spirits will want to hear how your people fare against the Witherbark." },
+    { id = "g_xvstud", when = { origin = "orc_valley_of_spirits_student" }, text = "You're the orc who studies with the troll mages in the Valley of Spirits, aren't you? My cousin swears your eyes glowed once, but my cousin also swears he wrestled a kodo." },
+    { id = "g_xdrag", when = { origin = "orc_drag_runner" }, text = "I know you from the Drag, running knives between the stalls when you were half this size. Keep your hands where I can see them, for old times' sake." },
+    { id = "g_xdoom", when = { origin = "orc_doomhammer_veteran" }, text = "Throm-ka, old one. You fought under Doomhammer before most of us were born, then sat through the camps, and here you are with your axe again, so the city's better for it." },
     { id = "g_day", text = "Lok'tar, friend. You walk in the Warchief's city, so walk it proudly." },
     { id = "g_xfrostwolf", when = { origin = "orc_frostwolf" }, text = "A Frostwolf! You came south from the Alterac snows when the Warchief called, didn't you? Your clan never drank the blood, and there isn't an orc in this city who forgets it." },
     { id = "g_xshaman", when = { origin = "orc_thrall_shaman" }, text = "You're one of the young ones learning at the shamans' fires; I've seen you in the Valley of Wisdom with smoke in your eyes. The elements forgive slowly, so keep listening." },
@@ -419,6 +436,12 @@ P:Pool {
     { id = "g_word_helped", when = { word = "helped" }, text = "They say you did the Warchief's city a good turn. Lok'tar, friend; the Horde remembers those who work for it." },
   },
   notice = {
+    { id = "n_xzand", cat = "origin", when = { origin = "troll_zandalari_scrolls" },
+      text = "The writing on those scrolls of yours is like nothing I've seen in Orgrimmar, all hooks and spirals. Troll work, is it, and older than the city, I'd wager?" },
+    { id = "n_xbwon", cat = "origin", when = { origin = "troll_bwonsamdi_singer" },
+      text = "The trolls say you sing for the Darkspear who died on the Echo Isles. Sing one for my father someday, would you, since nobody in this city sang for him when the camps took him." },
+    { id = "n_xlapsed", cat = "origin", when = { origin = "orc_lapsed_warlock_shaman" },
+      text = "The spirits sit on you like rain, but there's an old warlock's scorch underneath it all. I lived through the camps with both kinds of orc, and I know the difference when I see it." },
     { id = "n_xcleft", cat = "origin", when = { origin = "orc_cleft_initiate" },
       text = "You've been down in the Cleft of Shadow; it clings to you like smoke. The Warchief doesn't forbid it, so I won't, but I'll keep my distance all the same." },
     { id = "n_priest_troll", cat = "class", when = { class = "PRIEST", race = "Troll" },
@@ -467,6 +490,8 @@ P:Pool {
   id = "citizen_thunderbluff", role = "citizen", community = "thunder_bluff",
   greetings = {
     { id = "g_day", text = "Walk with the Earth Mother, friend. The wind is kind on the bluffs today." },
+    { id = "g_xmagatha", when = { origin = "tauren_magatha_acolyte" }, text = "You studied under the Elder Crone once, I heard, and then one day you stopped climbing to her tent. People on the bluffs noticed both, so be careful which of them you talk about, and where." },
+    { id = "g_xregrow", when = { origin = "tauren_stonetalon_regrower" }, text = "You're the druid from Sun Rock who plants saplings in the Venture Company's stump fields, aren't you? The elders on the Elder Rise speak of you, and they don't speak of many." },
     { id = "g_xgrimtotem", when = { origin = "tauren_grimtotem_born" }, text = "You left the Grimtotem to walk with Cairne; the bluffs know it, friend. Some of your kin still pass through here with hard eyes, so you'll find more welcome in my company than in theirs." },
     { id = "g_xhamuul", when = { origin = "tauren_hamuul_pupil" }, text = "You are one of Hamuul's pupils from the Elder Rise. Our people waited a very long time for druids again, so every one of you is watched with hope, and you should walk gently under it." },
     { id = "g_xspirit", when = { origin = "tauren_spirit_rise" }, text = "You carried water for the seers on the Spirit Rise; I remember you on the steps with the incense. Now the elements speak to you, and still you walk as though you're bringing the water." },
@@ -481,6 +506,12 @@ P:Pool {
     { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "The wind carries a story that your words were found false, not long ago. The tauren forgive much, but we remember what is true." },
   },
   notice = {
+    { id = "n_xtotem", cat = "origin", when = { origin = "skyborne_gevrek_totem_keeper" },
+      text = "You keep the totems at Gev'rek, under Ayessa Dawnsinger. Our seers say that when the eyes grow dim, a shaman must learn to listen with the hands and the feet, and I thought you might like to hear it." },
+    { id = "n_xcliff", cat = "origin", when = { origin = "skyborne_siroccas_cliff_hunter" },
+      text = "You draw your bow like someone used to a stronger wind than ours, and the bluffs have wind enough. Do the gusts up here do you any favors, or do they only throw your arrows wide?" },
+    { id = "n_xkodo", cat = "origin", when = { origin = "tauren_kodo_herder" },
+      text = "You carry that axe the way a herder carries a staff, low and easy. Plenty of herders took up weapons after the centaur raids, and I don't think any of them ever wanted to." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "One of the sky-folk from Gev'rek! Our elders say your spirits went quiet, and that the wind still speaks to you anyway. I'd like to hear how that feels, if you ever want to tell it." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
@@ -522,6 +553,9 @@ P:Pool {
   id = "citizen_undercity", role = "citizen", community = "undercity",
   greetings = {
     { id = "g_day", text = "Another visitor. Do try not to stare; we were all something else once." },
+    { id = "g_xsquire", when = { origin = "forsaken_unsworn_squire" }, text = "You're the squire who swears a knight's oath every morning and smokes a little afterwards. Half the Trade Quarter thinks you're mad, and the other half quietly hopes the Light keeps answering you." },
+    { id = "g_xshadow", when = { origin = "forsaken_shadow_acolyte" }, text = "You're one of the shadow's acolytes from the War Quarter. I hear you lot praying in the dark sometimes, and I can never tell whether anything is answering." },
+    { id = "g_xcutpurse", when = { origin = "forsaken_capital_cutpurse" }, text = "I know that walk. You worked the market under the palace once, same as half the Rogues' Quarter, and I'll thank you to keep your hands where I can see them." },
     { id = "g_xsoldier", when = { origin = "forsaken_lordaeron_soldier" }, text = "You wore Terenas's colors once; I can see it in how you stand by a door, as if you're still holding it. Plenty of us down here did the same, and we've stopped asking what it was for." },
     { id = "g_xdalaran", when = { origin = "forsaken_dalaran_apprentice" }, text = "You're one of the Dalaran ones; the Magic Quarter's full of you, and you all look up at the ceiling as if you expect it to be violet. It isn't, I'm afraid, though the green has its charms." },
     { id = "g_again", when = { timesTalked = { min = 2 } }, text = "You've come back to talk to me. I had forgotten what that feels like, and I'm not sure I like remembering." },
@@ -535,6 +569,10 @@ P:Pool {
     { id = "g_word_helped", when = { word = "helped" }, text = "The Deathguard say you've done the Dark Lady's city some service. In the Undercity that's as close to gratitude as anyone comes, so enjoy it." },
   },
   notice = {
+    { id = "n_xarchive", cat = "origin", when = { origin = "forsaken_stratholme_archivist" },
+      text = "You read every sign on every wall as you pass, as though you're cataloguing the place. A Stratholme archivist, I'd wager; the Magic Quarter has a few, and they all do that." },
+    { id = "n_xscarlet", cat = "origin", when = { origin = "forsaken_scarlet_turned" },
+      text = "You were Scarlet once; you still murmur a grace before you eat, which nobody else down here bothers with. The Crusade would burn you twice over now, so I suppose that makes you one of us." },
     { id = "n_xstalker", cat = "origin", when = { origin = "forsaken_deathstalker_recruit" },
       text = "One of the Dark Lady's deathstalkers. I won't ask where you've been, since you wouldn't tell me, and I'd only have to forget it afterwards." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", race = "Scourge" },
@@ -783,6 +821,8 @@ P:Pool {
     { id = "g_word_angered", when = { word = "angered" }, text = "There's talk on the docks that you put someone in a black mood. Sailors carry a grudge further than cargo, so watch yourself." },
   },
   notice = {
+    { id = "n_xsmug", cat = "origin", when = { origin = "nightelf_auberdine_smuggler" },
+      text = "I know your face off the Auberdine boat, I'm sure of it, and from a few crates that never troubled the harbormaster. Don't fret, friend, because I bought a nightsaber pelt off you once, and my wife still wears it." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "Come over from the Loch, have you? Then you came the long way round the Thandol Span, I hope, because nobody's crossing that bridge these days." },
     { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
@@ -933,6 +973,7 @@ P:Pool {
 P:Pool {
   id = "citizen_auberdine", role = "citizen", community = "auberdine",
   greetings = {
+    { id = "g_xsmug", when = { origin = "nightelf_auberdine_smuggler" }, text = "Well, look who has come back to the piers. The harbormaster still asks after a crate of silks that never reached Darnassus, and I still tell him I know nothing, so mind you don't make a liar of me." },
     { id = "g_day", text = "Ishnu-alah. The boats are at the piers, and the sea is calm today, which is more than can be said for the land." },
     { id = "g_xwatch", when = { origin = "nightelf_auberdine_watch" }, text = "You stood watch on these beaches; I remember you. The murlocs still come in with the tide, but we have held, and it is good to see you came home whole." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Stay near the lamps after dark. The furbolgs come closer than they used to, and they are not the gentle folk they were." },
@@ -942,6 +983,10 @@ P:Pool {
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I am told you brought {source} round to your view with patient words. That is a rare gift, and I'm glad to hear it used well." },
   },
   notice = {
+    { id = "n_xsatyr", cat = "origin", when = { origin = "nightelf_satyr_hunter" },
+      text = "You have come down from Felwood, I can tell, for there is a hunter's stillness on you that the satyrs teach the hard way. They were Highborne once, our own kin, and I hope you do not forget it while you hunt them." },
+    { id = "n_xfmoon", cat = "origin", when = { origin = "nightelf_feathermoon_raised" },
+      text = "You watch the supply boats as if one of them must be carrying something for you. You were raised at Feathermoon, I think, because only the children of Sardor Isle ever look at a cargo boat that way." },
     { id = "n_xwatch", cat = "origin", when = { origin = "nightelf_auberdine_watch" },
       text = "The Sentinels took you south, I heard. If you see them, tell them Auberdine still keeps its lamps lit along the shore, and that we think often of those who left." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
@@ -974,6 +1019,8 @@ P:Pool {
 P:Pool {
   id = "citizen_astranaar", role = "citizen", community = "astranaar",
   greetings = {
+    { id = "g_xsatyr", when = { origin = "nightelf_satyr_hunter" }, text = "You are the one who hunts the satyrs up in Felwood, they tell me. The ones on our shore laugh the same way in the dark, so I would be glad to know how you learned to stand it." },
+    { id = "g_xwell", when = { origin = "nightelf_astranaar_moonwell" }, text = "You kept the moonwells round the island, didn't you? My sister was carried to your well after the Warsong took her arm, and she still speaks of your hands, though she will not speak of who else you prayed for." },
     { id = "g_day", text = "Welcome to Astranaar, traveler. We are an island in the lake and an island in the war, and you'll find both are true." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Stay on the island tonight. The satyrs walk the shore after dark, and they laugh while they hunt." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been away {away}, and still the war goes on in the forest. Be welcome back on the island." },
@@ -982,6 +1029,8 @@ P:Pool {
     { id = "g_word_helped", when = { word = "helped" }, text = "The Sentinels say you have done Astranaar a true service. Elune keep you; the island does not forget its friends." },
   },
   notice = {
+    { id = "n_xtrack", cat = "origin", when = { origin = "nightelf_feralas_tracker" },
+      text = "You walk like someone used to much bigger trees than ours, and Ashenvale's are not small. You have come up from the old forests of Feralas, I would wager, and you are already measuring ours against them." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
       text = "Orc axes or satyr claws? It doesn't matter much which, out here; they both leave the same marks. See the smith before you go out again." },
     { id = "n_dwarf", cat = "race", when = { race = { "Dwarf", "Gnome", "Human" } },
@@ -1121,6 +1170,8 @@ P:Pool {
 P:Pool {
   id = "citizen_feathermoon", role = "citizen", community = "feathermoon",
   greetings = {
+    { id = "g_xtrack", when = { origin = "nightelf_feralas_tracker" }, text = "You are the tracker who brought in all those hippogryph sightings from the Twin Colossals, aren't you? The Sentinels still argue over whether you invented half of them, so come and settle it." },
+    { id = "g_xfmoon", when = { origin = "nightelf_feathermoon_raised" }, text = "You grew up on this isle, didn't you? I remember a child who ran down to the pier every time a boat came in from Auberdine, and I see you still look to the sea before you look at anyone." },
     { id = "g_day", text = "Welcome to Feathermoon. You came by boat, I hope, because the swimming is not something I would recommend." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The stars are bright over the sea tonight. The Sentinels call it a good omen, though they say that about most clear nights." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been away {away}, and the sea has brought you back. It does not always, so I am glad." },
@@ -1527,6 +1578,8 @@ P:Pool {
 P:Pool {
   id = "citizen_nighthaven", role = "citizen", community = "nighthaven",
   greetings = {
+    { id = "g_xcircle", when = { origin = "skyborne_circle_student" }, text = "You are the Skyborne who studied with the Circle, aren't you? The druids still speak of the student who listened for the wind and the stone through every prayer to Elune, and was too polite to say so." },
+    { id = "g_xgrove", when = { origin = "nightelf_moonglade_keeper" }, text = "You tended the paths here under the Keeper; I remember you raking the moss off the bridge stones every spring. Has the Circle sent you back from Felwood, or have you only come home to rest?" },
     { id = "g_day", text = "Welcome to Nighthaven. Weapons stay sheathed and voices stay soft here, for the Circle keeps the peace in the glade." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The moon is on the lake tonight. Walk softly, please; the village sleeps lightly, and the druids sleep more lightly still." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You have been away {away}. The Circle keeps the glade as it was, so you will find little changed." },
@@ -1535,6 +1588,8 @@ P:Pool {
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I am told you said something that pleased {source} greatly. Kind words carry far in a quiet place like this." },
   },
   notice = {
+    { id = "n_xdream", cat = "origin", when = { origin = "nightelf_dreamer_kin" },
+      text = "You have a sleeper in your family, I think. The kin of the dreamers come to the glade with that same look, half hopeful and half afraid to be, and I am sorry for the long wait you have." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid! Whatever banner you fly elsewhere, here you're of the Circle, so welcome home, or as near to home as any of us come." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -1567,6 +1622,7 @@ P:Pool {
 P:Pool {
   id = "citizen_crossroads", role = "citizen", community = "crossroads",
   greetings = {
+    { id = "g_xbeast", when = { origin = "orc_barrens_beastmaster" }, text = "You were here when the first walls went up, weren't you? I remember you coming in off the plains with a beast at your heels and dust to your knees, and the Crossroads hasn't had a better hunter since." },
     { id = "g_day", text = "Throm-ka, traveler. Drink from the well before you do anything else; the Barrens dries you out before you notice." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Get inside the palisade before full dark. The centaur ride at night, and they shoot at anything that moves." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the Barrens is just as dry. Drink from the well first, then tell me where you've been." },
@@ -1604,6 +1660,7 @@ P:Pool {
 P:Pool {
   id = "citizen_razor_hill", role = "citizen", community = "razor_hill",
   greetings = {
+    { id = "g_xtrack", when = { origin = "orc_durotar_tracker" }, text = "You're the tracker who brings in hides from the scrub, aren't you? The tanner talks about you as if you were the only one in Durotar who knows how to skin a scorpid properly." },
     { id = "g_day", text = "Throm-ka. You'll be heading for the capital, or away from it; everyone in Razor Hill is doing one or the other." },
     { id = "g_xgrunt", when = { origin = "orc_razor_hill_grunt" }, text = "Gar'Thok put you on the coast watch, didn't he? I remember you coming back up from the beach the week the Kul Tiran boats landed, and you didn't look young after that." },
     { id = "g_xcamp", when = { origin = "orc_camp_born" }, text = "You came out of the camps and up through the Valley of Trials, same as half this town. Every orc who walks free here was behind a fence once, or their parents were, so you're among your own." },
@@ -1616,6 +1673,18 @@ P:Pool {
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Word is you talked {source} round with words instead of an axe. That's rarer in Durotar than it should be." },
   },
   notice = {
+    { id = "n_xfish", cat = "origin", when = { origin = "troll_coast_fisher" },
+      text = "You've a fisher's hands, all rope-scars and salt, like the trolls who work the nets below Sen'jin. Bring some of that catch up the road someday, because Razor Hill is sick of boar." },
+    { id = "n_xseacall", cat = "origin", when = { origin = "troll_sea_spirit_caller" },
+      text = "Is that the sea I smell on you, or the shaman's smoke? The trolls at Sen'jin call the water spirits down on the shore, and our fishermen swear the catch has been better since." },
+    { id = "n_xspy", cat = "origin", when = { origin = "troll_echo_isles_spy" },
+      text = "The grunts say you paddle out to the Echo Isles at night and come back with numbers. I don't know how you sleep, but I'm glad somebody's counting Zalazane's slaves." },
+    { id = "n_xspear", cat = "origin", when = { origin = "troll_senjin_spear" },
+      text = "You're one of the Sen'jin spears, aren't you? Your watch and ours hold the coast between us, and I've never once heard Gar'Thok complain about the trolls, which is high praise from him." },
+    { id = "n_xbdef", cat = "origin", when = { origin = "orc_blade_defector" },
+      text = "Someone at the inn says you wore the Burning Blade's mark once, in the caves out by Skull Rock. If you've truly turned from them, Razor Hill will want to see you prove it, and so will I." },
+    { id = "n_xbhunt", cat = "origin", when = { origin = "orc_blade_hunter" },
+      text = "You're the one who goes into the canyons after the Burning Blade. Orgnil speaks well of you, and he speaks well of nobody, so the town sleeps a little easier when you're about." },
     { id = "n_xgrunt", cat = "origin", when = { origin = "orc_razor_hill_grunt" },
       text = "The watch still asks after you at the barracks. Tiragarde Keep's full of Kul Tirans yet, so if you're passing, the grunts would be glad of your axe on the coast road." },
     { id = "n_xwitch", cat = "origin", when = { origin = "troll_witch_doctor_apprentice" },
@@ -1648,6 +1717,7 @@ P:Pool {
   id = "citizen_brill", role = "citizen", community = "brill",
   greetings = {
     { id = "g_day", text = "Welcome to Brill. It was a human town once, and now it's ours, so mind where you step; some of the floorboards remember the old owners." },
+    { id = "g_xscarlet", when = { origin = "forsaken_scarlet_turned" }, text = "You wore the red once, didn't you? You still watch the tree line the way the Crusade taught you to. Brill has forgiven worse, mostly, but don't expect everyone at the Gallows' End to drink with you." },
     { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You farmed out past the town, didn't you, before the grain went bad? I'd know a Brill face anywhere, even now, and I'm glad one of us came back to walk these roads." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "It's always gloomy in Tirisfal, but at night the Scarlet patrols creep closer, so keep your eyes on the tree line." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}. Tirisfal hasn't changed, of course; it never does, which is one of its charms." },
@@ -1656,6 +1726,10 @@ P:Pool {
     { id = "g_word_helped", when = { word = "helped" }, text = "The Deathguard say you've done Brill some service. We don't do gratitude in Tirisfal, but we do remember." },
   },
   notice = {
+    { id = "n_xsquire", cat = "origin", when = { origin = "forsaken_unsworn_squire" },
+      text = "You were a squire once, from Andorhal way, I'd guess. You hold that blade as if you're still waiting for someone to tap your shoulder with it." },
+    { id = "n_xbinder", cat = "origin", when = { origin = "forsaken_vengeful_binder" },
+      text = "There's brimstone on your hands and a grudge in your eyes. Half the warlocks in Brill's cellars are here for revenge on the Lich King, and the other half are lying about it." },
     { id = "n_xbrill", cat = "origin", when = { origin = "forsaken_brill_farmer" },
       text = "Your old field's still out there past the crossroads, I expect. Most of us don't go and look, and the ones who do say it's worse than they feared, because it looks exactly the same." },
     { id = "n_undead", cat = "race", when = { race = "Scourge", maxLevel = 10 },
@@ -1686,6 +1760,7 @@ P:Pool {
   id = "citizen_tarren_mill", role = "citizen", community = "tarren_mill",
   greetings = {
     { id = "g_day", text = "Welcome to Tarren Mill. It's quiet here, mostly, except when the humans from Southshore come calling with torches." },
+    { id = "g_xmilitia", when = { origin = "forsaken_hillsbrad_militia" }, text = "You were in the Hillsbrad militia, weren't you, with a pitchfork and somebody else's helmet? Now you stand watch over the same hills for the other side, and I've stopped trying to decide whether that's funny." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Hillsbrad is darker than it looks after sunset, and the Syndicate creep about in it. Stay close to the town." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}. The humans in Southshore haven't, sadly, so nothing's changed." },
     { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and you still have all your limbs. That's more than many of us can say." },
@@ -1693,6 +1768,8 @@ P:Pool {
     { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I had it from {source} that your tongue slipped and they caught it. We remember such things, even with what's left of our memories." },
   },
   notice = {
+    { id = "n_xmilitia", cat = "origin", when = { origin = "forsaken_hillsbrad_militia" },
+      text = "You look down the road to Southshore like you're counting faces. Some of the militia you drilled with are still alive down there, I expect, and still drilling." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Skyborne" } },
       text = "One of the living, here in Tarren Mill! The humans in Southshore hate you nearly as much as they hate us, so that makes us friends, I suppose." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1720,7 +1797,9 @@ P:Pool {
 P:Pool {
   id = "citizen_bloodhoof", role = "citizen", community = "bloodhoof",
   greetings = {
+    { id = "g_xtotem", when = { origin = "skyborne_gevrek_totem_keeper" }, text = "You keep the totems at the Skyborne camp, don't you? I've seen you out at dawn among them with your face turned up to the sky, and I have never dared to ask what you are looking for." },
     { id = "g_day", text = "Be welcome in Bloodhoof Village. The grass is tall and the kodo are fat this season, so the Earth Mother is pleased with us." },
+    { id = "g_xorphan", when = { origin = "tauren_razormane_orphan" }, text = "You're the little one the braves carried in from the dry riverbed, all those years ago. The whole village took turns feeding you that winter, and I see the feeding took." },
     { id = "g_xmigration", when = { origin = "tauren_long_migration" }, text = "You were born on the long walk, weren't you? So was my youngest, and she still sleeps with one ear open for the centaur, but Mulgore is home now for all of us who walked." },
     { id = "g_xnarache", when = { origin = "tauren_narache_hunter" }, text = "You're of a Narache hunting family, from up on Red Cloud Mesa; the young ones from the camp come down to us for trade. Give the Earth Mother thanks for every plainstrider, as your mother taught you." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Come and sit by the fire, traveler. The plains are peaceful at night, but it's wiser to be peaceful near a fire." },
@@ -1730,6 +1809,10 @@ P:Pool {
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear someone in the village was much angered by your words. Sit with them by the fire if you can, because anger cools best there." },
   },
   notice = {
+    { id = "n_xbrave", cat = "origin", when = { origin = "tauren_bloodhoof_brave" },
+      text = "One of our own braves, home from the road! The little ones still play at holding the line against the goblin machines, and you're the one they argue over who gets to be." },
+    { id = "n_xregrow", cat = "origin", when = { origin = "tauren_stonetalon_regrower" },
+      text = "You've seedlings in your pack and sawdust on your boots, druid. The goblins are cutting Mulgore too, so if you've learned to undo their work in Stonetalon, come and teach it here." },
     { id = "n_new", cat = "race", when = { race = "Tauren", maxLevel = 10 },
       text = "You've come down from Narache! I remember my own first walk across the plains, how wide they seemed. Take your time; the land isn't going anywhere." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
@@ -1767,6 +1850,8 @@ P:Pool {
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "The wind says you frightened someone on the mesa. Up here a careless push sends a person a long way down, so be gentle." },
   },
   notice = {
+    { id = "n_xmagatha", cat = "origin", when = { origin = "tauren_magatha_acolyte" },
+      text = "You were one of Magatha's students, weren't you? The Grimtotem out in these canyons speak her name with real reverence, so don't expect them to thank you for walking away from her." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
       text = "Was it the centaur in the canyons, or the Grimtotem? Thousand Needles is full of both, so rest a while before you climb down again." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -1795,6 +1880,7 @@ P:Pool {
   id = "citizen_taurajo", role = "citizen", community = "taurajo",
   greetings = {
     { id = "g_day", text = "Welcome to Camp Taurajo. The quilboar are south of us and the centaur west, so keep your weapon where you can reach it." },
+    { id = "g_xkodo", when = { origin = "tauren_kodo_herder" }, text = "You herded kodo on the old trails west of here, before the Kolkar raid. I knew your uncle a little; he sang to his herd every evening, badly, and the kodo loved him for it." },
     { id = "g_xrunner", when = { origin = "tauren_plains_runner" }, text = "The runner is back! You carried our messages to the Crossroads with that cat at your heels, and the Barrens never caught you once, so sit by the fire and let someone else run for a while." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Stay near the fires tonight, traveler. The southern Barrens grow dangerous once the light goes." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, traveler, and the quilboar are still south of us. It's good to see you return." },
@@ -1803,6 +1889,8 @@ P:Pool {
     { id = "g_word_pleased", when = { word = "pleased" }, text = "One of the hunters was greatly pleased by what you said to them, I hear. Good words travel well across the plains." },
   },
   notice = {
+    { id = "n_xorphan", cat = "origin", when = { origin = "tauren_razormane_orphan" },
+      text = "You watch the Razormane country like someone with a debt to collect there. Plenty in this camp lost kin to their raids, so nobody here will tell you to forgive them." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
       text = "The quilboar got to you, did they? Their spines are sharp and their tempers sharper, so see to those wounds." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -1871,6 +1959,8 @@ P:Pool {
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I had it from {source} that you talked them round to your thinking. That's no small feat with the grunts here, who'd sooner settle things with an axe." },
   },
   notice = {
+    { id = "n_xbrock", cat = "origin", when = { origin = "orc_blackrock_defector" },
+      text = "You were Blackrock once, weren't you? Half the grunts here have kin up in that mountain, and they'll want to know whether you saw any of their faces before you left." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
       text = "Dark Iron hammers, by the dents in you. Get mended before you go out again, because they never stop at one swing." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
@@ -1937,6 +2027,7 @@ P:Pool {
   id = "citizen_sepulcher", role = "citizen", community = "sepulcher",
   greetings = {
     { id = "g_day", text = "You've found the Sepulcher. We were buried here once, some of us, and now we keep the place tidy." },
+    { id = "g_xwoods", when = { origin = "forsaken_silverpine_woodsman" }, text = "You cut timber in these woods once, didn't you? You still look at the pines as if you're judging which way they'll fall." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Keep within the walls once the light fades. The beasts of Silverpine hunt after dark, and they're always hungry." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}. The Sepulcher has kept quiet, as it does, and the worgen have kept hungry." },
     { id = "g_away_long", when = { away = 45 }, text = "It's been {away}. I'd assumed you had gone the way of all flesh, or to Shadowfang Keep, which is much the same thing." },
@@ -1944,6 +2035,8 @@ P:Pool {
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I hear you pleased {source} rather a lot. That's an achievement among the dead, who find very little pleasing." },
   },
   notice = {
+    { id = "n_xshadow", cat = "origin", when = { origin = "forsaken_shadow_acolyte" },
+      text = "Shadow clings to you the way damp clings to these crypts. Allister will be glad of you, since he says the Light never once came looking for him out here." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
       text = "Those are claw marks, and big ones. You were lucky out there, so get patched up before your luck notices." },
     { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Skyborne" } },
@@ -1970,6 +2063,8 @@ P:Pool {
 P:Pool {
   id = "citizen_gromgol", role = "citizen", community = "gromgol",
   greetings = {
+    { id = "g_xzand", when = { origin = "troll_zandalari_scrolls" }, text = "You'd be the troll who reads those Zandalari scrolls. Their ships still put in along this coast now and then, so if you want to meet the people who wrote them, keep your eyes on the water." },
+    { id = "g_xguru", when = { origin = "troll_gurubashi_runaway" }, text = "You know this jungle better than you're letting on, and you flinch when the drums start up in the hills. Gurubashi-born, are you? Then you'll know which paths the Skullsplitters watch." },
     { id = "g_day", text = "Throm-ka. Welcome to Grom'gol, where the zeppelins come and go and the jungle stays exactly where it is, all around us." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The jungle's loud after dark, with raptors, tigers and trolls all hunting at once. Stay inside the stakes." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the zeppelin's been late every day since. Welcome back to the jungle." },

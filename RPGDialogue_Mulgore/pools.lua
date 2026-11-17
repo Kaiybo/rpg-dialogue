@@ -9,6 +9,7 @@ P:Pool {
   },
   greetings = {
     { id = "g_village", text = "Here in Bloodhoof Village, the bluffs are to the north and the gnolls to the west, and the goblins are everywhere they shouldn't be." },
+    { id = "g_xbrave", when = { origin = "tauren_bloodhoof_brave" }, text = "Brave! You stood the line with us when the goblins first dragged their machines into Mulgore. The village still tells that story, and it gets bigger every time Mull tells it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "At night the gnolls come sniffing round the cookfires for scraps. Stay near the fires, and keep your boots inside the tent." },
   },
   notice = {

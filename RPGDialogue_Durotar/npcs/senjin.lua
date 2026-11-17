@@ -92,6 +92,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_seacall = {
+      lines = { { id = "xsc_default", text = "The old women know more than any orc far seer, though don't you tell the orcs I said it. Zalazane's poison be in the water now, so when you call the sea spirits, do they come gladly, or do they come sick?" } },
+      choices = {
+        { text = "They come sick, Master, and grieving.", next = "BACK", fx = { trait = { pious = 1 }, learn = { "echo_isles" } } },
+        { text = "They come gladly. They want us home.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one wieldin' the Light. I teach witch doctors, and I tell them always to watch the dead careful. You be the strangest dead I ever see." },
@@ -126,6 +133,7 @@ P:NPC {
         { text = "How do I fight the hexed Darkspear, Master Gadrin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should a troll fear a Forsaken paladin, Master?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've been to the heart of Zul'Farrak, Master Gadrin.", next = "xcl_zf", when = { cleared = "Zul'Farrak", faction = "Horde" } },
+        { text = "The old women on the shore taught me to call the sea, Master.", next = "xorig_seacall", when = { origin = "troll_sea_spirit_caller" } },
         { text = "Thank you, Master.", next = "END" },
       },
       again = {

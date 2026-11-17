@@ -274,6 +274,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_raptor = {
+      lines = { { id = "xrp_default", text = "Good, that's how a raptor ought to be. The Darkspear raise them from the egg and they never forget the first hand that fed them, which is more than I can say for most wolves. Has she ever bitten you?" } },
+      choices = {
+        { text = "Once, as a hatchling. Never since.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Every morning, but only gently.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin. Not my students, but I'll watch you anyway, because I watch everything that moves in this valley." },
@@ -298,6 +305,7 @@ P:NPC {
         { text = "How should I train my companion, Ormak?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "How would you judge a warlock's demon, Ormak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do hunters think of the Light, Ormak?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "My raptor's from the Sen'jin pens. She bites everyone but me.", next = "xorig_raptor", when = { origin = "troll_raptor_rider" } },
         { text = "Farewell, Ormak.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? Make it quick, the wolves need feeding." } },
@@ -439,6 +447,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_tsham = {
+      lines = { { id = "xts_default", text = "Your grandmother isn't wrong to worry, because orcs know better than anyone what it costs to forget the voices that raised you. But the earth under Durotar is the same earth under the Echo Isles, and I don't think your loa and my spirits are jealous of each other. Do you still keep their offerings?" } },
+      choices = {
+        { text = "Every night, beside the totems.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+        { text = "Not as often as she'd like.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_sham", tags = { "news" }, when = { party = { class = "SHAMAN" } },
@@ -466,6 +481,7 @@ P:NPC {
         { text = "Do the spirits reject a Forsaken paladin, Kardris?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I faced Ragnaros in the Molten Core, Kardris.", next = "xcl_mc", when = { cleared = "Molten Core", faction = "Horde" } },
         { text = "Our shaman keeps us alive. What do they owe the spirits?", next = "xpt_kardris", when = { party = { class = "SHAMAN" } } },
+        { text = "My grandmother says your teaching made me forget the loa.", next = "xorig_tsham", when = { origin = "troll_orgrimmar_shaman" } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you wish. Wisdom grows by sharing it." } },

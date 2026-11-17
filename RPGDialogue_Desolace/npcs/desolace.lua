@@ -1195,7 +1195,18 @@ P:NPC {
         { text = "How do the Burning Blade hide among the satyrs, Takata?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do the satyrs' wounds do to your warriors, Takata?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would you take a paladin against the Burning Blade, Takata?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "I scouted the Kolkar camps out of this post once, Takata.", next = "xorig_ghost", when = { origin = "tauren_ghost_walker_scout" } },
         { text = "I'll hunt with you.", next = "END", fx = { affinity = 2, learn = { "burning_blade" } } },
+      },
+    },
+    xorig_ghost = {
+      lines = {
+        { id = "xgh_default", text = "I know. You were the scout who always came back, and in Desolace that's the only kind worth remembering. Do the Kolkar still move the way they did when you watched them?" },
+      },
+      choices = {
+        { text = "They're bolder than ever, and they're watching this post.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I couldn't say. I've been away too long.", next = "BACK" },
+        { text = "Did you ever see the ghosts here, Takata?", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
 

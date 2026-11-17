@@ -89,6 +89,20 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xorig_vstud = {
+      lines = { { id = "xvs_default", text = "Ha! Let them look, mon, because there be nothing green in there but your own stubbornness. Your people learned their magic from demons, so of course they worry, but the arcane be older than any demon and it only ask for your patience. Are you patient?" } },
+      choices = {
+        { text = "Not very, but I'm learning.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "More than my clan thinks.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    xorig_vmage = {
+      lines = { { id = "xvm_default", text = "You say that like you expect me to argue, mon, but I been saying it to orcs for years and they just walk faster. The witch doctors and the Kirin Tor pull at the same threads, only one of them writes it all down. Which of them taught you more?" } },
+      choices = {
+        { text = "The witch doctors. The books came later.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The books. The witch doctors just laughed at me.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Uthel'nay, and I teach mages in the Darkbriar Lodge. The humans in Dalaran think nobody else knows magic, and I mean to prove them wrong one student at a time." },
@@ -99,6 +113,8 @@ P:NPC {
         { text = "What do you think of Dalaran?", next = "dalaran" },
         { text = "Is magic dangerous?", next = "danger" },
         { text = "Teach me, Uthel'nay.", next = "BUSINESS", when = { class = "MAGE" } },
+        { text = "My clan still checks my eyes for green, Uthel'nay.", next = "xorig_vstud", when = { origin = "orc_valley_of_spirits_student" } },
+        { text = "Mojo and arcane come from the same place, Uthel'nay.", next = "xorig_vmage", when = { origin = "troll_valley_of_spirits_mage" } },
         { text = "Farewell, Uthel'nay.", next = "END" },
       },
     },
@@ -150,6 +166,13 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xorig_lapsed = {
+      lines = { { id = "xlp_default", text = "Fire forgives nothing, but it does forget, if you feed it honestly for long enough. The anger that still reaches for fel is the same anger fire answers to, so give it to the flame before the old craft can take it. Do you feel the itch often?" } },
+      choices = {
+        { text = "Every time I'm angry, Searn.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Less than I used to.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Searn Firewarder, and I teach shamans to speak with the elements, though fire is the one I know best. Fire is honest, because it shows you exactly what it wants and burns you if you don't listen." },
@@ -160,6 +183,7 @@ P:NPC {
         { text = "Why fire, of all the elements?", next = "fire" },
         { text = "What happened when the orcs forgot the spirits?", next = "forgot" },
         { text = "Teach me, Searn.", next = "BUSINESS", when = { class = "SHAMAN" } },
+        { text = "I was a warlock's apprentice once, Searn. Will fire forgive me?", next = "xorig_lapsed", when = { origin = "orc_lapsed_warlock_shaman" } },
         { text = "Farewell, Searn.", next = "END" },
       },
     },

@@ -151,11 +151,22 @@ P:NPC {
         { text = "I've been to the heart of Razorfen Kraul, Baine.", next = "xcl_rfk", when = { cleared = "Razorfen Kraul", faction = "Horde" } },
         { text = "I've followed the Venture Company from the wells to Stonetalon.", next = "venture_word",
           when = { thread = { id = "venture_mulgore", beat = "b5_baine", state = { "stirring", "unfolding" } } } },
+        { text = "I stood with your braves against the Venture machines, Baine.", next = "xorig_brave", when = { origin = "tauren_bloodhoof_brave" } },
         { text = "Earth Mother guide you.", next = "END", fx = { affinity = 1 } },
       },
       again = {
         { id = "h_again", text = "What else, friend? The village is quiet for now, so ask." },
         { id = "h_again2", text = "Go on. I'd rather hear it from you than from the gossip at Kauth's fire, where every plainstrider grows a foot in the telling." },
+      },
+    },
+    xorig_brave = {
+      lines = {
+        { id = "xbr_default", text = "I remember. You struck when I gave the word and stopped when I gave it again, and the stopping is the harder half. My father asks us to strike only when we must, so tell me honestly: did we strike enough?" },
+      },
+      choices = {
+        { text = "We did. Every goblin we spared was our choice, not theirs.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "No. They came back, so we should have struck harder.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
+        { text = "I'm not sure, Baine. I still think about it.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     warrior = {
@@ -1234,7 +1245,18 @@ P:NPC {
         { text = "Do the druids from Elder Rise often stop here, Kauth?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do mages come through Bloodhoof often, Kauth?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the tauren mind a paladin at the inn, Kauth?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do you remember the night the braves brought me in, Kauth?", next = "xorig_orphan", when = { origin = "tauren_razormane_orphan" } },
         { text = "Just a meal, thank you.", next = "END" },
+      },
+    },
+    xorig_orphan = {
+      lines = {
+        { id = "xorp_default", text = "I remember you wouldn't eat for two days, and on the third you ate three bowls and fell asleep against my kettle. Half the village claimed you after that, though I always thought the kettle had the best claim. Do you ever go back to the Barrens, to where it happened?" },
+      },
+      choices = {
+        { text = "Sometimes. The Razormane still owe me a debt.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "No. Mulgore is my home now, and that's enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Is the kettle still here, Kauth?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
     stew = {

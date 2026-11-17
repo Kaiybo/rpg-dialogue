@@ -353,6 +353,13 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xorig_beast = {
+      lines = { { id = "xbm_default", text = "I remember the hunters from those first seasons, before the palisade was finished, when we slept with our beasts for walls. You've kept to the old way since, so tell me, is the Barrens still teaching you, or have you started teaching it?" } },
+      choices = {
+        { text = "It's still teaching me, and it's a harsh teacher.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Lately, the Barrens learns from me.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_pt_kin", tags = { "news" }, when = { party = { kin = true } },
@@ -390,6 +397,7 @@ P:NPC {
         { text = "Will a warlock find work at the Crossroads, Sergra?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Will you send a paladin out past the walls, Sergra?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Should a company keep to its own people, Sergra?", next = "xpt_sergra", when = { party = { kin = true } } },
+        { text = "I came out here when these walls first went up, Sergra.", next = "xorig_beast", when = { origin = "orc_barrens_beastmaster" } },
         { text = "I'll get to it.", next = "END", fx = { affinity = 1 } },
       },
       again = {

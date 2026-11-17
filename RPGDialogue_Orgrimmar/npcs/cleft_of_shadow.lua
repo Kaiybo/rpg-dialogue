@@ -135,6 +135,13 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xorig_bdef = {
+      lines = { { id = "xbd_default", text = "Then you know what I spend half my lessons warning against, which is a demon you serve instead of one that serves you. The Blade doesn't forgive deserters, so tell me, do you sleep with your back to the wall these days?" } },
+      choices = {
+        { text = "Always, and with a knife under my pillow.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Let them come. I know their tricks now.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Mirket, and I teach warlocks. The rest of the city would rather we didn't exist, but it's glad enough of us when the Alliance comes over the hill." },
@@ -145,6 +152,7 @@ P:NPC {
         { text = "Why does the city tolerate warlocks?", next = "tolerate" },
         { text = "Aren't demons what nearly destroyed the orcs?", next = "demons" },
         { text = "Teach me what you know.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "I wore the Burning Blade's mark once, Mirket.", next = "xorig_bdef", when = { origin = "orc_blade_defector" } },
         { text = "Farewell, Mirket.", next = "END" },
       },
     },
@@ -196,6 +204,13 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xorig_hex = {
+      lines = { { id = "xhx_default", text = "A troll who wants a demon's tricks to fight a troll's curse, and Vol'jin pretends not to see you coming and going from the Cleft. Zalazane's hexes are loa-craft twisted sideways, so a grimoire will only take you so far. What will you do when your imp starts liking the work?" } },
+      choices = {
+        { text = "Remind it who holds the leash.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Send it back before it does.", next = "BACK", fx = { trait = { cautious = 1 } } },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Kurgul, and I sell the grimoires that teach your demons new ways to serve. An imp knows a dozen tricks it would rather not show you, and my books make sure it shows you anyway." },
@@ -205,6 +220,7 @@ P:NPC {
         { text = "Do demons have personalities?", next = "personal" },
         { text = "Where do the grimoires come from?", next = "books" },
         { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "I learned your craft to break Zalazane's hexes, Kurgul.", next = "xorig_hex", when = { origin = "troll_hex_breaker" } },
         { text = "Farewell, Kurgul.", next = "END" },
       },
     },
