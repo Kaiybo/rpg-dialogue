@@ -44,3 +44,4 @@ npcs\nikova.lua
 npcs\betty_quin.lua
 npcs\gilroy.lua
 npcs\mazen.lua
+npcs\malin.lua

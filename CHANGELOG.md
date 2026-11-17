@@ -66,6 +66,11 @@ Spoogledorf of Uber Town has something to say. **New file: restart the game full
 - Choices that shape your alignment (keep the name or change it, take an empty town or buy one, search a friend's bags or trust him, glory or getting home), a few class lines (hunters, mages, priests), Horde and Alliance versions of his work, and after a first meeting you can ask to join Uber Town.
 - Matched by his Forever NPC id (276591), so he talks wherever he stands. Not yet seen in game.
 
+## 0.80.0 (2026-11-17)
+Archmage Malin. **New file: restart the game fully (a /reload won't load it).**
+
+- **Archmage Malin** in the Wizard's Sanctum (Stormwind 1.27.0) now has a full conversation: his old master Archmage Trelane and the tower in the Arathi Highlands, what the Boulderfist took, Skuerto and Kryten, the fall of Stromgarde, Dalaran, and life in the Mage Quarter. He reacts to Malin's Request and to how the work at Refuge Pointe went, notices mages, warlocks and Mage Quarter apprentices, and has replies for Dalaran's strays, Stromgarde's sellswords, Gnomeregan's last students, dwarves, gnomes and night elves.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
