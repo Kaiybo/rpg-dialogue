@@ -60,7 +60,7 @@ P:NPC {
         { text = "Are we at war with the Horde or not?", next = "horde" },
         { text = "Who is Kayneth Stillwind?", next = "kayneth" },
         { text = "You don't like ordering the pridewings killed.", next = "pridewings", when = { any = { { questActive = TODO_QUEST("Pridewings of Stonetalon") }, { questDone = TODO_QUEST("Pridewings of Stonetalon") } } } },
-        { text = "I'm kaldorei too. How bad is it, truly?", next = "sister", when = { race = "NightElf", class = { "HUNTER", "WARRIOR", "ROGUE" } } },
+        { text = "I'm kaldorei too. How bad is it, between the two of us?", next = "sister", when = { race = "NightElf", class = { "HUNTER", "WARRIOR", "ROGUE" } } },
         { text = "What work do you have?", next = "BUSINESS" },
         { text = "Elune guide you, Sentinel.", next = "END" },
       },
@@ -138,7 +138,7 @@ P:NPC {
 
     pridewings = {
       lines = {
-        { id = "pr_default", text = "No, and I won't pretend otherwise to make you feel better about it. A pridewing doesn't know which side it's on; it only knows its nest, and we took that from it for the sake of our own." },
+        { id = "pr_default", text = "No, and dressing it up wouldn't make you feel any better. A pridewing doesn't know which side it's on; it only knows its nest, and we took that from it for the sake of our own." },
       },
       choices = {
         { text = "Your heart's in the right place.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },

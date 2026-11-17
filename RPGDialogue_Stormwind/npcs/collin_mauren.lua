@@ -15,9 +15,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_study", text = "Good day. Mind the scale dust on the table; it's worth more than it looks." },
+    { id = "g_study", text = "Good day. Mind the scale dust on the table; a pinch of it costs more than your boots." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, hello again. Have you come back from somewhere interesting? People usually have." },
-    { id = "g_scales", when = { questActive = TODO_QUEST("Retrieval for Mauren") }, text = "Have you already returned from the Charred Vale? Take your time; there's no rush, truly." },
+    { id = "g_scales", when = { questActive = TODO_QUEST("Retrieval for Mauren") }, text = "Have you already returned from the Charred Vale? Take your time; the dragonkin aren't going anywhere, and neither am I." },
     { id = "g_devil", when = { questActive = TODO_QUEST("Devils in Westfall") }, text = "Have you found the component I need? A dust devil is a peculiar thing to ask for, I know." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I've ground the last of my scales in that time. Welcome back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown in power since we last spoke; I can feel it from here, rather like a warm stove." },

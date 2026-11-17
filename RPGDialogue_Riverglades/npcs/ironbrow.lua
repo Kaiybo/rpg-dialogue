@@ -69,7 +69,7 @@ P:NPC {
     },
 
     walls = {
-      lines = { { id = "wa_default", text = "Badly, if I'm honest, because they were thrown up in a hurry by frightened folk who'd never laid a course in their lives. I've been replacing them a stone at a time for years, and I'm about halfway." } },
+      lines = { { id = "wa_default", text = "Badly, because they were thrown up in a hurry by frightened folk who'd never laid a course in their lives. I've been replacing them a stone at a time for years, and I'm about halfway." } },
       choices = {
         { text = "What's the weakest point?", next = "walls_weak" },
         { text = "Something else.", next = "BACK" },

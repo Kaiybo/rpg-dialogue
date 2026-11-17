@@ -178,7 +178,7 @@ P:NPC {
     },
 
     scarlet = {
-      lines = { { id = "sc_default", text = "They do, and some of them truly believe it. Uther would have stood between them and the innocents they burn, and I pray he'd have found a way to make them listen, because I never have." } },
+      lines = { { id = "sc_default", text = "They do, and some of them believe it to the bone. Uther would have stood between them and the innocents they burn, and I pray he'd have found a way to make them listen, because I never have." } },
       choices = {
         { text = "They've forgotten what he stood for.", next = "BACK", fx = { affinity = 1, learn = { "scarlet_crusade" } } },
         { text = "Something else.", next = "BACK" },

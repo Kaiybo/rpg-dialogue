@@ -198,7 +198,7 @@ P:NPC {
     xtemple = {
       big = true,
       lines = {
-        { id = "xt_default", text = "Then you have seen what madness does to the proudest of us, and I hope you were swift. Tell me truly, mortal, did they fight like dragons or like beasts?" },
+        { id = "xt_default", text = "Then you have seen what madness does to the proudest of us, and I hope you were swift. Tell me plainly, mortal, did they fight like dragons or like beasts?" },
       },
       choices = {
         { text = "Like dragons. I honored them, even in killing them.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },

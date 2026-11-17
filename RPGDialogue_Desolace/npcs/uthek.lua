@@ -26,7 +26,7 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren, a child of the plains we were driven from. I smell the old war on you, but the Magram are the enemy today, and so we speak." },
-    { id = "n_magram", cat = "deeds", when = { killed = { name = "Magram", min = 30 } },
+    { id = "n_magram", cat = "deeds", when = { any = { { killed = { name = "Magram", min = 30 } }, { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } } },
       text = "Much Magram blood is on your hands, and the earth has drunk it gladly. This is good." },
   },
 
