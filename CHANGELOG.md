@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.78.0 (2026-11-17)
+The journal's Notes page works.
+
+### Fixed
+- **Notes**: the page looked blank and clicking it did nothing. Now a hint tells you to click, a click anywhere on the page puts the cursor in, the page grows as you write and scrolls to follow the cursor, and your notes save as you type and when you click away.
+
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
 
