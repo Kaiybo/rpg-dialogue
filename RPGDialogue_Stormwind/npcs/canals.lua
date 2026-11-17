@@ -39,6 +39,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every week, honestly, because the casks don't roll themselves up from Roberto's cellar. But I'll not pay a sword's wage for porter's work, so if you're here for coin, try the Barracks instead." } },
+      choices = {
+        { text = "An honest day's lifting never shamed anyone.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I swing a sword. I don't roll barrels.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "They come down out of Elwynn's woods when the grapes ripen and they eat the lot, skins and all. Renato calls it a tragedy in three acts; I call it a line in my ledger that never balances." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a good nose, I'd wager. If it ever wants work, the boars come at dusk and they come hungry." },
+      },
+      choices = {
+        { text = "I'll thin the boars and take only what the vines can spare.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll hunt them if the price is right, and not before.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -51,6 +72,8 @@ P:NPC {
           text = "A cask of merlot for Lakeshire? Roberto has one ready; Barkeep Daniels writes to us whenever the roads are open, and lately they rarely are." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Please don't conjure anything near my barrels, because Roberto still talks about the apprentice who tried to make the merlot colder." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind your elbows near the shelves, please; the last soldier who leaned on them cost us two casks and a very long argument with Roberto." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you smell of the woods, which is nicer than most of what walks in off the canals. Roberto will want to know if you've seen any wild boar near the vineyards." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've columns to add." },
@@ -64,6 +87,8 @@ P:NPC {
         { text = "A good red is a small blessing.", next = "priest", when = { class = "PRIEST" } },
         { text = "Someone's skimming your tally, I'd wager.", next = "rogue_tally", when = { class = "ROGUE" } },
         { text = "What happened with the apprentice and the merlot?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the winery ever need a strong back, Suzetta?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do boars really trouble the Gallina vines?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -185,6 +210,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Just the one, dearie, and he came home with a broken nose and a story that got longer every winter. He always said the hardest part of soldiering was standing still while everyone else ran about." } },
+      choices = {
+        { text = "Standing your ground is the hardest thing there is.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Better to charge in than stand guarding an empty bridge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I grew up on a farm past Goldshire, dearie, and I miss the quiet and nothing else. The wolves took two of my father's sheep every spring, and he never once forgave them for it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And who's this, then? {pet}, is it? Keep it off my water buckets and we'll get along fine, the two of us." },
+      },
+      choices = {
+        { text = "The wolves only take what they need to live, Emma.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A wolf that takes sheep should be put down, plain and simple.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -203,6 +249,8 @@ P:NPC {
           text = "You've light fingers, I can see it in how you hold them, so keep them off my buckets. There's nothing in them worth stealing but water, and water's heavy." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "There's something cold coming off you, like the cellar of the Lamb down the way. I don't ask what goes on down there, and you'll not tell me, so we're even." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Oh, a warrior, dearie, all clank and shoulders. My Harold was a soldier once, though he spent the whole of the Second War guarding a bridge that nobody wanted to cross." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? You've mud on your boots and leaves in your hair, dearie, and you'll not track any of that across my clean step." },
       },
       again = {
         { id = "h_again", text = "Well? I've not got all day, and neither has this bucket." },
@@ -217,6 +265,8 @@ P:NPC {
         { text = "I come from the north too.", next = "north", when = { origin = "human_lordaeron_refugee" } },
         { text = "The Silver Hand fought for the north, Emma.", next = "silverhand", when = { class = "PALADIN" } },
         { text = "Do many thieves work these streets, Emma?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Did your Harold ever see a real fight, Emma?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you ever miss the country, Emma?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Lamb's cellar frighten you, Emma?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll leave you to it.", next = "END" },
       },
@@ -367,6 +417,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Thick quilted under-padding, so the mail doesn't rub them raw on a long march. Most of them only come in after it's rubbed, of course, which is soldiers all over." } },
+      choices = {
+        { text = "I'll take your advice and pad it properly before the march.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A little chafing never hurt anybody. Leave it be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Dull colours, tight weave and nothing that rustles, because a hunter in a silk shirt might as well ring a bell. We dye a woodland green that sells well to the Westbrook men, though they'll never admit they buy from a city shop." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is shedding on my bolts, love. I'll forgive it this once, because it has lovely eyes, but don't let it near the wool." },
+      },
+      choices = {
+        { text = "Plain and quiet suits me. The hunt isn't for showing off.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll wear what I like. The deer can look if they want.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -381,6 +452,8 @@ P:NPC {
           text = "Dark cloth, soft soles and no buckles to catch the light, dear, so whoever outfitted you knew exactly what they were doing." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Mage robes again! Every apprentice in the Quarter scorches the cuffs, and every one of them swears it was somebody else's spell." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you've torn your padding at the shoulder again, I can see it from here. Everyone in armor wants a cushion under the mail until they need one sewn." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in my shop! You'll be wanting something that doesn't flap in the wind and frighten the deer, I suppose." },
       },
       again = {
         { id = "h_again", text = "Anything else, dear? Corbett, don't you dare sit down." },
@@ -394,6 +467,8 @@ P:NPC {
         { text = "Could you look at my robes?", next = "priest", when = { class = { "PRIEST", "MAGE", "WARLOCK" } } },
         { text = "Do you sew for people who'd rather not be seen?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you mend many scorched robes from the Quarter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What do warriors usually ask of a tailor, Rema?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What makes good cloth for a hunter, Rema?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -495,6 +570,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Patience, mostly, and how to hold still while something angry thrashes on the end of a line. I've known old Barracks sergeants who said the canals taught them more about timing than the drill yard ever did." } },
+      choices = {
+        { text = "Patience wins more fights than strength does.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Strength wins fights. Patience is for fishermen.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The good ones do, because hunting and fishing are the same patience with different weather. Mind, a hunter who's used to a bow can't stand losing a fish, and I've seen one try to shoot a pike out of Stonewatch Lake." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} will want the first fish, I suppose, like every beast that's ever sat on my dock. Throw it the small ones and it'll stop staring at you." },
+      },
+      choices = {
+        { text = "I take only what I'll eat, whether it's fish or deer.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If it's in the water and I catch it, it's mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Arnold Leland. I teach fishing, and Catherine there sells the poles and bait, and between us we've fished every bit of water within a day's walk of this city." },
@@ -503,6 +599,8 @@ P:NPC {
           text = "You've a patient look, like you're used to waiting in one spot for a long while, and that's half of fishing already." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at my pier! Don't go freezing the canal to get at the fish, now, because one of your lot tried it last winter and fell straight through." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior with a fishing question? Don't look so surprised; plenty of soldiers fish, because it's the only time anybody lets them sit down." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll fish well, I'd bet, because you already know how to wait for something to come to you." },
       },
       again = {
         { id = "h_again", text = "What else? There's no rush; the fish certainly aren't in one." },
@@ -514,6 +612,8 @@ P:NPC {
         { text = "Are there really fish in the canals?", next = "canals" },
         { text = "Is fishing much like waiting in the shadows?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why not just conjure your fish, Arnold?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does fishing teach a warrior anything worth knowing?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters make good fishermen, Arnold?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -593,6 +693,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Course I do, guv, I polished for a captain in the Barracks for three whole weeks before we had our misunderstandin' about the silver buckles. Rust's the enemy, sweat's the cause, an' oil's the cure, an' that's all a soldier needs to know." } },
+      choices = {
+        { text = "I keep my own kit. A warrior should.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Polish it, then. My time's worth more than a copper.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Couldn't say his name, guv, on account of I promised, but he works the back of Old Town an' he pays in silver, mostly. The tanners in the city charge a fair bit to take a hide, so there's call for a quieter road." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a fine beast, guv, that {pet} of yours, an' I'll not try to sell it, I promise. Well, not unless ye ask." },
+      },
+      choices = {
+        { text = "I'll sell my pelts at the tanners, honest and above board.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Silver's silver. Introduce me to your quiet man.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Morris Lawry, at yer service, guv. I'll polish yer armor for a copper, carry yer bags for two, and pay ye back on Tuesday for a meal today, I swear it." },
@@ -601,6 +722,8 @@ P:NPC {
           text = "Now don't look at me like that, guv, because I can see ye've the same trade as me, only ye're better paid for it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Ye've a whiff of the Lamb's cellar on ye, guv, sulphur an' candle wax. I won't tell nobody, if ye've a copper to help me forget." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, guv! Now there's a suit of armor that wants polishin', an' I'm just the man, rates very reasonable, payment Tuesday at the latest." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, guv! Pelts, is it? I know a man who knows a man who buys pelts an' asks no questions, which is the best kind of man." },
       },
       again = {
         { id = "h_again", text = "Anything else, guv? I've nowhere to be, as ye can see." },
@@ -611,6 +734,8 @@ P:NPC {
         { text = "Here's a coin.", next = "coin" },
         { text = "Weren't you blind a moment ago?", next = "blind" },
         { text = "Is begging really your only trade, Morris?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you really know how to keep armor, Morris?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Who buys pelts without asking questions, Morris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Are you trying to blackmail me, Morris?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Get a job, Morris.", next = "END", fx = { affinity = -1 } },
       },
@@ -699,6 +824,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Maybe, but only if I can still fish, because Adam says warriors have to march all day and you can't fish when you're marching. My uncle was in the Stormwind Guard and he says the worst bit is the boots." } },
+      choices = {
+        { text = "Being a warrior means looking after people, Billy. Remember that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Being a warrior means you never have to do chores, Billy.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Billy, and me and Adam fish here every day, and once, at camp, I pulled out a fish bigger than me, honest, but I threw it back because it was looking at me funny." },
@@ -707,6 +841,7 @@ P:NPC {
           text = "Whoa, you snuck up on me! Can you teach me to do that, so Adam never sees me coming?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "Are you a wizard? Can you make a fish appear, a really big one, so I can show Adam?" },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Whoa, are you a real warrior? Adam says warriors can lift a horse, but I said nobody can lift a horse, so can you?" },
       },
       again = {
         { id = "h_again", text = "Do you wanna hear another one? I know loads!" },
@@ -719,6 +854,7 @@ P:NPC {
         { text = "Want to see a real hunter's beast, Billy?", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Why do you want to sneak up on Adam?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What if I conjured you a fish, Billy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you want to be a warrior someday, Billy?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Good luck fishing, Billy.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -805,6 +941,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Half of them are Westfall men, and when their families' farms burn they go home to see to it. The other half talk about the Brotherhood in low voices, and that worries me far more than the empty shifts." } },
+      choices = {
+        { text = "Men who leave to protect their families aren't deserters, Clerk.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If they run off mid-shift, they're no better than deserters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Crates of them, from Darkshore and Menethil and the Wetlands, and every one has to be checked against the manifest before it's unloaded. Last month someone tried to ship a live bear cub in a crate marked salt cod, and I still dream about it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep that {pet} away from the crates, please, because the last loose animal on these docks ate a whole manifest. I had to rewrite it from memory." },
+      },
+      choices = {
+        { text = "A live cub in a crate is cruelty. Someone should answer for it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "A cub's worth a fortune to the right buyer. Clever shipper.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -817,6 +974,8 @@ P:NPC {
           text = "You've the look of somebody who knows how cargo goes missing, which is the one thing my ledger can't tell me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, good. If you're waiting on a crate for the Mage Quarter, it's late, and so is everything else on this harbor." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and with arms on you, too. If you're looking for work, the dockhands have all gone off to Westfall and I've crates stacked to the rafters." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, are you? Then you'll be wanting to know whether the furs from Darkshore came in, and the answer is yes, but I can't find them." },
       },
       again = {
         { id = "h_again", text = "Anything else? The tide doesn't wait for conversation." },
@@ -829,6 +988,8 @@ P:NPC {
         { text = "Why are you short of dockhands?", next = "dockhands" },
         { text = "How much of your cargo goes missing?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do the docks carry much for the Mage Quarter?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Why are your dockhands leaving the harbor, Clerk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do many furs and hides pass through the harbor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },

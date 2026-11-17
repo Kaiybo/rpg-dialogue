@@ -289,6 +289,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Sometimes we need a distraction, and nobody's more distracting than a big guy yelling in a courtyard. While you're getting stabbed at the front, my people slip in the back, and everybody wins except the guy who was guarding the back." } },
+      choices = {
+        { text = "I'll make the noise, if it gets the job done for the kingdom.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'm nobody's distraction. Find someone else to get stabbed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "When we need someone watched from a long way off, sure. Hunters see things from a rooftop that my people would need to be standing on the guy's toes to see, and the beast makes a good alarm." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours, does it bark when someone sneaks up? Good. Keep it that way, because the boss hates surprises." },
+      },
+      choices = {
+        { text = "I'll watch for SI:7 if the kingdom needs it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't spy on people. Hire someone else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -307,6 +328,8 @@ P:NPC {
           text = "Holy robes, in SI:7? Now Renzik's seen everything, so are you here to bless the knives or confess to somethin'?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, in SI:7? Renzik don't like mages, 'cause they make everything glow, and glowing's bad for business." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, huh? You're about as quiet as a dropped anvil, but at least you don't pretend otherwise." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Yeah, I know your type: you sit in a bush for six hours waiting for one shot. Respect, honestly." },
       },
       again = {
         { id = "h_again", text = "What else? Renzik's got a schedule." },
@@ -319,6 +342,8 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Bless the knives, then?", next = "bless", when = { class = "PRIEST" } },
         { text = "Has SI:7 ever worked with a mage?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would SI:7 ever give work to a warrior, Renzik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you ever use hunters for SI:7 jobs, Renzik?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -411,6 +436,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "On the walls, at night, when the lamps don't reach the harbor road. A hunter on the battlements sees what my guards miss, though I'd not say that in front of them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will stay out of the throne room, but it can sit by the gate. It looks better behaved than some of the nobles." },
+      },
+      choices = {
+        { text = "I'll keep to your rules, Major. The Keep deserves order.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My pet goes where I go, Major. That's the bargain.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -427,6 +464,7 @@ P:NPC {
           text = "I've a guard at every pillar in this room for a reason, so whatever you're thinking of doing, my guards have already thought of it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "No spells in the throne room. The last mage who thought to show off for the young king spent a night in the guardroom." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Keep. Your animal stays by the door, and you'll keep your bow unstrung while you're in the throne room." },
       },
       again = {
         { id = "h_again", text = "Anything else? Briefly." },
@@ -441,6 +479,7 @@ P:NPC {
         { text = "Has the Keep guard room for a warrior, Major?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Do you worry about assassins in the throne room?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why are spells forbidden in the throne room?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the Keep guard ever need a hunter's eye, Major?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -547,6 +586,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "All the time, because the Barracks cooks bake like they're punishing someone. I sell soldiers my hard-crust rolls by the dozen, and I like to think I've kept more warriors fighting than any priest." } },
+      choices = {
+        { text = "Good bread keeps an army marching. I'll take a dozen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd rather fight hungry than carry bread around.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Now and then a hunter swaps me a brace of rabbits for a basket of rolls, and my wife makes the best pie in the Trade District from them. Never let it be said the bakers and hunters of Stormwind don't look after each other." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing my basket since you walked up. I'll pretend I didn't see it, just this once." },
+      },
+      choices = {
+        { text = "A fair swap between working folk. I like that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll buy my bread with coin. Rabbits are for me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Thomas Miller, baker. I walk the Trade District from dawn to dusk with a basket, and my feet hate me but my customers love me, so it evens out." },
@@ -556,6 +616,8 @@ P:NPC {
           text = "Mind your hands near the basket, friend, because a roll that walks off without paying is a roll I've baked for nothing." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Don't you go conjuring bread in front of me, because I've been baking since before dawn and it's bad for a baker's spirits." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll be wanting a loaf that doesn't crumble in a pack, and I've got just the one, baked hard enough to use as a shield." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be living on what you catch, I suppose, but take a loaf anyway; venison's lonely without bread." },
       },
       again = {
         { id = "h_again", text = "Something else, friend? Walk with me; I can't stop." },
@@ -568,6 +630,8 @@ P:NPC {
         { text = "My family grew wheat in Westfall.", next = "westfall", when = { origin = "human_westfall_farmhand" } },
         { text = "Do many rolls walk off without paying?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does conjured bread hurt your trade, Thomas?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do soldiers buy much bread from you, Thomas?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters ever trade with you, Thomas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not hungry.", next = "END" },
       },
     },

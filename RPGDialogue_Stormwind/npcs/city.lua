@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "When something needs to be broken in a hurry, yes, though we prefer people who can do it without being seen. A warrior who can keep their mouth shut is rarer than one who can swing, and worth more to me." } },
+      choices = {
+        { text = "I can keep quiet when the kingdom needs it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't sneak. If I break something, people will know.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Shaw. I run SI:7. If you've heard of us, someone's been careless. If you haven't, we're doing our job." },
@@ -65,6 +74,7 @@ P:NPC {
           text = "I've read your file, and I didn't care for it. Say what you came to say, and use the same door on your way out." },
         { id = "h_canals", when = { origin = "human_canal_pickpocket" },
           text = "I remember a file about a canal child with quick fingers and no respect for anybody's purse. Osborne asked me to let it go, and I did, and here you are; don't make me regret it." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in Old Town, walking past SI:7's door. You're loud, but you're honest about it, and in my line of work that's almost refreshing." },
       },
       again = {
         { id = "h_again", text = "Go on. I've ten minutes, and I've already spent two of them on you." },
@@ -84,6 +94,7 @@ P:NPC {
         { text = "What's in your file on the Skyborne?", next = "skyfile", when = { race = "Skyborne" } },
         { text = "The Watchers taught me to move quietly, Master Shaw.", next = "watchers", when = { race = "NightElf", class = "ROGUE" } },
         { text = "Does SI:7 work with the Mage Quarter?", next = "magequarter", when = { class = "MAGE" } },
+        { text = "Does SI:7 ever use warriors, Master Shaw?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -379,6 +390,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not dislike, exactly, but cold iron dulls a ward the way a wet rag dulls a flame. It's why Dalaran's battlemages always fought behind a line of soldiers and never among them." } },
+      choices = {
+        { text = "Then mages and soldiers belong together, each in their place.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mages should learn to stand on their own, without us.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Rarely, though they ought to; a mage who can't read a trail is lost the moment she leaves a road. I learned that in Alterac, where the snow hid everything and the only guide worth having was a hunter from Hillsbrad." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking at the arcane focus as if it means to eat it. I'd rather it didn't; the last creature that tried glowed for a week." },
+      },
+      choices = {
+        { text = "Every trade has something to teach the others, Magus.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Mages stick to their books. I'll stick to my trails.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jennea Cannon, of the Wizard's Sanctum. I teach mages who've outgrown the provinces; some have, though most only think they have." },
@@ -398,6 +430,8 @@ P:NPC {
           text = "One of the Quarter's own apprentices, and I remember your teachers, who never stopped mentioning Dalaran. You've outgrown them; that doesn't mean they were wrong about everything." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in the Sanctum. If you've come for a spellbook, half of them are warded to bite, and the other half are only dull." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in the Sanctum. You may stand there, by the door, where the wards won't take offence at all that iron." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with the smell of the woods on you. Stand outside the circles, please, and keep your beast from sniffing the reagents." },
       },
       again = {
         { id = "h_again", text = "Is there more? Stay outside the circles while you ask." },
@@ -414,6 +448,8 @@ P:NPC {
         { text = "The High Order studied in Dalaran before coming here.", next = "highorder", when = { race = "Skyborne", class = "MAGE" } },
         { text = "What do you think of the warlocks under the Lamb?", next = "warlocks" },
         { text = "Do thieves really try to rob the Sanctum?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the Sanctum's wards really dislike iron, Magus?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do mages and hunters ever work together, Magus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -562,6 +598,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every warlock needs something between him and his enemies, and most of us summon it. But a living shield remembers your face afterwards, which is a cost I've learned to weigh." } },
+      choices = {
+        { text = "I'd stand for anyone who fought on our side.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'd never stand for a warlock. Find your own shield.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "It is and it isn't, because your beast chose to stay and mine had no choice at all. Some of my students sneer at hunters, but I've noticed that a hunter's pet never turns on its master at an awkward moment." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} trusts you entirely, I can see that. How very rare, and how very difficult to teach." },
+      },
+      choices = {
+        { text = "A bond freely given is stronger than any chain.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Will is will. A leash is a leash, however you tie it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gakin. I teach those who bind what others fear to name. Discretion is the first lesson and the last, and I pay well for it." },
@@ -579,6 +636,8 @@ P:NPC {
           text = "You first came down those stairs with your eyes wide and your mouth shut, and I've never had a better pupil for it. Keep both habits." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, in my cellar. The Quarter sends its apprentices down to sneer at us now and then, but they always leave with more questions than sneers." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in my cellar. Bold of you, and I appreciate boldness, though I'd appreciate discretion more." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You bind a beast with patience, and I bind mine with will, and I've always wondered which of us the creature resents less." },
       },
       again = {
         { id = "h_again", text = "Well? The candles don't last forever, and nor does my patience." },
@@ -595,6 +654,8 @@ P:NPC {
         { text = "Gnomeregan's books taught me more than any cellar.", next = "gnome_lock", when = { race = "Gnome", class = "WARLOCK" } },
         { text = "What do you make of the other trainers here?", next = "others" },
         { text = "Why do the Quarter's mages look down on you?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Have warlocks any use for warriors, Gakin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is a hunter's bond anything like a warlock's binding?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -757,6 +818,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Officers, mostly, when they've leave and a bit of coin, and they're always the hungriest folk in the room. The privates drink in Old Town, and I'll admit I envy their stories more than their manners." } },
+      choices = {
+        { text = "Officers or privates, everyone deserves a good meal and a bed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Officers earn the better room. Rank has its privileges.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "I would and I have, love, and the cook does a venison pie with Elwynn mushrooms that's half the reason anyone stays here. Bring me something fresh and you'll find the price of supper rather friendlier." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And who's this handsome thing? Keep {pet} by the hearth and out of the kitchen, and I'll find it a bone or two." },
+      },
+      choices = {
+        { text = "I'll bring you good meat, honestly hunted.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll bring whatever I catch. Don't ask where.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Allison. The Gilded Rose, between the bank and the auction house, which means everyone who comes in has either just got rich or just got poor. I feed both." },
@@ -770,6 +852,8 @@ P:NPC {
           text = "Between the bank and the auction house, and you've the look of someone who knows exactly why that matters. Keep your hands to yourself in my common room, love." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! The last one of yours who stayed here conjured water for the whole kitchen, and I've been half in love with the Mage Quarter ever since." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit down before you fall down, love; you've the look of someone who's walked from Goldshire in full mail." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Wipe your boots, love, and if that's a fresh pelt you're carrying, leave it with the stable boy and not on my bar." },
       },
       again = {
         { id = "h_again", text = "What else, love? I've bread in the oven." },
@@ -783,6 +867,8 @@ P:NPC {
         { text = "Do you get many kaldorei at the Gilded Rose?", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Do pickpockets work your common room, Allison?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do many mages stay at the Gilded Rose?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do many soldiers stay at the Gilded Rose, Allison?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Would you cook up venison if a hunter brought it, Allison?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

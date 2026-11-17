@@ -44,6 +44,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Because a greatsword ends an argument before it starts, and a maul ends it before the other fellow's even finished thinking. A shield's a fine thing, but some days you need to hit something harder than it can bear." } },
+      choices = {
+        { text = "A shield protects others. I'll keep mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Give me the biggest maul you've got.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "The clever ones do, because a polearm keeps the beast at arm's length while the arrows do their work. A boar spear's the oldest hunting weapon in Elwynn, and it's still one of the best." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would hold a beast in place while you drive the spear home, I'd bet. A good team, the pair of you." },
+      },
+      choices = {
+        { text = "A spear and a steady hand. That's the old way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Arrows are enough. I don't need a spear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gerik Koen, of Heavy Handed Weapons. Greatswords, great axes, mauls and polearms, and nothing you can hold in one hand, because one-handed folk can shop at Weller's." },
@@ -51,6 +72,8 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" }, text = "A druid! I've a fine staff or two at the back, heavy enough to put a bear to sleep, though I suppose you'd rather be the bear." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in a shop full of greatswords? You'll want daggers, friend, and Weller sells those, because nothing in here fits up a sleeve." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Now you're in the right shop. Nothing in here fits in one hand, and nothing in here is for the faint of heart." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've polearms that'll keep a boar at bay and great axes for when it gets through, though most hunters stick with something lighter." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -61,6 +84,8 @@ P:NPC {
         { text = "Why only two-handed weapons?", next = "why" },
         { text = "Who buys from you?", next = "buyers" },
         { text = "Has anyone ever tried to steal a greatsword?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Why choose a two-handed weapon, Gerik?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do hunters ever use polearms, Gerik?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Would a greatsword serve a warlock at all?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Gerik.", next = "END" },
       },
@@ -131,6 +156,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every warrior who travels should, because a hide's worth coin and a carcass is worth nothing but flies. You'll be killing wolves and bears whether you mean to or not, so you may as well get something for it." } },
+      choices = {
+        { text = "Waste nothing. I'll learn the trade.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I fight. I don't skin. Leave the hides.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A sharp knife, a steady hand and the patience to do it right, because a torn hide's worth half a whole one. Most hunters rush it, and I can always tell, because they bring me ragged pelts and expect full price." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a good coat, and don't look at me like that; I'm only saying, as a professional. Keep it brushed." },
+      },
+      choices = {
+        { text = "I'll take my time and do it right.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fast work pays better than careful work.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Maris Granger. Do I look like I have the time to coddle every tourist who wanders through that door? I teach skinning, and I don't get many skinners asking, so if you're serious, I'll teach you." },
@@ -138,6 +184,8 @@ P:NPC {
           text = "A rogue. You've a knife already, so you're halfway to a skinner, if you can stomach the rest of it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, in my shop? You'll be wanting to skin something you've already roasted, I expect, and I'll tell you now that it doesn't work." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be skinning nothing, I'd wager, and you'll leave your kills to rot on the road, which is a waste I can't abide." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Finally, someone who might actually be serious about skinning. Don't waste my time and I won't waste yours." },
       },
       again = {
         { id = "h_again", text = "Still here? Then say what you need while I sharpen this knife." },
@@ -149,6 +197,8 @@ P:NPC {
         { text = "Any advice for a beginner?", next = "advice" },
         { text = "Is skinning so different from my trade?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why can't I skin something I've burned?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Should a warrior learn skinning, Maris?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What makes a good skinner, Maris?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -216,6 +266,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than they'd think, in the grips, the straps, the boots and the jerkins under their mail. Simon says a warrior wears more leather than a hunter, and I've never once been able to prove him wrong." } },
+      choices = {
+        { text = "Then I'll take care of my leather as well as my steel.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Leather's leather. It wears out, I buy more.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A good handful for every hide, and more in summer, when the flies are bad. The hunters who bring Simon the best pelts always buy their salt from me, and the ones who don't bring him rotten ones." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing my salt bags, and I don't mind, as long as it doesn't lick them. Salt's not good for beasts." },
+      },
+      choices = {
+        { text = "I'll salt every hide properly. A good pelt deserves it.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll sell the hides fast and skip the salt.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jillian Tanner. Simon teaches the craft, Randal helps, and I sell the thread, the dye and the salt, at a price that's fair and doesn't move." },
@@ -224,6 +295,8 @@ P:NPC {
           text = "A rogue, so you'll want soft leather and dark dye, and plenty of both. I sell them at the same price to everyone, thieves included." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I've dye for every colour except the one your demons leave on a rug, so mind where it stands." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll need leather for your grips and straps, and I'll sell you the dye, the salt and the thread at a fair price." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be bringing hides to Simon, I hope, and you'll want salt to keep them on the road; I've got plenty." },
       },
       again = {
         { id = "h_again", text = "Anything else?" },
@@ -234,6 +307,8 @@ P:NPC {
         { text = "Why won't you haggle?", next = "haggle" },
         { text = "Are you and Simon related?", next = "simon" },
         { text = "You'd sell to a thief knowingly, Jillian?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do warriors use much leather, Jillian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How much salt does a hunter need, Jillian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do warlocks buy much from you, Jillian?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Jillian.", next = "END" },
       },
@@ -302,6 +377,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Bandages, almost always, because they think the priest will have some. Half of what goes wrong on the road goes wrong because somebody had to leave something behind, and for warriors it's usually the bandages." } },
+      choices = {
+        { text = "I'll carry bandages for myself and anyone else who needs them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "The priest can carry the bandages. I'll carry the sword.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Bigger than you think, because you'll run out halfway through a fight with a pack of wolves. I sell quivers that hold twice what the market stalls sell, and I've never had a hunter bring one back for being too big." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} needs carrying room too, you know: a bit of meat and a water skin. Don't leave it hungry on the road." },
+      },
+      choices = {
+        { text = "Always carry more than I need. I'll buy the big quiver.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I travel light. I'll make do with less.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Alyssa Griffith. I sell bags, and I'll tell you for nothing that half of what goes wrong on the road goes wrong because somebody had to leave something behind." },
@@ -310,6 +406,7 @@ P:NPC {
           text = "A rogue, so you'll want a bag that doesn't rattle. I've a few lined with felt, and they're the quietest in the city." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, and you'll need room for reagents, scrolls and three days of conjured bread, I expect. Mages always pack like they're leaving forever." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a bag big enough for bandages, rations and whatever you take off the gnolls, and I've got just the one." },
       },
       again = {
         { id = "h_again", text = "What else, love?" },
@@ -321,6 +418,8 @@ P:NPC {
         { text = "What makes a good bag?", next = "good" },
         { text = "Why should a rogue worry about a rattling bag?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can't I carry everything with a spell?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What does a warrior forget to carry, Alyssa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How big a quiver should a hunter carry, Alyssa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Alyssa.", next = "END" },
       },
     },
@@ -388,6 +487,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A good stew, made from whatever you've got and cooked slow, and a hard biscuit that won't go off in a week. I gathered my best camp recipes from soldiers who fought in the Second War, and they knew what kept a man on his feet." } },
+      choices = {
+        { text = "A good meal keeps the whole camp together.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll eat whatever's quickest. Cooking wastes time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Goretusk liver, if you can stand the smell while it's cooking, and Elwynn boar for everything else. I got the goretusk recipe from a farmer in Westfall before the Defias drove him off, and I think of him every time I sell it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed, I'm glad to see. Some hunters give their beasts the scraps; you've given it the good cuts, I can tell." },
+      },
+      choices = {
+        { text = "My pet eats as well as I do. It's earned it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Scraps are good enough for a beast.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kendor Kabonka. Stephen downstairs teaches the cooking, and I sell the recipes I've gathered from every farm kitchen and soldier's camp in the kingdom." },
@@ -396,6 +516,8 @@ P:NPC {
           text = "A mage! I've a recipe that wants a very steady flame, and I've never once got it right on a stove, so you might be the one to try it." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock! Does your imp eat, I wonder? I've always wanted to cook for something that's never tasted a proper meal." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want recipes for the camp, I'd think, because the Barracks cooks don't teach anyone anything except how to suffer." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've recipes for every kind of game in the kingdom, from Elwynn boar to Westfall chicken to Redridge goretusk." },
       },
       again = {
         { id = "h_again", text = "What else, friend? I'm in no hurry, not with the kitchen smelling like that." },
@@ -406,6 +528,8 @@ P:NPC {
         { text = "Where do you find them all?", next = "find" },
         { text = "What's your favourite dish?", next = "favourite" },
         { text = "What recipe needs a mage's flame?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What recipes suit a warrior on the march, Kendor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Which game makes the best dish, Kendor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why would you want to cook for a demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Kendor.", next = "END" },
       },

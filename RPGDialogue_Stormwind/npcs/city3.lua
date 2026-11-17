@@ -47,6 +47,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "It values them as one values a good wall, which is to say it notices them only when they fail. I find that a little unjust, though I've never said so in the chamber, and I don't expect I shall." } },
+      choices = {
+        { text = "Then someone in the House should say it, my lord.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Soldiers are paid to be walls. That's fair enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Very little, honestly, unless it touches their estates or their rents. The Westfall farms might all burn tomorrow and the chamber would still argue first about who owns the ash." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet} trained? Good. My late father kept hounds, and I never cared for them, but I admired how well they obeyed." },
+      },
+      choices = {
+        { text = "The kingdom is more than the nobles' estates, my lord.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Land is land. Whoever holds it should profit from it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -67,6 +88,8 @@ P:NPC {
           text = "You've been looking at my satchel since you came in. It contains nothing of interest, which you may tell whoever asked." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, in the Royal Library. Let me guess that Dalaran wants a book back, and the Kirin Tor are too grand to ask in person." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the garden. Do try not to trample the hedges; the House of Nobles takes its gardens more seriously than its soldiers." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the countryside. I suppose you see a good deal more of the kingdom than the House does." },
       },
       again = {
         { id = "h_again", text = "Was there something else? I do have reading to do." },
@@ -81,6 +104,8 @@ P:NPC {
         { text = "I found papers in the Deadmines.", next = "papers", when = { deed = "dungeon:The Deadmines" } },
         { text = "Who do you think sent me, my lord?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Does the House of Nobles trust Dalaran, my lord?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does the House of Nobles value its soldiers, my lord?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What would the House want to know of the countryside, my lord?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to your reading.", next = "END" },
       },
     },
@@ -215,6 +240,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Once, up in Dun Morogh wi' my uncle, an' I punched a boar on the snout because I dropped my axe. It ran off, I lost two teeth, an' my uncle still tells the story at every wedding." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours looks like it could hold its own in a brawl. If it ever wants a go at the Pig an' Whistle, I'll see it gets a fair fight." },
+      },
+      choices = {
+        { text = "I'd sooner settle things at a distance, friend.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Next time, I'll try the boar with my fists.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dashel. Folk call me Fist, on account o' the fists. I drink in Old Town and I settle arguments in Old Town. Usually the same evening." },
@@ -230,6 +267,7 @@ P:NPC {
           text = "Old Town's full o' your lot, an' they all think they're clever. Try anythin' clever in here an' I'll show ye somethin' simple." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Go on, then, try that sheep spell on me, because the last fella who did it found me still punchin' when I came back." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'd do better wi' a pair o' fists in Old Town, but I'll not knock the bow, since it keeps folk well away from ye." },
       },
       again = {
         { id = "h_again", text = "What else? Talk's thirsty work." },
@@ -243,6 +281,7 @@ P:NPC {
         { text = "Fancy a round? The other kind.", next = "spar", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Do you have trouble with the rogues in Old Town?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Have you really been polymorphed, Dashel?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Have you ever hunted, Dashel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'm not looking for trouble.", next = "END" },
       },
     },
@@ -365,6 +404,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Aye, if ye stitch the rings tae padded leather an' oil 'em well, which Master Elmore says is more tailorin' than smithin'. Back in Ironforge the mountaineers want their mail quiet enough tae hear a ram's hoof on the snow." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours has got its own armour, more or less, an' better fitted than any I could make. Keep it fed an' it'll keep ye alive." },
+      },
+      choices = {
+        { text = "Quiet armour and a steady aim. That's the way.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Who cares about rattling? I'll shoot them before they hear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Furen Longbeard. Shields an' armour. I learned from Grimand Elmore, an' I'm still learning, which he tells me daily." },
@@ -382,6 +433,7 @@ P:NPC {
           text = "Leather, is it? I dinnae work leather, but I'll put a mail linin' in a jerkin if ye want somethin' that turns a knife." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Ye'll no' want my armour, then, an' I'll no' be offended, much." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, wantin' armour? Mail rattles in the bushes, ye ken, so I'll fit ye somethin' that sits quiet." },
       },
       again = {
         { id = "h_again", text = "Aye? What else needs fixin'?" },
@@ -395,6 +447,7 @@ P:NPC {
         { text = "Can you fix this?", next = "BUSINESS" },
         { text = "Would a rogue really want mail under leather?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a mage ever wear mail, Furen?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can a dwarf's armour be made quiet, Furen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -492,6 +545,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A pitchfork, once, when the orcs came through Elwynn in the First War and we all thought we'd be heroes. I ran, if you want the truth, and I've never been ashamed of it, because I'm still here to sit on this bench." } },
+      choices = {
+        { text = "There's no shame in living, Topper.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Running is never right when others are standing.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Rabbits for the pot and foxes when they came for the hens, and I was never much good at either. My wife was the shot in our house; she could take a pheasant at fifty paces with a borrowed bow." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a fine beast, that {pet}. We had a dog once that would have chased it right up a tree and then sat under it barking until supper." },
+      },
+      choices = {
+        { text = "A farm's beasts deserve protecting from the foxes.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The fox is only doing what it was made to do.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Topper McNabb, at your service, and a farmer once. Now I sit here and let the city walk past, and it never stops, but it rarely tips." },
@@ -501,6 +575,8 @@ P:NPC {
           text = "Now, I know that look, friend, because I had it myself in the lean year after the farm. Don't do it, because the Stockade's colder than the street." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Could you conjure me a bit of bread, friend? I hear your lot can make it out of nothing, and nothing's exactly what I have." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, walking by. I've watched a thousand soldiers go past this spot, and you lot always walk a little straighter going out than coming home." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You've the farm look about you, a bit, and I like that. Most of the city lot couldn't find a rabbit in a hutch." },
       },
       again = {
         { id = "h_again", text = "Anything else, friend? I've all day, and I've had all day for years." },
@@ -512,6 +588,8 @@ P:NPC {
         { text = "I lost a farm too, to the Defias.", next = "farmer", when = { origin = "human_westfall_farmhand" } },
         { text = "Did you ever steal, Topper?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would conjured bread really fill you up?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Did you ever carry a sword yourself, Topper?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Did you hunt back on your farm, Topper?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -579,6 +657,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Short of good men, which is worse, because half the guards I've got would sell a cell key for a pint. The prisoners know it, and the Defias inside talk to the Defias outside more than I'd like." } },
+      choices = {
+        { text = "Then you need honest guards. I'd serve if asked.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Pay them better and they'll stop selling keys.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Once or twice, through the canals, and every time we've had to send hunters into the sewers to bring them back. A man on the run leaves a trail even in the dark, and a good tracker can follow it right to his door." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours could find a man in the sewers faster than my guards, I'd bet. Keep it in mind; I may come asking." },
+      },
+      choices = {
+        { text = "I'd track an escaped prisoner for the city.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Escaped prisoners aren't my concern. Let your guards earn their pay.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Warden Thelwater, of the Stockade. I keep Stormwind's worst under its canals most days, and the other days I'd thank you not to mention." },
@@ -602,6 +701,8 @@ P:NPC {
           text = "I know your face from the canal sweeps, years back; you were too small to keep and too quick to catch. Don't make me regret letting you go, please, not this week." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "Please don't summon anything in here. I've had a warlock in the cells before, and the thing he called up didn't care which side of the bars it was on." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. If you're here to sign on with the Stockade guard, I've a place for anyone who can stand a long shift and a bad smell." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Don't bring the beast near the Stockade gate; the prisoners bang on the bars at anything with four legs." },
       },
       again = {
         { id = "h_again", text = "Yes, what else? Be quick about it, please." },
@@ -614,6 +715,8 @@ P:NPC {
         { text = "Your prisoners could use a priest.", next = "priest", when = { class = "PRIEST" } },
         { text = "I've seen the inside of a cell or two, Warden.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Who was the warlock in your cells?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Is the Stockade guard short of men, Warden?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Have prisoners ever escaped the Stockade, Warden?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll be discreet.", next = "END", fx = { affinity = 2 } },
       },
     },

@@ -43,6 +43,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "A plain one, honestly, a little more strength or a little more stamina, rather than fire that runs down the blade. The old masters of Dalaran used to say that an enchantment should help the hand, not show off for it." } },
+      choices = {
+        { text = "Then a plain enchantment, honestly made, is what I'll take.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I want the fire down the blade. Let them see it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "A bow, yes, with patience, and a rifle's scope, if a gnome will mount it for me afterwards. Since Dalaran fell, much of the old craft has been lost, and I'm still learning which of the bow runes survived." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing at the dust on the bench; please don't let it, because arcane dust tastes worse than you'd think, I'm told." },
+      },
+      choices = {
+        { text = "Some of the old craft should be found again, for everyone's sake.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Lost is lost. Make new runes and move on.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lucan Cordell. I teach enchanting, and since Dalaran fell, much of the enchanted work sold in this city has passed through this shop first. It's more responsibility than I asked for, but someone had to take it." },
@@ -51,6 +72,8 @@ P:NPC {
           text = "A mage, and you'll know the difference between enchanting a blade and blasting a hole in one. Most of my customers don't, sadly." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I'll enchant your gear like anyone's, but I'll ask you to keep your demon outside the shop, because the essences react badly to fel." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want your blade enchanted, I suppose, as every warrior does, and you'll want it done by tomorrow, as every warrior does." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Enchanting a bow is delicate work, because the string flexes and the magic doesn't like being stretched." },
       },
       again = {
         { id = "h_again", text = "Is there more you'd learn? I have a little time before the next rod needs charging." },
@@ -61,6 +84,8 @@ P:NPC {
         { text = "What does an enchanter actually do?", next = "craft" },
         { text = "You supply the whole Mage Quarter?", next = "supply" },
         { text = "Why take on Dalaran's work yourself, Lucan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What enchantment serves a warrior best, Lucan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Can you enchant a hunter's bow or rifle, Lucan?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do fel energies really spoil your enchantments?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Lucan.", next = "END" },
       },
@@ -136,6 +161,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Not many, because most of them pay someone else to do the work and complain about the price. The ones who learn the craft themselves tend to be the clever ones, and they come back." } },
+      choices = {
+        { text = "I'd rather learn the craft than pay someone else.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd sooner pay someone to do it for me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Little enough, because an arrow is only used once, and nobody enchants a thing they mean to lose. The best I can offer is a blessed bowstring, and even that's mostly for luck." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is very well behaved for a shop full of glass. I wish I could say the same of Lucan's students." },
+      },
+      choices = {
+        { text = "Skill matters more than any trinket. I'll trust my aim.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If it's lucky, I'll take two.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jessara Cordell. Lucan teaches and I sell, and I keep the shop running while he talks about the old masters." },
@@ -143,6 +189,8 @@ P:NPC {
           text = "A mage, so you'll want dust and essences, and you'll want to tell me how to sort them. Lucan's already told me, thank you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue in an enchanting shop is usually after something shiny, so I'll keep the cases locked. Ask, though, and I'll show you anything." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll sell you rods and dust, but not opinions, because Lucan has enough of those for the whole family." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll be wanting something to make the arrows fly truer, I suppose, and I'll tell you honestly that most of what's sold for that is nonsense." },
       },
       again = {
         { id = "h_again", text = "Rods, vials or Lucan's time: which do you need next?" },
@@ -154,6 +202,8 @@ P:NPC {
         { text = "You keep Lucan's time well.", next = "lucan" },
         { text = "Does Lucan talk about the old masters often?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What's the most valuable thing you keep here?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do many warriors buy enchanting supplies, Jessara?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Is there any real magic for arrows, Jessara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Thank you, Jessara.", next = "END" },
       },
     },
@@ -221,6 +271,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "More than you'd think, because a man who's spent all week being shouted at by a sergeant wants an afternoon of nobody shouting at him. Arnold says the best fishermen he's taught were all soldiers, and the worst were all mages." } },
+      choices = {
+        { text = "Everyone needs a quiet afternoon now and then.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A warrior should be training, not fishing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Shiny baubles for the pike and nightcrawlers for everything else, and never the stale bread the children use. The rivers around Elwynn are kind to beginners, and the lakes in Redridge are kind to nobody." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will want to help, I'm sure, and it'll scare every fish in the river. Leave it on the bank with a biscuit." },
+      },
+      choices = {
+        { text = "I'll take only what I need from the rivers.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll fish the river empty if they're biting.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Catherine Leland. Arnold there teaches the fishing and I sell the poles, the line and the bait, and between us we've fished every water a day's walk from this city." },
@@ -229,6 +300,8 @@ P:NPC {
           text = "A rogue at the bait counter. You've the patience for fishing, I'd wager, since your trade is mostly waiting for the right moment." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. Don't freeze my canal, please; the last mage who tried it thought he'd catch fish easier through a hole in the ice." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, with a fishing question? Don't look so sheepish; half the Barracks fishes on its day off, and they're better at it than they let on." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I suppose you'll want bait for the pike in Stonewatch, or you'll want to tell me you can catch them with your hands." },
       },
       again = {
         { id = "h_again", text = "What else, friend?" },
@@ -240,6 +313,8 @@ P:NPC {
         { text = "What's the best fish you've caught?", next = "best" },
         { text = "Is fishing so much like my trade, then?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Did freezing the canal actually work?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do soldiers really fish, Catherine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What bait should a hunter use in Elwynn, Catherine?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Good day, Catherine.", next = "END" },
       },
     },
@@ -307,6 +382,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "Every one I've met, though most of them won't admit it until the mail has rubbed through their skin. Rema makes the padding, and I sell it, and between us we keep half the Barracks from being miserable." } },
+      choices = {
+        { text = "A well-made shirt is worth its price. I'll take one.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A soldier should learn to bear a little chafing.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Wool in the cold and linen in the heat, dyed brown or green, and nothing that rustles when you crouch. I fitted a hunter last month who'd been wearing a bright red cloak to stalk deer, and he couldn't work out why he never caught anything." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't need a coat, of course, but it's shedding on my racks, and I'll ask you to keep it a step back." },
+      },
+      choices = {
+        { text = "Quiet clothes make for a quiet hunt.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I wear what I like. The deer can deal with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Lisbeth Schneider. Rema makes, Corbett carries, and I sell the finished pieces off these racks, and I'll fit you properly, which is more than the market stalls will do." },
@@ -315,6 +411,8 @@ P:NPC {
           text = "A mage! Let me guess: everything you own has a scorch mark on the left sleeve, because you cast with your right hand." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock. I measure all sorts here, and I'll measure you too, though I'd thank you to keep anything with horns outside the curtain." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a good padded shirt under that mail, or you'll be raw by Goldshire, and I'll fit it properly." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want something dull and quiet that won't snag on every briar in Elwynn, I'd wager." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? I'll keep measuring you while you think of it." },
@@ -325,6 +423,8 @@ P:NPC {
         { text = "Why does everyone want armour lately?", next = "armour" },
         { text = "What's the canal like to work on?", next = "canal" },
         { text = "Can you make a robe that won't scorch?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does a warrior really need a tailor, Lisbeth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "What should a hunter wear in the woods, Lisbeth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you mind dressing someone like me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Good day, Lisbeth.", next = "END" },
       },

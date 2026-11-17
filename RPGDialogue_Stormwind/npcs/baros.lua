@@ -46,6 +46,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarcl = {
+      big = true,
+      lines = { { id = "xwarcl_default", text = "The gates, always, because every wall I've drawn means nothing if the gate gives. The old city fell from the inside, mind you, which is why I check every street I lay out for where a mob could gather." } },
+      choices = {
+        { text = "A gate is only as good as the soldier standing in it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stone does the work. Soldiers just fill the gaps.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Room is the one thing I never have enough of, friend. The stable master on the east side manages, but I've had three petitions this month about wolves in the Trade District, and I didn't draw a single kennel." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'd sooner the beasts had the hills than the alleys, but {pet} looks better kept than most of my masons. Mind it doesn't chew the scaffolding; the masons have enough to complain about without that." },
+      },
+      choices = {
+        { text = "A city should make room for the ones who keep its roads safe.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Beasts belong outside the walls. Mine waits by the gate.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Baros Alexston, City Architect. Every street you walked to get here, someone drew first, and usually it was me." },
@@ -73,6 +94,8 @@ P:NPC {
           text = "You walk like someone who knows which drains run under which streets, and very few people do, because I drew most of them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage, good. Your Quarter's drains are giving me headaches, because something in them keeps eating the mortar." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good; I draw walls, but someone has to stand on them, and the drawings never mention how cold it gets up there." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the hills. Did you come in through the Valley of Heroes? Tell me honestly whether the statues look right from the road." },
       },
       again = {
         { id = "h_again", text = "What else? I've drains to redraw." },
@@ -88,6 +111,8 @@ P:NPC {
         { text = "My father was a Stonemason. He was never paid either.", next = "mason_child", when = { origin = "human_stonemason_child" } },
         { text = "Who else knows the city's drains as well as you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What's eating the Mage Quarter's mortar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Which part of the city would you hold first, Architect?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Does the city have room left for a hunter's beasts, Architect?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

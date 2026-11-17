@@ -47,6 +47,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Where to put your feet when the beast gets past the arrows, which it will. A hunter with good footing can back away and keep shooting, and a hunter with bad footing falls over and gets eaten." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better footing than most of my recruits, I'll tell you that. Watch how it moves, and learn." },
+      },
+      choices = {
+        { text = "I'll learn the footwork. It might save my life.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I don't plan to let anything get that close.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -63,6 +75,7 @@ P:NPC {
           text = "A rogue. Your feet are light, which is good, but they are always ready to run, which is not, and I can see it from here." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage. You stand like a candle in a draught, and I could knock you over with one finger, though I suspect you'd set my sleeve alight on the way down." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the warriors' hall. Your feet are good, which surprises me; hunters usually stand like they're waiting for something." },
       },
       again = {
         { id = "h_again", text = "What else? Keep your weight on the balls of your feet while you ask." },
@@ -79,6 +92,7 @@ P:NPC {
         { text = "What do you make of the other trainers here?", next = "others" },
         { text = "What's wrong with being ready to run?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why should a mage care how they stand?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What can a hunter learn from a warrior's training, Wu Shen?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'll leave you to your drills.", next = "END" },
       },
     },
@@ -258,6 +272,18 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhuntcl = {
+      big = true,
+      lines = {
+        { id = "xhuntcl_default", text = "Every fighter does, and hunters hide theirs best, behind patience and a steady aim. But I've seen a hunter whose pet was killed, and I've never seen fury like it, not even in a berserker." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is the leash on your anger, I think, and the reason for it too. Keep it close, and keep it safe." },
+      },
+      choices = {
+        { text = "I keep my anger under control. That's discipline.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Anger has its uses. I let it out when needed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -272,6 +298,7 @@ P:NPC {
           text = "A mage! You've got all that fire in your hands and none of it in your belly, and I'd like to fix that." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, and you've the same look as half my students, all that anger with nowhere to put it. Yours just happens to have horns." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in a warriors' hall. You've anger in you too, I'd wager, though you keep it on a leash with your beast." },
       },
       again = {
         { id = "h_again", text = "What else, recruit? Quick, my arm's getting cold." },
@@ -286,6 +313,7 @@ P:NPC {
         { text = "I held a corridor in Gnomeregan.", next = "rearguard", when = { origin = "gnome_rearguard" } },
         { text = "Do you fight the rogues for fun?", next = "rogues", when = { class = "ROGUE" } },
         { text = "What do you mean, fire in my belly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do hunters carry anger, Ilsa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you see anger in everyone, Ilsa?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
