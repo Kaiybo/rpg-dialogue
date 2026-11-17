@@ -26,7 +26,7 @@ P:NPC {
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A little one, like the gnome who came with the cart of funny things! Do you have funny things? Show Warug." },
-    { id = "n_gelkis", cat = "deeds", when = { killed = { name = "Gelkis", min = 30 } },
+    { id = "n_gelkis", cat = "deeds", when = { any = { { killed = { name = "Gelkis", min = 30 } }, { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } } },
       text = "You smell of Gelkis blood, and the Gelkis are crying somewhere. Good! You are strong like the Magram." },
   },
 

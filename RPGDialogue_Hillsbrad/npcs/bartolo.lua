@@ -129,7 +129,7 @@ P:NPC {
         { id = "th_default", text = "Like what? Like Bartolo? Because Bartolo is worth mentioning twice, my friend, and some things should be said in full." },
       },
       choices = {
-        { text = "Fair enough, Bartolo.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "I'll take your word on that, Bartolo.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

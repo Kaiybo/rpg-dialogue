@@ -110,7 +110,7 @@ P:NPC {
     job_bet = {
       lines = { { id = "jb_default", text = "No. Some things a man takes to his grave, and seeing as I work next to one, I'll be keeping it close." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Then I'll leave the graves to you.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

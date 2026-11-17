@@ -261,7 +261,7 @@ P:NPC {
 
     honored = {
       lines = {
-        { id = "ho_default", text = "It does, and it speaks your name with respect. That is worth more than any insignia I can give you, though I will give you those as well." },
+        { id = "ho_default", text = "It does, and it speaks your name with respect. No insignia I hand out can buy that, though I will give you those as well." },
       },
       choices = {
         { text = "Lok'tar, Warmaster.", next = "BACK", fx = { affinity = 2 } },

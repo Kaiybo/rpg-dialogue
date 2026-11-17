@@ -81,7 +81,7 @@ P:NPC {
       choices = { { text = "Now I have to know.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     bandits = {
-      lines = { { id = "b_default", text = "Because water's worth more than gold out here, and they'd rather take ours than pay for it. The Wastewanderers raid the pumps, steal what they can carry, and leave us the bill." } },
+      lines = { { id = "b_default", text = "Because out here a full waterskin buys more than a purse of gold, and they'd rather take ours than pay for it. The Wastewanderers raid the pumps, steal what they can carry, and leave us the bill." } },
       choices = {
         { text = "Maybe they're just thirsty too.", next = "bandits_stance" },
         { text = "Then they should be stopped.", next = "bandits_stance" },

@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Oh, hello! Isn't this crater wonderful? Mind the tracks, something big came through last night." },
     { id = "g_chase", when = { questActive = TODO_QUEST("Chasing A-Me 01") }, text = "Any sign of her? Fungal Rock, just east of here, and please be gentle with her." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Chasing A-Me 01") }, text = "A-Me's resting now, and so am I, which is a first. Thank you again, truly." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Chasing A-Me 01") }, text = "A-Me's resting now, and so am I, which is a first. Thank you again; I mean it." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}! I've redesigned A-Me's shoulder joint twice in that time, and I'm still not happy with it." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Everyone at the Refuge seems to like you, and they're a hard crowd to please. Well, Spraggle isn't, but the rest are." },
   },

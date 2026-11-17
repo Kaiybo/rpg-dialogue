@@ -264,7 +264,7 @@ P:NPC {
     gaxim_k = {
       big = true,
       lines = {
-        { id = "gk_default", text = "That he'll blow us both off this mountain one day, and that he truly means well. I was angry when the Alliance sent a gnome mage with me, but he's cared for these trees as hard as any druid." },
+        { id = "gk_default", text = "That he'll blow us both off this mountain one day, and that he means well with every bit of him. I was angry when the Alliance sent a gnome mage with me, but he's cared for these trees as hard as any druid." },
       },
       choices = {
         { text = "His way works. Let him blast the goblins out.", next = "BACK", fx = { align = { order = -1 } } },

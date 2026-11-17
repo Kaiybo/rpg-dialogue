@@ -6,6 +6,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - New in Booty Bay: Ian Strom, Tokal, Elril Everlight, Captain Aransas and Markel Smythe. New files: restart the game fully (a /reload won't load them).
 - Much more from Seahorn, Crazz and Fin; a conversation for unnamed Booty Bay townsfolk.
 
+## 1.30.1 (2026-11-17)
+- Writing pass on the characters added in 0.74.0: stock phrases ("fair enough", "truly", "worth more than") rewritten.
+
 ## 1.30.0 (2026-11-17)
 - New people to talk to (see the main changelog for 0.74.0). New files: restart the game fully (a /reload won't load them).
 - Fix: one of Galvan's replies was a question carrying alignment; it's a statement now.

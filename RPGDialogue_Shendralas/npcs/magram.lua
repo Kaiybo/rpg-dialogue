@@ -17,8 +17,9 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Outsider. Watch where your feet go; some of these bones are still in use." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The valley is quieter when you are in it, which tells me something about you." },
+    { id = "g_hated", when = { reputation = { faction = "Magram Clan Centaur", max = "hostile" } }, text = "You come into my valley with Magram blood still under your nails, outsider. Speak quickly, because the bones are listening and they remember faces." },
     { id = "g_magram", when = { all = { { questDone = TODO_QUEST("Khan Jehn") }, { questDone = TODO_QUEST("Return to Orgrul") } } }, text = "Welcome back to the valley, Magram." },
-    { id = "g_gelkis", when = { killed = { name = "Gelkis", min = 30 } }, text = "There is Gelkis blood on you, and plenty of it. Good; come closer." },
+    { id = "g_gelkis", when = { any = { { killed = { name = "Gelkis", min = 30 } }, { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } } }, text = "There is Gelkis blood on you, and plenty of it. Good; come closer." },
     { id = "g_away", when = { away = 14 }, text = "Outsider, you have been gone {away}, and the bones did not wait for you, but the valley noticed your absence, which is more than it does for most." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You are stronger than when you last came to the valley, and since the Magram respect only strength, I would rather have you walking than in the dirt." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made one of the valley's people give way to you, outsider, and it does not displease me, because strength is the only law in Shen'dralas." },
@@ -390,6 +391,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "This is the front, outsider. Make yourself useful or make yourself scarce." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good; the pigs have not stopped, so I have not stopped needing hands." },
+    { id = "g_hated", when = { reputation = { faction = "Magram Clan Centaur", max = "hostile" } }, text = "Half my warriors want your hide for a saddle blanket, outsider. The quilboar want it more, so for now you are useful to me." },
     { id = "g_bristle", when = { killed = { name = "Bristleback", min = 25 } }, text = "You smell of quilboar, outsider, which means you have been busy. Good." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, outsider, and the pigs did not stop while you were away, so make yourself useful again." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have more strength than you did when you last came to the front, outsider, which means the pigs will learn your name the hard way." },
@@ -550,7 +552,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Keep your voice low, outsider. The Magram have ears in the bones." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. Good; there is still more to see in that valley than I like." },
-    { id = "g_magram", when = { killed = { name = "Magram", min = 30 } }, text = "You have been thinning the Magram, I see. The Earth Mother will remember it." },
+    { id = "g_hated", when = { reputation = { faction = "Gelkis Clan Centaur", max = "hostile" } }, text = "You have killed Gelkis, outsider, and I have not forgotten one of their names. Say your piece from there, where my spear can reach you." },
+    { id = "g_magram", when = { any = { { killed = { name = "Magram", min = 30 } }, { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } } }, text = "You have been thinning the Magram, I see. The Earth Mother will remember it." },
     { id = "g_away", when = { away = 14 }, text = "You came back after {away}, outsider, and the Magram have raised more bones in that time than I like to count, so keep your voice low and listen." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word among the Gelkis is that you helped us, outsider, and the Earth Mother remembers such things, as do I." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked one of our people round, outsider, which is more than I can do with my own elders, so perhaps you should speak to Uthek for me." },
@@ -559,7 +562,7 @@ P:NPC {
   notice = {
     { id = "n_shaman", cat = "class", when = { class = { "SHAMAN", "DRUID" } },
       text = "You walk with the earth, I can tell. Then you feel what the Magram are doing in that valley, and you know it is wrong." },
-    { id = "n_magram", cat = "deeds", when = { killed = { name = "Gelkis", min = 30 } },
+    { id = "n_magram", cat = "deeds", when = { any = { { killed = { name = "Gelkis", min = 30 } }, { reputation = { faction = "Magram Clan Centaur", min = "friendly" } } } },
       text = "I know the smell of a Magram friend, outsider, and you reek of one. Say what you came to say and be gone." },
   },
 

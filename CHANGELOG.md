@@ -17,6 +17,12 @@ More of Booty Bay to talk to: five new people and much more from the Blackwater 
 - **Fin Fizracket** (+11), and **Shakes O'Breen** and **Captain Steelgut** at Faldir's Cove (+12 each): an Intimidate check over O'Breen's unsent letters, and what Steelgut saw under the reef.
 - Unnamed Booty Bay townsfolk now have a short conversation of their own, in the Raiders' flavour.
 
+## 0.75.0 (2026-11-17)
+A small fix and polish release. No new files: /reload is enough.
+
+- **The centaur clans know where you stand.** Orgrul, Hagiak and Nerlokh in Shen'dralas, and Warug and Uthek in Desolace, now react to your Magram and Gelkis reputation, not only to how many centaur you've killed. Doing quests for one clan counts too. A clan that hates you greets you coldly (three new lines).
+- **Writing pass on 0.74.0's new people.** The 69 characters added in 0.74.0 missed the 0.73.0 writing pass. Their stock phrases ("fair enough", "I won't pretend", "truly", "worth more than", "the hard way") are rewritten, including Azuregos, Duke Zverenhoff, Caretaker Alen, Angus Stern, Collin Mauren, Galvan and Yohwa.
+
 ## 0.74.0 (2026-11-17)
 69 more new people to talk to, and fixes for the characters added in 0.73.0. **New files: restart the game fully (a /reload won't load them).**
 
