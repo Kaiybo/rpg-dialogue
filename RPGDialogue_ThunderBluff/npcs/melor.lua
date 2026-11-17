@@ -106,6 +106,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A hunter, for longer than I care to count. The beasts have taught me more than any elder." } },
     advice = { { id = "tp_ad", text = "Know why you're hunting before you draw. A hunter without a reason is only a killer with a bow." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were the first hunt my father ever sent me on, and I failed it. I have hunted them since, and I have not failed again." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar hunt for food, but they kill for pleasure, and that is why I hunt them. A beast that kills for pleasure has gone wrong." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the beasts, and she made them to be hunted, but only with respect. A hunt without respect is only murder." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest hunter of our people, and he taught me that every hunt must teach something. I try to live up to that." } },
     _none = { { id = "tp_none", text = "That's no hunt I know. Ask among the elders, or at the Crossroads." } },
   },
 }

@@ -127,6 +127,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A dwarf with a toolkit and a grudge, and a mother somewhere in Stratholme. That's my story, and I'd rather be working than telling it." } },
     advice = { { id = "tp_ad", text = "Hate'll get you started, but it won't keep you going. Find the other thing, and hold on to it." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They'd burn every ghost in Stratholme if they could reach them, and call it mercy. It isn't." } },
+    scourge = { { id = "tp_scourge", text = "I hate the Scourge with all my heart, lad, and I'll tell ye plainly, it's hard work keepin' that hate from eatin' me alive. I build my contraptions to free the ghosts they trapped, and that's a kinder way to spend it." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme's full o' ghosts that never got their peace, and the Scourge keeps 'em there like prisoners. I'll free every one o' them, if I have to build a thousand contraptions to do it." } },
+    holy_light = { { id = "tp_holy_light", text = "I'm no paladin, but I've seen the Light work miracles in the chapel. I'd sooner trust a good machine, though, since it never asks me to pray." } },
+    magni = { { id = "tp_magni", text = "King Magni's a good king, and he'd be proud of what I'm doin' here, I think. I'll tell him myself when I get home, if I ever do." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, I've been staring at this coil for days. Ask Alen at Light's Hope; he hears the gossip off the corpse carts." } },
   },
 }

@@ -329,5 +329,12 @@ P:NPC {
       { id = "tp_stalvan2", text = "That name again. I'd sooner the chest stayed shut." },
     },
     _none = { { id = "tp_none", text = "Eh? Speak up! No, I don't know, and I didn't know before you spoke up, either." } },
+    second_war = { { id = "tp_second_war", text = "I led the city watch through the Second War, when every night was fire and every morning was a list of names. I can't see the old faces now, but I can still hear them." } },
+    varian = { { id = "tp_varian", text = "I knew Varian when he first wore the crown, a good lad with a temper, and he listened when old soldiers spoke. Wherever he's gone, he didn't go without a reason, and I'd stake my badge on that if I still had it." } },
+    bolvar = { { id = "tp_bolvar", text = "Bolvar Fordragon was a squire when I was already going grey, and he's a better man than most who've worn plate. If anyone can hold that city together for the boy, it's him." } },
+    prestor = { { id = "tp_prestor", text = "My eyes are going, but I hear well enough, and I've heard Lady Prestor speak. Hers is a voice that makes men agree before they've thought about it, and I've never trusted voices like that." } },
+    lost_footmen = { { id = "tp_lost_footmen", text = "Rolf and Malakai went up the river on Thomas's orders and haven't come back. Thomas is a good lad, but he's carrying it, and you can hear it every time he speaks." } },
+    the_stockade = { { id = "tp_the_stockade", text = "In my day we filled the Stockade with pickpockets and drunks. Now it's full of masked men from Westfall, and I'm told the walls are none too sound." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "The Stone of Remembrance on Stone Cairn Lake was raised for the dead of the First War, and I stood guard at its dedication. Rogue wizards hold it now, I hear, and I'd throw them in the lake myself if I could see them." } },
   },
 }

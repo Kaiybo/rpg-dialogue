@@ -174,6 +174,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Walk the last mile. A horse that's cooled down is a horse that's ready tomorrow." } },
     trade = { { id = "tp_tr", text = "Horses, and the bridles to call them. Stormwind's best, for Stormwind's own." } },
     _none = { { id = "tp_none", text = "I couldn't tell you that, love, but ask me about horses and I'll talk all day." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire people always want to borrow a horse for their parade, and they bring it back with ribbons in its mane. The horses come home vain for a week afterwards." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron's horse fairs were the finest in the world before the plague, and every breeder in the north is gone now. It makes my stock worth more and my heart a little heavier." } },
+    dark_riders = { { id = "tp_dark_riders", text = "I've heard of black horses running through Duskwood with riders nobody sees the faces of. Whoever's breeding those beasts, they don't treat them kindly, and I'd tell them so." } },
   },
 }
 
@@ -336,5 +339,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Look where you want to go, not at the thing you want to miss. Horses follow your eyes." } },
     trade = { { id = "tp_tr", text = "Riding lessons, or one lesson, really; the rest you learn by falling." } },
     _none = { { id = "tp_none", text = "Not my field, I'm afraid. Ask me about saddles." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has a fellow who rides standing up on two horses at once, and every pupil I teach wants to try it. I tell them to learn sitting down first." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer ride gryphons with hardly a strap between them and the sky, and I'd give a great deal for one lesson. Horses are hard enough, mind." } },
+    second_war = { { id = "tp_second_war", text = "My father rode with the knights in the Second War and came home with one good leg. He still taught me to ride better than anyone I've met since." } },
   },
 }

@@ -152,7 +152,14 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Not my cargo, not my concern, friend. Ask me about the road instead." } } },
+  topics = {
+    centaur = { { id = "tp_centaur", text = "The centaur hit the caravan two, three times a season, and every time, I lose a kodo, a crate and a mercenary. Kodos are the most expensive, by the way, so guard those first." } },
+    booty_bay = { { id = "tp_booty_bay", text = "My cousin runs ships out of Booty Bay, and he says the pirates are getting bolder. I say the centaur are getting bolder, and he says at least they don't have cannons." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's where the real money is, pal, but the road's longer and the sand gets into everything. Desolace is cheaper, if you don't count the funerals." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel takes its cut and keeps the docks safe, more or less, and on the road we keep ourselves safe. That's why I hire people like you." } },
+    maraudon = { { id = "tp_maraudon", text = "Maraudon is centaur holy ground, and the centaur don't like caravans parking on it. Believe me, we learned that the hard way." } },
+    _none = { { id = "tp_none", text = "Not my cargo, not my concern, friend. Ask me about the road instead." } },
+  },
 }
 
 P:NPC {
@@ -328,7 +335,13 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "That's not in the ledger, friend, so I couldn't tell you." } } },
+  topics = {
+    centaur = { { id = "tp_centaur", text = "Every raid costs me crates, kodos and wages, and I've got a column in the ledger called \"centaur\" that keeps getting longer. Someday I'll cross it out, but not this year." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "We sell in Gadgetzan when the goods are worth the trip, and they never are until we get there. That's the trade, kid." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel charges us dues for the privilege of being robbed on our own roads. I pay because the alternative is being robbed by the Cartel too." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's prices make my eyes water, and I've seen what our goods sell for there. If I could get this caravan onto a boat I'd be a rich goblin." } },
+    _none = { { id = "tp_none", text = "That's not in the ledger, friend, so I couldn't tell you." } },
+  },
 }
 
 P:NPC {
@@ -504,7 +517,14 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Never heard of it, buddy, but if it's for sale, I'm interested, and if it ain't, I'm still interested in why not." } } },
+  topics = {
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's a fine institution, buddy, and I'm a fine member of it, and that fine membership costs me a fine fee every quarter. You see how the word fine gets less fine every time I say it." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company would be wrangling kodos out here too if they could, but they'd just strip the bones and sell the graveyard. I've got a little more vision than that, pal." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Kodos fetch a good price in Booty Bay, if you can get one on a boat, and you can't, which I learned with a very expensive boat. Never again, pal." } },
+    centaur = { { id = "tp_centaur", text = "The centaur don't like my operation and I don't like their arrows, and so far the arrows are winning. That's why I hire contractors, see." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan'll buy a tame kodo for more than you'd think, and a wild one for less than you'd hope. Getting from wild to tame is where you come in." } },
+    _none = { { id = "tp_none", text = "Never heard of it, buddy, but if it's for sale, I'm interested, and if it ain't, I'm still interested in why not." } },
+  },
 }
 
 P:NPC {
@@ -646,7 +666,13 @@ P:NPC {
       choices = { { text = "Burn it. Some evils deserve no second chance.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } }, { text = "Get you out first. Vengeance can wait for an army.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, and I've had a long time in here to think about everything." } } },
+  topics = {
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade held me in Thunder Axe Fortress, and I heard them chanting to things that answered. I don't sleep well since, and I don't think I ever will." } },
+    centaur = { { id = "tp_centaur", text = "The centaur harried us on the road before the cultists ever took me, so I've no kind word for them either. Desolace has a great many things that want you dead." } },
+    theramore = { { id = "tp_theramore", text = "I'd like to go to Theramore, someday, where the walls are high and there's a lady who keeps the peace. That sounds like the most restful place in the world to me." } },
+    holy_light = { { id = "tp_holy_light", text = "I prayed to the Light every night in that fortress, and every morning I was still there. Then you came, so perhaps the Light just took its time." } },
+    _none = { { id = "tp_none", text = "I don't know, and I've had a long time in here to think about everything." } },
+  },
 }
 
 P:NPC {
@@ -800,7 +826,14 @@ P:NPC {
       choices = { { text = "Spare those who surrender. Not all of them chose this.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } }, { text = "Show none of them mercy. They chose demons over their own.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } }, { text = "Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't concern myself with that. The Blade is enough to hunt." } } },
+  topics = {
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion is not gone, it only waits, and the Burning Blade in Thunder Axe Fortress keep its door oiled. I have tracked its servants for longer than you have been alive." } },
+    satyrs = { { id = "tp_satyrs", text = "The satyrs are our own kin, twisted, and they still sing the songs of Azshara's court. I do not hesitate when I hear them." } },
+    elune = { { id = "tp_elune", text = "Elune's light does not reach Desolace easily, but it reaches, and I keep my watch by it." } },
+    tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande knows the Legion's face as well as anyone living. She would understand why I am still here." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne opened the door to the Legion, and their descendants still sit in Dire Maul pretending it was a misfortune. I have not forgiven them, and I will not." } },
+    _none = { { id = "tp_none", text = "I don't concern myself with that. The Blade is enough to hunt." } },
+  },
 }
 
 P:NPC {
@@ -1155,6 +1188,19 @@ P:NPC {
       { id = "tp_knows", text = "I hear things on the road, mostly from people who don't know I'm listening. Ask, and I'll tell you what I know." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Misha doesn't trust you yet, so neither do I, but I'll answer a question or two if you keep it short." },
     },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall's a good leader and a better friend, and I helped him carve Durotar out of the dust. I wouldn't do it again, but I don't regret it." },
+      { id = "tp_thrall2", when = { race = "Orc" }, text = "You're one of his, then, from the camps or born after them. Tell him Rexxar is well and Misha is fat, and he'll laugh." },
+    },
+    cairne = { { id = "tp_cairne", text = "Cairne is the wisest creature on this continent, and he knows it, and he still listens. That makes him rare." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin and Rokhan's people stood with us against the humans at Theramore. The Darkspear are sly, and they're loyal, and those two things don't often go together." } },
+    jaina = { { id = "tp_jaina", text = "The Proudmoore girl stood beside us against her own father, and she meant it. I didn't trust her then, and I trust her now." } },
+    theramore = { { id = "tp_theramore", text = "I fought at the gates of Theramore when Admiral Proudmoore came to burn Durotar. His daughter wept for him, and she still kept the peace, which tells you what she is." } },
+    centaur = { { id = "tp_centaur", text = "The centaur think they own every plain they run across, and they kill anything that disagrees. Misha and I disagree often." } },
+    maraudon = { { id = "tp_maraudon", text = "The centaur guard Maraudon like a grave, and from what I hear, it is one. I leave the dead to the dead." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren speak of the Earth Mother, and out here in the wilds, I think I've heard her once or twice. She doesn't say much, which I like." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen's people joined the Horde after I left it. I've met dead men I liked, but I haven't met her." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken smell like the grave and talk like scholars, and I don't know what they want. That's enough for me to keep my distance." } },
     _none = { { id = "tp_none", text = "I don't know that, and I don't much care to." } },
   },
 }

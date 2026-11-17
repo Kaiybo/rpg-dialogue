@@ -184,6 +184,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know this hut and these hills, and little else matters to me now." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief told us this land would be our home, and so I came, and I brought my son. I don't blame Thrall, but I think of it every day." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar raid from the west, and the beasts hunt in the north, and Durotar has room for all of them to hurt you. My son learned that, and I wish he'd learned it slower." } },
+    second_war = { { id = "tp_second_war", text = "Kron's father fought in the Second War and came home broken, and Kron was born in the camps. He was meant to have a better life here, and for a while, he did." } },
+    internment = { { id = "tp_internment", text = "We were in a camp near the old human roads, and Kron grew up behind a fence. He used to say the first thing he'd do when he was free was run, and he did." } },
   },
 }
 
@@ -356,6 +360,9 @@ P:NPC {
   },
   topics = {
     burning_blade = { { id = "tp_blade", text = "Cultists, fools and worse. Kill them where you find them, and look hard at who mourns them." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Blade still pray to the things that cursed us, and they think the demons will make them strong again. They'll make them food." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief knows about Skull Rock, and he's let Orgnil and the rest handle it. I'm content, so long as somebody does the killing besides me." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar and the Burning Blade both want something in Durotar, and I hope they find each other first. That would save us all some trouble." } },
     _none = { { id = "tp_none", text = "I watch a rock for a living, so ask someone who gets out more." } },
   },
 }
@@ -500,6 +507,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "The spirits have told me nothing of that, and I won't guess for them." } },
+    the_elements = { { id = "tp_the_elements", text = "The elements are not servants, and they are not gods. They are old and proud, and they answer best to those who ask politely and listen carefully." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a shaman before he is a warlord, and that is the best thing about him. He knows the land must agree to be lived on." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren call the land their mother, and I find that easy to understand. The spirits of earth in Durotar are hard and dry, but they are not unkind." } },
+    burning_legion = { { id = "tp_burning_legion", text = "Our warlocks called on the demons and the spirits fell silent for a generation. Thrall brought them back, and I will not see us lose them again." } },
   },
 }
 
@@ -655,5 +666,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I teach fighting, recruit, not gossip. Ask Grosk at the inn." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War and I have the scars to prove it. We lost, and the reason we lost is that we didn't know what we were fighting for." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief fought in an arena before he ever fought in a war, and that's where he learned to stand. I watch every recruit for that same thing." } },
+    centaur = { { id = "tp_centaur", text = "A centaur charges with its whole weight, so set your feet and take the blow on a shield. Then it's just a horse with an angry face." } },
+    internment = { { id = "tp_internment", text = "The camps took our will, but not our strength. I trained in a cell with nothing but my fists, and I came out ready." } },
   },
 }

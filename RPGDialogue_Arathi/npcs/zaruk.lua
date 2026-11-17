@@ -158,6 +158,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I fought for the old Horde, and when it fell I found a truer master. That is all you need to know." } },
     advice = { { id = "tp_ad", text = "Listen to what lies beneath, {class}. The surface is always the last to know." } },
     twilights_hammer = { { id = "tp_th", text = "An order, now, not a clan. We see what is coming.", next = "hammer" } },
+    forsaken = { { id = "tp_forsaken", text = "The dead who walk in Tarren Mill serve their own queen, and they do not understand the greater cause. The Lady will show them, in time." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief of the Horde is a small chief in a small world, and the Lady sees far beyond him. I serve the Horde here, for now, because it serves her." } },
+    the_elements = { { id = "tp_the_elements", text = "The elements of this land are angry, and the Lady is the source of that anger. She will set them free, and the world will see true power." } },
     _none = { { id = "tp_none", text = "That does not concern the Lady, and so it does not concern me." } },
   },
 }

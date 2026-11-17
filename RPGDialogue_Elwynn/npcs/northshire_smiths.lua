@@ -161,6 +161,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've hammered armor for the Abbey longer than most of these recruits have been alive." } },
     kobolds = { { id = "tp_kob", text = "They dent everything they touch. I'd almost admire it if I didn't have to fix it." } },
     _none = { { id = "tp_none", text = "If it can't be riveted, I couldn't tell you a thing about it." } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "Every recruit back from Echo Ridge brings me a breastplate full of kobold scratches and a story to go with it. I mend the plate and leave the story where it is." } },
+    magni = { { id = "tp_magni", text = "Janos says Ironforge plate is the finest made, and I'll admit it to you but never to him. King Magni can keep his mountain; I've got the Abbey's anvil." } },
+    second_war = { { id = "tp_second_war", text = "I hammered armor for the Alliance in the Second War, when a smith slept beside his forge or didn't sleep at all. Northshire's quiet by comparison, kobolds and all." } },
   },
 }
 
@@ -311,6 +314,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I came to the Abbey to pray and stayed to sew. The Light needs both, I think." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beyond my needle, friend." } },
+    holy_light = { { id = "tp_holy_light", text = "I came here to serve the Light, and it turned out the Light wanted robes. I sew a small prayer into every seam, and some days the robes hold up better than I do." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood took me in when I came with nothing but a needle and good intentions. They gave me a room and a stack of torn robes, and I've never been happier." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's costumes have stitches I'd love to study, so bright and so fine. Brother Paxton calls it vanity and I call it craft, and we both pray on it." } },
   },
 }
 
@@ -472,6 +478,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Dun Morogh born, Northshire by choice. Mostly by choice." } },
     _none = { { id = "tp_none", text = "Bah, ask me about steel or don't ask me at all." } },
+    magni = { { id = "tp_magni", text = "King Magni's the best king a dwarf could ask for, an' he's never once asked me to come home, which I take as a compliment. Ironforge'll keep." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Wildhammer? Wild, aye, an' loud, an' they'd rather ride a bird than hold a hammer properly. They're kin, so I'll say no more than that." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a curse on the whole dwarven race, an' I'll not have their name said over my anvil twice. Ask me about steel instead." } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "Every kobold pick that comes back from Echo Ridge is poorer steel than the last. Whatever they're diggin' for down there, they're not findin' good ore." } },
   },
 }
 
@@ -631,5 +641,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I took my vows here and I expect I'll die here, hopefully of old age." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, child, but I'll pray you find out." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light asks very little of us, child, only everything, and it's patient while we work our way up to it. I've been working my way up for thirty years." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "Archbishop Faol founded the Brotherhood to keep the Abbey and its books and to train the Light's servants. I'd add that it now exists to keep Daniel from losing those books, but that's a newer duty." } },
+    scourge = { { id = "tp_scourge", text = "We pray for Lordaeron every evening, child, for the dead and for those who aren't allowed to rest. I've found the second prayer much harder to say." } },
+    scholomance = { { id = "tp_scholomance", text = "There are books in our sealed wing that the Scholomance would kill for, and I mean that plainly. That's why I keep the key, and why I don't lend it to Daniel." } },
   },
 }

@@ -137,6 +137,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Distrust anyone who's entirely certain, including me, especially before breakfast." } },
     argent_dawn = { { id = "tp_argent", text = "Those who'll stand against the Scourge with anyone else who will, whatever their banner. It's a simple idea, and you'd be amazed how many people find it difficult." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "Brave, blind and dangerous. I'd pity them more if they burned fewer villages." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is a subject of great interest to me, though not of great affection. I study it so that others may fight it better." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a scholar once, like me, and he chose a very different path. I find it instructive, and a little frightening." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a mystery I've spent my life studying, and I'm no closer to understanding it. I distrust anyone who claims they are." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron's nobility mostly fled or died, and I'm one of the few who stayed. I'd rather be useful than safe." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme holds secrets I'd dearly love to study, and Scourge I'd dearly love to avoid. The Dawn will take it eventually, and I'll be there with my notebook." } },
     _none = { { id = "tp_none", text = "I've read a great deal, but not about that. Try the quartermaster; she hears what the soldiers say." } },
   },
 }

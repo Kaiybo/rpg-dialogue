@@ -161,6 +161,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A magus of the Undercity, sent to Tarren Mill to study. I study, among other things." } },
     advice = { { id = "tp_ad", text = "Never trust a wizard's door that's left unlocked. It's either a trap or a joke, and both are at your expense." } },
     alterac = { { id = "tp_alterac", text = "Ogres in the ruins, Syndicate in the hills and wizards in the crater. Alterac has always been a crowded place to die." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran shut its gates on me, and I'll find a way in, and when I do, I'll show them what a real mage can do. I'm brilliant, and they know it, and that's why they fear me." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are better than me, I'll admit that, but only because they've had longer to practice. Give me a century and I'll outshine them all." } },
+    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, and the Dark Lady lets me study in peace, which is more than the Kirin Tor ever did. I'm grateful, in my way." } },
     _none = { { id = "tp_none", text = "Beneath my notice, I'm afraid. Bel'varil may know, for he notices everything I don't." } },
   },
 }
@@ -282,6 +285,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know elementals, Dalaran's habits and the Magus's moods, roughly in that order. Ask." } },
     background = { { id = "tp_bg", text = "I keep things for the Magus: his specimens, his notes and, occasionally, his temper." } },
     advice = { { id = "tp_ad", text = "Hunt at the internment camp, not in Dalaran itself. It's safer, and the wizards there are careless." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's bracers and tokens are for the Magus, and I gather them as best I can. Have you heard the one about the mage who walked into a ward? It came as quite a shock to him, and to the ward." } },
+    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, and I lost my comic timing when I died. Everything else came back, but not that." } },
+    scourge = { { id = "tp_scourge", text = "I've tried my best jokes on the Scourge, and they just keep shambling at me, which is a harsher review than I ever had from the living." } },
     _none = { { id = "tp_none", text = "No idea, I'm afraid. I'd ask the Magus, but he'd only say it's beneath his notice." } },
   },
 }

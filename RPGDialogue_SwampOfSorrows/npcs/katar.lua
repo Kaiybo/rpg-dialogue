@@ -153,6 +153,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've lived by this beach long enough to hate it, and the sand's in every seam of my armour. Ask me something else." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the tide, for it's always coming back." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief gave us Durotar, and I left it for this swamp, which shows how little sense I have. I'd follow him anywhere, but not back to this beach, if I had the choice." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, on ships off the coast of Lordaeron. The sea took more of us than the Alliance did, and I've hated it since." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The trolls in that temple on the lake chant all night, and the sound carries over the water to my beach. I don't sleep much anymore." } },
+    internment = { { id = "tp_internment", text = "I spent years in an internment camp after the war, and when I got out I came to the sea. I don't know why, it's never done me any good." } },
     _none = { { id = "tp_none", text = "I don't know. Ask me about the fish men instead." } },
   },
 }

@@ -202,6 +202,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I tended the hippogryphs in Ashenvale before I came south with the Sentinels. Their wings carried us here, and they'll carry us home." } },
     advice = { { id = "tp_ad", text = "Fly over the water, never over the hills. The ogres throw rocks at anything they see." } },
+    teldrassil = { { id = "tp_teldrassil", text = "My birds fly from here to Teldrassil and back, over the whole long coast of Kalimdor. They know the way better than I do, and they never complain of the rain." } },
+    elune = { { id = "tp_elune", text = "The hippogryphs were Elune's gift to our people, or so my grandmother told me, and I see no reason to doubt her. Look at them and tell me otherwise." } },
+    tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande rode a hippogryph into battle once, in the old war, and the birds remember. I like to think they remember." } },
+    dire_maul = { { id = "tp_dire_maul", text = "I fly my birds well clear of Dire Maul, because the ogres throw rocks and the old elves throw worse. A frightened hippogryph is a dangerous passenger." } },
     _none = { { id = "tp_none", text = "I could not say. Ask the General's people; they hear more of the mainland than I do." } },
   },
 }
@@ -398,6 +402,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I traded goods in Auberdine before I came here. It's quieter, and the wind smells of the sea instead of fish." } },
     advice = { { id = "tp_ad", text = "Always carry a spare spool of thread. A torn cloak in the rain is a miserable thing." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Everything on my shelves comes on the boats from Teldrassil or Auberdine, and I count it twice. Salt rots in this damp if you look away." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Goblin traders from Booty Bay sometimes sail in with dyes, and I buy them because I must, and I count my change three times because I must." } },
+    elune = { { id = "tp_elune", text = "I keep a moonstone on the counter for Elune's blessing on trade. The Sentinels tease me about it, and then they touch it on the way out." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "A Faire with fortune-tellers and games, you say? I would want to see their ledgers before I believed they made a copper honestly." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, friend. Ask Shandris's people; they hear everything." } },
   },
 }
@@ -595,6 +603,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I gathered herbs in Mulgore since I was a calf. Feralas called to me with its old green, and I came." } },
     advice = { { id = "tp_ad", text = "Leave a little root, little one. Always leave a little root." } },
+    earth_mother = { { id = "tp_earth_mother", text = "Every herb I teach you to pick is a gift from the Earth Mother, and a gift is not taken greedily. Leave the roots, and she will give again next spring." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is old and wise, and he still walks among his people on the high mesas. A chief who listens is rare, and he listens." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons sleep beneath the great trees of this land, where the Dream touches the world. The herbs grow strange there, and I do not pick them." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The herbs that grow in the courtyards of Dire Maul are old and strong, planted by elves who are long gone. I would not risk my life for them, though some students do." } },
     _none = { { id = "tp_none", text = "I do not know that, little one. The grass does not tell me everything." } },
   },
 }
@@ -769,6 +781,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "My father taught me the knife in Mulgore, and his father taught him. I came here because the beasts are bigger." } },
     advice = { { id = "tp_ad", text = "Keep your knife sharp. A dull knife tears, and a torn hide is worth nothing." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us the beast, and we owe her for every hide we take. A wasted pelt is a debt unpaid." } },
+    cairne = { { id = "tp_cairne", text = "Cairne taught our people to hunt with respect and to waste nothing, and I teach what he taught me. That is all a teacher is, a road for older wisdom." } },
+    grimtotem = { { id = "tp_grimtotem", text = "The Grimtotem skin for sport and leave the meat to rot, and it shames every tauren who sees it. They are no kin of mine." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The beasts that roam near Dire Maul are fat on the ogres' scraps, and their hides are thick. Go carefully, and come back with something worth the walk." } },
     _none = { { id = "tp_none", text = "I don't know. I know knives and hides, not that." } },
   },
 }
@@ -957,6 +973,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I traded in Thunder Bluff before I came here. The work's harder, but the people are kinder." } },
     advice = { { id = "tp_ad", text = "Never leave your goods unwatched at night. The gnolls steal anything that isn't tied down." } },
+    cairne = { { id = "tp_cairne", text = "Cairne's caravans make the long walk from Thunder Bluff to Mojache, and every one of them arrives a little lighter than it left. The road takes its toll, and so do the centaur." } },
+    centaur = { { id = "tp_centaur", text = "The centaur of Desolace raid the road between here and Thunder Bluff, and I count the caravans that don't come in. The count is too high this season." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps the roads open for us, as much as anyone can. He sends grunts to guard the worst stretches, and they eat everything I sell." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Goblin traders come up from Gadgetzan and charge me for sand in the bottom of every sack. I pay, because nobody else sells what they sell." } },
     _none = { { id = "tp_none", text = "That's beyond my shelves, friend. Hadoken hears more of the forest than I do, so ask him." } },
   },
 }

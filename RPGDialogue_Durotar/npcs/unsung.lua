@@ -175,6 +175,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know axes, shields and how to stand up again, so ask Gornek about anything else." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief got knocked down a hundred times in a human arena and got up a hundred and one. That's the lesson, and that's the only one I teach." } },
+    second_war = { { id = "tp_second_war", text = "The old warriors talk about the Second War, but they don't talk about losing it. I tell my recruits the truth, which is that losing is the only teacher worth having." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar are past the ridge, and you'll meet them sooner or later. When you do, hit the horse half first, because it's bigger." } },
   },
 }
 
@@ -347,6 +350,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Ken'jai knows healing and the Darkspear, mon, but not that. Ask Gornek, he knows everything in the valley." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits be like neighbours, you see, and you keep them sweet with gifts and good manners. Forget them, and they forget you." } },
+    holy_light = { { id = "tp_holy_light", text = "The humans pray to something they call the Light, and I hear it heals as well as the spirits do. It don't sit right with me, though, because a light like that never asks your name." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear take care of their own, and since Thrall, the orcs be our own too. That's why I patch up Frang's recruits, even when they don't deserve it." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin's a good chief for the trolls, mon. He listens to the old ones and the young ones both, and that's harder than it sounds." } },
   },
 }
 
@@ -514,6 +521,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I sell bread and bags, recruit, so ask Gornek if you want answers about anything bigger." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar don't carry water, they steal it. Don't give them the chance, and buy a second skin." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief built this valley so new orcs could learn in it, and the new orcs keep forgetting their waterskins. I think he'd want me to keep reminding them." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins sell water for silver, and I sell it for copper. Somebody's getting cheated, and it isn't my customers." } },
   },
 }
 
@@ -678,6 +688,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know steel and who needs cutting, and nothing else. Try Gar'Thok in the barracks." } },
+    centaur = { { id = "tp_centaur", text = "Kolkar hide is thick and their bone is thicker, so you'll want a heavy edge for them. Bring the blade back after and I'll tell you how much it lost." } },
+    quilboar = { { id = "tp_quilboar", text = "Quilboar bristles dull a blade faster than any armour. Ask the grunts who came back from the Barrens with chipped axes, and they'll tell you I'm right." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries Doomhammer's hammer, and it's the only weapon in Durotar I wouldn't want to sharpen. Some steel you just respect." } },
   },
 }
 
@@ -829,6 +842,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know tracks and beasts, and that is not either one. Ask Gar'Thok or Orgnil." } },
+    centaur = { { id = "tp_centaur", text = "Centaur hunt like wolves, in packs, and they never stop running. It is a hard thing to respect them, but I do." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar keep their own beasts, boars as big as kodo calves, and they treat them better than they treat strangers. I find that more interesting than you'd think." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The tauren say the Earth Mother made every beast, and when I watch a pet come to a hunter's hand, I believe them. It is a gift, and gifts must be honoured." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides a great wolf, and he talks to it like a brother. That's how I know he's a good leader." } },
   },
 }
 
@@ -978,6 +995,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "If I knew, I would be the wrong person to ask about it, wouldn't I?" } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt? Never heard of it, and neither have you, if you're smart. Some doors don't open from the outside." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are thieves in the north who think they're nobles. Real rogues work for something bigger than a pretty manor, and they don't wear purple." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief trusts the rogues who keep his secrets, and he's smart enough not to ask how. I like that in a chieftain." } },
+    burning_blade = { { id = "tp_burning_blade", text = "The Burning Blade think they're clever, but they're loud, and they leave tracks. I could find them in my sleep, and some nights, I do." } },
   },
 }
 
@@ -1140,6 +1161,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "That be beyond Tai'jin, mon. Ask Orgnil or the commander in the barracks." } },
+    holy_light = { { id = "tp_holy_light", text = "The humans' priests pray to the Light, and I hear it works for them. I pray to the loa and the spirits, and they work for me, so we're even." } },
+    darkspear = { { id = "tp_darkspear", text = "My people be scattered between Sen'jin and the city now, but we still meet on the beach to dance. I miss the sea, mon, but at least I can see it from here." } },
+    echo_isles = { { id = "tp_echo_isles", text = "The Echo Isles were home, and Zalazane took them, and now the crabs and the mad trolls sing there. I'll go back one day, if Vol'jin takes them back." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin will take the Echo Isles back, I'm sure of it. He just be waiting for the right time, because a Darkspear never rushes a fight." } },
   },
 }
 
@@ -1299,5 +1324,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Un'Thuwa knows spells, not that. Ask Master Gadrin, he knows everyone's business." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the greatest city of magic in the world, and the demons burned it. The humans are building it again, I hear, though they're not letting anyone in to see." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the human mages who used to run Dalaran. They never let a troll into their school, which is why I taught myself." } },
+    darkspear = { { id = "tp_darkspear", text = "A Darkspear learns what they need to survive, and right now the Horde needs mages. I'm happy to oblige, and I'm quietly proud I'm better than half the orcs." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits and the arcane don't always agree, and the shaman like to remind me of it. I tell them the fire spirits don't mind my fireballs, and that seems to end the argument." } },
   },
 }

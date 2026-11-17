@@ -336,5 +336,9 @@ P:NPC {
     defias = { { id = "tp_defias", text = "Not on my road, they don't. They keep to the vineyards and the woods, so far at least." } },
     westfall = { { id = "tp_westfall", text = "I see Westfall on the faces coming up this road. Tired, and too proud to say so." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask in the inn, or ask Farley; he knows everything, though mostly wrong." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The brothers up at the Abbey teach every recruit who comes through, and they ask nothing back but a prayer now and then. Not many in Stormwind can say the same." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire comes to Goldshire, Farley's inn is full to the rafters and he's happy as a pig in mud. I tell the recruits to ask for a bed early." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "That stone ring on the lake is for the folk who died when the orcs burned Goldshire. Farley won't hear a word against it, and nor will I." } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "Recruits who come back from Echo Ridge come back muddy and proud, and they walk past me grinning. That's how I know the brothers have done their work." } },
   },
 }

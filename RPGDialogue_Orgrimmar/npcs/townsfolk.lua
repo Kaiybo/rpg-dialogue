@@ -191,6 +191,10 @@ P:NPC {
 
   topics = {
     trade = { { id = "tp_trade", text = "Bring it to me if you want it safe, or take it to the auction house if you want it gone." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief told me once that a people who can lock up their wealth are a people who expect to live. That's why I keep this vault, and that's why I keep it well." } },
+    internment = { { id = "tp_internment", text = "In the camps, no orc owned anything, not even a name. Now they bring me gold and heirlooms, and every time I lock one away I remember that." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got a bank too, run by goblins who'll take your gold whether you're Horde or Alliance. I'd never let an enemy deposit here, but I respect a good ledger." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's banks are neutral, which means they'll hold your gold and your enemy's in the same vault. That's not how I'd run things, but it seems to work for them." } },
     _none = { { id = "tp_none", text = "I keep coin and keepsakes, not answers. Ask Gryshka at the inn; people tell her everything." } },
   },
 }
@@ -368,6 +372,9 @@ P:NPC {
   topics = {
     steamwheedle = { { id = "tp_steam", text = "The goblins' cartel runs the neutral houses. They're cheerful, they're thorough, and they always get paid." } },
     trade = { { id = "tp_trade", text = "Price it fairly and it sells. Price it greedily and it comes back to you in the mail." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's auction house sells to Horde and Alliance both, and they charge both the same deposit. I've never understood how a goblin can sleep at night with that kind of ledger." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got a neutral auction house too, run by goblins in the desert. If you want to sell to the Alliance, that's where you go, but don't tell me about it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief wanted his people to trade like a nation and not a war band. The auction house is part of that, and I'm proud to run it." } },
     _none = { { id = "tp_none", text = "If it isn't for sale, I don't know much about it. Try the bank across the valley." } },
   },
 }
@@ -544,6 +551,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "From up here everything below looks small, so I couldn't tell you. Ask someone on the ground." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides a wolf, but he's flown with my wind riders a few times. He says it's like being a shaman, only colder." } },
+    ratchet = { { id = "tp_ratchet", text = "The flight to Ratchet's long and windy, and the goblins on the other end don't tip. I still send riders down every day, because somebody has to." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar shoot arrows at my riders, but they rarely hit. A wind rider flies higher than any centaur can throw a spear." } },
   },
 }
 
@@ -718,6 +728,11 @@ P:NPC {
 
   topics = {
     burning_blade = { { id = "tp_blade", text = "That's a clan I'll never record, whatever name they come in under." } },
+    second_war = { { id = "tp_second_war", text = "The clans of the old Horde marched under their own banners in the Second War, and most of those banners are gone now. I register the new ones so the old ones aren't forgotten." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock were Doomhammer's clan, and some of them still serve the Horde. Others hold the mountain in the east and serve something darker." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong are Grom's clan, and they're the pride of the Horde. If you want to found a guild with their kind of fire, I'll register it gladly." } },
+    dragonmaw = { { id = "tp_dragonmaw", text = "The Dragonmaw chained red dragons for the old Horde, and some of them still hold the Wetlands around Grim Batol and answer to no one. They're a clan the Warchief would sooner forget, and I'd sooner not register." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is chieftain of the Frostwolves by blood and warchief of all the clans by deed. That's the only charter that matters." } },
     _none = { { id = "tp_none", text = "That's no clan's business I've recorded. Ask the Grunts; they hear everything on their walls." } },
   },
 }
@@ -923,6 +938,11 @@ P:NPC {
   topics = {
     burning_blade = { { id = "tp_blade", text = "Traitors who miss the demons. I'd hang every one of them from the city walls, if the Warchief would let me." } },
     wailing_caverns = { { id = "tp_caverns", text = "A druid's den in the Barrens with something sick inside it. That's the tauren's mess, but our young ones go and help." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's word is law in this city, and I'm the one who makes sure it's heard. If you've got a problem with that, you've got a problem with me." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are Horde, the Warchief says, and so they're Horde. I don't have to like it, and I don't, but I'll follow orders." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen is the Warchief's ally, and she's never once given me a reason to trust her. I'll wait for one." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's soldiers sit across the water and make eyes at our coast. If they ever try anything, Orgrimmar will remind them why the Horde is feared." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar and their kin are a threat to every road in the Barrens. If I had my way, we'd ride them into the sea, but the Warchief prefers to keep them guessing." } },
     _none = { { id = "tp_none", text = "That isn't my concern unless it starts a fight in my valley." } },
   },
 }
@@ -1100,6 +1120,9 @@ P:NPC {
 
   topics = {
     alterac ={ { id = "tp_alterac", text = "The Frostwolves' mountains. The wolves there are bigger than mine, and I'm not too proud to say so." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides a frost wolf from the mountains of Alterac. That beast is the finest I've ever seen, and I've seen a great many wolves." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken can't ride a wolf, because the wolf won't have them. I don't blame the wolf, and the Forsaken don't seem to mind." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls ride raptors, and they love them the way I love my wolves. I've never understood it, but I respect it." } },
     _none = { { id = "tp_none", text = "I know wolves, and that's about all. Ask the wolves; they're better company than half this city." } },
   },
 }
@@ -1277,6 +1300,9 @@ P:NPC {
 
   topics = {
     echo_isles = { { id = "tp_isles", text = "The trolls say the fishing there was the best on the coast. They don't talk about what's there now." } },
+    internment = { { id = "tp_internment", text = "In the camps, I learned to fish with a bent nail and a scrap of thread, because the guards' scraps weren't enough to live on. When I was free, the first thing I did was find a river." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief came down to the river once and asked me to teach him to fish. He's terrible at it, but he's patient, and that's the most important thing." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fishing in the world, the goblins say, and they hold a contest every week. I'd like to try it someday, if the sharks don't get me." } },
     _none = { { id = "tp_none", text = "I don't know, friend. Throw a line in the water and think about it; that's what I'd do." } },
   },
 }
@@ -1456,6 +1482,9 @@ P:NPC {
 
   topics = {
     burning_blade = { { id = "tp_blade", text = "Cultists in the caves around Durotar. They frighten off the miners, and I'll never forgive them that." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock clan knew more about mining than any orc alive, and some of them still do. They're up in their mountain now, digging for the wrong masters." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's a dwarf ruin in the Badlands, and the rock there is older than anything in Durotar. I'd like to swing a pick at it, just once." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's goblins buy ore from anybody who'll sell it, and they pay well. Bring them thorium, and they'll love you like a brother." } },
     _none = { { id = "tp_none", text = "I know rock, and I know what's in it. For anything else, ask someone who works above ground." } },
   },
 }
@@ -1651,6 +1680,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Unless it's made of metal, I'm no use to you. Ask at the inn." } },
+    second_war = { { id = "tp_second_war", text = "The weapons of the Second War were heavy and crude, and they broke a lot. I make them lighter and stronger now, and I make them honest." } },
+    blackrock = { { id = "tp_blackrock", text = "The Blackrock smiths were the best in the old Horde, and the dwarves in the mountain have the best now. I'd learn from either, if they'd teach me." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries Doomhammer's hammer, and I've seen it up close. It's the finest piece of smithing in Kalimdor, and I'd give my arm to make one like it." } },
   },
 }
 
@@ -1834,6 +1866,10 @@ P:NPC {
 
   topics = {
     steamwheedle = { { id = "tp_steam", text = "Good people, rich people, and they'd want me to say I don't work for them. I don't, at least not officially." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the best engineering town in Kalimdor, pal, but it's full of sand, and sand gets in the gears. I came to Orgrimmar for the dry air, and the explosions here are cleaner." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's got Gazlowe, and Gazlowe's got the docks, and the docks have got every part you'd ever need. I order from him twice a month, and he still overcharges me, which is how you know he likes me." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company's engineers are cheap, sloppy, and dangerous, and they make the rest of us look bad. I blow things up on purpose, and there's a difference." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got cannons on every pier, and they're beautiful. I'd like to build one, but the Warchief says no, which seems unreasonable." } },
     _none = { { id = "tp_none", text = "Never heard of it, chum, but if you find out what it's worth, let me know first, before anybody else gets the chance to sell it!" } },
   },
 }
@@ -1994,6 +2030,9 @@ P:NPC {
 
   topics = {
     echo_isles = { { id = "tp_isles", text = "Home, mon, and not home right now. We get it back one day." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear have always loved beasts, mon, and the beasts love us back. I came to Orgrimmar because the Warchief wanted a troll to keep his stables." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin's raptor is the finest in the city, and he lets me feed it. I take that as a great honour." } },
+    the_elements = { { id = "tp_the_elements", text = "The beasts and the spirits are close, and a good beast-keeper knows both. I talk to the spirits sometimes, when the animals are restless." } },
     _none = { { id = "tp_none", text = "I don't know that one. Ask the beasts, maybe; they know more than they say." } },
   },
 }

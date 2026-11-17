@@ -114,6 +114,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A Darkspear scout, mon. I watch, I listen, and I come back, and most scouts only manage two of those." } },
     advice = { { id = "tp_ad", text = "Lower your voice, mon. The Kolkar hear a loud mouth from a mile off, and so do the vultures." } },
     echo_isles = { { id = "tp_isles", text = "I can see them from the shore, mon, but I don't look long. A scout keep his eyes on the danger in front of him." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar at the Crag think Durotar is empty because it's red and dry. They're wrong, and I've the battle plans to prove it, though I'd rather they never needed using." } },
+    darkspear = { { id = "tp_darkspear", text = "My people came out of the sea with Thrall, and we've been paying him back since. I'm Darkspear to my bones, and I watch the ridge so Sen'jin can sleep." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin don't say much he don't mean, mon. When he tells me to watch the ridge, I watch the ridge, and I don't ask why." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief saved us from the murlocs and the humans both, back on the islands. A troll don't forget a debt like that, and a Darkspear don't let anyone else forget it either." } },
     _none = { { id = "tp_none", text = "That be nothing I scouted, mon. Ask somebody who sit by a fire, not in a bush." } },
   },
 }

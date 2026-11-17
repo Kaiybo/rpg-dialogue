@@ -179,6 +179,14 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "Darkspear, mon, from the Echo Isles, and a soldier of the Horde since the Warchief bring us across the sea. Kargath be where they put me." } },
     advice = { { id = "tp_ad", text = "Say the important things before somebody leave on a mission, mon, because you don't always get to say them after." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be our chief, mon, and he bring us across the sea to the Warchief. Sha'ni say he be the wisest troll alive, and I believe her." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be my people, mon, and they be good people, but Sha'ni's mother and father live in the Hinterlands. We was going to live there with them, after." } },
+    echo_isles = { { id = "tp_echo_isles", text = "The Echo Isles be where I grew up, mon, before the sea witch came. I'd like to take Sha'ni there someday, to see the water." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief give the Darkspear a home when we had none, mon, and I fight for him because of it. That be all there is to it." } },
+    firegut = {
+      { id = "tp_firegut", text = "The Firegut ogres took Sha'ni's platoon, mon, I know it in my bones. Some day I go up that mountain myself." },
+      { id = "tp_firegut2", when = { questDone = TODO_QUEST("Krom'Grul") }, text = "The Firegut be fewer now, mon, because of you. It don't bring her back, but it be something." },
+    },
     _none = { { id = "tp_none", text = "I don't know nothing about that, mon. Ask me about the road east, that be all I watch." } },
   },
 }

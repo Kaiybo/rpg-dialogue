@@ -177,6 +177,10 @@ P:NPC {
     },
   },
   topics = {
+    stonemasons = { { id = "tp_stonemasons", text = "I learned my trade beside men who later joined the Stonemasons' Guild in Stormwind, and some of them went west and wore red after the nobles stiffed them. I don't defend them, but I know what unpaid work does to a man." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The dwarves built the Thandol Span to last a thousand years, and they did it without a foreman shouting at them, which I'd like Oslow to hear. Now the Dark Irons have been blowing chunks out of it, and that is a sin against good masonry." } },
+    second_war = { { id = "tp_second_war", text = "Half this valley was rebuilt after the Second War with hands like mine, and I remember laying stone over ash. I'd sooner the Everstill Bridge were the last thing I build for the orcs to burn." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "I carried stone for the gate at the Valley of Heroes when I was younger than Jess is now. The statues came later, from finer hands than mine, and I still look up at them when I'm in the city." } },
     background = { { id = "tp_bg", text = "I've built bridges from Westfall to Redridge, and I came to Lakeshire because this one needed someone who'd done it before." } },
     advice = { { id = "tp_ad", text = "Measure twice and lift once, friend. It holds for stones and for most other things." } },
     everstill_bridge = { { id = "tp_bridge", text = "My last bridge, I think, and I mean it to stand longer than I do.", next = "hardest" } },
@@ -339,6 +343,11 @@ P:NPC {
     },
   },
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went to the Darkmoon Faire last time it was by Goldshire, and I rode the steam tonk, and I lost every copper I had on the ring toss! It was the best day of my whole life, and I'd do it again tomorrow." } },
+    deadmines = { { id = "tp_deadmines", text = "Is it true there's a whole pirate ship hidden in a mine under Westfall? Trent says it's a story, but Trent says that about everything good, so I think it must be real." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A sailor at the inn told me Booty Bay is built right inside a giant skull of some sea beast, and the goblins sell everything there is to sell. I'm going to see it one day, once the bridge is finished and Oslow lets me go." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a dragon down in some swamp across the sea, a real black one, and they say she sleeps on a pile of gold as big as the Everstill. I'd only want to look at her, from very far away, with somebody brave beside me." } },
+    valley_of_heroes = { { id = "tp_valley_of_heroes", text = "The Valley of Heroes has statues taller than three of me, and I stood under them for an hour the first time I went to Stormwind. Do you think anyone gets a statue for building a bridge?" } },
     background = { { id = "tp_bg", text = "I grew up on a farm near Lakeshire and came into town when the orcs came, same as half the crew." } },
     advice = { { id = "tp_ad", text = "Keep your head down near the water, Dmitri says, and I've never once regretted listening to him." } },
     everstill_bridge = { { id = "tp_bridge", text = "It's going to be the best bridge in Redridge, and I'll be able to say I carried some of it.", next = "why" } },

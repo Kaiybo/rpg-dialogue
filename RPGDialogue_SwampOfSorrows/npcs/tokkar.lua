@@ -157,6 +157,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A cook who learned smithing because nobody else on this beach would. It's worked out, mostly." } },
     advice = { { id = "tp_ad", text = "Never eat anything that comes out of the sea with a face like a murloc's." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief would like my stew, I'm sure of it. Nobody's ever told him about it, which is a crime." } },
+    second_war = { { id = "tp_second_war", text = "I cooked for the Horde in the Second War, and I learned smithing then because the smiths kept getting killed. It's worked out, mostly." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fish on the coast, they say, but I've never been. Misty Reed's fish are good enough." } },
     _none = { { id = "tp_none", text = "Don't know it, but if it can be stewed, bring it here and we'll find out." } },
   },
 }

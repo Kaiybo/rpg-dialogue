@@ -223,6 +223,10 @@ P:NPC {
     maybell_tommy = { { id = "tp_mt", text = "What's that? My Maybell and who? I'll not hear gossip about my own daughter, and I'll not hear that name.", next = "feud" } },
     defias = { { id = "tp_defias", text = "They cross my land at night. They'll not cross it with my grapes." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I'm not sure I want to. Ask in Goldshire." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "My grandfather's name is on the stone at Stone Cairn Lake, and I'll have you know there isn't a Stonefield beside it. Make of that what you like." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys our wine by the barrel when it's at Goldshire, and they pay in honest coin. I'd sell to them before I'd sell to certain folk across the river." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray to the Light every morning for a good harvest and a sensible daughter. The harvest comes most years." } },
+    varian = { { id = "tp_varian", text = "A kingdom without its king is like a farm without its father, and I'll not have anybody tell me different. Things fall apart, and young folk go running off to rivers." } },
   },
 }
 
@@ -402,5 +406,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Taste before you buy, always. Any vintner who won't let you is hiding something." } },
     maybell_tommy = { { id = "tp_mt", text = "Not here, friend, not with Pa in earshot.", next = "secret" } },
     _none = { { id = "tp_none", text = "Couldn't say. I know grapes, and a little of what goes on in Goldshire." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire is my best customer all year, and their folk drink our red like water. Pa grumbles at the noise, but he counts the coin all the same." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I sold a cask to a Booty Bay captain once, and he wrote that it soured in the heat before he reached the jungle. I've been trying to make a wine that travels ever since." } },
+    holy_light = { { id = "tp_holy_light", text = "The Abbey takes our grapes for its wine, and I like to think there's a little of the Light in every bottle. Pa thinks there's a little of the Light in every coin." } },
   },
 }

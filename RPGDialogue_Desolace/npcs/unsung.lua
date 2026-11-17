@@ -194,6 +194,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I kept a shop in Auberdine before this one. I thought I'd like a change of scenery, and I got one." } },
     advice = { { id = "tp_ad", text = "Carry twice the water you think you'll need down there, and then tuck one more flask in your pack for luck." } },
+    centaur = { { id = "tp_centaur", text = "The centaur come up the mountain about once a month, and once a month we discover the walls are a bit lower than we thought. I sell a lot of arrows the week after." } },
+    maraudon = { { id = "tp_maraudon", text = "The druids say Maraudon is a poisoned tomb full of crystals, and a fellow came up last week with his pockets full of them and his face full of thorns. I bought the crystals, I'm not proud." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay ships charge me double for everything because Desolace is so far from anywhere. They're right, which doesn't make me like it." } },
+    theramore = { { id = "tp_theramore", text = "I hear Theramore has a market with fish and vegetables and roofs, all at once. I'll go someday, when the dust lets me out." } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask the innkeeper; travelers tell her everything." } },
   },
 }
@@ -384,6 +388,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I cooked in an inn in Stormwind, once, and came out here because the outpost needed a cook. I've never regretted it, except when the sand gets in the dough, which is most days." } },
     advice = { { id = "tp_ad", text = "Eat before you go down, dear, and take bread with you. Always." } },
+    centaur = { { id = "tp_centaur", text = "Every time the centaur ride close, the guards come in hungry and frightened, and I feed the hungry part. The frightened part takes longer." } },
+    holy_light = { { id = "tp_holy_light", text = "I bless every loaf in the Light's name, and maybe that's why they last so well in this heat. Or maybe it's the salt." } },
+    theramore = { { id = "tp_theramore", text = "Some of our people came out of Theramore, and they miss the sea air and the fish stew. I do my best with what we have, which is mostly dust." } },
+    scourge = { { id = "tp_scourge", text = "My sister's family was in Lordaeron when the plague came, and I've had no word since. I bake their names into the bread on the anniversary, and I don't tell anyone why." } },
     _none = { { id = "tp_none", text = "I'm sure I don't know, dear. Ask Christi at the store; she hears all the gossip." } },
   },
 }

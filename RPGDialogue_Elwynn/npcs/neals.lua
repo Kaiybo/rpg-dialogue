@@ -273,5 +273,9 @@ P:NPC {
     northshire_abbey = { { id = "t_abbey", text = "Rebuilt by Archbishop Faol after the wars. Its foundations are older than half the walls in Stormwind, and better kept." } },
     defias = { { id = "t_defias", text = "I pray for them, and then I lock the cellar." } },
     _none = { { id = "t_none", text = "I'd have to look that up, and the library closes at dusk." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood of Northshire is Archbishop Faol's work, raised on the ruins after the Second War, and I keep its records. Most of them are about barrels, which is how you know it's a real holy order and not a story." } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "Echo Ridge Mine shows up in my ledgers as rope, picks and bandages, a little more of each every week. The kobolds are winning the accounting, friend, if nothing else." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is patient, and so is a good bookkeeper, which is why I think the Light would make a fine one. Brother Sammuel calls that blasphemy, but he smiled when he said it." } },
+    scourge = { { id = "tp_scourge", text = "The Abbey was founded by clerics from Lordaeron, and we still keep their names in our books. I've had to add a great many dates to that page lately." } },
   },
 }

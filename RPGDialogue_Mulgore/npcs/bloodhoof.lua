@@ -267,6 +267,17 @@ P:NPC {
     },
     cenarion_circle = { { id = "tp_circle", text = "Hamuul studies with them. My father trusts them, and so do I. The land needs friends who listen to it." } },
     grimtotem = { { id = "tp_grimtotem", text = "They're tauren, whatever else they are. I'd rather reason with them than fight them, for as long as reason works." } },
+    cairne = { { id = "tp_cairne", text = "My father carried our people out of the wandering and onto these plains, and he did it without ever once raising his voice to us. I try to walk the village the way he walks the bluff, and I have a great deal left to learn." } },
+    thrall = { { id = "tp_thrall", text = "Thrall came to my father's aid when the centaur were hounding us across the Barrens, and he asked nothing in return. The tauren repay that kind of debt with a long memory, and we joined his Horde gladly." } },
+    forsaken = {
+      { id = "tp_forsaken", text = "My father and Hamuul spoke for the Forsaken when they asked to join the Horde, because Hamuul believes their curse might be lifted. I hope he is right, though I find their apothecaries hard to like." },
+      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You are welcome in Bloodhoof, and I mean that, whatever looks the farmers give you. Their fear is old, and it will fade faster if you are patient with it." },
+    },
+    centaur = { { id = "tp_centaur", text = "The centaur drove us from one grazing land to the next for generations, until we came here. Some of the young braves still dream of revenge, and I tell them a herd that has its home should guard it, not go looking for old fights." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback have pushed north from the Barrens into the south of Mulgore, and they have killed our elders at Narache. I would talk with them if they would let me, but so far they have only answered with spears." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us these plains when we had walked so long we had almost forgotten what home meant. Every morning I thank her for the grass, and every evening for the people who walk on it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire comes to Mulgore, its tents go up below the bluff, and every calf in the village stops sleeping. Silas Darkmoon is a strange host, but he has always paid his respects to my father." } },
+    onyxia = { { id = "tp_onyxia", text = "I know only what the Horde's runners tell me, that a black dragon nests in Dustwallow Marsh and the Brackenwall grunts fear her. Mulgore is far from her, and I would like it to stay that way." } },
     _none = { { id = "tp_none", text = "I don't know, but I'll ask, and I'll remember you asked first." } },
     venture_company = { { id = "tp_venture", text = "We refused them the right to mine, and they poisoned our wells anyway. I'd still rather they sat down and talked, though I'm starting to doubt they know how." } },
   },
@@ -434,6 +445,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "The spirits haven't spoken of that. I won't speak for them." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is the land itself, and the spirits are her children, the restless ones who never quite sit still. I keep them calm, and they keep Bloodhoof safe." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of earth and wind and water speak to me in Bloodhoof, and they speak more kindly now than when we wandered. They like having a home as much as we do." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken's spirits are bound to bodies that should have let them go. I pity them, and I hope Hamuul finds a way to set them free." } },
+    cairne = { { id = "tp_cairne", text = "Cairne listens to the spirits as well as any shaman, though he would never call himself one. He has a chieftain's ear, and the spirits respect him for it." } },
   },
 }
 
@@ -590,6 +605,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Couldn't say. Ask Baine; he hears more than I do." } },
+    cairne = { { id = "tp_cairne", text = "Cairne led us here through storm and drought, and I followed him the whole way with my knees complaining. They complain still, but the sky above Mulgore is worth it." } },
+    centaur = { { id = "tp_centaur", text = "The centaur chased us across the plains for longer than I can remember, and I watched the sky for their dust clouds every morning. I still do, out of habit, and I still see nothing but clouds." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother speaks through the weather, and I have spent my life listening. She is in a good mood this season, which pleases me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's wagons come up the road from the south, and I can always tell a week before, because the wind smells of sugar and gunpowder. My knees never warn me about that." } },
   },
 }
 
@@ -747,6 +766,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "That's not something I've tracked." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were the beasts I hunted most when we wandered, and they were clever prey. The beasts of Mulgore are simpler, but the one I hunt now is not." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback are cunning, and they hunt in packs like wolves. I have tracked them across the south of Mulgore, and they always know when I am coming." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother sends the rain to follow me, and I have stopped complaining about it. A wet hunter is a quiet hunter." } },
+    cairne = { { id = "tp_cairne", text = "Cairne hunted with me once, when he was younger, and he moved through the grass like a ghost. I have never seen a tauren so big move so quietly." } },
   },
 }
 
@@ -905,6 +928,10 @@ P:NPC {
   topics = {
     _none = { { id = "tp_none", text = "I'm sorry, my thoughts are with the water. Ask Baine." } },
     venture_company = { { id = "tp_venture", text = "They wanted to mine our mountains, and we said no, so they took the wells instead. That is how they listen." } },
+    the_elements = { { id = "tp_the_elements", text = "The water spirits in the wells have gone quiet, and a quiet spirit is a sick one. Zarlman says they will speak again, and I want very much to believe him." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother's wells were sweet when we came to Mulgore, and they are bitter now. I walk to them every morning because I believe she will listen, if I keep asking." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback have fouled the southern wells with their filth, and the gnolls have fouled the northern ones. I would like to know which is worse, and I would like it never to happen again." } },
+    cairne = { { id = "tp_cairne", text = "Cairne sent me to watch the wells, and I have not given him good news in weeks. He listens patiently each time, and that makes it harder." } },
   },
 }
 
@@ -1057,6 +1084,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Sorry, I can't think about anything else until Kyle's home." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire came last, Kyle ran under one of the tents and came out wearing a hat. I never found out whose hat it was, and he still won't give it back." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made dogs, I think, on one of her best days. Kyle is proof of that, even when he runs off." } },
+    cairne = { { id = "tp_cairne", text = "Cairne once asked about Kyle, by name, and I nearly fainted. He is a great chieftain and a kind one, and he remembers what matters." } },
   },
 }
 
@@ -1222,6 +1252,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I hear a little of everything and keep less. Ask Baine." } },
+    cairne = { { id = "tp_cairne", text = "Cairne eats my stew whenever he comes down from the bluff, and he always asks for more. That is why I keep the pot full." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief ate at this inn once, and he said my stew was better than anything in Orgrimmar. I believe him, because orcs don't lie about food." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire comes to Mulgore, every bed in Bloodhoof is full and every pot is empty. I spend the whole week cooking, and I love every minute of it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't eat, which is a pity, because they look like they could use it. I offer them stew anyway, out of habit, and they always say no." } },
   },
 }
 
@@ -1376,6 +1410,11 @@ P:NPC {
 
   topics = {
     camping = { { id = "tp_camping", text = "Start with a fire, which any cook can make, and then add what your hands know how to make." } },
+    centaur = { { id = "tp_centaur", text = "The centaur roam the plains much as I do, and we have met at more than one campfire. Some of them are reasonable, and some will kill you for your blanket, so I sleep with one eye open." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar camp like animals, all mud and thorns, and they never put out their fires. I've followed their smoke more than once to find a good place to stay away from." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I've followed the Faire from Mulgore to the human lands and back, and I've never seen a stranger crowd anywhere. They are the best campfire company I know." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief walked a long road before he found his home, and so did I. I think he would like my campfire, if he ever came by." } },
+    everlook = { { id = "tp_everlook", text = "I wandered as far as Everlook once, in Winterspring, and I learned that snow is a poor blanket. The goblins there sold me a better one at a terrible price." } },
     _none = { { id = "tp_none", text = "I don't know. The wind hasn't told me." } },
   },
 }

@@ -215,6 +215,10 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "A dwarf who likes the cold an' loves a puzzle. Winterspring has plenty o' both." } },
     advice = { { id = "tp_ad", text = "Never drink anythin' a furbolg offers ye, no' this year." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the last furbolgs who've kept their wits, and they're worried about the Winterfall too. I'd trust a Timbermaw over most people I've met." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream is the world as it was meant to be. I'd like to think the hot springs here are a little piece of it, warm and green in all this snow." } },
+    everlook = { { id = "tp_everlook", text = "Everlook is a good town for supplies, though the goblins charge a fortune for everything. I come in when I must and leave as soon as I can." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The World Tree stands on Hyjal, just south of here, and you can feel it in the land if you stand still long enough. I wonder sometimes whether the furbolgs feel it too." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, but ask me about the springs instead, for I know the springs." } },
   },
 }
@@ -404,6 +408,11 @@ P:NPC {
     background = { { id = "tp_ba", text = "Mau'ari be a witch doctor, and dat's de story; de rest she keep, like a good charm." } },
     advice = { { id = "tp_ad", text = "Wear two pairs of socks, mon. De spirits don't care, but your toes will." } },
     echo_isles = { { id = "tp_echo_isles", text = "De islands, warm and green, Mau'ari remember dem well. She come up here anyway, because de magic in de snow be stranger." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin leads da Darkspear, and Mau'ari be one of his people, even up here in da ice. He a wise one, and he be watchin' da spirits close." } },
+    darkspear = { { id = "tp_darkspear", text = "Da Darkspear be a proud tribe, and we stand with da Horde because Thrall saved us. Mau'ari don't forget dat, not ever." } },
+    thrall = { { id = "tp_thrall", text = "Thrall be da Warchief, and he save da Darkspear from da humans and da murlocs on da islands. Mau'ari owe him, and so do all da trolls." } },
+    the_elements = { { id = "tp_the_elements", text = "Da spirits be strong up here, mon, cold and old and quiet. Mau'ari listen to dem, and dey tell her many things." } },
+    everlook = { { id = "tp_everlook", text = "Everlook be a goblin town, and dey sell everyting for too much. Mau'ari buy only what she need, and she need very little." } },
     _none = { { id = "tp_none", text = "Mau'ari know many t'ings, but not dat one, mon." } },
   },
 }

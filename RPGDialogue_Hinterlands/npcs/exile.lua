@@ -148,6 +148,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the Atal'ai, their temple and their god, more than I would wish to. Ask, stranger." } },
     background = { { id = "tp_bg", text = "A priest of the Atal'ai, once. Now only an exile, and the Witherbark do not let me forget it." } },
     advice = { { id = "tp_ad", text = "If you enter the temple, do not listen to the singing. Some of it is meant for you." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai sank their own temple to hide their god, and they still worship him in the swamp. Jammal'an leads them now, and he is mad, and I said so, and that is why I am here." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken Hakkar in Zul'Gurub, and his priests are spreading his blood through every tribe that will listen. The Witherbark are listening, and I am trying to make them stop." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear are traitors, the Atal'ai say, for siding with the orcs. I think they are the only trolls with any sense left in them." } },
     _none = { { id = "tp_none", text = "That is not a thing an exile would know. Ask someone with a home." } },
   },
 }

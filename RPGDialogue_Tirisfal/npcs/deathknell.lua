@@ -163,6 +163,10 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "You're Forsaken now, which means you're one of us, and one of us is better than one of the mindless. Welcome back, and mind your step." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge keeps the dead walking without a thought in their heads, and I spend my days putting them back in the ground where they belong. It's honest work, and the pay never changes, since there isn't any." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Deathknell was a village before the plague, with a church and a well and a churchyard I kept tidy. I keep it tidy still, though the residents are less patient than they used to be." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady freed us, so I bury what she tells me to and leave the thinking to her. That suits an undertaker." } },
     _none = { { id = "tp_none", text = "I bury things; I don't explain them. Ask Sarvis." } },
   },
 }
@@ -338,6 +342,21 @@ P:NPC {
       { id = "tp_knows", text = "People tell a shadow priest all sorts of things, usually right before or right after they die. Ask about these; I've heard plenty." },
     },
     scarlet_crusade = { { id = "tp_crusade", text = "They burn what they don't understand, and they don't understand very much." } },
+    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, risen from the Lich King's army with our minds our own again, and a little bitter about how we spent the interval. You'll find the bitterness is useful, since it keeps you moving." } },
+    scourge = {
+      { id = "tp_scourge", text = "The Scourge is a great machine of the dead with a cold will at its heart, and you were one of its parts until the Dark Lady pulled you out. Don't feel guilty about it, because guilt is a habit for the living." },
+      { id = "tp_scourge2", when = { race = "Scourge" }, text = "You remember the voice in your head, I expect, the one that told you what to do. That silence you hear now is freedom, and you'll grow to like it." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady was a ranger-general of Quel'Thalas, and Arthas killed her and made her serve him. She broke free and took us with her, so you could say we owe her our afterlives, and she certainly would say so." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light burns those of us who've died, which I always thought a bit petty of it. We get by on will and shadow now, and I find both far more dependable." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You hold the Light in dead hands, and I expect it hurts. Aramis would tell you that's the point, and I'd tell you Aramis has always been a little odd." },
+    },
+    arthas = { { id = "tp_arthas", text = "Arthas is the prince who killed his father and gave Lordaeron to the plague, and then he went north to serve his master. I hope he finds the weather there as unpleasant as I find him." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad founded the Cult of the Damned, and the plague in your blood was his gift to Lordaeron. He rules the Scourge in the east now from a floating necropolis, and I'm told he's very pleased with himself." } },
+    lordaeron = { { id = "tp_lordaeron", text = "This was the greatest kingdom of men, and now it's a graveyard with a few of us walking about in it. I find there are worse places to be dead." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief of the Horde took us in when the living would only burn us. The orcs are wary of us and they're right to be, but an alliance doesn't need affection to work." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the city of the Kirin Tor, and Archimonde knocked it flat. They say they're rebuilding behind their shields now, and I'd wager they'll be very sorry they didn't let more of us in." } },
     _none = { { id = "tp_none", text = "A good question for someone with more patience than I have." } },
   },
 }
@@ -504,6 +523,10 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "Zealots in red. Ask Executor Zygand in Brill; he's been fighting them longer than I have." } },
+    forsaken = { { id = "tp_forsaken", text = "We are what the Dark Lady made of the Lich King's leavings, and we serve her alone. That's all you need to know on your first day." } },
+    scourge = { { id = "tp_scourge", text = "The mindless dead still wander these fields, and they'll come at you without a thought. Put them down, and don't mistake them for your old neighbors, because your neighbors are gone." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady gives the orders, and I carry them out. If you want to know her mind, prove yourself useful and you may live long enough to hear it." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron is dead, and the Crusade hasn't noticed. We have, and we're building on its bones." } },
     _none = { { id = "tp_none", text = "That is no concern of Deathknell's, nor of mine." } },
   },
 }
@@ -701,6 +724,13 @@ P:NPC {
   },
 
   topics = {
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light burns me every time I call it, and I call it anyway. It never asked whether I was alive, only whether I was willing." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You feel it too, the heat at the edges of your hands when you pray. Don't let go of it, because the burning is how you know it hasn't let go of you." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "I was never one of Uther's knights, though I prayed beside some of them. The order is broken now, and the Crusade wears its colors and does it no honor." } },
+    forsaken = { { id = "tp_forsaken", text = "Most of the Forsaken have turned their backs on the Light, and I understand why. I simply couldn't, and I've stopped apologizing for it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has no faith at all, only hunger. If I must choose between a painful faith and an easy hunger, I'll choose the pain." } },
     _none = { { id = "tp_none", text = "I can't say. Ask me about the Light; I've thought about little else." } },
   },
 }

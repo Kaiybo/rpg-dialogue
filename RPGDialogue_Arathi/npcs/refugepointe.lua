@@ -190,6 +190,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the Highlands an' where the ogres sleep. Ask about those." } },
     background = { { id = "tp_bg", text = "A scout from Ironforge, workin' for a Stormwind wizard on a Stromgarde problem. Makes sense if ye don't think about it.", next = "scouting" } },
     advice = { { id = "tp_ad", text = "Never walk into Stromgarde wi'out knowin' how ye'll walk out. I always know." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are fine scouts, but they're too loud an' they fly too high tae see anythin' worth seein'. I'd take a good pair o' boots over a gryphon any day." } },
+    dalaran = { { id = "tp_dalaran", text = "Archmage Malin has friends in Dalaran an' writes tae them twice a week, an' every letter's longer than the last. That's the trouble wi' wizards, every one o' them." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's a ruin full o' ogres an' Syndicate, an' I've been inside it more than once. It's no' a pleasant place, an' I'll no' take ye there." } },
     _none = { { id = "tp_none", text = "No idea, an' I'm busy. Ask the lad." } },
   },
 }
@@ -359,6 +362,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Enchanting, reagents and a little history. Ask, and I'll check my notes." } },
     background = { { id = "tp_bg", text = "An apprentice from Stormwind, sent north to learn and to carry things.", next = "malin" } },
     advice = { { id = "tp_ad", text = "Label everything you collect. The witch doctors' pouches all look alike after a day in a pack." } },
+    dalaran = { { id = "tp_dalaran", text = "Archmage Malin studied in Dalaran, like every mage worth the name, and he says the rebuilt city is lovelier than the old. I hope to see it someday, though I'd miss Skuerto's grumbling." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the greatest mages in the world, and I'm only an apprentice. Archmage Malin says I've potential, and I'm trying very hard to believe him." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde was magnificent once, so Archmage Malin tells me, with libraries to rival Dalaran's. I'd like to see them, if the ogres haven't burned them yet." } },
     _none = { { id = "tp_none", text = "I'm afraid that isn't in my notes. Skuerto might know, if you catch him in a good mood." } },
   },
 }
@@ -528,6 +534,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the routes and the weather, so ask me about either one." } },
     background = { { id = "tp_bg", text = "I flew for Stromgarde before the keep fell. I still do, from a tent." } },
     advice = { { id = "tp_ad", text = "Never feed a gryphon from your hand unless you've a spare hand." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer gryphons are fine beasts, but they don't like the Highlands weather any more than mine do. I'd not trade with them, but I'd not fight them either." } },
+    stromgarde = { { id = "tp_stromgarde", text = "I fly Stromgarde's dispatches south, and most of them are pleas for more soldiers. Stormwind sends sympathy, and Ironforge sends what it can." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Span's down, so everything comes and goes by gryphon now. My birds are tired, and so am I." } },
     _none = { { id = "tp_none", text = "That's for someone on the ground. Ask the Captain." } },
   },
 }
@@ -698,6 +707,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "What's in stock and what isn't. That's my whole trade." } },
     background = { { id = "tp_bg", text = "I sold goods in Stromgarde before the keep fell. Now I sell them in a tent, and I'm glad of the tent." } },
     advice = { { id = "tp_ad", text = "Carry more water than you think. The Highlands are drier than they look." } },
+    stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's soldiers eat everything I have, and I'd give them more if I had it. They're fighting for a kingdom that may not come back, and they deserve better than hardtack." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The Span's down, so supplies come slowly, and I count every arrow twice. The Dark Irons have a lot to answer for." } },
+    scourge = { { id = "tp_scourge", text = "The dead haven't come to the Highlands yet, and I pray they never do. We've barely enough arrows for the ogres." } },
     _none = { { id = "tp_none", text = "I don't stock that, and I don't know about it either." } },
   },
 }

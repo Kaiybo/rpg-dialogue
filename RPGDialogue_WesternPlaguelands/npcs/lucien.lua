@@ -127,6 +127,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I kept House Barov's silver and House Barov's secrets, and only one of those was ever worth keeping." } },
     advice = { { id = "tp_ad", text = "Watch who arrives after dark, and who stops asking you to set the table. It's not much, but it's what I learned too late." } },
     scholomance = { { id = "tp_scholo", text = "That is what they call the house now. I prefer not to." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "The master of the house made his arrangement with Kel'Thuzad in the great hall, and I poured the wine. I have regretted that glass for a very long time." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I served House Barov when Lordaeron was whole, and the house was the finest on Darrowmere Lake. It is a school now, and I am still standing at its door." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came to Caer Darrow as guests, and stayed as masters. I should have locked the gate, and I did not." } },
     _none = { { id = "tp_none", text = "I'm afraid I couldn't say. Eva may know; she always knew more of the household gossip than I did." } },
   },
 }

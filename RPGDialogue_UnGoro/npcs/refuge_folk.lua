@@ -188,6 +188,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I keep the stores. Where I kept them before is between me and my old employers." } },
     advice = { { id = "tp_ad", text = "Carry more food than ye think, because ye'll not be wanting to eat anything ye find down there." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "I buy everything from Gadgetzan, and it costs a fortune to haul it up here, but I'll not sell a single thing that grew in that crater. Ye've seen what grows down there." } },
+    magni = { { id = "tp_magni", text = "Magni's a good king, and he'd be proud of a dwarf who keeps a store up a crater wall. I'd like to think so, anyway." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron have their own fire down in their mountain, and they're welcome to it. I've enough heat up here." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The League sends a dwarf down into the crater every season, and every season one doesn't come back. I keep a list, and I wish I didn't." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye. Ask Williden, he knows more about this place than I'd ever want to." } },
   },
 }
@@ -362,6 +366,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I go where the flight paths go, chum, and right now they go here, and so does the money. That's the whole story." } },
     advice = { { id = "tp_ad", text = "Fly over Un'Goro whenever you can, chum, because everything down there wants to eat you, and none of it can catch a flyer." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel pays my wages and keeps the Bruisers here, chum. That's all the politics I need, and all I can afford." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's my best route, pal, and the one I charge most for, because it's the one people want most. That's just good sense." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I'll fly you to Booty Bay if you like, buddy, but you'll be changing beasts three times. The connection's not my fault, take it up with the Cartel." } },
+    thrall = { { id = "tp_thrall", text = "Horde, Alliance, I don't care who's paying, friend, I fly 'em all. The Warchief's people tip better, for what it's worth." } },
+    jaina = { { id = "tp_jaina", text = "The Theramore folk fly out of here on the same beasts as the Horde, and nobody's died of it yet. That peace is good for business." } },
     _none = { { id = "tp_none", text = "Don't know, chum. I only know where things are from the air, and what it costs to get there." } },
   },
 }

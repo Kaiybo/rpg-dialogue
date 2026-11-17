@@ -219,6 +219,14 @@ P:NPC {
   },
 
   topics = {
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light's kept this farm through thieves and drought, and I've never once doubted it would. I keep my prayers short and my blade sharp, which I think is how the Light prefers it." },
+      { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You'll know better than me, friend, but I think the Light likes a woman who prays with a sword in reach. I've had no complaints from it so far." },
+    },
+    deadmines = { { id = "tp_deadmines", text = "Jordan wrote to me once that the Defias are tunnelling under Moonbrook like moles, and that the whole mine rings with hammers at night. I'd go down there myself if somebody would mind the apples." } },
+    northshire_abbey = { { id = "tp_northshire_abbey", text = "I was baptised at Northshire Abbey, and I still remember the brothers singing in the yard. I'd go back to hear it again, if the Defias would only give me a quiet week." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail pirates sail past the Longshore now and then, and I've seen their red sails from my orchard. They don't come ashore here, because the Defias would want a cut, and that's the one good thing about either of them." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Jordan took me to the Darkmoon Faire once when we were courting, and he won me a ribbon at the ring toss. I've still got it, tied to the farm gate, and the Defias have never dared take it down." } },
     background = { { id = "tp_bg", text = "I'm a farm wife with a sea view, a husband in Ironforge and a gun, and you'd best not forget the gun.", next = "fought" } },
     advice = { { id = "tp_ad", text = "Pick your apples before the thieves notice they're ripe. Same goes for most things." } },
     defias = { { id = "tp_defias", text = "They want the farm because it overlooks their road to the sea. They can't have it." } },

@@ -91,6 +91,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A smith of the people, come south with the Circle because the Circle needed someone to keep its soldiers in one piece." } },
     advice = { { id = "tp_ad", text = "Clean your buckles. I will keep saying it until somebody listens." } },
     twilights_hammer = { { id = "tp_twh", text = "Their blades hum in my fire, and I don't like the tune. That's all I want to know about them." } },
+    silithid_hives = { { id = "tp_silithid_hives", text = "Silithid chitin from the hives is stronger than most steel, and lighter, and it takes an edge if you're patient. I respect it more than I respect the bugs." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron forge well, and they forge for the Firelord, and I'll not touch their work. Good metal in bad hands is still bad metal." } },
+    ahn_qiraj = { { id = "tp_ahn_qiraj", text = "The armor of the old night elf soldiers who fought at Ahn'Qiraj is still out there in the sand, and it's still good. They knew their craft, those smiths." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan sends me coal when they remember and sand when they don't. I can't forge sand, I've tried." } },
     _none = { { id = "tp_none", text = "Ask someone who doesn't spend all day at an anvil. That's most of the Hold." } },
   },
 }

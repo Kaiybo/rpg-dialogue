@@ -448,6 +448,15 @@ P:NPC {
     defias = { { id = "tp_defias", text = "Red bandanas in pockets, asking who buys Stormwind silver. Kebok answers them, and I don't." } },
     si7 = { { id = "tp_si7", text = "If they're here, they're better than I am, and I'd rather not find out by accident." } },
     bloodsail = { { id = "tp_bloodsail", text = "They've a man in this tavern every night, and I nod to him like an old friend." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is the only port where Stormwind's spies and the Horde's spies can drink at the same bar without anybody pretending otherwise. It makes my work simpler, and much more expensive." } },
+    varian = { { id = "tp_varian", text = "The king went to a peace talk and never arrived, and the people who should be asking questions are very busy not asking them. I find that more interesting than the disappearance itself." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor appeared at court with a pedigree nobody can quite trace, and now half the nobles in Stormwind answer to her smile. I'd love to know where she came from, and so would a few of my old friends." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is an honest soldier in a nest of courtiers, and that makes him either very brave or very blind. I haven't decided which." } },
+    ravenholdt = {
+      { id = "tp_ravenholdt", text = "Ravenholdt is a manor in the hills of Alterac that doesn't exist, and if you ever find it, they'll have found you first. I've never been invited, and I prefer it that way." },
+      { id = "tp_ravenholdt2", when = { class = "ROGUE" }, text = "You've heard of Ravenholdt, then, and you know better than to talk about it in a tavern. Keep your blades clean and your mouth shut, and maybe one day they'll come looking for you." },
+    },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Arena is where people go to die for a box, and it's also where I go to watch who carries what out of it. Everyone's honest when they think they're about to die." } },
     _none = { { id = "tp_none", text = "If it didn't happen in this tavern or on the docks below, I didn't hear it, and neither did you." } },
   },
 }
@@ -863,6 +872,14 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never work for anybody who pays too well. I learned that one the expensive way." } },
     burning_blade = { { id = "tp_blade", text = "Demon-drunk orcs out in Desolace. Even raiders kept clear of them." } },
     steamwheedle = { { id = "tp_cartel", text = "The goblins run this town, and they'll sell you out with a smile, which is more honest than some." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief got us out of the camps and gave us a home in Durotar, and I owe him for that, same as every orc. That doesn't mean I agree with every orc he gives a sergeant's stripes to." } },
+    internment = {
+      { id = "tp_internment", text = "I was a child in the internment camps, and I remember the guards and the mud and the cold. Durotar's better, even if the sun tries to kill you there." },
+      { id = "tp_internment2", when = { race = "Orc" }, text = "You'd remember them too, then, or your parents would. Don't let anyone in Orgrimmar tell you the camps made us soft, because the camps made us patient." },
+    },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "I fought in the Arena once, for the chest, and I won it, and there was nothing inside but a few coins and a rusty sword. I still think about that fight." } },
+    centaur = { { id = "tp_centaur", text = "The centaur of Desolace are the worst enemies I've fought, and I've fought plenty. They ride like the wind and they never take prisoners." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is the one town where nobody asks an orc why she's sitting in a corner. That makes it the best town I know." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, and I'm not paid to find out." } },
   },
 }
@@ -1284,6 +1301,15 @@ P:NPC {
     sentinels = { { id = "tp_sentinels", text = "I carried their water once. They fight like the wind, and I've never been the wind." } },
     silver_hand = { { id = "tp_silver_hand", text = "Good people, and terribly earnest. They've never once asked me to join, which I find a little hurtful." } },
     sisterhood_of_elune = { { id = "tp_sisterhood", text = "They taught me the rites, and I walked away before the vows. They were kinder about it than I deserved." } },
+    elune = { { id = "tp_elune", text = "Elune is the light I was raised under, in a temple in Ashenvale, and I still pray to her every night by the water. The moon looks the same from Booty Bay, and that's a comfort." } },
+    holy_light = { { id = "tp_holy_light", text = "I carry a hammer and wear plate, and people here assume it's for the Light. I've let them, because the Light and the moon seem to want the same things from the people who serve them." } },
+    tyrande = {
+      { id = "tp_tyrande", text = "Tyrande Whisperwind is the High Priestess of Elune, and the Sentinels follow her as they always have. I've never spoken with her, but I heard her bless the temple once, and I've never forgotten it." },
+      { id = "tp_tyrande2", when = { race = "NightElf" }, text = "You've stood in her temple too, I'd guess, and felt the moonlight come through the roof. Tell me, does Darnassus feel like home yet, or is the tree still a stranger?" },
+    },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil was the World Tree, and it gave us our immortality, and we gave that up to save the world. I don't regret it, though I feel the years now in a way I never did before." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is the new tree, grown without the dragons' blessing, and I'm not sure what it will grow into. I haven't been home since it was planted." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is loud and greedy and full of people who would sell their mothers, and I've never been happier anywhere. There's a freedom in it." } },
     _none = { { id = "tp_none", text = "That's beyond what the moon has shown me, friend, and further still beyond what I've bothered to learn." } },
   },
 }

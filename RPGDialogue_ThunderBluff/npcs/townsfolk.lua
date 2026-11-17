@@ -173,6 +173,9 @@ P:NPC {
 
   topics = {
     grimtotem = { { id = "tp_grimtotem", text = "They keep their own counsel on Elder Rise. I keep their coin the same as anyone's, and say no more." } },
+    cairne = { { id = "tp_cairne", text = "Cairne trusts me with the wealth of the bluff, and I keep it as carefully as I kept the herds. Gold is easier to count than kodo, but harder to love." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief taught the tauren to keep coin, and we learned. I still count wealth in friends first, though, and Thrall is a good one to count." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay keep a bank too, and they count every copper three times. I admire their care, if not their manners." } },
     _none = { { id = "tp_none", text = "I don't know, friend. Ask Innkeeper Pala; everyone talks to her." } },
   },
 }
@@ -349,6 +352,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I know the wind and the routes it takes. For anything else, ask someone on the ground." } },
+    cairne = { { id = "tp_cairne", text = "Cairne flew with me once, and he held on so tightly that my wind rider complained for a week. He is a great chieftain, but a poor flyer." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief flies often, and he flies well. I think he likes the sky as much as I do." } },
+    ratchet = { { id = "tp_ratchet", text = "The flight to Ratchet is long and windy, but the sea at the end is worth it. I go there sometimes to remember that the world is bigger than Mulgore." } },
   },
 }
 
@@ -510,6 +516,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I teach weapons, friend, not lore. Ask one of the elders on Elder Rise." } },
+    cairne = { { id = "tp_cairne", text = "Cairne carries a runespear taller than most orcs, and he uses it to protect the herd. I teach my students to do the same with every weapon." } },
+    centaur = { { id = "tp_centaur", text = "The centaur use spears and bows, and they use them well. A tauren must be better, and I teach them to be." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries the Doomhammer, and he lifts it only when talking has failed. That is the mark of a true warrior." } },
   },
 }
 
@@ -676,6 +685,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I don't know, friend. Ask Holt; he knows more than I do about most things." } },
+    centaur = { { id = "tp_centaur", text = "The centaur make bows from the Barrens' thornwood, and they are poor bows. My family's bows are better, and they last longer." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar make no bows at all, which is why they lose. A hunter needs a good bow, and I make the best." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us the wood, and I thank her for every bow I make. A bow made without thanks will always miss." } },
   },
 }
 
@@ -855,6 +867,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Can't say I know it. Ask Aska; she listens to more gossip than I do." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet has the best fishing in the Barrens, and the goblins sell the best bait. I go there when the mesa gets too dry." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay hold a fishing contest every week, they say. I would like to try it, but I am too old to cross the sea." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the fish and the rivers, and she made them to be enjoyed. I enjoy them very much, though there is no river up here." } },
   },
 }
 
@@ -1027,6 +1042,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I don't know, dear. Have something to eat and think about it; that always helps." } },
+    cairne = { { id = "tp_cairne", text = "Cairne eats like a calf, and he never says no to seconds. I cook for him whenever he asks, and he asks often." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is too thin for an orc, and I told him so when he visited the bluff. Cairne laughed for a good long while, and Thrall ate a second bowl to make me stop." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire comes to Mulgore, I cook for the whole crowd, and they eat like they've never seen food. It is the happiest week of my year." } },
   },
 }
 
@@ -1204,6 +1222,9 @@ P:NPC {
 
   topics = {
     grimtotem = { { id = "tp_grimtotem", text = "Magatha's clan. They keep close to the Forsaken, and I'd like to know why." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken apothecaries on Spirit Rise make poisons and call it medicine. I make medicine and call it medicine, and I think the difference matters." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is a poison, and the Forsaken study it. I would rather they studied how to cure it, but they do not listen to me." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us herbs to heal, not to harm. I teach that every alchemist must remember it." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask on Elder Rise; the elders know more than I do." } },
   },
 }
@@ -1369,6 +1390,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I don't know, friend. Perhaps the Earth Mother will tell you, if you listen." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us every herb, and every herb must be thanked. I thank them as I gather them, and they grow back stronger." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the Dream is greener than this world, and I believe them. I dream of the herbs there sometimes, and wake up hungry." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken's apothecaries buy my herbs and never thank me. I sell to them anyway, because Cairne says they are our allies." } },
   },
 }
 
@@ -1537,5 +1561,8 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I don't know. Ask someone who doesn't spend all day with hides." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us the beasts, and the beasts give us their hides. I thank them both for every piece I make." } },
+    centaur = { { id = "tp_centaur", text = "The centaur wear hides poorly, all ragged edges and no care. I would teach them better, if they would stop raiding long enough to learn." } },
+    cairne = { { id = "tp_cairne", text = "Cairne wears a hide I made for him, and he wears it well. I am prouder of that than of anything else I have made." } },
   },
 }

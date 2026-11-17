@@ -195,6 +195,11 @@ P:NPC {
     },
   },
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons brew a stout that's black as their hearts, and I've never had the nerve to try it, since I'm fond of my parts." } },
+    magni = { { id = "tp_magni", text = "King Magni's beard is broad and his laugh is loud, and I'd pour him a pint and be terribly proud." } },
+    deadmines = { { id = "tp_deadmines", text = "They say there's a mine where the Defias hide, so I keep my still on the other side." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire came with its music and lights, and I sold them my lager for three dizzy nights. They drank every barrel before I was through, and I've not been paid yet, so tell them that too." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammers drink like a gryphon flies, high and fast and with tears in their eyes." } },
     background = { { id = "tp_bg", text = "A Thunderbrew born in the halls of the stone, I came south for the barley and stayed on my own." } },
     advice = { { id = "tp_ad", text = "Never drink what ye can't pronounce, friend, and never trust a dwarf who doesn't drink at all." } },
     defias = { { id = "tp_defias", text = "They're thirsty and angry, and some of them sad, and I'd not want to cross them, though some aren't so bad.", next = "defias_sell" } },
@@ -387,6 +392,11 @@ P:NPC {
     },
   },
   topics = {
+    murlocs_east = { { id = "tp_murlocs_east", text = "|" } },
+    booty_bay = { { id = "tp_booty_bay", text = "I fished out of Booty Bay one season, and the sharks there are as big as a rowboat and twice as clever. I came home with all ten fingers, which put me ahead of most." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail sail past the lighthouse now and then, and I keep my head low in the boat when they do. They've no need of a fisherman, but they'd take one anyway, for the fun of it." } },
+    deadmines = { { id = "tp_deadmines", text = "Sometimes at night I hear hammering from the hills behind Moonbrook, slow and steady, like a shipwright. I tell myself it's my ears, and then I row a little faster." } },
+    gilneas = { { id = "tp_gilneas", text = "The fish off the Gilnean coast are cold and sweet, the old sailors say, but nobody's fished there in years. They built a wall, and the sea didn't care, and I suppose the fish didn't either." } },
     background = { { id = "tp_bg", text = "Born in a shack above this beach, and I'll likely die in it, but I'll have eaten well." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the water, friend. Something's always coming out of it." } },
     defias = { { id = "tp_defias", text = "I hear hammering from the cliffs down the shore at night, and I see masked men on the path. I don't go and look, and they don't bother me." } },

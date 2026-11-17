@@ -156,6 +156,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "Unbagwa be a witch doctor of the jungle, and a friend of the gorilla spirits, and a little bit crazy, they say." } },
     advice = { { id = "tp_ad", text = "Never run from a silverback, mon. Walk slow, and look sorry." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls of Zul'Gurub be no friends of the gorillas, mon, they hunt them for their blood magic. Unbagwa keep the gorillas safe from them, as best he can." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of the jungle be strong, mon, and Unbagwa hear them in the trees and in the rain. The gorilla spirits be the loudest, and the friendliest." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Unbagwa went to Booty Bay once, and the goblins tried to buy a gorilla from him. Unbagwa not go back." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be good trolls, mon, and they treat the jungle with respect. Unbagwa like them better than the Gurubashi." } },
     _none = { { id = "tp_none", text = "The spirits don't tell Unbagwa about that, so Unbagwa don't know." } },
   },
 }

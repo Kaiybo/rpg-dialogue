@@ -323,5 +323,12 @@ P:NPC {
     eastvale = { { id = "tp_eastvale", text = "There are loggers below, I'm told. I hear them occasionally, and I try not to." } },
     blackrock = { { id = "tp_blackrock", text = "The orcs in Stonewatch Keep. Morganth used them and threw them away, and I very nearly feel sorry for them." } },
     _none = { { id = "tp_none", text = "If it were worth knowing, I would know it. Draw your own conclusions." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the jewel of the human kingdoms, and the Scourge broke it in an afternoon. The Kirin Tor rebuild behind their walls now and admit almost nobody, and I confess I don't blame them, nor do I write." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor once invited me to join them, and I declined, because I prefer a tower of my own to a chair in somebody else's. That is all the explanation they received, and all you shall." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is necromancy on a scale no sane mage would attempt, and the man behind its plague sat among the Kirin Tor before he chose it. Every mage alive should remember Kel'Thuzad's name and be ashamed of it.", fx = { learn = { "kelthuzad" } } } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad sat on Dalaran's own council before he went hunting forbidden knowledge, and they say he rules the dead now from a citadel that floats above the plaguelands. If he is still a man in any sense, he is a monstrous one." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion is the reason magic must be studied carefully or not at all. Morganth has forgotten that, and one day the Legion will remind him." } },
+    scholomance = { { id = "tp_scholomance", text = "The Scholomance teaches necromancy at Caer Darrow, and its masters serve the Scourge. If any student of mine went there, I would hunt him down myself." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's conjurers are charlatans of the most cheerful sort, and I sometimes walk down to watch them, purely for professional amusement. Do not tell my servants." } },
   },
 }

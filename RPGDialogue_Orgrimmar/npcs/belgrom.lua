@@ -124,6 +124,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Have agents everywhere, and make sure they write often. Half my letters already arrive chewed by the wind riders, so I need the other half." } },
     rimtori = { { id = "tp_rim", text = "Don't say that name too loudly in this valley. When she's dead, I'll say it myself, and gladly." } },
     silithid = { { id = "tp_sil", text = "Korran's bugs. I thought it was nothing, and I've been told it's something, and I'm not too proud to change my mind about bugs." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief relies on me to know what's happening across Kalimdor, and I don't intend to disappoint him again. I won't make the same mistake twice, I'll tell you that." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar and the Galak and their cousins in Desolace are all the same breed, and they're all trouble. My agents watch them, and I watch my agents." } },
+    onyxia = { { id = "tp_onyxia", text = "There's a black dragon in Dustwallow Marsh, and my agents say she's got her claws in more than her own swamp. I don't know what that means yet, and I don't like not knowing." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages are rebuilding their city, and they're not letting anyone through the gates. If an elf mage could fool me in Azshara, I can only guess what the Kirin Tor are hiding." } },
     _none = { { id = "tp_none", text = "Not my concern. If it mattered, one of my agents would have told me already." } },
   },
 }

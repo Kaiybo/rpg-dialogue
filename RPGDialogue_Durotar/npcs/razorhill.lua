@@ -189,6 +189,15 @@ P:NPC {
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Ask your question, and then get out of my barracks." },
     },
     burning_blade = { { id = "tp_blade", text = "That's Orgnil's business, and he's good at it. I give him whatever he asks for." } },
+    thrall = { { id = "tp_thrall", fx = { learn = { "internment" } }, text = "The Warchief freed me from the camps with his own hands, and I've followed him ever since. Razor Hill is his, and I'll hold it for him the way he held the line for us." } },
+    second_war = { { id = "tp_second_war", text = "I was a grunt in the Second War and a prisoner after it. I learned more about holding ground in the camps than I ever did on a battlefield." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls of Sen'jin are good fighters and better neighbours, and they never ask me for anything they wouldn't give back. I'd trust a Darkspear at my side before half the orcs in this town." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar have been pushing in from the west, and Lar Prowltusk watches them for me. If they come over the ridge in force, Razor Hill will meet them, and they won't like the meeting." } },
+    theramore = { { id = "tp_theramore", text = "The humans' fortress is across the water to the south, and Lady Proudmoore keeps her soldiers on her side of it. That's the kind of peace I can respect, as long as it lasts." } },
+    forsaken = {
+      { id = "tp_forsaken", when = { race = "Undead" }, text = "You're one of the Dark Lady's dead, and the Warchief says you're Horde. That's good enough for me, so keep your hands clean in my town." },
+      { id = "tp_forsaken2", text = "The Warchief brought the dead of Lordaeron into the Horde, and some of my grunts don't like it. I tell them what I tell anyone: keep your eyes open and your mouth shut." },
+    },
     _none = { { id = "tp_none", text = "Not now; ask Orgnil, or the innkeeper." } },
   },
 }
@@ -366,6 +375,10 @@ P:NPC {
       { id = "tp_knows", text = "I hear what the Blade whisper, and what the grunts whisper about the Blade. Ask about these, and I'll tell you what I've found." },
     },
     burning_blade = { { id = "tp_blade", text = "They're orcs who chose the demons twice. Once might be forgiven, but twice, never." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries the hope of every orc who's ever been free. That's a weight the Burning Blade would love to see him stumble under, and that's why I'm here." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The demons wanted us for their weapon, and some fools still want to be one. I'll see every cultist in Durotar ash before they get their wish." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal brought us here from a dying world, and what came through with us was worse than any human army. Some of those things are still waiting, and some orcs are still listening." } },
+    scourge = { { id = "tp_scourge", text = "The dead in the north are someone else's war, for now. I've enough living traitors to keep me busy, but I keep an eye on the other one." } },
     _none = { { id = "tp_none", text = "I hunt the Blade, and nothing else is my concern." } },
   },
 }
@@ -525,6 +538,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I pour drinks; I don't keep track of things. Ask Gar'Thok." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief stayed at my inn once, before he had a city, and he paid. That's more than most of his grunts can say." } },
+    darkspear = { { id = "tp_darkspear", text = "The trolls drink as hard as orcs and pay for it slower, but they're never mean drunks. I'll take a troll at the bar over a Kolkar at the gate any day." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar want Durotar, and I'm not sure why, since it's nothing but rock and scorpids. Maybe they want the beds." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins down in Ratchet sell my ale for twice what I charge, I hear. Good for them, as long as they keep buying." } },
   },
 }
 
@@ -679,6 +696,10 @@ P:NPC {
 
   topics = {
     camping = { { id = "tp_camping", text = "Fire first, and then whatever your trade adds: a tent, a rack for fish, a pot. The more hands, the better the rest." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar camp in the open like I do, but they don't put out their fires, and that's how you find them. It's also how they find you, so I put mine out." } },
+    quilboar = { { id = "tp_quilboar", text = "The Razormane are thick down in the Barrens, and they don't like campfires that aren't theirs. If you camp south of the river, sleep light." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief understands the open road, because he walked a long way before he got here. I'd guess he misses it, some nights." } },
+    everlook = { { id = "tp_everlook", text = "I walked to Everlook once, in Winterspring, and I learned that walls have their uses after all. Don't tell anyone in Razor Hill." } },
     _none = { { id = "tp_none", text = "I only know the road and the fire. Ask in Razor Hill." } },
   },
 }

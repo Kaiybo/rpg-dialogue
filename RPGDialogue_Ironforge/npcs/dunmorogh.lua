@@ -213,6 +213,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Pitch your tent upwind of the fire, unless you like your bedding smoked." } },
     camping = { { id = "tp_camping", text = "A fire first, and cooks can make one, then each trade adds its piece. A good camp is a little town for the night.", next = "camp" } },
     frostmane = { { id = "tp_frostmane", text = "They're up on Shimmer Ridge, mostly. Don't camp near the ridge, and don't camp near anyone who does." } },
+    wildhammer = { { id = "tp_wildhammer", text = "I camped wi' a Wildhammer once, up in the Hinterlands, an' he talked tae his gryphon all night long. Fine company, the pair o' them, though the bird snored." } },
+    everlook = { { id = "tp_everlook", text = "I walked tae Everlook once, all the way up through Winterspring, an' I've never been so cold in my life, an' I'm from Dun Morogh. The goblins there sell hot cider, an' they know exactly what it's worth." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw up in Felwood an' Winterspring are the only bears I've ever traded wi' instead o' runnin' from. Bring them a gift an' mind yer manners, an' they'll let ye camp in their tunnels." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I followed the Darkmoon Faire round fer a season when I was young an' foolish. Slept under its wagons an' ate its terrible food, an' I'd do it again in a heartbeat." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask at the Thunderbrew; somebody there knows everything, and the rest is made up." } },
   },
 }
@@ -418,6 +422,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I carry the mail, an' that's the story. It's a short one an' mostly cold, an' twice this winter a ram's tried tae eat the satchel." } },
     advice = { { id = "tp_ad", text = "Gloves. I'll say it again, an' I'll keep sayin' it: gloves." } },
     troggs = { { id = "tp_troggs", text = "Once ye've seen one trogg, ye've seen 'em all, an' I've seen 'em all.", next = "troggs" } },
+    scourge = { { id = "tp_scourge", text = "I've had a couple o' recruits come up from Lordaeron, an' they fight like they've seen worse than troggs, because they have. I dinnae ask, an' they dinnae tell." } },
+    magni = { { id = "tp_magni", text = "The King came tae Anvilmar once tae see the recruits, an' half o' them dropped their swords. Fine king, loud voice, an' he knew my name, which I'll admit I liked." } },
+    second_war = { { id = "tp_second_war", text = "Coldridge Valley was full o' soldiers in the Second War, an' the Horde never got near Anvilmar. I like tae think we had somethin' tae do wi' that." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye. Ask Grelin; he's from the Senate, so he's meant to know things." } },
   },
 }
@@ -636,6 +643,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the Senate's special envoy, an' brother to Senir, who'll tell ye he's the clever one." } },
     advice = { { id = "tp_ad", text = "Never leave yer camp unattended. I did once, an' came back tae find a Frostmane troll wearin' my good boots." } },
     frostmane = { { id = "tp_frostmane", text = "They're up to somethin'. I can feel it in my beard, an' my beard's rarely wrong.", next = "trolls" } },
+    magni = { { id = "tp_magni", text = "I serve the King's envoy office an' I'm loyal tae him down tae the bone, so dinnae ask me tae gossip about him. He's a good king, an' that's the whole o' my report." } },
+    troggs = { { id = "tp_troggs", text = "The troggs an' the Frostmane are both trouble, but only one o' them can be reasoned wi', an' it isnae the troggs. Write that down, if ye've a pencil." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Rough-mannered cousins wi' painted faces an' no notion o' proper protocol. I'd still rather negotiate wi' a Wildhammer than wi' a Frostmane, mind." } },
+    darkspear = { { id = "tp_darkspear", text = "Trolls that side wi' the orcs, I'm told, an' cleaner-livin' than our Frostmane by a long road. I'd like tae meet one an' see if it's true." } },
     _none = { { id = "tp_none", text = "That's no' in my report. Ask Senir, in Kharanos." } },
   },
 }
@@ -848,6 +859,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm an envoy o' the Senate, Grelin's brother, an' the one who got the warm posting, though it's still cold." } },
     advice = { { id = "tp_ad", text = "Follow the directions ye're given, an' ye'll do fine. Mine are excellent." } },
     frostmane = { { id = "tp_frostmane", text = "There's too many in that hold to count from outside, but I counted anyway.", next = "hold" } },
+    troggs = { { id = "tp_troggs", text = "Troggs everywhere, up from the deep places, an' the quarry's full o' them. Ask anybody in Kharanos an' they'll tell ye the same, wi' more swearin'." } },
+    magni = { { id = "tp_magni", text = "The King's a good man an' a better dwarf, an' my brother would tell ye he's the best o' both. Grelin's never been wrong about the King, which is more than I can say about him on most things." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes came up the road from Gnomeregan wi' nothin' but their goggles, an' Kharanos took them in. It was a hard night, an' I'm glad we were the kind o' town that opened the door." } },
     _none = { { id = "tp_none", text = "That's no' a matter fer an envoy. Try the distillery; they know everythin' after the third pint." } },
   },
 }
@@ -1101,6 +1115,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm part owner o' the finest distillery in Dun Morogh. The other part's family, an' family's complicated.", next = "family" } },
     advice = { { id = "tp_ad", text = "Never trust a boar that's too easy to catch. It's either sick or it's a trap, an' both ruin ribs." } },
     dark_iron = { { id = "tp_dark_iron", text = "Don't get me started on the Dark Irons. They'd steal the froth off yer ale if ye looked away." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys my ale by the barrel, an' I've heard the pirates water it down an' sell it twice. Criminal, an' I'd say so tae the Baron's face." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's beer is an insult tae every honest brewer in Dun Morogh. Bring me a mug o' it an' I'll pour it out an' show ye what ale should taste like." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer brew wi' honey an' herbs an' call it ale, an' it's no' bad, I'll grant them that. I'd still put Thunderbrew up against it in a fair fight." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's goblins asked me fer a hundred kegs an' offered tae pay in gnomish shares, an' I'm no' that daft. They can drink snow." } },
     _none = { { id = "tp_none", text = "Couldnae say. Have a drink an' ask again, an' the answer might come to me." } },
   },
 }
@@ -1298,6 +1316,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've poured ale in Kharanos longer than I'd admit. I've seen the Frostmane come down an' go back up again, an' the ale stayed." } },
     advice = { { id = "tp_ad", text = "Sleep here before ye go up the mountain. Ironforge never stops hammerin', not even at night." } },
     frostmane = { { id = "tp_frostmane", text = "They came at us once, an' we've a gnome to thank it didnae go worse.", next = "lazlo" } },
+    magni = { { id = "tp_magni", text = "The King's never set foot in my inn, but his brother Brann did once an' ate three plates o' ribs. Talked the whole time about some ruin in the Badlands an' never paid." } },
+    scourge = { { id = "tp_scourge", text = "Refugees from the north come through Kharanos now an' then, on their way tae Ironforge. I give them a bed an' dinnae ask, for they've seen enough." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire passed near here once, years back, an' Kharanos hasnae stopped talkin' about it. I sold more ale that week than I sell all winter." } },
     _none = { { id = "tp_none", text = "I pour, I listen, an' I forget, mostly the third." } },
   },
 }

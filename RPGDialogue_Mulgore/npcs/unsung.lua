@@ -166,6 +166,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "That I do not know, young one. Ask Grull or the chief, who see farther than I do." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback are the first enemy every brave in Narache meets, and they are a good teacher. Tough, mean, and never willing to give up, which is what I want my braves to learn." } },
+    cairne = { { id = "tp_cairne", text = "Cairne carried river stones up the hill when he was a calf, just as my braves do now. He told me so himself, and I believe him." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us these stones and this hill, and I use them both. My braves complain, but they get stronger, and she is pleased." } },
   },
 }
 
@@ -323,6 +326,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "That is not mine to know, little one. Ask the elders at Bloodhoof, or the chief." } },
+    the_elements = { { id = "tp_the_elements", text = "The elements are not servants, and they are not to be commanded. A shaman listens first, asks second, and only acts when the spirits agree." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is the source of all the spirits, and every shaman must honour her. I teach the young to thank her before they ask anything of the elements." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a shaman, and that is a great comfort to me. A leader who listens to the spirits will not lead his people astray." } },
   },
 }
 
@@ -482,6 +488,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I know the beasts and the grass, but I don't know that. Ask Grull Hawkwind." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Emerald Dream is where the druids go in sleep, and the night elves taught us how. I am grateful to them for that, whatever the orcs think of them." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune, and the tauren pray to the Earth Mother. I think they are both looking at the same moon, but the night elves never let us say so." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made every creature in Mulgore, and I spend my days learning about them. I am more interested in the plainstriders than in the people, I confess." } },
+    cenarion_circle = { { id = "tp_cenarion_circle", text = "The Cenarion Circle is the order of druids that the night elves founded, and they let the tauren join after the war on Hyjal. Hamuul is one of them, and I hope to be one day." } },
   },
 }
 
@@ -635,6 +645,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "That is beyond an axe-teacher, friend, so take your question to Baine Bloodhoof." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest warrior the tauren have ever had, and he has never needed to prove it. He is proof that strength and wisdom can live in the same body." } },
+    centaur = { { id = "tp_centaur", text = "The centaur raided our borders for generations, and I have fought them more times than I can count. Mulgore is ours now, and I walk its borders so it stays ours." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief helped us drive off the centaur, and he asked only for our friendship. The tauren became warriors of the Horde because of him, and I am proud of it." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback press on our southern border, and I send my students there first. A tauren who can fight a quilboar can fight anything." } },
   },
 }
 
@@ -795,6 +809,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Weapons I know, but not that. Ask someone else in the village." } },
+    centaur = { { id = "tp_centaur", text = "The centaur use spears, which are fine weapons for a centaur. A tauren needs something bigger, because a spear looks like a toothpick in our hands." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar use thorns and bones, which break easily. A good tauren axe will last a lifetime, and I have the axes to prove it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne carries a runespear that is taller than most orcs, and it suits him. I would like to make a weapon that fine one day." } },
   },
 }
 
@@ -956,5 +973,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Oh, I wouldn't know that, little one. I know flour and ovens, and that's about it." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gives us the wheat, and I thank her for every loaf. The fields of Mulgore are her gift, and I bake her thanks into the bread." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire comes, I sell more bread than in the whole season before it. The Faire folk eat like they have never seen bread before, and maybe they haven't." } },
+    cairne = { { id = "tp_cairne", text = "Cairne likes my bread, and he always asks which farm the wheat came from. He is a chieftain who remembers the small things, and that is why we love him." } },
+    quilboar = { { id = "tp_quilboar", text = "The Bristleback trample the southern fields, and the farmers are angry. I wish someone would teach them to grow their own grain." } },
   },
 }

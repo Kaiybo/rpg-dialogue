@@ -212,6 +212,12 @@ P:NPC {
     background = { { id = "tp_ba", text = "Ironforge born, Explorers' League sworn, an' now a dwarf in the Badlands without his partner.", next = "hammertoe" } },
     advice = { { id = "tp_ad", text = "Mark yer way in, so ye can find yer way out. Hammertoe never did." } },
     uldaman = { { id = "tp_uldaman", text = "If the League's right, the answer tae where we dwarves came from is under these hills, an' that's worth a few bruises. Maybe it's no' worth Hammertoe." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni sent the League out to find our people's past, an' some days I think he'd rather we found it than kept findin' our own graves. I'd like to bring him somethin' worth the cost." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye've got the mountain in yer voice, friend, so ye'll know what it means when the king takes an interest. Magni wants Uldaman's secrets, an' I mean to give them to him." },
+    },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are sniffin' round the dig sites, an' I don't like it. Whatever they want in the Badlands, it's no' for the good o' Ironforge." } },
+    troggs = { { id = "tp_troggs", text = "The troggs came up out o' Uldaman like water out o' a broken pipe. They're stupid an' strong an' there's no end to them." } },
     _none = { { id = "tp_none", text = "Couldnae say; I'm a digger, no' a sage." } },
   },
 }
@@ -460,6 +466,10 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "A scholar with too many subjects and one very patient assistant. The Assembly is the rest of my life's work, once it exists.", next = "assembly" } },
     advice = { { id = "tp_ad", text = "Never assume a rock is just a rock. Out here, about one in fifty is an elemental having a nap." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman is a wonder, a titan vault with stone guardians that still answer to old commands. I'd give anything to understand how they're made." } },
+    the_elements = { { id = "tp_the_elements", text = "The elementals of the Badlands are fascinating, made of stone and bound by forces I can only guess at. I'd like to bind one myself, very carefully, of course." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's scholars would laugh at my Assembly, I suspect, and then they'd steal the plans. I'll keep my work in the desert, where only the vultures can read it." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor never quite approved of my research, and I never quite asked them to. We've reached an understanding." } },
     _none = { { id = "tp_none", text = "Fascinating! I know nothing about it, so tell me everything." } },
   },
 }

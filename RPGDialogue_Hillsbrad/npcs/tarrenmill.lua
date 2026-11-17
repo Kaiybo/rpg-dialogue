@@ -334,6 +334,13 @@ P:NPC {
     new_plague = { { id = "tp_plague", text = "The Society's work. Until it is ready, we hold the fields.", next = "plague" } },
     background = { { id = "tp_bg", text = "I died for Lordaeron, and now I take it back for the Dark Lady. The account is simple.", next = "why" } },
     advice = { { id = "tp_ad", text = "Do not linger near Southshore's walls. Their guards are bored, and bored men shoot first." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady broke the Lich King's hold on our minds, and she gave us a kingdom from the ruins of the old. Every field I take from Southshore is a field I lay at her feet." }, { id = "tp_sylvanas2", when = { faction = "Alliance" }, text = "You serve the living kings who left us to rot, and you ask me about my queen? She will outlast every one of them, and I will see it." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are the Lich King's slaves, and we were once among them. I hate them more than any human could, because I remember what it was to be one." } },
+    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, and we have chosen our own path, and we owe nothing to the living. Southshore will learn that, one field at a time." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is an ally of convenience, and the Dark Lady treats with him as one. He sends his orcs to Hammerfall and Tarren Mill, and I make use of them as I can." } },
+    arthas = { { id = "tp_arthas", text = "The prince of Lordaeron unmade us all, and he will pay for it in time. I would like to be there when he does, and I intend to be." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron is ours now, the dead kingdom of the dead, and the living can mourn it from Southshore. We remember it better than they do, because we died in it." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme belongs to the Scourge and to the Scarlet zealots, and both will answer to the Dark Lady in time. I've sent scouts there, and few of them have come back." } },
     _none = { { id = "tp_none", text = "That is irrelevant to the front. Ask someone with less to do." } },
   },
 }
@@ -591,6 +598,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Royal Apothecary Society, and before that, alive. I think I preferred it, though I can't recall why.", next = "misery" } },
     advice = { { id = "tp_ad", text = "Never test on yourself; use a frog. Frogs complain less, and they come back." } },
     venture_company = { { id = "tp_venture", text = "Goblins in Stonetalon, cutting down everything that grows. I'd almost admire them, if they'd do it quietly." } },
+    forsaken = { { id = "tp_forsaken", text = "We are what the plague left behind, and I am what my work has made of me. I feel very little now, except about Umpi, and about my vials." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is crude, and wasteful, and I could do better in an afternoon. That is not a boast, merely a statement of fact." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady funds my work, and I am grateful, insofar as I am anything. I serve her with my vials and my patience." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't much care. Few things interest me, and that isn't one." } },
   },
 }
@@ -789,6 +799,9 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I keep the inn. What came before that I don't talk about, and nobody here does." } },
     advice = { { id = "tp_ad", text = "Don't sit by the window after dark. Southshore's scouts like windows." } },
+    forsaken = { { id = "tp_forsaken", text = "We are the Forsaken, and my inn is for the living allies and the dead who still like to sit down. The chairs are comfortable, even if we don't need them." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady rules from the Undercity, and Tarren Mill is her front against Southshore. She's never visited my inn, and I'd not expect her to." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge come down from the north sometimes, and we put them back in the ground. It's a dry business, but someone has to do it." } },
     _none = { { id = "tp_none", text = "Ask the High Executor, or better, don't; she doesn't like questions." } },
   },
 }

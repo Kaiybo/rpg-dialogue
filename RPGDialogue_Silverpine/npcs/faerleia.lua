@@ -134,6 +134,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "I serve the Dark Lady and I stand in dark rooms. That's all of my story that's useful to you." } },
     advice = { { id = "tp_ad", text = "Learn where the floor creaks before you need to know, because finding out during a fight is too late." } },
     worgen = { { id = "tp_worgen", text = "They come out of Pyrewood's windows at night and go back in at dawn. Draw your own conclusions; mine are already drawn." } },
+    shadowfang = { { id = "tp_shadowfang", text = "Arugal sits in Shadowfang Keep and calls the worgen his children, and Pyrewood pays for his madness every night. Cut the strings in the village, and the keep will start to shake." } },
+    gilneas = { { id = "tp_gilneas", text = "The Gilneans walled themselves off from Lordaeron before the plague ever came, and they let us all die on the other side. Some of their wall's shadow still falls on Pyrewood." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages squat in Ambermill as though Silverpine were theirs to take. They're rebuilding their city behind its shields, and they've decided they want a garden." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady sends her Deathstalkers where others won't go, and I go where I'm sent. That's the whole of it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken can wait in a dark room for days without growing bored or restless. It's the one trick the living can never learn." } },
     _none = { { id = "tp_none", text = "Not my concern while the Council's alive. Ask me again when they aren't." } },
   },
 }

@@ -204,6 +204,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "Ironforge born, Feranor Steeltoe's apprentice, and now the camp smith at a dig nobody's digging. It's been a strange year." } },
     advice = { { id = "tp_ad", text = "Never leave a dig without your supper, friend, because the ogres won't save you any." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's where the real digging is, and I'd go there if I had the gold. Here I just sharpen the shovels." } },
+    magni = { { id = "tp_magni", text = "King Magni's a good king, and I'd make him a sword if I ever got the chance. I've got the design all worked out." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make the best steel in the world, and I'd learn their secrets if they weren't so busy trying to kill us." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend; I know steel and sand, and lately mostly sand." } },
   },
 }

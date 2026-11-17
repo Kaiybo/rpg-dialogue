@@ -218,6 +218,15 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "My grandfather fought the Horde in the Second War, and he'd say the orcs never fought for land, only for the fighting. I didn't believe him until I saw the inside of Stonewatch after they took it." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "When they had me in the cages, the guards talked about the mountain to the north as if it were their capital. Every order seemed to come down from that spire, and every captive who went up the road never came back." } },
+    internment = { { id = "tp_internment", text = "One of the guards at Render's Rock spoke good Common, and he told me he'd spent ten years in one of our camps. He said it like I owed him something, and I'm not sure he was wrong, which is the worst thing he did to me." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Blackrock were among the first orcs through the Dark Portal, so I'm told, and they've never once gone home. I'll say this for them: they're stubborn, which is the only thing we have in common." } },
+    bolvar = { { id = "tp_bolvar", text = "I'd like a word with the Highlord about how many men Stonewatch had when it fell. I'd say it politely, mind, because I'm still a soldier, but I'd say it." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "I prayed to the Light every night in the cage, and some nights it was the only thing that answered. I'm not a pious man, but I'm not ashamed to say that." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "I prayed every night in that cage, paladin, and you're the first of the Light's soldiers I've seen since. I don't know if that's an answer or a coincidence, and I'll take either." },
+    },
     knows = {
       { id = "tp_knows", text = "I've seen more of the Blackrock than any man in Lakeshire would want to, from both sides of the bars. Ask me about any of this." },
     },

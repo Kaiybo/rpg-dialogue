@@ -184,6 +184,10 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Defias are holed up in the old Moonbrook mines, and half my guests are on their way there or back from it. The ones coming back sleep for two days and don't talk about it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I took a day off for the Darkmoon Faire once, and when I got back, the dust had moved into every room and set up house. I've not taken a day off since, and I think the dust remembers." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A guest left me a bottle of Booty Bay rum once and swore it was good for the nerves. It's still on the shelf, because I'd not know what to do with nerves that didn't jump at every knock." } },
+    the_stockade = { { id = "tp_the_stockade", text = "Some of my guests say the Stockade's full of Defias who'll be back in Westfall by summer. I keep a few extra rooms ready, because I've learned to expect the worst and charge for it." } },
     knows = {
       { id = "tp_knows", text = "Everyone on the hill comes through my door for a bed or a bowl, and they all talk. Ask me about any of this." },
     },
@@ -378,6 +382,10 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "Gryan's got a pile of requisitions on my desk for the day we go into the Deadmines, and I've not got half of what's on them. I'll make do, as I always do, though I'd like to make do with more." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I could get proper supplies from Booty Bay if the road south weren't full of trolls and the sea weren't full of pirates. As it is, I get what Stormwind sends me, which is mostly paperwork." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The Stonemasons built Sentinel Hill's tower, and I've their ledgers somewhere in this wagon. Nobody paid them for it either, and I keep those pages folded so I don't have to read them." } },
+    second_war = { { id = "tp_second_war", text = "I kept the books for a supply train in the Second War, and I've been counting arrows ever since. The numbers were worse then, but I was younger and they didn't feel as heavy." } },
     background = { { id = "tp_bg", text = "A quartermaster. The ledger's the only history I keep, and it's mostly losses." } },
     advice = { { id = "tp_ad", text = "Buy food before you need it. Out here the bread runs out before the hunger does." } },
     trade = { { id = "tp_tr", text = "General goods for a hill at war: what I have, I sell, and what I don't have was stolen.", next = "ledger" } },
@@ -559,6 +567,11 @@ P:NPC {
   },
 
   topics = {
+    wildhammer = { { id = "tp_wildhammer", text = "My gryphons were bred by the Wildhammers at Aerie Peak, and they've never let me forget it. They think a man on a saddle is an insult, and I suspect they're right." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "My birds won't fly within a league of that black mountain north of Redridge, and I've stopped trying to make them. A gryphon knows when there's something bigger in the sky, and that's enough for me." } },
+    dark_portal = { { id = "tp_dark_portal", text = "I flew a message to Nethergarde once and saw the Dark Portal from above, a great black gate standing in a red waste. The bird turned back on its own, and I didn't argue." } },
+    deadmines = { { id = "tp_deadmines", text = "My gryphons won't land near Moonbrook, because the Defias have taken to shooting at anything with wings. I'd rather a bird be sulky than dead, so I fly the long way round." } },
+    onyxia = { { id = "tp_onyxia", text = "Some of the riders who fly south to Theramore say there's a black dragon in the marshes there who'd eat a gryphon whole. I've told my birds about her, and they've been behaving ever since." } },
     background = { { id = "tp_bg", text = "I'm the gryphon master, and that's the whole of it. The birds don't care where I came from, so neither do I." } },
     advice = { { id = "tp_ad", text = "Fly over trouble, not through it, and never feed a gryphon from your hand. I did it once, and never again." } },
     trade = { { id = "tp_tr", text = "Rides out of Westfall for a little coin. Cheaper than walking, safer than the road.", next = "routes" } },
@@ -756,6 +769,10 @@ P:NPC {
   },
 
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "I can see the road to Moonbrook from this tower, and I watch the Defias carts go in and never come out. Whatever they're building down there, they're building it big." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail have been anchoring off the coast at night, and I've seen their lanterns from up here. If they're trading with the Defias, I'd like to know what for, and I'd like to know before they do." } },
+    si7 = { { id = "tp_si7", text = "SI:7 sends a man to look at our maps now and then, and he never introduces himself. I've started leaving a few wrong pins on the map, just to see if anyone notices." } },
+    sentinels = { { id = "tp_sentinels", text = "The night elf Sentinels can watch a forest for a week without blinking, so I'm told. I'd like to learn their trick, because I've been on this tower for three days and I'm seeing gnolls in my sleep." } },
     background = { { id = "tp_bg", text = "I scout for the militia, and before that there's nothing worth the telling. The tower's where I live now, near enough." } },
     advice = { { id = "tp_ad", text = "Look up before you walk into a valley, because someone's always on the ridge. Make sure it's me." } },
     defias = { { id = "tp_defias", text = "They're organised, and that's what scares me. Bandits don't post watches, but these do." } },
@@ -929,6 +946,9 @@ P:NPC {
   },
 
   topics = {
+    sentinels = { { id = "tp_sentinels", text = "The night elves make bows from their own trees and string them with something I've never seen this side of the sea. I'd trade my whole stock for one, and still feel I'd got the better deal." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sold bows at the Darkmoon Faire one summer, and a gnome bought one twice his height just to see if he could. He couldn't, but he paid, and that's what counts." } },
+    deadmines = { { id = "tp_deadmines", text = "The Defias are dug into the old mines under Moonbrook, and they've been buying arrows from somebody who isn't me. I'd like to know who, because that's my trade they're stealing as well." } },
     background = { { id = "tp_bg", text = "I'm a bowyer, working Westfall wood with Westfall patience, and there's nothing else worth telling." } },
     advice = { { id = "tp_ad", text = "Keep your string dry and your quiver full. Out here you won't get a second chance to restock." } },
     _none = { { id = "tp_none", text = "I sell bows, friend, so ask me about bows." } },

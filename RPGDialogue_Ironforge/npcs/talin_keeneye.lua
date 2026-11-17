@@ -140,6 +140,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I hunt, I eat what I hunt, an' I pass on Sten's mail when I have tae. It's a good life when there's fewer boars in it." } },
     advice = { { id = "tp_ad", text = "Step aside when it charges. That's all the advice a body needs in Coldridge." } },
     troggs = { { id = "tp_troggs", text = "I dinnae hunt troggs; there's no meat on them worth the name. Ask Balir, for he hates them enough fer the both of us." } },
+    frostmane = { { id = "tp_frostmane", text = "The Frostmane hunt the same boars as me, an' they're no' bad at it, which I'll only admit tae ye. We stay out o' each other's way, an' it works." } },
+    wildhammer = { { id = "tp_wildhammer", text = "I've hunted wi' a Wildhammer once, an' he shot from his gryphon an' hit the boar right between the eyes. Show-off, an' I've been jealous ever since." } },
+    timbermaw = { { id = "tp_timbermaw", text = "There's bears in the north that talk, I'm told, an' I'd love tae ask one how it feels about boar. I suspect we'd get on." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, friend. I know boars, an' I know which way the wind's blowin', an' that's about it." } },
   },
 }

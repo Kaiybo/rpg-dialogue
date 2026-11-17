@@ -126,6 +126,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep the camps an' the recruits in Coldridge. Lately that means countin' what the troggs took." } },
     advice = { { id = "tp_ad", text = "Kill the burly ones first. The rest lose their nerve once the big ones fall." } },
     troggs = { { id = "tp_troggs", text = "They're everywhere this year, an' I'd give a month's pay tae know why.", next = "where" } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "The troggs came up out o' Gnomeregan first, an' now they're in my valley burnin' my camp. If the gnomes couldnae hold them wi' all their machines, I'd like tae know what I'm supposed tae do wi' an axe." } },
+    magni = { { id = "tp_magni", text = "The King's got troubles enough without hearin' about one burnt camp in Coldridge. Still, I'd like him tae know, an' I'd like him tae send more than one envoy." } },
+    scourge = { { id = "tp_scourge", text = "They say the dead walk in the north o' Lordaeron, an' I believe it, for I've seen the faces on the refugees. I'll take troggs over that, an' I never thought I'd say so." } },
     _none = { { id = "tp_none", text = "I couldnae say. Ask Sten; he hears everythin' that comes through on the mail." } },
   },
 }

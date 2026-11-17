@@ -103,6 +103,14 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = {
+      { id = "tp_the_stockade", text = "Targorr the Dread was sentenced to die and sent to the Stockade to wait, and now I hear the prisoners have taken the place over. I'd go in myself if the Marshal could spare me, and I'd see the sentence carried out." },
+      { id = "tp_the_stockade2", when = { questDone = TODO_QUEST("Shadow of the Past") }, text = "|" },
+    },
+    prestor = { { id = "tp_prestor", text = "Some noble with a soft voice is said to be the reason condemned orcs keep breathing in the Stockade. I don't know which one, and that's how they like it, I suppose." } },
+    bolvar = { { id = "tp_bolvar", text = "The Regent's an honest man, I'm told, but the court around him is a nest of favours. A sentence of death oughtn't to need a friend at court to be carried out." } },
+    internment = { { id = "tp_internment", text = "Every orc that was ever in a camp got out sooner or later, and half of them came here. If the kingdoms had hanged the worst of them, I'd have a quieter post." } },
+    thrall = { { id = "tp_thrall", text = "The new warchief's name is Thrall, so they say, and he was raised in a human fortress. That hasn't made his orcs any gentler where I stand." } },
     background = { { id = "tp_bg", text = "Lakeshire born, Lakeshire watch. I've stood outside this inn through two winters of Blackrock raids." } },
     advice = { { id = "tp_ad", text = "Don't trust a sentence until you've seen it carried out." } },
     blackrock = { { id = "tp_blackrock", text = "Targorr was one of theirs, and there's plenty more up the valley.", next = "targorr" } },

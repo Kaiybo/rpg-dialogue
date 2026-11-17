@@ -110,6 +110,12 @@ P:NPC {
   },
 
   topics = {
+    wildhammer = { { id = "tp_wildhammer", text = "My kin are Bronzebeards, but I've worked iron for Wildhammers out of Aerie Peak, and they pay in gryphon feathers half the time. Good fighters, mind, though they'd sooner drink than settle a bill." } },
+    explorers_league = { { id = "tp_explorers_league", text = "My brother Daewyn went off with an Explorers' League dig into the Wetlands, all maps and big talk about the old world. He's stopped writing, and I can't call that normal any longer." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a stain on every dwarf alive, and I'll not hear excuses for them. They're thick in the Burning Steppes, just past those hills, and I'd hammer a few of their helms flat for free." } },
+    magni = { { id = "tp_magni", text = "King Magni's a fine king with a fine beard, and he'd see my brother found if I could get word to him. Ironforge is a long road from Lakeshire, though, and kings have bigger worries than one lost digger." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's where the League goes when they want to dig something up that's best left buried. If Daewyn's gone on to those badlands, he's a bigger fool than I took him for, and I love him anyway." } },
+    thandol_span = { { id = "tp_thandol_span", text = "If my brother came back from the Wetlands, he'd have to cross the Thandol Span, and I hear the Dark Irons have been at it with powder. I'd not trust that bridge with a heavy pack, never mind a dwarf." } },
     background = { { id = "tp_bg", text = "Smith from Khaz Modan, armorer in Lakeshire, an' a brother, or I was." } },
     advice = { { id = "tp_ad", text = "Armour that doesn't fit is worse than none, for ye'll trust it." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye. Ask at the inn; they hear more than I do over this hammer." } },

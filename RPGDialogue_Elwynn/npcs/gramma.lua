@@ -336,5 +336,10 @@ P:NPC {
     lions_pride = { { id = "tp_inn", text = "William Pestle keeps a room there. We go back further than either of us likes to say." } },
     defias = { { id = "tp_defias", text = "Thieves in red. When I was a girl, thieves had the decency to be ashamed of themselves." } },
     _none = { { id = "tp_none", text = "At my age you stop collecting gossip. You start collecting chairs." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "I was a girl when the orcs came through and put Goldshire to the torch, child, and some of the names on the stone at Stone Cairn Lake were folk I knew. I don't go out there now, but I remember them on the right days." } },
+    holy_light = { { id = "tp_holy_light", text = "I've prayed to the Light every morning for longer than most folk have been alive, and it's never once answered me in words. It answers in other ways, if you're patient and don't mind waiting." } },
+    varian = { { id = "tp_varian", text = "I remember when the king came home from Lordaeron as a young man to take his father's throne, and the whole valley turned out to cheer him. I hope that wherever he is now, somebody's feeding him properly." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's been coming to Goldshire for years, child, and I've not missed it once, though I only watch now. A little music does an old woman more good than any of William's tonics." } },
+    scourge = { { id = "tp_scourge", text = "William tells me the plague in the north came in the grain and turned folk into walking dead, and he's a sensible man. I've told Tommy Joe to buy no grain he can't trace, and he looks at me as though I'm wandering." } },
   },
 }

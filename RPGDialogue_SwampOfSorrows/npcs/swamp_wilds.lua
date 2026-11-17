@@ -213,6 +213,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I'm a trader, friend, an honest one, mostly. I buy cheap and sell dear, and sometimes I get caught by murlocs." } },
     advice = { { id = "tp_ad", text = "Don't take shortcuts through the swamp, friend. Take it from a man who's been sitting in a cage for days." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where I'd sell this strongbox's contents, friend, if I ever get out of this cage. Help me out, and I'll tell you what's in it." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon's a fine man, friend, I'm sure, but he's never sent a single patrol to this swamp. A trader's on his own out here." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy in Stormwind during the Second War, and I learned then that a trader should always keep one foot out the door. I forgot the lesson, apparently." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The trolls around the Sunken Temple are bad for business, friend, and worse for your health. I'd keep well clear." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, friend. Can we talk about getting me out of here?" } },
   },
 }
@@ -406,6 +410,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was a commander of the Horde, and now I am a shade on a swamp road. That is all the tale I'll tell for now." } },
     advice = { { id = "tp_ad", text = "When you lead, young one, know where your orders are. I did not, and nineteen soldiers paid for it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief named my regiment for himself, and I gave the orders that broke it. I hope he never learns my name, so he can't curse it." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War when I was young, and I came through it whole. This swamp did what the Alliance couldn't." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The demons came from the Portal's shadow, from the Tainted Scar, and they took my men one by one. Kirith was the last, and the worst." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's servants still walk the Blasted Lands, and they remember the old Horde's pacts. They used that to break my regiment." } },
     _none = { { id = "tp_none", text = "I know nothing of that. The dead hear little news." } },
   },
 }

@@ -188,6 +188,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I raise frostsabers, and I have done for longer than most humans live." } },
+    elune = { { id = "tp_elune", text = "Elune blesses the frostsabers of Winterspring, and they're the finest mounts the Kaldorei know. A rider who earns one earns her blessing too." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess rides a frostsaber of her own, and every rider in Kalimdor wants one like it. I tell them it takes seasons of work, and I mean seasons." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels ride the cats of Ashenvale and Darnassus, but the best of them ride mine. I'm proud of every one of them." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw leave my cats alone, and I leave their tunnels alone. It's a fair arrangement, and it's lasted many years." } },
     _none = { { id = "tp_none", text = "I don't know. The cubs might, but they're not telling." } },
   },
 }
@@ -391,6 +395,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Salfa is Timbermaw, and Salfa keeps the cold door." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are the last furbolgs who remember the old ways. We guard our tunnels, and we're fair to those who earn it." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids taught our people of the Dream, long ago. Now the Winterfall forget the old teachings, and it grieves us." } },
+    satyrs = { { id = "tp_satyrs", text = "The satyrs of the south are a sickness on the land, and the Timbermaw fight them wherever we find them. Your kind should do the same." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The World Tree stands on Hyjal, and the Timbermaw have guarded its slopes since before your kind came to this land. We remember." } },
     _none = { { id = "tp_none", text = "Salfa does not know. Salfa watches tunnels, not the world." } },
   },
 }
@@ -580,6 +588,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a priestess of the Temple of the Moon, though I've spent more time in the snow than in the temple lately." } },
+    elune = { { id = "tp_elune", text = "Elune's light still shines on the old altars of Winterspring, if you know how to wake them. I mean to light every one of them, whatever waits around them." } },
+    sisterhood_of_elune = { { id = "tp_sisterhood_of_elune", text = "The Sisterhood serves Elune in Darnassus and in every corner of Kalimdor. I'm one of them, though I've wandered further than most." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess sent me north to see what remains of the old shrines. I'd like to bring her good news." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne built the altars I'm lighting, before they fell to their pride. I try not to think about that too much." } },
     _none = { { id = "tp_none", text = "I don't know that one, but I'll ask Elune tonight, if you like." } },
   },
 }
@@ -758,6 +770,9 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I am of the blue flight, and older than your oldest city." } },
+    dalaran = { { id = "tp_dalaran", text = "The mortal mages of Dalaran play with the arcane like children with fire. They are rebuilding their city now, and they will doubtless burn it down again." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor call themselves the masters of magic, and the blue flight finds that very amusing. They have mastered nothing, except perhaps their own conceit." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne meddled with the Well of Eternity and brought ruin on the world. My kind remembers, and we watch the mortals who would follow them." } },
     _none = { { id = "tp_none", text = "That is not a question worth a dragon's breath, little one." } },
   },
 }
@@ -936,6 +951,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I was Highborne, once, and a fool. Now I'm only the fool." } },
+    satyrs = { { id = "tp_satyrs", text = "The satyrs were Highborne once, in the old days, and every one of us made a bargain to become what we are. I regret mine every day, and I've no one to blame but myself." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Burning Legion promised us power, and gave us horns and hooves instead. Never make a bargain with a demon, mortal, because they always win." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne were the finest of the Kaldorei, and the proudest. They fell because of their pride, and I followed their example far too closely." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Azshara led the Highborne to ruin in the old days, and they say she was the most beautiful being in the world. I've learned that beauty and ruin keep very close company." } },
     _none = { { id = "tp_none", text = "Lorax doesn't know, and Lorax has stopped pretending to." } },
   },
 }
@@ -1121,6 +1140,10 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm Steamwheedle through and through, chum, and I feed Everlook at a modest profit, which is the best kind." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's the coldest town in the world, pal, and my soup is the warmest thing in it. One bowl, and you'll forget you ever had feet." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got good cooks, but they've never had to cook for the cold. Try my soup, and you'll know the difference." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's hot enough to cook an egg on the sand, which is no use to anybody up here. I'll take the snow and a full pot every time." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw love my soup, though they never pay in coin. I've got enough fur in the back to make a coat." } },
     _none = { { id = "tp_none", text = "No idea, chum, but have you tried the soup? Because that I can sell you." } },
   },
 }

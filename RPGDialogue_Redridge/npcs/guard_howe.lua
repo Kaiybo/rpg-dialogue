@@ -100,6 +100,17 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "My father stood on Stormwind's walls when the Horde came the second time, and he said the orcs never once asked whose land they were on. The Blackrock in these hills haven't changed their manners since." } },
+    internment = { { id = "tp_internment", text = "We fed those orcs in the camps for years on the King's coin, and the moment they were loose, here they are again on the King's land. I said at the time we should have done otherwise, and nobody listened to a farmer." } },
+    thrall = {
+      { id = "tp_thrall", text = "They tell me the orcs have a new warchief across the sea who talks of peace. Let him come and say it to the families up the valley, and we'll see how long the word lasts." },
+      { id = "tp_thrall2", when = { race = "Orc" }, text = "Your warchief may preach peace in his desert, orc, but the Blackrock never heard the sermon. Tell him that from Guard Howe, if you ever see him." },
+    },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "That black mountain north of the Steppes is where every raider in these hills comes from, and it's where they run home to. One day the King will march on it, and I'll be in the front rank if he lets me." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is a soldier, and I'd follow him anywhere. I only wish he'd look east to Redridge as often as he looks at his council." } },
+    varian = { { id = "tp_varian", text = "The King went off to make peace and never came home, and I won't say more than that a guard ought to say. I still say his name every morning on this bridge, as my oath requires." } },
+    holy_light = { { id = "tp_holy_light", text = "I'm no priest, but I pray to the Light every morning before I take the bridge. Some mornings I ask it for strength, and some mornings I just ask it to send more soldiers." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The orcs came through that cursed gate in the Black Morass, and the King's men should have smashed every stone of it. Nobody will convince me it's safe to leave a single stone of it standing." } },
     background = { { id = "tp_bg", text = "Guard of Lakeshire, posted at the bridge. Before that, I farmed. The Blackrock settled that question for me." } },
     advice = { { id = "tp_ad", text = "Kill the champion first. Everything else in Redridge follows from that." } },
     blackrock = { { id = "tp_blackrock", text = "Invaders on the King's land, and I'll see them gone.", next = "why" } },

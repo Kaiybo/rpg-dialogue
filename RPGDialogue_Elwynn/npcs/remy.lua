@@ -269,5 +269,10 @@ P:NPC {
     the_collector = { { id = "t_collector", text = "Never heard of him, never heard of him. Why do you ask, why?" } },
     hogger = { { id = "t_hogger", text = "Don't sell to gnolls, because gnolls don't pay, and Hogger especially doesn't pay." } },
     _none = { { id = "t_none", text = "Don't know, don't know! Ask Farley; he hears everything twice as fast as me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire, the Faire! Best week of the year, friend, best week, and I hear more news there than anywhere. Not that I sell news, I give it away, free, free!" } },
+    booty_bay = { { id = "tp_booty_bay", text = "A goblin from Booty Bay told me he'd buy all the gold dust I could carry, and then he offered half what Remy pays, half! Goblins, friend, goblins." } },
+    scourge = { { id = "tp_scourge", text = "The dead walk in the north, I hear, walk and walk and never sleep! I sleep twice as much now, just to spite them, twice as much." } },
+    varian = { { id = "tp_varian", text = "The king's gone, gone! Taken by pirates, I heard, or married in secret, or lost at sea, and I've heard all three in one day, all three!" } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor, Lady Prestor, very beautiful and very clever, the nobles say. I've never seen her, but I'd sell to her, I'd sell her anything!" } },
   },
 }

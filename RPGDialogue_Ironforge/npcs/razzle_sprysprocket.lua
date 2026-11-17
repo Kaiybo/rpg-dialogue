@@ -128,6 +128,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Tinker, Gnomeregan born, Kharanos for now. That's the short version, and the long one has more explosions." } },
     advice = { { id = "tp_ad", text = "Always label your wires. I didn't once, and my eyebrows still haven't grown back." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Home, until the troggs and the radiation. We'll have it back one day.", next = "gnomeregan" } },
+    scourge = { { id = "tp_scourge", text = "A plague that turns the living into the dead is the opposite of everything I'm trying to do here, and it frightens me more than the radiation. If I can clean one, maybe someday someone can clean the other." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor have some cleansing spells I'd dearly love to study, but they won't answer my letters. I'd send another, but I've run out of polite ways to ask." } },
+    magni = { { id = "tp_magni", text = "King Magni took us in when Gnomeregan fell, and he never once asked what we'd pay him back with. I'm going to cure the lepers and pay him that way, I've decided." } },
     _none = { { id = "tp_none", text = "Ooh, no idea, but if you find out, write it down for me. I collect facts like other people collect spoons." } },
   },
 }

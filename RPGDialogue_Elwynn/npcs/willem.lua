@@ -293,5 +293,9 @@ P:NPC {
     defias = { { id = "t_defias", text = "They wear red so we know who to chase. Very considerate of them." } },
     kobolds = { { id = "t_kobolds", text = "Kobolds are the Marshal's worry; I've got thieves to count." } },
     _none = { { id = "t_none", text = "Not something a deputy would know. Try the brothers in the Abbey." } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "Half the recruits I count out toward Echo Ridge come back limping and the other half come back bragging. I count both, and I prefer the limpers." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The brothers feed me, pray for me and remind me to wipe my boots, in that order. I'd guard their gate even if the Marshal didn't make me." } },
+    varian = { { id = "tp_varian", text = "I'd rather be on patrol than at a door, and I expect the king would rather be home than wherever he is. We all have our burdens." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's in Goldshire, every recruit suddenly finds a reason to go to Goldshire. I count them out and I count them back, and the numbers never match." } },
   },
 }

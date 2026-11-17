@@ -410,6 +410,12 @@ P:NPC {
     xylem = { { id = "tp_xylem", text = "The human mage in the tower to the north. I have never met him, and I am content to keep it so." } },
     eldarath = { { id = "tp_eld", text = "The great ruin east along the road, and the naga's now. Go there with friends, or not at all." } },
     cenarion_circle = { { id = "tp_circle", text = "Druids of my people and the elves together, working to heal what the demons broke. I wish there were more of them here." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the father of my people and a friend to all who walk honestly. I would like him to see what I see here, elves and a tauren sharing bread." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother loves the night elves too, I think, though they call her by the moon's name. I would not say so in front of them, out of courtesy." } },
+    elune = { { id = "tp_elune", text = "The Sentinels pray to Elune at dusk, and I sit with them, and I find their quiet very much like ours. A prayer is a prayer, whatever the sky is called." } },
+    loramus = { { id = "tp_loramus", text = "The hermit on the island across the bay was once an elf of great honor, they say, before he took demons into himself. I grieve for what he lost, even if he does not." } },
+    arkkoroc = { { id = "tp_arkkoroc", text = "A sea giant lives in a drowned temple and calls himself a god. I do not argue with gods, real or otherwise." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps a peace with the humans, and I keep a smaller peace here with the elves. I hope his is easier than mine." } },
     _none = { { id = "tp_none", text = "That I do not know, friend, and I would rather say so than guess. The Sentinels might, if you ask them kindly." } },
   },
 }
@@ -586,6 +592,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I keep the hippogryphs of Talrendis Point and see that they come home. There is little else to my story." } },
     advice = { { id = "tp_ad", text = "Fly in daylight when you can. Azshara's storms come up fast, and I've already fished two soaked Sentinels out of the bay this season." } },
     sentinels = { { id = "tp_sent", text = "My sisters keep the bridge, and I keep the birds that bring them help. It is a fair division of labour." } },
+    elune = { { id = "tp_elune", text = "Elune watches over my birds at night, and the birds know it, because they sleep sound when she is full. On dark moons they fret, and so do I." } },
+    loramus = { { id = "tp_loramus", text = "There is a hermit on an island in the bay, and my hippogryphs will not fly over him. I have never asked them why." } },
+    teldrassil = { { id = "tp_teldrassil", text = "My birds came from Teldrassil, raised in the branches, and they miss it, I think. This coast is too salty for them." } },
+    tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande rode a hippogryph into battle in the old wars, and the birds remember it in their blood. I am certain of that." } },
     _none = { { id = "tp_none", text = "I keep birds, not secrets. Ask the Sentinels, or the tauren by the fire." } },
   },
 }

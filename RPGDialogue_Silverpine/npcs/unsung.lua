@@ -161,6 +161,9 @@ P:NPC {
     },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken can eat anything I sell, which is very good for business. The living have to be a bit more careful, and I make sure to tell them." } },
+    shadowfang = { { id = "tp_shadowfang", text = "There are mushrooms growing on the walls of Shadowfang Keep that I'd love to sample. The worgen won't let me near, which is very rude of them." } },
+    thrall = { { id = "tp_thrall", text = "Orcs and trolls come through sometimes and buy my mushrooms without asking which ones are safe. I always tell them, and they always look a bit green afterward." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, dear. Ask the High Executor; he knows everything that moves in this forest." } },
   },
 }
@@ -325,6 +328,9 @@ P:NPC {
     },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have no excuse for wearing their robes badly, death or no death. A seam is a seam, and a hem is a hem, and I won't hear otherwise." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I sewed gowns for ladies in Lordaeron, and I still remember every one of them. Most of them are dead now, and I'd wager some of them are badly dressed." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran wore the finest robes in the world, violet silk with silver thread. I've seen their apprentices in Ambermill, and they've let their standards slip." } },
     _none = { { id = "tp_none", text = "Hems and seams are all I know, so take your question to High Executor Hadrec." } },
   },
 }
@@ -487,6 +493,10 @@ P:NPC {
     },
   },
   topics = {
+    shadowfang = { { id = "tp_shadowfang", text = "Shadowfang Keep is on the hill, and you'd do best to stay off it. The worgen there have eaten better men than you." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't need food or sleep, but they still need rope and torches and a good bag. I keep all three, and I don't do discounts." } },
+    gilneas = { { id = "tp_gilneas", text = "The Gilneans walled themselves in, and the forest walled itself around them. Nobody comes out, and nobody goes in." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge isn't the worst thing in Silverpine, if you can believe it. The worgen are worse, and the forest itself is worse still." } },
     _none = { { id = "tp_none", text = "I count crates for a living, so I wouldn't know. Ask the High Executor." } },
   },
 }

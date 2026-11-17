@@ -186,6 +186,9 @@ P:NPC {
 
   topics = {
     new_plague = { { id = "tp_plague", text = "The Royal Apothecary Society's business, not mine. I only keep their accounts, and their accounts are alarming." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken keep their accounts in good order, which is more than I could say for the living nobility of Lordaeron. A ledger is a ledger, whoever holds the pen." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I kept accounts for a banking house in the capital, back when the capital was above us and full of gold. The vault doors are still down here, and some of them still have the old crests on them." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge never paid its debts, and it left a great many accounts unsettled. I've closed most of them, and the rest belong to names I'll never find." } },
     _none = { { id = "tp_none", text = "That isn't in my ledgers. Try Innkeeper Norman; he hears everything that's said in the Trade Quarter." } },
   },
 }
@@ -347,6 +350,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken keep beasts too, though most animals shy away from us at first. Patience is the whole secret, and the dead have plenty of that." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge raises dead beasts as well as dead men, and I can't bear to look at them. A dead wolf ought to be left in peace." } },
+    thrall = { { id = "tp_thrall", text = "The orcs ride wolves, and they treat them better than most people treat their children. I like the orcs for that, whatever else they do." } },
     _none = { { id = "tp_none", text = "I'm afraid I only know about beasts. Ask at the inn; the innkeeper knows everyone." } },
   },
 }
@@ -526,6 +532,10 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_scarlet", text = "Former comrades, some of them, and fanatics now. They'd kill me again without blinking, so I'll return the favour." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken fight with whatever their bodies will still do, and some days that isn't much. I teach them to make the most of it, and I expect them to listen." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge comes at you without fear, so a good soldier must meet it without fear too. Anything less and you'll be marching in its ranks before nightfall." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I was a weapons master for the king's guard, and I trained some of the soldiers who now serve the Crusade. They were good boys, and now they're my enemies." } },
+    second_war = { { id = "tp_second_war", text = "I drilled the infantry that stood against the orcs at Lordaeron's walls. Now I share a war with them, and I've learned to keep my old opinions behind my teeth." } },
     _none = { { id = "tp_none", text = "Not my field, soldier. I teach steel, so ask a scholar for the rest." } },
   },
 }
@@ -703,6 +713,9 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_scarlet", text = "They make decent plate, I'll give them that. It comes back here in pieces for melting down." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken need good steel more than anyone, since we can't feel when our armor has failed. I make it so it doesn't fail." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I forged blades for the king's army, and every one of them was sent to Stratholme with the prince. Not one of them came back, and neither did the men who carried them." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge doesn't care what your sword is made of, as long as it's in your hand. Keep it sharp and keep it close, and you'll outlast most." } },
     _none = { { id = "tp_none", text = "If it isn't metal, I don't care to know. Ask someone else." } },
   },
 }
@@ -873,6 +886,9 @@ P:NPC {
 
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Thieves in the Alterac foothills. They take the ore you've just dug, so dig quickly." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken dig better than the living, because we don't need air and we never tire. There are tunnels under this city that go deeper than anyone alive has ever been." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron's capital was built over old mines and crypts, and most people never knew it. I knew it, and I'm the happiest dead man in the Undercity for knowing it." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron dwarves dig deep, I'll give them that, deeper than anyone. I'd love to see their tunnels, though I'd want to be dead first, and I already am." } },
     _none = { { id = "tp_none", text = "I don't know. I'm only good with rocks; ask someone who reads books." } },
   },
 }
@@ -1047,6 +1063,9 @@ P:NPC {
   },
 
   topics = {
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's enchanters were the finest in the world, and they knew it, and they made sure everyone else knew it too. They're rebuilding behind closed gates now, and I don't miss their lectures." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught me my trade, and I'll grant them that much. They also taught me that a mage who won't share his secrets is a very lonely mage." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken make fine enchanters, because the arcane doesn't care whether your hands are warm. Precision is what matters, and death has made me very precise." } },
     _none = { { id = "tp_none", text = "I don't know, and I'd rather not guess. Ask in the Magic Quarter; someone there will pretend to." } },
   },
 }
@@ -1213,6 +1232,10 @@ P:NPC {
 
   topics = {
     syndicate = { { id = "tp_syndicate", text = "Alterac's nobility turned to cutthroats. They're good, I'll grant them, but they'd sell their mothers." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have enemies on every border, and some of them are already inside our walls. I teach my students to notice which is which before it's too late." } },
+    sylvanas = { { id = "tp_sylvanas", text = "I serve the Dark Lady, and that's all you need to know about my loyalties. The rest of my business is my own." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "You've heard that name somewhere, haven't you? Some doors open only for those who already know where they are, and I'm not going to point you to this one." } },
+    alterac = { { id = "tp_alterac", text = "Alterac's nobles sold out their own kingdom, and their children run the Syndicate now. A family that's done it once will do it again." } },
     _none = { { id = "tp_none", text = "That's not something the Rogues' Quarter has told me about, and if it had, I'd want to know why you were asking." } },
   },
 }
@@ -1369,6 +1392,9 @@ P:NPC {
 
   topics = {
     new_plague = { { id = "tp_plague", text = "Oh, that's the apothecaries' business, and far above my little shop. I hear things, but I don't repeat them." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken appreciate a fine poison more than any other people, because we're the only ones who can taste it without worrying. Try this one, it's divine." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge spread its plague without any craft at all, just grain and rot and numbers. A poison should be an art, and theirs was an insult to the trade." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I hear Booty Bay has some very interesting customers in my line of work. The pirates there pay well and ask no questions, which is my favorite kind of customer." } },
     _none = { { id = "tp_none", text = "Can't say I know that one! Ask me about anything that kills, and I'll talk all day." } },
   },
 }
@@ -1548,6 +1574,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken can't feel how badly we're hurt, so we walk about with half our ribs broken and wonder why we fall over. That's why you need me, whether you like it or not." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge never bandaged anything in its existence. When I see one of our soldiers come back in pieces, I think of that, and I stitch faster." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I bandaged soldiers in Lordaeron's field hospitals before the plague came. Now I bandage the same sort of soldiers, except they complain less." } },
     _none = { { id = "tp_none", text = "I don't know, love. I only know how to keep people in one piece." } },
   },
 }
@@ -1718,6 +1747,9 @@ P:NPC {
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken have all the time in the world, and fishing is the perfect use of it. Nothing in these canals is edible, mind you, but it passes the hours." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I used to fish Lordamere Lake when the king's barges still sailed it. The water was clean then, and the fish were fat, and I didn't know how lucky I was." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where the real fishermen gather, I'm told, with sharks and sea monsters and goblins betting on all of it. I'd like to try my line there one day." } },
     _none = { { id = "tp_none", text = "Can't help you there. Ask me about fish, and I'll talk until you beg me to stop." } },
   },
 }

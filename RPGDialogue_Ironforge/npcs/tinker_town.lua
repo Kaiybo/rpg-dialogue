@@ -274,6 +274,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the Tinkmaster, which means I'm in charge of gnomish engineering and the pledge that keeps it ours. Before the fall I had a workshop; now I have a corner." } },
     advice = { { id = "tp_ad", text = "Test it on a dummy first. Ideally a dummy that isn't you.", next = "discipline" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our city, poisoned and full of troggs, and Techbot still down there somewhere.", next = "techbot" } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's mages build arcane constructs that walk and guard and never tire, and I'd love to compare one with Techbot's old schematics. They'd never let a gnome near one with a screwdriver, of course, and they'd be quite right." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Goblin engineering is fast and loud and has no respect for elegance whatsoever. It works, I'll grant you, but so does a hammer." } },
+    magni = { { id = "tp_magni", text = "King Magni once asked me what Techbot was for, and I couldn't answer, and I've never felt so foolish. Techbot was for being Techbot, and that's enough." } },
     _none = { { id = "tp_none", text = "That isn't engineering, so I'm afraid I've no opinion. Well, I've an opinion, but it isn't informed." } },
   },
 }
@@ -530,6 +533,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Master Mechanic, formerly of a very large workshop in Gnomeregan and now of this very small one. I keep lists, mostly." } },
     advice = { { id = "tp_ad", text = "Keep a copy of everything, and keep it somewhere else.", next = "data" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our city, and our archives, and I want them both back, in that order or the other.", next = "down" } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's goblins would buy every punch card I recover, and sell them back to me at double. I keep them under lock and key, and the key under another lock." } },
+    magni = { { id = "tp_magni", text = "The King's been very patient with our expeditions, and he asks after every one. I like to think that one day I'll bring him back something that makes it all worth it." } },
+    scourge = { { id = "tp_scourge", text = "I've wondered if the Scourge's plague is in any way like our radiation, all creeping and invisible and contaminating. I've decided I'd rather not find out by experiment." } },
     _none = { { id = "tp_none", text = "No data on that, I'm afraid. Possibly it's on a punch card somewhere in Gnomeregan." } },
   },
 }
@@ -818,6 +824,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Smith, gnome, seeker of harder metals. That's the whole of me, and I like it that way." } },
     advice = { { id = "tp_ad", text = "Never trust a metal you haven't broken at least once. It hasn't told you its secrets yet." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "We left everything behind, including every essential artificial in the city.", next = "artificial" } },
+    blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons smelt metals I've never seen before, deep under Blackrock, and I'd give my goggles for a sample. They'd give me a crossbow bolt, most likely, so I'll keep looking elsewhere." } },
+    uldaman = { { id = "tp_uldaman", text = "Titan metal from Uldaman is the hardest alloy anyone's ever seen, and I'd like to know how they made it. I'm fairly sure the answer is 'not with a forge', which is annoying." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Goblins in Gadgetzan sell scrap metal from the desert that might be anything at all. I bought a bar once that turned out to be cheese." } },
     _none = { { id = "tp_none", text = "Is it a metal? If it isn't, then I'm afraid I've no idea." } },
   },
 }
@@ -1056,6 +1065,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never stand next to a radiation leak. I know it sounds obvious, but somebody has to say it.", next = "hair" } },
     troggs = { { id = "tp_troggs", text = "Damn those troggs, damn them all! They owe me a city and a head of hair.", next = "hair_back" } },
     gnomeregan = { { id = "tp_gnomeregan", text = "Our home! Where troggs and leper gnomes roam now, but not for ever.", next = "movement" } },
+    magni = { { id = "tp_magni", text = "King Magni promised we'd have Gnomeregan back one day, and I'm holding him to it. I'll lead the charge myself if I have to, hair or no hair." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has its plague and we have our radiation, and both of them steal people from the inside. At least our troggs can be shot." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's goblins sold me a hair tonic that did nothing at all, and I've written them four angry letters. They haven't answered, and I'm writing a fifth." } },
     _none = { { id = "tp_none", text = "That's not a matter for central command. Ask a dwarf, they love questions." } },
   },
 }

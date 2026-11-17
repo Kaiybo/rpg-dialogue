@@ -228,6 +228,10 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "I'm expedition leader by the accident of being the one who signed the papers. My sister did the walking and the bleeding while I did the paperwork, and I'm still doing it, mostly in triplicate for Gadgetzan." } },
     advice = { { id = "tp_ad", text = "If the ground shakes, run first and wonder later, because wondering is how we lost the tents." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan keeps the Refuge supplied, more or less, at prices that'd shame a pirate. I pay because I must, and I grumble because I can." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The League sent letters asking for samples and offering no help, which is the way of learned societies. I sent them a tooth the size of a man's arm, and I've not heard since." } },
+    silithid = { { id = "tp_silithid", text = "The silithid from the south are creeping up the crater's edge, and I'll admit they worry me more than the dinosaurs. A dinosaur only wants supper." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I started out shipping cargo out of Booty Bay, and then I saw a crate of crater bones go by and followed it here. Twenty years later, I'm still following it." } },
     _none = { { id = "tp_none", text = "Not sure! But if it lives in the crater, it probably bites." } },
   },
 }
@@ -433,6 +437,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I... don't know, isn't that funny? Ask me again tomorrow, and maybe I'll have one.", next = "memory" } },
     advice = { { id = "tp_ad", text = "Never set off alone; somebody told me that, and it's the only thing I'm sure of." } },
+    thrall = { { id = "tp_thrall", text = "Thrall, you said? It sounds like a hero's name, and I'm sure I'd remember a hero. Maybe I met him, maybe I didn't, and either way I'm glad he's out there." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan, that's the goblin town in the desert! I remember that, I think, or I remember someone telling me, which is nearly the same thing." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light? I'm sure I knew some priests, once. They were good to me, I think, and I'd like to thank them if I ever remember who they were." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "A faire! I'm sure I went to a faire once and won something. Or lost something. Probably both." } },
     _none = { { id = "tp_none", text = "I might have known that once! Ask me again later." } },
   },
 }
@@ -616,6 +624,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A gnome with a hammer, a notebook and no eyebrows. That's the short version and the long one." } },
     advice = { { id = "tp_ad", text = "Never put two glowing things next to each other unless you want to find out what happens. I always want to." } },
+    dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran would want my crystals, I'm sure of it, if they ever opened their gates long enough to see them. I've written twice, and I suspect they used my letters to light their pipes." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor have rules about studying unknown magic, and I've broken all of them, but for science, so I think they'd forgive me. Probably." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan sells me copper wire and good lenses, and I'd be lost without both. The goblins also sell me crystals they swear are from here, and they aren't." } },
+    green_dragons = { { id = "tp_green_dragons", text = "I've a theory that the crystals hum the same note the green dragons hum when they sleep. I've never heard a green dragon sleep, mind you, so the theory needs work." } },
     _none = { { id = "tp_none", text = "No idea! But give me a week and a crystal, and I'll have a theory." } },
   },
 }
@@ -811,6 +823,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a Gadgetzan girl, a supply runner and a worrier, in that order, friend, and sometimes all at once." } },
     advice = { { id = "tp_ad", text = "Pack twice the water you think you'll need, friend, even if it costs twice as much. Ringo didn't, and look how that went." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "I came out from Gadgetzan because they said it was steady work at good wages, friend, and now I sleep on a ledge above dinosaurs." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's where the expedition sends the bills, friend, and they come back unpaid about half the time. I worry about that too, as you'd expect." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's my hometown, and I worry about it all the time, the pirates, the sharks, the cousins who still owe me money. Mostly the cousins." } },
+    silithid = { { id = "tp_silithid", text = "The bugs from the south are getting closer every week, and nobody here wants to talk about it except me. I talk about it a great deal." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire came to Mulgore when I was passing through once, and I worried the whole time I'd fall off the rides. I didn't, but I could have." } },
     _none = { { id = "tp_none", text = "Sorry, I don't know, friend! Maybe ask Williden, he knows things." } },
   },
 }

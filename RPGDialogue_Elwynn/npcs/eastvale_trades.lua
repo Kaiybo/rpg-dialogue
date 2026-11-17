@@ -191,6 +191,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Unstring your bow at night, friend. A bow left strung too long forgets how to spring back." } },
     eastvale = { { id = "tp_eastvale", text = "It's a fair place, if you can stand the noise and Supervisor Raelen's ledger." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. If it isn't wood or string, I've likely never thought about it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire, every boy in Eastvale wants a bow to show off at their games, and every mother wants me to say no. I sell to the boys, and I tell the mothers I'm out of stock." } },
+    sentinels = { { id = "tp_sentinels", text = "The night elf archers they call Sentinels shoot better than any man in Stormwind, and their bows are a marvel I'd love to take apart. I've only seen one, and she wouldn't let me touch it." } },
+    stonemasons = { { id = "tp_stonemasons", text = "The masons were Old Town men, same as me, and half of them still owe me for arrows. I doubt I'll see that coin now they've gone to Westfall." } },
   },
 }
 
@@ -369,6 +372,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Buy your bandages before you need them, friend. Nobody haggles well while bleeding." } },
     defias = { { id = "tp_defias", text = "They've robbed two of my carts this year, and both times they left the parchment, which tells you how much reading they do." } },
     _none = { { id = "tp_none", text = "If it isn't on my shelves or in my ledger, friend, I'm afraid I can't help you." } },
+    stonemasons = { { id = "tp_stonemasons", text = "My father sold the masons their bread on credit while they built the walls, and when the nobles didn't pay them, they couldn't pay him. Debts roll downhill, friend, and they always land on a shopkeeper." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Goods from Booty Bay come up the coast at prices that would make a goblin blush, and then the goblins blush anyway and charge me more. I pass it on, I'm sorry to say." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire empties my shelves of rope, lamp oil and sweets every time it comes to Goldshire. I don't know what they do with the rope, and I've decided not to ask." } },
+    varian = { { id = "tp_varian", text = "Trade was steadier when the king was in his keep. Since he went missing, every merchant in the Trade District has been pricing as if tomorrow might not come." } },
   },
 }
 
@@ -561,5 +568,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never stand downhill of a falling tree, and never stand near Raelen when the count comes up short." } },
     eastvale = { { id = "tp_eastvale", text = "It's loud, it's honest work, and the supper's hot. A man could do worse." } },
     _none = { { id = "tp_none", text = "Couldn't say, friend. Ask me about trees and I'll talk all day." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went to the Faire once and tried to beat their strongman at arm wrestling, and my right arm hasn't lifted a beam the same since. It was worth it, mind." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "My great-grandad's name is on the stone out on Stone Cairn Lake, with the others who died when the orcs burned Goldshire. I used to row out and sit with it, before those wizards took the island." } },
+    scourge = { { id = "tp_scourge", text = "A refugee came through camp last spring talking about the plague in Lordaeron, and how whole villages lay down sick and got up wrong. I didn't sleep well that week, and I keep an axe by the bed now." } },
   },
 }

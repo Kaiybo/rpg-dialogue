@@ -173,6 +173,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I fought in the Second War, sat in the camps after it, and walked out free when Thrall broke them open. Kargath is where I've chosen to be useful." } },
     advice = { { id = "tp_ad", text = "Never hire a mercenary who's stronger than the soldiers guarding your coin." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, beside the black dragons, and I didn't know then what they were. Now I want two of them dead, and I call it cleaning up after myself." } },
+    internment = { { id = "tp_internment", text = "I sat in the camps after the war, and the guards were humans who'd lost families to us. I didn't blame them, and I don't now." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief broke the camps open and gave us back our pride. I'd die for him, and I nearly have, a few times." } },
+    black_dragonflight = { { id = "tp_black_dragonflight", text = "The black dragons fought beside the Horde in the Second War, and they were never our allies. They were using us, and we were too foolish to see it." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The Blackrock clan sits in the Spire now, still loyal to the old ways. They're what I could have become, and I don't forget it." } },
     _none = { { id = "tp_none", text = "I don't know it, and I'm too old to pretend I do." } },
   },
 }

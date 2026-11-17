@@ -374,6 +374,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "Stormwind officer, Kurzen's expedition, and now this clearing. Every step of it was an order but the last.", next = "left" } },
     advice = { { id = "tp_ad", text = "If a soldier in Kurzen's colours offers you a drink, decline it, then walk away, and then run." } },
     kurzen = { { id = "tp_kurzen", text = "He was a good officer once, and don't let anyone tell you different. That's what makes this hard." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is a soldier's soldier, and I'd trust him with my life, but Stormwind hasn't sent us a single company in months. I can't blame him for that, not entirely." } },
+    varian = { { id = "tp_varian", text = "The king vanished on the road, and Stormwind stopped looking south. We've been forgotten down here, and I don't think it's an accident." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sells to everyone, including Kurzen's men, and the goblins don't ask which side you're on. I've learned not to trust anyone who doesn't care." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls of Zul'Gurub have been sending raiders into the jungle, and I've lost three scouts to them this month. If their god walks, this camp won't last a week." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War as a young man, and I learned that the jungle is worse than any orc. I didn't think I'd ever come back here." } },
+    holy_light = { { id = "tp_holy_light", text = "Brother Nimetz prays to the Light for every man we lose, and I've stopped asking whether it helps. It helps him, and that's enough." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Some of my men go to the Arena on leave, and they come back with stories and wounds. I don't stop them, because it's better than going mad in camp." } },
     _none = { { id = "tp_none", text = "Ask the Brother. He does the thinking around here." } },
   },
 }
@@ -661,6 +668,13 @@ P:NPC {
     background = { { id = "tp_bg", text = "A priest with an alchemist's habits, sent with an expedition that needed a healer. It needed more than one." } },
     advice = { { id = "tp_ad", text = "Don't drink anything in this jungle you didn't see poured, not water, not wine, not medicine." } },
     kurzen = { { id = "tp_kurzen", text = "I prayed for him every night. Now I pray for whoever finally stops him." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light gives me strength to tend the sick, and I've needed it more in this jungle than anywhere else. I pray every night, and some nights it's the only thing I do." },
+      { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You know what it is to pray over a man who won't wake, then. The Light doesn't always answer how we'd like, but it hasn't let me give up yet." },
+    },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls' blood magic has a smell to it, and I've caught it on the wind from the north. I'd study it if I dared, but I'd rather keep my soul." } },
+    new_plague = { { id = "tp_new_plague", text = "I've read the reports from the north about the plague in Lordaeron, and I've wondered if something like it got into Kurzen's men. I pray it didn't, because I don't know how to cure that." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are the dead raised by the plague, and the north is lost to them. I've seen enough death out here to know I don't want to see it walk." } },
     _none = { { id = "tp_none", text = "I'm afraid I've no answer. I'll add it to my list of questions; it's a long list." } },
   },
 }
@@ -849,6 +863,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A private in the Stormwind army, then a spy for a while, and a private again now. I liked being a private better." } },
     advice = { { id = "tp_ad", text = "Count things when you're scared: boots, tents, trees. It keeps your hands still." } },
     kurzen = { { id = "tp_kurzen", text = "The Colonel's not himself, and his officers aren't either. Whatever's in that compound is in their heads now." } },
+    si7 = { { id = "tp_si7", text = "SI:7 trained me for a while, before they sent me here, and I learned to keep my mouth shut and my eyes open. That's all I can tell you, and that's more than I should." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I'd love a week in Booty Bay, just one, with a bed and a drink and nobody trying to kill me. Maybe when this is over." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Kurzen's men trade with the trolls sometimes, I saw it with my own eyes. I don't know what they're buying, and I don't want to." } },
     _none = { { id = "tp_none", text = "I only know Kurzen, and that's more than enough." } },
   },
 }

@@ -121,6 +121,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A captain of Quel'Thalas, once, and a captain of nothing but my ship now. That's more freedom than most elves have these days." } },
     advice = { { id = "tp_ad", text = "Never sail past a fort you haven't spoken to. Learn from my mistake, friend." } },
     steamwheedle = { { id = "tp_sw", text = "The Cartel keeps Ratchet open to anyone who pays, and that makes it the only harbor on this coast where an elf captain can tie up without a flag." } },
+    theramore = { { id = "tp_theramore", text = "Lady Proudmoore I have no quarrel with, and I'd drink to her health in any port. But it was Northwatch Hold's guns that sank my ship, and Northwatch flies her colours, so you'll forgive me if I don't toast too often." } },
+    bloodsail = { { id = "tp_bloodsail", text = "They are pirates in red, sailing out of Stranglethorn and stealing from honest privateers like myself. There is a difference between us, and it is mostly that I keep a contract." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is a fine harbour with a terrible reputation, which suits me perfectly. Half of my crew signed on there, and the other half drank there first." } },
+    dalaran = { { id = "tp_dalaran", text = "My family had friends in Dalaran before the war, and I have not heard from them since it fell. They say the Kirin Tor are raising it again, though slowly, and behind a great many locked doors." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet took us in when Northwatch made us homeless, and Gazlowe has been decent about it, for a goblin. We pay our berth and we keep the pirates off his docks, which is a trade that suits us both." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beyond what a sea captain hears, friend. Try the goblins; they hear everything and sell half of it." } },
   },
 }

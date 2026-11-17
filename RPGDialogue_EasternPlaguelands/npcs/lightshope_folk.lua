@@ -176,6 +176,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I went where the Alliance needed a gryphon master and nobody else wanted to go, and that's the end of the tale." } },
     advice = { { id = "tp_ad", text = "Don't drink from any stream in this country, however clear it looks. A corporal of ours did at Corin's Crossing, and he spent three days retching green before we buried him." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge has gargoyles and worse in the skies over this land, and my gryphons have to fly through them. I've lost a few, and I mourn every one." } },
+    forsaken = { { id = "tp_forsaken", text = "I share the yard with a Forsaken bat handler, and we've made our peace with each other. She keeps to her side, and I keep to mine, and neither of us talks about the war." } },
+    magni = { { id = "tp_magni", text = "King Magni sends good gryphons north, and I'm grateful for every one of them. They're braver than most soldiers I've met." } },
     _none = { { id = "tp_none", text = "Can't help you there. Ask somebody who spends less time with birds." } },
   },
 }
@@ -356,6 +359,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I was someone in Lordaeron once, and now I keep bats. The bats don't ask about the first part, and I'd rather you didn't either." } },
     advice = { { id = "tp_ad", text = "Fly over this land when you can, because walking it only gives the Scourge more chances at you." } },
+    scourge = { { id = "tp_scourge", text = "The bats are the only things in this country that the plague can't touch. I find that comforting, in a cold sort of way." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken serve the Dawn as well as anyone, though the living here don't always believe it. I don't need them to believe it, only to stay out of my way." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady lets her people serve the Dawn, and I'm one of them. I don't think she cares much for the Dawn itself, but she cares about killing the Scourge." } },
     _none = { { id = "tp_none", text = "I've nothing to say about that, living or dead." } },
   },
 }
@@ -582,6 +588,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I came to cook for the Dawn because somebody had to, and the last cook burned the porridge three days running. The knights very nearly begged." } },
     advice = { { id = "tp_ad", text = "Eat before you go out, and sleep when you can. The Scourge never gets tired, so you'll have to be cleverer than it is." } },
     argent_dawn = { { id = "tp_dawn", text = "They're good people, every one of them, and they eat like they haven't seen food in a week, which some of them haven't." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge sends folk in here shaking, and I feed them soup until they stop. That's all I can do, and it's more than you'd think." } },
+    holy_light = { { id = "tp_holy_light", text = "The chapel keeps the dead away, and I thank the Light for it every night. It's the only safe room for miles, and I try to make it a warm one." } },
+    stratholme = { { id = "tp_stratholme", text = "I've fed soldiers coming back from Stratholme, and they don't talk about it. They just eat, and I let them." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, dear. Ask one of the Dawn's officers." } },
   },
 }
@@ -745,6 +754,9 @@ P:NPC {
     background = { { id = "tp_ba", text = "I keep the supplies straight so the soldiers don't have to think about them, and that suits me fine." } },
     advice = { { id = "tp_ad", text = "Buy your vials here rather than carrying glass across the plaguelands, because I've seen too many packs full of broken ones." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They've taken our wagons twice and told us the Light wanted them to. I don't believe the Light wanted my thread." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge makes everything harder to get here, from thread to steel to bread. Every spool on my counter came a long way, and I price it accordingly." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was the trade capital of the north, before the plague. Now it's a graveyard, and I'm selling thread out of a chapel." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Dawn keeps the supplies coming, and I keep them honest. It's a cause worth taking seriously, and I do." } },
     _none = { { id = "tp_none", text = "Not my department, I'm afraid. I keep the shelves and count the vials, and somebody's been pinching my flux again." } },
   },
 }

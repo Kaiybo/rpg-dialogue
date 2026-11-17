@@ -295,6 +295,11 @@ P:NPC {
     scarlet_crusade = { { id = "tp_scarlet", text = "They started out against the plague and ended up against everyone. I was there for both halves.", next = "left" } },
     scarlet_monastery = { { id = "tp_monastery", text = "The heart of the Crusade, in Tirisfal. I can tell you who sits in it, if you mean to go.", next = "monastery" } },
     argent_dawn = { { id = "tp_dawn", text = "Men who left the Hand before the rot set in, wiser than me, or quicker." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is a hard master, and I served it in red once, and I served it badly. I serve it now in a quiet room in Southshore, and I think it prefers me this way." } },
+    scourge = { { id = "tp_scourge", text = "I have burned the dead and watched them rise again, and I have seen what that does to a man's mind. The Crusade's madness started there, in the fields outside Stratholme." } },
+    forsaken = { { id = "tp_forsaken", text = "They are dead, and they are thinking, and they are brewing something up the hill, and I'd sleep better if one of those three things weren't true. I pray for them anyway, and that's more than my old brothers would do." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme was where I joined the Crusade, in the smoke of a city burned by its own prince. Half of it belongs to the dead now, and the other half to my old brothers, and I couldn't tell you which is worse." } },
+    arthas = { { id = "tp_arthas", text = "I saw Prince Arthas once, in his golden armour, riding north to save us all. I don't pray for him, and I've stopped asking the Light whether I should." } },
     _none = { { id = "tp_none", text = "That's not something I know. Ask downstairs; they hear more than I do." } },
   },
 }

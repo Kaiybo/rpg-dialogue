@@ -280,5 +280,8 @@ P:NPC {
     maybell_tommy = { { id = "t_lovers", text = "Everybody knows, nobody says. That's how Goldshire keeps a secret." } },
     gold_dust = { { id = "t_dust", text = "Remy buys it. I asked him once what he does with it, and he told me, at length." } },
     _none = { { id = "t_none", text = "Ask Farley. He knows everything, and he'll tell you twice." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Faire week I carry plates till my arms shake, and the jugglers juggle my spoons whenever they think I'm not looking. I always get them back, mostly." } },
+    scourge = { { id = "tp_scourge", text = "Farley's brother died of the plague in Lordaeron, and he won't talk about it, so please don't ask him. Ask me if you must, though I don't know much more than that." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A sailor from Booty Bay once tried to pay for his supper with a parrot, and Farley made him take it back. I'd have kept it." } },
   },
 }

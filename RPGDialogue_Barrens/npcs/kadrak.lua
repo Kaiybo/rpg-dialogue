@@ -126,6 +126,12 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In Ashenvale, look up. The elves are never where you expect them, and usually they're above you." } },
     warsong = { { id = "tp_ws", text = "My clan. We're the Horde's spearhead in Ashenvale, and we're proud of it.", next = "warsong" } },
     sentinels = { { id = "tp_sent", text = "The night elves' warriors. Women, mostly, with glaives and owls and a talent for being patient. Don't underestimate them." } },
+    thrall = { { id = "tp_thrall", text = "Thrall is the son of Durotan, and he carries Doomhammer's hammer and Grom's trust both. When he speaks, the Warsong listen, and that isn't something I'd say of any other chieftain." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande is the night elves' priestess queen, and she sits high in her tree while her Sentinels kill my scouts, and I'd sooner meet her across a battlefield than across a table." } },
+    second_war = { { id = "tp_second_war", text = "I was too young to ride against Lordaeron, and I'm glad, because the old Horde fought for demons and didn't know it. Ashenvale is my war, and at least I know who I'm fighting for." } },
+    burning_legion = { { id = "tp_burning_legion", fx = { learn = { "dark_portal" } }, text = "The Legion poured their blood into us and made us into what we were, and Grom killed Mannoroth and broke their hold, and I will not hear anyone call that a small thing." } },
+    blackfathom = { { id = "tp_blackfathom", text = "There are ruins sunk in the lake on Ashenvale's coast, and the scouts say cultists have moved in beside the naga. The Warsong want nothing to do with them, and the elves seem to want nothing to do with them either." } },
+    centaur = { { id = "tp_centaur", text = "The Kolkar ride out of the north Barrens and harry our supply lines, and sometimes I think the night elves are paying them. I've no proof, but I've a long memory." } },
     _none = { { id = "tp_none", text = "Don't know, and I've no time to find out. Ask at the Crossroads." } },
   },
 }

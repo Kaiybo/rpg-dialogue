@@ -230,6 +230,9 @@ P:NPC {
 
   topics = {
     darrowshire = { { id = "tp_darrowshire", text = "My home, and my brother's grave, and the worst day of my life." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came to Darrowshire, and my brother Joseph rode out to meet them. I lived, and he didn't, and I've never understood why it went that way." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Darrowshire was a good village in a good kingdom, and both are gone now. I'm still here, and I wish I could say why." } },
+    holy_light = { { id = "tp_holy_light", text = "I prayed for Joseph every night after Darrowshire. I don't know if it helped him, but it helped me a little." } },
     _none = { { id = "tp_none", text = "I'm sorry, friend; my head's full of one day, and there's not much room left." } },
   },
 }
@@ -411,6 +414,8 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "The pale people walk past sometimes, but they don't stop to play. I don't like them very much." } },
+    holy_light = { { id = "tp_holy_light", text = "Auntie Marlene says the Light watches over good little girls. I'm a good little girl, mostly." } },
     _none = { { id = "tp_none", text = "I don't know that one. Do you know any songs instead?" } },
   },
 }
@@ -590,6 +595,9 @@ P:NPC {
   },
 
   topics = {
+    scourge = { { id = "tp_scourge", text = "The Scourge leaves good parts lyin' about if ye know where to look, and I know where to look. The Dawn pays well for 'em, and I don't ask what they do with 'em." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme's full o' Scourge parts, more than I could carry in a lifetime. I'd go myself, if my knees were younger." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "That lich up in his floatin' tomb is the source o' all this mess. I'd like a pipe of whatever he's smokin'." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, an' ye're blockin' me light." } },
   },
 }
@@ -796,6 +804,10 @@ P:NPC {
   },
 
   topics = {
+    scholomance = { { id = "tp_scholomance", text = "Scholomance is a dreadful place with dreadful architecture, all crooked hallways and nasty little rooms! I'd knock the whole thing down and start over, given half a chance." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad's students run Scholomance now, and they've made a terrible mess of it. I'd love to see his notes, purely for scientific purposes, you understand." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is a very big problem, and I've built a very big contraption to deal with it. It doesn't work yet, but it's very big." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the finest city in the world, and we lost it to troggs and our own clever mistakes. I'd rather fight the Scourge than think about it." } },
     _none = { { id = "tp_none", text = "Hmm, no, but if you find out, write it down for me!" } },
   },
 }

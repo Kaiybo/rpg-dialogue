@@ -155,6 +155,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Don't go to Kel'Theril at night, and don't stay longer than you have to. The spirits there don't forgive company." } },
     highborne = { { id = "tp_hb", text = "Our ancestors, or some of them, and the ones who brought the sea down on all of us. Kel'Theril is one small piece of what they did." } },
     furbolgs = { { id = "tp_furb", text = "The Winterfall have gone bad lately, worse than the cold ever made them. Donova Snowden at the hot springs knows more of it than I do." } },
+    elune = { { id = "tp_elune", text = "Elune's light falls on the snow here like nowhere else in Kalimdor, and the old shrines still remember her. I keep watch over them as best I can." } },
+    nordrassil = { { id = "tp_nordrassil", text = "The World Tree stands on Hyjal, south of here, and our people guard it still. I've never been to its roots, but I feel its strength even here." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Azshara ruled the Highborne in the old days, and her pride brought the Legion to our world. We don't speak her name lightly, and I'd ask you not to either." } },
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess leads our people from Darnassus, and her word is law among the Kaldorei. I'm proud to serve her, even so far from home." } },
     _none = { { id = "tp_none", text = "That's beyond the snow I know, I'm afraid. Try Everlook; the goblins hear everything." } },
   },
 }
@@ -319,6 +323,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "If a wildkin's standing on something, leave it be. I'm living proof, just about." } },
     explorers_league = { { id = "tp_el", text = "Best outfit in the world, if ye ask me, though our pay's poor and our camps keep getting wrecked." } },
     highborne = { { id = "tp_hb", text = "Old elves with more magic than sense, from what I've dug up. Wynd knows the sad parts better than I do." } },
+    magni = { { id = "tp_magni", text = "King Magni's a great king and a greater patron, and the Explorers' League owes him everything. I'd raise a pint to him if I had one, and I'm fairly sure I don't." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's the greatest dig in the world, lad, and I'd give my beard to see the inside of those vaults again. The troggs make it difficult, though." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's a good town for supplies, and the goblins don't ask what you're digging for. I like that in a merchant." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw are a canny folk, and they know these lands better than anyone. I'd love to see what's in their tunnels, but they won't let me dig." } },
     _none = { { id = "tp_none", text = "Couldn't tell ye, lad. Ask Wynd; he's been here longer than the snow." } },
   },
 }

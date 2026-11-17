@@ -247,6 +247,11 @@ P:NPC {
   },
 
   topics = {
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons hoard the best ore in Khaz Modan and smelt it with fire you can't buy in Stormwind. I'd give my best anvil for a single bar of it, and they'd still not give me one." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs of that mountain to the north are forging weapons faster than I can mend them, and they have all the iron I don't. If anyone ever takes that place, I'd like the scrap." } },
+    thandol_span = { { id = "tp_thandol_span", text = "The ore that used to come down from Ironforge came over the Thandol Span, and now I'm told the Dark Irons have been blasting at it. The Guard takes what little I get, so it's no matter either way." } },
+    bolvar = { { id = "tp_bolvar", text = "The Guard tells me the Highlord sends his regards and requisitions all my iron. I'd send my regards back, but I've nothing left to send them in." } },
+    silver_hand = { { id = "tp_silver_hand", text = "A paladin of the Silver Hand once asked me to mend his hammer, and the Light nearly blinded me while I worked. I charged him double, and he paid it without a word, which made me feel worse." } },
     knows = {
       { id = "tp_knows", text = "Half the town comes past this forge for something, and they all talk while they wait. Ask me about any of this." },
     },

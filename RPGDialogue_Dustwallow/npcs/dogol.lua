@@ -129,6 +129,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Do'gol is Stonemaul and Do'gol makes shields. That is all of Do'gol's story, and it is a good story." } },
     advice = { { id = "tp_ad", text = "Carry a shield, even if you think you do not need one. Everybody who did not is dead, so you cannot ask them." } },
+    onyxia = { { id = "tp_onyxia", text = "The black dragon lives south, past the Stonemaul ruins, and her children burned Do'gol's clan. Do'gol does not make shields for dragon fire, because no shield is that good." } },
+    theramore = { { id = "tp_theramore", text = "The humans have good iron in Theramore, better than Do'gol's, and they waste it on swords for little men. Do'gol would make them proper shields if they asked, but they do not ask ogres." } },
+    thrall = { { id = "tp_thrall", text = "The orc chief let the ogres stay in Brackenwall, and the orcs bring Do'gol iron, so Do'gol thinks the orc chief is a good chief." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "Do'gol hears there are many ogres in the black mountain far away, and the orcs there are bad orcs. They make bad shields too, Do'gol is sure of it." } },
     _none = { { id = "tp_none", text = "Do'gol knows metal and spiders, and that is not metal or spiders, so ask Krog." } },
   },
 }

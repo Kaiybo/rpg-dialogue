@@ -195,6 +195,10 @@ P:NPC {
     lions_pride = { { id = "tp_inn", text = "Best inn in Elwynn, and near enough the only inn in Elwynn, but still the best." } },
     _none = { { id = "tp_none", text = "Ask Farley. He hears it all; I just hear him." } },
     defias = { { id = "tp_defias", text = "Westfall folk talk about the Defias like bad weather. Bad weather that steals your plough and your boots." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's in town I pour until my arms ache, and Farley does the talking, same as ever, only louder. You'd not believe how much a juggler drinks." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A sailor from Booty Bay told me there's a tavern on the docks where the goblins water the rum twice. I don't water ours at all, which makes me a saint by comparison." } },
+    scourge = { { id = "tp_scourge", text = "A fellow at the end of the bar used to talk about the plague every night, until Farley quietly paid his tab and sent him on his way. Nobody wanted to hear it, me included." } },
+    varian = { { id = "tp_varian", text = "There was a wager chalked on the board behind the bar about when the king comes home, and Farley rubbed it out the day a guard read it. He was right to, I suppose." } },
   },
 }
 
@@ -364,6 +368,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I sell things from behind this counter, in this inn, and that's the lot." } },
     advice = { { id = "tp_ad", text = "Buy the flint first, and then you can't forget it." } },
     _none = { { id = "tp_none", text = "I don't sell that, and I don't know that." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys flint and twine by the crate, and they pay on time. That's all I know about them, and it's all I need." } },
+    scourge = { { id = "tp_scourge", text = "A fellow from the north bought every torch I had and wouldn't say why. I didn't ask him twice, because of his eyes." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray when the stock's late, same as anyone. The Light's never brought the wagon any faster, but I keep asking." } },
   },
 }
 
@@ -561,6 +568,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never buy meat from a man who won't tell you what it was." } },
     _none = { { id = "tp_none", text = "If it's not meat, I'm no use to you." } },
     hogger = { { id = "tp_hogger", text = "I've seen what's left of a cow after Hogger's gnolls are done. Not even I could sell that." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys meat by the side, and their cook argues prices harder than Farley does. It's the best week of the year for a butcher, friend." } },
+    booty_bay = { { id = "tp_booty_bay", text = "A sailor told me they eat shark in Booty Bay, fried in oil with pepper, and I've wanted to get my hands on a shark ever since. Lee Brown says the lake hasn't got any." } },
+    scourge = { { id = "tp_scourge", text = "I heard the plague up north came in the grain, which is why I check every sack that comes through this kitchen. Laugh if you like, friend, but I'm still breathing." } },
   },
 }
 
@@ -729,6 +739,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A trader with a wagon and a plan. Ask me again when the plan's a shop." } },
     advice = { { id = "tp_ad", text = "Pick a trade, friend; fighters spend, but crafters earn." } },
     _none = { { id = "tp_none", text = "That's not a trade good, so I can't help you." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where the real trade happens, friend, with goblin docks and goods from every shore. When my wagon becomes a ship, that's where I'm sailing." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire draws buyers from every corner of Stormwind, so I park my wagon as close as their guards allow. It's never as close as I'd like." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The goblin cartel runs half the ports in the world and the other half pays them for the privilege. I'd join, if they took humans and I had the stomach for their interest." } },
   },
 }
 
@@ -899,6 +912,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the armorer at this forge and this anvil, and I'd rather talk about the work than about me." } },
     advice = { { id = "tp_ad", text = "Check your straps every morning. A shield that falls off is a very heavy hat." } },
     _none = { { id = "tp_none", text = "Can I put it on your arm? If not, I can't help you." } },
+    magni = { { id = "tp_magni", text = "Ironforge plate is the best in the world, and King Magni's smiths know it. I've studied the rivets on a dwarven shield until I could draw them with my eyes shut." } },
+    scourge = { { id = "tp_scourge", text = "A soldier back from the north told me to aim for the joints on the walking dead, because they're held together worse than they look. I've been making the joints on my armor thicker ever since." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Every year the Faire wants a breastplate for their strongman, and every year he dents it lifting barrels. It's good custom, if you like repairs." } },
   },
 }
 
@@ -1071,6 +1087,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Steele by name and steel by trade, so don't make the joke; I've heard it." } },
     advice = { { id = "tp_ad", text = "Buy the weapon that fits your hand, not the one that fits your story." } },
     _none = { { id = "tp_none", text = "Ask me about edges; for anything else, ask someone else." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Some fool came back from the arena down in Stranglethorn with my sword snapped in two and asked for his money back. I asked him how many fights he'd won with it first." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's knife-thrower buys his blades from me, and I've never seen him miss a mark. I'd still hate to be the fellow holding the apple." } },
+    scourge = { { id = "tp_scourge", text = "If you're bound north, buy something heavy and blunt, because a sharp edge in a dead man's ribs just gets stuck. Kurran says I'm morbid, and he's right." } },
   },
 }
 
@@ -1239,6 +1258,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm the other Steele, and I sell coats. Ask Corina for the rest; she tells it louder." } },
     advice = { { id = "tp_ad", text = "Wear what you can run in. Then wear it while running." } },
     _none = { { id = "tp_none", text = "I sell coats, not answers." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sold a coat to a Faire acrobat once who wanted it two sizes small, and by the end of the week she was wearing it upside down. I've stopped asking what people do in my coats." } },
+    everlook = { { id = "tp_everlook", text = "If you're going anywhere like Winterspring, don't buy from me, buy from somebody who's been cold. I've only ever been damp." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Folk heading for Booty Bay ask for my lightest shirt, and they still come back looking boiled. There's no cloth made for that heat, I'm told." } },
   },
 }
 
@@ -1412,6 +1434,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Feed your animal before you feed yourself, and it'll remember you for it." } },
     hogger = { { id = "tp_hogger", text = "The horses won't go southwest, and I don't make them." } },
     _none = { { id = "tp_none", text = "If it doesn't eat hay, I'm the wrong person." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire brings strange beasts to Goldshire, and every horse in my stable sulks for the whole week. I don't blame them, because I've seen what the Faire feeds those things." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The dwarves up in the Hinterlands keep gryphons the way I keep horses, and they say the Wildhammer talk to them like family. I talk to mine too, but they don't answer." } },
+    dark_riders = { { id = "tp_dark_riders", text = "I've heard of riders in Duskwood on black horses that never tire, and I'll tell you now, no living horse goes like that. Whatever they're riding, I don't want it in my stable." } },
   },
 }
 
@@ -1582,6 +1607,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Bandage first and brag later, in that order, every time." } },
     camping = { { id = "tp_camping", text = "Every camp needs a kit. Somebody always cuts a thumb on the first night." } },
     _none = { { id = "tp_none", text = "I only know how to stop the bleeding. The rest is beyond me." } },
+    scourge = { { id = "tp_scourge", text = "A soldier back from the north showed me a bite that wouldn't close whatever I tied on it, and Josetta prayed over it three nights before it healed. I've kept extra bandages ever since." } },
+    holy_light = { { id = "tp_holy_light", text = "Josetta has the Light and I have linen, and between the two of us most folk walk out of here. I'd not want to be without either one." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Faire week fills my bed with sprained jugglers and farmhands who tried to wrestle the strongman. It keeps my knots in practice, at least." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "There's an order in the north called the Argent Dawn that's asking for healers and anyone with a steady hand. I'm tempted some nights, and then I look round Goldshire and stay." } },
   },
 }
 
@@ -1771,6 +1800,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I teach in a cellar. You may draw whatever conclusions you like from that." } },
     advice = { { id = "tp_ad", text = "Never make a bargain you haven't read twice. Demons write small." } },
     _none = { { id = "tp_none", text = "Not a matter for this cellar." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion stands behind every imp you'll ever summon, and the day you forget that is the day one of them reminds you. Everything else I teach is footnotes to that." } },
+    scourge = { { id = "tp_scourge", text = "The dead in the north answer their master the way my imps answer me, except that nobody lets them refuse. I find that more frightening than any demon." } },
+    scholomance = { { id = "tp_scholomance", text = "There's a school in the north that teaches the darker arts to anyone who'll swear the right oaths, and I've heard its students don't come home. We prefer our students alive, which is why we're in a cellar and not a castle." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light and I have an understanding: it stays upstairs with the priests, and I stay down here with the candles." } },
   },
 }
 
@@ -1946,6 +1979,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I live in a cellar with an imp. Do you really want more than that?" } },
     advice = { { id = "tp_ad", text = "Never tell a demon its own name. It's rude, and it gives them ideas." } },
     _none = { { id = "tp_none", text = "My imp might know, though he won't tell you either." } },
+    burning_legion = { { id = "tp_burning_legion", text = "My imp boasts of the Legion's armies as though he commands them, and he can't keep a candle lit. Still, every boast is a story, and somebody bigger told it to him first." } },
+    scourge = { { id = "tp_scourge", text = "Necromancy is a sloppy trade, if you ask me, and the Scourge is the sloppiest of it. All those bodies, and not one of them can be trusted to make tea." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's fortune teller is a fraud, but she's a charming fraud, and my imp hates her. That's reason enough for me to visit every time." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran wouldn't have me as a student, and I'd like that written down somewhere so they're remembered for it." } },
   },
 }
 
@@ -2122,6 +2159,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a fisherman: this pier, this lake and these fish, mostly these fish." } },
     advice = { { id = "tp_ad", text = "Patience. The fish have more of it than you, so you'll need to borrow some." } },
     _none = { { id = "tp_none", text = "Ask me about bait; anything else and I'm out of my depth, ha." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I hear the fishing off Booty Bay is the finest in the world, if you can keep the sharks off the line and the pirates off the boat. Here I only have to worry about Matt." } },
+    murlocs_east = { { id = "tp_murlocs_east", text = "Something's been chewing my nets near the eastern shore, and I've heard gurgling in the reeds after dark. Remy says murlocs, and for once I believe Remy." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins at Ratchet sell fishing poles with springs in them, and I've heard one took a man's thumb clean off. I'll keep my willow stick, thank you." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire I sell them a barrel of fish every morning, and their cook still says the lake fish taste of mud. He eats them all the same." } },
   },
 }
 
@@ -2298,6 +2339,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I skin, I teach skinning, and I keep Adele company. My husband keeps the wolves busy up north." } },
     advice = { { id = "tp_ad", text = "Sharpen your knife every night. A dull knife ruins more hides than any wolf." } },
     _none = { { id = "tp_none", text = "I know hides, but not that." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire buys every pretty pelt I can spare for their tents and costumes, and they pay better than the tailors in the city. I like their people, too, even the loud ones." } },
+    hogger = { { id = "tp_hogger", text = "Hogger's hide would make a fine rug and a finer story, but I wouldn't want to be the one to fetch it. A gnoll that clever has earned a bit of respect." } },
+    holy_light = { { id = "tp_holy_light", text = "Adele and I go to Josetta's prayers when there's word from the front, and when there isn't, we go anyway. It helps to sit somewhere quiet together." } },
   },
 }
 
@@ -2486,5 +2530,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "Leatherworker. The house by the lake is mine. My husband's at the front, and Helene keeps me company." } },
     advice = { { id = "tp_ad", text = "Buy boots a little big, because feet swell on the march, and blisters will beat you before any gnoll does." } },
     _none = { { id = "tp_none", text = "Can you stitch it? If you can't, I'm afraid I'm no help to you." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Helene drags me to the Faire every time it's in Goldshire, and every time I come home with a pair of boots I didn't need. They make lovely boots, and that's the trouble." } },
+    holy_light = { { id = "tp_holy_light", text = "I light a candle at Josetta's for my husband every week. I can't tell you if the Light listens, but it's better than staring at the road." } },
+    varian = { { id = "tp_varian", text = "If the king himself can go missing, a husband at the front can go missing too, and I try not to think about it more than once a day." } },
   },
 }

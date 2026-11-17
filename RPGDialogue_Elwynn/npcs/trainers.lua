@@ -198,6 +198,13 @@ P:NPC {
     northshire_abbey = { { id = "tp_abbey", text = "Mind the library steps. Recruits read standing up and fall down standing up." } },
     kobolds = { { id = "tp_kobolds", text = "I see what they leave behind, mostly in the infirmary." } },
     _none = { { id = "tp_none", text = "I've no answer for that, but I'll pray you find one." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light mends what it can through whoever will kneel long enough, and I kneel a great deal. I'd recommend it to anyone, especially the ones who think they don't need it." },
+      { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You'll learn soon enough that the Light is less a fire you hold than a well you draw from. Draw carefully, and never draw it dry." },
+    },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood trains priests, paladins and soldiers under one roof, which makes for noisy suppers and very good prayers. Archbishop Faol wanted it that way." } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "Half my bandages go to Echo Ridge these days, rolled up in the packs of recruits who think kobolds can't hurt them. The kobolds disagree." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn has asked the Abbey for healers to send north, and two of our brothers have gone already. I pray for them by name every morning." } },
   },
 }
 
@@ -434,6 +441,10 @@ P:NPC {
     northshire_abbey = { { id = "tp_abbey", text = "Too many stairs and not enough shelves, but otherwise ideal." } },
     defias = { { id = "tp_defias", text = "They took books from our library: thieves with a reading list, which I find worse than the ordinary kind." } },
     _none = { { id = "tp_none", text = "Not in any book I own, and I own most of them." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was where every mage of my generation dreamed of studying, and I never got further than its gates. They're rebuilding it now, I hear, and they're slower than ever to let anyone in." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor taught that magic is a discipline before it is a power, and they lost a great deal the day they forgot it. Kel'Thuzad was one of theirs, you know." } },
+    scourge = { { id = "tp_scourge", text = "The plague in the north was a mage's work at its root, and that's why I teach respect before I teach fire. Somebody skipped that lesson once." } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "The kobolds in Echo Ridge make a fine first test for a young mage, because they're slow and they burn. Mind the candles on their heads, though; they make the fire worse." } },
   },
 }
 
@@ -675,6 +686,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never stand where you can be seen from the road, never sit with your back to a door, and never tell anyone your real plans, including me." } },
     defias = { { id = "tp_defias", text = "They want spies in Stormwind, so don't be one. That's the whole of my advice." } },
     _none = { { id = "tp_none", text = "Back here we deal in what's useful, and that isn't." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt is a manor in the Alterac hills that doesn't exist, run by people who don't exist, and if you hear of it again, you'll have earned the right. Until then, forget I spoke." } },
+    si7 = { { id = "tp_si7", text = "SI:7 serves the crown and I serve whoever pays, and sometimes those are the same people. That's the whole of it, so don't press." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's walls look thick from outside, but a good pair of hands and a little patience go a long way. So I'm told, anyway." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate in Alterac are what you get when nobles take up our trade: rich, greedy and sloppy. Never work for them, because they don't pay their dead." } },
   },
 }
 
@@ -911,6 +926,10 @@ P:NPC {
     northshire_abbey = { { id = "tp_abbey", text = "Very holy, with very loud bells. I'm out here for the quiet." } },
     defias = { { id = "tp_defias", text = "Thieves who stole a book they can't read. I've been grateful to them exactly once." } },
     _none = { { id = "tp_none", text = "Ask the dead. They know more than you'd think." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion is the sea beneath every warlock's little boat, and the clever ones never forget how deep it is. The Brothers would rather I didn't say that, so I'm saying it to you." } },
+    holy_light = { { id = "tp_holy_light", text = "The Brothers have their Light and I have my shadow, and we pass each other on the stair very politely. Neither of us is going anywhere." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge was raised by necromancers, not warlocks, and I'll thank you to remember the difference. We bargain with demons; they steal from the dead." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood tolerates me because the kingdom needs warlocks and they'd rather have one where they can see her. It's a sensible arrangement, and I'm sensible enough to keep it." } },
   },
 }
 
@@ -1177,6 +1196,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Keep your shield up and your boots laced. More recruits die of a loose boot than a gnoll." } },
     hogger = { { id = "tp_hogger", text = "Every warrior I train goes after him too early, every last one. Go after him late." } },
     _none = { { id = "tp_none", text = "Not my business. My business is the practice yard." } },
+    second_war = { { id = "tp_second_war", text = "My mother carried a pike in the Second War, all the way to Blackrock Spire, and she taught me to hold a shield before I could read. That was all the schooling I needed." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Every warrior I train hears about the arena in Stranglethorn and wants to fight there, and I tell them it's for fools with gold to lose. They go anyway, and a few come back richer." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's strongman challenged me to arm wrestle last year and lost twice, and he still won't look at me. I'm rather proud of that." } },
+    scourge = { { id = "tp_scourge", text = "If you're bound north against the Scourge, keep your boots laced and your shield up, because the dead don't tire and they don't stop. You'll have to do both as well." } },
   },
 }
 
@@ -1370,6 +1393,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Go somewhere you've never been, once a year at least. The Light looks different from a new place." } },
     lions_pride = { { id = "tp_inn", text = "A lovely inn with thin floors, so I know all of Farley's stories by heart." } },
     _none = { { id = "tp_none", text = "I've never been far enough to know that, so ask someone who's travelled." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light is in the small mercies, friend: a mended arm, a hot meal, a kind word at the bar. I see more of it here above an inn than I ever did in the Cathedral." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "The stone on Stone Cairn Lake carries the names of Goldshire's dead, and I used to row out on the anniversary to pray there. I can't now, with the wizards, so I pray from the shore." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "During Faire week the floor shakes with dancing till dawn, and I give up on sleep entirely. I go down for a little while, Light forgive me, and dance with Farley." } },
+    argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn writes to every priest in the kingdom asking for help in the north, and I've sent what prayers and coin I can. They're doing the Light's work where it's hardest." } },
   },
 }
 
@@ -1594,6 +1621,10 @@ P:NPC {
     morganth = { { id = "tp_morganth", text = "The Redridge business: a student who went wrong, which is every teacher's nightmare. Theocritus takes it personally, and he's right to." } },
     lions_pride = { { id = "tp_inn", text = "Comfortable, if you don't mind the singing, and I mind the singing." } },
     _none = { { id = "tp_none", text = "Outside my field. My field is large, but that's outside it." } },
+    dalaran = { { id = "tp_dalaran", text = "The Sanctum in Stormwind always looked to Dalaran, and now Dalaran barely looks back. They're rebuilding, and they're careful who they let through the gates, which is wise and very frustrating." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "Every mage in the Sanctum learned from Kirin Tor books, and half of us still hope for a letter from them. I've stopped checking the post." } },
+    scourge = { { id = "tp_scourge", text = "The plague began with a Kirin Tor mage named Kel'Thuzad who went looking for power and found it. Every teacher I know thinks of him when a student asks a question a little too eagerly.", fx = { learn = { "kelthuzad" } } } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's conjurers do a trick with a dove and a hat that I've never been able to work out, and it's driving me quietly mad. I'm fairly sure it isn't magic at all." } },
   },
 }
 
@@ -1821,6 +1852,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Carry something to read. Nobody suspects a reader, but everyone suspects someone standing in a corner doing nothing." } },
     defias = { { id = "tp_defias", text = "SI:7 has files and I have opinions, and neither leaves this room." } },
     _none = { { id = "tp_none", text = "Even if I knew, I wouldn't say, and especially if I knew." } },
+    si7 = { { id = "tp_si7", text = "SI:7 keeps files on everyone in this room, including me, and I'd guess they have one on you by now. Don't take it personally; take it as a compliment." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt? I've read about it, in books that don't exist. If you ever find the place, you'll understand why I'm not saying more." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade holds the thieves who got caught, which makes it an excellent library of mistakes. Visit it in your mind before you ever visit it in person." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor had the court eating from her hand within a season, and anyone who manages that so quickly is worth watching. I'm only a man in a reading room, of course." } },
   },
 }
 
@@ -2010,5 +2045,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "If someone's looking for you all day, stand still. They'll find you the moment they stop. It's a law of nature." } },
     lions_pride = { { id = "tp_inn", text = "Best cellar in Elwynn: dry, quiet, and nobody asks questions." } },
     _none = { { id = "tp_none", text = "Ask upstairs; they like questions upstairs." } },
+    burning_legion = { { id = "tp_burning_legion", text = "Crowe says the Legion waits at the end of every shortcut, and I've never once seen him take one. I run messages the long way round now, just in case." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge makes a warlock look respectable, which is no small thing. I'd thank them for it, if they weren't trying to kill everyone." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "During Faire week the coven doesn't meet, because nobody can hear Crowe over the music. It's the best week of the year, if you ask me, but don't tell him." } },
   },
 }

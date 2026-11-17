@@ -387,6 +387,11 @@ P:NPC {
     spitelash = { { id = "tp_spite", text = "Naga with taste, which is the worst kind. They've learned what's valuable on this coast.", next = "naga" } },
     xylem = { { id = "tp_self", text = "Ah, the subject I know best. I'm brilliant, impatient and right more often than is fair; ask anyone." } },
     rimtori = { { id = "tp_rimtori", text = "Thalassian scavengers with good instincts and bad manners. They killed my apprentice over a sack of dust." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was always too full of committees for my taste, and the Legion made it rather more empty. I prefer my tower, where the committee is one man and he always agrees with himself." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor would very much like to know what I keep in this tower, and I would very much like them not to. We have an understanding, which is that neither of us mentions it." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "Queen Azshara commanded the greatest sorcery the world has ever known, and the night elves would rather I didn't study it. I study it anyway, very carefully." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion is a regrettable consequence of excellent research. I do not intend to repeat the consequence, only the research." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow, I hear, and Deathwing's own daughter. I would not study her, because some subjects study you back." } },
     _none = { { id = "tp_none", text = "Not my field, and I don't waste time outside my field. Try someone with less to do." } },
   },
 }
@@ -605,6 +610,9 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Dress better before you meet the Archmage. He notices, and then I have to hear about it." } },
     xylem = { { id = "tp_xylem", text = "My master. Go up and see for yourself, and stop asking me about him.", next = "master" } },
     rimtori = { { id = "tp_rimtori", text = "Thalassians who've forgotten their manners along with their homes. I am not one of them, before you ask." } },
+    dalaran = { { id = "tp_dalaran", text = "My master looks down on Dalaran, which is the only thing he and I agree on. Every mage I ever met from there dressed even worse than you." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are a gaggle of old men in purple robes, and my master is one old man in purple robes. I fail to see the improvement." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The queen of this land drowned a whole city, and I've still not been allowed to see the sea from this tower. Some people have all the luck." } },
     _none = { { id = "tp_none", text = "How tedious. I neither know nor care." } },
   },
 }

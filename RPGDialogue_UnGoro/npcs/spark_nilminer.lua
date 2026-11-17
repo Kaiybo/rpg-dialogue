@@ -114,6 +114,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Chief digger, Marshal Expeditions, pal. It sounded important when I signed, and it means I hold the shovel and the blame." } },
     advice = { { id = "tp_ad", text = "Read the brochure carefully, pal, and then assume everything it doesn't mention wants to eat you and isn't covered." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got cold drinks and a bank and no dinosaurs, pal, and I'd give everything I've got to be sitting there right now. I'd even pay full price." } },
+    booty_bay = { { id = "tp_booty_bay", text = "In Booty Bay I could at least drown in style, buddy. Here I'm going to get eaten by something with a bill I can't pay." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's lawyers drew up my contract, and I read every word of it, and it still somehow says I'm stuck here. That's craftsmanship, that is." } },
+    explorers_league = { { id = "tp_explorers_league", text = "The League wants bones, the boss wants bones, and I dig bones, and nobody ever asks what the bones want. The bones want to stay buried, pal, I'm sure of it." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, pal. I've been in this crater so long I've forgotten what the rest of the world looks like, and what a decent wage looks like too." } },
   },
 }

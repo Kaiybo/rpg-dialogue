@@ -129,6 +129,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "Water Company security, posted to the port because somebody upstairs thinks I'm good at it, at the same wage. I'd ask for a raise, but I'd have to read my own contract." } },
     advice = { { id = "tp_ad", text = "Never sign anything you can't read, pal, unless I'm the one handing it to you." } },
     steamwheedle = { { id = "tp_sw", text = "The Cartel's the best employer in the world, and I'm saying that in case anybody important is listening." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the Cartel's crown jewel in Tanaris, pal, and the port's just the doorstep. I keep the doorstep clean, mostly." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got pirates, and Steamwheedle Port's got pirates, so I don't see why they get all the attention. Ours have worse manners." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The pirates down the coast aren't Bloodsail, pal, but they're no better. I deputize anybody who'll stand still and send them after them." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak raid the caravans from time to time, pal, and I'm supposed to stop them from the port. I'd like to see the Cartel try." } },
     _none = { { id = "tp_none", text = "Not my department, buddy. Ask at the warehouse, and tell them I sent you, which they'll hate, and that's worth the price of admission." } },
   },
 }

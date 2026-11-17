@@ -479,6 +479,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never sail on an empty stomach, never trust a red sail, and never let the cook go ashore alone." } },
     bloodsail = { { id = "tp_bloodsail", text = "They've cost me two good crewmen, and I'll see their red sails sunk before I'm done." } },
     kurzen = { { id = "tp_kurzen", text = "A mad colonel with a jungle camp and a taste for taking folk off the roads. Keep clear of his patrols." } },
+    booty_bay = { { id = "tp_booty_bay", text = "It's a goblin town that lets a fisherman's daughter tie up her ship and drink in peace, and I'll take that over half the ports up north. Mind your purse and it'll mind you back." } },
+    theramore = { { id = "tp_theramore", text = "I've run cargo to Theramore twice, and the harbor's clean and the soldiers are polite, and they still searched my hold like I was a Bloodsail. Proudmoore runs a tidy island." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "Some of my crew bet their wages at the Arena every time the chest comes up, and they come back poorer and full of stories. I've never seen the sense in fighting for a box." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The trolls up the coast at Zul'Gurub have been lighting fires at night, and the sailors who pass close say they hear drums. I keep my ship well out from that shore." } },
+    second_war = { { id = "tp_second_war", text = "My father talked about the orc ships off the Westfall coast in the Second War, and he never fished north of the Dagger Hills again. I grew up on that story." } },
     _none = { { id = "tp_none", text = "That's beyond me, {class}. Ask somebody who doesn't spend their days counting barrels." } },
   },
 }

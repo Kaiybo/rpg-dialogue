@@ -300,6 +300,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Captain of the Harbinger, Blackwater Raiders, and I've never lost a ship before this week." } },
     advice = { { id = "tp_ad", text = "Never anchor where the tide behaves oddly, matey. Learn from my mistake." } },
     steamwheedle = { { id = "tp_sw", text = "Booty Bay's run by goblins and paid for by everyone. The Raiders sail for the Baron, and the Baron pays on time." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's home port for the Blackwater Raiders, and Fleet Master Seahorn runs the finest fleet on the south seas. I'm dreading going back there, if you must know, after what I did to his ships." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail are scum, pirates with no honour and no sense, and they'd kill their own mothers for a doubloon. The Blackwater Raiders are pirates too, but we have standards." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's a fine port, if you like goblins, and I don't, but the rum's good. Seahorn's got friends there, which is why I'm staying away." } },
     _none = { { id = "tp_none", text = "No idea, matey. Ask Lolo, he'll tell you, and he'll tell you in the third person." } },
   },
 }
@@ -550,6 +553,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the sea an' I know ships, an' just now I know more about grief than I'd like. Ask." } },
     background = { { id = "tp_bg", text = "Captain o' the Maiden's Folly, Blackwater Raiders. Was, I mean." } },
     advice = { { id = "tp_ad", text = "Learn tae swim, an' learn it before ye need it." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I sailed out o' Booty Bay fer twenty years before the naga took my ship, an' I'd go back tomorrow if I had a deck under me. The sea's a cruel mistress, but she's the only one I've got." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer fly over the sea like it's nothin', an' I envy them. I'd give my last breath tae see the naga from a gryphon's back, wi' a hammer in my hand." } },
+    magni = { { id = "tp_magni", text = "The King's a good dwarf, an' he'd want me home, I'm sure. I'll go home when the naga are dead, an' no' a day before." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, an' couldnae care just now. Ask O'Breen." } },
   },
 }

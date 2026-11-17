@@ -411,6 +411,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Get it in writing, get it witnessed, and never sign anything a goblin hands you after dark." } },
     bloodsail = { { id = "tp_bloodsail", text = "They took my ship and my boots, and they'd take this cove if the Blackwater let them. I watch every red sash that floats in, friend, and I'm still looking for my boots." } },
     steamwheedle = { { id = "tp_steam", text = "The Cartel runs on contracts, and contracts run on witnesses, which is the only reason a human has a trade in this town." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where the Bloodsail spend their money and where I keep track of how much. The Baron would rather I didn't, but the Baron would rather a lot of things." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's navy is the only one in the South Seas that takes the Bloodsail seriously. I've sent them reports, and they've actually read them." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is too busy with the court to worry about pirates, which is how the Bloodsail grew so bold. I've written letters, and I'll keep writing them." } },
+    second_war = { { id = "tp_second_war", text = "I was a boy in Stormwind during the Second War, and I watched the fleet sail out to meet the orcs. I wanted to be on those ships more than anything, and I got my wish, eventually." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Bloodsail send a few men to the Arena now and then, to keep their blades sharp. I keep a list of who comes back." } },
     _none = { { id = "tp_none", text = "That's not in my book, friend, and I only swear to what I've seen with my own eyes." } },
   },
 }

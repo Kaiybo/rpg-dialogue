@@ -114,6 +114,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "A dwarf engineer, a Remtravel, and a member of the Marshal Expedition, which mostly means I get to see wonderful things and run away from them." } },
     advice = { { id = "tp_ad", text = "Always build two of anything important. I only built one A-Me, and look how that turned out." } },
     explorers_league = { { id = "tp_el", text = "My uncle's the one for the Explorers' League; I'm more for building than digging. Still, I'd love to show them A-Me one day." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan was the most wonderful city in the world, and we lost it, and I was too young to help. That's why I build things that go where things get dented, so I'm never too young again." } },
+    magni = { { id = "tp_magni", text = "King Magni gave the gnomes a home in Ironforge when we had nowhere else, and I'll always love him for it. He's very loud, though." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan sells good parts, if you check every one, and I check every one twice. A-Me 01's left arm came from there, and it's still the best part of her." } },
+    silithid = { { id = "tp_silithid", text = "The bugs crawling up from Silithus are fascinating, mechanically speaking, all levers and plates. I'd like to take one apart, if it would hold still." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know! But I could build something that does, given time." } },
   },
 }

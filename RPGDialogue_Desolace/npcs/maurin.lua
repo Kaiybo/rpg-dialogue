@@ -157,6 +157,15 @@ P:NPC {
     background = { { id = "tp_bg", text = "I died, and I learned, and now I serve. The order of those matters more than the details." } },
     advice = { { id = "tp_ad", text = "Never sign anything a demon offers you, however it is phrased. The Blade's warlocks are a lesson written in their own skin." } },
     burning_blade = { { id = "tp_blade", text = "A cult of traitors who mistake obedience for power. I will see them ended.", next = "blade" } },
+    scourge = { { id = "tp_scourge", text = "I served the Scourge once, and I remember all of it, which is the worst of what I can tell you. The Lich King's grip was cold and clear, and the Burning Blade's demons are crude by comparison." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are what is left when you pull a puppet's strings and it walks off on its own. We owe nothing to anyone, and the Dark Lady is the only one who understands that." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady freed us when the Lich King's power faltered, and she has a plan for Lordaeron. I do not need to know it to serve it." } },
+    burning_legion = {
+      { id = "tp_burning_legion", text = "The Legion is an old power and a patient one, and these orcs who bargain with it are children playing with knives. I study them so that I know where to cut." },
+      { id = "tp_burning_legion2", when = { race = "Scourge" }, text = "You and I know what it is to belong to something greater and colder than ourselves. The warlocks of the Burning Blade want that, and they deserve what they will get." },
+    },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was a necromancer of Dalaran, and now he is the Lich King's voice in the plaguelands. His work is meticulous, and I would very much like to see it unmade." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a useful ally to the Dark Lady, and the orcs here are courteous enough. They keep their distance from me, which I appreciate." } },
     _none = { { id = "tp_none", text = "I do not know, and I do not guess. Ask Takata; he guesses for a living." } },
   },
 }

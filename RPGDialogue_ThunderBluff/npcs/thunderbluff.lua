@@ -537,6 +537,23 @@ P:NPC {
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I will answer you, because the tauren do not turn away a question, but I will not pretend to trust you yet." },
     },
     cenarion_circle = { { id = "tp_circle", text = "That is Hamuul's road, and the night elves let him walk it, some more gladly than others. I'm proud of him." } },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall is young and carries a heavy burden, but he carries it with honour. When the centaur drove my people to the edge of the Barrens, his Horde stood beside us, and I would trust him with my own life." },
+      { id = "tp_thrall2", when = { race = "Orc" }, text = "Your Warchief is a son to me in all but blood, young one. Tell him, when you see him, that the old bull still sits by his fire on the bluff and thinks of him." },
+    },
+    forsaken = {
+      { id = "tp_forsaken", text = "Hamuul believes the Forsaken may yet be healed, and so we spoke for them when they asked to join the Horde. I pray he is right, because the alternative is a grief I do not wish to imagine." },
+      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You are welcome on my bluff, and I hope you find some peace here. Hamuul works for your people's healing, and I watch over it with him." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady keeps her own counsel, and I have never been certain of her heart. We brought her people into the Horde because they suffered, and I hope she remembers that." } },
+    centaur = { { id = "tp_centaur", text = "The centaur hunted my people across these plains for generations, and many of our elders died fighting them. With Thrall's help we drove them from Mulgore, and I mean that they never return." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar are children of Agamaggan, and they are wild and bitter. They press on our borders from the Barrens, and my son Baine is learning what it is to hold a home against them." } },
+    grimtotem = { { id = "tp_grimtotem", when = { disposition = { min = 65 } }, text = "Magatha thinks I do not see her schemes, and I let her think it. But you ask as a friend, so I will tell you that I sleep lightly on Elder Rise, and I do not mind it." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother gave us this land, and she gave us the strength to keep it. I thank her every morning, and I hope she is pleased with what we have made." } },
+    jaina = { { id = "tp_jaina", text = "Lady Proudmoore stood beside us on Hyjal, and she has kept her word since. I would trust her more than most of her kind, though her soldiers in the Barrens test that trust." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran was the city of human mages, and the Legion broke it. I am told they rebuild, slowly, behind walls, and I do not blame them for being careful." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire comes to Mulgore, the young ones beg me to visit, and I usually do. Silas Darkmoon tells a fine story, and I am old enough to enjoy being fooled by it." } },
+    second_war = { { id = "tp_second_war", text = "The tauren did not fight in the orcs' wars, but we heard the stories after. The orcs carry those years like a scar, and Thrall has given them a reason to heal it." } },
     _none = { { id = "tp_none", text = "Ask the elders on their rise. They've more patience for questions than an old warrior." } },
   },
 }
@@ -780,6 +797,17 @@ P:NPC {
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "Sit, sit; you have the patience of someone worth talking to, and I have a great deal to say." },
     },
     cenarion_circle = { { id = "tp_circle", text = "I'm the highest of the tauren in it, which mostly means I'm the one who gets glared at in Darnassus. Remulos is kinder." } },
+    emerald_dream = {
+      { id = "tp_emerald_dream", text = "The Emerald Dream is the world as it was meant to be, and the druids walk it in sleep. Something has begun to trouble it, and I fear what that means for the waking world." },
+      { id = "tp_emerald_dream2", when = { class = "DRUID" }, text = "You have walked in the Dream yourself, so you know what I mean when I say the green has turned grey at the edges. Watch for it, and tell me if you see it spread." },
+    },
+    green_dragons = { { id = "tp_green_dragons", text = "The green dragons serve Ysera, the Dreamer, and they guard the gates to the Dream. Some of them have grown strange of late, and I do not know why." } },
+    malfurion = { { id = "tp_malfurion", text = "Malfurion Stormrage taught me the druid's path when no tauren had walked it before. I owe him more than I can repay, and I mean to spend my life trying." } },
+    elune = { { id = "tp_elune", text = "The night elves pray to Elune, the moon goddess, and we call her Mu'sha. I find it a comfort that our faiths agree on so much." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken suffer a curse that should never have been laid on anyone. I believe it can be lifted, and I spoke for them before the Horde because of it." } },
+    nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the World Tree on the peak of Hyjal, where the druids gather. I have stood beneath it, and I have never felt so small, nor so welcome." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is my oldest friend and my chieftain, and he has never once doubted the druids. Without him, there would be no druids among the tauren at all." } },
+    maraudon = { { id = "tp_maraudon", text = "Maraudon is a sacred place in Desolace, where Zaetar, son of Cenarius, lies buried. The centaur call it their holy ground, and something has corrupted it from within." } },
     _none = { { id = "tp_none", text = "Ask Turak, or the Chieftain, or the wind; it knows more than both of us." } },
   },
 }
@@ -984,6 +1012,10 @@ P:NPC {
 
   topics = {
     cenarion_circle = { { id = "tp_circle", text = "Our order, and the Arch Druid's pride. Go to Moonglade when you can; it's quieter than here." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The Dream is where we go to rest and to learn, and every druid must walk it. I teach the steps, and Hamuul teaches why they matter." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made every creature, and a druid learns to take their shape. I teach that shape, and she teaches what it means." } },
+    elune = { { id = "tp_elune", text = "The night elves' moon goddess, whom we call Mu'sha, watches over the druids at night. I find her light restful after a long day of teaching." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great chieftain, and he gave us a place to teach. I am grateful, and I show it by teaching well." } },
     _none = { { id = "tp_none", text = "Ask Hamuul. I only teach what I'm sure of." } },
   },
 }
@@ -1223,6 +1255,13 @@ P:NPC {
     },
     cenarion_circle = { { id = "tp_circle", text = "Night elves teaching tauren to be tauren! Hamuul is proud of it, and I find it embarrassing." } },
     grimtotem = { { id = "tp_grimtotem", text = "You've heard about Arnak, I suppose. Every clan has its hotheads. Mine simply has more of them, and better reasons." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a great chieftain, of course, and a generous one. He gives everyone a chance, which is why he gives me one, and why I make sure to be grateful." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is an orc, and a strong one. The tauren owe him much, Cairne says, and I am sure Cairne is right." } },
+    forsaken = { { id = "tp_forsaken", text = "Cairne and Hamuul opened our doors to the dead of Lordaeron, which seems unwise to me. But I am only an elder, and what do elders know?" } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is ancient, and her children should be strong. Some of us remember that, and some of us have grown soft on these comfortable mesas." } },
+    the_elements = { { id = "tp_the_elements", text = "The elements answer to those who command them, and I have learned to command them well. That is a gift Cairne does not share, and he would do well to remember it." } },
+    centaur = { { id = "tp_centaur", text = "The centaur were our enemies, and they made us strong. Peace has made us comfortable, and comfortable is not the same thing." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady is clever, and she knows what she wants. I find that I understand her better than most in this city." } },
     _none = { { id = "tp_none", text = "Not my concern, and not yours either, I expect." } },
   },
 }
@@ -1419,5 +1458,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I only keep the beds, friend. Ask on the rises." } },
+    cairne = { { id = "tp_cairne", text = "Cairne comes down to my inn sometimes and sits by the fire with the travellers. He is a kind host to his people, and I try to be the same to mine." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief ate my stew once, and he asked for more. I've told everyone, and I'll keep telling them." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't eat, which is a shame, because I make a lovely stew. They do like the fire, though, and I let them sit as long as they like." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire comes to Mulgore, half its folk ride the lifts to see the bluff, and they all end up at my fire. I hear more strange stories that week than in the rest of the year together." } },
   },
 }

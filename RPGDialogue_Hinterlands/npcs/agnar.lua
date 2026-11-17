@@ -138,6 +138,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know beasts, the Peak's an' a few from further off. Ask about any creature ye like." } },
     background = { { id = "tp_bg", text = "Wildhammer born, an' I was raisin' gryphon chicks before I could ride one." } },
     advice = { { id = "tp_ad", text = "Feed a beast first an' ask it questions after. It works on dwarves, too." } },
+    green_dragons = { { id = "tp_green_dragons", text = "The faerie dragons are cousins tae the great green ones, so the druids say, an' they're the sweetest beasts in the Hinterlands. The big ones are another matter entirely." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Every beast in Aerie Peak is a Wildhammer at heart, gryphon or hound or dragonhawk. I raise them like nephews, an' they behave about as well." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids say the faerie dragons come from the Dream, an' I believe it, fer they've a look in their eyes like they're seein' somethin' else. Lovely creatures, every one." } },
     _none = { { id = "tp_none", text = "No' a beast I know, friend. Ask the riders, they've seen more o' the world than me." } },
   },
 }

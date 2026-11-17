@@ -289,5 +289,13 @@ P:NPC {
     lions_pride = { { id = "tp_inn", text = "Farley pours a fair cup. I've been known to sit in the corner and pretend I'm not listening." } },
     northshire_abbey = { { id = "tp_abbey", text = "Brother Sammuel's floor, worn smooth where every one of us has knelt." } },
     _none = { { id = "tp_none", text = "I'm a trainer behind a smithy, friend. That's beyond my little patch." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light isn't earned in one great deed but in a thousand small mercies nobody sees. The great deeds come after, if they come at all." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You carry the Light now, and it will feel heavy on the days you'd rather be angry. Carry it anyway, because those are the days it matters most." },
+    },
+    silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand was the finest order of knights the world has known, and it broke when Lordaeron fell. Those of us who still wear the Light's armor carry what's left of it, whether or not we carry the name." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "The Tome's trail leads to Heroes' Vigil, to a dwarf who gave his life on that island and had it given back by the Light. If you're my student, you may walk that road yourself one day." } },
+    arthas = { { id = "tp_arthas", text = "Arthas was a paladin, taught the same prayers we teach, and he turned his hammer on his own people. Every paladin should think on that once, and then pray never to think on it again." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is an abomination before the Light, and if you're sent against it, go with a clear heart and a heavy hammer. Bring both back if you can." } },
   },
 }

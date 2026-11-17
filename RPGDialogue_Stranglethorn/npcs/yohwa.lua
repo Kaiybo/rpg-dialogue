@@ -168,6 +168,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A sergeant of Stormwind once, a sergeant of rebels now, and still shouting at recruits either way." } },
     advice = { { id = "tp_ad", text = "Never let a jungle scratch go untreated, {g:son|lass}. Out here, that's how most of us die." } },
+    kurzen = { { id = "tp_kurzen", text = "Kurzen was my commander once, and I followed him into this jungle. I won't follow him any further." } },
+    bolvar = { { id = "tp_bolvar", text = "Highlord Fordragon is a good man, but Stormwind's forgotten us down here, and I don't think he knows how bad it's gotten. I'd tell him myself if I could." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's full of soft recruits who think they're tough, and I'd love to get my hands on a few of them. I'd make soldiers out of them in a week." } },
+    holy_light = { { id = "tp_holy_light", text = "I don't pray much, but Brother Nimetz does, and I've seen him keep men alive who should've died. Maybe the Light's real, and maybe he's just good at his job." } },
+    second_war = { { id = "tp_second_war", text = "I was a recruit in the Second War, and I learned to fight from sergeants who'd fought orcs. I teach the same way now, with a cane and a shout." } },
     _none = { { id = "tp_none", text = "Not my department. Ask the Lieutenant, or better yet, don't." } },
   },
 }

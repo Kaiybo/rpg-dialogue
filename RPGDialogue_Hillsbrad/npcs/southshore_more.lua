@@ -231,6 +231,10 @@ P:NPC {
     background = { { id = "tp_bg", text = "I serve the Kirin Tor as a voice rather than a wand, which suits me; I was never much good with the wand." } },
     advice = { { id = "tp_ad", text = "If a construct in Dalaran stops to look at you, don't wait to see what it decides." } },
     alterac = { { id = "tp_alterac", text = "Dalaran's walls look down on what's left of Alterac. Neither is the neighbour it once was." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran is rebuilding, and the Kirin Tor need allies, and that is why I am here asking for them. It costs me something to ask, but it would cost us more not to." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor are the finest mages in the world, and we are fewer now than we were. I serve the council, and I am proud of it, even when I'm asked to come begging." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad was one of us, a member of the council, and we let him walk away with our secrets. I don't like to say his name aloud, and I'll thank you not to make me." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge came within sight of Dalaran's walls, and the Burning Legion broke them, and we are still counting what was lost. Every mage in the city lost someone." } },
     _none = { { id = "tp_none", text = "That's beyond my brief, I'm afraid." } },
   },
 }
@@ -468,6 +472,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Keep a journal. Nobody remembers anything properly, least of all heroes." } },
     alterac = { { id = "tp_alterac", text = "A kingdom undone by its own king. I've three shelves on it and none of them are cheerful.", next = "alterac" } },
     syndicate = { { id = "tp_syndicate", text = "Nobles in masks. They have long family trees and short tempers." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I wrote the history of Lordaeron's fall as it happened, from refugee reports and old soldiers' tales. It is the saddest book I've ever written, and I'm not finished yet." } },
+    second_war = { { id = "tp_second_war", text = "The Horde came over these hills in the Second War, and Southshore held, barely. I've written that chapter so many times I can recite it, and I'll do so if you're not careful." } },
+    internment = { { id = "tp_internment", text = "The internment camp at Durnholde was ten miles from here, and the young orc who broke it out now leads the Horde. History has a sense of humour, and it isn't a kind one." } },
+    thrall = { { id = "tp_thrall", text = "Thrall was raised in Durnholde by Lord Blackmoore, of all people, and he escaped and built a nation. I've written three chapters on him, and Southshore's folk don't much like any of them." } },
     _none = { { id = "tp_none", text = "I've nothing on that, which annoys me more than you'd think." } },
   },
 }
@@ -674,6 +682,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I've poured drinks in Southshore longer than I'll admit, and I've no plans to stop." } },
     advice = { { id = "tp_ad", text = "Lock up your horse at night. The Syndicate love a good horse more than they love money." } },
     syndicate = { { id = "tp_syndicate", text = "Nobles in masks, thieving horses and murdering magistrates. They don't drink here, or if they do, they tip badly." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead up the hill drink nothing, but they do talk, and I hear more from their scouts than I'd like. They want Southshore, and they're patient about it." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Ravenholdt's people drink here now and then, and they pay well, and they tip better. I don't ask, and they don't tell, and the beer flows." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's rumors come in with the sailors, and they're all about pirates and gold and goblins who'll cut your throat for a copper. Most of them are true." } },
     _none = { { id = "tp_none", text = "Haven't heard a thing about it, and that's saying something." } },
   },
 }
@@ -898,6 +909,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Dalaran trained me, the committees bored me, and Hillsbrad's mysteries kept me." } },
     advice = { { id = "tp_ad", text = "If an animal starts growing for no good reason, leave and tell someone." } },
     new_plague = { { id = "tp_plague", text = "I can't prove it, so call it a hunch with evidence. The Forsaken are brewing something.", next = "plague" } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are brewing something up at Tarren Mill, and I've seen the vials to prove it. I'm sure of it, though nobody will listen." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "I was Kirin Tor once, before I left to chase odd happenings around Hillsbrad. They'd have me back, I think, though they'd want to know why I left first." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran's dome is down, and the city's reopening, and I'm not sure I'd want to go back. Too many old faces, and too many I'll never see again." } },
     _none = { { id = "tp_none", text = "Interesting, but not my mystery, I'm afraid." } },
   },
 }
@@ -1098,6 +1112,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I brush horses in Southshore and swear at lions; my granddaddy did the same." } },
     advice = { { id = "tp_ad", text = "Don't leave your horse tied by the road overnight, not round here." } },
     syndicate = { { id = "tp_syndicate", text = "Horse thieves with fancy names. I'd as soon see 'em eaten by lions." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead up the hill ride skeletal horses, and it breaks my heart every time I see one. A horse deserves to rest, even when its rider doesn't." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's got horses that do tricks, and I've told Silas Darkmoon himself that his horses are underfed. He didn't listen, but he did buy me a drink." } },
+    scourge = { { id = "tp_scourge", text = "I heard the Scourge eat horses, or worse, raise them. I keep my best ones in the stable at night, and I sleep there too, if I'm honest." } },
     _none = { { id = "tp_none", text = "Don't know nothin' about that, friend." } },
   },
 }
@@ -1286,6 +1303,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know food, and who in Southshore eats what, and who doesn't pay. Ask away." } },
     background = { { id = "tp_bg", text = "I cook in Southshore, and I'm the best at it, and that's my story." } },
     advice = { { id = "tp_ad", text = "Eat before you go up into Alterac; the ogres won't feed you." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead up the hill eat nothing, and I've never understood a soul who doesn't like a good bisque. I pity them, honestly." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's spices come through Southshore sometimes, and I'll pay any price for them. A good bisque needs a good pinch of something from the south." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's food is a crime against cookery, and I've told Silas Darkmoon so. He laughed and offered me a funnel cake, and I'm ashamed to say it was quite good." } },
     _none = { { id = "tp_none", text = "Can't help you there, friend, unless it's about soup." } },
   },
 }
@@ -1492,6 +1512,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "I breed horses, and I was right about the feed, and those are the important things." } },
     advice = { { id = "tp_ad", text = "Never buy a horse that won't look you in the eye." } },
     silver_hand = { { id = "tp_silverhand", text = "Laughed at me, all of them, and now they'll come to me for feed. I'll remember every name.", next = "silverhand" } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took good horses from the north, and turned them into something I won't describe. I'd breed them all again, if I could, just to spite the plague." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken ride dead horses, and I've seen them up close, and I'd rather not again. A horse deserves better than that." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light called me mad once, through the mouths of the Silver Hand, and I've not forgiven it. I believe in my horses now, and they've never once let me down." } },
     _none = { { id = "tp_none", text = "If it isn't about horses, then I'm not interested." } },
   },
 }
@@ -1673,6 +1696,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the bay, the tides and the murlocs' bad habits. Pick one." } },
     background = { { id = "tp_bg", text = "Southshore fisherman, Southshore teacher; that's the beginning and the end." } },
     advice = { { id = "tp_ad", text = "Fish the turning tide, and keep one eye on the strand." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's fishing is the best in the world, and I'd go there if I didn't love this bay so much. They catch sharks in the harbour, I'm told, and sometimes the sharks catch them." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's docks are fine for fishing, if you don't mind goblins watching you and offering to buy your catch. I've never been, but I've heard enough." } },
+    forsaken = { { id = "tp_forsaken", text = "The dead come down to the shore sometimes, at night, and just stand there looking at the water. I don't know what they're looking for, and I don't ask." } },
     _none = { { id = "tp_none", text = "Couldn't say. Ask me about tides." } },
   },
 }

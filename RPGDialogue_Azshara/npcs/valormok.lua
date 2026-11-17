@@ -231,6 +231,11 @@ P:NPC {
     rimtori = { { id = "tp_rimtori", text = "The elf who betrayed us. Ask me again when her head's on a spike, and I'll be more cheerful about it.", next = "betrayal" } },
     satyrs = { { id = "tp_satyr", text = "The Haldarr are south of us and never sleep. We kill them, they come back, and so it goes." } },
     sentinels = { { id = "tp_sent", text = "They watch us from their point, and we watch them. Nobody's spilt blood over it yet, and I'd like to keep it that way." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent us to Azshara to cut wood for Orgrimmar, and our commander made a bargain that cost a dozen warriors. Thrall would not have made it, and I will tell him so." } },
+    tyrande = { { id = "tp_tyrande", text = "The night elf priestess thinks every tree in Kalimdor belongs to her. We need wood, and she needs to learn to share." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The elves named this land for a queen who brought demons into the world. And they say orcs are the dangerous ones." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The orcs learned from the Legion what it means to be slaves. We will not be slaves again, not to demons, not to elves, not to anyone." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen sends her dead to the Horde's councils, and Thrall says they are allies. I say I will believe it when they bleed for us." } },
     _none = { { id = "tp_none", text = "I don't know about that. Ask Jediga; she's the one who thinks about things." } },
   },
 }
@@ -469,6 +474,11 @@ P:NPC {
     xylem = { { id = "tp_xylem", text = "Dangerous, polite and very rich. I don't know which of those worries me most.", next = "xylem" } },
     highborne = { { id = "tp_hb", text = "Dead wizards with expensive handwriting. Their tablets are my ticket home." } },
     rimtori = { { id = "tp_rimtori", text = "She fooled Belgrom, which isn't hard, and killed our warriors, which is unforgivable. Ag'tor wants her head, and he's welcome to it." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran pays the best price for Highborne tablets, if you can get through their gates, and you can't. So I sell to whoever can, and they sell to Dalaran." } },
+    kirin_tor = { { id = "tp_kirin_tor", text = "The Kirin Tor would give their eyes for what's buried in these ruins, and they'd give their pride before they'd buy it from an orc. So I sell through a goblin." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay is where you take things you don't want questions about, and they take a fifth for not asking. I've paid that fifth more times than I'll admit." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief doesn't know I'm here, and I'd like to keep it that way. The orc who sent me does, and he'd like me to stay here forever." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The tablets I sell are covered in praise of Azshara, and the elves hate them, which makes them more valuable. Nothing sells like a dead queen." } },
     _none = { { id = "tp_none", text = "No idea, and unless there's coin in it, no interest either." } },
   },
 }
@@ -634,6 +644,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fly wind riders for the Horde. Ag'tor gives the orders; I just make sure they get delivered." } },
     advice = { { id = "tp_ad", text = "Don't feed the wind riders the satyr's meat. Trust me on that." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides a wolf, not a wind rider. That is his only mistake." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The wind riders would rather fly to Booty Bay than here, and I would rather they flew there too. The salt there is warmer." } },
+    tyrande = { { id = "tp_tyrande", text = "The elves shoot at my beasts from the trees. I would like a word with whoever gives the order." } },
     _none = { { id = "tp_none", text = "Ask Ag'tor. I just fly." } },
   },
 }

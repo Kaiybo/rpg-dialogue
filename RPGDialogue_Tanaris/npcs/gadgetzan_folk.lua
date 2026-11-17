@@ -197,6 +197,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I counted coins in Booty Bay until the Cartel needed a careful pair of hands out here, at a slightly better rate, and careful hands are rare in a desert." } },
     advice = { { id = "tp_ad", text = "Out in the dunes, a smart traveler buries half his coin and remembers where, and a smarter one leaves it with me and pays the fee." } },
     steamwheedle = { { id = "tp_cartel", text = "The Cartel keeps the peace because peace is good for business, and the vault is where that business ends up." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's vault is the safest place in the desert, friend, because the Bruisers guard it and the sand guards the Bruisers. I've never lost a coin, and I've counted them all twice." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's vault was my first post, friend, and I learned there that pirates make wonderful depositors and terrible neighbors. Here it's sand thieves, and they're no better." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The adventurers who come back from Zul'Farrak deposit the strangest things, friend, troll idols and cursed coins and once a whole mummified hand. I don't ask, I just log it." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's vault has the coldest coins in the Cartel, friend, and I hear the banker wears mittens to count them. I'd rather count warm ones." } },
     _none = { { id = "tp_none", text = "That isn't something I can put a price on, friend, so I don't know anything about it." } },
   },
 }
@@ -388,6 +392,13 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've kept gryphons since I was a lass in the snows of Dun Morogh, and the Alliance sent me where the birds were needed. Nobody asked whether I liked sand." } },
     advice = { { id = "tp_ad", text = "Carry water on the flight, because there's none to land for between here and Feralas." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer taught every gryphon master worth their salt, and I'd give my right arm to fly with them once at Aerie Peak. They ride without saddles, ye know, and I've tried it once and regretted it." } },
+    magni = {
+      { id = "tp_magni", text = "King Magni's a fine king, and he'd hate this sand as much as I do. I'd love to see him try to fly a gryphon through a Tanaris storm." },
+      { id = "tp_magni2", when = { race = "Dwarf" }, text = "Ye've come a long way from the mountain too, then, and I'll bet ye miss the snow as much as I do. Raise a mug to the king for me next time ye're in Ironforge." },
+    },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the worst place I've ever kept birds, and the goblins charge me double for water. The gryphons hate it, and I hate it more." } },
+    theramore = { { id = "tp_theramore", text = "The Theramore flight's the best one I've got, over the water and into the marsh, and the birds love it. It's the only cool air they get." } },
     _none = { { id = "tp_none", text = "Couldn't tell you; ask somebody with less sand in their ears." } },
   },
 }
@@ -565,6 +576,13 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I sat in the camps until Thrall broke them open, and I have flown for the Horde since. Now I fly goblins' customers, and I don't complain where the Warchief can hear." } },
     advice = { { id = "tp_ad", text = "Don't feed the riders from your hand unless you've spare fingers." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief broke the camps open, and I was in one of them. I fly for him, and for nobody else, whatever the goblins think they're paying me for." } },
+    internment = {
+      { id = "tp_internment", text = "I spent years in an internment camp, behind walls and under guards, until the Warchief came. I don't talk about it much, and I don't like being asked." },
+      { id = "tp_internment2", when = { race = "Orc" }, text = "You'd know about the camps yourself, or your elders would. Don't let anyone tell you it made us weak, it taught us to wait." },
+    },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's too hot for the beasts, and too loud for me. But the dwarf across the yard keeps her birds alive, and I respect that." } },
+    centaur = { { id = "tp_centaur", text = "The centaur in the Barrens shoot at wind riders for sport. I've lost good beasts to their arrows, and I don't forget it." } },
     _none = { { id = "tp_none", text = "I know wind riders and I know the sky. That is neither." } },
   },
 }
@@ -781,6 +799,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I cooked for pirates, for the Cartel and once for a trogg, who ate the plate and didn't pay for it. Now I cook for Gadgetzan, which is all of those at once." } },
     advice = { { id = "tp_ad", text = "In the desert, salt the meat and not your wounds. Learn that one the easy way." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's the perfect town for the greatest chef in Azeroth, pal, because nobody here can cook but me. They line up for my meat every morning." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak tried to steal my recipes once, pal, and I chased them off with a cleaver. They haven't been back." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's cooks are all fish and no flair, pal, and I've told them so. They've thrown things at me, which only proves I'm right." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's food is a crime against cooking, pal, and I've tried to tell Silas so. He offered me a job instead, and I'm still thinking about it." } },
     _none = { { id = "tp_none", text = "If I can't fry it or sell it, pal, then I don't know a thing about it." } },
   },
 }
@@ -971,6 +993,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I blew up my first workshop in Ratchet and my second in Booty Bay, so Gadgetzan's got lots of open space, which I appreciate, and cheaper rent, which I appreciate more." } },
     advice = { { id = "tp_ad", text = "Clean the barrel after the sandstorm, pal, not before the next one." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's Bruisers won't let me fire a gun in town, pal, so I fire them into a dune outside. That dune's going to be famous one day." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak don't use guns, pal, which is a shame, because I'd sell them a lot of them. They throw axes, and that's a much worse business model." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay lets you fire a gun indoors, pal, which is why I left after the second fire. Gadgetzan's got rules, but at least the buildings are made of stone." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's where I blew up my first workshop, pal, and Gazlowe still sends me the bill every year. I've told him I'll pay when I'm rich." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, but if it needs shooting, I know a goblin, and he's got a sale on." } },
   },
 }
@@ -1215,6 +1241,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I left Kalimdor's forests for its forges, and the forges led me here, to sand and goblins and patience." } },
     advice = { { id = "tp_ad", text = "Keep your edge oiled in the desert. The sand eats a dry blade." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak work metals the old way, with blood and fire and things I don't care to name. I'd like to learn their methods, and I'm patient enough to wait for the chance." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got good forges and better customers, and the goblins pay well for good work. The sand gets into everything, but steel doesn't mind." } },
+    dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons forge with fire from below, and their work is the finest and cruelest I've seen. I'd study it if I could do it without selling my soul." } },
+    silithid = { { id = "tp_silithid", text = "The silithid carapaces are harder than most iron, and I've tried to work one. It took a week, and I'm still not sure I did it right." } },
     _none = { { id = "tp_none", text = "I can't say, though if it's made of metal I'll look at it." } },
   },
 }
@@ -1454,6 +1484,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "An old troll from the old jungles, mon, with too much drink in him and too many stories." } },
     advice = { { id = "tp_ad", text = "Never wake something just to see if it's sleeping, mon." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The Sandfury in Zul'Farrak be cruel, mon, and their priests be crueler, and they keep a hydra in their pool like a pet. Yeh'kinya was young once in a place like that, and he got out." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Hakkar be the Soulflayer, mon, the blood god, and the Gurubashi be calling him back at Zul'Gurub. Yeh'kinya don't believe in him, but Yeh'kinya don't want to meet him either." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai in the Sunken Temple be trying to call Hakkar too, mon, in the swamp across the sea. Yeh'kinya know a thing or two about stopping them, if you be willing." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be good trolls, mon, better than the Sandfury or the Gurubashi. They remember what loyalty be, and that be rare in our people." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin be a good chief, mon, and wise, and he keep his people out of the old madness. Yeh'kinya respect that." } },
     _none = { { id = "tp_none", text = "The spirits don't say, mon, and Yeh'kinya doesn't guess." } },
   },
 }

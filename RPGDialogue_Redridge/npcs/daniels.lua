@@ -221,6 +221,11 @@ P:NPC {
   },
 
   topics = {
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay rum used to come up the road by the cask, and now it doesn't come at all, because the orcs sit astride the only road there is. I'd pay goblin prices again just to have something goblin-priced to sell." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Darkmoon Faire camps by Goldshire, half my regulars ride over and come back broke and grinning. I don't mind, because a man with no money and a good story still buys a mug of water and tells it." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "A goblin from Gadgetzan once sold me a barrel of something he swore was cactus wine. It ate through the bung by morning, and I kept the barrel as a lesson." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "My cousin says every orc in the Burning Steppes goes back to that mountain to drink, and that they've got a better cellar than mine. That's the most bitter thing I've heard all year." } },
+    theramore = { { id = "tp_theramore", text = "They say the Lady Proudmoore has a harbour full of ships and a tavern on every corner over in Theramore. I'd move my whole bar there if the road out of Redridge didn't run through orcs first." } },
     knows = {
       { id = "tp_knows", text = "A barkeep hears everything said over a mug, and Lakeshire says plenty. Ask me about any of this." },
     },
@@ -390,6 +395,10 @@ P:NPC {
   },
 
   topics = {
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I took Narnie to the Darkmoon Faire once, and she ate a whole tray of cakes off a gnome's table before anyone noticed. We left early, and I still apologise to that gnome in my head." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light keeps this inn as much as I do, I think, because nobody's burned it yet. I say a little prayer over every room before a guest sleeps in it, and it's done no harm so far." } },
+    second_war = { { id = "tp_second_war", text = "My mother hid me in the inn's cellar when the orcs came through in the Second War, and I still can't stand the smell of potatoes. That's why I keep this inn bright and the cellar locked." } },
+    theramore = { { id = "tp_theramore", text = "A guest of mine sailed from Menethil to Theramore last spring and wrote back that it's warm, wet and full of soldiers. I don't know why anyone would want more soldiers, though Lakeshire could use some." } },
     background = { { id = "tp_bg", text = "I keep the rooms and Narnie keeps me; that's the arrangement." } },
     advice = { { id = "tp_ad", text = "Make an inn your home before you need one. You'll come back to it more than you think." } },
     blackrock = { { id = "tp_blackrock", text = "We hear the drums some nights. Everyone goes very quiet and orders another round." } },

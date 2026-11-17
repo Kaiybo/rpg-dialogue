@@ -100,6 +100,10 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A lorekeeper, and an old one. My life has been other people's names, and I've found that enough." } },
     advice = { { id = "tp_ad", text = "Learn the names of those who came before you. You will be surprised how often they help." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother holds our dead in her arms at Red Rocks, and I keep their names so she does not have to. It is a heavy task, and an honourable one." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar desecrate our sacred ground, and I am too old to drive them off. That shames me more than I can say, and I am grateful to anyone who does it for me." } },
+    cairne = { { id = "tp_cairne", text = "Cairne will be laid at Red Rocks one day, among the greatest of our people. I pray to the Earth Mother that the day is far off, and that I am not the one to carve his name." } },
+    second_war = { { id = "tp_second_war", text = "The orcs speak of the Second War, but the tauren had their own wars in those years, against the centaur. I have carved the names of those who fell, and there are many." } },
     _none = { { id = "tp_none", text = "That is not among the things I keep, {class}. Ask the elders in Thunder Bluff." } },
   },
 }

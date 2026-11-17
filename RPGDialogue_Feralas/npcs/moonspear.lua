@@ -113,6 +113,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A soldier of Darnassus, General Feathermoon's second, and Vestia's husband. In that order on duty, and the other order off it." } },
     advice = { { id = "tp_ad", text = "Assume your enemy will come for what's yours, and act before they do. Hope is not a defense." } },
     sentinels = { { id = "tp_sent", text = "The finest soldiers on Kalimdor, and the General is the finest of them. I'll argue the point with anyone." } },
+    tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande sent the general to hold Feralas, and the general sent me to hold the naga. Everyone in this chain knows what is expected of them." } },
+    elune = { { id = "tp_elune", text = "Elune keeps my wife safe in those ruins, and my arrows keep the naga busy elsewhere. I trust both, but I sharpen the arrows myself." } },
+    highborne = { { id = "tp_highborne", text = "The Highborne built the ruins my wife studies, and the naga are what the Highborne became under the sea. I find that a poor advertisement for their wisdom." } },
+    dire_maul = { { id = "tp_dire_maul", text = "Eldre'Thalas was the Highborne's last great city, and now we call it Dire Maul because the ogres moved in. My wife grieves the name more than the city." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The naga call her their queen still, after ten thousand years at the bottom of the sea. Some loyalties should be allowed to drown." } },
     _none = { { id = "tp_none", text = "I've no time for that. Ask Shyria at the inn; she hears everything and has the time to repeat it." } },
   },
 }
@@ -219,6 +224,11 @@ P:NPC {
     background = { { id = "tp_bg", text = "A priestess, a scholar and Latro's wife. I've been asked which matters most, and I've never managed an answer." } },
     advice = { { id = "tp_ad", text = "Write things down. Memory is a kind priestess but a poor scholar." } },
     highborne = { { id = "tp_hb", text = "Brilliant and reckless, and their reckless brilliance broke the world. I study them so I'm never tempted to admire them." } },
+    elune = { { id = "tp_elune", text = "I am a priestess of Elune before I am a scholar, though Latro says the order runs the other way. He is usually right about me, which is very annoying." } },
+    dire_maul = { { id = "tp_dire_maul", text = "The library of Eldre'Thalas was the greatest the Highborne ever built, and it is still there, under the ogres. I would give a great deal to read a single shelf of it." } },
+    queen_azshara = { { id = "tp_queen_azshara", text = "The tablets Latro brings back from the naga ruins speak of Azshara as a goddess. It is chilling to read, and very well written, which is more chilling still." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "The druids walk in the Dream, and the priestesses of Elune pray beneath the moon, and we have had ten thousand years to argue about which is wiser. I think we are both a little right." } },
+    tyrande = { { id = "tp_tyrande", text = "Tyrande blessed our marriage herself, and Latro cried, though he will tell you it was the incense. Please do not tell him I told you." } },
     _none = { { id = "tp_none", text = "I'm afraid that isn't in any of my books. Not yet, at least." } },
   },
 }

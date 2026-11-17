@@ -338,6 +338,14 @@ P:NPC {
     scholomance = { { id = "tp_scholomance", text = "That's the Barovs' old home on Caer Darrow, where the necromancers learn their trade. Arbington knows more about it than any sane man should." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They're holding Hearthglen and they don't want our help, which is fine by me. They don't get to shoot at my scouts either, though, and they do." } },
     argent_dawn = { { id = "tp_dawn", text = "They're Pureheart's people, and they'll fight beside anyone at all. I don't care for all the company they keep, but I've never turned down a sword." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge holds Andorhal and every field from here to the Thondroril, and it doesn't need to sleep or eat or be paid. All I have is soldiers who do, and I spend them carefully." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad sits in a floating necropolis over the east and sends his liches to Andorhal and Caer Darrow. I've never seen him, and I'd like to keep it that way until I've an army big enough to change my mind." } },
+    arthas = { { id = "tp_arthas", text = "I never met the prince, but I've buried enough of the men he betrayed. Lordaeron's veterans don't speak his name in this camp, and I don't ask them to." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Stormwind sent me north to fight for a kingdom that's already dead, and I've decided that the people still living in it are reason enough. Every farm we take back is a farm someone can go home to." } },
+    bolvar = { { id = "tp_bolvar", text = "Lord Bolvar holds Stormwind for the boy king, and he's the one who signed my orders north. I'd ask him for more soldiers, but I know what he'd say, and he'd be right." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken hold the Bulwark, and they fight the same Scourge we do. I don't like them and I don't trust them, but I won't pretend they don't bleed for it, or whatever it is they do." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is the Scourge's heart in Lordaeron, and the Crusade throws itself at the gates like a man throwing stones at a mountain. I've no soldiers to spare for that." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen holds the old capital and calls it her kingdom. She hates the Scourge as much as we do, and I'm told that's the only thing we have in common." } },
     _none = { { id = "tp_none", text = "If it isn't a threat to this camp, it isn't on my desk. Try Pureheart, who has more patience than I do." } },
   },
 }
@@ -599,6 +607,13 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Keep a clean cloth over your mouth near the cauldrons, and say a prayer before you open any jar I give you." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "They're Kel'Thuzad's work, or his servants', eight pots across Lordaeron keeping the land sick. We can't break them, but we can spoil the recipe." } },
     andorhal = { { id = "tp_andorhal", text = "Andorhal's dead were people once, and I keep that in my prayers. I keep the rest of me for burning them." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light burns in me, and I mean it to burn the Scourge to ash, every last cauldron and corpse of it. That's my faith, and I've never once doubted it." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You feel it too, don't you, the fire in your hands when you face the dead? Hold on to that, because the Scourge has no answer to it." },
+    },
+    scourge = { { id = "tp_scourge", text = "The Scourge breathes its plague over our farms through those wretched cauldrons, and every one of them is a personal insult. I'll see them all turned to our purpose before the year's out." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad is the father of the plague, and I pray every night that the Light lets me see him burn. I'm not a patient woman, but I'll wait for that." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme fell to the plague before any other city of note, and the Scourge still holds it. I'd march there tomorrow if Valorfist would let me." } },
     _none = { { id = "tp_none", text = "Unless it's in a jar, I'm afraid I don't know it. Try the commander." } },
   },
 }
@@ -839,6 +854,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Use the quickener the moment you get it, since it spoils in half an hour, and don't carry it in a pocket you're fond of." } },
     scholomance = { { id = "tp_scholomance", text = "Don't go in without a key and don't go in without friends, and if you can possibly manage it, don't go in at all." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "Bring me what the creatures carry, with the focuser on you, or it's just bones. Osseous, somatic and ectoplasmic sound terribly grand, but I promise you they aren't." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's necromancers learn their craft at Scholomance, and I've spent years studying how they do it. I wash my hands after every book, and I still don't feel clean." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad founded the Cult of the Damned and taught the Barovs to bargain away their own island. Every horror in Scholomance traces back to him, and I'd rather not say his name too often." } },
+    dalaran = { { id = "tp_dalaran", text = "Dalaran had the finest libraries in the world, and some of what they kept would have helped us here. They're rebuilding behind closed gates, and they don't answer my letters." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is a dead city full of Scourge and Crusaders, and both would kill me on sight. I'll study it from a very great distance, thank you." } },
     _none = { { id = "tp_none", text = "That's out of my field, I'm afraid, as most things are out here. My field is very small and rather full of bones." } },
   },
 }
@@ -1132,6 +1151,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a Barov of Caer Darrow, and the only one of us still breathing. Whatever else you've heard was put about by my brother.", next = "darrow" } },
     advice = { { id = "tp_ad", text = "Never sign anything a necromancer hands you, however good the terms look. It's the only family wisdom I have left." } },
     scholomance = { { id = "tp_scholomance", text = "It was my home, and a beautiful one once. Now they teach the dead to walk in my mother's ballroom." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "My father made a bargain with Kel'Thuzad, and I escaped the massacre that followed. I've slept with a sword under my blanket ever since." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The Barovs were a great house of Lordaeron, with lands that stretched further than you can see from here. Those lands are mine now, by right, whatever my brother says." } },
+    forsaken = { { id = "tp_forsaken", text = "My brother serves the Forsaken now, and he'd see me dead to claim the inheritance. The Forsaken are welcome to him." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took Caer Darrow and everything my family built. I'll have it back, one way or another, and the Scourge can find somewhere else to live." } },
     _none = { { id = "tp_none", text = "Does it concern my inheritance? If not, it doesn't concern me." } },
   },
 }
@@ -1376,6 +1399,11 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Fight beside whoever's fighting the dead, and argue about the rest when the dead are gone." } },
     argent_dawn = { { id = "tp_dawn", text = "Lord Tyrosus leads us from Light's Hope, but out here it's me, a few defenders and whoever answers the call, and more answer every month." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They were my brothers and sisters, and I miss who they were, but I'm afraid of who they've become." } },
+    silver_hand = { { id = "tp_silver_hand", text = "I was a paladin of the Silver Hand, and when the order turned Scarlet, I left it with Tyrosus. I still wear the Light, but I don't wear their colors." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light doesn't belong to the Crusade, whatever they say, and it doesn't care which kingdom you serve. It cares whether you'll stand against the dark." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the enemy of every living thing, and some of the dead besides. That's why the Dawn has no politics, because the Scourge has none either." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are dead, and some of them are cruel, and some of them fight the Scourge harder than any knight I've known. I judge them by what they do, which is all any of us can ask." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad rules the Scourge in the east, and the Dawn keeps watch on his necropolis from Light's Hope. Someday we'll bring it down, and I'd like to be there." } },
     _none = { { id = "tp_none", text = "I couldn't say, friend. If it has to do with the Scourge, ask me again, and for anything else, try the commander." } },
   },
 }
@@ -1595,6 +1623,10 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a miller's son from Northridge who grew up in Stormwind, and now I've come home to a place that doesn't want me back.", next = "family" } },
     advice = { { id = "tp_ad", text = "Don't drink from the rivers up here, however clear they look. The plague's in the water as much as the soil." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They fight the Scourge, and I'll grant them that, but they also took a family's home and called it holy work." } },
+    lordaeron = { { id = "tp_lordaeron", text = "My father ran the Northridge Lumber Mill, and I grew up with sawdust in my hair and the whole of Lordaeron's forests outside the door. We fled south when the plague came, and I've come back to see what's left." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took most of my friends and half my family, and I still can't quite believe it. I came back because somebody has to remember them." } },
+    stratholme = { { id = "tp_stratholme", text = "My mother had cousins in Stratholme, and I've never learned what happened to them. I suppose I already know." } },
+    forsaken = { { id = "tp_forsaken", text = "Some of the Forsaken might have been people I knew, once. I try not to think about it, and I don't always manage." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, I'm afraid. I know timber, and I know grief, so pick one of those." } },
   },
 }
@@ -1777,6 +1809,10 @@ P:NPC {
 
   topics = {
     advice = { { id = "tp_ad", text = "Never feed a gryphon from your hand unless you're fond of only having nine fingers!" } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "Gnomeregan's lost to the troggs and the radiation, and I haven't seen home in a long while. I talk to my gryphons about Tinker Town pastries, and they listen very politely." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I saw the Darkmoon Faire once, all lights and music and gnomes being fired out of cannons on purpose. I mean to go again when this war gives me a day off, which may be some time." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the gloomiest thing I've ever seen, and I've seen a gnome's face when his invention blows up. I keep cheerful because somebody has to." } },
+    magni = { { id = "tp_magni", text = "King Magni keeps a fine hall and a finer table, and he's never once made a gnome feel small, which is hard when you're my height. I'd raise a pint to him if I had one." } },
     _none = { { id = "tp_none", text = "No idea at all, I'm afraid! But I can fly you to someone who might know." } },
   },
 }

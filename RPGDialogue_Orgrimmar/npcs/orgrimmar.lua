@@ -680,6 +680,26 @@ P:NPC {
     blackrock = { { id = "tp_blackrock", text = "They chose the Spire and the dragons over their own freedom, and I grieve for them more than I fear them." } },
     grimtotem = { { id = "tp_grimtotem", text = "They're Cairne's trouble more than mine, though Magatha's smile in Thunder Bluff never seems to reach her eyes." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "Humans who would burn our allies in Tirisfal, and who'd burn us too if they ever found the ships to cross the sea." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is a plague that walks, and it serves a master who would see every living thing on Azeroth kneel. We fought its makers once on Hyjal, beside humans and night elves, and I have not forgotten how close we came to losing." } },
+    forsaken = {
+      { id = "tp_forsaken", text = "The Forsaken came to us outcast and hunted, and the tauren spoke for them in council. I gave them a place in the Horde because they had nowhere else, though I watch Sylvanas and her apothecaries more closely than I would like to admit." },
+      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You are one of Sylvanas's people, and you are welcome in my city as long as you honour the Horde. Prove the doubters wrong, and you will find no warchief more loyal to you than I am." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner broke free of the Lich King's will by her own strength, and I respect that. But she keeps her own counsel, and her Royal Apothecary Society keeps even more of it." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is my friend and my elder, and his counsel has saved me from my own temper more than once. When the centaur hounded his people, the Horde stood with them, and the tauren have stood with us ever since." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin and his Darkspear were dying on their islands when I found them, and they pledged themselves to the Horde for that one act. I have never had to ask for their loyalty, because Vol'jin gives it freely." } },
+    jaina = { { id = "tp_jaina", text = "Jaina Proudmoore fought beside me on Hyjal, and we have kept a peace since then that neither of our peoples entirely wants. I trust her, and I would rather not test how many of her soldiers share that trust." } },
+    theramore = { { id = "tp_theramore", text = "Theramore is Jaina's city, and its harbour sits across the sea from Durotar. Northwatch Hold is another matter, and I have told my commanders in the Barrens to keep their axes sheathed unless Northwatch draws first." } },
+    internment = {
+      { id = "tp_internment", text = "I was raised a slave in Durnholde, and when I escaped, I found my people rotting in human camps, too weary in spirit to fight. Freeing them was the first true thing I ever did." },
+      { id = "tp_internment2", when = { disposition = { min = 65 } }, text = "Since you ask as a friend, some nights I still wake in a cell at Durnholde with Blackmoore laughing outside the door. Then I hear Orgrimmar's drums, and I remember where I am." },
+    },
+    second_war = { { id = "tp_second_war", text = "I was a child in a human fortress while the Horde lost the Second War. I learned of it from my masters and later from those who fought it, and both told me the same thing in the end: the demons had made us into weapons." } },
+    burning_legion = { { id = "tp_burning_legion", fx = { learn = { "dark_portal" } }, text = "The Legion used my people as a sword and threw us away when we broke. Grom Hellscream bought our freedom with his life in Ashenvale, and I will never let an orc become their weapon again." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad is the necromancer who spread the plague across Lordaeron. He was killed once, and he returned, and he holds the dead lands in the north for his master now." } },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is where the prince of Lordaeron put his own people to the sword. I have heard the story from Jaina, and I believe it, and I am glad I never met him." } },
+    arthas = { { id = "tp_arthas", text = "Arthas was a prince who murdered his father and opened his kingdom to the Scourge. I do not know what became of him in the north, and I hope that I never learn it face to face." } },
+    onyxia = { { id = "tp_onyxia", text = "A black dragon has made her lair in Dustwallow Marsh, and my scouts at Brackenwall say she is Deathwing's own daughter. Her father played the Dragonmaw for fools in the Second War, and I will not have the Horde used by his kin again." } },
     _none = { { id = "tp_none", text = "I don't know, but ask my advisors, and then come and tell me what they said, in plain words." } },
   },
 }
@@ -919,6 +939,18 @@ P:NPC {
     yenniku = { { id = "tp_yenniku", text = "He be my son. Say his name careful, mon; I say it every night." } },
     echo_isles = { { id = "tp_isles", text = "I see them in my sleep: the sand, the sea, the old huts, and Zalazane's puppets walking where my father walked." } },
     burning_blade = { { id = "tp_blade", text = "Orcs who miss the demons. The Warchief watch them closer than they think, and so do I." } },
+    thrall = { { id = "tp_thrall", text = "Thrall pulled the Darkspear out of the sea when the murlocs and the humans would have finished us, and I swore my people to him on that beach. He never asked for the oath, which is why it holds." } },
+    darkspear = {
+      { id = "tp_darkspear", text = "The Darkspear are a small tribe with a long memory, mon, and we don't forget a friend or an enemy. We came to Kalimdor with nothing, and now we have Sen'jin, and soon we'll have the isles again." },
+      { id = "tp_darkspear2", when = { race = "Troll" }, text = "You're one of mine, and I see it in how you stand. Make the Darkspear proud out there, and come home to Sen'jin when you need to remember who you are." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen is clever, and clever is dangerous when it doesn't love you. I watch her, mon, the same way I'd watch a snake that says it's a friend." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the wisest of us, and he laughs at the right things. When the Horde argues, it's often Cairne who stops us before we make fools of ourselves." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi priests are trying to wake Hakkar in Zul'Gurub, and that's a madness that could swallow every troll in Stranglethorn. The Darkspear left that empire long ago, and I'd like it to stay buried." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The Sandfury trolls of Zul'Farrak are cousins of a kind, but they never learned to share the desert. They kill anyone who comes near their walls, and they've been doing it since before the orcs came to this world." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken smell of graves and talk of loyalty, and the Warchief has given them his word. I don't trust what I can't read, but I respect the Warchief's judgment, mostly." } },
+    the_elements = { { id = "tp_the_elements", text = "The loa and the elements are cousins, mon, and they don't always like each other. A Darkspear shaman learns both, and keeps them both happy." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai priests sank their temple trying to bring back Hakkar long ago, and the green dragons have been guarding the ruins ever since. If they ever wake that god, it won't stay in the swamp." } },
     _none = { { id = "tp_none", text = "Vol'jin don't know that one, and Vol'jin don't pretend." } },
   },
 }
@@ -1170,6 +1202,11 @@ P:NPC {
       { id = "tp_knows", text = "Oh, I hear all sorts of things down here in the Cleft, and I'm generous with most of them. Ask about whatever catches your eye." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "For a friend as capable as you, I'll share everything I know, or nearly everything; one must keep a little back." },
     },
+    burning_legion = { { id = "tp_burning_legion", text = "The Legion's fire is a dangerous tool, and the Warchief has rightly cast it aside. I simply make sure that those who still feel its heat are known to him." } },
+    thrall = { { id = "tp_thrall", text = "I am a loyal servant of the Warchief, and his trust is precious to me. It is my place to ensure that he knows what moves in the shadows of his city." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are curious creatures, and their apothecaries even more so. I find them fascinating to watch, and I watch them very closely." } },
+    dark_portal = { { id = "tp_dark_portal", text = "The Dark Portal stands in the Blasted Lands, silent and broken, and some orcs still dream of the world on the other side. I listen to their dreams, as a loyal servant should." } },
+    sylvanas = { { id = "tp_sylvanas", text = "Lady Sylvanas is a valuable ally, and the Warchief has wisely brought her into the Horde. I would never suggest that she has plans of her own, because I have no proof of it yet." } },
     _none = { { id = "tp_none", text = "I couldn't say, but do tell me if you hear anything interesting. I collect interesting things." } },
   },
 }
@@ -1356,6 +1393,11 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Everyone who eats at the Tusk talks with their mouth full, and I hear every word of it. Ask me about any of this, and then eat something." },
     },
+    thrall = { { id = "tp_thrall", text = "The Warchief eats here sometimes, and he always pays, and he always finishes his plate. I've never served a more polite orc." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin likes his meat spicy and his ale cold, and he tips well. I'd say he's my favourite, but I'd never say it where Thrall could hear." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken don't eat, which is bad for business. They do sit by the fire, though, and I suppose they're cold." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best rum in the world, the sailors say, though I've never tasted it. I'd like to, one day, if Zargh ever takes me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire came to Mulgore last season, and every guest who'd been there talked about it for weeks. Zargh said he'd take me, and then he blushed, and I've not let him forget it." } },
     _none = { { id = "tp_none", text = "Ask the regulars; they know everything, and drink to the rest." } },
   },
 }
@@ -1519,5 +1561,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I don't know. I spend most days looking at the ceiling, and it's a nice ceiling." } },
+    second_war = { { id = "tp_second_war", text = "I fought in the Second War, and I was good, once. Now I'm good at getting knocked down, which takes a different kind of strength." } },
+    internment = { { id = "tp_internment", text = "The camps took something out of me, and I never quite got it back. Thrall freed my body, but some days I think the rest of me is still behind that fence." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief came to this inn once and saw me on the floor, and he helped me up himself. I've never forgotten it, and I never will." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The demons made us strong, and then they made us weak. I don't miss the strength, but I miss feeling like I knew what I was for." } },
   },
 }

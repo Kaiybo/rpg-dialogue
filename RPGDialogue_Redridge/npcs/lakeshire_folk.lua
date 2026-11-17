@@ -205,6 +205,11 @@ P:NPC {
   },
 
   topics = {
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade holds the worst of Stormwind, and when the Magistrate sentences a man to it, I'm the one who walks him to the cart. Now they tell me the prisoners hold the place, which makes my job look rather pointless." } },
+    syndicate = { { id = "tp_syndicate", text = "We've had letters from the north about a gang of disgraced Alterac nobles called the Syndicate, and the Magistrate wants their faces posted. So far nobody here has seen one, and I'd like to keep it that way." } },
+    bolvar = { { id = "tp_bolvar", text = "The Magistrate writes to Highlord Fordragon every week, citizen, and I carry the letters to the gryphon master. I'd like to believe someone in the Keep reads them, and I'd like it in writing." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor sends very gracious replies to the Magistrate's letters, I'm told, and not one soldier with them. Gracious doesn't hold a bridge, though I'd not say that in her hearing." } },
+    second_war = { { id = "tp_second_war", text = "Lakeshire burned in the Second War and was built again from the ground up, and the Magistrate's books go back only that far. Everything before the orcs came is just a story the old folk tell." } },
     background = { { id = "tp_bg", text = "Bailiff to the Court of Lakeshire. I serve writs, swear in witnesses, and stand where the Magistrate points." } },
     advice = { { id = "tp_ad", text = "Answer a court plainly; it saves everyone a morning." } },
     morganth = { { id = "tp_morganth", text = "A sorcerer in the eastern foothills, with the Shadowhides at his heel. Formally he's an enemy of the kingdom, and informally he's worse." } },
@@ -414,6 +419,11 @@ P:NPC {
   },
 
   topics = {
+    worgen = { { id = "tp_worgen", text = "Parker swears the Duskwood road has wolves walking on two legs past the border, and I'd laugh if he weren't the soberest man in Lakeshire. I count gnolls, and gnolls are bad enough." } },
+    blackrock_spire = { { id = "tp_blackrock_spire", text = "The gnolls answer to the orcs, the orcs answer to that mountain, and the mountain answers to nobody, as far as I can tell. I'd like to count what's inside it, but I'd need a bigger ledger." } },
+    second_war = { { id = "tp_second_war", text = "Every old man in Lakeshire fought in the Second War, and every one of them will tell you about it whether you ask or not. I've learned to count gnolls while they talk, which is the only skill the war gave me." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went to the Darkmoon Faire on my one leave last year and lost to a gnome at a shooting gallery. I've told everyone it was a rigged gun, and I've half convinced myself." } },
+    quilboar = { { id = "tp_quilboar", text = "|" } },
     background = { { id = "tp_bg", text = "I'm a deputy at the south end of the bridge, and I count." } },
     advice = { { id = "tp_ad", text = "Stay on the road after dark. If the road's not safe, stay in town. If the town's not safe, tell me first." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "Redridge clans, mostly, bigger than the Riverpaw in Westfall and meaner than the Elwynn ones. They've started building." } },
@@ -621,6 +631,11 @@ P:NPC {
   },
 
   topics = {
+    dark_riders = { { id = "tp_dark_riders", text = "Some nights a rider in black comes down the road from Duskwood and doesn't stop at my challenge. I've never seen his face, and I'd sooner the next fellow on this road had one." } },
+    stalvan = { { id = "tp_stalvan", text = "Old folk on the Darkshire side tell of a man named Stalvan who did something terrible in a tower long ago. They won't say what, and I've stopped asking because I've started believing them." } },
+    night_watch = { { id = "tp_night_watch", text = "The Night Watch in Darkshire are farmers and old soldiers holding a town with lanterns. I've a lot of time for them, because I'm one man on a road holding nothing at all." } },
+    shadowfang = { { id = "tp_shadowfang", text = "A wizard in Silverpine let loose the same sort of beast that walks Duskwood now, or so the merchants say, and he's holed up in a keep there called Shadowfang. I'd like to have a word with any mage who thinks wolves need help." } },
+    scourge = { { id = "tp_scourge", text = "The dead walk in the north, I'm told, and I've stood on this road at midnight enough to imagine what that's like. I'd take a hundred gnolls over one of those, because a gnoll at least stays down." } },
     background = { { id = "tp_bg", text = "I'm a Stormwind guard. They gave me a road and told me to watch it, and I'm watching it." } },
     advice = { { id = "tp_ad", text = "Keep your eye on the job, because everything else is how you get jumped." } },
     redridge_gnolls = { { id = "tp_gnolls", text = "They move at dusk and they're getting bolder. Last week one came right down to the road and just looked at me." } },
@@ -855,6 +870,12 @@ P:NPC {
   },
 
   topics = {
+    sylvanas = { { id = "tp_sylvanas", text = "A soldier at table four says the dead have a queen now, love, a dead elf with a voice that kills. I took his plate away, because nobody needs to hear that over stew." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire's a lovely day out, and I heard the fortune-teller there told Brianna she'd marry a sailor. She's been watching the docks ever since, though she'll deny it." } },
+    jaina = { { id = "tp_jaina", text = "I hear Lady Jaina Proudmoore keeps an island all her own over the sea, and she's not wed, love, not to anyone. Half Lakeshire's girls think that's romantic and the other half think it's sensible." } },
+    onyxia = { { id = "tp_onyxia", text = "Somebody told me there's a black dragon in a swamp past Theramore, sleeping on the gold of every ship that ever sank there. I don't believe a word of it, love, but it made a lovely story for the table by the window." } },
+    bolvar = { { id = "tp_bolvar", text = "The Highlord's a handsome man for a regent, love, and I'll hear nothing said against him. I've only seen a portrait, mind, but a portrait's enough for me." } },
+    prestor = { { id = "tp_prestor", text = "Lady Prestor's at the Highlord's side every day, the soldiers say, and I've no love for her. Call it gossip if you like, love, but a lady who's never been seen in a market makes me suspicious." } },
     knows = {
       { id = "tp_knows", text = "I hear everything at the tables, though I only pass on the nice parts, mostly. Ask me about any of this!" },
     },
@@ -1085,6 +1106,11 @@ P:NPC {
   },
 
   topics = {
+    elune = { { id = "tp_elune", text = "A night elf lady passed through once and told me my daffodils looked like little moons. She said her goddess would like them, and I've been leaving one by the window since, in case she does." } },
+    earth_mother = { { id = "tp_earth_mother", text = "|" } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "That night elf I mentioned spoke of a dream-place where the whole world grows the way it was meant to. I'd like to see my garden there, before the gnolls trampled it." } },
+    holy_light = { { id = "tp_holy_light", text = "I put a sprig of rosemary on the Light's altar every week, because I think anything as warm as the Light must like something that smells nice. The priests haven't said I'm wrong." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells seeds from places I can't pronounce, and I bought a packet once that grew something purple and shy. It only blooms at night, and I sit out with a candle to see it." } },
     background = { { id = "tp_bg", text = "I keep the garden at the west end of town. It keeps me, too, some years." } },
     advice = { { id = "tp_ad", text = "Plant early, weed young, and never let a soldier name your boar." } },
     blackrock = { { id = "tp_blackrock", text = "They burned a farm last month, and the smoke went on all day; you could smell it over the lake." } },
@@ -1283,6 +1309,11 @@ P:NPC {
   },
 
   topics = {
+    second_war = { { id = "tp_second_war", text = "I was a cook in the army in the Second War, and I fed men who went out and didn't come back to eat. I swore then I'd never let a soldier go out hungry, and I haven't." } },
+    bolvar = { { id = "tp_bolvar", text = "Tell the Highlord I'm feeding a garrison on what a garrison half this size would eat. That's not a complaint, it's a sum, and he can check it himself." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I'd trade my best knife for a crate of Booty Bay spice, because half my soldiers have forgotten what pepper tastes like. The orcs on the road aren't interested in my menu." } },
+    quilboar = { { id = "tp_quilboar", text = "|" } },
+    holy_light = { { id = "tp_holy_light", text = "I say grace over every pot that leaves this kitchen, loud enough for the soldiers to hear. The Light doesn't fill bellies, but it does make thin soup go down easier." } },
     background = { { id = "tp_bg", text = "I cook for Lakeshire's garrison, with the same pots as before the attacks and a good many more mouths." } },
     advice = { { id = "tp_ad", text = "Eat when there's food, because in Redridge that isn't every day." } },
     blackrock = { { id = "tp_blackrock", text = "I count the bowls that don't come back to the kitchen. That's how I know how the fighting's going." } },

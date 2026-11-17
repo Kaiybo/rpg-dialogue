@@ -387,6 +387,18 @@ P:NPC {
       { id = "tp_knows", text = "Pal, every rumor on this coast comes through my docks sooner or later, and half of 'em pay a toll on the way. Ask me about any of these, and the first answer's on the house." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll answer, pal, because answers are cheap, but the good stuff's for customers with a little credit built up, and you ain't there yet." },
     },
+    thrall = {
+      { id = "tp_thrall", text = "Thrall? Me and Thrall go way back, pal, because I built his whole city for him, Orgrimmar, every stone and every beam, and he paid me in Ratchet. Best deal I ever made, and I'll tell you the same thing tomorrow." },
+      { id = "tp_thrall2", when = { race = "Orc" }, text = "You're one of Thrall's own, so let me say it plain: that orc paid on time, every time, which is more than I can say for the Cartel. Tell him Gazlowe says hi, and that the port's still standing." },
+    },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's our sister port across the sea, and the boats run between us twice a day if the pirates don't get frisky. Baron Revilgaz runs it tight, and I'd say tighter than me, but I'd be lying." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Southsea pirates on my coast are bad enough, but the Bloodsail are worse, and they don't even pay to dock. Every ship they sink is a hole in my ledger the size of a cannonball." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel's the Cartel, and Ratchet's one of its four jewels, if you count Booty Bay, Gadgetzan and Everlook, which I do. We sell to everybody, and that's what keeps the place neutral." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's way down south in Tanaris, sand in your boots and Noggenfogger in charge. Good town, and they've got water rights that'd make you weep." } },
+    theramore = { { id = "tp_theramore", text = "Theramore's just up the coast, and Lady Proudmoore's folk buy as much as anyone. Northwatch Hold, though, that's her soldiers pointing cannons at my cousins, and that's bad for business." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company's a bunch of thugs with a mining permit nobody gave 'em. They give honest goblins a bad name, and I'd know about honest goblins, because I'm one." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's mine, pal, built from the docks up, and it's the only proper port on the Barrens coast. If it ships, it comes through here, and if it comes through here, I get a cut." } },
+    everlook = { { id = "tp_everlook", text = "Everlook's way up in Winterspring, colder than a pirate's heart. Great market, terrible weather, and they charge for the blankets." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal, and if I haven't heard of it, it isn't making anybody a single copper." } },
   },
 }
@@ -537,6 +549,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Never heard of that, pal, but if it's got moving parts, bring it by and I'll take a look, and I'll only charge you for the look." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's the best town on the coast, and I'd know, because I've lost things in all of them, and here people at least help you look. Not always for free, but they help." } },
+    venture_company = { { id = "tp_venture_company", text = "The Venture Company? Oh, I'd never, no, though they did offer me a job once, and it had a pension, which was tempting. But they blow things up for the wrong reasons, and that matters, I think." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got the best engineers in Kalimdor, except for me, and some of them would argue about that, loudly. I sent a crate of parts there once and it came back as a different crate." } },
+    booty_bay = { { id = "tp_booty_bay", text = "I took the boat to Booty Bay once and lost a whole box of gears overboard, and a shark ate one, and I swear it looked pleased about it. I haven't been back." } },
   },
 }
 
@@ -707,6 +723,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "Can't say I know it, friend, but if it sells, Mebok will learn it quick and charge you double for the lesson." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's where half my ingredients end up and half my customers come from, and the boat's cheap if you don't mind the smell. Ask for the Salty Sailor and tell 'em Mebok sent you, for all the good it'll do." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's got Noggenfogger and his elixirs, and between you and me, I like my drinks better. More flavour, fewer side effects, mostly." } },
+    centaur = { { id = "tp_centaur", text = "Centaur hooves, centaur hair, I've had some interesting orders lately. The Kolkar don't sell, though, so you'll have to negotiate with an axe." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "Trolls in Zul'Farrak sit on more old gold than a trade prince, so I hear. I'm a businessman, not a fool, so I'm staying right here and buying your loot after." } },
   },
 }
 
@@ -877,5 +897,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "If it isn't in my ledger, pal, it doesn't exist and it doesn't pay tolls, so as far as I'm concerned it can stay that way." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's on the other end of the route, and every crate leaves my dock with a mark and arrives with one fewer. Somebody over there can't count, and I'm starting to think it's on purpose." } },
+    bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail sink a ship a month, and I write down every crate of it, down to the last bottle. One day I'm going to send them the invoice, and I'm going to send it by cannon." } },
+    steamwheedle = { { id = "tp_steamwheedle", text = "The Cartel keeps neutral and keeps ledgers, and I keep ledgers for the Cartel. That's the closest thing to a religion this town has." } },
+    theramore = { { id = "tp_theramore", text = "Theramore ships come in regular, and their wharfmasters sign everything twice. I like them better than most of my own cousins, and you can quote me." } },
   },
 }

@@ -255,6 +255,14 @@ P:NPC {
     },
     echo_isles = { { id = "tp_isles", text = "Every morning I look at them, and every morning they still there, waiting for us." } },
     burning_blade = { { id = "tp_blade", text = "Orcs playing with demons, eh? Bad magic be bad magic, whoever play with it, and Orgnil know that." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin was my best student, and he was never the quickest, but he always listened. He leads the Darkspear now, and I am prouder of him than of anything I ever did." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear were a small tribe, and the sea nearly ended us, and Thrall saved what was left. Now we be strong again, but we remember what it was to be few." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief took us in when nobody else would, and he never asked us to forget who we are. That is a rare kind of chieftain, and the trolls know it." } },
+    the_elements = { { id = "tp_the_elements", text = "The spirits of the sea and sky talk to me still, though my ears be getting old. They say the Echo Isles are sick, and I believe them." } },
+    zul_gurub = {
+      { id = "tp_zul_gurub", text = "The Gurubashi empire is dead, and the blood god's priests are trying to wake it again in Stranglethorn. The Darkspear want nothing to do with Hakkar, and I pray he stays asleep." },
+      { id = "tp_zul_gurub2", when = { race = "Troll" }, text = "You know the stories as well as I do, child, because your grandmother told them to you. Hakkar wants blood, and the Gurubashi are fools to give it." },
+    },
     _none = { { id = "tp_none", text = "Even an old witch doctor don't know everything, though he know most things, yes." } },
   },
 }

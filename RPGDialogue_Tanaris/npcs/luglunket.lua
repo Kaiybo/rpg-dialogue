@@ -114,6 +114,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "Water Company goblin, born and bred, and seasoned spigot operator these many years on a steady wage. I'm living the dream, friend, and the dream is damp." } },
     advice = { { id = "tp_ad", text = "Carry more water than you think you need, and buy it from us. That's two pieces of advice for the price of one!" } },
     steamwheedle = { { id = "tp_sw", text = "Gadgetzan's the Cartel's jewel, and the Water Company's the reason it sparkles. That's not official, but it should be." } },
+    gadgetzan = { { id = "tp_gadgetzan", text = "Gadgetzan's water is the best in Tanaris, friend, because it's the only water in Tanaris. The Water Company keeps it flowing, huzzah." } },
+    zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak curse our wells, friend, and steal our pouches, and the Water Company takes a very dim view of it. Every pouch you bring back is a victory, huzzah." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's got all the water it wants from the sea, friend, but it's salty. Gadgetzan's water is fresh, and that's worth paying for, huzzah." } },
     _none = { { id = "tp_none", text = "That's above my pay grade, friend, and my pay grade is spigots. Try the Chief Engineer, though he'll want a work order!" } },
   },
 }

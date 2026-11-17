@@ -286,6 +286,19 @@ P:NPC {
     andorhal = { { id = "tp_andorhal", text = "That's where the Scourge gathers in the west, under a lich, and if we break it, the west is ours to reclaim for the Dark Lady.", next = "andorhal" }, { id = "tp_andorhal2", text = "It's east of the wall, and it's the one place I'd send my best and expect to lose some." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They're fanatics from Hearthglen, and useful fanatics, when they're pointed the right way." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "The cauldrons are the Lich King's breath on the land, and Vandis and Dithers mean to sour it." } },
+    scourge = {
+      { id = "tp_scourge", text = "The Scourge sits east of this wall in numbers no one has bothered to count, because the count would only frighten the living. We hold the Bulwark against it every night, and we'll hold it tomorrow." },
+      { id = "tp_scourge2", when = { race = "Scourge" }, text = "You know what's out there, because you marched with it. Every one of them we put down is one less voice you'll hear in your sleep, if you slept." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are the only people in Lordaeron who can stand on this line without flinching, because we've already died once and found it overrated. The Dark Lady knows it, and so does every orc who's served here." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady sends me soldiers and supplies, and she leaves me to hold the line as I see fit. The court in the Undercity can play its games, and I'll keep the Scourge out of their drawing rooms." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad holds the east from his necropolis and sends his liches west to Andorhal and Caer Darrow. When the Dark Lady turns her armies on him, I mean the Bulwark to be the first gate they march through." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief's orcs stand on this wall beside my Deathguard, and they've never once broken. I don't care much for his politics, but I'll gladly take his soldiers." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "Your Warchief sends good fighters here, and they eat more than I'd like. I'll take a hungry ally over a full enemy every time." },
+    },
+    stratholme = { { id = "tp_stratholme", text = "Stratholme is the Scourge's crown in the east, and the Crusade wastes its zealots on the gates. I'd let them keep at it, since every Crusader who dies there is one I won't have to kill myself." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The Bulwark was the last refuge of the capital's survivors, and they held here until they couldn't. We hold it now, for different reasons." } },
     _none = { { id = "tp_none", text = "Does it come over the wall? If not, take it to Undercity, where they have time for such things." } },
   },
 }
@@ -504,6 +517,13 @@ P:NPC {
     background = { { id = "tp_ba", text = "I prayed to the Light when I was alive, and then I was dead, and now I'm a priestess of something that actually answers. That's all the story there is.", next = "shadow" } },
     advice = { { id = "tp_ad", text = "Don't pray aloud where the dead can hear you out there, for they've learned what the sound means." } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "Kill the cauldron lord, take his key and fill a bottle, which is simple enough, if you don't count the dying." } },
+    holy_light = {
+      { id = "tp_holy_light", text = "The Light answered me once, when I was alive, and never again. I traded it for the shadow, and the shadow answers every time." },
+      { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "You carry the Light in a body it doesn't want, and it burns you for it. I'd call that devotion, if I believed in devotion anymore." },
+    },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken pray to no god, and I've found that freeing. A faith built on your own will can't be taken away by anyone but you." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is hunger without a soul, and I've seen enough of it from this wall to know it never stops. I count fingers because the Scourge never does." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady is the only power I kneel to now, and she has never once asked me to pray. I find that a very great relief." } },
     _none = { { id = "tp_none", text = "I don't care to guess, so ask Derrington, who enjoys knowing things." } },
   },
 }
@@ -753,6 +773,10 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Label everything you carry out there, or you'll forget which bottle was which, and the ghouls certainly won't remind you." } },
     scholomance = { { id = "tp_scholomance", text = "It's a school of necromancy, and just imagine the library! Actually, don't, since I've imagined it, and I didn't sleep, though of course I don't sleep anyway.", fx = { learn = { "scholomance" } } } },
     plague_cauldrons = { { id = "tp_cauldrons", text = "They're my life's work, this month at least. Next month it'll be something else that wants to kill everyone." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are a scientific people at heart, my friend, because we've already conquered the great unknown and come back to take notes! I've a knee that tells me the weather, and I'm the envy of the Apothecarium." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge's plague is a fascinating piece of work, all crude and brilliant at once. We'll make something even better, purely for the Scourge's benefit, of course, if you see what I mean." } },
+    new_plague = { { id = "tp_new_plague", text = "The Society's great work goes on, and I do my part out here on the front line. I'll say no more, except that you oughtn't sniff anything green." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad's notes would be the most valuable thing in Lordaeron to an apothecary, and I'd give my other knee to read them. Sadly he's not much for sharing." } },
     _none = { { id = "tp_none", text = "I really couldn't say, and my knee doesn't know either." } },
   },
 }
@@ -1010,6 +1034,11 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm a Barov of Caer Darrow, dead and free and owed a fortune. What more could you possibly need to know?", next = "family" } },
     advice = { { id = "tp_ad", text = "Never trust family, darling, and never, ever trust a brother with a conscience." } },
     scholomance = { { id = "tp_scholomance", text = "It was our home, until Father turned it into a school for necromancers, and the tuition was everyone we knew." } },
+    forsaken = { { id = "tp_forsaken", text = "I'm one of the Forsaken now, which is a step down from a Barov, socially speaking. Still, the Dark Lady has better manners than most of the nobility I knew." } },
+    lordaeron = { { id = "tp_lordaeron", text = "The Barovs were one of the great families of Lordaeron, with lands and gold and an island on Darrowmere Lake. We kept the lands a little too long, as it turned out." } },
+    kelthuzad = { { id = "tp_kelthuzad", text = "My father made a bargain with Kel'Thuzad to keep our family fortune past our lifespans. It worked, after a fashion, though I'd not recommend the terms." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge took my family's island and my family's lives, and gave us back something we didn't ask for. I bear it no gratitude." } },
+    alterac = { { id = "tp_alterac", text = "Alterac's nobles sold their kingdom for a crown, and my father sold his family for a fortune. I've never thought myself in a position to judge them." } },
     _none = { { id = "tp_none", text = "How tedious. Is there money in it? No? Then why are we still talking about it?" } },
   },
 }
@@ -1247,6 +1276,14 @@ P:NPC {
     background = { { id = "tp_ba", text = "I'm an orc who fought the Horde's wars, sat in the camps, and came out wanting a better fight. I found one here.", next = "why" } },
     advice = { { id = "tp_ad", text = "Keep moving out there. The dead are slow, but they never stop, and they never tire of following." } },
     argent_dawn = { { id = "tp_dawn", text = "There are no kings and no warchiefs in the Dawn, only the dead and the people who won't let them win." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge is the one enemy that every people in this world can hate together. I spent my life killing for the Horde, and now I kill for something bigger, and it sits better on my shoulders." } },
+    thrall = {
+      { id = "tp_thrall", text = "The Warchief freed my people from the camps and gave us honor again. I serve the Dawn now, but I would still die for him if he asked." },
+      { id = "tp_thrall2", when = { faction = "Horde" }, text = "You serve the Warchief, so serve him well, and remember that the Scourge is everyone's enemy. He would tell you the same." },
+    },
+    internment = { { id = "tp_internment", text = "I spent years in the human camps after the Second War, and I came out of them a slave without a cause. Thrall gave me one, and the Dawn gave me another." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are strange allies, but they hold this wall, and they hold it well. I don't ask what they eat, and they don't ask what I think of them." } },
+    second_war = { { id = "tp_second_war", text = "I fought the humans in the Second War, and I lost. Now I fight beside some of them, and I haven't decided yet whether that's a victory." } },
     _none = { { id = "tp_none", text = "I don't know, friend, so ask Derrington, who knows everything and tells you half." } },
   },
 }

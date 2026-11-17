@@ -180,6 +180,11 @@ P:NPC {
     },
   },
   topics = {
+    deadmines = { { id = "tp_deadmines", text = "The Deadmines are under Moonbrook, and if I lead you there, you'll find more of my old friends than you'll want to count. VanCleef's at the bottom of it all, and he'd skin me slow if he knew I was talking." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I was a mason before I was a thief, and I was a good one, and the nobles never paid us for building their fine city. That's how it started, and I'm not sorry for the beginning, only for the end." } },
+    the_stockade = { { id = "tp_the_stockade", text = "The Stockade's full of Defias who got caught, and the ones inside are running the place now, I've heard. I'd sooner die out here than end up in a cell next to someone who knows what I've done." } },
+    syndicate = { { id = "tp_syndicate", text = "VanCleef did business with the Syndicate up north, or tried to, and they're worse than us, believe it or not. At least we started honest." } },
+    si7 = { { id = "tp_si7", text = "SI:7's had eyes on the Brotherhood since the beginning, and I'd bet my last copper one of us is theirs already. That's why I sleep with my back to a wall and my boots on." } },
     defias = { { id = "tp_defias", text = "Good men turned bad, and bad men who never needed turning. I was somewhere in between." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, can we just go?" } },
   },

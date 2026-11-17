@@ -188,6 +188,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was a hunter once, till a wendigo in the Grizzled Den taught me I'd rather tend beasts than chase them." } },
     advice = { { id = "tp_ad", text = "Feed yer companion before ye sit down tae yer own supper, for a beast remembers who fed it first." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer's gryphons are fine beasts, but they're spoiled rotten, an' I'll no' take one in my stable. They'd eat the rams." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw keep bears an' wolves in their tunnels, I'm told, an' treat them like kin. I'd like tae see their stables, if they have such a thing." } },
+    centaur = { { id = "tp_centaur", text = "The centaur ride nothin', since they're already horse an' rider both. I find that unsettling, an' so do my rams." } },
     _none = { { id = "tp_none", text = "Beasts I know, but that I don't. Try somebody in the Commons." } },
   },
 }
@@ -375,6 +378,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I taught weapons to the guards in Gnomeregan, and now I teach them to anyone, which is more fun anyway." } },
     advice = { { id = "tp_ad", text = "Practice every day, even if only for a few minutes. Your hand forgets faster than your head." } },
+    gurubashi_arena = { { id = "tp_gurubashi_arena", text = "The Gurubashi Arena would be perfect for a good throwing contest, if they'd only stop all the stabbing. I'd go, if I weren't so fond of my ears." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's got a knife-throwing booth, and I won every prize on the shelf. The barker hasn't spoken to me since, which is his loss." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "Some of my students go on to Ravenholdt, or so they hint. I don't ask, and they don't tell, and we're all happier for it." } },
     _none = { { id = "tp_none", text = "I don't know about that, but I know thirty ways to hold a dagger, if you'd like to hear those." } },
   },
 }
@@ -561,6 +567,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'd tell ye, but then I'd have to stop trusting ye, an' I've only just started." } },
     advice = { { id = "tp_ad", text = "Never sit wi' yer back to a door. No' even in Ironforge." } },
+    ravenholdt = { { id = "tp_ravenholdt", text = "If ye have tae ask about Ravenholdt, ye've no business there. That's all ye'll get from me, an' it's more than most." } },
+    syndicate = { { id = "tp_syndicate", text = "The Syndicate are thieves who think they're nobles, or nobles who think they're thieves. Either way, they make the rest o' us look bad." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a fine place fer a rogue tae lose himself, if ye can keep yer purse away from the goblins. They're better at it than we are." } },
     _none = { { id = "tp_none", text = "Never heard of it, an' if I had, I'd no' tell ye." } },
   },
 }
@@ -749,6 +758,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fished Loch Modan for thirty years, till my back told me tae sit somewhere warmer an' teach." } },
     advice = { { id = "tp_ad", text = "Use the right bait for the right water. A lake fish won't touch what a river fish loves." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got the best fishing in the world an' the worst fishermen, all pirates an' goblins who'd sooner sell a fish than catch one. Still, I'd go back." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet's docks are fine fer fishing, if ye dinnae mind goblins watching ye an' offering tae buy yer catch before ye've landed it. They always undersell, too." } },
+    everlook = { { id = "tp_everlook", text = "I fished through the ice near Everlook once, an' caught nothin' but a cold. Still, it was the finest fishin' trip I ever had." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye about that, friend. Fish, I know." } },
   },
 }
@@ -930,6 +942,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I fixed water pumps in Gnomeregan, and now I fix reels, and it's not so different, except reels don't flood." } },
     advice = { { id = "tp_ad", text = "Bring spare line. You'll always need more than you think." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's bait shop sells lures that glow, and I want to know how. Grimnur says I'm not to experiment, but he says that about everything." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet sells cheap line that snaps if you look at it wrong, and they know it. I've written to complain, and they've offered to sell me better line." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire has a fishing game with wooden fish, and I won every time. Grimnur says that's not fishing, and he's right, but it's still winning." } },
     _none = { { id = "tp_none", text = "Hmm, I don't know that one! Ask Grimnur; he knows everything that's not about gadgets." } },
   },
 }

@@ -278,6 +278,9 @@ P:NPC {
     maybell_tommy = { { id = "tp_lovers", text = "What about them? There's nothing to tell about them, so why do you ask, and what have you heard?" } },
     kobolds = { { id = "tp_kobolds", text = "Thieving little candle-heads, and worse than Maclures, nearly." } },
     _none = { { id = "tp_none", text = "I've no idea, but you can ask me about pie." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I sold pork pies at the Faire one year and came home with an empty basket and a headache from all that music. I didn't go back, but I think of it fondly." } },
+    holy_light = { { id = "tp_holy_light", text = "I pray to the Light for patience with that Maclure boy, and some days it comes and some days it doesn't. Today it hasn't, so don't ask me about him." } },
+    scourge = { { id = "tp_scourge", text = "I heard the plague up north came in the flour, and I've not looked at a sack the same way since. Mine's from the farm, every grain, and you can tell anybody who asks." } },
   },
 }
 
@@ -505,6 +508,9 @@ P:NPC {
     maybell_tommy = { { id = "tp_lovers", text = "Tommy Joe? He's mending the east fence, and he's been mending it for months. It must be a very broken fence." } },
     defias = { { id = "tp_defias", text = "They took the Brackwell farm whole, pumpkins, house and all. They left the pig, which tells you they've got some sense." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, got a pig to worry about." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire tried to buy Princess off us once for their menagerie, and I'd have sold her too, if she'd let anybody near enough to put a rope on her. Now she's eating the Brackwells' pumpkins instead." } },
+    holy_light = { { id = "tp_holy_light", text = "I've no time for long prayers, so I say a short one to the Light every time I pick up a hoe. It hasn't broken yet, so I reckon it's working." } },
+    varian = { { id = "tp_varian", text = "A king's not much use to a farm unless he keeps the roads clear, and this one's been gone so long the roads have noticed. Somebody ought to tell him." } },
   },
 }
 
@@ -727,5 +733,8 @@ P:NPC {
     maybell_tommy = { { id = "tp_lovers", text = "Maybell goes to the river a LOT. I'm not saying anything, I'm just saying." } },
     kobolds = { { id = "tp_kobolds", text = "They live in the mines and they like shiny stuff, and candles, which is weird." } },
     _none = { { id = "tp_none", text = "I don't know, I'm just a kid. Ask a grown-up, only not Auntie Bernice." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "At the Faire there's sweets and a fire-eater and a lady who tells fortunes, and she said I'd be rich one day. I didn't take anything, I only listened." } },
+    heroes_vigil = { { id = "tp_heroes_vigil", text = "There's an island in the lake with a big stone on it, and you're not supposed to go there because of the wizards. I didn't go there, and I didn't see anything shiny on it either." } },
+    scourge = { { id = "tp_scourge", text = "Tommy Joe says the dead in the north come for children who tell fibs. I don't tell fibs, so I'm not worried, not at all." } },
   },
 }

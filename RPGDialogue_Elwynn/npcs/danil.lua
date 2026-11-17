@@ -201,5 +201,9 @@ P:NPC {
     northshire_abbey = { { id = "tp_abbey", text = "A lovely building, and it leaks. I've said so in every prayer for a year." } },
     kobolds = { { id = "tp_kobolds", text = "Good for business, kobolds. Every recruit who goes up that hill comes back hungry." } },
     _none = { { id = "t_none", text = "I keep the stores, not the secrets. Ask Brother Neals." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood keeps the Abbey, trains the recruits and feeds them, and somebody has to count the bread. That's me, so I'm the Brotherhood's least holy brother and possibly its most useful." } },
+    holy_light = { { id = "tp_holy_light", text = "The Light gives every brother a gift, and mine is that the ledger balances at the end of the month. Brother Sammuel says that counts, and I've decided to believe him." } },
+    echo_ridge = { { id = "tp_echo_ridge", text = "Every recruit back from Echo Ridge wants a new pick, a new knife and a bandage, in that order. The kobolds are very good for business, Light forgive me for saying it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire's carters come up for cheap rope and flint when they're camped at Goldshire, and they haggle like dwarves. I like them anyway, and I count the rope twice afterwards." } },
   },
 }

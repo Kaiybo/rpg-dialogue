@@ -124,6 +124,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I make mornbrew an' I carry it round the valley before it goes cold. That's the whole of me, near enough." } },
     advice = { { id = "tp_ad", text = "Drink it hot an' bring back the mug. That's all I ask of anybody." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sends up coffee beans now an' then, an' they're bitter as a pirate's heart. I put them in the brew anyway, an' nobody's noticed." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire sells hot cocoa that's mostly water, an' I'd be ashamed tae serve it. Come by my stand an' I'll show ye what a hot drink should be." } },
+    everlook = { { id = "tp_everlook", text = "Everlook should have the best hot drinks in the world, bein' that cold, but the goblins water everythin' down. I'd open a stand there if I could stand the goblins." } },
     _none = { { id = "tp_none", text = "No idea, friend, but ask me again after a cup. Everythin's clearer after a cup." } },
   },
 }

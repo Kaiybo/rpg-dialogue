@@ -227,6 +227,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I don't know. The plains might; ask them, quietly." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother is in the stillness, which is why a hunter must learn it first. Sit long enough and you will feel her breathing under the grass." } },
+    centaur = { { id = "tp_centaur", text = "The centaur ride too loud to be good hunters, and they are always running from something or toward it. I have watched the Kolkar for years and never once seen them sit still." } },
+    quilboar = { { id = "tp_quilboar", text = "Bristleback, Razormane, it is the same boar with a different temper. They hunt badly too, but they are clever when they are cornered, and every young hunter learns that once." } },
+    cairne = { { id = "tp_cairne", text = "Cairne knows the stillness better than any of us. He can sit on the bluff and wait a whole day, and that patience is why the tauren have a home at all." } },
   },
 }
 
@@ -424,6 +428,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "*snort* Mangletooth knows nothing about that. Ask again with blood shards." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "The Razormane are my people, and the Razorfen are our home, and you've been killing both. Bring me what I want and maybe I'll tell you which of my brothers to kill next." } },
+    razorfen = { { id = "tp_razorfen", text = "Charlga Razorflank leads the Razorfen Kraul, and she listens to the death-thing from the Downs now. I didn't like it then, and I like it less from a cage." } },
+    centaur = { { id = "tp_centaur", text = "The centaur hate us and we hate them, and the tauren hate both of us. It's the one thing on the Barrens everybody agrees on." } },
+    scourge = { { id = "tp_scourge", text = "There's a cold thing in Razorfen Downs that wears bones and talks like a priest, and it's turning my people into its servants. I'll trade you something good if you kill it, and I mean that." } },
   },
 }
 
@@ -573,6 +581,10 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Not my field. Bring me a weapon from it, though, and it will be." } },
+    second_war = { { id = "tp_second_war", text = "Every blade from the Second War has a story, and most of them end badly. I've written down forty of them for the Warchief, and I'm only half done." } },
+    centaur = { { id = "tp_centaur", text = "Kolkar spears are rough work, but the stone heads are older than the shafts, passed from rider to rider. I find that more interesting than the centaur do." } },
+    quilboar = { { id = "tp_quilboar", text = "Quilboar weapons are thorn and bone, and they break the moment you need them. I respect the effort, if not the craftsmanship." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief carries Doomhammer's hammer, and I would give a year of my life to hold it for a moment. Only to read it, you understand, not to keep it." } },
   },
 }
 
@@ -760,5 +772,9 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Ask Jorn; he knows the Barrens, and I only know soup." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother sends rain to the herds and hyenas to the herders, and I have never understood the second part. Still, I thank her for the stew, and the stew has never failed me." } },
+    quilboar = { { id = "tp_quilboar", fx = { learn = { "razorfen" } }, text = "Bael'dun's dwarves dig to the west and the Razormane prowl to the south, and our herders face both every day. The quilboar warrens at Razorfen are so close you can smell them when the wind turns." } },
+    cairne = { { id = "tp_cairne", text = "Cairne set this camp here to watch the south road, and every kodo herder at my fire would die for him. I would only feed him, but I would feed him very well." } },
+    centaur = { { id = "tp_centaur", text = "The centaur leave Taurajo alone mostly, because we are too many and too stubborn. When they don't, the herders come back hungry, and that is when I earn my keep." } },
   },
 }

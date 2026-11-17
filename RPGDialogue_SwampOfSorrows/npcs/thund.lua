@@ -136,6 +136,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A tauren of the Splithooves, a corporal of Thrall's Grasp, and a ghost who doesn't mind it much." } },
     advice = { { id = "tp_ad", text = "Keep the friends who stand beside you in the worst of it, and let the rest go." } },
+    cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the greatest of us, and I was proud to fight under his blessing in Thrall's Grasp. Tell him a Splithoof died well, if you ever see him." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother called me back to the swamp, and I didn't mind, because she was waiting. Death is just another kind of rest." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief named our regiment for himself, and we were proud of it. We still are, those of us that are left." } },
     _none = { { id = "tp_none", text = "I don't know, friend. The dead hear less than the living think." } },
   },
 }

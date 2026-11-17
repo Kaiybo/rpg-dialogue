@@ -314,6 +314,12 @@ P:NPC {
     background = { { id = "tp_bg", text = "Revantusk born, Revantusk chief, and Horde since the runners came home with Thrall's word.", next = "horde" } },
     advice = { { id = "tp_ad", text = "Never sleep in the open near Jintha'Alor. The Vilebranch like their meat fresh." } },
     vilebranch = { { id = "tp_vile", text = "Cannibals and traitors who drink what they should bury. Ask Yayo'jin, if you want the long tellin'.", next = "tribes" } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear and the Revantusk are cousins, and Vol'jin brought us into the Horde. We paid for that with blood, twice over, and we'd pay again." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin is a true leader, and he knows what it is to lose everything and build again. He sent word to me when my mate was taken, and I'll not forget it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief of the Horde welcomed my tribe when no one else would, and we fight for him now. My mate sits in a Vilebranch cage, and I'll see him freed in the Horde's name." }, { id = "tp_thrall2", when = { faction = "Alliance" }, text = "You fly with the Wildhammer and ask me about my warchief? He gave my people a home and a cause, and that is more than your kings have ever given anyone." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are our enemies, and they've been our enemies since before your grandfather was born. They kill our people, and we kill theirs, and that is the way of the Hinterlands." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken Hakkar in their old city, and his priests' blood magic has reached even the Vilebranch. The Zandalar are gathering heroes to stop it, and I hope they're quick." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai worship the blood god in their sunken temple in the south, and the Vilebranch have learned their ways. I'll burn every one of their altars, if I live long enough." } },
     _none = { { id = "tp_none", text = "That don't feed the village or free my mate. Ask me somethin' else." } },
   },
 }
@@ -527,6 +533,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the beasts and the trails. Ask me those, and leave the talk of mojo to Yayo'jin." } },
     background = { { id = "tp_bg", text = "Master huntsman of Revantusk, and once a twin. Now only the first.", next = "brother" } },
     advice = { { id = "tp_ad", text = "Watch the brush, not the path. Nothing in the Hinterlands walks on the path." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer have shot more Revantusk than I can count, and my brother hated them as I do. It was the Vilebranch who killed him, though, so my arrows go to Jintha'Alor first." } },
+    the_elements = { { id = "tp_the_elements", text = "The beasts of the Hinterlands are restless, and the spirits are angry, and I think it's the blood magic in Jintha'Alor. My raptors won't go near it, and neither will I." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's Horde is the only home the Revantusk have now, and I'll defend it. My brother died for it, and I'll not see his death wasted." } },
     _none = { { id = "tp_none", text = "That be no beast I know. Ask somebody else." } },
   },
 }
@@ -731,6 +740,9 @@ P:NPC {
     background = { { id = "tp_bg", text = "A mystic sells mystery, mon. You don't get mine for free." } },
     advice = { { id = "tp_ad", text = "Never buy a reagent from a Vilebranch. You never know what they mixed in." } },
     vilebranch = { { id = "tp_vile", text = "Cannibals, mon, and proud of it.", next = "vilebranch" } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "Zul'Gurub is the old heart of the Gurubashi, and they have woken their blood god in it. I sell reagents to anyone who'll go and stop it, mon, and I'll pray they come back." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear are our cousins, and Vol'jin is a wise chief. He knows the old ways and the new ways both." } },
+    sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai worship Hakkar in their swamp, and their madness is spreading. I sell charms against their blood magic, and I hope they work." } },
     _none = { { id = "tp_none", text = "The spirits don't say nothin' about that, and neither do I." } },
   },
 }
@@ -922,6 +934,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know fish, mon, so you ask me about fish." } },
     background = { { id = "tp_bg", text = "I fish. Before that, I wanted to fish. That be my whole story, mon.", next = "pagle" } },
     advice = { { id = "tp_ad", text = "Be patient, mon. The fish know when you be in a hurry." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay got fine fishin', mon, so the sailors tell me, but there be a thousand boats in that harbour scarin' the fish. My pier be quiet, and the turtles would miss me if I left." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear fish too, out on the Echo Isles, and they say their fish be the best. They be wrong, mon, but I'd never tell Vol'jin that to his face." } },
+    ratchet = { { id = "tp_ratchet", text = "Ratchet got goblins who'll buy any fish you land, mon, and they don't much care if it be fresh. I'd sooner eat my fish than sell them to a goblin for a copper." } },
     _none = { { id = "tp_none", text = "No idea, mon. Ask me about fish instead." } },
   },
 }
@@ -1122,6 +1137,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Lard know fish, and beds, and who is fightin'. Ask Lard." } },
     background = { { id = "tp_bg", text = "Lard was ogre in the mountains. Now Lard is ogre by the sea, which is better.", next = "ogre" } },
     advice = { { id = "tp_ad", text = "Always eat lunch before Vilebranch find you. Lard lose a whole roast boar that way, and Lard still sulk about it." } },
+    thrall = { { id = "tp_thrall", text = "Warchief Thrall let Lard keep the inn even though Lard is ogre, so Lard like him very much. Lard never meet him, but Lard save him a fish just in case." } },
+    wildhammer = { { id = "tp_wildhammer", text = "Dwarves on the birds shoot at Lard sometimes when Lard go fishing, and Lard not like it. Lard is very big, so they hit Lard a lot, but Lard is also very thick, so it is fine." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has many fish and many goblins, they say, and Lard would like to go and eat some of the fish. Lard would need a very big boat, so Lard stay here." } },
     _none = { { id = "tp_none", text = "Lard not know that, but Lard know fish!" } },
   },
 }
@@ -1302,6 +1320,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Iron, steel, and what the Vilebranch broke this week. Ask." } },
     background = { { id = "tp_bg", text = "A smith since I was young enough to burn myself every day. A gnome's hammer taught me most of it.", next = "gnome" } },
     advice = { { id = "tp_ad", text = "Mend before you need to. A belt that snaps mid-swing leaves you fighting with your trousers round your knees." } },
+    gnomeregan = { { id = "tp_gnomeregan", text = "A gnome saved my life once, and gave me my best tools, and the Vilebranch stole them. I've heard the gnomes lost their city to troggs, and I'm sorry for it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief sent me here to mend the Revantusk's weapons, and I've been mending them ever since. It's good work, and honest, and I'm glad of it." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer have good forges, I'm told, and better steel. I'd like to see one someday, if they'd stop trying to kill me long enough." } },
     _none = { { id = "tp_none", text = "Can't hammer that into shape for you, friend. Ask somebody else." } },
   },
 }
@@ -1496,6 +1517,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know cookin' and I know grudges, mon. Ask about either." } },
     background = { { id = "tp_bg", text = "Revantusk all my life, mon, and angry at the dwarves for most of it.", next = "dwarves" } },
     advice = { { id = "tp_ad", text = "Salt your meat and watch the sky. The gryphons like a troll that don't look up." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer are pests, and I'll terrify Aerie Peak one day, mark my words. They'll scream when they see what I've got planned." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear are our cousins, and they've never once tried to steal my cooking. That's more than I can say for the Wildhammer." } },
+    zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken their blood god, and they're spreading his madness. I'll not cook for any troll who serves him." } },
     _none = { { id = "tp_none", text = "That don't cook and it don't scare dwarves, so I don't care, mon." } },
   },
 }
@@ -1659,6 +1683,9 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Routes, winds and fish. Ask about one of those." } },
     background = { { id = "tp_bg", text = "Orgrimmar sent me to keep the wind riders. Nobody said I couldn't fish." } },
     advice = { { id = "tp_ad", text = "Don't fly over Aerie Peak. The dwarves shoot first and ask about your business never." } },
+    booty_bay = { { id = "tp_booty_bay", text = "Booty Bay has the best fishing in the world, they say, and I'd go there if I didn't have wind riders to tend. I'm waiting for a grouper here, and I'll not leave till I catch it." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief rides a wolf, not a wind rider, and I've never held it against him. I'd like to see him fish, though, since a leader who can wait on a grouper can wait out anything." } },
+    wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer gryphons are fine beasts, I'll admit it, but my wind riders turn sharper in a crosswind. I'd not say that on their side of the hills, mind." } },
     _none = { { id = "tp_none", text = "No idea. Let me fish." } },
   },
 }

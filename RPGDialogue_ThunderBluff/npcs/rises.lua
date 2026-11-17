@@ -198,6 +198,13 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I'm afraid that falls outside my research, and my interest." } },
+    forsaken = {
+      { id = "tp_forsaken", text = "The Forsaken are free, and the Society means to keep us so. Our research is for the good of all our people, and I hope the tauren will come to see that." },
+      { id = "tp_forsaken2", when = { race = "Undead" }, text = "A fellow citizen, how nice. Do try not to frighten the tauren, as they frighten so easily, and it makes my work so much harder." },
+    },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady is our queen and our saviour, and the Society serves her in all things. I would never question her plans, and I would never let anyone else question them either." } },
+    scourge = { { id = "tp_scourge", text = "The Scourge are our enemies, and the Society is learning how to destroy them. We study plague, which is the Scourge's weapon, and so we must understand it better than they do." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is a gracious host, and I am grateful for his hospitality. His people are less gracious, but I suppose that is to be expected." } },
   },
 }
 
@@ -352,6 +359,10 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I have not heard of that. The plains keep many secrets." } },
+    centaur = { { id = "tp_centaur", text = "The centaur ride well, but they shoot poorly, and an archer can drop them before they close. My family has done it for generations." } },
+    quilboar = { { id = "tp_quilboar", text = "The quilboar are poor archers too, and they make easy targets. Teach your students to aim for the eyes, and the quilboar will not trouble them." } },
+    earth_mother = { { id = "tp_earth_mother", text = "The Earth Mother made the bow from the trees, and the arrow from the reeds. A hunter who forgets that has forgotten how to hunt." } },
+    cairne = { { id = "tp_cairne", text = "Cairne carries a spear, not a bow, but he is the finest hunter of us all. My family has never told him so, out of pride." } },
   },
 }
 
@@ -510,5 +521,9 @@ P:NPC {
   },
   topics = {
     _none = { { id = "tp_none", text = "I am a warrior, not an elder. Ask on Elder Rise." } },
+    cairne = { { id = "tp_cairne", text = "Cairne is the greatest warrior of our people, and he taught us that strength is for protecting the herd. I teach my students the same." } },
+    centaur = { { id = "tp_centaur", text = "The centaur have tested the tauren for generations, and we have always stood. My students learn to stand first, and to fight second." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief is a strong orc, and a wise one. He came to our aid when we needed it, and the tauren will not forget it." } },
+    forsaken = { { id = "tp_forsaken", text = "The Forsaken are strange allies, and I do not trust them. But the Warchief says they are Horde, and so I will protect them as I would any of the herd." } },
   },
 }

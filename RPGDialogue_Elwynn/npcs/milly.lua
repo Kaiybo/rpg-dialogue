@@ -225,5 +225,9 @@ P:NPC {
     defias = { { id = "t_defias", text = "They took my harvest and my sleep. Ask me again when they give either back." } },
     northshire_abbey = { { id = "t_abbey", text = "The brothers buy our wine. Brother Neals counts every barrel twice." } },
     _none = { { id = "t_none", text = "Grapes I know, but that I don't." } },
+    brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The brothers buy my grapes for their wine and their table, and they pay fair and on time. I'd sooner they had my harvest than the Defias, though the Defias never ask." } },
+    holy_light = { { id = "tp_holy_light", text = "I ask the Light for a good harvest, and the Defias don't ask for anything, they just take. I'd like to think I know which of us gets answered." } },
+    stonemasons = { { id = "tp_stonemasons", text = "Folk say the Defias were stonemasons once, honest men cheated of their pay. Well, now I've been cheated of mine, and I haven't gone and put a sack on my head over it." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I'd go to the Faire if I had anything left to sell there. Maybe next year, if the Defias leave me a grape." } },
   },
 }
