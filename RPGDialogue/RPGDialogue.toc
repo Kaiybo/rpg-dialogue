@@ -30,6 +30,7 @@ Core\Engine.lua
 Systems\Threads.lua
 Systems\Rumors.lua
 Systems\Towns.lua
+Systems\Kin.lua
 Systems\Disposition.lua
 Systems\Topics.lua
 Systems\Books.lua

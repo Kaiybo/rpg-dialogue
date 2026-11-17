@@ -62,6 +62,7 @@ SD.ACCOUNT_DEFAULTS = {
     seenLoginHint = false,
   },
   capture = { npcs = {}, quests = {}, gossip = {}, questText = {} },
+  kin = { chars = {}, met = {} },   -- 0.80.0: this account's characters and who each has met
   flagged = {},
   debug = {},
   _quarantine = {},

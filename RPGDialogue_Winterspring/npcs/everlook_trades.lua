@@ -324,6 +324,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Hey, pal, I sold a rifle to a {altrace} named {alt} not long ago, other side of the war, and you've got the same look of somebody who's gonna ask for a discount. The answer's the same for both sides, and it's no, but I said it real friendly." },
+        { id = "h_alt_class", when = { alt = { sameClass = true } },
+          text = "Another {altclass}! {alt} bought steel off me a while back and complained the whole time about the cold, so you've got a lot to live up to, pal, or down to, depending how you look at it." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock! You don't need much from me, I suppose, but every warlock I've met has wished for a good dagger the day their demon wandered off, so take a look at the case." },
         { id = "h_warcl", when = { class = "WARRIOR" },

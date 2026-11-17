@@ -119,6 +119,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "I'd swear I already sent you down to Gornek once, but that was {alt}, wasn't it? You two could be littermates, so go on down and give him his turn with you." },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "A {altrace} came through here before you, {alt} by name, and I gave them the same speech I'm about to give you. They went on to do well, so listen this time and I won't have to repeat myself." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin walks into the Valley of Trials. Someone greeted me once when I came out of the camps, so I'll greet you, glow and all." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, walking into the valley like everyone else. I'll send you to Gornek the same as the rest, but I'm glad you came." },
         { id = "h_default", key = true,
@@ -225,6 +229,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_gornek = {
+      lines = {
+        { id = "xalt_gornek_default", text = "Hundreds come through the Den, and I forget most of them by the next moon. The one you mean did the work without complaining, so I remember them, and that's more than most recruits manage." },
+        { id = "xalt_gornek_kin", when = { alt = { kin = true } }, text = "{alt} grumbled about the scorpids the whole time but brought back every tail I asked for. If you're kin, I expect the same, and I'll be counting." },
+      },
+      choices = {
+        { text = "Hard work is the only honest way to earn a place.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "There's always a quicker way, if you look for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Gornek.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "It's made Horde of stranger. The Silver Hand made orcs into prisoners, and the Valley makes prisoners' sons into warriors. If it can turn the Light into something that serves the Horde, then it's done its best work yet." } },
@@ -274,6 +289,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Another {altrace} with your face came through the Den, a {altclass} named {alt}, and I made them clear a whole nest of scorpids before I let them leave. If that's your kin, they'll have warned you I don't go easy." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "I still hear {alt}'s name now and then, the {altclass} I put to work in this valley before they went on to bigger things. Every recruit who makes something of themselves makes my job look easier." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The Valley makes Horde out of whatever walks in, and today that's you. Let's see how long it takes." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Den makes Horde out of whatever walks in, and I'll be glad when what walks in can mend the rest of them." },
         { id = "h_default", key = true,
@@ -289,6 +308,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "Rogue. Every season I get a few who think the Den's for warriors only, and every season they prove me wrong somewhere in the scrub." },
       },
       choices = {
+        { text = "Someone close to me came through the Den, Gornek.", next = "xalt_gornek", when = { alt = true } },
         { text = "What does the Den expect from a priest, Gornek?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What should a young shaman prove to you, Gornek?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does the Den expect of a druid, Gornek?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -477,6 +497,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You've the same look about the eyes as {alt}, who went up into the Burning Blade's caves for me and came back smelling of brimstone. I hope you're as stubborn, because those cultists haven't gotten any friendlier." },
+        { id = "h_alt_lock", tags = { "news" }, when = { alt = { class = "WARLOCK" } },
+          text = "That {altclass} {alt} watched the Burning Blade's rituals a little too closely for my liking when they came through. I'll say to you what I said to them: study the fel if you must, but never let it study you back." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I watch cultists who want the old fire back, so I know a dangerous power when it walks in." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Burning Blade want the old fire back, the one that nearly burned us down, and I'd like to see what your prayers make of that." },
         { id = "h_default", key = true,

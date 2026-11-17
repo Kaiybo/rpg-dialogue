@@ -175,8 +175,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_wiley = {
+      lines = {
+        { id = "xalt_wiley_default", text = "{alt}, sure, upstairs room on the left, the one with the window that sticks, paid for two nights and slept for one. I don't ask my guests where they're headed, pal, but that one asked a lot about the boat to Booty Bay." },
+        { id = "xalt_wiley_other", when = { alt = { faction = "other" } }, text = "{alt}, the {altrace}, and the funny thing, pal, is that the same week I had half a Theramore crew in here and a table of Horde grunts, and {alt} drank between 'em like a wall nobody wanted to climb. Best night of quiet I've had all year, and it didn't cost me a single chair." },
+      },
+      choices = {
+        { text = "Ratchet's peace is worth keeping. Good for you, Wiley.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "That's not peace. That's goblins too greedy to pick a side.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Wiley.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Hey, pal, you've got a twin, did you know? A {altrace} called {alt} took a bed upstairs not long ago, other side of the war and all, and paid up front with the very same scowl you're wearing." },
+        { id = "h_alt_same", when = { alt = { faction = "same" }, metBefore = false },
+          text = "Did {alt} send you? No? Well, you've got the same walk, pal, and {alt} paid up front, so I'm already half inclined to like you." },
         { id = "h_default", key = true, text = "Innkeeper Wiley, at your service, as long as the service is paid for up front. Beds are upstairs, drinks are down here, and the boat to Booty Bay is right outside the window, so you can watch it leave without you." },
         { id = "h_alliance", when = { faction = "Alliance" },
           text = "Alliance, huh? Relax, pal, the bruisers don't care and neither do I, and the orc at the bar only looks at you like that because he's had four." },
@@ -190,6 +205,7 @@ P:NPC {
         { text = "Who stays at your inn?", next = "guests" },
         { text = "The boat to Booty Bay doesn't look safe.", next = "boat" },
         { text = "I'd like to make this inn my home.", next = "BUSINESS" },
+        { text = "Someone like me stayed here before, Wiley?", next = "xalt_wiley", when = { alt = true } },
         { text = "Just passing through, Wiley.", next = "END" },
       },
     },

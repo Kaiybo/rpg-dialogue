@@ -88,6 +88,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Another of your look reported to me, {alt}, and fought the Scarlet Crusade across Tirisfal without being told twice. If you are of their blood, living or dead, I expect the same discipline." },
+        { id = "h_alt_living", tags = { "news" }, when = { race = "Scourge", alt = { notKin = true } },
+          text = "A living {altclass} called {alt} came through Brill before you and fought beside my Deathguard against the Crusade. I don't trust the living easily, but that one earned a measure of it." },
         { id = "h_default", key = true,
           text = "Executor Zygand, commander of the Deathguard in Tirisfal. The Crusade means to burn this land clean of us, and it will not go the way they hope." },
         { id = "h_war", tags = { "news" }, when = { questActive = TODO_QUEST("At War With The Scarlet Crusade") },
@@ -952,6 +956,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_fors", tags = { "news" }, when = { race = "Scourge", alt = { kin = true } },
+          text = "You've a look of {alt} about you, who sat by my fire and tried to remember a song from before. If you were neighbours in life, you might finish it for them, because the poor thing only had the first line." },
+        { id = "h_alt_living", tags = { "news" }, when = { alt = { race = { "Orc", "Troll", "Tauren", "Skyborne" } } },
+          text = "We had a {altrace} called {alt} in the tavern not long ago, warm-blooded and very polite about the smell. I hope you've the same good manners, because the regulars notice." },
         { id = "h_default", key = true,
           text = "I'm Renee, and I keep the tavern. Somebody has to look after people, even dead ones, and especially dead ones." },
         { id = "h_rogue", when = { questActive = TODO_QUEST("A Rogue's Deal") },

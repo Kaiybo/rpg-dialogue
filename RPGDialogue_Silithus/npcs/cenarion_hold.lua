@@ -1338,6 +1338,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Oh, you look just like a {altrace} who stayed here not long ago, dear, {alt}, from the other side of all this fighting. I gave {alt} the bed by the window and a bowl of soup, and I'd like to see you rest just as well, whatever banner you carry." },
+        { id = "h_alt_kin", when = { alt = { kin = true } },
+          text = "One of your people stayed with me a little while ago, dear, a {altclass} named {alt}, who ate everything I put out and still asked for more. If that's the family appetite, I'd better put another pot on." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, at the Oasis Inn. Sit wherever you like, dear, only keep your little friend away from the kitchen, because I've only just got the worms to stay in the pot." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1580,6 +1584,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Huh, you've got the same face as a {altrace} named {alt}, pal, from the other side, who brought me a sack of stingers and didn't haggle, which I'm still suspicious of. Related? Doesn't matter, as long as you've got the same habit of bringing me venom." },
+        { id = "h_alt_higher", when = { alt = { higher = true } },
+          text = "{alt} was in here last week, all scars and stingers, and Noggle hasn't stopped talking about it, which is a mercy, because it beats his moaning. You've got the look of someone headed the same way, pal, and I'll have the jars ready." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Stonelash", min = 20 } },
           text = "You've been squashing scorpids by the dozen, I hear, pal, which is lovely, because every one you kill is one less that can sting Noggle again. Mind you, he'd find a way, he always does." },
         { id = "h_apaladin", when = { class = "PALADIN" },

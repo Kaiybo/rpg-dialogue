@@ -34,6 +34,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_thork = {
+      lines = {
+        { id = "xalt_thork_default", text = "Plenty report to me, and I'd forget most of them by sundown if I could. The one you mean held the wall during a centaur raid and never asked for thanks, so they stayed in my head." },
+        { id = "xalt_thork_kin", when = { alt = { kin = true } }, text = "{alt} took a Kolkar arrow in the shoulder at the north gate and pulled it out before anyone could help. If you're family, I hope you got the same hard hide." },
+      },
+      choices = {
+        { text = "The Crossroads needs people who hold the wall, no questions.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Better to ride out and hunt them than wait at the wall.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Thork.", next = "BACK" },
+      },
+    },
     xpt_thork = {
       big = true,
       lines = { { id = "xpt_thork_default", text = "South toward the Stagnant Oasis, where the centaur and the raptors both hunt the caravan road, and west where the Kolkar have grown bold. A company your size could keep the road open for a week, and a week is all I need to get the grain through." } },
@@ -141,6 +152,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Another {altrace} with your look reported to me, a {altclass} named {alt}, and went out after the Kolkar the same day. If you're blood of theirs, I'll put you to the same work." },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "{alt} came through the gates a while back, a {altrace} who asked more questions about the Crossroads than any spy I've ever caught. I decided they weren't a spy, since spies don't ask that many." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "I hear {alt} has gone south past Camp Taurajo and kept going, which is further than most who leave by this gate. Remember the Crossroads when you're that far out, because it remembers you." },
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
           text = "That's a proper war band you've brought to my crossroads. The centaur raid in fours and fives, so they'll think twice before they come at you, which is more than I can say for most of the travellers I send out." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin at the Crossroads. Every kind of trouble meets here, and I'm not yet sure which kind you are." },
@@ -163,6 +180,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 30 } }, text = "The caravans have been getting through, and my scouts say the Kolkar have pulled back from the road. I hear your name in that, so keep it up, and the Crossroads will owe you." },
       },
       choices = {
+        { text = "Someone close to me reported to you, Thork.", next = "xalt_thork", when = { alt = true } },
         { text = "The spirits could help you hold the Crossroads, Thork.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why are the Barrens drying out, Thork?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What's the hardest part of holding the Crossroads?", next = "hardest" },
@@ -365,6 +383,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You put me in mind of {alt}, who I sent out after the plainstriders and who came back with more meat than I'd asked for. Whatever blood you share, I could use that kind of work again." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
+          text = "{alt} has made quite a name past the Barrens since I first sent that {altclass} after the zhevra. I take a little of the credit, so don't make me give it back by dying out there." },
         { id = "h_pt_kin", tags = { "news" }, when = { party = { kin = true } },
           text = "You travel with your own kind, I see, which I understand, but don't stay that way too long. I've learned more about fighting from tauren and trolls these past seasons than I learned in all my years among orcs." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin! Now that's a sight for the Barrens. I'll bet you've never been sent past these walls by an orc before." },
@@ -1603,6 +1625,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You've the same face as {alt}, who slept here two nights and snored straight through a Kolkar raid. If it runs in the family, you'll want the room furthest from the gate." },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "A {altrace} called {alt} drank here not long ago and told a story about a raptor that got bigger every time. I don't suppose you've heard it, though you've the look of someone who has." },
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = { min = 3 } } },
           text = "That's a lot of dusty boots on my floor, but the Crossroads has seen worse. Find a corner for all of you, and if one of you snores, I'd ask you to put them nearest the wind rider roost." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! The odd Forsaken sleeps here often enough, but never one who glows. Come in, the roof leaks, but the stars are fine." },

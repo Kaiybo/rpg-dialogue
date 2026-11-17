@@ -8,6 +8,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.20.0 (2026-11-17)
 - New people to talk to: Simone the Inconspicuous (hunters on the Stave of the Ancients may see through her), Shizzle and Quixxil at Marshal's Refuge. Karna, Larion, Petra and Spark have more to say. New files: restart the game fully (a /reload won't load them).
 
+## 1.20.0 (2026-11-17)
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+
 ## 1.19.0 (2026-11-17)
 - Goblins talk like goblins: a voice pass on this pack's goblin speakers (see the main changelog for 0.76.0).
 

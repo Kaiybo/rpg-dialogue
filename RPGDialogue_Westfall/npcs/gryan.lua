@@ -77,6 +77,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "You've the look of {alt}, a {altclass} who stood with the People's Militia on this hill when we had precious few to stand. If that's kin of yours, then Westfall already owes your family something." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} came up the hill not long ago with a sack of red bandanas and a report I'd have been proud of from a sergeant. Between that one and you, I'm almost tempted to think Stormwind remembers us after all." },
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
           text = "I hear the Stockade riot's done and Bazil Thredd with it, and that you were the one who ended it. Thredd was one of Edwin's lieutenants, and I'd hoped he'd hang in Westfall where the farmers he robbed could watch." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Defias", min = 40 } }, text = "Word reaches the hill of Defias found dead in the fields, and more of them than I'd dare hope for. The People's Militia thanks you, and I'll thank you myself, because every one of those masks was a farm we couldn't hold." },

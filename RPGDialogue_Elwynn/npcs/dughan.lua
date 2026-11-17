@@ -111,8 +111,21 @@ P:NPC {
         { text = "Something else, Marshal.", next = "BACK" },
       },
     },
+    xalt_dughan = {
+      big = true,
+      lines = { { id = "xalt_dughan_default", text = "{alt}, a {altrace} {altclass}, came through Goldshire green as grass and left Hogger's pack a good deal thinner and a fair name at the Lion's Pride. Whether you're kin or only a likeness, you've a reputation to live up to on this road." } },
+      choices = {
+        { text = "I'll make my own name, Marshal, not borrow one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If the likeness gets me better work, I'll take it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Marshal.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "You've the look of {alt}, a {altclass} who cleared a fair few gnolls off the Goldshire road for me. Same family, I'd guess, and if you work half as hard I'll be glad to see you." },
+        { id = "h_alt_higher", when = { alt = { higher = true }, metBefore = true }, cooldown = "5d",
+          text = "Word from the city is that {alt}, who once took my bounties the way you do, is off fighting in places I've only seen on maps. Goldshire breeds them hardy, it seems, so keep at it." },
         { id = "h_pt_dughan", tags = { "news" }, when = { party = true },
           text = "Ah, a proper party. Good, because I've been sending lone farmhands after the gnolls for weeks and I'm running out of farmhands, so if you and your friends have a spare afternoon, Elwynn has a spare gnoll or two." },
         { id = "h_cl_stocks", tags = { "news" }, when = { cleared = "The Stockade", faction = "Alliance" },
@@ -195,6 +208,7 @@ P:NPC {
         { text = "You don't seem to trust a shaman to fight for Goldshire.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "The Stockade's quiet now, Marshal. Your prisoners won't trouble Goldshire.", next = "xcl_stocks", when = { cleared = "The Stockade", faction = "Alliance" } },
         { text = "Why doesn't Stormwind send more soldiers to Goldshire?", next = "xpt_dughan", when = { party = true } },
+        { text = "Who's this other one you compare me to, Marshal?", next = "xalt_dughan", when = { alt = true } },
         { text = "Good day, Marshal.", next = "END" },
       },
     },

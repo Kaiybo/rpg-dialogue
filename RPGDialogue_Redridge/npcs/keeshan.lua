@@ -91,6 +91,8 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "You're the second soul to come looking for a Stormwind corporal in these hills, if my head's still straight. The other was a {altclass} called {alt}, and you've the same look, so I'll trust you the way I trusted that one." },
         { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
           text = "You've been to the top of Blackrock Spire and come down again, and I was a prisoner of the Blackrock long enough to know what that costs. They used to boast about the Spire in my hearing every night, as though I'd never live to see it." },
         { id = "h_druidx", when = { class = "DRUID" },

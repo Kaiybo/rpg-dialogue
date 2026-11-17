@@ -19,6 +19,7 @@ commands.help = function()
   printList(L.HELP_HEADER, L.HELP_LINES)
 end
 
+commands.kin = function() if ns.Kin then ns.Kin.Print() end end
 commands.version = function() ns.Print(L.VERSION_SHORT:format(ns.VERSION)) end
 
 commands.dev = function(args)

@@ -188,8 +188,21 @@ P:NPC {
         { text = "I'll leave the deep water to your Sentinels, then.", next = "BACK" },
       },
     },
+    xalt_tyrande = {
+      big = true,
+      lines = { { id = "xalt_tyrande_default", text = "{alt}, a {altclass}, who knelt beneath the temple's high window and asked nothing of me at all, which few who come here manage. I have lived long enough to see families scatter and meet again across the ages, so forgive me if I look for old faces in new ones." } },
+      choices = {
+        { text = "Perhaps Elune sends us to one another for a reason.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Chance brings people together, High Priestess, not the goddess.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, High Priestess.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Elune's light falls on you as it fell on {alt}, a {altrace} who came to this temple not long ago, and I would have sworn you shared a mother. Come closer, child, and tell me whether my eyes deceive me." },
+        { id = "h_alt_other", when = { alt = { notKin = true }, metBefore = false },
+          text = "The Sentinels told me of a {altrace} called {alt} who came into the temple with the same careful steps you take now. Strangers who walk softly in Elune's house are rare, and I find that I remember them." },
         { id = "h_pt_tyrande", tags = { "news" }, when = { party = { race = { "Human", "Dwarf", "Gnome" } } },
           text = "You bring {companion} with you into Darnassus, and the sentinels at the gate tell me they were courteous. Elune smiles on friendships between our peoples, though I know not every one of my kin agrees." },
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "The Sentinels on the Zoram Strand tell me someone went down into Blackfathom and came back up again. That was a temple of Elune once, before the sea took it, and I am grateful to whoever reminded its new tenants of that." },
@@ -251,6 +264,7 @@ P:NPC {
         { text = "Does Elune look kindly on a shaman, High Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Blackfathom Deeps, High Priestess.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
         { text = "Do the Kaldorei really welcome our allies here, High Priestess?", next = "xpt_tyrande", when = { party = { race = { "Human", "Dwarf", "Gnome" } } } },
+        { text = "Who was it I reminded you of, High Priestess?", next = "xalt_tyrande", when = { alt = true } },
         { text = "Elune be with you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -706,8 +720,23 @@ P:NPC {
         { text = "I'll leave the Fang to the Circle's judgment, Archdruid.", next = "BACK" },
       },
     },
+    xalt_fandral = {
+      big = true,
+      lines = { { id = "xalt_fandral_default", text = "{alt}, a {altrace} {altclass}, who had the sense to be quiet beneath Teldrassil's boughs and hear what the tree had to say. I do not often remember visitors, so you may take it as a compliment to that one, if not yet to you." } },
+      choices = {
+        { text = "Then I'll listen first, Arch Druid, and speak after.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll earn your regard my own way, not by keeping quiet.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Arch Druid.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_out", when = { alt = { kin = true, race = { "Human", "Dwarf", "Gnome" } }, metBefore = false },
+          text = "You have the bearing of {alt}, who came to the Enclave and listened more than most outsiders bother to. I assume you are of the same family, since your kind seem to arrive in sets." },
+        { id = "h_alt_elf", when = { alt = { kin = true, race = "NightElf" }, metBefore = false },
+          text = "You have the look of {alt}, a young {altclass} who sat in the Enclave and actually heeded what I said about the forest. If you are of that one's house, I shall expect the same patience from you." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} was at the Enclave this past month, asking after the Cenarion Circle's work in Moonglade. I will tell you what I told that one: the Circle needs more hands and fewer questions." },
         { id = "h_pt_fandral", tags = { "news" }, when = { party = { race = { "Human", "Dwarf", "Gnome" } } },
           text = "You've brought outsiders into Teldrassil's boughs, I see. {companion} is welcome as a guest, but I hope you've told them that the World Tree is no human orchard for them to climb about in." },
         { id = "h_cl_wc", tags = { "news" }, when = { cleared = "Wailing Caverns", faction = "Alliance" }, text = "So you went into the Wailing Caverns and dragged Naralex out of his nightmare, I am told. He was always a dreamer with more ambition than sense, and I am glad someone with a blade cleaned up after him." },
@@ -763,6 +792,7 @@ P:NPC {
         { text = "Is a shaman's path really so crude, Arch Druid?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Naralex is awake, Archdruid. The Caverns are quieter now.", next = "xcl_wc", when = { cleared = "Wailing Caverns", faction = "Alliance" } },
         { text = "Why are you so wary of outsiders, Arch Druid?", next = "xpt_fandral", when = { party = { race = { "Human", "Dwarf", "Gnome" } } } },
+        { text = "You spoke of someone like me, Arch Druid?", next = "xalt_fandral", when = { alt = true } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -1829,6 +1859,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "Welcome to the Terrace! The last guest I had with your look was a {altclass} called {alt}, who came up from the boats just as lost as you and left a good deal better rested." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "You've only just missed {alt}, who slept beneath the east branch two nights running and asked me to keep the bed aired. I didn't think to ask whether you two knew one another, but I suspect you do." },
         { id = "h_pt_saelienne", tags = { "news" }, when = { party = { race = "Dwarf" } },
           text = "You've a dwarf with you! Tell {companion} the beds don't fold into the walls and the branches don't fall, because the last dwarf who stayed here slept on the floor with his boots on." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! The travelers who come up from the boats are often more tired than they'll admit, and a kind word from a healer does them good." },

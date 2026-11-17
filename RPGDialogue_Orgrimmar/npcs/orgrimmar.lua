@@ -37,6 +37,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_thrall = {
+      lines = {
+        { id = "xalt_thrall_default", text = "Many have stood here, and I try to remember each of them, because I was once a slave nobody looked at twice. Whoever they are to you, they came in with their head up and left the same way, and that is all I ask of anyone in the Horde." },
+        { id = "xalt_thrall_kin", when = { alt = { kin = true } }, text = "{alt}, you mean. That {altclass} spoke plainly and listened when I answered, which is rarer than you'd think in this hall, and if you share blood with them I'd guess you share a stubborn streak as well." },
+      },
+      choices = {
+        { text = "Kin or not, we both answer to the Warchief.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "My family looks after its own first, Warchief.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, Warchief.", next = "BACK" },
+      },
+    },
     xpt_thrall = {
       big = true,
       lines = { { id = "xpt_thrall_default", text = "Then you already understand what took me years to teach. The Horde I lead is orc and troll and tauren and now the Forsaken, and none of them owe the others anything but the word they gave, so the only thing holding us together is people like you choosing to stand beside each other." } },
@@ -141,6 +152,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "There was another {altrace} in this hall not long ago, a {altclass} named {alt}, who stood the way you stand, as if the floor might be pulled out from under them. Is that one of your clan, or does Durotar simply raise its children alike?" },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "A {altrace} called {alt} stood where you're standing and spoke well of the Horde, which is more than many in this city manage. I'd like to think the two of you would get along, if your roads ever cross." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true, level = 50 } },
+          text = "Word of {alt} has reached me from the Burning Steppes and beyond, and few of my own officers have earned that much notice. If you know that {altclass}, tell them the Warchief remembers the name." },
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
           text = "A full war band at my door, and every one of you armed. When I was a slave in Durnholde I dreamed of orcs gathering like this by their own choice and not at a warlord's order, so forgive me if I look at you a moment longer than I should." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
@@ -169,6 +186,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a companion at your side. The Frostwolves taught me in Alterac that the bond with a beast is a bond of honour, and I have never forgotten it." },
       },
       choices = {
+        { text = "Someone close to me has stood in this hall, Warchief.", next = "xalt_thrall", when = { alt = true } },
         { text = "What place does a priest have in a Horde of shaman, Warchief?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Cairne says the tauren owe you a debt, Warchief.", next = "druid_q", when = { class = "DRUID" } },
         { text = "The Horde must stand for something more than war.", next = "horde" },
@@ -846,6 +864,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You got the same look as {alt}, mon, that {altclass} who come and sit with me a while back. The loa like to send the same spirit twice when the first one ain't finished the job." },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "A {altrace} named {alt} come by before you and talk straight to me like you do. Strange how the Horde keep sending me the honest ones lately, so maybe the spirits be up to something." },
         { id = "h_pt_troll", tags = { "news" }, when = { party = { race = "Troll" } },
           text = "You run with a Darkspear, mon, and that tells me more about you than any badge of rank. My people don't trust easy after everything that's been done to us, so if {companion} walks beside you, you earned it somewhere." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead man carryin' the Light of the humans. Now dat be interestin', and Vol'jin only talks to the interestin' ones." },
@@ -1402,6 +1424,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You've the same face as {alt}, who slept upstairs and ate two bowls of my stew without stopping for breath. Kin of yours, I'd guess, and if the appetite runs in the family I'd best start another pot." },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "A {altrace} named {alt} stayed at the Broken Tusk not long back and ate like they hadn't seen food since Ashenvale. You've the same hollow look about you, so sit down before you fall down." },
         { id = "h_pt_band", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five of you, and every one of you looking hungry. Sit at the long table by the fire and keep your weapons off it, because the last war band that drank here broke two benches and a grunt's nose." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Do the dead even eat? Never mind, a paladin is a paladin, and nobody leaves the Broken Tusk hungry, not even one who glows a little." },

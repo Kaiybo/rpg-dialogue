@@ -11,6 +11,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.17.0 (2026-11-17)
 - Prejudices (0.80.0): Corithras Moonrage (outsiders). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
+## 1.17.0 (2026-11-17)
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+
 ## 1.16.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

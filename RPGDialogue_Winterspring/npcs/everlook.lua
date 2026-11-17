@@ -111,8 +111,23 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xalt_vizzie = {
+      lines = {
+        { id = "xalt_vizzie_default", text = "{alt}, sugar, and a lovely guest, because {alt} squashed a beetle by the hearth without my even asking, and you can't put a price on that. Stayed a night, ate two bowls of soup and went off toward the hot springs." },
+        { id = "xalt_vizzie_other", when = { alt = { faction = "other" } }, text = "{alt}, sugar, a {altrace} from the other side, and if you two ever end up in my inn the same night, I'm putting you at opposite ends of the room, related or not. Not because I expect trouble, mind, but because the beetle likes a crowd." },
+      },
+      choices = {
+        { text = "Kin or not, I'd share a fire with anyone up here.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Opposite ends sounds right. Some lines shouldn't be crossed.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else, Vizzie.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "Oh, sugar, you gave me a turn, because a {altrace} called {alt} sat right there by the fire a while back, from the other side of things, with exactly your way of eyeing the rafters for beetles. Is everybody in the world related except me?" },
+        { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" }, metBefore = false },
+          text = "You've got kin come through Everlook, I'd bet my best mop on it, because {alt} stamped the snow off a pair of boots just like yours and told me there were no bugs in Winterspring, the sweet liar." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior, and dressed for it! Stamp the snow off those boots at the door, sugar, and if you see a beetle on the hearth, you have my permission to cut it in half, just not the hearth." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Oh, sugar, tell me the spirits don't send bugs, because if one of your totems starts buzzing it's going straight outside." },
@@ -153,6 +168,7 @@ P:NPC {
         { text = "Does Everlook see much trouble, with Horde and Alliance under one roof?", next = "xapala", when = { class = "PALADIN" } },
         { text = "The folk at your fire look like they've had a hard road, Vizzie.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you get many warriors through Everlook, Vizzie?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Someone like me stayed at your inn, Vizzie?", next = "xalt_vizzie", when = { alt = true } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -544,6 +560,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_other", when = { alt = { faction = "other" }, metBefore = false },
+          text = "You remind me of {alt}, a {altrace} who came through Everlook not long ago and asked how the Dawn might use another blade. Horde and Alliance both fight the Scourge, friend, and I was glad to see the same resolve on {alt}'s face that I see on yours." },
+        { id = "h_alt_kin", when = { alt = { kin = true, faction = "same" } },
+          text = "One of your people stood here only a little while ago, a {altclass} called {alt}, and asked about the Plaguelands with the same frown you're wearing now. The Dawn will take every one of you who comes, and gladly." },
         { id = "h_pt_gregor", tags = { "news" }, when = { party = { kin = true } },
           text = "You travel with your own kin, I see, and there's comfort in that this far north. Still, the Argent Dawn would remind you that the Scourge doesn't care whose cousin you are." },
         { id = "h_cl_scholo", tags = { "news" }, when = { cleared = "Scholomance" }, text = "Word has reached even Everlook that Darkmaster Gandling is dead and Scholomance has lost its headmaster. The Dawn owes you more than I can say, and I'll say it anyway, to anyone who'll listen." },

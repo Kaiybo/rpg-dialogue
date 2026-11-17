@@ -936,6 +936,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "Welcome to Dolanaar. You walk in the way {alt} did, a {altrace} {altclass} who rested here on the road to Darnassus, and I've a fondness for travelers who stop long enough to be remembered." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} passed through only a little while ago and asked whether the road to Darnassus was safe. I said it was, mostly, which is the same answer I'll give you." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest under my roof! The road from Shadowglen is kind, mostly, but now and then someone comes in limping, and it helps to have a healer near." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, and a long way from home! Leave your hammer by the door if you like, for nobody in Dolanaar will touch it, though they will certainly stare." },
         { id = "h_default", key = true,

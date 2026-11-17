@@ -15,6 +15,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 - New: Senator Barin Redstone in the High Seat hates the Dark Iron, blames gnomes for Gnomeregan and scorns the Wildhammer. Gnomes and Wildhammer-born get their own branches, and a [Persuade] gets out what he did in the Senate.
 - New file: needs a full game restart, not /reload.
 
+## 1.22.0 (2026-11-17)
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+
 ## 1.21.1 (2026-11-17)
 - Small fixes; missing characters added to the file list where needed.
 

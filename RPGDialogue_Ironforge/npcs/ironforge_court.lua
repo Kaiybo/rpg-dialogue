@@ -99,8 +99,21 @@ P:NPC {
         { text = "Then plan well, High Tinker. I'd like to see it.", next = "BACK" },
       },
     },
+    xalt_mekkatorque = {
+      big = true,
+      lines = { { id = "xalt_mekkatorque_default", text = "{alt}! A {altrace} {altclass}, and very reliable about standing exactly where I asked, which is rarer than you'd think. I've pencilled that name onto my list for the return to Gnomeregan, and I'd be delighted to pencil yours in beside it." } },
+      choices = {
+        { text = "Count me in for Gnomeregan, High Tinker.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Standing still for your tests sounds dangerous, High Tinker.", next = "BACK" },
+        { text = "Something else, High Tinker.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
+        { id = "h_alt_gnome", when = { alt = { race = "Gnome" }, metBefore = false },
+          text = "Have we met? No, no, I'm thinking of {alt}, a splendid gnome {altclass} who helped me test a pressure valve, and you have exactly the same posture of someone ready to dive for cover. I take that as a mark of good sense!" },
+        { id = "h_alt_back", when = { alt = { days = 14 }, metBefore = true }, cooldown = "5d",
+          text = "Ah, splendid, you're back! I was only just telling {alt} about my new pressure regulator, and the poor {altclass} nodded through all of it, which I've decided to count as enthusiasm." },
         { id = "h_pt_mekkatorque", tags = { "news" }, when = { party = { race = "Gnome" } },
           text = "Is that a gnome in your company? Splendid! {companion} will be the one who fixes everything, I expect, and you'll be the one who explains to everybody else why it's now on fire." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Splendid, splendid, because I've a great many plans for Gnomeregan and every one of them has a little box marked 'someone very brave goes first'." },
@@ -155,6 +168,7 @@ P:NPC {
         { text = "I held the rearguard, High Tinker. Then the radiation came.", next = "xorig_rear", when = { origin = "gnome_rearguard" } },
         { text = "I've heard Tinker Town arguing over who lost Gnomeregan.", next = "gnomeregan_word",
           when = { thread = { id = "gnomeregan_lost", beat = "b5_mekkatorque", state = { "stirring", "unfolding" } } } },
+        { text = "Who's this other helper of yours, High Tinker?", next = "xalt_mekkatorque", when = { alt = true } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -1795,6 +1809,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "Ye'll be after a room like {alt} was, I expect, for ye've the same tired boots an' the same thirsty look. That one told a story about a wendigo at my hearth that I've been repeatin' ever since, an' badly." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "Ye just missed {alt}, near enough, for that one sat by the big hearth only a few nights back. If ye're no' related ye should be, for ye drink the same an' ye argue the same." },
         { id = "h_pt_firebrew", tags = { "news" }, when = { party = { size = 4 } },
           text = "Five o' ye! Now that's a proper party, an' the Stonefire's the place for it. Sit yerselves down by the big hearth, an' the first one who tells a lie about a dragon has tae tell a better one after." },
         { id = "h_pt_firebrew2", tags = { "news" }, when = { party = { size = { min = 1, max = 3 } } },

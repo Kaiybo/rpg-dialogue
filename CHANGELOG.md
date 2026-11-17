@@ -123,6 +123,16 @@ People with grudges. Nine townsfolk across seven packs now carry an old prejudic
 - **Hillsbrad:** Hal McAllister of Southshore hates the Forsaken; Christoph Jeffcoat of Tarren Mill, Southshore-born, hates orcs and the town that turned him away.
 - Play the race they dislike and you get a colder, different conversation. Agree with them or push back (both count toward your alignment), and a [Persuade] digs out the story behind the grudge, which softens them on later visits.
 
+## 0.80.0 (2026-11-17)
+Kin: people notice your other characters. **New file: restart the game fully (a /reload won't load it).**
+
+- **Your characters leave a mark.** The addon now remembers, across your whole account, which of your characters has spoken with whom. Talk to someone your other character already knows and they may say you have the look of them, ask if you're kin, or remember the trouble they caused. Nobody knows they're you; to them it's a relative, a look-alike, or a face they remember.
+- **About 75 people react:** Bolvar, Anduin, Magni, Mekkatorque, Tyrande, Fandral, Dughan, Topper McNabb and others in the Alliance lands; Thrall, Vol'jin, Sylvanas, Varimathras, Cairne, Magatha, Baine, Eitrigg, Thork and others in the Horde's; and in the neutral towns (Booty Bay, Gadgetzan, Everlook, Ratchet, Moonglade, Cenarion Hold, Marshal's Refuge, Dalaran) people who served your other character *on the other side of the war*. Around 25 of them let you ask more about the person they remember.
+- **Guards, townsfolk and innkeepers** everywhere can notice it too (now and then, like their other remarks).
+- Same race, another class, a higher-level veteran or the other faction: lines change with who your other character is.
+- Characters you played before this version count once you log each of them in.
+- `/rpgd kin` lists the characters the addon remembers. For testing: `/rpgd spoof alt=Name:Orc:WARRIOR`.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 

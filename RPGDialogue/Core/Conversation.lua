@@ -532,6 +532,7 @@ function Conv.Finish()
   s.ended = true
   if s.ticker then s.ticker:Cancel() end
   if s.mem then Memory.End(s.mem, s.lastLine) end
+  if s.memKey and ns.Kin then ns.Kin.Met(s.memKey); ns.Kin.Stamp() end
   restoreBlizzard(s)
   View(s).Hide()
   if s.view == "dui" then ns.UI.Dialogue.Hide() end

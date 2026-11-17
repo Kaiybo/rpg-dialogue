@@ -18,6 +18,7 @@ L.BINDING_ASK = "Ask About... (in a conversation)"
 L.HELP_HEADER = "Commands (/rpgd):"
 L.HELP_LINES = {
   "version - show which version of RPG Dialogue you're running",
+  "kin - your other characters the addon remembers, and how many people each has met",
   "talk - talk to your target",
   "settings - open the settings panel",
   "capture - record your target (ID, name, place) for the content tools",

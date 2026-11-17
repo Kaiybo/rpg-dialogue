@@ -62,6 +62,12 @@ P:NPC {
     ----------------------------------------------------------------------------------------------
     hello = {
       lines = {
+        { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
+          text = "Hold on, I know that face! No, I don't, I knew one just like it, a {altclass} called {alt} who stopped by my corner and was kind to an old farmer, so tell me, is that kin of yours?" },
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "You've the look of somebody with a soft heart, and I'd know, because {alt} had that same look and proved me right. Topper McNabb, friend, and my hat's right here." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} came by my corner the other day, and I told them all about you, though I couldn't swear I had your name right. You city folk come and go so fast I lose track of who's who." },
         { id = "h_default", key = true, text = "Topper McNabb, at your service, and a farmer once. Now I sit here and let the city walk past, and it never stops, but it rarely tips." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, with a generous face if ever I saw one. Spare a blessing for an old farmer, {class}, because it costs you nothing and it warms me through." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! I always did think the Silver Hand would come to Westfall one day and put things right, and I'm still sitting here waiting for it." },

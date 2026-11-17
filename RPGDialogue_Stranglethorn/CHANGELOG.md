@@ -8,6 +8,9 @@ The pack's own version is `version` in `pack.lua`; bump both together.
 ## 1.34.0 (2026-11-17)
 - Prejudices (0.80.0): Krazek (gnomes). They let it show, you can push back or win them round, and it fades as they warm to you. No new files: a /reload is enough.
 
+## 1.34.0 (2026-11-17)
+- People here notice your other characters: kin, look-alikes, faces they remember (needs core 0.80.0).
+
 ## 1.33.0 (2026-11-17)
 - Every Booty Bay NPC now talks: 26 new people (trainers, armorers, the Salty Sailor's Raiders, the wharf vendors, the stable master, Scooty, the auctioneers, the Zandalarian Emissary, Dudd, Rix, Bloads, Ruzzgot, Grizzlowe, Flora Silverwind). New files: restart the game fully (a /reload won't load them).
 - New story "The eye on the docks": tell Seahorn who the Bloodsail spy is, or keep the Baron's secret; Ian Strom reacts.

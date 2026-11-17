@@ -106,6 +106,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "Welcome, child. A {altclass} named {alt} knelt in this nave not long ago, and something in your face reminds me of that one, as though the Light had sketched you both with the same hand." },
+        { id = "h_alt_back", when = { alt = true, metBefore = true }, cooldown = "5d",
+          text = "I lit a candle for {alt} last week, at that one's own asking, and I find myself wondering whether you'd like one lit as well. The Light keeps no tally of how many we ask it to watch over." },
         { id = "h_pt_benedictus", tags = { "news" }, when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } },
           text = "You've brought a company to the Cathedral, and not one of them carries a healer's training, unless I misjudge them, which I seldom do. You'll be the one they turn to when the blood runs, my child, so be sure the Light has you before they need it to." },
         { id = "h_cl_strat", tags = { "news" }, when = { cleared = "Stratholme" },

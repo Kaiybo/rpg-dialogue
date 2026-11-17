@@ -712,6 +712,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", when = { alt = true, metBefore = false },
+          text = "Ye've the same thirst on ye as {alt}, a {altclass} who drank my Stoutlager an' didnae complain once, which is rarer than ye'd think in Thelsamar. Sit, an' let's see if ye've the same good manners." },
+        { id = "h_alt_back", when = { alt = { days = 30 }, metBefore = true }, cooldown = "5d",
+          text = "{alt} was in again the other night, singin' about the dam wi' the miners like a local. If ye're kin, tell that one they've a voice like a rockslide, an' I mean it fondly." },
         { id = "h_default", text = "Hearthstove, an' I keep the Stoutlager. It's the best ale between Ironforge an' the Wetlands, an' I'll fight anyone who says otherwise, after they've paid." },
         { id = "h_brawl", when = { metBefore = true }, text = "Two miners fought over the last stool last night an' broke it, so now neither of 'em has a stool. There's a lesson in that somewhere." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "It's late, an' the miners are singin' about the dam again. Every verse is the same verse, only louder." },

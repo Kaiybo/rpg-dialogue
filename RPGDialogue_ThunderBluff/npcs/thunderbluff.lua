@@ -37,6 +37,17 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xalt_cairne = {
+      lines = {
+        { id = "xalt_cairne_default", text = "Many have sat at this fire, and I try to send each away with something worth carrying. Whoever they are to you, they left with a good word for the tauren, and that is a gift I don't forget." },
+        { id = "xalt_cairne_kin", when = { alt = { kin = true } }, text = "{alt}, yes. That {altclass} asked me how the tauren came to Thunder Bluff, and I told the long version, which my son says no one should have to suffer, yet they stayed to the end." },
+      },
+      choices = {
+        { text = "Family keeps us rooted, as the tribes keep the tauren.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I walk my own road, kin or not.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else, High Chieftain.", next = "BACK" },
+      },
+    },
     xpt_cairne = {
       big = true,
       lines = { { id = "xpt_cairne_default", text = "I believe so, though I've lost sleep over it. The Earth Mother teaches that all things return to her in time, and the Forsaken were torn out of that circle by the Scourge, so perhaps the kindest thing we can do is give them somewhere to stand until they find their own way back." } },
@@ -384,6 +395,12 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Earth Mother bless you, I could swear {alt} had come back up the lift, for you share the same stride. Kin of yours, I think, since the spirits rarely shape two of anyone by accident." },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "A {altrace} called {alt} sat at my fire not long ago and asked good questions about the plains. When you see that {altclass} again, tell them the Bloodhoof remember a guest who listens." },
+        { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true, level = 55 } },
+          text = "I hear that {alt} has walked into places I would not send my own braves, and walked out again. You keep strong company, young one, so be sure it makes you braver and not careless." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
           text = "You walk with one of the Forsaken, I see, and you've not flinched from them. I asked Thrall to welcome Sylvanas's people when many of my own elders called it a mistake, so it does an old bull good to see that trust repaid in small ways." },
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -403,6 +420,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde stands on Thunder Bluff. The Earth Mother has many children, and I am glad to welcome those who heal, whatever voice answers their prayers." },
       },
       choices = {
+        { text = "Someone dear to me has sat at your fire, High Chieftain.", next = "xalt_cairne", when = { alt = true } },
         { text = "The tauren may not have room for priests, Chieftain.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "How did the tauren come to Mulgore?", next = "mulgore" },
         { text = "Why do you follow Thrall?", next = "thrall" },
@@ -682,6 +700,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "You remind me of {alt}, who came up to the Elder Rise to ask about the Cenarion Circle. The likeness is strong enough that I nearly greeted you by that name, so forgive an old druid his eyes." },
+        { id = "h_alt_druid", tags = { "news" }, when = { alt = { class = "DRUID" } },
+          text = "{alt} is one of the young druids who has walked the path to Moonglade, and I was glad to see it. If you know them, then you know the Dream is wider than any one tribe." },
         { id = "h_pt_druid", tags = { "news" }, when = { party = { class = "DRUID" } },
           text = "Your companion {companion} wears the old ways lightly, but I can see them all the same. Few tauren walked the druid's path before Malfurion's people taught me, so every druid I meet on these bluffs feels like a seed I helped to plant." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. Malfurion said yes to me when others said no, so I will not be the one who says no to you." },
@@ -1072,6 +1094,17 @@ P:NPC {
       lines = { { id = "prej_magatha_calm_default", text = "Hmph. Most of your kind forget that by the second cup of tea. Act like a guest long enough and I may even learn your name without being told it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xalt_magatha = {
+      lines = {
+        { id = "xalt_magatha_default", text = "Many climb up here to stare at the old crone and go home with a story, and I let them. The one you speak of stayed longer and asked what the Grimtotem want, which is a better question than Cairne's people ever think to ask." },
+        { id = "xalt_magatha_kin", when = { alt = { kin = true } }, text = "{alt} asked me what the Grimtotem want, and I said that land is owed to those who held it first. They didn't agree, but they didn't run off to Cairne either, and I value that sort of discretion." },
+      },
+      choices = {
+        { text = "Land should be shared among the tribes, Elder Crone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The strong keep what they hold. That's the old way.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else, Elder Crone.", next = "BACK" },
+      },
+    },
     xpt_magatha = {
       big = true,
       lines = { { id = "xpt_magatha_default", text = "Plainly, then: the Forsaken are a bargain Cairne made without asking the elders, and bargains made in haste are paid for later. I've nothing against your friend in particular, child, only against a chieftain who no longer listens to those who walked these plains before him." } },
@@ -1175,6 +1208,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_any", tags = { "news" }, when = { alt = true },
+          text = "I remember {alt}, the {altclass} who came across the bridge to my rise and tried very hard not to look at the totems. You have the same careful eyes, and careful people interest me." },
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true, race = "Tauren" } },
+          text = "You have {alt}'s horns, or near enough, and I wonder which tribe raised the two of you. Not the Bloodhoof, I hope, because Cairne has admirers enough." },
         { id = "h_pt_forsaken", tags = { "news" }, when = { party = { race = "Scourge" } },
           text = "You bring one of the walking dead up onto my bluff and expect me to smile. Cairne may open his arms to every stray Thrall drags in, but the Grimtotem remember what the Earth Mother intended for the dead, and it was not this." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who still calls on the Light. How very curious. Cairne sees a strange ally, I suspect. I see something else entirely." },
@@ -1199,6 +1236,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you dislike me, Elder Crone, or everyone Thrall brought?", next = "prej_magatha", when = { prejudiced = true } },
+        { text = "Someone close to me has been to your rise, Elder Crone.", next = "xalt_magatha", when = { alt = true } },
         { text = "What do the Forsaken priests tell you, Magatha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "You must have opinions about Cairne.", next = "cairne" },
         { text = "What do the Grimtotem want?", next = "want" },
@@ -1422,6 +1460,10 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_alt_kin", tags = { "news" }, when = { alt = { kin = true } },
+          text = "Earth Mother, you could be {alt}'s twin! That {altclass} had three bowls of stew at the long table, so I'll be keeping an eye on you as well." },
+        { id = "h_alt_far", tags = { "news" }, when = { alt = { notKin = true } },
+          text = "We had a {altrace} called {alt} at the Cat and the Shaman not long ago, who couldn't stop staring at the lifts. I'll tell you what I told them: the lifts are perfectly safe, and the wind only takes the ones who lean." },
         { id = "h_pt_kin", tags = { "news" }, when = { party = { kin = true } },
           text = "You travel with your own people, I see, and that's a comfort on the long roads. The best companies I've seen at this hearth, though, were the ones that mixed, because each of them knew something the others didn't." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light! Everyone gets the same welcome and the same stew at the Cat and the Shaman, even if you don't eat it." },
