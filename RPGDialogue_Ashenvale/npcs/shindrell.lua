@@ -161,6 +161,6 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In Ashenvale, look up as often as you look ahead. The forest has more than one floor." } },
     sentinels = { { id = "tp_sentinels", text = "We are fewer than we should be and more stubborn than the Horde expects. That has served so far." } },
     warsong = { { id = "tp_warsong", text = "Orc axes in our oldest trees, and the forest bleeding sap where they cut. I try not to go and look too often.", next = "horde" } },
-    _none = { { id = "tp_none", text = "I don't know, {class}. Faldreas keeps track of the roads; ask her." } },
+    _none = { { id = "tp_none", text = "I don't know, {class}. Faldreas keeps track of the roads; ask him." } },
   },
 }

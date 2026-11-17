@@ -16,3 +16,7 @@ npcs\astranaar_more.lua
 npcs\splintertree.lua
 npcs\roads.lua
 npcs\unsung.lua
+npcs\orendil.lua
+npcs\shindrell.lua
+npcs\velene.lua
+npcs\torek.lua

@@ -15,3 +15,7 @@ pools.lua
 npcs\refuge.lua
 npcs\refuge_folk.lua
 npcs\crater.lua
+npcs\larion.lua
+npcs\karna.lua
+npcs\spark_nilminer.lua
+npcs\petra.lua
