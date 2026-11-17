@@ -44,6 +44,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "It can carry what you find in the ruins, and it won't complain, which makes it better than half the recruits I get. Bring me every scrap from the houses of Deathknell, and keep it on a short leash, because I've lost enough supplies already." },
+      },
+      choices = {
+        { text = "I'll bring everything back, Saltain.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll keep the best scraps for myself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -54,6 +65,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'll be wanting a look at our fields, I suppose, and I'll tell you now they're no better than they look." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Good, because skins and sinew are worth as much to Deathknell as any scrap of cloth, and you'll know how to get them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've corpses to gather from the field and a few of them might want a blessing before Mordo shovels them under." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll scavenge like everyone else, and your demon can carry the scraps." },
       },
       choices = {
         { text = "Should the scavenged dead get a blessing, Saltain?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -67,6 +79,7 @@ P:NPC {
         { text = "I can find what you need faster unseen, Deathguard.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could you use a mage, Deathguard, or just a pack mule?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do you need hides for Deathknell, Deathguard?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can my demon help you scavenge, Saltain?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I'll get to it.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? Time's the one thing we've plenty of, but I'd still not waste it." } },
@@ -201,6 +214,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "Because they were people once, like us, and the Scourge took everything they were and left the bodies walking. Sarvis tells me to put them down without feeling anything, but I can't, so when you cut one down, please do it quickly." },
+      },
+      choices = {
+        { text = "I'll do it quickly. They deserve that much.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're mindless. They don't feel a thing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -213,6 +237,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in Deathknell! I've read that your people tend the land the way we tend the dead, and I'd love to know if that's true." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I hope you'll be gentle with the Damned in the fields, {class}, because they were people once, the same as you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll see the Damned before anyone else does, I expect, and I'd be grateful if you'd tell me where they gather." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue? You'll find the mindless dead are easy to sneak past, though I wish they weren't." },
       },
       choices = {
         { text = "Shall I ask the spirits whether the Damned can rest, Elreth?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -225,6 +250,7 @@ P:NPC {
         { text = "Shadow and fel aren't so different, Elreth.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Is it a mercy to cut the Damned down, Elreth?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Shall I track the Damned through the fields for you, Elreth?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why do you pity the mindless dead, Elreth?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Farewell, Elreth.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I don't mind; I'm meant to be learning patience." } },
@@ -519,6 +545,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "The good ones do, because the Society needs every clever mind it can find, and I'd like to be one of them. Johaan says I'm too eager, but a mage who can keep a steady flame under a still is worth more than three junior apothecaries." },
+      },
+      choices = {
+        { text = "The Dark Lady's work is worth the effort.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll help, but the Society can't have my secrets.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -530,6 +567,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Do mind the doom weed when you swing that thing, because I've only just got the graveyard patch growing properly." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll be out in the fields more than I am, so keep an eye out for doom weed, would you? It's the dark one, and the roots are the part I want." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Do you think there's a prayer for doom weed? I'm only asking because I've watered it every way I know and it still won't grow faster." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! Have you studied any alchemy at all? I could use a hand that won't burn the doom weed by accident." },
       },
       choices = {
         { text = "Do the apothecaries pray, Holland?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -543,6 +581,7 @@ P:NPC {
         { text = "Does the Society ever study demons, Holland?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Does the Society need muscle in the fields, Holland?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should I bring you anything from the beasts around Brill, Holland?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do mages help the apothecaries, Holland?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Good day, Holland.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I've a pot about to boil, but talk fast." } },

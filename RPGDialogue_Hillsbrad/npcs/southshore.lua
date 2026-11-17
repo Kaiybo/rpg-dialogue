@@ -86,6 +86,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've the look of someone who knows the Syndicate's tricks from the inside, and I'd rather have that on my side than on theirs, so welcome to Southshore." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Emissary Jacques will want a word with you, because the Kirin Tor seem to need every friend they can find these days." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock in Southshore. I'll not turn you away, because I've turned away too many already, but the folk here lost their homes to things very like your little friend, so keep it on a short leash." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The patrols tell me the Syndicate's camps in the hills have gone quiet, and that the quiet has your boot prints all over it. Southshore owes you for that, and I won't forget it." },
       },
       again = {
         { id = "h_again", text = "Anything more? Ask as we go; I've the wall to inspect." },
@@ -707,6 +708,7 @@ P:NPC {
           text = "A priest! Don't suppose you could bless the murlocs into leaving? I've tried everything else, short of actually going out there myself." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Splendid, because I've been told murlocs count as wildlife, and if that's true, they're surely your department rather than mine." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Wonderful. In Stormwind we'd have had you followed by two guards and a magistrate's clerk, and here I've only got murlocs, so I suppose you're the least of my worries." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Torn Fin", min = 30 } }, text = "The Torn Fin haven't come up the beach in days, and the fishermen keep asking me what I did. I've been telling them it was strategy, so do me the kindness of not correcting them." },
       },
       again = {
         { id = "h_again", text = "Still here? Fine, I wasn't going anywhere; I never am." },

@@ -376,6 +376,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodscalp", min = 30 } }, text = "The Bloodscalp camps be quieter since you start walking through them, mon, and quiet Bloodscalp be the best kind, while Nimboya keep looking for the boy." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage of the Horde. Your fire be welcome against the Bloodscalp, and Nimboya hope your eyes be sharp for one lost young troll among them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Pray for Yenniku, then, because the Bloodscalp hold him somewhere in this jungle, and Nimboya need every voice that can reach the spirits." },
         { id = "h_default", key = true,

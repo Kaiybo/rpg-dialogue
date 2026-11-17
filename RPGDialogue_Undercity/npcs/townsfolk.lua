@@ -57,6 +57,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "They do, and I've learned to label them all very carefully, because a clerk who can't account for a box that hums is not much of a clerk. Keep your shards in your bags and your gold with me, and we'll both sleep well, or whatever it is we do now." },
+      },
+      choices = {
+        { text = "I'll keep my vault in order, Montague.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "What I keep there is none of your business.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "William Montague, of the bank of the Undercity. Whatever you leave with me stays in the vaults beneath the old city until you ask for it, and it can be reached from any bank of the Horde." },
@@ -66,6 +77,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll be wanting a safe place for your spare arms, I expect, since carrying three swords into the Crusade's camps seems excessive." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I'd ask that your beast wait outside the counting room, {class}; it isn't personal, but the ledgers are very old and very dry." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The old Church of the Light kept an account here before the city fell, and I confess I've never known quite whom to close it in favour of." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. I'll keep your valuables safe, though I'd ask you not to store anything that moves." },
       },
       again = {
         { id = "h_again", text = "Anything further? I have accounts to balance." },
@@ -83,6 +95,7 @@ P:NPC {
         { text = "Do mages bank their reagents with you?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is my gear safer in your vaults than on my back, Mister Montague?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters bank much with you, Mister Montague?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do warlocks keep strange things in your vaults?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Good day, Mister Montague.", next = "END" },
       },
     },
@@ -207,6 +220,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "They fear anything that doesn't smell alive, and you smell of frost and old books, which isn't much better. Sit quietly by the cages for a while and they'll learn you, because they're braver than people give them credit for." },
+      },
+      choices = {
+        { text = "I'll sit quietly and let them learn me.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're beasts. They'll do as they're told.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Anya Maulray. I keep the stables for the Undercity's hunters, which is harder than it sounds when every animal I care for can smell that I'm dead." },
@@ -215,6 +239,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, how lovely. The beasts are watching you, see, the way they watch each other, and not the way they watch me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The beasts down here don't mind your sort, oddly enough, because you smell of steel and sweat and not of anything worse." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, down here with my animals. Speak softly, if you would, because the beasts don't care what you pray to and they startle at loud voices." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The beasts don't like the cold you carry, so stand back a little from the cages." },
       },
       again = { { id = "h_again", text = "Anything else? Keep your voice gentle, if you would." } },
       choices = {
@@ -228,6 +253,7 @@ P:NPC {
         { text = "Your beasts never hear me coming, Anya.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would your beasts tolerate my demon, Anya?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Would your beasts take to a warrior, Anya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Do the beasts fear mages, Anya?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -360,6 +386,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Because your demon will die, and you'll be left with your own hands, which don't work properly, being dead. Drill every day, and when the moment comes, your arms will remember what your mind's too busy to think about." },
+      },
+      choices = {
+        { text = "Yes, sir. I'll drill every day.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I've no time for drills, Archibald.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Archibald, weapon master of the War Quarter. I teach anyone who can pay how to use a weapon they've never held before, and I teach the dead how to hold one with fingers that don't always do what they're told." },
@@ -369,6 +406,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, at last! Most of my recruits want daggers or crossbows these days, so it does me good to see someone who'll take a proper blade seriously." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! I teach the crossbow, which the Deathguard swear by, and you'll find nothing in the Undercity that kills at range more reliably." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest at the weapon racks? Your lot usually leave the blades to us, though I've seen a priest swing a mace in my time, and swing it well." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll hold a blade like a spoon, I expect, so let's fix that." },
       },
       again = { { id = "h_again", text = "What else? Be quick; I've recruits at the target butts." } },
       choices = {
@@ -383,6 +421,7 @@ P:NPC {
         { text = "Is a staff worth learning properly, Archibald?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Which weapon suits a warrior best, weapon master?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is a crossbow worth learning over a bow, weapon master?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why should a warlock learn a blade, Archibald?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -513,6 +552,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Anyone can, if they learn that you can't hurry iron, and mages are the worst at hurrying everything. Fire from a spell is too hot and too quick, so use the coal like the rest of us and let the metal take its time." },
+      },
+      choices = {
+        { text = "I'll do it your way, Van Brunt.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My fire's hotter. I'll find a way.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "James Van Brunt. I teach smithing in the War Quarter, and I make armour for the Deathguard. The work is the same as it ever was; only the smith is different." },
@@ -522,6 +572,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Your armour's taken a beating, {class}, and I can hear the rivets rattling from here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll be wanting mail one day, {class}, and something quiet enough to stalk in, and I can't promise you both." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I made censers for the Church once, before the plague, and I've not made one since. I'd half forgotten how they were shaped." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want to heat the forge with a spell, I suppose, and you'll ruin the iron." },
       },
       again = { { id = "h_again", text = "What else? The iron's cooling." } },
       choices = {
@@ -536,6 +587,7 @@ P:NPC {
         { text = "Do warlocks ask you for anything strange, Van Brunt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What armour should a warrior trust, Van Brunt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Can you make mail light enough for a hunter, Van Brunt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can a mage learn smithing, Van Brunt?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -664,6 +716,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "I asked a warlock that once, and he looked at me as if I'd buried him a second time. A pity, because there's a world of ore under the old city, and nobody's dug it since King Terenas was alive." },
+      },
+      choices = {
+        { text = "I'll dig with my own hands, Killian.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "If my demon digs, I keep the ore.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Brom Killian, and I teach mining. It's a fitting trade for the Forsaken, I always say, since we've already done the hard part of being put in the ground." },
@@ -672,6 +735,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! You've got the shoulders for a pick, {class}, and I've always said a good miner and a good soldier are the same animal underneath." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll be up in the hills more than most, so keep an eye out for copper in the rocks, because nobody else bothers to look." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You'll want to say a word over the tunnels, I expect, since half of them were crypts before they were mines." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, in my mines! Your demon could dig, could it? No? Pity." },
       },
       again = { { id = "h_again", text = "Something else? Ask it, then; the rocks will still be there when we're done." } },
       choices = {
@@ -685,6 +749,7 @@ P:NPC {
         { text = "Can magic find ore faster than a pick, Killian?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Is mining much use to a warrior, Killian?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Where do the hills hide their ore, Killian?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Could a demon dig your tunnels, Killian?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1277,6 +1342,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because you're the first one the enemy goes for, since you're soft and you're throwing fire at them, and you'll run out of mana long before they run out of arrows. Learn linen bandages first, then wool, and do it properly, because sloppy work kills." },
+      },
+      choices = {
+        { text = "I'll learn it properly, Mary.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll learn just enough to get by.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Mary Edras. I teach first aid, which most of the dead think they don't need, until they find an arrow in their shoulder that's been there since last week. Cloth, clean hands and patience will save your life, or what passes for it." },
@@ -1286,6 +1362,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Sit down and let me look at you, because you lot carry more wounds than you know about and boast about the ones you do." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beasts get hurt as often as you do, I imagine, and I hope you're better at noticing their wounds than your own." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because you'll know that a Forsaken who can't feel the wound will bleed out on his feet, and I'd like your help reminding them." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Learn to bandage, because your spells won't help you once you've run dry." },
       },
       again = { { id = "h_again", text = "What else? And sit still while you ask." } },
       choices = {
@@ -1300,6 +1377,7 @@ P:NPC {
         { text = "Life Tap leaves me hollow, Edras. Can you help?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do warriors get wrong about their wounds, Mary?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should I tend my beast's wounds before my own, Mary?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why should a mage learn first aid, Mary?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1428,6 +1506,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Anyone can, if they've the patience, and the dead have plenty of that. The canals here are green with the apothecaries' leavings, so practise here and fish somewhere cleaner, and send the demon away first, because the fish can tell." },
+      },
+      choices = {
+        { text = "I'll send it away and sit patiently.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My demon stays. The fish can be frightened.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Armand Cromwell, and I teach fishing, which the dead are naturally good at. We don't get cold, we don't get bored, and we don't need to go home for supper, so we can sit by the water forever." },
@@ -1437,6 +1526,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, at the canal's edge! Patience isn't your trade, I'd wager, but fishing might teach you a little of it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll know all about waiting for your quarry, so you're halfway to being a fisherman already." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! You won't find much to bless in these canals, I'm afraid, though I've been trying to bless them myself for years with a hook and a lot of patience." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock, fishing in the canals! Don't eat what you catch unless you're dead, and even then I'd think twice." },
       },
       again = { { id = "h_again", text = "Something else? There's no hurry; there never is with fishing." } },
       choices = {
@@ -1450,6 +1540,7 @@ P:NPC {
         { text = "Could I freeze the canal and fish through the ice?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What can fishing teach a warrior, Armand?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Is fishing much different from hunting, Armand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Can a warlock learn to fish, Cromwell?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
     },

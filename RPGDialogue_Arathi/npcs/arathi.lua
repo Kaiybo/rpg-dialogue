@@ -51,6 +51,7 @@ P:NPC {
           text = "The badges went out with the last rider south, and some families will open a letter this month and finally know. So thank you, and I don't say that often." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in Stromgarde's camp, {class}. I've lost too many soldiers this year to turn away anyone who'll fight, but I'll have someone watching you." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Syndicate", min = 30 } }, text = "The Syndicate have pulled back from the roads, and my scouts found their camps half empty. Stromgarde's dead are a little better avenged tonight, and I have you to thank for it." },
       },
       again = { { id = "h_again", text = "What else? Keep it brief." }, { id = "h_again2", text = "Go on; the tent can wait, though the hills can't." } },
       choices = {
@@ -289,6 +290,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior of the Horde! Hammerfall carries the Doomhammer's name, and it'll be built by warriors like you, one cracked ogre skull at a time." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! These hills are thick with raptors and worse, and every beast you bring down is one less to trouble our caravans when they come." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Hammerfall bleeds every time the Boulderfist hit the walls, {class}, and I'd sooner have one healer on the parapet than ten more mouths in the barracks." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Boulderfist", "Witherbark" }, min = 40 } }, text = "The scouts say the Boulderfist and Witherbark have stopped testing our walls, and I know whose axe taught them that. Hammerfall remembers who bled for it." },
       },
       again = {
         { id = "h_again", text = "What else? Say it plain; Hammerfall has no time for riddles." },

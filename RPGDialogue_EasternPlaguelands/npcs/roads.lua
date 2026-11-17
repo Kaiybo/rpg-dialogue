@@ -458,6 +458,7 @@ P:NPC {
           text = "A hunter, eh? Then ye'll know how tae skin a thing neatly, {class}, an' that's half the battle wi' Scourge bits, though the other half's no' bein' sick." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'll not like what I do, {class}, cuttin' bits off the dead an' boilin' 'em, but the spirits can take it up wi' the Scourge, for they started it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Ye wouldnae be able tae keep a pot boilin' wi'out a fire, would ye, {class}? Me coal's run out again, an' the Dawn's carts are late." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Ghoul", min = 40 } }, text = "Ye've been busy, I can tell, for the soldiers keep bringin' me ghoul bits wi' yer name on 'em. Keep it up, an' I'll never run short o' toes again." },
       },
       choices = {
         { text = "What does the plague do to the beasts out here?", next = "druid_q", when = { class = "DRUID" } },

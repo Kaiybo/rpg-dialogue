@@ -68,6 +68,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "I've a report from Stormwind on my desk that I never asked for, {class}, and the agent who brought it walked a good deal like you. Sit down, and tell me who sent you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Cenarion Circle at Chillwind. Andorhal is no place for growing things, but I'll take any help you offer against the dead." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Skeletal", min = 40 } }, text = "My scouts say the bones are lying thicker in the fields around Andorhal and walking thinner, and I know who's been putting them down. Stormwind will hear your name in my next report." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it, the dead don't wait on our conversations." },
@@ -1271,6 +1272,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. There used to be good deer in the woods round Northridge, {class}, and my father traded planks for venison with the trappers every winter." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll take your help against the Crusade gladly, {class}, but they've a long memory for your kind, and they'll burn the mill down around us before they let a demon walk in." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Scarlet", min = 30 } }, text = "Word is the Crusade's losing men at Northridge faster than Hearthglen can send them. I'd like my father's mill back with a roof on it, so mind the timber while you're about it." },
       },
       again = {
         { id = "h_again", text = "Something else you wanted to ask? Go ahead, I don't mind talking." },

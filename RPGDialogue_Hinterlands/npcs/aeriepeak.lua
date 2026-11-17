@@ -335,6 +335,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! The gryphons are wary of ye, I can tell, but they'll settle once they know ye're no threat tae the aeries." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The birds'll moan about the weight o' that plate, {class}, but they'll carry ye, an' I'd wager the trolls at Jintha'Alor have never seen holy light come down on 'em from the sky." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep that thing o' yours well away from the nests, {class}, for Keenclaw's still twitchy after the trolls took her young one, an' she'll take yer arm off tae protect what's left." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Witherbark", min = 30 } }, text = "The riders say the Witherbark have gone quiet in the south, an' they've stopped throwin' spears at my birds. Somebody's been teachin' 'em manners, an' I've a fair idea who." },
       },
       again = { { id = "h_again", text = "What? Quick, they're wantin' fed." } },
       choices = {

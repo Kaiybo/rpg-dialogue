@@ -525,6 +525,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The Light condemns nothing, as far as I can tell, though it burns me every time I touch it, so perhaps I'm the wrong one to ask. Turn your blades on the Scourge and I'll count you an ally, whatever the priests of Stormwind would think." },
+      },
+      choices = {
+        { text = "My blades are for the Scourge, Aramis.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My blades are for whoever pays.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -538,6 +549,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I can still tell a soldier by how they stand, {class}, and you stand like someone who means to stay standing." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You walk softly, which is a kindness in a church where most of the risen still stumble into the pews." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. You'll have felt the Light sting, as I have, or you'll have turned away from it, and either way you'll know what I mean when I say it burns." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I won't pretend the Light approves of your trade, but I've learned not to speak for it." },
       },
       choices = {
         { text = "Why do you hold on to the Light, Aramis, when it hurts?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -554,6 +566,7 @@ P:NPC {
         { text = "I'll keep training.", next = "END", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Does the Light still have room for a plain soldier, Aramis?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the Light and the hunt have anything in common, Aramis?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Does the Light condemn rogues, Aramis?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "The Light left me when I died, and I'm done with it.", next = "END", fx = { align = { light = -1 } } },
       },
       again = {

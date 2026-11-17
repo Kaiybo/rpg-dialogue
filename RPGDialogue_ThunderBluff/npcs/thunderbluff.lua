@@ -309,6 +309,17 @@ P:NPC {
         { text = "What's the most important lesson you learned?", next = "lesson" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "That a quiet step is a gift, and like every gift it can be used for good or ill. The Cenarion Circle keeps to the shadows to watch over the wild, and I'd ask you to think about what yours watch over." },
+      },
+      choices = {
+        { text = "My shadows will watch over those who need them.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My shadows watch over me. That's enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_rivalfav", when = { rivalFavor = { min = 2 } },
@@ -327,6 +338,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Malfurion once told me that the fiercest warriors he knew were the most patient, and I've found that true of the tauren as well." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The beasts of Mulgore are the Earth Mother's children, and you walk among them closer than most." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Forgive an old druid's curiosity, but I have learned the night elves' ways and never quite understood yours, whether you pray to the loa or to the shadow." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Malfurion once told me the nightsaber is the quietest hunter in the forest, and also the most patient." },
       },
       choices = {
         { text = "Does a druid's healing differ from a priest's, Arch Druid?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -343,6 +355,7 @@ P:NPC {
         { text = "What did Malfurion mean by patient warriors, Arch Druid?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the druids watch over Mulgore's beasts, Arch Druid?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would the Cenarion Circle ever accept a warlock?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What can a rogue learn from a druid, Arch Druid?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Farewell, Arch Druid.", next = "END" },
       },
       again = {
@@ -483,6 +496,17 @@ P:NPC {
         { text = "What do you mean by the Great Balance?", next = "balance" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Balance is practised daily, like any honest craft, and a warlock practises holding something that would gladly devour them. Perhaps you understand balance better than my students do, then, but if you ever let go, the balance will set itself right, and you won't like how." },
+      },
+      choices = {
+        { text = "I'll hold it, Turak, every day.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The balance can look after itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Turak Runetotem, and I help the Arch Druid train the young ones. I teach the steps; he teaches why they matter." },
@@ -501,6 +525,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! The Arch Druid and your elders argue over tea about which of us listens better, and neither of them ever wins." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior on Elder Rise. The Arch Druid won't mind, but the cubs will stare, because they think warriors are bears that forgot to change back." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest on Elder Rise. Welcome, friend; I teach balance here, and I suspect you keep a balance of your own, between the hurts you mend and the hurts you can cause." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock among the druids. Balance asks that I welcome you, though it does not ask me to like your demon." },
       },
       choices = {
         { text = "Is there balance in a priest's power, Turak?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -515,6 +540,7 @@ P:NPC {
         { text = "A cat druid moves as quietly as I do.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Is the arcane part of the Great Balance, Turak?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do druids think of warriors, Turak?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
+        { text = "Can a warlock keep the balance, Turak?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = {
@@ -860,6 +886,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Everyone's welcome, child, and everyone gets the same stew, but not everyone gets to bring a demon in among my guests. Leave it at the door, and if it gets cold out there, well, I'm told that's what demons are for." },
+      },
+      choices = {
+        { text = "I'll leave it outside, Pala.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "My demon stays by my side.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Pala, and I keep the Cat and the Shaman. Warriors, druids, traders off the lifts: everyone gets the same welcome and the same stew." },
@@ -873,6 +910,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beast can sleep by the fire, and you can sleep upstairs, and the stew is the same for both of you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Come in, come in, and sit by the fire, for you healers never stop to eat, and you look as if you've been praying on an empty stomach." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Sit with the others by the fire, love, because they'll want you on their side the next time the shamans start the old argument." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Sit down and I'll bring you stew, but your demon waits outside with the kodos." },
       },
       choices = {
         { text = "Do travellers often need healing at your inn, Pala?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -885,6 +923,7 @@ P:NPC {
         { text = "Do warriors behave in your inn, Pala?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do hunters bring you game for the stew, Pala?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What do the druids and shamans argue about, Pala?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Is a warlock welcome at the Cat and the Shaman?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Just resting.", next = "END" },
       },
       again = {

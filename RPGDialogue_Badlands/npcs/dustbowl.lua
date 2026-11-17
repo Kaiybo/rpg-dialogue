@@ -70,6 +70,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Shadowforge", min = 30 } }, text = "Word from the dig road is ye've been thinnin' out the Shadowforge, an' I'll drink tae that tonight, though no' too much, for Hammertoe's sake." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, is it? I'll no' pretend I like it, but there's worse than demons in Uldaman just now, an' Hammertoe's still down there somewhere." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! Then say a word for Hammertoe, would ye, for I've said all the ones I know, an' the Light's no' answered me yet." },
@@ -256,6 +257,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Rock", min = 30 } }, text = "You've been breaking rather a lot of rock elementals out there, I hear, which is terribly wasteful, though I don't suppose you kept any of the pieces for me?" },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I'd be awfully grateful if you didn't pray at the elemental, because whatever it is you pray to, it doesn't seem to approve." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Do keep your voice down near the shackles, please, because the elemental doesn't care for chanting, and the last time someone prayed nearby it cracked a shackle clean through." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, splendid, do stand by the elemental there, because I've always wondered whether holy light makes a rock elemental flinch, and nobody has ever volunteered." },

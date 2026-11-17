@@ -334,6 +334,7 @@ P:NPC {
           text = "A warrior. The Banshee Queen has soldiers enough to hold a line, {class}, so I'll want to see whether you can do more than stand where you're put." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Dark Lady's priests have found what the Light never gave us, {class}, and I trust you're not one of the soft ones who still pray to the old Cathedral's god." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your spirits will find little to talk to out here, {class}, for the Scourge has killed the land as surely as it killed me." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Plaguebat", "Plaguehound" }, min = 40 } }, text = "The plaguebats over Marris Stead are fewer, and the hounds no longer bay at my door. Adequate work. The Queen will hear of it, which is more praise than most get." },
       },
       again = {
         { id = "h_again", text = "More? Ask it quickly, because the plaguebats won't wait on your curiosity." },

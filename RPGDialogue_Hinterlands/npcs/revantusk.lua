@@ -84,6 +84,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Revantusk be a hunting people, mon, and we know a good tracker by how they walk, so walk with us, and the forest be kinder to you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. My mate be caged at Jintha'Alor while you walk free, and I be wantin' to know if your claws be as sharp as they say." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Vilebranch have priests too, {class}, with blood on their hands up to the elbow, so you show me you be the other kind, and I be glad to have you." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Vilebranch", min = 40 } }, text = "The drums at Jintha'Alor beat slower these nights, and I know why. Every Vilebranch you put down be a debt paid, and Revantusk be keepin' count with you." },
       },
       again = {
         { id = "h_again", text = "What else do you need, then? Say it quick." },

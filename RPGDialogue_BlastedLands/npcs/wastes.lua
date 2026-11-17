@@ -352,6 +352,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Snickerfang", "Ashmane", "Scorpok" }, min = 30 } }, text = "You've been busy out there, by the smell of you, which is boar and hyena in roughly equal measure. Do bring me the interesting parts, won't you?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do the spirits of the beasts out here still speak to you, or has the fel drowned them out? Either answer would be fascinating, and I'll want notes." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Tell me honestly, do you think the fel in this soil is what makes the boars so strong? I've a theory, and you're the first person I've met who might confirm it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A fellow student of the arcane! My sister calls my work alchemy with pretensions, but you'll appreciate the subtler parts, I'm sure." },
@@ -547,6 +548,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Redstone", min = 30 } }, text = "The Redstone basilisks are thinning out around the pass, and I know whose doing it is, so I hope you at least watched how they froze before you killed them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You claim to hear the spirits of beasts and I study them, so we may be the only two people in this wasteland who believe they exist." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You move like a basilisk, slow until it matters, and I'd find that admirable if I thought you'd learned it from watching basilisks." },
         { id = "h_warcl", when = { class = "WARRIOR" },

@@ -55,6 +55,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Blackrock", min = 40 } }, text = "The scouts tell me you've been cutting down Blackrock orcs all across the Steppes, and the camps are quieter for it. Keep at it, but don't get careless, because Rend notices when his numbers drop." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Stormwind pretends your kind don't exist, and out here I'm too short of soldiers to pretend anything at all." },
         { id = "h_default", key = true,
           text = "Marshal Maxwell, commanding what's left of Stormwind's presence in the Burning Steppes. We hold this ridge, we watch the mountain, and we write reports that nobody in the capital reads." },
@@ -740,6 +741,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Firegut", min = 30 } }, text = "There's Firegut blood on you at last, soldier, and plenty of it by the reports. Dreadmaul Rock is feeling it, so don't stop now." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Winky says we oughtn't to enlist demons, soldier, but Winky also says the moon is a cheese, so I've stopped listening to Winky." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, reporting for duty! Excellent, soldier; Winky says artillery wins wars, and you're the nearest thing to artillery we've had all month." },
         { id = "h_default", key = true,

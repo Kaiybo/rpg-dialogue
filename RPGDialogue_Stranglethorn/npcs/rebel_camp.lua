@@ -35,6 +35,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kurzen", min = 30 } }, text = "The scouts say Kurzen's patrols are thinner on the river road, and they say it's your doing. Good work, but keep your head down, because the Colonel counts his dead too." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid, here? Then you've seen what the trolls do to the jungle, and maybe what the jungle does to us." },
         { id = "h_default", key = true,

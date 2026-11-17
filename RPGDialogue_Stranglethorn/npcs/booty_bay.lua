@@ -441,6 +441,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodsail", min = 40 } }, text = "Ha! Word on the piers is you've been sending Bloodsail to the bottom by the boatload, and three of my captains have asked me who you are and whether you're for hire." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock, ha! I've sailed with worse, though I'll ask you to keep your imp below decks, because the last one set fire to a sail and blamed the parrot." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest ashore, ha! Sailors are a superstitious lot, so if you linger in Booty Bay they'll be lining up to have you bless their hulls, though I doubt any of them will pay you in more than rum." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin in Booty Bay! You'll find more pirates here than honest men, and I'm one of the pirates, but I like to think I'm an honest one, which makes me a rarer beast than anything in the jungle." },

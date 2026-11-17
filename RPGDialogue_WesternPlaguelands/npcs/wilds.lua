@@ -357,6 +357,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, here at my bed. The spirits sent you, I think, or the Earth Mother did, {class}, for I asked her for a familiar voice before the end." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You've come a long way from your libraries, {class}, and you'll find no answers in these fields, only beasts that need ending." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. The beasts outside feel what you carry, {class}, and they're frightened enough already, so please walk softly past them." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Diseased", min = 20 } }, text = "I felt them go, one by one, the sick wolves out in the fields, and each one was quieter than the last. You've been merciful, and I'm grateful, even if it's a hard mercy." },
       },
       again = {
         { id = "h_again", text = "There is more you would ask? Ask it gently, and I'll answer while I can." },

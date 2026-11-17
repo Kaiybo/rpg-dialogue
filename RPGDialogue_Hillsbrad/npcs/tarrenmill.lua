@@ -122,6 +122,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Good, because Southshore's farms are not taken by stealth alone, and when the humans finally form a line, I want someone who can break it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Southshore's patrols keep to the shore road, and I need someone who can follow them unseen and who doesn't mind what happens at the end of the trail." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Light abandoned Lordaeron's dead, so I care very little which god or shadow you pray to, so long as my soldiers stand back up after you're done with them." },
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Hillsbrad", min = 40 } }, text = "The farms below the Mill are emptier than they were, and Southshore's grain carts have started coming back half full. Your work, I'm told. Keep at it, for arithmetic favours the patient." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief about it." },

@@ -246,6 +246,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Because they smell what doesn't belong in the world, and your demon doesn't belong in it. The Thunderhorns have hunted Mulgore for generations without needing anything from the Twisting Nether, but the Horde takes all kinds, and so will I." },
+      },
+      choices = {
+        { text = "Then I'll walk slowly, out of respect.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your beasts will learn their place.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Holt Thunderhorn, and I teach the hunters of Thunder Bluff. The Thunderhorns have hunted Mulgore since long before the bluffs had bridges." },
@@ -255,6 +266,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "One of mine comes home. Tell me what you've tracked since we last spoke, and let me see how your companion carries itself." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, up on Hunter Rise? You're far from the healers' fires, friend, but sit if you like, for my students come back bloodied often enough." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. In my grandfather's day nobody walked among us to tell the hunters how many plainstriders were too many, and some of my students still miss those days." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock on Hunter Rise. My students' beasts will bristle at you, so walk slowly." },
       },
       choices = {
         { text = "Do your hunters ever need a priest's mending, Holt?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -266,6 +278,7 @@ P:NPC {
         { text = "What would a Thunderhorn teach a warrior, Holt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What makes a Thunderhorn hunter, Holt?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the druids tell your hunters how to hunt, Holt?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Why do the beasts bristle at me, Holt?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Good hunting.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? A hunter's patience includes listening." } },
@@ -375,6 +388,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "By standing behind the warriors and burning whatever tries to get past them, which is all a warrior ever asks. The centaur raid the edges of Mulgore and they've learned to fear fire, so use it on them and not on the grass." },
+      },
+      choices = {
+        { text = "I'll protect the herd, Ker.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll protect myself first. The herd can follow.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Ker Ragetotem, and I train the warriors who guard Thunder Bluff. A tauren's strength is great, so we must learn to use it carefully." },
@@ -384,6 +408,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter in the warriors' ring. Come in, then, because the braves of the bluffs could use a lesson in patience from you." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, for my students learn to take a blow before they learn to give one, and someone must patch them up afterward." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll stand as a bear before the herd one day, so you're closer to my warriors than you know, and I'll expect the same restraint of you that I expect of them." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. Strength is for protecting the herd, and your magic is a kind of strength, so I'll expect you to use it that way." },
       },
       choices = {
         { text = "Should a priest stand in the line beside your warriors, Ker?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -395,6 +420,7 @@ P:NPC {
         { text = "Do warriors and hunters train together here, Ker?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Are your warriors trained to fight demons?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the Grimtotem have druids of their own, Ker?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "How can a mage protect the herd, Ker?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Farewell.", next = "END" },
       },
       again = { { id = "h_again", text = "Ask what you will. A warrior should understand before he swings." } },

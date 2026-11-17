@@ -58,6 +58,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmage = {
+      big = true,
+      lines = {
+        { id = "xmage_default", text = "Because your teleport only brings you here, and the bats take you to the Sepulcher or Tarren Mill without complaint. Be kind to them and they'll be kind to you, which is more than most of this city manages." },
+      },
+      choices = {
+        { text = "I'll be kind to them, Garrett.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They're beasts of burden. They'll carry me.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -67,6 +78,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The bats carry armour well enough, {class}, though they'll complain about the weight the whole way to Tarren Mill." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The bats don't love your beasts, but they've learned to put up with them, which is more than the beasts manage in return." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at the bat roost. They won't mind you, the bats, but they'll want to know if you've got anything to eat, which is about all they want from anyone." },
+        { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. The bats don't care about magic, but they do dislike being frozen, so I'd avoid that." },
       },
       again = {
         { id = "h_again", text = "What else? The bats are waiting, but bats are patient." },
@@ -83,6 +95,7 @@ P:NPC {
         { text = "Your bats flinch whenever I come near, Garrett.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do warriors make poor bat riders, Garrett?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your bats mind carrying a hunter's beast, Garrett?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why would a mage fly your bats, Garrett?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -365,6 +378,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xrogue = {
+      big = true,
+      lines = {
+        { id = "xrogue_default", text = "The Master Apothecary sometimes needs samples from places the Scarlets won't let us walk into, and rogues are good at that. Ask him, not me, and don't touch anything on my bench, because some of it is still alive." },
+      },
+      choices = {
+        { text = "I'll bring back whatever the Society needs.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll bring back samples, if the price is right.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -373,6 +397,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and living. Stand away from the vats, please, because those vapours aren't kind to lungs that still work, and they're less kind to anything with fur." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Your beasts look healthier than my prisoners, {class}, and I'll admit I've wondered why." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Don't touch anything on this bench, please, and don't bless it either, because I've had a vial go cloudy after a blessing and I've not worked out why." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. If you're here to steal reagents, the last one who tried is in a jar." },
       },
       again = {
         { id = "h_again", text = "What else? My mixture is reducing." },
@@ -388,6 +413,7 @@ P:NPC {
         { text = "Could the arcane speed up your experiments, Zinge?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Does the Society test anything on demons, Zinge?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do you need beasts for your experiments, Zinge?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do you have work for a rogue, Zinge?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Never mind.", next = "END" },
       },
     },

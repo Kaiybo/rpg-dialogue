@@ -103,6 +103,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dark Iron", min = 40 } }, text = "Ye've been cuttin' down a great many Dark Irons in the Gorge, I'm told. They were my kin once, so I'll no' cheer, but I'll no' grieve either, for they chose the mountain." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. Ye'll find nothin' worth liftin' at Thorium Point that the Brotherhood hasnae counted twice, but the Dark Irons up the road keep plenty they shouldnae." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest o' the Light. We had no priests in the mountain, {class}, only the Firelord's sorcerers, so ye'll forgive the lads if they stare." },
@@ -645,6 +646,7 @@ P:NPC {
     },
     hello = {
       lines = {
+        { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dark Iron", min = 30 } }, text = "I hear the Dark Iron have learned to fear your name, and I'm glad of it, though fear is only the beginning of what they owe." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'd heal this Gorge, I suppose, and grow grass over the bones of everyone the Dark Iron killed here, which seems a strange sort of mercy." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Your kind measure fire and give it names, which is a kind of mastery, I suppose, though it has never avenged anyone." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Then you'll know the fire of this Gorge does not burn by chance, and that it answers to those with the will to command it." },

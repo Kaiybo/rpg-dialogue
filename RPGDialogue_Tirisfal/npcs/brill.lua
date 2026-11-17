@@ -957,6 +957,17 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwarlock = {
+      big = true,
+      lines = {
+        { id = "xwarlock_default", text = "Because the Scarlet Crusade patrols the roads past Brill, and they'd see a warlock's fire from the monastery and come looking. A small fire, well banked and out of the wind, is all you need, and it keeps both of us out of their sight." },
+      },
+      choices = {
+        { text = "Thank you. I'll keep my fires small and hidden.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let the Crusade come. I'll be ready for them.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -970,6 +981,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, on the Tirisfal road! You'll know how to stand a watch, I expect, and that's half of keeping a good camp." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Then you know the woods better than most who come down this road, and you'll have eaten well, which is more than I can say." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, and not one of the Crusade's, I can see that plainly. I'll say it before you ask: neither am I." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll know a campfire draws attention, so I'll teach you to build one that doesn't." },
       },
       choices = {
         { text = "Why do you keep telling everyone you're not with the Crusade?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -982,6 +994,7 @@ P:NPC {
         { text = "I could light your fire with a word, Eleanor.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "How does a warrior keep a camp safe, Eleanor?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What game is worth taking along this road, Eleanor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why should a warlock learn campfires, Eleanor?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Safe travels.", next = "END" },
       },
       again = {
