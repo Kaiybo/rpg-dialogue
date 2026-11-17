@@ -114,7 +114,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You serve the kingdom from the treeline, and I'll not pretend the Silver Hand always remembers to thank you for it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Cathedral's training hall. I'll judge you as I judge anyone, by how you keep your gear, though I'm told yours changes when you do." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll find nothing to learn here but discipline, and I'd wager the Quarter teaches little of that." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Keep your gear well and I'll judge you fairly. The Silver Hand fought orc shamans at the Dark Portal, so forgive me if I look twice." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Keep your gear well and I'll judge you fairly. The Silver Hand fought the orcs and all their dark arts in the Second War, so forgive me if I look twice." },
       },
       again = {
         { id = "h_again", text = "What else? Speak plainly, and I'll answer the same way." },

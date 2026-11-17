@@ -31,6 +31,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I guard it fiercely. She is missing, and I will not let her be forgotten. Your spirits might find her where we cannot." } },
+      choices = {
+        { text = "Then I will help you search, Thyn'tel.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some memories should fade.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "In Ashenvale, at Astranaar and along the Barrens border, where the Horde's lumber camps push deeper every month. We don't need another hero, though, we need someone who will hold where they're told to hold." } },
@@ -128,6 +137,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Sentinels have need of those who can hold a line, though I will judge for myself whether you can." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Sentinels can use you in Ashenvale, because the orcs cut the trees faster than my patrols can bury the dead, and the forest needs someone who can hear it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Sentinels have fought beside human mages in Ashenvale, and some of my sisters even speak well of it, though I reserve my judgement." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I weigh my words, especially about my Sentinels. Your spirits may speak freely; I do not." },
       },
       again = {
         { id = "h_again", text = "What else? Make it worth the time." },
@@ -147,6 +157,7 @@ P:NPC {
         { text = "Where do the Sentinels need a paladin, Commander?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How can a druid best serve the Sentinels in Ashenvale?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would you need from a mage in Ashenvale?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you guard a priestess's memory, Thyn'tel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you return to your duties.", next = "END" },
       },
     },
@@ -255,6 +266,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I will trust only one with resolve. Your spirits must not trouble the waters. Prove yourself, and you will be welcome." } },
+      choices = {
+        { text = "I will prove my resolve, Elanaria.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My spirits go where they please.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "In Ashenvale, more than once, and I learned that a warrior who knows a healer is behind her fights twice as boldly. Stand your ground when the fighting starts, though, because a healer who runs leaves everyone exposed." } },
@@ -383,6 +403,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on the Warrior's Terrace. You'll find no stances to learn here, but resolve is the same in any profession." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I don't train your kind, but I've seen a druid in bear shape hold a line I'd have been proud of, so you're welcome to watch." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on the Warrior's Terrace. Resolve is the first thing I ask of anyone, and I'd like to know whether yours is your own or borrowed." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Show me resolve first. Teldrassil's moonwells are home to me, and I guard them." },
       },
       again = {
         { id = "h_again", text = "What else, warrior? Speak quickly; the Terrace doesn't sit still." },
@@ -404,6 +425,7 @@ P:NPC {
         { text = "Would you test a paladin as you test your warriors?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could a druid in bear shape learn anything from your warriors?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can a warlock show resolve, Elanaria?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Will you trust a shaman near the moonwells, Elanaria?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to the Terrace.", next = "END" },
       },
     },
@@ -506,6 +528,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I do, and gladly. A dwarven colleague taught me a new technique. Your spirits might teach me another." } },
+      choices = {
+        { text = "Shared knowledge is a fine thing, Mathiel.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep your secrets. Elunite is yours.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Over the elunite especially, because it's a blessed stone and I'd hate to waste it on a careless strike. My friends in Ironforge laugh at me for it, but they sing to their own forges, so they've no room to talk." } },
@@ -606,6 +637,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I'll repair your gear, warlock, because coin is coin and I need an anvil of my own. But tell your servant to stay outside the forge." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Elunite holds an edge like nothing else, and I've always wondered how it would sit on an arrowhead." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You won't need much from my forge, I suppose, but buckles snap on bears as easily as on anyone, so bring them to me when they do." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! I have friends in every forge. Do your fire spirits enjoy elunite?" },
       },
       again = {
         { id = "h_again", text = "Ask on, then, while the elunite cools; it takes its time and so may you." },
@@ -625,6 +657,7 @@ P:NPC {
         { text = "Do you really pray over your smithing, Mathiel?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you do to a paladin's hammer, Mathiel?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does a smith's work trouble the Circle, Mathiel?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you work elunite with dwarven methods, Mathiel?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck at the forge.", next = "END" },
       },
     },
@@ -726,6 +759,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I can, and yours is unusual. Spirits walk with you, and they shape you. Be careful they do not lead." } },
+      choices = {
+        { text = "I will lead my spirits, not follow them.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My spirits lead well. I trust them.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "The spirit is the will to stand when standing is hardest, and I have seen priestesses stand at Hyjal when the warriors around them fell. A blade has nothing to do with it, though the young ones never believe me." } },
@@ -833,6 +875,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I do not teach your art, but I can see whether you carry the warrior's spirit, and some hunters do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I see something of the warrior's spirit in you, which is not common in the Circle, though I teach only those who carry it whole." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I see little of the warrior's spirit in you, though I'll grant that facing a charge with nothing but a spell takes nerve." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I see your spirit at a glance. It is strong, though rough." },
       },
       again = { { id = "h_again", text = "Something more? Ask, and then let me return to my students." } },
       choices = {
@@ -848,6 +891,7 @@ P:NPC {
         { text = "Do you see the warrior's spirit in me, Arias'ta?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you see in a druid's spirit, Arias'ta?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Is there a warrior's spirit in a mage, Arias'ta?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Can you truly see a warrior's spirit, Arias'ta?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -909,6 +953,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "The news says they are orcish, mostly. But a dwarven shaman is new, and I shall proclaim it." } },
+      choices = {
+        { text = "Proclaim it honestly, Herald. Truth serves all.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Keep me out of your proclamations.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Plenty, for the Sentinels in Ashenvale call for every blade that can be spared, and the Warsong hear the same call from their side. If a warrior wants to be in my proclamations one day, Astranaar is where the stories are being written." } },
@@ -986,6 +1039,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Hear ye, a warrior has come to the city! I'd announce you properly, but you'd only blush under that helmet." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter walks among us! Hear ye, and mind the beast, because it's sniffing my scrolls." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Hear ye, hear ye, there's a warlock on the Terrace, and the Herald has no proclamation for that at all!" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! News for you, then: shamans are rare in Darnassus. You will be news yourself." },
       },
       again = {
         { id = "h_again", text = "More news? I've plenty!" },
@@ -1002,6 +1056,7 @@ P:NPC {
         { text = "Any news for a warrior, Herald?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Any news for a hunter, Herald?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Are there any summons for a warlock, Herald?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What news travels about shamans, Herald?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Herald.", next = "END" },
       },
     },
@@ -1094,6 +1149,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every one of them is a hero in the making. It is my honour to supply them. A shaman is no different." } },
+      choices = {
+        { text = "Then I will try to live up to it, Mydrannul.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some adventurers are only thieves.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "All of them, sooner or later, because a healer gives away everything they carry before they're half done. I always tell them to keep a waterskin for themselves, and they always forget." } },
@@ -1188,6 +1252,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want arrows, I suppose, and something for your companion, because heroes' beasts get hungry too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a hero in the making! I keep the Terrace in food and drink, and I've learned that druids eat like bears after a long day in one, so do stock up." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! It's an honor, truly, because heroes come in all shapes, and the quiet ones are often the ones the songs forget." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! An honour to supply a hero in the making. Your spirits must need supplies too." },
       },
       again = { { id = "h_again", text = "Anything else? Take your time." } },
       choices = {
@@ -1202,6 +1267,7 @@ P:NPC {
         { text = "Do the young heroes really look up to paladins?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do druids usually buy from you, Mydrannul?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the songs really forget the quiet ones, Mydrannul?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do you think every adventurer is a hero, Mydrannul?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1256,6 +1322,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I fear for him every day. Grief makes me fierce, not weak. If your spirits know where he is, tell me." } },
+      choices = {
+        { text = "I will search for him, Treshala. Hold on.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Prepare yourself for the worst.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "It might, though I'm never sure whether I'm praying for him or for myself. Say one if you will, and I'll be grateful, because the Barrens is a long way for Elune's light to reach." } },
@@ -1353,6 +1428,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. If you mean to offer me some dark way of finding Heralath, I'll tell you now that I'd rather keep waiting." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Razorfen", min = 30 } },
           text = "You've fought the quilboar of the Razorfen, from the look of you, and a great many of them. Heralath went south to understand them, and I wonder sometimes whether understanding them was ever possible." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My husband Heralath went south to study the quilboar. Have your spirits word of him?" },
       },
       again = {
         { id = "h_again", text = "Is there more? Please, I don't mind the company." },
@@ -1371,6 +1447,7 @@ P:NPC {
         { text = "Would a prayer for Heralath help, Treshala?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the Barrens as dangerous as Heralath feared?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you refuse help, even mine, Treshala?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you fear for Heralath, Treshala?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },
@@ -1461,6 +1538,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They have such patience and such an eye! Every stitch is perfect. Your spirits must have an eye for beauty too." } },
+      choices = {
+        { text = "Patient work makes fine art, Darianna.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Art is a waste of time.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Cloth, mostly, because Telonis says leather is for people who get stabbed, and priests are supposed to stand behind the people who get stabbed. But I've seen priestesses come back from Ashenvale with their robes in ribbons, so I wonder whether he's right." } },
@@ -1553,6 +1639,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your hides must be wonderful; do you skin what you hunt, or do you leave it where it falls?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Faldron says druids are the hardest customers, because your armor has to forgive you every time you turn into a bear, and I think that's the most exciting problem in the world." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Oh, could you make the leather dry faster? I'm only joking, mostly, though Faldron says patience is half of it and I've never had much patience." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My teachers Faldron and Telonis are the finest artists in Darnassus. Do your spirits make art?" },
       },
       again = { { id = "h_again", text = "What else? Ask me quickly before Faldron gives me something to sew." } },
       choices = {
@@ -1567,6 +1654,7 @@ P:NPC {
         { text = "Are straps really where all armor fails?", next = "xapala", when = { class = "PALADIN" } },
         { text = "How does leather stretch to fit a bear, Darianna?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you really want magic to dry your leather?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What makes your teachers so fine, Darianna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the stitching.", next = "END" },
       },
     },

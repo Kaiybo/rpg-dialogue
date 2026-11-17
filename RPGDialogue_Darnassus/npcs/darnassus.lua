@@ -42,6 +42,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Elune's light touches every living thing, and the spirits you speak with are part of the world she watches over. Still, the orcs who burned our forests spoke to spirits too. I would see what you do with yours." } },
+      choices = {
+        { text = "Then watch my deeds, High Priestess. I will serve the living.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My spirits answer to me, not to Elune.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Hands in Ashenvale, where the Horde cuts our forests and my Sentinels come home bleeding, and steady hearts for those who will not come home at all. Prayers are well and good, but I need healers who will walk beside the wounded into the trees." } },
@@ -174,6 +183,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You walk softly, and I notice it, because the Sentinels taught me to. Elune's priestesses have hidden in the dark for ten thousand years, so I don't think less of anyone who does the same for a good cause." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The thing you have bound to you stands in my temple, warlock, and I am letting it. Do not mistake that for welcome." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter of Elune's forests. The Sentinels ride with hunters on every border we hold, and I am glad of each bow that joins them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who walks with the spirits. Elune's light falls on you as on all who come in peace, though I confess I have not seen your path among our allies before." },
       },
       again = {
         { id = "h_again", text = "What else? The Sentinels report at moonrise, and I mean to hear them." },
@@ -198,6 +208,7 @@ P:NPC {
         { text = "Why do you tolerate me at all, High Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does Darnassus need from its priests, High Priestess?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Where would you send a paladin, High Priestess?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Does Elune look kindly on a shaman, High Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Elune be with you.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -462,6 +473,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "You ask the elements for favours, as children ask their parents. We were taught by Cenarius himself. I do not doubt your sincerity, only your understanding." } },
+      choices = {
+        { text = "Then I would learn, Arch Druid. Wisdom has many teachers.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sincerity matters more than lineage, Staghelm. My spirits answer me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "For the wounded, certainly, and the Circle has never refused a healer's hands. But Teldrassil is a druid's work, and I will not have anyone, priestess or priest, telling me the tree needs praying over when it needs only time." } },
@@ -574,6 +594,7 @@ P:NPC {
           text = "You again, and no more welcome than the last time. Say what you came to say and let me return to work that matters." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, in the Cenarion Enclave. I hope you came to listen, because there's nothing on these branches worth stealing." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Steel has its uses, I suppose, though Teldrassil was not grown to be defended with it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf, playing at what the druids have mastered for ten thousand years. Speak briefly. Your spirits are a crude echo of the Dream." },
       },
       again = {
         { id = "h_again", text = "Well? Something else, or are we finished?" },
@@ -595,6 +616,7 @@ P:NPC {
         { text = "Has the Archdruid any use for a warrior's blade?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you have any use for priests, Archdruid?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What would you have a paladin defend here, Archdruid?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is a shaman's path truly so crude, Arch Druid?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -767,6 +789,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They are as close as neighbours who speak different tongues. We listen to the Dream and to Cenarius; you listen to the world's own voices. Neither is wrong, but both can be misheard." } },
+      choices = {
+        { text = "Then we should listen carefully, together, and with discipline.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Each must listen in his own way, without rules.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "Only whether your Light ever tells you to stay your hand, because the Claw's way is to strike when the balance demands it and grieve afterward. I suspect your order and mine carry the same weight in different packs." } },
@@ -861,6 +892,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "I trained bears for the Archdruid when he still listened to me, warlock, and every one of them is growling at you right now in my head." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you walk the way the beasts do. Some of my students could learn a great deal from that." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in the Enclave. The young druids tell me you came in by the side path, which is the one only they use when they're late." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. You walk a path close to ours, though you came to it through stone rather than root. Sit, and tell me what the spirits say to you." },
       },
       again = {
         { id = "h_again", text = "Ask on. The young ones' questions are the best part of my day." },
@@ -878,6 +910,7 @@ P:NPC {
         { text = "Have you ever seen what a demon does to a forest?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "You wanted to ask me something, Mathrengyl?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Circle have any use for a rogue, Mathrengyl?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Are the druid's way and the shaman's truly so close, Mathrengyl?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -962,6 +995,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Elune is patient with all who seek her. Your spirits are part of the world she cradles. But I ask you to keep them quiet within the Temple, little star." } },
+      choices = {
+        { text = "I will honour the Temple's peace, Priestess.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "My spirits are not so easily silenced.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Sentinels home from Ashenvale, mostly, and the families of those who didn't come home. I can mend a wound in a moment, but grief takes much longer, and I find that sitting with them helps more than any prayer I know." } },
@@ -1074,6 +1116,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, little star, with the forest still clinging to your boots. The Temple is quiet, so let it rest you as well as any glade would." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, little star, with a little moss still on your sleeve. Some say Cenarius was Elune's own son, so you are as much at home in her Temple as any sister." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Little star, you carry a shadow with you, and I can see it is a heavy one. Rest by the pool a while, though I'll ask your companion to wait beyond the Temple doors." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Little star, you walk with spirits. Elune welcomes you, though I sense your spirits are louder than hers. Come, rest by the pool." },
       },
       again = {
         { id = "h_again", text = "What else, little star?" },
@@ -1094,6 +1137,7 @@ P:NPC {
         { text = "Does Elune welcome soldiers of the Light, Priestess?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the priestesses and the druids truly pray to the same goddess?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Will Elune turn me away, Priestess?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does Elune mind the spirits that walk with me, Priestess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Priestess.", next = "END" },
       },
     },
@@ -1197,6 +1241,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some of them are only mostly dead, so perhaps they do. The southern deserts frighten me; something lives there that I cannot name. Your spirits might know." } },
+      choices = {
+        { text = "Study it carefully, Gracina. Knowledge guards us.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some things should be left unnamed.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "I don't yet know whether they are evil or only hungry, and I would rather understand them before your order decides. But if the reports from the south are true, there will be a great many of them, and I would want paladins standing between them and Kalimdor." } },
@@ -1293,6 +1346,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You go places nobody else can, I suppose, and I would give a great deal to know what you've seen in them." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Silithid", min = 40 } },
           text = "You've been killing silithid, haven't you? I can smell that sour, dusty reek on your boots, and I'd give a great deal to know what you saw down there in the south." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Tell me, do the spirits know creatures I have not catalogued? I am eager for every account." },
       },
       again = {
         { id = "h_again", text = "Go on, but mind the jar on your left; it bites." },
@@ -1311,6 +1365,7 @@ P:NPC {
         { text = "Are the silithid an evil a paladin should face?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the Cenarion Circle know about these insects of yours?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What would you have a rogue bring you, Gracina?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do your specimens have spirits, Gracina?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -1413,6 +1468,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Never, though some come close. Your spirits might steady them. Rest well, and do not look down." } },
+      choices = {
+        { text = "I will rest well and heed your warning, Saelienne.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Looking down is half the fun.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Some, and usually the ones back from Ashenvale or Darkshore, who'd rather sleep than see a priestess about it. I put them in the quiet rooms and keep the tea warm, and if you'd look in on them before you leave, I'd be grateful." } },
@@ -1509,6 +1573,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please don't bring anything you've skinned upstairs, because the last guest who did left the room smelling of wet wolf for a week." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll be the one guest who doesn't mind the branches swaying at night, I expect, so long as you don't turn into a bear on my good linen." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. You'll get a room like anyone else, but your servant sleeps outside on the branch, and I wish it luck." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Do not look down from the terrace, please. My inn rocks gently, and I suspect your spirits will enjoy it." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's moonberry juice, if you're staying." },
@@ -1525,6 +1590,7 @@ P:NPC {
         { text = "Do your people find paladins strange, Saelienne?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do druids often stay at your inn, Saelienne?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why must my servant sleep out on the branch?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do travellers ever fall from your terrace, Saelienne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },

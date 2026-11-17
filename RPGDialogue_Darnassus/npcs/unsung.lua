@@ -28,6 +28,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Both require care. Both are trust held for others. Your spirits might understand that." } },
+      choices = {
+        { text = "Trust kept carefully is honourable, Garryeth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Coin is not prayer.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Now and then, mostly offerings to be held until the Temple decides how to spend them. They leave everything in perfect order, which is more than I can say for the adventurers coming back from Ashenvale." } },
@@ -110,6 +119,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want to deposit something before Ashenvale, I expect; they generally do." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you mean to deposit anything that's still moving, I'm afraid I must refuse." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll have little to deposit, I expect, since your Circle thinks a pouch of seeds is a fortune, but the vault is yours as much as anyone's." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I count coin as carefully as a priestess counts prayers. Your spirits may watch, if they wish." },
       },
       again = {
         { id = "h_again", text = "Anything further? The ledger is open." },
@@ -127,6 +137,7 @@ P:NPC {
         { text = "Do priests really bank with you, Garryeth?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins leave much with the bank, Garryeth?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why does the Circle keep so little in your vaults?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is counting coin like counting prayers, Garryeth?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Garryeth.", next = "END" },
       },
     },
@@ -203,6 +214,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I allow none. But I listen when a student answers honestly. Do so, and you will learn." } },
+      choices = {
+        { text = "I will answer honestly, Sildanair.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Excuses are sometimes reasons.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Stay behind us, keep your eyes open and heal the one who's about to fall, not the one who's shouting loudest. Most new healers get that wrong, and it costs somebody a broken arm." } },
@@ -289,6 +309,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Shoulders back, shield up, and tell me who trained you before I decide whether to start you over." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on the Warrior's Terrace. You're welcome to watch, but keep that beast out of the sparring ring." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my Terrace! Keep your servant out of the drill lines, because my students will swing at anything that moves, and they've no notion yet of friend or foe." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Stand straight. No excuses. Your spirits will not excuse you either." },
       },
       again = {
         { id = "h_again", text = "What else? Keep it short; I've a drill starting." },
@@ -306,6 +327,7 @@ P:NPC {
         { text = "What should a priest know about fighting beside warriors?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Will you drill a paladin with your warriors, Sildanair?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would your students really attack my servant?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you allow no excuses at all, Sildanair?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your drill.", next = "END" },
       },
     },
@@ -378,6 +400,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Perhaps it is. A shaman needs a weapon that answers like the elements: honest and steady. Let me show you another." } },
+      choices = {
+        { text = "Show me, Ariyell. I trust your judgement.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I will keep my own weapon.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "A plain staff, light enough to carry all day and long enough to keep a snarling thing at arm's length. You'll be praying more than swinging, so there's no point paying for an edge you'll never use." } },
@@ -460,6 +491,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Let me see your grip, because I can tell more from that than from any story you'd tell me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I don't sell bows, but I've a few good daggers for when the beast gets inside your reach." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Most of your Circle buy one good staff and keep it for a hundred years, which is wonderful for the staff and terrible for my trade." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance and grip are family to me. Let me see how you hold your weapon." },
       },
       again = {
         { id = "h_again", text = "What else can I tell you? Ask before you buy, never after." },
@@ -477,6 +509,7 @@ P:NPC {
         { text = "What weapon would you honestly sell a priest, Ariyell?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Which weapon would you honestly recommend for a paladin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Which staff would you sell a druid, Ariyell?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is my weapon a poor choice, Ariyell?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -549,6 +582,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Only to one who would treat it as kin. Your spirits might help; I will watch." } },
+      choices = {
+        { text = "I would treat it as kin, Lelanai. You have my word.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A mount is a mount.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "When they come back from patrol with Horde arrows in their flanks, yes, and I've sat up through many nights with them. The priestesses will pray over a saber as readily as over a Sentinel, because both serve, and both bleed." } },
@@ -649,6 +691,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll understand the sabers better than most, since you already share your life with a beast." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. My sabers knew you were coming before you reached the pen, because you smell of cat, and they never quite know what to make of it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My sabers are twitching their ears at you, because they can feel the arcane on your skin, though they'll settle if you're gentle." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My nightsabers are my children. Would your spirits treat one as a companion?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the tail on that one." },
@@ -667,6 +710,7 @@ P:NPC {
         { text = "Would you trust a paladin with one of your sabers?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would a druid need a saber, when I can run as one?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you sell a saber to a mage, Lelanai?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Would you sell a nightsaber to a shaman, Lelanai?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Lelanai.", next = "END" },
       },
     },
@@ -731,6 +775,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They always do, and I laugh every time. But they learn. Your spirits might soften the fall." } },
+      choices = {
+        { text = "Falling teaches, Jartsam. I will learn.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I will not fall.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Every one of them, at least once, because a saber moves like water and doesn't wait for anyone. Most of them get up laughing, and the ones who don't need a kind word more than a prayer." } },
@@ -815,6 +868,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll fall off heavier than most, so I'll warn the ground before your first lesson." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You already know how to talk to cats, which puts you ahead of every warrior I've ever taught." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! I've heard your kind ride horses made of fire eventually, so I'm curious whether you'll fall off a saber as fast as everyone else." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Your first fall will be funny. Do your spirits catch you?" },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a student due who still can't find the stirrups." },
@@ -831,6 +885,7 @@ P:NPC {
         { text = "Do your riders fall often, Jartsam?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is a saber harder to ride than a warhorse, Jartsam?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will your sabers let a warlock ride them?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do your students fall often, Jartsam?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Jartsam.", next = "END" },
       },
     },
@@ -893,6 +948,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It should have a true one: companions who promise to stand together. Your spirits might help, but your word matters more." } },
+      choices = {
+        { text = "A true promise, then. I will keep mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Purpose comes later.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "At its side, always, because a band of adventurers without a healer lasts about as long as its first bad fight. The guilds that endure, though, are held together by something closer to faith, and you'd know more about that than I." } },
@@ -985,6 +1049,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your kind tend to join guilds late and leave them early, since you have company enough already." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The Circle rarely asks me for a charter, because it is a fellowship of its own and older than any I've written down, so I'm curious what brings you." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. If you've come to register a guild of scholars, I'll want to know what you mean to study, because the Sentinels will ask me later." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. A guild is a serious promise. What purpose would your spirits serve in one?" },
       },
       again = {
         { id = "h_again", text = "Is there more you wish to ask before you sign anything?" },
@@ -1003,6 +1068,7 @@ P:NPC {
         { text = "What purpose should a guild serve, Lysheana?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Should a druid join a guild outside the Circle, Lysheana?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why would the Sentinels ask about a mage's guild?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "What purpose should a guild have, Lysheana?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1073,6 +1139,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I love it very much. Each one is a promise of colour. Your spirits might favour earth tones." } },
+      choices = {
+        { text = "Take your time, Shalumon. Good work needs it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Colours do not matter.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Something gentle and bright, because a healer's tabard should be the first thing a wounded friend looks for across a battlefield. Silver on blue for the Moon or gold on white for the Light, and never anything that might be mistaken for blood." } },
@@ -1153,6 +1228,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want a tabard that shows up against blood and mud, so don't let anyone sell you pale silver." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Hunters are the only ones who ever ask me for tabards that blend into the forest." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Leaf green and moonsilver, I'd say, though your Circle has never once asked me for a tabard, and I've had one sketched for years." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! What colours would your spirits choose for a tabard? Do not rush me, please." },
       },
       again = {
         { id = "h_again", text = "Something else? I have all afternoon for colors." },
@@ -1169,6 +1245,7 @@ P:NPC {
         { text = "What would you put on a priest's tabard, Shalumon?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What colors suit a paladin's guild, Shalumon?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why doesn't the Circle wear tabards, Shalumon?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you love designing tabards, Shalumon?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Shalumon.", next = "END" },
       },
     },
@@ -1231,6 +1308,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It is, and mine is the best. Your spirits might appreciate good meat honestly hunted." } },
+      choices = {
+        { text = "Honest meat honestly sold is good, Jaeana.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Meat is meat.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Quietly, and more than they'd tell the druids, because a long night of healing makes anyone hungry. I give them the best cuts, since they spend all day looking after everybody else." } },
@@ -1315,6 +1401,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want meat, not berries, whatever the druids tell you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Half the meat on this counter came in on a hunter's back, so you're among friends here." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. I've had cutpurses on the Terrace before, so you'll forgive me for keeping my eye on the venison while you look." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Night elves do not live on moonlight and berries. Buy some venison, and your spirits will thank you." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a queue forming." },
@@ -1331,6 +1418,7 @@ P:NPC {
         { text = "Do the priestesses buy meat from you, Jaeana?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do soldiers bound for Ashenvale buy from you, Jaeana?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would a rogue really steal your venison?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Is venison really so prized here, Jaeana?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Jaeana.", next = "END" },
       },
     },
@@ -1396,6 +1484,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "No, they cannot. Spirits help, but linen saves lives. Learn both." } },
+      choices = {
+        { text = "I will learn both, Dannelor. Every life matters.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Spirits are enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Better together than either alone, I've always thought, because a bandage holds while the prayer works and a prayer reaches what a bandage can't. The priestesses agree, mostly, though they don't like to hear it from a man with linen in his pockets." } },
@@ -1490,6 +1587,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have two of you to keep standing, I expect, since your companion can't tie its own bandages." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You can mend a wound with a word, I know, but the word costs mana and the linen doesn't, so I'd still like you to learn bandaging." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. You'll be the first to go down when the Gnarlpine get close, so you'd do well to learn how to bandage yourself before it happens." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Bandaging matters. I have seen what happens when it is done badly. Your spirits will not save everyone." },
       },
       again = {
         { id = "h_again", text = "Another question? My bandages can wait on the table a while." },
@@ -1508,6 +1606,7 @@ P:NPC {
         { text = "Should a paladin carry bandages, Dannelor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would a druid need bandages, Dannelor?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why should a mage learn first aid, Dannelor?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you think spirits can replace bandages, Dannelor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you, Dannelor.", next = "END" },
       },
     },
@@ -1580,6 +1679,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I am suspicious of anything unmeasured. Spirits are unpredictable. Prove otherwise." } },
+      choices = {
+        { text = "I will prove it with care, Ainethil.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Unpredictable is fine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Some do, and they make good students, because they understand that healing takes patience. The impatient ones blow up my cauldrons, but priests usually wait for the brew to settle." } },
@@ -1660,6 +1768,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll be one of my best customers, I'm sure, though I wish you'd learn to measure before you drink." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know where the herbs grow, I imagine, which makes you more useful to me than most of my students." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. You'll know the herbs better than my students do, though I suspect you'll also want to argue with me about how much of each one to pick." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Measures matter. Your spirits must be exact, or the flask will crack." },
       },
       again = {
         { id = "h_again", text = "Yes? Ask, but quietly, this needs to settle." },
@@ -1677,6 +1786,7 @@ P:NPC {
         { text = "Do priests ever learn alchemy, Ainethil?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would a paladin make a good alchemist, Ainethil?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you pick Teldrassil's herbs too freely, Ainethil?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you trust spirits in alchemy, Ainethil?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

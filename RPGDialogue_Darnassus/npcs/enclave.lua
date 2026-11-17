@@ -33,6 +33,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Ditches that carry water to every tree in Darnassus! The Enclave ignores me, but your earth spirits might see the beauty." } },
+      choices = {
+        { text = "Keep digging honestly, Jenal. Vision needs hard work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Your vision is ditches. Aim higher.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Because I have vision, and patience, and I listen to people, mostly, when they aren't talking nonsense. The Sisterhood says faith begins with humility, which I have always considered a very convenient rule for the people already in charge." } },
@@ -131,6 +140,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Mind the dirt, would you, because I've only just got that pile exactly where I want it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Don't let your beast dig in my piles, because the last one undid three days of my work." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! At last, someone else the druids look down on. Mind the dirt, though, because it's been arranged very carefully." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Do not step in the dirt. I am a visionary, you know, held back by lesser minds. Your spirits would understand." },
       },
       again = {
         { id = "h_again", text = "What else? I've got all night, and a great deal of dirt." },
@@ -149,6 +159,7 @@ P:NPC {
         { text = "Why do you think you'd make a fine priest, Jenal?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why would the Circle want knights of its own, Jenal?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the druids look down on you, Jenal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What is your grand vision, Jenal?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you dig.", next = "END" },
       },
     },
@@ -260,6 +271,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They do, though few listen. Corruption creeps in. If your spirits feel it, you are less useless than most." } },
+      choices = {
+        { text = "Then I will help guard the forests, Syurna.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Corruption is the druids' problem, not mine.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "You go where the dying are and I go where the guilty are, and neither of us is welcome until we're needed. The difference is that you're thanked afterward, and I prefer not to be." } },
@@ -367,6 +387,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I don't teach your kind, and you make far too much noise in my alcove." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, which at least means you know how to keep still. That's more than I can say for most who come here." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in my alcove. You can't learn anything from me, but your Circle ought to be listening harder to what Teldrassil's forests are trying to tell it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I speak to rogues, not to spirit-callers. Still, the forests suffer. Do your spirits feel it?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Be brief." },
@@ -385,6 +406,7 @@ P:NPC {
         { text = "How do our trades both work in the dark, Syurna?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you doubt a paladin's justice, Syurna?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What should the Circle be hearing in the forests, Syurna?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do the forests of Teldrassil suffer, Syurna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to the shadows.", next = "END" },
       },
     },
@@ -475,6 +497,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some do, by asking too much. Your spirits must give as they take. That is the law, and I enforce it." } },
+      choices = {
+        { text = "Balance is wise, Jocaste. I will respect it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Balance is for hunters. My spirits have their own law.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Every living thing has a place in it, and a healer's place is to mend what the hunt leaves behind. Don't heal the beast my hunters have rightly brought down, though, for that is not mercy, it is meddling." } },
@@ -599,6 +630,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll find no training here, but you may stand and listen if you keep still." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, a keeper of the balance as my hunters are. Yours is the gentler half of the work, though I've seen a druid in cat shape who would shame any hunter of mine." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. The Highborne's magic once tore this world apart, and you'll forgive me if I mention that before anything else." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Balance is the law of the wild. Do your spirits respect it, or do they upset it?" },
       },
       again = {
         { id = "h_again", text = "What else? Speak; I'm listening." },
@@ -620,6 +652,7 @@ P:NPC {
         { text = "Is there no evil in the wild, Jocaste?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do hunters and druids keep the same balance, Jocaste?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can a mage respect the balance, Jocaste?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you think shamans upset the balance, Jocaste?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Jocaste.", next = "END" },
       },
     },
@@ -711,6 +744,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some see you as crude imitators, others as distant kin. I see a seeker of the world's voices, and that is enough for a blessing." } },
+      choices = {
+        { text = "I accept your blessing gladly, Denatharion.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I need no blessing. My spirits are enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "That healing begins with the one being healed and not with the healer's power, which the young ones are slow to learn. A priest sits with the dying, and a druid too often rushes to save what was meant to go back to the earth." } },
@@ -814,6 +856,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Cenarius bless you, warrior. Even those who will never take a shape are welcome in the Enclave." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "Cenarius bless you, hunter, and whatever walks beside you. You and my students share a love of the wild, though you show it differently." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Cenarius bless you, rogue, even if you walk too quietly for the young druids' comfort. They're used to hearing people coming before they see them." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Cenarius bless you, even though your path is different from ours. The Enclave argues about such things, but I do not." },
       },
       again = {
         { id = "h_again", text = "What else would you know? The Enclave is slow, and so are its answers, but they come." },
@@ -832,6 +875,7 @@ P:NPC {
         { text = "What can young druids learn from a priest, Denatharion?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is iron really at war with the forest, Denatharion?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Cenarius bless rogues as well, Denatharion?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the druids argue about shamans, Denatharion?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell.", next = "END" },
       },
     },

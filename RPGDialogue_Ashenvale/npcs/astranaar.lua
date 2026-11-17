@@ -32,6 +32,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I have heard them chanting at the lumber camps, and I will never forget it. If your spirits are kin to theirs, I would know whether the forest's anguish reaches them at all." } },
+      choices = {
+        { text = "My spirits grieve with you, Raene. I'll help defend these trees.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Spirits serve whoever calls them. Don't blame the spirits for orcs.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "A frost spell that pins a Warsong runner to the road would be worth a dozen of my arrows, and I'll say so to the Sentinels' faces. But you'll fight beside my scouts and not in front of them, because fire in these trees could do more harm than any orc axe." } },
@@ -124,6 +133,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, all the way out here! I hope you came to fight, because Ashenvale has no use for anyone who came to watch." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Foulweald", "Thistlefur" }, min = 40 } },
           text = "My scouts tell me the Foulweald and the Thistlefur have both lost a great many warriors this season, and that you're a good part of the reason. Astranaar sleeps a little easier for it, and so do I." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, in Ashenvale. The Warsong have shamans too, and they cheer while their axes bite into our trees. Tell me your spirits grieve for this forest." },
       },
       again = {
         { id = "h_again", text = "What else? Korra's getting restless, and so am I." },
@@ -143,6 +153,7 @@ P:NPC {
         { text = "Can a mage be of use to your scouts, Raene?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you judge me by what the satyrs did?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would you have a paladin do in Ashenvale, Raene?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the Warsong shamans really bless the logging, Raene?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help defend the forest.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } },
       },
     },
@@ -279,6 +290,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "A little, sometimes, and then the sickness returns. I would try anything, even spirits I do not understand, if it helped her." } },
+      choices = {
+        { text = "Then I will help however I can, Pelturas. She deserves hope.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some sicknesses cannot be cured. Prepare yourself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "There may be, for the cure I've been promised needs things from places where no healer can go safely. Orendil says Fallen Sky Lake holds part of it and the creatures there are cruel, so a warrior would be more use to me than a whole bag of herbs." } },
@@ -367,6 +387,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Speak softly, I beg you, because my daughter sleeps lightly and the dreams are bad." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Forgive me, I don't mean to stare, but I have asked every healer who comes through Astranaar to look at Relara." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. I have heard your order can lay hands on the sick, and I would beg it of you if I thought it would help her." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Please, speak softly, for Relara's sake. A shaman. I have tried nearly every cure there is. Do your spirits know any other?" },
       },
       again = {
         { id = "h_again", text = "Is there anything else? Forgive me, I keep listening for her." },
@@ -384,6 +405,7 @@ P:NPC {
         { text = "Do you think my craft could reach into her dreams?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Has nothing a healer tried helped Relara?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What can I do for your daughter, Pelturas?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Has any cure helped Relara at all, Pelturas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -455,6 +477,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "More than anything! Papa's fixing everything, and then I'll fly. Can your wind spirits teach me?" } },
+      choices = {
+        { text = "You'll fly one day, Relara. Hold on to that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Rest first. Flying can wait.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Yes, please, but a small bear, if you can, because Papa will hear if you knock anything over. Do bears have bad dreams too, or do they sleep all winter and only dream about honey?" } },
@@ -557,6 +588,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "You've got so much armour! Are you a knight? Papa says knights help people, so you must help people too." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Are you a druid? Papa says druids can turn into a bear, and I've never seen it, but I promise I won't be scared." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that a little demon? Papa says the bad dreams come from somewhere dark, but yours looks too small to cause anything." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Are you a shaman? Can your spirits fly? I'm going to be a Sentinel, or a hippogryph, whichever gets to fly." },
       },
       again = {
         { id = "h_again", text = "Are you still here? Good, then tell me something." },
@@ -576,6 +608,7 @@ P:NPC {
         { text = "I'm a paladin, Relara. Do you know what that means?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Would you like to see my bear form, Relara?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Are you scared of my servant, Relara?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do you really want to fly, Relara?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Get well soon.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -630,6 +663,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Too many, between the Warsong, the furbolgs and the demons in the east. Crossing names off the right way is the best part of my work. Your spirits might help." } },
+      choices = {
+        { text = "Then cross mine off the right way, Faldreas. I'll return.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your list won't save anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I do, though they are the hardest to keep, because they leave in one shape and come back in another. Two of the Circle went toward the Foulweald a month ago, and I have not crossed their names off yet." } },
@@ -721,6 +763,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You walk the roads armoured, which gives me some hope I won't be adding your name to my second list." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the Circle. You will walk paths I cannot follow, so tell me when you set out, and I will know where to look if you do not come back." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The forest spirits went quiet when you came in, warlock, and they only do that for one kind of traveller. Write your name in my book all the same, because I keep everyone's." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I keep a list of everyone who goes out on the roads, and everyone who should have come back. Will I cross your name off the right way?" },
       },
       again = {
         { id = "h_again", text = "What else? I've a list to keep." },
@@ -739,6 +782,7 @@ P:NPC {
         { text = "Which road needs a paladin's protection most?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you keep druids on your list as well, Faldreas?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why do the forest spirits fall quiet around me?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do many travellers fail to come back, Faldreas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll keep my eyes open.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -805,6 +849,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I care for as many as I can. Quiet kindness keeps this town together. Your spirits might help it along." } },
+      choices = {
+        { text = "Quiet kindness is the best kind, Kimlya.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Kindness won't win the war.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "When they can, and they eat as if they haven't seen food in a month, which is usually true. The ones back from the Warsong lines don't talk much, so I don't ask, and I just keep the broth hot." } },
@@ -889,6 +942,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Do sit down, and have some broth, because you'll be called to some sickbed or other before the night's out." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! The scouts will be glad to see you, and so am I, though you'll leave mud on my floors like everyone else." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Sit down by the fire, and if the scouts grumble about the arcane, pay them no mind, because they grumble about my soup as well." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down. I send broth up to a sick child every night. Do your spirits care for the sick?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Take your time; the fire's lit." },
@@ -906,6 +960,7 @@ P:NPC {
         { text = "Who in Astranaar needs a priest most, Kimlya?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Does Astranaar truly feel safe to its people, Kimlya?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you have any use for a mage at your inn, Kimlya?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do you care for everyone in Astranaar, Kimlya?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just resting.", next = "END" },
       },
     },
@@ -985,6 +1040,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I hope so! I purify what's been corrupted, and your spirits might help. We both want the forest healed." } },
+      choices = {
+        { text = "Then let's heal it together, Delgren.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light should keep to its own work.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "I admire them, truly, because they heal the land as surely as we heal the wounded. But they speak of balance where I would speak of evil, and with the Dark Strand nesting in that tower, I'm not sure balance is what's called for." } },
@@ -1061,6 +1125,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Light bless you, friend, for we've been short of strong arms since the Dark Strand dug in at the tower." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The Light welcomes you, and so do I, because there's a great deal of forest between us and that tower, and you'll know it better than my paladins." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've learned a good deal about your Circle since I came to Ashenvale, though I'll admit I still don't follow half of it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "The Light's blessing upon you, shaman! I'm a long way from home and glad of any company. Do your spirits bless too?" },
       },
       again = {
         { id = "h_again", text = "What else, friend? The cult won't wait on us." },
@@ -1078,6 +1143,7 @@ P:NPC {
         { text = "What does Maestra's Post need from a warrior, Delgren?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Can a hunter be of use against the Dark Strand?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What do you make of the Circle's ways, Delgren?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do the Light and the spirits get along, Delgren?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Light keep you.", next = "END", fx = { affinity = 1 } },
       },
     },

@@ -21,6 +21,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They grow strangely, twisted and sickly. I study them, but I cannot find the cause. Your spirits might know." } },
+      choices = {
+        { text = "Then study them carefully, Denalan. Find the cause.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Burn them. Sickness spreads.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Not by any prayer I know, because whatever twists them comes from the soil and the seeds rather than from a wound. But I've come to think all living things deserve some pity, even the ones that attack me, so a prayer for them would not be wasted." } },
@@ -106,6 +115,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The timberlings around the lake have become violent, and I would rather you trimmed them than I did." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll have seen the timberlings moving through the trees, and you'll have noticed that they move like hunting things now." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, at my lake. I'd like you to keep your servant away from the timberlings, because they're strange enough already without a demon setting them off." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The plants of Teldrassil trouble me. Something in them is wrong. Do your earth spirits feel it?" },
       },
       again = {
         { id = "h_again", text = "Is there something more you would ask?" },
@@ -123,6 +133,7 @@ P:NPC {
         { text = "Can a sickness like the timberlings' be healed, Denalan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are the timberlings truly evil, or only twisted?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Could fel magic be what's twisting the timberlings?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "What is wrong with the plants, Denalan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Elune guide your work.", next = "END" },
       },
     },
@@ -182,6 +193,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I am, but kindness helps. Every one who stops gives me hope. Your spirits might help more." } },
+      choices = {
+        { text = "I will help you, Iverron. Rest now.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You should not have gone near the spiders.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapala = {
       big = true,
       lines = { { id = "xapala_default", text = "I'd rather you didn't do it for my sake, because I was the one who wandered too near their cave. But the young ones of Shadowglen walk that way every day, so if you go, go for them, and I'll be grateful all the same." } },
@@ -265,6 +285,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you see the spider that bit me, it was a big one, and it looked very pleased with itself." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. If you have any healing in you I'd welcome it, though the venom is stubborn and Dirania says only her antidote will draw it out." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Is that a demon? Oh, please don't let it near me, I've had quite enough of things with too many teeth today." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Thank you for stopping. The venom burns. Your spirits might ease it." },
       },
       again = {
         { id = "h_again", text = "Is there more? Talking keeps my mind off the pain." },
@@ -282,6 +303,7 @@ P:NPC {
         { text = "Shall I deal with the spiders that poisoned you, Iverron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I try my healing on the venom, Iverron?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Are you afraid of my servant, Iverron?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are you badly poisoned, Iverron?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Rest easy, Iverron.", next = "END" },
       },
     },
@@ -340,6 +362,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They are, for they keep our history alive. A shaman's spirits might remember older tastes than mine." } },
+      choices = {
+        { text = "Keep them alive, Zarrin. They matter.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Old recipes are old. Try something new.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Whenever the priestesses come down from Darnassus, and they always say the same blessing over the bread that my mother said. I like to think a meal shared with thanks is half a prayer already, whoever is listening." } },
@@ -431,6 +462,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Bring me a good haunch and I'll show you what the kaldorei were doing with one long before Teldrassil grew." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I've had herb broth on since dawn, and the Circle's folk are the only ones who can tell me whether the herbs I picked were happy to be picked." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my table. Sit, eat, and keep your servant out of my kitchen, because I've never yet found an old recipe that called for a pinch of brimstone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I cook the old kaldorei recipes, one pot at a time. Would your spirits like a taste?" },
       },
       again = {
         { id = "h_again", text = "Anything else? Taste this while you think; I fear it wants a pinch more moonroot." },
@@ -449,6 +481,7 @@ P:NPC {
         { text = "What would you feed someone who fights for a living?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the old recipes call for anything the Circle frowns on?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you cook for warlocks often, Zarrin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are the old recipes important to you, Zarrin?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Farewell, Zarrin.", next = "END" },
       },
     },

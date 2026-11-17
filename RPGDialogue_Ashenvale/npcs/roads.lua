@@ -18,6 +18,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If we have enough arrows and enough hands. Your spirits are welcome on the walls." } },
+      choices = {
+        { text = "Then count me among your hands, Kayneth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forest Song is lost. Retreat.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Less than I feared, so far, though the deer near their camps have begun to waste and the streams there smell wrong. I can count arrows and Forsaken, but I can't count what a sickness does under the soil, and that is why I need your kind." } },
@@ -111,6 +120,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at Forest Song, with Demon Fall Canyon just to the south of us. I'll be honest, I'd sooner have you where I can see you than down there among the demons." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Felguard", "Mannoroc", "Infernal" }, min = 30 } },
           text = "You've been down into Demon Fall Canyon, and by the count my lookouts keep, a good many demons didn't come back up with you. That's the best news Forest Song has had in a month." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I hold Forest Song with the Forsaken on one side and demons on the other. Your spirits might help me count arrows." },
       },
       again = {
         { id = "h_again1", text = "There's more you want to know, I can see it, so ask while the woods are quiet." },
@@ -129,6 +139,7 @@ P:NPC {
         { text = "Should the Forsaken here be destroyed on sight?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What has the Forsaken sickness done to the eastern woods?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What waits in Demon Fall Canyon, Kayneth?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Can Forest Song hold, Kayneth?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Keep the outpost safe.", next = "END" },
       },
     },
@@ -197,6 +208,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Every hunter of the forest does. Your spirits might guide you, but a good bow answers truer." } },
+      choices = {
+        { text = "Then I'll learn the bow properly, Bhaldaran.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "My spirits are enough. Keep your bows.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Only fallen wood, and only from trees the storms brought down, because I learned long ago that a bow cut from a living tree never sits right in the hand. The orcs cut living wood by the cartload, and it shows in everything they make." } },
@@ -275,6 +295,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll hold a bow like a hammer, I expect, but I'll sell you one if you ask nicely." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and by how lightly you walk I'd guess you don't think much of bows. That's fine, because I make mine from fallen wood only, and you can tell the Circle so." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock out here, of all places. You won't want a bow, and I'd thank you to keep that thing of yours away from my drying staves." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Show me how you hold a bow. A shaman, eh? Your spirits won't straighten a crooked grip." },
       },
       again = {
         { id = "h_again1", text = "If there's something else, out with it, because those staves won't shape themselves." },
@@ -292,6 +313,7 @@ P:NPC {
         { text = "Why trust the woods over Astranaar's walls, Bhaldaran?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you really only use fallen wood for your bows?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why keep my servant away from your staves, Bhaldaran?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does a shaman need a bow, Bhaldaran?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },

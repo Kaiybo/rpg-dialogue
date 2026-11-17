@@ -38,6 +38,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I trust any who heal. Only arcane magic troubles me; spirits are a gentler thing, I hope." } },
+      choices = {
+        { text = "The spirits are gentle, Alathea. I will prove it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Trust whom you like. I need no approval.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every night, and most of all for those who stand on the line in Ashenvale. We cannot hold a shield for you, but we send healers with the Sentinels, and many a warrior has come home because a priestess stood behind them." } },
@@ -145,6 +154,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you bear yourself well. Elune keep you, for you will meet the blows the rest of us only hear about." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter of the woods, walking under Elune's own light. Praise be to her, {class}, and to every beast you spare." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Praise Elune, a druid in her Temple. The Circle and the Sisterhood have kept faith beside each other since Malfurion first went into the Dream, and you are as welcome here as any of my priestesses." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Elune and the Light both bless the faithful. Your spirits I am less certain of, but I do not condemn them." },
       },
       again = {
         { id = "h_again", text = "What else would you ask? I have time; the moon is patient, and so am I." },
@@ -165,6 +175,7 @@ P:NPC {
         { text = "Do the priestesses pray for warriors, Alathea?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does Elune smile on the hunt, Priestess?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do druids and priestesses guard against the same old danger, Priestess?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you trust shamans as you trust priests, Alathea?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Elune be with you, Priestess.", next = "END" },
       },
     },
@@ -355,6 +366,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I do, with all my heart. Even those who served darkness. A shaman is far from darkness." } },
+      choices = {
+        { text = "Then I share your hope, Astarii. Every soul matters.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some souls are beyond saving.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Because most of those who come to me at night aren't wounded in any way a prayer can mend. They want to be heard, and once they've been heard, Elune or your Light can do the rest far more easily." } },
@@ -452,6 +472,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You look like someone who's carried a few things home from the field that weren't wounds." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and a quiet one. I like hunters, because they listen nearly as well as I do." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, welcome. The Circle teaches that a forest can grow back after any fire, and I've always thought souls are much the same." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. No soul is too far for Elune to hear, and that includes those who speak with spirits. Welcome." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'm in no hurry tonight." },
@@ -470,6 +491,7 @@ P:NPC {
         { text = "Why is listening the most important thing a priest does?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What do the Sentinels bring you after a battle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you think the Gnarlpine can still be saved, Astarii?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Do you believe all souls can be redeemed, Astarii?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good night, Priestess.", next = "END" },
       },
     },
@@ -561,6 +583,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Everything answers practice. I have little patience for grand speeches, but I respect hard work. Show me yours." } },
+      choices = {
+        { text = "I will practise honestly, Jandria.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Some things answer instinct, not practice.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "A Sentinel with an orc arrow in her side who refused to stop running until the fight was done, so I healed her at a sprint. Prayer is all very well in the Temple, but out there you heal whoever is in front of you, whatever they're doing." } },
@@ -654,6 +685,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, so you'll be the one at the back, which suits me, because my students can reach you easily." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Good, you heal too, so you know what it's like to keep a Sentinel standing while she's still running at the enemy." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. You'll be the one bleeding behind some Warsong camp one day, so listen while I tell you how to stop it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Prayer is a craft, like archery or bandaging. Do your spirits require practice too?" },
       },
       again = { { id = "h_again", text = "Something more? Be quick about it, because a student of mine is kneeling by the pool and pretending not to listen." } },
       choices = {
@@ -668,6 +700,7 @@ P:NPC {
         { text = "Which mistakes do you mean, Jandria?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Any advice for a druid who heals in the thick of it?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What should a rogue know about healing, Priestess?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do the spirits answer practice, Jandria?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -735,6 +768,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "It always does, though some say I tease. Perhaps your spirits can tell whether it is true." } },
+      choices = {
+        { text = "I believe you, Lariia. Faith sees clearly.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It is a trick of the light.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "When the night is troubled the light on the water trembles, even with no wind, and I've learned to send word to Ashenvale when I see it. I won't say Elune speaks through it, but I won't say she doesn't, either." } },
@@ -827,6 +869,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You watch the way I do, I think, long enough to see what everyone else walks past." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The moonlight on the pool went still when you came in, and it does that for the Circle more often than for anyone else." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "The moonlight on the pool went dim when you came in, warlock, and it only does that for a few. Don't worry, I've seen it go dimmer." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I notice things. Your spirits are restless today. The Temple pool shows the moon even on cloudy nights." },
       },
       again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
       choices = {
@@ -841,6 +884,7 @@ P:NPC {
         { text = "Does my armor really spoil your watching, Lariia?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What does the moonlight on the pool tell you tonight, Lariia?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does the moonlight show of a warlock?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Does the pool really show the moon always, Lariia?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Lariia.", next = "END" },
       },
     },
@@ -905,6 +949,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "I knew her only through stories, but I mourn her as if I did. Your spirits might know where she rests." } },
+      choices = {
+        { text = "Then honour her memory, Aquinne. That is sacred too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Mourning strangers is foolish.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "Much harder, because the prayers are simple enough but the faith behind them has to be real, and some days I'm not sure mine is. The priestesses say doubt is part of it, and I hope they're right." } },
@@ -1021,6 +1074,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The priestesses say I'm too familiar with animals, but I can't help being glad to see one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Oh, a druid! I study out here among the flowers, and I've always wondered whether they say more to one of the Circle than they ever say to me." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Oh! You startled me, coming up through the flowers like that. The priestesses say a quiet step is a gift, though I don't think they meant for sneaking." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The priestesses give me every task as a sacred trust. Do your spirits give you tasks too?" },
       },
       again = {
         { id = "h_again", text = "What else? The bell won't ring for my lessons for a while yet, so ask away." },
@@ -1040,6 +1094,7 @@ P:NPC {
         { text = "What did the Temple's books say about paladins?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you ever thought of joining the Circle, Aquinne?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the priestesses disapprove of rogues, Aquinne?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Did you know Lady Sathrah, Aquinne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with your studies.", next = "END" },
       },
     },
@@ -1141,6 +1196,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Everything that leaves my vault does. Your spirits might not need reasons, but my ledgers do." } },
+      choices = {
+        { text = "Good records protect us all, Idriana.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Reasons are overrated.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xapriest = {
       big = true,
       lines = { { id = "xapriest_default", text = "A few, recorded with as much care as any gold and returned exactly as they were left. I don't ask what they mean to their owners, only that they be kept safe until they're needed." } },
@@ -1235,6 +1299,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. If you're depositing hides, I'm afraid they go to the auction house and not to me, whatever you've heard." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Your Circle leaves very little in my vaults, I find, though the ones who go into the long sleep do like to know their things will be here when they wake." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. I'd ask you not to open any portals inside the vault, because I'd have to write it down, and I've no column for it." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your box will be safe, though I must write down the reason for anything that leaves it." },
       },
       again = { { id = "h_again", text = "Is there anything else? Your coin is as safe under the Temple's roof as anywhere in Darnassus." } },
       choices = {
@@ -1249,6 +1314,7 @@ P:NPC {
         { text = "Is the vault truly safe from thieves, Idriana?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do druids really leave their things here while they dream?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do mages trouble the bank often, Idriana?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Does everything require a reason, Idriana?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Thank you.", next = "END" },
       },
     },
