@@ -231,6 +231,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Hammerfall trusts anyone who bleeds for it, or whatever it is your people do instead. The orcs who were chained here saw the Light in the hands of their jailers, so some will glare, but I will tell them to judge you by your deeds." } },
+      choices = {
+        { text = "I'll prove myself in Hammerfall's fights.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them glare. I don't need their trust.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "To hold the walls while the rest of us build, for the Boulderfist come down from the hills every few nights and the Witherbark never sleep. When the walls are safe the traders will come, and when the traders come, Hammerfall will be what Doomhammer died for." } },
@@ -291,6 +300,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! These hills are thick with raptors and worse, and every beast you bring down is one less to trouble our caravans when they come." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. Hammerfall bleeds every time the Boulderfist hit the walls, {class}, and I'd sooner have one healer on the parapet than ten more mouths in the barracks." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Boulderfist", "Witherbark" }, min = 40 } }, text = "The scouts say the Boulderfist and Witherbark have stopped testing our walls, and I know whose axe taught them that. Hammerfall remembers who bled for it." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "One of the Dark Lady's people, and a paladin as well. Hammerfall will take any strong arm against the Boulderfist and the Witherbark, and if yours carries the Light, so much the better." },
       },
       again = {
         { id = "h_again", text = "What else? Say it plain; Hammerfall has no time for riddles." },
@@ -313,6 +323,7 @@ P:NPC {
         { text = "What does Hammerfall need most from its warriors, Drum Fel?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should I hunt the raptors along the caravan roads, Drum Fel?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Where does Hammerfall need a healer most, Drum Fel?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Does Hammerfall trust a Forsaken who calls on the Light, Drum Fel?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll fight.", next = "END", fx = { affinity = 2, standing = { hammerfall = 1 } } },
       },
     },
@@ -487,6 +498,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "It be the best joke of all, mon, because the humans called on the Light against the Amani and called us beasts. Now it fight on our side, and the spirits must be laughin' themselves sick." } },
+      choices = {
+        { text = "The Light was never theirs to own. It serves the just.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "It's a weapon, Zengu, and now it's ours.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Trol'kalar was made to kill trolls, and Vol'jin say we turn it on the Gurubashi, who be worse than any human. I think there be justice in that, even if the sword don't care which troll it cut." } },
@@ -545,6 +565,7 @@ P:NPC {
           text = "The Darkspear teach their young to move quiet in the jungle, {class}, and you got that same walk. Maybe you be the one to fetch Trol'kalar for Vol'jin, eh?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and a big one. Stromgarde keep a sword in their vaults made to kill trolls, and Zengu would like it carried by a warrior who know what to do with it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, mon. The loa of the wild must like you, 'cause you walk like one of their own." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ha, a dead paladin, mon! The humans' Light, in the hands of the Forsaken, and me here fetchin' a troll-killin' sword to use on the Gurubashi, so this be a very good week for jokes." },
       },
       again = {
         { id = "h_again", text = "More? Zengu got all day, mon. Hunters always do." },
@@ -564,6 +585,7 @@ P:NPC {
         { text = "Why steal a human sword instead of forging your own?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you trust a warrior to carry Trol'kalar, Zengu?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should we use a troll-killing sword against trolls?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Does it amuse you that the Light now serves the Horde, Zengu?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Ha. Let's get it.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
       },
     },
@@ -724,6 +746,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "My people give thanks to the Earth Mother for the sun on the grass, and I wonder sometimes whether your Light is only that same warmth by another name. I am an innkeeper, not an elder, so I keep a fire, and I do not mind what anyone calls it." } },
+      choices = {
+        { text = "Perhaps it is, Adegwa. Warmth is warmth, for living or dead.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light is nothing like your Earth Mother's warmth. It burns.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They come in angry and they leave tired, which I count as rest. The orcs here fight with a fury the Earth Mother would not recognise, and I think some of them no longer know how to stop." } },
@@ -791,6 +822,7 @@ P:NPC {
           text = "Sit by the fire, {class}, and keep your back to the wall if it helps you rest. I have known many who could not sleep any other way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Sit, and set that weapon down, for there is no foe in this room, and the fire will mend what the Witherbark have bruised." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The wild has followed you in, I see, and it is as welcome at my fire as you are." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "One of the Forsaken, and the Light shines in you like the sun on Mulgore's grass. The Earth Mother keeps her own counsel about the dead, but I think she would not mind a light kept burning." },
       },
       again = { { id = "h_again", text = "Something else? The fire's in no hurry, and neither am I." } },
       choices = {
@@ -806,6 +838,7 @@ P:NPC {
         { text = "Do many quiet travelers come through Hammerfall?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do many warriors find rest here, Adegwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do tauren hunters ever come this far from Mulgore?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Do the tauren see the Light as the Earth Mother's gift?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Just a rest, thank you.", next = "END" },
       },
     },

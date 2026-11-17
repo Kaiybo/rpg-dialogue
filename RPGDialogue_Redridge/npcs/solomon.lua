@@ -30,6 +30,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not one of them. I carry Lakeshire's danger carefully, and too long. Your spirits might reach where my letters can't." } },
+      choices = {
+        { text = "Keep writing, Magistrate. Someone will listen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stop writing. Act yourself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       lines = { { id = "xro_default", text = "I've had that same unpleasant thought, and it's why I seal every one with wax and my own ring. If someone in Stormwind is reading Lakeshire's mail and doing nothing about it, I'd sooner know it than suspect it." } },
       choices = {
@@ -88,6 +97,7 @@ P:NPC {
           text = "The court recognises you, which is not the same as welcoming you. State your business." },
         { id = "h_redridge_born", when = { origin = "human_redridge_born" },
           text = "One of our own, back from the wider world. The court remembers your family's name, and it would rather see you on the walls than on a list of the missing." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Be brief. A shaman. I'll write another letter nobody will answer. Do your spirits carry letters?" },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, if you would; the docket is long and the day is not." },
@@ -112,6 +122,7 @@ P:NPC {
         { text = "Gnomeregan knows what it is to lose a city.", next = "gnome", when = { race = "Gnome" } },
         { text = "Someone in Stormwind may be reading your letters before the nobles do.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Morganth's tower belonged to a wizard once, didn't it?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Has Stormwind answered your letters, Magistrate?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your letters.", next = "END" },
       },
     },

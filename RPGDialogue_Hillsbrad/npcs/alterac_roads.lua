@@ -365,6 +365,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "If it does, it does not listen very closely, because they pray for luck at dice and then beat me when they lose. You fight for the Horde with it, I am told, so perhaps the Light is wiser than its servants." } },
+      choices = {
+        { text = "The Light is wiser, and it will see you free.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light hears everyone. That's why I don't trust it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Worse than one, for a beast they would at least feed properly. They keep me because I know where things are buried in these hills, and when I'm free I mean to make every one of them regret it." } },
@@ -443,6 +452,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior of the Horde! I'd know the stance anywhere, feet set and shoulders square, and I've not seen it in a free orc since the Syndicate took me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter of the Horde, here in these camps. The humans keep their dogs on short chains, as they keep me, so perhaps your beast and I would understand each other." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the tauren? I've heard your people can walk as beasts, and I confess I've dreamed of slipping these chains as something with claws." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one who carries the Light. The Syndicate's guards pray to it too, when they think I am asleep, and I wonder if it hears them as well as it hears you." },
       },
       choices = {
         { text = "Did the spirits keep you company in your chains, Gol'dir?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -455,6 +465,7 @@ P:NPC {
         { text = "How did the Syndicate take a warrior like you, Gol'dir?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the Syndicate keep dogs to guard you, Gol'dir?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Have the Syndicate treated you like an animal, Gol'dir?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do you think the Light hears your captors, Gol'dir?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I can't free you today. I'm sorry.", next = "END" },
       },
       again = { { id = "h_again", text = "What else? The guards come back at dusk, so be quick." } },
@@ -524,6 +535,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'd brew them for anyone who pays, and I'd think nothing of it, but you might. The Light was never fond of poison, I'm told, though I've noticed the Light was never asked to hold Tarren Mill against Southshore either." } },
+      choices = {
+        { text = "No poison on my blade. The Light is enough.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Whatever holds Tarren Mill. I'll take the poison.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Waste them? I use every leaf, and I grind the stems for the next batch. The Society does the grand work in the Undercity with their great vats, but out here a man learns to make a single kingsblood go a very long way." } },
@@ -607,6 +627,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want healing draughts, I expect, since your kind treat the front line as a place to stand rather than a place to leave." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Bring me the glands from the Hillsbrad bears and the venom from the Alterac spiders, and I'll pay you better than any tanner in Tarren Mill." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, and a herbalist too, I'd wager. Tell me, do your people ever cut a root without first asking its pardon, or is that only a story?" },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. You'll mend wounds with a prayer and I'll mend them with a draught, and I suspect mine is cheaper, though yours is quicker." },
       },
       choices = {
         { text = "Do your draughts and a shaman's herbs have anything in common?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -618,6 +639,7 @@ P:NPC {
         { text = "What would you brew for someone who fights on the front line?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do you make from the beasts I bring you, Hinott?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You brew with the land's herbs. Do you waste them?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Would you brew poisons for a paladin's blade, Serge?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good day.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? The flask on the left is about to do something interesting." } },

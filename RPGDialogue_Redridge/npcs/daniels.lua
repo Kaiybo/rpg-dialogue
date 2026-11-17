@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Bad enough that I'm cheerful on purpose. The Blackrock have their own shamans up in those hills, and folk here flinch at the word, so mind how you say it." } },
+      choices = {
+        { text = "I'll show them a shaman can be a friend, Daniels.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them flinch. They'll learn what I am soon enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because the orcs hit the wagons on the Lakeridge Highway, and the drivers won't go out again until someone clears the road. If a warrior cleared it, I'd have casks in a week, and I'd remember who to thank." } },
@@ -121,6 +130,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I've nothing to pour you, but I've a few regulars who could do with a kind word more than a drink." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "One of the Silver Hand, in my bar. I'd pour you something proper if the Blackrock had let a single cask through." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You wouldn't know how to brew something from berries and moss, would you, because I've an empty cellar and I'm getting desperate." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've a bar and very little behind it since the orcs cut the road. If your spirits can conjure ale, you're hired." },
       },
       again = {
         { id = "h_again", text = "Anything else? The stool's yours as long as you want it." },
@@ -143,6 +153,7 @@ P:NPC {
         { text = "Do the soldiers tell you what they've seen out there?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the soldiers keep the peace in your bar, Daniels?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What became of your stock, Daniels?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "How bad has it been since the road was cut, Daniels?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -245,6 +256,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Some do, after what the Blackrock have done. But fear's no excuse for bad manners in my inn. You're welcome here." } },
+      choices = {
+        { text = "Thank you, Brianna. Kindness answers fear best.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Fear keeps people alive. I don't blame them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xrogue = {
       big = true,
       lines = { { id = "xrogue_default", text = "Not from thieves, no, for there's little in Lakeshire worth stealing since the gnolls took the farms. What I get is soldiers who can't pay, and I let them stay anyway, because they're the only thing standing between us and the hills." } },
@@ -319,6 +339,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin under my roof! You'll have the room by the stairs, if you don't mind being first down when the bell goes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I'll give you the room by the lake, because you'll want to hear the water, and nobody else wants to hear the murlocs." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. The rooms lock from the inside, so you'll want to try the window if you're planning anything, and the window sticks." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and tired, I'd say. Sit down, love. Folk here have had a hard time with orcs, so if anyone stares, you send them to me." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? The kettle's on and Narnie's asleep." },
@@ -336,6 +357,7 @@ P:NPC {
         { text = "How do you keep the town calm when the bell rings?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do many travellers still reach Lakeshire with the roads so dangerous?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you get much trouble from thieves at the inn, Brianna?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Do people in Lakeshire fear shamans, Brianna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just passing through.", next = "END" },
       },
     },

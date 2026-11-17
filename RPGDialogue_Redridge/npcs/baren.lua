@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "They have, and I count them now the way I count the boats. If your spirits can tell me why they've come up out of the Everstill, I'd write that down too." } },
+      choices = {
+        { text = "Keep counting, Baren. A careful dock is a safe dock.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the counting. Drive the murlocs off and be done with it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "No, nothing frightens a Lakeshire fisherman more than a murloc, though you'd come a close second. The murlocs on the north shore have been taking catches and nets both, so if your craft can scare them back under the water, the docks would warm to you quickly enough." } },
@@ -110,6 +119,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my docks. Mind the third plank from the end, because it doesn't care how holy you are." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock on my docks. Mind your step on the boards, and keep your pet away from the boats, because the fishermen are jumpy enough with the murlocs about." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Murloc", min = 30 } }, text = "The fishermen tell me the murlocs on the north shore are fewer than they were, and somebody's been leaving them on the rocks. I'll count that in my ledger as a good week." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, on my docks. Mind the loose planks, and if your water spirits can keep the murlocs off my boats, I'll owe you a drink." },
       },
       again = {
         { id = "h_again", text = "Anything else? I'd say the tide's out, but it's a lake, so nothing's ever out. Ask away." },
@@ -129,6 +139,7 @@ P:NPC {
         { text = "Has the lake taken any of Lakeshire's people, Dockmaster?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who keeps the docks safe after dark, Baren?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the fishermen fear warlocks more than murlocs, Baren?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Have the murlocs got worse on the lake, Dockmaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your boats.", next = "END" },
       },
     },

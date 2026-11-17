@@ -23,6 +23,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "If they do, it's a cranky one, because every stone has an opinion about where it sits. A dwarf ought to know that better than me, spirits or no." } },
+      choices = {
+        { text = "Set each stone with care, Dmitri. The bridge deserves it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stones are stones. Lay them faster and finish the bridge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xmage = {
       big = true,
       lines = { { id = "xmage_default", text = "Not with the stones, I'd guess, but with the Blackrock, certainly. Every time we set a span, some orc scout comes down out of the hills and sets fire to the scaffolding, and I'd like to see one of them try it with a mage watching." } },
@@ -108,6 +117,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll know about building things that last, I'd think, since your order's been standing longer than most bridges." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll ask you not to turn into anything large on my scaffolding, because I've measured what it'll bear and a bear isn't in the sums." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you lift a stone with a spell? No? Then you're no more use on this bridge than the foreman." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Measure twice before you call your lightning near my bridge, friend. These stones took us a year to set." },
       },
       again = {
         { id = "h_again", text = "What else? Talk slowly; I like to think while I listen." },
@@ -126,6 +136,7 @@ P:NPC {
         { text = "Does the crew need guarding while it works, Dmitri?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the bridge trouble the lake, Dmitri, or the fish below?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could a mage help with the Everstill Bridge, Dmitri?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do the bridge stones have a spirit, Dmitri?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll leave you to your stones.", next = "END" },
       },
     },
@@ -195,6 +206,15 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Only in stories about the orcs, and those weren't nice stories. You're a dwarf, though, and you're on our side, so that's different, isn't it?" } },
+      choices = {
+        { text = "It's different, Jess. A shaman can stand for the Alliance.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Stories are stories. Judge for yourself who's dangerous.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than anything, but the foreman says I'd drop a sword like I drop the stones, which is only sometimes! Still, the soldiers at the barracks let me watch them drill, and I practise with a stick when nobody's looking." } },
@@ -261,6 +281,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Are you here to bless the bridge? Somebody should, because Dmitri says it's cursed, though I think he's only joking." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! A real one! Is it true you can heal people just by touching them? Could you show me sometime?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a real druid, and a night elf besides! I've never seen either before today, and I'd love to see the bear, if you'd show me." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! A real one? Can you call lightning? Can you do it now? I won't tell Oslow, honest." },
       },
       again = {
         { id = "h_again", text = "What else? Dmitri's not looking, so I've a minute." },
@@ -277,6 +298,7 @@ P:NPC {
         { text = "Does the work frighten you, Jess?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you stand your ground if the orcs came for the bridge?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Have you ever gone past the bridge, Jess, into the hills?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Have you ever seen a shaman before, Jess?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Back to work, Jess.", next = "END" },
       },
     },

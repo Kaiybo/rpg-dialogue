@@ -24,6 +24,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I'd like to think so, after what the Scourge made of Darrowshire. If the Light can find you after death, then perhaps it can find him too, and I'd sleep better believing that than believing he's lost for good." } },
+      choices = {
+        { text = "It found me. It can find him too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light doesn't always come back. Don't count on it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "He was a farmer who could fight, which is the hardest kind of soldier to break. When the Scourge came out of the north he didn't wait for help from anyone; he put every man who could hold a pitchfork into a line across the square, and held it longer than any of us had a right to." } },
@@ -115,6 +124,7 @@ P:NPC {
           text = "A hunter. We had a fellow in Darrowshire who kept hounds for the harvest-fair hunts, {class}, and the night the town fell, those hounds howled for an hour before any of us saw a ghoul." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. My brother fought orcs in the Second War, {class}, and he'd have been surprised to see one of you at Light's Hope, but not unhappy, I think." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll not turn you away, {class}, for the Dawn doesn't, but I saw the Cult of the Damned's necromancers at Darrowshire, and you'll forgive me if it takes a moment to remember you're not one of them." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin who died and came back with the Light still in hand. Joseph would have given anything to see that, because he always said the Light never truly leaves those who stand their ground." },
       },
       choices = {
         { text = "Will anything grow in Darrowshire again?", next = "druid_q", when = { class = "DRUID" } },
@@ -130,6 +140,7 @@ P:NPC {
         { text = "The hounds knew the Scourge was coming before you did?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would Joseph have made of the Horde today, Carlin?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Were the Cult's necromancers at Darrowshire, Carlin?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Do you think the Light could find Joseph too, Carlin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to your memories.", next = "END" },
       },
       again = { { id = "h_again", text = "What else would you hear? I've little but stories now, but I've plenty of those." } },
@@ -212,6 +223,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Papa said the knights of the Silver Hand were never afraid of the dark, and you're not either, I can tell. Are you here to take me to Papa? Because I'd go, I think, if a glowing knight was the one who came for me." } },
+      choices = {
+        { text = "The Light will bring you home to your papa, Pamela.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I'm not a knight like the ones in the stories.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Lots and lots, all in the square with Papa, and they were very loud and then they were very quiet. Auntie Marlene said I mustn't look, so I didn't look, and I'm still being good about it." } },
@@ -295,6 +315,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "Can you do magic? Real magic? Auntie Marlene said mages could make sparkles come out of their fingers, and I always wanted to see." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that a little monster? It's got horns, but it's ever so small, and I don't think it'll hurt me, will it? Will it?" },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "Can you really turn into animals? I had a kitten once, and she ran away when the pale people came, and I miss her ever so much." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You're dead too, aren't you? But you're glowing, like the knights in Papa's stories, and I didn't know dead people could glow." },
       },
       choices = {
         { text = "Would you like me to hold your hand a while?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
@@ -308,6 +329,7 @@ P:NPC {
         { text = "Would you like to see some sparkles, Pamela?", next = "xmage", when = { class = "MAGE" } },
         { text = "Are you frightened of my little friend, Pamela?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "What was your kitten's name, Pamela?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do you know any stories about knights, Pamela?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I have to go now, Pamela.", next = "END" },
       },
       again = { { id = "h_again", text = "Do you want to hear something else? I know lots of things, mostly about dollies." } },
@@ -371,6 +393,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Trust's a strong word fer anyone in the Plaguelands, but the Dawn's no' fussy, an' neither am I. Back in Ironforge they'd call ye an abomination an' a miracle in the same breath, an' then argue aboot which till the ale ran dry." } },
+      choices = {
+        { text = "The Dawn has it right. Judge me by my deeds.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let Ironforge argue. Their opinion means nothing to me.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Rub it intae yer boots an' straps an' the plague slides off like rain off a slate roof, or so I tell the Dawn, an' they've no' complained yet. It smells like a ghoul's armpit, mind, but a warrior who smells bad lives longer than one who smells sweet." } },
@@ -459,6 +490,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, eh? Ye'll not like what I do, {class}, cuttin' bits off the dead an' boilin' 'em, but the spirits can take it up wi' the Scourge, for they started it." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Ye wouldnae be able tae keep a pot boilin' wi'out a fire, would ye, {class}? Me coal's run out again, an' the Dawn's carts are late." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Ghoul", min = 40 } }, text = "Ye've been busy, I can tell, for the soldiers keep bringin' me ghoul bits wi' yer name on 'em. Keep it up, an' I'll never run short o' toes again." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin o' the Forsaken! Well, that's one fer the books, a dead {g:lad|lass} callin' down the Light, an' I'll no' pretend I'm no' curious, but hold yer smitin' till ye're out o' the workshop." },
       },
       choices = {
         { text = "What does the plague do to the beasts out here?", next = "druid_q", when = { class = "DRUID" } },
@@ -472,6 +504,7 @@ P:NPC {
         { text = "Do you brew with plagued beasts too, Smokey?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you ever wonder what the spirits think of your brews, Smokey?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Can magic really help with your brewing, Smokey?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Does a dwarf of the Dawn trust a Forsaken paladin, Smokey?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll leave you to it.", next = "END" },
       },
       again = { { id = "h_again", text = "Still here? Fine, but ye're breathin' my smoke." } },
@@ -537,6 +570,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "By telling me whether it stings! If the holy part of my device bothers you, it'll bother the Cult of the Damned far worse, and if it doesn't, then I'll know you're more holy than dead, which would be fascinating either way." } },
+      choices = {
+        { text = "Test it on me. Better I sting than a knight dies.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'm not your test subject. Find another way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Carry them into the Scholomance, mostly, because the Cult won't let a gnome near the place and I'm too short to hit anything. You'd be amazed what a little blessed vapour does to a necromancer's concentration, or at least I hope you'd be amazed, as I haven't tested it yet." } },
@@ -624,6 +666,7 @@ P:NPC {
           text = "A hunter! Do you know, {class}, I built a mechanical hound once, and it chased its own tail until it caught fire, so I've a great deal of respect for the real ones." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Oh! You crept up on me, and I'm usually quite good at noticing things, {class}, so either you're very good or I've been staring at this gear too long." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I've always wanted to ask one of you, {class}, whether lightning can be bottled, because I've a few designs that would be ever so much simpler if it could." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Oh, how wonderful, you're exactly what my Gambit needs, because it's meant to be holy and the Scholomance is meant to be unholy, and you're a little of both." },
       },
       choices = {
         { text = "Do your devices harm the land, Betina?", next = "druid_q", when = { class = "DRUID" } },
@@ -639,6 +682,7 @@ P:NPC {
         { text = "A mechanical hound? What went wrong, Betina?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What would you need from a quiet sort, Betina?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would you want to bottle lightning, Betina?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "How would a Forsaken paladin help your Gambit, Betina?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Good luck with it.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? I can talk and solder, mostly." } },

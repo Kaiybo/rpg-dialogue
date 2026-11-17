@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xdsham = {
+      big = true,
+      lines = { { id = "xdsham_default", text = "Not if the orcs keep interfering. They've taken it personally, it seems. Your spirits might help, if they're willing." } },
+      choices = {
+        { text = "Then let's finish it, Oslow. I'll help.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Forget the bridge. Defend the town.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Guarding the crew while they work, because every time I turn my back the gnolls make off with another load of tools. I'd finish this bridge before the rains if I had one good fighter at the far end." } },
@@ -126,6 +135,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Unless you're carrying a hammer, keep walking, but if you're carrying a blessing, I'll take it for the crew." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Unless you're carrying a hammer, keep walking, though I'll make an exception for one who keeps orcs off my scaffolding." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Unless you can turn into something that carries stone, keep walking, because I've no time for sightseers, even tall ones." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Keep walking unless you've a hammer. Oh, a shaman. Can your earth spirits finish this bridge?" },
       },
       again = {
         { id = "h_again", text = "Something else? Ask, by all means; the measuring line won't run off." },
@@ -147,6 +157,7 @@ P:NPC {
         { text = "Does your crew ever ask for a blessing before work, Foreman?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Is the bridge worth the lives it's cost, Foreman?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will the new bridge be strong enough to stand against the orcs?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Will your bridge be done before the rains, Oslow?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good luck with the rains.", next = "END" },
       },
     },

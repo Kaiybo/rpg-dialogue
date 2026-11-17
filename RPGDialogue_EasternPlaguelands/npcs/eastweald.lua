@@ -279,6 +279,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Kill what I point you at, and leave the prayers for after. The Scarlets at Tyr's Hand call on the same Light you do, and the Banshee Queen wants them dead, so I'll be watching to see whether your hand shakes when you meet them." } },
+      choices = {
+        { text = "My hand won't shake. The Dark Lady's enemies are mine.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll judge the Scarlets myself, not on your word.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Advance, and keep advancing, through the Scarlet camps and the plaguebats alike, without waiting on orders from the Undercity. The Scourge has all the patience in the world, so the only way to beat it is to be faster." } },
@@ -335,6 +344,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Dark Lady's priests have found what the Light never gave us, {class}, and I trust you're not one of the soft ones who still pray to the old Cathedral's god." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Your spirits will find little to talk to out here, {class}, for the Scourge has killed the land as surely as it killed me." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = { "Plaguebat", "Plaguehound" }, min = 40 } }, text = "The plaguebats over Marris Stead are fewer, and the hounds no longer bay at my door. Adequate work. The Queen will hear of it, which is more praise than most get." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. I was a ranger-lord of Lordaeron when the Silver Hand still rode, and I never cared much for knights who prayed more than they fought, so show me you're different." },
       },
       again = {
         { id = "h_again", text = "More? Ask it quickly, because the plaguebats won't wait on your curiosity." },
@@ -352,6 +362,7 @@ P:NPC {
         { text = "What more would you have a warrior do, Blightcaller?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do you trust any priest, Blightcaller?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you think the land can be brought back, Blightcaller?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What would you have a paladin do in these fields, Blightcaller?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll clear the fields.", next = "END", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll hunt where I please, Blightcaller, not where you point.", next = "END", fx = { align = { order = -1 } } },
       },

@@ -94,7 +94,7 @@ P:NPC {
           text = "Sneaking up on a gryphon master, {class}? The birds saw you a mile off, they just didn't think you worth a squawk." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest, is it? Then ye'll know why my birds land here and nowhere else in these lands, because the ground at Light's Hope is holy, an' even a gryphon can feel it under its claws." },
-        { id = "h_apaladin", when = { class = "PALADIN" },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin, flyin' in an' out o' Light's Hope like the knights o' old! The birds like ye lot, I'll say that, because ye never panic in the saddle." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior! Mind the bird's wings when you mount, {class}, for you'd be amazed how many soldiers catch a pinion with their shield and then wonder why the gryphon won't speak to them." },
@@ -114,7 +114,7 @@ P:NPC {
         { text = "Do the gryphons mind flying over the plague?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do you keep an eye on Georgia's bats, Khaelyn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Can gryphons really feel the chapel's holy ground, Khaelyn?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "How do you bear sharing a yard with a Forsaken, Khaelyn?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "How do you bear sharing a yard with a Forsaken, Khaelyn?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
         { text = "Do gryphons hold grudges against careless riders?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do gryphons and hunters' beasts get along up here?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Have you had trouble with warlocks before, Khaelyn?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -191,6 +191,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Fairly enough, which is more than I expected, though they keep a little farther from my roost than they need to. You'll be a puzzle to them, because you're dead like me and holy like them, and puzzles make knights nervous." } },
+      choices = {
+        { text = "Then I'll help them solve it, fighting at their side.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Let them stay nervous. It keeps them honest.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "They can and they do, but they fly lower and grumble louder. I'm told the apothecaries bred them for strength rather than comfort, so you'll arrive with your teeth rattling and your armour full of fur." } },
@@ -256,6 +265,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. If you're here to bless the bats, {class}, don't bother, because they hate holy water nearly as much as they hate the arcane." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. My bats can feel the spirits around you, {class}, and they'll twitter about it all the way to Tarren Mill, so try not to take it personally." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. Please don't turn into anything with wings near my roost, {class}, for the bats get territorial, and I'm not climbing up there again to separate you." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, one of ours, at Light's Hope. The Dawn's knights will stare at you the way they stare at my bats, as though they're not quite sure whether to bless you or burn you." },
       },
       again = {
         { id = "h_again", text = "What else? The bats don't like the daylight, and neither do I." },
@@ -274,6 +284,7 @@ P:NPC {
         { text = "What do your bats like, Georgia?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the bats really sense the spirits, Georgia?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Have druids caused you trouble at the roost before, Georgia?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do the Dawn's knights treat the Forsaken fairly here, Georgia?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -360,6 +371,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "A few of the younger knights flinch, but they'll learn, because this chapel's seen stranger things than you. The Revered Leonid sits right over there with his face falling off, and he's the gentlest soul in the place, so I tell them to mind their manners and eat their soup." } },
+      choices = {
+        { text = "They'll learn. I'll show them patience.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "They needn't like me. I'm here to fight, not dine.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Sleep, mostly, and somebody to listen while they tell me what they saw at Corin's Crossing or Tyr's Hand. I give them soup and a clean blanket, and I've found the ones who talk sleep better than the ones who don't." } },
@@ -439,6 +459,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, good, for you might bring in something fit for the pot, {class}, as long as it's from somewhere the plague hasn't reached." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, welcome in. The beds are the same for everyone, {class}, and the stew's the same too, though I'll warn you it's mostly turnip this week." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Come in and sit, love, Light and all. I've fed the Dawn's knights and Forsaken scouts at the same table, and you're the first who's been a bit of both." },
       },
       again = {
         { id = "h_again", text = "Anything else I can get you? There's more bread." },
@@ -458,6 +479,7 @@ P:NPC {
         { text = "What do the soldiers need most when they come in?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where does the inn's meat come from, Jessica?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do the soldiers mind a Horde guest at the inn, Jessica?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Does anyone at Light's Hope mind a Forsaken paladin at table?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -543,6 +565,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Coin's coin, and the Dawn needs every copper to keep its knights in thread and bandages. I'll admit I counted yours twice, but that's habit, not prejudice, and I'd do the same to a dwarf." } },
+      choices = {
+        { text = "Count it all you like. Honest coin is honest coin.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Count it again and I'll take my coin elsewhere.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "More than anywhere in the kingdom, because every strap and rivet comes up from the south in a wagon the Scourge would dearly love to stop. A soldier who keeps his kit mended saves the Dawn a funeral, so I sell as cheaply as I can, which isn't very cheaply." } },
@@ -606,6 +637,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Trade goods are trade goods, {class}, and the Dawn doesn't ask which crown you serve, so look all you like." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I don't stock soul shards, {class}, and I'll ask you not to try selling me any, because I've no idea what to charge for them." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I've herbs that came all the way from Ashenvale and Mulgore, {class}, and they're worth their weight in gold out here, where nothing green survives." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, buying supplies at Light's Hope. Everything here came a long and dangerous way, and so did you, by the look of it." },
       },
       again = {
         { id = "h_again", text = "Anything else? There's a wagon to unload." },
@@ -622,6 +654,7 @@ P:NPC {
         { text = "How do your supplies reach Light's Hope, Jase?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Would you sell to a warlock at all, Jase?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does anything still grow out here, Jase?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do the Dawn's merchants trust Forsaken coin, Jase?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Goodbye.", next = "END" },
       },
     },

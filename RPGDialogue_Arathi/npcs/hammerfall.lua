@@ -26,6 +26,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Hate takes strength, and I left mine in these chains. The humans who killed the Warchief prayed to that Light, and now you stand here holding it for the Horde, and I do not know what to feel." } },
+      choices = {
+        { text = "Then feel hope, Gor'mul. The Light fights for the Horde now.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Feel nothing for it. The Light betrayed you once.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "Some of them, maybe. I've seen orcs who forgot how to hold an axe, and who sit and wait for a guard to tell them when to eat. The Earth Mother heals, your people say, but I'd like to see her try it on them." } },
@@ -91,6 +100,7 @@ P:NPC {
           text = "You move like the grunt who slipped his chains the night the Warchief came, {class}, and vanished into the dark before the guards ever saw him go." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Doomhammer fell not far from here, and the beasts in the hills watched it, I think, though nobody asks a raptor what it saw." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Your people were hunted by centaur before Thrall found you, I've heard, so you know what it is to be chained to fear." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead thing carrying the Light, like the knights who rode past this camp when I was in chains. I thought I had seen everything there was to see, and I was wrong, which is the first thing to surprise me in years." },
       },
       again = {
         { id = "h_again", text = "Something more? Ask, then, for all the good it will do." },
@@ -110,6 +120,7 @@ P:NPC {
         { text = "Do you wish you had run that night too?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do you think the beasts remember that night, Gor'mul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Is there hope for the orcs still in the camps?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Do you hate the Light for what its knights did, Gor'mul?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Leave him be.", next = "END" },
       },
     },
@@ -227,6 +238,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Both, I think, the same way Gor'mul be both a hero and a broken man. The spirits don't like the dead walkin', but they like a fire kept burnin' in the dark, and you be doin' that, mon, so maybe they forgive you the rest." } },
+      choices = {
+        { text = "Then I'll keep the fire burning, for Gor'mul too.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "I don't need the spirits' forgiveness, Tor'gan.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The spirits care about everything, mon, though they don't always say so. An orc who fight for Hammerfall heal faster than one who fight because he don't know how to stop, and Tor'gan see it in the wounds every week." } },
@@ -285,6 +305,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. The spirits like a warrior who know why he fight, and they don't much like one who only know how." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "You walk so soft the spirits almost miss you, {class}, and that be a rare thing. Come sit, and don't worry, Tor'gan don't tell nobody what the spirits whisper about a quiet one." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, come to Hammerfall! You speak to the Light or the loa or the shadow, and Tor'gan speak to the spirits, but we both be in the business of mendin' what's broken." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, mon. The spirits whisper about your kind, and they can't decide whether you be a wonder or a wound, so maybe you tell me which." },
       },
       again = {
         { id = "h_again", text = "What else be on your mind, friend?" },
@@ -304,6 +325,7 @@ P:NPC {
         { text = "Do the spirits care why a warrior fights, Tor'gan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What do the spirits whisper about me, Tor'gan?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Could my prayers help Gor'mul, Tor'gan?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do the spirits think I'm a wonder or a wound, Tor'gan?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll help Gor'mul.", next = "END", fx = { affinity = 2, trait = { kind = 1 } } },
       },
     },
@@ -417,6 +439,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "Nothing, and that is what frightens me, since the bones speak of every warrior who walks into Hammerfall. Perhaps the dead are outside their sight, or perhaps the Light hides you from them, and I cannot decide which I would rather believe." } },
+      choices = {
+        { text = "The Light guides my path. I trust where it leads.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then my fate is my own to make, Korin.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xhuntcl = {
       big = true,
       lines = {
@@ -454,6 +485,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Keep your voice down, {class}. The auguries speak of a knife in the dark, and I would sooner it were yours than the Witherbark's." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The stones spoke of tracks in the ruins of Stromgarde last night, and I wonder now if they meant yours." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The auguries never spoke of you, which troubles me more than anything they did say, because I thought I had seen every shape the future could take." },
       },
       again = {
         { id = "h_again", text = "Anything else? Keep your voice down." },
@@ -470,6 +502,7 @@ P:NPC {
         { text = "Do your auguries ever show you the arcane?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "What do the auguries say about a knife in the dark?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What tracks did your stones see in Stromgarde, Korin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What do your auguries say about a paladin's fate, Korin?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I'll keep your secret.", next = "END", fx = { affinity = 2 } },
       },
     },
@@ -582,6 +615,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "I think they smell the Light on you, the way they smell clean air before a storm, and they like it better than the smell of the grave. The Highlands' winds respect nothing, but my beasts respect you, and that counts for something here." } },
+      choices = {
+        { text = "Then I'll be worthy of their trust, Urda.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Beasts trust anything that feeds them. I won't read into it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdruid = {
       big = true,
       lines = { { id = "xdruid_default", text = "They're fierce beasts, and they'd fight if we asked, but they're also the only way word reaches Hammerfall in time. I'd rather they carried messages than died in a Stromgarde volley, and they agree with me." } },
@@ -636,6 +678,7 @@ P:NPC {
           text = "Sneak up on a wind rider and you'll lose a hand, {class}. They smell fear and mischief equally well, and you've a whiff of both." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Climb on with your armour if you must, but the winds off Thoradin's Wall don't care how brave you are, and they've tipped heavier riders than you." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You could fly yourself if you wanted, I've heard, but I'll take your coin all the same." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The wind riders shy away from most of your people, but they let you near, and I've learned to trust their noses more than my own eyes." },
       },
       again = {
         { id = "h_again", text = "Anything else? The wind's turning." },
@@ -651,6 +694,7 @@ P:NPC {
         { text = "Could I fly out without the guards knowing?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Has a wind rider ever thrown a warrior, Urda?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Should the wind riders be ridden into battle?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
+        { text = "Why would the wind riders trust a paladin over other Forsaken?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

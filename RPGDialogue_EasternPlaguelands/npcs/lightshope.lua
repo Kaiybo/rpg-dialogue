@@ -29,6 +29,15 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    xfpala = {
+      big = true,
+      lines = { { id = "xfpala_default", text = "The Dawn welcomes anyone who stands against the Scourge, and you stand with the Light besides, which is more than many of my knights can say on a bad day. Some of them will look at you and see what they lost, and you'll have to forgive them that, because it's grief, not hatred." } },
+      choices = {
+        { text = "I'll forgive them. Grief is something I understand.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Their grief is theirs to carry. I'll not bend for it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "The Dawn asks for a strong arm and a clear conscience, and the Light is welcome but never required. Some of the best I've known were soldiers of Lordaeron's old army who simply refused to stop fighting when their kingdom did." } },
@@ -88,6 +97,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter at Light's Hope. My scouts tell me the beasts of the Eastweald have gone strange, {class}, and I'd value an expert's eye on what it means." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and welcome to Light's Hope. The Dawn asks no one which crown they serve, {class}, and we've learned that the spirits of the land are as much the Scourge's enemy as the Light is." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. I left the Silver Hand when it became the Crusade, and I never imagined the Light would still answer the dead it failed to save, but here you stand, and I'm glad of it." },
       },
       again = { { id = "h_again", text = "What else? Speak freely; the chapel keeps no secrets from its own." } },
       choices = {
@@ -106,6 +116,7 @@ P:NPC {
         { text = "Can a warrior serve the Dawn without the Light?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What strangeness have your scouts seen in the beasts?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Is the Dawn truly open to shamans, my lord?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Will the Argent Dawn welcome a Forsaken paladin, Lord Tyrosus?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "How can I help?", next = "END", fx = { affinity = 2, standing = { light_hope = 1 } } },
       },
     },
