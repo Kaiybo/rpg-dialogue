@@ -2,6 +2,16 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.78.0 (2026-11-17)
+The battleground emissaries in the capitals have something to say now. **New files: restart the game fully (a /reload won't load them).**
+
+### New conversations (Stormwind, Ironforge, Darnassus, Orgrimmar, Undercity, Thunder Bluff)
+- **Warsong Gulch:** the **Silverwing Emissary** (a Sentinel far from her trees) and the **Warsong Emissary** (an Outrider who'll tell you why Orgrimmar needs Ashenvale's wood). The mill, the flag raids, Grom and Cenarius, from both sides.
+- **Arathi Basin:** the **League of Arathor Emissary** (Arathor's old heartland, Stromgarde, the Farm his grandmother's family worked) and the **Defilers Emissary** (a Forsaken carter who hauled grain out of the Highlands when he was alive, and won't say much about the opened barrows).
+- **Alterac Valley:** the **Stormpike Emissary** (a dwarf with a bad knee from Stonehearth, recruiting instead) and the **Frostwolf Emissary** (Durotan's clan, Drek'Thar, Thrall). Who has the right to the valley is argued on both sides.
+- **Alliance Brigadier General** and **Horde Warbringer**, who want a mark from every field: is it a war or a sport, the honor ranks, and what they think of dishonorable kills.
+- They notice your marks of honor, your standing with their faction, your rank and your honor kills, and say different things in each city they stand in. Each has lines for the races and classes they'd react to.
+
 ## 0.77.0 (2026-11-17)
 More of Booty Bay to talk to: five new people and much more from the Blackwater Raiders. **New files: restart the game fully (a /reload won't load them).**
 
