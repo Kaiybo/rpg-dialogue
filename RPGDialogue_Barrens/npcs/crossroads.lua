@@ -869,6 +869,7 @@ P:NPC {
 
 P:NPC {
   key = "helbrim", id = TODO_NPC("Apothecary Helbrim"), name = "Apothecary Helbrim",
+  prejudice = { race = "Tauren", class = "DRUID", amount = 10, why = "Tauren druids sniff at his samples and report him to Thunder Bluff; he thinks them sanctimonious about the Society's work." },
   bible = "bibles/crossroads.md", role = "scholar", tier = "quest",
   communities = { "crossroads" }, temper = { "clinical" }, values = { "curious", "practical" },
   notices = { "craft", "race" },
@@ -878,6 +879,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A tauren druid, at my stall again. Go on, then, smell the jars and frown and send another letter to the Arch Druid about what the wicked apothecary is doing to the grass." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You know, you're the only druid in the Barrens who's ever asked what I'm actually doing before telling me it's wrong. I find it unsettling, in a pleasant sort of way." },
     { id = "g_samples", text = "Hands! Living ones, even, which is excellent. Mine shake a little, these days." },
     { id = "g_back", when = { metBefore = true }, text = "Back with something for me? The Barrens is full of things worth bottling." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and still breathing, which is more than my samples can say. Do you have anything for me?" },
@@ -894,6 +897,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_helbrim = {
+      big = true,
+      lines = { { id = "prej_helbrim_default", text = "Trouble? Your kind have written to Thunder Bluff about me eleven times this season. I collect spores, I take notes, I mind my own business, and every druid who walks past my table looks at me as if I'd poisoned the Earth Mother herself." } },
+      choices = {
+        { text = "Your Society brews plagues. Somebody should be watching you.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "The Barrens are big. Your samples won't hurt the Earth Mother.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "I'd rather ask than guess. Show me your work.", next = "prej_helbrim_calm", fx = { affinity = 1 } },
+        { text = "What are the spores for, honestly?", next = "prej_helbrim_why" },
+      },
+    },
+    prej_helbrim_why = {
+      lines = { { id = "prej_helbrim_why_default", text = "Honestly, I don't know; I send them to the Undercity and the Society tells me nothing. That's the part that keeps me up at night, if you must know, which I suppose is why the druids bother me so much." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_helbrim" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_helbrim_calm = {
+      lines = { { id = "prej_helbrim_calm_default", text = "Oh. Well, nobody's asked that before, so the notes are a mess. Here, these are the spores from the oasis, and these are the ones that made a lizard sneeze for a week." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_helbrim = {
       big = true,
       lines = { { id = "xpt_helbrim_default", text = "Politely, which is worse than rudely, because politeness means they're waiting for me to do something they can hang me for. Still, Thork sends me his wounded, and a grunt who's been stitched up by dead hands tends to look at me differently afterwards." } },
@@ -1028,6 +1049,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! The Society has a great deal of respect for the arcane, in its place, and its place is usually a laboratory." },
       },
       choices = {
+        { text = "You sound like you've had trouble with druids before, Helbrim.", next = "prej_helbrim", when = { prejudiced = true } },
         { text = "Why would an apothecary care what the elements think?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does the Society really want with the Barrens' plants?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What are you studying?", next = "study" },

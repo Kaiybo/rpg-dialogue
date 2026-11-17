@@ -6,6 +6,7 @@ local TODO_NPC = P.TODO_NPC
 -- Teloren: hippogryph master at Stonetalon Peak.
 P:NPC {
   key = "teloren", id = TODO_NPC("Teloren"), name = "Teloren", title = "Hippogryph Master",
+  prejudice = { race = "Gnome", amount = 8, why = "He watches the Venture Company's shredders eat Stonetalon; machines and their makers have become one thing in his mind, which isn't fair to the gnomes." },
   bible = "bibles/unsung.md", role = "flightmaster", tier = "service",
   communities = { "stonetalon_peak" }, temper = { "calm", "watchful" }, values = { "duty", "nature" },
   notices = { "race", "weary" },
@@ -15,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "A gnome, on Stonetalon Peak. Forgive me if I'm short with you; I've spent a year watching machines chew through the valleys below, and I've forgotten how to like the people who build them." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I owe you an apology, little friend, and I'm not good at them. You're not the Venture Company, and I shouldn't have looked at you as if you were." },
     { id = "g_default", text = "You climbed all the way up here on foot? Then you've earned a ride down, wherever you're bound." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the peak again. The birds know your scent by now, so they won't fuss." },
   },
@@ -28,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_teloren = {
+      big = true,
+      lines = { { id = "prej_teloren_default", text = "I suppose I do. From up here I watch the Venture Company's shredders tear down trees that were old when Ashenvale was young, and the smoke goes up every morning. When I see a gnome with grease on his gloves, I see those machines, though I know you aren't the ones driving them." } },
+      choices = {
+        { text = "Machines aren't evil. The goblins who use them are the problem.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Some trees have to fall for progress. That's the world now.", next = "BACK", fx = { align = { order = -1 }, affinity = -1 } },
+        { text = "Then let me show you a gnome who protects the trees.", next = "prej_teloren_calm", fx = { affinity = 1 } },
+        { text = "Can the shredders be stopped?", next = "prej_teloren_why" },
+      },
+    },
+    prej_teloren_why = {
+      lines = { { id = "prej_teloren_why_default", text = "The Sentinels try, and the druids at the Talondeep path try, but the Venture Company has more machines than we have arrows. Every one we stop, they replace in a week from somewhere south of Ratchet." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_teloren" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_teloren_calm = {
+      lines = { { id = "prej_teloren_calm_default", text = "I'd like that more than I can say. Go down to Windshear Crag and break a few of their machines, and I'll stop looking at your gloves." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "That the goblins keep cutting and the forest keeps dying. My birds fly above it, but I would rather they flew above something green." } },
@@ -126,6 +147,7 @@ P:NPC {
         { id = "h_again2", text = "Ask whatever you like while the hippogryphs settle their feathers." },
       },
       choices = {
+        { text = "You look at my hands like they're holding a wrench, Teloren.", next = "prej_teloren", when = { prejudiced = true } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "What do you see from up here?", next = "see" },
         { text = "Is it hard to fly in the mountains?", next = "fly" },

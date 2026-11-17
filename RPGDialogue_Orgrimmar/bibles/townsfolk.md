@@ -30,6 +30,7 @@ The city's service people: no quests, little or no gossip in the game. Built fro
 - Nogg has blown up his shop twice.
 - Xon'cha's crab story.
 - Runthak saw Doomhammer once, after a camp was freed.
+- Runthak's prejudice (0.80.0): distrusts the Forsaken; two of his grunts from the Durnholde raid later walked with the Scourge and didn't know him.
 
 ## Never
 - Anything after Year 1 (Garrosh, Cataclysm Orgrimmar, Runthak's later announcements).

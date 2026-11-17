@@ -30,6 +30,7 @@ Speaks from their own post and biases.
 - Far Watch has six grunts
 - Sent Razormane home from the river with tusks tied
 - Kargal commands Far Watch Post (location to verify)
+- Kargal's prejudice (0.80.0): wary of the Skyborne, who arrived on his border without warning; he wrote to Orgrimmar about them.
 
 ## What they notice   (2–3 things)
 1. Gender (Horde women: defensive about the Sergra quarrel)

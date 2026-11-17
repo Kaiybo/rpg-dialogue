@@ -4,6 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "zygand", id = TODO_NPC("Executor Zygand"), name = "Executor Zygand",
+  prejudice = { origin = "forsaken_scarlet_turned", amount = 12, why = "He fights the Crusade daily; a Forsaken who once wore Scarlet is, to him, a spy until proven otherwise." },
   bible = "bibles/tirisfal.md", role = "soldier", tier = "major",
   communities = { "brill" }, temper = { "cold" }, values = { "loyal", "dutiful" },
   notices = { "kit", "race" },
@@ -13,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "You wore the Crusade's red before you died. I can tell by the way you stand, and I have hanged Scarlet scouts who stood exactly like that. Speak carefully." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I had you marked as a Scarlet spy when you first came to Brill. I was wrong, and I don't say that often, so remember it." },
     { id = "g_brill", text = "State your business. The Crusade keeps me busy, and I prefer to stay that way." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, and with results, I hope." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the Crusade did not take that time off. I trust you return with something worth reporting." },
@@ -29,6 +32,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_zygand = {
+      big = true,
+      lines = { { id = "prej_zygand_default", text = "I think the Crusade trained you to hate what you now are, and that kind of training doesn't rot away with the flesh. Their scouts come into Tirisfal wearing our faces more often than you'd like to know, and every one of them swore they were done with the red." } },
+      choices = {
+        { text = "The Crusade burned me. I'll burn them back, every last one.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
+        { text = "I still think some of them were right about the Scourge.", next = "BACK", fx = { align = { light = 1 }, affinity = -1 } },
+        { text = "Give me orders against them and judge me by the results.", next = "prej_zygand_calm", fx = { affinity = 1 } },
+        { text = "How many Scarlet spies have you caught here?", next = "prej_zygand_why" },
+      },
+    },
+    prej_zygand_why = {
+      lines = { { id = "prej_zygand_why_default", text = "Four this season, and two of them were Forsaken who had gone back to the Monastery to beg forgiveness. The Crusade burned them both and sent their ashes to Brill in a box, so they weren't spies for long." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_zygand" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_zygand_calm = {
+      lines = { { id = "prej_zygand_calm_default", text = "That is the only kind of answer I trust. Go to the Scarlet camps at Solliden and come back with their colours; then we'll see what you are." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xcl_sm = {
       big = true,
       lines = { { id = "xcl_sm_default", text = "Then you've seen the Crusade at its proudest, with its great halls and banners and libraries and inquisitors. They built that place to be their answer to the plague, and it held more prisoners than prayers, and I knew some of the Forsaken they dragged inside." } },
@@ -84,6 +105,7 @@ P:NPC {
           text = "The Monastery's leaders are dead, and my deathguards report Scarlet patrols on the north road wandering without orders. That is your doing, I'm told, and it is good work." },
       },
       choices = {
+        { text = "You think I still serve the Crusade, Executor.", next = "prej_zygand", when = { prejudiced = true } },
         { text = "What use does the Deathguard have for a priest, Executor?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will the Deathguard fight beside the elements, Executor?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Is there work here for a druid, Executor?", next = "druid_q", when = { class = "DRUID" } },

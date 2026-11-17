@@ -990,6 +990,7 @@ P:NPC {
 
 P:NPC {
   key = "magatha", id = TODO_NPC("Magatha Grimtotem"), name = "Magatha Grimtotem",
+  prejudice = { race = { "Orc", "Troll", "Scourge" }, amount = 12, why = "Grimtotem pride: the tauren were whole before Thrall came, and his strays are a debt Cairne took on without asking the elders." },
   rivals = { "cairne", "hamuul" },
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "cunning" }, values = { "proud", "ambitious" },
@@ -1000,6 +1001,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_prej", when = { prejudiced = true }, text = "Another of Thrall's people up on my bluff, wearing a guest's smile. Cairne owes your Warchief a debt, but the Grimtotem never signed it, so mind your feet on Elder Rise." },
+    { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and I find I don't mind it as much as I ought to. Don't let that go to your head, outsider; the Grimtotem still keep their own counsel." },
     { id = "g_crone", text = "Hm. Another one come to stare at the old crone. Well, stare, and then be useful or be gone." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "A child of the plains, good. You at least have the sense to be born tauren." },
     { id = "g_away", when = { away = 14 }, text = "So you've been gone {away}, and now you've crawled back up to Elder Rise. Well, I hope you've brought something more useful than your face." },
@@ -1018,6 +1021,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    prej_magatha = {
+      big = true,
+      lines = { { id = "prej_magatha_default", text = "Both, if you want the truth, and I'm too old to waste time on anything else. My people walked these plains for a thousand years before the orcs came across the sea, and Cairne bound us to a Horde that did nothing for us but help one fight with the centaur. Now every orc, troll and walking corpse thinks Mulgore is theirs to wander." } },
+      choices = {
+        { text = "The Horde stood with you against the centaur. That debt is real.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Then the tauren should stand alone, and the Grimtotem lead them.", next = "BACK", fx = { align = { order = -1, honor = -1 }, affinity = 1 } },
+        { text = "Pride like yours will split the tauren in two, Crone.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "I'm a guest here. I'll act like one.", next = "prej_magatha_calm", fx = { affinity = 1 } },
+        { text = "What did the elders want, if not the Horde?", next = "prej_magatha_why" },
+      },
+    },
+    prej_magatha_why = {
+      lines = { { id = "prej_magatha_why_default", text = "To be asked, child. Cairne went to Thrall and came back with an alliance in his hand, and the elders were told after the kodo had already been bartered. The Grimtotem remember things like that, and we remember them for a long while." } },
+      choices = { { text = "I see. Let me answer you, then.", next = "prej_magatha" }, { text = "Something else.", next = "BACK" } },
+    },
+    prej_magatha_calm = {
+      lines = { { id = "prej_magatha_calm_default", text = "Hmph. Most of your kind forget that by the second cup of tea. Act like a guest long enough and I may even learn your name without being told it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xpt_magatha = {
       big = true,
       lines = { { id = "xpt_magatha_default", text = "Plainly, then: the Forsaken are a bargain Cairne made without asking the elders, and bargains made in haste are paid for later. I've nothing against your friend in particular, child, only against a chieftain who no longer listens to those who walked these plains before him." } },
@@ -1144,6 +1166,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde, come up to Elder Rise. How interesting, for the Forsaken priests tell me things the shaman of this bluff would rather not hear." },
       },
       choices = {
+        { text = "Do you dislike me, Elder Crone, or everyone Thrall brought?", next = "prej_magatha", when = { prejudiced = true } },
         { text = "What do the Forsaken priests tell you, Magatha?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you think of Cairne?", next = "cairne" },
         { text = "What do the Grimtotem want?", next = "want" },

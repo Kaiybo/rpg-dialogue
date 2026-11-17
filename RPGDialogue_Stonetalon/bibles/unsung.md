@@ -17,3 +17,4 @@
 
 ## Authored, not canon
 Only older birds sent out from the Peak; seeing the Barrens on a clear day; an earlier post on the Darkshore coast.
+- Teloren's prejudice (0.80.0): sees the Venture Company's shredders in every gnome's gloves, and knows it isn't fair.
