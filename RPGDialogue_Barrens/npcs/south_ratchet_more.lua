@@ -59,7 +59,7 @@ P:NPC {
       },
     },
     chen2 = {
-      lines = { { id = "c2_default", text = "Once, when I was young and stupid and fetching water for my mentor, and he patted me on the head and told me never to brew angry. I've broken most rules in my life, but I've never broken that one." } },
+      lines = { { id = "c2_default", text = "Once, when I was still my mentor's apprentice in Durotar and fetching his water, and he patted me on the head and told me never to brew angry. I've broken most rules in my life, but I've never broken that one." } },
       choices = { { text = "Something else, Drohn.", next = "BACK" } },
     },
     stormstout = {
@@ -71,7 +71,7 @@ P:NPC {
     },
     drink = {
       big = true,
-      lines = { { id = "dr_default", text = "Good for the spirit, if not the aim, and a grunt with a full belly and a warm head fights for something worth coming home to. Mind, I've seen good warriors drown in it, too, so I won't pretend every mug is medicine." } },
+      lines = { { id = "dr_default", text = "Good for the spirit, if not the aim, and a grunt with a full belly and a warm head fights for something worth coming home to. Mind, I've seen good warriors drown in it, too, so not every mug is medicine, whatever I'd like to tell you." } },
       choices = {
         { text = "A warrior needs his ale. It's earned.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "A clear head keeps you alive. I'll pass.", next = "BACK", fx = { align = { order = 1 } } },
@@ -227,7 +227,7 @@ P:NPC {
       },
     },
     apparatus = {
-      lines = { { id = "ap_default", text = "Wrenix's Gizmotronic Apparatus, patent pending, which dispenses thieves' tools and one Explosive Cannon Alarm Countermeasure, the E.C.A.C., to anybody I've approved. It cost me more than my house, and I sleep next to it, so you could say it is my house." } },
+      lines = { { id = "ap_default", text = "Wrenix's Gizmotronic Apparatus, patent pending, which dispenses thieves' tools and one E.C.A.C. to anybody I've approved, and don't ask what the letters stand for, because I've forgotten. It cost me more than my house, and I sleep next to it, so you could say it is my house." } },
       choices = {
         { text = "What does the E.C.A.C. do?", next = "ecac" },
         { text = "Something else.", next = "BACK" },
@@ -255,7 +255,7 @@ P:NPC {
     },
     ship = {
       lines = { { id = "si_default", text = "The Tide Razor, anchored south along the coast, and on the second deck there's a den where the pirates train their own thieves, so it's thieves robbin' thieves robbin' thieves. Down in the hold is the treasure, and the cut of it ya get is better than fair." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     name = {
       lines = { { id = "na_default", text = "My grandpa was Wrenix the Wretched, and his dad, and it's good for business, because nobody ever suspects a fella called Wretched of havin' money. Besides, Wrenix the Wonderful was already taken by a cousin in Gadgetzan." } },
