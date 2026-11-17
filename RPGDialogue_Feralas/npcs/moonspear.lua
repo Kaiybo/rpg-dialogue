@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_shalzaru", when = { questDone = TODO_QUEST("Against Lord Shalzaru") }, text = "Ah, the one who put Shalzaru down. You're welcome on this island any time, and I mean that." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the naga have been busy in that time. I hope you have too." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Sentinels tell me you've been of use around the Stronghold. Good; there's always more to do." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "I hear you've put someone's back up here. Sort it out, because I've no time to referee." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Word is you've put someone's back up here. Sort it out, because I've no time to referee." },
   },
 
   notice = {

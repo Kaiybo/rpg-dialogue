@@ -83,7 +83,7 @@ P:NPC {
       lines = { { id = "cs_default", text = "Slowly, with patience the living rarely have, and with the reverence you would give any hide. The beasts of this land took everything from Southwind, and I take a little back, stitch by stitch." } },
       choices = {
         { text = "Take back what you can. They owe you that.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Vengeance even in craft? Let it rest, Aendel.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Even craft shouldn't carry vengeance. Let it rest, Aendel.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -33,7 +33,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "My name's Petra, and to my right is my kodo, Dadanga. We've been with Marshal Expeditions a few years now, ever since Dadanga was a babe." },
         { id = "h_hungry", when = { questBefore = TODO_QUEST("Dadanga is Hungry!") },
-          text = "Dadanga's giving you that look, the one that means she's hoping you brought a snack. She's a big girl, so if you find something growing out there, bring a lot of it." },
+          text = "Dadanga's eyeing you hopefully, which means she's hoping you brought a snack. She's a big girl, so if you find something growing out there, bring a lot of it." },
         { id = "h_fed", tags = { "news" }, when = { questRecent = { TODO_QUEST("Dadanga is Hungry!"), days = 3 } },
           text = "Bloodpetal sprouts, and plenty of them! She's been content as a calf since, and she pushed a little parcel your way, did you see? She does that with people she likes." },
         { id = "h_orc", when = { race = "Orc" },

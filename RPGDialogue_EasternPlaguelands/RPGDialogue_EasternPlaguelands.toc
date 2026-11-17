@@ -16,3 +16,6 @@ npcs\lightshope.lua
 npcs\lightshope_folk.lua
 npcs\eastweald.lua
 npcs\roads.lua
+npcs\zverenhoff.lua
+npcs\alen.lua
+npcs\egan.lua

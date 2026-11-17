@@ -138,7 +138,7 @@ P:NPC {
       },
     },
     mage_more = {
-      lines = { { id = "mm_default", text = "They said exactly that, you know, almost word for word. Still, you're asking a dragon instead of a book, which is a better start than most of them made." } },
+      lines = { { id = "mm_default", text = "They said exactly that, you know, almost word for word. Still, you're asking a dragon instead of a dusty tome, and that's a better start than most of them made." } },
       choices = { { text = "I'll take that as a compliment.", next = "BACK", fx = { affinity = 1 } } },
     },
     nelf = {

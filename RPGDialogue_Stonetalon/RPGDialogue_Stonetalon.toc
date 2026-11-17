@@ -14,3 +14,6 @@ pack.lua
 npcs\stonetalon.lua
 npcs\roads.lua
 npcs\unsung.lua
+npcs\seereth.lua
+npcs\webwinder_camp.lua
+npcs\morrogal.lua

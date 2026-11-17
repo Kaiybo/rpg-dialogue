@@ -105,7 +105,7 @@ P:NPC {
       choices = { { text = "Words to live by.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     druid = {
-      lines = { { id = "dr_default", text = "Wrong? They try to eat us every day! Look, if it makes you feel better, bring me bones from the ones that charge first. That's self-defence, and I'll write it down if you like." } },
+      lines = { { id = "dr_default", text = "Wrong? They try to eat us every day! If it makes you feel better, bring me bones from the ones that charge first. That's self-defence, and I'll write it down if you like." } },
       choices = { { text = "That's not how it works, Spark.", next = "BACK" } },
     },
   },
