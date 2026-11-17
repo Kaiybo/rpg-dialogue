@@ -410,6 +410,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Half of them do, and the other half think you'd only charge more for it than a goblin would. I had a druid of the Circle sail with us once, and we never lost a mast that voyage, so I've stopped laughing at the idea." } },
+      choices = {
+        { text = "The sea answers to nature, not to coin. I'd never sell a storm.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "If it saves your masts, I'd name my price like anyone else.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest ashore, ha! Sailors are a superstitious lot, so if you linger in Booty Bay they'll be lining up to have you bless their hulls, though I doubt any of them will pay you in more than rum." },
@@ -426,6 +435,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! You could freeze the Bloodsail's sails solid from the docks, I'd wager, and I'd buy you a drink for every ship you stopped." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Ha! Now there's someone built for a boarding action. You'd look grand swinging onto a Bloodsail deck, provided you don't miss the rope the way my last three did." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! There's a parrot on my flagship that has bitten every hand in the fleet, so if you understand beasts, I'd dearly love to have it explained to me." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid aboard my docks! Sailors swear your kind can talk a storm out of a sky, and I've lost enough sails that I'd like to believe them." },
       },
       again = {
         { id = "h_again", text = "Ha! Got more for me? Out with it, then, before the tide turns." },
@@ -447,6 +457,7 @@ P:NPC {
         { text = "How can a pirate be an honest man, Fleet Master?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's a boarding action like against the Bloodsail, Fleet Master?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do hunters ever sail with the Blackwater Raiders?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do your sailors really think a druid can calm a storm, Fleet Master?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Fair winds, Fleet Master.", next = "END" },
       },
     },
@@ -663,6 +674,15 @@ P:NPC {
         { text = "Something else, Krazek.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Tiger pelts, raptor hides, basilisk scales, and gorilla anything, mostly bought by nobles up north who want a rug with teeth. Nesingwary's camp alone ships more skins through here in a month than you'd see in a year, and the Baron takes his cut of every one." } },
+      choices = {
+        { text = "This jungle can't keep giving forever. Someone should limit the hunting.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Hunters take what they can carry. That's the jungle's own law.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, how nice! I'll note you down under visitors with a conscience, which is a very short list in Booty Bay, and the Baron likes to know who's on it." },
@@ -687,6 +707,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now there's a customer who knows the value of a deal with something bigger than himself, and I've got a few deals that might interest you." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Steel's dear down here, friend, since everything rusts, so I hope you've oiled that armor or you'll be paying Zarena for new plates by the end of the week." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, good! I've buyers for panther pelts, raptor hides and basilisk scales, and not one of my buyers has ever asked how the animal felt about it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, in Booty Bay! You'd be amazed what the jungle trade pays for a pelt, and I'd be amazed if you approved of any of it." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, quick, the Baron rings that bell every four minutes." },
@@ -706,6 +727,7 @@ P:NPC {
         { text = "Does Booty Bay have any use for a priest, Krazek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does this jungle hold that's worth a warrior's time, Krazek?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Which beasts are fetching the best prices this month, Krazek?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What does the jungle trade pay for, Krazek, and who's buying?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Thanks, Krazek.", next = "END" },
       },
     },
@@ -925,6 +947,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I lend to anyone who comes back, and druids come back more often than sailors, being harder to drown. Mind you, the last one paid me in herbs, and I'm still not sure if I got the better end of it or a rash." } },
+      choices = {
+        { text = "A debt is a debt. I'd pay you in coin, honestly.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A druid owes nothing to a moneylender. The jungle keeps no ledgers.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? You'll find me a fair man in my way, though if you've come to tell me that forgiving a debt is good for the soul, I've heard that sermon before and I didn't care for the ending." },
@@ -946,6 +977,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I'll be honest with you, I'd rather owe money to the Bloodsail than to a demon, and I've owed plenty to the Bloodsail." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, eh? There are a few names on my list who've been dodging me for months, and you look like the sort who could knock on a door without needing it opened." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, and they tell me your kind can track anything at all. I've a debtor or two who would be very surprised to hear that." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, eh? I've no shape to change into that'd get me out of a debt, and neither have you, so we'll get along fine." },
       },
       again = {
         { id = "h_again", text = "Still here? Then talk, since talking's free, for now." },
@@ -967,6 +999,7 @@ P:NPC {
         { text = "Is there no mercy in your ledger, MacKinley?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you use warriors to collect your debts, MacKinley?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could a hunter track down your debtors, MacKinley?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Do you lend to druids, MacKinley, or are we too much trouble?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll keep my purse closed, thanks.", next = "END" },
       },
     },
@@ -1126,6 +1159,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nothing that's yours to worry about, friend, just goods the trolls would rather I didn't have. A druid who can walk past a raptor without being eaten could earn a fortune off me, and I'd never ask how you did it." } },
+      choices = {
+        { text = "I'll not use the wild's gifts to smuggle your goods.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A fortune's a fortune. Show me the route and I'll walk it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Wonderful, wonderful, because my last few agents died rather badly in the jungle and nobody said a word over any of them, which I'm told is bad for morale among the next few." },
@@ -1144,6 +1186,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now you're the kind of agent I can use, friend, because my last three came back in pieces, and I'm sure a quiet one would last longer." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, I don't suppose your demon could do a little work for me? I pay in gold, of course, though I imagine it'd prefer souls." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! The trolls keep killing my agents, friend, but they were mostly clerks with knives, and you look a great deal harder to kill." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You'd move through that jungle like it was your own garden, which is exactly the kind of agent I keep losing." },
       },
       again = {
         { id = "h_again", text = "Still interested? Excellent; interest compounds, you know." },
@@ -1161,6 +1204,7 @@ P:NPC {
         { text = "Would you really hire a demon, Kebok?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you grieve for the agents you lost, Kebok?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would a warrior make a better agent than your clerks, Kebok?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Your agents keep dying in the jungle. What are they carrying, Kebok?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Not interested.", next = "END" },
       },
     },
@@ -1336,6 +1380,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Only once, and quietly enough, but the stairs haven't been right since, and the Baron heard it from up top. I put it on the bill as furniture and decided not to ask whose fault it was." } },
+      choices = {
+        { text = "Then it was the druid's fault. They should pay for the stairs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A bear in a pirate inn sounds like a fine night. Leave it be.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the Salty Sailor, there's a sight. Keep your blessings quiet near the stairs, if you would, because the Baron's men don't care for anything they can't put a price on." },
@@ -1351,6 +1404,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! The last one who stayed here left a candle burning that never went out, and I still can't figure out how to snuff it." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior, in my common room. Lean your shield by the door if you like, because the last fellow who drank with his on knocked three tankards and a sailor off the bar." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, eh? If you've a beast with you, keep it out of my kitchen, because the cook throws cleavers at anything with fur and she rarely misses." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid at the Salty Sailor! Mind the rum, friend; I've seen what happens when one of your kind turns into a bear after the third mug." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've three tabs to chase and one of them's armed." },
@@ -1371,6 +1425,7 @@ P:NPC {
         { text = "Who in Booty Bay fears the Silver Hand, Skindle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do fights break out often in the Salty Sailor, Skindle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do the hunters who stay here tell good stories, Skindle?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Has a druid really turned into a bear in your inn, Skindle?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -1504,6 +1559,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "That's what I'm asking you, and you're not answering! If you could tell Gorlash, Negolash and Mok'rash that I want my ships back, I'd pay well, though I'd rather you told them something ruder." } },
+      choices = {
+        { text = "Giants aren't beasts to bargain with. They must be stopped, plainly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Leave the giants be, Captain. The sea took your ships fairly.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1520,6 +1584,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I'll admit I've thought about hiring one of your demons to deal with those giants, but I'm told they want more than gold." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! Good, because I'm done hiring sailors; what I need is someone who'll stand toe to toe with a sea giant and not lose their nerve." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I've been hunting three sea giants for years, so we're in the same trade, you and I, only my quarry keeps sinking my boats." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You speak to beasts, they tell me, so tell me this: can you speak to a sea giant? I've a few things I'd like to say to three of them." },
       },
       again = {
         { id = "h_again", text = "Aye, something else? Ask away, for I've nowhere to be, nowhere at all." },
@@ -1540,6 +1605,7 @@ P:NPC {
         { text = "The sea spirits took your crews, Captain. Not luck.", next = "k_shaman", when = { class = "SHAMAN" } },
         { text = "How did the sea giants sink your ships, Captain?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you really trade a demon for vengeance, Captain?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Can a druid really speak to sea giants, Captain?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll leave you to it, Captain.", next = "END" },
       },
     },
@@ -1717,6 +1783,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Nobody's looking for me, ha, ha, why would anybody be looking for me? Only a druid can turn into a cat and slip off into the jungle, and I was thinking, idly, that it must be a very comfortable way to avoid people you owe." } },
+      choices = {
+        { text = "Running won't settle it. Face him and pay what you owe.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then slip off quietly. Not every debt is worth facing.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, oh good, good, you'll be the honest sort, so you'll tell me straight whether a large man with a ledger has been asking after me, won't you, because I'd hate to find out from his friends." },
@@ -1732,6 +1807,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage? Could you make me invisible, just for a few days? There's a large man with a gambling habit looking for me, and I'd really rather he didn't find me." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Oh no, did he send you? Please tell me he didn't hire a demon to collect, because I really can't afford that." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You don't happen to have seen big footprints near my door, have you, the heavy kind, belonging to somebody very large who likes to gamble?" },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, ha! Could you, ah, turn into something fast if a big man came along? Not for me, of course, I'm just curious." },
       },
       again = {
         { id = "h_again", text = "What else? Is there someone standing behind me? Don't look, just tell me, quietly." },
@@ -1752,6 +1828,7 @@ P:NPC {
         { text = "Want me to lean on MacKinley for you?", next = "k_warrior", when = { class = "WARRIOR" } },
         { text = "Who's looking for you, Shaky?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why would anyone send a demon after you, Shaky?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Who's looking for you, Shaky, and why should a druid care?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Calm down. Nobody's after you.", next = "END", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
@@ -1952,6 +2029,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Shark teeth sell well to the trolls, and the Bloodsail would sell their own mothers to the trolls if they could find them. They leave the bodies to rot on the reef, and the fishing's gone bad from it, which is the part I mind." } },
+      choices = {
+        { text = "Then sink them, Crazz. Waste like that deserves no mercy.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Pirates and sharks both take what they can. Let the sea sort it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, eh? Good, because the Bloodsail leave a lot of dead along this coast, and our lads would sooner have a proper word said over the drowned than leave them to the sharks." },
@@ -1969,6 +2055,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, I hate the Bloodsail more than I hate anything, so if your demon fancies a few red bandanas, I'll point the way." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Good, because the Bloodsail don't parley, and I'd rather have a shield beside me than another fool asking about terms." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. Can you follow a man across sand after the tide's been at it? Because that's what I need, and none of my lads can manage it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The Bloodsail have been gutting sharks off the coast for their teeth, and I'd wager that bothers you more than it bothers me." },
       },
       again = {
         { id = "h_again", text = "What else? Make it about the Bloodsail, if you can." },
@@ -1991,6 +2078,7 @@ P:NPC {
         { text = "I could slip aboard a Bloodsail ship for you.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "Do the Bloodsail really have mages, Crazz?", next = "xmage", when = { class = "MAGE" } },
         { text = "How much do you hate the Bloodsail, Crazz?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "Why are the Bloodsail gutting sharks off your coast, Crazz?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Later, Crazz.", next = "END" },
       },
     },
@@ -2148,6 +2236,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Hauling, guarding, scaring off the competition, the usual, and a druid does all three without needing a wage for a horse. I've got a few jobs out in the jungle where a big angry animal would save a lot of arguments, and nobody would ask whose animal it was." } },
+      choices = {
+        { text = "My gifts aren't for hire, Fizzlebub. Find yourself a real bear.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "If the coin's honest, a bear can carry a crate.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you know what a goblin would pay for a bottled thunderstorm? Neither do I, but I'd love to find out." },
@@ -2165,6 +2262,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, I've got a few crystals that hum a strange tune when you hold them near a demon, and I'd love to know what that means." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "Now here's a strong arm with a short memory, I hope! Warriors are my favorite customers, pal, because they never ask how dangerous a job is until they're halfway through it." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter, and I've just the opportunity for you, pal: live exotic animals, top prices from the collectors in Gadgetzan, very few questions asked." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now there's a business opportunity, friend: a bear who doesn't need feeding and can carry a crate. Think about it." },
       },
       again = {
         { id = "h_again", text = "Still here? That's a good sign; it means you smell opportunity too." },
@@ -2184,6 +2282,7 @@ P:NPC {
         { text = "Those singing crystals are just quartz. I'm a mage.", next = "k_mage", when = { class = "MAGE" } },
         { text = "What deals aren't on the Baron's books, Crank?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would your crystals hum near a demon, Crank?", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "What business could a druid possibly have with you, Fizzlebub?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Not today, Crank.", next = "END" },
       },
     },
@@ -2376,6 +2475,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Oh, the yellow fruit the gorillas fight over, and the bitter red berry the trolls chew before battle, which I'd only try once. Most of all I'd find the cask of port I lost, but no druid's told me which root grows into that." } },
+      choices = {
+        { text = "Drink less and grieve less, Slim. The port's gone for good.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "A good drink is nature's gift. Enjoy it while you can.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, and here's a toast to you, friend! Bless this cup if you'd be so kind, because it's the closest thing to holy I've held since I lost that cask of port." },
@@ -2394,6 +2502,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Here's to you, and here's to magic, which I hear can make a cask of water taste like the finest port, if you know the right words." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior! To your health, friend, and to your armor, which I hope is better at keeping out a sword than my cellar was at keeping out thieves." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! I'll drink to the hunt, friend, and to whatever you brought down last, unless it was a boar, because I had a very bad night with a boar once." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, and I'll drink to that! You must know every berry and root that ferments, and I'd give my last cask to hear about the good ones." },
       },
       again = {
         { id = "h_again", text = "A toast, to more questions! Ask away, my friend." },
@@ -2412,6 +2521,7 @@ P:NPC {
         { text = "Is drink all you have to comfort you, Slim?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you drink with many old soldiers here, Slim?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Could a hunter track down your lost port, Slim?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Which jungle fruits would you ferment, Slim, if you had the choice?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Cheers.", next = "END", fx = { affinity = 1 } },
       },
     },
@@ -3077,6 +3187,15 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "They say it's sick, or angry, or both, and they mutter about Zul'Gurub and something the trolls are waking up in there. I don't know what any of that means, but I've noticed fewer of them come back at all lately." } },
+      choices = {
+        { text = "Whatever the trolls are waking, it must be stopped before it spreads.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The jungle was here before the trolls. It can tend itself.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I see every face that comes off the boats, and yours is the first in a week that didn't look like it was hiding something, so welcome to Booty Bay." },
@@ -3096,6 +3215,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be noting your companion on the manifest, since anything that walks off a boat in Booty Bay gets counted, demon or not." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You go on the list of people I'd want beside me if the Bloodsail ever land at the docks, which is a short list, so try to stay on it." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. I'll need to see whatever's on that lead before it gets on any boat, because the last hunter's beast ate a crate of bananas and bit a ship's captain." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, coming off a boat. I see a fair few of your kind heading south, and most of them come back up the dock looking unhappy about the jungle." },
       },
       again = {
         { id = "h_again", text = "Yes? Keep one eye on the water while you ask." },
@@ -3116,6 +3236,7 @@ P:NPC {
         { text = "Is Booty Bay a safe harbor for wicked men?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you need from a warrior if pirates landed, Wharfmaster?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why do you inspect hunters' beasts, Wharfmaster?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why do druids come back unhappy from the jungle, Wharfmaster?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll watch my purse.", next = "END", fx = { affinity = 1, trait = { cautious = 1 } } },
       },
     },

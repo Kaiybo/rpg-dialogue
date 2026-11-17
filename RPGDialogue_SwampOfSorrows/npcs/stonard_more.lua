@@ -85,6 +85,15 @@ P:NPC {
         { text = "Let's leave that there.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Crocolisks, whelps from the ruins, the Lost Ones skulking at the edge of the mire, and the frogs, which are the worst of the lot. I've heard the tauren say every living thing has a place, and I'd like to ask them where the frogs are meant to go." } },
+      choices = {
+        { text = "Every creature has its place, Dar, even the frogs.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then fill the pond in. Stonard's sleep matters more than frogs.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The old Horde raised these stones, and I'd wager a few of your kind walked these halls back then, doing things the walls still remember." },
@@ -100,6 +109,7 @@ P:NPC {
           text = "Tok'Kar got his sawtooth flanks, and his soldiers ate well, and I hear he said something about my face while he was at it. He always does, so I'll take it as thanks." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll find Stonard's walls a comfort, at least, since they're about the only comfort here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. There's not much to hunt round Stonard but crocolisks and spiders, though I'm told a swamp jaguar is good eating, if you can catch one." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother, in Stonard! The swamp's not much to look at, friend, but it's alive, I'll give it that, and more alive than I'd like some nights." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got the time, which is the one thing Stonard has plenty of." },
@@ -117,6 +127,7 @@ P:NPC {
         { text = "What do you know of Stonard's old warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why does Stonard need warriors on its walls, Dar?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "What's worth hunting around Stonard, Dar?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What lives in the swamp that keeps you up at night, Dar?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -293,6 +304,15 @@ P:NPC {
         { text = "Something else, Breyk.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Rots their harness, molds their feathers, and puts them in a temper that lasts the whole flight north to Kargath. Back in the Barrens a druid showed me a moss that keeps the damp out of leather, but it doesn't grow here, and I can't remember its name." } },
+      choices = {
+        { text = "I'll find you a swamp moss that works. Your beasts deserve it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Wind riders are tough. They'll learn to live with the wet.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Keep your hands off the harness, because the last time somebody cut a strap for a joke, a rider came down in the Pool of Tears." },
@@ -308,6 +328,7 @@ P:NPC {
           text = "The riders don't like flying out of here at night, because the mist sits so low they can't see the trees. They'll go, but they'll grumble the whole way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't like the weight of plate when their wings are wet, so I'll ask you to be patient while they shake off the damp." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll know how to look after a beast in this wet, I hope, because most folk don't and their animals suffer for it." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! I could use you, friend, because the wind riders' wings never dry in this swamp, and I've a feeling you know a better trick than my rags." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got harness to scrape." },
@@ -323,6 +344,7 @@ P:NPC {
         { text = "Who would cut a wind rider's harness?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do wet wings make the wind riders dangerous, Breyk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "How do you keep beasts healthy in this swamp, Breyk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "What does the swamp do to the wind riders, Breyk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -442,6 +464,15 @@ P:NPC {
         { text = "Never mind that for now.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because every word in them is about binding something that never asked to be bound, and your people spend their lives letting things go. I don't apologize for it, druid, but I don't pretend it's kind, either." } },
+      choices = {
+        { text = "Binding the unwilling is a crime against nature, Greshka.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Power is power. A warlock knows it, even if a druid won't.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. Don't bother pocketing a grimoire, because you can't read it, and the first page bites." },
@@ -455,6 +486,7 @@ P:NPC {
           text = "Greshka. I sell the grimoires that teach your servants new tricks, the Blood Pact and the Firebolt and the rest. You know enough to be dangerous, but you still need training, so let's see what you can pay for." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You've no use for grimoires and I've no use for you, but Malosh is out in the yard if you want somebody to hit." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and you keep beasts, which is a pity, though I suppose they're loyal." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You've no business here, then, and I'll tell you what I tell every druid: what I sell would make your Earth Mother weep." },
       },
       again = {
         { id = "h_again", text = "What else? Be brief." },
@@ -471,6 +503,7 @@ P:NPC {
         { text = "Do your grimoires really bite?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why do you dislike warriors so much, Greshka?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Are demons really better than beasts, Greshka?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why would the Earth Mother weep at your grimoires, Greshka?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -587,6 +620,15 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I would, and gladly, because the swamp has crocolisks bigger than any bear, and a warrior who's been thrown about by a druid won't panic when one comes out of the reeds. Your kind fights with instinct, and mine with drill, and both have something to learn from the other." } },
+      choices = {
+        { text = "Then I'll wrestle them fairly, and teach them what instinct means.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Drill makes a warrior. A druid's wildness is no lesson for recruits.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage in my yard. Stand back from the sparring rings, because the last mage who wandered in froze one of my recruits to the mud, and he's still shy about it." },
@@ -601,6 +643,7 @@ P:NPC {
         { id = "h_war", when = { class = "WARRIOR" },
           text = "A warrior, and you've walked through the swamp to get here, so your legs are already half trained. Let's see about the other half." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, in my yard. A hunter's beast fights better in this mud than half my warriors do, and I don't mind saying so." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, in my yard! Change into a bear and wrestle one of my recruits, if you're willing; they need to learn what a real beast feels like." },
       },
       again = {
         { id = "h_again", text = "More questions? Swing a blade while you ask them." },
@@ -615,6 +658,7 @@ P:NPC {
         { text = "Would you let a rogue teach your warriors?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can a warrior learn anything from a mage?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do your warriors ever train against beasts, Malosh?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Would you really put your recruits against a druid's bear, Malosh?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Another time.", next = "END" },
       },
     },

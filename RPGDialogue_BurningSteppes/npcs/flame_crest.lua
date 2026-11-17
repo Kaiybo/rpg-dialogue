@@ -87,6 +87,15 @@ P:NPC {
         { text = "Let's talk of something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Green, aye, an' gold, before the Dark Irons called up their fire lord an' burned the whole country black. I remember fields where there's lava now, an' I drink to forget it, an' the drink's the only thing that ever grows back." } },
+      choices = {
+        { text = "The land will heal one day, John. Stop drowning the memory.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Drink, then. Some losses are too big to look at sober.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp in my cave? *hic* Mind it keeps off the cask, for the last thing I need is fel in my ale, an' the second last thing is a burnin' beard." },
@@ -109,6 +118,7 @@ P:NPC {
           text = "A warrior! *hic* Now there's a sight, all that steel an' hardly a dent in it, which means ye haven't been up tae the Spire yet, an' I'd keep it that way." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "Is that a hunter? *hic* Ye'll find nothin' worth shootin' in the Steppes, friend, except the worgs, an' they shoot back, more or less." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Ha! Ye've come to the wrong country, friend, because nothin' grows in the Steppes but ash and trouble, and I've had me fill of both." },
       },
       again = {
         { id = "h_again", text = "What else, eh? *hic* I've got nowhere to be, and that's the best thing about this cave." },
@@ -130,6 +140,7 @@ P:NPC {
         { text = "Did Marshal Windsor fight like a knight, John?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's waiting at the Spire for a warrior, John?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where do the Blackrock worgs run, John?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Was it always ash here, John, or do you remember it green?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll leave you to your cask.", next = "END" },
       },
     },
@@ -397,6 +408,15 @@ P:NPC {
         { text = "Something else, Maxwort.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "I don't know, I've never had one try, but I've seen your kind find water in a desert, and gold can't be any harder. The Seven buried their secrets in the ash, and I'd split a fair share with anyone who could find them faster than my shovel." } },
+      choices = {
+        { text = "My gifts are not for treasure-hunting, Maxwort. Find another partner.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A fair share is a fair share. I'll keep my nose open.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now there's a professional I respect, because the Dark Irons won't sell me what I want, and you look like someone who doesn't take no for an answer." },
@@ -416,6 +436,7 @@ P:NPC {
           text = "A warrior! Good, because the Dark Irons guard their old relics with hammers the size of my cave, and I need someone who can stand up to that and still carry treasure." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? I've no interest in pelts, my friend, but if your beasts can sniff out old gold, you and I are about to become very good partners." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Now, I don't suppose you can sniff out buried treasure in that bear shape? I'd make it very much worth your while." },
       },
       again = {
         { id = "h_again", text = "What else? Time is money, and I'm generously giving you mine for free." },
@@ -432,6 +453,7 @@ P:NPC {
         { text = "Isn't trading in Dark Iron relics dangerous, Maxwort?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you need carried out of the Dark Iron ruins?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "You think a beast can sniff out treasure?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Could a druid really sniff out treasure for you, Maxwort?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Good hunting, Maxwort.", next = "END" },
       },
     },
@@ -588,6 +610,15 @@ P:NPC {
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "That they're cleverer than anyone gives them credit for, and that the black ones nest in the mountain and send their whelps to bother everyone else. I'd love to know whether your Circle studies dragons too, because I've a few notes I'd trade, though only for good ones." } },
+      choices = {
+        { text = "Dragons should be studied carefully, not provoked. Mind your experiments.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Dragons are beasts like any other. Study them however you like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Ooh, are you here to steal my schematics? You can't, because I keep them in my head, mostly, and the rest are on fire." },
@@ -612,6 +643,7 @@ P:NPC {
           text = "A paladin, all shining and serious! You won't smash my gadgets, will you? They're perfectly harmless, mostly, and the ones that aren't are for dragons." },
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Oh, excellent, could you stand between me and the whelps while I take a measurement? They're only small, but they bite, and they're on fire, which hardly seems fair." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, here! Tell me, have you ever turned into a dragon? No? Pity, because I'd have a thousand questions, and you'd have been my favorite subject." },
       },
       again = {
         { id = "h_again", text = "What else? I'm all ears, and only slightly singed ones." },
@@ -630,6 +662,7 @@ P:NPC {
         { text = "Why do you care whether dragons have souls, Tinkee?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who is your patron, Tinkee, and what does he want?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's so dangerous about the whelps, Tinkee?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "What have you learned about the dragons of the Steppes, Tinkee?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Good luck with the dragons.", next = "END" },
       },
     },
@@ -811,6 +844,15 @@ P:NPC {
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Because they were rusted, mostly, and because the Steppes eat metal faster than anywhere else I've traded. The druid said the ash would make good soil one day, if anyone waited long enough, and I said I'd be long dead and rich by then, so it wasn't my problem." } },
+      choices = {
+        { text = "It is everyone's problem, Yuka. The land outlasts all of us.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fair enough. Make your fortune while there's ash to stand on.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Lovely, though I'm told imps are terrible around engineering supplies, so do keep yours outside where it can't ruin my stock." },
@@ -831,6 +873,7 @@ P:NPC {
           text = "A warrior! Your armour's been chewed on by Dark Irons, I can tell from here, and I've got rivets, plates and a very reasonable price list for exactly that." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Ammunition's two shelves down, and I'll warn you now, it's dearer up here, because every bullet in the Steppes had to climb a mountain to reach me." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I sell gears and bolts, friend, so I doubt we'll do business, but you're welcome to stand here and frown at my wares like the last one did." },
       },
       again = {
         { id = "h_again", text = "Anything else? Browsing's free, but only for so long." },
@@ -849,6 +892,7 @@ P:NPC {
         { text = "Would a paladin collect Ribbly's bounty, Yuka?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Dark Irons give you much trouble, Yuka?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why is your shot so expensive, Yuka?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Why did the last druid frown at your wares, Yuka?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Goodbye, Yuka.", next = "END" },
       },
     },
@@ -1163,6 +1207,15 @@ P:NPC {
         { text = "Let's leave that there.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "That reaching for power too eagerly would cost us something we couldn't replace, and they were right, though they never said what. I seek the librams of my masters because they're all that's left, and I'm aware a druid would call that the same mistake twice." } },
+      choices = {
+        { text = "It is the same mistake, Mathredis. Let the old power go.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your people deserve their knowledge back. I'd seek it too.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue, standing in my light. At least you have the decency to do it quietly, which is more than I can say for most who come here." },
@@ -1174,6 +1227,7 @@ P:NPC {
           text = "A warrior, come to stand in my light. You think that sword makes you safe in these lands, but the Seven would have unmade you before you finished drawing it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The rangers of Quel'Thalas walked as you walk, and they went to war with a bow and a hawk, and very few of them came home." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Your people warned mine, long ago, that magic has a cost, and mine did not listen, and now I stand in the ash of a dwarf's kingdom asking strangers for books." },
       },
       again = {
         { id = "h_again", text = "Is there more? Be quick; I don't care for idle company." },
@@ -1191,6 +1245,7 @@ P:NPC {
         { text = "What would a rogue want with an elven libram?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What use is a sword against magic like that?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Did you know any of the rangers of Quel'Thalas?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What did the druids warn the elves about, Mathredis?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll leave you.", next = "END" },
       },
     },
@@ -1348,6 +1403,15 @@ P:NPC {
         { text = "Something else, Vahgruk.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "Ash in their wings and heat rising off the lava, and the black whelps that come out of the mountain to snap at them. They'll fly for anyone I tell them to, but they settle for druids, and I've stopped asking why." } },
+      choices = {
+        { text = "Rest them more often, Vahgruk. They carry too much here.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "They're riders' beasts. They fly where the Horde needs them.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The Blackrock up on the mountain keep warlocks too, the old kind, and my riders can't tell the difference by smell." },
@@ -1358,6 +1422,7 @@ P:NPC {
           text = "A warrior. The riders will take you, and the armour, but they'll want you to sit still, and warriors never sit still." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter. Keep your beasts away from the riders' feed, because a wind rider will eat anything that fits in its mouth, and some things that don't." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of Thunder Bluff. The wind riders hate this sky, friend, but they've never yet refused to carry one of the Earth Mother's own." },
       },
       again = { { id = "h_again", text = "Anything else, or do you want a rider?" } },
       choices = {
@@ -1368,6 +1433,7 @@ P:NPC {
         { text = "Do the Blackrock still have warlocks?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do you make of Rend's warriors, Vahgruk?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do wind riders and hunters' beasts get along?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Why do the wind riders hate the Steppes' sky, Vahgruk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },
     },

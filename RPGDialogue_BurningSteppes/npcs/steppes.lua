@@ -66,6 +66,15 @@ P:NPC {
         { text = "On to other things.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "That they are dreamers who mistake sleep for wisdom, while the true heirs of this world wake and act. Your Circle bows to them, I know, and bowing is the only thing mortals do well, so perhaps you will be useful after all." } },
+      choices = {
+        { text = "The green dragons guard the Dream well. I'll not hear them mocked.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Perhaps they sleep too much. I'll keep my own counsel, Cyrus.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A thief. I can smell gold on your fingers, little one, and none of it was given to you freely." },
@@ -80,6 +89,7 @@ P:NPC {
           text = "A warrior. You stand as though steel could save you from me, little one, which is either courage or stupidity, and among your kind I have rarely seen the difference." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. How charming that you think yourself the predator here." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. Your kind speaks of a great Dream and the green ones who keep it, mortal, and the Flight has opinions about those green ones, which you have not earned the right to hear." },
       },
       again = {
         { id = "h_again", text = "You are still here, mortal, and still talking. Go on, then; amuse me." },
@@ -96,6 +106,7 @@ P:NPC {
         { text = "Dragons hoard and I take. Are we so different?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would steel truly be useless against you, dragon?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do dragons hunt, Cyrus, or only hoard?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "What does the Flight think of the green dragons, Cyrus?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll be going.", next = "END" },
       },
     },

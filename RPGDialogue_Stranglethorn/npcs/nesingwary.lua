@@ -843,6 +843,15 @@ P:NPC {
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
+    xdruid = {
+      big = true,
+      lines = { { id = "xdruid_default", text = "More than we need, if I'm honest, which I try to be now that I'm no longer a count. Hemet would hunt every beast in Stranglethorn to see who's best at it, and I go along because the hunt is cleaner than the House of Nobles ever was." } },
+      choices = {
+        { text = "Then hunt only what you need, and let the jungle keep the rest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A hunter's skill is proven in the field. Let Hemet hunt.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. In Stormwind they'd call you a savage, and once I'd have nodded along, but I've met nobles who could learn a thing from you." },
@@ -859,6 +868,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. The court in Stormwind was full of your kind, whispering in the nobles' ears, and I'll not pretend I trusted many of them." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. In Stormwind you'd be standing guard at some lord's door, but out here, at least, the panthers will give you a real fight." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Then you'll understand why I gave up a seat among the nobles for a tent in the mud, and you won't think me mad for it." },
+        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid in a hunting camp! You'll think us barbarians, I expect, and some days I'd agree with you, but the panthers have never once lied to me." },
       },
       again = {
         { id = "h_again", text = "Yes? I've time; I have nothing but time, which is rather the point of exile." },
@@ -878,6 +888,7 @@ P:NPC {
         { text = "A paladin doesn't walk away from his post, Sir.", next = "k_paladin", when = { class = "PALADIN" } },
         { text = "Why do you miss rogues more than nobles, Sir Erlgadin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why didn't you trust the court's mages, Sir Erlgadin?", next = "xmage", when = { class = "MAGE" } },
+        { text = "How many panthers does this camp need to take, Sir Erlgadin?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Good day, Sir.", next = "END" },
       },
     },
