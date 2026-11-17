@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_morbent", when = { questDone = TODO_QUEST("Morbent Fel") },
           text = "I'm told Morbent Fel is dead, and that you had a hand in it. The council will argue about whose idea that was for a month, but I know it wasn't ours." },
         { id = "h_paladin", when = { class = "PALADIN" },
-          text = "A paladin. Evil lingers in the air of this place, and I'd welcome anyone who can push back against it." },
+          text = "A paladin. This place stinks of grave-dirt and worse, and I'd welcome anyone who can push back against it." },
       },
       again = {
         { id = "h_again", text = "Anything else? The council reconvenes shortly, more's the pity." },
@@ -87,7 +87,7 @@ P:NPC {
     ello = {
       lines = { { id = "e_default", text = "He's our lord, and he does his best, and his best is very loud. I'd sooner not say more than that inside his own hall." },
       },
-      choices = { { text = "Fair enough. Something else.", next = "BACK", fx = { trait = { discreet = 1 } } } },
+      choices = { { text = "Understood. Something else.", next = "BACK", fx = { trait = { discreet = 1 } } } },
     },
     dextren = {
       lines = { { id = "dx_default", text = "Good. Every councilman in this hall knows he's alive in that Stockade, and nobody will say it aloud, because Stormwind's nobles took him out of our justice." },

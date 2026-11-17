@@ -35,7 +35,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I mend what's bent and make what's needed, and I don't hold with miracles. If your fire burns hot and steady, it can stand by my anvil, but it won't touch the work." } },
       choices = {
-        { text = "Fair enough. Honest work should come from honest hands.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Good. Honest work should come from honest hands.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My spirits could do it faster. Your pride slows you down.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -44,7 +44,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "A few, up from the inn cellar where Crowe keeps his students, and they always want a dagger with some strange mark cut into it. I'll forge the blade, but the marks they can cut themselves, because I don't do miracles and I don't do that either." } },
       choices = {
-        { text = "Fair enough. A smith should keep his forge clean.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Right. A smith should keep his forge clean.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A mark is only a mark, Argus. You're superstitious.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Argus.", next = "BACK" },
       },

@@ -39,13 +39,13 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Blackrock Bounty") },
           text = "Our sources tell us the leaders of each unit in the clan are called champions. They're camped to the north, just west of the road to the Burning Steppes, and I want them dead." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Blackrock Bounty"), days = 3 } },
-          text = "You've fought well against the Blackrock, and your service to this township is great indeed. Fifteen fewer champions means a good many leaderless orcs." },
+          text = "You've fought well against the Blackrock, and this township owes you more than it can pay. Fifteen fewer champions means a good many leaderless orcs." },
         { id = "h_paladin", when = { class = "PALADIN" },
           text = "A paladin of the Light. My father fought beside your order in the last war, and I've never forgotten what that meant to him." },
       },
       again = {
         { id = "h_again", text = "What else? The orcs won't wait for us." },
-        { id = "h_again2", text = "Speak. I'm watching the ridge while you do." },
+        { id = "h_again2", text = "Speak. I'm watching the ridge while you do, and trying to forget my boots, which haven't been dry since the last rain." },
       },
       choices = {
         { text = "Why do you hate the Blackrock so much?", next = "why" },

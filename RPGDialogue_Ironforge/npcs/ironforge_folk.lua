@@ -576,7 +576,7 @@ P:NPC {
         { text = "Can a warlock's presence harm blessed metal?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do you forge for hunters as well as the faithful?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do you pray at your anvil, Jordan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Can work at the anvil be a kind of prayer?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Can work at the anvil count as prayer?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does the arcane spoil a blessing, Jordan?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would the Light's smith forge for a shaman, Jordan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Stay warm, Jordan.", next = "END" },
@@ -668,7 +668,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm a smith and the son of a smith, and a paladin who never was. I make the hammers for the ones who are.", next = "learned" } },
-    advice = { { id = "tp_ad", text = "Look after your tools and they'll look after you. My father said that about hammers, but it's truer of people." } },
+    advice = { { id = "tp_ad", text = "Look after your tools and they'll look after you. My father said that about hammers, then lent his best one to a cousin and never saw it again." } },
     tome_of_divinity = { { id = "tp_tome", text = "Faith first, then the hammer, and Rall's right about that. Being a smith, I'd put it the other way round, if he'd let me." } },
     westfall = { { id = "tp_westfall", text = "My Daphne keeps the farm there. She's a stubborn woman, and I married her for it." } },
     defias = { { id = "tp_defias", text = "Daphne fights them at our own door. Stormwind's advisors took a good deal longer to notice them than she did." } },

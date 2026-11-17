@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.33.0 (2026-11-17)
+- Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.
+
 ## 1.32.0 (2026-11-17)
 - Guards, stable masters and vendors (food, drink, reagents and the rest) now have whole conversations instead of one reply; goblin bruisers in Ratchet get their own, and Ratchet counts as a town. Townsfolk recognise you when your origin is from their town.
 - Needs RPG Dialogue 0.71.0.

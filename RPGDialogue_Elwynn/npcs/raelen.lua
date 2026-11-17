@@ -42,7 +42,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "I'd hire a gnoll if it stacked wood on time, and I very nearly have. The order's due every week, the lads are frightened of the woods, and I don't care who fetches the bundles, so long as they come back stacked and dry." } },
       choices = {
         { text = "You should care who does your work, Raelen.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Then we understand each other. The work's what matters.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then we understand each other. Get the timber cut.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Raelen.", next = "BACK" },
       },
     },
@@ -89,7 +89,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "I'd rather have anything that keeps the orders on time, but I know a spell can't tell good grain from bad, and my lads can. Still, if you've a spell that keeps wolves off the cut wood, I'd pay for it." } },
       choices = {
-        { text = "Your lads' craft is worth more than a spell, Raelen.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'd trust your lads' saws over any spell, Raelen.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Magic's faster and cheaper. You should try it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

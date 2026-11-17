@@ -17,7 +17,7 @@ P:NPC {
   greetings = {
     { id = "g_rest", text = "Rest a moment, {g:brother|sister}. The pews were built for tired people." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ah, one of our own, and not sleeping enough, by the look of you." },
-    { id = "g_fleet", when = { questActive = TODO_QUEST("The Doomed Fleet") }, text = "Menethil is a long road, I know, but Glorin will be glad of the company." },
+    { id = "g_fleet", when = { questActive = TODO_QUEST("The Doomed Fleet") }, text = "Menethil is a long, wet walk, I know, but Glorin will be glad of the company." },
   },
 
   notice = {
@@ -104,7 +104,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Darkshire could use you more than this altar can, {class}, but I'll ask what's weighing on you first, as I ask everyone." },
         { id = "h_default", text = "I'm Bishop Farthing. People come to this altar with heavy things on their backs, and I've found it's kinder to ask about the burden before the business. What's yours?" },
         { id = "h_journal", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Seeking Wisdom") },
-          text = "You've come from Darkshire; I can tell by the way you keep looking at the shadows. Give me Jitters' journal, and then tell me plainly what you mean to do about Morbent Fel." },
+          text = "You've come from Darkshire; I can tell by the way you keep glancing at the corners. Give me Jitters' journal, and then tell me plainly what you mean to do about Morbent Fel." },
         { id = "h_fleet", tags = { "news" }, when = { questActive = TODO_QUEST("The Doomed Fleet") },
           text = "The Kul Tiran wreck lies somewhere off the Wetlands coast, and if anyone can tell you where, it's Glorin Steelbrow in Menethil Harbor. Tell him I sent you; he'll grumble, but he'll help." },
         { id = "h_fleet_done", when = { questDone = TODO_QUEST("The Doomed Fleet") },
@@ -118,7 +118,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You carry your burden on the outside, in steel, and I find that's often the lighter kind to carry." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with the quiet look of someone who's spent a long time alone. Sit, if you like; the altar keeps no hours." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and so I'll ask what weighs on you, as I ask everyone. Duskwood was green once, before the dark crept into it, and I wonder whether your people feel such things more than mine do." },
-        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You carry your burden quietly, I see, and I've learned the quiet ones carry the heaviest." },
+        { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You keep your own counsel, I see, and the silent ones usually have the most to say once they sit down." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Something weighs on you, I think, before you say a word. A dwarf who hears spirits must hear a great deal of grief in these times." },
       },
       again = {
@@ -186,7 +186,7 @@ P:NPC {
     },
     fel = {
       big = true,
-      lines = { { id = "f_default", text = "Morbent Fel has wrapped himself in dark enchantments, so no common blade will touch him. Faith alone won't either, if I'm honest; it needs a weapon to travel down. That's why the iron matters, and why I'd never send anyone against him empty-handed.",
+      lines = { { id = "f_default", text = "Morbent Fel has wrapped himself in dark enchantments, so no common blade will touch him. Faith alone won't either; it needs a weapon to travel down. That's why the iron matters, and why I'd never send anyone against him empty-handed.",
         fx = { learn = { "morbent_fel" } } } },
       choices = {
         { text = "Then the Light is a weapon too.", next = "fel_weapon", fx = { align = { light = 1 } } },
@@ -224,7 +224,7 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the question didn't frighten me. Every one of them was somebody's apprentice once; what matters is that you asked, and that you still can." } },
+      lines = { { id = "warlock_l", text = "I don't know how he started, and I'd be lying if I said the question didn't frighten me. Every one of them was somebody's apprentice once, but you asked, and you still can, and I'll hold on to that." } },
       choices = {
         { text = "I'll never become that.", next = "warlock2", fx = { align = { light = 1 } } },
         { text = "Power isn't evil. What he did with it was.", next = "warlock2", fx = { align = { light = -1 } } },
@@ -417,7 +417,7 @@ P:NPC {
     book = {
       lines = {
         { id = "b_default", text = "The Royal Library has a copy, or ought to. Milton Sheaf will know, and he'll tell you the whole history of it whether you ask or not." },
-        { id = "b_paxton", when = { questDone = TODO_QUEST("Return to Kristoff") }, text = "Right here in my satchel, copied out and returned, after a detour through Northshire that I won't pretend I'm proud of." },
+        { id = "b_paxton", when = { questDone = TODO_QUEST("Return to Kristoff") }, text = "Right here in my satchel, copied out and returned, after a detour through Northshire involving a goat, a ditch and a very cross Brother Neals." },
       },
       choices = {
         { text = "Who wrote it?", next = "book_author" },
@@ -585,11 +585,11 @@ P:NPC {
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "Welcome, friend from Ironforge! We've a few of your countrymen who come to pray, and they always look at the stonework before they look at the altar." },
         { id = "h_night", when = { timeOfDay = "night" },
-          text = "Late visitors are my favourite, if I'm honest. The Cathedral is quiet at night, and people say the things they came to say." },
+          text = "Late visitors are my favourite. The Cathedral is quiet at night, and people say the things they came to say." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Welcome, welcome! Oh, you were trying not to be noticed, weren't you? I'm sorry, but I notice everyone, because that's what I'm for." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "Welcome to the Cathedral of Light! You're very welcome, truly, though you may want to wait a moment before going near the High Priestess." },
+          text = "Welcome to the Cathedral of Light! You're very welcome, really you are, though you may want to wait a moment before going near the High Priestess." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, welcome! Wipe your boots, if you would, because the Archbishop notices mud the way you notice an open flank." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, welcome to the Cathedral! I'm afraid your companion will have to wait by the door, though I'll keep it company if you like." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Welcome, welcome, druid! I've greeted three of your people this year, and each one looked up at the ceiling as if it might fall on them." },
@@ -697,7 +697,7 @@ P:NPC {
   notices = { "priest", "paladin" },
   impression = {
     first = "Thomas, the Cathedral's altar boy, is very proud of being trusted with secret errands and very bad at keeping his voice down about them. He wants to be a priest when he's grown.",
-    third = "{name} met Thomas, an altar boy who walks the length of the Cathedral and carries the Bishop's quiet errands.",
+    third = "{name} met Thomas, an altar boy who walks the length of the Cathedral and runs the Bishop's errands.",
   },
 
   greetings = {
@@ -1258,7 +1258,7 @@ P:NPC {
     },
     well = {
       big = true,
-      lines = { { id = "w_default", text = "I have to, or I'd sit down and cry with them, and then who'd cook? It's sad for the poor things, it truly is, but sadness won't feed anyone, and faith gets me out of bed." } },
+      lines = { { id = "w_default", text = "I have to, or I'd sit down and cry with them, and then who'd cook? It's sad for the poor things, it really is, but sadness won't feed anyone, and faith gets me out of bed." } },
       choices = {
         { text = "That's real faith.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Faith won't feed them either.", next = "BACK", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },

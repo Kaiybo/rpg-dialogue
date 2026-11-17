@@ -3,7 +3,8 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.23.0 (2026-11-17)
-- New conversations for 4 people who had none: Shakes O'Breen, Captain Steelgut, Foggy MacKreel, Zaruk. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+- New people to talk to: Captain Steelgut, Foggy MacKreel, Shakes O'Breen, Zaruk. New files: restart the game fully (a /reload won't load them).
+- Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.
 
 ## 1.22.0 (2026-11-17)
 - The town's leading people greet you differently when you come back after a fortnight or more, notice how far you've come since they last saw you, and have heard what you did with their neighbours. Needs RPG Dialogue 0.67.0.

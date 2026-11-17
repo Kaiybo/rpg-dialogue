@@ -63,7 +63,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Give it back? Every copper in this vault came up out of somebody's mine, and every one of them is staying right here, where the earth can't reach it. The Cartel has never lost a coin to a landslide, and I'd like to keep it that way." } },
       choices = {
         { text = "Walls and Bruisers. That's how you keep what's yours.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "The earth always takes its due in the end, banker.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The desert eats every vault eventually, banker.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -114,7 +114,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Twice, and the second time the box started knocking from the inside at midnight. I sent for the Bruisers, who sent for a mage, who sent for a priest, and in the end we buried it in the dunes and charged the owner for the trouble." } },
+      lines = { { id = "xlock_default", text = "Twice, and the second time the box started knocking from the inside at midnight. I sent for the Bruisers, who sent for a mage, who sent for a priest, and finally we buried it in the dunes and charged the owner for the trouble." } },
       choices = {
         { text = "Sensible. Some things shouldn't be kept at all.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "You buried something valuable. That was a waste.", next = "BACK", fx = { align = { order = -1 } } },
@@ -263,7 +263,7 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "Not well, if I'm honest. They're mountain birds, built for snow, and every morning I comb a fistful of sand out of their feathers and listen to them sulk about it." } },
+      lines = { { id = "dq_default", text = "Not well, by my beard. They're mountain birds, built for snow, and every morning I comb a fistful of sand out of their feathers and listen to them sulk about it." } },
       choices = {
         { text = "Send them home to the mountains. This is no place for them.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "They'll adapt. Everything out here does, or it dies.", next = "BACK", fx = { align = { light = -1 } } },
@@ -310,7 +310,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "They'll carry ye, so long as the demon stays dismissed until ye land. I had a bird refuse tae fly once wi' an imp on the saddle, an' it took me an hour tae talk her down from the roof." } },
       choices = {
-        { text = "Fair enough. I'll dismiss him before I ride.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "I'll dismiss him before I ride. Spare the roof.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "My demon goes where I go, Bera.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -371,7 +371,7 @@ P:NPC {
     heat_water = {
       lines = { { id = "hw_default", text = "A thirsty gryphon drops you in the dunes, friend, so yes, water for birds, and gladly. If you want the price to come down, go and run those bandits off Waterspring Field." } },
       choices = {
-        { text = "The birds come first. Fair enough.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The birds come first. I'd not want to walk.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "People should drink before animals.", next = "BACK", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -472,7 +472,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. The warlocks once bound our people in chains no one could see, and every orc of my years remembers the weight of them, so I will carry you where you need to go, but I will not pretend to like your craft." } },
+      lines = { { id = "xlock_default", text = "I trust a wind rider, and a sharp axe, and the word of the Warchief. The warlocks once bound our people in chains no one could see, and every orc of my years still remembers how it felt to wear them, so I will carry you where you need to go, but I will not like your craft, and I will not say I do." } },
       choices = {
         { text = "The old Horde's sins aren't mine.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is what made the Horde strong.", next = "BACK", fx = { align = { light = -1 } } },
@@ -481,7 +481,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "In Orgrimmar, nothing; the Shattered Hand do the Warchief good work in the shadows. Here, a sly look is enough to get you thrown out into the sand, and I'd sooner not fly you home with Bruiser bruises on you." } },
+      lines = { { id = "xrogue_default", text = "In Orgrimmar, nothing; the Shattered Hand do the Warchief good work in back alleys. Here, a sly look is enough to get you thrown out into the sand, and I'd sooner not fly you home with Bruiser bruises on you." } },
       choices = {
         { text = "The Shattered Hand serve the Horde with honor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Honor doesn't win wars. Shadows do.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -551,7 +551,7 @@ P:NPC {
     },
     goblins = {
       lines = {
-        { id = "g_line", text = "I trust them to want my coin, which is a kind of trust. Their Bruisers keep the peace with the dwarf across the yard, and peace with a dwarf is a strange thing for an orc to get used to." },
+        { id = "g_line", text = "I trust them to want my coin, and they've never once let me down there. Their Bruisers keep the peace with the dwarf across the yard, and peace with a dwarf is a strange thing for an orc to get used to." },
         { id = "g_orc", when = { race = "Orc" }, text = "Every orc remembers the camps, or the stories of them, so you know what it means to nod at a dwarf each morning and not reach for an axe. I've done it for a year now, and some days I even mean the nod." },
       },
       choices = {
@@ -581,7 +581,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hungry? Course you're hungry; everyone who smells my kitchen is hungry." },
+    { id = "g_default", text = "Hungry? Course you're hungry; everyone who smells my kitchen is hungry, even the Bruisers, and they pay with bruises." },
     { id = "g_chops", when = { questActive = TODO_QUEST("Dirge's Kickin' Chimaerok Chops") }, text = "Tenderloins! Tell me you brought tenderloins, because the pan's hot and my patience isn't." },
   },
 
@@ -635,7 +635,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "It's food without a soul, friend, bread that nobody kneaded and water that never fell from the sky! Eat it if you must on the road, but in Gadgetzan you'll eat my chops like a civilised person, and you'll thank me for it." } },
       choices = {
-        { text = "Conjured food feeds the hungry. That's what matters.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Conjured food feeds the hungry. Nobody cares how it tastes.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "You're right. Real food deserves real effort.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Let's change the subject.", next = "BACK" },
       },
@@ -645,7 +645,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "Then it has better taste than half my customers, which I'll grant it. But it can admire from over there, because I've seen what imps do with fire, and I'd rather my kitchen didn't end up as one of its jokes." } },
       choices = {
         { text = "My servant goes where I please.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Fair enough. I'll keep the imp in hand.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll keep the imp out of your soup.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else, Dirge.", next = "BACK" },
       },
     },
@@ -915,7 +915,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, eh? I'll bet you think a wand is better than a gun. Wrong, friend, because a gun never asks you to stop and think before it goes bang." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior! You know, a rifle's just a sword that reaches further, and I've got a few in here that reach very far indeed." },
+          text = "A warrior! You know, a rifle's just a sword that reaches further, and I've got a few in here that reach clear across the Shimmering Flats." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Now you're a customer who understands craftsmanship, because a hunter's rifle has to work every time, not just on the test dune." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You've got claws, so I don't suppose you'll buy a rifle, but I've seen druids pay good coin to keep a hunter friend in shot." },
@@ -987,7 +987,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind the sparks, friend. The desert dries everything, even fire." },
+    { id = "g_default", text = "Mind the sparks, friend. The desert dries everything, even fire, and I've lost two aprons and an eyebrow this month." },
     { id = "g_temper", when = { questActive = TODO_QUEST("Troll Temper") }, text = "Have the Sandfury given up their temper yet, or are they still guarding it with their lives?" },
   },
 
@@ -1010,7 +1010,7 @@ P:NPC {
       },
     },
     xcl_zf2 = {
-      lines = { { id = "xcl_zf2_default", text = "Not in my lifetime, and mine is long. A troll smith would sooner bury his flask with him than hand it to a kaldorei, and if I'm honest, an old elf smith would do the same to a troll." } },
+      lines = { { id = "xcl_zf2_default", text = "Not in my lifetime, and mine is long. A troll smith would sooner bury his flask with him than hand it to a kaldorei, and I'll admit an old elf smith would do the same to a troll." } },
       choices = {
         { text = "Then you're more alike than either of you would admit.", next = "BACK" },
       },
@@ -1129,7 +1129,7 @@ P:NPC {
         { id = "h_during", tags = { "news" }, when = { questActive = TODO_QUEST("Troll Temper") },
           text = "Twenty vials of their temper is what I need, and the Sandfury carry it on their persons, not in some storeroom. You'll have to take it from them, one troll at a time." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Troll Temper"), days = 3 } },
-          text = "The temper's already in the quench, and the steel took it better than I hoped. Whatever the Sandfury are, they know metal, and I won't pretend otherwise." },
+          text = "The temper's already in the quench, and the steel took it better than I hoped. Whatever the Sandfury are, they know metal, and it galls me to say it." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage at my anvil. My people know what arcane hunger can do to a land, friend, because the sea covers what it did to ours, so forgive me if I watch your hands." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
@@ -1322,7 +1322,7 @@ P:NPC {
       choices = {
         { text = "Every power has its price. Pay it carefully.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll ask as loudly as I please.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "That's enough, old man. Something else.", next = "BACK" },
+        { text = "Enough riddles, old man. Something else.", next = "BACK" },
       },
     },
     xrogue = {
@@ -1372,14 +1372,14 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, mon. The spirits around you are green and noisy, and Yeh'kinya can hear them even through the drink." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
-          text = "Ah, you got the shadows on you, mon, and they whisper back at Yeh'kinya. Be careful, because the Atal'ai thought they could whisper to their god too, and look what it made of them." },
+          text = "Ah, you got the Shadow on you, mon, and they whisper back at Yeh'kinya. Be careful, because the Atal'ai thought they could whisper to their god too, and look what it made of them." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! The spirits say you smell of books, mon, and they don't care much for books, but Yeh'kinya doesn't mind them." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "Quiet feet and quick hands, eh, mon? Yeh'kinya's eyes are tired, but he can still see a rogue coming, and a rogue going too." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, mon, with the Horde's mark on you. Old Yeh'kinya sees a little of the loa in you, or maybe a little of the shadow, and he don't mind either one." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior, mon. Yeh'kinya sees the weight of the axe on you, and the weight of all the trolls it's cut down out there in the sand." },
+          text = "A warrior, mon. Yeh'kinya sees how your shoulders sit, mon, from swingin' an axe at all the trolls it's cut down out there in the sand." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, mon! Yeh'kinya's people hunted the jungle long before there was any sand here, and your beast walks like it knows the old ways." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin of the Light, come to sit by an old troll? Sit, then, mon, but don't be preachin' at me, because I've heard all of it before." },

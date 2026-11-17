@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to the finest camp in the Badlands, which isn't saying much, so mind the anvil and don't ask what's for supper." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Pull up a crate, if you can find one the ogres didn't carry off." },
-    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and we've been eating dust and hope the whole time. Any word from Ironforge on your travels?" },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and we've been eating dust and salt pork gone green at the edges. Any word from Ironforge on your travels?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've hardened up since I saw you last, like good steel after the quench. I'd know, it's the only thing I do well." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Prospector says you've been a help to folk out here, and he doesn't hand out compliments, so I'll pass that one along." },
   },

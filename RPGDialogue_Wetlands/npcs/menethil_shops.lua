@@ -16,7 +16,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Looking for a gryphon out of this swamp? I can't blame you." },
+    { id = "g_default", text = "Looking for a gryphon out of this swamp? I can't blame you; even the birds won't land in the mud if they can help it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and dry, which is more than I can say for my birds." },
   },
 
@@ -267,7 +267,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than it has need o' guns, if I'm honest, for the lads come back from Algaz wi' holes in them, an' a rifle cannae mend a hole. Glorin does what he can, but he's one dwarf, an' a grumpy one." } },
+      lines = { { id = "xapriest_default", text = "More than it has need o' guns, by my beard, for the lads come back from Algaz wi' holes in them, an' a rifle cannae mend a hole. Glorin does what he can, but he's one dwarf, an' a grumpy one." } },
       choices = {
         { text = "Then I'll go up and help Glorin.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Better guns would mean fewer holes, Murndan.", next = "BACK", fx = { align = { light = -1 } } },
@@ -478,7 +478,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Neal Allen, engineering supplies and general goods. A harbor town needs a bit of everything, from rope and bread for the sailors to tubes and powder for the gnomes passing through." },
         { id = "h_gnome", when = { race = "Gnome" },
-          text = "Neal Allen, engineering supplies and general goods, and I'm glad to see a gnome, for you're my best customers. I've got coarse powder and bronze tubes, if you're building something interesting." },
+          text = "Neal Allen, engineering supplies and general goods, and I'm glad to see a gnome, for you're my best customers. I've got coarse powder and bronze tubes, if you're building something. Just test it on the far side of the bay, please; I've only the one roof." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? You'll want rope and rations before blasting powder, I'd guess, though you'd be surprised what warriors buy." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? I keep shot and arrows in the back, and the dwarves buy the shot faster than I can stock it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. Mind the blasting powder, because it's sealed tight, but I'd not trust any jar near someone who can turn into a bear." },
@@ -697,7 +697,7 @@ P:NPC {
       lines = {
         { id = "ww_default", text = "Now, you see, that's exactly the question we agreed not to ask. Let's just say the Wetlands have many plants, and some of them aren't friendly." },
       },
-      choices = { { text = "Fair enough.", next = "BACK" } },
+      choices = { { text = "Then I won't eat anything you sell me.", next = "BACK" } },
     },
 
     garrison = {

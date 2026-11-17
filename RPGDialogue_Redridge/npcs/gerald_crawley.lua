@@ -19,8 +19,8 @@ P:NPC {
     { id = "g_shop", text = "Looking for something particular? Speak softly; the walls here are thin." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon. Business must be good, or very bad." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. I won't ask where; it's the house rule." },
-    { id = "g_word_intim", when = { word = "intimidated" }, text = "They tell me you've been frightening people. Do it quietly, please; loud customers are bad for my trade." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word is you were caught in a lie. My advice is that the trick isn't telling fewer of them, it's telling them better." },
+    { id = "g_word_intim", when = { word = "intimidated" }, text = "I hear you've been frightening people. Do it quietly, please; loud customers are bad for my trade." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "Word is you were caught in a lie. My advice is to tell them better, since you'll clearly never manage fewer." },
   },
 
   notice = {

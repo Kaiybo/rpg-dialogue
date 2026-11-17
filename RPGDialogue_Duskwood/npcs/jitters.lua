@@ -183,7 +183,7 @@ P:NPC {
         { id = "hb_default", text = "My journal, the first one; I couldn't run and carry it, so I buried it by the stump and started another. Writing helps, though don't ask me why." },
       },
       choices = {
-        { text = "Writing is a kind of confession.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Write it all down, Jitters. It helps.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

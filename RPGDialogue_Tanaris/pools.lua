@@ -4,8 +4,8 @@ local P = RPGDialogueAPI:Pack("rpgd.tanaris")
 P:Pool {
   id = "guard_gadgetzan", role = "guard", community = "gadgetzan",
   barks = {
-    { id = "b_heat", text = "Hot enough to cook an egg on my helmet. Don't ask how I know." },
-    { id = "b_water", text = "Water tower's humming, which is good, because when it stops humming everybody in town gets grumpy." },
+    { id = "b_heat", text = "Hot enough to cook an egg on my helmet. Don't ask how I know, and don't ask why the helmet still smells of it." },
+    { id = "b_water", text = "Water tower's humming, which is good, because when it stops humming everybody in town gets grumpy, and Marin starts docking our pay by the cup." },
   },
   greetings = {
     { id = "g_town", text = "This is Gadgetzan, friend: neutral ground, Cartel rules. You start a fight here and we finish it, usually on top of you." },
@@ -36,7 +36,7 @@ P:Pool {
       },
       again = {
         { id = "a_heat", text = "What else? Talk fast, before we both melt." },
-        { id = "a_clock", text = "Anything else? I'm paid by the day, not by the chat." },
+        { id = "a_clock", text = "Anything else? I'm paid by the day, not by the chat, and not much by the day either." },
       },
       choices = {
         { text = "What are the rules in this town?", next = "rules" },
@@ -146,7 +146,7 @@ P:Pool {
     },
     pay = {
       lines = {
-        { id = "pa_default", text = "Because the Cartel pays in gold and the Venture Company pays in promises. Besides, out here a guard gets water rations, and water's worth more than gold in Tanaris." },
+        { id = "pa_default", text = "Because the Cartel pays in gold and the Venture Company pays in promises. Besides, out here a guard gets water rations, and in Tanaris I've seen a dwarf trade his good boots for one canteen." },
       },
       choices = {
         { text = "Sounds like a fair trade.", next = "BACK", fx = { trait = { greedy = 1 } } },

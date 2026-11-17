@@ -68,7 +68,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Close enough, since both of us wait in the quiet for the right moment and strike before the other fellow knows what happened. The difference is that a fish never holds a grudge, and I'd guess your marks aren't so forgiving." } },
+      lines = { { id = "xrogue_default", text = "Close enough, since both of us sit very still for a long time and strike before the other fellow knows what happened. The difference is that a fish never holds a grudge, and I'd guess your marks aren't so forgiving." } },
       choices = {
         { text = "I strike only when I must. Patience is everything.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A grudge is fine, so long as they never see me coming.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -208,7 +208,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I'm an old fisherman, and that's all I ever wanted to be. Some men chase gold; I chase snappers, and I sleep better for it." } },
-    advice = { { id = "tp_ad", text = "Be patient, youngster. The sea gives to those who wait and takes from those who rush." } },
+    advice = { { id = "tp_ad", text = "Be patient, youngster. The fish don't care how busy you are, and neither do the sharks." } },
     _none = { { id = "tp_none", text = "Never heard of it, and if it doesn't swim, I don't much care." } },
   },
 }
@@ -387,7 +387,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Haren Kanmae sells bows in Booty Bay, a quiet craftsman among the shouting goblins. He thinks a good bow is worth more than a loud gun, and he's tired of saying so.",
+    first = "Haren Kanmae sells bows in Booty Bay, a soft-spoken craftsman among the shouting goblins. He thinks a good bow beats a loud gun, and he's tired of saying so.",
     third = "{name} met Haren Kanmae, the bowyer of Booty Bay.",
   },
 
@@ -452,9 +452,9 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because a bow lets you strike from the shadows without telling the whole jungle where you are, and a gun tells everyone. The goblins here love their noise, but I've seen a single arrow end a fight that a dozen guns only made worse." } },
+      lines = { { id = "xrogue_default", text = "Because a bow lets you strike from cover without telling the whole jungle where you are, and a gun tells everyone. The goblins here love their noise, but I've seen a single arrow end a fight that a dozen guns only made worse." } },
       choices = {
-        { text = "Quiet work is better work. I'll take a bow.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Guns are for goblins who like the noise. I'll take a bow.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Noise has its uses. Sometimes you want them to hear.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Haren.", next = "BACK" },
       },
@@ -514,7 +514,7 @@ P:NPC {
         { text = "How do you work in this damp?", next = "damp" },
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "Why do you prefer bows to guns, Haren?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Do you see bowmaking as a kind of art, Haren?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is bowmaking an art to you, Haren?", next = "xmage", when = { class = "MAGE" } },
         { text = "Why stay in a jungle that ruins your work, Haren?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you find it hard to keep faith in Booty Bay?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Should a warrior bother with a bow, Haren?", next = "xwarcl", when = { class = "WARRIOR" } },

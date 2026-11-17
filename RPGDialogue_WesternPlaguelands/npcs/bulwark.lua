@@ -148,7 +148,7 @@ P:NPC {
         { text = "What's to be done about Andorhal?", next = "andorhal" },
         { text = "You don't think much of Undercity's politics.", next = "politics" },
         { text = "We both serve the Dark Lady, Executor.", next = "forsaken", when = { race = "Scourge" } },
-        { text = "Do the Forsaken truly trust the living here?", next = "living", when = { race = { "Orc", "Tauren", "Troll" } } },
+        { text = "Do the Forsaken really trust the living here?", next = "living", when = { race = { "Orc", "Tauren", "Troll" } } },
         { text = "Our warlocks could turn the dead on the Crusade.", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "I prefer a knife in the dark to a banner.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "Do you hold every mage to account for Kel'Thuzad?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -156,7 +156,7 @@ P:NPC {
         { text = "What do the plagued beasts tell you about Andorhal?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Can the Plaguelands be healed, High Executor?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "What did your orcs hear from the earth at Andorhal, High Executor?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Do they truly whisper about paladins in the Undercity, High Executor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do they really whisper about paladins in the Undercity, High Executor?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I've come back from Stratholme, High Executor.", next = "xcl_strat", when = { cleared = "Stratholme", faction = "Horde" } },
         { text = "Do the Forsaken fight the Scourge differently?", next = "xpt_forsaken", when = { party = { race = "Scourge" }, faction = "Horde" } },
         { text = "Send me east.", next = "END", fx = { affinity = 1, standing = { bulwark = 1 } } },
@@ -187,7 +187,7 @@ P:NPC {
         { id = "ho_default", text = "Honor, yes, I remember it well enough. I had plenty of it when I was alive and losing, and I've since found I like winning a great deal better." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Winning suits you, then. I'll not argue.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll keep mine, all the same.", next = "BACK", fx = { align = { honor = 1 }, trait = { stubborn = 1 } } },
       },
     },
@@ -378,7 +378,7 @@ P:NPC {
         { id = "h_faith", when = { metBefore = true },
           text = "When I was alive I prayed to the Light, and once it answered me. When I died I prayed again and heard nothing, so I learned to stop asking and start taking." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
-          text = "A warlock, and the shadows in this tent lean toward you like old friends. Sit, {class}, for you're the first visitor today who doesn't flinch at me." },
+          text = "A warlock, and the candle in this tent gutters toward you like an old friend. Sit, {class}, for you're the first visitor today who doesn't flinch at me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" },
           text = "A mage, and still in possession of all ten fingers, I see. The cauldrons hate fire, {class}, so you may be more useful to me than most of the volunteers." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
@@ -841,7 +841,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "Want it? I'd want to know what it fetched, first, for the Barovs never sold anything cheap. The Dark Lady gave me my mind back, and that's all the soul I need for the business ahead, which is getting my lands out of Weldon's hands and into mine." } },
       choices = {
-        { text = "Your soul's worth more than any deed, Barov.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Your soul matters more than any deed, Barov.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Deeds pay better than souls. Let's talk business.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, Barov.", next = "BACK" },
       },
@@ -851,7 +851,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "To whoever holds the paper, and the paper says Barov. My grandfather bought half these fields from the crown of Lordaeron, and the crown is gone and the fields are rotting, but a deed outlives both, and I mean to hold mine when the plague burns off." } },
       choices = {
         { text = "Paper doesn't own the earth, Barov. It never did.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fair enough. Paper's as good a claim as any.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Paper's as good a claim as any, I suppose.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else, Barov.", next = "BACK" },
       },
     },
@@ -1042,7 +1042,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Easier, if I'm honest, because you and I wore the same colours before either of us wore the Dawn's. The Dawn says every race faces one enemy here, and you're proof of it, because the Light chose you after everything that should have kept it away." } },
+      lines = { { id = "xfpala_default", text = "Easier, as it happens, because you and I wore the same colours before either of us wore the Dawn's. The Dawn says every race faces one enemy here, and you're proof of it, because the Light chose you after everything that should have kept it away." } },
       choices = {
         { text = "Then we stand together, Garush, Horde and Dawn alike.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "We fight together. That doesn't make old wars forgotten.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1118,7 +1118,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter. The Dawn needs eyes on these hills, {class}, and the plagued beasts know where the Scourge gathers long before any scout does." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! The Argent Dawn has use for every healer and every claw, and yours would be welcome against the Scourge." },
-        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin of the Alliance, at the Bulwark of all places. I fought your kind at Hillsbrad in the Second War, {class}, and now I'll fight beside you, and I won't pretend that isn't strange." },
+        { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" }, text = "A paladin of the Alliance, at the Bulwark of all places. I fought your kind at Hillsbrad in the Second War, {class}, and now I'll fight beside you, and by my tusks, that's strange." },
         { id = "h_priestcl", when = { class = "PRIEST" }, text = "A priest. The Dawn's stones need blessing before they'll hold the Scourge's taint, {class}, and I'm an orc with a soldier's hands, so I'll be glad of you." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, at the Bulwark. I fought the Light's knights in the Second War, and now one of the dead carries it beside me against the Scourge, and the world has turned stranger than any shaman foretold." },
       },
@@ -1200,7 +1200,7 @@ P:NPC {
     },
     stones = {
       lines = {
-        { id = "st_default", text = "The Dawn's respect, which is worth more than it sounds, for the Dawn keeps count and its quartermasters remember. Mostly you get fewer dead, though, and I'd hope that's enough." },
+        { id = "st_default", text = "The Dawn's respect, which counts for more than it sounds, for the Dawn keeps count and its quartermasters remember. Mostly you get fewer dead, though, and fewer graves for my grunts to dig." },
       },
       choices = {
         { text = "It's enough.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },

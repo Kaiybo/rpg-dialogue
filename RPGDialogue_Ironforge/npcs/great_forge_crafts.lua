@@ -125,7 +125,7 @@ P:NPC {
       },
       choices = {
         { text = "Teach me the craft.", next = "BUSINESS" },
-        { text = "Has the Great Forge truly never gone out?", next = "forge" },
+        { text = "Has the Great Forge really never gone out?", next = "forge" },
         { text = "What makes a good smith?", next = "good" },
         { text = "Where should a new smith find ore?", next = "ore" },
         { text = "A paladin's hammer is only as good as its maker.", next = "k_pally", when = { class = "PALADIN" } },
@@ -155,7 +155,7 @@ P:NPC {
         { id = "fh_default", text = "I'm humble about the fire, {g:lad|lass}, no' about what I make wi' it. Any dwarf can stand beside the Great Forge, but it takes a smith tae turn its heat intae a blade that'll hold an edge in Blackrock." },
       },
       choices = {
-        { text = "Craft is worth more than any gift of nature.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Craft beats any gift of nature, given a hot forge.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Without the fire, your craft is nothing.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
@@ -175,7 +175,7 @@ P:NPC {
       },
       choices = {
         { text = "Not everyone can be a master. They still earn a living.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Bad work sold as good is a kind of lie.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Selling bad work as good is lying, plain and simple.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
       },
     },
 
@@ -649,7 +649,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Stormwind ships, mostly, an' a few from Darnassus that yer people sell dear. Some I couldnae tell ye the source of, but they smell right an' they cook right, an' that's enough for me." } },
+      lines = { { id = "xdruid_default", text = "Stormwind ships, mostly, an' a few from Darnassus that yer people sell dear. Some I couldnae tell ye the source of, but they smell right an' they cook right, an' I've no' poisoned a customer yet." } },
       choices = {
         { text = "A merchant should know where his goods come from.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If they cook right, the source hardly matters.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
@@ -699,7 +699,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Now an' again, when nobody's lookin', for if Daryl hears o' it he'll say I've gone soft. A pinch o' salt makes a poor man's supper bearable, an' I'll no' turn a hungry dwarf away, whatever my brother says about my prices." } },
       choices = {
-        { text = "Charity like that is worth more than any prayer, Emrul.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Feeding folk does more good than most prayers, Emrul.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "You should charge them fairly. Charity makes beggars.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Show me your supplies, Emrul.", next = "BACK" },
       },
@@ -1106,7 +1106,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, you're not here to steal my formulas, are you? No, you'd be much quieter about it, I suppose." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You must have very good eyes, so please don't use them on my notes." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You're not here to steal my formulas, are you? No, of course not, your people are much too dignified for that." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Now that's interesting. Enchanting binds magic into things, and you seem to persuade things to do magic on their own. I'd love to compare notes." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Oh, splendid. Enchanting binds magic into things, and you seem to persuade things to do magic on their own. I'd love to compare notes." },
       },
       again = {
         { id = "h_again", text = "What else? Quickly, before someone else comes up the stairs." },
@@ -1173,7 +1173,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I enchanted in Gnomeregan before the fall, and I enchant here now, upstairs, where I can hear people coming." } },
-    advice = { { id = "tp_ad", text = "Never disenchant anything you might want back later. I've learned that the hard way." } },
+    advice = { { id = "tp_ad", text = "Never disenchant anything you might want back later. I turned my grandmother's brooch into dust once, and she still writes to remind me." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, and I'd rather not, frankly." } },
   },
 }

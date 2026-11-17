@@ -21,13 +21,13 @@ P:NPC {
     { id = "g_sven", when = { questActive = TODO_QUEST("Deliveries to Sven") }, text = "Sven's crate won't carry itself, and his people won't eat until it gets there." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Come in from the dark. The Watch's lamps only reach so far, and the woods know exactly how far." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I kept your name on my list of people to worry about the whole time. I'm glad to cross it off." },
-    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in town has been speaking kindly of you, and in these days that's worth more than coin. The Light walks with folk like that." },
+    { id = "g_word_pleased", when = { word = "pleased" }, text = "Someone in town has been speaking kindly of you, and kind words are scarcer in Darkshire than lamp oil. The Light walks with folk like that." },
     { id = "g_word_helped", when = { word = "helped" }, text = "I hear you've been helping people in Darkshire these past days. That's one less name on my list of the forgotten, and I thank you for it." },
   },
 
   notice = {
     { id = "n_light", cat = "light", when = { class = { "PRIEST", "PALADIN" } },
-      text = "You carry the Light openly, and that's rarer here than it should be. Most of Darkshire prays with the shutters closed." },
+      text = "You wear the Light openly, and that's rarer here than it should be. Most of Darkshire prays with the shutters closed." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Your gear's half torn away. Morg Gnarltree will see to your armour before you go out again, and please do go to him first." },
   },
@@ -249,7 +249,7 @@ P:NPC {
     },
     light_none = {
       lines = {
-        { id = "ln_default", text = "I hope you're right, I truly do. Say it to the people in this town who've buried children, though, and see if they believe you." },
+        { id = "ln_default", text = "I hope you're right, I do. Say it to the people in this town who've buried children, though, and see if they believe you." },
       },
       choices = { { text = "I will.", next = "BACK", fx = { trait = { pious = 1 } } } },
     },
@@ -409,7 +409,7 @@ P:NPC {
         { text = "What does Nethergarde need that a priest could give?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who guards your wagons on the road east, Watchmaster?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why does Nethergarde matter so much to Duskwood?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "Is the road to Nethergarde truly so dangerous, Watchmaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Is the road to Nethergarde really so dangerous, Watchmaster?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Safe roads, Watchmaster.", next = "END" },
       },
     },
@@ -556,7 +556,7 @@ P:NPC {
         { id = "xmage_default", text = "Improve it, he says! The jug under the counter is the only thing in Darkshire that's never once disappointed anybody, and I'll not have it frozen, sparkled or made to taste of cinnamon. A Dalaran fellow tried that on his way through once, years back, and the Watch still laugh about what it did to his eyebrows." },
       },
       choices = {
-        { text = "Fair enough. I'll drink it the way it's made.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Then I'll drink it the way it's made, and wince.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A pinch of frost would hide how bad it is.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Hann.", next = "BACK" },
       },
@@ -1167,7 +1167,7 @@ P:NPC {
       },
       choices = {
         { text = "I'd stop it, Farrin. Raising your father isn't my work.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Both, if I'm honest. It's worth knowing how it's done.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Both. It's worth knowing how it's done.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Farrin.", next = "BACK" },
       },
     },
@@ -1468,7 +1468,7 @@ P:NPC {
     },
     beasts_talk = {
       lines = {
-        { id = "bt_default", text = "Nothing at all, just the sound of it, steady and low. It works on beasts, and on me, if I'm honest." },
+        { id = "bt_default", text = "Nothing at all, just the sound of it, steady and low. It works on beasts, and on me too, most nights." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },

@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a bird out of the Gorge? Wise, because there's more ash than air in this place, and the gryphons cough all night." },
+    { id = "g_default", text = "Need a bird out of the Gorge? Wise, because there's more ash than air in this place, and the gryphons cough all night and spit black on my boots in the morning." },
     { id = "g_horde", when = { faction = "Horde" }, text = "My birds fly for the Alliance, friend. Your orc is just over there with the wind riders, and she'll see you right." },
     { id = "g_away", when = { away = 14, faction = "Alliance" }, text = "You've been gone {away}, and the gryphons have been coughing ash the whole time. They'll be glad of a flight out with you." },
   },
@@ -29,7 +29,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Honestly, it's a close race. The Dark Irons called up fire and it burned half their own kingdom, so you'll forgive me if I watch anyone who talks to the elements a little closely, even one of ours." } },
+      lines = { { id = "xdsham_default", text = "It's a close race, by my beard. The Dark Irons called up fire and it burned half their own kingdom, so you'll forgive me if I watch anyone who talks to the elements a little closely, even one of ours." } },
       choices = {
         { text = "Ironforge's law keeps me honest, whatever the spirits say.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The elements answer to no king, and neither will I.", next = "BACK", fx = { align = { order = -1 } } },
@@ -257,10 +257,10 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "As closely as I watch them, which is very closely indeed, because every one of them swears he left the mountain behind and none of us can prove it. They trade fair and keep their word, so far, but I sleep with my axe by the bed and I'd advise you to do the same." } },
+      lines = { { id = "xrogue_default", text = "As closely as I watch them, which is very closely, because every one of them swears he left the mountain behind and none of us can prove it. They trade fair and keep their word, so far, but I sleep with my axe by the bed and I'd advise you to do the same." } },
       choices = {
         { text = "They've kept their word. That should count, Grisha.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Fair enough. I'll watch them and trust none.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll watch them too, and trust none of them.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -342,6 +342,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I fly wind riders for the Horde. What I did before that is my own business." } },
     advice = { { id = "tp_ad", text = "Don't walk down into the Gorge without a reason. The Dark Irons down there aren't the friendly kind." } },
-    _none = { { id = "tp_none", text = "Don't know. Ask the dwarves." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask the dwarves, and bring earplugs, because they never stop at one story." } },
   },
 }

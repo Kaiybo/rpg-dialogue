@@ -88,7 +88,7 @@ P:NPC {
       },
     },
     list_end = {
-      lines = { { id = "le_default", text = "Maybe so, mon. If the loa give me a next time, I be watching the tail first, and I be telling the young ones to do the same, because that might be worth more than any claw." } },
+      lines = { { id = "le_default", text = "Maybe so, mon. If the loa give me a next time, I be watching the tail first, and I be telling the young ones to do the same, because a tail in the face kill more young fools than any claw." } },
       choices = {
         { text = "Teaching them would be a fine thing to be remembered for.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Only the kill is remembered. Get the next one.", next = "BACK", fx = { align = { light = -1 } } },
@@ -135,7 +135,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A Darkspear hunter, mon, a young one, and right now a bleeding one. Ask me again when I got a better story." } },
-    advice = { { id = "tp_ad", text = "Watch the tail, mon, not the claw. I learn that one the hard way so you don't have to." } },
+    advice = { { id = "tp_ad", text = "Watch the tail, mon, not the claw. I got the scar to prove it, and I limp when it rain." } },
     echo_isles = { { id = "tp_isles", text = "Our home, across the water, and Zalazane sit in it like a tick. One day the Darkspear go back." } },
     burning_blade = { { id = "tp_blade", text = "The recruits say there be cultists in the caves with demon imps, mon. I stay away from demons and stick to scorpids, and look how well that go." } },
     _none = { { id = "tp_none", text = "I don't know that one, mon. Ask me about scorpids, because now I be an expert." } },

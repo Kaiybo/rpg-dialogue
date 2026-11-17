@@ -63,7 +63,7 @@ P:NPC {
     },
     good_line = {
       big = true,
-      lines = { { id = "gl_default", text = "Then you make a new one with whoever's left. Lordaeron's lines all broke in the end, and here we are anyway, which tells you something about getting up." } },
+      lines = { { id = "gl_default", text = "Then you make a new one with whoever's left. Lordaeron's lines all broke, and here we are anyway, still arguing over who holds the left flank." } },
       choices = {
         { text = "Then I'll hold the line, whatever's left of it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Or you survive by running first. That works too.", next = "BACK", fx = { align = { honor = -1 } } },

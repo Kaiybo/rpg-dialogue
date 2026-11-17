@@ -24,7 +24,7 @@ P:NPC {
 
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid. Good; you'll understand that pulling a weed is a kind of healing, even if it doesn't look like one." },
+      text = "A druid. Good; you'll understand that pulling a weed counts as healing, even if it doesn't look like one." },
     { id = "n_bear", cat = "form", when = { form = "bear" },
       text = "Those claws would make short work of the brambles. Mind the roots of the good growth while you're at it." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
@@ -187,7 +187,7 @@ P:NPC {
     leave = {
       big = true,
       lines = {
-        { id = "l_default", text = "Every time we pack up, somebody gets cut off on da slopes, or a scout don't come back, an' we turn around ta fetch 'em. Ya don't leave ya own behind, mon. Dat be da one rule dat matters." },
+        { id = "l_default", text = "Every time we pack up, somebody gets cut off on da slopes, or a scout don't come back, an' we turn around ta fetch 'em. Ya don't leave ya own behind, mon, even when ya own be a fool who went chasin' a pretty bird." },
       },
       choices = {
         { text = "Then you're right to stay. No one gets left.", next = "BACK", fx = { align = { honor = 1 } } },

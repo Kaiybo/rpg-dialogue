@@ -3,7 +3,8 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.20.0 (2026-11-17)
-- New conversations for 4 people who had none: Eitrigg (major), Belgrom Rockmaul, Zor Lonetree, Rashona Straglash. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+- New people to talk to: Belgrom Rockmaul, Eitrigg, Rashona Straglash, Zor Lonetree. New files: restart the game fully (a /reload won't load them).
+- Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.
 
 ## 1.19.0 (2026-11-17)
 - Thrall has a great deal more to say: the Horde's peoples, his past from Durnholde to Hyjal, what he asks of you, and two new hard questions.

@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good; the west road hasn't gone quiet while you were away." },
     { id = "g_claws", when = { questActive = TODO_QUEST("A Putrid Task") }, text = "The claws, {class}. The rotting ones won't hand them over, so don't wait for them to." },
     { id = "g_mills", when = { questActive = TODO_QUEST("The Mills Overrun") }, text = "Ribs and skulls from the Mills. Follow the road west, take the north fork, and look for the windmills." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the Scourge kept coming the whole time. Pick up where you left off." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the Scourge kept coming the whole time. Pick up where you left off, and somebody take that leg off the fence post, because it isn't mine." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You were a fresh corpse with a rusty blade when you first stood here, and now you look like something the Scourge should worry about. Good." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word along the street is that you've been useful in Brill. I don't hand out praise, but I'm told others do." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Word is you put someone's back up in town. Save the bad temper for the Scourge, because they've earned it and Brill hasn't." },
@@ -35,7 +35,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Deathguard Dillinger. I hold the west end of Brill against whatever crawls out of the fields, and lately that's more Scourge than I'd like." },
+        { id = "h_default", key = true, text = "Deathguard Dillinger. I hold the west end of Brill against whatever crawls out of the fields, and lately that's more Scourge than I'd like. The pay is nothing and my boots are rotting, and I stopped complaining about the smell when I worked out it was mostly me." },
         { id = "h_putrid_before", when = { questBefore = TODO_QUEST("A Putrid Task") },
           text = "The Scourge have been trickling into the glades west of here, near the old bridge, and nobody's sent them back yet. Rotting dead and ravaged corpses, mostly, and they all have claws worth taking." },
         { id = "h_putrid_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Putrid Task"), days = 3 } },

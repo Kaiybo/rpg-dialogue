@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.searinggorge")
 P:Pool {
   id = "guard_thorium", role = "guard", community = "thorium_point",
   barks = {
-    { id = "b_heat", text = "It's hot today, an' it's hot every day, because that's the Gorge." },
+    { id = "b_heat", text = "It's hot today, an' it's hot every day, an' I've no' had dry socks since the spring thaw." },
     { id = "b_mountain", text = "Smoke over the mountain again, so somebody down there's still workin' for the Firelord, poor sods." },
   },
   greetings = {
@@ -20,10 +20,10 @@ P:Pool {
   lines = {
     { id = "l_default", text = "We forged weapons for the Firelord's armies till we found a way out, an' now we forge for whoever pays, which is a better bargain." },
   },
-  choices = { { text = "Fair enough.", next = "END", fx = { standing = { thorium_point = 1 } } } },
+  choices = { { text = "Then I'll pay like everyone else.", next = "END", fx = { standing = { thorium_point = 1 } } } },
   topics = {
     dark_iron = { { id = "t_dark_iron", text = "Our kin are still under the mountain, still bowin' tae fire. We left an' they didnae, so don't lump us together." } },
-    blackrock = { { id = "t_blackrock", text = "Orcs in the upper Spire, our kin in the depths below. That mountain's got more masters than a bad smithy." } },
-    _none = { { id = "t_none", text = "Ask the Overseer, for he knows everything that happens on the Point; he says so, often." } },
+    blackrock = { { id = "t_blackrock", text = "Orcs in the upper Spire, our kin in the depths below. That mountain's got more masters than a bad smithy, an' every one o' them wants the rest dead." } },
+    _none = { { id = "t_none", text = "Ask the Overseer, for he knows everything that happens on the Point; he says so, often, an' usually while ye're tryin' tae eat." } },
   },
 }

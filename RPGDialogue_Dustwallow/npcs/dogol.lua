@@ -39,13 +39,13 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("The Black Shield") },
           text = "There is writing on the rim of that black shield, but it is all burned over. Acid will clean it, and the darkmist spiders in the old mine northwest of here are full of acid." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Black Shield"), days = 3 } },
-          text = "Maybe Do'gol used too much acid, but the name came up, and that is what matters. Mosarn, it said, and Do'gol never heard of him." },
+          text = "Maybe Do'gol used too much acid, but the name came up, and the smell is almost gone from Do'gol's hands. Mosarn, it said, and Do'gol never heard of him." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "A warrior! Then you know a shield is not for hiding behind, it is for hitting people with when the axe is busy." },
       },
       again = {
         { id = "h_again", text = "What else? The fire is hot and Do'gol should be hitting things." },
-        { id = "h_again2", text = "Talk, then, but Do'gol keeps working while you talk." },
+        { id = "h_again2", text = "Talk, then, but Do'gol keeps working while you talk, so stand back from the sparks, because Do'gol's last customer lost an eyebrow." },
       },
       choices = {
         { text = "What did the black shield tell you?", next = "shield" },
@@ -104,7 +104,7 @@ P:NPC {
     },
     spiders_which = {
       lines = { { id = "sw2_default", text = "Do'gol will know when you come back. If you come back with sacs, you are brave, and if you come back with no sacs and no legs, you are stupid." } },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "I'll aim to come back with legs, Do'gol.", next = "BACK", fx = { affinity = 1 } } },
     },
     krog = {
       lines = { { id = "k_default", text = "Krog is an orc who thinks too much, and he walks up and down worrying about humans. But Krog is fair to ogres, and he does not shout, so Do'gol does what Krog asks." } },

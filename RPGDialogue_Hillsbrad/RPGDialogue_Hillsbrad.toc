@@ -18,6 +18,6 @@ npcs\unsung.lua
 npcs\raleigh.lua
 npcs\southshore_more.lua
 npcs\alterac_roads.lua
-npcs\voidglare.lua
 npcs\melisara.lua
+npcs\voidglare.lua
 npcs\bartolo.lua

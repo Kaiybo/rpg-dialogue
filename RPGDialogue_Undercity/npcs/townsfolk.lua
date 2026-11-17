@@ -90,7 +90,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, keeping a vault in the Undercity. I'd ask you not to bless the ledgers, {class}, because some of them are older than the plague and quite fragile, but I confess I'm curious what the Light makes of our accounts." },
       },
       again = {
-        { id = "h_again", text = "Anything further? I have accounts to balance." },
+        { id = "h_again", text = "Anything further? I have accounts to balance, and a depositor who left his own hand in his box by mistake." },
         { id = "h_again2", text = "Ask, by all means. I have been dead for some years and have learned to be patient about interruptions." },
       },
       choices = {
@@ -174,7 +174,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xmage_default", text = "They do, and they insist on labelling every pouch in a hand nobody else can read, which plays havoc with my accounts. The Magic Quarter folk are good customers otherwise, though one of them once stored something in a vault that hummed." },
-        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran's people banked in the capital too, in the old days, and they were exactly as particular then as they are now. I find the consistency rather comforting, if I'm honest." },
+        { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran's people banked in the capital too, in the old days, and they were exactly as particular then as they are now. I find the consistency rather comforting." },
       },
       choices = {
         { text = "I'll label my pouches plainly, sir.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -224,9 +224,9 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "They feared me for a long time, because they could smell what I was, and nothing I did would change it. Patience did it in the end, and a great deal of quiet, which I suspect is more of a prayer than anything Duesten ever taught." } },
+      lines = { { id = "xhpriest_default", text = "They feared me for a long time, because they could smell what I was, and nothing I did would change it. Patience did it, months of it, and a great deal of sitting still, which I suspect is more of a prayer than anything Duesten ever taught." } },
       choices = {
-        { text = "Patience like yours is a kind of faith, Anya.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That patience sounds like faith to me, Anya.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Beasts fear the dead for good reason. Let them.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -287,7 +287,7 @@ P:NPC {
       },
     },
     fear_give = {
-      lines = { { id = "fg_default", text = "Never yet. There was a bear from Silverpine that wouldn't come near me for a month, and in the end it slept against the bars beside my chair. I count that as the best thing I've done since I woke up." } },
+      lines = { { id = "fg_default", text = "Never yet. There was a bear from Silverpine that wouldn't come near me for a month, and come autumn it slept against the bars beside my chair. I count that as the best thing I've done since I woke up." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     under = {
@@ -440,7 +440,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll hold a blade like a spoon, I expect, so let's fix that." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken, with a hammer in a dead man's grip. Your joints will fight you on the swing like everyone's, but I'm told the Light steadies the arm, and I'd like to see that for myself." },
       },
-      again = { { id = "h_again", text = "What else? Be quick; I've recruits at the target butts." } },
+      again = { { id = "h_again", text = "What else? Be quick; I've recruits at the target butts, and one keeps shooting his own foot, which he can't feel." } },
       choices = {
         { text = "Should a priest learn to fight, Archibald?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Will you teach a shaman the mace, weapon master?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -537,7 +537,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "gruff" }, values = { "diligent" },
   notices = { "profession", "wounds" },
   impression = {
-    first = "James Van Brunt works the forges of the War Quarter without gloves, since the heat no longer bothers him. He teaches smithing like a man who has nothing left but the work and has decided that's enough.",
+    first = "James Van Brunt works the forges of the War Quarter without gloves, since the heat no longer bothers him. He teaches smithing like a man who has nothing left but the work and has decided to be very good at it.",
     third = "{name} met James Van Brunt, the blacksmithing trainer of the Undercity.",
   },
 
@@ -575,7 +575,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Mail now, and plate when you're strong enough to carry it, and always armour that's been fitted to you rather than pulled off a corpse. The Deathguard learned that the hard way, because a breastplate that doesn't fit is just a heavy way to die." } },
+      lines = { { id = "xwarcl_default", text = "Mail now, and plate when you're strong enough to carry it, and always armour that's been fitted to you rather than pulled off a corpse. I've seen Deathguard clank about in dead men's breastplates, and a breastplate that doesn't fit is just a heavy way to die." } },
       choices = {
         { text = "Fitted armour, then. I'll take the time to do it right.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Whatever's on the corpse will do for now.", next = "BACK", fx = { align = { order = -1 } } },
@@ -662,7 +662,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "The earth gives me ore and the fire gives me heat, and I've never yet had to thank either of them. The orcs say their smiths ask the stone before they cut it, and maybe that's why their axes hold, but the Deathguard need armour faster than I can ask anyone's permission." } },
       choices = {
         { text = "Thank the stone, smith. It costs you nothing.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The work's what matters. The spirits can wait.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "The work comes first. The spirits can wait.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -670,7 +670,7 @@ P:NPC {
       big = true,
       lines = { { id = "dq_default", text = "Tire? I'm dead, so no, and I can't say I'd want to. The work is the same as it ever was, and that's the only thing in this city that is, so I hold on to it with both hands, even the burnt one." } },
       choices = {
-        { text = "Steady work is a kind of peace. Keep it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Keep at it, then. Steady hands are a comfort.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Change would do you good, smith. Try something new.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -864,7 +864,7 @@ P:NPC {
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "I knew Dalaran men who came to the capital's mines looking for crystals with their little rods, and they never once dirtied their robes. Take a pick, and let the magic rest." },
       },
       choices = {
-        { text = "Fair enough. I'll learn the pick properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll learn the pick properly.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Magic's quicker, Killian, and I prefer quick.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Where should I mine near here?", next = "where" },
       },
@@ -947,14 +947,14 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Lavinia Crowe. I teach enchanting, the art of breaking magic out of one thing and putting it into another. It's delicate work, so I hope your hands are steadier than most." },
+        { id = "h_default", key = true, text = "Lavinia Crowe. I teach enchanting, the art of breaking magic out of one thing and putting it into another. It's delicate work, so I hope your hands are steadier than most. My last apprentice's fingers kept coming loose, and we lost two of them in the shards." },
         { id = "h_ench", when = { profession = "Enchanting" }, text = "One of mine! Have you been saving your essences, or selling them to the first merchant who asks? I'll know if you've been selling them." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. You put spirits into your totems, I gather, and I put magic into swords, so we're nearly colleagues, though I do it more tidily." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You change your shape the way I change an item's nature, though you, at least, can change back." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, in the Magic Quarter? Mind your elbows, {class}, because a dropped essence is a week of work gone." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll come across plenty of things worth disenchanting on your travels, so do bring them to someone who knows what to do with them." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, in the Magic Quarter. I enchant things, and you bless them, and I've always wondered which of us does more good to a sword." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, in the Magic Quarter. I've never once disenchanted anything the Light had touched and the dead had carried, and I suspect the essence would be very peculiar indeed." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, in the Magic Quarter. I've never once disenchanted anything the Light had touched and the dead had carried, and I suspect the essence would smell like a burnt hymnbook." },
       },
       again = { { id = "h_again", text = "Something else? Ask, but quietly; the rods hum when people shout." } },
       choices = {
@@ -999,7 +999,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dead = {
-      lines = { { id = "de_default", text = "The magic doesn't care whether you're breathing, which surprised everyone. The hard part is the patience, because the dead have time but not always the steadiness, and enchanting forgives nothing." } },
+      lines = { { id = "de_default", text = "The magic doesn't care whether you're breathing, which surprised everyone. What it wants is patience, because the dead have time but not always the steadiness, and enchanting forgives nothing." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xhsham = {
@@ -1180,7 +1180,7 @@ P:NPC {
       big = true,
       lines = { { id = "dq_default", text = "I'd take anyone who can move unseen and keep their mouth shut afterwards, and you've the first part already. The Dark Lady has more work than she has rogues, and a cat in the Southshore stables wouldn't raise anyone's suspicion." } },
       choices = {
-        { text = "I'll serve the Dark Lady from the shadows.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll serve the Dark Lady where no one sees me.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I prowl for the Horde, not for your quarter.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1200,7 +1200,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Rarely, because a demon is the least subtle thing in the Undercity, and that includes the abominations. Still, a warlock who can curse a man from across a room has a certain quiet charm, if he learns to stand in the shadows." },
+        { id = "xwarlock_default", text = "Rarely, because a demon is the least subtle thing in the Undercity, and that includes the abominations. Still, a warlock who can curse a man from across a room has a certain charm, if he learns to stand somewhere dark and keep his imp quiet." },
         { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc warlock, in my quarter, and you've the sense to ask instead of barging in. A curse from across a room has a certain quiet charm, if you learn to keep that demon of yours out of the light." },
       },
       choices = {
@@ -1275,7 +1275,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Ezekiel Graves, purveyor of poisons and the things you need to make them. Rogues come to me for powders and vials, and I'm always happy to talk about what goes into them." },
+        { id = "h_default", key = true, text = "Ezekiel Graves, purveyor of poisons and the things you need to make them. Rogues come to me for powders and vials, and I'm always happy to talk about what goes into them, which is mostly things that crawled up out of the sewers." },
         { id = "h_rogue", when = { class = "ROGUE" }, text = "A rogue! You'll want the good things, then: dust of decay, essence of pain, and plenty of empty vials. I keep them all, and in quantity." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I'm told your totems can wash a poison clean out of the blood, which is very bad for business, so please don't do it in front of my customers." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! Your lot can cure a poison with a touch, I'm told, and I've never been so offended by a profession in my life." },
@@ -1357,7 +1357,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xwarlock_default", text = "Some of them do, and the ones that don't are very interesting to watch fail. The Magic Quarter's warlocks buy from me now and then, for when a pet turns on its master, and they never tell me whether it worked." },
-        { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking after poisons for demons, now that's a customer with history. Some of my stock works on them and some only annoys them, and I'm afraid you'll have to find out which the hard way." },
+        { id = "xwarlock_orc", when = { race = "Orc" }, text = "An orc asking after poisons for demons, now that's a customer with history. Some of my stock works on them and some only annoys them, and I'm afraid you'll have to find out which by experiment, preferably nowhere near my shelves." },
       },
       choices = {
         { text = "A wise warlock keeps a vial for his own demon.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -1384,13 +1384,13 @@ P:NPC {
   communities = { "undercity" }, temper = { "brisk" }, values = { "kind", "practical" },
   notices = { "wounds" },
   impression = {
-    first = "Mary Edras teaches first aid to the Forsaken, who need it more than they admit because they cannot feel how badly they're hurt. She is brisk with everyone, and the briskness is plainly a kind of care.",
+    first = "Mary Edras teaches first aid to the Forsaken, who need it more than they admit because they cannot feel how badly they're hurt. She is brisk with everyone, and the briskness is plainly how she cares.",
     third = "{name} met Mary Edras, the first aid trainer of the Undercity.",
   },
 
   greetings = {
     { id = "g_hi", text = "Let me look at you. No, don't argue; let me look." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. I'm pleased, though I won't say so twice." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, or near enough. Let me see that arm before something falls off it." },
   },
 
   notice = {
@@ -1414,7 +1414,7 @@ P:NPC {
       lines = { { id = "xhpriest_default", text = "Hardly ever, because they think dying once makes them clever about it. A priest's word carries further than a bandage, so if you tell them to come see me, I'd be grateful, and I'll do the stitching." } },
       choices = {
         { text = "I'll send them to you, Mary. We'll mend them together.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "If they won't heed a wound, let them learn the hard way.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If they won't heed a wound, let them bleed until they do.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1605,8 +1605,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Only in that you can't see your quarry, so you have to trust the line and the water. A hunter follows what's in front of him, but a fisherman sits and believes, which is a kind of faith the Forsaken could use more of." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only in that you can't see your quarry, though {pet} will learn to watch the float as keenly as you do, I expect. A fisherman sits and believes, which is a kind of faith the Forsaken could use more of." },
+        { id = "xhuntcl_default", text = "Only in that you can't see your quarry, so you have to trust the line and the water. A hunter follows what's in front of him, but a fisherman sits and believes, and the Forsaken could stand to believe in something, even a cork float." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only in that you can't see your quarry, though {pet} will learn to watch the float as keenly as you do, I expect. A fisherman sits and believes, even if it's only in the float." },
       },
       choices = {
         { text = "I'll learn to trust the line, Armand.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1639,7 +1639,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something else? There's no hurry; there never is with fishing." } },
       choices = {
-        { text = "Is fishing a kind of prayer, Armand?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "Do you pray over the float, Armand?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shall I ask the water spirits about the canals, Armand?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Don't you miss the taste of what you catch, Armand?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Teach me to fish.", next = "BUSINESS" },
@@ -1667,7 +1667,7 @@ P:NPC {
     },
     why = {
       big = true,
-      lines = { { id = "y_default", text = "We sell to the living, to the inn and to the apothecaries, who use fish in ways I don't ask about. But mostly it's the quiet, which is the nearest thing to sleep the dead can have." } },
+      lines = { { id = "y_default", text = "We sell to the living, to the inn and to the apothecaries, who use fish in ways I don't ask about. But mostly I come for the stillness by the water, which is the nearest thing to sleep the dead can have." } },
       choices = {
         { text = "Everyone deserves some peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Peace is for those who've won their war.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1684,7 +1684,7 @@ P:NPC {
     },
     druid_q = {
       big = true,
-      lines = { { id = "dq_default", text = "Every time, friend, but I've made my peace with it. The fish goes to the inn and the apothecaries and I keep the quiet, which is the better half of fishing anyway, and you'll eat what you catch, at least, so do it properly and thank the lake." } },
+      lines = { { id = "dq_default", text = "Every time, friend, but I've made my peace with it. The fish goes to the inn and the apothecaries and I keep the stillness and the lake smell, which is the better half of fishing anyway, and you'll eat what you catch, at least, so do it properly and thank the lake." } },
       choices = {
         { text = "I always thank the lake. It's only right.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A fish is a fish. I'll eat it and thank no one.", next = "BACK", fx = { align = { light = -1 } } },

@@ -435,7 +435,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I think a good one carries a little of whoever made it. Out in the marsh that's worth more than a sharp edge, and you'd know better than me whether the spirits agree." } },
+      lines = { { id = "xdsham_default", text = "I think a good one carries a little of whoever made it. Out in the marsh that counts for more than a sharp edge, and you'd know better than me whether the spirits agree." } },
       choices = {
         { text = "A weapon has a spirit. I'll treat mine with respect.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "A weapon is a tool, and a soldier keeps it clean.", next = "BACK", fx = { align = { order = 1 } } },
@@ -483,7 +483,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Now and then, when I lie awake, though I've decided that a peace with nothing behind it doesn't last a season. I'd rather my blades hung on the wall all their lives, honestly, and most of the ones I sell to the guard never draw blood at all." } },
+      lines = { { id = "xapriest_default", text = "Now and then, when I lie awake, though I've decided that a peace with nothing behind it doesn't last a season. I'd rather my blades hung on the wall all their lives, and most of the ones I sell to the guard never draw blood at all." } },
       choices = {
         { text = "Peace kept by fear is a poor peace. Pray it holds without steel.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Peace needs a sharp edge behind it. Keep forging.", next = "BACK", fx = { align = { light = -1 } } },

@@ -107,11 +107,11 @@ P:NPC {
         { text = "Let me see if I can ease your pain.", next = "x_1", when = { class = { "PRIEST", "DRUID", "SHAMAN" } } },
         { text = "Is profit worth this risk?", next = "s_1" },
         { text = "How did you get poisoned?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Is there truly no cure for your venom?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Is there really no cure for your venom?", next = "xmage", when = { class = "MAGE" } },
         { text = "Have you ever prayed for anything yourself, Noggle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Would you rather I went and fought what stung you, Noggle?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do you really not know what stung you, Noggle?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Are you truly dying, Noggle?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Are you actually dying, Noggle?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why would a warlock want your soul, Noggle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Farewell.", next = "END" },
       },
@@ -156,14 +156,14 @@ P:NPC {
     third = "{name} met Jonathan the Revelator, a doomsayer at Cenarion Hold in Silithus.",
   },
   greetings = {
-    { id = "g_main", text = "Hear me, traveler! The end draws near, and you would do well to listen." },
+    { id = "g_main", text = "Hear me, traveler! The end draws near, and the bugs are already under your feet, so stop scratching and listen!" },
     { id = "g_back", when = { metBefore = true }, text = "You return! Have you come to hear the truth at last?" },
   },
   start = "hello",
   nodes = {
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Something older than the hives, older than the wall, older than the dragons that watch it! The silithid are only its fingers, and when it wakes, all the shadows in the world will not hide you from it, so repent now, while there is time." } },
+      lines = { { id = "xrogue_default", text = "Something older than the hives, older than the wall, older than the dragons that watch it! The silithid are only its fingers, and when it wakes, there is no hole in the world deep enough to hide you from it, so repent now, while there is time." } },
       choices = {
         { text = "You're a madman, Jonathan, but I'll listen anyway.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "If there's danger below, the Hold should hear of it.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -276,7 +276,7 @@ P:NPC {
       choices = { { text = "Whispering?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
-      lines = { { id = "b1_2_l", text = "The druids talk about scarabs and gongs and ancient walls, but they do not truly understand what they guard. I have heard it in my dreams, whispering." } },
+      lines = { { id = "b1_2_l", text = "The druids talk about scarabs and gongs and ancient walls, but they do not understand what they guard. I have heard it in my dreams, whispering." } },
       choices = { { text = "And then?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
@@ -312,7 +312,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_main", text = "Lok'tar, warrior! Speak quickly; the Horde has a war to prepare." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Good, the Horde needs every blade." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Good, the Horde needs every blade, and half of mine are on their backs with the runs from bad oasis water." },
   },
   start = "hello",
   nodes = {
@@ -398,10 +398,10 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN", faction = "Horde" }, text = "A shaman of the Horde! Good, that is the Warchief's own path, and we need your lightning at this front more than we need anyone's prayers." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. I have said we need lightning more than prayers, but the healers here have kept enough of my warriors standing that I would take it back, if you asked." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
-          text = "A rogue of the Horde! I prefer an axe in the open, but I won't turn away a blade in the shadows, not with the bugs breeding faster than we can kill them." },
+          text = "A rogue of the Horde! I prefer an axe in the open, but I won't turn away a blade that works from behind, not with the bugs breeding faster than we can kill them." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock. I've seen your demons fight, and I'll admit they hit hard, so bring them to the hives and let them earn their keep." },
-        { id = "h_default", key = true, text = "I am Krug Skullsplit, and I speak for the Horde's forces here in Silithus. The silithids are a threat to all of Kalimdor, and the Horde will not let them overrun our lands." },
+        { id = "h_default", key = true, text = "I am Krug Skullsplit, and I speak for the Horde's forces here in Silithus. The silithids are a threat to all of Kalimdor, and the Horde will not let them overrun our lands. I lost eleven grunts this month and buried four, because the bugs took the rest whole." },
         { id = "h_c0", when = { faction = "Horde" }, text = "A child of the Horde, here at the front! The Warchief's eyes are on Silithus, and your service will be remembered." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter of the Horde. Your arrows will not stop a swarm, but your eyes might see one coming, and that is worth more." },
@@ -466,8 +466,8 @@ P:NPC {
     third = "{name} met Merok Longstride, an Alliance war-effort commander at Cenarion Hold.",
   },
   greetings = {
-    { id = "g_main", text = "Well met, friend. You've come to the front lines, then." },
-    { id = "g_back", when = { metBefore = true }, text = "Good to see you again. The Alliance needs every hand it can get." },
+    { id = "g_main", text = "Well met, friend. You've come to the front lines, then, so mind where you sit; the scorpids got into the latrine trench again." },
+    { id = "g_back", when = { metBefore = true }, text = "Good to see you again. The Alliance needs every hand it can get, and my last two went home with sunstroke and a scorpid in the boot." },
   },
   start = "hello",
   nodes = {
@@ -491,7 +491,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "More than I'd like to admit, and more than Krug admits for his own side. The druids do what they can, but they're stretched thin with the land itself, so a priest who'll sit up with the wounded is worth a dozen fresh swords to me." } },
+      lines = { { id = "xapriest_default", text = "More than I'd like to admit, and more than Krug admits for his own side. The druids do what they can, but they're stretched thin coaxing grass out of poisoned sand, so a priest who'll sit up with the wounded is worth a dozen fresh swords to me." } },
       choices = {
         { text = "I'll tend the wounded tonight, Horde and Alliance alike.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll tend our own first. The Horde can see to theirs.", next = "BACK", fx = { align = { light = -1 } } },
@@ -530,7 +530,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Watching everyone, I'd imagine, including the Circle and the cult. I keep my soldiers honest and my eyes on the swarm, and whatever the spies do in the shadows is their business, not mine." } },
+      lines = { { id = "xrogue_default", text = "Watching everyone, I'd imagine, including the Circle and the cult. I keep my soldiers honest and my eyes on the swarm, and whatever the spies get up to after dark is their business, not mine." } },
       choices = {
         { text = "Spies keep the Alliance strong. I'd join them.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Honest soldiers win more battles than spies.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -560,14 +560,14 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock of the Alliance. I'll not ask what you've bound, so long as it fights the swarm and not my soldiers, and so long as it stays well clear of the cult." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
-          text = "A priest of the Alliance, at the Hold. We need you more than you know, because the swarm doesn't take prisoners, and our wounded fill the inn every evening." },
+          text = "A priest of the Alliance, at the Hold. We need you badly, because the swarm doesn't take prisoners, and our wounded fill the inn every evening." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin of the Alliance! Good, the Light shines bright against the swarm, and the Horde here could do with seeing what proper discipline looks like." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "A rogue of the Alliance. I'd not be surprised if SI:7 had people in Silithus already, though they'd never report to a soldier like me." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage of the Alliance! The bugs burn well, I'm told, and we could use every fireball you've got on the front lines." },
-        { id = "h_default", key = true, text = "Merok Longstride, Alliance commander here at Cenarion Hold. The silithids threaten everyone, and the Alliance has sent me to make sure we're ready when the time comes to strike." },
+        { id = "h_default", key = true, text = "Merok Longstride, Alliance commander here at Cenarion Hold. The silithids threaten everyone, and the Alliance has sent me to make sure we're ready when the time comes to strike. Until then we drill, we dig latrines, and we shake scorpids out of the bedrolls." },
         { id = "h_c0", when = { faction = "Alliance" }, text = "A fellow member of the Alliance! Stormwind and Ironforge have both pledged support, and soldiers like you make that pledge real." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
           text = "A warrior of the Alliance. Good, there are more Horde blades in this courtyard than ours, and I'd like that balance to change." },

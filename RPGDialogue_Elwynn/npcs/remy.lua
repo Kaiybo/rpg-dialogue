@@ -230,7 +230,7 @@ P:NPC {
       },
       choices = {
         { text = "That's not reassuring, Remy.", next = "BACK", fx = { trait = { skeptical = 1 } } },
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll not ask, then. Show me the goods.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     fence = {

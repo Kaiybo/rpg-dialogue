@@ -43,7 +43,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "I've no idea, if I'm honest, but they fear something, because they howl at the Sepulcher and never come close. I'd like to believe it's a paladin's glow that keeps them off, and I'd like it even more if you'd let me believe it as far as Rane's farm." } },
+      lines = { { id = "xfpala_default", text = "I've no idea, but they fear something, because they howl at the Sepulcher and never come close. I'd like to believe it's a paladin's glow that keeps them off, and I'd like it even more if you'd let me believe it as far as Rane's farm." } },
       choices = {
         { text = "Walk behind me, then. I'll see you there safely.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Believe what you like. You'll be walking alone.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -508,7 +508,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Bats are quiet enough in the air, but they shriek when they land, so if you're hoping to arrive unannounced, get off a mile early and walk. The deathstalkers learned that the hard way, and so did the bats." },
+        { id = "xrogue_default", text = "Bats are quiet enough in the air, but they shriek when they land, so if you're hoping to arrive unannounced, get off a mile early and walk. One deathstalker found that out over the Pyrewood rooftops, and the bat still won't let him ride it." },
         { id = "xrogue_troll", when = { race = "Troll" }, text = "The bats like trolls better than they like us, since you smell less of the grave. They'll still shriek when they land, mind, so get off a mile early if you want to arrive unannounced." },
       },
       choices = {
@@ -532,6 +532,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "Ask someone with fewer bats to feed." } },
+    _none = { { id = "tp_none", text = "Ask someone with fewer bats to feed, and fewer droppings in their hair." } },
   },
 }

@@ -14,7 +14,7 @@ pack.lua
 npcs\thunderbluff.lua
 npcs\rises.lua
 npcs\townsfolk.lua
-npcs\zangen.lua
 npcs\clarice.lua
-npcs\nara.lua
+npcs\zangen.lua
 npcs\melor.lua
+npcs\nara.lua

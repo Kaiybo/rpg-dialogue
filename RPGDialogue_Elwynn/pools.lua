@@ -6,7 +6,7 @@ local TODO_QUEST = P.TODO_QUEST
 P:Pool {
   id = "guard_northshire", role = "guard", community = "northshire",
   barks = {
-    { id = "b_road", text = "Mind yourself on the road, recruit; the wolves certainly won't mind it for you." },
+    { id = "b_road", text = "Mind yourself on the road, recruit, because the wolves won't, and I'm not digging another grave this week." },
     { id = "b_liked", when = { townStanding = { town = "northshire", min = 30 } }, text = "There goes the one who sorted the vineyard out." },
   },
   greetings = {
@@ -22,25 +22,25 @@ P:Pool {
     { id = "r_stealth", on = "stealth", text = "Show yourself! Slowly." },
   },
   lines = {
-    { id = "l_default", text = "Kobolds north, thieves east, wolves everywhere. Northshire, recruit." },
+    { id = "l_default", text = "There are kobolds to the north, thieves to the east and wolves everywhere else, so welcome to Northshire, recruit." },
     { id = "l_liked", when = { townStanding = { town = "northshire", min = 30 } }, text = "You've done the valley some good. The lads on watch noticed." },
   },
   choices = { { text = "I'll be on my way.", next = "END" } },
   topics = {
-    defias = { { id = "t_defias", text = "Red bandanas in the vineyard. Deputy Willem's got a tally." } },
-    _none = { { id = "t_none", text = "You'd best ask the Marshal about that. I just stand here and watch the road." } },
+    defias = { { id = "t_defias", text = "There are red bandanas in the vineyard again. Deputy Willem keeps a tally, and he's run out of chalk twice." } },
+    _none = { { id = "t_none", text = "You'd best ask the Marshal about that. I just stand here and watch the road, and my feet have the blisters to show for it." } },
   },
 }
 
 P:Pool {
   id = "guard_goldshire", role = "guard", community = "goldshire",
   barks = {
-    { id = "b_quiet", text = "Quiet night. Let's keep it that way." },
+    { id = "b_quiet", text = "Calm night, Light be thanked. My last pay went on new boots, and I'd like to keep them clean." },
     { id = "b_hogger", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") }, text = "That's the one, all right. They say it's Hogger's own claw you're carrying." },
     { id = "b_distrust", when = { townStanding = { town = "goldshire", max = -20 } }, text = "Watch that one." },
   },
   greetings = {
-    { id = "g_peace", text = "Goldshire's peaceful. Keep it that way." },
+    { id = "g_peace", text = "Goldshire's peaceful, apart from Farley's cellar and the pig that keeps escaping. Keep it that way." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The inn's that way, friend. If there's going to be a fight tonight, take it outside the inn, and well away from my post." },
     { id = "g_hogger", when = { questDone = TODO_QUEST("WANTED: \"Hogger\"") }, text = "That's the one who brought in Hogger's claw." },
     { id = "g_hero", when = { townStanding = { town = "goldshire", min = 55 } }, text = "Didn't think I'd ever salute someone who smells that much of gnoll." },
@@ -59,7 +59,7 @@ P:Pool {
   },
   choices = { { text = "Just passing through.", next = "END" } },
   topics = {
-    defias = { { id = "t_defias", text = "Westfall's problem. Until they come over the bridge, anyway." } },
+    defias = { { id = "t_defias", text = "Westfall's problem, until they come over the bridge, and then it's my problem and my sergeant's, and he still owes me two silver." } },
     hogger = { { id = "t_hogger", text = "Hogger's a big, angry brute who keeps to the woods southwest of here, and you'd be a fool to go after him alone." } },
     _none = { { id = "t_none", text = "Not my post to say." } },
   },

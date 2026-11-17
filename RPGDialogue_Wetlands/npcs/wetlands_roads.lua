@@ -166,7 +166,7 @@ P:NPC {
       lines = { { id = "fw_default", text = "Ironforge has a dozen fires to put out, and ours wasnae the biggest until it was too late. I'll no' curse the King for it, but I'll no' pretend it didnae hurt." } },
       choices = {
         { text = "The King should have come. Loyalty runs both ways.", next = "fall_end", fx = { align = { honor = -1 } } },
-        { text = "You've held your post anyway. That's what matters.", next = "fall_end", fx = { align = { honor = 1 } } },
+        { text = "You've held your post anyway, with mud to your knees.", next = "fall_end", fx = { align = { honor = 1 } } },
         { text = "What happens now?", next = "fall_end" },
       },
     },
@@ -633,7 +633,7 @@ P:NPC {
           text = "Prospector Whelgar of the Explorers' League, and this is my excavation, raptors and all. The ground here hides more than mud, though it hides it under plenty of mud." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! The dig could use one, for my diggers keep looking over their shoulders instead of at the ground." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Good, for the raptors know this ground better than any of my maps, and you'll know the raptors." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Yer folk are old, I'm told, older than ours by a long road, an' I'd like tae know if ye recognise anythin' we've dug up." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Yer folk are old, I'm told, older than ours by a good few thousand years, an' I'd like tae know if ye recognise anythin' we've dug up." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock at my dig! Mind where ye step, for if ye summon anythin' on top o' my trenches, I'll have ye fillin' them back in." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, at my excavation! I've bones in the ground here older than Ironforge, an' I'd dearly like tae know what the earth makes o' my diggin' them up." },
       },

@@ -68,13 +68,13 @@ P:NPC {
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The ruins are kinder by moonlight, I find, because the dark hides the cracks and the temple looks almost as it did. I come out here most nights for that reason, and for no better one." },
         { id = "h_nightelf", when = { race = "NightElf" },
-          text = "A kaldorei, come to see the Highborne in their ruin. I will not pretend your people and mine parted as friends, but I hope you will hear me out before you judge what you see." },
+          text = "A kaldorei, come to see the Highborne in their ruin. Your people and mine did not part as friends, but I hope you will hear me out before you judge what you see." },
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "The blood of Eldre'Thalas is plain in your face, stranger, and yet you are no one I knew in its halls. Tell me who you are, because I have waited a very long time for anyone like you to climb this hill." },
         { id = "h_mage", when = { class = "MAGE", ["not"] = { race = "Skyborne" } },
           text = "A mage! The magic of this age is a pale thing beside what we wove when the Well still stood, but it is magic all the same, and I am glad to see someone carry it with care." },
         { id = "h_lock", when = { class = "WARLOCK" },
-          text = "I know the smell of the Nether on a person, warlock; my people learned it the hard way. You may stand at my overlook, but you will forgive me if I keep watching your hands." },
+          text = "I know the smell of the Nether on a person, warlock; my people have had ten thousand years to learn it. You may stand at my overlook, but you will forgive me if I keep watching your hands." },
         { id = "h_apriest", when = { class = "PRIEST", ["not"] = { race = "NightElf" } },
           text = "A priest of the young kingdoms, if I am any judge. That temple below was raised to Elune, not to your Light, but I think she would not mind a prayer from you all the same." },
         { id = "h_epriest", when = { class = "PRIEST", race = "NightElf" },
@@ -200,7 +200,7 @@ P:NPC {
     },
     halls = {
       lines = {
-        { id = "ha_default", text = "The quiet, mostly, and the bargain that keeps it quiet. My brothers and sisters sit cloistered in the Prince's inner sanctum, deep in the city, and they read and they wait and they do not ask where the power that sustains them comes from." },
+        { id = "ha_default", text = "Silence, mostly, and the bargain that keeps the halls silent. My brothers and sisters sit cloistered in the Prince's inner sanctum, deep in the city, and they read and they wait and they do not ask where the power that sustains them comes from." },
       },
       choices = {
         { text = "And you do ask.", next = "halls_ask" },

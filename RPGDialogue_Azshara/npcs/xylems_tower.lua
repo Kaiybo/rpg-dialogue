@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again, {name}. Good; the last three visitors were disappointments." },
     { id = "g_morphaz", when = { questDone = TODO_QUEST("Destroy Morphaz") }, text = "My favourite drake-slayer! Sit, sit; the shard has been singing all week." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The ley lines are louder after dark. You'll forgive me if I listen to them and to you at once." },
-    { id = "g_away", when = { away = 14 }, text = "Ah, {name}, back after {away}, which by a tower's reckoning is barely a pause between thoughts. Sit, and tell me whether the world below has done anything interesting." },
+    { id = "g_away", when = { away = 14 }, text = "Ah, {name}, back after {away}, which by a tower's reckoning is barely a pause between thoughts. Sit, and tell me whether the world below has done anything worth writing down." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown considerably since your last visit, and the ley lines shift when you stand there, which is more than I could ever say for my late apprentice." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "Sanath tells me you talked someone round down below, which is a rare talent in a world full of people who don't care to understand anything, and I find that almost refreshing." },
   },
@@ -56,7 +56,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "I think it is a very useful sort of power for people who don't care to understand how it works, which is to say most people. The Highborne understood magic, and look what became of them, so perhaps ignorance has its virtues, though I shan't be trying it myself." } },
       choices = {
         { text = "Faith isn't ignorance, Archmage. You'd do well to learn that.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You're right. Understanding is worth more than faith.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "You're right. I'd rather understand a thing than pray to it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -93,7 +93,7 @@ P:NPC {
     },
     sky_xy = {
       lines = {
-        { id = "sxy_default", text = "Were they indeed! Then you're a living footnote to everything I study, and I'd very much like to know what your people kept and what they lost. Don't take that badly; it's the highest compliment I give." },
+        { id = "sxy_default", text = "Were they, now! Then you're a living footnote to everything I study, and I'd very much like to know what your people kept and what they lost. Don't take that badly; it's the highest compliment I give." },
         { id = "sxy_mage", when = { race = "Skyborne", class = "MAGE" },
           text = "And a mage too, from the High Order, I suppose. Tell Dalaran I'm alive and busy and not taking visitors, though you, I'll grant, may come up the tower when you like." },
       },

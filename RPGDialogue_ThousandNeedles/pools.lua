@@ -8,7 +8,7 @@ P:Pool {
     { id = "b_lift", text = "The lift creaks; it always creaks. The day it stops creaking, that's when you worry." },
   },
   greetings = {
-    { id = "g_mesa", text = "Freewind Post. Mind the edge; the canyon floor is a long way down." },
+    { id = "g_mesa", text = "Freewind Post. Mind the edge; the canyon floor is a long way down, and the vultures there are very patient." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The stars are close up here, and so are the harpies, so get under a roof." },
   },
   notice = {

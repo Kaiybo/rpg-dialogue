@@ -70,7 +70,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Out the back by the woodpile, where Farley won't trip on it. I'll put out the scraps after the supper rush, and if it's polite, there'll be a bone in it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is polite enough, I suppose. Better than some of Farley's guests, if I'm honest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is polite enough, I suppose. Better than some of Farley's guests, who track mud up my stairs and sing." },
       },
       choices = {
         { text = "I'll keep it in the yard and out of your way.", next = "BACK", fx = { align = { order = 1 } } },

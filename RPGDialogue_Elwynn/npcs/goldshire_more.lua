@@ -563,7 +563,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Not curse them, exactly, only make them a bit less stubborn. I've walked between Crystal Lake and the pond every day this week, and I'm starting to think the fish are doing it to me on purpose." } },
       choices = {
-        { text = "Fish it honestly, Matt. You'll catch something.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep your line in, Matt. You'll catch something.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A little nudge wouldn't hurt anyone. I'll think on it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Matt.", next = "BACK" },
       },

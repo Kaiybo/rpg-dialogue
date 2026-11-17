@@ -12,7 +12,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Psst, over here, and keep it down! The Venture boys have ears like bats and tempers like trolls." },
+    { id = "g_default", text = "Psst, over here, and keep it down! The Venture boys have ears like bats and tempers like trolls, and one of 'em still owes me six silver for a gearbox." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and nobody followed you, right? Good, because I'm not set up for visitors with axes." },
   },
 
@@ -50,7 +50,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Pray for Venture Company goons? Well, I'll be honest, the poor slobs on the shredders get worked half to death, so I suppose a prayer wouldn't cost me anything." } },
+      lines = { { id = "xapriest_default", text = "Pray for Venture Company goons? Well, between you and me, the poor slobs on the shredders get worked half to death, so I suppose a prayer wouldn't cost me anything." } },
       choices = {
         { text = "I'll pray for them. They're workers, not villains.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They chose their masters. They get no prayer from me.", next = "BACK", fx = { align = { light = -1 } } },
@@ -173,7 +173,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I'm an engineer, between employers, with very big plans." } },
-    _none = { { id = "tp_none", text = "Couldn't tell ya, pal, and I don't do anything for free." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ya, pal, and I don't do anything for free, including not knowing things." } },
   },
 }
 

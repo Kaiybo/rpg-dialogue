@@ -98,7 +98,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "More than you'd think, because Thunder Bluff's a long way from anywhere and even the Earth Mother's own get tired of walking. One of your elders rode up top the whole way to Orgrimmar once, and I swear the gas bags were happier for it." } },
       choices = {
         { text = "Your zeppelins are clever, but the sky was ours first, friend.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Your zeppelins carry the Horde safely. I respect that work.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your zeppelins haven't dropped me in the jungle yet. I respect that.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -346,7 +346,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I keep the riders. That's my work, and I do it well." } },
-    advice = { { id = "tp_ad", text = "Fly high over the jungle. The things down there can't reach you if you stay high." } },
+    advice = { { id = "tp_ad", text = "Fly high over the jungle, because the Bloodscalp throw spears and the gorillas throw worse." } },
     _none = { { id = "tp_none", text = "I don't know that one. Ask the Commander; he knows the camp better than I do." } },
   },
 }
@@ -447,7 +447,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Because they rot faster than I can sell them, and because the last time I paid a picker, a panther ate him. Druids pick their own and don't get eaten, and everyone else can buy a bandage and stop complaining." } },
       choices = {
         { text = "The jungle is generous to those who respect it. Learn that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fair enough. Bandages don't rot, and nobody has to pick them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Bandages don't rot, and nobody gets eaten picking them. Sold.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -509,7 +509,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I sell supplies. I came with the Commander, and I'll leave with him." } },
-    advice = { { id = "tp_ad", text = "Keep your bags dry, or everything in them rots. That's the whole of my advice." } },
+    advice = { { id = "tp_ad", text = "Keep your bags dry, or everything in them rots. I opened a sack of flour last week, and something in it opened its eyes at me." } },
     _none = { { id = "tp_none", text = "Don't know. I sell supplies, not stories." } },
   },
 }

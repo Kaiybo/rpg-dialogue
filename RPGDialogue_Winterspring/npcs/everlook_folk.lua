@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Cold enough for you? I've had three cups of something hot and I still can't feel my ears." },
+    { id = "g_default", text = "Cold enough for you? I've had three cups of something hot, and one of them was supposed to be for washing, and I still can't feel my ears." },
     { id = "g_scared", when = { questRecent = { TODO_QUEST("Are We There, Yeti?"), days = 7 } },
       text = "Don't you come near me with anything furry, you hear? I know it was you, and I know who put you up to it." },
     { id = "g_away", when = { away = 14 }, text = "Oh, it's you, back after {away}, and I've still not got any feeling in my ears! You didn't bring anything furry back with you, did you?" },
@@ -64,7 +64,7 @@ P:NPC {
       lines = { { id = "dq_default", text = "The Cartel cares about anything that pays, and the woods don't, so that's the short answer. The long answer is that if the furbolgs keep going mad, nobody will come up the pass to buy anything, and that's bad for everyone." } },
       choices = {
         { text = "The woods deserve care whether they pay or not.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. Coin keeps Everlook warm.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Coin keeps the fires lit. The woods can wait.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -72,7 +72,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "Respect them? This is a Steamwheedle town, so we respect the exchange rate first and the weather second. Umi thinks the snow's a personal friend, and the troll witch doctor out in the hills thanks every critter she skins, but the rest of us just want the wind to stop getting under the door." } },
       choices = {
-        { text = "Fair enough. Coin keeps you warmer than spirits do.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Spirits don't pay for firewood. Coin does.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "The land feeds this town. It deserves more than that.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -184,7 +184,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I came north for the Cartel's trade and stayed for the quiet. Then Umi arrived, and the quiet left." } },
+    background = { { id = "tp_ba", text = "I came north for the Cartel's trade and stayed because nobody up here ever banged on anything. Then Umi arrived with a hammer and a mechanical yeti." } },
     advice = { { id = "tp_ad", text = "Never turn your back on a goblin who's whistling. That's free, and it's the best advice you'll get here." } },
     _none = { { id = "tp_none", text = "No idea, sugar, and if Umi told you about it, don't believe a word." } },
   },
@@ -480,7 +480,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "It's whiter and quieter, and nothing here remembers me, which is a kind of mercy, I suppose. Lordaeron had green hills and farms all the way to Darrowshire, and they say the plague has turned it all grey. If the land up there has spirits like yours, I hope somebody is still being kind to them." } },
+      lines = { { id = "xhsham_default", text = "It's whiter and quieter, and nothing here remembers me, and some days I'm glad of that. Lordaeron had green hills and farms all the way to Darrowshire, and they say the plague has turned it all grey. If the land up there has spirits like yours, I hope somebody is still being kind to them." } },
       choices = {
         { text = "If I travel north, I'll ask the spirits after your family.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Let Lordaeron go. The living need you here.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -628,7 +628,7 @@ P:NPC {
     found = {
       lines = { { id = "fd_default", text = "Then tell me plainly, please, or don't tell me at all. I've imagined it a hundred ways already, and none of them were kind." } },
       choices = {
-        { text = "She's at peace, Jessica. That's what matters.", next = "found_soft", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "She's at peace now, Jessica. Hold on to that.", next = "found_soft", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "You deserve the whole truth, however hard it is.", next = "found_hard", fx = { affinity = 1, align = { honor = 1 } } },
       },
     },
@@ -637,7 +637,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     found_hard = {
-      lines = { { id = "fh_default", text = "Then she's gone, isn't she, and I knew it before you came back. Thank you for not lying to me; everyone else has been so careful, and careful is a kind of lying too." } },
+      lines = { { id = "fh_default", text = "Then she's gone, isn't she, and I knew it before you came back. Thank you for not lying to me; everyone else has been so careful, and all that care felt like lying." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     refugee = {
@@ -766,7 +766,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "My kin under Blackrock bow to Ragnaros now, and before him they bowed to Thaurissan and his ambition. The Brotherhood bows to nothing but the anvil, and I have found the anvil a more honest master than any god." } },
       choices = {
-        { text = "Honest work is a kind of faith, and the Light honours it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light sees honest work, even in the snow.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Then trust your anvil. Gods have failed better men than you.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1105,7 +1105,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Flying? The riders are wrapped and ready, though they hate this cold more than I do." },
+    { id = "g_default", text = "Flying? The riders are wrapped and ready, though they hate this cold more than I do, and one of them bit me this morning for the cheek of it." },
   },
 
   notice = {
@@ -1349,7 +1349,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "I trust them to keep their bargains and nothing more, and the Steamwheedle Cartel sells to the Horde as gladly as to us. A quiet ear among their traders would hear more than I can, but that is the Sentinels' business, and not mine." } },
       choices = {
-        { text = "The Cartel keeps the peace. That's enough.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Cartel keeps the peace. I don't need more.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd happily lighten a goblin's purse for the Alliance.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll keep my ears open.", next = "BACK" },
       },
@@ -1406,11 +1406,11 @@ P:NPC {
         { text = "What do the hippogryphs make of the snow?", next = "birds" },
         { text = "You don't trust the goblins much, do you?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Why are the hippogryphs afraid of magic?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "Is there truly no place for prayer in Everlook?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Is there really no place for prayer in Everlook?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Why do your hippogryphs dislike steel, Maethrya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your hippogryphs trust other beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Why do the hippogryphs flinch at a paladin's plate, Maethrya?", next = "xapala", when = { class = "PALADIN", faction = "Alliance" } },
-        { text = "Would your hippogryphs truly refuse a warlock, Maethrya?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Would your hippogryphs really refuse a warlock, Maethrya?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Are the winds of Winterspring kind to your birds, Maethrya?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye.", next = "END" },
       },

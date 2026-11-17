@@ -193,7 +193,7 @@ P:NPC {
       },
       choices = {
         { text = "What are they doing in the mine?", next = "kobolds_mine" },
-        { text = "Fair enough. Point me at them.", next = "orders", fx = { affinity = 1 } },
+        { text = "Then point me at the mine.", next = "orders", fx = { affinity = 1 } },
         { text = "I'll see for myself.", next = "END" },
       },
     },

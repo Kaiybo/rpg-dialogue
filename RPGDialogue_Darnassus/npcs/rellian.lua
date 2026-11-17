@@ -116,7 +116,7 @@ P:NPC {
         { id = "cu_default", text = "The ones beyond help, yes, because their seeds carry the taint and every sick sapling spreads it further. I hate it, and I have asked myself if there's another way more times than I can count." },
       },
       choices = {
-        { text = "Then I'll take only the ones that are truly lost.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll take only the ones past saving.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Burn them all, and be sure of it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "What becomes of the tumors?", next = "cull_burn" },
       },

@@ -37,7 +37,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Ditches that carry water to every tree in Darnassus! The Enclave ignores me, but your earth spirits might see the beauty." } },
       choices = {
-        { text = "Keep digging honestly, Jenal. Vision needs hard work.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Keep digging the proper way, Jenal, and no shortcuts.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Your vision is ditches. Aim higher.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -84,7 +84,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Constantly, and I once fancied myself a rogue like you, slipping through the shadows of grand houses. The trouble is I can't keep quiet for more than a minute, so I'm back with the dirt, which never tells anyone what I've said." },
+        { id = "xrogue_default", text = "Constantly, and I once fancied myself a rogue like you, slipping through the back windows of grand houses. The trouble is I can't keep quiet for more than a minute, so I'm back with the dirt, which never tells anyone what I've said." },
       },
       choices = {
         { text = "Honest dirt is better than a dishonest trade, Jenal.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -257,14 +257,14 @@ P:NPC {
 
   greetings = {
     { id = "g_cold", text = "You're standing in my light. Was there something?" },
-    { id = "g_rogue", when = { class = "ROGUE" }, text = "Greetings, young rogue. What do you seek tonight?" },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "Young rogue. Wipe your boots; the last one tracked Ashenvale mud across my floor and swore he'd never been here." },
   },
 
   notice = {
     { id = "n_canal", cat = "class", when = { origin = "human_canal_pickpocket" },
       text = "You learned on Stormwind's canals, I'd wager, because you've checked where my hands are twice already. Keep the habit; it's the only one of theirs worth having." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
-      text = "A priest, in the shadows of the Enclave. Your kind usually stands in the middle of the room and glows; it's restful to see one who doesn't." },
+      text = "A priest, in the dim corners of the Enclave. Your kind usually stands in the middle of the room and glows; it's restful to see one who doesn't." },
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "I saw you come in, so you can stop that. It was decent work, though, and better than Jannok's couriers ever manage." },
   },
@@ -295,7 +295,7 @@ P:NPC {
       choices = {
         { text = "My oaths hold whether anyone is watching or not.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Sometimes justice has to be done quietly, and I know it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "I'll leave you to the shadows.", next = "BACK" },
+        { text = "I'll leave you to your corner.", next = "BACK" },
       },
     },
     xwarcl = {
@@ -407,7 +407,7 @@ P:NPC {
         { text = "Do you doubt a paladin's justice, Syurna?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What should the Circle be hearing in the forests, Syurna?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do the forests of Teldrassil suffer, Syurna?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "I'll leave you to the shadows.", next = "END" },
+        { text = "I'll leave you to your dark corner, then.", next = "END" },
       },
     },
     jannok = {
@@ -540,7 +540,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll strike only when there's need, as a hunter does.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I hide for my own reasons, and that's enough.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I hide for my own reasons, and they stay mine.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -746,7 +746,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Some see you as crude imitators, others as distant kin. I see a seeker of the world's voices, and that is enough for a blessing." } },
+      lines = { { id = "xdsham_default", text = "Some see you as crude imitators, others as distant kin. I see a seeker of the world's voices, and a seeker gets my blessing, crude or not." } },
       choices = {
         { text = "I accept your blessing gladly, Denatharion.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I need no blessing. My spirits are enough.", next = "BACK", fx = { align = { light = -1 } } },
@@ -892,7 +892,7 @@ P:NPC {
     },
     cenarius2 = {
       lines = {
-        { id = "c2_default", text = "Some say they do, in the old groves, and I won't tell them they're wrong. I feel the forest, and that's enough for me most days." },
+        { id = "c2_default", text = "Some say they do, in the old groves, and I won't tell them they're wrong. I feel the forest, and most days I don't need it to answer." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

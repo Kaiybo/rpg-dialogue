@@ -89,7 +89,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xma_default", text = "Then I hope you never run out of it in the Webwood with a spider on your back. Magic is a strange thing to lean on, friend, and my people learned that the hard way." },
+        { id = "xma_default", text = "Then I hope you never run out of it in the Webwood with a spider on your back. Magic is a strange thing to lean on, friend, and my people paid for that lesson with a whole sunken city." },
       },
       choices = {
         { text = "Fair. A bow might save my life.", next = "BACK", fx = { align = { order = 1 } } },
@@ -263,7 +263,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll learn the footwork. It could save my life.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My companion keeps them off me. That's enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "My companion keeps them off me, mostly by sitting on them.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -361,7 +361,7 @@ P:NPC {
     },
     few2 = {
       lines = {
-        { id = "fe2_default", text = "I did. I liked the quiet of the Sentinels' watch, but not the waiting, and a blade doesn't ask you to wait." },
+        { id = "fe2_default", text = "I did. I liked the Sentinels' watch well enough, but not the waiting, nor the wet moss down my collar, and a blade doesn't ask you to wait." },
       },
       choices = {
         { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } },
@@ -450,10 +450,10 @@ P:NPC {
     },
     xrogue = {
       lines = {
-        { id = "xro_default", text = "No, and I would ask you not to brew them in my garden. Earthroot and peacebloom are for healing here, and what you do with your own vials is between you and the shadows you keep." },
+        { id = "xro_default", text = "No, and I would ask you not to brew them in my garden. Earthroot and peacebloom are for healing here, and what you do with your own vials is between you and whatever you answer to." },
       },
       choices = {
-        { text = "Fair enough. Healing it is, here.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Healing only, in your garden. I'll mind it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A poison is only a potion with a purpose.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "What grows best on Teldrassil?", next = "herbs" },
       },
@@ -515,7 +515,7 @@ P:NPC {
         { text = "Would your potions serve a paladin in a long fight?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's wrong with the peacebloom by the Gnarlpine camps, Cyndra?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why would the herbs mind my servant, Cyndra?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Do herbs truly speak to you, Cyndra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do herbs really speak to you, Cyndra?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Goodbye, Cyndra.", next = "END" },
       },
     },
@@ -559,7 +559,7 @@ P:NPC {
 
   topics = {
     furbolgs = { { id = "tp_furb", text = "The Gnarlpine have gone wild, and I treat the wounds they leave. I pray Athridas finds a cure." } },
-    background = { { id = "tp_bg", text = "I teach alchemy in Dolanaar. It's quiet work, and I'm a quiet person." } },
+    background = { { id = "tp_bg", text = "I teach alchemy in Dolanaar, mostly to students who taste things they shouldn't." } },
     advice = { { id = "tp_ad", text = "Keep a healing potion on your belt, not in your pack. You won't have time to dig." } },
     _none = { { id = "tp_none", text = "I don't know, I'm sorry. Perhaps someone at the inn could tell you." } },
   },
@@ -1223,7 +1223,7 @@ P:NPC {
         { id = "xlock_default", text = "I'd guess they can feel it, the way they feel a storm coming before the sky turns, so they dive deep and stay there. Laird in Auberdine swears it's the same over there, and he and I don't agree about anything, so it must be true." },
       },
       choices = {
-        { text = "Fair enough. It'll wait on the dock.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then it'll wait on the dock, and the fish can sulk in peace.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The fish will have to get over it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

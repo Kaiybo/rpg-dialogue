@@ -137,7 +137,7 @@ P:NPC {
       choices = {
         { text = "Then I'll do it quickly, and with respect.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A body's a body. It won't trouble me.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Is there truly no other way?", next = "body_other" },
+        { text = "Is there really no other way?", next = "body_other" },
       },
     },
     body_other = {

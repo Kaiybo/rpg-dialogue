@@ -161,7 +161,7 @@ P:NPC {
         { id = "xl_default", text = "You'll understand if I don't take your word for it. Open this cage, and then I'll believe you, and not one moment sooner." },
       },
       choices = {
-        { text = "Fair enough. I'll find the key.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Right. I'll find the key.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

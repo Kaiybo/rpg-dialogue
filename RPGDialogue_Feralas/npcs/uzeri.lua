@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Ah, you come to see da witch doctor. Mind da jars, mon, some of dem are still awake." },
+    { id = "g_default", text = "Ah, you come to see da witch doctor. Mind da jars, mon, some of dem are still awake, and one of dem owe me money." },
     { id = "g_vessel", when = { questActive = TODO_QUEST("Testing the Vessel") }, text = "Shrink dem before da spirit run off, mon, or you be catchin' nothin' but a grudge." },
     { id = "g_done", when = { questDone = TODO_QUEST("Weapons of Spirit") }, text = "How dat weapon sit in your hand, mon? It remember every beast you caught for it." },
     { id = "g_away", when = { away = 14 }, text = "You been gone {away}, and da muisek in my jars been restless da whole time. Maybe dey missed you." },

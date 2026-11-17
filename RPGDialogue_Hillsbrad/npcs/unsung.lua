@@ -158,7 +158,7 @@ P:NPC {
       },
       choices = {
         { text = "Married, surely.", next = "donald_guess" },
-        { text = "Fair enough. It's your business.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Your business, then. I won't pry.", next = "BACK", fx = { affinity = 1 } },
       },
     },
     donald_guess = {
@@ -262,7 +262,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "None that I can promise, if I'm honest, though I've a draught that helps against the common poisons and buys time against the worse ones. I read every label twice and still lie awake wondering whether it's enough." } },
+      lines = { { id = "xwarcl_default", text = "None that I can promise, though I've a draught that helps against the common poisons and buys time against the worse ones. I read every label twice and still lie awake wondering whether it's enough." } },
       choices = {
         { text = "I'll trust your draught and the Light. Both will see me through.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Antidotes are guesswork. I'll trust my blade and nothing else.", next = "BACK", fx = { align = { light = -1 } } },
@@ -273,7 +273,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The ones running down from Tarren Mill, by the smell, and the ones near the Hillsbrad farms, by the dead fish. A gatherer brought me a bundle from the lower banks last month, and I burned the lot, because I'll not sell anything that might have drunk the plague." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Don't let {pet} drink from those streams, please, because a beast can't read a warning, and I'd hate for it to learn the hard way." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Don't let {pet} drink from those streams, please, because a beast can't read a warning, and I'd hate to dig a grave that size." },
       },
       choices = {
         { text = "Better burned than risked. You were right to be careful.", next = "BACK", fx = { align = { order = 1 } } },
@@ -294,7 +294,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Candles and chalk and a few herbs that go into the less unpleasant rituals, but nothing more. I've watched what the apothecaries up the hill brew in their cauldrons, and I'll not have Southshore's name on anything that goes into a summoning." } },
       choices = {
-        { text = "Fair enough. I'll get my reagents elsewhere.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll buy my reagents from someone less fussy.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your fear is foolish. Reagents are just tools.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -530,7 +530,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask on; I've a cart to unload, but my tongue works fine while I do." },
-        { id = "h_again2", text = "Anything else you need?" },
+        { id = "h_again2", text = "Anything else you need? Mind the left wheel, for it's squealed since Hillsbrad and the mule hates it more than I do." },
       },
       choices = {
         { text = "Let me see your supplies.", next = "BUSINESS" },
@@ -632,7 +632,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Southshore buys my lamp oil, Tarren Mill buys my rope, and Dun Garok buys whatever's shiny, so yes, and gladly. I don't see why a dwarf who talks to the wind should mind, either, since the wind blows on both towns the same." } },
       choices = {
         { text = "The Alliance should hold these hills, and you should pick a side.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Fair enough. Sides are for people who can't count.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Sides are for people who can't count coin.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -640,7 +640,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Only what's lying about and nobody's using! Fallen branches, dropped arrows, the odd lost boot. I'm a merchant, not a logger, and I'd never cut down a tree when there's one already lying on the ground." } },
       choices = {
-        { text = "Fair enough. Scavenging the fallen hurts no one.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The dead don't need their boots. Scavenge away.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Even fallen wood feeds the forest. Leave it be.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -779,8 +779,8 @@ P:NPC {
         { id = "bt_default", text = "A traitor has to belong to someone first, friend, and I belong to the Cartel and my ledger. Neither town has ever asked me to choose, because then they'd both have to walk to Booty Bay for their goods." },
       },
       choices = {
-        { text = "Fair enough. Neutral is neutral.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Everyone chooses a side in the end.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
+        { text = "Neutral's neutral. Your coin spends like anyone's.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Sooner or later, everyone picks a side.", next = "BACK", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

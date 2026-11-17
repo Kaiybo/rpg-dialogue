@@ -129,7 +129,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. The Circle sells its wares to those it trusts, and trust in Moonglade is grown, not bought, but I'm glad to see what you'll grow." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. The Circle's goods are counted twice a day, and I'm the one who counts them, so I'd ask you to keep your hands where I can see them." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Most of what I hold was made by druid hands, without a spark of the arcane in it, and the Circle prefers it that way." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be courteous, as the Keeper asks, but the Circle's wares are for its friends, and the Circle is slow to befriend those who carry the fel." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll be courteous, as the Keeper asks, but the Circle's wares are for its friends, and the Circle is slow to befriend those who keep demons." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the Circle. You're one of ours, and you'll find I keep the Circle's goods for those who've earned its trust, so let's see how far you've come." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The Circle sells its wares to those it trusts, and I'll admit I'm curious how a child of Ironforge earns it." },
       },

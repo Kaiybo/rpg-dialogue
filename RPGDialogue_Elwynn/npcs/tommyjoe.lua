@@ -128,7 +128,7 @@ P:NPC {
         { text = "Tell me about the farm.", next = "farm" },
         { text = "Why this river?", next = "river" },
         { text = "When the day comes, I'll bless the wedding.", next = "priest", when = { class = "PRIEST" } },
-        { text = "I worked a Westfall farm. Land's worth more than grudges.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
+        { text = "I worked a Westfall farm. Grudges never fed a pig.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I've a letter from Maybell.", next = "BUSINESS", when = { questActive = TODO_QUEST("Young Lovers") } },
         { text = "I could carry your letters without anyone seeing.", next = "rogue", when = { class = "ROGUE" } },
         { text = "What sort of stories does Gramma tell, Tommy Joe?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },

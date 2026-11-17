@@ -110,7 +110,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Well, it is curious! The water glows, the wolves have extra teeth and the mushrooms whisper, and I want to know why. I know you druids want to scrub it all clean, and that's fine, but somebody ought to write down what's here before it's gone." } },
       choices = {
         { text = "This forest is dying. It needs healing, not study.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Fair enough. Understand the poison, and the cure follows.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Know the poison first, and the cure can come after.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Never mind the mushrooms.", next = "BACK" },
       },
     },
@@ -170,7 +170,7 @@ P:NPC {
       },
       choices = {
         { text = "What are you planning for it?", next = "kitten_plans" },
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Can't argue with that.", next = "BACK", fx = { affinity = 2 } },
       },
     },
     kitten_plans = {
@@ -267,10 +267,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_post", text = "Did Orgrimmar send you, or did you wander up here by mistake? Either way, you're useful now." },
+    { id = "g_post", text = "Did Orgrimmar send you, or did you wander up here by mistake? Either way you're useful now, and the last useful one still owes me two silver and hasn't come back from Jaedenar." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and Felwood didn't stop rotting while you were away. Report what you saw, and leave nothing out." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown stronger since I last sent you out, and I can use that, because the forest has only grown worse. Orgrimmar wants reports, and I want someone who can come back with them." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone at the post caught you in a lie, and I'll know if you skip a part of your report to me, so keep that in mind." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told someone at the post caught you in a lie, and I'll know if you skip a part of your report to me. I've read enough grunts swear they killed nine satyrs before breakfast." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word around the post is you've done right by Bloodvenom, and that's rare enough up here that I'll say so. Keep it up, and keep out of the river." },
   },
 
@@ -344,7 +344,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "So did the Shadow Council, once, and look at what they made of Jaedenar. I don't say you're one of them, but I've read enough of what fel does to the people who use it to keep my eyes open." } },
       choices = {
-        { text = "Fair enough. The Council were traitors and deserve their end.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Council were traitors. They earned their end.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Council were fools. I know where the line is.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Watch all you like, then.", next = "BACK" },
       },

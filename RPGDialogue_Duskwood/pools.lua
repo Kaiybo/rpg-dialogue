@@ -6,13 +6,13 @@ P:Pool {
   id = "guard_darkshire", role = "guard", community = "darkshire",
   barks = {
     { id = "b_lamp", text = "Who let this lamp go out? Somebody tell me who let this lamp go out!" },
-    { id = "b_howl", text = "There, do you hear it? That's closer than it was last night." },
+    { id = "b_howl", text = "There, do you hear it? Light's sake, that's closer than it was last night." },
     { id = "b_hero", when = { townStanding = { town = "darkshire", min = 30 } }, text = "That's the one the Commander likes, and she doesn't like anyone." },
   },
   greetings = {
-    { id = "g_lamp", text = "Stay in the light. That's the only rule in Darkshire that matters." },
+    { id = "g_lamp", text = "Stay in the lamplight, and if the lamp's out, shout for whoever's got the oil can." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Long night, and they're all long nights here. Keep moving, friend; standing still draws them." },
-    { id = "g_liked", when = { townStanding = { town = "darkshire", min = 30 } }, text = "Good to see a friendly face, and yours more than most. Any face is welcome out here, honestly." },
+    { id = "g_liked", when = { townStanding = { town = "darkshire", min = 30 } }, text = "Good to see a friendly face, and yours more than most. Round here the faces are mostly crying or rotting." },
     { id = "g_distrust", when = { townStanding = { town = "darkshire", max = -20 } }, text = "The Watch knows who you are, so mind yourself while you're inside our gate." },
   },
   notice = {
@@ -23,7 +23,7 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Something's moving! Lanterns up! Show yourself, or we'll show you to the pikes." } },
   lines = {
-    { id = "l_default", text = "We're the Night Watch. We don't stop them; we slow them down until morning, and out here morning's never quite enough." },
+    { id = "l_default", text = "We're the Night Watch. We don't stop them; we slow them down until morning, then sleep in our boots and do it all again." },
     { id = "l_watch", when = { questDone = TODO_QUEST("The Night Watch") }, text = "You thinned the cemeteries for us, and I had my first quiet shift in a month. I spent it staring at the fog anyway, out of habit." },
     { id = "l_stitches", when = { questDone = TODO_QUEST("Translation to Ello") }, text = "I'll see that stitched-up thing coming down the road in my sleep for years. You helped put it down, and I thank you for it." },
   },

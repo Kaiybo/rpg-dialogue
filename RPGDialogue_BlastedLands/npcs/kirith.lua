@@ -142,7 +142,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A lieutenant of Thrall's Grasp, and later a demon's plaything, and now neither, which is a kind of mercy." } },
+    background = { { id = "tp_ba", text = "A lieutenant of Thrall's Grasp, and later a demon's plaything, and now neither, which I'm grateful for." } },
     advice = { { id = "tp_ad", text = "If they cage you, don't listen to the voice that says it would be easier to agree. That's how they get in." } },
     _none = { { id = "tp_none", text = "I don't know that, and I haven't time to wonder about it." } },
   },

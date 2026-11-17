@@ -21,7 +21,7 @@ P:NPC {
     { id = "g_gelkis", when = { killed = { name = "Gelkis", min = 30 } }, text = "There is Gelkis blood on you, and plenty of it. Good; come closer." },
     { id = "g_away", when = { away = 14 }, text = "Outsider, you have been gone {away}, and the bones did not wait for you, but the valley noticed your absence, which is more than it does for most." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You are stronger than when you last came to the valley, and since the Magram respect only strength, I would rather have you walking than in the dirt." },
-    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made one of the valley's people give way to you, outsider, and I will not pretend that displeases me, because strength is the only law in Shen'dralas." },
+    { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made one of the valley's people give way to you, outsider, and it does not displease me, because strength is the only law in Shen'dralas." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear you were caught lying in the valley, outsider, and a lie that fails is only weakness wearing a mask, so be strong or be silent." },
   },
 
@@ -122,7 +122,7 @@ P:NPC {
     why_say = {
       big = true,
       lines = {
-        { id = "ws_default", text = "The dead are dead, outsider. If they wished to have a say, they should have been strong enough to stay alive, and that is the only law that matters in Shen'dralas." },
+        { id = "ws_default", text = "The dead are dead, outsider. If they wished to have a say, they should have been strong enough to stay alive, and that is the only law Shen'dralas has ever kept." },
       },
       choices = {
         { text = "The strong should protect the weak, not use them.", next = "BACK", fx = { align = { light = 1 } } },
@@ -132,7 +132,7 @@ P:NPC {
     },
     why_taught = {
       lines = {
-        { id = "wt_default", text = "No one you would know, and no one who is still alive to be asked. What matters is that the Magram learned it and the Gelkis did not, and so the Gelkis pray while we build." },
+        { id = "wt_default", text = "No one you would know, and no one who is still alive to be asked. All you need know is that the Magram learned it and the Gelkis did not, and so the Gelkis pray while we build." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -150,7 +150,7 @@ P:NPC {
     },
     outcasts_why = {
       lines = {
-        { id = "ow_default", text = "That is a matter for the clan, outsider, not for you. It is enough to know that they serve no khan, and a necromancer who serves no khan is only a thief with a staff." },
+        { id = "ow_default", text = "That is a matter for the clan, outsider, not for you. You need only know that they serve no khan, and a necromancer who serves no khan is only a thief with a staff." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -161,7 +161,7 @@ P:NPC {
       },
       choices = {
         { text = "Mercy isn't weakness, Orgrul.", next = "BACK", fx = { affinity = -1, align = { light = 1 } } },
-        { text = "Fair enough. A traitor is a traitor.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "A traitor is a traitor. Let the vultures have him.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -247,7 +247,7 @@ P:NPC {
     },
     goliaths = {
       lines = {
-        { id = "go_default", text = "Something enormous that died long before the centaur walked these lands, and that is all I know or need to know. The bones are strong, and that is the only thing a necromancer asks of them." },
+        { id = "go_default", text = "Something enormous that died long before the centaur walked these lands, and that is all I know or need to know. The bones are strong, and they do not argue, which is more than I can say for my apprentices." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -344,7 +344,7 @@ P:NPC {
       },
       choices = {
         { text = "Then live up to his blood, and stop raising the dead.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "His blood or not, you're strong. That's enough.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "His blood or not, you hit hard. Who cares?", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -392,13 +392,13 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. Good; the pigs have not stopped, so I have not stopped needing hands." },
     { id = "g_bristle", when = { killed = { name = "Bristleback", min = 25 } }, text = "You smell of quilboar, outsider, which means you have been busy. Good." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}, outsider, and the pigs did not stop while you were away, so make yourself useful again." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You carry more strength than you did when you last came to the front, outsider, which means the pigs will learn your name the hard way." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have more strength than you did when you last came to the front, outsider, which means the pigs will learn your name the hard way." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "I hear you made someone in the valley back down, outsider, and that is the only kind of talk I respect, so do the same to the quilboar." },
   },
 
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "A fighter, at last. I have warriors enough at the front, but they are hungry warriors, and hungry warriors fight like children." },
+      text = "A fighter, at last. I have warriors enough at the front, but they are hungry warriors, and a hungry warrior spends the whole fight thinking about roast boar instead of the spear in front of him." },
     { id = "n_boar", cat = "deeds", when = { killed = { name = "Bristleback", min = 25 } },
       text = "You have been at the quilboar, I can tell by the stink. Every pig you put down is one less mouth eating what should be ours." },
   },
@@ -412,7 +412,7 @@ P:NPC {
         { id = "h_bristle_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Bristleback Retreat"), days = 3 } },
           text = "Orgrul sent you, then. He sends me bones and promises, and this time he has sent me something with a pulse, so I will try not to complain." },
         { id = "h_starve", when = { questActive = TODO_QUEST("Threat of Starvation") },
-          text = "My warriors cannot fight on empty bellies, outsider. Every day you take is a day they go hungry, so be quick." },
+          text = "My warriors are chewing old harness straps to fool their bellies, outsider. Every day you take is another day of that, so be quick." },
         { id = "h_starve_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Threat of Starvation"), days = 3 } },
           text = "The warriors have eaten, which is more than I could promise them a few days ago. They will fight for you now, and they will not say so, so I am saying it for them." },
         { id = "h_long", when = { questActive = TODO_QUEST("Long-Term Solutions") },
@@ -530,8 +530,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I am a Magram warrior, and I hold the front. That is all the story there is." } },
-    advice = { { id = "tp_ad", text = "Keep away from the pigs' tunnels unless you want to meet the whole herd at once." } },
+    background = { { id = "tp_bg", text = "I am a Magram warrior, I hold the front, and I have not slept dry in a month. That is all the story there is." } },
+    advice = { { id = "tp_ad", text = "Keep away from the pigs' tunnels unless you want to meet the whole herd at once, and if you go in anyway, burn your boots after." } },
     _none = { { id = "tp_none", text = "Ask Orgrul. He knows more things, and cares about more of them." } },
   },
 }

@@ -54,7 +54,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "Then they'll know how my mother felt when they came for her. I won't pretend I don't want them to suffer, but a tauren grieves standing up, so do your work in Brambleblade Ravine and let the camp see you come back with your head high." },
+        { id = "xrogue_default", text = "Then they'll know how my mother felt when they came for her. I want them to suffer, I'll not deny it, but a tauren grieves standing up, so do your work in Brambleblade Ravine and let the camp see you come back with your head high." },
       },
       choices = {
         { text = "I'll come back with my head high, Chief.", next = "BACK", fx = { align = { honor = 1 } } },

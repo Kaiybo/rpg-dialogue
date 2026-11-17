@@ -115,7 +115,7 @@ P:NPC {
     },
     why = {
       lines = { { id = "y_default", text = "Because they grow without sunlight, they keep for weeks, and the dead can eat them without trouble. Before I died I grew turnips, and frankly, mushrooms are much better company." } },
-      choices = { { text = "Ha, fair enough. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Ha! Turnips never did talk back. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     xhsham = {
       big = true,
@@ -209,7 +209,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "A proper shirt under the mail, so it doesn't chafe, and a cloak that isn't held together with worgen hair. I can't make you plate, but I can make you look as though you meant to come out of the house today." } },
       choices = {
-        { text = "Fair enough. I'll look the part, Andrea.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sew me something decent, then, Andrea.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Mail and blood are all a warrior needs to wear.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

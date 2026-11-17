@@ -55,7 +55,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "You've a whiff of sulphur about you, friend, and I'll be honest, that frightens me some. But the Brotherhood know my face and my name, and you only know my price, so I'll take my chances with you." } },
+      lines = { { id = "xlo_default", text = "You've a whiff of sulphur about you, friend, and that frightens me some, I don't mind saying. But the Brotherhood know my face and my name, and you only know my price, so I'll take my chances with you." } },
       choices = {
         { text = "Talk straight with me and you've nothing to fear.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Sell me out and you'll learn what I keep.", next = "BACK", fx = { align = { honor = -1 } } },

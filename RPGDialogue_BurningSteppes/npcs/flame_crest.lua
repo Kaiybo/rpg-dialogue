@@ -138,7 +138,7 @@ P:NPC {
           text = "Well, well, a whole parade up my hill! {companion} there looks thirsty, and so do you, and Ragged John hasn't had a crowd to talk at in a dog's age." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, in my cave! *hic* Tell the fire spirits out there tae calm down, would ye, because they've been rumblin' under the Steppes since before I moved in, an' I'd like a quiet night." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "Is that an imp in my cave? *hic* Mind it keeps off the cask, for the last thing I need is fel in my ale, an' the second last thing is a burnin' beard." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can ye chill a cask, friend? A cold ale in the Burnin' Steppes is worth more than all the gold in the Depths, an' I've been dreamin' of one for years." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Can ye chill a cask, friend? A cold ale in the Burnin' Steppes would be worth all the gold in the Depths, an' I've been dreamin' of one for years." },
         { id = "h_cl_brd", tags = { "news" }, when = { cleared = "Blackrock Depths" },
           text = "They say ye walked right intae Thaurissan's throne room an' out again wi' the Emperor dead behind ye! *hic* I'm havin' a drink for that, an' ye can't stop me." },
         { id = "h_default", key = true,
@@ -206,7 +206,7 @@ P:NPC {
       },
     },
     st3 = {
-      lines = { { id = "st3_default", text = "Me, against fifty orcs? I'm no fool, whatever the Marshal says. My old pappy always said that discretion is the better part of a biscuit, or some such, and I took his meanin', so I tucked myself into the shadows." } },
+      lines = { { id = "st3_default", text = "Me, against fifty orcs? I'm no fool, whatever the Marshal says. My old pappy always said that discretion is the better part of a biscuit, or some such, and I took his meanin', so I tucked myself behind a slag heap an' held me breath." } },
       choices = {
         { text = "You hid.", next = "st4", fx = { affinity = -1 } },
         { text = "That makes no sense, John. Keep going.", next = "st4", fx = { trait = { witty = 1 } } },
@@ -678,7 +678,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "For science, and for my patron, who pays for every measurement I send him and never says what he does with them. I'd rather be studying the dragons, honestly, but fire is fire, and if I understand how it moves, I might keep my eyebrows a little longer." } },
+      lines = { { id = "xhsham_default", text = "For science, and for my patron, who pays for every measurement I send him and never says what he does with them. I'd rather be studying the dragons, but fire is fire, and if I understand how it moves, I might keep my eyebrows a little longer." } },
       choices = {
         { text = "If he pays, that's his business, Tinkee.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Ask your patron what he wants with it, Tinkee.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -728,7 +728,7 @@ P:NPC {
         { id = "h_freeze", when = { questActive = TODO_QUEST("Egg Freezing") },
           text = "The dragons hatch their eggs in a rookery high up in Blackrock Spire. Freeze one, just one, and come back and tell me it worked." },
         { id = "h_collect", when = { questActive = TODO_QUEST("Egg Collection") },
-          text = "Freeze them first, then collect them, never the other way round! My patron's heard you're getting them for me, and he's very eager, very eager indeed." },
+          text = "Freeze them first, then collect them, never the other way round! My patron's heard you're getting them for me, and he's very eager, very eager, and he's already built a shelf for them." },
         { id = "h_leonid", tags = { "news" }, when = { questActive = TODO_QUEST("Leonid Barthalomew") },
           text = "Why would my master want the eggs sent to you, and not to me? Never mind, just take them to this Leonid and tell him I did everything I was told." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -852,7 +852,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I've written notes on nearly everything in the Steppes, and drawn little pictures in the margins too! Ask me about any of these." },
     },
-    background = { { id = "tp_bg", text = "A goblin who'd rather study than sell, which most goblins find very strange indeed. The Steppes have the best dragonkin anywhere, so here I am.", next = "study" } },
+    background = { { id = "tp_bg", text = "A goblin who'd rather study than sell, which most goblins find about as sensible as giving away free samples. The Steppes have the best dragonkin anywhere, so here I am.", next = "study" } },
     advice = { { id = "tp_ad", text = "Freeze it first, then pick it up. That rule has saved my life more than once." } },
     black_dragonflight = { { id = "tp_dragons", text = "Fascinating creatures, terribly clever and terribly rude, and they grow so fast you can almost watch it happen.", next = "study" } },
     _none = { { id = "tp_none", text = "Is it a dragon? If it isn't, then I'm afraid I haven't studied it at all." } },
@@ -909,7 +909,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "A paladin would ask a lot of questions about it first, I'd guess, and I'd answer them honestly, because I've nothing to hide. Ribbly owes the family, the family wants him home, and how he comes home is up to Ribbly." } },
+      lines = { { id = "xapala_default", text = "A paladin would ask a lot of questions about it first, I'd guess, and I'd answer them straight, because I've nothing to hide. Ribbly owes the family, the family wants him home, and how he comes home is up to Ribbly." } },
       choices = {
         { text = "Justice isn't a family's to buy. I won't hunt him.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "He broke faith with his kin. That's his own doing.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -929,7 +929,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "He's paying it now, a little every month, through his cousin in Booty Bay, with interest. The Screwspigots never forget a debt, friend, and that's why we're still in business while everyone else in Flame Crest is on their third shop." } },
       choices = {
-        { text = "Fair enough. Debts should always be paid.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Debts get paid. Ribbly should've known that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "He blew up a crate. Call it a lesson and move on.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Yuka.", next = "BACK" },
       },
@@ -948,7 +948,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Because they were rusted, mostly, and because the Steppes eat metal faster than anywhere else I've traded. The druid said the ash would make good soil one day, if anyone waited long enough, and I said I'd be long dead and rich by then, so it wasn't my problem." } },
       choices = {
         { text = "It is everyone's problem, Yuka. The land outlasts all of us.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fair enough. Make your fortune while there's ash to stand on.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Make your fortune while there's ash to stand on.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1017,7 +1017,7 @@ P:NPC {
     shop_prices = {
       lines = { { id = "sp_default", text = "Steep? Have you seen how I get my stock up here? Every crate comes past the Blackrock, the ogres and the dragons, and every one of them wants a cut." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Suits me.", next = "BACK", fx = { affinity = 1 } },
         { text = "Still steep.", next = "BACK", fx = { affinity = -1, trait = { greedy = 1 } } },
       },
     },
@@ -1083,7 +1083,7 @@ P:NPC {
   notices = { "pet", "purse" },
 
   impression = {
-    first = "Kibler talks like a salesman and handles his animals like a man who truly loves them. His parrot, Opus, keeps interrupting him, and I'm not sure which of them runs the shop.",
+    first = "Kibler talks like a salesman and handles his animals like a man who loves them. His parrot, Opus, keeps interrupting him, and I'm not sure which of them runs the shop.",
     third = "{name} met Kibler, the goblin behind Kibler's Exotic Pets in the caves at Flame Crest.",
   },
 
@@ -1264,7 +1264,7 @@ P:NPC {
       choices = { { text = "I'll look for her.", next = "BACK", fx = { affinity = 2 } } },
     },
     hunter = {
-      lines = { { id = "h2_default", text = "Not a copper, friend, because you'd never sell, and I respect that more than I'd ever respect a sale. A beast that's chosen you is worth more than anything in my cages." } },
+      lines = { { id = "h2_default", text = "Not a copper, friend, because you'd never sell, and I respect that more than I'd ever respect a sale. Opus would bite me for saying so, but a beast that's chosen you beats anything in my cages." } },
       choices = { { text = "That's surprisingly kind.", next = "BACK", fx = { affinity = 2 } } },
     },
     druid = {
@@ -1506,7 +1506,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Lok'tar. You need a rider, or you're lost?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again. The riders are rested, and so am I, almost." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. The riders are rested, and so am I, almost, though I still cough up black every morning from the ash." },
   },
 
   notice = {
@@ -1659,8 +1659,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I serve the Warchief where he sends me, and he sent me to a rock full of goblins. That's enough of a story for anyone." } },
-    advice = { { id = "tp_ad", text = "Fly high over the lava; the heat lifts you, and the riders like it." } },
+    background = { { id = "tp_bg", text = "I serve the Warchief where he sends me, and he sent me to a rock full of goblins. Don't ask me how I feel about it." } },
+    advice = { { id = "tp_ad", text = "Fly high over the lava; the heat lifts you, and the riders like it, though they come down smelling of singed feathers." } },
     blackrock = { { id = "tp_blackrock", text = "Orcs who never learned what Thrall taught the rest of us. That makes them more dangerous than humans, not less." } },
     _none = { { id = "tp_none", text = "I keep wind riders. Ask the goblins; they know everything for a price." } },
   },

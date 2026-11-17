@@ -31,7 +31,7 @@ P:NPC {
   nodes = {
     xpt_thorius = {
       big = true,
-      lines = { { id = "xpt_thorius_default", text = "A crew o' four came back from Uldaman wi' a stone tablet carved in a script nobody in the Hall could read, an' they argued for an hour over whether tae sell it tae me or keep it. In the end they gave it tae the museum for nothin', an' I still think o' them every time I dust it." } },
+      lines = { { id = "xpt_thorius_default", text = "A crew o' four came back from Uldaman wi' a stone tablet carved in a script nobody in the Hall could read, an' they argued for an hour over whether tae sell it tae me or keep it. Then they gave it tae the museum for nothin', an' I still think o' them every time I dust it." } },
       choices = {
         { text = "Finds like that belong in the museum, for everyone.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "They should have sold it. Crews have to eat.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -106,7 +106,7 @@ P:NPC {
         { id = "xlock_default", text = "Because there's titan-work in these cases, an' I've no notion what it would make o' a demon standin' over it, an' I'd rather no' find out. Besides, my brother Dorius risks his neck in the Searing Gorge for every stone he sends me, an' I'll no' have one cracked by a curious imp." },
       },
       choices = {
-        { text = "Fair enough. It'll wait by the door.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Understood. My demon waits by the door.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Your relics are sturdier than you think, Curator.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -555,7 +555,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "I'd buy the truth about where they came from, which is worth more than the relic, an' the League pays fairly for it. Hammertoe died in the Badlands for those tablets, so I've no patience for anyone who digs for coin an' leaves the history behind." },
+        { id = "xrogue_default", text = "I'd buy the truth about where they came from, which is the bit worth havin', an' the League pays fairly for it. Hammertoe died in the Badlands for those tablets, so I've no patience for anyone who digs for coin an' leaves the history behind." },
       },
       choices = {
         { text = "Fair. I'll bring the truth with anything I find.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -566,7 +566,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Well, ye'll want tae hear about the Shadowforge, for the Dark Irons in Uldaman are no' the sort a polite word will move." },
-        { id = "h_default", text = "Karnik, historian o' the Explorers' League. I'm truly sorry, but I've a great deal o' work an' very little patience, so tell me what ye need, an' tell me quickly." },
+        { id = "h_default", text = "Karnik, historian o' the Explorers' League. I'm sorry, but I've a great deal o' work an' very little patience, so tell me what ye need, an' tell me quickly." },
         { id = "h_amulet", tags = { "news" }, when = { questActive = TODO_QUEST("Prospect of Faith") },
           text = "That's Hammertoe's amulet. Then this changes everythin'; if he sent ye wi' it, then he knew what was at stake, an' we'll have tae mourn him later." },
         { id = "h_belgrum", tags = { "news" }, when = { questActive = TODO_QUEST("Passing Word of a Threat") },
@@ -832,7 +832,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at the King's side door! If ye've come from the Hall o' Mysteries wi' a petition, I'll hear it, but keep it brief, for there's a queue." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
-          text = "I'll be honest wi' ye, as the King would want: there's a warlock in the throne room, an' half the guards have their hands on their axes. Say what ye came tae say." },
+          text = "I'll speak plain, as the King would want: there's a warlock in the throne room, an' half the guards have their hands on their axes. Say what ye came tae say." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The King's always had a soft spot for warriors, for he was raised among them, an' so was I." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The King's rams an' the King's rifles both owe a great deal tae hunters, an' the throne remembers it." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid o' the kaldorei, standin' in the King's own hall. Ye're a long way from yer forests, so I'll see ye're treated as a guest o' the throne." },
@@ -857,7 +857,7 @@ P:NPC {
         { text = "Does the court pray for the King's daughter?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does Ironforge need most from its paladins, Advisor?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does the King's word reach as far as Darnassus?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
-        { text = "What does the Senate truly make of dwarven shamans, Advisor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What does the Senate really make of dwarven shamans, Advisor?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, Advisor.", next = "END" },
       },
     },
@@ -1229,7 +1229,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "They mind anyone they cannae see, for a gryphon trusts its eyes an' nothin' else. Walk up tae them in the open, an' they'll carry ye anywhere in Khaz Modan wi'out a peck." } },
       choices = {
-        { text = "Fair enough. I'll walk up in the open, Gryth.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "In the open, then. I'd like to keep my eyes, Gryth.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A beast that can't see me can't stop me either.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1400,7 +1400,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Because a cat that can walk past a guard is worth more than any lockpick I own, matey. I'll no' pretend the Circle's honest, but we keep our word an' our mouths shut, which is more than the Senate does." } },
+      lines = { { id = "xdruid_default", text = "Because a cat that can walk past a guard beats any lockpick I own, matey. I'll no' pretend the Circle's honest, but we keep our word an' our mouths shut, which is more than the Senate does." } },
       choices = {
         { text = "A quiet job is still honest work if nobody's hurt.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "My shape is Cenarius's gift, not a burglar's tool.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1540,7 +1540,7 @@ P:NPC {
       lines = {
         { id = "gg_default", text = "A very fine goat, an' it's back wi' its owner now, an' a wee bit fatter. I'll say no more, for a rogue never tells the whole story, only the funny part." },
       },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Keep the rest, then. The goat knows.", next = "BACK", fx = { affinity = 1 } } },
     },
 
     heist = {

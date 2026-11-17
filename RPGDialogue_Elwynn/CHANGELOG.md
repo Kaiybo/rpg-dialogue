@@ -3,7 +3,8 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.29.0 (2026-11-17)
-- New conversations for 4 people who had none: Guard Roberts, Daniel, Sergeant De Vries, Clara Charles. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+- New people to talk to: Clara Charles, Daniel, Guard Roberts, Sergeant De Vries. New files: restart the game fully (a /reload won't load them).
+- Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.
 
 ## 1.28.0 (2026-11-17)
 - Marshal Dughan has a great deal more to say: his past, his short-handed guards (a Persuade), McBride and Gryan, and whether farmers should arm themselves.

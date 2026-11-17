@@ -258,7 +258,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "We both want it to go on feeding us, which is more than most of this city thinks about. But I take the beast and you become it, so I suspect you feel every kill a little more than I do." } },
       choices = {
-        { text = "A clean kill honours the beast. That's what matters to me.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A clean kill honours the beast. I won't take a sloppy one.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Prey is prey. I don't spare it a thought once it's down.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -303,7 +303,7 @@ P:NPC {
       again = { { id = "h_again", text = "Something else? Make it quick, the wolves need feeding." } },
     },
     pet = {
-      lines = { { id = "p_default", text = "You don't choose it, not truly, because the beast chooses whether to follow you. Feed it well, fight beside it, and never leave it behind in a fight." } },
+      lines = { { id = "p_default", text = "You don't choose it, not really, because the beast chooses whether to follow you. Feed it well, fight beside it, and never leave it behind in a fight." } },
       choices = {
         { text = "A companion is family.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A companion is a tool, a good one.", next = "BACK", fx = { align = { light = -1 } } },
@@ -451,7 +451,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior in the Valley of Wisdom. Good, because the elements respect a strong spirit as much as a wise one, and you may have more of the first than you think." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, and a beast who walks with you. The spirits of the wild are close to the elements, and I can feel them gathered around you both." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue in the Valley of Wisdom. The spirits see you, even when nobody else does." },
-        { id = "h_cl_mc", tags = { "news" }, when = { cleared = "Molten Core", faction = "Horde" }, text = "The fire spirits have been quieter these past days, as if something in Blackrock Mountain stopped burning so hot. I think you know why, because you carry the smell of the Firelord's hall on you." },
+        { id = "h_cl_mc", tags = { "news" }, when = { cleared = "Molten Core", faction = "Horde" }, text = "The fire spirits have been quieter these past days, as if something in Blackrock Mountain stopped burning so hot. I think you know why, because your boots still stink of the Firelord's hall." },
       },
       choices = {
         { text = "Do the spirits mind that a priest prays to something else?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -472,7 +472,7 @@ P:NPC {
     },
     before = {
       lines = { { id = "b_default", text = "Clans who honored the land and its spirits, and shaman who listened rather than commanded. The warlocks taught us to take, and the Warchief is teaching us again to ask." } },
-      choices = { { text = "Can the old ways truly return?", next = "before_return" } },
+      choices = { { text = "Can the old ways really return?", next = "before_return" } },
     },
     before_return = {
       lines = { { id = "br_default", text = "They already have, in every shaman who answers the elements' call. It is slow, and some orcs still long for the fel, but the spirits are patient with us." } },
@@ -501,7 +501,7 @@ P:NPC {
     third = "{name} met Zevrost, the warlock trainer in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
-    { id = "g_hi", text = "Welcome to the Cleft. The shadows here are friendlier than the faces above, I promise you." },
+    { id = "g_hi", text = "Welcome to the Cleft. The rats down here are friendlier than the faces above, and better fed." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and still in one piece, I see. The Cleft keeps a student's place for as long as the student keeps their nerve." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "The city whispers that someone took one of your tales for the truth. That's a useful skill for a student of shadow, provided you remember who you must never lie to." },
   },
@@ -588,7 +588,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, here in the Cleft. How interesting. The Light and my arts rarely share a room, and yet here we both are, serving the same Warchief." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, here in the Cleft. Now there's a thing. The Light and my arts rarely share a room, and yet here we both are, serving the same Warchief." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest in the Cleft of Shadow. You'll find the shadows here darker than the ones you pray in, but you'll find we have that much in common." },
         { id = "h_default", key = true, text = "I am Zevrost, and I teach those with the will to command what others fear. The Warchief permits us, so long as we remember who serves whom." },
         { id = "h_warlock", when = { class = "WARLOCK" }, text = "Ah, one of mine. Your demon is well leashed, I hope, because the guards above notice when it isn't." },
@@ -624,7 +624,7 @@ P:NPC {
       },
     },
     cleft = {
-      lines = { { id = "c_default", text = "The lowest part of the city, where rogues and warlocks and the less welcome trades keep their shops. The Warchief knows we are here, and that is enough for most of us." } },
+      lines = { { id = "c_default", text = "The lowest part of the city, where rogues and warlocks and the less welcome trades keep their shops. The Warchief knows we are here, and so long as we pay the guards on time, he doesn't come down to look." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

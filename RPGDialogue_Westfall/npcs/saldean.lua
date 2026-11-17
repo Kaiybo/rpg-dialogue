@@ -175,7 +175,7 @@ P:NPC {
     },
     pride = {
       lines = { { id = "p_default", text = "No. But it gets me up in the morning, and that's something a knife can't take." } },
-      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+      choices = { { text = "Right. Something else, then.", next = "BACK" } },
     },
     fool = {
       lines = { { id = "fo_default", text = "Theodore Furlbrow told me to get out while I could and called me a fool for staying. I call him a fool for going, and one of us is right, but it's his wagon that's broken." } },

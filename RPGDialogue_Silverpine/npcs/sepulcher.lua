@@ -41,7 +41,7 @@ P:NPC {
       },
     },
     xcl_sfk2 = {
-      lines = { { id = "xcl_sfk2_default", text = "Adamant came back thin and furious and asking for his blade, and he has it again, and that's enough said about Adamant. Vincent did not come back, and his name is cut into the crypt wall with the others the Sepulcher owes." } },
+      lines = { { id = "xcl_sfk2_default", text = "Adamant came back thin and furious and asking for his blade, and he has it again, and I'll say no more about Adamant, because he still owes me for the bandages. Vincent did not come back, and his name is cut into the crypt wall with the others the Sepulcher owes." } },
       choices = {
         { text = "Then I'll remember Vincent's name too.", next = "BACK" },
       },
@@ -136,7 +136,7 @@ P:NPC {
     },
     hunter = {
       lines = {
-        { id = "hu_default", text = "A living hunter, in my forest. Worgen don't leave tracks like wolves; they walk upright when they think nobody's looking, so look for the prints that change halfway. My deathstalkers learned that the hard way." },
+        { id = "hu_default", text = "A living hunter, in my forest. Worgen don't leave tracks like wolves; they walk upright when they think nobody's looking, so look for the prints that change halfway. Two of my deathstalkers came back in pieces before they learned it." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
           text = "Keep {pet} close in these woods. The worgen hate a living beast's scent nearly as much as they hate ours, and they'll go for it first." },
       },
@@ -203,7 +203,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_lab", text = "Don't touch anything green, or anything that glows, or anything at all, really." },
+    { id = "g_lab", text = "Don't touch anything green, or anything that glows, or anything at all, really. The last deathguard who did is the stain by the door." },
     { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "You were with the Cult before you died? Then you've seen what a properly made plague can do, so you'll understand why I'm so particular about my bottles." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, and the damp hasn't rotted you yet, I see. It's rotting my reagents, so do try to be useful." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "I hear someone at the Sepulcher swallowed one of your stories whole. A neat bit of work, and frankly more refined than anything else in this wretched forest." },
@@ -590,7 +590,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Perhaps, and {pet} would make a better watcher than most of mine, because a beast never adds what it wishes it had seen. Tell me what moves along the roads past Pyrewood, and how many of them come back." },
       },
       choices = {
-        { text = "I'll report honestly, Shadow Priest, and nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll report what I saw, Shadow Priest, and nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll report what serves me, Shadow Priest.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

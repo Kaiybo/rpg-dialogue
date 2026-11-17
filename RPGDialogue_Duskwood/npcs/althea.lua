@@ -361,12 +361,12 @@ P:NPC {
     warrior = {
       big = true,
       lines = {
-        { id = "cw_default", text = "Careful what you offer; I've had volunteers last one night and leave on the morning cart. The Watch stands from dusk to dawn, and the dawn is the hard part, because that's when you start to believe you've made it." },
+        { id = "cw_default", text = "Careful what you offer; I've had volunteers last one night and leave on the morning cart. The Watch stands from dusk to dawn, and the dawn is the worst of it, because that's when you start to believe you've made it." },
         { id = "cw_dwarf", when = { race = "Dwarf" },
           text = "A dwarf on my roster would steady the young ones, since they think anything short and armoured is too stubborn to die. Stand from dusk to dawn, and don't let them see you yawn." },
       },
       choices = {
-        { text = "Why is dawn the hard part?", next = "warrior_dawn" },
+        { text = "Why is dawn the worst of it?", next = "warrior_dawn" },
         { text = "Orders are orders. Tell me where to stand.", next = "BACK", fx = { affinity = 2, align = { order = 1 }, standing = { darkshire = 1 } } },
         { text = "I'd rather hunt them in the woods than wait at a wall.", next = "BACK", fx = { align = { order = -1 }, trait = { brave = 1 } } },
       },
@@ -401,7 +401,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "wl_default", fx = { learn = { "morbent_fel" } },
-          text = "Fair enough. Morbent Fel walks the hills with the dead at his back, and the last stranger who came to Darkshire with a voice like yours asked a lot of questions about him. So I'm staring, and I'll keep staring until you've given me a reason to stop." },
+          text = "You want to know why I'm staring? Morbent Fel walks the hills with the dead at his back, and the last stranger who came to Darkshire with a voice like yours asked a lot of questions about him. So I'm staring, and I'll keep staring until you've given me a reason to stop." },
       },
       choices = {
         { text = "I'll give you that reason. Point me at Fel.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },

@@ -132,7 +132,7 @@ P:NPC {
         { text = "A spell could keep your lamp lit without you, Captain.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Spirits like you can be bound, Captain.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What does a ghost need with a warrior, Captain?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Can my beast truly see you, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Can my beast actually see you, Captain?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Light trouble you, Captain, being what you are?", next = "xapala", when = { class = "PALADIN" } },
         { text = "My people teach that every spirit should pass on. Why do you stay?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you mind being a ghost, Captain Grayson?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
@@ -248,7 +248,7 @@ P:NPC {
         { id = "pt_default2", text = "A dead man keeps his own counsel, the same as a living one, only longer. I've told you what I'll tell anybody." },
       },
       choices = {
-        { text = "Fair enough, Captain.", next = "BACK" },
+        { text = "Then I'll let the matter rest, Captain.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

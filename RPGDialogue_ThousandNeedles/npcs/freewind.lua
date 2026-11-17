@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_watch", text = "From up here I see the centaur long before they see us. That is why we built on the mesas." },
-    { id = "g_back", when = { metBefore = true }, text = "The canyon gave you back, good. It keeps more than it returns." },
+    { id = "g_back", when = { metBefore = true }, text = "The canyon gave you back, good. Last week it kept a kodo and half a cart of hides." },
     { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "You were a calf on the long walk, I'd guess, with the centaur at our backs the whole way. Their Galak cousins hold these canyons now, so from this mesa I mean to see them first for once." },
     { id = "g_grim", when = { origin = "tauren_grimtotem_born" }, text = "Grimtotem by birth, the post says, and Bloodhoof by choice. Your old kin camp in these canyons and throw spears at Freewind when it suits them, so if they come for you up here, they'll come through me first." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the canyon gave you back, which is more than it does for most. I watched for you from up here more than once." },
@@ -127,7 +127,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" },
           text = "A warlock on my watch. The Galak have their own dark-hearted shamans, and I like their fires no better than yours, but you at least stand on the right side of the cliff." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Galak", min = 40 } }, text = "The Galak raid less these days, and the scouts say it's because you've cut down so many of their warriors. Freewind is grateful, though the centaur will remember you." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. I've watched many things climb the canyon from up here, but nothing quite like you." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who still calls on the Light. I've watched many things climb the canyon from up here, but nothing quite like you." },
       },
       again = {
         { id = "h_again", text = "What else? Speak, but keep one eye on the canyon while you do." },
@@ -217,7 +217,7 @@ P:NPC {
       },
       choices = {
         { text = "Write to him. I'll carry it.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 } } },
-        { text = "Why haven't you written, truly?", tag = "Persuade", next = "nataka_why",
+        { text = "What's the real reason you haven't written?", tag = "Persuade", next = "nataka_why",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Tauren" }, { trait = "kind" } } } },
           fail = { next = "nataka_duty", fx = { affinity = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -321,7 +321,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "From this mesa I see much of the Needles, and what I can't see, my scouts tell me. Ask about any of these." },
     },
-    background = { { id = "tp_bg", text = "I watch the cliffs for Freewind, and I have a brother in Desolace who thinks I've forgotten him. Both duties weigh on me.", next = "nataka" } },
+    background = { { id = "tp_bg", text = "I watch the cliffs for Freewind, and I have a brother in Desolace who thinks I've forgotten him. I'm better at one of those duties than the other.", next = "nataka" } },
     advice = { { id = "tp_ad", text = "If you go up Darkcloud Pinnacle, smile at the Grimtotem and keep your back to the wall." } },
     grimtotem = { { id = "tp_grimtotem", text = "Watch them. Smile if you must, but watch them." } },
     _none = { { id = "tp_none", text = "That is beyond what I can see from this mesa." } },
@@ -776,7 +776,7 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "Sit if you like, but don't expect me to be good company." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Have you come with news, or just for the stew?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Have you come with news, or just for the stew? It's kodo and grit today, and the grit's free." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and nothing has changed here, which is about what I expected. Sit if you like." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I heard one of your lies was found out at the post. I've no patience for lies any more, not since the Grimtotem told so many." },
   },

@@ -126,7 +126,7 @@ P:NPC {
         { id = "cy_default", text = "Everything, little meat. The wolf kills, the vulture eats, the bones go into the soil, and the soil feeds the grass that feeds the deer that feeds the wolf. Without me the world would drown in its own leftovers, and nobody thanks me for it." },
       },
       choices = {
-        { text = "Then thank you. Truly.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then thank you. I mean that.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Death serves life. That's a cold comfort.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Do the other Wild Gods respect you?", next = "cycle_gods" },
         { text = "Something else.", next = "BACK" },

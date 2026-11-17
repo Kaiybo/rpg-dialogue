@@ -80,7 +80,7 @@ P:NPC {
     xrogue = {
       big = true,
       lines = {
-        { id = "xrogue_default", text = "You may be right, and I won't pretend I've never wished to know what the Venture Company tells its foremen. But a tauren caught listening at a goblin's tent can never sit across a fire from him again, so if you go, go knowing that my father's name goes with you." },
+        { id = "xrogue_default", text = "You may be right, and I'll admit I've wished to know what the Venture Company tells its foremen. But a tauren caught listening at a goblin's tent can never sit across a fire from him again, so if you go, go knowing that my father's name goes with you." },
       },
       choices = {
         { text = "Secrets win more peace than open talk ever has.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -122,7 +122,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You carry totems, and the grass seems to lean toward you as you walk. My father calls the shamans the oldest memory of our people, so I'm glad to see one more." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The plains feed Bloodhoof, and those who hunt them well keep the peace better than any treaty I could make." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest of the Horde. My people do not pray as yours do, but anyone who mends the hurt is welcome in Bloodhoof, whatever voice answers them." },
-        { id = "h_cl_rfk", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Horde" }, text = "You've been to Razorfen Kraul, I'm told. The quilboar raided our herds when the tribes crossed the Barrens, and I won't pretend I'm sorry their crone has been humbled." },
+        { id = "h_cl_rfk", tags = { "news" }, when = { cleared = "Razorfen Kraul", faction = "Horde" }, text = "You've been to Razorfen Kraul, I'm told. The quilboar raided our herds when the tribes crossed the Barrens, and I'm not sorry their crone has been humbled." },
         { id = "h_walk", when = { origin = "tauren_long_migration" }, text = "You walked it too, didn't you, the long road out of the Barrens with the centaur at our heels? You were a calf and I was barely grown, and I remember the orcs' axes better than I remember my own feet, because I never once looked down." },
       },
       choices = {
@@ -149,7 +149,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, friend? The village is quiet for now, so ask." },
-        { id = "h_again2", text = "Go on. I'd rather hear it from you than from the gossip at Kauth's fire." },
+        { id = "h_again2", text = "Go on. I'd rather hear it from you than from the gossip at Kauth's fire, where every plainstrider grows a foot in the telling." },
       },
     },
     warrior = {
@@ -174,7 +174,7 @@ P:NPC {
       },
     },
     forsaken_cure = {
-      lines = { { id = "fc_default", text = "I don't know, friend, and I won't pretend. But I've watched my father refuse to give up on things far longer than anyone thought sensible, and he's been right more often than not." } },
+      lines = { { id = "fc_default", text = "I don't know, friend, and I'll not guess. But I've watched my father refuse to give up on things far longer than anyone thought sensible, and he's been right more often than not." } },
       choices = { { text = "Then I'll hope as long as he does.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } } },
     },
     druid = {
@@ -310,7 +310,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "The spirits mind very little, so long as they are not ignored, and a prayer is a kind of listening. Your shadow and your loa are strange to them, but they are patient, and they have heard stranger things since the Horde came to Mulgore." } },
+      lines = { { id = "xhpriest_default", text = "The spirits mind very little, so long as they are not ignored, and a prayer is half listening anyway. Your shadow and your loa are strange to them, but they are patient, and they have heard stranger things since the Horde came to Mulgore." } },
       choices = {
         { text = "I'll honour your spirits as I would my own.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My prayers answer to me, not to your spirits.", next = "BACK", fx = { align = { light = -1 } } },
@@ -504,7 +504,7 @@ P:NPC {
         { id = "xmage_default", text = "You could, and the young hunters would never forgive you for stealing their practice. Swoops are a nuisance, not a war, and I'd rather the youngsters learned to drop them with an arrow than watched a stranger freeze them out of the sky." },
       },
       choices = {
-        { text = "Fair enough. The young need their practice.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Then the young hunters can have them, and the bruised thumbs.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A pest is a pest, and I'll clear them anyway.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Why keep watch on the sky?", next = "sky" },
       },
@@ -919,7 +919,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_kyle", text = "Oh! Hello, traveler, you haven't seen a dog, have you? He's brown and scruffy, and he never sits still." },
+    { id = "g_kyle", text = "Oh! Hello, traveler, you haven't seen a dog, have you? He's brown and scruffy, and he never sits still, and he stole a whole fish off Kauth's rack last week." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Have you seen any sign of him, any at all?" },
   },
 
@@ -1071,7 +1071,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Come in from the grass and the wind. There's stew, and a hide to sleep on." },
+    { id = "g_inn", text = "Come in from the grass and the wind. There's stew, and a hide to sleep on, and the hide only smells a little of kodo." },
     { id = "g_home", when = { homeInn = { "Bloodhoof Village" } }, text = "Your sleeping hide is aired and ready. The wind is kind tonight." },
     { id = "g_away", when = { away = 14 }, text = "You've been out on the grass {away}, and I kept a pot on for you most nights anyway. Come in from the wind and eat." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The whole village talks of the help you've given us, so tonight the stew is yours for nothing. Don't tell the bluff folk." },
@@ -1348,7 +1348,7 @@ P:NPC {
         { text = "Earth Mother keep you.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "Something else? Throw a stick on the fire while you think of it." },
+        { id = "h_again", text = "Something else? Throw a stick on the fire while you think of it, and not the one with the grub in it; that's supper." },
       },
     },
     skyborne = {

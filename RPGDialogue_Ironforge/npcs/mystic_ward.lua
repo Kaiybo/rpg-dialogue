@@ -136,7 +136,7 @@ P:NPC {
         { id = "h_again3", when = { class = "PRIEST" }, text = "What else, my friend? There's nae such thing as a daft question in this Hall, only daft answers." },
       },
       choices = {
-        { text = "Is the Light truly so different from nature?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Is the Light really so different from nature?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do you never stand still?", next = "pacing" },
         { text = "How did the Light come to Ironforge?", next = "came" },
         { text = "They say you keep an exorcism censer.", next = "censer" },
@@ -149,7 +149,7 @@ P:NPC {
         { text = "I'm a paladin, High Priest. Teach me what the priests know.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I listen to the earth, High Priest, not the Light.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Will you turn me away for the fel, High Priest?", next = "warlock", when = { class = "WARLOCK" } },
-        { text = "Does the Light truly shine on rogues, High Priest?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Does the Light shine on rogues too, High Priest?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What have the gnome mages taught your priests?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Light favour warriors, High Priest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What would you like to know about the high snows?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -420,7 +420,7 @@ P:NPC {
       lines = {
         { id = "xpa_default", text = "That ye cannae strike a man and heal him in the same breath an' mean both, so pick which one he needs before ye swing. Brandur teaches ye the hammer, an' I'd like ye tae leave this Hall knowin' when tae put it down." },
         { id = "xpa_dwarf", when = { race = "Dwarf" },
-          text = "That a dwarf's temper an' a paladin's zeal make a fine fire an' a poor judge. Half the paladins in this Hall learned that the hard way, an' I'd spare ye the hard way if I can." },
+          text = "That a dwarf's temper an' a paladin's zeal make a fine fire an' a poor judge. Half the paladins in this Hall have the broken noses tae prove it, an' I'd spare ye yours if I can." },
       },
       choices = {
         { text = "Judgment is part of the oath, High Priest.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
@@ -551,7 +551,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "By makin' ye think ye need nothin' but yerself, an' that's the first step down a long road. I've seen it happen, an' the ones it happened to never noticed till they were too far along tae turn back." } },
+      lines = { { id = "xmage_default", text = "By makin' ye think ye need nothin' but yerself, an' that's the first step down a bad road. I've seen it happen, an' the ones it happened to never noticed till they were too far along tae turn back." } },
       choices = {
         { text = "I'll keep my feet on the right road, Theodrus.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Needing nothing but myself sounds like freedom, Theodrus.", next = "BACK", fx = { align = { light = -1 } } },
@@ -650,7 +650,7 @@ P:NPC {
         { id = "fg_default", text = "The one at the back keepin' ye standin', so be kind tae them an' don't run off where they cannae see ye. Every priest in this Hall has a story about a fighter who did." },
       },
       choices = {
-        { text = "Fair enough. I'll stay in sight.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Understood. I'll stay where the priest can see me.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -673,7 +673,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Toldren Deepiron asked whether there was anything he could do for me, and then waited as if he truly wanted to know. He seems to notice tired people before they notice themselves.",
+    first = "Toldren Deepiron asked whether there was anything he could do for me, and then waited as if he really wanted to know. He seems to notice tired people before they notice themselves.",
     third = "{name} met Toldren Deepiron, a gentle priest trainer in the Hall of Mysteries.",
   },
 
@@ -1019,7 +1019,7 @@ P:NPC {
     },
     elune = {
       lines = {
-        { id = "el_default", text = "Not quite. They pray tae Elune, an' we tae the Light, an' Alathea an' I agree tae disagree in very polite letters. Both kinds o' priest can mend a broken leg, an' that's enough for me." },
+        { id = "el_default", text = "Not quite. They pray tae Elune, an' we tae the Light, an' Alathea an' I agree tae disagree in very polite letters. Both kinds o' priest can set a broken leg, an' neither kind enjoys the screamin'." },
       },
       choices = {
         { text = "The Light is the only true source.", next = "BACK", fx = { align = { light = 1 }, trait = { stern = 1 } } },
@@ -1073,7 +1073,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The Silver Hand trusts deeds. Ye'll have the same chance as any, an' the same judgment if ye fail it. I'll tell ye honestly, though: when I see a dwarf callin' fire up out o' the ground, I think o' Thaurissan, an' I have tae remind myself it's no' the same thing." } },
+      lines = { { id = "xdsham_default", text = "The Silver Hand trusts deeds. Ye'll have the same chance as any, an' the same judgment if ye fail it. Mind ye, when I see a dwarf callin' fire up out o' the ground, I think o' Thaurissan, an' I have tae remind myself it's no' the same thing." } },
       choices = {
         { text = "It's not the same. I'll prove it by my deeds, Tiza.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Judge me by your fears if you like. I'll not plead.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1131,7 +1131,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "No' little, only different, for a mage seeks power an' a paladin seeks tae give his away, or that's what I teach them. The best mages I've known gave theirs away too, in the end, an' I'd like tae think ye might be one o' them." },
+        { id = "xmage_default", text = "No' little, only different, for a mage seeks power an' a paladin seeks tae give his away, or that's what I teach them. The best mages I've known gave theirs away too, sooner or later, an' I'd like tae think ye might be one o' them." },
       },
       choices = {
         { text = "Power should serve others. I agree.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1175,7 +1175,7 @@ P:NPC {
         { text = "Would your paladins really attack a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How do hunters help folk who can't repay them, Tiza?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does your husband give the priests much trouble, Tiza?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is a druid's duty to the wild a kind of virtue?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is a druid's duty to the wild a virtue too?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do paladins think little of mages, Tiza?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Silver Hand trust a dwarf shaman, Tiza?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Light keep you.", next = "END" },
@@ -1296,7 +1296,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I'm a paladin o' the Silver Hand an' a mentor tae the young ones, an' Muiredon's wife, which is the hardest o' the three." } },
     advice = { { id = "tp_ad", text = "Help someone who cannae repay ye, an' don't tell anyone ye did it. That's the whole lesson; the rest is practice.", next = "path" } },
     tome_of_divinity = { { id = "tp_tome", text = "It's the book I give the young ones. It asks them tae be charitable an' patient, an' most find patience the harder.", next = "path" } },
-    dark_iron = { { id = "tp_dark_iron", text = "There's a camp o' them south o' Helm's Bed Lake, an' a commander givin' orders. My husband has the scars tae prove it.", next = "husband" } },
+    dark_iron = { { id = "tp_dark_iron", text = "There's a camp o' them south o' Helm's Bed Lake, an' a commander givin' orders. My husband has the stitches tae prove it.", next = "husband" } },
     _none = { { id = "tp_none", text = "That's no' somethin' I can speak tae. Ask the High Priest, or ask Muiredon, who'll talk about anythin'." } },
   },
 }
@@ -1635,7 +1635,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Because it sometimes goes where I didn't aim it, and once it went into a paladin's hammer, and he wasn't amused, though I thought it was very pretty. Arcane and the Light aren't so different, you know, if you squint." } },
       choices = {
         { text = "They're very different, Bink. The Light isn't a tool to be squinted at.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Maybe they're not so different. Power is power, in the end.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Maybe they're not so different. Power is power, whoever holds it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Bink.", next = "BACK" },
       },
     },
@@ -1896,12 +1896,12 @@ P:NPC {
         { text = "Why must I wait for portals?", next = "wait", when = { class = "MAGE", maxLevel = 39 } },
         { text = "The Kirin Tor brought my people to Dalaran.", next = "sky", when = { race = "Skyborne", class = "MAGE" } },
         { text = "Could a rogue ever use one of your portals?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Are warlock summonings truly like portals?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Are warlock summonings really like portals?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could a portal carry a warrior to the front, Milstaff?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Could a hunter's beast pass through one of your portals?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do portals and prayer have anything in common, Milstaff?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do paladins ever study portal magic, Milstaff?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Is portal magic truly harder than a druid's road to Moonglade?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Is portal magic harder than a druid's road to Moonglade?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Could a shaman ever learn to open a portal, Milstaff?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day, then.", next = "END" },
       },

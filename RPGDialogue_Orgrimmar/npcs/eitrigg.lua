@@ -116,7 +116,7 @@ P:NPC {
     },
     thrall_closed = {
       lines = { { id = "tc_default", text = "The Warchief's mind is his own to speak, {class}, not mine to lend out to whoever asks. Ask him yourself, if you have the nerve." } },
-      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
     },
     blackrock = {
       lines = { { id = "br_default", text = "My father was a Blackrock, and his father before him, and so am I. But before anything else I am an orc, and that means honor first, and the Blackrock who follow Rend in the mountains have forgotten it." } },
@@ -134,7 +134,7 @@ P:NPC {
     },
     blackrock_bound = {
       big = true,
-      lines = { { id = "bb_default", text = "Bound by blood, yes, and that is why their shame is mine to answer. If I could pull one young Blackrock out of that mountain and bring him here, I would count it worth more than every battle I won for Blackhand." } },
+      lines = { { id = "bb_default", text = "Bound by blood, yes, and that is why their shame is mine to answer. If I could pull one young Blackrock out of that mountain and bring him here, I would trade every battle I won for Blackhand to do it." } },
       choices = {
         { text = "Some of them might still be saved.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They chose their side. Let them die on it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -181,7 +181,7 @@ P:NPC {
     },
     forsaken = {
       lines = { { id = "fo_default", text = "No. Humans and orcs both did terrible things, and your people are paying a price neither of ours ever paid. Serve the Horde well, and you'll find this old orc on your side when the others mutter." } },
-      choices = { { text = "That means more than you know.", next = "BACK", fx = { affinity = 2 } } },
+      choices = { { text = "I'll hold you to that, old soldier.", next = "BACK", fx = { affinity = 2 } } },
     },
   },
 
@@ -198,6 +198,6 @@ P:NPC {
     },
     scarlet_crusade = { { id = "tp_sc", text = "Fanatics who wear the Light like armor. Tirion was everything they claim to be, and his own people cast him out for it." } },
     burning_blade = { { id = "tp_bb", text = "Orcs still bowing to demons, after everything the demons cost us. The Warchief is patient with them, and I am not." } },
-    _none = { { id = "tp_none", text = "I don't know that one, and I won't pretend to. Old soldiers who pretend tend to get young ones killed." } },
+    _none = { { id = "tp_none", text = "I don't know that one, and I'll not guess at it. Old soldiers who pretend tend to get young ones killed." } },
   },
 }

@@ -98,7 +98,7 @@ P:NPC {
     },
     jar_out = {
       lines = {
-        { id = "jo_default", text = "Only when there's work, and then he's off like a shot and back again when it's done. I think he likes the jar, honestly, because it's warm and nobody steps on him." },
+        { id = "jo_default", text = "Only when there's work, and then he's off like a shot and back again when it's done. I think he likes the jar, because it's warm and nobody steps on him." },
       },
       choices = {
         { text = "That's no life for a creature, even an imp.", next = "BACK", fx = { align = { order = -1 } } },
@@ -137,10 +137,10 @@ P:NPC {
     xgoblin = {
       big = true,
       lines = {
-        { id = "xg_default", text = "I am selling! I'm selling myself, to Mor'zul, at a very good rate. It's the best deal I ever made, and the trading companies never offered me anything half as interesting." },
+        { id = "xg_default", text = "I am selling! I'm selling myself, to Mor'zul, at a very good rate. It's the best deal I ever made, and the trading companies never offered me anything half as good, and they never offered dental." },
       },
       choices = {
-        { text = "Fair enough. Good deals are rare.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A goblin who sold himself. I've heard worse deals.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

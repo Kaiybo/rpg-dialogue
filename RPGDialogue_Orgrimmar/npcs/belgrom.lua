@@ -121,7 +121,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "I've served the Horde since before this city had walls, and now I serve the Warchief at his ear. That's all the story you need." } },
-    advice = { { id = "tp_ad", text = "Have agents everywhere, and make sure they write often. A commander who hears late hears too late." } },
+    advice = { { id = "tp_ad", text = "Have agents everywhere, and make sure they write often. Half my letters already arrive chewed by the wind riders, so I need the other half." } },
     rimtori = { { id = "tp_rim", text = "Don't say that name too loudly in this valley. When she's dead, I'll say it myself, and gladly." } },
     silithid = { { id = "tp_sil", text = "Korran's bugs. I thought it was nothing, and I've been told it's something, and I'm not too proud to change my mind about bugs." } },
     _none = { { id = "tp_none", text = "Not my concern. If it mattered, one of my agents would have told me already." } },

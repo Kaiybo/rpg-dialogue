@@ -70,7 +70,7 @@ P:NPC {
       },
     },
     camp_lads = {
-      lines = { { id = "cl_default", text = "Everyone, thank the mountain, though one o' them still won't sleep wi' the lamp out. I was the one who put that camp there, so I'll carry the weight o' it." },
+      lines = { { id = "cl_default", text = "Everyone, thank the mountain, though one o' them still won't sleep wi' the lamp out. I was the one who put that camp there, so that's on my head, no' theirs." },
       },
       choices = {
         { text = "You couldn't have known they'd come.", next = "camp_blame" },

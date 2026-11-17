@@ -262,7 +262,7 @@ P:NPC {
     },
     bear_closed = {
       lines = {
-        { id = "bc_default", text = "What it costs me is my own affair, and I'll thank you not to make a confessor of yourself in the king's hall. The kingdom is what matters here, not the man holding it." },
+        { id = "bc_default", text = "What it costs me is my own affair, and I'll thank you not to make a confessor of yourself in the king's hall. The kingdom is your business here, and the man holding it is not." },
         { id = "bc_default2", text = "I appreciate the concern, I'm sure, but a regent who shares his doubts with every visitor soon has a court full of them. Ask me about the kingdom instead." },
       },
       choices = {
@@ -356,7 +356,7 @@ P:NPC {
       },
     },
     kaldorei_ash = {
-      lines = { { id = "kas_default", text = "Ashenvale is a long road from Stormwind, and the orcs there are Thrall's, which makes every soldier I send a question for the council. Tell your Sentinels I know their names, if nothing else, and that I mean to do better." } },
+      lines = { { id = "kas_default", text = "Ashenvale is half a world from Stormwind, and the orcs there are Thrall's, which makes every soldier I send a question for the council. Tell your Sentinels I know their names, if nothing else, and that I mean to do better." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     highorder = {

@@ -16,8 +16,8 @@ npcs\crossroads.lua
 npcs\taurajo.lua
 npcs\ratchet.lua
 npcs\unsung.lua
-npcs\regthar.lua
 npcs\gazrog.lua
-npcs\korran.lua
 npcs\kadrak.lua
+npcs\korran.lua
+npcs\regthar.lua
 npcs\thalothas.lua

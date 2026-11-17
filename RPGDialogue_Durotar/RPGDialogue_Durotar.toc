@@ -18,6 +18,6 @@ npcs\senjin.lua
 npcs\roadside.lua
 npcs\unsung.lua
 npcs\hanazua.lua
-npcs\rezlak.lua
 npcs\larprowltusk.lua
+npcs\rezlak.lua
 npcs\rhinag.lua

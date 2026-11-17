@@ -36,7 +36,7 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_marin_default", text = "My bruisers keep the peace, friend, and peace is the best business there is in this desert. You'd be amazed how polite a company becomes once it learns that drawing steel on my streets costs more than anything it could steal." } },
       choices = {
-        { text = "Fair enough, Baron. Rules keep trade honest.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Your rules keep trade honest, Baron. I'll keep them.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules for us and gold for you. We'll do as we please.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -292,7 +292,7 @@ P:NPC {
       choices = {
         { text = "What does the elixir do to a gnome, anyway?", next = "x_gnome_size" },
         { text = "Suit yourself. Gnomish method would've made it great.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "I'll take your word for it. Something else.", next = "BACK" },
       },
     },
     x_gnome_size = {
@@ -354,7 +354,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Sweetie, I can make anything taste good, though hyena wants a long soak and basilisk wants a very sharp knife. Scorpid's the surprise, honestly, because once the stinger's off it tastes a bit like crab from the coast." },
+        { id = "xhuntcl_default", text = "Sweetie, I can make anything taste good, though hyena wants a long soak and basilisk wants a very sharp knife. Scorpid's the surprise, because once the stinger's off it tastes a bit like crab from the coast." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I've saved scraps for hunters' beasts before, sweetie, and {pet} has the look of someone who'd never say no to a stockpot bone." },
       },
       choices = {
@@ -410,7 +410,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Cactus apples, mostly, and a little of what grows in the shade near the Gaping Chasm, though the bugs there make the picking interesting. Everything out here's bitter, so the trick is to get to it before the sun does." } },
+      lines = { { id = "xdruid_default", text = "Cactus apples, mostly, and a little of what grows in the shade near the Gaping Chasm, though the bugs there bite through gloves. Everything out here's bitter, so you get out at dawn and pick before the sun ruins it." } },
       choices = {
         { text = "Share your recipes. Good food keeps people alive here.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Keep your secrets. A cook's recipes are her living.", next = "BACK", fx = { align = { light = -1 } } },
@@ -470,7 +470,7 @@ P:NPC {
         { text = "Trade a recipe?", next = "trade", when = { profession = "Cooking" } },
         { text = "Hinterlands cooking, is it? I know Wildhammer cooking.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "You can tell I use poisons?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Conjured bread keeps you alive. That's what matters.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Conjured bread keeps you alive. Stop sneering at it.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the sick in Gadgetzan come to you, Sprinkle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you feed the folk who come in from the desert, Sprinkle?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What should a warrior eat before a long fight, Sprinkle?", next = "xwarcl", when = { class = "WARRIOR" } },
@@ -591,7 +591,7 @@ P:NPC {
     xcl_zf2 = {
       lines = { { id = "xcl_zf2_default", text = "Because they figure the water was theirs before the Cartel ever sank a well, and between you and me, they're probably right. That doesn't change the fact that Gadgetzan dies in three days without it, so I keep the pumps running and let the historians argue." } },
       choices = {
-        { text = "Fair enough. Something else, then.", next = "BACK" },
+        { text = "Then I'm glad someone keeps them running. Something else.", next = "BACK" },
       },
     },
     xhuntcl = {
@@ -778,7 +778,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Senior Surveyor Fizzledowser keeps a map full of circles where water used to be, and he expects every simple job to go wrong. In fairness, out here, he may have learned that the hard way.",
+    first = "Senior Surveyor Fizzledowser keeps a map full of circles where water used to be, and he expects every simple job to go wrong. In fairness, out here, he's usually right.",
     third = "{name} met Senior Surveyor Fizzledowser, who searches the desert for new water on behalf of the Gadgetzan Water Company.",
   },
 
@@ -1125,7 +1125,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? Rose is getting impatient, though Rose is always impatient." } },
       choices = {
-        { text = "Does the poison out here have anything to do with the land itself?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Do the elements here have anything to do with the poison?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are you dissecting, Pestlezugg?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let's see your supplies.", next = "BUSINESS" },
         { text = "Who's Rose?", next = "rose" },
@@ -1138,7 +1138,7 @@ P:NPC {
         { text = "Which dead things have looked back at you, Pestlezugg?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What do you need a warrior for, Pestlezugg?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What do you need from the beasts of Tanaris, Pestlezugg?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Is anything on your shelves truly dangerous, Pestlezugg?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is anything on your shelves actually dangerous, Pestlezugg?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What sort of poisons do you keep, Pestlezugg?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Just browsing.", next = "END" },
       },
@@ -1184,7 +1184,7 @@ P:NPC {
       lines = { { id = "xws_default", text = "Herbs, vials and the odd jar of something that fizzes, and what you do with them afterward is your own affair. If any of it ends up in a summoning circle, though, I'd rather not hear about it." } },
       choices = {
         { text = "Then I won't tell you.", next = "BACK", fx = { trait = { witty = 1 } } },
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Then don't sell me anything that fizzes.", next = "BACK" },
       },
     },
   },
@@ -1310,7 +1310,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "The Cartel's rules, not Stormwind's, and the Cartel's rules are what count in Gadgetzan. I buy turtle shells and Sandfury trinkets, and if the trolls don't like it, they should've thought of that before they sat on all that loot." } },
       choices = {
         { text = "Cartel rules or not, plunder is plunder.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fair enough. Trade is trade in a free town.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Trade is trade in a free town, shells and all.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1346,7 +1346,7 @@ P:NPC {
         { id = "h_valley", when = { questActive = TODO_QUEST("Thistleshrub Valley") },
           text = "Thistleshrub Valley has something I want, and don't ask me why I want it; just bring it." },
         { id = "h_roguecl", when = { class = "ROGUE" },
-          text = "One of the quiet trade, I see. Funny, I was just thinking how nice it'd be to have someone who could find things, and never mention where they found them." },
+          text = "One of the light-fingered trade, I see. Funny, I was just thinking how nice it'd be to have someone who could find things, and never mention where they found them." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Ah, a warlock. I don't buy what you'd sell and I don't sell what you'd buy, so we needn't waste each other's time, unless you'd like to." },
         { id = "h_warcl", when = { class = "WARRIOR" },
@@ -1762,7 +1762,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "That's what the last one said, right before he asked me where I kept my strongbox. If you're truly not from Booty Bay, you'll understand why I keep looking over your shoulder, and you won't take it personally." } },
+      lines = { { id = "xrogue_default", text = "That's what the last one said, right before he asked me where I kept my strongbox. If you're really not from Booty Bay, you'll understand why I keep looking over your shoulder, and you won't take it personally." } },
       choices = {
         { text = "Pay your debts. You'll sleep better.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Run further. Booty Bay can't reach everywhere.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1983,7 +1983,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "I'd forge it for anybody whose coin is good, friend, and that's never kept me up at night. A blade doesn't know who's holding it, so I figure the sin, if there is one, belongs to the hand and not the forge." } },
       choices = {
         { text = "A smith who sells to murderers shares their guilt.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fair enough. A tool is only a tool.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A blade doesn't care who swings it. Neither do I.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

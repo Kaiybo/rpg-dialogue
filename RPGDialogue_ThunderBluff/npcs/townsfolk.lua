@@ -296,7 +296,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. The wind riders always settle when one of Hamuul's students is near, and I stopped asking why long ago, because I'm grateful for the quiet." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, up the tower. The wind riders don't mind magic, but they mind sudden noises, so cast quietly." },
       },
-      again = { { id = "h_again", text = "Anything more? The wind won't wait forever." } },
+      again = { { id = "h_again", text = "Anything more? The wind won't wait forever, and neither will that wyvern, who bit a goblin last week for dawdling." } },
       choices = {
         { text = "Do your riders ever come back hurt, Tal?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the wind riders feel the air spirits, Tal?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -390,7 +390,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "A staff, most often, because it keeps an enemy at arm's length while you work, and it leans well when you're tired. Some trolls carry daggers and some Forsaken prefer a wand, and I'll teach either. What matters is that you can protect yourself long enough to protect someone else." } },
+      lines = { { id = "xhpriest_default", text = "A staff, most often, because it keeps an enemy at arm's length while you work, and it leans well when you're tired. Some trolls carry daggers and some Forsaken prefer a wand, and I'll teach either. Whatever you choose, it has to keep you alive long enough to protect someone else." } },
       choices = {
         { text = "Then I'll learn the staff and guard the wounded.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'd rather strike first than wait to protect anyone.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -462,7 +462,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Welcome, friend; few healers come to learn a weapon, but a staff or a mace in the right hands is a promise kept." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. You'll want to learn a staff, perhaps, or a dagger, because a demon can't protect you from everything." },
       },
-      again = { { id = "h_again", text = "What else? Ask, and I'll answer plainly." } },
+      again = { { id = "h_again", text = "What else? Ask, and I'll answer plainly. Mind the practice post, for a young orc nearly took my horn off swinging at it." } },
       choices = {
         { text = "What weapon suits a priest, Ansekhwa?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Which weapons should a shaman learn, Ansekhwa?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -779,7 +779,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Anyone can learn, if they can sit still and laugh at themselves when the fish wins, which it will. Send your demon off for an afternoon, and you might find the quiet does you more good than anything it whispers." },
+        { id = "xwarlock_default", text = "Anyone can learn, if they can sit still and laugh at themselves when the fish wins, which it will. Send your demon off for an afternoon, and you might find a tug on the line beats anything it whispers." },
       },
       choices = {
         { text = "I'll send it off and enjoy the quiet.", next = "BACK", fx = { align = { light = 1 } } },
@@ -801,7 +801,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage, here to learn fishing? You could freeze the lake and pick them out, I suppose, but where's the fun in that?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! Don't let your demon near the water, friend, or the fish will never bite again." },
       },
-      again = { { id = "h_again", text = "Something more? Fishing gives plenty of time for talking." } },
+      again = { { id = "h_again", text = "Something more? Fishing gives plenty of time for talking, since the fish won't bite and something keeps stealing the ones that do." } },
       choices = {
         { text = "Do you ever pray for fish, Kah?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why do you think the fish bite better after rain, Kah?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -965,16 +965,16 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I suppose you don't eat, but a warrior who can cook makes friends at every campfire, and you could use friends." },
-        { id = "h_default", key = true, text = "I'm Aska Mistrunner, and I teach cooking. A warrior who can cook eats well on the road and makes friends at every campfire, and those are both worth more than a sharper sword." },
+        { id = "h_default", key = true, text = "I'm Aska Mistrunner, and I teach cooking. A warrior who can cook eats well on the road and makes friends at every campfire, and nobody ever shared a fire with anyone for the sake of a sharp sword." },
         { id = "h_orc", when = { race = "Orc" }, text = "An orc! Your people eat everything burnt and call it cooked. Sit down, and I'll teach you to roast meat without turning it to charcoal." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and too thin, like all of you who spend your nights talking to campfires instead of cooking on them. Sit, and I'll fix that." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll eat well if you learn to cook, and you'll make friends at every campfire, which is worth more than a sharp blade." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll eat well if you learn to cook, and you'll make friends at every campfire, which a sharp blade never did for anyone." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You'll bring me meat to cook, I hope, because a hunter's game makes the finest stew there is." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! Look at you, all prayers and no supper; sit down, dear, before you fall over." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and thin as a reed, so sit down. You young ones run about the plains as cats and forget that even a cat needs feeding." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! You look as if you haven't eaten properly in weeks, so sit down, and the demon can wait." },
       },
-      again = { { id = "h_again", text = "What else, dear? Ask while the pot's still warm." } },
+      again = { { id = "h_again", text = "What else, dear? Ask while the pot's still warm. Some young brave burned the last one so badly I scoured it with Barrens sand." } },
       choices = {
         { text = "Do you ever cook for the sick, Aska?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do shamans cook differently from other tauren, Aska?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1148,7 +1148,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Then you know the herbs the way I do, as gifts, and you'll understand why I watch what the apothecaries on Spirit Rise do with them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You'll understand that an alchemist mixes things carefully, unlike the apothecaries on Spirit Rise." },
       },
-      again = { { id = "h_again", text = "Something else? Ask quickly, before this boils over." } },
+      again = { { id = "h_again", text = "Something else? Ask quickly, before this boils over, because the last batch took the fur off my left arm and it still hasn't grown back." } },
       choices = {
         { text = "Can alchemy and prayer work together, Bena?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Should a shaman worry about the Forsaken on Spirit Rise, Bena?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1488,7 +1488,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll wear the bear and the cat yourself before long, so I hope you'll think kindly of the beasts when you see what I do with their hides." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock! You'll wear cloth, so you won't need my hides, but sit and talk while I work." },
       },
-      again = { { id = "h_again", text = "Something else? Ask while I stitch." } },
+      again = { { id = "h_again", text = "Something else? Ask while I stitch, and pardon the stink, for these kodo hides came a week late from the Barrens." } },
       choices = {
         { text = "Do you say a prayer over each hide, Una?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do the spirits of the beasts stay with their hides, Una?", next = "xhsham", when = { class = "SHAMAN" } },

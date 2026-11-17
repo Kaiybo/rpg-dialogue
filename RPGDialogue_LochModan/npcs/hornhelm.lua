@@ -62,7 +62,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I've a letter tae Ironforge half written, but it'll keep." },
         { id = "h_again2", text = "Go on, ask. Questions are cheaper than blastpowder." },
-        { id = "h_again3", text = "Anythin' more, friend? Mind the inkpot." },
+        { id = "h_again3", text = "Anythin' more, friend? Mind the inkpot, for I've knocked it over twice today an' half my map's gone blue." },
       },
       choices = {
         { text = "Tell me about Ironband's dig.", next = "dig" },

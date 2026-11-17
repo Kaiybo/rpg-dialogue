@@ -89,7 +89,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Ogtinc does not know, but the divine path asks that we try to mend what we have broken. If you truly wish to help, gather what the Circle needs and use your power only against those who would sicken the land further." } },
+      lines = { { id = "xlock_default", text = "Ogtinc does not know, but the divine path asks that we try to mend what we have broken. If you really wish to help, gather what the Circle needs and use your power only against those who would sicken the land further." } },
       choices = {
         { text = "I'll use my power only to protect the land.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll use my power as I see fit.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
@@ -121,7 +121,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN", faction = "Alliance" },
           text = "A paladin. Ogtinc has seen your kind fight the dead, and he is glad, for the courser ghosts in the ruins below are restless, and they do not rest for Ogtinc's words." },
         { id = "h_warcl", when = { class = "WARRIOR" },
-          text = "A warrior. Ogtinc sees the weight of your blade, and he hopes you know that not every creature in these ruins must die." },
+          text = "A warrior. Ogtinc sees how heavy your blade is, and how often it is used, and he hopes you know that not every creature in these ruins must die." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, and welcome. My people had shamans before the corruption, and you remind me of the elders who taught me to hear the forest." },
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "You walk with a demon's shadow, warlock, and the spirits of this cliff go quiet when you come near. Ogtinc does not turn away anyone who would help the land, but he asks you to remember what fel has done to it." },
@@ -460,7 +460,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Not a bit, because the dragons I work were trying to eat somebody when they died. Your Circle might say every creature has its place, and I'll grant that the blue ones up the coast are clever enough to talk, but scale's scale once it's off the beast, and it'll turn a blade like nothing else in Azeroth." } },
       choices = {
-        { text = "Fair enough. A hide is a hide once the beast is gone.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Dead is dead. A hide is a hide once the beast is gone.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Some of those dragons think and speak. Work their scales with care.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Never mind the scales.", next = "BACK" },
       },
@@ -548,7 +548,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Psst! Over here, before the elves see you; I've got a business opportunity with your name on it!" },
-    { id = "g_back", when = { metBefore = true }, text = "My favourite employee! Back for more profitable danger?" },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite employee! Back for more profitable danger? Mostly profitable for me, but you get to keep your limbs, usually." },
   },
 
   notice = {
@@ -763,7 +763,7 @@ P:NPC {
     },
     wizzle = {
       lines = { { id = "w_default", text = "It's a... well, it goobles the wizzles, obviously. Very technical, very expensive, very mine. Don't ask an engineer to explain an engineer's tools, partner; we'd be here all week." } },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "Ha. Point taken.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
   },
 
@@ -953,7 +953,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know ships, the sea and this cursed bit of shore. Ask what you like." } },
     background = { { id = "tp_bg", text = "Captain of the Horizon Scout, out of Stormwind's waters. I'll be a captain again when I have a ship.", next = "wreck" } },
-    advice = { { id = "tp_ad", text = "Never anchor off Azshara after dark. If I'd known that a week ago, I'd still have a ship." } },
+    advice = { { id = "tp_ad", text = "Never anchor off Azshara after dark. If I'd known that a week ago, I'd still have a ship, and my cabin boy would still have both his boots." } },
     horizon_scout = { { id = "tp_scout", text = "My ship, and the best on the coast, until the reef and the naga had her.", next = "wreck" } },
     spitelash = { { id = "tp_spite", text = "They came out of the water in the dark and took my ship. I'll not forget their faces, if you can call them faces." } },
     _none = { { id = "tp_none", text = "Can't help you there; I know the sea, not the land." } },
@@ -1130,7 +1130,7 @@ P:NPC {
     },
     tymor_favour = {
       lines = { { id = "tf_default", text = "Now that's between me, Tymor and a very embarrassin' night in the Stonefire Tavern. Let's say he got me out of a scrape, and leave it there." } },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "I'll take your word on that.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     naga = {
       lines = { { id = "n_default", text = "Not to me, they're not. They swim, I fly, and so far the coast's been quiet from up there, which might just mean they keep their heads under the water. The sea's somebody else's watch; mine's the sky." } },

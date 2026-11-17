@@ -46,7 +46,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "A little, if I'm honest, though I've seen worse than you come up this road in the last year, and they wore red masks. Theodore says we can't be choosy about who helps us anymore, and for once I think he's right." },
+        { id = "xlock_default", text = "A little, I'll admit, though I've seen worse than you come up this road in the last year, and they wore red masks. Theodore says we can't be choosy about who helps us anymore, and for once I think he's right." },
       },
       choices = {
         { text = "I'll help where I can, Verna, and keep it gentle.", next = "BACK", fx = { align = { light = 1 } } },
@@ -113,7 +113,7 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Poor Old Blanchy") },
           text = "There are sacks of oats lying about the old farms. The thieves don't bother with them. Bring me a few handfuls, dear." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Poor Old Blanchy"), days = 3 } },
-          text = "Look at her eat! That's the first time she's lifted her head properly in a week. Thank you, truly." },
+          text = "Look at her eat! That's the first time she's lifted her head properly in a week. Thank you, and mind she doesn't start on your sleeve." },
         { id = "h_stew", when = { questActive = TODO_QUEST("Westfall Stew") },
           text = "Stew for Salma, is it? Good, because that woman could feed an army on a turnip, and some days she has to." },
         { id = "h_pie_done", when = { questDone = TODO_QUEST("Goretusk Liver Pie") },

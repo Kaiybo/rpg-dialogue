@@ -219,7 +219,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "They mind everything, and the gryphons on the next ledge mind you even more, since they've carried paladins and never one who smelled like you. Pay your fare and don't feed them, and they'll carry you like anyone else." } },
       choices = {
-        { text = "Fair enough. Fare paid, rules kept.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Fare's paid, and I'll keep my crumbs to myself.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Rules are for the living, Gringer. I'll fly how I like.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -228,7 +228,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because you're all used to charging, and you sit on a beast like you mean to ride it through a wall. A wind rider will throw anybody who fights it, so hold on, keep your heels quiet, and let the beast do the flying." } },
       choices = {
-        { text = "Fair enough. Discipline in the saddle, like anywhere else.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Heels quiet and hands tight. I can manage that.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A beast should learn who's in charge. I'll ride how I like.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -276,7 +276,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Their grandmothers flew over the battlefields when the orcs still drank demon blood, and the beasts have never trusted fel magic since. I don't blame them, and I'll ask you to stand downwind while I saddle one up for you." } },
       choices = {
-        { text = "Fair enough. I'll stand downwind and keep my demon close.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll stand downwind and keep my imp on a short leash.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The beasts will have to get used to it.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -497,7 +497,7 @@ P:NPC {
         { id = "h_rep", when = { reputation = { faction = "Steamwheedle Cartel", min = "honored" } },
           text = "A friend of the Cartel! The Baron speaks well of you, which costs him nothing, so I'll speak well of you too." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Your savings would be very safe in my vault, friend, and I've never once lost a coin to a spell, though I'll admit some have tried." },
-        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! I'll be honest with you, friend, my vault has wards against demons, and they'd be very loud if your companion wandered too close." },
+        { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Mind yourself, friend, because my vault has wards against demons, and they'd be very loud if your companion wandered too close." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. You'll want to deposit that spare sword, I'd guess, because in Booty Bay a spare sword left under a bed walks off by morning." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! Pelts, horns and fangs, I suppose, and you'll want them stored dry, which in this town takes skill, and I have the skill." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! I'd ask what you keep in my vault, but I've learned not to; the last druid's box hummed, and the one before that sprouted." },
@@ -637,7 +637,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "A curved knife for cutting herbs, said to have belonged to a kaldorei priestess, though I'd not swear to the priestess. Most druids look at my table like it's a graveyard of trees, and to be fair, some of these hilts are ironwood." } },
       choices = {
         { text = "A blade that cuts herbs cleanly is a worthy tool. I'll look.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Your stories are worth more than your steel. I'll keep my claws.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Your stories beat your steel, Jutak. I'll keep my claws.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -661,7 +661,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Honestly, friend, I'd hoped you could tell me, since it came off a drowned Bloodsail and it's hummed ever since, mostly at night. I keep it in a crate under the counter, and the rats won't go near that crate, which is either a very good sign or a very bad one." } },
+      lines = { { id = "xlock_default", text = "Blast if I know, friend; I'd hoped you could tell me, since it came off a drowned Bloodsail and it's hummed ever since, mostly at night. I keep it in a crate under the counter, and the rats won't go near that crate, which is either a very good sign or a very bad one." } },
       choices = {
         { text = "Something that hums like that is best destroyed, Jutak.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Sell it to me. I'll learn what's inside it.", next = "BACK", fx = { affinity = 1, align = { light = -1 } } },
@@ -695,7 +695,7 @@ P:NPC {
         { text = "Did a Stromgarde captain really own that sword, Jutak?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Which white tiger did that knife skin, Jutak?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you have anything a druid could use, Jutak?", next = "xdruid", when = { class = "DRUID" } },
-        { text = "Did that hammer truly belong to a knight of the Silver Hand, Jutak?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Did that hammer really belong to a knight of the Silver Hand, Jutak?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's this ceremonial knife you keep talking about, Jutak?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Why does that dagger of yours hum, Jutak?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Later.", next = "END" },
@@ -857,7 +857,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because every druid I've met has a friend who wants something sharp, and that friend never has any money. You can turn into a bear, but you can't turn into a better sword, so I sell to the warrior standing behind you." } },
       choices = {
-        { text = "Fair enough. Good steel protects the people I travel with.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Point taken. Good steel keeps my friends breathing.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My friends will fight with what nature gives them, Zarena.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1201,7 +1201,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "It's a kind of business, friend, but I'll tell you a secret: I'd do it for nothing if the Baron didn't charge me rent. A sailor off a long voyage looks at a hot plate like it's a miracle, and I suppose that makes me a miracle-seller, at a reasonable price." } },
+      lines = { { id = "xapriest_default", text = "It's business, friend, mostly, but I'll tell you a secret: I'd do it for nothing if the Baron didn't charge me rent. A sailor off a long voyage looks at a hot plate like it's a miracle, and I suppose that makes me a miracle-seller, at a reasonable price." } },
       choices = {
         { text = "A full belly is a blessing. You do the Light's work.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A miracle at a price is still just a sale.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1254,7 +1254,7 @@ P:NPC {
         { text = "Got anything for the restless dead?", next = "x_scourge", when = { race = "Scourge" } },
         { text = "What do you sell that won't slow a rogue down, Nixxrax?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is your fried fish really better than conjured food, Nixxrax?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Is feeding people a kind of blessing, Nixxrax?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you think of feeding people as a blessing, Nixxrax?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What should a warrior eat before a fight, Nixxrax?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where does your meat come from, Nixxrax?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What do you serve that a druid would eat, Nixxrax?", next = "xdruid", when = { class = "DRUID" } },

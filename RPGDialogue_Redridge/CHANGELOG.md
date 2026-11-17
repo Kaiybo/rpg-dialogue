@@ -3,7 +3,8 @@
 The pack's own version is `version` in `pack.lua`; bump both together.
 
 ## 1.20.0 (2026-11-17)
-- New conversations for 4 people who had none: Guard Berton, Guard Howe, Dorin Songblade, Gerald Crawley. New files: needs a full game restart, not /reload. Needs RPG Dialogue 0.72.0.
+- New people to talk to: Dorin Songblade, Gerald Crawley, Guard Berton, Guard Howe. New files: restart the game fully (a /reload won't load them).
+- Writing pass: stock phrases ("Fair enough", "I won't pretend", "truly", neat little morals) rewritten in each speaker's own voice, and more grit and humour in the everyday lines.
 
 ## 1.19.0 (2026-11-17)
 - People here now and then recognise where you come from (your origin) and react to it.

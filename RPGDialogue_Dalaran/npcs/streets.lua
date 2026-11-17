@@ -62,7 +62,7 @@ P:NPC {
         { id = "dw_default", text = "Sellin' to them, mostly, and some of them pay in gold that doesn't vanish by morning. Ironforge has its Explorers' League and I've got my table; we both like old things, and I like mine with a price on." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Gold that stays gold. Can't argue with that.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } },
       },
     },
@@ -122,7 +122,7 @@ P:NPC {
     },
     gnome_miss = {
       lines = {
-        { id = "gm_default", text = "Every day, and I'd rather fix this city than cry about that one. Rebuilding is rebuilding, whether the stones are violet or not." },
+        { id = "gm_default", text = "Every day, and I'd rather fix this city than cry about that one. Besides, these stones don't glow green at night, which already puts Dalaran ahead." },
       },
       choices = { { text = "That's a good way to see it.", next = "BACK", fx = { affinity = 1 } } },
     },

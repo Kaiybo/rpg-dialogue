@@ -139,7 +139,7 @@ P:NPC {
       choices = {
         { text = "Watching her is just good sense.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Counting her bats behind her back isn't fair.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "Even, then. Let's talk of something else.", next = "BACK" },
       },
     },
     xmage = {
@@ -175,7 +175,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I went where the Alliance needed a gryphon master and nobody else wanted to go, and that's the end of the tale." } },
-    advice = { { id = "tp_ad", text = "Don't drink from any stream in this country, however clear it looks." } },
+    advice = { { id = "tp_ad", text = "Don't drink from any stream in this country, however clear it looks. A corporal of ours did at Corin's Crossing, and he spent three days retching green before we buried him." } },
     _none = { { id = "tp_none", text = "Can't help you there. Ask somebody who spends less time with birds." } },
   },
 }
@@ -453,7 +453,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Some nights I think I hear more confessions than the chaplain does, because a bowl of soup loosens a tongue faster than any prayer. They tell me what they've seen in Stratholme or Darrowshire, and I listen, and I don't know what else to do with it." } },
       choices = {
-        { text = "Listening is holy work too. You do more than you know.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Listening is holy work too. They leave your kitchen lighter.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They need a priest, not a cook. Send them to the chapel.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -579,7 +579,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I came to cook for the Dawn because somebody had to. That's all anyone needs to know about me, really." } },
+    background = { { id = "tp_ba", text = "I came to cook for the Dawn because somebody had to, and the last cook burned the porridge three days running. The knights very nearly begged." } },
     advice = { { id = "tp_ad", text = "Eat before you go out, and sleep when you can. The Scourge never gets tired, so you'll have to be cleverer than it is." } },
     argent_dawn = { { id = "tp_dawn", text = "They're good people, every one of them, and they eat like they haven't seen food in a week, which some of them haven't." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, dear. Ask one of the Dawn's officers." } },
@@ -598,7 +598,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Thread, flux, vials and cloth, all hauled in from Chillwind past the Scourge. Take what you need, and don't waste it." },
+    { id = "g_default", text = "Thread, flux, vials and cloth, all hauled in from Chillwind past the Scourge. Take what you need, and don't waste it, because every crate costs some wagon driver a week of nightmares." },
   },
 
   notice = {
@@ -745,6 +745,6 @@ P:NPC {
     background = { { id = "tp_ba", text = "I keep the supplies straight so the soldiers don't have to think about them, and that suits me fine." } },
     advice = { { id = "tp_ad", text = "Buy your vials here rather than carrying glass across the plaguelands, because I've seen too many packs full of broken ones." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "They've taken our wagons twice and told us the Light wanted them to. I don't believe the Light wanted my thread." } },
-    _none = { { id = "tp_none", text = "Not my department, I'm afraid. I keep the shelves, and that's all." } },
+    _none = { { id = "tp_none", text = "Not my department, I'm afraid. I keep the shelves and count the vials, and somebody's been pinching my flux again." } },
   },
 }

@@ -2,16 +2,32 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## Unreleased
+69 more new people, written in the same pass as 0.73.0's but finished after it shipped. **New files: restart the game fully.** Not yet given a version or a voice pass.
+
+- Azuregos, Itharius and High Priest Thel'danis (each with a Persuade check); Duke Zverenhoff, Caretaker Alen and Egan at Light's Hope; the Alterac Valley recruiters and Bath'rah; Brohann Caskbelly, Collin Mauren and Angus Stern in Stormwind; Mennet Carkad, Andron Gant, Bauhaus and Bel'dugur in the Undercity; Galvan, Yohwa, Unbagwa and Princess Poobah in Stranglethorn; Zephras's Yala, Elatrell, Valreaa and Dalia; and more in Ashenvale, Azshara, Darkshore, Desolace, Hinterlands, Riverglades, Silithus, Stonetalon, Thousand Needles, Un'Goro and others.
+- Fixed: eleven 0.73.0 characters missing from their pack's file list (Gelkak, Gubber, Barithras, Lars, Bartolo, Itharius, Thund, the Haughty Modiste, Luglunket, Melor, Nara).
+
+## 0.73.0 (2026-11-17)
+About a hundred new people to talk to, and a writing pass across every pack. **New files: restart the game fully (a /reload won't load them).**
+
+### New conversations
+- **Around 100 new characters across 29 zones**, each with their own conversation: Eitrigg, Belgrom Rockmaul and Zor Lonetree in Orgrimmar; Nat Pagle and Tharg in Dustwallow; Regthar Deathgate and Thalo'thas Brightsun in the Barrens; Wallace the Blind and Deathstalker Faerleia in Silverpine; Magistrate Bluntnose in Loch Modan; Foggy MacKreel and Shakes O'Breen at Faldir's Cove; Sergeant De Vries and Clara Charles in Elwynn; Zenn Foulhoof in Teldrassil; Security Chief Bilgewhizzle in Gadgetzan, and many more.
+- **Fixed:** about thirty of these characters were missing from their pack's file list and would never have loaded (Barrens, Darkshore, Durotar, Duskwood, Hillsbrad, Moonglade, Mulgore, Orgrimmar, Swamp of Sorrows, Tanaris, Thunder Bluff).
+
+### Writing pass
+- **Fewer stock phrases.** About 1,700 lines rewritten. "Fair enough" went from over 240 uses to a handful, and "I won't pretend", "if I'm honest", "truly", "worth more than" and "the hard way" are mostly gone, along with tidy morals like "Quiet work wins wars. Glory is for songs." Replies you pick now say something specific to whoever you're talking to.
+- **More grit and humour.** Everyday lines have more texture: a Booty Bay trader whose panther ate the parrots, a Frostmane troll wearing a camper's good boots, an Undercity apprentice whose fingers keep coming loose, guards with wet boots and dice debts, and a Light's Hope garrison short of shovels for both the latrines and the graves. Grief and solemn scenes are left as they were.
+
 ## 0.72.0 (2026-11-17)
-173 people who had nothing to say now have whole conversations. **New files: restart the game fully, /reload is not enough.** No core code changes.
+A better "What I've done" in the journal (Myself page). Core only, no new files: /reload is enough.
 
-- **Quest givers everywhere.** In 45 packs, the named people who sent you out without a word of their own now talk: what the trouble is before you take the job, how it's going while you're on it, and what came of it after. Each has a hub of subjects, replies only some races and classes get, and stances to take.
-- **Dun Morogh finally has people.** Talin Keeneye, Balir Frosthammer, Nori Pridedrift, Mountaineer Thalos, Pilot Stonegear and Razzle Sprysprocket.
-- **A few big names.** Eitrigg in Grommash Hold, Azuregos in Azshara, Itharius in the Swamp of Sorrows and High Priest Thel'danis at Uther's Tomb, each with something they'll only tell you if you win them over.
-- **Some highlights:** Zenn Foulhoof, Nat Pagle, Gunther Arcanus, Gordo, Duke Zverenhoff, Brohann Caskbelly, Shakes O'Breen, Regthar Deathgate, Witch Doctor Uzer'i, Lakota Windsong, Jessir and Arko'narin in Felwood, the Alterac Valley recruiters, and Valadar Starsong during the Lunar Festival.
-- **Fix:** Uthek the Wise is "she" in Nerlokh's lines (Shen'dralas), as in the lore.
-
-Packs: 46 packs get a minor version. Westfall and Mount Hyjal had nobody left without a conversation; World is unchanged.
+- **Organised, not one long list.** A short summary line on top (lands walked, dungeons, foes felled, deaths), then Milestones, Lands I've walked, Dungeons and Foes I've faced most.
+- **Lands grouped by day.** "Today: Badlands, Loch Modan and Ironforge" instead of a "today" after every line.
+- **One line per dungeon.** Trips in and the clear sit together ("Scarlet Monastery: cleared (3 trips in)"); the dungeon no longer also shows up as a first visit.
+- **Foes you've fought most**, with counts; the rest are summed in one line.
+- **Fix: rooms counted as lands.** Walking into an indoor room (Southshore Town Hall, The Great Arena) no longer logs a "first visit"; old entries like these are hidden.
+- **Fix: dungeon trips over-counted.** Each room change inside a dungeon counted as entering again (the ×14). Now it counts once per trip; old counts start over at one.
 
 ## 0.71.0 (2026-11-17)
 Where you come from, more to say to the people on duty, and seven people with a lot more to say. No new files: /reload is enough.

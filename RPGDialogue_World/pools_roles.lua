@@ -20,7 +20,7 @@ P:Pool {
     { id = "n_pet_hurt", cat = "pet", when = { pet = { type = "Beast" }, durability = { max = 0.3 } },
       text = "You look like you've been dragged through a briar. Does {pet} look the same under all that fur?" },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "Good animal; let me see the teeth. No? Fair enough, I wouldn't let me either." },
+      text = "Good animal; let me see the teeth. No? Can't blame you; I wouldn't let me either." },
     { id = "n_bear", cat = "form", when = { form = "bear" }, place = "replace",
       text = "I'm not stabling you; I've got goats in there." },
     { id = "n_travel", cat = "form", when = { form = "travel" },
@@ -198,7 +198,7 @@ P:Pool {
     cages = {
       big = true,
       lines = {
-        { id = "c_default", text = "Every day, a little. A horse is bred to the stall and doesn't miss what it never had, but a wild thing remembers the wind, and it paces. I keep the pens wide and the doors open whenever I can, and I tell myself that's enough." },
+        { id = "c_default", text = "Every day, a little. A horse is bred to the stall and doesn't miss what it never had, but a wild thing remembers the wind, and it paces. I keep the pens wide and the doors open whenever I can, and I tell myself it helps." },
         { id = "c_tauren", when = { race = "Tauren" }, text = "Your people would say a beast walks beside you and not behind you, I expect. I've heard tauren say it, and I've watched their kodo, and I'm half persuaded." },
         { id = "c_nightelf", when = { race = "NightElf" }, text = "The kaldorei don't pen their sabers at all, I'm told; the cats come and go as they please. I'd try it, but my goats would never be seen again." },
       },
@@ -523,7 +523,7 @@ P:Pool {
       lines = {
         { id = "sh_default", text = "No, and I'll thank you not to ask that so loudly. You gather those yourself, I'm told, and I'd rather not know how, so we'll keep to candles and powders between us." },
       },
-      choices = { { text = "Fair enough.", next = "BACK", fx = { trait = { discreet = 1 } } } },
+      choices = { { text = "Candles and powders it is.", next = "BACK", fx = { trait = { discreet = 1 } } } },
     },
   },
   topics = { _none = { { id = "t_none", text = "If it doesn't go in a pouch, I can't help you." } } },
@@ -539,7 +539,7 @@ P:Pool {
   id = "trainer_paladin", role = "trainer", subtitle = "paladin trainer", tier = "service",
   greetings = {
     { id = "g_light", text = "Be welcome, and be honest. Here to learn?" },
-    { id = "g_high", when = { minLevel = 40 }, text = "You've walked a long road since your first lesson. Come, there's more of it." },
+    { id = "g_high", when = { minLevel = 40 }, text = "You've come a long way since your first lesson, when you dropped the hammer on your own foot. Come, there's more to learn." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and I trust the Light walked with you. Come, let's see what it taught you." },
     { id = "g_since", when = { levelsSince = 6 }, text = "You've come a long way since I last taught you, and it shows in how you stand. Come, there's more to learn." },
   },
@@ -547,7 +547,7 @@ P:Pool {
     { id = "n_dirty", cat = "gear", when = { durability = { max = 0.25 } },
       text = "Your armor's in pieces, and the Light shields but does not mend, so visit a smith after this." },
     { id = "n_undead", cat = "class", when = { race = "Scourge", class = "PALADIN" },
-      text = "The Light comes to you, and it hurts, doesn't it? I won't pretend to understand why it answers, but I've stopped pretending that it doesn't." },
+      text = "The Light comes to you, and it hurts, doesn't it? I don't understand why it answers, but I've stopped pretending that it doesn't." },
     { id = "n_human", cat = "class", when = { race = "Human", class = "PALADIN" },
       text = "Every human paladin I've taught had that same look, half sure the Light was listening and half afraid that it was. Both halves are right, so keep them." },
     { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "PALADIN" },
@@ -560,7 +560,7 @@ P:Pool {
         { id = "l_default", text = "Strength without humility is just a heavier sword. Now, what have you come to learn?" },
         { id = "l_dwarf", when = { race = "Dwarf", class = "PALADIN" }, text = "A dwarf of the Light! Stubborn faith is the best kind, so let's begin." },
         { id = "l_young", when = { class = "PALADIN", maxLevel = 20 }, text = "Your hammer arm will learn before your heart does, and that's the wrong way round. Pray before you train, not after." },
-        { id = "l_veteran", when = { class = "PALADIN", minLevel = 45 }, text = "You carry the Light now as if you've stopped noticing its weight. That's either grace or exhaustion, so tell me which." },
+        { id = "l_veteran", when = { class = "PALADIN", minLevel = 45 }, text = "You wear the Light now like an old coat you've stopped noticing. That's either grace or exhaustion, so tell me which." },
         { id = "l_other", when = { ["not"] = { class = "PALADIN" } }, text = "You're not of the order, but you're welcome all the same. The Light judges what you do, not what you were trained to do." },
       },
       again = {
@@ -595,7 +595,7 @@ P:Pool {
     },
     mercy = {
       big = true,
-      lines = { { id = "m_default", text = "Both, and never at the same moment. Mercy for the one who can still turn back, judgement for the one who won't, and the hard part is telling them apart while they're both holding swords." } },
+      lines = { { id = "m_default", text = "Both, and never at the same moment. Mercy for the one who can still turn back, judgement for the one who won't, and Light help you telling them apart while they're both holding swords." } },
       choices = {
         { text = "Mercy first, always. Judgement belongs to the Light.", next = "BACK", fx = { align = { light = 1, order = -1 }, trait = { kind = 1 } } },
         { text = "Judgement first. Mercy to the wicked is cruelty to their victims.", next = "BACK", fx = { align = { order = 1 }, trait = { stern = 1 } } },
@@ -1153,7 +1153,7 @@ P:Pool {
     },
     practise = {
       lines = {
-        { id = "p_default", text = "Shifting, until you can do it without thinking, and then until you can do it while thinking. Knowing when to be the bear is worth more than the bear." },
+        { id = "p_default", text = "Shifting, until you can do it without thinking, and then until you can do it while thinking. I had one student turn bear in the middle of a lecture, and the bench still hasn't recovered." },
         { id = "p_young", when = { maxLevel = 20 }, text = "Heal yourself between fights, not in the middle of them. A young druid trying to be everything at once ends up being nothing for long enough to fall over." },
         { id = "p_veteran", when = { minLevel = 40 }, text = "Learn to be the one the others forget is there: a heal here, roots there, a bear when the line breaks. The best druids are only noticed once they're gone." },
       },
@@ -1280,7 +1280,7 @@ P:Pool {
       lines = { { id = "lo_default", text = "Whoever's paying, some say, and they don't live long. The rest of us pick someone to be loyal to, a guild or a crown or a friend, and let coin fill in the gaps, because a blade for hire gets hired against you sooner or later." } },
       choices = {
         { text = "I keep faith with my own. Coin comes second.", next = "BACK", fx = { align = { honor = 1 }, trait = { kind = 1 } } },
-        { text = "Coin is honest. It never pretends to be anything else.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
+        { text = "Coin never lies to me, which is more than I can say for people.", next = "BACK", fx = { align = { honor = -1 }, trait = { greedy = 1 } } },
         { text = "So who do you work for?", next = "loyalty_who" },
       },
     },
@@ -1425,7 +1425,7 @@ P:Pool {
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear always want to fly low over the sea to look at it. The rider decides the height, not you." },
     { id = "n_demon", cat = "pet", when = { pet = { type = "Demon" } },
-      text = "Your demon walks. Wind riders don't carry the fel, and neither do I." },
+      text = "Your demon walks. Wind riders won't fly with fel stink in the saddle, so send it off." },
     { id = "n_travel", cat = "form", when = { form = "travel" },
       text = "Quick on the ground, druid, but nothing on four legs beats a wind rider over open country." },
     { id = "n_ghostwolf", cat = "form", when = { form = "ghostwolf" },
@@ -1588,7 +1588,7 @@ P:Pool {
     },
     roads_you = {
       lines = {
-        { id = "ry_default", text = "Fair enough, whatever your reasons, so long as you leave the road a little safer than you found it. If you see smoke where there oughtn't to be any, though, come and tell us before you go running at it." },
+        { id = "ry_default", text = "Your reasons are your own, so long as you leave the road a little safer than you found it. If you see smoke where there oughtn't to be any, though, come and tell us before you go running at it." },
       },
       choices = {
         { text = "What sort of smoke?", next = "smoke" },
@@ -1795,13 +1795,13 @@ P:Pool {
         { id = "wh_default", text = "The waiting. A warrior wants to meet the enemy, but a guard has to stand still and let the enemy come, and some nights the waiting feels longer than any battle I've fought." },
       },
       choices = {
-        { text = "Patience is a kind of strength too.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
+        { text = "Standing still that long takes nerve. I respect it.", next = "BACK", fx = { trait = { cautious = 1 }, affinity = 1 } },
         { text = "I'd go mad, standing still that long.", next = "BACK", fx = { trait = { brave = 1 } } },
       },
     },
     watch_why = {
       lines = {
-        { id = "wy_default", text = "Because the Horde gave my people a place when we had none, and a place is worth standing in the rain for. The Warchief asks it of us, and that's enough for me." },
+        { id = "wy_default", text = "Because the Horde gave my people a place when we had none, and a place is worth standing in the rain for. The Warchief asks it of us, and I've stood in worse rain for worse reasons." },
         { id = "wy_shaman", when = { class = "SHAMAN" }, text = "The same reason you listen to the spirits, shaman: somebody has to, or everything goes wrong. The spirits have you, and the gate has me." },
       },
       choices = {
@@ -1918,7 +1918,7 @@ P:Pool {
         { id = "ro_default", text = "Maybe not, but I'd smell you, and so would every wolf in the pens. The ones who boast about it are never the ones I need to worry about, so walk where I can see you." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Right, I'll walk where you can see me.", next = "BACK" },
         { text = "We'll see about that.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -2006,7 +2006,7 @@ P:Pool {
     { id = "n_dwarf_shaman", cat = "class", when = { race = "Dwarf", class = "SHAMAN" },
       text = "A dwarf shaman! My granddad would've had words, but I've no words; just mind the Great Forge doesn't talk back to ye." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "Tinker Town's down the way, and every gnome in it is still looking for a way home. I hope ye find it, truly I do." },
+      text = "Tinker Town's down the way, and every gnome in it is still looking for a way home. I hope ye find it, I do, an' I hope they air the place out first." },
     { id = "n_dwarf_paladin", cat = "class", when = { race = "Dwarf", class = "PALADIN" },
       text = "Silver Hand, is it? The Mystic Ward's where ye'll find yer teachers, past the priests and their candles." },
     { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
@@ -2063,7 +2063,7 @@ P:Pool {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
       text = "The Light is not Elune, paladin, but the priestesses will make you welcome at the Temple all the same." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "The shadows here belong to the Sentinels. Step out." } },
+  react = { { id = "r_stealth", on = "stealth", text = "The Sentinels own every dark corner in this city. Step out where I can see you." } },
   lines = {
     { id = "l_default", text = "The Temple of the Moon for the priestesses, the Cenarion Enclave for the druids. Walk softly; this tree is young." },
     { id = "l_warrior", when = { race = "NightElf", class = "WARRIOR" }, text = "Our warriors train on the Warrior's Terrace. The Sentinels will want to measure you, so be ready." },
@@ -2372,7 +2372,7 @@ P:Pool {
         { id = "nt_default", text = "Not yet, because both sides know the other one would lose its boats the same day. Neutral's the only thing everybody can agree on, pal, and that's what keeps us standing." },
       },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Neutral and profitable. Makes sense.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -46,7 +46,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Once, by Stone Cairn Lake, and I woke with a wolf sniffing my boots, so I've kept a fire ever since. I expect your people never needed one, but a man needs his comforts, and the wolf did leave in the end." } },
+      lines = { { id = "xdruid_default", text = "Once, by Stone Cairn Lake, and I woke with a wolf sniffing my boots, so I've kept a fire ever since. I expect your people never needed one, but a man needs his comforts, and the wolf did leave eventually, with one of my socks." } },
       choices = {
         { text = "A good camp has rules: a fire, a watch and a cleared ring.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Rules are for towns. Out here I sleep wherever I stop.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -95,7 +95,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Sam Sarsaparilla, adventurer, or trying to be. Mostly I walk a long way and then sit by a fire, which is the best part." },
         { id = "h_adventurer", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
-          text = "The Marshal sent you to check on me? Ha! Fair enough, with strangers on the road and all, so sit down and I'll show you how harmless I am." },
+          text = "The Marshal sent you to check on me? Ha! Can't blame him, with strangers on the road and all, so sit down and I'll show you how harmless I am." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },
           text = "Sit by the fire a while. No, longer than that. You'll feel it when you've properly rested." },
         { id = "h_far", when = { minLevel = 25 },
@@ -181,7 +181,7 @@ P:NPC {
     },
     camp_town = {
       lines = {
-        { id = "cw_default", text = "Folk in town don't care for campfires in the square, and fair enough. Out here nobody minds but the wolves, and the wolves don't vote." },
+        { id = "cw_default", text = "Folk in town don't care for campfires in the square, and I can't say I blame them after the haystack business. Out here nobody minds but the wolves, and the wolves don't vote." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

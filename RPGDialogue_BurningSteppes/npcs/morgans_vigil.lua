@@ -18,9 +18,9 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back from the mountain in one piece, I see. Pull up a crate; it's the only furniture we have." },
     { id = "g_deputy", when = { questDone = TODO_QUEST("The True Masters") }, text = "Deputy. Sit down and tell me what the Steppes did to you today." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The mountain glows brighter after dark, and so do the orcs' fires. Keep your voice down." },
-    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and I'd begun to fear the mountain had you. Pull up a crate and tell me where you've been." },
+    { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and I'd begun to fear the mountain had you. Pull up a crate, not the one with the nails in it, and tell me where you've been." },
     { id = "g_away_long", when = { away = { min = 30, levels = 5 } }, text = "You've been away {away} and come back looking like you could take Blackrock on your own. Sit down, because I've work worthy of that." },
-    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into a real fighter since we last spoke. The Steppes need that more than they need another crate." },
+    { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into a real fighter since we last spoke. The Steppes need that more than another crate of hardtack, and Light knows we've plenty of those, all of it gone soft." },
     { id = "g_word_scared", when = { word = "intimidated" }, text = "I hear you put the fear into someone on the ridge. We're few enough up here, so save it for the Blackrock orcs." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The Vigil's been singing your praises, quietly, since the orcs can hear us. You've my thanks as well." },
   },
@@ -185,7 +185,7 @@ P:NPC {
         { text = "Is it John you can't forgive, Marshal, or yourself?", tag = "Persuade", next = "windsor_self",
           check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { trait = "kind" } } } },
           fail = { next = "windsor_report", fx = { affinity = -1 } } },
-        { text = "Fair enough. Something else.", next = "BACK" },
+        { text = "Right. Something else.", next = "BACK" },
       },
     },
     windsor_man = {
@@ -218,7 +218,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "ed_default", key = true, fx = { learn = { "black_dragonflight" } },
-          text = "Helendis found the answer before Windsor did: the black dragonflight is driving the Blackrock, feeding their rage and pointing it at Redridge. Orcs don't plan like this on their own, and these ones plan very well indeed." },
+          text = "Helendis found the answer before Windsor did: the black dragonflight is driving the Blackrock, feeding their rage and pointing it at Redridge. Orcs don't plan like this on their own, and these ones plan far too well." },
         { id = "ed_nefarian", when = { questDone = TODO_QUEST("Message to Maxwell") },
           text = "We know the name now, thanks to you and that goblin: Nefarian, a son of Deathwing, sitting at the top of the Spire with the Blackrock as his beasts of burden. It's exactly what Helendis feared, and it's worse to hear it said aloud." },
       },
@@ -425,7 +425,7 @@ P:NPC {
     { id = "g_default", text = "Ishnu-alah. Mind the edge of the ridge; the ground is softer than it looks." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good; I have been reading the smoke over the mountain, and I'd welcome another pair of eyes." },
     { id = "g_proved", when = { questDone = TODO_QUEST("Dragonkin Menace") }, text = "The dragonkin below the ridge remember you now. So do I." },
-    { id = "g_away", when = { away = 14 }, text = "You return after {away} away. The smoke over the mountain has not thinned at all while you were gone, so I'm glad of your eyes again." },
+    { id = "g_away", when = { away = 14 }, text = "You return after {away} away. The smoke over the mountain has not thinned at all while you were gone, so I'm glad of your eyes again; mine have been weeping from it for a week." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone on the ridge carries a grievance after speaking with you. Anger travels quickly in a camp this small, like fire in dry grass." },
   },
 
@@ -433,7 +433,7 @@ P:NPC {
     { id = "n_kaldorei", cat = "race", when = { race = "NightElf" },
       text = "Another of the Kaldorei, this far from the forests? The Steppes are hard on our kind, and I'm glad of the company." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
-      text = "A druid. You'll feel it more than the others do, I think: the land here isn't dead, it's in pain, and it has been for two hundred years." },
+      text = "A druid. You'll feel it more than the others do, I think: the land here is in pain, and it has been for two hundred years." },
     { id = "n_form", cat = "form", when = { form = { "bear", "cat", "travel", "moonkin" } },
       text = "Cenarius's gifts, here of all places. Keep that shape near the ridge and the worgs will think twice before they come close." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "beast" } },
@@ -501,7 +501,7 @@ P:NPC {
         { id = "h_pt_kaldorei", tags = { "news" }, when = { party = { race = "NightElf" }, faction = "Alliance" },
           text = "{companion} is of my people, and far from the forests, as I am. It is strange to meet a kaldorei among the ash, but I am glad of it, for the humans here do not understand why I flinch when the mountain breathes fire." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You move like one of our Sentinels, rogue, though I suspect your teachers were less particular about whom you watch." },
-        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, among the Alliance. I won't pretend that sits easily with me, but I've learned to judge people by what they do, and you haven't done anything yet." },
+        { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, among the Alliance. That doesn't sit easily with me, but I've learned to judge people by what they do, and you haven't done anything yet." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. My people learned long ago what the arcane can draw down on a world, so forgive me if I watch your hands while we talk." },
         { id = "h_default", key = true,
           text = "I am Helendis Riverhorn, sent from Darnassus to learn what is happening in these mountains. Life in the Steppes is all conflict, and I have spent a long while working out who profits from it." },
@@ -731,8 +731,8 @@ P:NPC {
       { id = "tp_knows", text = "I have read these mountains for a long while, and they have told me a good deal. Ask me about any of these, and I'll tell you what I can prove." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll share what I suspect as well as what I can prove. Here is what I can speak to." },
     },
-    background = { { id = "tp_bg", text = "A scout of Darnassus, by training a reader of old places. The Steppes are the oldest wound I've ever been asked to read.", next = "ruins" } },
-    advice = { { id = "tp_ad", text = "Watch where the whelps fly when the drakes call them, and you'll learn where the drakes nest. Animals always tell you the truth before people do." } },
+    background = { { id = "tp_bg", text = "A scout of Darnassus, by training a reader of old places. The Steppes are the worst-burned country I've ever been asked to read, and the soot gets into everything, even my bowstring.", next = "ruins" } },
+    advice = { { id = "tp_ad", text = "Watch where the whelps fly when the drakes call them, and you'll learn where the drakes nest. Whelps can't keep a secret to save their scaly little lives." } },
     black_dragonflight = { { id = "tp_dragons", text = "The true masters of the Blackrock, as I wrote to Lakeshire. I'd be glad to be wrong, but I am not.", next = "dragons" } },
     blackrock = { { id = "tp_blackrock", text = "Savage, yes, but savage on someone else's orders. That's what makes them dangerous now." } },
     thaurissan = { { id = "tp_thaurissan", text = "The Dark Iron city that woke the fire. Its ruins lie north of here, and something in them still whispers to anyone who touches the stones." } },
@@ -906,7 +906,7 @@ P:NPC {
     orders_terror = {
       lines = { { id = "ot_default", text = "Gruesome is a weapon like any other, soldier, and ogres frighten more easily than you'd think from looking at them. One head on one stick saves a hundred arrows, and Winky agrees, for once." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Not my problem, then.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "I'd rather fight them honestly.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
       },
     },
@@ -1170,7 +1170,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Oh, I've taken measurements of nearly everything around here, though not all of it was wise. Ask me about any of these, if you like." },
     },
-    background = { { id = "tp_bg", text = "A gnome of Gnomeregan who now measures volcanoes for a living. I don't recommend the career, if I'm honest.", next = "why" } },
+    background = { { id = "tp_bg", text = "A gnome of Gnomeregan who now measures volcanoes for a living. I don't recommend the career; I've lost both eyebrows twice.", next = "why" } },
     advice = { { id = "tp_ad", text = "Carry water, carry more water, and if anything made of fire starts talking to you, don't answer it." } },
     blackrock_depths = { { id = "tp_depths", text = "The Dark Iron city, built into the mountain's heart. My expedition was meant to go in, but the fire elementals had other ideas.", next = "mountain" } },
     dark_iron = { { id = "tp_darkiron", text = "They serve the fire, or the fire owns them, and I'm honestly not sure which is worse." } },
@@ -1205,7 +1205,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "He collects anything rare, and a dwarf who talks to the stone is very rare indeed. I'd never sell such a thing myself, of course, unless the price was truly beautiful." } },
+      lines = { { id = "xdsham_default", text = "He collects anything rare, and a dwarf who talks to the stone is rarer than an honest goblin. I'd never sell such a thing myself, of course, unless the price was very beautiful." } },
       choices = {
         { text = "My totems aren't trinkets. They're not for sale.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Name the Count's price. I can always carve another.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1414,7 +1414,7 @@ P:NPC {
   notices = { "race", "mount" },
 
   impression = {
-    first = "Borgus Stoutarm fusses over his gryphons and their sooty feathers more than over any traveler. He knows which bird is in a good mood, and that seems to be what matters most to him.",
+    first = "Borgus Stoutarm fusses over his gryphons and their sooty feathers more than over any traveler. He knows which bird is in a good mood, and he tells me so whether I ask or not.",
     third = "{name} met Borgus Stoutarm, the dwarf who keeps the gryphons of Morgan's Vigil.",
   },
 

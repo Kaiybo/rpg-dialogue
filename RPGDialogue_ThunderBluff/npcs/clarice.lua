@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Until Death Do Us Part") },
           text = "He left me for his blasted crusade, because the Light was the most important thing we had against the undead, he said. Well, he's dead now, and I'm the very thing he was trying to stop, so take this pendant to his tomb at the Sepulcher. I want nothing more to do with it, or with him." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Until Death Do Us Part"), days = 3 } },
-          text = "You put it on his tomb? And the gem dulled, you say. Fitting, really, because so did everything else about that man in the end." },
+          text = "You put it on his tomb? And the gem dulled, you say. Fitting, really, because so did everything else about that man, eventually." },
         { id = "h_forsaken", when = { race = "Scourge" },
           text = "Another one of the Dark Lady's lost souls, so far from the Undercity. Sit, if you like; the tauren won't mind, and I've stopped caring who does." },
       },
@@ -112,7 +112,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "A wife, once, in Lordaeron. Now I'm a Forsaken woman in a tauren city, and that's as much of my story as you'll get." } },
-    advice = { { id = "tp_ad", text = "Don't marry anyone who loves a cause more than you. Learn that from me, because I learned it the hard way." } },
+    advice = { { id = "tp_ad", text = "Don't marry anyone who loves a cause more than you. Take it from a woman who did." } },
     scarlet_crusade = { { id = "tp_sc", text = "Zealots who want people like me burned. Yuriv would have hated them, I think, or joined them, and I honestly can't say which." } },
     _none = { { id = "tp_none", text = "I don't know and I don't care. Ask someone with more of a life than I've got." } },
   },

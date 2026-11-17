@@ -93,7 +93,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, and the bats don't mind you a bit, which tells me more about you than any tabard would. They hate the Scarlets' torches, but whatever you're carrying, they seem to think it's harmless." },
       },
       again = {
-        { id = "h_again", text = "What else? The bats are waiting, but bats are patient." },
+        { id = "h_again", text = "What else? The bats are waiting, and one of them has started chewing on a saddle." },
         { id = "h_again2", text = "Anything more?" },
       },
       choices = {
@@ -201,7 +201,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "If you've come to learn, then listen. If you've come to waste my time, the door is behind you." },
-    { id = "g_back", when = { metBefore = true }, text = "So, you've come back to the Undercity's shadows. Tell me your spellwork has grown sharper since last time." },
+    { id = "g_back", when = { metBefore = true }, text = "So, you've come back down to the sewers and the candlelight. Tell me your spellwork has grown sharper since last time." },
   },
 
   notice = {
@@ -466,7 +466,7 @@ P:NPC {
     },
     work_danger = {
       lines = {
-        { id = "wd_default", text = "Everything worth doing is dangerous, and what we do here is worth more than most. If an apothecary or two is lost to an accident, the Society carries on, as it always has." },
+        { id = "wd_default", text = "Everything worth doing is dangerous, and what we do here is more dangerous than most, and more useful. If an apothecary or two is lost to an accident, the Society carries on, as it always has." },
       },
       choices = {
         { text = "Results matter more than the risk.", next = "BACK", fx = { align = { light = -1 } } },

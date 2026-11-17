@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_default", text = "Lok'tar. Valormok can use another blade, and you've not come a moment too soon." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend. The camp's still standing, more or less." },
     { id = "g_avenged", when = { questDone = TODO_QUEST("Betrayed") }, text = "There's the one who brought me the elf's head! Sit by my fire whenever you like." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, friend, and Valormok's still standing, though I won't say it was easy. Come and sit by the fire." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, friend, and Valormok's still standing, though the satyrs ran off with two tents and the cook's best pot. Come and sit by the fire." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown a good deal since I first saw you, and I can see it in your stance. The Horde will win here, and you're part of why I believe it." },
     { id = "g_word_threat", when = { word = "intimidated" }, text = "Word in camp is you put the fear into somebody here, and I'll not have my own grunts cowed, so save that look for the elves on the cliffs." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The camp's been talking about how you helped Valormok, and after the dead we've buried, that talk means a great deal to me." },
@@ -48,7 +48,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And send {pet} ahead of you through the trees. The elves' mages set traps, and I'd rather lose a sniffing nose than another warrior." },
       },
       choices = {
-        { text = "I'll find them and bring you the truth, not just their heads.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll find them and bring you the truth along with their heads.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll find them and finish them before they ever see me.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Ag'tor.", next = "BACK" },
       },
@@ -79,7 +79,7 @@ P:NPC {
       choices = {
         { text = "Judge me by my deeds, then. I'll fight with honor.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Power is power. The Horde needs every weapon.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Can't argue with that.", next = "BACK" },
       },
     },
     xrogue = {
@@ -247,12 +247,12 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Another face from Orgrimmar. Tell me you brought ale." },
+    { id = "g_default", text = "Another face from Orgrimmar. Tell me you brought ale, because the last cask came by wind rider and arrived mostly as foam." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and alive, and I've a use for both of those things." },
     { id = "g_done", when = { questDone = TODO_QUEST("Stealing Knowledge") }, text = "My favourite partner in crime. How's the tablet trade treating you?" },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and nobody brought me ale in all that time, so I'm hoping you did." },
     { id = "g_word_deceived", when = { word = "deceived" }, text = "Word is you sold somebody in camp a story and they bought every word, which is the first thing I've heard about you that I'd pay for, though you'd do well not to try it on me." },
-    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear someone caught you lying, and the trick is not getting caught, partner, because sloppy work makes the rest of us look bad." },
+    { id = "g_word_lie", when = { word = "caughtLying" }, text = "I hear someone caught you lying, and the whole point is not getting caught, partner, because sloppy work makes the rest of us look bad." },
   },
 
   notice = {
@@ -343,7 +343,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Everything grows too big and too quiet, like it's holding its breath. I've watched beasts walk into the shadows of those ruins and come out wrong, and I've no wish to be one of them, so I trade and I wait, and I let braver tauren than me ask the trees what's the matter." } },
+      lines = { { id = "xdruid_default", text = "Everything grows too big and too quiet, like it's holding its breath. I've watched beasts walk into those ruins and come out wrong, and I've no wish to be one of them, so I trade and I wait, and I let braver tauren than me ask the trees what's the matter." } },
       choices = {
         { text = "Someone has to go in there and face it. I will.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Waiting is wise. No coin is worth being changed by that place.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -485,9 +485,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a wind rider? They're fed, rested and ready to go." },
+    { id = "g_default", text = "Need a wind rider? They're fed and rested, and only one of them bit me this morning." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The beasts know your smell now." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, but the beasts still know your smell." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, but the beasts still know your smell, which I'd take as a warning about your bathing." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Somebody in camp has been cursing your name, and I don't care why, but keep it away from my beasts, because they bite angry people." },
   },
 
@@ -520,7 +520,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "No. My riders carry warriors to the fight and bring them home, and that's all, because a wind rider that fights the naga doesn't come back. You do the fighting, and I'll be here when you're done." } },
       choices = {
-        { text = "Fair enough. Everyone has a place, and yours is here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Somebody has to mind the wyverns, and you're good at it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A beast that won't fight is a beast wasted.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -613,7 +613,7 @@ P:NPC {
         { text = "Do your wind riders ever fly into the fighting, Kroum?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your wind riders mind my beast, Kroum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do your wind riders fly well over Azshara?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
-        { text = "Do your riders truly hate this place, Kroum?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
+        { text = "Do your riders really hate this place, Kroum?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will your wind riders carry me, Kroum?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Not today.", next = "END" },
       },

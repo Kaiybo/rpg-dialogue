@@ -33,7 +33,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Maltrake, squire to Kalaran Windblade, and I have served him longer than you would believe if I told you. Whatever he asks of you, do it gladly, for there are worse things than being useful to him." },
         { id = "h_squire_done", tags = { "news" }, when = { questDone = TODO_QUEST("Squire Maltrake") },
-          text = "So you've seen my master as he truly is, and you're still standing, which means he's pleased with you. The Torch of Retribution has one more task, and I'm to give it to you." },
+          text = "So you've seen my master without his mask, and you're still standing, which means he's pleased with you. The Torch of Retribution has one more task, and I'm to give it to you." },
         { id = "h_ablaze_active", tags = { "news" }, when = { questActive = TODO_QUEST("Set Them Ablaze!") },
           text = "North, south, east and west, all four sentry towers, and use the torch inside each one. They can never be destroyed, but they can burn for a very long time, and while they burn no Dark Iron can man them." },
         { id = "h_ablaze_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Set Them Ablaze!"), days = 3 } },

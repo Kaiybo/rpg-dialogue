@@ -121,7 +121,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Talk slowly; I like to think while I listen." },
-        { id = "h_again2", text = "Go on. The mortar needs a minute to set anyway." },
+        { id = "h_again2", text = "Go on. The mortar needs a minute to set, and my back needs ten." },
       },
       choices = {
         { text = "Why is this bridge the hardest?", next = "hardest" },

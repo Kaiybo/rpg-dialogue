@@ -86,7 +86,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "They try, an' I turn half o' them away, for every second chancer in the Wetlands swears his rusty amulet was blessed by Uther himself. If it's truly holy, it should go tae the Mystic Ward an' no' tae the highest bidder, an' I'll say so tae the seller's face." } },
+      lines = { { id = "xapriest_default", text = "They try, an' I turn half o' them away, for every second chancer in the Wetlands swears his rusty amulet was blessed by Uther himself. If it's really holy, it should go tae the Mystic Ward an' no' tae the highest bidder, an' I'll say so tae the seller's face." } },
       choices = {
         { text = "Holy things shouldn't have a price at all. You're right to refuse.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If someone wants to pay for a blessing, let the market decide.", next = "BACK", fx = { align = { light = -1 } } },
@@ -97,7 +97,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Not twice, for I've seen a Silver Hand dwarf take a crooked seller tae the guards by his collar, an' the house backed him. A fair price is the only rule I hold tae as tight as the paladins hold their oaths." } },
       choices = {
-        { text = "A fair price is a kind of honesty. I respect that.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "A fair price is honest dealing. I respect that.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Every trader bends the truth. I'd rather just haggle hard.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Back to the auctions, then.", next = "BACK" },
       },
@@ -317,7 +317,7 @@ P:NPC {
       choices = {
         { text = "When the High Tinker calls, I'll answer. Gnomeregan deserves rescuing.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Plans take too long. Someone should go in now, permission or not.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "That's enough of Gnomeregan for now.", next = "BACK" },
+        { text = "Let's leave Gnomeregan be for now.", next = "BACK" },
       },
     },
     xrogue = {
@@ -583,7 +583,7 @@ P:NPC {
 
     carry = {
       lines = {
-        { id = "ca_default", text = "Water first, for ye'll faint before ye starve, an' then bread, an' then the biggest bag ye can afford. After that, a flint an' some wood, for Dun Morogh's cold at night an' a fire's worth more than a sword." },
+        { id = "ca_default", text = "Water first, for ye'll faint before ye starve, an' then bread, an' then the biggest bag ye can afford. After that, a flint an' some wood, for Dun Morogh's cold at night, an' a fire'll save yer life more often than a sword will." },
       },
       choices = {
         { text = "More than a sword? Surely not.", next = "carry_sword" },
@@ -716,7 +716,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "They wanted a crest wi' a burnin' eye, an' half the Commons asked if the Legion had come back. They changed it tae a black candle in the end, an' folk calmed down, which is what a good crest should help them do." } },
+      lines = { { id = "xlock_default", text = "They wanted a crest wi' a burnin' eye, an' half the Commons asked if the Legion had come back. They settled on a black candle after a week o' shoutin', an' folk calmed down, which is what a good crest should help them do." } },
       choices = {
         { text = "A crest should reassure folk. I'll choose something modest.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The burning eye was honest. Let them be frightened.", next = "BACK", fx = { align = { light = -1 } } },
@@ -935,7 +935,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "A few, for the dwarves who came home from Lordaeron an' wanted the old colours, though I had tae work from a sketch some old knight drew in the Stonefire Tavern. I got the hand wrong the first time, an' he made me unpick every stitch." } },
       choices = {
         { text = "He was right to. The colours deserve to be done properly.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A crest is cloth. What matters is who wears it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "A crest is only cloth. Nobody bleeds for a tabard.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Lyesa.", next = "BACK" },
       },
     },
@@ -1161,7 +1161,7 @@ P:NPC {
       },
       choices = {
         { text = "I need my vault.", next = "BUSINESS" },
-        { text = "How safe is the Vault, truly?", next = "safe" },
+        { text = "How safe is the Vault, really?", next = "safe" },
         { text = "Are all the bankers here Stonemantles?", next = "family" },
         { text = "Can I store things in Stormwind as well?", next = "stormwind" },
         { text = "Has anyone ever tried to rob the Vault?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },

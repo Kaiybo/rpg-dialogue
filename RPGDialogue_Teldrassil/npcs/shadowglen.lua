@@ -41,7 +41,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Every season, if I'm honest, because I ask the young ones to cull grells and nightsabers that only want to live as we do. I pray over the glade each evening and ask Elune to forgive what the balance requires of us." } },
+      lines = { { id = "xapriest_default", text = "Every season, because I ask the young ones to cull grells and nightsabers that only want to live as we do. I pray over the glade each evening and ask Elune to forgive what the balance requires of us." } },
       choices = {
         { text = "Then I'll pray for the glade's creatures as well.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Beasts don't need prayers, Conservator, and the balance is enough.", next = "BACK", fx = { align = { light = -1 } } },
@@ -110,7 +110,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest in Shadowglen! The young ones here learn Elune's ways from the cradle, but they'll be glad of a healer, for the beasts this year bite harder than they should." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here in our little glade! You've come a long road from the Eastern Kingdoms, and I hope Shadowglen gives you a gentler welcome than the roads did." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, here in our little glade! You've come a long way from the Eastern Kingdoms, by sea and by rope ladder, and I hope Shadowglen gives you a gentler welcome than the roads did." },
         { id = "h_default", key = true,
           text = "I am Conservator Ilthalaine, and I keep the balance in Shadowglen. It's a lovely place, and lovely places need keeping more than most." },
         { id = "h_balance", tags = { "news" }, when = { questActive = TODO_QUEST("The Balance of Nature") },
@@ -341,7 +341,7 @@ P:NPC {
         { text = "What did you read about the Silver Hand, Melithar?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Does Aldrassil mind the arcane, Melithar?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can Aldrassil really feel my servant, Melithar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Does Aldrassil truly hear us, Melithar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Does Aldrassil actually hear us, Melithar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll help.", next = "END", fx = { affinity = 1 } },
         { text = "Does Aldrassil mind warriors training beneath it?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What should a young hunter of Shadowglen learn first?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -350,7 +350,7 @@ P:NPC {
     kin = {
       lines = { { id = "k_default", text = "Everyone asks me that. My work is here, at the roots, and whatever name I carry, the tree doesn't care, and neither should you." } },
       choices = {
-        { text = "Fair enough.", next = "BACK" },
+        { text = "Then I'll stop asking.", next = "BACK" },
         { text = "Would you tell me if you were?", next = "kin2", fx = { trait = { witty = 1 } } },
       },
     },
@@ -457,7 +457,7 @@ P:NPC {
     },
     xmage = {
       lines = {
-        { id = "xma_default", text = "Then study it from the ground, stranger, and with your eyes and not your spells. The last of my people who studied great power too closely brought the Legion to Hyjal, and the scars of it are older than your kingdom." },
+        { id = "xma_default", text = "Then study it from the ground, stranger, and with your eyes and not your spells. The last of my people who studied great power too closely brought the Legion to Hyjal, and the ash of it settled before your kingdom had a name." },
         { id = "xma_gnome", when = { race = "Gnome" }, text = "Then study it from the ground, and with your eyes and not your spells. Your people lost their city to their own cleverness, I'm told, and mine lost a world to theirs, so we may understand each other better than either of us expects." },
       },
       choices = {
@@ -723,7 +723,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Iverron, first, though he'd never say it, and then any young elf foolish enough to wander toward Shadowthread Cave. The spiders have grown bold this season, and I'd feel a great deal better knowing someone in armor walked those paths." } },
       choices = {
         { text = "Then I'll walk those paths until they're safe.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Fools who wander into spider caves must learn the hard way.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Fools who wander into spider caves get what they find.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1015,7 +1015,7 @@ P:NPC {
     },
     why = {
       lines = {
-        { id = "w_silk", text = "Their silk is stronger than it has any right to be, and in the right hands their venom heals. And they frighten me, if I'm honest, so I'd like them to frighten me less." },
+        { id = "w_silk", text = "Their silk is stronger than it has any right to be, and in the right hands their venom heals. They also frighten me witless, so I'd like them to frighten me less." },
       },
       choices = {
         { text = "Good luck with that.", next = "BACK", fx = { affinity = 1 } },

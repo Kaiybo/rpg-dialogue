@@ -18,11 +18,11 @@ P:Pool {
   },
   react = { { id = "r_form", on = "form", when = { form = { "bear", "cat", "travel" } }, text = "Steady! A beast at the gate, walking calm... a druid, then. Don't do that out here; we shoot first." } },
   lines = {
-    { id = "l_default", text = "The Scourge holds most of this land, but not this chapel, not while we stand." },
+    { id = "l_default", text = "The Scourge holds most of this land, but not this chapel. We dig the latrines deep and the graves deeper, and we're short of shovels for both." },
   },
   choices = { { text = "Stand fast.", next = "END", fx = { standing = { light_hope = 1 } } } },
   topics = {
-    argent_dawn = { { id = "t_dawn", text = "Humans, dwarves, orcs, tauren, even Forsaken, all with one cause, and it's the only one that matters out here." } },
+    argent_dawn = { { id = "t_dawn", text = "Humans, dwarves, orcs, tauren, even Forsaken, all with one cause, and the only thing we quarrel about is whose turn it is on the night wall." } },
     scarlet_crusade = { { id = "t_scarlet", text = "They fight the dead too, but they'd also burn half of us here for what we are. Keep your distance." } },
     _none = { { id = "t_none", text = "Ask inside the chapel; I watch the road." } },
   },

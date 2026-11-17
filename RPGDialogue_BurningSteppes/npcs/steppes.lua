@@ -114,7 +114,7 @@ P:NPC {
         { text = "I bargain with demons. A dragon doesn't frighten me.", next = "k_lock", when = { class = "WARLOCK" } },
         { text = "What would a dragon teach a mage?", next = "xmage", when = { class = "MAGE" } },
         { text = "Dragons hoard and I take. Are we so different?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Would steel truly be useless against you, dragon?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Would steel really be useless against you, dragon?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Do dragons hunt, Cyrus, or only hoard?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What does the Flight think of the green dragons, Cyrus?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why does my bond with the elements amuse you, dragon?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -162,7 +162,7 @@ P:NPC {
     devour = {
       lines = { { id = "d_default", text = "Because a dead mortal fetches me nothing, and a living one might fetch me a great deal. Do not mistake my patience for affection, little one." } },
       choices = {
-        { text = "Fair enough.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Charming. Moving on.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "I'm not afraid of you.", next = "BACK", fx = { trait = { brave = 1 }, affinity = -1 } },
       },
     },
@@ -174,7 +174,7 @@ P:NPC {
       lines = { { id = "l_default", text = "Then the Light is a fool, and so are you, which is at least consistent. Walk carefully, priest; the dark is very large, and it has been patient for a very long time." } },
       choices = {
         { text = "So has the Light.", next = "BACK", fx = { align = { light = 2 }, affinity = -1 } },
-        { text = "You might be right. The dark does seem to win in the end.", next = "BACK", fx = { align = { light = -2 } } },
+        { text = "You might be right. The dark does seem to keep winning.", next = "BACK", fx = { align = { light = -2 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

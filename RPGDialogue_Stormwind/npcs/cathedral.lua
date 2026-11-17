@@ -30,7 +30,7 @@ P:NPC {
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
       text = "Step out of the shadow while you're under this roof, child. Not because the Light minds. Because I'd like to see your face while we talk." },
     { id = "n_light", cat = "light", when = { alignment = { axis = "light", min = 50 } },
-      text = "You carry the Light quietly, which is the rarest way. Most people wear it like a badge, and badges come off." },
+      text = "You keep the Light close and say little about it, which is the rarest way. Most people wear it like a badge, and badges come off." },
     { id = "n_sick", cat = "affliction", place = "before", when = { debuffType = { "Disease", "Curse" } },
       text = "Something sits on you that shouldn't. Come closer to the altar a moment, there, and tell me: does that ease it?" },
   },
@@ -345,7 +345,7 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "warlock_l", text = "The Light doesn't turn anyone away, child, though I'll be honest with you: some of my brothers might. You're standing under this roof, and nobody has struck you down, which tells you something about whose house it is." } },
+      lines = { { id = "warlock_l", text = "The Light doesn't turn anyone away, child, though I'll not lie to you: some of my brothers might. You're standing under this roof, and nobody has struck you down, which tells you something about whose house it is." } },
       choices = {
         { text = "And if I never give up what I've learned?", next = "warlock_keep" },
         { text = "I don't need the Light's welcome.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1103,7 +1103,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_laurena", tags = { "news" }, when = { party = { class = "PALADIN" }, class = "PRIEST" },
-          text = "{companion} carries the Light in plate, I see, and you carry it in your hands. Between the two of you, someone in that company will come home who otherwise wouldn't." },
+          text = "{companion} wears the Light in plate, I see, and you hold it in your hands. Between the two of you, someone in that company will come home who otherwise wouldn't." },
         { id = "h_cl_whitemane", tags = { "news" }, when = { cleared = "Scarlet Cathedral" },
           text = "They say Whitemane is dead in her own cathedral in Tirisfal, and that you were there to see it. She learned the same prayers every priest in this hall learned, and I've been wondering all morning where her road and ours parted." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Light speaks to you differently than to my students, but it speaks, and I'd like to hear what you've done with it." },
@@ -1119,7 +1119,7 @@ P:NPC {
           text = "Ah, good, it's you. I've told the novices about you, a little, as an example of what to aim for, so don't let it go to your head." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage in the Cathedral. You'll want to know whether the Light and the arcane can share a room, and they can, if both keep their voices down." },
-        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the priests' hall. You've come for healing, I expect, or for the quiet; either is welcome here." },
+        { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the priests' hall. You've come for healing, I expect, or for an hour where nobody shouts orders at you; either is welcome here." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You keep your distance in a fight, I'm told, which makes you very easy for a priest to love." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You stand at the edge of the light, child, and not in it, and I've taught enough students to know what that means." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Stand in the light from the window, please. A shaman in the Cathedral is rare, and I want to see you clearly before I decide what I think." },
@@ -1326,7 +1326,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has it too, that stillness. Watch how it sits by the pews; it's a better student than half my novices." },
       },
       choices = {
-        { text = "Patience is a kind of prayer, Brother.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Waiting on the Light is still praying, Brother.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Patience is just how you catch dinner.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1447,7 +1447,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Only the novices who run in the nave, and I mostly fail. Walking quietly is a kind of prayer too, I think, because you pay attention to every step, and attention is where the Light starts." } },
+      lines = { { id = "xrogue_default", text = "Only the novices who run in the nave, and I mostly fail. Brother Joshua says my sandals squeak like a mouse in a trap, so I've taken to doing my rounds in my stockings." } },
       choices = {
         { text = "Quiet steps should serve the Light, then, not hide from it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "I walk quietly so that no one knows I was there.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1617,7 +1617,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Scouting the plague villages, mostly, and finding which of the living have been turned by the Cult of the Damned before they turn anyone else. It's quiet work, and it ends with a fire more often than I'd tell the Archbishop." } },
+      lines = { { id = "xrogue_default", text = "Scouting the plague villages, mostly, and finding which of the living have been turned by the Cult of the Damned before they turn anyone else. It's grim work, and it ends with a fire more often than I'd tell the Archbishop." } },
       choices = {
         { text = "Every accusation needs proof before anyone burns, Brother.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "If they might be cultists, burning them is the safe choice.", next = "BACK", fx = { align = { honor = -1 } } },

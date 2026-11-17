@@ -177,11 +177,11 @@ P:NPC {
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     b3_1 = {
-      lines = { { id = "b3_1_l", text = "Everything here is dangerous, from the sand to the scorpids to the goblins' prices. Bring water, bring more water, and then bring more water." } },
+      lines = { { id = "b3_1_l", text = "Everything here is dangerous, from the sand to the scorpids to the goblins' prices. Bring water, then bring more, and then shake out your bedroll, because I once woke up with a scorpid using my beard as a pillow." } },
       choices = { { text = "Let me ask something else.", next = "BACK" } },
     },
     x_1 = {
-      lines = { { id = "x_1_l", text = "Aye, and I miss Ironforge's ale, but a dwarf goes where the dirt's interesting. Tell Magni I said hello, if ye ever see him." } },
+      lines = { { id = "x_1_l", text = "Aye, and I miss Ironforge's ale, but a dwarf goes where the dirt's got somethin' buried in it. Tell Magni I said hello, if ye ever see him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     s_1 = {
@@ -409,7 +409,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Oh, much worse, and I've the notes to prove it! Thirst thins the blood, scorpid venom lingers in it, and a fever out here climbs twice as fast as one in a cool stone city, so a healer in Tanaris never runs short of patients." } },
+      lines = { { id = "xapriest_default", text = "Oh, much worse, and I've the notes to prove it! Thirst thins the blood, scorpid venom sits in it for days, and a fever out here climbs twice as fast as one in a cool stone city, so a healer in Tanaris never runs short of patients." } },
       choices = {
         { text = "Then I'll tend whoever falls ill, scholar or bandit alike.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Wastewanderers can look after their own sick.", next = "BACK", fx = { align = { light = -1 } } },
@@ -529,7 +529,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Arrows, shot, and a salve for blistered paws, which out here is worth more than the arrows. By noon the sand gets so hot I've watched a hunter's wolf hop from foot to foot all the way down the main street." },
+        { id = "xhuntcl_default", text = "Arrows, shot, and a salve for blistered paws, which out here sells faster than the arrows. By noon the sand gets so hot I've watched a hunter's wolf hop from foot to foot all the way down the main street." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it's been walking on that sand all day, friend, and Jabbey would say it's earned a tin of the good salve." },
       },
       choices = {
@@ -561,7 +561,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Jabbey cares that the coin is real and the Bruisers don't see the blinding happen inside the walls. What happens in the dunes is between you and whoever you're blinding, and Jabbey sleeps very well, thank you." } },
       choices = {
         { text = "A merchant should care where his goods end up.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fair enough. I don't want my business known.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Good. I don't want my business known either.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -606,7 +606,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Nothing! Well, nothing much, because Jabbey can't always say where a thing came from, only where it went next. A crate comes in from Steamwheedle Port and Jabbey doesn't ask, because asking makes the crates stop coming." } },
       choices = {
         { text = "You should ask. Stolen goods hurt somebody.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "A merchant can't question every crate. That's fair enough.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "A merchant can't question every crate, Jabbey.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

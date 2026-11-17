@@ -75,7 +75,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I'll give orders to anyone who keeps Durotar safe, but I'll watch you the way I watch the coast. The Burning Blade are crawling through the hills, so if you're truly Horde, prove it on them first, and quickly." },
+        { id = "xlock_default", text = "I'll give orders to anyone who keeps Durotar safe, but I'll watch you the way I watch the coast. The Burning Blade are crawling through the hills, so if you're really Horde, prove it on them first, and quickly." },
       },
       choices = {
         { text = "Point me at the Blade. I'll prove it there.", next = "BACK", fx = { align = { order = 1 } } },
@@ -206,7 +206,7 @@ P:NPC {
   greetings = {
     { id = "g_watch", text = "Young orcs and trolls train here, and traders rest here, and nothing gets into Razor Hill that I don't allow." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Any word from the canyons?" },
-    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Blade hasn't rested in that time, so neither have I. Tell me what you saw out there." },
+    { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and the Blade hasn't rested in that time, so neither have I, and my back has the knots to prove it. Tell me what you saw out there." },
     { id = "g_word_lie", when = { word = "caughtLying" }, text = "I'm told one of your stories didn't hold up in Razor Hill. The Blade lie for a living, and I've learned to listen hardest to the ones who smile." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked somebody round recently, which is a useful talent. Use it on the right people and you'll make a fine hunter of cultists." },
   },
@@ -253,7 +253,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "In Skull Rock to the north, and in the coven above the Valley of Trials, and in the shadows of Orgrimmar itself, if half of what I hear is true. They call up imps and worship the old masters, so when you find them, cut them down before they can open their mouths to chant." } },
+      lines = { { id = "xwarcl_default", text = "In Skull Rock to the north, and in the coven above the Valley of Trials, and in the Cleft of Shadow in Orgrimmar itself, if half of what I hear is true. They call up imps and worship the old masters, so when you find them, cut them down before they can open their mouths to chant." } },
       choices = {
         { text = "They'll get a clean death, and nothing more.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let them suffer, as our people suffered under the demons.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -381,7 +381,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Sit and eat. Razor Hill is safe enough to sleep in, which is more than you can say for most of Durotar." },
+    { id = "g_inn", text = "Sit and eat. Razor Hill is safe enough to sleep in, which is more than you can say for most of Durotar. Leave your boots by the door, though, because the last grunt's boots made the kodo weep." },
     { id = "g_home", when = { homeInn = { "Razor Hill" } }, text = "Your bed's where you left it, and it's scorpid-free; I checked." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? Your bed's still here, and I've shaken the scorpids out of it at least once." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Somebody came through here grumbling about you, and they drank a good deal while they did it. Whatever you said to them, keep it outside my door." },
@@ -603,7 +603,7 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "That it's never as empty as it looks, because there's always a raptor in the scrub or a quilboar behind the rock. The orcs call it barren, but I've filled three journals with what lives here." } },
       choices = {
-        { text = "Then it deserves protecting, not just enduring.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then somebody should protect it, instead of just enduring it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Whatever lives here had better learn to fight.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -54,7 +54,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Surface steel, too soft at the heart, an' it'll take a notch the first time it meets Dark Iron plate. Earn the Brotherhood's trust, an' our smiths might one day show ye what steel can be when it's made right." } },
       choices = {
-        { text = "I'll earn your trust honestly, Overseer, one task at a time.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'll earn your trust one task at a time, Overseer.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'd sooner buy the secret. Trust takes too long.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -158,14 +158,14 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Overseer Oilfist, of the Thorium Brotherhood. We're Dark Iron, an' we served Ragnaros in the depths o' that mountain, makin' arms for his armies, until we stopped." },
         { id = "h_kids", when = { metBefore = true },
-          text = "The young ones were playin' too near the lava spiders again, so I've told Hansel tae deal with it. He was restin', he says, but he's always restin'." },
+          text = "The young ones were playin' too near the lava spiders again, an' one came home wi' a web stuck in her beard, so I've told Hansel tae deal with it. He was restin', he says, but he's always restin'." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The forges never go cold, even now, out o' habit. Down in the mountain, cold forges meant punishment, an' we keep 'em lit for different reasons now." },
         { id = "h_cold", when = { disposition = { max = 34 } },
           text = "You again. The Brotherhood trades with anyone who pays, but trust's another matter, an' ye've no' bought any yet." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. We forged arms for Ragnaros's armies down in that mountain, so I can tell ye from here what's wrong wi' yer blade, whether ye want tae hear it or no." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. There's nothin' in the Gorge worth eatin', I'll warn ye, but there's plenty that'll try tae eat you." },
-        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, an' one o' the Forsaken. Thaurissan's men would have made a prize o' ye, an' my lads will stare, for they've never seen a dead thing carry the Light instead o' fire." },
+        { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, an' one o' the Forsaken. Thaurissan's men would have made a prize o' ye, an' my lads will stare, for they've never seen a dead thing glow wi' the Light instead o' fire." },
       },
       again = { { id = "h_again", text = "Aye? Speak up over the forge." } },
       choices = {
@@ -220,7 +220,7 @@ P:NPC {
       },
     },
     kin_free = {
-      lines = { { id = "kf_default", text = "Some might, if they wanted it, but wantin' it is the hard part. We wanted it so badly we built our own way out, an' most down there have forgotten how tae want." } },
+      lines = { { id = "kf_default", text = "Some might, if they wanted it, but a slave learns no' tae want, for wantin' gets ye whipped. We wanted it so badly we built our own way out, an' most down there have forgotten how tae want." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     dwarf = {
@@ -232,7 +232,7 @@ P:NPC {
       },
     },
     craft = {
-      lines = { { id = "c_default", text = "Heat ye can't feel through yer gloves is too hot. Down in the mountain we learned that by the scars. Learn it by listenin' tae me instead." } },
+      lines = { { id = "c_default", text = "Heat ye can't feel through yer gloves is too hot. Down in the mountain we learned that wi' blistered palms an' lost fingernails, so ye'd best learn it from me." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2 } } },
     },
     k_shaman = {
@@ -256,7 +256,7 @@ P:NPC {
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "Ye've earned yer place at the forge, so I'll answer ye like one o' the Brotherhood. Here's what I can tell ye about." },
     },
     background = { { id = "tp_ba", text = "Born in the mountain, worked in the mountain, walked out o' the mountain. The last bit's the only part worth tellin'.", next = "escape" } },
-    advice = { { id = "tp_ad", text = "Never trust a forge ye didnae light yerself." } },
+    advice = { { id = "tp_ad", text = "Never trust a forge ye didnae light yerself, an' never lend Hansel money, for he'll sit on it." } },
     dark_iron = { { id = "tp_dark_iron", text = "They're my kin, my shame an' my sorrow, an' most of them still bend the knee down there. I pray they'll stop, though I've no' much hope." } },
     _none = { { id = "tp_none", text = "If it's no' on the Point, it's no' my concern." } },
   },
@@ -385,7 +385,7 @@ P:NPC {
       },
     },
     lolo = {
-      lines = { { id = "l_default", text = "Grand, though he's blind as a bat an' twice as stubborn. He always knows where I am, an' says it's the snorin', but I don't snore." } },
+      lines = { { id = "l_default", text = "Grand, though he's blind as a bat an' twice as stubborn. He always knows where I am, an' says it's the snorin', but I don't snore, an' the lads who say I do are liars, the lot o' them." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     lizards = {
@@ -727,7 +727,7 @@ P:NPC {
       lines = {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Dark Iron", min = 30 } }, text = "I hear the Dark Iron have learned to fear your name, and I'm glad of it, though fear is only the beginning of what they owe." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid. You'd heal this Gorge, I suppose, and grow grass over the bones of everyone the Dark Iron killed here, which seems a strange sort of mercy." },
-        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Your kind measure fire and give it names, which is a kind of mastery, I suppose, though it has never avenged anyone." },
+        { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Your kind measure fire and give it names, and I suppose that's mastery of a sort, though naming a fire has never avenged anyone." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Then you'll know the fire of this Gorge does not burn by chance, and that it answers to those with the will to command it." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Then you understand that some debts can only be paid in fire, and that the people who owe them rarely pay willingly." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll understand vengeance better than most, I think, since your kind deal in quiet knives and long memories." },
@@ -757,7 +757,7 @@ P:NPC {
         { text = "Do you hunt the Dark Iron like beasts, Kalaran?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Who commands the fire in this Gorge, Kalaran?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What do you want a mage's fire for, Kalaran?", next = "xmage", when = { class = "MAGE" } },
-        { text = "Would healing the Gorge truly be a strange mercy, Kalaran?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Would healing the Gorge really be a strange mercy, Kalaran?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll help you.", next = "END", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Vengeance isn't justice, Kalaran. I'm a paladin.", next = "k_paladin", when = { class = "PALADIN" } },
         { text = "Thaurissan is dead, Kalaran. I was there.", next = "xcl_brd", when = { cleared = "Blackrock Depths" } },

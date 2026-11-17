@@ -366,7 +366,7 @@ P:NPC {
         { id = "h_warrior_high", when = { class = "WARRIOR", minLevel = 40 },
           text = "Look at that, someone who survived my regimen an' kept goin'. I'll no' say I'm proud, for it'd go tae yer head, but I'm no' disappointed." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
-          text = "A mage in the Military Ward. I'll be honest, ye'd no' last a day o' my training, but I've seen fire win battles an axe couldnae." },
+          text = "A mage in the Military Ward. Ye'd no' last a day o' my training, I'd wager, but I've seen fire win battles an axe couldnae." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock in the Military Ward! I'd ask ye tae keep yer creatures out o' my yard, for my recruits have enough tae worry about." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Ye'll be soft from lettin' yer beast do the fightin', but I'll no' hold it against ye." },
@@ -385,7 +385,7 @@ P:NPC {
         { text = "What comes next for me, trainer?", next = "next", when = { class = "WARRIOR" } },
         { text = "A paladin can hold a line as well as any warrior.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I don't fight fair, Kelstrum.", next = "rogue", when = { class = "ROGUE" } },
-        { text = "Do warriors and mages truly need one another?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Do warriors and mages really need one another?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Would your recruits really fear a warlock's demon?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Could a hunter learn anything from your warriors, Kelstrum?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Do your recruits ever need a priest after training, Kelstrum?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -594,7 +594,7 @@ P:NPC {
           text = "A warlock! I'll warn you that the Military Ward's equipment isn't rated for demonic interference, so please keep your companion off my machines." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! A ranged unit with an organic support module, if I'm not mistaken. Fascinating." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You present a fascinating combat problem, since your stance changes with your shape, and I have several theories about it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Interesting. Your stance is adequate, but I suspect you rely on the elements to cover deficiencies in your footwork." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. Unusual. Your stance is adequate, but I suspect you rely on the elements to cover deficiencies in your footwork." },
       },
       again = {
         { id = "h_again", text = "Further inquiries? Please proceed." },
@@ -760,7 +760,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "It can, though most priests don't think tae try, for they're used tae patchin' up dwarves who complain. A beast won't thank ye, but it'll remember ye, an' that's worth more than thanks, if ye ask me." } },
+      lines = { { id = "xapriest_default", text = "It can, though most priests don't think tae try, for they're used tae patchin' up dwarves who complain. A beast won't thank ye, but it'll remember ye, an' a beast's memory runs longer than most dwarves' gratitude." } },
       choices = {
         { text = "Every living thing deserves healing. Beasts as much as dwarves.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My prayers are for people first. Beasts can wait.", next = "BACK", fx = { align = { light = -1 } } },

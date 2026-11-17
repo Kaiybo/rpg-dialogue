@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.silverpine")
 P:Pool {
   id = "guard_sepulcher", role = "guard", community = "sepulcher",
   barks = {
-    { id = "b_howl", text = "Howling from the south again; the worgen are hungry tonight." },
+    { id = "b_howl", text = "Howling from the south again. The worgen dragged off a pack mule last night, and they'll be back for the saddle." },
     { id = "b_lights", text = "Strange lights by Ambermill, which means Dalaran's people are up to something." },
   },
   greetings = {
@@ -25,6 +25,6 @@ P:Pool {
       { id = "t_kn1", text = "The Sepulcher gets reports from every corner of Silverpine, and most of them are bad. Here's what I can share." },
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask your questions and go, because the forest is dangerous enough without distractions at the gate." },
     },
-    _none = { { id = "t_none", text = "Ask the High Executor; he reads every report." } },
+    _none = { { id = "t_none", text = "Ask the High Executor; he reads every report, even the ones about who keeps nicking the lamp oil." } },
   },
 }
