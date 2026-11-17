@@ -289,6 +289,7 @@ local function create()
   frame.flag:SetScript("OnLeave", function(self) self:SetAlpha(0.55); GameTooltip:Hide() end)
 
   -- This visit so far: what they said and what you said, on hover (0.61.0).
+  -- Click it for the journal (0.62.0).
   frame.history = CreateFrame("Button", nil, frame)
   frame.history:SetSize(16, 16)
   frame.history:SetAlpha(0.55)
@@ -299,6 +300,7 @@ local function create()
     self:SetAlpha(1)
     D.HistoryTooltip(self)
   end)
+  frame.history:SetScript("OnClick", function() if ns.Journal and ns.Journal.Toggle then ns.Journal.Toggle() end end)
   frame.history:SetScript("OnLeave", function(self) self:SetAlpha(0.55); GameTooltip:Hide() end)
 
   -- "Aa": text size, line spacing and fonts, changed live (UI/TextOptions.lua).
@@ -892,6 +894,7 @@ function D.HistoryTooltip(owner)
       end
     end
   end
+  GameTooltip:AddLine(L.JOURNAL_BOX_TIP, 0.6, 0.6, 0.6, true)
   GameTooltip:Show()
 end
 
