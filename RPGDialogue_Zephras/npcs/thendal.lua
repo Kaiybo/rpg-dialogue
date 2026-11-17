@@ -372,7 +372,19 @@ P:NPC {
         { text = "We kaldorei remember Eldre'Thalas too.", next = "xnelf", when = { race = "NightElf" } },
         { text = "Why would the dead trouble you?", next = "xforsaken", when = { race = "Scourge" } },
         { text = "I don't know whose peace I'm keeping anymore, Elder.", next = "xpeace", when = { origin = "skyborne_peacekeeper" } },
+        { text = "I carried word between the orders, Elder, and trusted neither.", next = "xorig_between", when = { origin = "skyborne_go_between" } },
         { text = "Winds be with you, Elder.", next = "END" },
+      },
+    },
+    xorig_between = {
+      big = true,
+      lines = {
+        { id = "xbe_default", text = "I know, because some of those messages came across the Council's table, and I remember the name of the one who carried them. You heard what both sides were hiding and kept most of it to yourself, which is either loyalty or caution. Which is it?" },
+      },
+      choices = {
+        { text = "Loyalty to the Skyborne, not to either order.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Caution. A secret's worth more kept than spent.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
       },
     },
     council = {
@@ -606,7 +618,18 @@ P:NPC {
         { text = "Why tease Halaan?", next = "halaan" },
         { text = "What do the rangers do up here?", next = "rangers" },
         { text = "I can't walk on air. Can I still play?", next = "xnoair", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "I hunted off the Siroccas cliffs. Fancy a shooting match?", next = "xorig_cliff", when = { origin = "skyborne_siroccas_cliff_hunter" } },
         { text = "Take care, Myriaal.", next = "END" },
+      },
+    },
+    xorig_cliff = {
+      lines = {
+        { id = "xcf_default", text = "A Siroccas archer! Oh, Halaan will hate this, because he swears nobody hits a mark past the third tree without the wind helping them. Is it true the gusts off those cliffs would carry an arrow half again as far?" },
+      },
+      choices = {
+        { text = "Every word, and I've been missing it ever since.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll never tell, and neither will you.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     game = {
@@ -773,7 +796,18 @@ P:NPC {
         { text = "Myriaal calls you a stuffy old wretch.", next = "myriaal" },
         { text = "Do your eyes reach as far as mine, ranger?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "The forests below are bigger than ours, Halaan, and quieter.", next = "xranger", when = { origin = "skyborne_thendal_ranger" } },
+        { text = "I watched the pylons fail at Anvilas. Staring won't stop it, Halaan.", next = "xorig_pylon", when = { origin = "skyborne_anvilas_pylon_guard" } },
         { text = "Farewell, Halaan.", next = "END" },
+      },
+    },
+    xorig_pylon = {
+      lines = {
+        { id = "xpy_default", text = "Perhaps not, but I'd rather see it coming than feel it come, and so would you, or you'd not have stood your post as long as you did. What was it like at the end, when the light went out of them?" },
+      },
+      choices = {
+        { text = "Quiet. That was the worst of it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Like losing a fight I never got to have.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     pylon = {

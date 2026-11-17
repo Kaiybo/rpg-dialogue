@@ -509,7 +509,18 @@ P:NPC {
         { text = "Should Algaz hold the pass, or march north on the Dragonmaw?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What lies north of Algaz Station, Rockgar?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What powers do the Dragonmaw call on, Rockgar?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "I stood the watch here once, Rockgar. Grim Batol's smoke still bothers me.", next = "xorig_algaz", when = { origin = "dwarf_dun_algaz_watch" } },
         { text = "Farewell, Rockgar.", next = "END" },
+      },
+    },
+    xorig_algaz = {
+      lines = {
+        { id = "xoalgaz_default", text = "Aye, an' it bothers me too, for it's never once stopped risin' in all the years I've stood here. I mind yer face from the night roster, though ye had less grey in yer beard then. Did ye ever get a full night's sleep, after?" },
+      },
+      choices = {
+        { text = "Not one, Rockgar.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "A few, in Ironforge, with a mug inside me.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     pass = {

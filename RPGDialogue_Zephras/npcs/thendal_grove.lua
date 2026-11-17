@@ -450,7 +450,19 @@ P:NPC {
         { text = "Why is the island's magic fading?", next = "fading" },
         { text = "What happens to the stones you collect?", next = "use" },
         { text = "Could I study a windstone's magic?", next = "xmage", when = { class = "MAGE" } },
+        { text = "I carried windstones between Valanaar and Shen'dramar, Dalia. Quietly.", next = "xorig_runner", when = { origin = "skyborne_windstone_runner" } },
         { text = "Winds guide you, Dalia.", next = "END" },
+      },
+    },
+    xorig_runner = {
+      big = true,
+      lines = {
+        { id = "xru_default", text = "Quietly, you say, which means past the Council's counters, which means some of the stones I've been counting all season might have gone through your hands first! Oh, don't look like that; I'm not cross, only curious. Where did they all end up?" },
+      },
+      choices = {
+        { text = "With people who needed them more than the Council did.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Somewhere they shouldn't. I'd like to put that right.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     stones = {

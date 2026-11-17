@@ -2005,6 +2005,10 @@ P:Pool {
     { id = "g_word_threat", when = { word = "intimidated" }, text = "Word at the barracks is ye've been leanin' on folk in the Commons. Ye'll no' do that under this mountain while I'm on watch." },
   },
   notice = {
+    { id = "n_xcampwatch", cat = "origin", when = { origin = "gnome_kharanos_watch" },
+      text = "Ye held the line at the refugee camps by Kharanos, did ye no'? The lads on the gate still talk about the gnome wi' a shield bigger than the one holdin' it." },
+    { id = "n_xthrallspy", cat = "origin", when = { origin = "dwarf_searing_gorge_spy" },
+      text = "Ye're one o' the Gorge lads, the ones the Ward sent intae the Dark Iron camps. The Captain says ye came back thinner an' quieter, an' he says it like it's a medal." },
     { id = "n_dwarf_shaman", cat = "class", when = { race = "Dwarf", class = "SHAMAN" },
       text = "A dwarf shaman! My granddad would've had words, but I've no words; just mind the Great Forge doesn't talk back to ye." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },

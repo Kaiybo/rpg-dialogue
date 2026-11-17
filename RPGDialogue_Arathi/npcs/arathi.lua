@@ -103,7 +103,18 @@ P:NPC {
         { text = "The Syndicate wouldn't see me coming, Captain.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I can scout the Highlands for you.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Arathor's first mages learned their craft in these hills.", next = "xmage", when = { class = "MAGE" } },
+        { text = "I fought for Stromgarde once, Captain, until the pay stopped.", next = "xorig_sellsword", when = { origin = "human_stromgarde_sellsword" } },
         { text = "I'll help where it pays, Captain, and Stromgarde's coin is as good as any.", next = "END", fx = { align = { honor = -1 } } },
+      },
+    },
+    xorig_sellsword = {
+      lines = {
+        { id = "xosellsword_default", text = "I know, and I'll not pretend I've forgotten the day you walked out, because I signed your last pay slip myself and there was nothing in the chest to honour it. You came back, though, which is more than most of them did. Is it the coin that brought you, or the Syndicate?" },
+      },
+      choices = {
+        { text = "The coin, Captain, and I'll not pretend otherwise.", next = "BACK", fx = { trait = { greedy = 1 } } },
+        { text = "The Syndicate. I've unfinished business with them.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xlock = {

@@ -231,10 +231,21 @@ P:NPC {
         { text = "What did you make of Stormwind?", next = "stormwind" },
         { text = "Do you miss Zephras?", next = "xmiss", when = { race = "Skyborne" } },
         { text = "I'm from Stormwind, as it happens.", next = "xhuman", when = { race = "Human" } },
+        { text = "Evengale expects us to bring something useful home, Denaaris.", next = "xorig_enclave", when = { origin = "skyborne_sky_enclave_student" } },
         { text = "Winds be with you.", next = "END" },
       },
     },
 
+    xorig_enclave = {
+      lines = {
+        { id = "xen_default", text = "She does, and she'll ask you what it is the moment you walk in, so I'd have an answer ready. It's the word home that I keep turning over, though. When you say it, do you still mean the isle, or do you mean here?" },
+      },
+      choices = {
+        { text = "The isle, always.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Wherever the High Order stands now.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     only = {
       lines = {
         { id = "on_default", text = "The Kirin Tor were generous to open a door for us at all, and they asked that it stay a door for the High Order and not a public road. I don't argue with the people holding up the roof I sleep under." },
@@ -409,10 +420,21 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Does Darnassus know you're here?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "Do my spells trouble you?", next = "xmage", when = { class = "MAGE" } },
+        { text = "The Circle taught me, Alfina, though I listen for the wind, not Elune.", next = "xorig_circle", when = { origin = "skyborne_circle_student" } },
         { text = "Elune keep you.", next = "END" },
       },
     },
 
+    xorig_circle = {
+      lines = {
+        { id = "xci_default", text = "So did half my students, and I've stopped minding, because a forest doesn't care which name you thank it by as long as you tend it. Did your teachers ever lose patience with you over it?" },
+      },
+      choices = {
+        { text = "We agreed not to argue about it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Only once, and the wind won the argument.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     why = {
       lines = {
         { id = "wy_default", text = "Because the Skyborne asked for a teacher, and there are few enough druids willing to live inside a mage's city. Someone has to remind these towers that there's soil underneath them." },

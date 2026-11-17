@@ -877,7 +877,19 @@ P:NPC {
         { text = "Do you count warlocks among the corruption, Sentinel?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you count on the beach each morning, Glynda?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I've been to the bottom of Blackfathom, Sentinel.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
+        { text = "You Sentinels always looked the other way at my cargo. Why?", next = "xorig_smug", when = { origin = "nightelf_auberdine_smuggler" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2, standing = { auberdine = 1 } } },
+      },
+    },
+    xorig_smug = {
+      big = true,
+      lines = {
+        { id = "xsm_default", text = "Because I had one Sentinel on this beach and a hundred murlocs, and a smuggler who knew every cove made a better pair of eyes than a sailor who knew none. You told me where the Greymist came ashore, and I let your crates pass. Did you think nobody was keeping the account?" },
+      },
+      choices = {
+        { text = "It was a fair bargain, and I'd make it again.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I should have been caught. You did Auberdine no favors.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else, Sentinel.", next = "BACK" },
       },
     },
     moonkin = {

@@ -119,11 +119,22 @@ P:NPC {
         { text = "Do the Windshapers practise the arcane, Elder?", next = "xmage", when = { class = "MAGE", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Do your people fear warlocks, Elder?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde", ["not"] = { race = "Skyborne" } } },
         { text = "Do the Windshapers find the Light strange, Ayessa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "My skysight dims each season, Elder. I fear the day it's gone.", next = "xorig_totem", when = { origin = "skyborne_gevrek_totem_keeper" } },
         { text = "Winds be with you.", next = "END", fx = { affinity = 1, standing = { gevrek = 1 } } },
       },
       again = {
         { id = "h_again", text = "What else would you ask? The wind is gentle today, and so is my patience." },
         { id = "h_again2", text = "Speak, then. Gev'rek keeps no secrets from its friends, or few, and the ones it keeps are mostly about whose turn it is to haul water." },
+      },
+    },
+    xorig_totem = {
+      lines = {
+        { id = "xto_default", text = "So do I, and I am older than you, so I will likely meet that day first. Until then you'll tend the totems as if you could see every spirit around them, because a totem doesn't need our eyes to stand. Will you keep them for me, even blind?" },
+      },
+      choices = {
+        { text = "Even blind, Elder.", next = "BACK", fx = { affinity = 2, standing = { gevrek = 1 } } },
+        { text = "I'll try, but I won't pretend it doesn't frighten me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     shaman = {

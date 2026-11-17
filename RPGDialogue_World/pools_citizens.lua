@@ -155,6 +155,8 @@ P:Pool {
   },
   greetings = {
     { id = "g_day", text = "Good day to you. If you're after the Trade District, follow the canal and you can't miss it." },
+    { id = "g_xcathpupil", when = { origin = "gnome_cathedral_pupil" }, text = "Oh, you're the little gnome who came to the Cathedral with burned hands and stayed to study! The brothers say you once asked for the Light in diagram form, and I believe one of them is still trying to draw it." },
+    { id = "g_xdalstray", when = { origin = "human_dalaran_stray" }, text = "You're one of the young ones from Dalaran, aren't you, who came south after the city fell? I'll never understand why the Kirin Tor shut their gates on their own students, but Stormwind's glad of you." },
     { id = "g_xnoble", when = { origin = "human_minor_noble" }, text = "You'll be from one of the old houses up by the Keep; you hold your chin the way they teach you to. Don't worry, I won't ask which, because half of them owe my uncle money." },
     { id = "g_xmason", when = { origin = "human_stonemason_child" }, text = "You're a mason's child, aren't you? I'd know that scowl anywhere, because my father wore it the whole time they were rebuilding the walls and waiting on wages that never came." },
     { id = "g_xguard", when = { origin = "human_city_guard" }, text = "I know you! You walked the Trade District at night with a halberd and a lantern, not so long ago. It's been quieter since you left, or else the trouble's just got better at hiding." },
@@ -179,6 +181,12 @@ P:Pool {
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "There's talk along the canal that you leaned on somebody hard, harder than a guest of the King ought to. I'll keep my distance, if it's all the same to you." },
   },
   notice = {
+    { id = "n_xarcaneeng", cat = "origin", when = { origin = "gnome_arcane_engineer" },
+      text = "You're one of the gnomes who mixes magic with machinery, aren't you? There's a gnome in the Mage Quarter who says he trained under you, and he set his own sleeve alight showing me how it worked." },
+    { id = "n_xbeater", cat = "origin", when = { origin = "human_elwynn_beater" },
+      text = "Didn't you beat the brush for the hunts the nobles ride out into Elwynn? My lord's groom swears one of the beaters made off with a prize boar, and you've the very grin he described." },
+    { id = "n_xnightwatch", cat = "origin", when = { origin = "human_darkshire_watch" },
+      text = "You've a Duskwood look about you, if you'll pardon me, always watching the shadows as if one of them might stand up. Were you one of Darkshire's Night Watch? My cousin swears they're the bravest folk in the kingdom and the worst paid." },
     { id = "n_xpickpocket", cat = "origin", when = { origin = "human_canal_pickpocket" },
       text = "Didn't you used to work the crowds along the canal when you were knee-high? You've grown up respectable, or at least you've grown up, and I'll count my coins after we're done all the same." },
     { id = "n_xlamb", cat = "origin", when = { origin = "human_lamb_cellar" },
@@ -277,6 +285,9 @@ P:Pool {
   },
   greetings = {
     { id = "g_day", text = "Good day tae ye! Come warm yer hands; the Great Forge never goes out, an' nor does the welcome." },
+    { id = "g_xledger", when = { origin = "gnome_thermaplugg_clerk" }, text = "Ye kept the books for Thermaplugg, did ye no'? Folk in Tinker Town say ye knew where every copper went, an' some o' them would like tae know why ye never said." },
+    { id = "g_xarcaneeng", when = { origin = "gnome_arcane_engineer" }, text = "Ye're the gnome that singed the eyebrows off half the Tinker Town faculty wi' yer arcane wirin'! The mages in the Mystic Ward still curse yer name, an' then they copy yer notes when they think nobody's lookin'." },
+    { id = "g_xchaplain", when = { origin = "dwarf_league_chaplain" }, text = "Ye're the League's priest, are ye no', the one they send down intae Uldaman tae bless the diggers? My cousin's on that dig, an' he says ye talk about the Light as though it were older than the mountain." },
     { id = "g_xward", when = { origin = "dwarf_military_ward" }, text = "Ye're a Military Ward shieldbearer, I can tell by the way ye carry yer shield arm. Stood the line against the Dark Irons, did ye? Then ye've a place at any table in the Commons." },
     { id = "g_xhand", when = { origin = "dwarf_silver_hand" }, text = "One o' the Silver Hand initiates! Ye took the oath here under the mountain, aye? Good, for the Order's no' broken while there's dwarves like ye about tae keep it." },
     { id = "g_xacolyte", when = { origin = "dwarf_mystic_acolyte" }, text = "Ye swept the floors o' the Mystic Ward once; I mind seein' ye at it, all corners an' muttered prayers. Look at ye now, out in the wide world wi' the Light at yer back." },
@@ -296,6 +307,12 @@ P:Pool {
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "They say ye talked {source} round tae yer way o' thinkin'. Ye must have a silver tongue, for we're a stubborn lot in Ironforge." },
   },
   notice = {
+    { id = "n_xleperkin", cat = "origin", when = { origin = "gnome_leper_kin" },
+      text = "Ye go out tae the lepers, don't ye, lookin' for one face in particular? I'm sorry for it, friend, an' I hope the tinkers find their cure before ye give up lookin'." },
+    { id = "n_xwindshaman", cat = "origin", when = { origin = "dwarf_wildhammer_shaman" },
+      text = "Ye've been up wi' the Wildhammer, for I can smell the gryphon on ye an' see the paint on yer hands. My grandmother would call it backslidin', but between us, I'd like tae hear what the winds say." },
+    { id = "n_xforeman", cat = "origin", when = { origin = "dwarf_quarry_foreman" },
+      text = "Ye're the foreman from Gol'Bolar, the one that dug his own lads out wi' his bare hands an' found the Light doin' it. I heard the tale in the Commons, an' I've no' heard a better one o' the Light since." },
     { id = "n_xrearguard", cat = "origin", when = { origin = "gnome_rearguard" },
       text = "Ye held a corridor when Gnomeregan fell; I heard tell o' that. There's no' a dwarf in this city who'd say a word against yer courage, an' if one does, he'll answer tae me." },
     { id = "n_xtinker", cat = "origin", when = { origin = "gnome_ironforge_raised" },
@@ -617,6 +634,7 @@ P:Pool {
   id = "citizen_goldshire", role = "citizen", community = "goldshire",
   greetings = {
     { id = "g_day", text = "Afternoon! If you're looking for a bed, the Lion's Pride is the yellow one with the noise coming out of it." },
+    { id = "g_xbeater", when = { origin = "human_elwynn_beater" }, text = "You used to beat the brush for the lords' hunts out past the Stonefield farm, didn't you? I've not forgotten the autumn the finest boar in Elwynn went missing, and neither has the gamekeeper, so keep your hood up." },
     { id = "g_xwestfall", when = { origin = "human_westfall_farmhand" }, text = "You're one of the Westfall families who came east, aren't you? There's a fair few of you round the Lion's Pride now, and every one of you says the same about the Defias, so I'll spare you saying it again." },
     { id = "g_xeastvale", when = { origin = "human_eastvale_woodsman" }, text = "You're from the logging camp out east, by the pine sap on your boots. If you're going home, tell the woodsmen at Eastvale the wolves have been bold this way too." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "You're out late. Folk round here lock their doors after dark now, which my father would never have believed." },
@@ -626,6 +644,8 @@ P:Pool {
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear you put someone's nose out of joint over at the inn. It's a small town, so everyone knows by now, I'm afraid." },
   },
   notice = {
+    { id = "n_xmilitiahealer", cat = "origin", when = { origin = "human_sentinel_hill_healer" },
+      text = "You're the priest who went west to tend Stoutmantle's farmers, aren't you? The folk who come through from Westfall talk about you as if you were half a saint, and they don't talk that way about the Cathedral." },
     { id = "n_xwestfall", cat = "origin", when = { origin = "human_westfall_farmhand" },
       text = "You've a farmhand's hands, friend, and a farmhand's way of looking at a field to see what's wrong with it. The Maclures could use you, though I'll warn you they argue with the Stonefields more than they harvest." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST", maxLevel = 15 },
@@ -667,6 +687,8 @@ P:Pool {
     { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I heard {source} caught you in a falsehood. The abbey frowns on that, and I'd say a prayer about it, if I were you." },
   },
   notice = {
+    { id = "n_xcathpupil", cat = "origin", when = { origin = "gnome_cathedral_pupil" },
+      text = "You're the gnome priest from the Cathedral, aren't you? The brothers here at the Abbey talk about you, mostly about your questions, and one of them says you made him rethink a sermon he'd given for twenty years." },
     { id = "n_xnovice", cat = "origin", when = { origin = "human_abbey_novice" },
       text = "The brothers ask after every novice who leaves the valley, you know, and they keep a list of names for their prayers, though they'd never call it that. Yours is on it, I'd wager." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -739,6 +761,8 @@ P:Pool {
   id = "citizen_darkshire", role = "citizen", community = "darkshire",
   greetings = {
     { id = "g_day", text = "A living face! Come into the lamplight where I can see you properly, and forgive me for asking." },
+    { id = "g_xgravedigger", when = { origin = "human_raven_hill_gravedigger" }, text = "You dug the graves out at Raven Hill, didn't you? Folk here still say you talked to the dead while you worked, and I'd thank you not to stand so close to my door." },
+    { id = "g_xnightwatch", when = { origin = "human_darkshire_watch" }, text = "You stood the wall with the Night Watch, didn't you, before the Cathedral took you? My husband still talks about the night you held the gate with a torch in one hand and a hammer in the other." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Get off the road, friend, and quickly. The howling starts at this hour, and it's not far off tonight." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You're back after {away} away! I'd prayed you weren't lying in the fields by Raven Hill, and here you are." },
     { id = "g_away_long", when = { away = 45 }, text = "It's been {away}. In Duskwood that's long enough for us to start counting someone among the lost, so forgive me for staring." },
@@ -746,6 +770,8 @@ P:Pool {
     { id = "g_word_helped", when = { word = "helped" }, text = "They say you've done Darkshire a good turn, and in this town a kindness is remembered longer than the daylight lasts." },
   },
   notice = {
+    { id = "n_xgravedigger", cat = "origin", when = { origin = "human_raven_hill_gravedigger" },
+      text = "You're the gravedigger from Raven Hill, the one who left in such a hurry. Sven Yorgen says the whispers in the cemetery went quiet the night you went, and I can't decide whether that's a comfort or not." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest, in Darkshire! Would you walk by the cemetery on your way out and say something over it? The dead around here don't seem to stay where we put them." },
     { id = "n_shadow", cat = "form", when = { form = "shadow" }, place = "replace",
@@ -778,6 +804,7 @@ P:Pool {
   id = "citizen_sentinel_hill", role = "citizen", community = "sentinel_hill",
   greetings = {
     { id = "g_day", text = "Welcome to Sentinel Hill. It's not much, but it's what Westfall's got left that isn't Defias." },
+    { id = "g_xmilitiahealer", when = { origin = "human_sentinel_hill_healer" }, text = "Light bless you, it's our healer! You bound my brother's arm the week the Militia first mustered, and he's been telling everyone you did it with a prayer and a strip of his own shirt." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Keep to the hill tonight. The scarecrows walk the fields after dark, and I'm not joking, though I wish I were." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been gone {away}, and the Defias haven't. The fields are just as sorry as you left them." },
     { id = "g_away_long", when = { away = 45 }, text = "It's been {away} since you were on the hill! Westfall's still Westfall, but we're still here, so that's something." },
@@ -821,6 +848,10 @@ P:Pool {
     { id = "g_word_angered", when = { word = "angered" }, text = "There's talk on the docks that you put someone in a black mood. Sailors carry a grudge further than cargo, so watch yourself." },
   },
   notice = {
+    { id = "n_xalgaz", cat = "origin", when = { origin = "dwarf_dun_algaz_watch" },
+      text = "You're one of the Dun Algaz lot, aren't you, from the gate at the top of the pass? The dwarves who come down from there sleep with their boots on, and you've the same tired eyes." },
+    { id = "n_xsellsword", cat = "origin", when = { origin = "human_stromgarde_sellsword" },
+      text = "You've the look of the Stromgarde sellswords who come through on the boats, all scars and no coin. If you're after work, the harbourmaster always wants a hard face on the docks, though he pays in promises half the time." },
     { id = "n_xsmug", cat = "origin", when = { origin = "nightelf_auberdine_smuggler" },
       text = "I know your face off the Auberdine boat, I'm sure of it, and from a few crates that never troubled the harbormaster. Don't fret, friend, because I bought a nightsaber pelt off you once, and my wife still wears it." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -852,6 +883,7 @@ P:Pool {
   id = "citizen_southshore", role = "citizen", community = "southshore",
   greetings = {
     { id = "g_day", text = "Welcome to Southshore, friend. It's a quiet town, or it would be, if not for the neighbors." },
+    { id = "g_xsyndicate", when = { origin = "human_syndicate_runner" }, text = "I know your face from the Alterac road, carrying letters for men nobody in Southshore will name aloud. Whatever you've become since, I'd keep clear of the foothills, because the Syndicate has a long memory." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be wandering. Folk here keep their shutters closed at night, on account of what lives up the road in Tarren Mill." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}. Not much changes in Southshore, except the arguments with Tarren Mill." },
     { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and look at you! You've the look of someone who's seen a great deal more than Hillsbrad." },
@@ -859,6 +891,8 @@ P:Pool {
     { id = "g_word_intimidated", when = { word = "intimidated" }, text = "Word in town is that you frightened someone half to death. We've enough fright with the Forsaken up the road, so ease off, will you?" },
   },
   notice = {
+    { id = "n_xdalstray", cat = "origin", when = { origin = "human_dalaran_stray" },
+      text = "You studied in Dalaran, didn't you? You keep looking north toward the dome as if somebody might open a door, and I'm sorry to say nobody here has seen one open in years." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest of the Light, and not one of those Scarlet zealots! You'll forgive me for checking. Some of them come through here on the way north, and they don't so much bless a town as inspect it." },
     { id = "n_human", cat = "race", when = { race = "Human" },
@@ -888,6 +922,8 @@ P:Pool {
   id = "citizen_thelsamar", role = "citizen", community = "thelsamar",
   greetings = {
     { id = "g_day", text = "Welcome tae Thelsamar! Good beer, good fishin', an' troggs in every hill, so ye'll never be bored." },
+    { id = "g_xdamrifle", when = { origin = "dwarf_dam_rifleman" }, text = "Ye're the one that learned the rifle up on the dam, are ye no'? Yer uncle still tells everyone in the Stoutlager that ye could knock a trogg's helm off at three hundred paces." },
+    { id = "g_xalgaz", when = { origin = "dwarf_dun_algaz_watch" }, text = "Ye stood the watch at Dun Algaz, did ye no'? I can see it in the way ye keep lookin' north, as though ye expect the Dragonmaw tae come down the pass any minute." },
     { id = "g_xsmuggler", when = { origin = "dwarf_loch_smuggler" }, text = "Oh, aye, I know yer face, an' so do the Mountaineers, I hear. I'm no' sayin' I ever bought a cask off the Wetlands road, but I'm no' sayin' I didnae, either." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late, is it? The Stoutlager's still open, an' that's where any sensible dwarf would be on a night like this." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Ye've been away {away}, an' the troggs haven't, more's the pity. Come an' have a pint at the Stoutlager." },
@@ -896,6 +932,8 @@ P:Pool {
     { id = "g_word_caughtlying", when = { word = "caughtLying" }, text = "I had it from {source} that ye tried a tall tale on them an' it fell flat. Thelsamar's a small town, so we'll all be listenin' close now." },
   },
   notice = {
+    { id = "n_xchaplain", cat = "origin", when = { origin = "dwarf_league_chaplain" },
+      text = "Ye've the League's dust on ye an' a prayer book in yer pack, so ye'll be the chaplain Ironband's lads keep talkin' about. They say ye bless every shovel before it goes intae the ground, an' I cannae tell if they're jokin'." },
     { id = "n_xsmuggler", cat = "origin", when = { origin = "dwarf_loch_smuggler" },
       text = "Keep yer voice down, will ye? The tax men are still about Thelsamar, an' they're slow, but they're no' as slow as they were when ye were runnin' ale past them." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -929,6 +967,9 @@ P:Pool {
   id = "citizen_kharanos", role = "citizen", community = "kharanos",
   greetings = {
     { id = "g_day", text = "Come in out o' the snow, will ye? Ye're lettin' the cold in just standin' there." },
+    { id = "g_xcampwatch", when = { origin = "gnome_kharanos_watch" }, text = "Ye're the wee shieldbearer who stood between the troggs an' the gnome camps! I've seen braver dwarves than me take a step back when ye raise that shield, an' I'll no' forget it." },
+    { id = "g_xleperkin", when = { origin = "gnome_leper_kin" }, text = "Ye're the one wi' the brother out past the Gnomeregan gate, are ye no'? I've seen ye leave bread by the road for the leper gnomes, an' I'll no' tell a soul, for it's a kind thing tae do." },
+    { id = "g_xforeman", when = { origin = "dwarf_quarry_foreman" }, text = "Ye ran a crew at Gol'Bolar before the troggs came up through the floor. I'm sorry for yer lads, foreman, an' there's no' a family in Kharanos that hasnae lit a candle for them." },
     { id = "g_xbear", when = { origin = "dwarf_bear_tracker" }, text = "Ye're the one who used tae follow bears through the snow, an' now there's one followin' ye! Bring it in by the fire, then, but keep it well away from the Thunderbrew's honey." },
     { id = "g_xmountaineer", when = { origin = "dwarf_mountaineer" }, text = "One o' the Mountaineers, back from the high passes! Ye kept the trolls an' troggs off our roads, so come in out o' the cold an' let the Thunderbrew warm ye." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "Cold enough tae freeze yer beard tae yer chin tonight. Get yerself intae the Thunderbrew afore ye turn intae a statue." },
@@ -938,6 +979,10 @@ P:Pool {
     { id = "g_word_helped", when = { word = "helped" }, text = "They're sayin' in Kharanos ye did us a fine turn. Good on ye; the mountain'll no' forget it, an' neither will I." },
   },
   notice = {
+    { id = "n_xledger", cat = "origin", when = { origin = "gnome_thermaplugg_clerk" },
+      text = "Ye're the clerk from Thermaplugg's offices, are ye no'? There's gnomes in the camps who'd give a good deal tae ask what ye saw in those ledgers, an' one or two who'd rather ye forgot it." },
+    { id = "n_xdamrifle", cat = "origin", when = { origin = "dwarf_dam_rifleman" },
+      text = "That's a Loch Modan rifle on yer shoulder, an' ye carry it the way the dam guards do, barrel up an' ready. The Stonesplinter troggs gave ye plenty o' practice, I'd wager." },
     { id = "n_xbrewer", cat = "origin", when = { origin = "dwarf_brewer" },
       text = "Ye've a brewer's nose; I saw ye sniff the air when ye came in. Yer family'd be proud tae see how far ye've followed the barrels, I reckon, though they'd never say so." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
@@ -1213,6 +1258,7 @@ P:Pool {
   id = "citizen_refuge_pointe", role = "citizen", community = "refuge_pointe",
   greetings = {
     { id = "g_day", text = "Welcome to Refuge Pointe. It's tents and stubbornness, mostly, but we're still here, and that counts for something." },
+    { id = "g_xsellsword", when = { origin = "human_stromgarde_sellsword" }, text = "You fought for Stromgarde before the coffers ran dry, didn't you? I remember you on the wall here at the Pointe, and I can't fault anyone for going where the wages still came." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Keep close to the fires tonight. The Syndicate creep about the hills after dark, and the trolls are worse." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "You've been away {away}, and we're still here, tents and all. That's what stubbornness buys you." },
     { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and I'd heard nothing of you in all that time. The Highlands aren't kind to the lost, so welcome back." },
@@ -1220,6 +1266,8 @@ P:Pool {
     { id = "g_word_helped", when = { word = "helped" }, text = "Folk at the Pointe are saying you did us a real good turn. Out here that's worth more than gold, though we'd not say no to gold either." },
   },
   notice = {
+    { id = "n_xsyndicate", cat = "origin", when = { origin = "human_syndicate_runner" },
+      text = "You walk like someone who's carried Syndicate letters, keeping to the edge of the road with one eye on the trees. I'll not ask, but if you did, I hope you're well out of it, because they don't let go of anyone kindly." },
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "Stormwind, by your accent? Stromgarde's a shadow of what it was, but it was one of the Seven Kingdoms once, and we haven't forgotten it." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
@@ -1249,6 +1297,7 @@ P:Pool {
   id = "citizen_aerie_peak", role = "citizen", community = "aerie_peak",
   greetings = {
     { id = "g_day", text = "Welcome tae Aerie Peak, friend! Keep yer fingers away from the gryphons' beaks, for they're no' fussy about whose fingers." },
+    { id = "g_xwindshaman", when = { origin = "dwarf_wildhammer_shaman" }, text = "Here's the Bronzebeard who came tae listen tae the winds! The elders still laugh about yer first lesson, when ye fell asleep on the cliff, but they dinnae laugh about ye now." },
     { id = "g_xwildhammer", when = { origin = "dwarf_wildhammer_kin" }, text = "Bronzebeard an' Wildhammer both, are ye? Dinnae mind what either side o' the family says, for ye ride like one o' ours, an' up here that's all that counts." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The stars are out over the Hinterlands, an' the gryphons are settlin' in their roosts. It's the best hour o' the day, if ye ask me." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Ye've been gone {away}, an' the gryphons have been askin' after ye. Well, squawkin', but it's the same thing." },
@@ -1361,6 +1410,7 @@ P:Pool {
   id = "citizen_booty_bay", role = "citizen", community = "booty_bay",
   greetings = {
     { id = "g_day", text = "Welcome to Booty Bay, pal! Everything here's for sale and everything's got a price, and the price goes up the longer you stand there thinkin' about it, so I hope you brought your purse." },
+    { id = "g_xbombs", when = { origin = "gnome_goblin_bombmaker" }, text = "Hey, it's the gnome who built bombs for the Cartel! Half the docks still have scorch marks with your name on 'em, pal, so don't stand near the powder stores while I'm watchin'." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The taverns are just gettin' goin', chum, so mind your pockets, and mind the edge of the pier on your way home, 'cause the Cartel don't refund drownings." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Hey, look who's back after {away}! Prices went up while you were gone, pal, but that's just the market, and the market don't wait for nobody." },
     { id = "g_away_long", when = { away = 45 }, text = "It's been {away}, and I figured the sharks got you and wrote you off my books. Glad to be wrong, pal, 'cause dead customers don't buy nothin'." },
@@ -1410,6 +1460,8 @@ P:Pool {
     { id = "g_word_helped", when = { word = "helped" }, text = "They're sayin' you did the town a good turn, pal. The Cartel likes folks who keep the peace, 'cause peace is cheaper than repairs, and so do I." },
   },
   notice = {
+    { id = "n_xbombs", cat = "origin", when = { origin = "gnome_goblin_bombmaker" },
+      text = "Say, you're the gnome who did powder work for the Booty Bay crowd, ain't ya? Word travels on the Steamwheedle boats, and the word is one of your contracts went off early and somebody's still sore about it." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "A gnome, in a goblin town! Don't worry, buddy, nobody bites here, though the engineers do shout at each other a fair bit, and now and then a workshop blows up, and that's mostly friendly too." },
     { id = "n_hurt", cat = "gear", when = { durability = { max = 0.3 } },
@@ -1509,6 +1561,7 @@ P:Pool {
   id = "citizen_thorium_point", role = "citizen", community = "thorium_point",
   greetings = {
     { id = "g_day", text = "Welcome tae Thorium Point. Aye, I'm Dark Iron, but I'm the kind that left, so ye can take yer hand off yer hammer." },
+    { id = "g_xthrallspy", when = { origin = "dwarf_searing_gorge_spy" }, text = "I ken ye. Ye wore a thrall's collar in the Gorge for three years, an' I never once guessed ye were Ironforge's, which is either a compliment or an insult, an' I've no' decided which." },
     { id = "g_night", when = { timeOfDay = { "dusk", "night" } }, text = "The Gorge glows red at night, an' the smoke never stops risin'. Ye get used tae it, or ye leave, an' most folk leave." },
     { id = "g_away", when = { away = { min = 7, max = 44 } }, text = "Ye've been gone {away}, an' the Gorge is no prettier for it. Still, it's good tae see a face that came back." },
     { id = "g_away_long", when = { away = 45 }, text = "It's been {away}! I'd reckoned the Dark Irons had dragged ye under the mountain, an' I was ready tae drink tae yer memory." },

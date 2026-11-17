@@ -68,7 +68,18 @@ P:NPC {
         { text = "How do your shaman differ from mine?", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
         { text = "My people have welcomed yours in Mulgore.", next = "xmulgore", when = { race = "Tauren" } },
         { text = "I drank the sapta, Ventaari. The winds still don't answer me.", next = "xsapta", when = { origin = "skyborne_windshaper" } },
+        { text = "I wore the grey robes once, Ventaari. I walk with the Windshapers now.", next = "xorig_aketh", when = { origin = "skyborne_former_alaketh" } },
         { text = "Winds guide you, Ventaari.", next = "END" },
+      },
+    },
+    xorig_aketh = {
+      lines = {
+        { id = "xak_default", text = "I know what you wore, because your aura still carries a little of that chill, and I'll not pretend it doesn't trouble me. But the Windshapers took you in, and I'll honor that. Tell me truly, what made you turn from Lorthuna?" },
+      },
+      choices = {
+        { text = "I saw what her beacon would cost us all.", next = "BACK", fx = { affinity = 1 } },
+        { text = "She promised answers and only ever gave orders.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     state = {
@@ -285,7 +296,18 @@ P:NPC {
         { text = "How did your order find the Kirin Tor?", next = "keyhole", when = { faction = "Alliance" } },
         { text = "Does my fel magic interest you?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "My family's books have gaps. I'm going below to fill them.", next = "xbooks", when = { origin = "skyborne_high_order" } },
+        { text = "My spells come harder each year, Falorne. I want to know why.", next = "xorig_lumin", when = { origin = "skyborne_luminarian_scholar" } },
         { text = "Farewell, Falorne.", next = "END" },
+      },
+    },
+    xorig_lumin = {
+      lines = {
+        { id = "xlu_default", text = "So do mine, and so do every magister's, though most of us would sooner die than say it aloud. You've studied Luminarian, I hear, and he never lacked for power. Do you think his craft holds the answer, or are you only hoping it does?" },
+      },
+      choices = {
+        { text = "His craft holds the answer. I'm sure of it.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Hoping, but hope has to start somewhere.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Falorne.", next = "BACK" },
       },
     },
     danger = {

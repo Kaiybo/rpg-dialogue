@@ -1141,7 +1141,18 @@ P:NPC {
         { text = "Do you think the spirits and the Light can stand together?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I saw Whitemane fall. She raised the dead to fight beside her.", next = "xcl_whitemane", when = { cleared = "Scarlet Cathedral" } },
         { text = "What should a priest and a paladin learn from each other?", next = "xpt_laurena", when = { party = { class = "PALADIN" }, class = "PRIEST" } },
+        { text = "The Cathedral healed my hands, High Priestess, and I stayed to learn.", next = "xorig_cathpupil", when = { origin = "gnome_cathedral_pupil" } },
         { text = "Thank you, High Priestess.", next = "END" },
+      },
+    },
+    xorig_cathpupil = {
+      lines = {
+        { id = "xocathpupil_default", text = "I remember those hands, and I remember the first thing you asked when they'd healed, which was whether the brothers had any plans you could see. There are no plans, little one, but you've learned it well enough without them. Have you made your peace with that?" },
+      },
+      choices = {
+        { text = "Mostly. I still keep notes.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "No. Someday somebody will draw it properly.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     lessons = {

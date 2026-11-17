@@ -169,7 +169,18 @@ P:NPC {
         { text = "Is shamanism dangerous, Master Dumas?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Arugal is dead, Master Dumas, but his worgen still prowl Silverpine.", next = "xcl_sfk", when = { cleared = "Shadowfang Keep" } },
         { text = "What should I know about travelling with a mage?", next = "xpt_maginor", when = { party = { class = "MAGE" } } },
+        { text = "I was a student in Dalaran when it fell, Master Dumas.", next = "xorig_dalstray", when = { origin = "human_dalaran_stray" } },
         { text = "I'll be wary, Master Dumas.", next = "END" },
+      },
+    },
+    xorig_dalstray = {
+      lines = {
+        { id = "xodalstray_default", text = "Then you've seen what I warn everyone of, and better than any book of mine could tell it. The Kirin Tor will take their students back when the dome comes down, I'm told, though I've stopped asking them when. Until then, would you study here, under a master who at least answers his letters?" },
+      },
+      choices = {
+        { text = "I'd be glad to, Master Dumas.", next = "BACK", fx = { affinity = 2 } },
+        { text = "I'll find my own way, without masters.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     burn = {

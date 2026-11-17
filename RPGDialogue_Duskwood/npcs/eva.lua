@@ -133,7 +133,18 @@ P:NPC {
         { text = "What did the cards show about my sword, Madame?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What beast is in my path, Madame Eva?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What did your cards say about the Knight, madame?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I dug graves at Raven Hill, Madame. The dead talked back.", next = "xorig_gravedigger", when = { origin = "human_raven_hill_gravedigger" } },
         { text = "I'll go.", next = "END" },
+      },
+    },
+    xorig_gravedigger = {
+      lines = {
+        { id = "xogravedigger_default", text = "Of course they did, and you answered, which is where the trouble always starts. The cards turned up the Gravedigger for you before you'd opened your mouth, and beside it the Bargain, upright. Tell me, child, have the voices kept their side of it?" },
+      },
+      choices = {
+        { text = "So far they have, Madame.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "They're servants now, not voices, and they know it.", next = "BACK", fx = { trait = { cruel = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

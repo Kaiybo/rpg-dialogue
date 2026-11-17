@@ -140,7 +140,18 @@ P:NPC {
         { text = "Does the League make anything of a dwarf who hears the stone?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I went down into Uldaman, Ryedol, to the very bottom.", next = "xcl_ulda", when = { cleared = "Uldaman", faction = "Alliance" } },
         { text = "Does the League need help at the dig, Prospector?", next = "xpt_gnome", when = { party = { race = "Gnome" }, faction = "Alliance" } },
+        { text = "The League sent me into Uldaman as its priest, Prospector.", next = "xorig_chaplain", when = { origin = "dwarf_league_chaplain" } },
         { text = "I'll help.", next = "END", fx = { affinity = 2 } },
+      },
+    },
+    xorig_chaplain = {
+      lines = {
+        { id = "xochaplain_default", text = "Did they, now? Then ye've seen those halls, an' the faces carved on the walls that are no' dwarven an' no' anythin' else I can name. Hammertoe used tae say ye could feel the Light down there, older than Ironforge itself. Do ye think he was right?" },
+      },
+      choices = {
+        { text = "I think so. The Light was there before us.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I think the stones only echo our own prayers.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     uldaman = {

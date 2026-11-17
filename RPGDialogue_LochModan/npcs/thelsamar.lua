@@ -1383,7 +1383,18 @@ P:NPC {
         { text = "What would happen to the valley if the dam ever failed?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "If you caught a Dark Iron at the dam, what would you do?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is the water restless behind the Stonewrought Dam, Engineer?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "My uncle taught me the rifle on your dam, Engineer.", next = "xorig_damrifle", when = { origin = "dwarf_dam_rifleman" } },
         { text = "I'll look into it.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    xorig_damrifle = {
+      lines = {
+        { id = "xodamrifle_default", text = "Did he, now! I've had a good few riflemen on my walls, an' the troggs in Stonesplinter know every one o' them by the sound o' their shot. If ye've come home, there's always a post on the dam for a steady eye, so will ye take a turn on the wall while ye're here?" },
+      },
+      choices = {
+        { text = "Aye, a turn or two, Engineer.", next = "BACK", fx = { affinity = 2, standing = { thelsamar = 1 } } },
+        { text = "The trail's my home now, but I'll come by.", next = "BACK", fx = { trait = { independent = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     old = {

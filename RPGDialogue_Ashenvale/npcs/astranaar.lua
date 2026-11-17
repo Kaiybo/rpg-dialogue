@@ -182,7 +182,19 @@ P:NPC {
         { text = "What would you have a paladin do in Ashenvale, Raene?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do the Warsong shamans really bless the logging, Raene?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Blackfathom Deeps is quiet now, Raene.", next = "xcl_bfd", when = { cleared = "Blackfathom Deeps", faction = "Alliance" } },
+        { text = "I pray for the Warsong wounded too, Raene. Does that trouble you?", next = "xorig_well", when = { origin = "nightelf_astranaar_moonwell" } },
         { text = "I'll help defend the forest.", next = "END", fx = { affinity = 2, standing = { astranaar = 1 } } },
+      },
+    },
+    xorig_well = {
+      big = true,
+      lines = {
+        { id = "xwe_default", text = "It does, and I'll not pretend otherwise, because I have buried Sentinels those same orcs walked away from. But you kept our moonwells clean when nobody else would stand by them, and you have mended more of my scouts than any priestess in Darnassus. Why pray for them at all?" },
+      },
+      choices = {
+        { text = "Elune's mercy isn't mine to ration, Raene.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "You're right. My prayers belong to our own first.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     pets = {

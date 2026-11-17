@@ -178,12 +178,24 @@ P:NPC {
         { text = "What kills your seedlings, Eridan?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Have you seen any of Felwood's beasts recover, Eridan?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Do you think Felwood can be healed, Eridan?", next = "xpt_eridan", when = { party = { class = "DRUID" } } },
+        { text = "I came for the satyrs. They were our kin once.", next = "xorig_satyr", when = { origin = "nightelf_satyr_hunter" } },
         { text = "I'll help heal it.", next = "END", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Could a priest's prayers help your seedlings take?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do you really believe Felwood can heal, Eridan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What would you have me do to the Jadefire satyrs, Eridan?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Why would the Sunken Temple matter to the Emerald Circle?", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "I'm here for the satyrs, not for the trees.", next = "END", fx = { align = { light = -1 } } },
+      },
+    },
+    xorig_satyr = {
+      big = true,
+      lines = {
+        { id = "xsa_default", text = "They were, and that is what makes it so hard, because every Jadefire you bring down was somebody's ancestor long before it was a beast. I won't ask you to stop, for the forest needs them thinned, but do you ever wonder whether any of them remember who they were?" },
+      },
+      choices = {
+        { text = "They chose the Legion. They're owed no pity.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I hope some part of them is glad to be freed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     what = {
