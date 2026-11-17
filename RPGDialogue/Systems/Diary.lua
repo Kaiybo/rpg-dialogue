@@ -53,6 +53,8 @@ function Diary.Deed(id)
     tpl = { first = L["DIARY_LEVEL_" .. arg] or L.DIARY_LEVEL:format(arg), third = L.DIARY_LEVEL_3:format(arg) }
   elseif kind == "dungeon" then
     tpl = { first = L.DIARY_DUNGEON:format(arg), third = L.DIARY_DUNGEON_3:format(arg) }
+  elseif kind == "cleared" then
+    tpl = { first = L.DIARY_CLEARED:format(arg), third = L.DIARY_CLEARED_3:format(arg) }
   end
   if tpl then ns.Effects.Journal(tpl, ns.Context.New({ spoof = {} }), { now = C.Now() }) end
 end

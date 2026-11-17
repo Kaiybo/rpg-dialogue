@@ -240,6 +240,36 @@ def("killed", 40, "hinge", nil, function(ctx, v)
   return inRange(n, range), "killed " .. show(v.name or "anything") .. ": " .. n
 end)
 
+-- Dungeons whose last boss you or your party have killed (World.DUNGEON_BOSSES; 0.58.0).
+-- cleared = "Uldaman" | { "Uldaman", "Zul'Farrak" } (any of) | { name = "Uldaman", not = true }
+-- Spoof with cleared = "Uldaman" (or a list), or true for every place.
+function Cond.Cleared(place, spoofed)
+  if spoofed == true then return true end
+  if spoofed ~= nil then
+    for _, p in ipairs(U.AsList(spoofed)) do if p == place then return true end end
+  end
+  if ns.char.deeds and ns.char.deeds["cleared:" .. place] then return true end
+  local bosses = ns.World.DUNGEON_BOSSES[place]
+  local byName = ns.char.kills and ns.char.kills.byName or {}
+  for _, b in ipairs(bosses or {}) do
+    if (byName[b] or 0) > 0 then return true end
+  end
+  return false
+end
+def("cleared", 40, "hinge", nil, function(ctx, v)
+  local spoofed = ctx.spoofed and ctx.spoofed.cleared
+  local negate = false
+  if type(v) == "table" and v.name then negate = v["not"] == true; v = v.name end
+  for _, place in ipairs(U.AsList(v)) do
+    if Cond.Cleared(place, spoofed) then
+      if negate then return false, "cleared " .. place end
+      return true, "cleared " .. place
+    end
+  end
+  if negate then return true, "not cleared " .. show(v) end
+  return false, "not cleared " .. show(v)
+end)
+
 def("deaths", 40, "hinge", "death", function(ctx, v)
   local n = spoofOr(ctx, "deaths", ns.char.deathCount or 0)
   return inRange(n, v), "deaths " .. n .. ", wanted " .. show(v)

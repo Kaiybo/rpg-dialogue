@@ -85,6 +85,39 @@ W.SPELLS = {
   walkOnAir = nil,
 }
 
+-- The last boss (or bosses) of each dungeon and raid, by the name the combat log gives.
+-- Killing any one counts the place as cleared (`cleared` condition, deed "cleared:<place>").
+-- Exact names only: "Onyxia" must not match an Onyxian whelp.
+W.DUNGEON_BOSSES = {
+  ["Ragefire Chasm"] = { "Taragaman the Hungerer", "Bazzalan" },
+  ["Wailing Caverns"] = { "Mutanus the Devourer" },
+  ["The Deadmines"] = { "Edwin VanCleef" },
+  ["Shadowfang Keep"] = { "Archmage Arugal" },
+  ["Blackfathom Deeps"] = { "Aku'mai" },
+  ["The Stockade"] = { "Bazil Thredd" },
+  ["Gnomeregan"] = { "Mekgineer Thermaplugg" },
+  ["Razorfen Kraul"] = { "Charlga Razorflank" },
+  ["Scarlet Monastery"] = { "Bloodmage Thalnos", "Arcanist Doan", "Herod", "High Inquisitor Whitemane" },
+  ["Scarlet Cathedral"] = { "High Inquisitor Whitemane" },
+  ["Razorfen Downs"] = { "Amnennar the Coldbringer" },
+  ["Uldaman"] = { "Archaedas" },
+  ["Zul'Farrak"] = { "Chief Ukorz Sandscalp" },
+  ["Maraudon"] = { "Princess Theradras" },
+  ["The Temple of Atal'Hakkar"] = { "Shade of Eranikus", "Avatar of Hakkar" },
+  ["Blackrock Depths"] = { "Emperor Dagran Thaurissan" },
+  ["Lower Blackrock Spire"] = { "Overlord Wyrmthalak" },
+  ["Upper Blackrock Spire"] = { "General Drakkisath" },
+  ["Dire Maul"] = { "King Gordok", "Prince Tortheldrin", "Alzzin the Wildshaper" },
+  ["Scholomance"] = { "Darkmaster Gandling" },
+  ["Stratholme"] = { "Baron Rivendare", "Balnazzar" },
+  ["Onyxia's Lair"] = { "Onyxia" },
+  ["Molten Core"] = { "Ragnaros" },
+  ["Blackwing Lair"] = { "Nefarian" },
+  ["Zul'Gurub"] = { "Hakkar" },
+  ["Ruins of Ahn'Qiraj"] = { "Ossirian the Unscarred" },
+  ["Ahn'Qiraj"] = { "C'Thun" },
+}
+
 -- Fallback holiday dates (month, day ranges), used only when the calendar can't tell us.
 -- Original WoW's fixed-date holidays. Moving holidays are left to the calendar API.
 W.HOLIDAYS = {
