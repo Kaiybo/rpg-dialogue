@@ -693,13 +693,58 @@ ctxEq("faction", 5)
 def("timeOfDay", 5, "hinge", nil, function(ctx, v)
   return matches(ctx.tod, v), "time of day: " .. tostring(ctx.tod)
 end)
-def("party", 5, "hinge", nil, function(ctx, v)
-  for _, m in ipairs(ctx.party or {}) do
-    if (not v.race or matches(m.race, v.race)) and (not v.class or matches(m.class, v.class)) then
-      return true, "party member matches"
-    end
+-- Who you travel with (0.59.0 widened it and raised its weight from 5 to 25).
+-- party = true                         : anyone in your party
+-- party = { race =, class =, gender = } : a member matching all given (each may be a list)
+-- party = { kin = true }               : a member of your own race; { sameClass = true }: your class
+-- party = { size = 4 } / { size = { min = 2, max = 3 } } : how many others (size = 0 is alone)
+-- party = { ..., ["not"] = true }      : no such member (or not that size)
+-- Spoof with party = { { race = "Dwarf", class = "WARRIOR", name = "Brann" }, ... }.
+local function memberMatches(ctx, m, v)
+  if v.race and not matches(m.race, v.race) then return false end
+  if v.class and not matches(m.class, v.class) then return false end
+  if v.gender and m.gender ~= v.gender then return false end
+  if v.kin and m.race ~= ctx.race then return false end
+  if v.sameClass and m.class ~= ctx.class then return false end
+  return true
+end
+
+local function partyList(ctx)
+  local s = ctx.spoofed and ctx.spoofed.party
+  if type(s) == "table" then return s end
+  return ctx.party or {}
+end
+
+-- The first member a `party` condition picks out (for the {companion} token), or nil.
+function Cond.PartyMatch(ctx, v)
+  local list = partyList(ctx)
+  if type(v) ~= "table" then return list[1] end
+  for _, m in ipairs(list) do
+    if memberMatches(ctx, m, v) then return m end
   end
-  return false, "no matching party member"
+  return list[1]
+end
+
+def("party", 25, "hinge", nil, function(ctx, v)
+  local list = partyList(ctx)
+  if v == true then return #list > 0, "party of " .. #list end
+  if v == false then return #list == 0, "party of " .. #list end
+  if type(v) ~= "table" then return false, "bad party spec" end
+  local negate = v["not"] == true
+  local ok = true
+  if v.size ~= nil and not inRange(#list, type(v.size) == "number" and { min = v.size, max = v.size } or v.size) then
+    ok = false
+  end
+  if ok and (v.race or v.class or v.gender or v.kin or v.sameClass) then
+    ok = false
+    for _, m in ipairs(list) do
+      if memberMatches(ctx, m, v) then ok = true; break end
+    end
+  elseif ok and v.size == nil then
+    ok = #list > 0
+  end
+  if negate then ok = not ok end
+  return ok, (ok and "party matches " or "party doesn't match ") .. show(v) .. " (" .. #list .. " others)"
 end)
 
 ---------------------------------------------------------------------------

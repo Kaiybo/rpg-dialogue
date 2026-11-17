@@ -1,5 +1,6 @@
 -- Text tokens. They decorate a line; they never carry it.
 --   {name} {npc} {race} {class} {g:lad|lass} {pet} {zone} {subzone} {town} {title} {home} {rank} {guild}
+--   {companion} (0.59.0): the party member the line's `party` condition picked out, else the first one.
 local _, ns = ...
 
 local Tokens = {}
@@ -57,8 +58,18 @@ local simple = {
   end,
 }
 
-function Tokens.Render(text, ctx, env)
+local function companion(ctx, when)
+  local spec = type(when) == "table" and when.party or nil
+  local m = ns.Conditions and ns.Conditions.PartyMatch and ns.Conditions.PartyMatch(ctx, spec)
+  return (m and m.name) or "your friend"
+end
+
+-- `when` (optional) is the line's condition table, used by {companion}.
+function Tokens.Render(text, ctx, env, when)
   if type(text) ~= "string" then return "" end
+  if text:find("{companion}", 1, true) then
+    text = text:gsub("{companion}", (companion(ctx, when):gsub("%%", "%%%%")))
+  end
   text = text:gsub("{g:([^|}]*)|([^}]*)}", function(male, female)
     return ctx.gender == "female" and female or male
   end)
@@ -71,4 +82,4 @@ function Tokens.Render(text, ctx, env)
 end
 
 Tokens.KNOWN = { "name", "npc", "race", "class", "pet", "zone", "subzone", "town", "title", "home", "g",
-  "deaths", "deathplace", "killer", "rank", "guild" }
+  "deaths", "deathplace", "killer", "rank", "guild", "companion" }
