@@ -1,5 +1,5 @@
 -- Text tokens. They decorate a line; they never carry it.
---   {name} {npc} {race} {class} {g:lad|lass} {pet} {zone} {subzone} {town} {title} {home}
+--   {name} {npc} {race} {class} {g:lad|lass} {pet} {zone} {subzone} {town} {title} {home} {rank} {guild}
 local _, ns = ...
 
 local Tokens = {}
@@ -49,6 +49,8 @@ local simple = {
     local d = ns.char and ns.char.deaths[#ns.char.deaths]
     return d and ((d.subzone ~= "" and d.subzone) or d.zone) or "somewhere"
   end,
+  rank = function(ctx) return ctx.pvpRankName or "soldier" end,
+  guild = function(ctx) return ctx.guild or "your company" end,
   killer = function()
     local d = ns.char and ns.char.deaths[#ns.char.deaths]
     return (d and d.killer and d.killer.name) or "something"
@@ -69,4 +71,4 @@ function Tokens.Render(text, ctx, env)
 end
 
 Tokens.KNOWN = { "name", "npc", "race", "class", "pet", "zone", "subzone", "town", "title", "home", "g",
-  "deaths", "deathplace", "killer" }
+  "deaths", "deathplace", "killer", "rank", "guild" }

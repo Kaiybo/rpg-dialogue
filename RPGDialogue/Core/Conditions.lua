@@ -212,6 +212,34 @@ def("deed", 40, "hinge", nil, function(ctx, v)
   return ns.char.deeds[v] ~= nil, "deed " .. tostring(v)
 end)
 
+-- Creatures you or your party have killed, tallied by name (Trackers.Kill).
+-- killed = { name = "Defias", min = 20 } : names containing any of the words (case-insensitive)
+-- killed = { min = 1000 }               : every kill
+-- Spoof with killed = 50 (any matching tally reads as 50).
+def("killed", 40, "hinge", nil, function(ctx, v)
+  if type(v) ~= "table" then v = { min = tonumber(v) or 1 } end
+  local spoofed = ctx.spoofed and ctx.spoofed.killed
+  local kills = ns.char.kills or { total = 0, byName = {} }
+  local n
+  if type(spoofed) == "number" then
+    n = spoofed
+  elseif not v.name then
+    n = kills.total or 0
+  else
+    n = 0
+    local words = {}
+    for _, w in ipairs(U.AsList(v.name)) do words[#words + 1] = tostring(w):lower() end
+    for name, count in pairs(kills.byName or {}) do
+      local lower = name:lower()
+      for i = 1, #words do
+        if lower:find(words[i], 1, true) then n = n + count; break end
+      end
+    end
+  end
+  local range = { min = v.min or 1, max = v.max }
+  return inRange(n, range), "killed " .. show(v.name or "anything") .. ": " .. n
+end)
+
 def("deaths", 40, "hinge", "death", function(ctx, v)
   local n = spoofOr(ctx, "deaths", ns.char.deathCount or 0)
   return inRange(n, v), "deaths " .. n .. ", wanted " .. show(v)
@@ -284,6 +312,15 @@ def("title", 30, "hinge", "alignment", function(ctx, v)
   local t = ns.Effects and ns.Effects.Title() or nil
   t = spoofOr(ctx, "alignTitle", t)
   return matches(t, v), "title " .. tostring(t)
+end)
+
+-- Honor rank, 1 (Private/Scout) to 14 (Grand Marshal/High Warlord); 0 is none.
+-- pvpRank = 6 (minimum) | { min = 1, max = 5 } | false (no rank).
+def("pvpRank", 30, "hinge", nil, function(ctx, v)
+  local r = ctx.pvpRank or 0
+  if v == false then return r == 0, "honor rank " .. r end
+  if v == true then return r > 0, "honor rank " .. r end
+  return inRange(r, v), "honor rank " .. r
 end)
 
 -- Passes when v is one of the character's dominant traits (top two, count >= 3).
@@ -516,6 +553,54 @@ def("reputation", 15, "hinge", nil, function(ctx, v)
   if not s then return false, "reputation with " .. tostring(v.faction) .. ": unknown" end
   local lo, hi = S[v.min] or tonumber(v.min), S[v.max] or tonumber(v.max)
   return (not lo or s >= lo) and (not hi or s <= hi), "reputation with " .. tostring(v.faction) .. ": " .. s
+end)
+
+-- PvP. pvpFlagged true/false; honorKills / dishonorKills { min, max } or a number (minimum).
+ctxBool("pvpFlagged", 15)
+def("honorKills", 15, "hinge", nil, function(ctx, v)
+  local n = ctx.honorKills
+  if type(n) ~= "number" then return false, "no honor record" end
+  return inRange(n, v), "honorable kills " .. n
+end)
+def("dishonorKills", 15, "hinge", nil, function(ctx, v)
+  local n = ctx.dishonorKills
+  if type(n) ~= "number" then return false, "no honor record" end
+  return inRange(n, v), "dishonorable kills " .. n
+end)
+
+-- guild = true (in any guild) | false (in none) | "Name" or a list of names.
+-- guildRank = "Officer" or a list (the rank's name as the guild set it).
+def("guild", 15, "hinge", nil, function(ctx, v)
+  local g = ctx.guild
+  if v == true then return g ~= nil and g ~= false, "guild: " .. tostring(g) end
+  if v == false then return not g, "guild: " .. tostring(g) end
+  return g and matches(g, v) or false, "guild: " .. tostring(g)
+end)
+def("guildRank", 15, "hinge", nil, function(ctx, v)
+  local r = ctx.guildRank
+  return r and matches(r, v) or false, "guild rank: " .. tostring(r)
+end)
+
+-- Items in your bags (or worn): carrying = itemID | { ids } | { id = itemID, min = 5 }.
+-- Spoof with carrying = { [itemID] = count }.
+def("carrying", 15, "hinge", nil, function(ctx, v)
+  local sp = ctx.spoofed and ctx.spoofed.carrying
+  local cache = rawget(ctx, "_items")
+  if not cache then cache = {}; rawset(ctx, "_items", cache) end
+  local function count(id)
+    if type(sp) == "table" then return sp[id] or 0 end
+    if cache[id] == nil then cache[id] = tonumber(ns.Compat.ItemCount(id)) or 0 end
+    return cache[id]
+  end
+  if type(v) == "table" and v.id then
+    local n = 0
+    for _, id in ipairs(U.AsList(v.id)) do n = n + count(id) end
+    return inRange(n, { min = v.min or 1, max = v.max }), "carrying " .. show(v.id) .. " x" .. n
+  end
+  for _, id in ipairs(U.AsList(v)) do
+    if count(id) > 0 then return true, "carrying " .. tostring(id) end
+  end
+  return false, "not carrying " .. show(v)
 end)
 
 ---------------------------------------------------------------------------

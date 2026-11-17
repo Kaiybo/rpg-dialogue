@@ -113,12 +113,37 @@ ns.On("PLAYER_DEAD", function()
   ns.Fire("PLAYER_DIED", entry)
 end)
 
--- Kills by you or your party (Midnight added PARTY_KILL; missing on some clients).
-ns.On("PARTY_KILL", function(_, _, targetGUID)
-  if C.IsSecret(targetGUID) then return end
-  local id = C.NPCID(targetGUID)
-  if id then T.Deed("kill:" .. id) end
-end)
+-- Kills by you or your party: a deed per creature ID, plus a tally by creature name
+-- (char.kills.byName) for the `killed` condition. Creatures only, never players.
+function T.Kill(guid, name)
+  if C.IsSecret(guid) then return end
+  local id = C.NPCID(guid)
+  if not id then return end
+  T.Deed("kill:" .. id)
+  local k = char().kills
+  k.total = (k.total or 0) + 1
+  if type(name) == "string" and name ~= "" and not C.IsSecret(name) then
+    k.byName[name] = (k.byName[name] or 0) + 1
+  end
+end
+
+-- Classic clients report kills through the combat log (subevent PARTY_KILL); Midnight
+-- closed the combat log and added a PARTY_KILL event instead (no name).
+local getCombatInfo = _G.CombatLogGetCurrentEventInfo
+local function onCombatLog(_, ...)
+  local sub, destGUID, destName
+  if getCombatInfo then
+    local _, s, _, _, _, _, _, dg, dn = getCombatInfo()
+    sub, destGUID, destName = s, dg, dn
+  else
+    local _, s, _, _, _, _, _, dg, dn = ...
+    sub, destGUID, destName = s, dg, dn
+  end
+  if sub == "PARTY_KILL" then T.Kill(destGUID, destName) end
+end
+if not ns.On("COMBAT_LOG_EVENT_UNFILTERED", onCombatLog) then
+  ns.On("PARTY_KILL", function(_, _, targetGUID) T.Kill(targetGUID) end)
+end
 
 ---------------------------------------------------------------------------
 -- Levels, zones, dungeons

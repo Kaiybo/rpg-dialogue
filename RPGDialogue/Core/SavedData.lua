@@ -77,6 +77,7 @@ SD.CHAR_DEFAULTS = {
   flags = {},
   claims = { player = {}, heard = {}, exposed = {} },
   deeds = {},
+  kills = { total = 0, byName = {} },
   threads = {},
   towns = {},
   origin = nil,

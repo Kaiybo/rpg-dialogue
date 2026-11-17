@@ -33,6 +33,11 @@ B.guildRank = function() local _, rank = C.Guild(); return rank end
 B.money = function() return C.Money() end
 B.title = function() return C.TitleText() end
 B.hardcore = function() return C.IsHardcore() end
+B.pvpRank = function() return (C.PvPRank()) end
+B.pvpRankName = function() local _, n = C.PvPRank(); return n end
+B.pvpFlagged = function() return C.PvPFlagged() end
+B.honorKills = function() local hk = C.PvPLifetime(); return hk end
+B.dishonorKills = function() local _, dk = C.PvPLifetime(); return dk end
 
 B.band = function(ctx)
   local lvl = ctx.level
@@ -213,6 +218,7 @@ local mt = {
 Ctx.DUMP_ORDER = {
   "name", "race", "class", "gender", "level", "band", "faction", "guild", "guildRank", "title",
   "money", "durability", "nearlyNaked", "tabard", "hardcore",
+  "pvpRank", "pvpRankName", "pvpFlagged", "honorKills", "dishonorKills",
   "npcName", "npcID", "npcLevel", "npcElite", "npcReaction", "npcSubtitle", "power", "levelDiff",
   "zone", "subzone", "mapID", "capital", "resting", "atInn", "inInstance", "hour", "tod", "holiday",
   "form", "mounted", "stealthed", "ghost", "pet", "debuffTypes", "resSick", "camping", "drunk", "outOfPlace",

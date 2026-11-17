@@ -257,14 +257,14 @@ Each key has a **weight** (its contribution to the score) and a **kind**. *Hinge
 | Quest, time-sensitive | `questActive` Q · `questObjective` {Q, left={min,max}} · `questReady` Q · `questRecent` {Q, days=N} | 60 | hinge |
 | Quest, long-tail | `questBefore` Q (45) · `questDone` Q (40) · `questLater` {Q, days=N} (40) | 40–45 | hinge |
 | Heard & threads | `heardLine` "npc.line" · `thread` {id, state=…/beat=…} · `heardClaim` id · `claimExposed` id · `claim` id (player's own) | 60 | hinge |
-| Deeds & deaths | `deed` id · `deaths` {min,max} · `deathCause` "falling"/"drowning"/… | 40 | hinge |
+| Deeds & deaths | `deed` id · `deaths` {min,max} · `deathCause` "falling"/"drowning"/… · `killed` {name (word or list, in the creature's name, any case), min, max} (kills by you or your party, `char.kills`; no name = every kill; 0.54.0) | 40 | hinge |
 | Origin | `origin` id | 35 | hinge |
 | Who you are | `race` · `class` (`race`+`class` together score 50) | 25 each | hinge |
-| Character | `alignment` {axis, min, max} · `title` · `trait` · `opinion` {topic, stance} | 30 | hinge |
+| Character | `alignment` {axis, min, max} · `title` · `trait` · `opinion` {topic, stance} · `pvpRank` N (minimum) / {min,max} / true / false (honor rank 1-14, Private/Scout to Grand Marshal/High Warlord; 0.54.0) | 30 | hinge |
 | Dark | `taint` {min} · `insanity` {min} | 40 | hinge |
 | Knowledge | `topicKnown` · `bookRead` · `homeInn` | 30 | hinge |
 | Relationship | `metBefore` bool · `timesTalked` {min,max} · `daysSince` {min,max} · `affinity` {min,max} · `disposition` {min,max} (0-100, §3.12) · `townStanding` {town, tier/min} | 20 | hinge |
-| State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `reputation` {faction,min,max} (faction names in `World.FACTION_IDS`, standings hated..exalted) · `profession` {name,min} | 15 | hinge |
+| State | `form` · `mounted` · `stealthed` · `ghost` · `pet` {family,type,named} · `debuffType` · `aura` spellID · `resSick` · `drunk` · `camping` · `durability` {max} · `nearlyNaked` · `tabard` · `equipped` · `outOfPlace` · `reputation` {faction,min,max} (faction names in `World.FACTION_IDS`, standings hated..exalted) · `profession` {name,min} · `pvpFlagged` · `honorKills` / `dishonorKills` {min,max} · `guild` true/false/name(s) · `guildRank` name(s) · `carrying` itemID / {ids} / {id, min} (bags and worn; 0.54.0) | 15 | hinge |
 | World | `zone` · `subzone` · `holiday` · `power` (relative bucket) | 15 | hinge |
 | Level | `band` · `minLevel`/`maxLevel` · `capital` · `resting` · `atInn` | 10 | hinge |
 | Small touches | `gender` · `timeOfDay` · `faction` · `party` {race,class} | 5 | hinge |
@@ -302,7 +302,7 @@ Pacing systems are **inferred** from condition keys: `alignment`/`title` → ali
 
 ### 2.10 Tokens
 
-`{name}` (with Total RP 3 loaded and its setting on: your roleplay title and first name, e.g. "Sir Aldric"), `{npc}`, `{race}`, `{class}`, `{g:lad|lass}`, `{pet}`, `{zone}`, `{subzone}`, `{town}`, `{title}` (your RPG Dialogue alignment title), `{home}`, and for spirit healers `{deaths}`, `{deathplace}`, `{killer}`.
+`{name}` (with Total RP 3 loaded and its setting on: your roleplay title and first name, e.g. "Sir Aldric"), `{npc}`, `{race}`, `{class}`, `{g:lad|lass}`, `{pet}`, `{zone}`, `{subzone}`, `{town}`, `{title}` (your RPG Dialogue alignment title), `{home}`, `{rank}` (honor rank name, "soldier" without one), `{guild}` ("your company" without one), and for spirit healers `{deaths}`, `{deathplace}`, `{killer}`.
 
 **Tokens decorate. They never carry a line.** The voice checker flags lines built around `{race}` or `{class}`.
 
