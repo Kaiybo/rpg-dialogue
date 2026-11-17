@@ -698,7 +698,8 @@ end)
 -- party = { race =, class =, gender = } : a member matching all given (each may be a list)
 -- party = { kin = true }               : a member of your own race; { sameClass = true }: your class
 -- party = { size = 4 } / { size = { min = 2, max = 3 } } : how many others (size = 0 is alone)
--- party = { ..., ["not"] = true }      : no such member (or not that size)
+-- party = { class = ..., ["not"] = true } : in a party, with no such member (size still applies)
+-- party = { size = ..., ["not"] = true }  : not that size
 -- Spoof with party = { { race = "Dwarf", class = "WARRIOR", name = "Brann" }, ... }.
 local function memberMatches(ctx, m, v)
   if v.race and not matches(m.race, v.race) then return false end
@@ -731,19 +732,26 @@ def("party", 25, "hinge", nil, function(ctx, v)
   if v == false then return #list == 0, "party of " .. #list end
   if type(v) ~= "table" then return false, "bad party spec" end
   local negate = v["not"] == true
-  local ok = true
-  if v.size ~= nil and not inRange(#list, type(v.size) == "number" and { min = v.size, max = v.size } or v.size) then
-    ok = false
+  local sizeOk = true
+  if v.size ~= nil then
+    sizeOk = inRange(#list, type(v.size) == "number" and { min = v.size, max = v.size } or v.size)
   end
-  if ok and (v.race or v.class or v.gender or v.kin or v.sameClass) then
-    ok = false
+  local ok
+  if v.race or v.class or v.gender or v.kin or v.sameClass then
+    -- `not` flips the member test only: "a party, but nobody like that in it".
+    local found = false
     for _, m in ipairs(list) do
-      if memberMatches(ctx, m, v) then ok = true; break end
+      if memberMatches(ctx, m, v) then found = true; break end
     end
-  elseif ok and v.size == nil then
+    if negate then found = not found and #list > 0 end
+    ok = sizeOk and found
+  elseif v.size ~= nil then
+    ok = sizeOk
+    if negate then ok = not ok end
+  else
     ok = #list > 0
+    if negate then ok = not ok end
   end
-  if negate then ok = not ok end
   return ok, (ok and "party matches " or "party doesn't match ") .. show(v) .. " (" .. #list .. " others)"
 end)
 
