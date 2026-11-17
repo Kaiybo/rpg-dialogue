@@ -2,6 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.80.0 (2026-11-17)
+Betty Quin has something to say. New file: restart the game fully (a /reload won't load it).
+
+- **Betty Quin** (Stormwind 1.27.0), who teaches enchanting upstairs at Cordell's in the Mage Quarter, now has a full conversation: what enchanting is and why you have to break things to make things, how a cooper's daughter from Goldshire ended up working for Lucan and Jessara Cordell, the jar from Dalaran that nobody should open, life in a Mage Quarter that the whole city now leans on, and her lesson for campers (Camping 101: Enchanting). She notices fellow enchanters, mages, paladins, young humans and anyone who grew up on the Mage Quarter's streets.
+
 ## 0.79.0 (2026-11-17)
 A tidier settings page. No new files: a /reload is enough.
 
