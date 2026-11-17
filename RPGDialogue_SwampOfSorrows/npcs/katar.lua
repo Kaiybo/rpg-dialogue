@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Be silent a moment. Even over the sea's roar, you can hear the fish men gurgling." },
-    { id = "g_back", when = { metBefore = true }, text = "You're back. How many did you kill?" },
+    { id = "g_back", when = { metBefore = true }, text = "You're back. How many did you kill, and did they die screaming?" },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}. The fish men haven't, so neither have I." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The tide's in, and they come up with it at night. Keep your weapon close." },
   },
@@ -32,7 +32,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Katar, and I lead the patrols along this beach. I've no love for the sea, nor for any creature I've seen come from it, and if it were in my power I'd slay the fish men by the hundreds." },
+          text = "Katar, and I lead the patrols along this beach for the Horde. I've no love for the sea, nor for any creature I've seen come from it, and if it were in my power I'd slay the fish men by the hundreds, as my clan once slew its enemies." },
         { id = "h_threat_active", tags = { "news" }, when = { questActive = TODO_QUEST("Threat From the Sea") },
           text = "How many can you slay, {class}? The marsh murlocs, their inkspewers and their flesheaters, and I'll take my pleasure in hearing them die." },
         { id = "h_threat_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Threat From the Sea"), days = 3 } },
@@ -45,7 +45,7 @@ P:NPC {
           text = "A tauren, from the dry plains. You've never had the sea try to swallow you, so you may not understand me, but you can still kill what comes out of it." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak low." },
+        { id = "h_again", text = "What else? Speak low, the way an orc speaks on the hunt." },
         { id = "h_again2", text = "Go on. I'm listening to you and the sea both." },
       },
       choices = {
@@ -153,6 +153,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've lived by this beach long enough to hate it, and the sand's in every seam of my armour. Ask me something else." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the tide, for it's always coming back." } },
-    _none = { { id = "tp_none", text = "I don't know. Ask me about the fish men instead." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask me about the fish men instead, because that's where my blood runs hot." } },
   },
 }

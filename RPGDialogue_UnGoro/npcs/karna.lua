@@ -15,10 +15,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Oh, hello! Isn't this crater wonderful? Mind the tracks, something big came through last night." },
+    { id = "g_default", text = "Oh, hello, {g:lad|lass}! Isn't this crater wonderful? Mind the tracks, though, because something big came through last night, and it wasnae a mountain goat." },
     { id = "g_chase", when = { questActive = TODO_QUEST("Chasing A-Me 01") }, text = "Any sign of her? Fungal Rock, just east of here, and please be gentle with her." },
     { id = "g_done", when = { questDone = TODO_QUEST("Chasing A-Me 01") }, text = "A-Me's resting now, and so am I, which is a first. Thank you again; I mean it." },
-    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}! I've redesigned A-Me's shoulder joint twice in that time, and I'm still not happy with it." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}! I've redesigned A-Me's shoulder joint twice in that time, and by my forge I'm still not happy with it." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Everyone at the Refuge seems to like you, and they're a hard crowd to please. Well, Spraggle isn't, but the rest are." },
   },
 
@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Karna Remtravel, engineer with the Marshal Expedition! Have you seen all the wonderful things in Un'Goro? Not as wonderful as what I can build, of course, but for being all natural, it's not too bad." },
+        { id = "h_default", key = true, text = "Karna Remtravel, engineer with the Marshal Expedition, and a Remtravel of Ironforge, aye! Have you seen all the wonderful things in Un'Goro? Not as wonderful as what I can build, of course, but for being all natural, it's not too bad." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Chasing A-Me 01") },
           text = "Something's happened to one of my greatest inventions. You've seen mechanical squirrels? Well, I built a mechanical ape, to get close to the apes of Un'Goro, and I call her A-Me 01." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Chasing A-Me 01") },
@@ -44,7 +44,7 @@ P:NPC {
           text = "A dwarf! Then you've surely heard of my uncle Remtravel, or you will, because he's never stopped digging long enough to be forgotten." },
       },
       again = {
-        { id = "h_again", text = "What else? I love questions almost as much as I love gears." },
+        { id = "h_again", text = "What else? I love questions almost as much as I love gears, and nearly as much as a good dark ale." },
         { id = "h_again2", text = "Ask away! A-Me can't answer back yet, so I'm glad of the company." },
       },
       choices = {
@@ -114,6 +114,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "A dwarf engineer, a Remtravel, and a member of the Marshal Expedition, which mostly means I get to see wonderful things and run away from them." } },
     advice = { { id = "tp_ad", text = "Always build two of anything important. I only built one A-Me, and look how that turned out." } },
     explorers_league = { { id = "tp_el", text = "My uncle's the one for the Explorers' League; I'm more for building than digging. Still, I'd love to show them A-Me one day." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know! But I could build something that does, given time." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know, {g:lad|lass}! But give me a forge and a wee bit of time, and I could build something that does." } },
   },
 }

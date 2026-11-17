@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "The riders are rested and the sky is clear, for now. Where are you bound?" },
+    { id = "g_default", text = "The riders are rested and the sky is clear, for now, as the Earth Mother wills it. Where are you bound?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. The riders know your smell by now, which is a kind of welcome." },
   },
 
@@ -29,10 +29,10 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Runk Windtamer, and these are the Horde's wind riders in Silithus. They fly to Mojache and Gadgetzan and the crater, and they fly in spite of the sand, which is more than I would do." },
+        { id = "h_default", key = true, text = "I am Runk Windtamer, and these are the Horde's wind riders in Silithus. They fly to Mojache and Gadgetzan and the crater, and they fly in spite of the sand, which is more than I would do; a tauren was made for grass under his hooves." },
       },
       again = {
-        { id = "h_again", text = "Something else? The riders grow restless." },
+        { id = "h_again", text = "Something else? The riders grow restless, like a herd before a storm." },
         { id = "h_again2", text = "Ask. The sky can wait a moment." },
       },
       choices = {
@@ -79,7 +79,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A tauren who learned the wind riders' ways in Thunder Bluff and was sent south because nobody else wanted the sand." } },
     advice = { { id = "tp_ad", text = "Never fly into a storm you can see. The ones you can't see are bad enough." } },
-    _none = { { id = "tp_none", text = "I know riders and wind. Ask someone else about the rest." } },
+    _none = { { id = "tp_none", text = "I know riders and wind, and the winds were my teachers. Ask someone else about the rest." } },
   },
 }
 
@@ -94,7 +94,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Where to, friend? The birds are eager, and so am I, frankly." },
+    { id = "g_default", text = "Where to, friend? Ishnu-alah; the birds are eager, and so am I, frankly." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon! The birds remember you, they're fluffing up." },
   },
 
@@ -109,7 +109,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Cloud Skydancer, and these are my hippogryphs, the finest in Silithus, which isn't saying much, since they're the only ones. They fly to Feathermoon, Gadgetzan and the crater, and they'd fly to the moon if I asked." },
+        { id = "h_default", key = true, text = "Cloud Skydancer, and these are my hippogryphs, the finest in Silithus, which isn't saying much, since they're the only ones. They fly to Feathermoon, Gadgetzan and the crater, and they'd fly to Elune's moon itself if I asked." },
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are getting impatient, and so is the sun." },
@@ -159,6 +159,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A keeper of hippogryphs from Ashenvale, sent south with the Circle and the sand. I'd go back tomorrow, but the birds would miss the work." } },
     advice = { { id = "tp_ad", text = "Lean into the turns, not away. Every new flier leans away, and every one of them regrets it." } },
-    _none = { { id = "tp_none", text = "I only know the sky and the birds, friend, and the sky's not talking today." } },
+    _none = { { id = "tp_none", text = "I only know the sky and the birds, friend, and neither the sky nor the moon is talking today." } },
   },
 }

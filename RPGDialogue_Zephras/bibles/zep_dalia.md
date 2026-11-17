@@ -10,7 +10,7 @@
 ## Identity
 Dalia the Collector · Thendal Village, Zephras Isle · neutral · Skyborne, female · collector, quest giver
 Personality: cheerful, brisk, careful, quietly frightened for the future
-Speech: friendly, practical, counts things.
+Speech: friendly, practical, counts things; Skyborne: "winds be with you", the fading pylons and windstones
 Relationships: argues rationing with the elders; wary of High Order apprentices (Dorii's).
 
 ## Agenda

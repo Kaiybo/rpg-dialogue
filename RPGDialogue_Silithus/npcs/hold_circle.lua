@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Ho there! Come to help keep an eye on the crazies?" },
+    { id = "g_default", text = "Ho there! Come to help keep an eye on the crazies? Pull up a bit of sand; it's no Mulgore grass, but it'll do." },
     { id = "g_back", when = { metBefore = true }, text = "There they are! I keep hearing your name from the western camps, and never in a happy voice." },
     { id = "g_council", when = { questDone = TODO_QUEST("Dukes of the Council") }, text = "I hear about your fights with the Abyssal Council all the time, {name}. Keep it up!" },
   },
@@ -128,7 +128,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock, eh? The crazies out west summon all sorts of things, and I'd love to know whether your demon could tell me what they're doing." },
         { id = "h_default", key = true,
-          text = "We've got more than one enemy in Silithus, friend. While everyone's watching the bugs, my big brother and I keep a close eye on the Twilight's Hammer crazies out west, and believe me, they need watching." },
+          text = "We've got more than one enemy in Silithus, friend. While everyone's watching the bugs, my big brother and I keep a close eye on the Twilight's Hammer crazies out west, and believe me, they need watching, the way a herd needs watching when the wolves are near." },
         { id = "h_texts", tags = { "news" }, when = { questActive = TODO_QUEST("Secret Communication") },
           text = "Those little papers the cultists carry, covered in gibberish? Bring me a stack. Every one I've got is one they haven't." },
         { id = "h_texts_done", when = { questDone = TODO_QUEST("Secret Communication") },
@@ -140,7 +140,7 @@ P:NPC {
           text = "A hunter! Good, the crazies leave tracks all over the western dunes, and I bet you can follow them better than my big brother can." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? Huum's busy being serious, so I've got time." },
+        { id = "h_again", text = "What else, friend? Huum's busy being serious with the Earth Mother, so I've got time." },
         { id = "h_again2", text = "Ask away! I like talking more than my brother does." },
       },
       choices = {
@@ -229,11 +229,11 @@ P:NPC {
 
   topics = {
     knows = { { id = "tp_knows", text = "I know the crazies, and I know what they carry. Ask me something." } },
-    background = { { id = "tp_bg", text = "Bor Wildmane, little brother of Huum, druid of the Circle and professional cultist-watcher. That's it, that's the story!" } },
+    background = { { id = "tp_bg", text = "Bor Wildmane, little brother of Huum, druid of the Circle, son of Mulgore and professional cultist-watcher. That's it, that's the story!" } },
     advice = { { id = "tp_ad", text = "Check every cultist's pockets. You'd be amazed what crazy people write down." } },
     twilights_hammer = { { id = "tp_hammer", text = "Crazies with a plan, which is the worst kind of crazies.", next = "crazies" } },
     abyssal_council = { { id = "tp_council", text = "Elementals with titles. Ask Aurel; she's the one who figured out how to knock on their door." } },
-    _none = { { id = "tp_none", text = "No idea, friend! Ask Huum; he knows the deep stuff." } },
+    _none = { { id = "tp_none", text = "No idea, friend! Ask Huum; he knows the deep stuff, the kind the Earth Mother whispers instead of shouts." } },
   },
 }
 
@@ -250,7 +250,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "The spirits of this place call out, {name}. Listen, and you'll hear them." },
-    { id = "g_back", when = { metBefore = true }, text = "You return, and the land seems a little quieter for it." },
+    { id = "g_back", when = { metBefore = true }, text = "You return, and the land seems a little quieter for it, like the plains after the rain has passed." },
     { id = "g_vyral", when = { questDone = TODO_QUEST("Vyral the Vile") }, text = "Twilight's Run is silent now. The spirits thank you, though they have no words for it." },
   },
 
@@ -349,7 +349,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage, {name}. The spirits of the land are wary of the arcane, but they are not unkind, and they will listen if you speak with respect." },
         { id = "h_default", key = true,
-          text = "The spirits of Silithus call out to us, {name}. The land weeps, for it has a long and sorrowful story to tell, and the Twilight's Hammer would add a terrible new chapter to it." },
+          text = "The spirits of Silithus call out to us, {name}. The land weeps, for the Earth Mother has a long and sorrowful story to tell here, and the Twilight's Hammer would add a terrible new chapter to it." },
         { id = "h_geolords", tags = { "news" }, when = { questActive = TODO_QUEST("Twilight Geolords") },
           text = "The geolords lead the rituals in the western camps. Strike at them, for they are the heads of the serpent, and the body will thrash without them." },
         { id = "h_vyral", tags = { "news" }, when = { questActive = TODO_QUEST("Vyral the Vile") },
@@ -363,7 +363,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask what you will, {name}; the spirits have waited this long, and they can wait a little longer." },
-        { id = "h_again2", text = "Go on, {name}. There is time, though less than there was." },
+        { id = "h_again2", text = "Go on, {name}. There is time, though less than there was, as the old bulls of the herd always said." },
       },
       choices = {
         { text = "Can Silithus ever be healed, Huum?", next = "xdruid", when = { class = "DRUID" } },
@@ -448,7 +448,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Walk softly in the old ruins. The dead notice footsteps." } },
     twilights_hammer = { { id = "tp_hammer", text = "They dance on graves and call it worship. I'll see their camps empty before I leave this desert." } },
     southwind = { { id = "tp_southwind", text = "A grieving place. Layo does good work there, the kind that is never thanked." } },
-    _none = { { id = "tp_none", text = "The spirits haven't spoken of that to me. Perhaps Bor has heard something; he hears everything, eventually." } },
+    _none = { { id = "tp_none", text = "The spirits haven't spoken of that to me. Perhaps Bor has heard something; he hears everything eventually, like a young calf with his ears always turning." } },
   },
 }
 
@@ -464,7 +464,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind the bench, please. Everything on it is either sharp or very, very old." },
+    { id = "g_default", text = "Mind the bench, please. Everything on it is either sharp or very, very old, and when a kaldorei calls a thing old, you may believe her." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you. Come and look at this clasp and tell me if you'd believe it." },
   },
 
@@ -559,7 +559,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "A warlock. The cultists' medallions I forge would fool their masters, I think, but a warlock's eye might see through them, so tell me if they look wrong to you." },
         { id = "h_default", key = true,
-          text = "The Circle has learned many of the earth's secrets, and a craftsman would do well to listen to these druids. I listen, and then I make what they need, which lately has been a great many lies in metal and cloth." },
+          text = "The Circle has learned many of the earth's secrets since Malfurion first walked the Dream, and a craftsman would do well to listen to these druids. I listen, and then I make what they need, which lately has been a great many lies in metal and cloth." },
         { id = "h_sent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Aurel Goldleaf"), days = 3 } },
           text = "So you're the one who'll stand against the Abyssal Council. Then listen closely, because the next part is all about not being yourself." },
         { id = "h_dukes", when = { questActive = TODO_QUEST("Dukes of the Council") },
@@ -576,7 +576,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. The druids say shamans hear the earth as they do, in a rougher dialect, and I'd like to hear that dialect spoken in Ironforge's accent." },
       },
       again = {
-        { id = "h_again", text = "What else? I can talk and work at once." },
+        { id = "h_again", text = "What else? I can talk and work at once; I have had a few centuries to practise." },
         { id = "h_again2", text = "Ask on. My hands don't need my mouth." },
       },
       choices = {
@@ -651,7 +651,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A craftsman of the Circle. Before that, a craftsman of other things, which I'll keep to myself, as craftsmen do." } },
     advice = { { id = "tp_ad", text = "Never trust a perfect copy. The real thing always has a flaw." } },
     abyssal_council = { { id = "tp_council", text = "Templars, dukes and lords, and each wants to be obeyed. That's their weakness.", next = "council" } },
-    _none = { { id = "tp_none", text = "Not my craft, I'm afraid. Try the Wildmanes." } },
+    _none = { { id = "tp_none", text = "Not my craft, I'm afraid. Try the Wildmanes, and may Elune light your way to them." } },
   },
 }
 

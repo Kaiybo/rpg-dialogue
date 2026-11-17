@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Speak quickly. Krol'dok does not rest, so neither do we." },
+    { id = "g_default", text = "Speak quickly. Krol'dok does not rest, so neither does the Horde." },
     { id = "g_back", when = { metBefore = true }, text = "You came back from the glades on your own feet, which is more than most can say this season." },
     { id = "g_hero", when = { townStanding = { town = "rogmar", min = 55 } }, text = "Make way for this one; Rog'mar owes them blood and remembers it." },
     { id = "g_distrust", when = { townStanding = { town = "rogmar", max = -20 } }, text = "You again. Say what you want, and say it from over there." },
@@ -41,7 +41,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Krom'rosh. Rog'mar sent its best into Krol'dok, and the caves sent back very few of them, so I am done sending scouts and ready to send killers." },
+          text = "I am Krom'rosh. Rog'mar sent its best into Krol'dok, and the caves sent back very few of them, so I am done sending scouts and ready to send killers. Their blood is owed, and I mean to collect it." },
         { id = "h_mugg_before", when = { questBefore = TODO_QUEST("Eye of Mugg") },
           text = "The cultists have a foothold in those caves far deeper than we feared, and they are feeding our allies to their altars. I want someone who can walk in and walk back out." },
         { id = "h_mugg_active", when = { questActive = TODO_QUEST("Eye of Mugg") },
@@ -70,8 +70,8 @@ P:NPC {
           text = "The scouts on the ridge say the Twilight camps are thinning, and the bodies have your marks on them. Keep at it, and Krol'dok will have to come out to us." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask, and then sharpen something." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again", text = "What else? Ask, and then sharpen something, warrior." },
+        { id = "h_again2", text = "Go on. Deeds matter more to me than words, so keep them few." },
         { id = "h_again3", when = { timeOfDay = "night" }, text = "Ask. The cultists chant at night, so I don't sleep much anyway." },
       },
       choices = {
@@ -312,7 +312,7 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "I know the caves, the cult and the glades between us and them. Ask about those, and don't waste my time on the rest." } },
     background = { { id = "tp_bg", text = "I fought in the Warchief's wars and buried enough friends for two lifetimes. Now I bury cultists instead, which I prefer." } },
-    advice = { { id = "tp_ad", text = "Never fight an ogre in a narrow place, and never trust anyone in a dark robe." } },
+    advice = { { id = "tp_ad", text = "Never fight an ogre in a narrow place, and never trust anyone in a dark robe; the old Horde learned that one from Gul'dan's warlocks, and paid for it in blood." } },
     krol_dok = { { id = "tp_kd", text = "A nest of ogres and cultists in the northwest caves, and the reason Rog'mar exists. When it falls, I will sleep." } },
     twilights_hammer = { { id = "tp_th", text = "Madmen who worship the end of the world and want to hurry it along. They take prisoners for their altars, and I take no prisoners at all." } },
     brotherhood_horse = { { id = "tp_bh", text = "Stubborn humans on an island, and brave enough, I'll give them that. They kill cultists too, so I let them be." } },

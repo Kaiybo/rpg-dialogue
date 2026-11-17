@@ -13,7 +13,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Oh dear, I'm running dangerously low on supplies! What is taking that blasted goblin so long?" },
+    { id = "g_default", text = "Oh dear, I'm running dangerously low on supplies! By Elune, what is taking that blasted goblin so long?" },
     { id = "g_back", when = { metBefore = true }, text = "You again! You haven't passed a goblin with a cart on the road, by any chance? No, of course not." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the goblin still hasn't come. I've started counting the thread twice a day." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "People here like you, which is a relief, because I've no patience left for difficult customers this week." },
@@ -76,9 +76,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "A trader of Darnassus who said yes to the Circle once and has been waiting on deliveries ever since." } },
+    background = { { id = "tp_bg", text = "A trader of Darnassus who said yes to the Circle once and has been waiting on deliveries ever since. Even a kaldorei's patience wears thin after the third season." } },
     advice = { { id = "tp_ad", text = "Pack twice the thread you think you'll need. Silithus eats cloth." } },
     steamwheedle = { { id = "tp_sw", text = "Reliable as the tide, they say. I've never seen the tide out here, so I can't argue." } },
-    _none = { { id = "tp_none", text = "I'm sorry, I don't know, and I'm too worried about my salt to guess." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I don't know, and I'm too worried about my salt to guess. Ask the Commander, and Elune keep you." } },
   },
 }

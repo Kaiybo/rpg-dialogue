@@ -55,6 +55,7 @@
 - Gendered words for Mok'thardin (the wiki page disagrees with itself).
 
 ## Voices
+- Race voice (0.80.0): Grom'gol's orcs (Aggro'gosh, Thulbek, Thysta, Uthok, Mok'thardin) speak of honor, blood, the Warchief and the old clans; Seahorn is a tauren who swapped the plains for the sea and still swears by the Earth Mother.
 - Revilgaz: a goblin who keeps books on everything, including you; dry, demanding, fond of people who spend.
 - Seahorn: a tauren who went to sea and loves it; loud, laughing, nautical; fond of the Baron.
 - Krazek: fast-talking secretary; knows everything, sells the rest.

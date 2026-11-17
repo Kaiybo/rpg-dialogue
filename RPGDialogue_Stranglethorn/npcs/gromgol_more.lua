@@ -196,8 +196,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "The riders are ready when you are, so tell me where you need to go." },
-    { id = "g_back", when = { metBefore = true }, text = "Welcome back. The riders are rested, and so am I, for once." },
+    { id = "g_default", text = "The riders are ready when you are, {class}, so tell me where in the Horde's lands you need to go." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. The riders are rested and fed, and so am I, for once, which is a small victory in this heat." },
   },
 
   notice = {
@@ -290,7 +290,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The riders are uneasy around the dead and the loa alike, but they'll carry you, because I ask them to." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Some of you can teleport, I know, but the riders go where your spells don't reach, which is most places." },
         { id = "h_default", key = true,
-          text = "Thysta, wind rider master. From Grom'gol the riders go to Kargath and Stonard, and to the goblins at Booty Bay, if you've any business that far south." },
+          text = "Thysta, wind rider master. From Grom'gol the riders go to Kargath and Stonard, and to the goblins at Booty Bay if you've any business that far south. They are proud beasts and they carry warriors proudly, so treat them with respect." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You'll be wanting to scout the ridges, I suppose, and I'll warn you that the trolls up there see more than they let on." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. The wind riders don't care for your companion, so I'll ask you to keep it on the ground while I saddle your mount." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't mind your armor, but they hate the noise of it, so climb on slowly and try not to clank." },
@@ -299,7 +299,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, glowing at my perch. The trolls on the ridges will see you from a mile off, so stand behind the beasts while you wait." },
       },
       again = {
-        { id = "h_again", text = "Ask, then. The wind riders are fed and resting, so I have a moment." },
+        { id = "h_again", text = "Ask, then. The wind riders are fed and resting, and an orc who keeps beasts learns patience or loses fingers." },
         { id = "h_again2", text = "Anything more? The riders are waiting, but patiently." },
       },
       choices = {
@@ -345,9 +345,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I keep the riders. That's my work, and I do it well." } },
+    background = { { id = "tp_ba", text = "I keep the riders, as my mother kept them for the clans before me. That's my work, and I do it well." } },
     advice = { { id = "tp_ad", text = "Fly high over the jungle, because the Bloodscalp throw spears and the gorillas throw worse." } },
-    _none = { { id = "tp_none", text = "I don't know that one. Ask the Commander; he knows the camp better than I do." } },
+    _none = { { id = "tp_none", text = "I don't know that one, and I won't pretend to. Ask the Commander; he knows the camp better than I do." } },
   },
 }
 
@@ -363,8 +363,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "I've got bags, ammunition and drink, so tell me what you need." },
-    { id = "g_back", when = { metBefore = true }, text = "Back for more, then. Good, the jungle eats supplies faster than I can stock them." },
+    { id = "g_default", text = "Bags, ammunition and drink, all of it off the zeppelin from Orgrimmar, so tell me what you need, grunt." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more, then. Good, the jungle eats supplies faster than a warband eats a boar, and I can't stock them fast enough." },
   },
 
   notice = {
@@ -457,7 +457,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Candles, cloth and bandages, that's what your lot buy, and the jungle eats the candles." },
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "A warlock. I've got what you need for your rituals, and I don't ask what you need it for." },
         { id = "h_default", key = true,
-          text = "Uthok, general supplies. Everything I sell came off a zeppelin, and the jungle will rot it or eat it in a week, so buy what you need and use it fast." },
+          text = "Uthok, general supplies. Everything I sell came off a zeppelin from Orgrimmar, and the jungle will rot it or eat it in a week, so buy what you need and use it fast, the way an orc should." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. I'll be watching my stock while you're here, so don't take it personally, because I watch everyone." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage. You'll want food and water, I'd guess, unless you're the kind who conjures his own and leaves honest merchants with nothing to sell." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll want bandages, rations and a whetstone, and you'll want them now, before the jungle eats my stock." },
@@ -466,7 +466,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. You won't need food, I suppose, so you'll be wanting bags and arrows and nothing that rots, which makes you my favourite kind of customer." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else? Speak plainly; I've no patience for haggling." },
         { id = "h_again2", text = "Anything more? I've got crates to open." },
       },
       choices = {
@@ -508,8 +508,8 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I sell supplies. I came with the Commander, and I'll leave with him." } },
+    background = { { id = "tp_ba", text = "I sell supplies. I came with the Commander, I'll leave with him, and until then I keep his grunts in rations." } },
     advice = { { id = "tp_ad", text = "Keep your bags dry, or everything in them rots. I opened a sack of flour last week, and something in it opened its eyes at me." } },
-    _none = { { id = "tp_none", text = "Don't know. I sell supplies, not stories." } },
+    _none = { { id = "tp_none", text = "Don't know. I sell supplies, not stories, and an orc who wants stories goes to Thulbek." } },
   },
 }

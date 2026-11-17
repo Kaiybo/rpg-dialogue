@@ -24,6 +24,7 @@
 - Gossip verbatim (Nazeer's "blood is still shed", Tervosh's "must be brief", Krog's "violated his wishes").
 
 ## Voices
+- Race voice (0.80.0): Krog and Nazeer are orcs who speak of Thrall's peace, honor and the camps; Baldruc keeps a dwarven burr.
 - Jaina: earnest, warm, tired of war; won't discuss her father for long.
 - Tervosh: brisk archmage; garden; independent of committees.
 - Vimes: direct investigator; doesn't believe the easy answer.

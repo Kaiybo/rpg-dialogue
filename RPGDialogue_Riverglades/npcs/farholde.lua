@@ -1197,7 +1197,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Mind the cradle." },
+    { id = "g_default", text = "Mind the cradle, please, and mind your voice; elven ears hear everything." },
     { id = "g_dog", text = "Aedamas likes you. Don't be flattered; he likes everyone." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Luna's sitting on the cradle again; don't take it personally." },
   },
@@ -1230,7 +1230,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Cady Lloydriel. I ride with the Brotherhood and keep an eye on the walls, and on this one." },
+        { id = "h_default", key = true, text = "Cady Lloydriel. I left Quel'Thalas a long time ago to ride with the Brotherhood, and now I keep an eye on the walls, and on this one." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Quiet, please; it took an hour to get the little one down. Luna helped, and Luna takes all the credit." },
         { id = "h_warcl", when = { class = "WARRIOR" }, text = "A warrior. Walk softly past the cradle, if you know how; most of your kind don't." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. The Brotherhood will be glad of you, and the little one likes shiny things, so mind your gauntlets." },
@@ -1242,7 +1242,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Shh. The cat's watching you, and the cat doesn't like strangers, so stand still." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else? I've a century or two of patience, but the little one hasn't." },
         { id = "h_again2", text = "Go on, quietly." },
       },
       choices = {
@@ -1403,9 +1403,9 @@ P:NPC {
       { id = "tp_knows", text = "I watch the walls and I watch the people inside them, so I know a fair bit. Ask, and I'll decide what to tell you." },
     },
     background = { { id = "tp_bg", text = "No. That one stays with me." } },
-    advice = { { id = "tp_ad", text = "Watch the birds over the river. When they go quiet, something's moving in the fog." } },
+    advice = { { id = "tp_ad", text = "Watch the birds over the river, the way the rangers of Eversong taught me. When they go quiet, something's moving in the fog." } },
     brotherhood_horse = { { id = "tp_brotherhood", text = "Good riders and bad singers, and they keep their word, which is rarer than either." } },
-    _none = { { id = "tp_none", text = "Not mine to know." } },
+    _none = { { id = "tp_none", text = "Not mine to know, and I've learned that even an elf's long life doesn't cover everything." } },
   },
 }
 

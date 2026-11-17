@@ -13,7 +13,7 @@
 ## Identity
 Katar · Misty Reed Post, Swamp of Sorrows · Horde · orc · patrol leader
 Personality: grim, brooding, vengeful, dutiful, rarely smiling
-Speech: terse but whole sentences, poetic about the sea
+Speech: terse but whole sentences, poetic about the sea; orc: blood and the hunt, blunt and proud
 Knows and cares about: the sea, murlocs, patrols
 Relationships: Tok'Kar (camp cook)
 Default attitudes: respects killers of murlocs; distrusts water spirits

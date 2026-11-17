@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Walk softly here, friend, for this is a resting place, and the wastes outside are loud enough." },
+    { id = "g_default", text = "Walk softly here, friend, for this is a resting place of the kaldorei, and the wastes outside are loud enough." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and in one piece. That isn't nothing, out here." },
     { id = "g_freed", when = { questDone = TODO_QUEST("The Spirits of Southwind") }, text = "Southwind is quieter since you went there. I walk the ruins some nights just to hear it." },
   },
@@ -107,7 +107,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, among the graves. I hope you are not here to rob them, because there is nothing left to take, and the dead have suffered enough." },
         { id = "h_default", key = true,
-          text = "The past lives in these wastes, {class}, and we must be careful not to wake it. I am Layo Starstrike, and I keep watch here at Valor's Rest for the Cenarion Circle, over the graves and over the desert beyond them." },
+          text = "The past lives in these wastes, {class}, and we must be careful not to wake it. I am Layo Starstrike, and I keep watch here at Valor's Rest for the Cenarion Circle, over the graves of my people and over the desert beyond them." },
         { id = "h_wasteland", tags = { "news" }, when = { questActive = TODO_QUEST("Wasteland") },
           text = "Rabine sent you, did he? Then you're welcome here, as much as this desolate place can welcome anyone." },
         { id = "h_spirits", tags = { "news" }, when = { questActive = TODO_QUEST("The Spirits of Southwind") },
@@ -124,7 +124,7 @@ P:NPC {
           text = "A hunter. Walk softly here, {class}, for the beasts of this place feed near the graves, and I ask only that you do not hunt among the stones." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask? The graves are patient." },
+        { id = "h_again", text = "What else would you ask? The graves are patient, and Elune watches them with me." },
         { id = "h_again2", text = "Go on. I don't get many visitors who want to talk." },
       },
       choices = {
@@ -293,12 +293,12 @@ P:NPC {
       { id = "tp_knows", text = "I know the graves, the ruins and the roads between them. Ask about any of these." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll even speak of the things I usually keep to myself. Which would you hear?" },
     },
-    background = { { id = "tp_bg", text = "A druid of the Circle, younger than I look, sent here because someone had to keep watch and I was foolish enough to volunteer." } },
+    background = { { id = "tp_bg", text = "A druid of the Circle, younger than I look by kaldorei reckoning, sent here because someone had to keep watch and I was foolish enough to volunteer." } },
     advice = { { id = "tp_ad", text = "If you hear weeping in the ruins, don't follow it. Mark the place, and come and tell me." } },
     southwind = { { id = "tp_southwind", text = "Our old village to the southwest. Its dead are my charge now.", next = "southwind" } },
     ahn_qiraj = { { id = "tp_aq", text = "The city behind the Scarab Wall. I've seen the wall from a distance, and that was close enough." } },
     cenarion_circle = { { id = "tp_circle", text = "We argue, between Darnassus and Moonglade, but out here the Circle is one thing: the people who stayed." } },
-    _none = { { id = "tp_none", text = "I'm afraid I don't know. Cenarion Hold might; it's down the road, in the heart of the desert." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know. Cenarion Hold might; it's down the road, in the heart of the desert, and the moon will light your way there." } },
   },
 }
 
@@ -714,8 +714,8 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, eh? Brann'd want tae write ye up, an' I want tae know if the stone round here's said anythin' tae ye about what's under it." },
       },
       again = {
-        { id = "h_again", text = "What else? I've got rubbings to sort." },
-        { id = "h_again2", text = "Spit it out, then." },
+        { id = "h_again", text = "What else? I've got rubbings to sort, {g:lad|lass}, and they'll no' sort themselves." },
+        { id = "h_again2", text = "Spit it out, then, before my beard grows another inch." },
       },
       choices = {
         { text = "What has the League dug up here, Rutgar?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
@@ -938,7 +938,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! You've a feel for the land, so tell me, does it feel to you like something's waking under this desert? Because it feels that way to me." },
       },
       again = {
-        { id = "h_again", text = "What else? The sky's not going anywhere." },
+        { id = "h_again", text = "What else? The sky's not going anywhere, and neither am I till my ale runs dry." },
         { id = "h_again2", text = "Go on, then, I do like an audience." },
       },
       choices = {

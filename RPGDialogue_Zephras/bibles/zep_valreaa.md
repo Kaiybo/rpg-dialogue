@@ -10,7 +10,7 @@
 ## Identity
 Valreaa Valewind · Thendal Village, Zephras Isle · neutral · Skyborne, female · ranger, quest giver
 Personality: steady, earnest, protective, uneasy about culling
-Speech: measured, plain.
+Speech: measured, plain; Skyborne: the winds carrying scent, an isle that has lost much
 Relationships: fellow rangers; Xyton the druid trainer; Aetheen.
 
 ## Agenda

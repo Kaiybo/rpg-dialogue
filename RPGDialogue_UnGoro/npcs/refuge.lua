@@ -349,7 +349,7 @@ P:NPC {
           text = "A warlock! You know, I have the oddest feeling I've met warlocks before, but I can't remember where, and I'm not sure whether that's a good thing or a bad thing." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! I feel like I've met people who talk to the wind before, though I can't for the life of me remember where, which I suppose is the trouble with everything lately." },
         { id = "h_default", key = true,
-          text = "They call me Linken, and I think it's my name. I came to this crater on a mission from somewhere far away, and then my raft broke up in the marsh, something hit my head, and the rest went with the raft." },
+          text = "They call me Linken, and I think it's my name. I came to this crater on a mission from somewhere far away, and then my raft broke up in the marsh, something hit my head, and the rest went with the raft, which by my estimate was about eighty percent of everything I knew." },
         { id = "h_secret", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("It's a Secret to Everybody") }, { questActive = TODO_QUEST("Linken's Sword") } } },
           text = "You found my things, and my sword! I'd know it anywhere... well, I'd know it here, anyway." },
         { id = "h_adventure", when = { any = { { questActive = TODO_QUEST("Linken's Adventure") }, { questActive = TODO_QUEST("It's Dangerous to Go Alone") } } },
@@ -433,7 +433,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I... don't know, isn't that funny? Ask me again tomorrow, and maybe I'll have one.", next = "memory" } },
     advice = { { id = "tp_ad", text = "Never set off alone; somebody told me that, and it's the only thing I'm sure of." } },
-    _none = { { id = "tp_none", text = "I might have known that once! Ask me again later." } },
+    _none = { { id = "tp_none", text = "I might have known that once! Ask me again later, when I've recovered another three or four percent." } },
   },
 }
 

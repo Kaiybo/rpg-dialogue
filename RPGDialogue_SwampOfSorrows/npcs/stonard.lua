@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_hall", text = "Another pair of boots, good. I send them out, and the swamp sends back what's left of the maps." },
+    { id = "g_hall", text = "Another pair of boots, good. I send them out, and the swamp sends back what's left of the maps, but the Horde has never been short of the brave." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and dry-ish, so report." },
     { id = "g_away", when = { away = { min = 14, max = 59 } }, text = "You've been gone {away}, and the swamp kept sending back my maps without you. Report, and then get out there again." },
     { id = "g_away_long", when = { away = 60 }, text = "I'd struck your name off the roster after {away} away. Since you're standing in my hall I'll write it back in, so don't make me regret it." },
@@ -133,7 +133,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. I've one already watching the temple for the Warchief, and I'll tell you what I tell him: everything you do in my swamp goes in my log." },
         { id = "h_default", key = true,
-          text = "Dispatch Commander Ruag. Stonard is the Horde's eyes in these lands; from here we scout what nobody has charted, and we send word back faster than anyone else can." },
+          text = "Dispatch Commander Ruag. Stonard is the oldest stone the Horde holds in these lands, raised when we first came through the Portal; from here we scout what nobody has charted, and we send word back faster than anyone else can." },
         { id = "h_aggrogosh", when = { heardLine = "aggrogosh.h_default" },
           text = "You've come from Grom'gol? Aggro'gosh pushes his caravans through jungle and over mountains to reach us. Every one that arrives, I count too." },
         { id = "h_disgraced", tags = { "news" }, when = { questActive = TODO_QUEST("The Disgraced One") },
@@ -146,7 +146,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who calls on the Light. I've sent scouts to strange places, but none ever came back with a report like you." },
       },
       again = {
-        { id = "h_again", text = "Next item. Keep it short; I've dispatches waiting." },
+        { id = "h_again", text = "Next item. Keep it short, grunt; I've dispatches waiting." },
         { id = "h_again2", text = "Go on, I'm writing as you talk." },
       },
       choices = {
@@ -356,7 +356,7 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "I command dispatches, which means I read every report and sign every order in Stonard. My story is in those papers, and it's dull until something goes wrong.", next = "grasp" } },
     advice = { { id = "tp_ad", text = "Carry your orders against your skin, never in a pack. Packs get lost in the swamp, and so do the people carrying them." } },
-    _none = { { id = "tp_none", text = "That's not charted yet, so do you want the job?" } },
+    _none = { { id = "tp_none", text = "That's not charted yet. Do you want the job, or are you all talk?" } },
   },
 }
 
@@ -466,7 +466,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "The Light, in a Forsaken body. Strange times bring strange servants, and the temple beneath the Pool of Tears stirs stranger every night." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak plainly; the temple doesn't wait." },
+        { id = "h_again", text = "What else? Speak plainly; the temple doesn't wait, and the old Horde learned too late what waits for those who listen to whispers." },
         { id = "h_again2", text = "Ask, then, but don't ask me to go down there again tonight." },
       },
       choices = {
@@ -620,7 +620,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_post", text = "Can't stand still in this place, because the mud's always trying to keep you." },
+    { id = "g_post", text = "Can't stand still in this place, because the mud's always trying to keep you, and an orc who stands still in Stonard sinks." },
   },
 
   notice = {
@@ -702,7 +702,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock, eh? Keep your demon behind me on the road, not in front, because I've no wish to trip over it at full speed." },
         { id = "h_default", key = true,
-          text = "Helgrum the Swift, and they call me that because I'm fast, not because I'm clever. Neeka Bloodscar's the clever one, head scout out at Kargath in the Badlands." },
+          text = "Helgrum the Swift, and they call me that because I'm fast, not because I'm clever. Neeka Bloodscar's the clever one, head scout out at Kargath in the Badlands, and the best blood in the Horde, if you ask me." },
         { id = "h_neeka", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Neeka Bloodscar") }, { questActive = TODO_QUEST("Report to Helgrum") } } },
           text = "Word between Stonard and Kargath keeps getting cut, so go and see Neeka yourself. She'll have a report for me; she always does." },
         { id = "h_report_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Report to Helgrum"), days = 3 } },
@@ -712,7 +712,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who glows! Wait till I tell Neeka, she'll say I'm making it up, because I do make things up, but not this time." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk fast, I've got a run at noon." },
+        { id = "h_again", text = "What else? Talk fast, I've got a run at noon, and Lok'tar, I mean to beat my own time." },
       },
       choices = {
         { text = "Do you ever ask the winds to speed you on the road?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -884,7 +884,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock, sitting with me. The old Horde's warlocks never sat with a broken grunt, I'm told, so you're already better than they were." },
         { id = "h_default", key = true,
-          text = "Bengor, a soldier of the Horde, or what the murlocs left of one. I can't walk and I can hardly talk, but I still remember, and remembering is my duty now." },
+          text = "Bengor, a soldier of the Horde, or what the murlocs left of one. I can't walk and I can hardly talk, but I still remember, and an old warrior's last duty is to remember." },
         { id = "h_orders", when = { questActive = TODO_QUEST("The Missing Orders") },
           text = "The orders, you want the orders, and the Commander sent you to me because I'm all that's left of the soldiers who carried them. Sit close, so I don't have to shout." },
         { id = "h_talker", tags = { "news" }, when = { questActive = TODO_QUEST("The Swamp Talker") },
@@ -894,7 +894,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I could use your eyes, for mine are bad now, and I'd like to know whether the murlocs are still nesting in the reeds by the water." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one with warm hands. I can feel the Light in you from here, and I never thought I'd feel it from one of the Forsaken." },
       },
-      again = { { id = "h_again", text = "More? I have breath for a little more, if you speak slowly." } },
+      again = { { id = "h_again", text = "More? I have breath for a little more, if you speak slowly. An orc does not leave a report half-given." } },
       choices = {
         { text = "Do the spirits of your fallen comrades speak to you?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Could any magic still mend you, Bengor?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
@@ -982,7 +982,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "A soldier who carried orders south and didn't finish the road. The murlocs kept my boots, if you were wondering.", next = "ambush" } },
     advice = { { id = "tp_ad", text = "Never walk beside the water in this swamp. The murlocs wait where you can't see them, under the surface, and they don't make a sound until they're on you." } },
-    _none = { { id = "tp_none", text = "Before my time, or after it, but either way, not mine." } },
+    _none = { { id = "tp_none", text = "Before my time, or after it, but either way, not mine. Ask a younger warrior." } },
   },
 }
 
@@ -998,7 +998,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_inn", text = "Boots off by the door, because the mud stays outside, even if you don't have to." },
+    { id = "g_inn", text = "Boots off by the door, because the mud stays outside, even if you don't have to. That goes for every orc, troll and grunt in Stonard." },
     { id = "g_home", when = { homeInn = { "Stonard" } }, text = "Back in Stonard, then. Your bed's dry, and that's the best thing anyone can say in this swamp." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away} away, then. Boots off by the door, and your bed's still dry, which I can't say for anything else here." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone's been muttering your name over their grog all week, and not kindly. Sort it out somewhere that isn't my floor." },
@@ -1085,11 +1085,11 @@ P:NPC {
         { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } },
           text = "Boots off, and I can see you've got a knife in the left one, so leave that by the door too." },
         { id = "h_default", key = true,
-          text = "Innkeeper Karakul. Scouts come back muddy and hungry, and I send them out fed, which isn't glory, but it keeps the Horde walking." },
+          text = "Innkeeper Karakul. Scouts come back muddy and hungry, and I send them out fed, which isn't glory and won't get sung around any war fire, but it keeps the Horde walking." },
         { id = "h_mud", when = { metBefore = true }, text = "The scouts track half the swamp in on their boots, so I've started charging them a bucket of water each, and they pay in mud." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Boots off at the door, dead or not. I've fed the Forsaken before and I've never fed a paladin, so you'll eat what the scouts eat and like it." },
       },
-      again = { { id = "h_again", text = "Something else? The stew won't keep forever, and neither will I." } },
+      again = { { id = "h_again", text = "Something else? The stew won't keep forever, and neither will I, though I'm too stubborn an orc to go quietly." } },
       choices = {
         { text = "Did the old Horde ever keep shamans here in Stonard?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do spellcasters eat at your tables often, Karakul?", next = "xhcast", when = { class = "PRIEST", race = { "Orc", "Troll", "Scourge" } } },
@@ -1190,6 +1190,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I cook, I pour, and I make beds. Ask the Commander if you want a story; I only want to know if you're hungry, and if you are, scrape your boots first." } },
     advice = { { id = "tp_ad", text = "Dry your boots by the fire every night, or the swamp will take your toes before the crocolisks get a chance." } },
-    _none = { { id = "tp_none", text = "I feed scouts, and the scouts know things, so ask them. Wait until they've eaten, though, or they bite." } },
+    _none = { { id = "tp_none", text = "I feed scouts, and the scouts know things, so ask them. Wait until they've eaten, though, or they bite like wolves of the old clans." } },
   },
 }

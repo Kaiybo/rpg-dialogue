@@ -13,7 +13,7 @@
 ## Identity
 Tok'Kar · Misty Reed Post, Swamp of Sorrows · Horde · orc · cook and weaponsmith, quest giver
 Personality: chatty, gruff, proud of his craft, scornful of drinkers
-Speech: grumbling humour, full sentences
+Speech: grumbling humour, full sentences; orc: Horde pride, an orc's stew, smithing in the blood
 Knows and cares about: sawtooth claws, stew, the beach watch, Katar, Dar
 Relationships: Katar (patrol leader), Dar (Stonard supplier), Karakul (rival cook, authored)
 Default attitudes: friendly to workers, scornful of drunks

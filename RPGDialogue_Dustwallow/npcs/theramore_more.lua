@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_roost", text = "Mind the roost, it's slick. Everything on this island is slick, the birds included." },
-    { id = "g_back", when = { metBefore = true }, text = "Back on the isle in one piece? Good, that's what I like to see from my passengers." },
+    { id = "g_roost", text = "Mind the roost, {g:lad|lass}, it's slick. Everything on this island is slick, the birds included, and my beard's no' been dry since I got here." },
+    { id = "g_back", when = { metBefore = true }, text = "Back on the isle in one piece? Good, that's what I like to see from my passengers, aye." },
   },
 
   notice = {
@@ -100,7 +100,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. Keep your beast away from the roost, because gryphons don't care how well trained it is, they only care whether it looks like food." },
         { id = "h_default", key = true,
-          text = "Baldruc, and these are the Lady's gryphons, so treat them better than you'd treat yourself. They carry the post, the officers and anyone with coin, and they hate the damp more than I do." },
+          text = "Baldruc, and these are the Lady's gryphons, so treat them better than ye'd treat yerself. They carry the post, the officers and anyone with coin, and they hate the damp near as much as a dwarf from the dry tunnels of Ironforge does." },
         { id = "h_rain", when = { timeOfDay = "night" },
           text = "Night flights over the marsh are cold and black as a mine shaft. The birds know the way, so you just keep your head down and hold on." },
         { id = "h_druidcl", when = { class = "DRUID" },
@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. If ye can talk the marsh out o' bein' damp, the Lady's gryphons will build ye a statue, an' so will I." },
       },
       again = {
-        { id = "h_again", text = "Something else, or shall I saddle one?" },
+        { id = "h_again", text = "Something else, or shall I saddle one for ye?" },
         { id = "h_again2", text = "Ask away; the birds aren't going anywhere till I say so." },
       },
       choices = {
@@ -195,9 +195,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I came with the Lady's fleet and brought the birds with me, and I've been drying them out ever since." } },
+    background = { { id = "tp_bg", text = "I came with the Lady's fleet and brought the birds with me from the Wildhammer roosts, and I've been drying them out ever since." } },
     advice = { { id = "tp_ad", text = "Never ride a wet gryphon into a cold wind. The bird won't forgive you, and neither will your knees." } },
-    _none = { { id = "tp_none", text = "I know birds and weather and very little else. Try the citadel; they know everything there, or say they do." } },
+    _none = { { id = "tp_none", text = "I know birds and weather and very little else, {g:lad|lass}. Try the citadel; they know everything there, or say they do." } },
   },
 }
 

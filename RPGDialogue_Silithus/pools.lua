@@ -9,8 +9,8 @@ P:Pool {
     { id = "b_sand", text = "Sand in my boots, sand in my bow, sand in my supper. Elune, grant me one night by a river." },
   },
   greetings = {
-    { id = "g_hold", text = "Cenarion Hold is neutral ground, stranger. Keep your quarrels outside the walls and your blade for the silithid." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "Stay inside the walls till sunrise. The hives send their hunters out after dark." },
+    { id = "g_hold", text = "Cenarion Hold is neutral ground, stranger, by the Circle's word and Elune's. Keep your quarrels outside the walls and your blade for the silithid." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Stay inside the walls till sunrise. The hives send their hunters out when the moon is up, and even a Sentinel's eyes can't see beneath the sand." },
     { id = "g_known", when = { townStanding = { town = "cenarion_hold", min = 30 } }, text = "Welcome back, friend of the Hold. The Commander will be glad you're safe." },
   },
   notice = {
@@ -36,6 +36,6 @@ P:Pool {
     silithid = { { id = "t_silithid", text = "They don't stop and they don't sleep. We take turns doing both." } },
     twilights_hammer = { { id = "t_hammer", text = "Cultists, out west, chanting at stones. The Wildmane brothers watch them; ask Bor, he'll talk your ear off." } },
     cenarion_circle = { { id = "t_circle", text = "Tauren and kaldorei, druids and sentinels, standing between the hives and the rest of the world. That's us." } },
-    _none = { { id = "t_none", text = "I keep the gate, not the gossip. The innkeeper hears more than I do." } },
+    _none = { { id = "t_none", text = "I keep the gate, not the gossip, as the Sentinels taught me. The innkeeper hears more than I do." } },
   },
 }

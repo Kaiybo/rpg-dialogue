@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Another one through the swamp in one piece. That takes some nerve, so I'll say well done." },
+    { id = "g_default", text = "Another one through the swamp in one piece. That takes some nerve, and an orc respects nerve, so I'll say well done." },
     { id = "g_back", when = { metBefore = true }, text = "Back in Stonard again? Then it must be growing on you, which is more than it's done for me." },
     { id = "g_tokkar", when = { questActive = TODO_QUEST("Lack of Surplus") }, text = "Tok'Kar's still waiting on that meat, so don't let the crocolisks have you first." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and somehow you still came back through the swamp. It must be growing on you, though I can't think why." },
@@ -124,7 +124,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, in Stonard. Well, that's one more piece of history for these stones, and I didn't think they had room for any more." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've got the time, which is the one thing Stonard has plenty of." },
+        { id = "h_again", text = "Anything else? I've got the time, which is the one thing Stonard has more of than mud and honor." },
         { id = "h_again2", text = "Go on, ask. The mud isn't going anywhere, and neither am I." },
       },
       choices = {
@@ -229,7 +229,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "There's not much to tell. I came, I stayed, and I send the meat to the beach." } },
+    background = { { id = "tp_ba", text = "There's not much to tell. I came with the Horde, I stayed when the others marched on, and I send the meat to the beach." } },
     advice = { { id = "tp_ad", text = "Stay on the road, and if the road goes under water, stay where the road used to be." } },
     _none = { { id = "tp_none", text = "Can't help you there. Ask Ruag; he keeps the papers, and the papers know more than I do." } },
   },
@@ -345,7 +345,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Keep the demon well away from the pen, because the riders already hate the swamp, and they'd hate your friend a good deal more." },
         { id = "h_default", key = true,
-          text = "Breyk, wind rider master. From Stonard the riders go north to Kargath over the Steppes, and west to Grom'gol and Booty Bay, and they hate every minute of the wet before they leave." },
+          text = "Breyk, wind rider master. From Stonard the riders go north to Kargath over the Steppes, and west to Grom'gol and Booty Bay. They're proud beasts of the Horde, and they hate every minute of the wet before they leave." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "The riders don't like flying out of here at night, because the mist sits so low they can't see the trees. They'll go, but they'll grumble the whole way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't like the weight of plate when their wings are wet, so I'll ask you to be patient while they shake off the damp." },
@@ -354,7 +354,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken in plate, and glowing besides. My riders are already miserable in this wet, and now they've got something new to sulk about." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've got harness to scrape." },
+        { id = "h_again", text = "Anything else? I've got harness to scrape, and riders who'd bite a peon for less." },
         { id = "h_again2", text = "Quick, before the mist rolls in." },
       },
       choices = {
@@ -399,7 +399,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I keep wind riders. Before that I kept wind riders somewhere drier, and I'd like to again someday." } },
+    background = { { id = "tp_ba", text = "I keep wind riders. Before that I kept wind riders somewhere drier, in Durotar's red hills, and I'd like to again someday." } },
     advice = { { id = "tp_ad", text = "Hold on tight over the swamp, because the air drops out from under you when you least expect it." } },
     _none = { { id = "tp_none", text = "I know the sky and the riders, not much else. Try Karakul at the inn." } },
   },
@@ -417,7 +417,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "I have no time for you. Go away." },
+    { id = "g_default", text = "I have no time for you. Go away, before I find a use for you." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Another warlock. You know just enough to be dangerous, so let's see if you can learn more." },
   },
 
@@ -578,7 +578,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "I sell books. You're not owed my story." } },
+    background = { { id = "tp_ba", text = "I sell books. You're not owed my story, and the old Horde's warlocks taught me what talk costs." } },
     advice = { { id = "tp_ad", text = "Don't trust a demon who seems pleased with you. That means it's winning." } },
     _none = { { id = "tp_none", text = "If it isn't in a grimoire, I don't care to discuss it." } },
   },
@@ -596,7 +596,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Want training? Then pick up a blade, because I don't teach talkers." },
+    { id = "g_default", text = "Want training? Then pick up a blade, because I don't teach talkers, I teach warriors of the Horde." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior! Stand in the mud and we'll see how your footing is." },
   },
 
@@ -683,7 +683,7 @@ P:NPC {
         { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } },
           text = "A warlock. Keep your demon out of my yard, because my warriors have enough trouble with the mud without a voidwalker getting in the way." },
         { id = "h_default", key = true,
-          text = "I'm Malosh, and I teach warriors in Stonard. Fight in this mud long enough and you'll be able to fight anywhere, because nothing else is harder on your feet." },
+          text = "I'm Malosh, and I teach warriors in Stonard. Fight in this mud long enough and you'll be able to fight anywhere, because nothing else is harder on your feet, not even the blood-soaked fields of the old wars." },
         { id = "h_war", when = { class = "WARRIOR" },
           text = "A warrior, and you've walked through the swamp to get here, so your legs are already half trained. Let's see about the other half." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, in my yard. A hunter's beast fights better in this mud than half my warriors do, and I don't mind saying so." },
@@ -691,7 +691,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin in my yard. Can you fight in this mud, or does the Light keep your boots clean for you?" },
       },
       again = {
-        { id = "h_again", text = "More questions? Swing a blade while you ask them." },
+        { id = "h_again", text = "More questions? Swing a blade while you ask them. Deeds, not words." },
         { id = "h_again2", text = "What else? The yard's waiting." },
       },
       choices = {
@@ -739,6 +739,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I fought, I lived, and now I teach. I've two fewer fingers than I started with, and I don't talk about where they went." } },
     advice = { { id = "tp_ad", text = "Lean forward in the swamp. Always lean forward." } },
-    _none = { { id = "tp_none", text = "I teach warriors. Ask somebody who talks for a living." } },
+    _none = { { id = "tp_none", text = "I teach warriors. Ask somebody who talks for a living; I bleed for mine." } },
   },
 }

@@ -145,7 +145,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Go calmly among the stones. The sprites give back whatever you bring them." } },
     al_aketh = { { id = "tp_alak", text = "Grey robes and shaved heads, shouting at the sky. They've made the winds in our own grove hate us." } },
     windstones = { { id = "tp_ws", text = "The winds' last gift to us, and we're spending them faster than I like. Ask Dalia; she counts every one." } },
-    _none = { { id = "tp_none", text = "I don't know. Rorian might; he knows most things, eventually." } },
+    _none = { { id = "tp_none", text = "I don't know. Rorian might; he knows most things eventually, the way the wind finds every gap in a wall." } },
   },
 }
 
@@ -164,11 +164,11 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Pests. Everywhere, pests. What can I do for you?" },
+    { id = "g_default", text = "Pests, everywhere pests, riding every draught through the grove. Gale's greetings, and what can I do for you?" },
     { id = "g_infest", when = { questActive = TODO_QUEST("Infestation Investigation") }, text = "The eastern end of the grove. Don't let the swarm grow, and don't let them land on you." },
     { id = "g_queen", when = { questActive = TODO_QUEST("The Cirrusfly Queen") }, text = "Watch the big ones. The bigger they are, the meaner they get." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Cirrusfly Queen") }, text = "The grove's quieter without that queen. One less problem to think about." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the cirrusflies didn't miss you. I did, a little." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the cirrusflies didn't miss you. I did, a little, though I'd not say so in front of the other rangers." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've come a long way from bug duty. The rangers notice that sort of thing." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Word is you've been helping around the village. Good; we've more work than rangers." },
   },
@@ -273,9 +273,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Thendal born, ranger by trade, bug-catcher by misfortune." } },
+    background = { { id = "tp_bg", text = "Thendal born, ranger by trade, and bug-catcher by misfortune, which is not a heirloom anyone hopes to inherit." } },
     advice = { { id = "tp_ad", text = "Watch the big ones. It's good advice for bugs and better advice for people." } },
-    _none = { { id = "tp_none", text = "Not my department. Ask Rorian, or Aetheen, if you've the nerve." } },
+    _none = { { id = "tp_none", text = "Not my department. Ask Rorian, or Aetheen, if you've the nerve to interrupt an elder reading the winds." } },
   },
 }
 
@@ -294,12 +294,12 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Keep clear of the southwest paths if you can. The ursera are restless." },
+    { id = "g_default", text = "Keep clear of the southwest paths if you can. The ursera are restless, and the winds carry our scent straight to their den." },
     { id = "g_active", when = { questActive = TODO_QUEST("Aggressive Encroachment") }, text = "The scrawny ones, outside the den. Bring me their claws." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Aggressive Encroachment") }, text = "The Rangers of the Grove are in your debt. I mean that." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Aggressive Encroachment") }, text = "The Rangers of the Grove are in your debt, and I mean that as surely as I mean the winds be with you." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. The ursera haven't quieted, but I'm glad you're back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown into your weapons since you first stood here, and I'm glad to see it." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the village is angry with you. It's a small grove, so please mend it." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "Someone in the village is angry with you. It's a small grove on a small isle, and our people have carried enough old grudges across the ages already, so please mend it." },
   },
 
   notice = {
@@ -393,9 +393,9 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "I keep the southwest paths, and the children off them. That's my whole story, and it's enough." } },
+    background = { { id = "tp_bg", text = "I keep the southwest paths, and the children off them. That's my whole story, and on an isle that has lost so much, it's enough." } },
     advice = { { id = "tp_ad", text = "A hungry beast is more dangerous than an angry one. Remember that, wherever you go." } },
-    _none = { { id = "tp_none", text = "I couldn't tell you. Ask Aetheen; she knows the grove's winds better than anyone." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you. Ask Aetheen; she reads the grove's winds better than anyone on the Council." } },
   },
 }
 
@@ -414,9 +414,9 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Hello there! Have you seen any blue crystals lying about?" },
+    { id = "g_default", text = "Hello there, and winds be with you! Have you seen any blue crystals lying about?" },
     { id = "g_active", when = { questActive = TODO_QUEST("Harvesting Windstones") }, text = "The raw windstones are all over the grove; you can't miss them, they glow." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Harvesting Windstones") }, text = "Thank you again for those stones. Every one matters now." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Harvesting Windstones") }, text = "Thank you again for those stones. Every one matters now, with the pylons failing and the isle's magic thinning year by year." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}? You didn't bring me any windstones, I suppose. No, I didn't think so." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown since you went crystal-hunting for me. I hope you kept one of those manuals." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "People in the village speak well of you. I'd trade a windstone for that, very nearly." },
@@ -513,6 +513,6 @@ P:NPC {
     background = { { id = "tp_bg", text = "I collect windstones. Before that I collected other things, but nothing that mattered as much." } },
     advice = { { id = "tp_ad", text = "Learn to gather from the land, whatever you gather. The island won't always provide as it once did." } },
     windstones = { { id = "tp_ws", text = "The winds' own energy, made solid. I could talk about them all day, and some days I do." } },
-    _none = { { id = "tp_none", text = "That's not a thing I collect, I'm afraid. Ask Rorian." } },
+    _none = { { id = "tp_none", text = "That's not a thing I collect, I'm afraid, and I've collected a great deal. Ask Rorian." } },
   },
 }

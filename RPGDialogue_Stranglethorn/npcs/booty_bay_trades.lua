@@ -1232,7 +1232,7 @@ P:NPC {
 
   greetings = {
     { id = "g_bench", text = "Oglethorpe Obnoticus, master of gnomish engineering and the only sane engineer in this entire cove. Mind the wires, please, because they're live, and so, thank goodness, am I." },
-    { id = "g_back", when = { metBefore = true }, text = "My friend, back again! Nothing has exploded since your last visit, which I'm told is a record for this boardwalk." },
+    { id = "g_back", when = { metBefore = true }, text = "My friend, back again! Nothing has exploded since your last visit, which by my count is eleven days and a record for this boardwalk." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, and I've built and lost three prototypes in the meantime. Come and admire the pieces." },
     { id = "g_horde", when = { faction = "Horde" }, text = "The Horde! Splendid, because unlike certain councils I could name, I don't care who you are as long as you can hold a wrench the right way up." },
   },
@@ -1262,7 +1262,7 @@ P:NPC {
           text = "Welcome, welcome! I teach gnomish engineering to anyone with steady hands and good sense, and I find the Horde has as many of both as Ironforge, which I'll thank you not to repeat in Ironforge." },
       },
       again = {
-        { id = "h_again", text = "What else? Quickly, please, I've a capacitor warming up and it doesn't like to wait." },
+        { id = "h_again", text = "What else? Quickly, please, I've a capacitor warming up at sixty percent charge and it doesn't like to wait." },
         { id = "h_again2", text = "Go on, my friend. Ask me about anything but the council." },
         { id = "h_again3", text = "Another question! Excellent, questions are the lubricant of genius." },
       },
@@ -1436,7 +1436,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "I know gnomish engineering better than anyone alive, whatever Tinker Town says, and I know where three of my robots crashed." } },
+    knows = { { id = "tp_knows", text = "I know gnomish engineering better than anyone who got out of Gnomeregan, whatever Tinker Town says, and I know to within a hundred yards where three of my robots crashed." } },
     background = { { id = "tp_bg", text = "Tinker Town engineer, inventor of the Crowd Pummeler, wrongly banished, now teaching in Booty Bay among the goblins.", next = "exile" } },
     advice = { { id = "tp_ad", text = "Never buy fuel from a goblin with no eyebrows, my friend, because that's a goblin who knows exactly how good it is." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "My Pummeler walks those halls still, and I'd rather not think about who's in there with it." } },

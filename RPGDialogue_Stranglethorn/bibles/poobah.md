@@ -11,7 +11,7 @@
 ## Identity
 Princess Poobah · Jaguero Isle, Stranglethorn Vale · neutral · tauren (female) · captive, quest giver
 Personality: imperious, dramatic, comic, hopeful
-Speech: royal airs, indignant, full sentences
+Speech: royal airs, indignant, full sentences; tauren: Earth Mother, plains and kodo imagery, sun blessings
 Knows and cares about: her dignity, Mukla, getting home
 Relationships: King Mukla (captor), Zanzil (former captor)
 Default attitudes: delighted by tauren and Horde; grudging to anyone who helps

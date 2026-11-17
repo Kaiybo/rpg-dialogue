@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Welcome to Misty Reed Post, where the sea stinks, the murlocs gurgle, and the stew is the only good thing for a league." },
-    { id = "g_back", when = { metBefore = true }, text = "Glad to see you're alive and well. Sit down, the pot's on." },
+    { id = "g_back", when = { metBefore = true }, text = "Glad to see you're alive and well, {class}. Sit down, the pot's on, and an orc's stew is the best thing on this beach." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and nobody else brought me meat the whole while. The soldiers have been eating boiled reeds and blaming me." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You've got bigger since you were last here, or I've got smaller, and it isn't me. Good, the murlocs won't like it." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Stonard's saying you're a help to people. I'll believe it when you bring me claws, but it's a good start." },
@@ -155,7 +155,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_ba", text = "A cook who learned smithing because nobody else on this beach would. It's worked out, mostly." } },
+    background = { { id = "tp_ba", text = "A cook who learned smithing because nobody else on this beach would. My father beat iron for the Horde before the camps, so it was in the blood, mostly." } },
     advice = { { id = "tp_ad", text = "Never eat anything that comes out of the sea with a face like a murloc's." } },
     _none = { { id = "tp_none", text = "Don't know it, but if it can be stewed, bring it here and we'll find out." } },
   },

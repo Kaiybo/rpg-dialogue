@@ -213,7 +213,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Need a bird? Mind the sand on the perch, it gets into everything, and the gryphons hate it more than I do." },
+    { id = "g_default", text = "Need a bird, {g:lad|lass}? Mind the sand on the perch, because it gets into everything, and the gryphons hate it even more than this old Dun Morogh lass does." },
   },
 
   notice = {
@@ -320,9 +320,9 @@ P:NPC {
         { id = "h_pt_bera", tags = { "news" }, when = { party = { race = "Dwarf" }, faction = "Alliance" },
           text = "Is that a dwarf in your company? {companion} is welcome at my roost, because it's nice to hear a proper accent among all these goblins." },
         { id = "h_default", key = true,
-          text = "Bera Stonehammer, gryphon master for the Alliance in Gadgetzan. I'll get you back to Theramore or Feathermoon, or wherever else your road runs, and if you're Horde, the orc with the wind riders is over there." },
+          text = "Bera Stonehammer, gryphon master for the Alliance in Gadgetzan, and aye, a long way from the snows. I'll get ye back to Theramore or Feathermoon, or wherever else your road runs, and if you're Horde, the orc with the wind riders is over there." },
         { id = "h_horde", when = { faction = "Horde" },
-          text = "My birds won't carry you, I'm afraid, and they bite strangers anyway. Bulkrek keeps the wind riders a little further on, and he'll see you right." },
+          text = "My birds won't carry ye, I'm afraid, and they bite strangers anyway, same as any proper Wildhammer bird. Bulkrek keeps the wind riders a wee bit further on, and he'll see you right." },
         { id = "h_druidcl", when = { class = "DRUID", race = "NightElf" },
           text = "A druid of the Circle! You'll be heading for Feathermoon, I expect, since most of your folk do once they've had a taste of this sand." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
@@ -334,14 +334,14 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! My father fought beside your order in the Second War, and he swore he never saw a braver lot, though he also said they snored louder than dwarves." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" },
-          text = "A warrior of the Alliance! Good, I've a crate of dispatches for Theramore that keeps drawing bandits, and they could stand to meet you." },
+          text = "A warrior of the Alliance! Good, I've a crate of dispatches for Theramore that keeps drawin' bandits, and by my beard they could stand to meet you." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, and one of ours! Mind your beast near my gryphons, though, because they're sick of the sand and in no mood to be sniffed." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. Keep yer demon away from the roost, because my gryphons are jumpy enough in this heat, an' they've no love for anythin' that smells o' brimstone." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I'll fly you anywhere, but if you could ask the wind to keep the sand out of my birds' feathers, I'd be in your debt." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The birds are restless in this heat." },
+        { id = "h_again", text = "Anything else? The birds are restless in this heat, and frankly so am I; it's no' a dwarf's climate." },
         { id = "h_again2", text = "Go on, then, ask; I've a bucket of water to fetch before the gryphons start complaining." },
       },
       choices = {
@@ -388,7 +388,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_ba", text = "I've kept gryphons since I was a lass in the snows of Dun Morogh, and the Alliance sent me where the birds were needed. Nobody asked whether I liked sand." } },
     advice = { { id = "tp_ad", text = "Carry water on the flight, because there's none to land for between here and Feralas." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you; ask somebody with less sand in their ears." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ye; ask somebody with less sand in their ears and less ale on their mind." } },
   },
 }
 
@@ -519,7 +519,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The dwarf across the yard keeps gryphons for paladins, and now I keep wind riders for one too." },
       },
       again = {
-        { id = "h_again", text = "Speak, then. The riders are fed." },
+        { id = "h_again", text = "Speak, then. The riders are fed, and an orc does not waste a fed rider's patience." },
         { id = "h_again2", text = "More? The heat makes orcs short-tempered, but I will listen." },
       },
       choices = {
@@ -1146,7 +1146,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman at a kaldorei's anvil. Your people learned the forge from the stone and I learned it from the moon, so watch and tell me which of us the fire prefers." },
       },
       again = {
-        { id = "h_again", text = "What else? I can talk while the iron heats." },
+        { id = "h_again", text = "What else? I can talk while the iron heats, and my people have never thought conversation a thing to rush." },
         { id = "h_again2", text = "Ask on. The forge is patient, and so am I." },
       },
       choices = {
@@ -1214,7 +1214,7 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_ba", text = "I left Kalimdor's forests for its forges, and the forges led me here, to sand and goblins and patience." } },
-    advice = { { id = "tp_ad", text = "Keep your edge oiled in the desert. The sand eats a dry blade." } },
+    advice = { { id = "tp_ad", text = "Keep your edge oiled in the desert. The sand eats a dry blade faster than the centuries eat anything but a kaldorei's memory." } },
     _none = { { id = "tp_none", text = "I can't say, though if it's made of metal I'll look at it." } },
   },
 }
