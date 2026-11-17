@@ -351,7 +351,7 @@ P:NPC {
         { text = "Does feeding the soldiers feel like holy work, Morgan?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Who goes hungry in Theramore, Morgan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "You sound as if a demon's been in your kitchen before, Morgan.", next = "xlock", when = { class = "WARLOCK" } },
-        { text = "I'll bring you those tongues.", next = "END", fx = { affinity = 2, standing = { theramore = 1 } } },
+        { text = "I'll bring you what the pot needs.", next = "END", fx = { affinity = 2, standing = { theramore = 1 } } },
         { text = "I'd guess thieves raid your kitchen now and then, Morgan.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Do you resent conjured food, Morgan?", next = "xmage", when = { class = "MAGE" } },
         { text = "Does soup really make a better soldier, Morgan?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -562,7 +562,7 @@ P:NPC {
       },
       choices = {
         { text = "I'd like to train.", next = "BUSINESS" },
-        { text = "What's triage?", next = "triage" },
+        { text = "What's triage?", next = "triage", when = { any = { { profession = "First Aid" }, { questActive = TODO_QUEST("Triage") }, { questDone = TODO_QUEST("Triage") } } } },
         { text = "Where do your wounded come from?", next = "wounded" },
         { text = "You seem very calm for a surgeon here.", next = "calm" },
         { text = "I heal with the Light. Why bother with bandages?", next = "x_healer", when = { class = { "PRIEST", "PALADIN", "SHAMAN", "DRUID" } } },

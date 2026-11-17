@@ -143,7 +143,7 @@ P:NPC {
       choices = {
         { text = "Would you want to know what the cows think?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Why do the families fight?", next = "feud" },
-        { text = "Tell me about Tommy Joe.", next = "tommy" },
+        { text = "Is there someone special you're not meant to see?", next = "tommy" },
         { text = "Billy must be your brother.", next = "billy" },
         { text = "Billy says you go to the river a lot.", next = "billy_river", when = { heardLine = "billy.m_river" } },
         { text = "You look as if the river went well.", next = "escape", when = { questDone = TODO_QUEST("The Escape") } },
@@ -183,7 +183,7 @@ P:NPC {
 
     tommy = {
       lines = {
-        { id = "tj_default", text = "He's kind. He stands at the river pretending to mend a fence, and he's terrible at pretending. All of Elwynn knows, except our families." },
+        { id = "tj_default", text = "Tommy Joe Stonefield. He's kind, and he stands at the river pretending to mend a fence, and he's terrible at pretending. All of Elwynn knows, except our families." },
       },
       choices = {
         { text = "How did you two meet?", next = "tommy_meet" },

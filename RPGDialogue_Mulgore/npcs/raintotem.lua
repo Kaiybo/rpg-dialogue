@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Lorekeeper Raintotem. Only the most valiant tauren are laid to rest at Red Rocks, the great warriors who founded and defended Thunder Bluff and those who gave their lives for their tribes, and I keep their names." },
+        { id = "h_default", key = true, text = "I am Lorekeeper Raintotem. Only the most valiant tauren are laid to rest at Red Rocks, the great warriors who founded and defended Thunder Bluff and those who gave their lives for their tribes, and I keep their names, though lately the Bristleback have been digging among them." },
         { id = "h_before", when = { questBefore = TODO_QUEST("A Sacred Burial") },
           text = "A foul menace has come onto our holy ground, {class}. A band of Bristleback interlopers is ravaging the grave sites, and I am too old and too far past my prime to drive them away, so they must be driven off by someone else." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Sacred Burial"), days = 3 } },

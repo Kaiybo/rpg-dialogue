@@ -79,7 +79,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened in the sunken temple?", next = "temple" },
-        { text = "Who is Eranikus?", next = "eranikus" },
+        { text = "Who is Eranikus?", next = "eranikus", when = { any = { { questActive = TODO_QUEST("The Essence of Eranikus") }, { questDone = TODO_QUEST("The Essence of Eranikus") } } } },
         { text = "Why keep so many whelps here?", next = "whelps" },
         { text = "Why take the shape of a high elf?", next = "visage" },
         { text = "Tell me of the Dream.", next = "dream", when = { class = "DRUID" } },

@@ -563,7 +563,7 @@ P:NPC {
     },
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "He'll know by tomorrow, because he knows everything that happens in this yard, and so do I. We nod at each other every morning, and I think he'll nod a little longer when he sees you, since his paladins never smelled like that." } },
+      lines = { { id = "xfpala_default", text = "She'll know by tomorrow, because she knows everything that happens in this yard, and so do I. We nod at each other every morning, and I think she'll nod a little longer when she sees you, since her paladins never smelled like that." } },
       choices = {
         { text = "Nod back to him. Gadgetzan's truce deserves respect.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "He's Alliance. I'd trust him with nothing.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1315,7 +1315,7 @@ P:NPC {
       choices = {
         { text = "What do you need from Zul'Farrak, Trenton?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The Sandfury temper their steel with more than fire. What do they use?", next = "xhsham", when = { class = "SHAMAN", faction = "Horde" } },
-        { text = "What is troll temper, exactly?", next = "temper" },
+        { text = "What do the trolls have that you need?", next = "temper" },
         { text = "Zul'Farrak sounds like a place to stay clear of.", next = "zf" },
         { text = "A night elf working steel?", next = "kaldorei" },
         { text = "Tell me what a smith wants with trolls.", next = "smith_talk", when = { profession = "Blacksmithing" } },
@@ -1334,7 +1334,7 @@ P:NPC {
       },
     },
     temper = {
-      lines = { { id = "t_default", text = "A troll quenching draught, made in vials and carried by their warriors. Steel quenched in it holds an edge longer than anything I can mix here, and I've tried every recipe a goblin will sell me." } },
+      lines = { { id = "t_default", text = "Troll temper, a quenching draught, made in vials and carried by their warriors. Steel quenched in it holds an edge longer than anything I can mix here, and I've tried every recipe a goblin will sell me." } },
       choices = {
         { text = "So the trolls are better smiths than you.", next = "temper_better" },
         { text = "Something else.", next = "BACK" },
@@ -1560,17 +1560,17 @@ P:NPC {
       },
       choices = {
         { text = "What do the spirits of Tanaris say, Yeh'kinya?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Who is Hakkar?", next = "hakkar" },
-        { text = "Why study him at all?", next = "why" },
+        { text = "Which of the troll gods do you study?", next = "hakkar" },
+        { text = "Why study the old gods at all?", next = "why" },
         { text = "Why live among goblins at a port?", next = "port" },
-        { text = "My elders never spoke of the Soulflayer.", next = "darkspear", when = { race = "Troll" } },
-        { text = "I'd guess Hakkar is still a danger.", next = "xlock", when = { class = "WARLOCK" } },
+        { text = "My elders never spoke of such gods.", next = "darkspear", when = { race = "Troll" } },
+        { text = "Is the Atal'ai god still a danger?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do you put stock in book magic, Yeh'kinya?", next = "xmage", when = { class = "MAGE" } },
         { text = "Is there something you need taken, old one?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Which loa should a priest fear in Tanaris, Yeh'kinya?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you mourn the Sandfury trolls I've fought, Yeh'kinya?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What were the old ways of the troll hunters, Yeh'kinya?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "Why study Hakkar if he's so dangerous, Yeh'kinya?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Why study gods so dangerous, Yeh'kinya?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Are all your people's gods terrible, Yeh'kinya?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "I've been to the bottom of the Sunken Temple, Yeh'kinya.", next = "xcl_st", when = { cleared = "The Temple of Atal'Hakkar" } },
         { text = "What stories should a troll know, Yeh'kinya?", next = "xpt_yehkinya", when = { party = { race = "Troll" } } },
@@ -1579,7 +1579,7 @@ P:NPC {
     },
     hakkar = {
       lines = {
-        { id = "hk_default", text = "The Soulflayer, a blood god the old Gurubashi served long ago, until the tribes turned on his priests and his temple sank into a swamp far across the sea. There's a prophecy among my people that he'll come back one day." },
+        { id = "hk_default", text = "Hakkar the Soulflayer, a blood god the old Gurubashi served long ago, until the tribes turned on his priests and his temple sank into a swamp far across the sea. There's a prophecy among my people that he'll come back one day." },
         { id = "hk_done", when = { questDone = TODO_QUEST("Screecher Spirits") }, text = "You've heard the start of it already, mon. Some trolls say his return means glory for our people, and others say it means the end of everything, and Yeh'kinya listens to both." },
       },
       choices = {

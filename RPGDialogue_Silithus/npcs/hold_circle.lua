@@ -148,7 +148,7 @@ P:NPC {
       choices = {
         { text = "What are the Twilight's Hammer doing to the elements out west?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why watch the cult, with the bugs so close?", next = "crazies" },
-        { text = "What are these papers the cultists carry?", next = "texts" },
+        { text = "What do you take off the cultists?", next = "texts" },
         { text = "Tell me about your brother.", next = "brother" },
         { text = "Someone must command the cult out here.", next = "council", when = { questDone = TODO_QUEST("Aurel Goldleaf") } },
         { text = "It must be hard fighting so far from Mulgore.", next = "tauren", when = { race = "Tauren" } },
@@ -375,7 +375,7 @@ P:NPC {
         { text = "Can Silithus ever be healed, Huum?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What story does the land tell?", next = "spirits" },
         { text = "What is the cult doing in the west?", next = "geolords" },
-        { text = "Your brother calls them crazies.", next = "brother" },
+        { text = "Your brother calls them crazies.", next = "brother", when = { heardLine = "bor_wildmane.h_default" } },
         { text = "The dead here are restless. Can they be helped?", next = "spirit_help", when = { class = { "PRIEST", "SHAMAN" } } },
         { text = "Who did you send me to see next?", next = "aurel", when = { questDone = TODO_QUEST("Vyral the Vile") } },
         { text = "My people speak with the loa, not the Earth Mother.", next = "x_troll", when = { race = "Troll" } },

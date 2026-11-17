@@ -48,7 +48,7 @@ P:NPC {
       choices = {
         { text = "Would you really eat me?", next = "eat" },
         { text = "You're a long way from the village out here.", next = "alone" },
-        { text = "What's so good about murloc heads?", next = "fishy" },
+        { text = "What's so good about murloc heads?", next = "fishy", when = { any = { { questActive = TODO_QUEST("Hungry!") }, { questDone = TODO_QUEST("Hungry!") } } } },
         { text = "Want some bread instead? I can make it from nothing.", next = "mage", when = { class = "MAGE" } },
         { text = "I could cook those heads for you.", next = "cook", when = { profession = "Cooking" } },
         { text = "What do you need?", next = "BUSINESS" },

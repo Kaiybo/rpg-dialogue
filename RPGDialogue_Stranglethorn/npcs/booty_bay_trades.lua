@@ -871,8 +871,8 @@ P:NPC {
       },
       choices = {
         { text = "What about Xizk?", next = "xizk" },
-        { text = "And Qixdi?", next = "qixdi" },
-        { text = "Isn't Blixrez a Goodstitch too?", next = "blixrez" },
+        { text = "Who sells the family's robes?", next = "qixdi" },
+        { text = "Does anyone in the family work leather?", next = "blixrez" },
         { text = "Enough about the family.", next = "hello" },
       },
     },

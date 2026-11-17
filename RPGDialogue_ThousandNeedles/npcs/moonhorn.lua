@@ -46,7 +46,7 @@ P:NPC {
       },
       choices = {
         { text = "What are the centaur doing?", next = "centaur" },
-        { text = "The Grimtotem seem unfriendly.", next = "grimtotem" },
+        { text = "What do you make of the Grimtotem?", next = "grimtotem" },
         { text = "Tell me about the Great Lift.", next = "lift" },
         { text = "The Grimtotem are tauren. Why fear them?", next = "kin", when = { race = "Tauren" } },
         { text = "What do you need?", next = "BUSINESS" },

@@ -88,7 +88,7 @@ P:NPC {
         { text = "Is the Cenarion Circle right to stay neutral?", next = "op_ask" },
         { text = "Why are the naga on the Zoram Strand?", next = "naga" },
         { text = "Are we at war with the Horde or not?", next = "horde" },
-        { text = "I don't know this Kayneth Stillwind.", next = "kayneth" },
+        { text = "I don't know this Kayneth Stillwind.", next = "kayneth", when = { minLevel = 25 } },
         { text = "You don't like ordering the pridewings killed.", next = "pridewings", when = { any = { { questActive = TODO_QUEST("Pridewings of Stonetalon") }, { questDone = TODO_QUEST("Pridewings of Stonetalon") } } } },
         { text = "I'm kaldorei too. How bad is it, between the two of us?", next = "sister", when = { race = "NightElf", class = { "HUNTER", "WARRIOR", "ROGUE" } } },
         { text = "What work do you have?", next = "BUSINESS" },

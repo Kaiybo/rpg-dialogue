@@ -98,7 +98,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Your tabard's been torn and stitched by somebody who didn't know what they were doing, and I can see it from my step." },
-        { id = "h_default", text = "Sara Timberlain. The loggers cut wood; I cut cloth. Somebody in this camp has to make something you'd want to wear." },
+        { id = "h_default", text = "Sara Timberlain. The loggers cut wood; I cut cloth. Somebody in this camp has to make something you'd want to wear, even if I cut it from thieves' red bandanas." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Red Linen Goods") },
           text = "The Defias in Elwynn wear the best red linen I've ever seen. Wasted on thieves. Bring me their bandanas and I'll make something honest of them." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Red Linen Goods") },
@@ -343,7 +343,7 @@ P:NPC {
       choices = {
         { text = "Tell me about the vineyard.", next = "vines" },
         { text = "Apples for water seems a strange trade.", next = "water" },
-        { text = "What about young Billy?", next = "billy" },
+        { text = "Who's the boy I've seen hanging about?", next = "billy" },
         { text = "Blessings on the harvest.", next = "priest", when = { class = "PRIEST" } },
         { text = "I worked Westfall fields before the Defias came.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Here, have a drink.", next = "BUSINESS" },

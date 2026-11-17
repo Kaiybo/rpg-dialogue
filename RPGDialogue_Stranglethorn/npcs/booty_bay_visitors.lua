@@ -99,7 +99,7 @@ P:NPC {
         { text = "Why stand here, among goblins and pirates?", next = "bay" },
         { text = "You call me cousin. The Darkspear owe you nothing.", next = "k_dark", when = { race = "Troll" } },
         { text = "Why would a troll ask the Alliance for help?", next = "k_alliance", when = { faction = "Alliance" } },
-        { text = "Is Hakkar a loa, then, like the others?", next = "x_loa", when = { class = { "PRIEST", "SHAMAN" } } },
+        { text = "Is this danger a loa, like the others?", next = "x_loa", when = { class = { "PRIEST", "SHAMAN" } } },
         { text = "May your elders guide you well.", next = "END" },
       },
     },
@@ -471,7 +471,7 @@ P:NPC {
         { text = "You're Pix's brother?", next = "family" },
         { text = "What happened to your eyebrows?", next = "rocket" },
         { text = "Where does all this stuff come from?", next = "sources" },
-        { text = "You still want to build rockets, I'd wager.", next = "dream" },
+        { text = "Any dreams beyond Lost and Found, Rix?", next = "dream" },
         { text = "Fellow goblin here. How's business, really?", next = "x_goblin", when = { race = "Goblin" } },
         { text = "I'll keep a better eye on my things.", next = "END" },
       },
@@ -540,7 +540,7 @@ P:NPC {
     },
 
     dream = {
-      lines = { { id = "dr_default", text = "Every day, sport! I've got a corner of the shelf set aside for parts, and one day I'll have enough for a proper shop on the pier, rockets for weddings and battles and the Baron's birthday. Crazk Sparks says the wharf ain't big enough for two of us, which I take as a compliment." } },
+      lines = { { id = "dr_default", text = "Rockets, sport, every day! I've got a corner of the shelf set aside for parts, and one day I'll have enough for a proper shop on the pier, rockets for weddings and battles and the Baron's birthday. Crazk Sparks says the wharf ain't big enough for two of us, which I take as a compliment." } },
       choices = {
         { text = "Crazk sounds worried.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -775,7 +775,7 @@ P:NPC {
       choices = {
         { text = "What's the caravan road like?", next = "road" },
         { text = "Which trolls trouble your wagons?", next = "trolls" },
-        { text = "What about Kurzen's men and the bandits?", next = "kurzen" },
+        { text = "What about the rebels and bandits?", next = "kurzen" },
         { text = "How did you get into caravans?", next = "past" },
         { text = "Your wagons must carry all sorts.", next = "cargo" },
         { text = "Do you hire guards, Ruzzgot?", next = "x_guard", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },

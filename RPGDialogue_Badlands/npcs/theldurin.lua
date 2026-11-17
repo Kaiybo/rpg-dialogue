@@ -57,11 +57,11 @@ P:NPC {
       choices = {
         { text = "Why do they call you 'the Lost'?", next = "lost" },
         { text = "You talk of doom like a man who's seen it.", next = "doom" },
-        { text = "Tell me about the Scroll of Myzrael.", next = "scroll" },
+        { text = "What are you guarding out here?", next = "scroll" },
         { text = "This place has the feel of a grave about it.", next = "agmond" },
         { text = "Shouldn't a priest tell you the stone is silent?", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I've heard the stone speak too, Theldurin.", next = "xshaman", when = { class = "SHAMAN" } },
-        { text = "The Hammer could be using you, even now.", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "Could whatever you fear be using you, even now?", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "I'll leave you to your rocks.", next = "END" },
       },
     },

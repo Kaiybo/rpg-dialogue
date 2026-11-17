@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Zangen Stonehoof. Every evening I light this fire and ask the Earth Mother to watch over us in the dark as in the day, and to remind us of the ancestors who guide our way." },
+        { id = "h_default", key = true, text = "I am Zangen Stonehoof. Every evening I light this fire and ask the Earth Mother to watch over us in the dark as in the day, and to remind us of the ancestors who guide our way. Lately I also help my friend Rau Cliffrunner, who seeks an artifact the centaur guard." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Sacred Flame") },
           text = "The Galak centaur in Thousand Needles guard an artifact from the time of the centaur's making, and my friend Rau Cliffrunner would see it recovered. To reach it, he needs water from one of the night elves' moonwells, carried in a dryad's phial." },
         { id = "h_filled", tags = { "news" }, when = { questActive = TODO_QUEST("The Sacred Flame") },

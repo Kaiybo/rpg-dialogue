@@ -492,8 +492,8 @@ P:NPC {
       choices = {
         { text = "Who is Yenniku?", next = "yenniku" },
         { text = "Do the jungle trolls fear a warrior's axe, Nimboya?", next = "xhwar", when = { class = "WARRIOR", race = { "Orc", "Troll", "Tauren", "Scourge" } } },
-        { text = "And the Bloodscalp?", next = "bloodscalp" },
-        { text = "Why punish the Witherbark?", next = "witherbark" },
+        { text = "Who do you think took him?", next = "bloodscalp" },
+        { text = "Have any trolls betrayed the Horde?", next = "witherbark" },
         { text = "The Darkspear must miss this jungle.", next = "walls" },
         { text = "I'm Darkspear. Tell me what the chief needs.", next = "kin", when = { race = "Troll" } },
         { text = "His soul is free. Is it over?", next = "after", when = { questDone = TODO_QUEST("Saving Yenniku") } },
@@ -537,7 +537,7 @@ P:NPC {
 
     bloodscalp = {
       lines = {
-        { id = "bs_default", text = "Their witch doctor, Nezzliok, know where the boy be. Alive or dead, he going to tell me." },
+        { id = "bs_default", text = "The Bloodscalp, mon, and their witch doctor, Nezzliok, know where the boy be. Alive or dead, he going to tell me." },
       },
       choices = {
         { text = "How does a dead troll tell you anything?", next = "bloodscalp_cauldron" },
@@ -776,9 +776,9 @@ P:NPC {
         { text = "Do the jungle's spirits trust Horde shamans, or only the Darkspear?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What dark magic stirs in this jungle, Kin'weelay?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What can't be seen?", next = "unseen" },
-        { text = "You seem very keen on those Bloodscalp necklaces.", next = "trophies" },
-        { text = "What's down at the Vile Reef?", next = "reef" },
-        { text = "Can Yenniku still be saved?", next = "hope" },
+        { text = "Why fight the Bloodscalp, witch doctor?", next = "trophies" },
+        { text = "Are there old troll places on this coast?", next = "reef" },
+        { text = "Is there hope for the boy Nimboya seeks?", next = "hope" },
         { text = "I carry an orc's head from Dustwallow.", next = "marg", when = { questActive = TODO_QUEST("The Troll Witchdoctor") } },
         { text = "A Darkspear warlock. What do the spirits make of me?", next = "troll_warlock", when = { race = "Troll", class = "WARLOCK" } },
         { text = "I'm a Windshaper. Do your spirits know mine?", next = "skyborne", when = { race = "Skyborne" } },

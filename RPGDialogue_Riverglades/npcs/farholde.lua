@@ -177,7 +177,7 @@ P:NPC {
       choices = {
         { text = "Stormwind had its own war to fight.", next = "stormwind_defend", fx = { align = { order = 2 }, affinity = -1 } },
         { text = "They abandoned you. That's unforgivable.", next = "stormwind_agree", fx = { align = { order = -2 }, affinity = 2, opinion = { stormwind = "abandoned_its_own" } } },
-        { text = "Does Ashe feel the same?", next = "stormwind_ashe" },
+        { text = "Does everyone in Farholde feel the same?", next = "stormwind_ashe" },
       },
     },
     stormwind_defend = {
@@ -205,7 +205,7 @@ P:NPC {
     },
     enemy_hammer = {
       lines = {
-        { id = "eh_default", text = "Cultists and ogres, in Sunnyglade and up in the hills, and they take prisoners. I stopped asking what for; the answers kept me awake.",
+        { id = "eh_default", text = "Cultists and ogres, in Sunnyglade and the hills and the caves of Krol'dok, and they take prisoners. I stopped asking what for; the answers kept me awake.",
           fx = { learn = { "twilights_hammer" } } },
       },
       choices = {
@@ -525,7 +525,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Ashe Amberhall, advisor to the Knight Commander. I answer visitors' questions about Farholde. We get so few visitors that I'm out of practice, and likely to say too much." },
+          text = "Ashe Amberhall, advisor to the Knight Commander. I answer visitors' questions about Farholde. We get so few visitors that I'm out of practice, and likely to say too much, as my father always warned me." },
         { id = "h_satchel", tags = { "news" }, when = { questActive = TODO_QUEST("Lingering Essence") },
           text = "Riftan sent you with those? Put them down, but not on that table, on the stone one, and then step back, please." },
         { id = "h_satchel_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Lingering Essence"), days = 3 } },
@@ -551,7 +551,7 @@ P:NPC {
         { text = "Tell me about Farholde.", next = "farholde" },
         { text = "Who was your father?", next = "father" },
         { text = "The Twilight's Hammer seems busy around here.", next = "hammer" },
-        { text = "What's in the old mage tower at Sunnyglade?", next = "tower" },
+        { text = "Is there anything at Sunnyglade worth a scholar's eye?", next = "tower" },
         { text = "Shop talk, then. What are you working on?", next = "shop", when = { class = "MAGE" } },
         { text = "You've read about my people?", next = "skyborne", when = { race = "Skyborne" } },
         { text = "The Hammer's magic must be close to mine.", next = "warlock", when = { class = "WARLOCK" } },
@@ -688,7 +688,7 @@ P:NPC {
 
     tower = {
       lines = {
-        { id = "t_default", text = "The Horde spared it to learn how our magic worked; now the Hammer sits in it. I'd give a great deal for an hour in that tower, and rather less to be carried out.",
+        { id = "t_default", text = "The old mage tower. The Horde spared it to learn how our magic worked, and now the Hammer sits in it. I'd give a great deal for an hour in that tower, and rather less to be carried out.",
           fx = { learn = { "sunnyglade" } } },
       },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -906,7 +906,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Sergeant Riftan, Brotherhood of the Horse. I've been fighting these cultists longer than some of our riders have been alive, and don't ask how long, because I stopped counting." },
+          text = "Sergeant Riftan, Brotherhood of the Horse. I've been fighting these cultists longer than some of our riders have been alive, and don't ask how long, because I stopped counting. Their dead carry odd carved trinkets, and I send them up to Ashe at the keep." },
         { id = "h_mementos", when = { questActive = TODO_QUEST("Twilight Mementos") },
           text = "Their dead carry little carved things. Bring me some, and don't hold them longer than you have to." },
         { id = "h_satchel", when = { questActive = TODO_QUEST("Lingering Essence") },
@@ -1986,7 +1986,7 @@ P:NPC {
           when = { any = { { questActive = TODO_QUEST("Key Ingredients") }, { questDone = TODO_QUEST("Key Ingredients") }, { questActive = TODO_QUEST("Krol'dok Moulding") } } } },
         { text = "You must have worked this forge a long time.", next = "forge" },
         { text = "Any advice for another smith?", next = "teach", when = { profession = "Blacksmithing" } },
-        { text = "My armour took a beating at Krol'dok.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "My armour's taken a beating out in these glades.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Will you look at my plate?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you need for arrowheads?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Can you make a blade that doesn't catch the light?", next = "xrogue", when = { class = "ROGUE" } },

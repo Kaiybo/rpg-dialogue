@@ -346,7 +346,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about Captain Kozus.", next = "hold_vish" },
-        { text = "And the dwarves to the south?", next = "hold_dwarves" },
+        { text = "Is anyone else working out in this desert?", next = "hold_dwarves" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1227,7 +1227,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" },
           text = "Warlock. I can feel that thing at your heel from up here, so keep it close and keep it quiet, or my guards will put it down." },
         { id = "h_default", key = true,
-          text = "Vish Kozus, Captain of the Guard. The Commander hasn't been himself since his wife vanished on a dig in the southern desert, without a trace, so I watch twice as hard. If you're looking for work, there's a poster by the door; do I need to draw you a picture?" },
+          text = "Vish Kozus, Captain of the Guard. The Commander hasn't been himself since his wife vanished on a dig in the southern desert, without a trace, so I watch twice as hard. If you're looking for work, there's a poster by the door for a scorpid called Deathclasp; do I need to draw you a picture?" },
         { id = "h_deathclasp", tags = { "news" }, when = { questActive = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") },
           text = "Deathclasp's gone to ground in the southern mountains, behind the dwarves' camp. Bring me her pincer, and only her pincer; I've been offered a lot of stories in my time, and not one of them had claws." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. I heard your robes before I heard your feet, and I'd guess Forsaken or troll from the way you walk, though I'm far too polite to say which." },
@@ -1542,7 +1542,7 @@ P:NPC {
       choices = { { text = "Takes nerve to admit that.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     food = {
-      lines = { { id = "f_default", text = "Precious little that grows, so it all comes up the road from Un'Goro, and what doesn't come up the road I've been trying to learn. There aren't many desert herbs, and the sandworms taste the way old boots smell." } },
+      lines = { { id = "f_default", text = "Precious little that grows, so it all comes up the road from Un'Goro, and what doesn't come up the road I've been trying to learn. There aren't many desert herbs, and the sandworms taste the way old boots smell, though the cult out west seem to thrive on them." } },
       choices = {
         { text = "The cult seems to manage.", next = "food_cult" },
         { text = "Something else.", next = "BACK" },
@@ -1793,7 +1793,7 @@ P:NPC {
           text = "Deathclasp, the big scorpid in the southern mountains, chased him into a whole nest of stonelash flayers, pal. The idiot ran straight from one into the other, and lost his bag doing it, with a week's herbs inside." },
       },
       choices = {
-        { text = "Someone should deal with Deathclasp.", next = "noggle_deathclasp" },
+        { text = "Someone should deal with that scorpid.", next = "noggle_deathclasp" },
         { text = "Something else.", next = "BACK" },
       },
     },

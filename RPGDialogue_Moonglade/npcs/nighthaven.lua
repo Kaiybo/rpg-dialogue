@@ -374,7 +374,7 @@ P:NPC {
         { id = "f_default", text = "My father fell in the war, when the demons' servants came into the forests, and his children carry on as best we can. My brother Ordanus keeps the great tree at Raynewood in Ashenvale. My son Celebras is a keeper like me and his sisters are dryads, and I have not seen them in far too long." },
       },
       choices = {
-        { text = "You had another brother?", next = "zaetar" },
+        { text = "Did Cenarius have other sons?", next = "zaetar" },
         { text = "You haven't said where Celebras is now.", next = "celebras" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1023,7 +1023,7 @@ P:NPC {
       choices = {
         { text = "What are the trials for?", next = "trials" },
         { text = "Tell me about the trial of the water.", next = "water" },
-        { text = "Why would a druid learn to cure poison like a layman?", next = "poison" },
+        { text = "Why do young druids need a trial of cleansing at all?", next = "poison" },
         { text = "I'm no druid. May I watch the trials?", next = "nondruid", when = { ["not"] = { class = "DRUID" } } },
         { text = "I'll need to find the pendant halves somehow.", next = "pendant", when = { questActive = TODO_QUEST("Trial of the Sea Lion") } },
         { text = "My faith leans to the winds. Does that matter?", next = "winds", when = { race = "Skyborne", class = "DRUID" } },

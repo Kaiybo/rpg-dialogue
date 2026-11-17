@@ -325,7 +325,7 @@ P:NPC {
       },
     },
     watch = {
-      lines = { { id = "w_default", text = "Latronicus Moonspear, my second. He sleeps less than I do and complains about it more. The island has never once been unwatched." } },
+      lines = { { id = "w_default", key = true, text = "Latronicus Moonspear, my second. He sleeps less than I do and complains about it more. The island has never once been unwatched." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     archery = {
@@ -1015,11 +1015,11 @@ P:NPC {
         { text = "Do you care what the ogres do to the forest?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who are the Gordunni?", next = "gordunni" },
         { text = "Why did Belgrom send you?", next = "belgrom" },
-        { text = "This dark ceremony sounds like trouble.", next = "ceremony" },
+        { text = "What are the ogres up to?", next = "ceremony" },
         { text = "I didn't expect an orc in a tauren camp.", next = "camp" },
         { text = "Warrior to warrior: how do you fight an ogre?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "This is my people's camp.", next = "tauren", when = { race = "Tauren" } },
-        { text = "I could read that orb for you.", next = "mage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "I could read that orb for you.", next = "mage", when = { class = { "MAGE", "WARLOCK" }, any = { { questActive = TODO_QUEST("The Gordunni Scroll") }, { questActive = TODO_QUEST("The Gordunni Orb") } } } },
         { text = "My people once lived in these hills.", next = "skyborne", when = { race = "Skyborne" } },
         { text = "The ogres' shamans call on the elements wrongly.", next = "shaman_ro", when = { class = "SHAMAN" } },
         { text = "The Gordunni use dark magic too?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -1087,7 +1087,7 @@ P:NPC {
 
     ceremony = {
       lines = {
-        { id = "c_default", text = "Somebody found a filthy scroll at their outpost, plans for a meeting or a rite of some kind, run by their mage-lords. Whatever they're calling up, I want it stopped before it comes." },
+        { id = "c_default", text = "Somebody found a filthy scroll at their outpost, plans for a meeting or a rite of some kind, run by their mage-lords, who carry strange orbs as well. Whatever they're calling up, I want it stopped before it comes." },
       },
       choices = {
         { text = "And the orbs they carry?", next = "ceremony_orb" },
@@ -1281,7 +1281,7 @@ P:NPC {
         { id = "h_again", text = "More questions? Ask fast, my friend; time is money, and so is cobalt." },
       },
       choices = {
-        { text = "What is Gordunni cobalt?", next = "cobalt" },
+        { text = "What's this ore the ogres guard?", next = "cobalt" },
         { text = "You must have a buyer in mind for it.", next = "sell" },
         { text = "Feralas is a long way to come, Orwin.", next = "why" },
         { text = "I mine. What should I know about it?", next = "miner", when = { profession = "Mining" } },
@@ -1301,7 +1301,7 @@ P:NPC {
 
     cobalt = {
       lines = {
-        { id = "c_default", text = "Some kind of mineral the Gordunni dig up near their outpost, my friend, and it glows blue, which is never nothing in my experience. The trouble is they don't leave it lying around; they bury it again, like misers." },
+        { id = "c_default", text = "Gordunni cobalt, I call it, some kind of mineral the Gordunni dig up near their outpost, my friend, and it glows blue, which is never nothing in my experience. The trouble is they don't leave it lying around; they bury it again, like misers." },
       },
       choices = {
         { text = "Why would ogres bury it?", next = "cobalt_bury" },

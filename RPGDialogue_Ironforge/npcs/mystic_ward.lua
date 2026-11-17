@@ -165,7 +165,7 @@ P:NPC {
         { id = "h_pt_rohan", tags = { "news" }, when = { party = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" }, ["not"] = true, size = { min = 2 } }, class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } },
           text = "Ye're the only one in yer company who mends, aren't ye? I can tell by how ye stand, a wee bit behind an' watchin' everyone, an' I'll tell ye what I tell my acolytes: watch yerself too, because nobody else will." },
         { id = "h_default", key = true,
-          text = "Rohan, High Priest o' the Hall o' Mysteries. I walk this floor from mornin' tae night, because the young priests ask better questions when they have tae keep up." },
+          text = "Rohan, High Priest o' the Hall o' Mysteries. I walk this floor from mornin' tae night, because the young priests ask better questions when they have tae keep up, an' this old censer swings better on the move." },
         { id = "h_fear", tags = { "news" }, when = { questActive = TODO_QUEST("A Lack of Fear") },
           text = "Ye came quickly, an' that's a good sign. There's a ward against fear that belongs tae dwarves who serve the Light, an' I've been waitin' tae teach it tae ye." },
         { id = "h_fear_done", when = { questDone = TODO_QUEST("A Lack of Fear") },
@@ -202,7 +202,7 @@ P:NPC {
         { text = "Is the Light really so different from nature?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You never seem to stand still, High Priest.", next = "pacing" },
         { text = "How did the Light come to Ironforge?", next = "came" },
-        { text = "They say you keep an exorcism censer.", next = "censer" },
+        { text = "What's that old censer for, High Priest?", next = "censer" },
         { text = "There must be plenty of work for a priest here.", next = "work" },
         { text = "Teach me something, High Priest.", next = "lesson", when = { class = "PRIEST" } },
         { text = "Does the Light listen to gnomes?", next = "gnome", when = { race = "Gnome" } },
@@ -1244,9 +1244,9 @@ P:NPC {
       },
       choices = {
         { text = "What does the path to virtue ask?", next = "path" },
-        { text = "Someone over there is being stitched up.", next = "husband" },
+        { text = "Someone over there is the wounded dwarf up.", next = "husband" },
         { text = "How did you come to the Light?", next = "came" },
-        { text = "Brandur speaks highly of you.", next = "brandur" },
+        { text = "Brandur speaks highly of you.", next = "brandur", when = { heardLine = "brandur.tz_default" } },
         { text = "I've earned my oaths, Tiza.", next = "oath", when = { class = "PALADIN" } },
         { text = "My family's carried the Silver Hand since the Second War.", next = "hand", when = { race = "Dwarf", class = "PALADIN" } },
         { text = "I'm no paladin, but I'd stand with one.", next = "warrior", when = { class = "WARRIOR" } },
@@ -1492,7 +1492,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Tiza's lot, are ya? Then ye'll know she'll have ya walkin' further than ya want, an' ye'll thank her for it after, same as I did." },
-        { id = "h_default", text = "Muiredon Battleforge, Tiza's husband, an' presently the Hall's favorite pincushion. I had a wee disagreement wi' some Dark Irons, an' they won the first round." },
+        { id = "h_default", text = "Muiredon Battleforge, Tiza's husband, an' presently the Hall's favorite pincushion. My friend Narm an' I had a wee disagreement wi' some Dark Irons, an' they won the first round." },
         { id = "h_symbol", tags = { "news" }, when = { questActive = TODO_QUEST("The Tome of Divinity"), class = "PALADIN" },
           text = "Tiza's sent ya tae hear it from me, has she? Then sit, an' I'll tell ya the whole of it, about me an' Narm an' the Dark Irons." },
         { id = "h_symbol2", tags = { "news" }, when = { questActive = TODO_QUEST("The Symbol of Life") },
@@ -1516,7 +1516,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. Talkin' takes me mind off the needle." },
       },
       choices = {
-        { text = "What happened at Helm's Bed Lake?", next = "lake" },
+        { text = "Where did you run into these Dark Irons?", next = "lake" },
         { text = "Tell me about Narm.", next = "narm" },
         { text = "You look badly hurt.", next = "hurt" },
         { text = "Let me pray over those wounds.", next = "pray", when = { class = "PRIEST" } },

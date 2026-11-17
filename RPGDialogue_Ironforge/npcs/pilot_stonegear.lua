@@ -54,7 +54,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about Trollplow.", next = "trollplow" },
-        { text = "You and Bellowfiz argue a lot.", next = "fizzer" },
+        { text = "Do you get on with Pilot Bellowfiz?", next = "fizzer" },
         { text = "What's the Siege Brigade doing out here?", next = "brigade" },
         { text = "This incendicite doesn't look entirely safe.", next = "incendicite", when = { questDone = TODO_QUEST("Stonegear's Search") } },
         { text = "I know my way around a mine.", next = "miner", when = { profession = "Mining" } },

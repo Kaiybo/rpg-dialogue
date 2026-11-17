@@ -150,9 +150,9 @@ P:NPC {
         { id = "h_windshaper", when = { origin = "skyborne_windshaper" }, text = "You passed the trials and took the sapta before we left the isle, and you came down with us anyway. The winds that sheltered us are gone, but Gev'rek is full of people who swore to them, and you're one of the few who still says the oath aloud." },
       },
       choices = {
-        { text = "Why did you leave Skywall?", next = "skywall" },
+        { text = "Why did your people leave their home?", next = "skywall" },
         { text = "What do the Windshapers believe?", next = "believe" },
-        { text = "And the High Order?", next = "order" },
+        { text = "Did all your people come to the Horde?", next = "order" },
         { text = "I've begun the trials, Elder. The elements answer me.", next = "shaman", when = { race = "Skyborne", class = "SHAMAN" } },
         { text = "I chose the blade over the trials. Is that a failing?", next = "warrior", when = { race = "Skyborne", class = { "WARRIOR", "ROGUE", "HUNTER" } } },
         { text = "I'm a druid. Does that set me apart from the Windshapers?", next = "druid", when = { race = "Skyborne", class = "DRUID" } },
@@ -254,7 +254,7 @@ P:NPC {
     },
     order = {
       lines = {
-        { id = "o_default", text = "They went to the Kirin Tor; we went to the Earthen Ring. Some of what lies between us is old, and some of it is fresh graves. Don't ask me to pretend otherwise." },
+        { id = "o_default", text = "The High Order didn't. They went to the Kirin Tor, and we went to the Earthen Ring. Some of what lies between us is old, and some of it is fresh graves. Don't ask me to pretend otherwise." },
       },
       choices = { { text = "I won't.", next = "BACK", fx = { affinity = 1, learn = { "two_orders" } } } },
     },

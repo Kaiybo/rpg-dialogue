@@ -123,12 +123,12 @@ P:NPC {
         { id = "h_again2", text = "Go on. The petitioners can wait a little longer; they're used to it." },
       },
       choices = {
-        { text = "This missing diplomat must be someone important.", next = "diplomat" },
+        { text = "This missing diplomat must be someone important.", next = "diplomat", when = { any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
         { text = "The Church wants something from the court, I'd wager.", next = "court" },
-        { text = "Why trust a fisherman over the guard?", next = "contacts" },
+        { text = "Why trust a fisherman over the guard?", next = "contacts", when = { any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
         { text = "Your Grace, how does a priest serve at court?", next = "priest", when = { class = "PRIEST" } },
         { text = "My family has a seat in the House.", next = "noble", when = { origin = "human_minor_noble" } },
-        { text = "Your fisherman would make a fine spy, Your Grace.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "Your fisherman would make a fine spy, Your Grace.", next = "rogue", when = { class = "ROGUE", any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { questDone = TODO_QUEST("The Missing Diplomat") } } } },
         { text = "I'd guess the Church is wary of the Mage Quarter, Your Grace.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Does the Church speak for the soldiers at court, Bishop?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What news does the court get of the wilds, Bishop?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -402,9 +402,9 @@ P:NPC {
       },
       choices = {
         { text = "Tell me about your museum.", next = "museum" },
-        { text = "That's a traitor's tiara you're after.", next = "tiara" },
-        { text = "I don't know this Mayara Brightwing.", next = "mayara" },
-        { text = "So dwarves made it.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "That's a traitor's tiara you're after.", next = "tiara", when = { any = { { questActive = TODO_QUEST("The Perenolde Tiara") }, { questDone = TODO_QUEST("The Perenolde Tiara") }, { heardLine = "ridgewell.h_tiara" } } } },
+        { text = "I don't know this Mayara Brightwing.", next = "mayara", when = { any = { { questActive = TODO_QUEST("Mayara Brightwing") }, { questDone = TODO_QUEST("Mayara Brightwing") } } } },
+        { text = "Is any of your collection dwarven work, Count?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "You seem to have guessed my house already.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Has anyone ever tried to rob your museum, Count?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Would you like me to look over your collection?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -467,7 +467,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dwarf = {
-      lines = { { id = "dw_default", text = "Master jewellers of Ironforge, long before the Perenoldes went bad. I've always wondered whether your people kept the designs. If you ever hear of a workshop that did, you must tell me at once." } },
+      lines = { { id = "dw_default", text = "Not yet, though the piece I want most, a Perenolde tiara from Alterac, was set by master jewellers of Ironforge long before that family went bad. I've always wondered whether your people kept the designs. If you ever hear of a workshop that did, you must tell me at once." } },
       choices = {
         { text = "Dwarves don't sell their family secrets.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "I'll ask around for you.", next = "BACK", fx = { affinity = 2 } },
@@ -672,7 +672,7 @@ P:NPC {
     found = {
       lines = { { id = "f_default", text = "I was enjoying a quiet evening at the Lamb, as a gentleman does, and I went looking for the privy and found a staircase instead. I've an excellent memory for what I see, even after a few cups." } },
       choices = {
-        { text = "And the bill you never paid?", next = "found_bill" },
+        { text = "And the bill you never paid?", next = "found_bill", when = { any = { { questActive = TODO_QUEST("A Noble Brew") }, { questDone = TODO_QUEST("A Noble Brew") }, { heardLine = "gakin.ln_default" } } } },
         { text = "Something else.", next = "BACK" },
       },
     },

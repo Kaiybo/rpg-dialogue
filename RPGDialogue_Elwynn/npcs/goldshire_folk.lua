@@ -593,7 +593,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I dream of it every night, a gold-lettered sign with my name on it. Your spirits might bring luck to a wagon, if you ask nicely." } },
+      lines = { { id = "xdsham_default", text = "A shop in the Trade District, every night, with a gold-lettered sign with my name on it. Your spirits might bring luck to a wagon, if you ask nicely." } },
       choices = {
         { text = "Keep at it, Tharynn. The sign will come.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Dreams are cheap. Sell more and dream less.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -708,7 +708,7 @@ P:NPC {
         { text = "Has anyone cheated you on the road, Bouden?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do crafters ever ask for things only the forest provides?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does a rogue buy from a trade supplier, Tharynn?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "You still dream of a shop in the Trade District, I'd wager.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What do you dream of, Tharynn?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -1556,7 +1556,7 @@ P:NPC {
       },
       choices = {
         { text = "Why teach bandaging?", next = "why" },
-        { text = "Sam on the road says you teach camp kits.", next = "camp" },
+        { text = "Sam on the road says you teach camp kits.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
         { text = "I'd have thought the Light could do what linen does.", next = "priest", when = { class = "PRIEST" } },
         { text = "Teach me.", next = "BUSINESS" },
         { text = "Why do rogues end up with such awkward wounds?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1722,7 +1722,7 @@ P:NPC {
         { text = "The Light would have words with you.", next = "priest", when = { class = "PRIEST" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What should I be practising?", next = "practise", when = { class = "WARLOCK" } },
-        { text = "What did you mean, power is a debt?", next = "debt", when = { class = "WARLOCK" } },
+        { text = "Is power a debt, Crowe, or a gift?", next = "debt", when = { class = "WARLOCK" } },
         { text = "What do you make of the other teachers upstairs?", next = "teachers" },
         { text = "Warlocks and rogues must get along well enough, I'd guess.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "The mages upstairs must know what you teach down here.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -2112,7 +2112,7 @@ P:NPC {
       choices = {
         { text = "Fishing seems a quiet life.", next = "why" },
         { text = "Any murlocs in Crystal Lake?", next = "murlocs" },
-        { text = "Sam on the road says fishing helps a camp.", next = "camp" },
+        { text = "Sam on the road says fishing helps a camp.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
         { text = "Teach me.", next = "BUSINESS" },
         { text = "Fishing seems much like a rogue's waiting game.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Freezing the pond would be a clever way to fish.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -2292,7 +2292,7 @@ P:NPC {
       choices = {
         { text = "How did you learn?", next = "learn" },
         { text = "Adele says you've been her strength.", next = "adele", when = { heardLine = "adele.hb_default" } },
-        { text = "Sam on the road says hides make a camp.", next = "camp" },
+        { text = "Sam on the road says hides make a camp.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
         { text = "Teach me.", next = "BUSINESS" },
         { text = "A skinning knife would serve a rogue well enough.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What strange requests have you had for pelts?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -2470,7 +2470,7 @@ P:NPC {
       choices = {
         { text = "What's hardest to make?", next = "hard" },
         { text = "This must be your house by the lake.", next = "home" },
-        { text = "Sam on the road says leatherworkers make tents.", next = "camp" },
+        { text = "Sam on the road says leatherworkers make tents.", next = "camp", when = { any = { { heardLine = "sam.ct_default" }, { heardLine = "sam.ct_lw" }, { heardLine = "sam.ct_fish" }, { heardLine = "sam.ct_aid" } } } },
         { text = "Teach me.", next = "BUSINESS" },
         { text = "What makes your boots so quiet, Adele?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I doubt many mages buy boots from you.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },

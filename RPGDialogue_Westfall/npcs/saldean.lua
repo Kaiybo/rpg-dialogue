@@ -197,7 +197,7 @@ P:NPC {
         { text = "Most men would have left with their neighbours.", next = "stay" },
         { text = "Where did the watchers come from?", next = "watchers" },
         { text = "Every farm on this road stands empty.", next = "neighbours" },
-        { text = "Your wife sets a fine table.", next = "salma" },
+        { text = "Is that your wife at the stove?", next = "salma" },
         { text = "I worked fields like these, growing up.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "Shall I bless your fields?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I know how thieves think, Saldean. I can help.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },

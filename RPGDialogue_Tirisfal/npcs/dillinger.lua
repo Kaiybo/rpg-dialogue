@@ -61,7 +61,7 @@ P:NPC {
         { text = "The Scourge seem to be after something out west.", next = "west" },
         { text = "Why aren't you out there fighting them yourself?", next = "post" },
         { text = "Tell me about Agamand Mills.", next = "mills" },
-        { text = "Austil de Mon sent me. He said you had a mission.", next = "ulag", when = { class = "WARRIOR" } },
+        { text = "I'm told you have a task for a warrior.", next = "ulag", when = { class = "WARRIOR" } },
         { text = "Who was Ulag, before he was a prisoner?", next = "ulag_after", when = { questDone = TODO_QUEST("Ulag the Cleaver") } },
         { text = "Do the living give you trouble in Brill?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "I'll walk the west road for you tonight.", next = "rogue", when = { class = { "ROGUE", "HUNTER" } } },

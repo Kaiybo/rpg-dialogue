@@ -1307,7 +1307,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Wilhelm's down the road, behind the smithy, but you're welcome here too, if you'd like a quiet word before the drills." },
-        { id = "h_default", text = "Josetta. I teach the Light up here, above the noise of the common room, or mostly above it." },
+        { id = "h_default", text = "Josetta. I teach the Light up here, above the noise of the common room, or mostly above it, and I dream of the roads I never took." },
         { id = "h_garments", when = { questActive = TODO_QUEST("Garments of the Light") },
           text = "There are folk on the road who need mending more than they'll admit. Find them and heal them, and don't wait to be asked." },
         { id = "h_prayer", key = true, when = { questActive = TODO_QUEST("Desperate Prayer") },
@@ -1518,13 +1518,13 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Strange place to teach, above an inn.", next = "inn" },
-        { text = "What does Jennea want with me?", next = "jennea", when = { class = "MAGE", minLevel = 10 } },
+        { text = "What does Jennea want with me?", next = "jennea", when = { class = "MAGE", minLevel = 10, any = { { questActive = TODO_QUEST("Speak with Jennea") }, { questActive = TODO_QUEST("Report to Jennea") } } } },
         { text = "What's the worst a mage can become?", next = "worst" },
         { text = "How does the Light feel? Warm, mostly.", next = "light", when = { class = "PRIEST" } },
         { text = "What should I be practising?", next = "practise", when = { class = "MAGE" } },
         { text = "Gnomes make better mages than humans, you know.", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "Would you like to see a High Order form?", next = "skyborne", when = { race = "Skyborne", class = "MAGE" } },
-        { text = "What do you make of the cellar below?", next = "cellar" },
+        { text = "What lies beneath this inn, Wefhellt?", next = "cellar" },
         { text = "I'd guess a rogue or two has tried for your books, Wefhellt.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "What do you think of the warlocks below your room?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What do you make of warriors, Wefhellt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1602,7 +1602,7 @@ P:NPC {
     },
     cellar = {
       big = true,
-      lines = { { id = "cellar_l", text = "That it's under the same floorboards as I am, which I try not to dwell upon. Mages and warlocks start from the same books, you know; the difference is which chapter they couldn't resist." } },
+      lines = { { id = "cellar_l", text = "A cellar full of warlocks, under the same floorboards as I am, which I try not to dwell upon. Mages and warlocks start from the same books, you know; the difference is which chapter they couldn't resist." } },
       choices = {
         { text = "Then the books should be locked away.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Every chapter should be read. That's scholarship.", next = "BACK", fx = { align = { order = -1 }, trait = { curious = 1 } } },
@@ -1754,7 +1754,7 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
-        { text = "Who's the Master?", next = "master", when = { class = "ROGUE" } },
+        { text = "Who runs things for rogues in Stormwind?", next = "master", when = { class = "ROGUE" } },
         { text = "That book has you very absorbed.", next = "book" },
         { text = "The Defias tried to recruit me.", next = "defias", when = { class = "ROGUE", topicKnown = "defias" } },
         { text = "This room seems open to anyone.", next = "room", when = { ["not"] = { class = "ROGUE" } } },

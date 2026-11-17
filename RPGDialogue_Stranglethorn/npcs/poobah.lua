@@ -45,7 +45,7 @@ P:NPC {
       },
       choices = {
         { text = "Princess of what, exactly?", next = "princess" },
-        { text = "Who is King Mukla?", next = "mukla" },
+        { text = "Who is this great Skymane?", next = "mukla" },
         { text = "You look like you've had a hard time of it.", next = "captive" },
         { text = "How did you throw bottles all the way to the shore?", next = "bottles" },
         { text = "Mulgore's a long way from here, Princess.", next = "xtauren", when = { race = "Tauren" } },
@@ -98,7 +98,7 @@ P:NPC {
         { id = "ca_default", text = "It's a long and very tragic story, and I've been held by worse than gorillas, if you'd believe it. There was a troll called Zanzil before this, with his potions and his zombies, and Mukla is an improvement, which tells you something." },
       },
       choices = {
-        { text = "Zanzil the Outcast held you?", next = "captive_zanzil" },
+        { text = "This Zanzil held you?", next = "captive_zanzil" },
         { text = "Something else.", next = "BACK" },
       },
     },

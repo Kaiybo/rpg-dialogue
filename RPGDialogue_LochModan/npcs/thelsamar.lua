@@ -577,7 +577,7 @@ P:NPC {
         { text = "What did the last druid say about your digging?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What are you digging for?", next = "dig" },
         { text = "The dig seems to be going slowly.", next = "slow" },
-        { text = "Where does your blastpowder go?", next = "powder" },
+        { text = "Does anything go missing from your dig?", next = "powder" },
         { text = "Stormpike sent me. You need legwork?", next = "agmond", when = { questActive = TODO_QUEST("Ironband Wants You!") } },
         { text = "The stone at your dig is restless, Ironband.", next = "k_shaman", when = { race = "Dwarf", class = "SHAMAN" } },
         { text = "Your dig could use a gnome's touch.", next = "k_gnome", when = { race = "Gnome" } },
@@ -1586,7 +1586,7 @@ P:NPC {
       choices = {
         { text = "Does the dam harm the land around it?", next = "druid_q", when = { class = "DRUID" } },
         { text = "The dam looks older than anything in Thelsamar.", next = "old" },
-        { text = "What are the Dark Iron after?", next = "threat" },
+        { text = "Who would want the dam to fall?", next = "threat" },
         { text = "Where are your guards?", next = "guards" },
         { text = "Whoever built this dam knew their stonework.", next = "built" },
         { text = "The stonewrought method was a Dark Iron's, I'm told.", next = "forgewright", when = { heardLine = "archesonus.d_default" } },
@@ -1631,7 +1631,7 @@ P:NPC {
     },
     threat = {
       lines = {
-        { id = "tr_default", text = "First they brought down the Thandol Span, then they pillaged Dun Modr. You needn't be a genius to see what's next on their list. I am one, and I see it plainly." },
+        { id = "tr_default", text = "The Dark Irons, who else? First they brought down the Thandol Span, then they pillaged Dun Modr. You needn't be a genius to see what's next on their list. I am one, and I see it plainly." },
       },
       choices = {
         { text = "They'd need a great deal of powder to crack that dam.", next = "threat_how" },

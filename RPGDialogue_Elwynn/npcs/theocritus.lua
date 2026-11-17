@@ -117,7 +117,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Not today, but he was a student once, in Stormwind, with a teacher who trusted him, and look what he became. Every tower has one of him somewhere in its past, and every kingdom pays for it eventually." } },
+      lines = { { id = "xapala_default", text = "Not today, but Morganth was a student once, in Stormwind, with a teacher who trusted him, and look what he became. Every tower has one of him somewhere in its past, and every kingdom pays for it eventually." } },
       choices = {
         { text = "Then he must be stopped before anyone else pays.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let Redridge deal with him. Stormwind's walls will hold.", next = "BACK", fx = { align = { light = -1 } } },
@@ -128,7 +128,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. If you've come to warn me about the dangers of the arcane, I assure you I've written a book on them, and it's better than yours." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your order has always been very good at hitting the things my colleagues failed to stop, so I suppose you're welcome." },
-        { id = "h_default", text = "I am Theocritus, and this is my tower. The gnomes are my servants, and you're not to tip them because it confuses them. Now, what do you want?" },
+        { id = "h_default", text = "I am Theocritus, and this is my tower. The gnomes are my servants, and you're not to tip them because it confuses them. Now, what do you want, if not to help me with Morganth?" },
         { id = "h_low", when = { maxLevel = 17 },
           text = "You are very young and I am very busy. Come back when you've survived something interesting." },
         { id = "h_before", when = { minLevel = 18, questBefore = TODO_QUEST("Morganth") },
@@ -159,7 +159,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do you find nature magic muddy?", next = "druid_q", when = { class = "DRUID" } },
-        { text = "Who is Morganth?", next = "morganth" },
+        { text = "What threat keeps you up in this tower?", next = "morganth" },
         { text = "Your desk is covered in notes on something.", next = "study" },
         { text = "Tell me about the tower.", next = "tower" },
         { text = "You don't seem to care much what happens in Elwynn.", next = "elwynn" },
@@ -173,7 +173,7 @@ P:NPC {
         { text = "What use would a mage have for a warrior?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you need anything hunted, Theocritus?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "I'd guess you've never studied faith, Theocritus.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Is Morganth a threat to Stormwind itself, Theocritus?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Is anything here a threat to Stormwind itself, Theocritus?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I suspect you don't think shamanism worth studying, Theocritus.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "I'll show myself out.", next = "END" },
       },
@@ -182,7 +182,7 @@ P:NPC {
     morganth = {
       lines = {
         { id = "mo_default", key = true,
-          text = "A Stormwind student who turned to shadow, was thrown out, and took Ur's treatise on shadow magic with him. The city's mages want the book back; I want him stopped." },
+          text = "Morganth, a Stormwind student who turned to shadow, was thrown out, and took Ur's treatise on shadow magic with him. The city's mages want the book back; I want him stopped." },
       },
       choices = {
         { text = "Why is that your duty?", next = "duty" },

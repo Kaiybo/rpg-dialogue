@@ -132,7 +132,7 @@ P:NPC {
       },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
-        { text = "What does 'all thread and no dye' mean?", next = "thread" },
+        { text = "What sells best on the hill these days?", next = "thread" },
         { text = "Your goods must come a long way to get here.", next = "wagons" },
         { text = "I worked these fields before the thieves came.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
         { text = "I'll need fine thread for robes, Christopher.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -310,7 +310,7 @@ P:NPC {
       },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
-        { text = "Why charge more than Christopher?", next = "price" },
+        { text = "Why charge more than the other stall?", next = "price" },
         { text = "You must be kin to William, the bowyer.", next = "william" },
         { text = "Surely you could knock a few coppers off.", next = "haggle", when = { any = { { race = "Dwarf" }, { race = "Gnome" }, { class = "ROGUE" } } } },
         { text = "Would you take conjured water in trade, Gina?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -320,7 +320,7 @@ P:NPC {
         { text = "Does anyone guard the wagons that bring your goods?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you ever buy wild herbs, Gina, or only crated goods?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do warlocks pay your prices, Gina, or do they bargain too?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Christopher seems to undercharge, Gina.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Does the other trader undercharge, Gina?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -475,14 +475,14 @@ P:NPC {
       choices = {
         { text = "The stable, please.", next = "BUSINESS" },
         { text = "What beasts do hunters bring you here?", next = "beasts" },
-        { text = "A militia horse that's seen too much?", next = "horse" },
+        { text = "Does any horse here have a story?", next = "horse" },
         { text = "What would you tame, out here?", next = "tame", when = { class = "HUNTER" } },
         { text = "Horses don't spook when I sneak up on them.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Animals don't like me much, Kirk.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Your militia horses look like they've seen a great deal, Kirk.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do your animals ever take ill, Kirk? I could pray over them.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Could one of your militia horses carry a paladin?", next = "xapala", when = { class = "PALADIN" } },
-        { text = "Let me sit with your grey awhile. Beasts tend to trust my kind.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
+        { text = "Let me sit with your most skittish horse. Beasts tend to trust me.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do my spells unsettle your animals, Kirk?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Your animals seem to sense the spirits, Kirk.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just looking in.", next = "END" },
@@ -501,7 +501,7 @@ P:NPC {
     },
     horse = {
       big = true,
-      lines = { { id = "h2_default", text = "Carried a rider out of Moonbrook the night the thieves took it, and won't go south of the hill since. The militia wants him put to work, and I say he's done his share." } },
+      lines = { { id = "h2_default", text = "The grey in the end stall carried a rider out of Moonbrook the night the thieves took it, and he won't go south of the hill since. The militia wants him put to work, and I say he's done his share." } },
       choices = {
         { text = "He's earned his rest. Keep him.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
         { text = "Everyone works on this hill, horses included.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
@@ -652,7 +652,7 @@ P:NPC {
       },
       choices = {
         { text = "Let me buy some bread.", next = "BUSINESS" },
-        { text = "Why flour from Elwynn?", next = "flour" },
+        { text = "Where does your flour come from?", next = "flour" },
         { text = "That's a great deal of bread for one hill.", next = "eaters" },
         { text = "Blessed bread feeds the soul as well. May I bless today's batch?", next = "bless", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I can conjure bread, you know.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },

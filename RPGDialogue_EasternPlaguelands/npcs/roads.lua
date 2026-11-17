@@ -713,7 +713,7 @@ P:NPC {
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! Oh, how lovely. You must tell me whether my holy vapours bother the plants, because I'd hate to make things worse out here." },
         { id = "h_default", key = true,
-          text = "Betina Bigglezink, of the Argent Dawn, and of Gnomeregan before it got rather radioactive. I make things that help, and right now I'm making something that helps by being very unpleasant to the Cult of the Damned." },
+          text = "Betina Bigglezink, of the Argent Dawn, and of Gnomeregan before it got rather radioactive. I make things that help, and right now I'm making something that helps by being very unpleasant to the Cult of the Damned in their Scholomance." },
         { id = "h_gambit", tags = { "news" }, when = { questActive = TODO_QUEST("Dawn's Gambit") },
           text = "You've got the Gambit, how wonderful! Set it in the viewing room in Scholomance, step back, and then please step back a bit further than that." },
         { id = "h_lockcl", when = { class = "WARLOCK" },

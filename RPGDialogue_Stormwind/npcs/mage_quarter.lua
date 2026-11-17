@@ -153,7 +153,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you mean, magic burns?", next = "burn" },
-        { text = "I've heard of Archmage Xylem.", next = "xylem" },
+        { text = "I've heard of Archmage Xylem.", next = "xylem", when = { any = { { questActive = TODO_QUEST("Magecraft") }, { questDone = TODO_QUEST("Magecraft") }, { heardLine = "maginor.h_magecraft" } } } },
         { text = "Tell me about the Wizard's Sanctum.", next = "sanctum" },
         { text = "I'm not sure what a mage of my level should study.", next = "mage", when = { class = "MAGE" } },
         { text = "The Light seems a discipline much like yours.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
@@ -353,7 +353,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "The Sentinels, who have guarded our forests for ten thousand years, and they move with a patience your soldiers would find maddening. They wait in the trees for hours, and then a battle is over in a breath." } },
+      lines = { { id = "xwarcl_default", text = "The Farstriders, who guarded our forests for thousands of years, and they move with a patience your soldiers would find maddening. They wait in the trees for hours, and then a battle is over in a breath." } },
       choices = {
         { text = "Patience is a weapon too. I'll learn it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Waiting is wasted time. Strike first and strike hard.", next = "BACK", fx = { align = { order = -1 } } },
@@ -406,7 +406,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "I can feel the fel on you, faint as old smoke, and it troubles me. Even so, I'd rather talk to you than about you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your kind always arrives in such a rush, with your armour clanking and your hand on your sword, as if the room might attack." },
-        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Among my people, the hunters walk beside the Sentinels and the night sabers walk beside them, so I feel a little less far from home." },
+        { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Among my people, the rangers walked the woods of Eversong with hawks on their wrists, so I feel a little less far from home." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, in my classroom. Our peoples parted long ago, cousin, and I sometimes wonder what you see when you look at me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My people learned the arcane from careful study, and I confess spirits seem strange to me. But I have learned patience with strange things." },
       },
@@ -423,8 +423,8 @@ P:NPC {
         { text = "Do you teach gnomes differently?", next = "gnome", when = { race = "Gnome", class = "MAGE" } },
         { text = "The other teachers here seem a clever lot.", next = "others" },
         { text = "I'd wager your apprentices try to sneak out sometimes.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
-        { text = "Do the kaldorei have warriors as well, Elsharin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "Do you miss the forests of Teldrassil, Elsharin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Did Quel'Thalas have warriors of its own, Elsharin?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "Do you miss the forests of Quel'Thalas, Elsharin?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does my kind of magic frighten you, Elsharin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Did your people pray in Quel'Thalas, Elsharin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Do the high elves still honour the Alliance, Elsharin?", next = "xapala", when = { class = "PALADIN" } },
@@ -828,7 +828,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. Discretion is my favourite subject." },
       },
       choices = {
-        { text = "What do you want with Wishock?", next = "wishock" },
+        { text = "What do you want with Wishock?", next = "wishock", when = { any = { { questActive = TODO_QUEST("A Noble Brew") }, { questDone = TODO_QUEST("A Noble Brew") }, { heardLine = "zardeth.h_brew_before" }, { heardLine = "gakin.ln_default" } } } },
         { text = "This place doesn't feel like part of the Mage Quarter.", next = "cellar" },
         { text = "That brew smells like more than ale, Zardeth.", next = "brew", when = { questActive = TODO_QUEST("A Noble Brew") } },
         { text = "I know what you are. The Light will find you.", next = "priest", when = { class = "PRIEST" } },
@@ -1066,7 +1066,7 @@ P:NPC {
       choices = {
         { text = "I'm ready to train.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "What do you mean, corrupts the weak?", next = "weak" },
-        { text = "Your last student isn't here, I notice.", next = "student" },
+        { text = "Have you ever lost a student?", next = "student" },
         { text = "I should be practising something, I suppose.", next = "practise", when = { class = "WARLOCK" } },
         { text = "Is the power worth what it costs?", next = "price", when = { class = "WARLOCK" } },
         { text = "Gnomeregan's warlocks were stronger than you think.", next = "gnome", when = { race = "Gnome", class = "WARLOCK" } },

@@ -63,7 +63,7 @@ P:NPC {
     buyers_grim = {
       lines = { { id = "bg_default", text = "They're tauren, and they live under Cairne's peace like the rest of us. If the High Chieftain says not to sell to them, I'll stop, and until then my apprentices need feeding." } },
       choices = {
-        { text = "And if your shields end up at a burned inn?", next = "buyers_end" },
+        { text = "And if your shields are turned on innocents?", next = "buyers_end" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -338,7 +338,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What can tracks tell you?", next = "tracks" },
-        { text = "Urek seems to be lost a great deal.", next = "urek" },
+        { text = "Is Urek a good hunter, then?", next = "urek" },
         { text = "Farewell, Kary.", next = "END" },
       },
     },
@@ -358,7 +358,7 @@ P:NPC {
       },
     },
     urek = {
-      lines = { { id = "u_default", text = "Not always, only when it matters most. He's the best shot of the three of us when he can find his bow, which I'd never say in front of Holt." } },
+      lines = { { id = "u_default", text = "He's the best shot of the three of us when he can find his bow, which I'd never say in front of Holt. He loses it often, and always when it matters most." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

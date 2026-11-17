@@ -37,7 +37,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Magus Wordeen Voidglare, of the Undercity. I came to Tarren Mill to research, and instead I spend my days resolving crises and peering at a dome that someone else built." },
+          text = "Magus Wordeen Voidglare, of the Undercity. I came to Tarren Mill to research, and instead I spend my days resolving crises and peering at a dome that someone else built, when I'm not chasing thieves who fled behind it." },
         { id = "h_prison", when = { questActive = TODO_QUEST("Prison Break In") },
           text = "Four Forsaken fled the Undercity with artifacts stolen from the Dark Lady's own vault, and the wizards locked them in the Lordamere Internment Camp. Find the thieves, and more importantly, find what they stole." },
         { id = "h_prison_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Prison Break In"), days = 3 } },
@@ -217,7 +217,7 @@ P:NPC {
       choices = {
         { text = "How do the wizards bind elementals?", next = "binding" },
         { text = "Working for Voidglare can't be easy.", next = "magus" },
-        { text = "What was that about your timing?", next = "timing" },
+        { text = "What was that about your timing?", next = "timing", when = { heardLine = "hb_belvaril.h_bracers_done" } },
         { text = "I've bound a creature or two myself.", next = "lock", when = { class = "WARLOCK" } },
         { text = "Good day, Keeper.", next = "END" },
       },

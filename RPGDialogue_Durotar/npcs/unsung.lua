@@ -1322,7 +1322,7 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Where did a Darkspear learn magic?", next = "learn" },
         { text = "The village can't think much of mages.", next = "village" },
-        { text = "Can magic help against Zalazane?", next = "zalazane" },
+        { text = "Is there trouble here your magic could help with?", next = "zalazane" },
         { text = "Would you really suspect me of stealing books?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Can magic help a warrior, Un'Thuwa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do beasts still roam the Echo Isles, Un'Thuwa?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },

@@ -629,7 +629,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Because of the guards who went to the lake and never came back, and because of the murlocs Remy talks about. I'm not scared, honest, but I said a prayer for the guards anyway, the way Ma does, in case it helps." } },
+      lines = { { id = "xapriest_default", text = "She won't let me past the bridge, because of the guards who went to the lake and never came back, and because of the murlocs Remy talks about. I'm not scared, honest, but I said a prayer for the guards anyway, the way Ma does, in case it helps." } },
       choices = {
         { text = "It helps, Matt. Keep saying it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Prayers won't bring them back, Matt. Best not to hope.", next = "BACK", fx = { align = { light = -1 } } },
@@ -675,7 +675,7 @@ P:NPC {
         { text = "You'd rather catch them properly, I'd think.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Have you ever seen a real fight, Matt?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do any animals come down to the pond to fish?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Why won't your ma let you past the bridge, Matt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does your ma worry about you out here, Matt?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "You'd make a fine paladin one day, Matt.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I tell you why the fish aren't biting?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Would you really want me to curse the fish, Matt?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },

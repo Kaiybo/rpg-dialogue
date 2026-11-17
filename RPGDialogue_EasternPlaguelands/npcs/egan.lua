@@ -50,8 +50,8 @@ P:NPC {
       },
       choices = {
         { text = "That blaster looks like a strange contraption.", next = "blaster" },
-        { text = "Why do you hate the Scourge so much?", next = "hate" },
-        { text = "How are you different from the Crusade?", next = "crusade" },
+        { text = "What drives you to this work, Egan?", next = "hate" },
+        { text = "Does the Scarlet Crusade see the dead as you do?", next = "crusade" },
         { text = "What's it like inside Stratholme's walls?", next = "streets" },
         { text = "Have you met Augustus, the merchant in Terrordale?", next = "augustus" },
         { text = "Which clan are you from, Egan?", next = "clan", when = { race = "Dwarf" } },

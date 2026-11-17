@@ -141,11 +141,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Like nothing else in the world, and I've hunted a good deal of it. The raptors hunt in packs and think like soldiers, and the devilsaurs don't think at all; they just eat." } },
-      choices = { { text = "You lost scouts?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Has the crater cost you?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "I lost two good scouts to raptors in the first month, which taught me to always watch my flanks. Now I teach that lesson to everyone who comes to the Refuge." } },
-      choices = { { text = "Never chase a lone raptor?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "What lesson is that?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "If you go hunting down there, never chase a lone raptor. There's never only one." } },
@@ -314,7 +314,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "The greatest of the crater's raptors, the one the others follow. I have tracked him for many moons, and he has led me to places no other hunter has seen." } },
-      choices = { { text = "Hunting as honor?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Why hunt him, then?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "To hunt him is to honor him. I will not take him lightly, nor will I take him without purpose, for he deserves a hunter's respect." } },
@@ -463,7 +463,7 @@ P:NPC {
         { text = "I've never seen bloodpetals before.", next = "b1_1" },
         { text = "Who is Larion?", next = "b2_1" },
         { text = "I'd guess some of the plants really bite.", next = "b3_1" },
-        { text = "Is there magic in that sap?", next = "x_1", when = { class = { "MAGE", "DRUID" } } },
+        { text = "Is there magic in your bloodpetals?", next = "x_1", when = { class = { "MAGE", "DRUID" } } },
         { text = "Is it right to experiment on living plants?", next = "s_1" },
         { text = "Would you really have me cast at your bloodpetals?", next = "xmage", when = { class = "MAGE" } },
         { text = "The plants lean away from me?", next = "xlock", when = { class = "WARLOCK" } },
@@ -477,11 +477,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Carnivorous plants, and very clever ones, which is why I love them. They lure insects and small creatures, and sometimes larger creatures, too, if they're hungry enough." } },
-      choices = { { text = "Amazing properties?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "What makes them worth studying?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Larion and I believe their sap has amazing properties, though we're still working out exactly which ones. It's very exciting." } },
-      choices = { { text = "Both?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Isn't that dangerous?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "And very dangerous, of course, but exciting! Science is often both." } },
@@ -613,7 +613,7 @@ P:NPC {
       choices = {
         { text = "What drove you so far into the crater, Ringo?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You look like you've been lost a while.", next = "b1_1" },
-        { text = "Who's Spraggle?", next = "b2_1" },
+        { text = "Does anyone know you're missing?", next = "b2_1" },
         { text = "Are you hurt?", next = "b3_1" },
         { text = "Let me tend to you before we go.", next = "x_1", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "Going out alone was probably a mistake.", next = "s_1" },
@@ -628,11 +628,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "I was looking for crystals out past the ridge, buddy, the kind that sell, and I followed a trail I shouldn't have. By the time I turned back, everything looked the same." } },
-      choices = { { text = "Drinking from puddles?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "How have you survived out here?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "I've been hiding from the raptors and drinkin' from puddles, buddy, and one puddle had a frog in it that I'm fairly sure I swallowed. Spraggle must be frantic." } },
-      choices = { { text = "Owe me everything?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "I'll get you home, Ringo.", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "If you get me home, buddy, I'll owe you everything, and Spraggle will too, and she keeps better books than I do." } },
@@ -809,7 +809,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "They're hot, they're full of strange minerals, and some of 'em glow, which is a selling point. Somethin's heating them from deep underground, friend, and I'd love to know what, and whether it's for sale." } },
-      choices = { { text = "Something bigger?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "What do you think is heating them?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "Maybe it's the Fire Plume, or maybe it's something bigger, pal. Either way, heat like that is worth money, and nobody's put up a fence yet." } },

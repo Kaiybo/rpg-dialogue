@@ -50,7 +50,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? Be quick, or something will have grown over your boots; the fel makes even the brambles impatient." } },
       choices = {
-        { text = "I've heard the name Celastrus on the slopes.", next = "celastrus" },
+        { text = "Which of the brambles is the worst?", next = "celastrus" },
         { text = "How did the plants turn so foul?", next = "fel" },
         { text = "I'd like to see what grows back once they're cleared.", next = "regrow" },
         { text = "Why not just burn it all?", next = "xburn", when = { class = { "MAGE", "WARLOCK" } } },
@@ -181,7 +181,7 @@ P:NPC {
       again = { { id = "h_again", text = "Somethin' else, mon? Talk while I fletch." } },
       choices = {
         { text = "You'd have left this place long ago if you could.", next = "leave" },
-        { text = "Why owl feathers?", next = "owls" },
+        { text = "What do you need for the arrows?", next = "owls" },
         { text = "What's attacking the camp?", next = "threat" },
         { text = "How fare the Darkspear here?", next = "xtroll", when = { race = "Troll" } },
         { text = "Stay strong, Zet'gan.", next = "END" },
@@ -218,7 +218,7 @@ P:NPC {
         { id = "t_default", text = "Demons from Dae'gun, mostly, an' da dead from da west, an' sometimes da plants, if ya believe it. Dis mountain be fightin' everybody, mon, an' we just happen ta be standin' in da middle." },
       },
       choices = {
-        { text = "An orc called Yashiro hunts those demons.", next = "threat_yashiro" },
+        { text = "Does anyone else hunt those demons?", next = "threat_yashiro" },
         { text = "Something else.", next = "BACK" },
       },
     },

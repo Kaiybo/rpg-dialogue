@@ -40,7 +40,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "She keeps a tally, and she sighs, but good wine wants sharing! Your spirits would agree, surely." } },
+      lines = { { id = "xdsham_default", text = "My sister Suzetta keeps a tally, and she sighs, but good wine wants sharing! Your spirits would agree, surely." } },
       choices = {
         { text = "Sharing's generous, but pay your sister her due.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Pour freely, Renato. Generosity always returns.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -119,7 +119,7 @@ P:NPC {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Here, a ticket for a free bottle, because a hero should never have to pay for a good red, and don't tell my sister." },
         { id = "h_default", key = true,
-          text = "Renato Gallina, at your service! My family keeps the Gallina Winery along the canals, and if you've drunk better wine in Stormwind, I'd like to know who poured it." },
+          text = "Renato Gallina, at your service! My family keeps the Gallina Winery along the canals, and if you've drunk better wine in Stormwind, I'd like to know who poured it. Take a ticket, friend, and your first bottle's free." },
         { id = "h_ticket", tags = { "news" }, when = { questActive = TODO_QUEST("Wine Shop Advert") },
           text = "You've still got my ticket, good! Take it down to the canals and give it to my sister Suzetta, and she'll hand you a bottle of the house red for nothing." },
         { id = "h_ticket_done", tags = { "news" }, when = { questDone = TODO_QUEST("Wine Shop Advert") },
@@ -156,7 +156,7 @@ P:NPC {
         { text = "Won't giving bottles away ruin the winery, Renato?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Is wine really only the land in a bottle, Renato?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do warlocks have good taste in wine, Renato?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Does Suzetta know you give wine away, Renato?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Does your family mind you giving wine away, Renato?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Not today, Renato.", next = "END" },
       },
     },
@@ -1002,8 +1002,8 @@ P:NPC {
       },
       choices = {
         { text = "There's news from the north, I hear.", next = "plague", when = { minLevel = 50 } },
-        { text = "You spoke of a new frontier in Kalimdor.", next = "frontier", when = { minLevel = 50 } },
-        { text = "Someone in Feralas is calling for help, I hear.", next = "feralas", when = { minLevel = 50 } },
+        { text = "What's the news from Kalimdor?", next = "frontier", when = { minLevel = 50 } },
+        { text = "Any other calls for heroes, Crier?", next = "feralas", when = { minLevel = 50 } },
         { text = "I doubt you believe everything you cry.", next = "believe" },
         { text = "What do the heroes say when they come back?", next = "heroes" },
         { text = "Do you cry any news of the Skyborne?", next = "skyborne", when = { race = "Skyborne" } },
@@ -1455,7 +1455,7 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your potions.", next = "BUSINESS" },
-        { text = "Candles seem an odd thing for an apothecary to need.", next = "candles" },
+        { text = "Candles seem an odd thing for an apothecary to need.", next = "candles", when = { any = { { questActive = TODO_QUEST("Shipment to Stormwind") }, { questDone = TODO_QUEST("Shipment to Stormwind") } } } },
         { text = "Tell me about your brother.", next = "william" },
         { text = "Teach me something about the craft.", next = "craft", when = { profession = "Alchemy" } },
         { text = "Do you brew poisons, Morgan?", next = "rogue", when = { class = "ROGUE" } },

@@ -49,9 +49,9 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've a moment before Brother Paxton comes looking." },
       },
       choices = {
-        { text = "You seem to be missing a good many books.", next = "books" },
-        { text = "Brother Paxton calls you useless.", next = "paxton" },
-        { text = "You seem keen on trades.", next = "trades" },
+        { text = "Is anything missing from the shelves?", next = "books" },
+        { text = "How do you get on with Brother Paxton?", next = "paxton" },
+        { text = "What are the other things you do, Daniel?", next = "trades" },
         { text = "Who should I see about my trade?", next = "trainer", when = { maxLevel = 15 } },
         { text = "Any work for me?", next = "BUSINESS" },
         { text = "I'll let you get back to counting.", next = "END" },
@@ -84,7 +84,7 @@ P:NPC {
       },
     },
     paxton = {
-      lines = { { id = "p_default", text = "He does, doesn't he? He's not wrong about the shelving, but I'm very good at other things, only they aren't things he needs." },
+      lines = { { id = "p_default", text = "He thinks I'm useless, if you want the truth. He's not wrong about the shelving, but I'm very good at other things, only they aren't things he needs." },
       },
       choices = {
         { text = "What things are you good at?", next = "trades" },

@@ -2669,7 +2669,7 @@ local function sentinelTree()
     who = {
       lines = {
         { id = "wh_default", text = "We are the army of the Kaldorei, sworn to the High Priestess and to Elune. For ten thousand years, while our druids slept in the Emerald Dream, we were the only blades that guarded these forests." },
-        { id = "wh_human", when = { race = "Human" }, text = "We are the Kaldorei's army, sworn to Tyrande Whisperwind and to Elune. We were keeping watch over these forests long before your first king laid his first stone, and we were doing it alone." },
+        { id = "wh_human", when = { race = "Human" }, text = "We are the Kaldorei's army, sworn to Tyrande Whisperwind and to Elune. We kept watch over these forests for ten thousand years, long before your first king laid his first stone, and we did it alone." },
       },
       choices = {
         { text = "Ten thousand years? How long have you stood watch?", next = "vigil" },

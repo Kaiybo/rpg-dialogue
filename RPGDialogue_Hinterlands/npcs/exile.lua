@@ -33,7 +33,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I was a priest of the Atal'ai, the great tribe of the Swamp of Sorrows, until Jammal'an named me an infidel and drove me from the temple. Now I live here with the Witherbark, who do not take kindly to strangers, or to me." },
+          text = "I was a priest of the Atal'ai, the great tribe of the Swamp of Sorrows, until Jammal'an named me an infidel for doubting his prophecy of Hakkar's return and drove me from the temple. Now I live here with the Witherbark, who do not take kindly to strangers, or to me." },
         { id = "h_bundle", tags = { "news" }, when = { questActive = TODO_QUEST("The Atal'ai Exile") },
           text = "You bring me the summoning artifacts of the Atal'ai? So Jammal'an is leading the disciples of the Chamber of Blood toward their chosen fate, and I wonder whether Hakkar has returned to the temple." },
         { id = "h_bundle_done", when = { questActive = TODO_QUEST("Return to Fel'Zerul") },

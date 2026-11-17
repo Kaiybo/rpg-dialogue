@@ -394,7 +394,7 @@ P:NPC {
         { text = "Do the Razormane geomancers serve Agamaggan or the earth?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why do the quilboar fight the tauren for this land, Mangletooth?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "You've no reason to help us.", next = "why" },
-        { text = "Who is Agamaggan?", next = "agamaggan" },
+        { text = "Who do the quilboar worship?", next = "agamaggan" },
         { text = "That lock wouldn't take me long to pick.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'm tauren. Why should I help you?", next = "tauren", when = { race = "Tauren" } },
         { text = "I could freeze that lock and shatter it, quilboar.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },

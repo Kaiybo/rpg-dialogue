@@ -184,7 +184,7 @@ P:NPC {
         { text = "You built this post very high.", next = "high" },
         { text = "What do you know of the Grimtotem?", next = "grimtotem" },
         { text = "What did the centaur do this time?", next = "galak" },
-        { text = "I didn't know you had a brother.", next = "nataka" },
+        { text = "Do you have family beyond Freewind?", next = "nataka" },
         { text = "What happens at Highperch?", next = "highperch" },
         { text = "Arnak Grimtotem is dead.", next = "arnak", when = { questDone = TODO_QUEST("Wanted - Arnak Grimtotem") } },
         { text = "What did the secret notes mean?", next = "notes", when = { questDone = TODO_QUEST("Grimtotem Spying") } },

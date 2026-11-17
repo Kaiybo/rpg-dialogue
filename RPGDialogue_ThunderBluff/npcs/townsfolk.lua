@@ -597,7 +597,7 @@ P:NPC {
       choices = {
         { text = "Perhaps. There's something to be said for simple tools.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Magic is magic, borrowed or not. It works.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Are you kin to Holt Thunderhorn?", next = "holt" },
+        { text = "Is the hunter trainer on this rise your kin?", next = "holt" },
       },
     },
     xdruid = {
@@ -638,7 +638,7 @@ P:NPC {
         { text = "I'd guess few shamans take up the bow.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What makes a good bow?", next = "bow" },
-        { text = "You must be kin to Holt Thunderhorn.", next = "holt" },
+        { text = "Is the hunter trainer on this rise your kin?", next = "holt" },
         { text = "Why sell guns, if you make bows?", next = "guns" },
         { text = "Rogues must buy your bows too, Kuna.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Bows are clumsy. A wand fires just as true.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -823,7 +823,7 @@ P:NPC {
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Where's good fishing in Mulgore?", next = "where" },
         { text = "Why do tauren fish?", next = "why" },
-        { text = "You must be kin to Aska Mistrunner.", next = "aska" },
+        { text = "Do you have family in Thunder Bluff, Kah?", next = "aska" },
         { text = "Can a rogue make a good angler, Kah?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why fish when a mage can conjure food, Kah?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Can a warlock learn to fish, Kah?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
@@ -851,7 +851,7 @@ P:NPC {
       },
     },
     aska = {
-      lines = { { id = "a_default", text = "She's my sister, and she'll cook whatever I catch, which is how she ended up teaching cooking. Some days I think I fish only so she has something to complain about." } },
+      lines = { { id = "a_default", text = "My sister Aska cooks whatever I catch, which is how she ended up teaching cooking. Some days I think I fish only so she has something to complain about." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xhsham = {
@@ -1393,7 +1393,7 @@ P:NPC {
         { text = "Teach me herbalism.", next = "BUSINESS" },
         { text = "What herbs grow in Mulgore?", next = "herbs" },
         { text = "Why thank the Earth Mother for weeds?", next = "thanks" },
-        { text = "You must work with Bena.", next = "bena" },
+        { text = "Who makes potions from what you gather?", next = "bena" },
         { text = "I gather herbs too, though not always for healing.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do mages ever come to you for herbs?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Should a warrior learn herbalism, Nida?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -1423,7 +1423,7 @@ P:NPC {
       },
     },
     bena = {
-      lines = { { id = "b_default", text = "She's my cousin, and she makes potions from what I gather. We argue about whether the herbs are for healing or for learning, and she always wins, because she's louder." } },
+      lines = { { id = "b_default", text = "My cousin Bena makes potions from what I gather. We argue about whether the herbs are for healing or for learning, and she always wins, because she's louder." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xhsham = {

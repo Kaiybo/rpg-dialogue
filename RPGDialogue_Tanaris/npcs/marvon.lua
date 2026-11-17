@@ -31,7 +31,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Marvon Rivetseeker, scientist and treasure hunter, though not always in that order, and the treasure pays for the science. My home's in Ratchet, but after I crashed my zeppelin out here, I figured I might as well start the research I came to do." },
+        { id = "h_default", key = true, text = "Marvon Rivetseeker, scientist and treasure hunter, though not always in that order, and the treasure pays for the science. My home's in Ratchet, but after I crashed my zeppelin out here, I figured I might as well start the research I came to do. It beats going back underground, after what I saw in the Sunken Temple." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Gahz'ridian") },
           text = "Long ago the trolls carved ornaments of Gahz'rilla, a hydra they worshipped, out of a stuff I call Gahz'ridian, and a stuff nobody's named is a stuff nobody's priced. I've found some, but I'd love more, and I've even invented a detector to help!" },
         { id = "h_orn", tags = { "news" }, when = { questActive = TODO_QUEST("Gahz'ridian") },
@@ -53,7 +53,7 @@ P:NPC {
         { text = "You crashed a zeppelin out here?", next = "crash" },
         { text = "Gahz'ridian sounds like a strange thing to chase.", next = "gahz" },
         { text = "You've been inside the Sunken Temple?", next = "temple" },
-        { text = "Who looks after your workshop in Ratchet?", next = "ratchet" },
+        { text = "Who looks after your home in Ratchet?", next = "ratchet" },
         { text = "Can I see that detector's workings?", next = "engineer", when = { profession = "Engineering" } },
         { text = "These ornaments were holy to my people once.", next = "troll", when = { race = "Troll" } },
         { text = "What do you need?", next = "BUSINESS" },

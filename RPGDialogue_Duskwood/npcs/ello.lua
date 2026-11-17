@@ -77,7 +77,7 @@ P:NPC {
     xcl_stocks2 = {
       lines = { { id = "xcl_stocks2_default", text = "Hanged him at the edge of Raven Hill, where the families could see it done, and buried him somewhere nobody would think to dig. It isn't mercy, I know, but I'm a mayor and not a priest, and Darkshire ran out of mercy for men like him some time ago." } },
       choices = {
-        { text = "Then I hope Councilman Millstipe gets his way.", next = "BACK" },
+        { text = "Then I hope Darkshire gets its justice yet, my lord.", next = "BACK" },
       },
     },
     xdsham = {
@@ -269,7 +269,7 @@ P:NPC {
     },
     solomon = {
       lines = {
-        { id = "so_default", text = "Magistrate Solomon asked me for my Watch. Had I sent them, the dead would have been in our square before they ever reached the forest's edge, and I told him so as politely as I could." },
+        { id = "so_default", text = "Magistrate Solomon of Lakeshire asked me for my Watch to fight his orcs. Had I sent them, the dead would have been in our square before they ever reached the forest's edge, and I told him so as politely as I could." },
         { id = "so_done", when = { questDone = TODO_QUEST("Messenger to Darkshire") },
           text = "You carried his plea here and my refusal back, and I'm sorry you had to. Solomon will curse me for it, and he'll be right to, and I would do it again." },
       },

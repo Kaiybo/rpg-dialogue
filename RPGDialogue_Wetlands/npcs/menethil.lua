@@ -320,7 +320,7 @@ P:NPC {
       },
       choices = {
         { text = "Ironforge could surely send more soldiers.", next = "north_ironforge" },
-        { text = "Harlo Barnaby came from there.", next = "north_harlo" },
+        { text = "Harlo Barnaby came from there.", next = "north_harlo", when = { heardLine = "harlo.h_default" } },
         { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } },
       },
     },
@@ -1140,7 +1140,7 @@ P:NPC {
       choices = {
         { text = "I'll face them openly, for your sake.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll give them back the knife they gave you.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "What happened at the Span?", next = "span" },
+        { text = "What happened before Dun Modr fell?", next = "span" },
       },
     },
     xmage = {

@@ -154,7 +154,7 @@ P:NPC {
 
     bonfires = {
       lines = {
-        { id = "bf_default", text = "Fire is a challenge the demons understand. A doomguard who sees flames on his ground thinks someone has come to take it, and he comes out of hiding to prove otherwise, and then I am waiting for him." },
+        { id = "bf_default", text = "Fire is a challenge the demons understand. A doomguard who sees flames on his ground thinks someone has come to take it, and he comes out of hiding to prove otherwise, and then I am waiting for him. Light enough fires, and sooner or later their warlord comes out too." },
         { id = "bf_done", when = { questDone = TODO_QUEST("Blademaster's Bonfires") }, text = "You lit them well. I watched the smoke from the ridge, and I watched the demons stir under it like ants under a kicked hill." },
       },
       choices = {

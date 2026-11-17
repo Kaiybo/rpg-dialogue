@@ -50,7 +50,7 @@ P:NPC {
       },
       choices = {
         { text = "You're awfully secretive for a watchman.", next = "secret" },
-        { text = "How do you know Elling Trias?", next = "trias" },
+        { text = "Who hears what you see, besides the Watch?", next = "trias" },
         { text = "This road seems lonely for one watchman.", next = "road" },
         { text = "What was in that Defias docket?", next = "docket", when = { questDone = TODO_QUEST("The Missing Diplomat") } },
         { text = "What do you need?", next = "BUSINESS" },
@@ -76,7 +76,7 @@ P:NPC {
       },
     },
     trias = {
-      lines = { { id = "t_default", text = "He sells cheese in Stormwind, and he hears things the way some men hear music. I pass him what I see out here when it seems to matter, and I don't ask what he does with it." },
+      lines = { { id = "t_default", text = "A man named Elling Trias does; he sells cheese in Stormwind, and he hears things the way some men hear music. I pass him what I see out here when it seems to matter, and I don't ask what he does with it." },
       },
       choices = {
         { text = "A cheesemonger. That's an odd friend for a watchman.", next = "trias_cheese" },

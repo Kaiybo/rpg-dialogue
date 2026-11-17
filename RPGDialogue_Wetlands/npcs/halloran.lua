@@ -60,7 +60,7 @@ P:NPC {
       choices = {
         { text = "What makes Wetlands crocolisk so prized?", next = "crocs" },
         { text = "How's your apprentice?", next = "apprentice" },
-        { text = "Who's Einar?", next = "einar" },
+        { text = "Who brings you your skins?", next = "einar" },
         { text = "A hide must pass through many hands before market.", next = "trade" },
         { text = "Any tips for a working leatherworker?", next = "craft", when = { profession = { name = "Leatherworking" } } },
         { text = "Good day, James.", next = "END" },
@@ -118,7 +118,7 @@ P:NPC {
         { id = "tr_default", text = "The hunters bring them in raw, I salt and cure them, and the bales go aboard whatever ship's sailing south. Half the leather in Booty Bay started life in that marsh out there." },
       },
       choices = {
-        { text = "The Third Fleet's wrecks must trouble the shipping.", next = "trade_fleet" },
+        { text = "Is the bay safe for your shipments?", next = "trade_fleet" },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -57,7 +57,7 @@ P:NPC {
       choices = {
         { text = "What are these sprites?", next = "sprites" },
         { text = "Someone seems to be stirring them up.", next = "cult" },
-        { text = "What's it like being Rorian's apprentice?", next = "rorian" },
+        { text = "Does Rorian keep you busy?", next = "rorian" },
         { text = "Do you think the true spirits will return?", next = "spirits" },
         { text = "The spirits still answer me, Yala.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
         { text = "Winds guide you, Yala.", next = "END" },
@@ -203,7 +203,7 @@ P:NPC {
       },
       choices = {
         { text = "What are cirrusflies?", next = "flies" },
-        { text = "Where's the queen?", next = "queen" },
+        { text = "Is something leading the swarm?", next = "queen" },
         { text = "The rangers must have their hands full out here.", next = "rangers" },
         { text = "I hunt for a living. Bugs included.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Winds be with you, Elatrell.", next = "END" },

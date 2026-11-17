@@ -144,7 +144,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you need?", next = "BUSINESS" },
-        { text = "Wolf meat seems an odd thing to want.", next = "meat" },
+        { text = "What do you do with the wolves you take?", next = "meat" },
         { text = "There seem to be more wolves than ever this year.", next = "why" },
         { text = "I almost feel sorry for the wolves.", next = "pity" },
         { text = "Teach me a cleaner cut?", next = "skin", when = { profession = "Skinning" } },
@@ -173,7 +173,7 @@ P:NPC {
     },
     meat = {
       lines = {
-        { id = "m_default", text = "I eat it. I hate those timber wolves, but I do like a wolf steak, funny as that sounds. The pelts go down to Goldshire." },
+        { id = "m_default", text = "I eat them. I hate those timber wolves, but I do like a wolf steak, funny as that sounds. The pelts go down to Goldshire." },
       },
       choices = {
         { text = "Who takes the pelts?", next = "meat_helene" },

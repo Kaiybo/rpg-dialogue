@@ -72,7 +72,7 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", key = true, text = "Nikova Raskol. I've lived in Old Town since before the orcs burned it, and I'll die in it, though I'd hoped to see my grandson grown first." },
+        { id = "h_default", key = true, text = "Nikova Raskol. I've lived in Old Town since before the orcs burned it, and I'll die in it, though I'd hoped to see my grandson Mac grown first, before the Stockade took him." },
         { id = "h_before", when = { questBefore = Q, minLevel = 20 },
           text = "You've the look of someone who isn't afraid of the Stockade. I've a thing that needs doing down there, if you've the stomach to hear about my Mac." },
         { id = "h_active", tags = { "news" }, when = { questActive = Q },
@@ -98,7 +98,7 @@ P:NPC {
       choices = {
         { text = "You spoke of Mac as if you loved him.", next = "mac" },
         { text = "Something happened in the Stockade, I take it.", next = "death" },
-        { text = "Why the bandanas?", next = "bandanas" },
+        { text = "Why the bandanas?", next = "bandanas", when = { any = { { questActive = TODO_QUEST("The Color of Blood") }, { questDone = TODO_QUEST("The Color of Blood") } } } },
         { text = "What's Old Town like these days?", next = "oldtown" },
         { text = "I stood shifts at the Stockade. I knew him, a little.", next = "xguard", when = { origin = "human_city_guard" } },
         { text = "My guild never meant for this, Nikova.", next = "xmason", when = { origin = "human_stonemason_child" } },
@@ -143,7 +143,7 @@ P:NPC {
         { id = "mb_default", text = "You can say what you like, I've said worse at his grave. The Warden came to the door with his cap in his hands and couldn't look at me, and I'll give him that much: he knew." },
       },
       choices = {
-        { text = "Does Thelwater still send word?", next = "thelwater" },
+        { text = "Does the Warden still send word?", next = "thelwater" },
         { text = "Something else.", next = "BACK" },
       },
     },

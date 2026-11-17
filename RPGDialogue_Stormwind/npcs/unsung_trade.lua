@@ -493,7 +493,7 @@ P:NPC {
       },
       choices = {
         { text = "Just my box, John.", next = "BUSINESS" },
-        { text = "The orcs burned the old bank?", next = "old" },
+        { text = "Has the bank always stood here, John?", next = "old" },
         { text = "Who comes in through that door?", next = "door" },
         { text = "Do you really count your fingers, John?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I expect plenty of warriors bank with you, John.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -508,7 +508,7 @@ P:NPC {
       },
     },
     old = {
-      lines = { { id = "o_default", text = "When the Horde sacked the city, yes. My grandfather carried the ledgers out in a handcart, and that's how we knew whose gold was whose when the stonemasons built this place again." } },
+      lines = { { id = "o_default", text = "Not this building; the old bank burned when the Horde sacked the city. My grandfather carried the ledgers out in a handcart, and that's how we knew whose gold was whose when the stonemasons built this place again." } },
       choices = {
         { text = "Your grandfather sounds like a brave man.", next = "old2" },
         { text = "Something else.", next = "BACK" },

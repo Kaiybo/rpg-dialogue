@@ -152,7 +152,7 @@ P:NPC {
         { text = "What do you hear when the forest screams?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Read my cards.", next = "cards" },
         { text = "What waits in the night?", next = "night" },
-        { text = "Who is Blind Mary?", next = "mary" },
+        { text = "Is every spirit near Darkshire a monster?", next = "mary" },
         { text = "Stalvan's name seems to frighten you.", next = "granddaughter", when = { questActive = TODO_QUEST("The Legend of Stalvan") } },
         { text = "What is ghost hair thread really for?", next = "thread", when = { questDone = TODO_QUEST("Return the Comb") } },
         { text = "The Light doesn't need cards.", next = "priest", when = { class = "PRIEST" } },
@@ -261,7 +261,7 @@ P:NPC {
 
     mary = {
       lines = {
-        { id = "ma_default", text = "She is a poor, sad spirit in the old farmhouse south of town. She was lovely once, and carried a looking glass wherever she went." },
+        { id = "ma_default", text = "Not every one. Blind Mary is a poor, sad spirit in the old farmhouse south of town. She was lovely once, and carried a looking glass wherever she went." },
       },
       choices = {
         { text = "What happened to her?", next = "mary_eyes" },

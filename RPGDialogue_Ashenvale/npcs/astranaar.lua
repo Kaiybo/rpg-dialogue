@@ -201,9 +201,9 @@ P:NPC {
       },
       choices = {
         { text = "What would you do with the Warsong, if you could?", next = "op_ask" },
-        { text = "Who are Korra and Dagri?", next = "pets" },
+        { text = "Do you keep any animals of your own?", next = "pets" },
         { text = "The furbolgs seem to have turned against you.", next = "furbolgs" },
-        { text = "Tell me about Teronis.", next = "teronis" },
+        { text = "Tell me about Teronis.", next = "teronis", when = { any = { { questActive = TODO_QUEST("Raene's Cleansing") }, { questDone = TODO_QUEST("Raene's Cleansing") } } } },
         { text = "What about the Horde?", next = "horde" },
         { text = "How do you keep two companions at once?", next = "hunter_r", when = { class = "HUNTER" } },
         { text = "What do you need from a druid?", next = "druid_r", when = { class = "DRUID" } },
@@ -451,7 +451,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Pelturas Whitemoon. My daughter Relara has a fever no herb can touch and nightmares that make her scream in her sleep, and I have prayed to Elune and tried nearly everything else besides." },
+          text = "I am Pelturas Whitemoon. My daughter Relara has a fever no herb can touch and nightmares that make her scream in her sleep, and I will try anything; I have tried most things already, and only Orendil's remedies help at all." },
         { id = "h_orendil", tags = { "news" }, when = { questActive = TODO_QUEST("Orendil's Cure") },
           text = "This is from Orendil? His skill with herbs and healing is great, and this cure gives me hope where before I had very little." },
         { id = "h_tear", when = { questActive = TODO_QUEST("Elune's Tear") },
@@ -479,7 +479,7 @@ P:NPC {
       choices = {
         { text = "What's wrong with her?", next = "wrong" },
         { text = "Who is Orendil?", next = "orendil" },
-        { text = "You speak of Fallen Sky Lake.", next = "lake" },
+        { text = "What did you and Relara do before she fell ill?", next = "lake" },
         { text = "Let me look at her.", next = "look", when = { class = { "PRIEST", "DRUID", "PALADIN" } } },
         { text = "I'm a mage. Let me try a spell on her fever.", next = "mage_p", when = { class = "MAGE" } },
         { text = "Is there anything quiet feet could fetch for Relara?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -512,7 +512,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     lake = {
-      lines = { { id = "l_default", text = "We used to go there together, she and I, and gather the fallen moonstones. Then the Shadethicket bog beasts came, and their Oracle took every stone for himself." } },
+      lines = { { id = "l_default", text = "We used to go to Fallen Sky Lake together, she and I, and gather the fallen moonstones. Then the Shadethicket bog beasts came, and their Oracle took every stone for himself." } },
       choices = {
         { text = "Then I'll take one back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -838,7 +838,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I am Faldreas Goeth'Shael. I keep track of who goes out on the roads and who ought to have come back by now, and since the orcs came, the second list is longer than I'd like." },
+        { id = "h_default", text = "I am Faldreas Goeth'Shael. With the forest spirits' help, I keep track of who goes out on the roads and who ought to have come back by now, and since the orcs came, the second list is longer than I'd like." },
         { id = "h_edunes", tags = { "news" }, when = { questActive = TODO_QUEST("Journey to Stonetalon Peak") },
           text = "The forest spirits tell me you are brave and willing to travel. Take the Talondeep Path near Mystral Lake into the Stonetalon Mountains, then climb to Stonetalon Peak, where Keeper Albagorm is waiting for you." },
         { id = "h_crossed", when = { metBefore = true }, text = "Three travellers came back yesterday and I crossed them off the list. Crossing names off the right way is the best part of my day." },
@@ -1050,7 +1050,7 @@ P:NPC {
       choices = {
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who stays here?", next = "guests" },
-        { text = "I'd guess Relara is still unwell.", next = "relara_k" },
+        { text = "Is anyone in town unwell?", next = "relara_k" },
         { text = "I can tend wounds. Do your scouts need a healer?", next = "healer_k", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "It's a long way from Stormwind to here.", next = "far_k", when = { race = "Human" } },
         { text = "You must get a few rogues at your inn, Kimlya.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -1076,7 +1076,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     relara_k = {
-      lines = { { id = "re_default", text = "Better some days and worse on others. Her father hardly sleeps, so I make sure he at least eats." } },
+      lines = { { id = "re_default", text = "The Whitemoon girl, Relara, has a fever that's better some days and worse on others. Her father hardly sleeps, so I make sure he at least eats." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     healer_k = {
@@ -1244,7 +1244,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Delgren, called the Purifier. Our company came to help the night elves against demons and the walking dead, and instead we found a cult, the Dark Strand, nesting in the old tower to the north." },
+          text = "I'm Delgren, called the Purifier. Our company came to help the night elves against demons and the walking dead, and instead we found a cult, the Dark Strand, nesting in the old tower to the north. I've even taken up Orcish, because the warlock who teaches them is an orc." },
         { id = "h_tower", tags = { "news" }, when = { questActive = TODO_QUEST("The Tower of Althalaxx") },
           text = "The Dark Strand gather at the Tower of Althalaxx to work their warlock's magic. Balthule keeps watch there and Feero carries word to Auberdine, and I'd be glad of your help with the rest." },
         { id = "h_supplies", when = { questActive = TODO_QUEST("Supplies to Auberdine") },

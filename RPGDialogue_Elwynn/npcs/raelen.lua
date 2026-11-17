@@ -159,7 +159,7 @@ P:NPC {
       },
       choices = {
         { text = "You think Westfall folk are all thieves, Supervisor.", next = "prej", when = { prejudiced = true } },
-        { text = "Where's the deputy?", next = "rainer" },
+        { text = "Where's the deputy?", next = "rainer", when = { heardLine = "raelen.h_rainer" } },
         { text = "That's a great deal of lumber.", next = "order" },
         { text = "Something seems to be chasing your workers off.", next = "animals" },
         { text = "Rainer says someone should tell you where Westbrook is.", next = "rainer_heard", when = { heardLine = "rainer.h_raelen" } },

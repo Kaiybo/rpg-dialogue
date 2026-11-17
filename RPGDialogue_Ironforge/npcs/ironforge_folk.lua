@@ -599,7 +599,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "Jordan Stilwell. I serve the Church of the Holy Light the only way I know: at the anvil." },
+        { id = "h_default", text = "Jordan Stilwell. I serve the Church of the Holy Light the only way I know: at the anvil, while my wife Daphne keeps our farm in Westfall." },
         { id = "h_fist", tags = { "news" }, when = { questActive = TODO_QUEST("The Test of Righteousness") },
           text = "Bosch Verigan was my friend. This hammer will carry his name, and it'll go to a paladin worthy of it, which I hope is you." },
         { id = "h_daphne", when = { questDone = TODO_QUEST("The Tome of Valor") },
@@ -620,7 +620,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I can listen and hammer at once." },
       },
       choices = {
-        { text = "Who was Verigan?", next = "verigan" },
+        { text = "Who was Verigan?", next = "verigan", when = { any = { { questActive = TODO_QUEST("The Test of Righteousness") }, { questDone = TODO_QUEST("The Test of Righteousness") } } } },
         { text = "Most smiths would work inside the gates.", next = "outside" },
         { text = "Where did you learn your craft?", next = "learned" },
         { text = "Tell me about Daphne.", next = "daphne" },

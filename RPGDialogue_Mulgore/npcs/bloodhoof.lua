@@ -508,7 +508,7 @@ P:NPC {
       },
       choices = {
         { text = "What are the spirits saying?", next = "spirits" },
-        { text = "What does the rite show?", next = "vision" },
+        { text = "What do you show the young ones, elder?", next = "vision" },
         { text = "The spirits answer me now, elder. What should I ask them?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "The spirits must mind what I am, elder.", next = "forsaken", when = { race = "Scourge" } },
         { text = "Do the spirits mind the arcane, elder?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -839,7 +839,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. Rain followed me to Mulgore, and now strange company does too." },
         { id = "h_default", key = true,
-          text = "I'm Maur Raincaller. There's a beast in Mulgore the young hunters whisper about, and I've seen its tracks. I'd like to see its hide." },
+          text = "I'm Maur Raincaller. There's a beast in Mulgore the young hunters call Mazzranache, and I've seen its tracks. I'd like to see its hide." },
         { id = "h_mazz", tags = { "news" }, when = { questActive = TODO_QUEST("Mazzranache") },
           text = "The beast is called Mazzranache. Find it, end it, and bring me proof, and the young ones will stop whispering and start bragging." },
         { id = "h_slow", when = { metBefore = true }, text = "The young braves ask me how to track. I tell them: walk slower than you want to. Not one of them listens." },

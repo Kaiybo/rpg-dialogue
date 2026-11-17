@@ -413,7 +413,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Merrin.", next = "merrin" },
         { text = "The excavation must be after something special.", next = "dig" },
-        { text = "Who's Longbraid?", next = "longbraid" },
+        { text = "Did anyone promise to look for them?", next = "longbraid" },
         { text = "You could go yourself.", next = "go" },
         { text = "When will the killing end, do you think?", next = "killing", when = { questDone = TODO_QUEST("In Search of The Excavation Team") } },
         { text = "Dwarves don't leave kin in the marsh, Tarrel.", next = "xdwarf", when = { race = "Dwarf" } },
@@ -830,7 +830,7 @@ P:NPC {
       },
       choices = {
         { text = "What's in Kalimdor?", next = "kalimdor" },
-        { text = "Who's Fiora Longears?", next = "fiora" },
+        { text = "Who meets folk on the other side?", next = "fiora" },
         { text = "Why don't you go to sea yourself?", next = "sea" },
         { text = "Is it right to send folk away from home?", next = "away" },
         { text = "Kalimdor is my home, sailor.", next = "xnightelf", when = { race = "NightElf" } },

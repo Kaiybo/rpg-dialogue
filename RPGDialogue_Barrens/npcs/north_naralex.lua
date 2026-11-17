@@ -45,7 +45,7 @@ P:NPC {
       choices = {
         { text = "What happened to Naralex?", next = "naralex" },
         { text = "The beasts near the caverns look wrong, somehow.", next = "deviates" },
-        { text = "Who are the Druids of the Fang?", next = "fang" },
+        { text = "Did any of your order fall to the dream?", next = "fang" },
         { text = "I've walked the Emerald Dream myself, a little.", next = "dream", when = { class = "DRUID" } },
         { text = "What do you need done?", next = "BUSINESS" },
         { text = "I'll leave you to your watch.", next = "END" },

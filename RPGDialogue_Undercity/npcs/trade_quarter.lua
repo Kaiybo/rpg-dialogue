@@ -381,7 +381,7 @@ P:NPC {
         { id = "h_again3", text = "Where was I? Oh, yes, you were asking things, and I was answering them. Carry on!" },
       },
       choices = {
-        { text = "You're missing a few fingers.", next = "fingers" },
+        { text = "Have you ever had an accident at that bench?", next = "fingers" },
         { text = "Why do the dead need engineers?", next = "dead" },
         { text = "What does Franklin next door think of you?", next = "franklin" },
         { text = "Gnomish or goblin engineering, Graham?", next = "school", when = { profession = { name = "Engineering", min = 200 } } },

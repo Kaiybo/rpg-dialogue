@@ -634,7 +634,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Another priest! I'll find you something that doesn't make you look like a sack of flour, if you'll stand still long enough." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a tabard that doesn't ride up under the plate, and the Cathedral's tailors never get that right." },
-        { id = "h_default", text = "Lisbeth Schneider. Rema makes, Corbett carries, and I sell the finished pieces off these racks, and I'll fit you properly, which is more than the market stalls will do." },
+        { id = "h_default", text = "Lisbeth Schneider. Rema makes, Corbett carries, and I sell the finished pieces off these racks, and I'll fit you properly, which is more than the market stalls will do, and lately half the city wants padding under its coats." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest! The Cathedral sends us all its novices, and they come in looking like sacks of flour tied in the middle. Let me find you something that fits." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Let me guess: everything you own has a scorch mark on the left sleeve, because you cast with your right hand." },

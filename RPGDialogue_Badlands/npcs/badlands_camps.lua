@@ -148,11 +148,11 @@ P:NPC {
         { text = "Does the earth speak to you when you work its metal, Martek?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What lies under Uldaman that a spellcaster ought to know about?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "They say Ironforge sent you out here, Martek.", next = "exile" },
-        { text = "What's indurium?", next = "indurium" },
+        { text = "What metal is worth digging for out here?", next = "indurium" },
         { text = "It can't be easy living out here on your own.", next = "life" },
         { text = "I'm a smith too. Any advice?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "A man alone out here must miss the cities.", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Indurium takes enchantments well, though, doesn't it?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Don't enchantments make metal stronger, though?", next = "xmage", when = { class = "MAGE" } },
         { text = "Do you still pray out here alone, Martek?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What's wrong with my blade, Martek?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "What arrowheads would you use on a basilisk?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -181,7 +181,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     indurium = {
-      lines = { { id = "i_default", text = "A metal ye'll find only in the deep places round Uldaman, and the troggs carry it like treasure. It's light, and it's strong, and it's perfect for a gnome's mad machine." } },
+      lines = { { id = "i_default", text = "Indurium, a metal ye'll find only in the deep places round Uldaman, and the troggs carry it like treasure. It's light, and it's strong, and it's perfect for a gnome's mad machine." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "uldaman" } } } },
     },
     life = {

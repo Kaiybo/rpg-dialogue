@@ -184,7 +184,7 @@ P:NPC {
       },
       choices = {
         { text = "Do you still believe, Father?", next = "believe" },
-        { text = "That collar looks like it came from an old church.", next = "collar" },
+        { text = "Do you keep anything from your old church, Father?", next = "collar" },
         { text = "What's in that little box by the altar?", next = "box" },
         { text = "How do you get on with Father Lankester?", next = "lankester" },
         { text = "I'm a warlock, Father. Am I still welcome?", next = "warlock", when = { class = "WARLOCK" } },

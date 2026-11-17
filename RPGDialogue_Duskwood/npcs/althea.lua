@@ -126,7 +126,7 @@ P:NPC {
       choices = {
         { text = "Lamps and good order, then. I'll help.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your watch needs fire, not lamps.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Who is Mor'Ladim?", next = "morladim" },
+        { text = "What's the worst thing your watch faces?", next = "morladim" },
       },
     },
     druid_talk = {
@@ -191,7 +191,7 @@ P:NPC {
         { text = "What's out in the woods?", next = "woods" },
         { text = "I'd like to help the Watch.", next = "help" },
         { text = "Your watchers don't look like soldiers.", next = "watchers" },
-        { text = "Your watchers speak of Mor'Ladim with dread.", next = "morladim" },
+        { text = "Who's been killing your watchers on patrol?", next = "morladim" },
         { text = "You and the mayor are kin?", next = "ello" },
         { text = "Let me tend your wounded watchers.", next = "priest", when = { class = "PRIEST" } },
         { text = "Did Stalvan Mistmantle do it?", next = "stalvan", when = { topicKnown = "stalvan" } },

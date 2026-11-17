@@ -150,7 +150,7 @@ P:NPC {
       },
       choices = {
         { text = "The House of Nobles seems troubled.", next = "house" },
-        { text = "The masons tell a different story, I hear.", next = "masons" },
+        { text = "What does the House make of the Defias?", next = "masons" },
         { text = "Why read here, my lord?", next = "library" },
         { text = "The Church says the masons were wronged.", next = "church", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "The Defias took my family's farm.", next = "farmhand", when = { origin = "human_westfall_farmhand" } },
@@ -883,7 +883,7 @@ P:NPC {
         { text = "Robbing graves. The dead deserve better.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = 1 } } },
         { text = "The dead don't need their bodies, so let the man go.", next = "BACK", when = { class = "PRIEST" }, fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } },
-        { text = "Whose seal is on those letters, Warden? Or shall I ask the Captain?", tag = "Intimidate", next = "cells_seal",
+        { text = "Whose seal is on those letters, Warden? Or shall I ask your superiors?", tag = "Intimidate", next = "cells_seal",
           check = { pass = { any = { { minLevel = 35 }, { class = { "WARRIOR", "ROGUE" } }, { townStanding = { town = "stormwind", min = 55 } } } } },
           fail = { next = "cells_nerve", fx = { affinity = -1 } } },
       },

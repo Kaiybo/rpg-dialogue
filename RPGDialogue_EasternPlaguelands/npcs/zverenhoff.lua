@@ -85,7 +85,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Duke Nicholas Zverenhoff of the Argent Dawn. I help Lord Tyrosus keep this chapel standing, and I'm the one who pays out valor tokens when people bring us proof of what they've slain." },
+        { id = "h_default", key = true, text = "Duke Nicholas Zverenhoff of the Argent Dawn. I help Lord Tyrosus keep this chapel standing, and I'm the one who pays out valor tokens when people bring us scourgestones as proof of what they've slain." },
         { id = "h_book", tags = { "news" }, when = { questRecent = { TODO_QUEST("Duke Nicholas Zverenhoff"), days = 3 } },
           text = "Studies in Spirit Speaking, by Umbranse. I'd like to tell you that \"special\" means illuminating, but so far it means a great many pages that say \"Ooooooo\", and I'm not yet sure who thinks that up." },
         { id = "h_stones", when = { questDone = TODO_QUEST("Minion's Scourgestones") },
@@ -160,7 +160,7 @@ P:NPC {
     linguist = {
       lines = { { id = "li_default", text = "Guilty, I'm afraid. I read most of the tongues of the Eastern Kingdoms, a little Thalassian, and an embarrassing amount of Dwarven, and now I'm trying to read a man who writes in moans." } },
       choices = {
-        { text = "The book on spirit-speaking?", next = "linguist_book" },
+        { text = "Who writes in moans?", next = "linguist_book" },
         { text = "Something else.", next = "BACK" },
       },
     },

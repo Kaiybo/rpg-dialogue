@@ -35,7 +35,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Rhapsody Shindigger, brewer, an' once the finest gryphon rider Aerie Peak ever had, if I say so myself, an' I do. Did ye feel that just now? The ground's a-shakin', friend, so I need a drink." },
+          text = "Rhapsody Shindigger, brewer, an' once the finest gryphon rider Aerie Peak ever had, if I say so myself, an' I do. Did ye feel that just now? The ground's a-shakin', friend, so I need a drink. I've had the shakes ever since that business in the swamp." },
         { id = "h_sent", tags = { "news" }, when = { questActive = TODO_QUEST("Rhapsody Shindigger") },
           text = "Talonaxe sent ye, did he, hic? He let me go, ye know, but I don't hold it against him, for I'd have let me go too." },
         { id = "h_brohann", when = { questActive = TODO_QUEST("Rhapsody's Kalimdor Kocktail") },
@@ -86,7 +86,7 @@ P:NPC {
 
     swamp = {
       lines = {
-        { id = "sw_default", text = "Before the flight I drank a whole keg o' stout, an' what a flight it was, zippin' over the Swamp o' Sorrows wi' Brohann behind me. I didnae see any temple, mind, till I got a wee bit tipsy an' fell off my mount." },
+        { id = "sw_default", text = "Before the flight I drank a whole keg o' stout, an' what a flight it was, zippin' over the Swamp o' Sorrows wi' Brohann behind me. I didnae see any temple, mind, till I got a wee bit tipsy an' fell off my mount, an' the rest I'll only tell over a Kalimdor Kocktail." },
         { id = "sw_before", when = { questBefore = TODO_QUEST("Rhapsody's Tale") },
           text = "It wasnae a pretty scene, an' I'll no' tell it dry. Bring me what I need for a Kalimdor Kocktail, an' I'll tell ye all about it." },
       },
@@ -188,7 +188,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Gilveradin Sunchaser, at your service, a connoisseur of the finer things and a merchant of their appearance. I trouble myself little with kings and flags, for a good bottle has no faction." },
+          text = "Gilveradin Sunchaser, at your service, a connoisseur of the finer things and a merchant of their appearance. I trouble myself little with kings and flags, for a good bottle has no faction, and some of my dearest customers are orcs." },
         { id = "h_ripple", tags = { "news" }, when = { questActive = TODO_QUEST("Ripple Recovery") },
           text = "Dran Droffers seeks ripple, does he? I possess the original packaging, and I shall assist you, for a fee of two additional bottles, naturally." },
         { id = "h_sticky_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Sticky Situation"), days = 3 } },

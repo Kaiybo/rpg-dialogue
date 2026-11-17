@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Ruul, warrior and teacher. When the young of Bloodhoof are ready to go further than Mulgore, I send them against the Windfury first, so we both know what they're made of." },
+        { id = "h_default", key = true, text = "I am Ruul, warrior and teacher. When the young of Bloodhoof are ready to go further than Mulgore, I send them against the Windfury first, so we both know what they're made of. My brother readies the dead in Thunder Bluff, and I ready the living." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Dangers of the Windfury") },
           text = "Thank you for taking the time to speak to me, {name}. You've reached the age when you must prepare for trials if you'll travel much further, so seek out the Windfury harpies to the southeast. They're one of our natural enemies here, and a good measure of your skill." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Dangers of the Windfury"), days = 3 } },
@@ -47,7 +47,7 @@ P:NPC {
       choices = {
         { text = "Why the Windfury harpies?", next = "harpies" },
         { text = "What makes someone ready to leave Mulgore?", next = "ready" },
-        { text = "So you have a brother.", next = "eyahn" },
+        { text = "Tell me about your brother.", next = "eyahn" },
         { text = "Teach me something, as one warrior to another.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'm ready for a trial.", next = "BUSINESS" },
         { text = "Farewell, Ruul.", next = "END" },

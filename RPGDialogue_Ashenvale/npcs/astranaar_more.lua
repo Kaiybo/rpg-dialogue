@@ -349,7 +349,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Daelyshia, and I keep Astranaar's hippogryphs. They'll take you north to Auberdine, and to other roosts once you've walked the roads to find them." },
+          text = "I am Daelyshia, and I keep Astranaar's hippogryphs. They fly low over the trees to Auberdine in the north, and to other roosts once you've walked the roads to find them." },
         { id = "h_night", when = { timeOfDay = "night" },
           text = "I'll fly them by night if you insist, but they don't like the dark over the eastern woods, where the Warsong's fires burn." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },

@@ -37,7 +37,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Alanndarian Nightsong. I cook, mostly, and lately I've been doctoring the deer of Darkshore too, because something has made them sick, and my people do not leave the forest's creatures to suffer alone." },
+          text = "I'm Alanndarian Nightsong. I cook, mostly, and lately I've been doctoring the deer of Darkshore too, because something has made them sick and nobody else was doing it, at least until the Cenarion Circle took an interest." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Easy Strider Living") },
           text = "Perhaps you'd like to learn my strider stew? First prove you can handle the beasts: bring me a few cuts of their meat, and I may be persuaded to show you how it's done." },
         { id = "h_strider_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Easy Strider Living"), days = 3 } },

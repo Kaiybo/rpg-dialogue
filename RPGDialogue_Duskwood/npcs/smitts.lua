@@ -98,7 +98,7 @@ P:NPC {
       choices = {
         { text = "I'll not chase ghosts without good reason.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Karazhan's secrets are worth the risk.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "What do you hear about the murders?", next = "murders" },
+        { text = "What's the darkest story in your record, Smitts?", next = "murders" },
       },
     },
     xlock = {
@@ -160,7 +160,7 @@ P:NPC {
       },
       choices = {
         { text = "A drink, please.", next = "BUSINESS" },
-        { text = "What did you and Haggard investigate?", next = "murders" },
+        { text = "What does this town want to forget?", next = "murders" },
         { text = "Heard anything?", next = "rumors" },
         { text = "Who drinks here these days?", next = "regulars" },
         { text = "I found your jumpy writer.", next = "jitters", when = { questDone = TODO_QUEST("Finding the Shadowy Figure") } },
@@ -174,7 +174,7 @@ P:NPC {
         { text = "What do the Watch talk about over a drink, Smitts?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "I'd wager hunters tell tall tales in here, Smitts.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "People talk to you, Smitts. Any of them talk about necromancers?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "You still want justice for those murdered nobles, I'd wager.", next = "xapala", when = { class = "PALADIN" } },
+        { text = "You still want justice for those murders, I'd wager.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What do you write down about the forest, Smitts?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "What does Darkshire want to forget, Smitts?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Just warming up.", next = "END" },

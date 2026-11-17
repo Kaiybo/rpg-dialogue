@@ -53,8 +53,8 @@ P:NPC {
       choices = {
         { text = "Something terrible must have happened at the dig.", next = "attack" },
         { text = "What were you digging for?", next = "dig" },
-        { text = "Tell me about Ormer.", next = "ormer" },
-        { text = "Tarrel misses you.", next = "tarrel" },
+        { text = "Who held the raptors off?", next = "ormer" },
+        { text = "Tarrel misses you.", next = "tarrel", when = { heardLine = "tarrel.h_default" } },
         { text = "I can tend that raptor bite.", next = "heal", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "Stay safe, Merrin.", next = "END" },
       },
@@ -86,7 +86,7 @@ P:NPC {
         { id = "dg_default", text = "Old stonework an' old bones, an' the bones were older than the stone, which had the Prospector very excited. Somethin' huge lived an' died in these hills long before any dwarf set foot in them." },
       },
       choices = {
-        { text = "You argue with Whelgar about the digging?", next = "dig_whelgar" },
+        { text = "Did you and the Prospector argue about it?", next = "dig_whelgar" },
         { text = "Something else.", next = "BACK" },
       },
     },

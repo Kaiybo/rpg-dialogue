@@ -64,7 +64,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Collin Mauren. I create spells, mostly from things other people throw away, and I find that the oddest reagents make the most interesting results." },
+        { id = "h_default", key = true, text = "Collin Mauren. I create spells, mostly from things other people throw away, and I find that the oddest reagents make the most interesting results. Lately it's basilisk scales from the Charred Vale I'm after." },
         { id = "h_scroll", tags = { "news" }, when = { questActive = TODO_QUEST("A Scroll from Mauren") },
           text = "Gaxim sent you? Now, a spell that lets you detonate explosives from a distance, hmm. I believe a messaging spell would carry the effect he wants." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Retrieval for Mauren"), minLevel = 20 },
@@ -78,7 +78,7 @@ P:NPC {
       },
       choices = {
         { text = "I don't see how you make a spell from scales.", next = "craft" },
-        { text = "Who is Gaxim Rustfizzle?", next = "gaxim" },
+        { text = "Who is Gaxim Rustfizzle?", next = "gaxim", when = { any = { { questActive = TODO_QUEST("A Scroll from Mauren") }, { questDone = TODO_QUEST("A Scroll from Mauren") } } } },
         { text = "Why the Charred Vale basilisks?", next = "vale" },
         { text = "Show me how you work your reagents.", next = "mage", when = { class = "MAGE" } },
         { text = "Can I help?", next = "BUSINESS" },

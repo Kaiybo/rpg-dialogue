@@ -36,7 +36,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Name's Hurley. I cut trees for Turner and keep Curly from getting himself killed, and the trees are the easy part." },
+        { id = "h_default", key = true, text = "Name's Hurley. I cut trees for Turner and keep Curly from getting himself killed, and the trees are the easy part, though somebody keeps raiding our woodpiles." },
         { id = "h_helping", tags = { "news" }, when = { questActive = TODO_QUEST("Helping Hands") },
           text = "Come on, come on. Curly's in trouble out there and we haven't much time." },
         { id = "h_after", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Helping Hands"), days = 3 } },

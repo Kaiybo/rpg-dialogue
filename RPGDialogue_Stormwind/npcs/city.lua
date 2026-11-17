@@ -277,13 +277,13 @@ P:NPC {
     defias_masons = {
       lines = { { id = "dm_default", text = "Stonemasons. The guild that rebuilt this city and was never paid. Their guildmaster led a riot and walked out with half of them. I knew him well." } },
       choices = {
-        { text = "Edwin VanCleef?", next = "defias_edwin" },
+        { text = "Who was their guildmaster?", next = "defias_edwin" },
         { text = "Something else.", next = "BACK", fx = { opinion = { defias = "masons_wronged" } } },
       },
     },
     defias_edwin = {
       big = true,
-      lines = { { id = "de_default", text = "We were boys together. I taught him to move unseen and hoped he'd work beside me. He chose stone, then this, and some days I think I taught him exactly enough." } },
+      lines = { { id = "de_default", text = "Edwin VanCleef. We were boys together, and I taught him to move unseen and hoped he'd work beside me. He chose stone, then this, and some days I think I taught him exactly enough." } },
       choices = {
         { text = "That isn't your fault.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Then you know how he thinks.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
@@ -563,8 +563,8 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
-        { text = "Testing the water at Mirror Lake seems an odd task.", next = "currents" },
-        { text = "Something went badly wrong at the Blue Recluse.", next = "recluse" },
+        { text = "What are you studying these days, Magus?", next = "currents" },
+        { text = "Has there been trouble in the Mage Quarter lately?", next = "recluse" },
         { text = "Magic can't be that dangerous.", next = "danger", when = { ["not"] = { class = "MAGE" } } },
         { text = "What should I be practising?", next = "practise", when = { class = "MAGE" } },
         { text = "Should a mage's learning have any limits?", next = "limits", when = { class = "MAGE" } },

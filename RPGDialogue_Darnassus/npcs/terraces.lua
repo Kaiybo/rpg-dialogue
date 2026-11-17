@@ -181,11 +181,11 @@ P:NPC {
       },
       choices = {
         { text = "How do you see the orcs, Commander?", next = "op_ask" },
-        { text = "Who was Velinde Starsong?", next = "velinde" },
+        { text = "Who was Velinde Starsong?", next = "velinde", when = { any = { { questActive = TODO_QUEST("Velinde Starsong") }, { questActive = TODO_QUEST("Velinde's Effects") }, { questActive = TODO_QUEST("The Barrens Port") }, { questActive = TODO_QUEST("Answered Questions") }, { questDone = TODO_QUEST("Answered Questions") } } } },
         { text = "The war in Ashenvale must weigh on you.", next = "ashenvale" },
         { text = "What does a Sentinel commander do here?", next = "duty" },
         { text = "Will you tell the High Priestess about Velinde?", next = "tell", when = { questDone = TODO_QUEST("Answered Questions") } },
-        { text = "Did Velinde pray as a priestess or fight as a Sentinel?", next = "both", when = { class = "PRIEST" } },
+        { text = "Did Velinde pray as a priestess or fight as a Sentinel?", next = "both", when = { class = "PRIEST", any = { { questActive = TODO_QUEST("Velinde Starsong") }, { questActive = TODO_QUEST("Velinde's Effects") }, { questActive = TODO_QUEST("The Barrens Port") }, { questActive = TODO_QUEST("Answered Questions") }, { questDone = TODO_QUEST("Answered Questions") } } } },
         { text = "Do the Sentinels need another bow?", next = "hunter_tb", when = { class = "HUNTER" } },
         { text = "I stood the watch at Auberdine.", next = "watch_tb", when = { origin = "nightelf_auberdine_watch" } },
         { text = "Would the Sentinels trust a rogue's scouting?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -456,8 +456,8 @@ P:NPC {
       },
       choices = {
         { text = "What makes a warrior, to you?", next = "warrior" },
-        { text = "Why does a satyr matter so much?", next = "vorlus" },
-        { text = "Tell me about the elunite wreck.", next = "elura" },
+        { text = "Why does a satyr matter so much?", next = "vorlus", when = { any = { { questActive = TODO_QUEST("Vorlus Vilehoof") }, { questDone = TODO_QUEST("Vorlus Vilehoof") } } } },
+        { text = "Tell me about the elunite wreck.", next = "elura", when = { any = { { questActive = TODO_QUEST("The Shade of Elura") }, { questDone = TODO_QUEST("The Shade of Elura") } } } },
         { text = "The Sentinels must fight differently from you.", next = "sentinels" },
         { text = "Test me, then. I'm ready.", next = "test", when = { class = "WARRIOR" } },
         { text = "Which weapon should I master?", next = "weapons", when = { class = "WARRIOR" } },
@@ -669,7 +669,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! I always say a little prayer to Elune over my best work, so I like to think we're in the same line of business." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Oh, let me see your hammer, because I've only seen Silver Hand work in drawings, and I've wanted to look at the real thing for years." },
-        { id = "h_default", text = "I'm Mathiel, a smith of the Terrace, and I'll mend anything the Sentinels or the adventurers bring me. Every repair puts a little more toward an anvil of my own, so I'm grateful for the work." },
+        { id = "h_default", text = "I'm Mathiel, a smith of the Terrace, and I'll mend anything the Sentinels or the adventurers bring me. When someone brings me elunite I work that too, and every repair puts a little more toward an anvil of my own, so I'm grateful for the work." },
         { id = "h_elunite", tags = { "news" }, when = { questActive = TODO_QUEST("Smith Mathiel") },
           text = "Elunite ore! This is a fine metal to work, for it's blessed by Elune herself. It would be an honor to make you a weapon of it, so wait here while I work." },
         { id = "h_weapons", when = { questActive = TODO_QUEST("Weapons of Elunite") },
@@ -695,7 +695,7 @@ P:NPC {
       choices = {
         { text = "Can you repair my gear?", next = "BUSINESS" },
         { text = "What's special about elunite?", next = "elunite" },
-        { text = "You must have friends in Stormwind and Ironforge.", next = "friends" },
+        { text = "Do other smiths share their secrets with you?", next = "friends" },
         { text = "You don't have your own anvil?", next = "anvil" },
         { text = "What did Furen's notes teach you?", next = "furen", when = { profession = "Blacksmithing" } },
         { text = "Do you know Klockmort Spannerspan?", next = "gnome_m", when = { race = "Gnome" } },
@@ -1334,7 +1334,7 @@ P:NPC {
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Why call us heroes in the making?", next = "heroes" },
-        { text = "Who is Nessa Shadowsong?", next = "nessa" },
+        { text = "Who is Nessa Shadowsong?", next = "nessa", when = { any = { { questActive = TODO_QUEST("Nessa Shadowsong") }, { questDone = TODO_QUEST("Nessa Shadowsong") } } } },
         { text = "Doesn't my conjured food take your custom?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "What do warriors forget to pack, Mydrannul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Do you stock food for a hunter's companion?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },

@@ -941,7 +941,7 @@ P:NPC {
         { text = "You watch me closer than anyone else in the valley, Overlord.", next = "prej_runthak", when = { prejudiced = true } },
         { text = "Do you trust priests in Orgrimmar, Overlord?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "The Warchief still walks the shaman's path, I hear.", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Would any of them win, Overlord?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Could any recruit beat a tauren in bear form, Overlord?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Who was the city named for?", next = "name" },
         { text = "You must see plenty of trouble in the city.", next = "trouble" },
         { text = "How do I find my way around?", next = "around" },

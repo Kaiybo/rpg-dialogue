@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Agnar Beastamer, animal handler for the Wildhammer. If it's got feathers, fur or scales an' it lives at Aerie Peak, I've fed it, mended it an' been bitten by it." },
+          text = "Agnar Beastamer, animal handler for the Wildhammer. If it's got feathers, fur or scales an' it lives at Aerie Peak, I've fed it, mended it an' been bitten by it, though I've never yet had the luck tae raise a faerie dragon." },
         { id = "h_egg", tags = { "news" }, when = { questActive = TODO_QUEST("The Newest Member of the Family") },
           text = "Well, well, well, I haven't seen one o' these in a dragon's age! Faerie dragon, if I'm no' mistaken, o' the sprite darter variety, an' ye got it here in time, which is no small thing." },
         { id = "h_fed", tags = { "news" }, when = { questRecent = { TODO_QUEST("Food for Baby"), days = 3 } },

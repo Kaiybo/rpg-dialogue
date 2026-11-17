@@ -825,7 +825,7 @@ P:NPC {
         { text = "Do hunters and druids see the beasts the same way?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you choose a beast?", next = "beast" },
-        { text = "Who's Grif Wildheart?", next = "grif" },
+        { text = "Who's Grif Wildheart?", next = "grif", when = { class = "HUNTER" } },
         { text = "Have a look at my beast, Daera.", next = "pet", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "Humans don't take the bow much, they tell me.", next = "human", when = { race = "Human", class = "HUNTER" } },
         { text = "I ride a nightsaber at home, Daera.", next = "elf", when = { race = "NightElf", class = "HUNTER" } },

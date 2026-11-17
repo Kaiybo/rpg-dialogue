@@ -203,7 +203,7 @@ P:NPC {
       choices = {
         { text = "How does Auberdine feel about its new allies?", next = "op_ask" },
         { text = "The land here looks sick.", next = "sick" },
-        { text = "Why trust the Silver Hand?", next = "silverhand" },
+        { text = "Why trust the Silver Hand?", next = "silverhand", when = { class = "PALADIN" } },
         { text = "There are old ruins all along this coast, I've noticed.", next = "ruins" },
         { text = "I keep hearing travellers speak of the Master's Glaive.", next = "glaive" },
         { text = "I'm a paladin, and I'd like to help.", next = "paladin", when = { class = "PALADIN" } },
@@ -465,7 +465,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Terenthis, and I came to Darkshore to learn how far the Fel Moss has spread. It is farther than I feared, and I have seen the fel at work before, so I mean to find out why and put an end to it." },
+          text = "I am Terenthis, and I came to Darkshore to learn how far the Fel Moss has spread. It is farther than I feared, and I have seen the fel at work before, so I mean to find out why and put an end to it. Now even Volcor, who walks these hills with a great bear, has fallen foul of the furbolgs." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("How Big a Threat?") },
           text = "Find one of the furbolg camps and tell me what you see there. Some of my brethren had to be rescued from a corrupted furbolg on Teldrassil, and I will not wait for more of our kind to be hurt." },
         { id = "h_grimclaw", tags = { "news" }, when = { questActive = TODO_QUEST("A Lost Master") },
@@ -678,7 +678,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I am Gwennyth, of the Sisterhood. I came to tend Auberdine's troubled people and found the shore strewn with great dead creatures, as if the sea were giving up its dead, and I would like to know why." },
+        { id = "h_default", text = "I am Gwennyth, of the Sisterhood. I came to tend Auberdine's troubled people and found the shore strewn with great dead creatures, with murlocs picking at them, as if the sea were giving up its dead, and I would like to know why." },
         { id = "h_washed", tags = { "news" }, when = { questActive = TODO_QUEST("Washed Ashore") },
           text = "A great creature has come ashore just south of the village, and the Greymist murlocs have ringed it. Bring me its bones, so that I can send them to Darnassus for study." },
         { id = "h_creature", when = { questActive = TODO_QUEST("Beached Sea Creature") },
@@ -938,7 +938,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_cl_bfd", tags = { "news" }, when = { cleared = "Blackfathom Deeps", faction = "Alliance" }, text = "They say in Auberdine that you went down into Blackfathom Deeps and cut your way to the very bottom. The murlocs on my beach haven't noticed yet, but the naga have, and they've been keeping to deeper water since." },
-        { id = "h_default", key = true, text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and murlocs creep up the beaches, and I am only one Sentinel, so I could use another pair of hands." },
+        { id = "h_default", key = true, text = "I am Sentinel Glynda Nal'Shea. Corruption creeps into the groves and has turned even the moonkin wild, and murlocs under a brute called Murkdeep creep up the beaches. I am only one Sentinel, so I could use another pair of hands." },
         { id = "h_crystal", tags = { "news" }, when = { questActive = TODO_QUEST("The Red Crystal") },
           text = "The reports say hostile moonkin are gathering around a large red crystal along the eastern mountains. Find out whether it really exists, and whatever you do, don't touch it." },
         { id = "h_cascade", when = { questActive = TODO_QUEST("As Water Cascades") },
@@ -1148,7 +1148,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Cerellean Whiteclaw. Before the Sundering I loved a woman named Anaya, of Ameth'Aran, and the war took her and her city; then I slept for thousands of years, and she was in every dream." },
+          text = "I am Cerellean Whiteclaw. Before the Sundering I loved a woman named Anaya, of Ameth'Aran, and the war took her and her city; then I slept for thousands of years, and she was in every dream. When I woke, I found her spirit still haunting the ruins." },
         { id = "h_love", tags = { "news" }, when = { questActive = TODO_QUEST("For Love Eternal") },
           text = "Her spirit still walks the ruins of Ameth'Aran, and it must be freed, but I cannot raise my hand against her even now. Please do what I cannot, and bring me her pendant." },
         { id = "h_after", when = { questDone = TODO_QUEST("For Love Eternal") },

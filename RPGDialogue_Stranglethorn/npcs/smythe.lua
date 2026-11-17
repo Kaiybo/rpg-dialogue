@@ -66,7 +66,7 @@ P:NPC {
         { id = "h_again3", text = "Ask away. The Bruisers won't need me to read for them until the evening ships come in." },
       },
       choices = {
-        { text = "What's a Stormwind man doing in a goblin port?", next = "salvage" },
+        { text = "What's a human doing in a goblin port?", next = "salvage" },
         { text = "A sworn witness? What does that mean here?", next = "work" },
         { text = "Tell me about the people around here.", next = "around" },
         { text = "Smythe? I've heard that name before.", next = "name" },
@@ -167,7 +167,7 @@ P:NPC {
         { text = "What do you make of Baron Revilgaz?", next = "baron" },
         { text = "And the Bruisers?", next = "bruisers" },
         { text = "Tell me about the Salty Sailor.", next = "salty" },
-        { text = "Everyone keeps mentioning this Strom.", next = "strom" },
+        { text = "Who lives along this landing with you?", next = "strom" },
         { text = "Blackwater Raiders or Bloodsail: what's the difference to you?", next = "pirates" },
         { text = "Enough about the neighbors.", next = "hello" },
       },

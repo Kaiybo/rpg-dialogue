@@ -54,7 +54,7 @@ P:NPC {
       },
       choices = {
         { text = "What makes the Burning Blade weak?", next = "blade" },
-        { text = "What do the gems do to their spirits?", next = "gems" },
+        { text = "What do the gems do to their spirits?", next = "gems", when = { questDone = TODO_QUEST("Alliance Relations") } },
         { text = "Keldran trusting a Forsaken surprises me.", next = "keldran" },
         { text = "Tell me about Azrethoc's contract.", next = "contract", when = { any = { { questActive = TODO_QUEST("The Corrupter") }, { questDone = TODO_QUEST("The Corrupter") } } } },
         { text = "I'm a warlock too. How is my power different from theirs?", next = "warlock_m", when = { class = "WARLOCK" } },

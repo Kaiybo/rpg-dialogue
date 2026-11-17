@@ -101,7 +101,7 @@ P:NPC {
       },
       choices = {
         { text = "What's this challenge of yours?", next = "gauntlet" },
-        { text = "What's in Barleybrew Scalder?", next = "scalder" },
+        { text = "What are you pouring there, Yorus?", next = "scalder" },
         { text = "Why Redridge, of all places?", next = "redridge" },
         { text = "Drinking before a fight hardly seems wise.", next = "wisdom" },
         { text = "I'm no warrior. Can I still run it?", next = "notwarrior", when = { class = { "PRIEST", "MAGE", "WARLOCK", "ROGUE", "HUNTER", "DRUID", "PALADIN", "SHAMAN" } } },
@@ -329,7 +329,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you teach, exactly?", next = "teach" },
-        { text = "What's at Alther's Mill?", next = "mill", when = { class = "ROGUE" } },
+        { text = "What would you have me do, Lucius?", next = "mill", when = { class = "ROGUE" } },
         { text = "Who are you working for?", next = "who" },
         { text = "What do you make of Lakeshire?", next = "town" },
         { text = "Opening other people's locks hardly seems honest work.", next = "honest" },
@@ -757,7 +757,7 @@ P:NPC {
       choices = {
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "What's wrong with the lake?", next = "lake" },
-        { text = "The old fishermen talk of something big out there.", next = "thresher" },
+        { text = "Does the lake have any old legends?", next = "thresher" },
         { text = "What do you think of the murlocs?", next = "murlocs" },
         { text = "Is fishing anything like fighting, Matthew?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What lives in Lake Everstill besides fish, Matthew?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1113,7 +1113,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Alma Jainrose, and I teach herbalism to anyone who'll listen and a few who won't. Redridge grows more than people think, if the gnolls and the boars leave anything standing." },
+        { id = "h_default", text = "I'm Alma Jainrose, and I teach herbalism to anyone who'll listen and a few who won't, Martie by the lake among them. Redridge grows more than people think, if the gnolls and the boars leave anything standing." },
         { id = "h_bellygrub", when = { questDone = TODO_QUEST("An Unwelcome Guest") },
           text = "Martie says you dealt with that boar in her garden. I've been telling her to build a better fence for years, so I'm glad somebody solved it the other way." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and I'll ask you nicely, the same as I ask everyone: don't trample my herbs on your way out to fight." },
@@ -1165,13 +1165,13 @@ P:NPC {
         { id = "ma_default", text = "We share a name and a love of growing things, and she keeps the prettier garden, which she'll tell you herself. I teach, she grows, and between us half the town's cuts get mended." },
       },
       choices = {
-        { text = "She seems sweet on Guard Parker.", next = "martie_parker" },
+        { text = "She seems sweet on someone, doesn't she?", next = "martie_parker" },
         { text = "Something else.", next = "BACK" },
       },
     },
     martie_parker = {
       lines = {
-        { id = "mp_default", text = "Seems? She talks about his patrols the way I talk about rare herbs. I keep my opinions to myself, because Darcy at the inn has opinions enough for all of Lakeshire." },
+        { id = "mp_default", text = "Seems? She talks about Guard Parker's patrols the way I talk about rare herbs. I keep my opinions to myself, because Darcy at the inn has opinions enough for all of Lakeshire." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

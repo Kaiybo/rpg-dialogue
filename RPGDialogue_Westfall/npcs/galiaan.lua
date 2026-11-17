@@ -194,7 +194,7 @@ P:NPC {
     bandanas = {
       lines = { { id = "ba_default", text = "Red leather, on most of them, worn like a uniform. Pride's a weakness in a thief, and I collect weaknesses." } },
       choices = {
-        { text = "Riell wants red silk, not leather.", next = "silk" },
+        { text = "Do their leaders wear something different?", next = "silk" },
         { text = "So that's why you want fifteen.", next = "BACK", fx = { learn = { "defias" } } },
       },
     },
@@ -224,7 +224,7 @@ P:NPC {
       },
       choices = {
         { text = "Can you prove it?", next = "watchers_proof" },
-        { text = "Saldean says nobody knows.", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "The farmers say nobody knows.", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
     },
     watchers_proof = {

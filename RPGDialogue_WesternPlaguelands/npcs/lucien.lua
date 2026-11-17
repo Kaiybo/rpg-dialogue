@@ -52,7 +52,7 @@ P:NPC {
         { text = "House Barov must have been grand, before.", next = "house" },
         { text = "How did you and Eva come to be here?", next = "fate" },
         { text = "You let Eva do most of the talking.", next = "eva" },
-        { text = "What became of the Barov sons?", next = "sons" },
+        { text = "What became of the Barov family?", next = "sons" },
         { text = "I was raised in a house like this one.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "How can I help you?", next = "BUSINESS" },
         { text = "Good day, Lucien.", next = "END" },

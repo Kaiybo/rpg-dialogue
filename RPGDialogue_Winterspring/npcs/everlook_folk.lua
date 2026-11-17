@@ -269,7 +269,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Tinkee wants them for her work in the Burning Steppes, and I don't ask what for, because the answer would only make me nervous. They have to be uncracked, mind, which means someone has to take them off live chimaeras very carefully." } },
+      lines = { { id = "xmage_default", text = "Chillwind horns, which Tinkee wants for her work in the Burning Steppes, and I don't ask what for, because the answer would only make me nervous. They have to be uncracked, mind, which means someone has to take them off live chimaeras very carefully." } },
       choices = {
         { text = "Better not to ask, when the coin is good.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "You ought to know what your work is used for.", next = "BACK", fx = { align = { order = 1 } } },
@@ -350,12 +350,12 @@ P:NPC {
         { id = "h_again3", text = "Go on. I'll listen while I count these springs again." },
       },
       choices = {
-        { text = "Why do the chillwind horns hold the cold so well?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Why does that horn hold the cold so well?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What does Tinkee need all this for?", next = "tinkee" },
-        { text = "You seem very particular about those horns.", next = "horns" },
+        { text = "What goes into Tinkee's order?", next = "horns" },
         { text = "Why work out here in the cold?", next = "cold" },
         { text = "Building something that stays cold must be tricky.", next = "eng", when = { profession = "Engineering" } },
-        { text = "What are the chillwind horns for, anyway?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What are you working on, Felnok?", next = "xmage", when = { class = "MAGE" } },
         { text = "Has anyone actually stolen from you?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Does a gnome tinker have much use for prayer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a tinker make of a priest's work, Felnok?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
@@ -383,7 +383,7 @@ P:NPC {
       },
     },
     horns = {
-      lines = { { id = "hr_default", text = "A chillwind horn holds the cold the way a bottle holds water, and I use them to line the cases. Crack one and the cold leaks out, and then whatever's inside spoils." } },
+      lines = { { id = "hr_default", text = "Chillwind horns, mostly, because a chillwind horn holds the cold the way a bottle holds water, and I use them to line the cases. Crack one and the cold leaks out, and then whatever's inside spoils." } },
       choices = {
         { text = "Where do the chillwinds live?", next = "horns_where" },
         { text = "Something else.", next = "BACK" },
@@ -868,7 +868,7 @@ P:NPC {
       choices = {
         { text = "Does a Dark Iron forge answer to the fire spirits?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "I've heard of the Thorium Brotherhood.", next = "brotherhood" },
-        { text = "What could you make from the Beast's hide?", next = "hide" },
+        { text = "What's the finest thing you could make?", next = "hide" },
         { text = "Everlook is a long way from home for a Dark Iron.", next = "everlook" },
         { text = "A Dark Iron, trading with my people?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "Teach me something about the forge.", next = "smith", when = { profession = "Blacksmithing" } },
@@ -902,9 +902,9 @@ P:NPC {
       },
     },
     hide = {
-      lines = { { id = "h_line", text = "Armour, and armour of a caliber you have never worn: a breastplate for a fighter, leggings for a spellcaster, and more besides. Every piece needs the Beast's hide, whole and unmarked, and other things harder still to find." } },
+      lines = { { id = "h_line", text = "Armour, and armour of a caliber you have never worn: a breastplate for a fighter, leggings for a spellcaster, and more besides. Every piece needs the hide of the Beast in Blackrock Spire, whole and unmarked, and other things harder still to find." } },
       choices = {
-        { text = "One in a million, you said?", next = "hide_odds" },
+        { text = "How hard is that hide to come by?", next = "hide_odds" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1119,7 +1119,7 @@ P:NPC {
         { text = "You must hunt the greatest beasts in Winterspring, Storm.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Which beasts do you hunt?", next = "beasts" },
         { text = "You've come a long way north to hunt.", next = "why" },
-        { text = "Shy-Rotam is sacred to my people.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "Do you hunt frostsabers? They're sacred to my people.", next = "kaldorei", when = { race = "NightElf" } },
         { text = "How do tauren hunt in the snow?", next = "tauren", when = { race = "Tauren" } },
         { text = "Would you hunt a great beast from hiding?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Magic seems to have a place in the hunt as well.", next = "xmage", when = { class = "MAGE" } },
@@ -1151,7 +1151,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     kaldorei = {
-      lines = { { id = "k_default", text = "I have heard this from the night elves before, and I know the frostsabers fought beside your people long ago. I don't hunt her out of disrespect, but because she is the greatest of her kind, and that is the highest honour a hunter can give." } },
+      lines = { { id = "k_default", text = "I have heard this from the night elves before, and I know the frostsabers fought beside your people long ago. I don't hunt Shy-Rotam, their old matriarch, out of disrespect, but because she is the greatest of her kind, and that is the highest honour a hunter can give." } },
       choices = {
         { text = "Then hunt something else, and honour her by letting her live.", next = "BACK", fx = { affinity = -2, align = { honor = 1 } } },
         { text = "I understand. The hunt has its own law.", next = "BACK", fx = { affinity = 2, align = { honor = -1 } } },

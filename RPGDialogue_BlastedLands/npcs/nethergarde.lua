@@ -526,8 +526,8 @@ P:NPC {
         { text = "Has Nethergarde tried to restore the land?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What exactly do you watch for?", next = "watch" },
         { text = "Who was Khadgar?", next = "khadgar" },
-        { text = "Your essays from Stormwind seem to have gone astray.", next = "essays" },
-        { text = "Your soldiers mention a black drake.", next = "drake" },
+        { text = "Are you waiting on anything from Stormwind?", next = "essays" },
+        { text = "Does anything hunt from the sky out here?", next = "drake" },
         { text = "The Light feels thin in this place, Watcher.", next = "priest", when = { class = "PRIEST" } },
         { text = "Dalaran trained me. Does Nethergarde still answer to it?", next = "mage", when = { class = "MAGE" } },
         { text = "My people remember the Legion. We never forget.", next = "kaldorei", when = { race = "NightElf" } },
@@ -880,7 +880,7 @@ P:NPC {
       choices = {
         { text = "What killed the land here?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Why would a Wildhammer leave the Hinterlands?", next = "why" },
-        { text = "What do you want with Nekrum's medallion?", next = "medallion" },
+        { text = "What do you want with Nekrum's medallion?", next = "medallion", when = { any = { { questActive = TODO_QUEST("Nekrum's Medallion") }, { questDone = TODO_QUEST("Nekrum's Medallion") } } } },
         { text = "How does divination work?", next = "divination" },
         { text = "Can you find Sharpbeak?", next = "sharpbeak", when = { any = { { questActive = TODO_QUEST("Thadius Grimshade") }, { questActive = TODO_QUEST("Nekrum's Medallion") } } } },
         { text = "Darker knowledge has a price, diviner.", next = "priest", when = { class = "PRIEST" } },
@@ -1206,7 +1206,7 @@ P:NPC {
       choices = {
         { text = "Who do you speak for, Ambassador?", next = "who" },
         { text = "What do you mean, the wrong enemy?", next = "enemy" },
-        { text = "What grows in the south?", next = "legion" },
+        { text = "What threatens these lands, then?", next = "legion" },
         { text = "The garrison doesn't seem to welcome you here.", next = "garrison" },
         { text = "The Light stands against demons, whoever else does.", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Thrall would agree with you, elf.", next = "orc", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } } },
@@ -1332,7 +1332,7 @@ P:NPC {
       choices = {
         { text = "A weapon. Point me south.", next = "BACK", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "A warning. I know what it costs.", next = "BACK", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "What grows in the south?", next = "legion" },
+        { text = "Which enemy do you mean?", next = "legion" },
       },
     },
     k_elf = {
@@ -1515,12 +1515,12 @@ P:NPC {
       },
       choices = {
         { text = "Can anything grow in the Blasted Lands?", next = "druid_talk", when = { class = "DRUID" } },
-        { text = "What's this about stolen ale?", next = "ale" },
+        { text = "Is anything troubling the Thunderbrews?", next = "ale" },
         { text = "A Thunderbrew is a long way from home out here.", next = "why" },
         { text = "How do the dwarves find Nethergarde?", next = "dwarves" },
         { text = "To Ironforge, and to good ale!", next = "toast", when = { race = "Dwarf" } },
         { text = "I've had a few myself, mind.", next = "drunk", when = { drunk = true } },
-        { text = "I could steal the ale back, quiet-like.", next = "k_rogue", when = { class = "ROGUE" } },
+        { text = "If anything of yours was stolen, I could steal it back.", next = "k_rogue", when = { class = "ROGUE" } },
         { text = "A frost for your mug, if you'll tell me about home.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Why do they mistrust warlocks here?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "The soldiers here don't look like they pray much.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -1614,7 +1614,7 @@ P:NPC {
       },
       choices = {
         { text = "Consider it reclaimed, not stolen.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
-        { text = "What's this about stolen ale?", next = "ale" },
+        { text = "What was stolen, exactly?", next = "ale" },
       },
     },
   },

@@ -49,7 +49,7 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'm listening, though half my mind is on the circle behind you." },
       },
       choices = {
-        { text = "What is a voidwalker, exactly?", next = "void" },
+        { text = "What sort of thing do you call out of the Nether?", next = "void" },
         { text = "Why does the Dark Lady allow warlocks?", next = "allow" },
         { text = "You didn't learn all this from books alone.", next = "learned" },
         { text = "I'm ready for the binding, Halgar.", next = "binding", when = { class = "WARLOCK" } },

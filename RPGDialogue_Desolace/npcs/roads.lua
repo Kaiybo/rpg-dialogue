@@ -438,7 +438,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter! Now you'll understand the business, because you tame beasts for a living and I'm just trying to do it at a profit." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Now don't go looking at me like that, because I'm not robbing any graves, I'm just rounding up the live kodos before they lie down and join the dead ones, which is practically a mercy if you think about it." },
-        { id = "h_default", key = true, text = "Smeed Scrabblescrew, entrepreneur, buddy. The Graveyard's full of old bones, sure, but the live kodos that wander in are worth real money to the right buyers, and by my last copper, I've got the buyers." },
+        { id = "h_default", key = true, text = "Smeed Scrabblescrew, entrepreneur, buddy. The Graveyard's full of old bones, sure, but the live kodos that wander in are worth real money to the right buyers, and by my last copper, I've got the buyers and a Kodo Kombobulator to bring 'em in." },
         { id = "h_c0", when = { questActive = TODO_QUEST("Kodo Roundup") }, text = "Take the Kodo Kombobulator, get close to an aged or dying kodo, and give it a little zap, buddy. Then lead the tame ones back here and I'll do the rest, which is the part with the money." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid? Look, before you start, the kodos don't mind the Kombobulator, or at least none of them has ever complained to me about it." },

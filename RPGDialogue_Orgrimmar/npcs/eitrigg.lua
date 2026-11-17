@@ -65,7 +65,7 @@ P:NPC {
           text = "I had a talk not long ago with {alt}, a {altclass} with your look about the eyes. Blood or chance, I can't say, but at my age you notice when the same fire shows up twice." },
         { id = "h_alt_higher", tags = { "news" }, when = { alt = { higher = true } },
           text = "{alt} came through here carrying more scars than you have yet, and asked me the same sort of questions you will. Whatever's between the two of you, I hope you're learning from that one and not the other way round." },
-        { id = "h_default", key = true, text = "I am Eitrigg. I fought for Blackhand and for Doomhammer, I left the Horde when I learned what it had become, and Thrall brought me home again. Now I stand in his hall and tell him what the old days cost us." },
+        { id = "h_default", key = true, text = "I am Eitrigg. I fought for Blackhand and for Doomhammer, I left the Horde when I learned what it had become, and a human saved my life before Thrall brought me home again. Now I stand in his hall and tell him what the old days cost us." },
         { id = "h_rend_q", tags = { "news" }, when = { questActive = TODO_QUEST("Eitrigg's Wisdom") },
           text = "Rend Blackhand alive? We thought him dead for decades, and Goretooth would not write it if he did not believe it. None know the Blackrock better than I do, so sit, and I will tell you what the Warchief must hear." },
         { id = "h_rend_done", tags = { "news" }, when = { killed = { name = "Rend Blackhand" } },

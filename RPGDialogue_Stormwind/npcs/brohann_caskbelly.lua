@@ -66,7 +66,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Brohann Caskbelly, Explorers' League, or what's left o' him. I was young an' full o' vigour like ye once, an' now I'm old an' I mostly remember things." },
+        { id = "h_default", key = true, text = "Brohann Caskbelly, Explorers' League, or what's left o' him. I was young an' full o' vigour like ye once, an' now I'm old an' I mostly remember things, chiefly the Temple of Atal'Hakkar, which I never found, an' the gryphon pilot I lost lookin' for it." },
         { id = "h_before", when = { questBefore = TODO_QUEST("In Search of The Temple"), minLevel = 38 },
           text = "There was one mystery that eluded me, an' the League sent me after it fer my final quest: the Temple of Atal'Hakkar, said tae be in the Swamp o' Sorrows. I searched from a gryphon's back an' never found it." },
         { id = "h_found", tags = { "news" }, when = { questRecent = { TODO_QUEST("In Search of The Temple"), days = 3 } },

@@ -136,7 +136,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. The hyenas have gone quiet, so we have a little while." },
       },
       choices = {
-        { text = "What is the Orb of Soran'ruk?", next = "orb" },
+        { text = "What are you working on out here?", next = "orb" },
         { text = "Why live out here alone?", next = "alone" },
         { text = "Something is bound inside that circle.", next = "circle" },
         { text = "How hard are the fragments to take?", next = "fragments", when = { class = "WARLOCK" } },

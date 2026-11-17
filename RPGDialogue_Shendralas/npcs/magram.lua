@@ -449,7 +449,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Hagiak, and I hold the Magram Front. The Bristleback dig in at their retreat, my warriors dig in here, and between us lies a stretch of ground nobody can eat from." },
+          text = "I am Hagiak, and I hold the Magram Front. The Bristleback dig in at their retreat, my warriors dig in here, and between us lies a stretch of ground nobody can eat from. Orgrul works his bones in the valley behind us, and I keep the front." },
         { id = "h_bristle_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Bristleback Retreat"), days = 3 } },
           text = "Orgrul sent you, then. He sends me bones and promises, and this time he has sent me something with a pulse, so I will try not to complain." },
         { id = "h_starve", when = { questActive = TODO_QUEST("Threat of Starvation") },

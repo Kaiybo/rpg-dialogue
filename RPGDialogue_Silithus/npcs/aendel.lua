@@ -43,7 +43,7 @@ P:NPC {
       choices = {
         { text = "Why did you come back?", next = "why" },
         { text = "Something terrible happened to Southwind, I think.", next = "southwind" },
-        { text = "Silithid chitin, for leather?", next = "chitin" },
+        { text = "What do you work with now?", next = "chitin" },
         { text = "Will you teach me your craft?", next = "teach", when = { profession = "Leatherworking" } },
         { text = "Let me see your patterns.", next = "BUSINESS" },
         { text = "Rest well, Aendel.", next = "END" },
@@ -64,7 +64,7 @@ P:NPC {
       lines = { { id = "s_default", text = "It was a fine village, a watch post of our people at the edge of the sands, and the hives overran it. I do not speak of how it ended, and I would ask you not to ask the others either." } },
       choices = {
         { text = "I understand. Something else.", next = "BACK", fx = { affinity = 1 } },
-        { text = "Layo Starstrike frees the dead here.", next = "southwind_layo" },
+        { text = "Does anyone try to free the dead here?", next = "southwind_layo" },
       },
     },
     southwind_layo = {

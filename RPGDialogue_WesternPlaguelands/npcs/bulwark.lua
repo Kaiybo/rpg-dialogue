@@ -168,7 +168,7 @@ P:NPC {
         { id = "h_again2", text = "Go on, the wall can spare me for another minute." },
       },
       choices = {
-        { text = "Why play the Crusade against the Scourge?", next = "play", when = { questBefore = TODO_QUEST("Mission Accomplished!") } },
+        { text = "How do you fight two enemies with one wall?", next = "play", when = { questBefore = TODO_QUEST("Mission Accomplished!") } },
         { text = "The Bulwark looks thrown together from rubble.", next = "wall" },
         { text = "What's to be done about Andorhal?", next = "andorhal" },
         { text = "You don't think much of Undercity's politics.", next = "politics" },
@@ -499,7 +499,7 @@ P:NPC {
         { id = "sa_default", text = "Every cauldron brews its plague a little differently, so the apothecaries need a taste of each before they can spoil it. You kill the cauldron lord, take his key, fill the bottle, and we do the rest.", fx = { learn = { "plague_cauldrons" } } },
       },
       choices = {
-        { text = "So Dithers does the spoiling.", next = "dithers" },
+        { text = "Who does the spoiling, then?", next = "dithers" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -964,7 +964,7 @@ P:NPC {
         { id = "h_again2", text = "Another question? How very thorough of you." },
       },
       choices = {
-        { text = "He spared your life. Doesn't that matter?", next = "spared" },
+        { text = "Weldon is still your brother. Doesn't that matter?", next = "spared" },
         { text = "What's in it for me?", next = "pay" },
         { text = "Your family must have been very grand.", next = "family" },
         { text = "We were both freed by the Dark Lady.", next = "forsaken", when = { race = "Scourge" } },

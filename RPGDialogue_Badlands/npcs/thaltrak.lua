@@ -72,8 +72,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I be listening, with one eye on the road." },
       },
       choices = {
-        { text = "Tell me about Sha'ni.", next = "shani" },
-        { text = "Her platoon must have been sent out for a reason.", next = "mission" },
+        { text = "Tell me about your wife.", next = "shani" },
+        { text = "What took her out there?", next = "mission" },
         { text = "Why don't you go after her yourself?", next = "post" },
         { text = "What will you do now?", next = "after", when = { questDone = TODO_QUEST("Krom'Grul") } },
         { text = "The spirits might know where she is.", next = "xspirit", when = { class = { "SHAMAN", "PRIEST" } } },

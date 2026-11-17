@@ -428,7 +428,7 @@ P:NPC {
         { text = "Someone must be waiting for you at Sun Rock.", next = "uncle" },
         { text = "Is the road dangerous?", next = "road" },
         { text = "They've betrayed every tauren.", next = "tauren", when = { race = "Tauren" } },
-        { text = "Were there Grimtotem shamans at Camp Aparaje, Kaya?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "Did the Grimtotem bring shamans to your camp, Kaya?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The Grimtotem must have used magic when they attacked you.", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Did you see where the Grimtotem went after the attack?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
         { text = "How many Grimtotem attacked your camp, Kaya?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },

@@ -55,7 +55,7 @@ P:NPC {
       },
       choices = {
         { text = "There seem to be boars everywhere this year.", next = "boars" },
-        { text = "Sten says half your mail is for Grelin.", next = "mail" },
+        { text = "Sten says half your mail is for Grelin.", next = "mail", when = { any = { { heardLine = "sten.ma_default" }, { questActive = TODO_QUEST("Coldridge Valley Mail Delivery") } } } },
         { text = "What's the trick to hunting boar?", next = "trick" },
         { text = "Teach a fellow hunter something, Talin.", next = "hunter", when = { class = "HUNTER" } },
         { text = "You said there are more boars every year. Is it the troggs?", next = "troggs", when = { questDone = TODO_QUEST("The Boar Hunter") } },

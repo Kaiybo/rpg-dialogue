@@ -118,7 +118,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "I was out collecting samples for a little side business, buddy, and one of those big silithid things got me in the leg. Next thing I know, I'm shakin', sweating, seeing things, and owing my cousin money." } },
-      choices = { { text = "Something goblin?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Can't the druids cure you?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The druids here have done what they can, and they don't even charge, which makes me suspicious, but their nature magic only slows it down. I need somethin' stronger, buddy, somethin' goblin." } },
@@ -279,7 +279,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "The silithid hives go deeper than any of the druids believe. Beneath them lie the ruins of an empire older than the night elves, and whatever ruled it is not dead." } },
-      choices = { { text = "Whispering?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "How can you know all this?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The druids talk about scarabs and gongs and ancient walls, but they do not understand what they guard. I have heard it in my dreams, whispering." } },
@@ -441,11 +441,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Gathering strength, supplies and warriors for the war to come. When the time comes, the Horde will be ready to march on the silithid hives." } },
-      choices = { { text = "Strange allies?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Is the Horde alone out here?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The Alliance is here too, of course, and we tolerate them for now. A common enemy makes strange allies, and this enemy is common to us all." } },
-      choices = { { text = "The Horde's axes?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Who will break the swarm, then?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "But when the fighting starts, it'll be the Horde's axes that break the swarm. Mark my words." } },
@@ -616,11 +616,11 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Gathering supplies and soldiers for the push into Ahn'Qiraj. The druids believe the silithids are only a part of a larger threat, and we mean to be ready." } },
-      choices = { { text = "The gates?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Who else is preparing?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The Horde's here too, with their own commander and their own plans. We keep the peace for now, because the swarm is a bigger enemy than either of us." } },
-      choices = { { text = "Who stood firm?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "And when the time comes?", next = "b1_3" }, { text = "Something else.", next = "BACK" } },
     },
     b1_3 = {
       lines = { { id = "b1_3_l", text = "When the gates open, I want our soldiers in the front ranks. Silithus will remember who stood firm." } },

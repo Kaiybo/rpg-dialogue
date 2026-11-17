@@ -498,7 +498,7 @@ P:NPC {
       choices = {
         { text = "Far side it is. Your girl's safe from it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "She'll get used to it, Parker.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Tell me about Darcy.", next = "darcy" },
+        { text = "Who's the girl at the inn?", next = "darcy" },
       },
     },
     xapriest = {
@@ -553,7 +553,7 @@ P:NPC {
       },
       choices = {
         { text = "What's out on the road?", next = "road" },
-        { text = "So, Darcy...", next = "darcy" },
+        { text = "Is there anyone waiting for you back in town?", next = "darcy" },
         { text = "Redridge seems full of trouble these days.", next = "trouble" },
         { text = "Darcy made you lunch.", next = "lunch", when = { questActive = TODO_QUEST("A Free Lunch") } },
         { text = "Darcy loved the daffodils.", next = "flowers", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
@@ -771,7 +771,7 @@ P:NPC {
       choices = {
         { text = "Something smells good tonight.", next = "food" },
         { text = "Heard any gossip?", next = "gossip" },
-        { text = "So... Parker.", next = "parker" },
+        { text = "Is there anyone special in your life, Darcy?", next = "parker" },
         { text = "I delivered the lunch. He ate every bite.", next = "lunch_done", when = { questDone = TODO_QUEST("A Free Lunch") } },
         { text = "Do you like the daffodils?", next = "daffodils", when = { questDone = TODO_QUEST("Delivering Daffodils") } },
         { text = "I could conjure you bread for the tables.", next = "mage", when = { class = "MAGE" } },
@@ -996,7 +996,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Martie Jainrose. I keep the garden by the lake and grow what the town needs: herbs for the healer, and flowers for nobody in particular." },
+        { id = "h_default", text = "I'm Martie Jainrose. I keep the garden by the lake and grow what the town needs: herbs for the healer, and flowers for nobody in particular, whenever that great boar Bellygrub leaves them standing." },
         { id = "h_boar", tags = { "news" }, when = { questActive = TODO_QUEST("An Unwelcome Guest") },
           text = "That great fat boar the Marshal calls Bellygrub has trampled the beds I'd dug for daffodils, and that's a whole season gone. Bring me his tusk, would you?" },
         { id = "h_boar_done", when = { questDone = TODO_QUEST("An Unwelcome Guest") },
@@ -1213,7 +1213,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Breanna. I feed every soldier Stormwind's stationed in Lakeshire, and they're hungry, and there aren't nearly enough of them, and both of those are problems." },
+        { id = "h_default", text = "I'm Breanna. I feed goulash to every soldier Stormwind's stationed in Lakeshire, and they're hungry, and there aren't nearly enough of them, and both of those are problems." },
         { id = "h_goulash", tags = { "news" }, when = { questActive = TODO_QUEST("Redridge Goulash") },
           text = "Goulash? My cupboard's bare; I fed the whole Stormwind brigade through the last attack. Bring me condor, spider and goretusk snouts, and your bowl's the first one filled." },
         { id = "h_goulash_done", when = { questDone = TODO_QUEST("Redridge Goulash") },

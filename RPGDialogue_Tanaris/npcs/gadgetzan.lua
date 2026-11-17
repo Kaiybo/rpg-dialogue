@@ -230,7 +230,7 @@ P:NPC {
         { text = "What exactly goes into your elixir, Marin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "That elixir of yours has quite a reputation.", next = "elixir" },
         { text = "How do you stand the heat?", next = "heat" },
-        { text = "What's Sprinkle to you?", next = "sprinkle" },
+        { text = "Does anyone help you with the elixir?", next = "sprinkle" },
         { text = "Business must be good in a town like this.", next = "business" },
         { text = "Alchemist to alchemist: what's in it?", next = "recipe", when = { profession = "Alchemy" } },
         { text = "Slow fall? I can do that already.", next = "slowfall", when = { class = "MAGE" } },
@@ -301,7 +301,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     sprinkle = {
-      lines = { { id = "sp_default", text = "She's my friend, my very good friend, who fixes my recipes and reminds me what I owe her every single day, with numbers." } },
+      lines = { { id = "sp_default", text = "That'd be Sprinkle, the cook, my friend, my very good friend, who fixes my recipes and reminds me what I owe her every single day, with numbers." } },
       choices = {
         { text = "Just a friend?", next = "sprinkle_friend", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -554,7 +554,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, sweetie? Then you'll know fire's the most important spirit in any kitchen, and I've a stove back here that could use a stern word from you." },
         { id = "h_default", key = true,
           text = "I'm Sprinkle, sweetie, and I fix things that taste wrong, mostly food, though lately it's mostly Marin's experiments. He calls it a partnership; I call it a favor he owes me, with interest, and I keep the books." },
-        { id = "h_taste", tags = { "news" }, when = { questActive = TODO_QUEST("In Good Taste") },
+        { id = "h_taste", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("In Good Taste") },
           text = "Noggy's elixir tastes like a swamp? Of course it does, and swamp doesn't sell. There's a mushroom up in the Hinterlands that fixes anything, so bring me some, sweetie." },
         { id = "h_secret", when = { questActive = TODO_QUEST("Sprinkle's Secret Ingredient") },
           text = "When I was little I couldn't stand my sister's cooking. Then I found the secret ingredient, and suddenly I could. Fetch me some, would you?" },
@@ -577,12 +577,12 @@ P:NPC {
       choices = {
         { text = "Which desert plants do you cook with, Sprinkle?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What does the desert do to food, Sprinkle?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Noggy?", next = "noggy" },
-        { text = "What's the secret ingredient?", next = "secret" },
+        { text = "Noggy?", next = "noggy", when = { heardLine = "sprinkle.h_taste" } },
+        { text = "Do you have a secret to your cooking?", next = "secret" },
         { text = "Marin seems a clever sort.", next = "marin" },
-        { text = "Tell me about your sister's cooking.", next = "sister" },
+        { text = "Who taught you to cook?", next = "sister" },
         { text = "Trade a recipe?", next = "trade", when = { profession = "Cooking" } },
-        { text = "Hinterlands cooking, is it? I know Wildhammer cooking.", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Hinterlands cooking, is it? I know Wildhammer cooking.", next = "x_dwarf", when = { race = "Dwarf", heardLine = "sprinkle.h_taste" } },
         { text = "You can tell I use poisons?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Conjured bread keeps you alive. Stop sneering at it.", next = "xmage", when = { class = "MAGE" } },
         { text = "Do the sick in Gadgetzan come to you, Sprinkle?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -621,7 +621,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     sister = {
-      lines = { { id = "si_default", text = "Dreadful, but lovingly dreadful; she'd boil anything that stood still. I learned to cook so I'd survive, and I learned to fix food so I'd survive her." } },
+      lines = { { id = "si_default", text = "My sister did, in a way, because her cooking was dreadful, but lovingly dreadful; she'd boil anything that stood still. I learned to cook so I'd survive, and I learned to fix food so I'd survive her." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     trade = {
@@ -1030,8 +1030,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Somethin' else? I'll mark it on a map, and the map goes on the expense report." } },
       choices = {
-        { text = "Those insects at Sandsorrow Watch feel wrong to me.", next = "druid_q", when = { class = "DRUID" } },
-        { text = "What are the insects?", next = "insects" },
+        { text = "Something in this desert feels wrong to me.", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Have you found anything strange out in the dunes?", next = "insects" },
         { text = "Finding water in a desert can't be easy.", next = "dowsing" },
         { text = "What happened to the old sources?", next = "maps" },
         { text = "Pestlezugg thinks they come from Un'Goro.", next = "ungoro", when = { heardLine = "pestlezugg.h_march" } },
@@ -1050,7 +1050,7 @@ P:NPC {
     insects = {
       big = true,
       lines = {
-        { id = "i_default", text = "They're big, organized, and coming up out of the sand where they've no business being. I don't think this stops at Tanaris, though I'd love to be wrong." },
+        { id = "i_default", text = "Giant insects at Sandsorrow Watch, pal. They're big, organized, and coming up out of the sand where they've no business being. I don't think this stops at Tanaris, though I'd love to be wrong." },
       },
       choices = {
         { text = "Let's find out.", next = "BACK", fx = { affinity = 2, trait = { curious = 1 } } },
@@ -1259,7 +1259,7 @@ P:NPC {
         { text = "You've got something strange on that table, Pestlezugg.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Let's see your supplies.", next = "BUSINESS" },
         { text = "Who's Rose?", next = "rose" },
-        { text = "What did you find in the insect parts?", next = "insects" },
+        { text = "What nasty things have you taken apart lately?", next = "insects" },
         { text = "Talk shop with me.", next = "shop", when = { profession = "Alchemy" } },
         { text = "Your rat doesn't like my imp much.", next = "x_warlock", when = { class = "WARLOCK" } },
         { text = "What does an alchemist want with a mage?", next = "xmage", when = { class = "MAGE" } },
@@ -1285,7 +1285,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
     insects = {
-      lines = { { id = "i_default", text = "Hard shells, a shared scent, the same markings on every one of them. That's not a swarm; it's a hive with somewhere to be." } },
+      lines = { { id = "i_default", text = "Giant insects from Sandsorrow Watch, pal: hard shells, a shared scent, the same markings on every one of them. That's not a swarm; it's a hive with somewhere to be." } },
       choices = {
         { text = "Where would a hive like that come from?", next = "insects_where" },
         { text = "Something else.", next = "BACK" },
@@ -1535,8 +1535,8 @@ P:NPC {
       choices = {
         { text = "What do you buy from the desert?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The desert must give up a few things worth buying.", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "What do the shells sell for?", next = "shells" },
-        { text = "Being Krazek's cousin must be a trial.", next = "krazek" },
+        { text = "What sells best for you?", next = "shells" },
+        { text = "Being Krazek's cousin must be a trial.", next = "krazek", when = { any = { { questActive = TODO_QUEST("Tran'rek") }, { heardLine = "krazek.h_default" } } } },
         { text = "Who buys this stuff?", next = "buyers" },
         { text = "I've coin. Let me invest.", next = "invest", when = { money = { min = 500000 } } },
         { text = "I know a smuggler when I see one, Tran'rek.", next = "x_rogue", when = { class = "ROGUE" } },
@@ -1553,7 +1553,7 @@ P:NPC {
       },
     },
     shells = {
-      lines = { { id = "s_default", text = "More than I pay you and less than you'd hope, which is the whole secret of commerce, pal, so don't write it down." } },
+      lines = { { id = "s_default", text = "Scarab shells, uncracked, and they sell for more than I pay you and less than you'd hope, which is the whole secret of commerce, pal, so don't write it down." } },
       choices = {
         { text = "Then pay me more.", next = "shells_more", fx = { trait = { greedy = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -2036,8 +2036,8 @@ P:NPC {
       choices = {
         { text = "Why not just pay what you owe in Booty Bay?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The sea out there is restless. What's the port seen lately?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "You must owe MacKinley a fair sum.", next = "debt" },
-        { text = "What's in the shipment?", next = "shipment" },
+        { text = "How much do you owe?", next = "debt" },
+        { text = "How will you pay it back?", next = "shipment" },
         { text = "You could just sail away from all this.", next = "leave" },
         { text = "What's MacKinley like, to owe?", next = "mackinley", when = { heardLine = "mackinley.h_default" } },
         { text = "I'm not here to judge you, Stoley.", next = "x_paladin", when = { class = "PALADIN" } },
@@ -2065,7 +2065,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     shipment = {
-      lines = { { id = "s_default", text = "Bottles, good ones, worth enough to square things if they arrive and nobody drinks them on the way. Sailors drink everything on the way." } },
+      lines = { { id = "s_default", text = "I've a shipment coming, bottles, good ones, worth enough to square things if they arrive and nobody drinks them on the way. Sailors drink everything on the way." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     leave = {
@@ -2082,7 +2082,7 @@ P:NPC {
       },
       choices = {
         { text = "A debt's a debt. Pay the man, Stoley.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "MacKinley can wait. Booty Bay can afford it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your creditor can wait. Booty Bay can afford it.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

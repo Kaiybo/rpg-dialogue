@@ -53,7 +53,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened at Gnomeregan?", next = "gnomeregan" },
-        { text = "How does the Recombobulator work?", next = "machine" },
+        { text = "What are you and Ozzie building?", next = "machine" },
         { text = "Tell me about Ozzie.", next = "ozzie" },
         { text = "Can I look at the schematics?", next = "schematics", when = { profession = "Engineering" } },
         { text = "Do you think the lepers can really be saved?", next = "saved", when = { race = "Gnome" } },

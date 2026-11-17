@@ -150,7 +150,7 @@ P:NPC {
         { text = "I can track the Defias where your soldiers can't.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Most men would have left Westfall long ago.", next = "why" },
         { text = "Tell me about the gnolls.", next = "gnolls" },
-        { text = "You'll never forgive Stormwind, will you?", next = "city" },
+        { text = "Will the farmers ever forgive Stormwind?", next = "city" },
         { text = "Making soldiers out of farmers can't be easy.", next = "drill" },
         { text = "Let me drill your recruits a while.", next = "teach", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "My family farmed out here. I've come back.", next = "home", when = { origin = "human_westfall_farmhand" } },

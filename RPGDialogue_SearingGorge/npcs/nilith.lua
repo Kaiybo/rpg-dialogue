@@ -51,7 +51,7 @@ P:NPC {
       },
       choices = {
         { text = "What is shadow silk?", next = "silk" },
-        { text = "I've heard little good of this Undermarket.", next = "market" },
+        { text = "Who else troubles your trade here?", next = "market" },
         { text = "Tell me about Raze.", next = "raze" },
         { text = "Why live here, so near Blackrock Mountain?", next = "camp" },
         { text = "How do you weave shadow silk?", next = "xtailor", when = { profession = "Tailoring" } },
@@ -91,7 +91,7 @@ P:NPC {
 
     market = {
       lines = {
-        { id = "ma_default", text = "Cutthroat traders who'll sell, move or trade anything for the right price, and they've set up a base here with close ties to the Dark Iron. Trade Master Kovic runs it, with a great lump named Clunk to do his lifting." },
+        { id = "ma_default", text = "The Undermarket, cutthroat traders who'll sell, move or trade anything for the right price, and they've set up a base here with close ties to the Dark Iron. Trade Master Kovic runs it, with a great lump named Clunk to do his lifting." },
       },
       choices = {
         { text = "Why do you care about traders?", next = "market_why" },

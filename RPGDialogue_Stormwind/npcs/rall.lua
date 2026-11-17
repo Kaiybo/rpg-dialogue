@@ -177,8 +177,8 @@ P:NPC {
       choices = {
         { text = "The Light must ask a great deal of a paladin.", next = "ask" },
         { text = "Why test us at all?", next = "why" },
-        { text = "Tell me about the Tome of Divinity.", next = "tome" },
-        { text = "You spoke of a test of valor.", next = "valor", when = { class = "PALADIN", minLevel = 20 } },
+        { text = "How do you test the paladins they send you?", next = "tome" },
+        { text = "Is there a further test for me, Rall?", next = "valor", when = { class = "PALADIN", minLevel = 20 } },
         { text = "Henze lives. That Defias script must have reached someone.", next = "script", when = { questDone = TODO_QUEST("The Symbol of Life") } },
         { text = "I was a squire when the Order fell.", next = "squire", when = { origin = "human_paladin_squire" } },
         { text = "Priests and paladins must learn the same Light.", next = "priest", when = { class = "PRIEST" } },

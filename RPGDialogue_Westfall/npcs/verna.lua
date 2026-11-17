@@ -133,8 +133,8 @@ P:NPC {
         { text = "You have been on this road a long while. Shall I find you forage?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Tell me about Blanchy.", next = "blanchy" },
         { text = "You look tired, Verna.", next = "luck" },
-        { text = "Salma says the stew's your recipe.", next = "stew" },
-        { text = "Theodore doesn't seem to be holding up well.", next = "theodore" },
+        { text = "Salma says the stew's your recipe.", next = "stew", when = { heardLine = "salma.re_default" } },
+        { text = "How's your husband holding up?", next = "theodore" },
         { text = "I know animals. Let me look at her.", next = "blanchy_look", when = { class = { "HUNTER", "DRUID" } } },
         { text = "Shall I say a prayer for Blanchy?", next = "pray", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Can I help?", next = "BUSINESS" },
@@ -164,7 +164,7 @@ P:NPC {
     luck = {
       lines = { { id = "lu_default", text = "Bad luck follows us like a stray dog, dear. First the farm, then the wagon. I keep waiting to find out what's third." } },
       choices = {
-        { text = "What will you do in Elwynn?", next = "elwynn" },
+        { text = "Where will you go now?", next = "elwynn" },
         { text = "Maybe your luck's turning.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Luck like that doesn't turn. Get to Elwynn quickly.", next = "BACK", fx = { align = { light = -1 } } },
       },
@@ -173,7 +173,7 @@ P:NPC {
       big = true,
       lines = { { id = "el_default", text = "Start over, Theodore says. As if a farm were a coat you could take off. Elwynn isn't what I want, dear. It's what's left." } },
       choices = {
-        { text = "Salma thinks you'll love the city.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Salma thinks you'll love the city.", next = "BACK", fx = { trait = { curious = 1 } }, when = { heardLine = "salma.rv_default" } },
         { text = "Then don't give up on the farm.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
       },
     },

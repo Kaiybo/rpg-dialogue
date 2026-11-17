@@ -84,7 +84,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am called Truthseeker, which my grandmother meant as a blessing and the Elder Council treats as a warning. I gather what can be known, so that when the High Chieftain asks a question, someone in this city has an honest answer for him." },
+        { id = "h_default", key = true, text = "I am called Truthseeker, which my grandmother meant as a blessing and the Elder Council treats as a warning. I gather what can be known, so that when the High Chieftain asks a question, someone in this city has an honest answer for him, whether it lies in a human book like the Compendium of the Fallen or in the dwarves' dig at Uldaman." },
         { id = "h_forsaken", when = { race = "Scourge" },
           text = "I'll speak plainly, since you'd hear it from someone else anyway. I think the High Chieftain took your people into this alliance too quickly, and I have said so to his face, though I would follow him off this mesa if he asked." },
         { id = "h_comp_before", when = { questBefore = TODO_QUEST("Compendium of the Fallen"), minLevel = 30 },
@@ -99,11 +99,11 @@ P:NPC {
         { id = "h_again2", text = "Go on. Questions are the only coin I collect." },
       },
       choices = {
-        { text = "Why do you distrust the Forsaken?", next = "forsaken" },
+        { text = "What do you make of the Forsaken, sage?", next = "forsaken" },
         { text = "Tell me about the Compendium of the Fallen.", next = "compendium" },
         { text = "What did the discs from Uldaman say?", next = "discs", when = { questDone = TODO_QUEST("The Platinum Discs") } },
         { text = "What is Uldaman, sage?", next = "discs" },
-        { text = "Who whispers to the Elder Council?", tag = "Persuade", next = "whisper",
+        { text = "Who has the Elder Council's ear, sage?", tag = "Persuade", next = "whisper",
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = TODO_QUEST("Compendium of the Fallen") }, { race = "Tauren", trait = "skeptical" } } } },
           fail = { next = "whisper_closed", fx = { affinity = -1 } } },
         { text = "What does a sage actually do here?", next = "sage" },
@@ -401,7 +401,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Auld, of the Stonespire, and there aren't many of us left to say it. My people lived in the southern Barrens, in land we held holy, until too many enemies drove us out, and I don't forgive that as easily as some of the elders up here." },
+        { id = "h_default", key = true, text = "I am Auld, of the Stonespire, and there aren't many of us left to say it. My people lived in the southern Barrens, in land we held holy, until too many enemies drove us out, and I don't forgive that as easily as some of the elders up here. The quilboar crone Charlga Razorflank squats on it now." },
         { id = "h_before", when = { questBefore = TODO_QUEST("A Vengeful Fate"), minLevel = 25 },
           text = "There's a crone named Charlga Razorflank in the thorns of Razorfen Kraul, raising a foul army of quilboar out of our old holy ground. She faces a vengeful fate, {name}, and I'd like you to be the one who brings it. Bring me her heart, so that I can die in peace." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Vengeful Fate"), days = 3 } },

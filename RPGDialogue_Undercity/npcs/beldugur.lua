@@ -32,7 +32,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Keeper Bel'dugur. I gather the writings of those who came before us, so that we needn't repeat their mistakes, or their scruples." },
+        { id = "h_default", key = true, text = "Keeper Bel'dugur. I gather the writings of those who came before us, Ur of Dalaran's above all, for certain parties among the Forsaken, so that we needn't repeat their mistakes, or their scruples." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Book of Ur") },
           text = "Shadowfang Keep holds a book I'd prize above most, the Book of Ur. Ur was a great mage of Dalaran before the Scourge came, and his studies of other worlds are of real value to certain parties among the Forsaken." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Book of Ur"), days = 7 } },

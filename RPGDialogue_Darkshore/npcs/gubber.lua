@@ -34,7 +34,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Hi there, I'm Gubber Blump, and I love fishing. The Blump family is known for fishing, so I guess it runs in the blood, like gills, except we don't have gills." },
+          text = "Hi there, I'm Gubber Blump, and I love fishing. The Blump family is known for fishing, so I guess it runs in the blood, like gills, except we don't have gills. Only nobody takes the boats out no more, not since them murlocs moved in." },
         { id = "h_before", when = { questBefore = TODO_QUEST("The Family and the Fishing Pole") },
           text = "I like to catch Darkshore grouper, but no boats go out for 'em since them mean old murlocs moved in. Say, you wanna help me catch some? I'd give you a real good Blump Family Fishing Pole for it." },
         { id = "h_grouper_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Family and the Fishing Pole"), days = 3 } },

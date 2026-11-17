@@ -297,13 +297,13 @@ P:NPC {
       },
       choices = {
         { text = "Why were you near the cave?", next = "cave" },
-        { text = "You speak of Dirania warmly.", next = "dirania" },
+        { text = "Who's looking after you?", next = "dirania" },
         { text = "What lives in Shadowglen?", next = "glen" },
         { text = "Let me see the wound. I'm a priest.", next = "priest", when = { class = "PRIEST" } },
         { text = "I know poisons. I could tell you what this is.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Could a spell draw the venom out?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Can I do anything about the spiders, Iverron?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
-        { text = "What does the antidote need from the Webwood?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "Is there a cure for the venom?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Shall I deal with the spiders that poisoned you, Iverron?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Shall I try my healing on the venom, Iverron?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Are you afraid of my servant, Iverron?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
@@ -331,7 +331,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     dirania = {
-      lines = { { id = "d_default", text = "A dear friend, and a far better healer than I am a scout. She'll scold me when I'm well, and I'll deserve every word." } },
+      lines = { { id = "d_default", text = "Dirania, a dear friend, and a far better healer than I am a scout. She'll scold me when I'm well, and I'll deserve every word." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     glen = {

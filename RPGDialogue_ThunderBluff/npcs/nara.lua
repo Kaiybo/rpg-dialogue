@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Nara Wildmane. I study with the druids of the Hall of Elders, and the Earth Mother has been sending me dreams of the Barrens lately, though they aren't the kind of dreams you'd want." },
+        { id = "h_default", key = true, text = "I'm Nara Wildmane. I study with the druids of the Hall of Elders, and the Earth Mother has been sending me dreams of the Barrens lately, though they aren't the kind of dreams you'd want, and the Druids of the Fang watch me in every one." },
         { id = "h_sent", when = { questActive = TODO_QUEST("Nara Wildmane") },
           text = "Hamuul sent you to me? Then you've heard some of it already, and he trusts you, so I'll tell you the rest." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Leaders of the Fang") },

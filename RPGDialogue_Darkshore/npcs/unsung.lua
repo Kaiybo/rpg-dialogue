@@ -117,7 +117,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Laird, and I sell fish here in the inn. The Darkshore coast is a rougher place to cast a line than Teldrassil, with the murlocs and the threshers and worse, but the catch is better for it." },
+        { id = "h_default", text = "I'm Laird, and I sell fish here in the inn. The Darkshore coast is a rougher place to cast a line than Teldrassil, with the murlocs and the threshers and worse, but the catch is better for it, whatever my old friend Nessa Shadowsong says over in Rut'theran." },
         { id = "h_flight", tags = { "news" }, when = { questActive = TODO_QUEST("Flight to Auberdine") },
           text = "That parcel smells like Rut'theran, so Nessa's sent you. Let me see what she thinks passes for a good catch over there." },
         { id = "h_return", when = { questActive = TODO_QUEST("Return to Nessa") },

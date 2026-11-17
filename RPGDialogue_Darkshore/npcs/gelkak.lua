@@ -63,7 +63,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Cap'n Gelkak Gyromast, late of a fine ship now restin' on the bottom just off this shore. Them pesky Threshadons sank her, and a pirate's life ain't all plunderin' and booze, I'll tell ye that for nothin'." },
+          text = "Cap'n Gelkak Gyromast, late of a fine ship now restin' on the bottom just off this shore. Them pesky Threshadons sank her and left me first mate in pieces, and a pirate's life ain't all plunderin' and booze, I'll tell ye that for nothin'." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Gyromast's Retrieval") },
           text = "What I be needin' is me first mate back in workin' order. When I washed ashore, his key broke on the rocks, and I saw ragin' crawlers, foreststriders and murlocs all rummagin' through the wreckage." },
         { id = "h_key_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Gyromast's Retrieval"), days = 3 } },

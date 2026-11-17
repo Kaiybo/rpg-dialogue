@@ -146,7 +146,7 @@ P:NPC {
       },
     },
     first_herbs = {
-      lines = { { id = "fh_default", text = "All over Elwynn, along the roads and under the trees, but ask Pomeroy, not me. She'll tell you more about peacebloom than you'll ever want to know, and she'll be right about all of it." } },
+      lines = { { id = "fh_default", text = "All over Elwynn, along the roads and under the trees, but ask Pomeroy, not me. He'll tell you more about peacebloom than you'll ever want to know, and he'll be right about all of it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     house = {

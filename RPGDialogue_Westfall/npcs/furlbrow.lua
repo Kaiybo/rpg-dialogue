@@ -137,7 +137,7 @@ P:NPC {
         { text = "Will you go back to your farm?", next = "back" },
         { text = "What happened the night you left?", next = "night" },
         { text = "You could fix the wagon and go.", next = "wagon" },
-        { text = "Tell me about your deed.", next = "deed" },
+        { text = "What did the thieves take from you?", next = "deed" },
         { text = "Fear isn't a sin, Theodore.", next = "courage", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "I remember your pumpkins. Everyone did.", next = "pumpkins", when = { origin = "human_westfall_farmhand" } },
         { text = "Can I help?", next = "BUSINESS" },
@@ -192,19 +192,19 @@ P:NPC {
     wagon = {
       lines = { { id = "wg_default", text = "With what? The wheel's split clean through, and nobody out here mends wheels anymore, because they've all gone east. So we sit, and Verna calls it resting." } },
       choices = {
-        { text = "Saldean stayed. Why not you?", next = "saldean" },
+        { text = "Others stayed on their farms. Why not you?", next = "saldean" },
         { text = "Something else.", next = "BACK" },
       },
     },
     saldean = {
       lines = { { id = "sd_default", text = "Saldean's as stubborn as a stump. I begged him to pack up and come with us, and he laughed at me. Well, I'm not stubborn, I'm stuck, and there's a difference." } },
       choices = {
-        { text = "He calls you the fool.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I'd wager he says the same of you.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Maybe staying takes a different courage.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
     deed = {
-      lines = { { id = "de_default", text = "The thieves leaned on me till I signed it over, and I'm not proud of it. They'd have burned the house with us in it." } },
+      lines = { { id = "de_default", text = "Our deed, to start with. The thieves leaned on me till I signed it over, and I'm not proud of it. They'd have burned the house with us in it." } },
       choices = {
         { text = "Why would thieves want a deed?", next = "forgery" },
         { text = "You did what you had to.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },

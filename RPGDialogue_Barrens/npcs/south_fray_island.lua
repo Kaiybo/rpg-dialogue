@@ -45,7 +45,7 @@ P:NPC {
       },
       choices = {
         { text = "Why fight out here on an island?", next = "island" },
-        { text = "Who is Big Will?", next = "will" },
+        { text = "Who's the last fight on this island?", next = "will" },
         { text = "Who's the goblin shouting by the grate?", next = "twiggy" },
         { text = "So Horde and Alliance both fight here.", next = "factions" },
         { text = "I'm a warrior. Test me.", next = "test", when = { class = "WARRIOR" } },

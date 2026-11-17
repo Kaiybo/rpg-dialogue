@@ -70,7 +70,7 @@ P:NPC {
       lines = {
         { id = "o_twilights_hammer_dangerous", tags = { "news" }, when = { gossip = { topic = "twilights_hammer", stance = "dangerous" } },
           text = "Rabine says you think the Twilight's Hammer answers to someone. Good instinct; I've three shelves on old cults, and not one of them ends well." },
-        { id = "h_default", key = true, text = "If you want something the Cenarion Circle has archived, then I'm the one to talk to, though you'll need to know what you're looking for before I can help you find it. See how that works? Brilliant!" },
+        { id = "h_default", key = true, text = "If you want something the Cenarion Circle has archived, then I'm the one to talk to, though you'll need to know what you're looking for before I can help you find it. See how that works? Brilliant! Rabine, our den mother, says I'm the only one who can find anything in here." },
         { id = "h_layo", tags = { "news" }, when = { questActive = TODO_QUEST("Umber, Archivist") },
           text = "Well, great monkey toads, what have you got there? It's sort of book-shaped, under all that crust. Layo sent you all the way from Silithus? I've only heard hushed rumblings about what's going on out there, and I don't care for anything bug-like, so I'll stay here with the books." },
         { id = "h_secrets", when = { questActive = TODO_QUEST("Uncovering Past Secrets") },
@@ -90,7 +90,7 @@ P:NPC {
         { text = "Your archive must hold a great deal.", next = "archive" },
         { text = "Something must have been sealed inside that chitin.", next = "journal", when = { questDone = TODO_QUEST("Under the Chitin Was...") } },
         { text = "Why call Rabine the den mother?", next = "rabine" },
-        { text = "Could a mage help you with the old dialect?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Could a mage help you read the oldest texts?", next = "xmage", when = { class = "MAGE" } },
         { text = "I'll leave you to your shelves.", next = "END" },
       },
     },
@@ -225,7 +225,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Valadar Starsong, and with my sister Fariel I welcome all who come to Nighthaven for the Lunar Festival. Our village is quiet and set apart for most of the year, but for this celebration we open our arms to everyone." },
+        { id = "h_default", key = true, text = "I am Valadar Starsong, and with my sister Fariel I welcome all who come to Nighthaven for the Lunar Festival. Our village is quiet and set apart for most of the year, but for this celebration we open our arms to everyone. We honor our elders with coins of ancestry, and we quiet old Omen beneath the lake once more." },
         { id = "h_arrived", tags = { "news" }, when = { questRecent = { TODO_QUEST("Valadar Starsong"), days = 2 } },
           text = "You came through the moonlight with your invitation, as so many have. Enjoy your visit, and speak with me or with Fariel whenever you're ready." },
         { id = "h_omen_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Elune's Blessing"), days = 3 } },

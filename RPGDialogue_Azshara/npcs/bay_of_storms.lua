@@ -570,7 +570,7 @@ P:NPC {
         { text = "What has the Legion left in Azshara's earth?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "You don't look like any night elf I've met, Loramus.", next = "who" },
         { text = "What do you see that I can't?", next = "see" },
-        { text = "Tell me about Razelikh.", next = "razelikh" },
+        { text = "Which demon do you hunt, Loramus?", next = "razelikh" },
         { text = "Your hounds are demons themselves.", next = "hounds" },
         { text = "The Light can stand against any demon.", next = "priest", when = { class = "PRIEST" } },
         { text = "I command demons too, demon hunter.", next = "warlock", when = { class = "WARLOCK" } },
@@ -886,7 +886,7 @@ P:NPC {
       choices = {
         { text = "Do the waters of this bay obey you, great one?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The deep folk seem to worship you as a god.", next = "god" },
-        { text = "Who threatens your children?", next = "sons" },
+        { text = "Does anything in the sea threaten you?", next = "sons" },
         { text = "This was a temple of Elune, once.", next = "temple" },
         { text = "I seek the name of a demon lord.", next = "name", when = { questActive = TODO_QUEST("The Name of the Beast") } },
         { text = "My people know gods too. The loa.", next = "troll_ar", when = { race = "Troll" } },

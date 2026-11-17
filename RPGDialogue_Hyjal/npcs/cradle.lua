@@ -101,7 +101,7 @@ P:NPC {
         { text = "I've never seen anyone quite like you.", next = "what" },
         { text = "What lies under the mountain?", next = "under" },
         { text = "Why keep watch in the Cradle?", next = "cradle" },
-        { text = "What do you think of Yashiro?", next = "yashiro" },
+        { text = "Who else hunts demons on this mountain?", next = "yashiro" },
         { text = "Your power is fel. How can it be trusted?", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "The Sentinels say your kind betrayed us.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I stood on these slopes when the Tree gave up its gifts.", next = "xsurvivor", when = { origin = "nightelf_hyjal_survivor" } },

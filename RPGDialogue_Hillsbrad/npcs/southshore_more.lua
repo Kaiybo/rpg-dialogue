@@ -372,7 +372,7 @@ P:NPC {
       },
       choices = {
         { text = "Tell me Southshore's history.", next = "history" },
-        { text = "What about Strahnbrad?", next = "strahnbrad" },
+        { text = "What's happening up in the Alterac foothills?", next = "strahnbrad" },
         { text = "Alterac seems to have fallen a long way.", next = "alterac" },
         { text = "What about Tarren Mill?", next = "tarren" },
         { text = "Why does history matter, out here?", next = "matter" },
@@ -794,7 +794,7 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, of all things, {class}, and a dwarf at that, which is a pairing I'd have bet against before today. Tell me, can the spirits smell what the Forsaken are brewing up the hill?" },
         { id = "h_default", key = true,
-          text = "Phin Odelic. I lead a small group of adventurers looking into odd happenings around Hillsbrad, and lately there have been more odd happenings than I'm comfortable with." },
+          text = "Phin Odelic. I lead a small group of adventurers looking into odd happenings around Hillsbrad, and lately there have been more odd happenings than I'm comfortable with. My cousin Ray's dog Stanley grew to a monstrous size, and two of my band, Quae and Kinelory, have gone quiet in Arathi." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Hints of a New Plague?") },
           text = "My cousin Ray had to put down his dog Stanley. The poor beast grew to an unnatural size and went for anyone who came near, and I don't believe for a moment that happened on its own." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Hints of a New Plague?"), days = 7 } },
@@ -817,7 +817,7 @@ P:NPC {
         { text = "Folk keep mentioning a dog called Stanley.", next = "stanley" },
         { text = "Who are Quae and Kinelory?", next = "friends" },
         { text = "The Forsaken are clearly up to something at Tarren Mill.", next = "plague" },
-        { text = "You don't seem the sort to sit on a Kirin Tor committee.", next = "kirintor" },
+        { text = "What did you do before all this?", next = "kirintor" },
         { text = "What should be done about Tarren Mill?", next = "mill" },
         { text = "I studied the arcane too. Why leave the Kirin Tor?", next = "xmage", when = { class = "MAGE" } },
         { text = "What are you trying to learn about the Forsaken, Phin?", next = "xrogue", when = { class = "ROGUE" } },
@@ -1219,7 +1219,7 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! I don't suppose you can ask the sea to send the turtles back, {class}, because my bisque hasn't been the same since the murlocs took the shore." },
         { id = "h_default", key = true,
-          text = "Chef Jessen. If there's one thing you'll learn in Southshore, it's that we cook better here than anywhere north of Stormwind, and my turtle bisque is the proof. Or it was, when I could make it." },
+          text = "Chef Jessen. If there's one thing you'll learn in Southshore, it's that we cook better here than anywhere north of Stormwind, and my turtle bisque is the proof; folk used to come all the way from Darkshire for it. Or they did, when I could make it." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Soothing Turtle Bisque"), days = 5 } },
           text = "The bisque is back on the menu! Folk were queuing round the inn last night, and one old fisherman wept into his bowl, and I didn't charge him." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue in my kitchen? Fine, but if you're after the turtle bisque recipe, it's in my head, and I don't sleep with my mouth open." },
@@ -1414,7 +1414,7 @@ P:NPC {
       lines = {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who talks to spirits, is it? The Silver Hand called me mad for talking to my horses, {class}, so I'll not be the one to call you strange." },
         { id = "h_default", key = true,
-          text = "Merideth Carlson, horse breeder. My steeds go to the people of Stormwind, and to those Stormwind trusts completely, and to no one else, because I won't see them in an enemy's hands." },
+          text = "Merideth Carlson, horse breeder. My steeds go to the people of Stormwind, and to those Stormwind trusts completely, and to no one else, because I won't see them in an enemy's hands, whatever the Silver Hand used to say about my wits." },
         { id = "h_human", when = { race = "Human" },
           text = "One of Stormwind's own, I see, so you may buy if you can afford it. A horse is a companion for years, so choose with your head, not your eyes." },
         { id = "h_exalted", when = { reputation = { faction = "Stormwind", min = "exalted" } },

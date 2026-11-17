@@ -281,7 +281,7 @@ P:NPC {
     villagers = {
       lines = { { id = "v_default", text = "So were we, once, until the plague came and the villagers threw stones at us. Go and fight, or go away." } },
       choices = {
-        { text = "And when the new plague is ready?", next = "plague" },
+        { text = "And what happens to them in the end?", next = "plague" },
         { text = "I'll fight.", next = "BUSINESS", fx = { affinity = 1 } },
       },
     },
@@ -658,7 +658,7 @@ P:NPC {
         { id = "w_default", text = "The Society's work: remedies, officially. Unofficially, the Dark Lady's enemies will one day be very ill and I'll have helped, which is the closest I come to happiness." },
       },
       choices = {
-        { text = "The new plague?", next = "plague" },
+        { text = "Who is it meant for?", next = "plague" },
         { text = "That's grim.", next = "BACK" },
         { text = "For the Dark Lady.", next = "BACK", fx = { affinity = 1 } },
       },

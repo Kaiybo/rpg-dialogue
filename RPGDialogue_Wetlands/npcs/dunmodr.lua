@@ -104,7 +104,7 @@ P:NPC {
       },
       choices = {
         { text = "The Thandol Span looks badly broken.", next = "span" },
-        { text = "Who was Ol' Rustlocke?", next = "rustlocke" },
+        { text = "Who did you lose defending the Span?", next = "rustlocke" },
         { text = "Tell me about Longbraid.", next = "longbraid" },
         { text = "Ironforge seems slow to send help.", next = "help" },
         { text = "I've spoken with King Magni about Dun Modr.", next = "king_word",

@@ -45,8 +45,8 @@ P:NPC {
       },
       choices = {
         { text = "Your platoon never came home, Sha'ni.", next = "platoon" },
-        { text = "Who is Krom'Grul?", next = "krom" },
-        { text = "What should I tell Thal'trak?", next = "thaltrak" },
+        { text = "Who led the ones who took you?", next = "krom" },
+        { text = "Is there anyone I should carry word to?", next = "thaltrak" },
         { text = "What were the ogres doing up here?", next = "ritual" },
         { text = "I can feel the spirits restless here.", next = "xspirit", when = { class = { "SHAMAN", "PRIEST" } } },
         { text = "Rest easy, Sha'ni.", next = "END" },
@@ -94,7 +94,7 @@ P:NPC {
 
     thaltrak = {
       lines = {
-        { id = "th_default", text = "Tell him we'll meet again, in another life. Tell him it was my last mission, and we were going to the Hinterlands to live with my mother and father, and that I'm sorry I made him wait." },
+        { id = "th_default", text = "Find Thal'trak, my husband, at Kargath, and tell him we'll meet again, in another life. Tell him it was my last mission, and we were going to the Hinterlands to live with my mother and father, and that I'm sorry I made him wait." },
       },
       choices = {
         { text = "He'll want to know if you suffered.", next = "thaltrak_lie" },

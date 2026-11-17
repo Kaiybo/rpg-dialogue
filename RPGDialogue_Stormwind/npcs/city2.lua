@@ -296,7 +296,7 @@ P:NPC {
     },
     others = {
       lines = {
-        { id = "others_l", text = "Arthur is a better man than I am and a worse teacher, the priests upstairs are kinder than either of us, and the mages in the Quarter think we're blunt instruments, which some days we are." },
+        { id = "others_l", text = "Arthur is a better man than I am and a worse teacher, the priests upstairs are kinder than either of us, and the mages in the Quarter think we're blunt instruments, which some days we are. As for the warlocks under the Slaughtered Lamb, the less I hear of them, the better." },
         { id = "others_lamb", when = { class = { "PALADIN", "PRIEST" } },
           text = "Arthur is a better man than I am, Laurena is wiser, and the mages in the Quarter think we're blunt instruments. As for whatever's taught under the Slaughtered Lamb, I've asked the Archbishop not to tell me." },
       },
@@ -695,7 +695,7 @@ P:NPC {
       },
       choices = {
         { text = "Let me see your work.", next = "BUSINESS" },
-        { text = "Tell me about Furen.", next = "furen" },
+        { text = "Do you take apprentices, Elmore?", next = "furen" },
         { text = "Barding must be for horses, then.", next = "barding" },
         { text = "Your work looks good enough to find plenty of buyers.", next = "buyers" },
         { text = "I'd have expected to find you in Ironforge.", next = "home", when = { race = "Dwarf" } },
@@ -715,7 +715,7 @@ P:NPC {
     furen = {
       lines = { { id = "f_default", text = "Best student I've ever had, an' if ye tell him I said so I'll deny it on my anvil. He's slow, an' slow's good, for fast smiths make thin plate." } },
       choices = {
-        { text = "He says you're hard on him.", next = "furen_hard" },
+        { text = "Are you hard on him?", next = "furen_hard" },
         { text = "He sent you his notes.", next = "furen_notes", when = { questDone = TODO_QUEST("Grimand Elmore") } },
         { text = "Something else.", next = "BACK" },
       },

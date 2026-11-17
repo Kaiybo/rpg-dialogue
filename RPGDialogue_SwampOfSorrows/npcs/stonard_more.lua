@@ -115,7 +115,7 @@ P:NPC {
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } },
           text = "A mage. Well, you came through the swamp in one piece, so whatever you're doing must be working." },
         { id = "h_default", key = true,
-          text = "I'm Dar. Stonard's a bit short on comforts, as you've noticed, but there's enough history in these stones that it must matter to somebody, and I suppose that's why I stay. It isn't for the scenery, I'll tell you that." },
+          text = "I'm Dar, and I keep the meat moving out to Tok'Kar's camp on the eastern beach. Stonard's a bit short on comforts, as you've noticed, but there's enough history in these stones that it must matter to somebody, and I suppose that's why I stay. It isn't for the scenery, I'll tell you that." },
         { id = "h_meat_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Lack of Surplus"), days = 3 } },
           text = "Tok'Kar got his sawtooth flanks, and his soldiers ate well, and I hear he said something about my face while he was at it. He always does, so I'll take it as thanks." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You'll find Stonard's walls a comfort, at least, since they're about the only comfort here." },
@@ -175,7 +175,7 @@ P:NPC {
 
     history = {
       lines = {
-        { id = "hi_default", text = "The old Horde built Stonard when the Dark Portal first opened, so it's one of the oldest things our people ever raised on this world. The new Horde rebuilt it, and now it watches the Portal road and the sunken temple both." },
+        { id = "hi_default", text = "The old Horde built Stonard when the Dark Portal first opened, so it's one of the oldest things our people ever raised on this world, along with its sister fortress, Rockard. The new Horde rebuilt it, and now it watches the Portal road and the sunken temple both." },
       },
       choices = {
         { text = "What became of Rockard?", next = "history_rockard" },
@@ -537,7 +537,7 @@ P:NPC {
         { text = "Is the temple's magic anything like your trade, Greshka?", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "What's in your grimoires?", next = "grimoires" },
         { text = "Why sell to warlocks here, of all places?", next = "why" },
-        { text = "Fel'zerul is a warlock too.", next = "felzerul" },
+        { text = "Are there other warlocks in Stonard?", next = "felzerul" },
         { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "The arcane is cleaner than the fel, whatever you say.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Your grimoires look like they might bite.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
@@ -577,7 +577,7 @@ P:NPC {
     },
     felzerul = {
       lines = {
-        { id = "fe_default", text = "He is, and he keeps the Warchief's line, and he looks down on me for selling to anyone with coin. I look down on him for spending his days watching a temple when he could be learning from it." },
+        { id = "fe_default", text = "Fel'zerul, out watching the temple, and he keeps the Warchief's line and looks down on me for selling to anyone with coin. I look down on him for spending his days watching a temple when he could be learning from it." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

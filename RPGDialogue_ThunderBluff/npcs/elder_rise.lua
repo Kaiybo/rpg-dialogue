@@ -37,7 +37,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Rahauro, and I attend the Elder Crone, Magatha Grimtotem. She has a great many burdens on behalf of all tauren, and I take the smaller ones from her shoulders so that she can bear the larger." },
+        { id = "h_default", key = true, text = "I am Rahauro, and I attend the Elder Crone, Magatha Grimtotem. She has a great many burdens on behalf of all tauren, and I take the smaller ones from her shoulders so that she can bear the larger, such as the troggs beneath Orgrimmar who killed her diplomats." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Testing an Enemy's Strength"), minLevel = 9 },
           text = "Troggs have come up from the depths beneath Orgrimmar, into a place called Ragefire Chasm. The Elder Crone sent diplomats to make peace with them, and the troggs killed every one, so now she sees them as a threat to the whole Horde and would like them destroyed before they overwhelm it from below." },
         { id = "h_satchel", when = { questDone = TODO_QUEST("Testing an Enemy's Strength"), questBefore = TODO_QUEST("Searching for the Lost Satchel") },
@@ -53,7 +53,7 @@ P:NPC {
       },
       choices = {
         { text = "Why would Magatha make peace with troggs?", next = "troggs" },
-        { text = "Who was Maur Grimtotem?", next = "maur" },
+        { text = "Who were the diplomats the troggs killed?", next = "maur" },
         { text = "What does Magatha want for the tauren?", next = "magatha" },
         { text = "I was born Grimtotem. I chose the Bloodhoof.", next = "o_grim", when = { origin = "tauren_grimtotem_born" } },
         { text = "What task do you have?", next = "BUSINESS" },
@@ -97,7 +97,7 @@ P:NPC {
       },
     },
     maur = {
-      lines = { { id = "m_default", text = "A Grimtotem of some learning, who could speak a little of the tongue of the deep places. He went further into the Chasm than the others, because he believed he could reach the troggs where the others had failed." } },
+      lines = { { id = "m_default", text = "Maur Grimtotem mattered most, a Grimtotem of some learning who could speak a little of the tongue of the deep places. He went further into the Chasm than the others, because he believed he could reach the troggs where the others had failed." } },
       choices = {
         { text = "He must have hoped to find something.", next = "maur_find" },
         { text = "Something else.", next = "BACK" },
@@ -174,7 +174,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I'm Bashana Runetotem, the Archdruid's daughter, which most people say before I can. I'm of the Cenarion Circle too, and while my father carries the Circle's burdens on Elder Rise, I carry its seeds." },
+        { id = "h_default", key = true, text = "I'm Bashana Runetotem, the Archdruid's daughter, which most people say before I can. I'm of the Cenarion Circle too, and while my father carries the Circle's burdens on Elder Rise, I carry its seeds, morrowgrain among them, and lately its worries about Blackfathom Deeps." },
         { id = "h_bfd", when = { questActive = TODO_QUEST("Blackfathom Villainy") },
           text = "You have something from Blackfathom Deeps for me? Good. The Twilight's Hammer have been doing something foul in those flooded halls, and anything that tells us who leads them down there is worth having." },
         { id = "h_bfd_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Blackfathom Villainy"), days = 3 } },
@@ -226,12 +226,12 @@ P:NPC {
         { id = "f_warm", when = { disposition = { min = 65 } }, text = "Like growing up beside a very old tree, which is lovely until you want some sunlight of your own. Don't tell him, but I'd follow him into the Emerald Dream itself if he asked, and I'd complain the whole way." },
       },
       choices = {
-        { text = "Magatha seems to be watching him.", next = "father_magatha" },
+        { text = "Does anyone on this rise trouble him?", next = "father_magatha" },
         { text = "Something else.", next = "BACK" },
       },
     },
     father_magatha = {
-      lines = { { id = "fm_default", text = "Everyone knows. Magatha watches all of us from the other end of this rise, and my father bows to her very politely, and neither of them has ever once turned their back on the other." } },
+      lines = { { id = "fm_default", text = "Only Magatha, and everyone knows it. She watches all of us from the other end of this rise, and my father bows to her very politely, and neither of them has ever once turned their back on the other." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } } },
     },
     bfd = {
@@ -353,7 +353,7 @@ P:NPC {
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "Why do you prefer the plains?", next = "plains" },
-        { text = "You must be kin to Nara Wildmane.", next = "nara" },
+        { text = "Do you have kin among the druids here?", next = "nara" },
         { text = "Farewell, Kym.", next = "END" },
       },
     },
@@ -373,7 +373,7 @@ P:NPC {
       },
     },
     nara = {
-      lines = { { id = "n_default", text = "We're both Wildmanes, and that's a big family, so I'll let you work out the rest. She's the one who sends young druids off to Moonglade, and I'm the one who teaches them to run fast enough to get there." } },
+      lines = { { id = "n_default", text = "Nara Wildmane, though the Wildmanes are a big family, so I'll let you work out the rest. She's the one who sends young druids off to Moonglade, and I'm the one who teaches them to run fast enough to get there." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

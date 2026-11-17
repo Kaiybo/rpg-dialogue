@@ -52,7 +52,7 @@ P:NPC {
       },
       choices = {
         { text = "Why do you hate the Magram?", next = "magram", when = { reputation = { faction = "Gelkis Clan Centaur", min = "neutral" } } },
-        { text = "You speak of an earth mother.", next = "theradras", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
+        { text = "Who do the Gelkis pray to, Uthek?", next = "theradras", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
         { text = "Why should the Gelkis trust outsiders?", next = "trust", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
         { text = "Our peoples are old enemies, Uthek.", next = "tauren_u", when = { race = "Tauren", reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },
         { text = "What would the Gelkis have me do?", next = "BUSINESS", when = { reputation = { faction = "Gelkis Clan Centaur", min = "friendly" } } },

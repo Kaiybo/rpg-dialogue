@@ -134,7 +134,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Because Feralas grows things ye can't find anywhere else, and a brewer chases flavor the way a hunter chases game. I've found berries here that'd make a Thunderbrew weep." } },
-      choices = { { text = "What's after you?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "Isn't picking out here dangerous?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "The trouble is everything out here wants to eat ye while ye're picking, from the yetis to the gnolls. I'm a better brewer than a fighter, and I know it." } },
@@ -289,18 +289,18 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, boss? Clock's tickin', and every tick costs me a copper, plus interest." }, { id = "h_again2", text = "More questions? Sure, pal, those are free, which is the only free thing on this beach." } },
       choices = {
-        { text = "Must you shrink the giants, Zorbin?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "Must you fight the giants, Zorbin?", next = "druid_q", when = { class = "DRUID" } },
         { text = "You mentioned giants.", next = "b1_1" },
-        { text = "Is your zapper safe?", next = "b2_1" },
+        { text = "Is your gizmo safe?", next = "b2_1" },
         { text = "Why set up shop here?", next = "b3_1" },
-        { text = "I could improve that zapper.", next = "x_1", when = { race = "Gnome" } },
+        { text = "I could improve that gizmo.", next = "x_1", when = { race = "Gnome" } },
         { text = "Do you know why the giants are stirring, Zorbin?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The giants of the coast seem riled up.", next = "xhcast", when = { class = { "PRIEST", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "The giants hardly seem to deserve this.", next = "s_1" },
         { text = "You don't seem to know how your own device works.", next = "xmage", when = { class = "MAGE" } },
-        { text = "Why not use your zapper yourself, Zorbin?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Why not use your gizmo yourself, Zorbin?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Is zapping the giants really necessary, Zorbin?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "Why not just fight the giants instead of shrinking them, Zorbin?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "Why not just fight the giants yourself, Zorbin?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can a shrunken giant really be tamed, Zorbin?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What becomes of the giants once you've shrunk them, Zorbin?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell.", next = "END" },
@@ -308,7 +308,7 @@ P:NPC {
     },
     b1_1 = {
       lines = { { id = "b1_1_l", text = "Big ones, boss, out by the coast and the Twin Colossals, smashing anything that looks like it might be worth money. I had a shipment, past tense, because a giant stepped on it, and that's eight hundred gold I'm never seein' again." } },
-      choices = { { text = "Shrinking giants? Really?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
+      choices = { { text = "And what does your gizmo do?", next = "b1_2" }, { text = "Something else.", next = "BACK" } },
     },
     b1_2 = {
       lines = { { id = "b1_2_l", text = "So I built a little device that zaps 'em down to a more reasonable size, boss. A small giant is still angry, but at least it's angry at your knees instead of your house, and knees are cheaper to fix." } },

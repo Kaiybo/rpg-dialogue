@@ -67,7 +67,7 @@ P:NPC {
       choices = {
         { text = "Tell me about Ironband's dig.", next = "dig" },
         { text = "Where has the blastpowder gone?", next = "powder" },
-        { text = "Who is Prospector Stormpike?", next = "stormpike" },
+        { text = "Who reads Ironband's reports in Ironforge?", next = "stormpike" },
         { text = "I've heard about Saean.", next = "saean", when = { questDone = TODO_QUEST("Protecting the Shipment") } },
         { text = "I dig for the League too, Jern.", next = "league_kin", when = { origin = "dwarf_explorers_league" } },
         { text = "Who'd steal powder from a cart?", next = "rogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -126,7 +126,7 @@ P:NPC {
           text = "Huldar an' Miran still, bless them, an' they've no' missed a day since the ambush. Saean's name I've struck from the ledger, an' I pressed hard enough tae tear the page." },
       },
       choices = {
-        { text = "A Dark Iron spy was seen in town, too.", next = "powder_spy" },
+        { text = "Could someone outside the League be behind it?", next = "powder_spy" },
         { text = "Something else, Jern.", next = "BACK" },
       },
     },

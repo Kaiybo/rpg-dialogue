@@ -138,8 +138,8 @@ P:NPC {
       },
       choices = {
         { text = "What does keeping the balance mean?", next = "balance" },
-        { text = "There seem to be more beasts than the glade can feed.", next = "rains" },
-        { text = "Who sends the sigils?", next = "sigils" },
+        { text = "How fares the glade this year?", next = "rains" },
+        { text = "Who will train me?", next = "sigils" },
         { text = "I've seen the world since. It's not balanced.", next = "world", when = { minLevel = 20 } },
         { text = "I'm a long way from home here.", next = "stranger", when = { ["not"] = { race = "NightElf" } } },
         { text = "Must I cull beasts when my companion is one of them?", next = "hunter_i", when = { class = "HUNTER" } },
@@ -173,7 +173,7 @@ P:NPC {
       },
     },
     rains = {
-      lines = { { id = "r_default", text = "Heavy spring rains. Some creatures flourished, others suffered, and the glade can only feed so many mouths. Nature is generous and careless in the same breath." } },
+      lines = { { id = "r_default", text = "Crowded, after heavy spring rains. Some creatures flourished, others suffered, and the glade can only feed so many mouths. Nature is generous and careless in the same breath." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     sigils = {
@@ -344,7 +344,7 @@ P:NPC {
       choices = {
         { text = "What's it like, tending Aldrassil?", next = "tending" },
         { text = "You share a name with the Arch Druid, I think.", next = "kin" },
-        { text = "Who is Tarindrella?", next = "dryad" },
+        { text = "Who is Tarindrella?", next = "dryad", when = { any = { { questActive = TODO_QUEST("The Woodland Protector") }, { questDone = TODO_QUEST("The Woodland Protector") } } } },
         { text = "Teach me what you know.", next = "druid_m", when = { class = "DRUID" } },
         { text = "Even a rogue can feel Aldrassil hum.", next = "rogue_m", when = { class = "ROGUE" } },
         { text = "Could a prayer do Aldrassil any good, Melithar?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -593,7 +593,7 @@ P:NPC {
       choices = {
         { text = "Who leads your people, now that Malfurion sleeps?", next = "op_ask" },
         { text = "What lies beyond the glade?", next = "beyond" },
-        { text = "Filling a phial seems a small errand for a first lesson.", next = "crown" },
+        { text = "Filling a phial seems a small errand for a first lesson.", next = "crown", when = { any = { { questActive = TODO_QUEST("Crown of the Earth") }, { questDone = TODO_QUEST("Crown of the Earth") } } } },
         { text = "What happened at Hyjal?", next = "hyjal" },
         { text = "You must see the whole glade from up here.", next = "view" },
         { text = "I've been down in the world. It's hard.", next = "world_t", when = { minLevel = 20 } },
@@ -859,7 +859,7 @@ P:NPC {
         { id = "h_again2", text = "Ask. It helps to talk while I wait." },
       },
       choices = {
-        { text = "Tell me about Iverron.", next = "iverron" },
+        { text = "Tell me about your friend.", next = "iverron" },
         { text = "What's wrong in Shadowglen?", next = "glen" },
         { text = "The antidote needs a fair few ingredients, it seems.", next = "herbs", when = { questActive = TODO_QUEST("Iverron's Antidote") } },
         { text = "I know a thing or two about poisons.", next = "rogue_d", when = { class = "ROGUE" } },
@@ -1048,7 +1048,7 @@ P:NPC {
       choices = {
         { text = "Why study spiders?", next = "why" },
         { text = "Why sit out here on the steps?", next = "steps" },
-        { text = "Something nasty must live in Shadowthread Cave.", next = "cave" },
+        { text = "What's in the cave to the north?", next = "cave" },
         { text = "I'm an alchemist. Venom interests me.", next = "alch", when = { profession = "Alchemy" } },
         { text = "My companion could take a spider's measure for you.", next = "hunter_g", when = { class = "HUNTER" } },
         { text = "I could slip into the spider cave and count the eggs.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },

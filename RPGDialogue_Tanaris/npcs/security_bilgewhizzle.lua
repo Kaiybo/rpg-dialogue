@@ -114,9 +114,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, buddy, I can watch the dock and listen at the same time. It's a skill, and they don't pay me extra for it." },
       },
       choices = {
-        { text = "Why does the Cartel pay the pirates?", next = "protection" },
-        { text = "What's in the small print?", next = "smallprint" },
-        { text = "I've heard the name Andre Firebeard.", next = "andre" },
+        { text = "Who's been robbing the Cartel?", next = "protection" },
+        { text = "Is there a catch to working for the Cartel?", next = "smallprint" },
+        { text = "Whose face is on that wanted poster?", next = "andre" },
         { text = "Any relation to the Chief Engineer?", next = "cousin" },
         { text = "I know a thing or two about pirates' habits.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Some of those pirates were just dock workers.", next = "dockers", when = { questDone = TODO_QUEST("Southsea Shakedown") } },
@@ -126,7 +126,7 @@ P:NPC {
       },
     },
     protection = {
-      lines = { { id = "p_default", text = "Because it's cheaper to pay a pirate to stay home than to lose a cargo, and goblins can count, pal. Only now the Southsea are taking the money and the cargo, which is frankly unprofessional and a clear breach of terms." } },
+      lines = { { id = "p_default", text = "The Southsea pirates, pal. The Cartel pays them to stay home, because that's cheaper than losing a cargo, and goblins can count. Only now the Southsea are taking the money and the cargo, which is frankly unprofessional and a clear breach of terms." } },
       choices = {
         { text = "What do people say about the pirates?", next = "op_pirates" },
         { text = "Paying pirates only feeds them.", next = "protection_stance" },

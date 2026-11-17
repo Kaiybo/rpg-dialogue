@@ -82,12 +82,12 @@ P:NPC {
       choices = {
         { text = "What waits in Krol'dok?", next = "kroldok" },
         { text = "Why is the Horde in the Riverglades?", next = "why" },
-        { text = "What about the humans at Farholde?", next = "farholde" },
+        { text = "Are there humans in these glades too?", next = "farholde" },
         { text = "There must be others worth seeing in Rog'mar.", next = "rogmar" },
         { text = "Mugg is dead. What now?", next = "after_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") } },
         { text = "Some of those orcs in the caves were Horde once.", next = "xorc", when = { race = "Orc" } },
         { text = "Krol'dok has ogres who think they can't die.", next = "xwarrior", when = { class = "WARRIOR" } },
-        { text = "Who killed the old Horde's leaders at Farholde?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Whose kill do you mean, twenty years ago?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You don't seem to trust a warlock in your hall.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Are the spirits angry at us too?", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "The Hammer seems to be poisoning the land.", next = "xland", when = { any = { { class = "DRUID" }, { race = "Tauren" } } } },
@@ -142,8 +142,8 @@ P:NPC {
         { id = "wh_default", text = "Because the Twilight's Hammer is here, and wherever it grows, it grows toward us sooner or later. Better we meet it in these glades than at the gates of Orgrimmar." },
       },
       choices = {
-        { text = "The Hammer came here after the Second War?", next = "why_old" },
-        { text = "The ogres of Bolder'ok fight for us?", next = "bolderok" },
+        { text = "How long has the Hammer been here?", next = "why_old" },
+        { text = "Does the Horde have any allies out here?", next = "bolderok" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -416,7 +416,7 @@ P:NPC {
         { text = "What do you hunt out here?", next = "hunt" },
         { text = "Arrows seem to do the job well enough without poison.", next = "poison" },
         { text = "What did you estimate about me?", next = "measure" },
-        { text = "You don't seem to think much of Tan'jani's spears.", next = "tanjani" },
+        { text = "Do you ever hunt with spears?", next = "tanjani" },
         { text = "How does my beast measure up?", next = "xpet", when = { class = "HUNTER" } },
         { text = "My poisons kill faster than yours.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Good hunting.", next = "END" },
@@ -540,7 +540,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Tan'jani, headhunter. Orcs be good at hittin' humans with axes, but when ya want to stick 'em before dey see ya comin', dat's when ya call on me." },
+          text = "Tan'jani, headhunter. Orcs be good at hittin' humans with axes, but when ya want to stick 'em before dey see ya comin', dat's when ya call on me, and I make my spears from de humans' own wood." },
         { id = "h_fletch", when = { questActive = TODO_QUEST("Fetch 'n' Fletch") },
           text = "Ya got dat wood yet? De human camp to de west, mon, and take a knife to sharpen 'em with." },
         { id = "h_fletch_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Fetch 'n' Fletch"), days = 3 } },
@@ -562,7 +562,7 @@ P:NPC {
       choices = {
         { text = "What's a headhunter?", next = "headhunter" },
         { text = "Why steal the humans' wood?", next = "wood" },
-        { text = "Neza says spears are for fools.", next = "neza" },
+        { text = "Some hunters say arrows beat spears.", next = "neza" },
         { text = "What comes after the spears?", next = "after", when = { questDone = TODO_QUEST("Fetch 'n' Fletch") } },
         { text = "You must miss the Echo Isles.", next = "xhome", when = { race = "Troll" } },
         { text = "Those loggers aren't soldiers, Tan'jani.", next = "xloggers", when = { faction = "Alliance" } },
@@ -699,7 +699,8 @@ P:NPC {
         { id = "h_again2", text = "Go on." },
       },
       choices = {
-        { text = "What can you make from that mould?", next = "mould" },
+        { text = "What can you make from that mould?", next = "mould",
+          when = { any = { { questActive = TODO_QUEST("Krol'dok Moulding") }, { questActive = TODO_QUEST("Key Ingredients") }, { questDone = TODO_QUEST("Key Ingredients") } } } },
         { text = "Somebody's making armor for those ogres.", next = "forgemaster" },
         { text = "Working a forge out here can't be easy.", next = "forge" },
         { text = "Will this key really open Krol'dok?", next = "key_after", when = { questDone = TODO_QUEST("Key Ingredients") } },

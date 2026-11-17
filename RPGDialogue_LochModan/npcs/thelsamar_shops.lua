@@ -511,7 +511,7 @@ P:NPC {
       choices = {
         { text = "Let me buy some bread.", next = "BUSINESS" },
         { text = "What's the secret to good bread?", next = "secret" },
-        { text = "Bread or Vidra's sausages, which is better?", next = "sausage" },
+        { text = "Which sells better here, bread or sausages?", next = "sausage" },
         { text = "Half of Thelsamar must come in for your bread.", next = "who" },
         { text = "Your back door's unlocked, you know.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "My imp likes the warmth of your ovens.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },

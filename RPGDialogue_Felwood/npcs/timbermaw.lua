@@ -549,7 +549,7 @@ P:NPC {
         { text = "What would the Almighty want stolen?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What would a demon want with a priest, Niby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a great master need a warrior, Niby?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Is Impsy really your pet, Niby?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Is the other imp really your pet, Niby?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I can't think what a demon wants with Felwood, Niby.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Should I point my holy light at you instead, Niby?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Almighty One.", next = "END" },

@@ -102,7 +102,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Darkshire could use you more than this altar can, {class}, but I'll ask what's weighing on you first, as I ask everyone." },
-        { id = "h_default", text = "I'm Bishop Farthing. People come to this altar with heavy things on their backs, and I've found it's kinder to ask about the burden before the business. What's yours?" },
+        { id = "h_default", text = "I'm Bishop Farthing. People come to this altar with heavy things on their backs, lately most of them from Darkshire, where a necromancer has the dead walking, and I've found it's kinder to ask about the burden before the business. What's yours?" },
         { id = "h_journal", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Seeking Wisdom") },
           text = "You've come from Darkshire; I can tell by the way you keep glancing at the corners. Give me Jitters' journal, and then tell me plainly what you mean to do about Morbent Fel." },
         { id = "h_fleet", tags = { "news" }, when = { questActive = TODO_QUEST("The Doomed Fleet") },
@@ -127,7 +127,7 @@ P:NPC {
       },
       choices = {
         { text = "Why does Darkshire trust you, and not the city?", next = "darkshire" },
-        { text = "I've never heard of lightforge iron.", next = "iron" },
+        { text = "I've never heard of lightforge iron.", next = "iron", when = { any = { { questActive = TODO_QUEST("Seeking Wisdom") }, { questActive = TODO_QUEST("The Doomed Fleet") }, { questDone = TODO_QUEST("The Doomed Fleet") } } } },
         { text = "I don't see how faith alone fights a necromancer.", next = "fel" },
         { text = "Bishop, you must have taught a great many young priests.", next = "priest", when = { class = "PRIEST" } },
         { text = "I've come from the Night Watch in Darkshire.", next = "watch", when = { questDone = TODO_QUEST("Seeking Wisdom") } },
@@ -612,7 +612,7 @@ P:NPC {
       },
       choices = {
         { text = "I don't know who to see in here.", next = "who" },
-        { text = "I keep hearing about something called Techbot.", next = "techbot" },
+        { text = "I keep hearing about something called Techbot.", next = "techbot", when = { any = { { questActive = TODO_QUEST("Tinkmaster Overspark") }, { heardLine = "sarno.h_quest_before" } } } },
         { text = "Do you really greet everyone?", next = "everyone" },
         { text = "Tell me about Gnomeregan's fall.", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "I'm a priest of this house, Brother.", next = "priest", when = { class = "PRIEST" } },
@@ -822,7 +822,7 @@ P:NPC {
         { id = "h_again2", text = "Ask me anything, I know where all the priests are." },
       },
       choices = {
-        { text = "I'd wager the Bishop has some secret, Thomas.", next = "secret" },
+        { text = "I'd wager the Bishop has some secret, Thomas.", next = "secret", when = { any = { { questActive = TODO_QUEST("The Missing Diplomat") }, { heardLine = "thomas_altar.h_diplomat" } } } },
         { text = "You seem to like serving at the altar.", next = "altar" },
         { text = "Some of these priests must be strict.", next = "strict" },
         { text = "You'll make a fine priest someday, I'd guess.", next = "priest", when = { class = "PRIEST" } },
@@ -849,7 +849,7 @@ P:NPC {
     secret_good = {
       lines = { { id = "sg_default", text = "I'm not telling, because I don't know anything else, which is a good way to keep a secret, Brother Joshua says. He says most people who leak secrets didn't need to know them in the first place." } },
       choices = {
-        { text = "Who's Bishop DeLavey?", next = "delavey" },
+        { text = "Which bishop do you mean, Thomas?", next = "delavey" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1061,7 +1061,7 @@ P:NPC {
       choices = {
         { text = "You don't want me near the children, do you, Matron?", next = "prej", when = { prejudiced = true } },
         { text = "These children come from all over, by the look of them.", next = "where" },
-        { text = "I've heard folk talk of Children's Week.", next = "week" },
+        { text = "Do the children ever get out of the city?", next = "week" },
         { text = "You can't run this place alone.", next = "help" },
         { text = "I've wondered what became of Jeremy Heartweaver.", next = "jeremy", when = { questDone = TODO_QUEST("Remember That I Love You") } },
         { text = "I was one of them, once. From Lordaeron.", next = "refugee", when = { origin = "human_lordaeron_refugee" } },

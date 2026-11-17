@@ -654,7 +654,7 @@ P:NPC {
       choices = {
         { text = "How did you come to keep a stable here?", next = "past" },
         { text = "You must keep all sorts of beasts here.", next = "beasts" },
-        { text = "What's this about the parrots?", next = "parrots" },
+        { text = "Any trouble around the stables lately?", next = "parrots" },
         { text = "Is it hard keeping animals in this heat?", next = "heat" },
         { text = "Who are your best customers?", next = "customers" },
         { text = "How do you keep a stabled beast happy?", next = "xhunt", when = { class = "HUNTER" } },
@@ -840,7 +840,7 @@ P:NPC {
         { text = "What exactly are the side effects?", next = "effects" },
         { text = "Who's allowed to use it?", next = "rules" },
         { text = "Why build one to Gadgetzan?", next = "why" },
-        { text = "There's a gnome engineer here too, I noticed.", next = "oglethorpe" },
+        { text = "Is there any other engineer in town?", next = "oglethorpe" },
         { text = "I'm an engineer. Show me the wiring.", next = "xeng", when = { profession = { name = "Engineering", min = 1 } } },
         { text = "Gnomish engineering would make that pad safer.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Why not just ask a mage for a portal?", next = "xmage", when = { class = "MAGE" } },
