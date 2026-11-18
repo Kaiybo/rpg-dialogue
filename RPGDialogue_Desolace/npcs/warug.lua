@@ -109,8 +109,8 @@ P:NPC {
         { id = "gp_default", text = "Ha! Then let it break us, and we will break the Gelkis first. You talk like a shaman, strong one, but you fight like a Magram, and that is the part Warug likes." },
       },
       choices = {
-        { text = "The strong should rule. You're right.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Strength without wisdom just gets you killed.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The strong should rule. You're right.", next = "BACK", reply = "Ha! Warug knew it, strong one, and you will run with the Magram when the Gelkis fall.", fx = { align = { order = -1 } } },
+        { text = "Strength without wisdom just gets you killed.", next = "BACK", reply = "Wisdom is for old shamans with no legs left, strong one, and Warug still has four good ones.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,8 +139,8 @@ P:NPC {
         { id = "gk_default", text = "He was weak, and he was on Magram land, and that is how it is in Desolace. But I kept one of his little machines, and sometimes I wind it, and I am sorry there are no more." },
       },
       choices = {
-        { text = "That's cruel, Warug.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The desert is hard. I understand.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That's cruel, Warug.", next = "BACK", reply = "Cruel is the desert, strong one, and Warug only lives in it, but Warug still winds the little machine.", fx = { align = { light = 1 } } },
+        { text = "The desert is hard. I understand.", next = "BACK", reply = "Yes, you understand, strong one, and that is why Warug talks to you and not the others.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

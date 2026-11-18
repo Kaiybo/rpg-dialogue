@@ -84,8 +84,8 @@ P:NPC {
         { id = "mp_default", text = "Peace? When the Magram bow to our mother, there will be peace, and not before. You are strange, outsider, to ask it while their blood is on you." },
       },
       choices = {
-        { text = "Then the Magram must break. I'll see to it.", next = "BACK", fx = { align = { light = -1 }, opinion = { centaur = "divide" } } },
-        { text = "I fight for you, but I'd rather end this war.", next = "BACK", fx = { align = { light = 1 }, opinion = { centaur = "peace" } } },
+        { text = "Then the Magram must break. I'll see to it.", next = "BACK", reply = "Then you will be a friend of the Gelkis, outsider, and our mother will remember your name.", fx = { align = { light = -1 }, opinion = { centaur = "divide" } } },
+        { text = "I fight for you, but I'd rather end this war.", next = "BACK", reply = "You speak strangely for one with Magram blood on your hands, but I hear you, and our mother hears you too.", fx = { align = { light = 1 }, opinion = { centaur = "peace" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -132,8 +132,8 @@ P:NPC {
         { id = "tc_default", text = "The Kolkar are wild and the Magram are proud, but all came from her. Only the Gelkis still remember to thank her, and so only the Gelkis will stand when the others fall." },
       },
       choices = {
-        { text = "Faith like that is strength.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "No god protects anyone. Strength does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Faith like that is strength.", next = "BACK", reply = "You understand, outsider, and that is more than the Kolkar or the Magram ever will.", fx = { align = { order = 1 } } },
+        { text = "No god protects anyone. Strength does.", next = "BACK", reply = "Then you will learn otherwise, outsider, when the earth beneath the Magram opens and swallows their pride.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

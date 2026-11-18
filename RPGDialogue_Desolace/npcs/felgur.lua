@@ -119,8 +119,8 @@ P:NPC {
         { id = "hk_default", text = "Maybe. Thrall would call it diplomacy, and I'd call it a bargain with a snake, but I'm not the Warchief, and he's earned the right to choose." },
       },
       choices = {
-        { text = "Turn them on each other. Fewer of ours die.", next = "BACK", fx = { align = { honor = -1 }, opinion = { centaur = "divide" } } },
-        { text = "I'd rather fight them face to face.", next = "BACK", fx = { align = { honor = 1 }, opinion = { centaur = "war" } } },
+        { text = "Turn them on each other. Fewer of ours die.", next = "BACK", reply = "Good. That's my thinking too, and Gurda's, and if it saves one grunt, I'll call it worth the snake.", fx = { align = { honor = -1 }, opinion = { centaur = "divide" } } },
+        { text = "I'd rather fight them face to face.", next = "BACK", reply = "Then you'll get your chance, because the centaur don't fight fair, and they'll come at you face to face sometimes.", fx = { align = { honor = 1 }, opinion = { centaur = "war" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -131,8 +131,8 @@ P:NPC {
         { id = "ea_default", text = "Proof. I can't count dead centaur from here, and I don't trust a story without something in the bag. If it's ugly, so is Desolace." },
       },
       choices = {
-        { text = "War is ugly. I'll bring the ears.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll kill them, but I won't cut trophies.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "War is ugly. I'll bring the ears.", next = "BACK", reply = "Good. War is war, and the ears keep the count honest, which is more than most stories do.", fx = { align = { light = -1 } } },
+        { text = "I'll kill them, but I won't cut trophies.", next = "BACK", reply = "Then bring me something else, a banner, a bow, I don't care, as long as I can count it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -65,8 +65,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_dwarf_default", text = "Peace is a long word for dwarves and we've a few centuries of grudges to work through first, but trade is a short one, and the Brotherhood has always been good at trade. Ironforge buys our thorium and we buy their bread, and nobody asks too many questions about who fought whom in the War of the Three Hammers." } },
       choices = {
-        { text = "That war is long done. It's time to make peace.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Ironforge shouldn't trust a Dark Iron, Brotherhood or not.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "That war is long done. It's time to make peace.", next = "BACK", reply = "Long done for ye, maybe, but there's lads up here whose grandfathers died in it. Still, I'll take the sentiment, an' gladly.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Ironforge shouldn't trust a Dark Iron, Brotherhood or not.", next = "BACK", reply = "Then let Ironforge keep its distance an' buy our thorium all the same. We'll not beg for anyone's trust.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Trust's earned here, by everyone, an' we know somethin' about servin' a dark master an' walkin' away. If the Light took ye back after the Scourge had ye, then ye're not so different from us, an' I'll give ye the same chance I'd give any o' my own." } },
       choices = {
-        { text = "Anyone can walk away from darkness. You proved it.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Some chains never break. I'll judge each one myself.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Anyone can walk away from darkness. You proved it.", next = "BACK", reply = "Aye, an' it's a comfort tae hear it from one who's walked the same road. Ye're welcome at the Point.", fx = { align = { light = 1 } } },
+        { text = "Some chains never break. I'll judge each one myself.", next = "BACK", reply = "That's fair, an' it's what I'd do in yer boots. Judge us by what we do, an' we'll do the same for ye.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -83,8 +83,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Surface steel, too soft at the heart, an' it'll take a notch the first time it meets Dark Iron plate. Earn the Brotherhood's trust, an' our smiths might one day show ye what steel can be when it's made right." } },
       choices = {
-        { text = "I'll earn your trust one task at a time, Overseer.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "I'd sooner buy the secret. Trust takes too long.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll earn your trust one task at a time, Overseer.", next = "BACK", reply = "Good, an' ye'll find we keep our word as hard as we keep our steel. Start wi' the board.", fx = { align = { honor = 1 } } },
+        { text = "I'd sooner buy the secret. Trust takes too long.", next = "BACK", reply = "Ha! Nobody buys a Dark Iron secret, friend, no' for all the gold in Ironforge. Ye'll earn it or go without.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -95,16 +95,16 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Lava spiders, glassweb spiders an' the blackened basilisks, an' not one o' them has the decency tae die quietly. The spiders have taken tae troublin' the bairns at the Point, too, so I'll not complain if ye thin them out. Keep {pet} back from the webs, mind, for they spin them over the vents, an' a beast that blunders through one is cooked before ye can pull it free." },
       },
       choices = {
-        { text = "I'll clear the spiders and help keep the Point safe.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll hunt what I like in the Gorge, for my own reasons.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll clear the spiders and help keep the Point safe.", next = "BACK", reply = "Bless ye for that, an' the bairns' mothers will too. Mind the glassweb ones, they spit.", fx = { align = { order = 1 } } },
+        { text = "I'll hunt what I like in the Gorge, for my own reasons.", next = "BACK", reply = "Yer reasons are yer own, so long as the spiders end up dead. I'll no' ask.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     druid_q = {
       lines = { { id = "dq_default", text = "If the Firelord ever stops breathin' under it, aye, maybe. Our forefathers called him up an' burned this land tae ash, so I reckon the Brotherhood owes it somethin', though I couldnae tell ye what." } },
       choices = {
-        { text = "Then pay that debt by mending what you can.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The past is ash. Forge what you need.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then pay that debt by mending what you can.", next = "BACK", reply = "Aye, maybe, an' I'd like tae think we've started. Every slave we free is a stone put back.", fx = { align = { light = 1 } } },
+        { text = "The past is ash. Forge what you need.", next = "BACK", reply = "Spoken like a smith, an' I'll no' argue. But some ash still stings the eyes.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -112,8 +112,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "The mountain did, an' the masters who served it, an' we stole the learnin' a scrap at a time, at night, the same way we built our road out. Every enchanted plate we sell now is a theft from Ragnaros, an' I'll no' pretend that doesnae warm me." } },
       choices = {
-        { text = "Steal everything the tyrant taught you. You owe him nothing.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Craft learned under a tyrant needs careful keeping.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Steal everything the tyrant taught you. You owe him nothing.", next = "BACK", reply = "I'll no' argue wi' that, an' I'll go on stealin' till there's nothin' left o' him in my forge.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Craft learned under a tyrant needs careful keeping.", next = "BACK", reply = "It does, an' we keep it careful, believe me. We know better than anyone what it was made for.", fx = { align = { order = 1 } } },
         { text = "Let's talk of other things.", next = "BACK" },
       },
     },
@@ -121,8 +121,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "A servant, by every story we were taught, a great weapon against the Bronzebeards an' the Wildhammers. What came was a master, an' my folk served him for centuries after, so mind yer imps, warlock, because every fool thinks he's the one holdin' the leash." } },
       choices = {
-        { text = "Every leash needs a strong hand, and mine is strong.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some powers should never be called at all.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Every leash needs a strong hand, and mine is strong.", next = "BACK", reply = "Every fool says that too, warlock. I'll be watchin' yer leash, an' so will the Brotherhood.", fx = { align = { light = -1 } } },
+        { text = "Some powers should never be called at all.", next = "BACK", reply = "Aye, an' my folk learned that the hard way. Ye've more sense than Thaurissan ever did.", fx = { align = { light = 1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
     },
@@ -130,8 +130,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "Long ago, maybe, when we were one people wi' yer kin in Ironforge. Down in the depths we knelt tae fire because fire could kill us, an' some o' the lads here are still learnin' that a dwarf can kneel tae somethin' that doesnae burn." } },
       choices = {
-        { text = "Then teach them the Light. A people needs something to kneel to.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let them kneel to nothing. That's what freedom means.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Then teach them the Light. A people needs something to kneel to.", next = "BACK", reply = "Maybe, an' some o' them are listenin'. But we'll no' be told what tae kneel tae ever again.", fx = { align = { order = 1 } } },
+        { text = "Let them kneel to nothing. That's what freedom means.", next = "BACK", reply = "That's the Brotherhood's creed, near enough, an' I'll drink tae it. Ye've a good head on ye.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -139,8 +139,8 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Watch the road down tae the Cauldron, an' mind who ye strike. Not every Dark Iron in the Gorge chose the mountain, for some were born tae chains, an' a hammer that cannae tell the slaver from the slave does the Firelord's work for him." } },
       choices = {
-        { text = "I'll judge each one before I strike, Overseer.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "In battle there's no time to ask who chose what.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll judge each one before I strike, Overseer.", next = "BACK", reply = "Good, an' the slaves will thank ye for it, though they may never know yer name. Go carefully.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "In battle there's no time to ask who chose what.", next = "BACK", reply = "Then ye'll kill the wrong dwarf one day, an' it'll be on ye, no' on the Firelord. Think on it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -148,8 +148,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Slaves, for one, workin' the mines o' the Gorge till they drop, an' the plans for the war golems their smiths build, for another. I'll no' ask ye tae steal for the Brotherhood, but if somethin' finds its way out o' a Dark Iron camp an' intae my hands, I'll no' ask where it came from either." } },
       choices = {
-        { text = "I'll free the slaves first, Overseer, then the plans.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll take whatever pays best, Overseer.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll free the slaves first, Overseer, then the plans.", next = "BACK", reply = "That's the right order, an' I'll see ye well paid for both. Bless ye.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll take whatever pays best, Overseer.", next = "BACK", reply = "Then ye'll get paid, an' I'll no' ask. Just don't sell tae the Cauldron.", fx = { align = { honor = -1 } } },
         { text = "Something else, Overseer.", next = "BACK" },
       },
     },
@@ -157,8 +157,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_mc_default", text = "Ye'll forgive an old Dark Iron for sittin' down. I spent most o' my life makin' weapons for that thing's armies, an' every one o' us at Thorium Point remembers the heat o' his voice through the stone. He's no' dead, mind, for ye cannae kill fire, but he's been sent back down, an' that's further than any dwarf ever pushed him." } },
       choices = {
-        { text = "Your people were his slaves. The blame for what they made is his.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Your people forged his weapons. They should answer for that too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Your people were his slaves. The blame for what they made is his.", next = "BACK", reply = "Kind o' ye tae say, an' I'll try tae believe it. Some nights I cannae.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Your people forged his weapons. They should answer for that too.", next = "BACK", reply = "We do, every day we stay up here, an' I'll no' pretend otherwise. That's why we fight now.", fx = { align = { light = -1 } } },
         { text = "What did his voice sound like through the stone?", next = "xcl_mc2" },
       },
     },
@@ -244,8 +244,8 @@ P:NPC {
         { id = "a_default", text = "Anyone who pays, Alliance or Horde, it makes no odds. We've had one master, an' we'll no' have another." },
       },
       choices = {
-        { text = "Free trade suits me better than any master.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "Picking no side is still picking a side, Oilfist.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Free trade suits me better than any master.", next = "BACK", reply = "Aye, an' it's the only kind o' freedom worth havin'. Welcome tae the Point.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "Picking no side is still picking a side, Oilfist.", next = "BACK", reply = "Maybe it is, an' if so, it's the side o' nobody's chains. I'll live wi' that.", fx = { align = { order = 1 } } },
       },
     },
     trade = {
@@ -270,8 +270,8 @@ P:NPC {
       big = true,
       lines = { { id = "d_default", text = "Aye, an' I was raised tae hate yours. We've both had a long while tae think about who taught us. Stand here an' talk, an' we'll see who's the better student." } },
       choices = {
-        { text = "Fair. Let's talk.", next = "BACK", fx = { affinity = 3, align = { light = 1 } } },
-        { text = "Old hates die hard.", next = "BACK", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
+        { text = "Fair. Let's talk.", next = "BACK", reply = "Good, then sit, an' we'll find out. I've a kettle.", fx = { affinity = 3, align = { light = 1 } } },
+        { text = "Old hates die hard.", next = "BACK", reply = "Aye, they do, but they die all the same, if ye let them. Sit a while.", fx = { align = { light = -1 }, affinity = -1, trait = { stern = 1 } } },
       },
     },
     craft = {
@@ -286,8 +286,8 @@ P:NPC {
           text = "A Bronzebeard who talks tae the elements, standin' in my camp, an' askin' me about the Firelord. Aye, the spirits here answer tae him, an' my kin in the mountain answer tae him too, an' that's the whole o' the trouble." },
       },
       choices = {
-        { text = "Even fire can be talked down.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "Some fires you just let burn out.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Even fire can be talked down.", next = "BACK", reply = "Then ye're braver than me, an' I'll watch from the wall. Mind yer eyebrows.", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "Some fires you just let burn out.", next = "BACK", reply = "Aye, an' that's my thinkin' too. Ye've a good head for a shaman.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "How did the Brotherhood break free?", next = "escape" },
       },
     },
@@ -344,8 +344,8 @@ P:NPC {
     prej = {
       lines = { { id = "prej_default", text = "Why would I? Yer folk see dark skin an' think Thaurissan, an' they don't stop tae ask whether I left him or not. So I've stopped askin' whether ye're any different, an' it saves time, an' I get tae sit down sooner." } },
       choices = {
-        { text = "The Brotherhood earned their freedom. Ironforge should see that.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "The Dark Irons burned Ironforge's lands. Distrust is earned.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Brotherhood earned their freedom. Ironforge should see that.", next = "BACK", reply = "Kind o' ye, an' I'll believe it when they do. Sit a while, if ye like.", fx = { align = { order = -1 } } },
+        { text = "The Dark Irons burned Ironforge's lands. Distrust is earned.", next = "BACK", reply = "Aye, it is, an' I'll no' argue it. I'll just keep sittin' till they see the difference.", fx = { align = { order = 1 } } },
         { text = "I'm not here to throw rocks. Sit down, Hansel.", next = "prej_ok", fx = { affinity = 1 } },
         { text = "Why did you leave the Dark Irons?", next = "prej_why" },
         { text = "Something else, Hansel.", next = "BACK" },
@@ -354,8 +354,8 @@ P:NPC {
     prej_why = {
       lines = { { id = "prejwhy_default", text = "Because the Firelord doesnae let ye sit down, an' I mean that true. We worked the forges till our hands blistered for a fire spirit who'd have burnt us without a thought, an' when the Brotherhood walked out, I walked wi' them." } },
       choices = {
-        { text = "That took courage. More than Ironforge credits.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "You served Ragnaros once. Some will never forget it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "That took courage. More than Ironforge credits.", next = "BACK", reply = "Thank ye, friend. It didnae feel like courage, only tiredness.", fx = { align = { light = 1 } } },
+        { text = "You served Ragnaros once. Some will never forget it.", next = "BACK", reply = "Some won't, an' I've made my peace wi' it. I'll sit down, all the same.", fx = { align = { light = -1 } } },
         { text = "Something else, Hansel.", next = "BACK" },
       },
     },
@@ -368,8 +368,8 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "The fire elementals, mostly, wanderin' about an' hissin' at the walls. Then there's the Dark Iron down the hill, an' the dragons over in the Steppes, an' Lolo's singin', though I'd never tell him that last one." } },
       choices = {
-        { text = "Meet them on the wall, and sleep after.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Set a few traps, and let them find those instead.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Meet them on the wall, and sleep after.", next = "BACK", reply = "That's Lolo's way too, an' I'll no' argue. I'll sleep after, then.", fx = { align = { honor = 1 } } },
+        { text = "Set a few traps, and let them find those instead.", next = "BACK", reply = "Now there's a plan I can get behind. Ye'll help me dig them, aye?", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -377,8 +377,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Lolo cannae see me sleepin', which is the beauty of it, though the old goat smells it somehow. Ye'd be surprised what slips past a tired dwarf, an' ye'd be more surprised what doesnae, so I'd no' try anythin'." } },
       choices = {
-        { text = "A sleeping guard is a gift, and I never waste gifts.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "Rest, Hansel. I'll keep watch for a while.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A sleeping guard is a gift, and I never waste gifts.", next = "BACK", reply = "I'd no' try it, friend, I've been tired a long while an' I still wake for thieves.", fx = { align = { honor = -1 } } },
+        { text = "Rest, Hansel. I'll keep watch for a while.", next = "BACK", reply = "Bless ye, friend, I'll take that kindly. Five minutes, an' no' a breath more.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Never mind that.", next = "BACK" },
       },
     },
@@ -386,8 +386,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Water's kind o' ye, though I'd still rather the chair. Down in the mountain we worked till we dropped, so a mage who thinks of a tired dwarf's comfort is a rare thing, an' I'll drink tae it." } },
       choices = {
-        { text = "You've earned your rest, Hansel. Drink up.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Freedom's wasted on a dwarf who only sits.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You've earned your rest, Hansel. Drink up.", next = "BACK", reply = "I'll drink tae ye, then, an' tae the chair. Thank ye.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Freedom's wasted on a dwarf who only sits.", next = "BACK", reply = "Then I'll waste it gladly, friend, for I've earned every minute.", fx = { align = { light = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
@@ -395,8 +395,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpriest_default", text = "Ye laugh, but I stood watch on the walls every night this week, an' the Dark Irons never once had the decency tae attack, so it was all standin' an' no glory. A blessin' on the feet would do more for this outpost than a dozen new swords, an' I'll say so tae Lolo's face." } },
       choices = {
-        { text = "Duty's often dull, Hansel. You stand it all the same.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Sit down, Hansel. The Dark Irons won't come tonight.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Duty's often dull, Hansel. You stand it all the same.", next = "BACK", reply = "Aye, it is, an' I'll stand it. Doesnae mean I have tae like it.", fx = { align = { order = 1 } } },
+        { text = "Sit down, Hansel. The Dark Irons won't come tonight.", next = "BACK", reply = "Bless ye for sayin' so. I'll sit, an' Lolo can grumble.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -404,8 +404,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "The Dark Irons, mostly, diggin' an' smeltin' day an' night in the Cauldron, an' the fire under Blackrock does the rest. Lolo says he can smell the earth gettin' angry, but Lolo says he can smell a lot o' things, an' I just want it quiet enough tae shut my eyes." } },
       choices = {
-        { text = "Stay awake, Hansel. Rumbling ground means trouble.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Let the earth grumble. Get your nap, Hansel.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stay awake, Hansel. Rumbling ground means trouble.", next = "BACK", reply = "Aye, I'll stay awake, though my eyes won't thank ye. Lolo's always right about the smells, worse luck.", fx = { align = { order = 1 } } },
+        { text = "Let the earth grumble. Get your nap, Hansel.", next = "BACK", reply = "That's the best advice I've heard all week. Wake me if the earth explodes.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -413,8 +413,8 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Only for an hour or two, an' only if it can count Dark Irons without eatin' any. Lolo would smell it in a heartbeat, mind, an' then I'd be standin' watch for a month as punishment, so maybe forget I said anythin'." } },
       choices = {
-        { text = "Stand your own watch, Hansel. That's the job.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Happy to help, Hansel. My demon won't tell.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Stand your own watch, Hansel. That's the job.", next = "BACK", reply = "Aye, aye, I know it is. Ye sound like Lolo.", fx = { align = { order = 1 } } },
+        { text = "Happy to help, Hansel. My demon won't tell.", next = "BACK", reply = "Bless ye, friend. Just keep it well clear o' Lolo's nose.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -494,8 +494,8 @@ P:NPC {
       lines = { { id = "mc_default", text = "Only the ones who fell, an' only when the taskmasters werenae lookin', for a slave who cannae walk was no use tae them. I'd put a lad on top o' the ore an' push, an' that's why my back's the way it is, an' I'd do it again." },
       },
       choices = {
-        { text = "That chair is the least you've earned, Hansel.", next = "BACK", fx = { align = { order = -1 }, affinity = 3, trait = { kind = 1 } } },
-        { text = "And now the Point needs that back working again.", next = "BACK", fx = { align = { order = 1 }, affinity = -1 } },
+        { text = "That chair is the least you've earned, Hansel.", next = "BACK", reply = "Kind o' ye, friend. I'll sit in it till the cliff falls.", fx = { align = { order = -1 }, affinity = 3, trait = { kind = 1 } } },
+        { text = "And now the Point needs that back working again.", next = "BACK", reply = "It does, an' it'll get it, when the back's willin'. Give it a day or two.", fx = { align = { order = 1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -503,8 +503,8 @@ P:NPC {
       lines = { { id = "bn_default", text = "Safe as bairns ever are on a cliff over a lava pit, which is no' very, but the spiders were the worst of it. Ye'd think a Dark Iron child would have more sense than tae poke a burnin' spider, but they're braver than us, for they've never known the whip." },
       },
       choices = {
-        { text = "Let them stay brave. That's what you escaped for.", next = "BACK", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Brave children get burned. Teach them fear.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Let them stay brave. That's what you escaped for.", next = "BACK", reply = "Aye, an' that's the best part o' them. I'd no' trade it for anythin'.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "Brave children get burned. Teach them fear.", next = "BACK", reply = "We knew fear plenty, friend, an' I'll no' teach it tae them. They'll learn caution soon enough.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -565,8 +565,8 @@ P:NPC {
       big = true,
       lines = { { id = "xpt_hunter_default", text = "Dark Iron patrols out of the Cauldron, mostly, and the odd fire elemental that wanders off from wherever they boil up. A good hunter sees the dust before the army, and that's all a lookout really is, a hunter who never gets to shoot." } },
       choices = {
-        { text = "Better to watch and warn than charge in blind.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Better to hunt them down before they reach the ridge.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Better to watch and warn than charge in blind.", next = "BACK", reply = "That's the job, an' you've the eyes for it, I'd wager. Stay and watch with me a while.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Better to hunt them down before they reach the ridge.", next = "BACK", reply = "Spoken like a hunter who's never had to watch an army come. Hold the ridge first, and hunt after.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

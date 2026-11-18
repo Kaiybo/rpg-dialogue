@@ -87,8 +87,8 @@ P:NPC {
         { id = "cc_default", text = "Then... then I don't know. My father would say a keeper's death is a seed and something grows from it, but I don't want a seed, I want my brother." },
       },
       choices = {
-        { text = "I'll bring him back to you, whatever it takes.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "If he's too far gone, I'll end it quickly.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll bring him back to you, whatever it takes.", next = "BACK", reply = "Would you? Then I'll wait here, and I'll keep my roots in the ground until you come back with him.", fx = { align = { honor = 1 } } },
+        { text = "If he's too far gone, I'll end it quickly.", next = "BACK", reply = "I hate that you said it, and I think you're right, so please, if it comes to that, be gentle.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -108,8 +108,8 @@ P:NPC {
         { id = "vs_default", text = "That my brother was his now, and that my sisters were already roots in his garden. He lies, he always lies, but some lies are worse because you can't prove them wrong." },
       },
       choices = {
-        { text = "Then I'll make him eat every word.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "He's a liar. Don't give his words a home.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Then I'll make him eat every word.", next = "BACK", reply = "Yes, please, and make him choke on them, and then come back and tell me how it sounded.", fx = { align = { light = -1 } } },
+        { text = "He's a liar. Don't give his words a home.", next = "BACK", reply = "I'm trying, I really am, but they keep coming back at night, louder each time I close my eyes.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -176,8 +176,8 @@ P:NPC {
         { id = "zk_default", text = "They did, and so the centaur are my cousins, which I've never been able to make sense of. Some of the keepers say the centaur should all be driven out of Desolace for it, and some say they never chose to be what they are." },
       },
       choices = {
-        { text = "They're your kin. They deserve a chance.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Kin or not, they must answer for it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "They're your kin. They deserve a chance.", next = "BACK", reply = "Thank you, I've always thought so, though it's not a popular opinion among the keepers.", fx = { align = { order = -1 } } },
+        { text = "Kin or not, they must answer for it.", next = "BACK", reply = "Perhaps they must, but I'm not sure who would judge them, or whether the judge would be any better.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -57,8 +57,8 @@ P:NPC {
         { id = "le_default", text = "Because those who want the art badly enough will find the path, and those who don't will waste my rods. Kulwia thinks I'm unfriendly, and she's right, but my students finish what they start." },
       },
       choices = {
-        { text = "Knowledge should be open to anyone who asks.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Hard paths make good students. Keep the ledge.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Knowledge should be open to anyone who asks.", next = "BACK", reply = "Then go and teach it in the valley yourself, and see how many of your students are still enchanting a year from now. The ledge stays.", fx = { align = { order = -1 } } },
+        { text = "Hard paths make good students. Keep the ledge.", next = "BACK", reply = "Good, you understand it. Climb when you're ready, and bring your own rods.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -97,8 +97,8 @@ P:NPC {
         { id = "lt_default", text = "I did, and I paid for it in the camps like everyone else, but my hands are clean of that work. Some say the knowledge itself was tainted, and I say the hand that uses it decides, and we'll never agree." },
       },
       choices = {
-        { text = "Knowledge is only a tool. The hand decides.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Some knowledge stains whoever learns it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Knowledge is only a tool. The hand decides.", next = "BACK", reply = "Then we agree, and you're welcome on my ledge. Use it well, and nobody will ever ask where it came from.", fx = { align = { light = -1 } } },
+        { text = "Some knowledge stains whoever learns it.", next = "BACK", reply = "Then you'll never learn from me, and that's your choice to make. I won't argue it again; I've had that argument for twenty years.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
