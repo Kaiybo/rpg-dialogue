@@ -2,6 +2,12 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.82.1 (2026-11-18)
+
+### Text to speech fix
+- **When a line fails to play, RPG Dialogue now tries another way to speak it.** On some clients the game's own speech routine is accepted but every line then fails to play. The addon now notices the failure, reads the line again with the next method, and keeps using whichever one works for the rest of the session.
+- `/rpgd tts` now reports the real reason a line failed (the old message showed a line number, such as 418, instead of the error) and which method it ended up using.
+
 ## 0.82.0 (2026-11-18)
 Seven parallel pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**
 

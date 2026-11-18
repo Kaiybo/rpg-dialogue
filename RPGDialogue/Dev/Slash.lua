@@ -218,6 +218,7 @@ commands.tts = function()
     tostring(f.name), tostring(C.TTSRate()), tostring(C.TTSVolume()), tostring(C.TTSGameVolume()))
   lines[#lines + 1] = "read aloud in conversations: " .. yes(ns.db.settings.tts)
   if C.TTS.lastError then lines[#lines + 1] = "last error: " .. C.TTS.lastError end
+  C.TTS.bad = {}   -- each test starts with every way to speak allowed again
   printList(L.TTS_HEADER, lines)
   if not C.TTSAvailable() then ns.Print(L.OPT_TTS_MISSING); return end
   C.TTS.verbose = true
