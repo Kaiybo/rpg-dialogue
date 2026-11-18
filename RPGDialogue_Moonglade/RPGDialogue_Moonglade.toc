@@ -20,3 +20,4 @@ npcs\festival.lua
 npcs\shrine.lua
 npcs\nighthaven_shops.lua
 npcs\nighthaven_market.lua
+npcs\missed.lua

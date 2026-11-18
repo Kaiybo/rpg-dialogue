@@ -31,4 +31,5 @@ npcs\missed.lua
 npcs\missed2.lua
 npcs\missed3.lua
 npcs\missed4.lua
+npcs\missed_saern.lua
 directions.lua

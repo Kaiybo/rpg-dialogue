@@ -127,7 +127,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     danger = {
-      lines = { { id = "d_default", text = "There are pirates down the shore and something very large with tentacles further out, but neither has shown the slightest interest in one small gnome. I think I simply don't look profitable, and I mean to keep it that way." } },
+      lines = { { id = "d_default", text = "There are pirates down the shore and sea turtles a good deal bigger than I am in the shallows, but neither has shown the slightest interest in one small gnome. I think I simply don't look profitable, and I mean to keep it that way." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     work = {

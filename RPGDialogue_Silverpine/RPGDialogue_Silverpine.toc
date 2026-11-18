@@ -27,3 +27,4 @@ npcs\modera_image.lua
 npcs\sepulcher_guests.lua
 npcs\sepulcher_market.lua
 npcs\more_folk.lua
+npcs\missed.lua
