@@ -15,7 +15,7 @@ P:NPC {
   notices = { "race", "travel" },
 
   impression = {
-    first = "Brohann Caskbelly has explored more of the world than most people have heard of, and now his knees won't let him finish. Asking for help costs him, and he asked anyway.",
+    first = "Asking for help costs him, and he asks anyway.",
     third = "{name} met Brohann Caskbelly of the Explorers' League, an old dwarf in Stormwind whose final assignment is the sunken Temple of Atal'Hakkar.",
   },
 

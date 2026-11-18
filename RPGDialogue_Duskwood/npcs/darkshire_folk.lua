@@ -11,7 +11,7 @@ P:NPC {
   notices = { "form", "stranger" },
 
   impression = {
-    first = "Jonathan Carevin watched my hands before he watched my face. His household goes out past the lamps after the dead, and he has the stillness of someone who does that often.",
+    first = "He watched my hands before he watched my face.",
     third = "{name} met Jonathan Carevin, whose household hunts demons and the walking dead beyond Darkshire's lamps.",
   },
 
@@ -270,7 +270,7 @@ P:NPC {
   notices = { "form", "trophy" },
 
   impression = {
-    first = "Calor asked whether I'd ever swung a blade at something that swung back. He stood a Night Watch post for years before joining Carevin, and it shows in how he watches the trees.",
+    first = "His years on the Night Watch show in how he watches trees.",
     third = "{name} met Calor, a former Night Watch guard who now hunts the dark of Duskwood alongside Jonathan Carevin.",
   },
 
@@ -508,7 +508,7 @@ P:NPC {
   notices = { "lore", "arcane" },
 
   impression = {
-    first = "Sirra Von'Indi lives under a landslide of papers and seems happiest when a visitor stands perfectly still. If it happened in Darkshire and someone wrote it down, he has read it twice.",
+    first = "If Darkshire wrote it down, he has read it twice.",
     third = "{name} met Sirra Von'Indi, Darkshire's historian, who knows the town's old scripts and older families.",
   },
 
@@ -799,7 +799,7 @@ P:NPC {
   notices = { "craft", "arcane" },
 
   impression = {
-    first = "Viktori Prism'Antras studies the stars from the darkest forest I know, and he is entirely aware of the joke. His delight over twenty minutes of open sky was catching.",
+    first = "He studies the stars from the darkest forest I know.",
     third = "{name} met Viktori Prism'Antras, an astronomer who studies the stars through a single gap in Duskwood's canopy.",
   },
 
@@ -1032,7 +1032,7 @@ P:NPC {
   notices = { "craft", "hunger" },
 
   impression = {
-    first = "Chef Grual runs the Scarlet Raven's kitchen with a cleaver and a grin, and calls every customer his favourite. It's the warmest place in Darkshire, in every sense.",
+    first = "His kitchen is the warmest place in Darkshire, in every sense.",
     third = "{name} met Chef Grual, who cooks for the Scarlet Raven and insists it is the best food in Darkshire.",
   },
 
@@ -1264,7 +1264,7 @@ P:NPC {
   notices = { "status", "soldier" },
 
   impression = {
-    first = "Councilman Millstipe keeps a list of grievances for anyone who looks remotely like Stormwind. He is angry in the patient, documented way of a man who's written too many letters.",
+    first = "He is angry like a man who has written too many letters.",
     third = "{name} met Councilman Millstipe of the Council of Darkshire, who has given up waiting for Stormwind to read his letters.",
   },
 
@@ -1531,7 +1531,7 @@ P:NPC {
   notices = { "weary", "kit" },
 
   impression = {
-    first = "Innkeeper Trelayne checks the shutters twice and told me not to stand in a lit doorway. In Darkshire that counts as hospitality, and I was grateful for it.",
+    first = "The warning not to stand in a lit doorway counts as hospitality.",
     third = "{name} took a room from Innkeeper Trelayne, who keeps Darkshire's guests indoors and its shutters firmly closed after dark.",
   },
 
@@ -1723,7 +1723,7 @@ P:NPC {
   notices = { "craft", "stealth" },
 
   impression = {
-    first = "Clarise Gnarltree teaches the craft with a heavy hammer and very little patience for anyone standing where the sparks go. There's a Gnarltree for every part of a fighter, she says.",
+    first = "There is a Gnarltree for every part of a fighter, she says.",
     third = "{name} met Clarise Gnarltree, who teaches smithing in Darkshire alongside Gavin and Morg Gnarltree.",
   },
 

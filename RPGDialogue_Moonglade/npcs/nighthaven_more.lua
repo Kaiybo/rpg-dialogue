@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/nighthaven.md", role = "vendor", tier = "service",
   communities = { "nighthaven" }, temper = { "gracious" }, values = { "dutiful", "nature" },
   impression = {
-    first = "Lorelae Wintersong keeps the Cenarion Circle's goods in Nighthaven, sold to those who've earned the Circle's trust. She keeps careful track of who has.",
+    first = "She keeps careful track of who has earned the Circle's trust.",
     third = "{name} met Lorelae Wintersong, who sells the Cenarion Circle's supplies in Nighthaven.",
   },
 

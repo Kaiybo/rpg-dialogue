@@ -14,7 +14,7 @@ P:NPC {
   notices = { "pet", "class" },
 
   impression = {
-    first = "Hekkru keeps Stonard's stables on the one patch of ground in town that doesn't flood, and he guards it like a treasure. He talks to the beasts more kindly than he talks to their owners.",
+    first = "He guards the one patch of ground that never floods.",
     third = "{name} met Hekkru, the stable master at Stonard, who keeps the beasts dry in a swamp that never is.",
   },
 
@@ -134,7 +134,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Rartar sells alchemy supplies in Stonard and keeps every vial on his shelf in an order only he understands. He works next to Rogvar the alchemist and quietly thinks he's the more careful of the two.",
+    first = "He keeps his vials in an order only he understands.",
     third = "{name} met Rartar, who sells vials and reagents to Stonard's alchemists.",
   },
 
@@ -144,12 +144,72 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
+      text = "There's green under your fingernails, so you gather. If you've brought anything in, show me before the damp gets at it." },
+    { id = "n_big", cat = "race", when = { race = "Tauren" },
+      text = "Careful, please. These shelves were built for orcs, and you're a good deal wider than an orc." },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman. Haromm buys his powders here, and he never knocks anything over, so I'm disposed to like your kind." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "An alchemist, by the stains on your fingers, and you'll be wanting my vials, so ask before you reach for anything." },
   },
 
   start = "hello",
   nodes = {
+    hall = {
+      lines = {
+        { id = "hl_default", text = "Rogvar brews at the back, Thultazor sells reagents two tables down, and Banalash has the trade goods by the door. Kartosh the warlock comes by for things I'd rather not name, and he always pays in exact coin, which I appreciate." },
+      },
+      choices = {
+        { text = "You and Thultazor sell much the same wares.", next = "hall_thultazor" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hall_thultazor = {
+      lines = {
+        { id = "ht_default", text = "We do not, and he'd say the same. He sells what goes into a spell, and I sell what goes into a bottle, and we agreed long ago that anyone who asks for both gets sent to the nearer table. It has kept the peace." },
+      },
+      choices = {
+        { text = "A sensible treaty.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    herbs = {
+      lines = {
+        { id = "hb_default", text = "More than you'd think. Blindweed comes up along the water's edge, liferoot grows on the banks, and there's a good deal of swamp moss if you can stand the smell. The trouble is everything that lives beside them." },
+      },
+      choices = {
+        { text = "What lives beside them?", next = "herbs_danger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    herbs_danger = {
+      lines = {
+        { id = "hd_default", text = "Crocolisks in the shallows, jaguars in the reeds, and the Lost Ones at the Fallow Sanctuary, who take a gatherer for a trespasser. I've had three herbalists stop coming, and only one of them told me why." },
+      },
+      choices = {
+        { text = "Then your stock is hard won.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xherb = {
+      lines = {
+        { id = "xh_default", text = "Blindweed along the Misty Reed shore and the pools west of the gate, and liferoot wherever the bank is steep. Cut it clean, wrap it in oilcloth the moment it's out of the mud, and bring it here the same day." },
+      },
+      choices = {
+        { text = "Oilcloth, and the same day. Understood.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwar = {
+      lines = {
+        { id = "xwr_default", text = "I did, and so did every orc my age. I carried the healers' satchels and kept the salves from spilling while warlocks shouted over my head. It taught me to label everything, and to stand well back from anyone who glows." },
+      },
+      choices = {
+        { text = "Careful hands were worth as much as axes.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -162,6 +222,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? Carefully, now." },
         { id = "h_again2", text = "Ask away, but keep your elbows in." },
+        { id = "h_again3", text = "Yes? Mind the lower shelf while you ask." },
       },
       choices = {
         { text = "Let me see your stock.", next = "BUSINESS" },
@@ -169,6 +230,10 @@ P:NPC {
         { text = "What's Rogvar like to work beside?", next = "rogvar" },
         { text = "What does the swamp do to reagents?", next = "damp" },
         { text = "Do you stock anything rare for an alchemist?", next = "xalch", when = { profession = "Alchemy" } },
+        { text = "Who else works out of this hall?", next = "hall" },
+        { text = "Something useful must grow in all this mud.", next = "herbs" },
+        { text = "I gather my own herbs. What grows near Stonard?", next = "xherb", when = { profession = "Herbalism" } },
+        { text = "You said you slept beside worse in the war.", next = "xwar", when = { race = "Orc" } },
         { text = "I'll keep my elbows to myself.", next = "END" },
       },
     },
@@ -229,7 +294,7 @@ P:NPC {
   notices = { "craft", "purse" },
 
   impression = {
-    first = "Banalash sells thread, dye, flux and everything else the craftsmen of Stonard need, and he keeps a running tally of who owes him what. He trades with the Booty Bay goblins and has picked up a little of their habit of pricing everything aloud.",
+    first = "He keeps a running tally of who owes him what.",
     third = "{name} met Banalash, the trade supplier at Stonard.",
   },
 
@@ -326,7 +391,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Gharash keeps the forge supplies at Stonard: flux, coal, stones and hammers. He's a quiet smith who says the swamp is the worst place on Azeroth to work iron, and then goes back to working it.",
+    first = "He calls the swamp the worst place for ironwork, then works it.",
     third = "{name} met Gharash, who sells blacksmithing supplies at Stonard.",
   },
 
@@ -336,12 +401,82 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_rust", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Your gear's gone orange at the rivets, which is the swamp's doing. See to it today, because tomorrow it'll be worse." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc who looks after his own steel, I hope. Half the grunts here wait until the axe head falls off." },
+    { id = "n_miner", cat = "craft", when = { profession = "Mining" },
+      text = "That's a miner's pick on your pack, and it's seen use. If you've ore to sell, I'm listening." },
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
       text = "A smith, by your forearms, and a good one, I'd guess, since you've still got all your fingers." },
   },
 
   start = "hello",
   nodes = {
+    stonard = {
+      lines = {
+        { id = "sn_default", text = "It does, for an outpost. Hartash makes the weapons and Grimnal sells the mail and plate, and both of them need coal, flux and whetstones every day. Thralosh has the cloth and leather, so he needs nothing from me and says so often." },
+      },
+      choices = {
+        { text = "Who decides what the forge makes first?", next = "stonard_ruag" },
+        { text = "A town this size, and three armourers.", next = "stonard_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stonard_ruag = {
+      lines = {
+        { id = "sr_default", text = "Dispatch Commander Ruag does, and it's always the same order: the grunts on the wall first, the scouts second, and everyone else when there's iron left. I don't argue, because he's the one who counts the dead." },
+      },
+      choices = {
+        { text = "The wall first is the right order.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stonard_why = {
+      lines = {
+        { id = "sy_default", text = "Because this was the Horde's first stronghold on this world, and it has never once been safe. There are Lost Ones in the marsh, murlocs on the coast, and the humans' keep watching us from the Blasted Lands, so we stay armed." },
+      },
+      choices = {
+        { text = "Then your coal matters more than most.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    caravans = {
+      lines = {
+        { id = "cv_default", text = "Goblins out of Booty Bay, with mules up to their bellies in mud by the time they reach the gate. They charge for the mud too. Banalash deals with them for the trade goods, and I stand behind him and look at the ore before he pays." },
+      },
+      choices = {
+        { text = "Do they ever try to cheat you?", next = "caravans_cheat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    caravans_cheat = {
+      lines = {
+        { id = "cc_default", text = "Once. There was slag at the bottom of every sack, under a hand's depth of good iron. I emptied the sacks at their feet, and they have brought clean ore ever since, and smiled while they did it." },
+      },
+      choices = {
+        { text = "A goblin respects a buyer who checks the sack.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmine = {
+      lines = {
+        { id = "xm_default", text = "There's iron in the southern hills and mithril deeper in, but the Dreadmaul ogres sit on it. Go if you must, and go quietly, and if you come back with more than you need, I'll pay better than any goblin." },
+      },
+      choices = {
+        { text = "I'll bring you the first sack.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwar = {
+      lines = {
+        { id = "xw_default", text = "Oil, every night, and a dry rag before the oil. Hang your mail by the fire and never leave it in a pack. It's dull work, but a link that rusts through is the one the spear finds." },
+      },
+      choices = {
+        { text = "Then sell me oil and a whetstone.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -354,6 +489,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Something else? The coal's waiting." },
         { id = "h_again2", text = "Ask, then. I'll keep the fire going." },
+        { id = "h_again3", text = "Go on. Talk over the bellows if you must." },
       },
       choices = {
         { text = "Let me see the supplies.", next = "BUSINESS" },
@@ -361,6 +497,10 @@ P:NPC {
         { text = "Where does your ore come from?", next = "ore" },
         { text = "Do you work with Hartash, the weaponsmith?", next = "hartash" },
         { text = "What's the secret to working iron in the damp?", next = "xsmith", when = { profession = "Blacksmithing" } },
+        { text = "Stonard keeps a good many smiths busy.", next = "stonard" },
+        { text = "You buy your ore from goblins, you said.", next = "caravans" },
+        { text = "I mine my own ore. Is there iron worth the risk?", next = "xmine", when = { profession = "Mining" } },
+        { text = "My armour takes a beating. What keeps rust off?", next = "xwar", when = { class = { "WARRIOR", "SHAMAN", "HUNTER" } } },
         { text = "I'll be going.", next = "END" },
       },
     },

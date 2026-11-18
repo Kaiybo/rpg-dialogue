@@ -10,7 +10,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "bitter", "haunted" }, values = { "loyal", "vengeful" },
   notices = { "race", "class", "deeds" },
   impression = {
-    first = "Drulzegar Skraghook was the only one of his fishing crew to come home when the naga struck, and he has not fished since. He pays strangers to kill naga and it never seems to be enough, because the guilt isn't something a bounty can settle.",
+    first = "No naga bounty will ever settle his guilt at coming home alone.",
     third = "{name} met Drulzegar Skraghook, the troll at Shadowprey who lost his whole crew to the Slitherblade naga.",
   },
 
@@ -185,7 +185,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "warm", "wry" }, values = { "hospitality", "community" },
   notices = { "race", "weary", "drink" },
   impression = {
-    first = "Innkeeper Sikewa runs a tauren inn in a troll village on the edge of a dead land, and she seems to find all of that more funny than sad. She knows everyone's business and keeps most of it.",
+    first = "She knows everyone's business and keeps most of it.",
     third = "{name} met Innkeeper Sikewa, the tauren who keeps the inn at Shadowprey Village.",
   },
 
@@ -306,16 +306,19 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "laconic", "patient" }, values = { "duty", "nature" },
   notices = { "race", "weary" },
   impression = {
-    first = "Thalon keeps the wind riders at the very end of Shadowprey's dock, where the sea wind is strongest. He says little, watches the horizon a great deal, and talks to his riders more than to travellers.",
+    first = "He says little and watches the horizon a great deal.",
     third = "{name} met Thalon, the tauren wind rider master at the end of Shadowprey's dock.",
   },
 
   greetings = {
     { id = "g_default", text = "Flying, {class}? The sea wind is good for it today." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The riders are rested; they'll take you wherever you're bound." },
+    { id = "g_away", when = { away = 14 }, text = "{away} since you last flew from here. The riders have kept the sky warm for you." },
   },
 
   notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "You hold your footing well on a wet dock, for one of our people. Most of us look at the gaps between the planks and go pale." },
     { id = "n_skyborne", cat = "race", when = { race = "Skyborne" },
       text = "You're one of the sky folk. The riders like the smell of you; it's the smell of high places." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -332,6 +335,7 @@ P:NPC {
           text = "I am Thalon. My riders fly from the end of this dock to Thunder Bluff, to Sun Rock in the mountains, and south to Feralas, and they like the sea wind better than any other." },
       },
       again = {
+        { id = "h_again3", text = "Yes? Speak up, the wind takes soft voices." },
         { id = "h_again", text = "What else? The riders are in no hurry, and neither am I." },
         { id = "h_again2", text = "Ask, then. The tide's turning; I've time." },
       },
@@ -339,6 +343,10 @@ P:NPC {
         { text = "Why keep the riders out on the dock?", next = "dock" },
         { text = "What do you see from up there?", next = "see" },
         { text = "I need a flight.", next = "BUSINESS" },
+        { text = "Who do you fly for, mostly?", next = "passengers" },
+        { text = "The village trusts your eyes, I think.", next = "watch" },
+        { text = "I'd know the wind if you taught me.", next = "wind", when = { class = { "SHAMAN", "HUNTER", "DRUID" } } },
+        { text = "A tauren who chose the sea. That's rare.", next = "tauren", when = { race = "Tauren" } },
         { text = "Farewell, Thalon.", next = "END" },
       },
     },
@@ -390,6 +398,61 @@ P:NPC {
         { text = "I'll trust them too.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Do you name your riders?", next = "see_names" },
         { text = "Farewell, Thalon.", next = "END" },
+      },
+    },
+    passengers = {
+      lines = {
+        { id = "passengers_d", text = "Fishermen's cargo to Thunder Bluff, messengers for Jinar'Zillen, and braves bound for Ghost Walker Post who would rather not walk past the Kolkar. Now and then Roon Wildmane sends a hunter north in a hurry, and never tells me why." },
+      },
+      choices = {
+        { text = "And who flies in?", next = "passengers_in" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    passengers_in = {
+      lines = {
+        { id = "passengers_in_d", text = "Young ones, mostly, sent from the Crossroads with more courage than water. I can tell how long they will last in Desolace by whether they thank the wind rider when they climb down." },
+      },
+      choices = {
+        { text = "I thanked mine.", next = "BACK", fx = { affinity = 1 } },
+        { text = "It's a beast doing its work.", next = "BACK", reply = "It is. So are you, and I expect you like to be thanked.", fx = { trait = { stern = 1 } } },
+      },
+    },
+    watch = {
+      lines = {
+        { id = "watch_d", text = "They do, though they have their own Shadowprey Guardians on the sand. From the end of the dock I see the sails and the fins before anyone, and I have a horn for the things that have neither." },
+      },
+      choices = {
+        { text = "Would you sound it for one naga?", next = "watch_horn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch_horn = {
+      big = true,
+      lines = {
+        { id = "watch_horn_d", text = "That is the question I ask myself every night. Sound it too often and the village stops rising for it, and hold it too long and someone's child is taken off the sand." },
+      },
+      choices = {
+        { text = "Sound it every time. Better tired than taken.", next = "BACK", reply = "That is what I do, and the fishermen curse me for it at dawn. I would rather be cursed.", fx = { align = { order = 1 } } },
+        { text = "Trust your judgement. A horn loses its meaning.", next = "BACK", reply = "So Lui'Mala says, usually when I have woken him. Perhaps you are both right, and I will go on not listening.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wind = {
+      lines = {
+        { id = "wind_d", text = "Then stand here and close your eyes, and tell me which cheek is colder. Now you know where the weather is coming from, and that is the first of about a thousand lessons." },
+      },
+      choices = {
+        { text = "And the second?", next = "BACK", reply = "The second is to come back tomorrow. The wind does not teach in a hurry.", fx = { trait = { patient = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren = {
+      lines = {
+        { id = "tauren_d", text = "Sikewa and Aboda came for the kodo, and I came because a wind rider needed a master and nobody else would live on a dock. I thought I would hate the salt, and instead I have come to need it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

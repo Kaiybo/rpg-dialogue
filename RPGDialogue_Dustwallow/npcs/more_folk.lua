@@ -13,7 +13,7 @@ P:NPC {
   temper = { "nervous", "cheerful" }, values = { "practical", "loyal" },
   notices = { "weary", "pet" },
   impression = {
-    first = "\"Stinky\" Ignatz was picking bogbean leaves for a cook in Theramore with raptors circling him, and he greeted me like a long-lost brother. The nickname, I noticed, was earned honestly.",
+    first = "The nickname, I noticed, was earned honestly.",
     third = "{name} met \"Stinky\" Ignatz, a nervous leaf-gatherer surrounded by raptors north of North Point Tower.",
   },
   greetings = {
@@ -125,7 +125,7 @@ P:NPC {
   temper = { "bitter", "weary" }, values = { "practical", "loyal" },
   notices = { "soldier", "class" },
   impression = {
-    first = "Balos Jacken leads the deserters squatting in the old tower at Lost Point, and he surrendered with very bad grace. He blames Vimes, the marsh and one man named Reethe, roughly in that order.",
+    first = "He blames Vimes, the marsh and Reethe, roughly in that order.",
     third = "{name} met Balos Jacken, the deserter lieutenant holed up at Lost Point.",
   },
   greetings = {
@@ -231,7 +231,7 @@ P:NPC {
   communities = { "theramore" }, temper = { "sharp", "gruff" }, values = { "profit", "practical" },
   notices = { "purse", "stealth" },
   impression = {
-    first = "Privateer Groy loiters by Theramore's docks shouting about late shipments, and he sells akiris reed to a client he won't name. He treats every stranger as either a courier or a nuisance.",
+    first = "He treats every stranger as either a courier or a nuisance.",
     third = "{name} met Privateer Groy, an impatient reed dealer on the Theramore docks.",
   },
   greetings = {
@@ -331,7 +331,7 @@ P:NPC {
   communities = { "theramore" }, temper = { "warm", "proud" }, values = { "craft", "loyal" },
   notices = { "mount", "race" },
   impression = {
-    first = "Gregor MacVince breeds horses on an island in a swamp, and he talks about them as companions for the ages. He only sells to humans and to those Stormwind trusts, and he is apologetic but firm about it.",
+    first = "He sells only to humans and those Stormwind trusts, apologetic but firm.",
     third = "{name} met Gregor MacVince, the horse breeder on Theramore Isle.",
   },
   greetings = {
@@ -425,9 +425,9 @@ P:NPC {
   key = "michael_stable", id = TODO_NPC("Michael"), name = "Michael", title = "Stable Master",
   bible = "bibles/more_folk.md", role = "stablemaster", tier = "service",
   communities = { "theramore" }, temper = { "calm", "gentle" }, values = { "duty", "craft" },
-  notices = { "pet" },
+  notices = { "pet" , "class" },
   impression = {
-    first = "Michael keeps the stables outside Theramore's inn and spends half his day brushing mud out of animals that don't belong to him. He seemed to like them more than their owners, and didn't hide it.",
+    first = "He likes the animals more than their owners and doesn't hide it.",
     third = "{name} met Michael, the stable master outside the Theramore inn.",
   },
   greetings = {
@@ -437,6 +437,10 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Your {pet} has been in the marsh, I can tell, and it's carrying half of it in its coat. Leave it with me a night and I'll have it clean." },
+    { id = "n_b1", cat = "pet", when = { pet = { family = "Crocolisk" } },
+      text = "A crocolisk! I'd ask you to keep it clear of the buckets, if it's all the same to you." },
+    { id = "n_b2", cat = "class", when = { class = "DRUID" },
+      text = "The animals have all turned to look at you, and they don't do that for me. I'd give a month's wages to know what they see." },
   },
   start = "hello",
   nodes = {
@@ -449,12 +453,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? I've a cat in the back that needs brushing." },
         { id = "h_again2", text = "Go on. The animals don't mind if we talk." },
+        { id = "h_again_b1", text = "Something more? The beasts aren't going anywhere, and neither am I." },
+        { id = "h_again_b2", text = "Ask away, while this one finishes her supper." },
       },
       choices = {
         { text = "I need to stable a companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What do people leave with you?", next = "beasts" },
         { text = "How do you keep animals clean in this marsh?", next = "mud" },
         { text = "You seem fonder of the beasts than their owners.", next = "fond" },
+        { text = "There's a Theramore warhorse in your end stall.", next = "warhorse" },
+        { text = "Does the marsh ever send you its own beasts?", next = "wild" },
+        { text = "Which marsh herbs do you burn against the flies?", next = "herbs", when = { profession = { "Herbalism", "Alchemy" } } },
         { text = "That's all.", next = "END" },
       },
     },
@@ -489,10 +498,56 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    warhorse = {
+      lines = {
+        { id = "b_warhorse_default", text = "That's one of Gregor MacVince's, in for a strained hock. He breeds the garrison's horses out past the gate, and he sends me the ones that need quiet more than they need exercise." },
+      },
+      choices = {
+        { text = "Do horses take to the marsh?", next = "warhorse_marsh" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warhorse_marsh = {
+      lines = {
+        { id = "b_warhorse_marsh_default", text = "Not gladly. The ground gives under them and the crocolisks take them for a meal, so the patrols mostly go on foot and the horses stay on the isle." },
+      },
+      choices = {
+        { text = "No wonder the guards look so tired.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wild = {
+      lines = {
+        { id = "b_wild_default", text = "Now and then. A guard brought in a marsh raptor chick last spring, no longer than my forearm, and it bit everyone in the stable before it left." },
+      },
+      choices = {
+        { text = "What became of it?", next = "wild_raptor" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wild_raptor = {
+      lines = {
+        { id = "b_wild_raptor_default", text = "A hunter off the Menethil boat took a liking to it, and it took a liking to her, which surprised us both. I'm told it's the size of a pony now and still bites." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    herbs = {
+      lines = {
+        { id = "b_herbs_default", text = "Bogbean leaf, mostly, with a little swamp moss to make it smoulder. Morgan Stern at the inn showed me the mix, though he uses his for cooking, and I'd not eat anything that smells like mine." },
+      },
+      choices = {
+        { text = "I'll remember the bogbean.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I've always been better with animals than people. Theramore needed a stable master, and here I am." } },
     advice = { { id = "tp_ad", text = "Keep your companion off the low ground at night, and check it for leeches." } },
+    theramore = { { id = "tp_b_theramore", text = "It's damp and it's crowded, but folk here look after one another. The animals feel that, and they settle quicker than you'd think." } },
+    rumors = { { id = "tp_b_rumors", text = "The guards say a horse came back from the north road last week with no rider and claw marks on the saddle. It's in my back stall, and it still won't stand still." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Ask me about animals, though." } },
   },
 }
@@ -506,7 +561,7 @@ P:NPC {
   communities = { "brackenwall" }, temper = { "gruff", "proud" }, values = { "proud", "craft" },
   notices = { "class", "race" },
   impression = {
-    first = "Zulrg sells weapons in Brackenwall, and he judges each one by how hard it hits rather than how it looks. He speaks of himself by name and seems a little proud that he can count his stock.",
+    first = "He judges a weapon by how hard it hits, not its looks.",
     third = "{name} met Zulrg, the Stonemaul ogre who sells weapons in Brackenwall Village.",
   },
   greetings = {
@@ -518,6 +573,8 @@ P:NPC {
       text = "You are a fighter, Zulrg can tell, because you look at the axes before you look at Zulrg. That is the right order." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "Big one! Zulrg likes selling to tauren, because tauren can lift the big weapons and do not complain about weight." },
+    { id = "n_b1", cat = "class", when = { class = "HUNTER" },
+      text = "Hunter carries a bow. Zulrg does not sell bows, because bows are for hitting from far away, so go and see the orc Zanara for those." },
   },
   start = "hello",
   nodes = {
@@ -530,12 +587,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Zulrg is counting axes." },
         { id = "h_again2", text = "Ask Zulrg. Zulrg knows weapons." },
+        { id = "h_again_b1", text = "More talk? Zulrg can count and talk at the same time, mostly." },
+        { id = "h_again_b2", text = "Ask. Axes do not go anywhere." },
       },
       choices = {
         { text = "Let me see your weapons.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Which weapon would you choose?", next = "choose" },
         { text = "Where do the weapons come from?", next = "source" },
         { text = "How do the Stonemaul like living with orcs?", next = "orcs" },
+        { text = "That club is taller than you are, Zulrg.", next = "club" },
+        { text = "Who else trades in Brackenwall?", next = "traders" },
+        { text = "What do the Stonemaul think of the dragons?", next = "dragons", when = { class = { "WARRIOR", "SHAMAN" }, faction = "Horde" } },
         { text = "Farewell, Zulrg.", next = "END" },
       },
     },
@@ -573,10 +635,56 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    club = {
+      lines = {
+        { id = "b_club_default", text = "This one was Zulrg's father's, and his father's before. It has hit centaur and orcs and one very surprised dragon whelp, and it is not for sale, so do not ask." },
+      },
+      choices = {
+        { text = "What happened to the whelp?", next = "club_whelp" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    club_whelp = {
+      lines = {
+        { id = "b_club_whelp_default", text = "It went flat. Then its mother came, and she was not a whelp, and Zulrg learned that even a very good club is no use against something that breathes fire from the sky." },
+      },
+      choices = {
+        { text = "That's when you lost the old village.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    traders = {
+      lines = {
+        { id = "b_traders_default", text = "Krak sells the armor, and Krak is Zulrg's friend, because a customer who buys an axe needs a shield after. The orc Zanara sells bows, and Ogg'marr sells meat, and the troll Balai sells little bottles." },
+      },
+      choices = {
+        { text = "Do the ogres and the orcs share customers?", next = "traders_share" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    traders_share = {
+      lines = {
+        { id = "b_traders_share_default", text = "Orcs buy from orcs first, and then they come to Zulrg when they want something big. Zulrg does not mind being second, because the big weapons cost more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dragons = {
+      lines = {
+        { id = "b_dragons_default", text = "Stonemaul hate the dragons, and hate is good, but Mok'Morokk says wait and wait. Tharg says a chief who waits is not a chief, and Zulrg sells Tharg his axes and says nothing." },
+      },
+      choices = {
+        { text = "Tharg sounds like he has a point.", next = "BACK", reply = "Zulrg did not say that. Zulrg only sells axes, and maybe Zulrg sharpens Tharg's a little better." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "Zulrg is Stonemaul and Zulrg sells weapons, and that is the whole of Zulrg." } },
     advice = { { id = "tp_ad", text = "Buy the heavy one. Light weapons are for small hands." } },
+    onyxia = { { id = "tp_b_onyxia", text = "Zulrg has heard the name. The black dragons in the south serve a big one, and Zulrg does not have an axe big enough for her." } },
+    thrall = { { id = "tp_b_thrall", text = "The orc chief sent help when the Stonemaul had no home. Zulrg remembers who helps, and Zulrg sells to them first." } },
     _none = { { id = "tp_none", text = "Zulrg does not know that thing. Zulrg knows axes, so ask about axes." } },
   },
 }

@@ -10,7 +10,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "grave", "steady" }, values = { "devout", "duty" },
   notices = { "class", "race", "fel" },
   impression = {
-    first = "Taiga Wisemane is a grave old tauren who speaks about demons the way farmers speak about locusts, as a plague that has come before and will come again. He wants the Burning Blade's portals shut and is not interested in who gets the credit.",
+    first = "He speaks of demons the way farmers speak of locusts.",
     third = "{name} met Taiga Wisemane, the tauren elder at Shadowprey Village who would take the Hand of Iruxos from the Burning Blade.",
   },
 
@@ -199,7 +199,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "blunt", "restless" }, values = { "brave", "nature" },
   notices = { "class", "race", "deeds" },
   impression = {
-    first = "Vark Battlescar keeps an upstairs room in Shadowprey with a vial on the table and a scar he doesn't explain. He wants Maraudon's plants healed, and he talks about the satyr Vyletongue like a personal enemy.",
+    first = "He has a scar he doesn't explain and a grudge against Vyletongue.",
     third = "{name} met Vark Battlescar, the scarred tauren at Shadowprey Village who would heal Maraudon's vines.",
   },
 
@@ -258,6 +258,8 @@ P:NPC {
         { text = "How did you get your scar?", next = "scar" },
         { text = "Why does a warrior care about plants?", next = "plants" },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "Druids of my circle would want this healed too.", next = "druid", when = { class = "DRUID" } },
+        { text = "An orc guarding flowers. Thrall's Horde is strange.", next = "orc", when = { race = "Orc" } },
         { text = "Farewell, Vark.", next = "END" },
       },
     },
@@ -377,6 +379,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    druid = {
+      lines = {
+        { id = "druid_d", text = "Then you understand it better than I do, and I'll not pretend otherwise. I only know that the tauren here grieve for that place, and that a warrior who ignores what his allies grieve for is no ally." },
+      },
+      choices = {
+        { text = "That's reason enough.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orc = {
+      lines = {
+        { id = "orc_d", text = "Ha! It is, and I've been laughed at for it by better orcs than you. But we drank the demons' blood once and called it strength, so I'll take a vial of plant-water over that any day of my life." },
+      },
+      choices = {
+        { text = "So would I.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -393,7 +413,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "genial", "wistful" }, values = { "friendship", "nature" },
   notices = { "class", "race", "pet" },
   impression = {
-    first = "Roon Wildmane is an old tauren hunter who keeps a kodo horn polished for a friend he hasn't seen in years. He talks about Hemet Nesingwary the way some people talk about the best summer of their lives.",
+    first = "He polishes a kodo horn for a friend unseen in years.",
     third = "{name} met Roon Wildmane, the tauren hunter at Shadowprey Village who once hunted Desolace with Hemet Nesingwary.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   communities = { "marshals_refuge" }, temper = { "nervous", "wry" }, values = { "practical", "profit" },
   notices = { "craft", "travel" },
   impression = {
-    first = "Spark Nilminer is the Marshal Expedition's chief digger and hates every minute of it. He'd give the gold teeth from his mouth to leave Un'Goro, and he doesn't much care where the expedition's dinosaur bones come from.",
+    first = "He would give his gold teeth to leave Un'Goro.",
     third = "{name} met Spark Nilminer, the Marshal Expedition's reluctant chief digger at Marshal's Refuge.",
   },
 

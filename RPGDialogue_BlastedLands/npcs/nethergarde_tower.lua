@@ -10,7 +10,7 @@ P:NPC {
   notices = { "craft", "arcane" },
 
   impression = {
-    first = "Nina Lightbrew sells alchemy supplies from the top floor of Nethergarde's tower, among the mages who watch the Dark Portal. She's practical and quick, and she thinks the Blasted Lands' strange plants deserve more respect than they get.",
+    first = "She thinks the strange plants here deserve more respect.",
     third = "{name} met Nina Lightbrew, who sells alchemy supplies at the top of Nethergarde's tower.",
   },
 

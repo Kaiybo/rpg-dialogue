@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Mountaineer Stormpike guards the Loch with a scowl and a long memory, and he'll tell you about his exploits before you ask.",
+    first = "He will tell you about his exploits before you ask.",
     third = "{name} met Mountaineer Stormpike, a grumpy but able Mountaineer of Loch Modan.",
   },
 
@@ -216,7 +216,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Mountaineer Cobbleflint holds the south tower over the Badlands road, and he wants the troggs thinned out before they come over the wall.",
+    first = "He wants the troggs thinned before they come over the wall.",
     third = "{name} met Mountaineer Cobbleflint at the south gate of Loch Modan.",
   },
 
@@ -399,7 +399,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Mountaineer Rockgar holds Algaz Station at the north pass, where Loch Modan gives way to the Wetlands and the Dragonmaw.",
+    first = "Beyond his pass lie the Wetlands and the Dragonmaw.",
     third = "{name} met Mountaineer Rockgar, who commands the pass at Algaz Station.",
   },
 
@@ -579,7 +579,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Bingles Blastenheimer is a gnome camped by the loch who has managed to lose almost every one of his tools at once.",
+    first = "He managed to lose almost every one of his tools at once.",
     third = "{name} met Bingles Blastenheimer, a scattered gnome tinkerer camped by the waters of Loch Modan.",
   },
 

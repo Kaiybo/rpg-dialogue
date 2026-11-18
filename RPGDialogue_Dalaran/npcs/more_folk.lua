@@ -12,7 +12,7 @@ P:NPC {
   notices = { "race", "reputation" },
 
   impression = {
-    first = "Prospector Stonehewer is Explorers' League first and soldier second, and she wants the Frostwolves beaten mostly so she can get on with digging. She calls the plunder 'recovered treasures' and nearly keeps a straight face.",
+    first = "She calls the plunder recovered treasures and nearly keeps a straight face.",
     third = "{name} met Prospector Stonehewer, the Explorers' League prospector who sends soldiers against Drek'Thar so the League can dig in Alterac Valley.",
   },
 
@@ -152,7 +152,7 @@ P:NPC {
   notices = { "soldier", "pvp" },
 
   impression = {
-    first = "Sergeant Durgen Stormpike gives out the Guard's plainest orders: take a mine, pull a banner, hold a graveyard. He shares Vanndar's name and won't say how closely, which tells me he's tired of being asked.",
+    first = "He shares Vanndar's name and won't say how closely.",
     third = "{name} met Sergeant Durgen Stormpike, who sends the Stormpike Guard after Alterac Valley's mines, towers and graveyards.",
   },
 
@@ -184,6 +184,7 @@ P:NPC {
           text = "Sergeant Durgen Stormpike. A dwarf, good! Ye'll know a mine when ye see one, so let's start ye there." },
       },
       again = {
+        { id = "h_again3", text = "Ye've time for questions, have ye? Then the Frostwolves must be havin' a quiet day." },
         { id = "h_again", text = "What else, soldier?" },
         { id = "h_again2", text = "Quick, now. There's a war on." },
       },
@@ -192,6 +193,8 @@ P:NPC {
         { text = "Tell me about the towers.", next = "towers" },
         { text = "Why fight over graveyards?", next = "graves" },
         { text = "Stormpike? Any relation to Vanndar?", next = "name" },
+        { text = "I'm a dwarf of Ironforge. Where am I needed most?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "The Guard knows my name by now, Sergeant.", next = "known", when = { reputation = { faction = "Stormpike Guard", min = "honored" } } },
         { text = "I'll get to it, Sergeant.", next = "END" },
       },
     },
@@ -273,8 +276,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dwarf = {
+      lines = { { id = "dw_default", text = "In the Irondeep, for nae human kens a prop from a pillar an' I've had enough o' them bringin' the roof down on our own supplies. Take it, hold it, an' tell me honestly whether the troggs have been diggin' where they shouldnae." } },
+      choices = {
+        { text = "I'll read the stone for you, Sergeant.", next = "BACK", reply = "Good. That's worth more tae me than another axe, though I'll take the axe an' all.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    known = {
+      lines = { { id = "kn_default", text = "Aye, it does, an' I've written it in more than one report. I'll say this once, for I'm no' a dwarf for speeches: the lads fight better on a day they've seen ye go through the gate." } },
+      choices = {
+        { text = "Then I'll keep going through it.", next = "BACK", reply = "See that ye do. Now away wi' ye, before I say somethin' else kind.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    vanndar = { { id = "tp_vanndar", text = "The General holds Dun Baldar an' he'll hold it till the mountain falls. That's all a sergeant needs tae know about him." } },
+    frostwolf = { { id = "tp_frost", text = "Hard fighters, an' they ken every drift in that valley. I dinnae hate them, soldier, but I mean tae beat them." } },
     _none = { { id = "tp_none", text = "I give orders, soldier. Ask the Prospector if ye want somethin' clever." } },
   },
 }
@@ -287,7 +306,7 @@ P:NPC {
   notices = { "soldier", "pvp" },
 
   impression = {
-    first = "Corporal Teeka Bloodsnarl sends the Horde against Alterac Valley's mines, towers and graveyards, and she has no patience for anyone waiting for others to claim their glory. She fights for the Frostwolves as if they were her own blood.",
+    first = "She fights for the Frostwolves as if they were her own blood.",
     third = "{name} met Corporal Teeka Bloodsnarl, who sends the Horde after Alterac Valley's mines, towers and graveyards for the Frostwolf Clan.",
   },
 
@@ -321,6 +340,7 @@ P:NPC {
           text = "Corporal Teeka Bloodsnarl. The Frostwolves remember who sheltered the Warchief's people in Kalimdor, tauren, so you are welcome in this valley." },
       },
       again = {
+        { id = "h_again3", text = "You still have words. Spend them quickly, then spend your strength on the Stormpike." },
         { id = "h_again", text = "What else? Speak, then fight." },
         { id = "h_again2", text = "Ask. The snow will not melt while you do." },
       },
@@ -329,6 +349,8 @@ P:NPC {
         { text = "Tell me about the towers.", next = "towers" },
         { text = "Why do the graveyards matter?", next = "graves" },
         { text = "Who are the Frostwolves to you?", next = "clan" },
+        { text = "The spirits of this valley are restless.", next = "spirits", when = { class = "SHAMAN" } },
+        { text = "The Frostwolves know my deeds, Corporal.", next = "known", when = { reputation = { faction = "Frostwolf Clan", min = "honored" } } },
         { text = "Lok'tar, Corporal.", next = "END" },
       },
     },
@@ -411,8 +433,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    spirits = {
+      lines = { { id = "sp_default", text = "You hear them too, then. Drek'Thar says the snow and stone of this valley have known the Frostwolves for years, and that they do not welcome picks in their sides. I am no shaman, but I believe him." } },
+      choices = {
+        { text = "The elements remember who honours them.", next = "BACK", reply = "Then ask them to remember us at the towers. We will give them Stormpike banners to bury.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    known = {
+      lines = { { id = "kn_default", text = "They do. The wolf riders speak of you at the fires, and that is not a thing they do for outsiders. You were not born to this clan, but you bleed beside it, and the Frostwolves count that the same." } },
+      choices = {
+        { text = "It is an honour to be counted.", next = "BACK", reply = "Good. Do not let it make you slow. Lok'tar.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    drekthar = { { id = "tp_drek", text = "Drek'Thar is the eyes of the clan, though his own are blind. He taught the Warchief the ways of the spirits, and he commands in Frostwolf Keep." } },
+    stormpike = { { id = "tp_storm", text = "Stubborn, like all dwarves, and they dig like all dwarves. I respect how they hold a wall, and I will pull it down all the same." } },
     _none = { { id = "tp_none", text = "I know orders and the valley. Ask a shaman about the rest." } },
   },
 }
@@ -425,7 +463,7 @@ P:NPC {
   notices = { "reputation", "race" },
 
   impression = {
-    first = "Thanthaldis Snowgleam is a night elf quartermaster for a dwarven guard, handing out Stormpike gear by reputation in the cold of Alterac. He seems amused by the dwarves and fond of them in about equal measure.",
+    first = "The dwarves amuse him about as much as he likes them.",
     third = "{name} met Thanthaldis Snowgleam, the night elf who supplies the Stormpike Guard outside Alterac Valley.",
   },
 
@@ -436,6 +474,10 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf, and not yet shouting. I have learned that this means you are either very tired or very new to the valley." },
+    { id = "n_druid", cat = "race", when = { class = "DRUID" },
+      text = "A druid, among all this stone and powder. The land here is wounded by both armies, and I think you feel it more keenly than I do." },
     { id = "n_elf", cat = "race", when = { race = "NightElf" },
       text = "Another of the kaldorei, this far from the forests? Then we are both strange birds in a dwarven nest." },
     { id = "n_exalted", cat = "reputation", when = { reputation = { faction = "Stormpike Guard", min = "exalted" } },
@@ -452,6 +494,7 @@ P:NPC {
           text = "You will find nothing here for the Horde, stranger. The Frostwolves keep their own stores." },
       },
       again = {
+        { id = "h_again3", text = "You have another question. Ask it; my ledgers will keep, and so will the cold." },
         { id = "h_again", text = "Anything else?" },
         { id = "h_again2", text = "Speak; the snow and I are both patient." },
       },
@@ -459,6 +502,9 @@ P:NPC {
         { text = "Show me the Guard's stores.", next = "BUSINESS" },
         { text = "A night elf, serving dwarves?", next = "elf" },
         { text = "How do I earn the Guard's trust?", next = "trust" },
+        { text = "What is it like, keeping stores for dwarves?", next = "stores" },
+        { text = "Who else stands at this gate with you?", next = "gate" },
+        { text = "Elune-adore. What news from home?", next = "home", when = { race = "NightElf" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -491,8 +537,51 @@ P:NPC {
         { text = "Let me see what's on offer.", next = "BUSINESS" },
       },
     },
+    stores = {
+      lines = { { id = "st_default", text = "Instructive. A dwarf will haggle for an hour over a blanket and then give his last ration to a stranger without a word. I have kept accounts for the Sentinels, and they were simpler and a great deal less interesting." } },
+      choices = {
+        { text = "What do they ask for most?", next = "stores_most" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stores_most = {
+      lines = { { id = "sm_default", text = "Powder, bandages and ale, in an order that changes with the day's fighting. I am permitted to issue the first two, and I have been told very firmly that the third is not a supply but a right." } },
+      choices = {
+        { text = "And do you issue it anyway?", next = "stores_ale" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stores_ale = {
+      lines = { { id = "sa_default", text = "I count it, I record it, and I do not stand between it and a dwarf. In ten thousand years my people have learned which battles are worth fighting." } },
+      choices = { { text = "A wise policy.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    gate = {
+      lines = { { id = "ga_default", text = "Lieutenant Haggerdin commands the approach, and Sergeant Durgen Stormpike hands out the day's orders with all the warmth of the weather. Prospector Stonehewer waits for the fighting to end so that she may dig, and I think she will wait some time." } },
+      choices = {
+        { text = "You don't expect this war to end soon.", next = "gate_war" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gate_war = {
+      big = true,
+      lines = { { id = "gw_default", text = "Neither side can be driven out and neither will leave, which is how long wars are made. The dwarves say the valley is theirs by right of kinship, and the orcs say it is theirs by right of dwelling. I have not yet heard anyone ask the valley." } },
+      choices = {
+        { text = "The Stormpike are our allies. That settles it.", next = "BACK", reply = "It settles where I stand, certainly. I am less sure it settles the question.", fx = { align = { order = 1 } } },
+        { text = "Both sides are bleeding the land for ore and pride.", next = "BACK", reply = "You see as a kaldorei would. I would not say so near the dwarves, but I will not tell you that you are wrong.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = { { id = "ho_default", text = "Elune-adore. Little reaches me here but dispatches, and those speak only of Warsong axes in Ashenvale. Tell me instead whether the boughs of Teldrassil are in leaf, for no report ever thinks to mention it." } },
+      choices = {
+        { text = "They are, and the moonwells are bright.", next = "BACK", reply = "Then I will carry that through another month of snow. Thank you.", fx = { affinity = 1 } },
+      },
+    },
   },
   topics = {
+    stormpike = { { id = "tp_storm", text = "A proud clan and a loud one, and more generous than they would like known. I have come to think well of them." } },
+    frostwolf = { { id = "tp_frost", text = "Orcs who did not march with the old Horde, the dwarves admit when pressed. It changes nothing about the fighting, and yet I find I remember it." } },
+    darnassus = { { id = "tp_darn", text = "Home, and very far away. I think of the lake under Teldrassil's boughs when the wind here is at its worst." } },
     _none = { { id = "tp_none", text = "I could not say. Ask the dwarves; they will tell you at great length." } },
   },
 }

@@ -12,7 +12,7 @@ P:NPC {
   notices = { "soldier", "kit" },
 
   impression = {
-    first = "Captain Stoutfist holds Menethil's wall against the Dragonmaw and has more work than hands. He asked nothing about me except whether I'd go where I was told.",
+    first = "He asked only whether I'd go where I was told.",
     third = "{name} reported to Captain Stoutfist, who holds Menethil Harbor against the Dragonmaw for Ironforge and the Alliance.",
   },
 
@@ -485,7 +485,7 @@ P:NPC {
   notices = { "drink", "fright" },
 
   impression = {
-    first = "First Mate Fitzsimmons asked for a drink in exchange for a tale and seemed delighted that anyone listened. He has no ship left to be first mate of, and I don't think he's sober about that, or anything.",
+    first = "He has no ship left, and he isn't sober about it.",
     third = "{name} heard a tale from First Mate Fitzsimmons, a Kul Tiran sailor without a ship who sits by the door of the Deepwater Tavern.",
   },
 
@@ -761,7 +761,7 @@ P:NPC {
   notices = { "fel", "class" },
 
   impression = {
-    first = "Glorin Steelbrow tends Menethil's souls and grumbles that nobody warned him they'd come with mud and murlocs. He blesses people in the same breath as he complains about them.",
+    first = "He blesses people in the same breath as he complains about them.",
     third = "{name} met Glorin Steelbrow, the overworked dwarf priest who tends to the souls of Menethil Harbor.",
   },
 
@@ -1095,7 +1095,7 @@ P:NPC {
   notices = { "body", "kin" },
 
   impression = {
-    first = "Harlo Barnaby took an axe in the back at Dun Modr and wakes every day hungry for news from the north. He's laid up by the healer's orders and resents every hour of it.",
+    first = "He is laid up by healer's orders and resents every hour.",
     third = "{name} met Harlo Barnaby, a wounded dwarf recovering in Menethil after the Dark Iron attack on Dun Modr.",
   },
 
@@ -1350,7 +1350,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Karl Boran keeps cargo moving through a harbour the marsh is trying to swallow. He asked me to stand still before I tripped on something, and I liked him for it.",
+    first = "He warned me before I tripped, and I liked him for it.",
     third = "{name} met Karl Boran, a merchant sailor who keeps cargo moving through the docks of Menethil Harbor.",
   },
 
@@ -1593,7 +1593,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "Innkeeper Helbrek's Deepwater only leaks over the bar, which he counts as good planning. He has a gift for making soaked strangers feel like regulars.",
+    first = "He makes soaked strangers feel like regulars.",
     third = "{name} came in out of the rain at the Deepwater Tavern, kept by Innkeeper Helbrek of Menethil Harbor.",
   },
 
@@ -1844,7 +1844,7 @@ P:NPC {
   notices = { "lore", "travel" },
 
   impression = {
-    first = "Archaeologist Flagongut has turned a tavern table into a dig site while the raptors hold the road. Mind the maps, he said, and the maps were everywhere.",
+    first = "Mind the maps, he said, and the maps were everywhere.",
     third = "{name} met Archaeologist Flagongut of the Explorers' League, stuck in Menethil while raptors block the road to the dig at Whelgar's.",
   },
 
@@ -2099,7 +2099,7 @@ P:NPC {
   notices = { "stealth", "drink" },
 
   impression = {
-    first = "Mikhail tends a bar he doesn't sell from and told me to sit where I could see the door. He says nothing happens in Menethil, and he says it like a man who is counting on that.",
+    first = "He told me to sit where I could see the door.",
     third = "{name} met Mikhail, a quiet man from Stormwind who keeps a bar in Menethil and sells nothing from it.",
   },
 

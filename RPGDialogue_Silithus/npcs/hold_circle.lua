@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Bor Wildmane is a cheerful tauren druid who calls the Twilight's Hammer 'crazies' and collects their secret papers without being able to read a word. He keeps score of every cultist I bring down.",
+    first = "He collects the cult's secret papers and can't read a word.",
     third = "{name} met Bor Wildmane, the younger of the two Wildmane brothers who watch the Twilight's Hammer from Cenarion Hold.",
   },
 
@@ -262,7 +262,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Huum Wildmane says the land of Silithus is weeping and has a sad story to tell. He sent me after the cult's leaders with the gravity of a funeral prayer.",
+    first = "He says the land of Silithus is weeping.",
     third = "{name} met Huum Wildmane, the elder Wildmane brother, who hears the spirits of Silithus grieving.",
   },
 
@@ -483,7 +483,7 @@ P:NPC {
   notices = { "class", "craft" },
 
   impression = {
-    first = "Aurel Goldleaf is a night elf craftsman who makes disguises good enough to fool elemental lords. She spoke of forging a cultist's medallion the way a jeweller speaks of a commission.",
+    first = "Her disguises are good enough to fool elemental lords.",
     third = "{name} met Aurel Goldleaf, the Cenarion Circle's craftsman, who forges the Twilight's Hammer's own regalia against it.",
   },
 
@@ -689,7 +689,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Baristolth of the Shifting Sands told me to look behind me at the hive, and spoke of a promise he made a thousand years ago as though it were yesterday. I don't think he meant it as a figure of speech.",
+    first = "He speaks of a thousand-year-old promise as though it were yesterday's.",
     third = "{name} met Baristolth of the Shifting Sands, a strange night elf at Cenarion Hold who keeps a very old promise.",
   },
 

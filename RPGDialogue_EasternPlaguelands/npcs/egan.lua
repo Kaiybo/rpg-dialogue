@@ -9,7 +9,7 @@ P:NPC {
   communities = { "terrordale" }, temper = { "intense" }, values = { "kind", "stubborn" },
   notices = { "craft", "race" },
   impression = {
-    first = "Egan is a dwarf who hates the Scourge with his whole heart and builds contraptions to free the ghosts of Stratholme. He insisted that compassion, not hatred, is what keeps him going, and I think he needed to hear himself say it.",
+    first = "He insists compassion keeps him going, and he needs to hear it.",
     third = "{name} met Egan, a dwarven inventor near Stratholme whose blaster frees the restless souls of the city's dead.",
   },
 

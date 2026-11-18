@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Falfindel Waywarder keeps the little way-station of Thalanaar, where the forests of Feralas give out onto the dry Needles. He has the patience of a sentry and the sorrow of a man who reads too many reports about the dead.",
+    first = "He has the sorrow of one who reads too many death reports.",
     third = "{name} met Falfindel Waywarder, keeper of the Thalanaar way-station on Feralas's eastern edge.",
   },
 
@@ -30,6 +30,8 @@ P:NPC {
       text = "A dwarf. Forgive me if I'm quiet for a moment; you remind me of a brave one I never got to thank." },
     { id = "n_elf", cat = "race", when = { race = "NightElf" },
       text = "Ishnu-alah, friend. Thalanaar sees few of our own this far south." },
+    { id = "n_b1", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter reads the ground as my scouts do. If you see quilboar sign east of here, I would be glad to hear of it before you leave." },
   },
 
   start = "hello",
@@ -50,6 +52,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else would you ask?" },
         { id = "h_again2", text = "Speak, then. The road can wait a little while." },
+        { id = "h_again_b1", text = "Ask, friend. A quiet post gives a sentry a great deal of time for talk." },
       },
       choices = {
         { text = "Who were Heralath and Lonebrow?", next = "lonebrow" },
@@ -57,6 +60,9 @@ P:NPC {
         { text = "Who is the crone of the Kraul?", next = "crone" },
         { text = "Did you know the courier Raschal?", next = "raschal" },
         { text = "What needs doing here?", next = "BUSINESS" },
+        { text = "The Needles begin just beyond your gate.", next = "needles" },
+        { text = "Tell me what you'd have said to Lonebrow.", next = "thanks", when = { race = "Dwarf" } },
+        { text = "Is there word from Feathermoon?", next = "word", when = { race = "NightElf" } },
         { text = "Farewell, Falfindel.", next = "END" },
       },
     },
@@ -115,11 +121,59 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    needles = {
+      lines = {
+        { id = "b_needles_default", text = "They do, and the forest ends as though someone had drawn a line with a blade. Beyond it the land is all dust and stone spires, and the centaur and the Grimtotem quarrel over every watering hole in it." },
+      },
+      choices = {
+        { text = "Do they trouble Thalanaar?", next = "needles_trouble" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    needles_trouble = {
+      lines = {
+        { id = "b_needles_trouble_default", text = "The Grimtotem test us now and then, a few riders at dusk to see whether the sentries are awake. So far they have found us awake every time, and I mean to keep it so." },
+      },
+      choices = {
+        { text = "Who holds the road if they come in force?", next = "needles_hold" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    needles_hold = {
+      lines = {
+        { id = "b_needles_hold_default", text = "The few Sentinels I have, and Thyssiana's hippogryphs to carry word to Feathermoon before the dust has settled. A post like this one is not meant to win a battle, only to make sure the General hears of it." },
+      },
+      choices = {
+        { text = "Then I hope she never has to.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thanks = {
+      lines = {
+        { id = "b_thanks_default", text = "I would have told him that an elf of this post owed him a life, and that we do not forget such debts in a hundred years or a thousand. Since I cannot tell him, I am telling you, and perhaps your people will carry it home." },
+      },
+      choices = {
+        { text = "I'll see that Ironforge hears his name.", next = "BACK", fx = { affinity = 1 } },
+        { text = "He'd have asked for an ale, not a speech.", next = "BACK", reply = "Then I owe him an ale as well, and Thalanaar has none. I will have to settle that debt some other way." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    word = {
+      lines = {
+        { id = "b_word_default", text = "Ginro's dispatches come when the couriers do, which is less often than either of us would like. The General holds the isle against the naga, the ogres hold the hills, and Thalanaar holds the road between them and the world." },
+      },
+      choices = {
+        { text = "Elune watch over your road, Falfindel.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "I know the road, the couriers, and the names of the scouts who didn't come back." } },
     background = { { id = "tp_bg", text = "A sentry of the Kaldorei, keeper of a small post on a long road.", next = "post" } },
+    grimtotem = { { id = "tp_b_grimtotem", text = "They watch us from the cliffs to the west and send riders to test the gate at dusk. I do not know what they want with a way-station, and I would rather not learn." } },
+    razorfen = { { id = "tp_b_razorfen", text = "The Kraul lies north and east in the Barrens, a tangle of great thorns with quilboar under every root. Two of ours went to look at it, and you know how that ended." } },
     _none = { { id = "tp_none", text = "No courier has brought me word of that." } },
   },
 }
@@ -134,7 +188,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Jer'kai Moonweaver hides with Kindal in a nook above the Grimtotem camps, and she is the angrier of the two. She speaks quickly and quietly, and keeps an arrow on the string the whole time.",
+    first = "She keeps an arrow on the string the whole time she talks.",
     third = "{name} met Jer'kai Moonweaver, who fights the Grimtotem of Feralas alongside Kindal Moonweaver.",
   },
 
@@ -149,6 +203,8 @@ P:NPC {
       text = "A hunter, with a beast at your side that isn't in a cage. That's the right way round." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren up here! Don't look so surprised; I know you're not one of them, or you'd be dead." },
+    { id = "n_b1", cat = "class", when = { class = "DRUID" },
+      text = "A druid. Then you will feel it as we do when you see those cages, and I won't need to explain why we stayed." },
   },
 
   start = "hello",
@@ -167,6 +223,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Keep your voice low." },
         { id = "h_again2", text = "Quickly, then." },
+        { id = "h_again_b1", text = "Still here? Then ask, and watch the ridge while you do." },
       },
       choices = {
         { text = "What do the Grimtotem do to the creatures?", next = "cages" },
@@ -174,6 +231,9 @@ P:NPC {
         { text = "Why not bring the Sentinels?", next = "sentinels" },
         { text = "What happened to the captured sprite darters?", next = "darters" },
         { text = "I'll fight with you.", next = "BUSINESS" },
+        { text = "You've a clear view of the whole camp from here.", next = "view" },
+        { text = "Show me how you get close to their camp unseen.", next = "stalk", when = { class = { "HUNTER", "ROGUE" } } },
+        { text = "What will the General say when you return?", next = "general", when = { race = "NightElf" } },
         { text = "I'll go quietly.", next = "END" },
       },
     },
@@ -228,12 +288,58 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    view = {
+      lines = {
+        { id = "b_view_default", text = "That is why we chose it. I can count their fires and their sentries from this rock, and I know which of them sleeps on watch and which of them never does." },
+      },
+      choices = {
+        { text = "Which of them should I fear most?", next = "view_fear" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    view_fear = {
+      lines = {
+        { id = "b_view_fear_default", text = "The shamans, because they call the lightning without warning and they do not tire. The raiders are strong but they fight one at a time, and the naturalists run for help, so drop those first." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stalk = {
+      lines = {
+        { id = "b_stalk_default", text = "Come in from the north, where the wind carries your scent away from their wolves, and keep the lake at your back. Kindal taught me that after I walked into a patrol in our first week and had to run a mile with an axe behind me." },
+      },
+      choices = {
+        { text = "She sounds like the careful one.", next = "stalk_kindal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stalk_kindal = {
+      lines = {
+        { id = "b_stalk_kindal_default", text = "She is, and she has kept me alive for it more than once. I make the noise and she makes the plan, and the Grimtotem have yet to work out which of us is which." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    general = {
+      lines = {
+        { id = "b_general_default", text = "That we left our posts without leave, I expect, and she will be right. I would sooner stand before Shandris Feathermoon and answer for it than walk past those cages a second time." },
+      },
+      choices = {
+        { text = "She'd have done the same in your place.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Orders exist for a reason, Sentinel.", next = "BACK", reply = "So they do, and I have broken them with my eyes open. Tell her that too, if she asks you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "I know the Grimtotem camps, their patrols, and every cage they keep." } },
     background = { { id = "tp_bg", text = "A Sentinel who came with the expedition and stayed in the hills.", next = "kindal" } },
     grimtotem = { { id = "tp_grim", text = "The Grimtotem are cruel to the forest and proud of it. I've no pity left for them." } },
+    sentinels = { { id = "tp_b_sentinels", text = "We are Sentinels still, whatever our orders said. Guarding this forest is the oath, and nobody told us it stopped at the stronghold's walls." } },
     _none = { { id = "tp_none", text = "I don't know, and I haven't the time to find out." } },
   },
 }

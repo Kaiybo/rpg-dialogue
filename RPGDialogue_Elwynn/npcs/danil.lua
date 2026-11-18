@@ -8,7 +8,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "sharp" },
   notices = { "purse", "kit" },
   impression = {
-    first = "Brother Danil sells bread and thread off the Abbey's stores and can apparently hear a full purse from across the yard. He mentioned the leaking roof more than once, and I doubt it was an accident.",
+    first = "He mentions the leaking Abbey roof often, and not by accident.",
     third = "{name} browsed the humble stores of Brother Danil, who never lets a customer forget that the Abbey roof leaks.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Lanie Reed keeps the Alliance gryphons at Thorium Point, a Bronzebeard dwarf living as a guest among Dark Irons. She's wry about it, careful about it, and honest that it still sits strangely with her.",
+    first = "Living as a guest among Dark Irons still sits strangely with her.",
     third = "{name} met Lanie Reed, the dwarf gryphon master at Thorium Point.",
   },
 
@@ -201,7 +201,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Grisha keeps the wind riders at Thorium Point and keeps a careful eye on the dwarves around her, Dark Iron or otherwise. She's blunt and wary, and fond of her beasts in a way she doesn't bother to hide.",
+    first = "She is wary of every dwarf and openly fond of her beasts.",
     third = "{name} met Grisha, the orc wind rider master at Thorium Point.",
   },
 

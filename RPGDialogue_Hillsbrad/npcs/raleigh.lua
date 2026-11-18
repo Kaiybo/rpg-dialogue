@@ -15,7 +15,7 @@ P:NPC {
   notices = { "light", "scarlet" },
 
   impression = {
-    first = "Raleigh the Devout asked me to close the door before anything else and wanted to know who'd sent me. He wore the Crusade's red once, and he still watches the north road.",
+    first = "He wore the Crusade's red once, and still watches the north road.",
     third = "{name} called on Raleigh the Devout, a former Scarlet Crusader who keeps a room above the Southshore inn.",
   },
 

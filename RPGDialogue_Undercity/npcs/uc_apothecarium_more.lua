@@ -12,7 +12,7 @@ P:NPC {
   communities = { "undercity", "apothecarium" }, temper = { "cheerful", "precise" }, values = { "curious", "loyal" },
   notices = { "race", "craft" },
   impression = {
-    first = "Chemist Cuely works beside his brother in the Apothecarium and studies a sick tauren named Thersa Windsong as if she were the most interesting thing in Lordaeron. He's very helpful, which somehow makes it worse.",
+    first = "He is very helpful, which somehow makes it worse.",
     third = "{name} met Chemist Cuely, an apothecary studying the illness of Thersa Windsong in the Undercity.",
   },
 
@@ -103,18 +103,23 @@ P:NPC {
   communities = { "undercity", "apothecarium" }, temper = { "cheerful", "grim" }, values = { "loyal", "curious" },
   notices = { "race", "craft" },
   impression = {
-    first = "Chemist Fuely studies slimes and oozes at the bench beside his brother Cuely, and speaks of Lady Sylvanas the way a lost man speaks of a lighthouse. He smiles a great deal, and none of it reaches his eyes.",
+    first = "He smiles a great deal, and none of it reaches his eyes.",
     third = "{name} met Chemist Fuely, an apothecary in the Undercity studying oozes for Lady Sylvanas.",
   },
 
   greetings = {
     { id = "g_hi", text = "Careful, that jar is alive, more or less. What brings you to my bench?" },
     { id = "g_slime", when = { questActive = TODO_QUEST("A Sample of Slime...") }, text = "Felwood samples? Put them by the testing equipment, and we'll see which of them are most corrupt." },
+    { id = "g_back", when = { metBefore = true }, text = "Back to the bench! Mind your sleeve, the green one's been reaching for things since you left." },
   },
 
   notice = {
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
       text = "One of us, and walking about doing errands for the Dark Lady. Good, good, that's how it should be." },
+    { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
+      text = "An alchemist, by those fingers. Then you won't flinch when I tell you what the yellow jar did to the last spoon I put in it." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren! Your people say the land is alive, and I've a jar here that rather proves it, though perhaps not in the way your elders mean." },
   },
 
   start = "hello",
@@ -130,12 +135,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "More questions? I adore questions, nearly as much as samples." },
         { id = "h_again2", text = "Go on, then. The oozes aren't going anywhere, I hope." },
+        { id = "h_again3", text = "Yes, yes, ask. I'm only waiting for this one to finish digesting." },
       },
       choices = {
         { text = "Why study slimes?", next = "slimes" },
         { text = "What do you want from Felwood?", next = "felwood" },
         { text = "Why are you so devoted to Sylvanas?", next = "devotion" },
         { text = "What does the Dark Lady want with all this?", next = "purpose", when = { race = "Scourge" } },
+        { text = "You and your brother share this bench.", next = "brother" },
+        { text = "That jar is climbing its own glass.", next = "jar" },
+        { text = "I'd like to see your testing equipment.", next = "equip", when = { profession = { "Alchemy", "Engineering" } } },
         { text = "I'll leave you to your jars.", next = "END" },
       },
     },
@@ -175,11 +184,49 @@ P:NPC {
         { text = "Something else.", next = "BACK", fx = { learn = { "new_plague" } } },
       },
     },
+    brother = {
+      lines = { { id = "br_default", text = "Cuely and I have shared a bench since we were boys grinding willow bark for a lord's headaches. He studies what makes things sick and I study what's left afterwards, so between us we have the whole of a disease, start to finish." } },
+      choices = {
+        { text = "Do you ever quarrel?", next = "brother2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brother2 = {
+      lines = { { id = "br2_default", text = "Only over the good pestle. He says scorpid venom is the more elegant study and I say an ooze has more to teach, and Master Apothecary Faranell says we may both be quiet and work. He's right, of course, and we go on smiling." } },
+      choices = {
+        { text = "You do smile a great deal.", next = "BACK", reply = "We made a promise about it, the day she freed us. It costs nothing, and it unsettles the living wonderfully.", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jar = {
+      lines = { { id = "jr_default", text = "So it is! That one came from the sewers under this very city, and it has learned where the lid is. They aren't clever, exactly, but they remember what has fed them, and I find that rather touching." } },
+      choices = {
+        { text = "What do you feed it?", next = "jar2" },
+        { text = "I'd keep a heavier lid on it.", next = "jar2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jar2 = {
+      lines = { { id = "jr2_default", text = "Scraps, and whatever Zinge's assistants spill. I've a brick on the lid at night since the business with Doctor Halsey's notes, which it ate, and which he believes were stolen by a rival. I've not found the right moment to tell him." } },
+      choices = {
+        { text = "I won't tell him either.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    equip = {
+      lines = { { id = "eq_default", text = "Oh, gladly, nobody ever asks! It's a row of reagent wells and a lens, and you lay the sample across them and watch which well it runs from. A healthy ooze avoids the fel salts, and a corrupt one goes straight for them like a child to honey." } },
+      choices = {
+        { text = "Simple, and rather clever.", next = "BACK", reply = "Simple is all I trust. The complicated apparatus is at the other end of the hall, and so are the people missing fingers.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "I worked beside my brother in Lordaeron, making tinctures for the nobility. Now we work for someone who deserves it." } },
     advice = { { id = "tp_ad", text = "Never let an ooze sit near the window, friend, they get ideas." } },
+    sylvanas = { { id = "tp_syl", text = "Our beacon, friend, and I'll not hear a word against her at this bench. The oozes agree with me, or at any rate they've never objected." } },
+    scourge = { { id = "tp_scourge", text = "We were theirs, and I remember enough of it to keep smiling at my work. Every jar here is a small answer to them." } },
     _none = { { id = "tp_none", text = "If it isn't slime, I'm afraid I can't help you. Cuely might, if it makes someone sick." } },
   },
 }
@@ -193,7 +240,7 @@ P:NPC {
   communities = { "undercity", "apothecarium" }, temper = { "sharp", "proud" }, values = { "curious", "honest" },
   notices = { "race", "class" },
   impression = {
-    first = "Parqual Fintallas was a great historian of Lordaeron before the plague took him, and he still knows more of the kingdom's past than anyone else in the Undercity. He is sceptical of everyone, scornful of brawn, and quietly starved for books.",
+    first = "He is scornful of brawn and quietly starved for books.",
     third = "{name} met Parqual Fintallas, a Forsaken historian in the Apothecarium who sets the Test of Lore's question.",
   },
 

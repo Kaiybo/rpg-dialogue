@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Kartosh teaches warlocks a mile from the Dark Portal and says the place keeps his students humble. He speaks softly, as if something in the room were listening, and he talks about the fel the way a jailer talks about his keys.",
+    first = "He speaks of the fel as a jailer speaks of his keys.",
     third = "{name} met Kartosh, the soft-spoken warlock trainer of Stonard.",
   },
 
@@ -179,7 +179,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Ogromm trains Stonard's hunters and has no time for anyone else, though he'll talk tracks and tides all day with someone who carries a bow. He thinks Grokor spoils the beasts, and says so to anyone in earshot.",
+    first = "He thinks Grokor spoils the beasts and says so to anyone.",
     third = "{name} met Ogromm, the curt hunter trainer of Stonard.",
   },
 
@@ -327,7 +327,7 @@ P:NPC {
   notices = { "pet", "class" },
 
   impression = {
-    first = "Grokor trains hunters' beasts and looks at them before he looks at their owners. He rode wolves as a boy, before the camps, and he still talks about them the way other orcs talk about their old clans.",
+    first = "He rode wolves as a boy, before the camps.",
     third = "{name} met Grokor, the gentle pet trainer of Stonard.",
   },
 
@@ -479,7 +479,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Rogvar is the only orc in Stonard who seems glad to be there. Thrall himself sent him, he says, and he talks about the swamp's mud like a garden, though his own eyes stream from whatever's boiling on his bench.",
+    first = "He is the only orc here who seems glad of the swamp.",
     third = "{name} met Rogvar, Stonard's cheerful alchemy trainer, who was sent there by Thrall himself.",
   },
 
@@ -653,7 +653,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Haromm trains shamans in Stonard, the only one who does on this side of the sea. He says the elements must be asked, never told, and he says it like someone who has seen what happens otherwise.",
+    first = "He says the elements must be asked, never told.",
     third = "{name} met Haromm, the shaman trainer at Stonard.",
   },
 

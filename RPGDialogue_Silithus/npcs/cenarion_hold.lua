@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "form" },
 
   impression = {
-    first = "Commander Mar'alith runs Cenarion Hold with perfect courtesy and half his mind elsewhere. His wife is missing, and he keeps stopping mid-sentence as if he'd heard her name.",
+    first = "His wife is missing, and he keeps stopping mid-sentence to listen.",
     third = "{name} met Commander Mar'alith, who holds Cenarion Hold for the Circle while his wife is lost somewhere in the hives.",
   },
 
@@ -481,7 +481,7 @@ P:NPC {
   notices = { "race", "class", "craft" },
 
   impression = {
-    first = "Geologist Larksbane is a dwarf who listens to rocks, and the rocks of Silithus are humming. She asked whether I could hear it too, and I'm not sure my answer was honest.",
+    first = "She says the rocks of Silithus are humming.",
     third = "{name} met Geologist Larksbane, who studies the humming crystals of Silithus for the Cenarion Circle.",
   },
 
@@ -836,7 +836,7 @@ P:NPC {
   notices = { "race", "class", "kit" },
 
   impression = {
-    first = "Windcaller Proudhorn talks about the war against the silithid in terms of grain carts and worm counts. She is quite certain of victory, provided the supplies hold.",
+    first = "She is certain of victory, provided the supplies hold.",
     third = "{name} met Windcaller Proudhorn, the tauren druid who keeps Cenarion Hold supplied.",
   },
 
@@ -1109,7 +1109,7 @@ P:NPC {
   notices = { "class", "status" },
 
   impression = {
-    first = "Captain Vish Kozus watches the Hold from the top of the tower with a blindfold over his eyes, and somehow missed nothing about me. He was rude, which Mar'alith told me means he likes me.",
+    first = "His rudeness, I am told, means he likes me.",
     third = "{name} met Vish Kozus, the blindfolded Captain of the Guard at Cenarion Hold.",
   },
 
@@ -1369,7 +1369,7 @@ P:NPC {
   notices = { "kit", "craft", "race" },
 
   impression = {
-    first = "Calandrath keeps the Oasis Inn and fussed over the sand in my hair before I'd said a word. She misses the birds of Auberdine and is trying to learn to cook worms.",
+    first = "She misses the birds of Auberdine and is learning to cook worms.",
     third = "{name} rested at the Oasis Inn, where Calandrath of Auberdine keeps the only soft beds in Silithus.",
   },
 
@@ -1640,7 +1640,7 @@ P:NPC {
   notices = { "craft", "status" },
 
   impression = {
-    first = "Beetix Ficklespragg is a goblin alchemist nursing her cousin Noggle through a scorpid's venom. She prices everything and fusses over him like a mother hen, both at once.",
+    first = "She fusses over her poisoned cousin like a mother hen.",
     third = "{name} met Beetix Ficklespragg, a goblin alchemist at Cenarion Hold whose cousin Noggle came back poisoned from the desert.",
   },
 

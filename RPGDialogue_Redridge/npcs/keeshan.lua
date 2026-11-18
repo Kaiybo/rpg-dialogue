@@ -10,7 +10,7 @@ P:NPC {
   notices = { "soldier", "kit" },
 
   impression = {
-    first = "Corporal Keeshan survived the fall of Stonewatch and a long while in Blackrock hands. He is thin and tired, and there is still a soldier standing straight underneath.",
+    first = "Thin and tired as he is, a soldier still stands underneath.",
     third = "{name} found Corporal Keeshan of the Stormwind Army, taken prisoner by the Blackrock orcs after the fall of Stonewatch.",
   },
 

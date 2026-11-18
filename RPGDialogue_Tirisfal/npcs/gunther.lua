@@ -9,7 +9,7 @@ P:NPC {
   communities = { "gunthers_retreat" }, temper = { "wary", "sharp" }, values = { "proud", "curious" },
   notices = { "arcane", "race" },
   impression = {
-    first = "Gunther Arcanus spent years on his island believing every other walking corpse belonged to the Lich King. He speaks like a Dalaran scholar and watches like a cornered animal, and he is lonelier than he lets on.",
+    first = "He is lonelier than he lets on.",
     third = "{name} met Gunther Arcanus, a free-willed necromancer of the old Kirin Tor, living alone on an island in Tirisfal.",
   },
 

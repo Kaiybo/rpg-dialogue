@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/defias_traitor.md", role = "questgiver", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "nervous" }, values = { "survival" },
   impression = {
-    first = "The Defias Traitor talks fast and looks over his shoulder while he does it, a man who has sold out his old crew and knows exactly what they'd do to him for it.",
+    first = "He knows exactly what his old crew would do to him.",
     third = "{name} met the Defias Traitor, a jumpy turncoat who knows the way to the Brotherhood's hideout.",
   },
   greetings = {

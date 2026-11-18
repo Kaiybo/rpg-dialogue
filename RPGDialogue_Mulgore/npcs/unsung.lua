@@ -14,7 +14,7 @@ P:NPC {
   communities = { "narache" }, temper = { "steady" }, values = { "brave", "patient" },
   notices = { "class", "weary" },
   impression = {
-    first = "Harutt Thunderhorn trains the young braves of Camp Narache, a broad, slow-spoken tauren who makes his braves carry river stones up the hill until they stop complaining. He seems to count every brave who leaves the camp as one of his own.",
+    first = "He makes braves carry river stones uphill until they stop complaining.",
     third = "{name} met Harutt Thunderhorn, the warrior trainer of Camp Narache.",
   },
   greetings = {
@@ -180,7 +180,7 @@ P:NPC {
   communities = { "narache" }, temper = { "serene" }, values = { "wise", "kind" },
   notices = { "class", "form" },
   impression = {
-    first = "Meela Dawnstrider teaches the young shaman of Camp Narache to listen to the elements before speaking to them. She is gentle, but she has no patience for anyone who treats the spirits like servants.",
+    first = "She has no patience for anyone who treats the spirits like servants.",
     third = "{name} met Meela Dawnstrider, the shaman trainer of Camp Narache.",
   },
   greetings = {
@@ -387,7 +387,7 @@ P:NPC {
   communities = { "narache" }, temper = { "calm" }, values = { "wise", "patient" },
   notices = { "class", "form" },
   impression = {
-    first = "Gart Mistrunner trains the young druids at Camp Narache and speaks of the night elves who taught his people with real gratitude. He is quiet, and more interested in the creatures of Mulgore than in anything said around the fire.",
+    first = "He speaks of the night elves who taught his people with gratitude.",
     third = "{name} met Gart Mistrunner, the druid trainer of Camp Narache.",
   },
   greetings = {
@@ -590,7 +590,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "gruff" }, values = { "proud", "dutiful" },
   notices = { "class", "weary" },
   impression = {
-    first = "Krang Stonehoof trains warriors in Bloodhoof Village and speaks about Mulgore's borders as if he walked them all himself. He is gruff, and proud that the tauren have become warriors of the Horde.",
+    first = "He is proud that the tauren have become warriors of the Horde.",
     third = "{name} met Krang Stonehoof, the warrior trainer of Bloodhoof Village.",
   },
   greetings = {
@@ -791,7 +791,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "dry" }, values = { "practical", "craft" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Mahnott Roughwound sells weapons in Bloodhoof Village and has opinions on every one of them. He says a tauren needs a big weapon simply because a small one looks silly in tauren hands.",
+    first = "He says a small weapon simply looks silly in tauren hands.",
     third = "{name} met Mahnott Roughwound, the weaponsmith of Bloodhoof Village.",
   },
   greetings = {
@@ -954,7 +954,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous", "kind" },
   notices = { "hunger", "weary" },
   impression = {
-    first = "Jhawna Oatwind bakes the bread of Bloodhoof Village and talks about the wheat of Mulgore as if each field were a neighbour. Nobody leaves her without hearing which farm the grain came from.",
+    first = "Nobody leaves her without hearing which farm the grain came from.",
     third = "{name} bought bread from Jhawna Oatwind, the baker of Bloodhoof Village.",
   },
   greetings = {

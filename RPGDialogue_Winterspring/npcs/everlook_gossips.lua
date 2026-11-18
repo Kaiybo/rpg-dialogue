@@ -14,7 +14,7 @@ P:NPC {
   notices = { "travel", "race" },
 
   impression = {
-    first = "Harlo Wigglesworth is an Everlook goblin who can't keep a piece of news to himself, though he likes to keep the best part back so you'll go and see for yourself. Curiosity seems to be his whole trade.",
+    first = "He keeps the best part of his news back on purpose.",
     third = "{name} met Harlo Wigglesworth, a nosy and friendly goblin of Everlook who passes on what he hears.",
   },
 
@@ -212,7 +212,7 @@ P:NPC {
   notices = { "kit", "class" },
 
   impression = {
-    first = "Meggi Peppinrocker loves the Winterspring hills and will tell you so at length, and somewhere in the telling she forgets what she meant to say. The thing she meant to say was important.",
+    first = "She forgets the important thing she meant to say halfway through.",
     third = "{name} met Meggi Peppinrocker, an Everlook goblin who loves the wilds and loses the thread of every story.",
   },
 

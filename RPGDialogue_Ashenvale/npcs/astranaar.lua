@@ -10,7 +10,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "fierce" }, values = { "protective", "loyal" },
   notices = { "pet", "form", "class" },
   impression = {
-    first = "Raene Wolfrunner would sooner face every furbolg and orc in Ashenvale alone than watch another tree fall. When she speaks of her friend Teronis, the grief sits close under all that fierceness.",
+    first = "Her grief for Teronis sits close under all that fierceness.",
     third = "{name} met Raene Wolfrunner, who commands the scouts of Astranaar and fights for every tree in Ashenvale.",
   },
 
@@ -377,7 +377,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "anxious" }, values = { "loving", "determined" },
   notices = { "class" },
   impression = {
-    first = "Pelturas Whitemoon asked me to speak softly for his daughter's sake, then listened for her the whole time we talked. He has tried nearly every cure there is, and he has not once stopped hoping.",
+    first = "He has tried nearly every cure and has not once stopped hoping.",
     third = "{name} met Pelturas Whitemoon of Astranaar, a father searching for any cure for his daughter Relara's fever and nightmares.",
   },
 
@@ -568,7 +568,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "frightened" }, values = { "gentle" },
   notices = { "pet" },
   impression = {
-    first = "Small and sick as she is, Relara Whitemoon still means to become a Sentinel or a hippogryph, whichever gets to fly. Her papa, she assured me, is fixing everything.",
+    first = "She means to become a Sentinel or a hippogryph, whichever flies.",
     third = "{name} met Relara Whitemoon, Pelturas's young daughter, who faces her fevered nightmares with a child's stubborn hope.",
   },
 
@@ -765,7 +765,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "steady" }, values = { "dutiful" },
   notices = { "kit" },
   impression = {
-    first = "Faldreas keeps a list of everyone who goes out on Astranaar's roads and everyone who ought to have come back. Crossing names off the right way, he says, is the best part of his day.",
+    first = "The best part of his day is crossing off a returned name.",
     third = "{name} met Faldreas Goeth'Shael, who keeps track of every traveller leaving Astranaar and listens to the forest spirits.",
   },
 
@@ -949,7 +949,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "warm" }, values = { "kind" },
   notices = { "weary" },
   impression = {
-    first = "Every night Innkeeper Kimlya sends broth up to a sick child, knowing the father will eat it if the girl won't. Astranaar's inn seems to run on that sort of quiet kindness.",
+    first = "She sends broth up to a sick child every night.",
     third = "{name} rested at Innkeeper Kimlya's inn on Astranaar's island, a refuge for scouts, healers and weary travellers.",
   },
 
@@ -1161,7 +1161,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "class" },
   impression = {
-    first = "Delgren the Purifier greets everyone with the Light's blessing and a cheerful word, a long way from home and glad of company. He is earnest and warm, though I would not want to be a warlock standing near his hammer.",
+    first = "Warm and earnest, but I'd not be a warlock near his hammer.",
     third = "{name} met Delgren the Purifier at Maestra's Post, a servant of the Light hunting the Dark Strand cult in Ashenvale.",
   },
 

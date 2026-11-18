@@ -12,7 +12,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "race", "class" },
   impression = {
-    first = "Thrall carries Orgrim Doomhammer's hammer and spends every day trying to deserve it. He listens like a shaman and speaks like a chieftain, and he has plainly never forgotten what it was to be a slave.",
+    first = "He carries Doomhammer's hammer and spends every day trying to deserve it.",
     third = "{name} stood before Thrall, Warchief of the Horde, in Grommash Hold in Orgrimmar.",
   },
 
@@ -793,7 +793,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "race", "class" },
   impression = {
-    first = "Vol'jin only talks to the interesting ones, he says, and he watched me the whole time as if deciding which I was. His humour is sly, but his debt to Thrall runs deeper than any joke.",
+    first = "He only talks to the interesting ones, and was deciding about me.",
     third = "{name} met Vol'jin, chief of the Darkspear trolls, who stands at the Warchief's side in Orgrimmar.",
   },
 
@@ -1132,7 +1132,7 @@ P:NPC {
   race = "Orc", likesTone = "polite",
   notices = { "class", "fel" },
   impression = {
-    first = "Smooth-spoken Neeru Fireblade calls himself a loyal servant of the Warchief, which may well be true. He watches the Horde's fire-worshippers very closely, and I cannot quite tell how he feels about what he sees.",
+    first = "I cannot tell how he feels about the fire-worshippers he watches.",
     third = "{name} met Neeru Fireblade in the Cleft of Shadow, who claims to keep watch over those in the Horde who still play with fire.",
   },
 
@@ -1436,7 +1436,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "hearty" }, values = { "generous" },
   notices = { "weary", "hunger" },
   impression = {
-    first = "Innkeeper Gryshka insists on meat first and stories after, and nobody leaves the Broken Tusk hungry. Mention Zargh, though, and she grows flustered, which is the most charming thing I have seen in Orgrimmar.",
+    first = "Mention Zargh and she grows flustered, which is charming.",
     third = "{name} found a seat at the Broken Tusk, where Innkeeper Gryshka feeds Orgrimmar's warriors and keeps the inn loud.",
   },
 
@@ -1717,7 +1717,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "resigned" }, values = { "patient" },
   notices = { "class", "drink" },
   impression = {
-    first = "Gamon was a warrior once and now spends most days on the inn floor, knocked down by whoever wants an easy fight. He always gets back up, which is the saddest and bravest thing about him.",
+    first = "He always gets back up, which is the saddest and bravest thing.",
     third = "{name} met Gamon, a weary tauren in Orgrimmar who has been knocked down so often he no longer asks why.",
   },
 

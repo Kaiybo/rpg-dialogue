@@ -16,7 +16,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "wounds", "form" },
   impression = {
-    first = "Priestess Anetta keeps the Abbey's library wing and its recruits alive, and some days she says those are the same job. She patches the wounded briskly and expects the gratitude to come later.",
+    first = "She patches the wounded briskly and expects the gratitude to come later.",
     third = "{name} met Priestess Anetta at Northshire Abbey, who heals the recruits and trusts the Light's long and kindly memory.",
   },
 
@@ -215,7 +215,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "proud" }, values = { "curious", "ambitious" },
   notices = { "arcane" },
   impression = {
-    first = "Khelden Bremen talks about the fundamentals in the weary voice of a man who has watched many students skip them. His notes scatter every time somebody leaves the door open.",
+    first = "His notes scatter every time somebody leaves the door open.",
     third = "{name} met Khelden Bremen, Northshire's mage trainer, who teaches the dull rules that keep the dramatic ones from killing anyone.",
   },
 
@@ -455,7 +455,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "sharp" }, values = { "cunning", "honest" },
   notices = { "stealth" },
   impression = {
-    first = "Jorik Kerridan works behind the Abbey where the Brothers needn't see him, and that seems to suit everybody. He was listening for my footsteps long before I reached him.",
+    first = "He was listening for my footsteps long before I reached him.",
     third = "{name} met Jorik Kerridan, who teaches lockpicks and knifework behind Northshire Abbey, well out of the Brothers' sight.",
   },
 
@@ -700,7 +700,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "sharp" }, values = { "ambitious", "cunning" },
   notices = { "pet", "fel" },
   impression = {
-    first = "Drusilla La Salle teaches among the graves because the Brothers prefer not to see her, and she seems to prefer it too. She spoke of patience and prudence as if power were the reward for both.",
+    first = "She speaks of patience and prudence as if power were the reward.",
     third = "{name} met Drusilla La Salle, who keeps to the Northshire graveyard and finds the Brothers' prayers for her oddly touching.",
   },
 
@@ -944,7 +944,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "proud" }, values = { "brave", "stern" },
   notices = { "kit" },
   impression = {
-    first = "Lyria Du Lac greeted me with her shield up and didn't apologise for it. She says the kingdom's strength is whoever stands on its walls, and she says it like an order.",
+    first = "She greeted me with her shield up and didn't apologise for it.",
     third = "{name} met Lyria Du Lac in Goldshire, who turns Elwynn's farm hands into Stormwind's soldiers.",
   },
 
@@ -1211,7 +1211,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "travel", "form" },
   impression = {
-    first = "Priestess Josetta speaks warmly and a little wistfully, like someone who always meant to go far and stayed instead. She looked at my boots with something close to envy.",
+    first = "She looked at my boots with something close to envy.",
     third = "{name} met Priestess Josetta, who teaches the Light above the noise of the Lion's Pride and envies those who travel.",
   },
 
@@ -1430,7 +1430,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "proud" }, values = { "curious" },
   notices = { "arcane" },
   impression = {
-    first = "Zaldimar Wefhellt makes do with an upstairs room and a view of a stable, and he makes do with considerable style. He seems to find nearly everything at least a little interesting.",
+    first = "He finds nearly everything at least a little interesting.",
     third = "{name} met Zaldimar Wefhellt of the Wizard's Sanctum, who teaches magic from a modest room above Goldshire's inn.",
   },
 
@@ -1658,7 +1658,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "sharp" }, values = { "cunning", "witty" },
   notices = { "stealth" },
   impression = {
-    first = "Keryn Sylvius reads in the corner of a quiet room and treats every question as a small intrusion. I'm fairly sure the book isn't the only thing she's watching.",
+    first = "I'm fairly sure her book isn't the only thing she's watching.",
     third = "{name} met Keryn Sylvius, who trains Goldshire's quiet ones from behind a book she admits is dreadful.",
   },
 
@@ -1889,7 +1889,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "steady" }, values = { "cunning", "ambitious" },
   notices = { "pet" },
   impression = {
-    first = "Remen Marcot treats the Lion's Pride cellar as a storeroom for dangerous knowledge, and he spoke fondly of Farley for never asking questions. He makes introductions as carefully as other men handle knives.",
+    first = "He makes introductions as carefully as other men handle knives.",
     third = "{name} met Remen Marcot, who welcomes warlocks to the hidden cellar beneath the Lion's Pride.",
   },
 

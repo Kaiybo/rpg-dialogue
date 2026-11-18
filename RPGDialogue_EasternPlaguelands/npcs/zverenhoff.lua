@@ -10,7 +10,7 @@ P:NPC {
   prejudice = { race = "Scourge", amount = 8, why = "Lost family to the plague; knows the Forsaken aren't Scourge, but his skin hasn't caught up." },
   notices = { "lore", "reputation" },
   impression = {
-    first = "Duke Nicholas Zverenhoff talks about the Scourge, the Scarlet Crusade and a nonsensical book on spirit-speaking with the same patient interest. He is a scholar first and a duke second, and he distrusts anyone who is too sure of anything.",
+    first = "He distrusts anyone who is too sure of anything.",
     third = "{name} met Duke Nicholas Zverenhoff, a linguist and one of the Argent Dawn's respected leaders at Light's Hope Chapel.",
   },
 

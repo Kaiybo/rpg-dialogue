@@ -9,7 +9,7 @@ P:NPC {
   communities = { "ghost_walker" }, temper = { "curt", "hard" }, values = { "practical", "loyal" },
   notices = { "soldier", "race" },
   impression = {
-    first = "Felgur Twocuts wants everything quickly, especially conversations. He has spent too long counting centaur camps to have patience left for anything else, and he says the struggle will be long.",
+    first = "He wants everything quickly, especially conversations.",
     third = "{name} met Felgur Twocuts, an orc at Ghost Walker Post gathering intelligence on Desolace's centaur for the Horde.",
   },
 

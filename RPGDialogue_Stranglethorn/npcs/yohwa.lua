@@ -9,7 +9,7 @@ P:NPC {
   notices = { "soldier", "weary" },
 
   impression = {
-    first = "Sergeant Yohwa threatened to take a cane to me before she asked my name, and I think she meant both kindly. She knows Kurzen's soldiers personally, which makes fighting them harder for her than she lets on.",
+    first = "She knows Kurzen's soldiers personally, which makes fighting them harder.",
     third = "{name} met Sergeant Yohwa, Lieutenant Doren's hard-handed sergeant at the Rebel Camp in Stranglethorn Vale.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "craft", "race", "class" },
 
   impression = {
-    first = "Sarah Tanner works leather in a small camp in the Searing Gorge, of all places, because she believes the elements will teach her craft what no city could. She speaks of fire and stone as if they were difficult colleagues.",
+    first = "She speaks of fire and stone as if they were difficult colleagues.",
     third = "{name} met Sarah Tanner, an elemental leatherworker camped in the Searing Gorge.",
   },
 

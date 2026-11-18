@@ -12,7 +12,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "calm", "grim" }, values = { "pious", "practical" },
   notices = { "class", "light", "origin" },
   impression = {
-    first = "Aelthalyste teaches the Forsaken's priests that the Light still answers the dead, and that it isn't the only thing that answers. She spoke of faith like a widow speaks of a husband who wronged her and whom she still loves.",
+    first = "She speaks of faith like a husband who wronged her.",
     third = "{name} met Aelthalyste, who trains the Forsaken's priests in both the Light and the shadow.",
   },
 
@@ -166,7 +166,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "dry", "warm" }, values = { "pious" },
   notices = { "class", "race" },
   impression = {
-    first = "Father Lazarus trains priests in the Undercity and has heard every joke about his name, mostly from himself. He wears his old Church collar under his robe, frayed through, and keeps a little box for the bits his congregation drops.",
+    first = "He has heard every joke about his name, mostly from himself.",
     third = "{name} met Father Lazarus, a priest trainer of the Undercity with a dry joke about his name.",
   },
 
@@ -278,7 +278,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "stern", "proud" }, values = { "pious", "loyal" },
   notices = { "class" },
   impression = {
-    first = "Father Lankester preaches to the Forsaken as if he were still in a pulpit and the plague had only interrupted his sermon. He is still writing that sermon, he corrects your posture before your soul, and he is certain the Light chose the Dark Lady's people, and certain of very little else.",
+    first = "He corrects your posture before your soul.",
     third = "{name} met Father Lankester, a stern priest trainer of the Undercity.",
   },
 
@@ -396,7 +396,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "blunt", "warm" }, values = { "brave", "dutiful" },
   notices = { "class", "gear", "origin" },
   impression = {
-    first = "Angela Curthas trains warriors in the War Quarter and inspects your shield before your face. She was city watch in life, she still keeps a duty roster for her recruits, and she talks about holding a gate as if she'd just come off shift.",
+    first = "She inspects your shield before your face.",
     third = "{name} met Angela Curthas, a warrior trainer in the Undercity who once stood watch in the capital.",
   },
 
@@ -510,7 +510,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "calm", "grim" }, values = { "honest" },
   notices = { "race", "origin" },
   impression = {
-    first = "Christoph Walker fought orcs in the Second War and now teaches them swordplay in the War Quarter. He was a pikeman, he still trusts a long pole over any sword, and he has no patience at all for flourishes. He finds his situation funnier than he lets on, and he lets on very little.",
+    first = "He fought orcs in the Second War and now teaches them swordplay.",
     third = "{name} met Christoph Walker, a warrior trainer in the Undercity who fought the Horde in the Second War.",
   },
 
@@ -625,7 +625,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "loud", "cheerful" }, values = { "brave" },
   notices = { "class", "gear" },
   impression = {
-    first = "Baltus Fowler is the loudest corpse in the War Quarter and seems delighted about it. He has a name and a story for every dent in his shield, and he treats every lesson as a tavern brawl he's slightly too fond of.",
+    first = "Every dent in his shield has a name and a story.",
     third = "{name} met Baltus Fowler, a boisterous warrior trainer in the Undercity.",
   },
 

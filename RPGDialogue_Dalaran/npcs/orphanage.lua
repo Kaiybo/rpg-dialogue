@@ -12,7 +12,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Brock is the oldest of the orphanage children, or says he is, and means to join the Kirin Tor the moment anyone lets him. He keeps an eye on the little ones as if somebody gave him the job.",
+    first = "He watches the little ones as if somebody gave him the job.",
     third = "{name} met Brock, a boy at the Dalaran Orphanage who means to be an archmage.",
   },
 
@@ -159,7 +159,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Dallas keeps the orphanage rabbits and knows each one's title, temper and favourite cushion. He takes the work more seriously than most guards take theirs.",
+    first = "He knows each rabbit's title, temper and favourite cushion.",
     third = "{name} met Dallas, the boy who looks after the rabbits at the Dalaran Orphanage.",
   },
 
@@ -270,7 +270,7 @@ P:NPC {
   notices = { "skyborne" },
 
   impression = {
-    first = "Josie sits by the orphanage fire and tells the other children stories, most of them about the island in the sky. She wants to ride the skycutter more than she wants anything.",
+    first = "She wants to ride the skycutter more than she wants anything.",
     third = "{name} met Josie, a girl at the Dalaran Orphanage who dreams of the sky island.",
   },
 
@@ -392,7 +392,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Korben paces the orphanage floor counting boards and listening for the lamps to flicker. He is a small boy carrying a guard's worries.",
+    first = "He is a small boy carrying a guard's worries.",
     third = "{name} met Korben, a restless boy at the Dalaran Orphanage who keeps watch over the floorboards.",
   },
 
@@ -513,7 +513,7 @@ P:NPC {
   notices = { "pet", "form" },
 
   impression = {
-    first = "Liam and Luna the wolf are never more than an arm's length apart at the Dalaran Orphanage. He talks about her the way other boys talk about heroes.",
+    first = "He talks about his wolf Luna the way boys talk about heroes.",
     third = "{name} met Liam, an orphanage boy in Dalaran, and Luna, the wolf who goes everywhere with him.",
   },
 
@@ -627,7 +627,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Lilly is the newest and smallest child at the Dalaran Orphanage, come all the way from Stormwind. She is shy until she finds out you know her old city.",
+    first = "She is shy until she learns you know Stormwind.",
     third = "{name} met Lilly, the youngest child at the Dalaran Orphanage, newly arrived from Stormwind.",
   },
 
@@ -735,7 +735,7 @@ P:NPC {
   communities = { "dalaran", "dal_orphanage", "kirin_tor" }, temper = { "warm", "jovial" }, values = { "generous" },
 
   impression = {
-    first = "Cody bakes for the Dalaran Orphanage and sells the extra loaves to buy more flour, which, by his reckoning, makes every customer a benefactor. He smells of yeast and laughs easily.",
+    first = "By his reckoning, every customer is a benefactor.",
     third = "{name} met Cody, the baker who keeps the Dalaran Orphanage in bread.",
   },
 
@@ -840,7 +840,7 @@ P:NPC {
   notices = { "profession" },
 
   impression = {
-    first = "Paige runs the Dalaran Orphanage kitchen with a ladle in one hand and a child in the other, and sells spices and firewood on the side. Her prices are set, and she says so before you can ask.",
+    first = "Her prices are set, and she says so before you can ask.",
     third = "{name} met Paige, the chef who runs the kitchen at the Dalaran Orphanage.",
   },
 

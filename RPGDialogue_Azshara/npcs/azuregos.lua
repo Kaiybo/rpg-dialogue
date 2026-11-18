@@ -9,7 +9,7 @@ P:NPC {
   temper = { "wry", "proud" }, values = { "curious", "proud" },
   notices = { "arcane", "trophy" },
   impression = {
-    first = "Azuregos is a blue dragon who guards the magic left in Azshara's ruins and finds mortals very tiresome, especially the ones with swords. He has a sense of humour, which is more unsettling than if he hadn't.",
+    first = "He has a sense of humour, which unsettles me more than none.",
     third = "{name} met Azuregos, the blue dragon who guards the magical remnants of Azshara.",
   },
 

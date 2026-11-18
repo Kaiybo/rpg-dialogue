@@ -14,7 +14,7 @@ P:NPC {
   bible = "bibles/townsfolk.md", role = "banker", tier = "service",
   communities = { "orgrimmar" }, temper = { "dry" }, values = { "practical", "honest" },
   impression = {
-    first = "Karus guards the vaults of Orgrimmar with a ledger and a long memory. He remembers when no orc owned anything worth locking up, and he treats every deposit like proof of how far the Horde has come.",
+    first = "He remembers when no orc owned anything worth locking up.",
     third = "{name} met Karus, a banker of Orgrimmar who keeps the Horde's vaults and remembers the camps that came before them.",
   },
 
@@ -205,7 +205,7 @@ P:NPC {
   bible = "bibles/townsfolk.md", role = "auctioneer", tier = "service",
   communities = { "orgrimmar" }, temper = { "brisk" }, values = { "practical" },
   impression = {
-    first = "Auctioneer Thathung runs the bids at Orgrimmar's auction house in a voice made for a battlefield. He would rather explain the deposit once, clearly, than hear one more complaint about it.",
+    first = "He would rather explain the deposit once than hear another complaint.",
     third = "{name} met Auctioneer Thathung, who keeps the bids honest at the auction house of Orgrimmar.",
   },
 
@@ -386,7 +386,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "practical", "loyal" },
   notices = { "mount" },
   impression = {
-    first = "Doras keeps the wind riders on the tower above the Valley of Strength and talks about them the way some orcs talk about wolves. He trusts the beasts more than most riders, and says so.",
+    first = "He trusts the beasts more than most riders, and says so.",
     third = "{name} met Doras, the wind rider master of Orgrimmar.",
   },
 
@@ -576,7 +576,7 @@ P:NPC {
   bible = "bibles/townsfolk.md", role = "citizen", tier = "service",
   communities = { "orgrimmar" }, temper = { "proud" }, values = { "honorable", "loyal" },
   impression = {
-    first = "Urtrun Clanbringer registers new guilds for the Warchief and treats every charter like a clan being born. He talks about the old clans with pride and about what they became with care.",
+    first = "He treats every charter like a clan being born.",
     third = "{name} met Urtrun Clanbringer, the guild master of Orgrimmar, who sees every new guild as a new clan.",
   },
 
@@ -790,7 +790,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "loyal", "disciplined" },
   notices = { "class", "race" },
   impression = {
-    first = "Overlord Runthak walks the Valley of Strength like he's inspecting troops, and to him the whole city is troops. He's loyal to Thrall without a flicker of doubt and suspicious of everyone else on principle.",
+    first = "He trusts Thrall completely and everyone else not at all.",
     third = "{name} met Overlord Runthak, an officer who walks the Valley of Strength in Orgrimmar.",
   },
 
@@ -1071,7 +1071,7 @@ P:NPC {
   bible = "bibles/townsfolk.md", role = "vendor", tier = "service",
   communities = { "orgrimmar" }, temper = { "warm" }, values = { "loyal", "proud" },
   impression = {
-    first = "Ogunaro Wolfrunner raises the Horde's riding wolves and speaks of each one by name. He will sell a wolf to any orc and to anyone the city has properly accepted, and he means both rules.",
+    first = "He knows every one of his wolves by name.",
     third = "{name} met Ogunaro Wolfrunner, the kennel master who raises the riding wolves of Orgrimmar.",
   },
 
@@ -1248,7 +1248,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "patient", "practical" },
   notices = { "profession" },
   impression = {
-    first = "Lumak teaches fishing to orcs who think it's beneath them, and he's patient about it. He learned the trade to keep himself fed after the camps, and he says a quiet river was the first peace he ever had.",
+    first = "A quiet river was the first peace he had after the camps.",
     third = "{name} heard how Lumak, fishing trainer of Orgrimmar, found his first peace by a river after the camps.",
   },
 
@@ -1428,7 +1428,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "practical", "diligent" },
   notices = { "profession" },
   impression = {
-    first = "Makaru teaches mining as if the rock were an opponent who fights fair if you respect it. Durotar's hills are a map in Makaru's head, vein by vein.",
+    first = "Durotar's hills are a map in Makaru's head, vein by vein.",
     third = "{name} was told by Makaru, who teaches mining in the Valley of Honor, to listen for the ore in the rock.",
   },
 
@@ -1610,7 +1610,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "fierce" }, values = { "proud", "diligent" },
   notices = { "wounds", "profession" },
   impression = {
-    first = "Saru Steelfury teaches blacksmithing at the forges of the Valley of Honor and talks over the hammer without ever missing a stroke. To Saru, a weapon is only honest if the smith would carry it into battle.",
+    first = "To Saru, an honest weapon is one the smith would carry.",
     third = "{name} met Saru Steelfury, the blacksmithing trainer at the forges of Orgrimmar.",
   },
 
@@ -1807,7 +1807,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "eager" }, values = { "ambitious", "curious" },
   notices = { "profession" },
   impression = {
-    first = "Nogg runs a goblin machine shop in the middle of an orc city and treats engineering as a sound business plan with occasional explosions. He's cheerful about the risks, which is either reassuring or the opposite.",
+    first = "He is far too cheerful about the explosions.",
     third = "{name} met Nogg, the goblin engineer who runs a machine shop in Orgrimmar's Valley of Honor.",
   },
 
@@ -1995,7 +1995,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "kind", "patient" },
   notices = { "pet" },
   impression = {
-    first = "Xon'cha keeps the stables for Orgrimmar's hunters and talks to the animals more than to their owners. The troll is unhurried and easy, and every beast in the pens seems to know the voice.",
+    first = "Every beast in the pens seems to know Xon'cha's voice.",
     third = "{name} met Xon'cha, the troll stable master of Orgrimmar.",
   },
 

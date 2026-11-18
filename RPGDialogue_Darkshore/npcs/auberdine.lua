@@ -12,7 +12,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "class", "race" },
   impression = {
-    first = "Thundris Windweaver sees to Auberdine's daily needs, which lately means seeing to its fears. He listens far more than he speaks, and his lamps burn late because he sleeps so little.",
+    first = "His lamps burn late because he sleeps so little.",
     third = "{name} met Thundris Windweaver, the steady elder of Auberdine, who means to learn why Darkshore is sickening.",
   },
 
@@ -377,7 +377,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "intent" }, values = { "determined", "curious" },
   notices = { "form", "class" },
   impression = {
-    first = "Whatever Fel Moss Terenthis burns grows back, and he means to keep burning it all the same. He insists the furbolgs are sick rather than evil, and he seems to need someone to believe it with him.",
+    first = "He insists the furbolgs are sick rather than evil.",
     third = "{name} met Terenthis, a druid come to Darkshore to learn how far the Fel Moss has spread and how to end it.",
   },
 
@@ -587,7 +587,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "gentle" }, values = { "devout", "curious" },
   notices = { "class" },
   impression = {
-    first = "The Temple of the Moon sent Gwennyth to tend Auberdine's people, and she found the beach strewn with dead sea creatures instead. She keeps one eye on the tide, as if expecting another.",
+    first = "She keeps one eye on the tide, expecting more dead things.",
     third = "{name} met Gwennyth Bly'Leggonde of the Sisterhood, who wants to know why the sea keeps giving up its dead on Darkshore's shore.",
   },
 
@@ -784,7 +784,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "urgent" }, values = { "protective", "dutiful" },
   notices = { "kit" },
   impression = {
-    first = "Sentinel Glynda Nal'Shea walks the beach every morning counting murloc sign. She told me plainly that the Sentinels watch everyone, and I decided not to take it personally.",
+    first = "The Sentinels watch everyone, she says, and I try not to mind.",
     third = "{name} met Sentinel Glynda Nal'Shea, who holds back murlocs on Auberdine's beaches and corruption in its groves.",
   },
 
@@ -1060,7 +1060,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "melancholy" }, values = { "devoted", "loyal" },
   notices = { "class" },
   impression = {
-    first = "On the Auberdine dock, Cerellean Whiteclaw watches the water as though someone might walk out of it. He slept for thousands of years dreaming of Anaya, and he has never stopped grieving her.",
+    first = "He slept thousands of years dreaming of Anaya and grieves her still.",
     third = "{name} met Cerellean Whiteclaw, who has mourned his beloved Anaya of Ameth'Aran since the Sundering.",
   },
 
@@ -1250,7 +1250,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "warm" }, values = { "kind", "devout" },
   notices = { "weary" },
   impression = {
-    first = "Innkeeper Shaussiy brings tea to everyone, even to those who forget to drink it. She claims the waves will sing me to sleep after a night or two, and she listens for storms in the floorboards.",
+    first = "She listens for storms in the floorboards.",
     third = "{name} found a bed at Innkeeper Shaussiy's inn by the Auberdine docks, where nearly every guest arrives seasick.",
   },
 

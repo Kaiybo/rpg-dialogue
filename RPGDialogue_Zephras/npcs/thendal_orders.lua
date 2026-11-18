@@ -15,7 +15,7 @@ P:NPC {
   notices = { "kin", "race", "class", "origin" },
 
   impression = {
-    first = "Ventaari Brightwish of the Windshapers reads a stranger's aura before their face, and she does not hide which order she belongs to. She speaks of the lost wind spirits as a debt still owed.",
+    first = "She reads a stranger's aura before their face.",
     third = "{name} met Ventaari Brightwish, a Windshaper of Thendal Village who teaches skysight and distrusts the High Order.",
   },
 
@@ -247,7 +247,7 @@ P:NPC {
   notices = { "kin", "race", "class" },
 
   impression = {
-    first = "Falorne Fallwind of the High Order believes the Skyborne will be saved by Highborne magic or not at all. He is eager to teach, quick to sneer at the Windshapers, and says the word power with real affection.",
+    first = "He says the word power with real affection.",
     third = "{name} met Falorne Fallwind, a High Order mage of Thendal Village who teaches the young to draw on ley lines.",
   },
 

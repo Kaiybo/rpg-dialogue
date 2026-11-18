@@ -20,7 +20,7 @@ P:NPC {
   notices = { "fel", "light", "weakness" },
 
   impression = {
-    first = "Demisette Cloyce is the eldest of the coven under the Slaughtered Lamb, and she let me know it without saying so: she looked at me the way a jeweller looks at a stone she hasn't decided to buy.",
+    first = "She looks at me like a stone she hasn't decided to buy.",
     third = "{name} met Demisette Cloyce, the eldest and most respected warlock of the Slaughtered Lamb's cellar.",
   },
 
@@ -256,7 +256,7 @@ P:NPC {
   notices = { "fel", "souls" },
 
   impression = {
-    first = "Sandahl teaches warlocks in the cellar under the Slaughtered Lamb, and he speaks so softly that I leaned in to hear him, which I suspect was the point. He weighs every word as though it cost him a soul shard.",
+    first = "He speaks so softly you must lean in, which is the point.",
     third = "{name} met Sandahl, a soft-spoken and exacting warlock trainer in the Slaughtered Lamb's cellar.",
   },
 
@@ -490,7 +490,7 @@ P:NPC {
   notices = { "cloth", "shadow" },
 
   impression = {
-    first = "Jalane Ayrole sews in the cellar of the Slaughtered Lamb by one candle, and the cloth on her table seems to drink the light. She spoke of shadow the way other tailors speak of silk.",
+    first = "She speaks of shadow the way other tailors speak of silk.",
     third = "{name} met Jalane Ayrole, who teaches the weaving of Shadoweave cloth beneath the Slaughtered Lamb.",
   },
 
@@ -719,7 +719,7 @@ P:NPC {
   notices = { "drink", "cellar", "class" },
 
   impression = {
-    first = "Jarel Moor tends bar at the Slaughtered Lamb, polishes the same cup for a very long time, and told me twice to stay away from the shadows, as if that were a sensible thing to say in a tavern with a warlock cellar under it.",
+    first = "He warns you off the shadows, above a cellar full of warlocks.",
     third = "{name} met Jarel Moor, bartender of the Slaughtered Lamb in Stormwind's Mage Quarter.",
   },
 
@@ -1172,7 +1172,7 @@ P:NPC {
   notices = { "light", "fel", "squire" },
 
   impression = {
-    first = "Katherine the Pure trains paladins in the Cathedral of Light, beside Lord Grayson and Arthur the Faithful. She corrects your stance before she says hello, and she means both kindly.",
+    first = "She corrects your stance before she says hello, and means both kindly.",
     third = "{name} met Katherine the Pure, a paladin of the Silver Hand who trains young paladins in Stormwind's Cathedral.",
   },
 
@@ -1407,7 +1407,7 @@ P:NPC {
   notices = { "reagents", "light" },
 
   impression = {
-    first = "Brother Cassius sells candles, feathers and holy symbols from a side room of the Cathedral, and he sorts them with the care of a man who once dropped a crate of Light Feathers down the nave and has never quite recovered.",
+    first = "He once dropped a crate of Light Feathers down the nave.",
     third = "{name} met Brother Cassius, the Cathedral of Light's careful and apologetic reagent seller.",
   },
 
@@ -1629,7 +1629,7 @@ P:NPC {
   notices = { "stealth", "noble" },
 
   impression = {
-    first = "Lord Tony Romano trains rogues in Old Town and wears his title like a borrowed coat: well cut, slightly ironic, and ready to be shrugged off the moment someone needs stabbing.",
+    first = "He wears his title like a borrowed coat he could shrug off.",
     third = "{name} met Lord Tony Romano, a nobleman turned rogue trainer in Stormwind's Old Town.",
   },
 
@@ -1857,7 +1857,7 @@ P:NPC {
   notices = { "ranged", "hunter" },
 
   impression = {
-    first = "Lina Stover sells bows and guns just inside the Empty Quiver, and where her brother Frederick talks about yew, she talks about powder, barrels and how many paces a dwarf rifle will carry.",
+    first = "Her brother talks about yew, and she talks about powder.",
     third = "{name} met Lina Stover, who sells bows and guns at the Empty Quiver in Stormwind's Trade District.",
   },
 
@@ -2079,7 +2079,7 @@ P:NPC {
   notices = { "axe", "wildhammer" },
 
   impression = {
-    first = "Kathrum Axehand is a Wildhammer dwarf with tattoos up both arms who sells axes in Stormwind's Dwarven District and talks about gryphons the way a homesick man talks about his mother.",
+    first = "He talks about gryphons like a homesick man about his mother.",
     third = "{name} met Kathrum Axehand, a tattooed Wildhammer dwarf who sells axes in Stormwind's Dwarven District.",
   },
 
@@ -2306,7 +2306,7 @@ P:NPC {
   notices = { "shield", "guard" },
 
   impression = {
-    first = "Bryan Cross sells shields in Old Town, a stone's throw from the barracks, and he raps on every one with his knuckles before he lets it go, as though listening for a lie.",
+    first = "He raps on every shield as though listening for a lie.",
     third = "{name} met Bryan Cross, a plain-spoken shield merchant in Stormwind's Old Town.",
   },
 
@@ -2533,7 +2533,7 @@ P:NPC {
   notices = { "arcane", "explosive" },
 
   impression = {
-    first = "Darian Singh sells fireworks and arcane goods in the Mage Quarter, smells faintly of saltpetre, and lights up talking about rockets the way his rockets light up the sky.",
+    first = "He smells faintly of saltpetre and lights up talking about rockets.",
     third = "{name} met Darian Singh, the cheerful fireworks seller of Stormwind's Mage Quarter.",
   },
 
@@ -2753,7 +2753,7 @@ P:NPC {
   notices = { "soldier", "dragon" },
 
   impression = {
-    first = "Major Mattingly stands in the Valley of Heroes with his longsword and a face lined by long service, and he watches the gate as if the Horde might come over it again before supper.",
+    first = "He watches the gate as if the Horde might return before supper.",
     third = "{name} met Major Mattingly, a veteran officer of the Stormwind Army who keeps watch in the Valley of Heroes.",
   },
 
@@ -3046,7 +3046,7 @@ P:NPC {
   notices = { "soldier", "dragon", "siege" },
 
   impression = {
-    first = "Field Marshal Afrasiabi stands under an arch in the Valley of Heroes with a sheaf of plans under his arm, and he warned me twice that he does not care for plans that go off track. Then he told me about steam-engine siege tactics for a quarter of an hour.",
+    first = "He does not care for plans that go off track.",
     third = "{name} met Field Marshal Afrasiabi, a precise and talkative officer of the Stormwind Army in the Valley of Heroes.",
   },
 
@@ -3317,7 +3317,7 @@ P:NPC {
   notices = { "rank", "mount" },
 
   impression = {
-    first = "Lieutenant Karter keeps the war mounts outside the Champions' Hall in Old Town and judges every rider by the rank on their collar before she looks at their face, which she admits is a bad habit and refuses to break.",
+    first = "She judges every rider by rank and refuses to break the habit.",
     third = "{name} met Lieutenant Karter, who sells war mounts to the Alliance's highest-ranked soldiers outside Stormwind's Champions' Hall.",
   },
 

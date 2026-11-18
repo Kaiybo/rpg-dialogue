@@ -12,7 +12,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "sharp" }, values = { "curious", "careful", "loyal" },
   notices = { "race", "dungeon", "lore" },
   impression = {
-    first = "Sage Truthseeker reads the Bluff's politics the way other sages read old hides, looking for whoever is whispering to the Elder Council. She trusts Cairne completely and the Forsaken not at all.",
+    first = "She trusts Cairne completely and the Forsaken not at all.",
     third = "{name} met Sage Truthseeker, a scholar of Thunder Bluff who gathers knowledge to advise the High Chieftain.",
   },
 
@@ -276,7 +276,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "devout", "patient", "proud" },
   notices = { "kin", "trophy" },
   impression = {
-    first = "Eyahn Eagletalon prepares the ceremonies on the lower rise, fussing over feathers and beadwork as though the Earth Mother would notice a crooked stitch. He is very proud of his brother Ruul, and tries not to show it.",
+    first = "He is very proud of his brother Ruul and hides it badly.",
     third = "{name} met Eyahn Eagletalon, who keeps the ceremonies of Thunder Bluff and is brother to Ruul of Bloodhoof Village.",
   },
 
@@ -381,7 +381,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "gruff" }, values = { "proud", "loyal" },
   notices = { "dungeon", "class" },
   impression = {
-    first = "Auld Stonespire is an old shaman and one of the last of his tribe, driven out of the holy lands of the southern Barrens. He has not forgiven it, and he does not think he should have to.",
+    first = "He has not forgiven being driven from the southern Barrens.",
     third = "{name} met Auld Stonespire, an old shaman of the scattered Stonespire tribe who wants Charlga Razorflank dead.",
   },
 
@@ -421,6 +421,8 @@ P:NPC {
         { text = "I've been to Razorfen Kraul.", next = "kraul", when = { cleared = "Razorfen Kraul" } },
         { text = "I'll bring you her heart.", next = "BUSINESS" },
         { text = "I've thinned the Razorfen, Auld. Is it enough?", next = "dd_razorfen", when = { killed = { name = "Razorfen", min = 40 } } },
+        { text = "The spirits must speak of your tribe still.", next = "spirits", when = { class = "SHAMAN" } },
+        { text = "Our people don't forget their dead, elder.", next = "dead", when = { race = "Tauren" } },
         { text = "Earth Mother keep you, Auld.", next = "END" },
       },
     },
@@ -474,6 +476,32 @@ P:NPC {
       lines = { { id = "k_default", text = "Did you see the old stones under the thorns, the ones with the carvings worn almost smooth? Those were ours, and if you saw them, you've seen more of my home than I have in thirty years." } },
       choices = { { text = "I saw them. They're still standing.", next = "BACK", fx = { affinity = 2 } } },
     },
+    spirits = {
+      lines = {
+        { id = "spirits_d", text = "They do, and that is the trouble with being a shaman who has lost his people. I hear the Stonespire in every wind that comes up from the south, and they do not ask me for peace." },
+      },
+      choices = {
+        { text = "What do they ask for?", next = "spirits_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spirits_ask = {
+      lines = {
+        { id = "spirits_ask_d", text = "They ask to be remembered in the land they walked, and they cannot be while Charlga's thorns grow over it. The elders call that vengeance, and I call it setting a grave to rights." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dead = {
+      lines = {
+        { id = "dead_d", text = "No, we do not, and I am glad to hear a young one say it. Most on this bluff would have me sit quietly by the fire and let the Stonespire become a story the calves half remember." },
+      },
+      choices = {
+        { text = "I'll remember them, elder.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -493,7 +521,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "practical", "craft" },
   notices = { "profession" },
   impression = {
-    first = "Veren Tallstrider gathers leather on the middle rise and sends the young out to learn skinning and to stitch their first kodo hide bags. He talks about hides the way other people talk about family.",
+    first = "He talks about hides the way other people talk about family.",
     third = "{name} met Veren Tallstrider, who gathers leather in Thunder Bluff and teaches the young their first stitches.",
   },
 

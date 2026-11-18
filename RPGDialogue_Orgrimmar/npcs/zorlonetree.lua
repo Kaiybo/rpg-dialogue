@@ -9,7 +9,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "wise", "patient" },
   notices = { "class", "form" },
   impression = {
-    first = "Zor Lonetree is the Elder Far Seer of Grommash Hold, slow to speak and careful when he does. He hears the land complaining of what the goblins do in Stonetalon, and he knows more about human politics than he lets on.",
+    first = "He knows more about human politics than he lets on.",
     third = "{name} met Zor Lonetree, the Elder Far Seer in Grommash Hold, who listens to the spirits and studies the Alliance's politics.",
   },
 

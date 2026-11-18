@@ -14,7 +14,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Foreman Stonebrow stood at the lip of Gol'Bolar Quarry shaking his fist at the troggs below, and he was angry enough that I worried for his heart. He'd have gone down there himself, he said, if his aim were what it used to be.",
+    first = "His rage at the troggs made me worry for his heart.",
     third = "{name} met Foreman Stonebrow of the Miners' League, who ran Gol'Bolar Quarry until the troggs took it.",
   },
 
@@ -124,7 +124,7 @@ P:NPC {
   notices = { "race", "level" },
 
   impression = {
-    first = "Felix Whindlebolt is a gnome refugee who fled Gnomeregan with nothing, and then lost even that to the Frostmane trolls. He apologized three times for asking me to fetch his things back.",
+    first = "He apologized three times for asking me to fetch his things.",
     third = "{name} met Felix Whindlebolt at Anvilmar, a gnome refugee whose belongings were carried off by trolls.",
   },
 

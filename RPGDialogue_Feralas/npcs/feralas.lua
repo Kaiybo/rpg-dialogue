@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Shandris Feathermoon watches the water around Sardor Isle as though it might betray her at any moment. Her loyalty to the High Priestess runs deeper than duty, and it shows in every word.",
+    first = "Her loyalty to the High Priestess runs deeper than duty.",
     third = "{name} met Shandris Feathermoon, General of the Sentinels, who holds Feathermoon Stronghold for the High Priestess.",
   },
 
@@ -419,7 +419,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Pratt McGrubben calls himself mostly retired from paladin work and fully busy with leather. He has an old soldier's patience and a friendly word for whoever wanders up to his bench.",
+    first = "He calls himself mostly retired from paladin work and busy with leather.",
     third = "{name} met Pratt McGrubben, a genial semi-retired paladin who works leather at Feathermoon Stronghold.",
   },
 
@@ -652,7 +652,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Innkeeper Shyria keeps the kettle on for Sentinels coming in from the rain at every hour. She has a gentle way about her that makes the island feel safer than it is.",
+    first = "Her gentle way makes the island feel safer than it is.",
     third = "{name} met Innkeeper Shyria, who shelters the Sentinels of Feathermoon Stronghold beneath her roof.",
   },
 
@@ -843,7 +843,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Rok Orhan has one answer for most problems in Feralas, and it involves killing ogres. Still, he spoke of the land healing someday, which I didn't expect from him.",
+    first = "His one answer for most problems in Feralas is killing ogres.",
     third = "{name} met Rok Orhan, who leads the Horde's fight against the Gordunni ogres from Camp Mojache.",
   },
 
@@ -1197,7 +1197,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Orwin Gizzmick keeps a sack of rocks under his bed that might be a fortune, and he can't stop talking about them. Half scholar, half salesman, and both halves are hungry.",
+    first = "He keeps a sack of rocks that might be a fortune.",
     third = "{name} met Orwin Gizzmick, a goblin at Camp Mojache who wants to know what the Gordunni cobalt is worth.",
   },
 
@@ -1419,7 +1419,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Innkeeper Greul made me feel welcome before I'd shaken the rain off. In a land so full of teeth, her fire feels like the safest spot in Feralas.",
+    first = "Her fire feels like the safest spot in Feralas.",
     third = "{name} met Innkeeper Greul, the hospitable tauren who keeps the fire at Camp Mojache.",
   },
 

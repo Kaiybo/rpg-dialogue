@@ -10,7 +10,7 @@ P:NPC {
   notices = { "animal", "weapon" },
 
   impression = {
-    first = "Talin Keeneye hunts boars for the love of it, and there are now so many of them that he can't enjoy it. He talked about a good shot the way other dwarves talk about ale.",
+    first = "There are too many boars now for him to enjoy hunting them.",
     third = "{name} met Talin Keeneye, a cheerful hunter by Coldridge's frozen lake whose favourite sport has been spoiled by too many boars.",
   },
 

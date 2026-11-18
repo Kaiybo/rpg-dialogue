@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "arcane", "faction" },
 
   impression = {
-    first = "Archmage Modera holds herself like someone carrying a heavy tray through a crowded room, gracious and never quite at rest. She bent her own council's rules to save her city, and she doesn't seem sorry.",
+    first = "She bent her council's rules to save her city and isn't sorry.",
     third = "{name} met Archmage Modera of the Kirin Tor in the Violet Citadel, who called for outside help when her council would not.",
   },
 
@@ -410,7 +410,7 @@ P:NPC {
   notices = { "class", "faction" },
 
   impression = {
-    first = "Archmage Celindra treats every minute as borrowed from a ward that needs her. Underneath the impatience is real grief for Antonidas, and she guards it as carefully as her study.",
+    first = "Her impatience hides real grief for Antonidas.",
     third = "{name} met Archmage Celindra in the Violet Citadel, a brusque archmage and an old friend of Antonidas.",
   },
 
@@ -672,7 +672,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Archmage Alvareaux keeps the Kirin Tor's stores, and apologizes for them before anyone can complain. He has the patient look of a man who counts everything twice.",
+    first = "He apologizes for his stores before anyone can complain.",
     third = "{name} met Archmage Alvareaux, the Kirin Tor's quartermaster in the Violet Citadel.",
   },
 

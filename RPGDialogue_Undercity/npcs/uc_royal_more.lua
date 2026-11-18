@@ -12,7 +12,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cold", "sharp" }, values = { "loyal", "cunning" },
   notices = { "race", "class" },
   impression = {
-    first = "Sharlindra is a banshee who drifts at the edge of the Royal Quarter, close enough to the Dark Lady to hear everything said in her presence. Her voice is soft and cold, and she treats every visitor as a tool whose usefulness she hasn't yet decided.",
+    first = "To her, every visitor is a tool of undecided usefulness.",
     third = "{name} met Sharlindra, a banshee who serves Lady Sylvanas in the Royal Quarter of the Undercity.",
   },
 
@@ -112,18 +112,23 @@ P:NPC {
   communities = { "undercity" }, temper = { "cheerful", "anxious" }, values = { "curious" },
   notices = { "class", "race" },
   impression = {
-    first = "Jorah Annison is employed as a cartographer in the Magic Quarter and despises every map he draws. What he loves are books, narrative and description, and he's read every one the Undercity has, which isn't many.",
+    first = "He despises every map he draws and loves books instead.",
     third = "{name} met Jorah Annison, a book-starved Forsaken cartographer in the Undercity's Magic Quarter.",
   },
 
   greetings = {
     { id = "g_hi", text = "If you're after a map, take one, they're all the same and they're all wrong. If you're after a book, now that's a different conversation." },
     { id = "g_tome", when = { questActive = TODO_QUEST("Tome of the Cabal") }, text = "The Tome of the Cabal! Have you found the rest of it? Tell me you've found the rest of it." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back! Did you bring a book? No? Well, come in anyway, I've a map to ignore." },
   },
 
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
       text = "A warlock, and a well-read one, I can tell from your eyes. You have the squint." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage, so you've had a library at your back all your life and probably never thanked it. I'd give this whole desk for one afternoon in Dalaran's stacks." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A troll! Your people keep their histories in songs, I've read, and never write them down. That's either very wise or the saddest thing I've ever heard." },
   },
 
   start = "hello",
@@ -137,12 +142,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I'll stop drawing for you, it's no hardship." },
         { id = "h_again2", text = "Go on, I've nothing better to read." },
+        { id = "h_again3", text = "Yes, anything. The coastline of Silverpine can wait, since it's waited this long." },
       },
       choices = {
         { text = "Why work as a cartographer if you hate maps?", next = "job" },
         { text = "What sort of books do you want?", next = "books" },
         { text = "Tell me about the Tome of the Cabal.", next = "tome", when = { class = "WARLOCK" } },
         { text = "Do you know Strahad Farsan?", next = "strahad", when = { class = "WARLOCK" } },
+        { text = "Which books does the city actually have?", next = "shelf" },
+        { text = "Who else reads, down here?", next = "readers" },
+        { text = "I've been to places your maps get wrong.", next = "wrong", when = { minLevel = 30 } },
         { text = "I'll leave you to your maps.", next = "END" },
       },
     },
@@ -181,11 +190,57 @@ P:NPC {
       lines = { { id = "st_default", text = "Strahad Farsan, who trains warlocks down in Ratchet, writes to me now and then, and his letters are the best reading I get. I've hinted that he might send me a copy of the tome when he's finished with it, and I'll keep hinting." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    shelf = {
+      lines = { { id = "sh_default", text = "Forty-one, if you leave out ledgers and the Apothecary Society's locked cases. There are gazetteers, a herbal, a history of the Arathi kings with the last chapters missing, and a book of Lordaeron's inn signs, which I've come to love." } },
+      choices = {
+        { text = "A book of inn signs?", next = "shelf2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shelf2 = {
+      lines = { { id = "sh2_default", text = "Every one in the kingdom, drawn by a tax assessor who plainly enjoyed his rounds. The Gallows' End in Brill is in it, and when I showed the page to Innkeeper Renee up there, she stood and looked at it for a good long while." } },
+      choices = {
+        { text = "That's worth more than a map.", next = "BACK", reply = "It is the only true map I own. It shows where people were glad to stop.", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    readers = {
+      lines = { { id = "rd_default", text = "Fewer than you'd hope. Salazar Bloch sells books in the Trade Quarter and won't lend, Parqual Fintallas knows more history than any page I own, and a mage called Faith Duggins lent me half a novel that has ruined my peace entirely." } },
+      choices = {
+        { text = "The Shepherdess of Darrowmere?", next = "readers2", when = { heardLine = "uc_faith_duggins.sy3_default" } },
+        { text = "Why ruined?", next = "readers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    readers2 = {
+      lines = { { id = "rd2_default", text = "It stops at the top of a page, in the middle of a storm, with the shepherdess on the wrong side of the lake. I have three theories about the ending, and Mistress Duggins says all three are sentimental, which I take to mean she hopes one is right." } },
+      choices = {
+        { text = "Which theory do you favour?", next = "BACK", reply = "That she rows across. I can't prove it, but I'm a man who needs somebody to have made it over that lake." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrong = {
+      lines = { { id = "wr_default", text = "I don't doubt it for a moment! Tell me one, and tell it as a traveller would, with what you saw and smelled. I'll not put it on a map, I promise you. I'll write it down properly, in sentences." } },
+      choices = {
+        { text = "The road through Hillsbrad is half graves now.", next = "wrong2" },
+        { text = "Desolace isn't empty. It's crowded with bones.", next = "wrong2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrong2 = {
+      lines = { { id = "wr2_default", text = "There, you see, no map would ever say so! A line and a name, that's all the sheet would give it. I'll set down your words tonight under your own name, {name}, and that's the first true page this desk has produced." } },
+      choices = {
+        { text = "I'll bring you more when I've seen more.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "I copied charters for the crown in Lordaeron. The crown's gone, and I'm still copying, so perhaps it was never about the crown." } },
     advice = { { id = "tp_ad", text = "Read everything you find, {class}, especially what someone's tried to hide." } },
+    dalaran = { { id = "tp_dal", text = "The greatest library in the north, sealed under a dome. I think about it the way a starving man thinks about a locked larder." } },
+    lordaeron = { { id = "tp_lord", text = "I copied its charters for twenty years. The kingdom was mostly paper, and paper burns so easily." } },
     _none = { { id = "tp_none", text = "If it's not in a book I've read, I don't know it, and I've read all the books here." } },
   },
 }

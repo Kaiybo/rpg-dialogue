@@ -9,7 +9,7 @@ P:NPC {
   temper = { "gruff" }, values = { "dutiful", "loyal" },
   notices = { "class", "kit" },
   impression = {
-    first = "Regthar Deathgate runs the Horde's war against the Kolkar from a burrow and a pig farm west of the Crossroads. He talks about duty the way other orcs talk about food, and he would like the centaur to try something foolish.",
+    first = "He would like the centaur to try something foolish.",
     third = "{name} met Regthar Deathgate at his fortified camp west of the Crossroads, where he directs the Horde's fight against the Kolkar centaur.",
   },
 

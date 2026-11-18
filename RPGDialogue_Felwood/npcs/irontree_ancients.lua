@@ -10,7 +10,7 @@ P:NPC {
   notices = { "hunter", "pet" },
 
   impression = {
-    first = "Vartrus the Ancient is the spirit of an Ancient of Lore who died at Hyjal ten thousand years ago and never left the Irontree Woods. His voice is like wind through a hollow trunk, and he weighs every word before he lets it go.",
+    first = "He weighs every word before he lets it go.",
     third = "{name} met Vartrus the Ancient, the spirit of an Ancient of Lore who guards what is left of the Irontree Woods.",
   },
 

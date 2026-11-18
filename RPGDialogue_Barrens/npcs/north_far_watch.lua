@@ -16,7 +16,7 @@ P:NPC {
   temper = { "gruff", "proud" }, values = { "proud", "loyal" },
   notices = { "gender", "kit" },
   impression = {
-    first = "Kargal Battlescar keeps Far Watch Post above the Southfury and carries a grudge against Sergra Darkthorn like a second axe. Under the grumbling he watches the border more carefully than he lets on.",
+    first = "He carries a grudge against Sergra Darkthorn like a second axe.",
     third = "{name} met Kargal Battlescar at Far Watch Post, a scarred veteran with a long grudge against the Crossroads' commander.",
   },
 
@@ -195,7 +195,7 @@ P:NPC {
   temper = { "calm", "secretive" }, values = { "cunning", "dutiful" },
   notices = { "class", "race" },
   impression = {
-    first = "Ak'Zeloth talks about the Burning Blade and its demons the way a farmer talks about weather. He wants their power stone broken, and I could not tell whether he hates the cult or only its leaders.",
+    first = "I can't tell whether he hates the cult or only its leaders.",
     third = "{name} met Ak'Zeloth in the northern Barrens, an orc with an unsettling knowledge of the Burning Blade.",
   },
 
@@ -316,7 +316,7 @@ P:NPC {
   temper = { "stern", "patient" }, values = { "wise", "dutiful" },
   notices = { "class", "race" },
   impression = {
-    first = "Thun'grim Firegaze keeps a fire burning on a bare hilltop and talks to it more than to visitors. He tests shamans on the path of fire and does not hurry anyone who climbs up to him.",
+    first = "He talks to his fire more than to his visitors.",
     third = "{name} met Thun'grim Firegaze, the shaman who tests the Horde's young on the path of fire.",
   },
 
@@ -422,7 +422,7 @@ P:NPC {
   temper = { "gruff", "fierce" }, values = { "proud", "dutiful" },
   notices = { "class", "kit" },
   impression = {
-    first = "Uzzek is an old warrior who tests the young ones on the path of defense and doesn't hide how few impress him. His advice is blunt and mostly about shields.",
+    first = "Few of the young impress him, and his advice is mostly shields.",
     third = "{name} met Uzzek, a veteran who tests the Horde's young warriors in the Barrens.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   temper = { "steady" }, values = { "protective", "dutiful" },
   notices = { "race" },
   impression = {
-    first = "Morin Cloudstalker keeps watch on Mulgore's open road, a tauren who has seen caravans burned and dwarves digging where they have no right. He speaks slowly and means every word.",
+    first = "He has seen caravans burned, and he means every slow word.",
     third = "{name} met Morin Cloudstalker, who watches the roads of Mulgore.",
   },
   greetings = {
@@ -242,7 +242,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "serene" }, values = { "wise", "patient" },
   notices = { "class" },
   impression = {
-    first = "Gennia Runetotem teaches the young druids of Bloodhoof Village, gentle and patient, with the Runetotem family's long memory of the Cenarion way.",
+    first = "She is gentle and patient, with the Runetotems' long memory.",
     third = "{name} met Gennia Runetotem, the druid trainer at Bloodhoof Village.",
   },
   greetings = {
@@ -388,7 +388,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "steady" }, values = { "practical" },
   notices = { "class" },
   impression = {
-    first = "Yaw Sharpmane teaches Bloodhoof's hunters, a quiet tauren who measures a student by how they treat their animal companion.",
+    first = "He measures a student by how they treat their animal companion.",
     third = "{name} met Yaw Sharpmane, the hunter trainer at Bloodhoof Village.",
   },
   greetings = {

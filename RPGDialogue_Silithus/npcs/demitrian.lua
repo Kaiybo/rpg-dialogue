@@ -10,7 +10,7 @@ P:NPC {
   notices = { "shaman", "bindings" },
 
   impression = {
-    first = "Highlord Demitrian stands alone in the ruins of a Twilight's Hammer camp in the Crystal Vale, waiting for someone to bring him the bindings of an imprisoned elemental prince. He speaks of Thunderaan the way a priest speaks of a god.",
+    first = "He speaks of Thunderaan the way a priest speaks of a god.",
     third = "{name} met Highlord Demitrian, the strange, devout human in Silithus who knows how to free Thunderaan the Windseeker.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "uneasy", "deliberate" }, values = { "wisdom", "spirits" },
   notices = { "class", "craft" },
   impression = {
-    first = "Mor'rogal feels something wrong under the mountains before he can name it, and he hates not being able to name it. He speaks of the earthen with the dread of someone who has only ever heard them in legends.",
+    first = "He feels something wrong under the mountains and cannot name it.",
     third = "{name} met Mor'rogal, a tauren shaman at Sun Rock Retreat troubled by what the kobolds of Boulderslide Ravine have dug up.",
   },
 

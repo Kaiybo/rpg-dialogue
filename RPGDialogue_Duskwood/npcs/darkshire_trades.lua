@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/darkshire_trades.md", role = "flightmaster", tier = "service",
   communities = { "darkshire" }, temper = { "steady" }, values = { "duty", "courage" },
   impression = {
-    first = "Felicia Maline keeps Darkshire's gryphons, and she says the birds hate Duskwood's dark nearly as much as the townsfolk do.",
+    first = "Her gryphons hate Duskwood's dark nearly as much as the townsfolk do.",
     third = "{name} met Felicia Maline, Darkshire's gryphon master.",
   },
   greetings = {
@@ -179,7 +179,7 @@ P:NPC {
   bible = "bibles/darkshire_trades.md", role = "vendor", tier = "service",
   communities = { "darkshire" }, temper = { "grim" }, values = { "craft", "practical" },
   impression = {
-    first = "Gavin Gnarltree sells swords and axes to a town that sleeps with one hand on a hilt, and he doesn't pretend any of it is enough against what lives in the wood.",
+    first = "He admits no sword is enough against what lives in the wood.",
     third = "{name} met Gavin Gnarltree, Darkshire's grim weaponsmith.",
   },
   greetings = {

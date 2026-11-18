@@ -9,7 +9,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "sharp" }, values = { "proud", "honest" },
   notices = { "race", "light" },
   impression = {
-    first = "Clarice Foster is one of the Forsaken, standing far from home by the Pools of Vision. Her husband Yuriv left her for a crusade and died for it, and she wants his pendant on his grave and him out of her thoughts.",
+    first = "She wants her husband's pendant on his grave and him forgotten.",
     third = "{name} met Clarice Foster in Thunder Bluff, a bitter Forsaken woman who sent her late husband's pendant back to his tomb.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   temper = { "serene", "precise" }, values = { "craft", "patient" },
   notices = { "craft", "death" },
   impression = {
-    first = "Aendel Windspear was a famous leatherworker of Southwind centuries ago, and she came back as a ghost to teach the living what she knows. She is gentle and exacting, and she talks about silithid chitin like a fine hide.",
+    first = "She came back as a ghost to teach the living her craft.",
     third = "{name} met Aendel Windspear, the ghost of a famous Southwind leatherworker who returned to pass on her craft.",
   },
 

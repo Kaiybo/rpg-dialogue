@@ -9,7 +9,7 @@ P:NPC {
   notices = { "pet", "class" },
 
   impression = {
-    first = "Gorzeeki Wildeyes offered me a beetle before he offered me his name. He's a goblin alchemist who serves Mor'zul and seems to think the whole business of demons is wonderful fun.",
+    first = "He offered me a beetle before he offered me his name.",
     third = "{name} met Gorzeeki Wildeyes, Mor'zul Bloodbringer's goblin alchemist at the Altar of Storms in the Burning Steppes.",
   },
 

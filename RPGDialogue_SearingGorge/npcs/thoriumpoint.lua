@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "profession" },
 
   impression = {
-    first = "Overseer Oilfist takes responsibility for everything at Thorium Point, and he made it clear that now includes me. He is a Dark Iron who stopped serving the mountain and carries that choice like a weight.",
+    first = "He left the mountain's service and carries that choice like a weight.",
     third = "{name} met Overseer Oilfist, who leads the Thorium Brotherhood's outpost at Thorium Point.",
   },
 
@@ -334,7 +334,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Hansel Heavyhands complained about being made to stand up before he complained about anything else. Freedom, for him, mostly seems to mean a chair, and I can't say I blame him.",
+    first = "Freedom, for him, mostly seems to mean a chair.",
     third = "{name} met Hansel Heavyhands, the weary enforcer of the Thorium Brotherhood at Thorium Point.",
   },
 
@@ -558,7 +558,7 @@ P:NPC {
   notices = { "drink", "stealth" },
 
   impression = {
-    first = "Lookout Captain Lolo Longstriker is nearly blind and smells out trouble instead, with a little help from the bottle. Nobody has snuck up on Thorium Point yet, so perhaps he's onto something.",
+    first = "Nearly blind, he smells out trouble with some help from the bottle.",
     third = "{name} met Lookout Captain Lolo Longstriker, the near-blind lookout of Thorium Point.",
   },
 
@@ -811,7 +811,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Kalaran Windblade speaks of his murdered father and of vengeance on the Dark Iron in the same brooding breath. He tells it like a story he has told many times before.",
+    first = "He tells of his murdered father like a story told many times.",
     third = "{name} met Kalaran Windblade in the Searing Gorge, who seeks vengeance on the Dark Iron for his father's death.",
   },
 

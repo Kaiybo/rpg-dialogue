@@ -10,7 +10,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "gentle", "patient" }, values = { "nature", "kind", "curious" },
   notices = { "race", "form", "craft" },
   impression = {
-    first = "Mura Runetotem is a tauren druid living among the Forsaken, trying to coax the dying pines of Silverpine back to health. She is gentle and stubborn about it, and she treats the dead around her as neighbours rather than as a warning.",
+    first = "She treats the dead around her as neighbours, not as a warning.",
     third = "{name} met Mura Runetotem, a tauren druid at the Sepulcher who is trying to heal Silverpine Forest for the Forsaken.",
   },
 
@@ -224,7 +224,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "smooth", "anxious" }, values = { "cunning", "greedy" },
   notices = { "stealth", "class", "purse" },
   impression = {
-    first = "Astor Hadren calls himself a messenger and talks a great deal without saying anything. He is friendly in the way of a man who would very much like you to go away, and his satchel never leaves his shoulder.",
+    first = "He talks a great deal, says nothing, and never unshoulders his satchel.",
     third = "{name} met Astor Hadren, a courier at the Sepulcher who carries letters between Silverpine and Brill.",
   },
 

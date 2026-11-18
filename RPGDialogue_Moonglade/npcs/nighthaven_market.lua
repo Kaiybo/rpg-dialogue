@@ -13,7 +13,7 @@ P:NPC {
   notices = { "druid", "naked" },
 
   impression = {
-    first = "Geenia Sunshadow makes robes for the druids of Nighthaven, and she measures every visitor with her eyes before they've said hello. She thinks a druid ought to look as good as the forest does.",
+    first = "She measures every visitor with her eyes before they've said hello.",
     third = "{name} met Geenia Sunshadow, the dressmaker of Nighthaven.",
   },
 

@@ -15,7 +15,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Penny keeps Lakeshire's stables and talks about the broken bridge the way everyone in town does, as a personal insult. She's brisk with people and soft with animals.",
+    first = "She is brisk with people and soft with animals.",
     third = "{name} met Penny, the stable master of Lakeshire.",
   },
 
@@ -151,7 +151,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Lindsay Ashlock sells general supplies in Lakeshire and keeps one eye on the bridge, where Guard Ashlock stands his watch. She worries about him out loud and sells you flint and thread while she does it.",
+    first = "She worries aloud about her guardsman on the bridge while she sells.",
     third = "{name} met Lindsay Ashlock, who sells general supplies in Lakeshire and worries about Guard Ashlock on the bridge.",
   },
 
@@ -277,7 +277,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Crystal Boughman teaches cooking in Lakeshire and believes there's no trouble a good meal can't make smaller. She's a little bossy about it, and she's usually right.",
+    first = "She believes a good meal makes any trouble smaller.",
     third = "{name} met Crystal Boughman, the cooking trainer of Lakeshire.",
   },
 
@@ -426,7 +426,7 @@ P:NPC {
   notices = { "craft", "pet" },
 
   impression = {
-    first = "Wilma Ranthal teaches skinning from a camp out in Shalewind Canyon, far from Lakeshire's walls. She's blunt, she smells of hides, and she likes it out here because nobody comes to bother her.",
+    first = "She likes the canyon because nobody comes to bother her.",
     third = "{name} met Wilma Ranthal, the skinning trainer who lives out in Shalewind Canyon in eastern Redridge.",
   },
 

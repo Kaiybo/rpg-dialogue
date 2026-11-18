@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; follow `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.85.0)
+## State (0.86.0)
+- 0.86.0 (user: "build a release with all PRs"): open PRs #135-#141 merged. Conflicts: #135 and #137 both built Joke; kept #135's scoring/locale/bar row plus #137's `say` lines (`Engine.PickSay`, World `persuade_say.lua`, NEW FILE). #139's version bumps replaced by one release bump. Only `luac -p` run; nothing seen in game. Joke icon `INV_Misc_Bell_01` may not exist on this client.
 - 0.85.0 (user: "build the new release"): open PRs #128-#133 merged into one release: letters walk-away fix, gut feelings (DESIGN §3.15), narration `narr` (§2.5/2.6, CONTENT_GUIDE §2a), "Where is...?" (§3.11), Admire/Taunt/Intimidate + disposition gates (§3.16), tone Polite/Normal/Blunt (§3.17, CONTENT_GUIDE §7b). NEW FILES (full restart): `Systems/Insight.lua`, `Systems/Persuasion.lua`, `Systems/Directions.lua`, World `gut.lua` + `persuade.lua`, `directions.lua` in 9 packs. Conflicts were all keep-both (settings, locale, PackAPI kinds, the bottom bar: tone at left beside disposition, persuasion buttons at right; DialogueUI rows: Persuade..., Get on with it, Tone; Thrall's "For the Horde." keeps its narration and gains tone variants). Only `luac -p` run; nothing seen in game.
 - TTS (0.83.1 work, never released alone): status names from a fallback table; when every way fails, one hint message and the bad list resets.
 - Calls to check from the NPC gap scan (#125): Silithus Torrig/Bloodfist and five Grom'gol NPCs reverse earlier "skip" decisions; many 1.x placements are inferred. Leftover names: Stormwind Champions' Hall, Thunder Bluff (Atepa, Krumn, Sheza Wildmane), Teldrassil (Nhemai, Janna Brightmoon), Darkshire Watchers, Undercity (Randolph Montague, Lexington Mortaim), Ironforge/Loch Modan vendors.

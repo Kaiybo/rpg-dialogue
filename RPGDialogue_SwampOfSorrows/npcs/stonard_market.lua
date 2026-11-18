@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "faction", "drink" },
 
   impression = {
-    first = "Infiltrator Marksen is a human spy the orcs caught near Duskwood and keep under guard in Stonard. He swears he knows something that goes beyond Alliance and Horde, and he means to trade it for his freedom.",
+    first = "He would trade a secret beyond Alliance and Horde for his freedom.",
     third = "{name} met Infiltrator Marksen, a captured human spy held in Stonard.",
   },
 

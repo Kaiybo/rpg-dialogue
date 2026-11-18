@@ -11,7 +11,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Gearcutter Cogspinner sells engineering parts in Tinker Town and knows every washer in his stock by size and temperament. He thinks most explosions are caused by cheap flux.",
+    first = "He thinks most explosions are caused by cheap flux.",
     third = "{name} met Gearcutter Cogspinner, who sells engineering supplies in Tinker Town.",
   },
 
@@ -205,7 +205,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Springspindle Fizzlegear teaches engineering in his shop in Tinker Town and announces the end of the wheel to anyone who will listen. He is either a genius or a gnome who has stood too close to too many explosions, and possibly both.",
+    first = "He announces the end of the wheel to anyone who will listen.",
     third = "{name} met Springspindle Fizzlegear, who teaches engineering at Springspindle's Gadgets.",
   },
 
@@ -417,7 +417,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Tally Berryfizz teaches alchemy in a Tinker Town shop that sells both potions and mixed drinks, and insists she keeps them on separate shelves. She is cheerful, quick, and smells faintly of peppermint and sulfur.",
+    first = "She smells faintly of peppermint and sulfur.",
     third = "{name} met Tally Berryfizz, who teaches alchemy in Tinker Town.",
   },
 

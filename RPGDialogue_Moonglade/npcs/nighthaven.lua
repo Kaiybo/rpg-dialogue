@@ -10,7 +10,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "form", "fel", "race" },
   impression = {
-    first = "Keeper Remulos speaks to every visitor as if they were a guest in his own grove, which I suppose they are. When he asks about the new tree on Teldrassil, a quiet sadness creeps into his voice.",
+    first = "A quiet sadness creeps in when he asks about Teldrassil's new tree.",
     third = "{name} met Keeper Remulos, son of Cenarius, who guards Moonglade for every druid whatever banner they fly.",
   },
 
@@ -550,7 +550,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "grave" }, values = { "careful", "loyal" },
   notices = { "lore", "form" },
   impression = {
-    first = "Rabine Saturna keeps the Keeper's house in order so the Keeper need not think about it. He does not believe in chance, and he looked at me as though weighing what my coming here meant.",
+    first = "He does not believe in chance, and weighed what my coming meant.",
     third = "{name} met Rabine Saturna, majordomo to Keeper Remulos, who watches over everything in Nighthaven the Keeper does not.",
   },
 
@@ -891,7 +891,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "formal" }, values = { "balance", "dutiful" },
   notices = { "form", "class" },
   impression = {
-    first = "Formal as Dendrite Starblaze is about the Circle's trials, there is a dry humour hiding under it. Anyone not here for the trials is told the village is lovely this time of year.",
+    first = "There is a dry humour hiding under all that formality.",
     third = "{name} met Dendrite Starblaze, who guides young druids through the Cenarion Circle's first trials in Moonglade.",
   },
 
@@ -1169,7 +1169,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "calm" }, values = { "balance", "kind" },
   notices = { "class" },
   impression = {
-    first = "Balance, says Loganaar, is something you carry, not somewhere you go. He suggested I sit a while for no reason at all, and it was better advice than it sounded.",
+    first = "Balance, he says, is something you carry, not somewhere you go.",
     third = "{name} met Loganaar, the calm druid trainer of Nighthaven, who teaches that balance begins within.",
   },
 
@@ -1373,7 +1373,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "form" },
   impression = {
-    first = "The Great Bear Spirit speaks in a voice felt in the chest more than heard with the ears. It told me that strength that cannot wait is only noise, and I keep turning that over.",
+    first = "It says strength that cannot wait is only noise.",
     third = "{name} sat before the Great Bear Spirit in Moonglade, an ancient presence that teaches patience as the root of strength.",
   },
 
@@ -1598,7 +1598,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "warm" }, values = { "dutiful" },
   notices = { "class" },
   impression = {
-    first = "Silva Fil'naveth keeps the Circle's hippogryphs, and her oldest will not fly until she says its name politely. She turns away anyone who is not a druid, but so kindly that nobody can stay cross with her.",
+    first = "She turns non-druids away so kindly that nobody stays cross.",
     third = "{name} met Silva Fil'naveth, keeper of the Cenarion Circle's hippogryphs at Nighthaven.",
   },
 
@@ -1772,7 +1772,7 @@ P:NPC {
   communities = { "nighthaven" }, temper = { "steady" }, values = { "dutiful" },
   notices = { "class" },
   impression = {
-    first = "For a keeper of wind riders, Bunthen Plainswind is a gentle and patient sort, and he admits he misses the wind on the Bluff. He seemed glad of a little conversation, since his riders offer so little.",
+    first = "He admits he misses the wind on the Bluff.",
     third = "{name} met Bunthen Plainswind, who keeps the Cenarion Circle's wind riders for druids flying home to Thunder Bluff.",
   },
 

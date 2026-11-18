@@ -13,7 +13,7 @@ P:NPC {
   notices = { "class", "soldier" },
 
   impression = {
-    first = "Thyn'tel Bladeweaver weighs every word before she gives it away, especially about her own Sentinels. She guards the memory of a missing priestess as fiercely as any gate.",
+    first = "She guards a missing priestess's memory as fiercely as any gate.",
     third = "{name} met Thyn'tel Bladeweaver, one of the commanders of the Sentinels, on the Warrior's Terrace of Darnassus.",
   },
 
@@ -291,7 +291,7 @@ P:NPC {
   notices = { "class", "greenness" },
 
   impression = {
-    first = "Elanaria says a warrior must first show resolve, and she clearly means to see it for herself. She talks about Teldrassil's moonwells the way a soldier talks about a home she is sworn to keep.",
+    first = "A warrior must first show resolve, and she means to see it.",
     third = "{name} met Elanaria, who tests the young warriors of the Warrior's Terrace before she will teach them.",
   },
 
@@ -557,7 +557,7 @@ P:NPC {
   notices = { "kit", "craft" },
 
   impression = {
-    first = "Mathiel calls working elunite an honor and means it, and he lights up at the mention of a dwarven colleague's new technique. He seems to have friends in every forge in the Alliance.",
+    first = "He seems to have friends in every forge in the Alliance.",
     third = "{name} met Mathiel, the smith of the Warrior's Terrace who works Elune-blessed elunite.",
   },
 
@@ -797,7 +797,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Arias'ta Bladesinger can apparently see the warrior's spirit in a person, or its absence, at a glance. She is formal, unhurried and entirely sure of herself.",
+    first = "She can see a warrior's spirit, or its absence, at a glance.",
     third = "{name} met Arias'ta Bladesinger, a warrior trainer of the Warrior's Terrace.",
   },
 
@@ -1007,7 +1007,7 @@ P:NPC {
   notices = { "class", "greenness" },
 
   impression = {
-    first = "Herald Moonstalker carries the news of two continents in her head and gives it away to anyone who stops walking. She clearly loves the sound of a good proclamation, especially her own.",
+    first = "She loves the sound of a good proclamation, especially her own.",
     third = "{name} met Herald Moonstalker, who walks the paths of Darnassus crying the news of the Alliance.",
   },
 
@@ -1223,7 +1223,7 @@ P:NPC {
   notices = { "greenness" },
 
   impression = {
-    first = "Mydrannul says it is an honor to supply adventurers, because they are heroes in the making, and he seems to believe it of everyone who walks in. It is hard not to stand a little straighter at his counter.",
+    first = "It is hard not to stand a little straighter at his counter.",
     third = "{name} met Mydrannul, who sells general goods on the Warrior's Terrace and believes in every hero who buys them.",
   },
 
@@ -1397,7 +1397,7 @@ P:NPC {
   notices = { "class", "death" },
 
   impression = {
-    first = "Treshala Fallowbrook waits in her upstairs room for word of her husband Heralath, who went south to study the quilboar. Grief, when it comes, makes her fierce rather than small.",
+    first = "Grief makes her fierce rather than small.",
     third = "{name} met Treshala Fallowbrook as she kept watch upstairs on the Tradesmen's Terrace for word of her husband.",
   },
 
@@ -1639,7 +1639,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Darianna can't keep still for longer than a sentence, and she thinks her teachers Faldron and Telonis are the finest artists in Darnassus. Her enthusiasm is the catching kind.",
+    first = "She can't keep still for longer than a sentence.",
     third = "{name} met Darianna, an energetic apprentice leatherworker on the Craftsmen's Terrace.",
   },
 

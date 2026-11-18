@@ -6,7 +6,7 @@ P:NPC {
   key = "gregan", id = TODO_NPC("Gregan Brewspewer"), name = "Gregan Brewspewer",
   bible = "bibles/feralas.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Gregan Brewspewer is a dwarf camped out in the Feralas wilds who talks about brewing the way priests talk about the Light.",
+    first = "This dwarf talks about brewing the way priests talk about the Light.",
     third = "{name} met Gregan Brewspewer, a dwarven brewer camped in the wilds of Feralas.",
   },
   greetings = {
@@ -193,7 +193,7 @@ P:NPC {
   key = "zorbin", id = TODO_NPC("Zorbin Fandazzle"), name = "Zorbin Fandazzle",
   bible = "bibles/feralas.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Zorbin Fandazzle runs his business from the Forgotten Coast in Feralas and wants something done about the giants, with as little personal risk as possible.",
+    first = "He wants the giants dealt with at little risk to himself.",
     third = "{name} met Zorbin Fandazzle, a goblin on the Forgotten Coast of Feralas.",
   },
   greetings = {
@@ -367,7 +367,7 @@ P:NPC {
   key = "kindal", id = TODO_NPC("Kindal Moonweaver"), name = "Kindal Moonweaver",
   bible = "bibles/feralas.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Kindal Moonweaver watches over the creatures of Feralas, and she is angry at what the Grimtotem do to them.",
+    first = "She is angry at what the Grimtotem do to the creatures here.",
     third = "{name} met Kindal Moonweaver, a night elf protector of the wild creatures of Feralas.",
   },
   greetings = {
@@ -553,7 +553,7 @@ P:NPC {
   key = "angelas", id = TODO_NPC("Angelas Moonbreeze"), name = "Angelas Moonbreeze",
   bible = "bibles/feralas.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Angelas Moonbreeze serves the Feathermoon Sentinels and keeps her eye on the ruins of the old highborne across Feralas.",
+    first = "She keeps her eye on the ruins of the old highborne.",
     third = "{name} met Angelas Moonbreeze at Feathermoon Stronghold in Feralas.",
   },
   greetings = {
@@ -747,7 +747,7 @@ P:NPC {
   key = "hadoken", id = TODO_NPC("Hadoken Swiftstrider"), name = "Hadoken Swiftstrider",
   bible = "bibles/feralas.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Hadoken Swiftstrider of Camp Mojache hunts the gordunni ogres of Feralas and trusts newcomers only as far as their blades have proven.",
+    first = "Newcomers are trusted only as far as their blades have proven.",
     third = "{name} met Hadoken Swiftstrider, a tauren hunter at Camp Mojache in Feralas.",
   },
   greetings = {
@@ -906,7 +906,7 @@ P:NPC {
   key = "jangdor", id = TODO_NPC("Jangdor Swiftstrider"), name = "Jangdor Swiftstrider",
   bible = "bibles/feralas.md", role = "trainer", tier = "service",
   impression = {
-    first = "Jangdor Swiftstrider works leather at Camp Mojache, and he judges the quality of a hide before he judges the person carrying it.",
+    first = "He judges the hide before he judges the person carrying it.",
     third = "{name} met Jangdor Swiftstrider, the leatherworker at Camp Mojache in Feralas.",
   },
   greetings = {

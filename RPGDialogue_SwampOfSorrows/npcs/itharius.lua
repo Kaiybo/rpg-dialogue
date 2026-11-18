@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "form" },
 
   impression = {
-    first = "Itharius wears the face of a high elf and the patience of something far older, and the green whelps in his cave obey him without a word. He grieves for the dragons in the sunken temple, though he would never call it grief.",
+    first = "He grieves for the temple's dragons but would never call it grief.",
     third = "{name} met Itharius, a green dragon in high elf form who keeps watch from a cave at the edge of the Swamp of Sorrows.",
   },
 

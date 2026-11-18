@@ -12,7 +12,7 @@ P:NPC {
   notices = { "gnome", "cold", "healer" },
 
   impression = {
-    first = "Grund Drokda is a broad Anvilmar dwarf who has taken a frozen gnome under his wing and talks to him the way a father talks to a sick bairn. He means to have the little fellow on his feet and building guns by spring.",
+    first = "He nurses a frozen gnome like a father with a sick bairn.",
     third = "{name} met Grund Drokda at Anvilmar, nursing the gnome Gozwin Halfsprocket back to health.",
   },
 
@@ -191,7 +191,7 @@ P:NPC {
   notices = { "gnome", "engineer" },
 
   impression = {
-    first = "Gozwin Halfsprocket is a gnome who nearly froze to death outside Anvilmar and now sits wrapped in blankets drawing guns. He shivers when he talks and brightens only when he talks about barrels.",
+    first = "He shivers when he talks and brightens only about gun barrels.",
     third = "{name} met Gozwin Halfsprocket, a Gnomeregan exile recovering from the cold at Anvilmar.",
   },
 
@@ -317,7 +317,7 @@ P:NPC {
   notices = { "shaman", "wildhammer", "dwarf" },
 
   impression = {
-    first = "Earthseer Farsen is a Wildhammer shaman from Aerie Peak who has pitched a camp on a cold hillside to watch the Dark Irons through the eyes of the wind. He calls the King an old friend, and he says it like it's true.",
+    first = "He calls the King an old friend and seems to mean it.",
     third = "{name} met Earthseer Farsen, a Wildhammer shaman keeping watch over Gol'Bolar Quarry from the Tundrid Hills.",
   },
 

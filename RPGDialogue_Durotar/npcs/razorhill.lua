@@ -8,7 +8,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "terse" }, values = { "dutiful", "loyal" },
   notices = { "kit", "greenness" },
   impression = {
-    first = "Gar'Thok speaks in orders and expects reports in return, and he holds Razor Hill as if all of Durotar depended on it. Having seen the roads that meet there, I think perhaps it does.",
+    first = "He holds Razor Hill as if all of Durotar depended on it.",
     third = "{name} met Gar'Thok, the terse commander of Razor Hill, who holds Durotar's crossroads for the Horde.",
   },
 
@@ -248,7 +248,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "grim" }, values = { "lawful", "protective" },
   notices = { "class", "stealth" },
   impression = {
-    first = "There is a patience in how Orgnil Soulscar hunts the Burning Blade that frightens me a little. The cultists he most wants to meet, he says, are the ones smiling inside the city walls.",
+    first = "His patience in hunting the Burning Blade frightens me a little.",
     third = "{name} met Orgnil Soulscar of Razor Hill, a grim orc who hunts the Burning Blade wherever it hides.",
   },
 
@@ -481,7 +481,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "dry" }, values = { "practical" },
   notices = { "weary", "drink" },
   impression = {
-    first = "Innkeeper Grosk offers a bed, ale and a roof against the sun, and treats everything beyond the door as rocks and scorpids. He is as dry as Durotar, but he does check the blankets.",
+    first = "He is as dry as Durotar, but he does check the blankets.",
     third = "{name} rested at Innkeeper Grosk's inn in Razor Hill, the safest bed in a land of rocks and scorpids.",
   },
 
@@ -705,7 +705,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "easygoing" }, values = { "generous", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Walls, says Brakk, are for people who have stopped walking, and he camps wherever he stops across Durotar. His fire felt like the most welcoming place in that whole red land.",
+    first = "Walls, he says, are for people who have stopped walking.",
     third = "{name} met Brakk, a wandering orc who camps across Durotar and keeps a journal of every fire he has ever built.",
   },
 

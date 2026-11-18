@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "bashal_aran" }, temper = { "weary" }, values = { "dutiful", "wise" },
   impression = {
-    first = "Asterion keeps a lonely watch over the ruins of Bashal'Aran, where satyrs pick through what his people left behind. He talks about the old city as if he can still hear it.",
+    first = "He talks about the old city as if he still hears it.",
     third = "{name} met Asterion, the druid who watches over the ruins of Bashal'Aran.",
   },
 
@@ -186,7 +186,7 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "remtravel_dig" }, temper = { "scatterbrained" }, values = { "curious", "proud" },
   impression = {
-    first = "Prospector Remtravel is a dwarf of the Explorers' League who loses his notes, his tools and occasionally himself. He is cheerful about all of it.",
+    first = "He loses his notes, his tools and occasionally himself, quite cheerfully.",
     third = "{name} met Prospector Remtravel, an absent-minded dwarf digging in southern Darkshore.",
   },
 
@@ -407,7 +407,7 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "grove_of_ancients" }, temper = { "slow" }, values = { "wise", "protective" },
   impression = {
-    first = "Onu is an Ancient of Lore at the Grove of the Ancients, old as the forest and slow to speak. Each word he says seems to have been weighed for a season first.",
+    first = "Each word seems to have been weighed for a season first.",
     third = "{name} met Onu, the Ancient of Lore who guards the Grove of the Ancients in Darkshore.",
   },
 
@@ -587,7 +587,7 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "darkshore_wilds" }, temper = { "hunted" }, values = { "brave", "protective" },
   impression = {
-    first = "Volcor is a night elf hiding from the furbolgs of the Blackwood, who have gone mad and turned on everyone. He is hurt and short of patience, but not of courage.",
+    first = "He is hurt and short of patience, but not of courage.",
     third = "{name} met Volcor, a night elf trapped by the maddened Blackwood furbolgs in Darkshore.",
   },
 
@@ -769,7 +769,7 @@ P:NPC {
   bible = "bibles/auberdine.md", role = "questgiver", tier = "quest",
   communities = { "darkshore_wilds" }, temper = { "drowsy" }, values = { "kind", "foolish" },
   impression = {
-    first = "Kerlonian Evershade is a druid who fell into the Emerald Dream and keeps falling back into it. He is sweet-natured and embarrassed by it, when he is awake.",
+    first = "He keeps falling back into the Emerald Dream, and it embarrasses him.",
     third = "{name} met Kerlonian Evershade, a druid in Darkshore who cannot stay awake.",
   },
 

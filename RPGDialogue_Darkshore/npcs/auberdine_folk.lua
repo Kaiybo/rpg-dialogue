@@ -16,7 +16,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Archaeologist Hollee is a young dwarf of the Explorers' League with dirt still under her nails and a habit of talking faster when she's worried. She worships Prospector Remtravel and is plainly terrified for him.",
+    first = "She worships Prospector Remtravel and is plainly terrified for him.",
     third = "{name} met Archaeologist Hollee in Auberdine, a dwarf of the Explorers' League who fled the golems at Remtravel's dig.",
   },
 
@@ -190,7 +190,7 @@ P:NPC {
   notices = { "fel", "class" },
 
   impression = {
-    first = "Gershala Nightwhisper studies corruption the way other scholars study poetry, closely and without flinching. He wants brain stems from satyr and naga, and he asks for them as calmly as if he were asking for ink.",
+    first = "He asks for satyr and naga brain stems as calmly as ink.",
     third = "{name} met Gershala Nightwhisper in Auberdine, a night elf scholar studying how magic twisted the satyr and the naga.",
   },
 
@@ -313,7 +313,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Sentinel Selarin keeps watch at the south end of Auberdine and speaks of Raene Wolfrunner as her mistress, with real pride. She is waiting for anyone strong enough to send down the road to Ashenvale.",
+    first = "She wants anyone strong enough to send down the road to Ashenvale.",
     third = "{name} met Sentinel Selarin in Auberdine, who serves Raene Wolfrunner of Astranaar and sends help south to her.",
   },
 
@@ -430,7 +430,7 @@ P:NPC {
   notices = { "race", "drink" },
 
   impression = {
-    first = "Thamarian stands on Auberdine's docks telling travellers which pier goes where, and he tells it as if every voyage were his own. He knows the ships by their creaks.",
+    first = "He knows the ships by their creaks.",
     third = "{name} met Thamarian, who gives directions to the boats on Auberdine's docks.",
   },
 
@@ -440,6 +440,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "A gnome! Mind the gaps between the planks, friend, I mean no insult by it. We built this dock for longer legs, and I fished one of your kinsmen out last month." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf! You'll be wanting the Bravery to Menethil, I expect, since your lot never stay on this side of the sea for long." },
     { id = "n_drunk", cat = "drink", when = { drunk = true },
@@ -448,6 +450,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    landing = {
+      lines = { { id = "la_default", text = "Every one, and I've a good memory for faces. Dwarves bound for the dig at Remtravel's, humans who stand and stare at the trees, and our own folk coming home from places they won't talk about. Gwennyth Bly'Leggonde stops half of them before they reach the town, to ask whether they'll look at what the sea has thrown up." } },
+      choices = {
+        { text = "What has the sea thrown up?", next = "landing2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    landing2 = {
+      lines = { { id = "la2_default", text = "Threshers and great turtles, dead on the sand from here to the Twilight Vale, some of them bigger than the Moonspray. I have worked this dock a long while and I never saw the like, and the sailors have started making signs over the rail when they pass one." } },
+      choices = { { text = "That would unsettle anyone. Something else.", next = "BACK" } },
+    },
+    cerellean = {
+      lines = { { id = "ce_default", text = "That is Cerellean Whiteclaw, and he has stood there since before I took this post. He looks north toward Ameth'Aran, where someone he loved is said to walk still, and he asks the same favour of every traveler with a kind face. I bring him water and I do not ask." } },
+      choices = {
+        { text = "Someone should tell him to let go.", next = "BACK", reply = "Perhaps, friend, but it will not be me. A dock is a place for waiting, and he harms no one by it.", fx = { align = { light = -1 } } },
+        { text = "Let him keep his vigil. Grief has no tide.", next = "BACK", reply = "That is well said, and I think I shall borrow it. He would thank you, if he looked round.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsailor = {
+      lines = { { id = "xs_default", text = "Then you'll have opinions about the Bravery's crew, and I should love to hear them, because I have only my own. They reef late and they sing flat, but their captain has never been a minute behind the tide." } },
+      choices = { { text = "Late reefing and flat singing. That's a human crew.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    xnelf = {
+      lines = { { id = "xn_default", text = "Mud, mostly, at Menethil, and beyond it mountains with dwarves inside them and a stone city full of humans. They live so quickly over there that a shopkeeper's grandchild will serve you on your second visit. Go and see it, but come back and tell me, since I shall not be going myself." } },
+      choices = { { text = "I'll bring you the tale. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -456,6 +485,7 @@ P:NPC {
           text = "Going home to the great tree, or leaving it? The Moonspray will take you to Rut'theran, and the Bravery will take you farther than most kaldorei ever care to go." },
       },
       again = {
+        { id = "h_again3", text = "Go on, friend. The tide's an hour off and the gulls are poor conversation." },
         { id = "h_again", text = "Anything else? I'll be here until the last boat's tied up." },
         { id = "h_again2", text = "Ask away. Nobody ever asks me anything once they're on deck." },
       },
@@ -463,6 +493,10 @@ P:NPC {
         { text = "Tell me about the boat to Menethil.", next = "bravery" },
         { text = "And the one to Teldrassil?", next = "moonspray" },
         { text = "Do you ever sail yourself?", next = "self" },
+        { text = "You must see everyone who lands here.", next = "landing" },
+        { text = "That elf at the end of the pier never moves.", next = "cerellean" },
+        { text = "I've sailed worse seas than this one.", next = "xsailor", when = { race = { "Human", "Dwarf" } } },
+        { text = "I've only ever known the tree. What's across the water?", next = "xnelf", when = { race = "NightElf" } },
         { text = "Thank you, that's all.", next = "END" },
       },
     },
@@ -500,6 +534,11 @@ P:NPC {
       },
     },
   },
+  topics = {
+    background = { { id = "tp_bg", text = "I mind Auberdine's docks and tell travelers which pier is theirs. I've not missed a sailing in years." } },
+    advice = { { id = "tp_advice", text = "Be on the pier before the bell, friend. Neither captain waits, and it's a long evening in Auberdine if you miss the last boat." } },
+    _none = { { id = "tp_none", text = "That's beyond my dock, I'm afraid. Ask Shaussiy at the inn, or Thundris Windweaver if it's a grave matter." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -513,7 +552,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Kurdram Stonehammer teaches mining in Auberdine and grumbles about the trees in the way, the damp in his boots and the elves who won't let him dig where he likes. He knows Darkshore's rock better than anyone in town.",
+    first = "He grumbles about the elves, but nobody knows Darkshore's rock better.",
     third = "{name} met Kurdram Stonehammer, a dwarf who teaches mining in Auberdine.",
   },
 
@@ -660,7 +699,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Jenna Lemkenilli is a gnome engineer who talks like her thoughts are running ahead of her mouth. She is very glad to be anywhere at all, even a damp elf town, after Gnomeregan.",
+    first = "After Gnomeregan, she is glad to be anywhere at all.",
     third = "{name} met Jenna Lemkenilli, a gnome who teaches engineering in Auberdine.",
   },
 

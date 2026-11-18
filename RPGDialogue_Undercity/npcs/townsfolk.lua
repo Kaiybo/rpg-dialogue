@@ -15,7 +15,7 @@ P:NPC {
   bible = "bibles/townsfolk.md", role = "banker", tier = "service",
   communities = { "undercity" }, temper = { "dry" }, values = { "precise", "honest" },
   impression = {
-    first = "William Montague keeps the Undercity's vaults with the manners of a clerk from a city that no longer exists above him. He finds death a poor excuse for sloppy accounts.",
+    first = "He finds death a poor excuse for sloppy accounts.",
     third = "{name} met William Montague, a banker of the Undercity who still keeps Lordaeron's habits of order.",
   },
 
@@ -200,7 +200,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "gentle" }, values = { "kind", "patient" },
   notices = { "pet" },
   impression = {
-    first = "Anya Maulray keeps the hunters' beasts beneath the ruined capital and has spent her whole unlife convincing animals she means them no harm. She is softer with them than with any of the living.",
+    first = "She is softer with her beasts than with any of the living.",
     third = "{name} met Anya Maulray, the stable master of the Undercity.",
   },
 
@@ -368,7 +368,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "stern" }, values = { "disciplined", "proud" },
   notices = { "class" },
   impression = {
-    first = "Archibald teaches the Forsaken to hold blades and crossbows with hands that no longer quite work. He drills like a sergeant who expects to be obeyed and is surprised when he is.",
+    first = "He expects to be obeyed and is surprised when he is.",
     third = "{name} met Archibald, the weapon master of the Undercity's War Quarter.",
   },
 
@@ -547,7 +547,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "gruff" }, values = { "diligent" },
   notices = { "profession", "wounds" },
   impression = {
-    first = "James Van Brunt works the forges of the War Quarter without gloves, since the heat no longer bothers him. He teaches smithing like a man who has nothing left but the work and has decided to be very good at it.",
+    first = "He has nothing left but the work, and he does it well.",
     third = "{name} met James Van Brunt, the blacksmithing trainer of the Undercity.",
   },
 
@@ -727,7 +727,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "dry" }, values = { "practical" },
   notices = { "profession" },
   impression = {
-    first = "Brom Killian teaches mining to the dead with the cheerful air of a man who has already been buried once. Every tunnel under the old city seems to him like a missed opportunity.",
+    first = "Every tunnel under the city strikes him as a missed opportunity.",
     third = "{name} met Brom Killian, the mining trainer of the Undercity.",
   },
 
@@ -904,7 +904,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "proud" }, values = { "curious", "precise" },
   notices = { "profession", "class" },
   impression = {
-    first = "Lavinia Crowe teaches enchanting in the Magic Quarter and talks about dust and essences the way a chef talks about spices. She is particular and proud, and her lessons are better for it.",
+    first = "She is particular and proud, and her lessons are better for it.",
     third = "{name} met Lavinia Crowe, the enchanting trainer of the Undercity's Magic Quarter.",
   },
 
@@ -1081,7 +1081,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "sharp" }, values = { "cunning", "loyal" },
   notices = { "class", "stealth" },
   impression = {
-    first = "Carolyn Ward teaches rogues in the Undercity and watches everyone who comes near her as though measuring them for a knife. Her loyalty to the Dark Lady is plain; the rest of her is not.",
+    first = "Her loyalty to the Dark Lady is plain, and nothing else is.",
     third = "{name} met Carolyn Ward, a rogue trainer of the Undercity.",
   },
 
@@ -1246,7 +1246,7 @@ P:NPC {
   bible = "bibles/townsfolk.md", role = "vendor", tier = "service",
   communities = { "undercity" }, temper = { "cheerful" }, values = { "curious" },
   impression = {
-    first = "Ezekiel Graves sells poisons in the Rogues' Quarter with the warmth of a shopkeeper selling sweets. He clearly enjoys his stock far more than anyone should.",
+    first = "He enjoys his poisons far more than anyone should.",
     third = "{name} met Ezekiel Graves, who sells poisons and their ingredients in the Undercity's Rogues' Quarter.",
   },
 
@@ -1410,7 +1410,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "brisk" }, values = { "kind", "practical" },
   notices = { "wounds" },
   impression = {
-    first = "Mary Edras teaches first aid to the Forsaken, who need it more than they admit because they cannot feel how badly they're hurt. She is brisk with everyone, and the briskness is plainly how she cares.",
+    first = "Her briskness is plainly how she cares.",
     third = "{name} met Mary Edras, the first aid trainer of the Undercity.",
   },
 
@@ -1588,7 +1588,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "calm" }, values = { "patient" },
   notices = { "profession" },
   impression = {
-    first = "Armand Cromwell teaches fishing in a city whose canals are full of green poison, and he finds this funny. He may be the most patient soul in a city of people with all the time in the world.",
+    first = "He finds it funny to fish in canals full of green poison.",
     third = "{name} met Armand Cromwell, the fishing trainer of the Undercity.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Balir Frosthammer lost a camp to the troggs a few nights before I met him, and he hasn't forgiven himself. He's afraid it isn't only Coldridge, and he may be right.",
+    first = "He hasn't forgiven himself for the camp he lost to troggs.",
     third = "{name} met Balir Frosthammer, a worried dwarf at Anvilmar whose western camp was overrun by troggs.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "kit", "affliction" },
   impression = {
-    first = "Brother Wilhelm works in the forge smoke and seems to measure people by how straight they stand when they leave. He mends souls, he says, and slowly.",
+    first = "He says he mends souls, and slowly.",
     third = "{name} met Brother Wilhelm, Goldshire's paladin trainer, who teaches what a paladin's oath costs in practice.",
   },
 

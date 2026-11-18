@@ -8,7 +8,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "matter_of_fact" }, values = { "practical" },
   notices = { "greenness" },
   impression = {
-    first = "Undertaker Mordo tends the graves at Deathknell and greets the newly risen with a matter-of-fact kindness. He buries things, he says, and leaves the explaining to others.",
+    first = "He buries things, he says, and leaves the explaining to others.",
     third = "{name} met Undertaker Mordo, who tends the graves of Deathknell and welcomes those who rise from them.",
   },
 
@@ -197,7 +197,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "sardonic" }, values = { "loyal", "sharp" },
   notices = { "class" },
   impression = {
-    first = "Having died once already, Shadow Priest Sarvis finds it hard to take death seriously. His humour is dry as grave dust, and the Light plainly makes him uneasy.",
+    first = "Having died once already, he finds it hard to take death seriously.",
     third = "{name} met Shadow Priest Sarvis, the sardonic voice of the Forsaken in Deathknell, who serves the Dark Lady alone.",
   },
 
@@ -424,7 +424,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "clipped" }, values = { "dutiful", "loyal" },
   notices = { "kit" },
   impression = {
-    first = "Executor Arren wastes no words and expects reports rather than conversation. He wants the Scarlet Crusade gone, and he does not care whether they ever understand why.",
+    first = "He wants the Scarlet Crusade gone, whether or not they understand why.",
     third = "{name} met Executor Arren, who keeps Deathknell against the Scarlet Crusade camped to its southeast.",
   },
 
@@ -608,7 +608,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "steadfast" }, values = { "devout", "patient" },
   notices = { "class" },
   impression = {
-    first = "Though it hurts him to hold the Light, Aramis Hammerhand will not let go of it. He calls the pain a forge, and he says it like a man who has made his peace with burning.",
+    first = "It hurts him to hold the Light, and he won't let go.",
     third = "{name} met Aramis Hammerhand in the Deathknell church, who teaches those Forsaken who woke still holding the Light.",
   },
 

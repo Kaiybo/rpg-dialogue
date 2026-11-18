@@ -9,7 +9,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "fierce" }, values = { "brave", "proud" },
   notices = { "class" },
   impression = {
-    first = "Grezz Ragefist trains the warriors of Orgrimmar in the Valley of Honor, a loud, scarred orc who believes every lesson should leave a bruise.",
+    first = "He believes every lesson should leave a bruise.",
     third = "{name} met Grezz Ragefist, the warrior trainer in Orgrimmar's Valley of Honor.",
   },
   greetings = {
@@ -185,7 +185,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "dry" }, values = { "practical" },
   notices = { "class" },
   impression = {
-    first = "Ormak Grimshot trains Orgrimmar's hunters in the Valley of Honor, a dry, patient orc who would rather watch a student's pet than the student.",
+    first = "He would rather watch a student's pet than the student.",
     third = "{name} met Ormak Grimshot, the hunter trainer in Orgrimmar.",
   },
   greetings = {
@@ -363,7 +363,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "wise", "devout" },
   notices = { "class" },
   impression = {
-    first = "Kardris Dreamseeker trains the shaman of Orgrimmar in the Valley of Wisdom, near the Warchief's own teachers, and speaks of the spirits with quiet certainty.",
+    first = "Kardris speaks of the spirits with quiet certainty.",
     third = "{name} met Kardris Dreamseeker, a shaman trainer in Orgrimmar's Valley of Wisdom.",
   },
   greetings = {
@@ -567,7 +567,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "smooth" }, values = { "ambitious", "cunning" },
   notices = { "class" },
   impression = {
-    first = "Zevrost trains warlocks in the Cleft of Shadow, smooth-voiced and careful, and he insists that the power he teaches is a tool and nothing more.",
+    first = "He insists the power he teaches is only a tool.",
     third = "{name} met Zevrost, the warlock trainer in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {

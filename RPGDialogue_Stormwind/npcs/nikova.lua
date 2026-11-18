@@ -13,7 +13,7 @@ P:NPC {
   notices = { "soldier", "kin", "light" },
 
   impression = {
-    first = "Nikova Raskol is an old Old Town woman with a hard mouth and red-rimmed eyes. Her grandson Mac was a Stockade guard, fourteen years old, and the Defias in the cells killed him over a few torn blankets.",
+    first = "The Defias killed her grandson Mac, fourteen, over a few torn blankets.",
     third = "{name} met Nikova Raskol, an Old Town grandmother whose grandson Mac was killed guarding the Stockade.",
   },
 

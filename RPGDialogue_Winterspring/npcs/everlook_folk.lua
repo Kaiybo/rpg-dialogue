@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Legacki laughs at Umi's inventions and says so to anyone in earshot. She thinks she is far too clever to be frightened by anything a goblin could build.",
+    first = "She thinks herself too clever to fear anything a goblin builds.",
     third = "{name} met Legacki, the goblin of Everlook who laughs loudest at Umi Rumplesnicker's inventions.",
   },
 
@@ -202,7 +202,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Felnok Steelspring builds parts for a scholar in the Burning Steppes and won't touch anything without gloves. He cares more about an uncracked horn than about why anybody wants it.",
+    first = "He cares more about an uncracked horn than why anybody wants it.",
     third = "{name} met Felnok Steelspring, the careful gnome who builds parts for Tinkee Steamboil in Everlook.",
   },
 
@@ -422,7 +422,7 @@ P:NPC {
   notices = { "race", "kin" },
 
   impression = {
-    first = "Jessica Redpath fled Lordaeron before the Scourge came and has been waiting for news of her family ever since. She asks about Darrowshire the way people ask about a wound.",
+    first = "She asks about Darrowshire the way people ask about a wound.",
     third = "{name} met Jessica Redpath, a Lordaeron refugee in Everlook who hopes to find her little sister.",
   },
 
@@ -679,7 +679,7 @@ P:NPC {
   notices = { "race", "craft" },
 
   impression = {
-    first = "Malyfous Darkhammer is a Dark Iron smith of the Thorium Brotherhood who calls outsiders ants to their faces. He spoke of his own work with more warmth than he showed anyone living.",
+    first = "He calls outsiders ants to their faces.",
     third = "{name} met Malyfous Darkhammer, the Thorium Brotherhood's proud Dark Iron smith in Everlook.",
   },
 
@@ -950,7 +950,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Storm Shadowhoof is a tauren hunter who came to Winterspring for the great beasts of the snow. He measures people by whether they would stand in front of a charging bear.",
+    first = "He measures people by whether they would face a charging bear.",
     third = "{name} met Storm Shadowhoof, the tauren who hunts Winterspring's greatest beasts.",
   },
 
@@ -1201,7 +1201,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Yugrek keeps the Horde's wind riders in Everlook and wraps them in blankets against the cold. He grumbles about the snow but would not leave his beasts for any warmer post.",
+    first = "He grumbles about the snow but would never leave his beasts.",
     third = "{name} met Yugrek, the orc who keeps the Horde's wind riders in Everlook.",
   },
 
@@ -1380,7 +1380,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Maethrya keeps the Alliance's hippogryphs in Everlook and watches the goblins' trade with polite suspicion. She speaks softly, and her birds listen to every word.",
+    first = "She speaks softly, and her birds listen to every word.",
     third = "{name} met Maethrya, the night elf who keeps the Alliance's hippogryphs in Everlook.",
   },
 

@@ -12,7 +12,7 @@ P:NPC {
   notices = { "pvp", "race" },
 
   impression = {
-    first = "The League of Arathor's emissary is a weathered human of Stromgarde who talks about the Arathi Basin the way other people talk about a family grave. He wants soldiers, and he wants them to understand what they're fighting over.",
+    first = "He talks about the Arathi Basin like a family grave.",
     third = "{name} met the League of Arathor's emissary, a Stromgarde soldier sent to the Alliance capitals to raise swords for the fight over the Arathi Basin.",
   },
 
@@ -328,7 +328,7 @@ P:NPC {
   notices = { "pvp", "race" },
 
   impression = {
-    first = "The Defilers' emissary is a Forsaken who speaks of the Arathi Basin like a ledger of debts owed, and who once, I think, called that country home. Every word came out cold, but none of it sounded like a lie.",
+    first = "Every word came out cold, but none sounded like a lie.",
     third = "{name} met the Defilers' emissary, a Forsaken soldier of the Dark Lady sent to the Horde's capitals to raise blades for the war over the Arathi Basin.",
   },
 

@@ -6,7 +6,7 @@ P:NPC {
   key = "paoka", id = TODO_NPC("Pao'ka Swiftmountain"), name = "Pao'ka Swiftmountain",
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Pao'ka Swiftmountain is a young tauren who wandered too far into the Needles and needed help getting home safely.",
+    first = "This young one wandered too far into the Needles.",
     third = "{name} met Pao'ka Swiftmountain, a young tauren lost in the canyons of Thousand Needles.",
   },
   greetings = {
@@ -156,7 +156,7 @@ P:NPC {
   key = "kanati", id = TODO_NPC("Kanati Greycloud"), name = "Kanati Greycloud",
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Kanati Greycloud is a tauren of Freewind Post who watches the Grimtotem and the Galak with equal wariness.",
+    first = "He watches the Grimtotem and the Galak with equal wariness.",
     third = "{name} met Kanati Greycloud of Freewind Post in Thousand Needles.",
   },
   greetings = {
@@ -318,7 +318,7 @@ P:NPC {
   key = "motega", id = TODO_NPC("Motega Firemane"), name = "Motega Firemane",
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Motega Firemane is a tauren of Freewind Post who has had enough of the Grimtotem and isn't shy about saying so.",
+    first = "He has had enough of the Grimtotem and isn't shy about it.",
     third = "{name} met Motega Firemane, a tauren at Freewind Post in Thousand Needles.",
   },
   greetings = {
@@ -469,7 +469,7 @@ P:NPC {
   rivals = { "fizzle", "wizzle" },
   bible = "bibles/thousandneedles.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Razzeric is a goblin racer at the Mirage Raceway who treats every lap like it's his last, and some of them almost were.",
+    first = "He treats every lap like his last, and some almost were.",
     third = "{name} met Razzeric, a goblin racer at the Mirage Raceway in Thousand Needles.",
   },
   greetings = {
@@ -647,7 +647,7 @@ P:NPC {
   key = "daisy", id = TODO_NPC("Daisy"), name = "Daisy",
   bible = "bibles/thousandneedles.md", role = "citizen", tier = "service",
   impression = {
-    first = "Daisy keeps time at the Mirage Raceway and has no patience for anyone who slows the track down.",
+    first = "She has no patience for anyone who slows the track down.",
     third = "{name} met Daisy, the timekeeper at the Mirage Raceway.",
   },
   greetings = {
@@ -805,7 +805,7 @@ P:NPC {
   rivals = { "pozzik", "razzeric" },
   bible = "bibles/thousandneedles.md", role = "citizen", tier = "service",
   impression = {
-    first = "Wizzle Brassbolts works for the gnome racing team and is very serious about engineering, if less serious about modesty.",
+    first = "He is very serious about engineering, and less so about modesty.",
     third = "{name} met Wizzle Brassbolts of the gnome racing team at the Mirage Raceway.",
   },
   greetings = {

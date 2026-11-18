@@ -9,7 +9,7 @@ P:NPC {
   communities = { "steamwheedle_port" }, temper = { "smooth", "sharp" }, values = { "profit", "proud" },
   notices = { "kit", "craft" },
   impression = {
-    first = "The Haughty Modiste dresses the rich of Azeroth in whatever she decides is in style, and charges them through the nose for it. She calls everyone sweetie, and none of them kindly.",
+    first = "She calls everyone sweetie, and none of them kindly.",
     third = "{name} met the Haughty Modiste, a goblin fashion procurer at Steamwheedle Port with expensive taste in pirate hats.",
   },
 

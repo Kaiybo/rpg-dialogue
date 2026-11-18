@@ -10,7 +10,7 @@ P:NPC {
   notices = { "purse", "kit" },
 
   impression = {
-    first = "Baron Revilgaz watches the cove from his balcony the way a miser watches a purse. He was perfectly civil to me, and I had the distinct sense of being priced.",
+    first = "He was perfectly civil, and I felt distinctly priced.",
     third = "{name} was received by Baron Revilgaz, who keeps Booty Bay for the Steamwheedle Cartel and counts its ships and coins from his balcony.",
   },
 
@@ -493,7 +493,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Fleet Master Seahorn laughs like someone who has survived a great many bad ideas, most of them his own. I liked him at once, which may be exactly what he intended.",
+    first = "He laughs like a survivor of many bad ideas, mostly his own.",
     third = "{name} met Fleet Master Seahorn of the Blackwater Raiders, a loud, cheerful pirate who answers to the Baron and to no one else.",
   },
 
@@ -1121,7 +1121,7 @@ P:NPC {
   notices = { "craft", "purse" },
 
   impression = {
-    first = "Krazek talks faster than I can follow and seems to know the price of everything in the jungle. I suspect he already knew mine before I opened my mouth.",
+    first = "I suspect he knew my price before I opened my mouth.",
     third = "{name} met Krazek, Baron Revilgaz's secretary, who claims to know every price, pirate and debt in Stranglethorn.",
   },
 
@@ -1490,7 +1490,7 @@ P:NPC {
   notices = { "purse", "drink" },
 
   impression = {
-    first = "Sea Wolf MacKinley was friendly enough over the knucklebones, and I still came away feeling like a column in his ledger. I mean to stay out of his debt.",
+    first = "I mean to stay out of his debt.",
     third = "{name} shared a crate with Sea Wolf MacKinley, a Booty Bay moneylender who swears that not even death cancels a debt owed to him.",
   },
 
@@ -1733,7 +1733,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Kebok smiled through his whole pitch, and I noticed the smile never reached the part about his agents getting killed. I am apparently meant to be harder to kill.",
+    first = "His smile never reaches the part about his agents getting killed.",
     third = "{name} heard a business proposition from Kebok, a goblin trader whose agents keep dying in the jungle.",
   },
 
@@ -1960,7 +1960,7 @@ P:NPC {
   notices = { "drink", "guest" },
 
   impression = {
-    first = "Innkeeper Skindle keeps the Salty Sailor running under the Baron's nose and lowers his voice near the stairs. Sensible man, and the rum was better than I expected.",
+    first = "He lowers his voice near the stairs, which is sensible.",
     third = "{name} took a stool at the Salty Sailor, where Innkeeper Skindle keeps the rooms, the rum and a careful eye on the Baron's stairs.",
   },
 
@@ -2215,7 +2215,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Captain Smotts lost two ships and a fortune to three sea giants, and he tells the story as though it happened to someone he'd like to punch. He has not given up.",
+    first = "Sea giants cost him two ships, and he hasn't given up.",
     third = "{name} heard Captain Hecklebury Smotts tell of the three sea giants who sank two of his ships and took everything he owned.",
   },
 
@@ -2449,7 +2449,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Shaky Phillipe jumped when I came near and asked, a little too casually, whether a large man with a gambling habit had been looking for him. Somebody clearly has.",
+    first = "Someone large with a gambling habit is clearly looking for him.",
     third = "{name} met Shaky Phillipe, a nervous Booty Bay sailor who seems very worried about a certain large gambler.",
   },
 
@@ -2692,7 +2692,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "First Mate Crazz hates the Bloodsail Buccaneers with a steady, practical sort of hatred. Anyone with news of a red bandana will have a friend in him, for an afternoon.",
+    first = "He hates the Bloodsail with a steady, practical sort of hatred.",
     third = "{name} met First Mate Crazz of the Blackwater Raiders, who wants to know what the Bloodsail Buccaneers are planning and then to sink it.",
   },
 
@@ -3116,7 +3116,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Crank Fizzlebub called me over from across the dock with a promise of easy money. Nothing he offers will be easy, and I'm fairly sure that's the point.",
+    first = "Nothing he offers will be easy, and that is the point.",
     third = "{name} was hailed by Crank Fizzlebub, a Booty Bay goblin with schemes for anyone who has a strong arm and a short memory.",
   },
 
@@ -3350,7 +3350,7 @@ P:NPC {
   notices = { "drink" },
 
   impression = {
-    first = "Whiskey Slim raised a toast to me before he knew my name, and two more after. Somewhere under the drink is a real grief over a lost cask of port.",
+    first = "Under the drink lies real grief over a lost cask of port.",
     third = "{name} was toasted by Whiskey Slim, a cheerful drinker in Booty Bay who still mourns a lost cask of the finest port.",
   },
 
@@ -3572,7 +3572,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Drizzlik praised his own leatherwork for longer than most people pray. The trouble is that the work deserves most of it.",
+    first = "He praises his own leatherwork at length, and the work deserves it.",
     third = "{name} browsed Drizzlik's Emporium in Booty Bay, where the goblin leathercrafter praises his own crocolisk and panther hides at great length.",
   },
 
@@ -3743,7 +3743,7 @@ P:NPC {
   notices = { "drink" },
 
   impression = {
-    first = "Sprogger cooked for Captain Smotts and came up out of the sea with him when the giants struck. He speaks of it plainly, which made it worse to hear.",
+    first = "He speaks plainly of the giants, which makes it worse to hear.",
     third = "{name} met Sprogger, Captain Smotts' cook, who survived the sinking of the Smotts' Revenge alongside his captain.",
   },
 
@@ -3939,7 +3939,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Fin Fizracket is sweating out the Stranglethorn Fever and warned me off in the same breath as he asked for help. I kept a polite distance anyway.",
+    first = "He has the Stranglethorn Fever, so I keep a polite distance.",
     third = "{name} met Fin Fizracket, a Blackwater Raider laid low by the Stranglethorn Fever.",
   },
 
@@ -4199,7 +4199,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Wharfmaster Lozgil sees every crate and every face that comes off a boat in Booty Bay. He looked at mine long enough that I wondered which list I'd gone on.",
+    first = "He sees every crate and face off the boats, mine included.",
     third = "{name} passed Wharfmaster Lozgil on the docks of Booty Bay, where everything and everyone coming off a boat goes past him first.",
   },
 

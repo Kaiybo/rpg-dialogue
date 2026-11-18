@@ -13,7 +13,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "warm", "calm" }, values = { "loyal", "honest" },
   notices = { "class", "race" },
   impression = {
-    first = "Xanis Flameweaver sits by a low fire on the Spirit Rise and watches the young shaman come and go. When one is ready for the next element, he knows it before they do, and he sends them out across Kalimdor to find it.",
+    first = "He knows a shaman is ready before they do.",
     third = "{name} met Xanis Flameweaver, a shaman on Thunder Bluff's Spirit Rise who sends young shaman to their elements.",
   },
 
@@ -104,7 +104,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "cheerful", "proud" }, values = { "loyal" },
   notices = { "class", "weary" },
   impression = {
-    first = "Bluff Runner Windstrider carries the news across Thunder Bluff's rises at a run, calling it out to anyone who'll listen. He is breathless, cheerful and very proud of how fast he is.",
+    first = "He is breathless, cheerful and very proud of how fast he is.",
     third = "{name} met Bluff Runner Windstrider, the town crier of Thunder Bluff.",
   },
 
@@ -139,6 +139,9 @@ P:NPC {
         { text = "What's happening in Feralas?", next = "feralas" },
         { text = "What about the Plaguelands?", next = "plague" },
         { text = "What exactly is a Bluff Runner?", next = "runner" },
+        { text = "I could run these rises faster than you.", next = "race", when = { race = "Tauren" } },
+        { text = "Is there any word out of Orgrimmar?", next = "org", when = { race = { "Orc", "Troll" } } },
+        { text = "Do you carry news down to the Pools of Vision?", next = "pools", when = { race = "Scourge" } },
         { text = "Thanks for the news.", next = "END" },
       },
     },
@@ -177,6 +180,31 @@ P:NPC {
       lines = { { id = "do_default", text = "Then watch the Hunter Rise bridge at sunset, hero, and you'll see a blur, and that blur will be me. I won't wave, though, because the wind would knock me clean off the bridge." } },
       choices = { { text = "Something else, Windstrider.", next = "BACK" } },
     },
+    race = {
+      lines = {
+        { id = "race_d", text = "Ha! Every calf on the bluff says so, and every one of them is bent double by the second bridge. Meet me at the totem on the high rise at dawn some day, and we will see which of us still has breath to call the news at the far end." },
+      },
+      choices = {
+        { text = "At dawn, then. Bring water.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    org = {
+      lines = {
+        { id = "org_d", text = "Always, and it comes in faster than I can call it. The Warchief's riders say the city grows by the week, and that there is work for every pair of hands in the Barrens and beyond, so nobody up here need sit idle." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pools = {
+      lines = {
+        { id = "pools_d", text = "As far as the top of the ramp, and then I shout it down. Your apothecaries listen politely and never ask me to repeat anything, which makes them the best audience on the bluff." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -195,7 +223,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "gruff", "sharp" }, values = { "practical", "loyal" },
   notices = { "class", "kit" },
   impression = {
-    first = "Ghede stands among piles of dirt on the Elder Rise, barking orders at anyone carrying soil for the Cenarion Circle. He calls everyone Private and he is sarcastic about everything, though the piles do get made.",
+    first = "He calls everyone Private and is sarcastic about everything.",
     third = "{name} met Ghede, who keeps the Cenarion Circle's Un'Goro soil piles on Thunder Bluff's Elder Rise.",
   },
 

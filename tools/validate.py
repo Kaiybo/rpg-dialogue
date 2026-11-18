@@ -479,8 +479,8 @@ def main():
                         for tok in re.findall(r"\{([^}]*)\}", t):
                             if tok.split(":")[0] not in tokens:
                                 rep.error(pack, f, line, f"{where} impression: unknown token {{{tok}}}")
-                        if len(t.split()) > 50:
-                            rep.warn(pack, f, line, f"{where} impression: {len(t.split())} words (aim for 40 or fewer)")
+                        if len(t.split()) > (16 if voice == "first" else 35):
+                            rep.warn(pack, f, line, f"{where} impression: {len(t.split())} words (aim for 12 or fewer)")
         notices = set(P.arr(tbl.get("notices")))
         ids = set()
         for slot, node, ln, gid in P.iter_lines(tbl, key):

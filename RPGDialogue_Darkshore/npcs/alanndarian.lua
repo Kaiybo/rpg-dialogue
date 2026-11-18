@@ -9,7 +9,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "warm", "brisk" }, values = { "healing", "hospitality" },
   notices = { "craft", "hunger" },
   impression = {
-    first = "Alanndarian Nightsong stirs a pot of strider stew with one hand and mixes salve for sick deer with the other. She feeds anyone who sits still long enough, and she means to cure half of Darkshore while she does.",
+    first = "She feeds anyone who sits still long enough.",
     third = "{name} met Alanndarian Nightsong of Auberdine, a cook with a secret strider stew who is working with the Cenarion Circle to cure Darkshore's sickly deer.",
   },
 

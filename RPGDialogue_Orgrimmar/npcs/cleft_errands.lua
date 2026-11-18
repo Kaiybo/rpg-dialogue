@@ -12,7 +12,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "anxious", "smooth" }, values = { "loyal", "cunning" },
   notices = { "class", "soldier" },
   impression = {
-    first = "Craven Drok paces the Cleft of Shadow with his hands behind his back, as if he were forever waiting for someone late. He talks low and close, the way a man shares a secret he has been told to share.",
+    first = "He talks low and close, as if sharing a secret.",
     third = "{name} met Craven Drok, a restless orc in the Cleft of Shadow who carries messages for Keldran.",
   },
 
@@ -127,7 +127,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm", "sharp" }, values = { "practical", "loyal" },
   notices = { "fel", "class" },
   impression = {
-    first = "Keldran is a quiet orc who calls himself a student of magic and other mystical arts, and he chooses every word as if it cost him. He wants the Alliance to stop believing the Horde still deals with demons, and he is willing to work outside the usual channels to make it so.",
+    first = "He wants the Alliance to stop believing the Horde deals with demons.",
     third = "{name} met Keldran, an orc in Orgrimmar who sends agents to Desolace to root out the Burning Blade.",
   },
 
@@ -233,7 +233,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "sharp", "proud" }, values = { "ambitious", "cunning" },
   notices = { "stealth", "class" },
   impression = {
-    first = "Therzok speaks for the Shattered Hand in the Cleft of Shadow, and he speaks of the old Horde's glory with a hunger he doesn't bother to hide. He measures everyone who comes near him as a weapon, and tells them so.",
+    first = "He measures everyone as a weapon, and tells them so.",
     third = "{name} met Therzok, a Shattered Hand recruiter in Orgrimmar's Cleft of Shadow.",
   },
 
@@ -337,7 +337,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "smooth", "cheerful" }, values = { "cunning", "greedy" },
   notices = { "class", "purse" },
   impression = {
-    first = "Jes'rimon keeps to the top floor above Yelmak's alchemy shop in the Drag, a lanky troll who greets everyone as if he'd been expecting them. He buys and sells for the Shattered Hand and doesn't mind who knows it, as long as they don't say it loudly.",
+    first = "He greets everyone as if he had been expecting them.",
     third = "{name} met Jes'rimon, a troll fence for the Shattered Hand above Yelmak's shop in the Drag.",
   },
 

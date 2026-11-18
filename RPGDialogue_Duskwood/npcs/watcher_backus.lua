@@ -11,7 +11,7 @@ P:NPC {
   notices = { "stealth", "soldier" },
 
   impression = {
-    first = "Watcher Backus walks a lonely stretch of road and knows more about the Defias than his superiors would like. He helped me, and then asked me to forget that he had.",
+    first = "He helped me, then asked me to forget that he had.",
     third = "{name} met Watcher Backus of the Night Watch, a careful man on the western road who quietly helped track the Defias.",
   },
 

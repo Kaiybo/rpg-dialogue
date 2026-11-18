@@ -11,7 +11,7 @@ P:NPC {
   notices = { "body", "craft" },
 
   impression = {
-    first = "Abercrombie is a kind, rambling old man who lives alone near Raven Hill and speaks of his late wife as if she were in the next room. Something about the hut made my skin crawl.",
+    first = "Something about his hut makes my skin crawl.",
     third = "{name} visited Abercrombie, an old hermit near Raven Hill who lives alone and talks fondly of his late wife.",
   },
 

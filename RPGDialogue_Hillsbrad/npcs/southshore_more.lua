@@ -11,7 +11,7 @@ P:NPC {
   notices = { "class", "arcane" },
 
   impression = {
-    first = "Emissary Jacques came down from Dalaran to ask the Alliance for help, and it plainly costs him something to ask. He is polite, careful with his words, and more frightened than he lets on.",
+    first = "It plainly costs him something to ask the Alliance for help.",
     third = "{name} met Emissary Jacques of the Kirin Tor, who came to Southshore seeking aid for the troubled city of Dalaran.",
   },
 
@@ -246,7 +246,7 @@ P:NPC {
   notices = { "lore", "race" },
 
   impression = {
-    first = "Kundric Zanden is Southshore's historian, and he seems to regard the present mainly as material for later. He remembers the town's every flood, war and refugee boat, and expects me to as well.",
+    first = "He regards the present mainly as material for later.",
     third = "{name} met Kundric Zanden, Southshore's town historian.",
   },
 
@@ -487,7 +487,7 @@ P:NPC {
   notices = { "drink", "class" },
 
   impression = {
-    first = "Barkeep Kelly pours at the Southshore inn and seems to know every rumour in town before the town does. He trades in gossip the way Bilger trades in brew.",
+    first = "He seems to know every rumour in town before the town does.",
     third = "{name} met Barkeep Kelly, who tends the bar at Southshore's inn.",
   },
 
@@ -698,7 +698,7 @@ P:NPC {
   notices = { "arcane", "class" },
 
   impression = {
-    first = "Phin Odelic used to be Kirin Tor and now leads a little band chasing odd happenings around Hillsbrad. He's sure the Forsaken are brewing something, and he worries about his friends more than he admits.",
+    first = "He worries about his friends more than he admits.",
     third = "{name} met Phin Odelic, a former Kirin Tor mage in Southshore who suspects the Forsaken of brewing a new plague.",
   },
 
@@ -925,7 +925,7 @@ P:NPC {
   notices = { "mount", "animal" },
 
   impression = {
-    first = "Darren Malvew is the stablehand in Southshore, and he loves his horses more than most people love anything. He swears on his granddaddy's grave that mountain lions are the worst of Hillsbrad's thieves.",
+    first = "He swears mountain lions are the worst of Hillsbrad's thieves.",
     third = "{name} met Darren Malvew, Southshore's stablehand, who blames the Alterac mountain lions for his lost horses.",
   },
 
@@ -1128,7 +1128,7 @@ P:NPC {
   notices = { "craft", "hunger" },
 
   impression = {
-    first = "Chef Jessen claims Southshore has the best cooking north of Stormwind and that folk came from Darkshire for his turtle bisque. He hasn't made it in a while, and it pains him to say why.",
+    first = "It pains him to say why he stopped making his turtle bisque.",
     third = "{name} met Chef Jessen, Southshore's cook, famous for his Soothing Turtle Bisque.",
   },
 
@@ -1319,7 +1319,7 @@ P:NPC {
   notices = { "class", "mount" },
 
   impression = {
-    first = "Merideth Carlson breeds Southshore's horses and won't sell them to just anyone. The Silver Hand once called her mad, and she has not forgiven them, or the rest of the world, for it.",
+    first = "The Silver Hand once called her mad, and she hasn't forgiven them.",
     third = "{name} met Merideth Carlson, Southshore's horse breeder, who once claimed she could feed a spirit horse.",
   },
 
@@ -1528,7 +1528,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Donald Rabonne teaches fishing from the Southshore docks and treats the bay as his parish. He's seen murlocs, naga and refugee boats come in on the same tide and judges none of them by their fins.",
+    first = "He judges nothing that comes in on the tide by its fins.",
     third = "{name} met Donald Rabonne, who teaches fishing on the Southshore docks.",
   },
 

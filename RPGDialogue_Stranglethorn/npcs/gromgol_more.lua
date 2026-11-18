@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Nez'raz runs the zeppelin to Orgrimmar from the tower outside Grom'gol, and talks about the Stranglethorn sun like a goblin who's found a beach he doesn't have to pay for. He swears the zeppelins are perfectly safe, and swears it a little too often.",
+    first = "He swears the zeppelins are perfectly safe a little too often.",
     third = "{name} met Nez'raz, the goblin zeppelin master at Grom'gol.",
   },
 
@@ -195,7 +195,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Thysta keeps the wind riders at Grom'gol, calmly, as though the jungle beyond the walls weren't trying to eat everything in it. She watches the trolls on the ridges more closely than she lets on.",
+    first = "She watches the ridge trolls more closely than she lets on.",
     third = "{name} met Thysta, the wind rider master at Grom'gol.",
   },
 
@@ -369,7 +369,7 @@ P:NPC {
   notices = { "weary", "class" },
 
   impression = {
-    first = "Uthok sells general supplies at Grom'gol: bags, arrows, a little food, and whatever else can be shipped in by zeppelin without spoiling. He's gruff and quick, and he watches his stock like a hawk.",
+    first = "He is gruff, quick and watches his stock like a hawk.",
     third = "{name} met Uthok, who sells general supplies at Grom'gol.",
   },
 

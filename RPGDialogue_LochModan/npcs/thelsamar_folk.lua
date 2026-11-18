@@ -12,7 +12,7 @@ P:NPC {
   notices = { "weary", "kit", "priest" },
 
   impression = {
-    first = "Ghak Healtouch patches up Thelsamar's miners and Mountaineers with salves that smell worse than the wounds. He scolds every patient and then treats them gently, and he seemed to think I'd be back on his table soon.",
+    first = "He scolds every patient and then treats them gently.",
     third = "{name} met Ghak Healtouch, the gruff healer of Thelsamar, who brews his remedies from things most folk would rather not touch.",
   },
 
@@ -232,7 +232,7 @@ P:NPC {
   notices = { "race", "origin" },
 
   impression = {
-    first = "Torren Squarejaw would rather be in a hole in the ground than behind a desk, and tells everyone so. He talks about the old ruins round the loch the way other dwarves talk about ale.",
+    first = "He would rather be down a hole than behind a desk.",
     third = "{name} met Torren Squarejaw of the Explorers' League, who longs for the dig while the League keeps him in Thelsamar.",
   },
 
@@ -333,7 +333,7 @@ P:NPC {
   notices = { "kit", "paladin" },
 
   impression = {
-    first = "Bailor Stonehand judges people by their weapons and weapons by their balance. He spoke of an old apprentice with more pride than he let his face show.",
+    first = "He judges people by their weapons and weapons by their balance.",
     third = "{name} met Bailor Stonehand, an old weaponsmith of Thelsamar who once trained Jordan Stilwell.",
   },
 
@@ -343,6 +343,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_human", cat = "kit", when = { race = "Human" },
+      text = "A human in Thelsamar. The last one who stayed any time was my own apprentice, an' he turned out better than I'd any right tae expect." },
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Ye've let yer gear go tae ruin, an' I'll no' pretend I didnae notice. Morhan'll mend it, for he's the one wi' the anvil lit these days." },
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN" },
@@ -359,6 +361,8 @@ P:NPC {
           text = "A warrior. Let me guess: ye've hacked troggs wi' that edge an' never once stopped tae hone it. I can see the nicks from here." },
       },
       again = {
+        { id = "h_again2", text = "Go on. I've nae forge tae mind, so ye may as well keep me company." },
+        { id = "h_again3", text = "Ask away, an' speak up, for forty years o' hammerin' has done my ears nae good." },
         { id = "h_again", text = "What else? I've all day, which is the only good thing about bein' old." },
       },
       choices = {
@@ -366,6 +370,8 @@ P:NPC {
         { text = "What makes a good weapon?", next = "craft" },
         { text = "Why did you give up the forge?", next = "retire" },
         { text = "I'm training at the anvil myself.", next = "xsmith", when = { profession = { name = "Blacksmithing", min = 1 } } },
+        { text = "You still keep an eye on Thelsamar's steel.", next = "town" },
+        { text = "I've met Jordan Stilwell in Ironforge.", next = "metjordan", when = { any = { { class = "PALADIN" }, { profession = "Blacksmithing" } } } },
         { text = "Good day, Bailor.", next = "END" },
       },
     },
@@ -414,9 +420,36 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    town = {
+      lines = { { id = "tn_default", text = "Somebody must. Morhan Coppertongue does the forge work now, Vrok Blunderblast sells the guns, an' the mountaineers carry what the pair o' them make. I sit by the door an' tell them all what's wrong wi' it." } },
+      choices = {
+        { text = "And do they thank you for it?", next = "town_thanks" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    town_thanks = {
+      lines = { { id = "tt_default", text = "Morhan does, in his way, by doin' the next one better an' no' mentionin' it. Vrok tells me a rifle needs nae balance, which shows ye what gunsmiths know about weapons." } },
+      choices = {
+        { text = "What do the mountaineers carry?", next = "town_mount" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    town_mount = {
+      lines = { { id = "tm_default", text = "A rifle for the troggs at a distance an' an axe for the ones that get close, an' they get close more often than Captain Rugelfuss would like. I'd have every one o' them carry a second blade, but nobody asks an old smith." } },
+      choices = { { text = "It sounds like good advice to me.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    metjordan = {
+      lines = { { id = "mj_default", text = "Have ye? Then tell me, does he still stand wi' his weight on his left foot when he strikes? I told him a hundred times it'd ruin his hip, an' he'd nod an' go on doin' it." } },
+      choices = {
+        { text = "He looked well, and busy.", next = "BACK", reply = "Busy's good. A smith wi' time on his hands starts thinkin', an' that lad thought too much already.", fx = { affinity = 1 } },
+        { text = "You should write to him.", next = "BACK", reply = "Hmph. He kens where I am. But maybe I'll send a hammer-head wi' the next cart an' let it speak for me.", fx = { trait = { kind = 1 } } },
+      },
+    },
   },
 
   topics = {
+    morhan = { { id = "tp_morhan", text = "Morhan Coppertongue has the forge now, an' he's worthy o' it. He talks tae his customers more than I ever did, an' they seem tae like it." } },
+    troggs = { { id = "tp_troggs", text = "Thick skulls, the lot o' them. A cheap edge turns on a trogg, so buy the good steel or dinnae bother." } },
     knows = { { id = "tp_knows", text = "I know steel an' the folk who swing it. Ask about either." } },
     background = { { id = "tp_bg", text = "I've had forty years at the forge in Thelsamar, an' a few before that in Ironforge." } },
     _none = { { id = "tp_none", text = "That's no' about steel, so I've no opinion worth hearin'." } },

@@ -12,7 +12,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "warm" }, values = { "practical", "kind" },
   notices = { "hunger" },
   impression = {
-    first = "Mabel Solaj sells candles, flour and lamp oil from a corner of the Scarlet Raven, and she mothers every customer whether they want it or not. In Darkshire, I suspect most of them do.",
+    first = "She mothers every customer whether they want it or not.",
     third = "{name} met Mabel Solaj, who sells general goods in Darkshire's Scarlet Raven Tavern.",
   },
   greetings = {
@@ -200,7 +200,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "dry" }, values = { "practical", "shrewd" },
   notices = { "craft" },
   impression = {
-    first = "Gunder Thornbush sells thread, vials and flux in the Scarlet Raven and counts his stock aloud as though it might wander off. He seems to think Darkshire's trade died with its sunlight.",
+    first = "He thinks Darkshire's trade died with its sunlight.",
     third = "{name} met Gunder Thornbush, a tradesman in Darkshire's Scarlet Raven Tavern.",
   },
   greetings = {
@@ -371,7 +371,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "gruff" }, values = { "craft", "duty" },
   notices = { "kit", "class" },
   impression = {
-    first = "Morg Gnarltree makes armour for Darkshire and studies every customer's gear for claw marks before he says hello. He is gruff, and he plainly cares whether the people he outfits come back.",
+    first = "He checks every customer's gear for claw marks before saying hello.",
     third = "{name} met Morg Gnarltree, Darkshire's armorer.",
   },
   greetings = {
@@ -555,7 +555,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "weary" }, values = { "craft", "cautious" },
   notices = { "craft" },
   impression = {
-    first = "Matt Johnson teaches mining in a town where nobody dares go down a mine any more. He seemed glad of a student, and a little worried for me.",
+    first = "He teaches mining where nobody dares go down a mine.",
     third = "{name} met Matt Johnson, Darkshire's mining trainer.",
   },
   greetings = {
@@ -735,7 +735,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "chatty" }, values = { "craft", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Danielle Zipstitch sells thread and cloth upstairs in Madame Eva's house and knows everything Eva's visitors say on the stairs. She talks the way she sews, quickly and without dropping a stitch.",
+    first = "She talks the way she sews, quickly and without dropping a stitch.",
     third = "{name} met Danielle Zipstitch, who sells tailoring supplies upstairs in Madame Eva's house in Darkshire.",
   },
   greetings = {
@@ -932,7 +932,7 @@ P:NPC {
   communities = { "darkshire" }, temper = { "anxious" }, values = { "cautious", "craft" },
   notices = { "craft" },
   impression = {
-    first = "Sheri Zipstitch keeps the accounts and the good scissors in the Zipstitch shop, and she jumps at every creak on the stairs. She's the careful half of the business and knows it.",
+    first = "She jumps at every creak on the stairs.",
     third = "{name} met Sheri Zipstitch, who sells tailoring supplies with Danielle above Madame Eva's house.",
   },
   greetings = {
@@ -1105,7 +1105,7 @@ P:NPC {
   bible = "bibles/darkshire_shops.md", role = "citizen", tier = "service",
   communities = { "darkshire" }, temper = { "bitter" }, values = { "justice", "family" },
   impression = {
-    first = "Hogan Ference waits in Darkshire's Town Hall every day to ask the council what they mean to do about the dead. Nobody has given him an answer, and he has stopped expecting one.",
+    first = "He has stopped expecting the council to answer about the dead.",
     third = "{name} met Hogan Ference, a frustrated townsman who waits in Darkshire's Town Hall.",
   },
   greetings = {
@@ -1316,7 +1316,7 @@ P:NPC {
   communities = {}, temper = { "smooth" }, values = { "greedy", "freedom" },
   notices = { "race" },
   impression = {
-    first = "Kzixx sells rare goods from a roadside spot near the Darkened Bank and swears every item is unique. He claims nothing in the forest worries him much, so long as business is good.",
+    first = "Nothing in the forest worries him, so long as business is good.",
     third = "{name} met Kzixx, a goblin trader selling rare goods by the Darkened Bank road in Duskwood.",
   },
   greetings = {

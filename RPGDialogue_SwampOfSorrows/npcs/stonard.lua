@@ -9,7 +9,7 @@ P:NPC {
   notices = { "kit", "class" },
 
   impression = {
-    first = "Dispatch Commander Ruag sends scouts into the swamp and counts what comes back. He keeps the old business at Thrall's Grasp close, and plainly wishes he could forget it.",
+    first = "He plainly wishes he could forget the business at Thrall's Grasp.",
     third = "{name} met Dispatch Commander Ruag, who directs the Horde's scouts from Stonard in the Swamp of Sorrows.",
   },
 
@@ -410,7 +410,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Fel'zerul watches the sunken temple the way some people watch a sleeping beast. Whatever stirs beneath the Pool of Tears, he has felt it, and he doesn't like it.",
+    first = "He has felt what stirs beneath the Pool of Tears.",
     third = "{name} met Fel'zerul, sent by the Warchief to watch the Temple of Atal'Hakkar from Stonard.",
   },
 
@@ -692,7 +692,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Helgrum the Swift can't keep still and admits he's fast rather than clever. He spoke of Neeka Bloodscar with an easy pride that made me like him at once.",
+    first = "He admits he is fast rather than clever.",
     third = "{name} met Helgrum the Swift, the restless runner who carries word between Stonard and Kargath.",
   },
 
@@ -891,7 +891,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Bengor can barely walk or talk, and he insists on remembering all the same. He wears what the murlocs did to him with a soldier's stubborn pride.",
+    first = "He wears what the murlocs did to him with stubborn pride.",
     third = "{name} met Bengor, a gravely wounded Horde soldier at Stonard who remembers what became of the lost orders.",
   },
 
@@ -1077,7 +1077,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "Innkeeper Karakul made me take my boots off at the door before he made me eat. Gruff as he is, he plainly thinks feeding the scouts is the most important job in Stonard.",
+    first = "He makes you take your boots off before he makes you eat.",
     third = "{name} met Innkeeper Karakul, who keeps Stonard's scouts fed and dry in the Swamp of Sorrows.",
   },
 

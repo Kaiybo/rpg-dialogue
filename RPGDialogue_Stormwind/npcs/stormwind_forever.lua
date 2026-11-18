@@ -15,7 +15,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "proud", "loyal" },
   notices = { "soldier", "light", "kin" },
   impression = {
-    first = "Abigail Lawson stands in Cathedral Square with the stiff back of someone who has been waiting a long time for bad news. She was to marry a marshal who chose an old war over her, and she has not forgiven either of them.",
+    first = "Her marshal chose an old war over her, and she forgives neither.",
     third = "{name} met Abigail Lawson, Marshal Ryan's betrothed, in Cathedral Square.",
   },
 
@@ -382,7 +382,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "jovial" }, values = { "patient", "practical" },
   notices = { "craft", "race" },
   impression = {
-    first = "Gilbert Gray sits at the end of a harbor pier with a line in the water and no intention of moving. He talks about fish the way some men talk about the weather, endlessly and with total confidence.",
+    first = "He talks about fish endlessly and with total confidence.",
     third = "{name} met Gilbert Gray, an old fisher on the piers of Stormwind Harbor.",
   },
 
@@ -715,7 +715,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "calm" }, values = { "patient", "loyal" },
   notices = { "race", "class" },
   impression = {
-    first = "Idrieth Mossgrove keeps the kaldorei pier in Stormwind Harbor and tells everyone who asks when the boat leaves for Auberdine. He is unfailingly polite, and seems to be studying the humans as closely as they study him.",
+    first = "He studies the humans as closely as they study him.",
     third = "{name} met Idrieth Mossgrove, the night elf who keeps the pier for the boat to Auberdine.",
   },
 
@@ -991,7 +991,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gentle" }, values = { "curious", "kind" },
   notices = { "class", "race" },
   impression = {
-    first = "Roy Lewells reads under the trees in the Park and would rather talk about books than anything else. He is soft-spoken and easily distracted, and keeps losing his place on the page while he talks.",
+    first = "He keeps losing his place on the page while he talks.",
     third = "{name} met Roy Lewells, a reader who spends his days among the trees in Stormwind's Park.",
   },
 
@@ -1307,7 +1307,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "calm" }, values = { "patient", "curious" },
   notices = { "race", "class" },
   impression = {
-    first = "Aendaril Brookshot is a kaldorei druid who stands in Stormwind's Valley of Heroes and studies the statues as though they might speak. The city's noise seems to pass around the druid like water around a stone.",
+    first = "The city's noise passes around the druid like water around a stone.",
     third = "{name} met Aendaril Brookshot, a night elf druid in the Valley of Heroes.",
   },
 
@@ -1591,7 +1591,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "smooth" }, values = { "proud", "curious" },
   notices = { "kit", "class" },
   impression = {
-    first = "Fyrenz Vishonar is a kaldorei who weaves glamours over armour, so a warrior can wear one thing and look like another. She studies everyone's clothes the way a jeweller studies stones.",
+    first = "She studies everyone's clothes the way a jeweller studies stones.",
     third = "{name} met Fyrenz Vishonar, the night elf in Stormwind who changes how armour looks.",
   },
 

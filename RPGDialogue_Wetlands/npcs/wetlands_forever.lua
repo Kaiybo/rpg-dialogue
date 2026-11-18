@@ -14,7 +14,7 @@ P:NPC {
   notices = { "drunk", "dwarf", "trader" },
 
   impression = {
-    first = "Agriel Firebrew runs the Drunken Dwarf out of an old lookout the kingdom gave up on, and she runs it for the love of it rather than the coin. She asks only that you sit where you're told and stay out of the way.",
+    first = "She asks only that you sit where you're told.",
     third = "{name} met Agriel Firebrew, who keeps the Drunken Dwarf in the Wetlands.",
   },
 
@@ -132,7 +132,7 @@ P:NPC {
   notices = { "healer", "herbalist", "druid" },
 
   impression = {
-    first = "Ardin Grassman went into the excavation to see some giant grasses and stayed far longer than he meant to. He's frightened, sarcastic and very much alive, and all he wants is to get home to Caitlin.",
+    first = "All he wants is to get home to Caitlin.",
     third = "{name} found Ardin Grassman alive at the Site of the Guardian in the Wetlands excavation.",
   },
 
@@ -302,7 +302,7 @@ P:NPC {
   notices = { "forsaken", "orc", "noise" },
 
   impression = {
-    first = "The Deathstalker Agent watches the Dragonmaw from the hills with the patience only the dead have. She told me to mind my voice before she told me anything else, and she never gave me her name.",
+    first = "She told me to mind my voice and never gave her name.",
     third = "{name} met a Deathstalker Agent watching the Dragonmaw from the Wetlands hills on the Dark Lady's business.",
   },
 

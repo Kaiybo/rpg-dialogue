@@ -10,7 +10,7 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "earnest", "tired" }, values = { "dutiful", "loyal" },
   notices = { "race", "class", "soldier" },
   impression = {
-    first = "Corporal Melkins keeps the bounty ledger at Nijel's Point and counts centaur ears with the weary care of a man who would rather be counting sheep in Elwynn. He believes in the mission and hates the job.",
+    first = "He believes in the mission and hates the job.",
     third = "{name} met Corporal Melkins, who pays the Alliance's centaur bounty at Nijel's Point.",
   },
 
@@ -61,6 +61,8 @@ P:NPC {
         { text = "What do you think of Captain Pentigast?", next = "captain" },
         { text = "Where's home for you, Corporal?", next = "home" },
         { text = "What needs doing?", next = "BUSINESS" },
+        { text = "You've sheep waiting somewhere, Corporal. I can tell.", next = "sheep", when = { race = "Human" } },
+        { text = "A paladin's oath covers work like this.", next = "oath", when = { class = "PALADIN" } },
         { text = "Carry on, Corporal.", next = "END" },
       },
     },
@@ -178,6 +180,24 @@ P:NPC {
         { text = "Farewell, Corporal.", next = "END" },
       },
     },
+    sheep = {
+      lines = {
+        { id = "sheep_d", text = "Is it that plain? You've an Elwynn eye, then, or a Westfall one. Yes, there's a flock, and a brother minding it badly, and I think about the lambing every spring while I'm counting ears." },
+      },
+      choices = {
+        { text = "You'll see another lambing, Corporal.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oath = {
+      lines = {
+        { id = "oath_d", text = "Does it? I'm glad to hear it, because I've wondered. Brother Anton says the Light asks us to defend the living and doesn't ask us to enjoy the tally, and that's the nearest thing to comfort I've had out here." },
+      },
+      choices = {
+        { text = "Anton has the right of it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -194,7 +214,7 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "intense", "sorrowful" }, values = { "nature", "devout" },
   notices = { "race", "class" },
   impression = {
-    first = "Talendria speaks about the satyr Vyletongue with a cold, private anger, as if his corruption of Maraudon were an insult to her family. She wants the caverns healed, not just cleared, and she is very particular about the difference.",
+    first = "She wants Maraudon healed, not just cleared, and minds the difference.",
     third = "{name} met Talendria, the night elf at Nijel's Point who wants Maraudon's poisoned vines healed.",
   },
 
@@ -242,6 +262,8 @@ P:NPC {
         { text = "Do you work with Keeper Marandis?", next = "marandis" },
         { text = "Why can't you go yourself?", next = "self" },
         { text = "What would you have me do?", next = "BUSINESS" },
+        { text = "A druid might do more inside than carry a vial.", next = "druid", when = { class = "DRUID" } },
+        { text = "You speak as one who remembers the first invasion.", next = "old", when = { race = "NightElf" } },
         { text = "Elune keep you, Talendria.", next = "END" },
       },
     },
@@ -355,6 +377,24 @@ P:NPC {
         { text = "Farewell, Talendria.", next = "END" },
       },
     },
+    druid = {
+      lines = {
+        { id = "druid_d", text = "You might. The vines answer to those who know the Dream, and where the vial heals a plant, your own hands may tell you why it sickened. Bring that knowledge back to Marandis as well as the proof I have asked for." },
+      },
+      choices = {
+        { text = "I'll bring both.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    old = {
+      lines = {
+        { id = "old_d", text = "I remember what satyrs were before they were satyrs, which is worse. They had names, and some of them had my regard, and that is why I will not hear Vyletongue spoken of as a mere beast." },
+      },
+      choices = {
+        { text = "Then he chose it, and he'll answer for it.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -372,7 +412,7 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "cheerful", "proud" }, values = { "duty", "nature" },
   notices = { "race", "weary", "class" },
   impression = {
-    first = "Baritanas Skyriver keeps the hippogryphs at Nijel's Point and is the only person in the outpost who seems to like Desolace, because he only ever sees it from above. He is proud of his birds and slightly vain about his name.",
+    first = "He likes Desolace because he only ever sees it from above.",
     third = "{name} met Baritanas Skyriver, the cheerful hippogryph master at Nijel's Point.",
   },
 

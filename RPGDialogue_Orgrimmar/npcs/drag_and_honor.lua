@@ -12,7 +12,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "anxious", "sharp" }, values = { "curious", "honest" },
   notices = { "class", "race" },
   impression = {
-    first = "Zilzibin Drumlore keeps a desk among the scrolls of the Mighty Pen in the Drag, a troll scholar of strange creatures who talks faster the more worried he gets. He has been warning the Horde about the silithid for some time, and nobody important is listening.",
+    first = "He warns of the silithid, and nobody important is listening.",
     third = "{name} met Zilzibin Drumlore, a troll scholar in the Drag who studies the silithid.",
   },
 
@@ -113,7 +113,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "proud", "warm" }, values = { "loyal", "honest" },
   notices = { "craft", "class" },
   impression = {
-    first = "Orokk Omosh is a huge, soot-streaked smith in the Valley of Honor who speaks of himself by name and of his family with reverence. He is the last of his line and has no children, and he is looking for someone worthy to carry the Omosh secrets on.",
+    first = "He is the last Omosh and seeks someone worthy of his secrets.",
     third = "{name} met Orokk Omosh, the last smith of the Omosh line in Orgrimmar's Valley of Honor.",
   },
 

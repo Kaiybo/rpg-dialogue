@@ -729,6 +729,7 @@ function Conv.ShowReplyEnd(text, narr)
   if not s then return end
   local info = s.info
   local linked = Conv.Hear(text)
+  Conv.Log("narr", narr)
   Conv.Log("npc", text)
   local said = s.said
   s.said = nil
@@ -828,6 +829,7 @@ function Conv.ShowNode(nodeId, reply, replyNarr)
   end
 
   s.page = nil
+  Conv.Log("narr", narr)
   Conv.Log("npc", body)
   local said = s.said
   s.said = nil
@@ -919,7 +921,16 @@ function Conv.Log(who, text)
   if not s or not text or text == "" then return end
   s.log = s.log or {}
   s.log[#s.log + 1] = { who = who, text = text }
-  if #s.log > 40 then table.remove(s.log, 1) end
+  if #s.log > 400 then table.remove(s.log, 1) end
+  -- The journal's Transcript page keeps the last conversation after it ends (0.86.0).
+  if ns.char then
+    local t = ns.char.transcript
+    if not t or t.log ~= s.log then
+      ns.char.transcript = { name = s.info and s.info.name, t = C.Now(), log = s.log }
+    end
+  end
+  local J = ns.Journal
+  if J and J.IsShown and J.IsShown() and J.Current() == "transcript" then J.Show("transcript", true) end
 end
 
 function Conv.Choose(index)
@@ -1109,6 +1120,7 @@ end
 
 -- Tone for the box's selector (0.85.0): "polite" / "normal" / "blunt", or nil when hidden.
 function Conv.ToneView(s)
+  do return nil end   -- 0.86.0: tone selector removed
   if not s or not ns.Disposition or ns.db.settings.toneSelector == false then return nil end
   return ns.Disposition.Tone(s.ctx)
 end
@@ -1331,21 +1343,27 @@ function Conv.Persuade(action)
     return
   end
   local before = ns.Disposition and ns.Disposition.For(env, ctx)
+  -- What you actually say (0.86.0), and their own answer to it when the line has one.
+  local say = Engine.PickSay and Engine.PickSay(s.info, action, ctx, env)
   local ok = P.Try(action, s.info, s.mem, ctx)
   local result = ok and "success" or "fail"
-  local w = Engine.PickPersuade(s.info, action, result, ctx, env)
+  local paired = say and type(say.line[result]) == "string" and say.line[result] or nil
+  local w = not paired and Engine.PickPersuade(s.info, action, result, ctx, env) or nil
   local text = ok and L.PERSUADE_FALLBACK_SUCCESS or L.PERSUADE_FALLBACK_FAIL
-  if w then
+  if paired then
+    text = Tokens.Render(paired, ctx, env, say.line.when)
+  elseif w then
     Conv.Shown(w)
     s.lastLine = w.gid
     text = Tokens.Render(w.line.text, ctx, env, w.line.when)
   end
   local name = L["PERSUADE_" .. action:upper()] or action
   local said = "[" .. name .. "]"
+  if say then said = Tokens.Render(say.line.text, ctx, env, say.line.when) end
   Conv.Log("you", said)
   Conv.Log("npc", text)
   local linked = Conv.Hear(text)
-  View(s).ShowAnswer(text, name, linked, ns.db.settings.echoReply ~= false and said or nil)
+  View(s).ShowAnswer(text, name, linked, (say or ns.db.settings.echoReply ~= false) and said or nil)
   if s.viewTopic and s.nodeDef then
     s.viewTopic = nil
     Conv.OfferChoices(s)

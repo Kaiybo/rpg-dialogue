@@ -10,7 +10,7 @@ P:NPC {
   notices = { "craft", "race", "class" },
 
   impression = {
-    first = "Lucien Tosselwrench is Lotwil Veriatus's assistant, a gnome alchemist who has made his peace with working beside a man who talks to rocks. He expects every experiment to end badly and stays anyway, which says something about him.",
+    first = "He expects every experiment to end badly and stays anyway.",
     third = "{name} met Lucien Tosselwrench, assistant to Lotwil Veriatus at his camp in the Badlands.",
   },
 
@@ -209,7 +209,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Garek is a high elf camped alone in the Badlands on an errand for the Kirin Tor that he will not fully explain. He is courteous, guarded and plainly more worried than he lets his voice show.",
+    first = "He is more worried than he lets his voice show.",
     third = "{name} met Garek, a high elf on a quiet mission for the Kirin Tor near Dustwind Gulch.",
   },
 
@@ -231,6 +231,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    x_mage = {
+      lines = {
+        { id = "xm_default", text = "Rarely, and never without cause. Dalaran has its own wounds to tend behind that dome, so when one of the Six spares a thought for the Badlands, you may take it that the matter is not small." },
+      },
+      choices = {
+        { text = "Can you feel the binding from here?", next = "x_mage_bind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_mage_bind = {
+      lines = {
+        { id = "xmb_default", text = "As you'd feel a rope fraying under your hand. The old wards in the ravine were Dark Iron work, earth and rune rather than anything a mage would weave, and they've grown thin. You've the training to sense it yourself, if you walk the rim at dusk." },
+      },
+      choices = {
+        { text = "I'll walk it, and tell you what I find.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "Then you'll know the Sign at once: black iron, heavy runes, and not one line more than it needs. I mean no insult to your kin when I say their exiled cousins were fine smiths, whatever else they became." },
+      },
+      choices = {
+        { text = "None taken. A good forge is a good forge.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_hunter = {
+      lines = {
+        { id = "xh_default", text = "I did, in Quel'Thalas, when there were woods to hunt in. Here I only watch, and count the whelps against the day before, because a nest that's growing tells you more than any tremor." },
+      },
+      choices = {
+        { text = "And is it growing?", next = "x_hunter_count" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_hunter_count = {
+      lines = {
+        { id = "xhc_default", text = "Slowly, yes. Two clutches this season, and the elders have stopped ranging far, which is what a pack does when it's guarding something. You've the eyes for it, so tell me if you see the pattern break." },
+      },
+      choices = {
+        { text = "I'll keep count when I pass.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -255,6 +300,9 @@ P:NPC {
         { text = "What is the Sign of the Earth?", next = "sign" },
         { text = "Why won't you say more?", next = "secret" },
         { text = "What's an elf doing out here alone?", next = "alone" },
+        { text = "The Kirin Tor rarely send anyone this far south.", next = "x_mage", when = { class = "MAGE" } },
+        { text = "My people know Dark Iron work when they see it.", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "A lone elf by a dragons' nest. You hunt, don't you?", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "Good day, Garek.", next = "END" },
       },
     },

@@ -15,7 +15,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Deathguard Burgess stands by Brill's town hall and keeps a tally of the Scarlet Crusaders the Forsaken have killed, measured in rings. He speaks of Varimathras and the Dark Lady in the same proud breath, and he writes down the names of anyone who doesn't.",
+    first = "He writes down the names of anyone who doesn't praise Varimathras.",
     third = "{name} met Deathguard Burgess, who collects Scarlet insignia rings in Brill as proof of loyalty to the Dark Lady.",
   },
 
@@ -194,7 +194,7 @@ P:NPC {
   notices = { "mount" },
 
   impression = {
-    first = "Velma Warnam teaches the Forsaken to ride the skeletal horses Zachariah Post sells. She says a dead horse fears nothing, which is exactly the trouble with it, and she won't push one on when it stops at a field gate.",
+    first = "She says a dead horse fears nothing, which is exactly the trouble.",
     third = "{name} met Velma Warnam, who teaches riding in Brill.",
   },
 

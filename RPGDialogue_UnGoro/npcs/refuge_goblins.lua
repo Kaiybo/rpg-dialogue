@@ -13,7 +13,7 @@ P:NPC {
   notices = { "craft", "race", "level" },
 
   impression = {
-    first = "Shizzle is a goblin stranded in Un'Goro who means to fly out on a machine of his own making. He has everything but the wings, and he is far too frightened of pterrordax to go and get them himself.",
+    first = "He has built everything but the wings, and fears pterrordax too much.",
     third = "{name} met Shizzle, a stranded goblin tinker at Marshal's Refuge building a flying machine to get out of Un'Goro.",
   },
 
@@ -176,7 +176,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Quixxil works for the Marshal Expedition and somehow also for himself, and he sees a price on everything in the crater. He was friendly, fast-talking and very careful not to say anything the scientists might overhear.",
+    first = "He sees a price on everything in the crater.",
     third = "{name} met Quixxil, a goblin fixer with the Marshal Expedition who sees a profit in every corner of Un'Goro.",
   },
 
@@ -292,7 +292,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Gibbert sells weapons at Marshal's Refuge and talks about devilsaurs the way a baker talks about bread. He seemed to think every blade on his rack would be the one that saved me.",
+    first = "He seemed to think every blade on his rack would save me.",
     third = "{name} met Gibbert, the goblin weapon merchant at Marshal's Refuge.",
   },
 

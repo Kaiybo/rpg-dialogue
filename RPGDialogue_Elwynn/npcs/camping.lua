@@ -8,7 +8,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "cheerful" }, values = { "friendly", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Sam Sarsaparilla calls himself an adventurer, though his adventuring seems to be mostly walking a long way and then sitting by a fire. I've heard worse philosophies.",
+    first = "His adventuring is mostly a long walk and a campfire.",
     third = "{name} shared a fire with Sam Sarsaparilla, a cheerful wanderer who swears the sitting is the best part of any journey.",
   },
 

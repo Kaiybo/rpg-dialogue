@@ -9,7 +9,7 @@ P:NPC {
   communities = { "westfall_farms" }, temper = { "steady" }, values = { "pious", "brave" },
   notices = { "paladin", "kit" },
   impression = {
-    first = "Daphne Stilwell guards her farm above the sea with an apple basket in one hand and no fear at all of the Defias below. She writes to her husband Jordan, and she clearly misses him.",
+    first = "She has no fear of the Defias and misses her husband Jordan.",
     third = "{name} met Daphne Stilwell, a farmer who refuses to let the Defias take her land while her husband works far away.",
   },
 

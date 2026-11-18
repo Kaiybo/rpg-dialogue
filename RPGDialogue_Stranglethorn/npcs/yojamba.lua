@@ -17,7 +17,7 @@ P:NPC {
   notices = { "race", "rep" },
 
   impression = {
-    first = "Molthor leads the Zandalari on Yojamba Isle, and he looked at me the way a general looks at a new recruit he has already decided to spend. He spoke of Hakkar as a thing his people have fought before and expect to fight again.",
+    first = "He eyes me like a recruit he has already decided to spend.",
     third = "{name} met Molthor, the Hand of King Rastakhan, who gathers heroes on Yojamba Isle to drive the Soulflayer from the world.",
   },
 
@@ -189,7 +189,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Exzhal, the Servitor of Rastakhan, spoke to me as though the king himself might be listening through his mouth, and he kept a Hakkari prisoner kneeling in a circle at his feet the whole time.",
+    first = "He speaks as though the king might be listening through his mouth.",
     third = "{name} met Exzhal on Yojamba Isle, who speaks for King Rastakhan and collects the heads of Hakkar's high priests.",
   },
 
@@ -300,7 +300,7 @@ P:NPC {
   notices = { "class", "rep" },
 
   impression = {
-    first = "Vinchaxa tends the Altar of Zanza on Yojamba Isle and speaks of the old Gurubashi coins as if each one were a prayer someone forgot to finish.",
+    first = "Each old Gurubashi coin is spoken of like an unfinished prayer.",
     third = "{name} met Vinchaxa, servitor of the loa Zanza, who trades the Zandalar's honor tokens for the coins of the old troll empire.",
   },
 
@@ -403,7 +403,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Jin'rokh the Breaker is a dire troll of the Zandalar, huge and patient, and he told me straight out that his dealings were with warriors and that I had better be one.",
+    first = "He deals only with warriors, and I had better be one.",
     third = "{name} met Jin'rokh the Breaker on Yojamba Isle, envoy of Mugamba, the Fist of Rastakhan, who arms warriors and paladins for Zul'Gurub.",
   },
 

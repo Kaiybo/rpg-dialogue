@@ -9,7 +9,7 @@ P:NPC {
   communities = { "maraudon" }, temper = { "fragile", "gentle" }, values = { "family", "nature" },
   notices = { "race", "class", "fel" },
   impression = {
-    first = "Cavindra is a dryad hiding in a pool at the mouth of Maraudon, shaking from what she saw inside. She escaped when her brother Celebras did not, and every word she says circles back to him.",
+    first = "She escaped when her brother Celebras did not, and it haunts her.",
     third = "{name} met Cavindra, the dryad outside Maraudon who begs for help for her cursed brother Celebras.",
   },
 
@@ -59,6 +59,8 @@ P:NPC {
         { text = "What is the scepter?", next = "scepter" },
         { text = "Why did your brother come here?", next = "zaetar" },
         { text = "What would you have me do?", next = "BUSINESS" },
+        { text = "The Dream itself must grieve for this place.", next = "dream", when = { class = "DRUID" } },
+        { text = "Your father Remulos must be told of this.", next = "remulos", when = { race = "NightElf" } },
         { text = "Stay safe, Cavindra.", next = "END" },
       },
     },
@@ -178,6 +180,24 @@ P:NPC {
       choices = {
         { text = "They're your kin. They deserve a chance.", next = "BACK", reply = "Thank you, I've always thought so, though it's not a popular opinion among the keepers.", fx = { align = { order = -1 } } },
         { text = "Kin or not, they must answer for it.", next = "BACK", reply = "Perhaps they must, but I'm not sure who would judge them, or whether the judge would be any better.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dream = {
+      lines = {
+        { id = "dream_d", text = "It does, and those of us who are children of the grove can hear it. Where Zaetar lies, the Dream has gone thin and sour, like fruit left on the stone, and I cannot bear to listen there for long." },
+      },
+      choices = {
+        { text = "Then I'll listen for you, while I'm within.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    remulos = {
+      lines = {
+        { id = "remulos_d", text = "He knows what Zaetar did, and he has borne that grief for a long while. What he does not know is that Celebras came here to mend it and fell, and I am not brave enough to carry that word to Moonglade yet." },
+      },
+      choices = {
+        { text = "Free Celebras first. Then there's better news to carry.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

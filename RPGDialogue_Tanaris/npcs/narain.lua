@@ -11,7 +11,7 @@ P:NPC {
   notices = { "race", "class", "level" },
 
   impression = {
-    first = "Narain Soothfancy holds sealed envelopes to his forehead and guesses wrong with total confidence. He's a retired engineer who calls himself a master soothsayer, keeps an owl named O'Reily, and is still bitter about his ex-best friend Stewvul.",
+    first = "He guesses wrong with total confidence, and is still bitter about Stewvul.",
     third = "{name} met Narain Soothfancy, the gnome 'soothsayer' of Steamwheedle Port who once crashed a gyrocopter and woke up psychic, or says he did.",
   },
 

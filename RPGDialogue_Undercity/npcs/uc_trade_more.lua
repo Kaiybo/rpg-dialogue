@@ -11,20 +11,25 @@ P:NPC {
   key = "uc_pgarrett", id = TODO_NPC("Patrick Garrett"), name = "Patrick Garrett",
   bible = "bibles/uc_trade_more.md", role = "worker", tier = "quest",
   communities = { "undercity" }, temper = { "proud", "cheerful" }, values = { "ambitious", "loyal" },
-  notices = { "class", "kit" },
+  notices = { "class", "kit", "race" },
   impression = {
-    first = "Patrick Garrett sweeps the bat pens by the Undercity's flight master and makes it perfectly clear that the work is beneath a Garrett. He speaks like a lord fallen on hard times and holds his broom like a sceptre.",
+    first = "He holds his broom like a sceptre.",
     third = "{name} met Patrick Garrett, a proud Forsaken who sweeps the bat pens in the Trade Quarter.",
   },
 
   greetings = {
     { id = "g_hi", text = "Step around the droppings, please, I've only just swept there. The bats have no respect for my labour, none at all." },
     { id = "g_broom", when = { questDone = TODO_QUEST("Reclaimed Treasures") }, text = "Behold, the Garrett family weapon of choice, and the bats tremble before it! You're bloody well worth every silver I spent on you, I say." },
+    { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Welcome, welcome, and do forgive the smell. It is the bats, I assure you, and not the Garretts." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
       text = "Your armour's in a dreadful state, if you don't mind my saying. A Garrett would never be seen in public like that, not even a Garrett with a broom." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A keeper of beasts! Then tell me, as one professional to another, how one persuades an animal to do its business in a single corner. I've tried reasoning with them." },
+    { id = "n_miner", cat = "kit", when = { profession = "Mining" },
+      text = "You've a digger's hands, if I may say so. A Garrett knows the look, having held a shovel in more distinguished company than this." },
   },
 
   start = "hello",
@@ -40,12 +45,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? I can lean on my broom and talk for a while, it's my one luxury." },
         { id = "h_again2", text = "Go on, the bats are asleep, more or less." },
+        { id = "h_again3", text = "By all means, ask. Conversation is the one thing down here that doesn't need sweeping." },
       },
       choices = {
         { text = "What's in the Garrett family chest?", next = "chest" },
         { text = "Why would the Garretts have a chest in Uldaman?", next = "uldaman" },
         { text = "How bad can sweeping bat pens be?", next = "bats" },
         { text = "Are you related to the flight master?", next = "michael" },
+        { text = "The bats seem to like you well enough.", next = "fond" },
+        { text = "You must see everyone who flies in.", next = "arrivals" },
+        { text = "I've been inside Uldaman.", next = "been", when = { minLevel = 40 } },
+        { text = "I work a pick myself. Tell me about the digging.", next = "dig", when = { profession = "Mining" } },
         { text = "I'll leave you to your sweeping.", next = "END" },
       },
     },
@@ -77,11 +87,60 @@ P:NPC {
       lines = { { id = "mi_default", text = "Michael Garrett keeps the bats and I keep their floor, and whether that makes us family is a question I prefer not to answer in public. Let us say that all Garretts are distinguished, but some are more distinguished than others." } },
       choices = { { text = "Something else, Patrick.", next = "BACK" } },
     },
+    fond = {
+      lines = { { id = "fo_default", text = "Like me? They tolerate me, as one tolerates a footman. Although there is one old grey with a torn ear who hangs above my stool, and I've fallen into the habit of telling him about the family, and he has never once interrupted." } },
+      choices = {
+        { text = "So you do have a friend here.", next = "fond2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fond2 = {
+      lines = { { id = "fo2_default", text = "I'd thank you not to spread it about. I call him Lord Ashby, after a neighbour of ours who also slept through dinner, and Michael says I'm not to feed him from my own purse. I do it when Michael's back is turned." } },
+      choices = {
+        { text = "Lord Ashby is lucky to have you.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "A Garrett, befriending a bat.", next = "BACK", reply = "A Garrett may befriend whom he pleases. It is one of the few privileges left to the name." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    arrivals = {
+      lines = { { id = "ar_default", text = "Every one, and from below, which is not anyone's best angle. Orcs from the Sepulcher with mud to the knee, apothecaries bound for Tarren Mill with their crates, and now and then a courier who lands running and doesn't stop until the Royal Quarter." } },
+      choices = {
+        { text = "Do any of them notice you?", next = "arrivals2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    arrivals2 = {
+      lines = { { id = "ar2_default", text = "A tauren did, once. He stepped off, looked at the floor I'd just done, and went round the edge of it on the tips of his hooves. I've never been so moved by a stranger, and I've thought well of his entire people since." } },
+      choices = {
+        { text = "I'll mind your floor too.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    been = {
+      lines = {
+        { id = "be_default", text = "Have you! Then you've stood in the very halls where Garretts stood. Tell me, are the common halls still standing, or have the troggs had the run of them? I ask as a man with property there." },
+        { id = "be_done", when = { questDone = TODO_QUEST("Reclaimed Treasures") }, text = "You have, and you came back with the chest, and I'll never forget it. Tell me again what the South Common Hall looked like, because I intend to describe it to Lord Ashby, and he's particular about detail." },
+      },
+      choices = {
+        { text = "Troggs and Dark Irons, wall to wall.", next = "BACK", reply = "Dark Irons, in our hall! The family would be appalled. I'm appalled on its behalf, since it can't be here." },
+        { text = "Standing, but nobody's swept in years.", next = "BACK", reply = "Then it's in want of a Garrett. I knew it, I said as much to the bats.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dig = {
+      lines = { { id = "dg_default", text = "Then you'll know there's a right way to shore a trench and a great many wrong ones. We Garretts dug for the dwarves by the yard and were paid by the find, and my grandfather held that a clean trench wall was the mark of a gentleman." } },
+      choices = {
+        { text = "He'd approve of your floors, then.", next = "BACK", reply = "Do you know, I believe he would. That's the kindest thing anyone has said in this tower.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "The Garretts are an old family, and I'm the oldest of what's left of it. I'd rather not say how much is left." } },
     advice = { { id = "tp_ad", text = "Always stand up straight, even when you're shovelling dung. Especially then, actually." } },
+    forsaken = { { id = "tp_fs", text = "We are all come down in the world, every one of us. It is merely that some of us had further to come." } },
+    lordaeron = { { id = "tp_lord", text = "A fine kingdom for a family with a name. I'm told it was less fine for those without one, but I wasn't asked at the time." } },
     _none = { { id = "tp_none", text = "I'm afraid that's outside a Garrett's expertise, which is narrower than it once was." } },
   },
 }
@@ -95,7 +154,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "grim", "calm" }, values = { "vengeful" },
   notices = { "race", "class" },
   impression = {
-    first = "Raleigh Andrean was a chef once, and his wife Deliah was murdered by his closest friend. He says plainly that he can no longer grieve for her, but the wish for revenge still burns in him, and it's the only warm thing about him.",
+    first = "Revenge for his murdered wife is the only warm thing about him.",
     third = "{name} met Raleigh Andrean, a Forsaken ex-chef in the Trade Quarter who wanted revenge for his wife's murder.",
   },
 
@@ -107,6 +166,10 @@ P:NPC {
   notice = {
     { id = "n_living", cat = "race", when = { race = { "Orc", "Tauren", "Troll" } },
       text = "You still have a sense of taste, I suppose. Use it while you can, because I promise you'll miss it." },
+    { id = "n_cook", cat = "class", when = { profession = "Cooking" },
+      text = "You cook. I can tell by the burn on your wrist, which is an oven's and not a forge's. Season with a light hand while you can still tell the difference." },
+    { id = "n_scourge", cat = "race", when = { race = "Scourge" },
+      text = "You're one of us, so you'll know the quiet where the feelings used to be. Some fill it with duty, and I've filled mine with one man's name." },
   },
 
   start = "hello",
@@ -122,12 +185,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Something more? Ask it, then." },
         { id = "h_again2", text = "I have nowhere to be. Go on." },
+        { id = "h_again3", text = "Ask. It passes the time, and I've a great deal of that." },
       },
       choices = {
         { text = "Who was Deliah?", next = "deliah" },
         { text = "Why did Valdred kill her?", next = "valdred" },
         { text = "How can you want revenge but feel no grief?", next = "feeling" },
         { text = "Why did you stop cooking?", next = "chef" },
+        { text = "You stand a long way from any kitchen.", next = "kitchen" },
+        { text = "I cook. What did you make best?", next = "best", when = { profession = "Cooking" } },
+        { text = "I've stopped feeling things too.", next = "numb", when = { race = "Scourge" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -166,11 +233,49 @@ P:NPC {
       lines = { { id = "cf_default", text = "Because I can't taste anything now, and a cook who can't taste is only a man who burns things. I still know every recipe, though, and sometimes I recite them in my head to remember what saffron was like." } },
       choices = { { text = "Something else, Raleigh.", next = "BACK" } },
     },
+    kitchen = {
+      lines = { { id = "ki_default", text = "By choice. Eunice Burch teaches cooking across the quarter, and she asked me to help with her students when I first came down. I lasted a morning, because I could see every mistake in the pot and couldn't taste a single one." } },
+      choices = {
+        { text = "She might still value your eye.", next = "kitchen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kitchen2 = {
+      lines = { { id = "ki2_default", text = "She says so, and she sends her best students to me with a question now and then. I answer them. A sauce is only heat and time and patience, and I can still teach those, so long as nobody hands me a spoon." } },
+      choices = {
+        { text = "Then you're still a chef, in part.", next = "BACK", reply = "In the part that remembers. I'd not call it more than that.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    best = {
+      lines = { { id = "bs_default", text = "Venison, larded and roasted slow, with a sauce of juniper and red wine. His lordship had it every Winter Veil for nine years. Deliah used to stand in the kitchen door to smell it, since the staff weren't given any." } },
+      choices = {
+        { text = "Tell me the sauce.", next = "best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    best2 = {
+      lines = { { id = "bs2_default", text = "Crush six juniper berries, no more, and let the wine fall by half before the butter goes in. Take it off the heat while it still looks too thin. Make it once for someone you'd stand in a doorway for, and then you'll have used it properly." } },
+      choices = {
+        { text = "I will. Thank you, Raleigh.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    numb = {
+      lines = { { id = "nu_default", text = "Then you know. People tell me it comes back, in pieces, and that I'll grieve for her one morning without warning. I can't decide whether I want that morning to come." } },
+      choices = {
+        { text = "Some of mine came back. It was worth it.", next = "BACK", reply = "Then perhaps I'll leave a door open for it. After Valdred, and not before.", fx = { affinity = 1 } },
+        { text = "None of mine did. It's easier this way.", next = "BACK", reply = "Easier, yes. I've noticed that easier and better stopped being the same thing when I died." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "I cooked for lords and their guests for fifteen years. Not one of them ever asked my name." } },
     advice = { { id = "tp_ad", text = "Eat well while you still can, and trust no one who praises your cooking too much." } },
+    lordaeron = { { id = "tp_lord", text = "I knew it by its kitchens. The great houses ate well right up until the grain came in from Andorhal." } },
+    scourge = { { id = "tp_scourge", text = "I remember very little of being theirs, and I'm told that's a mercy. I only know that I never cooked for them." } },
     _none = { { id = "tp_none", text = "I don't know, and I find I don't much care, which is how most questions go with me now." } },
   },
 }
@@ -184,7 +289,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cheerful", "grim" }, values = { "honest", "practical" },
   notices = { "craft", "kit" },
   impression = {
-    first = "Velora Nitely was one of the finest armorsmiths in Lordaeron, they say, and she still works the anvil in the Trade Quarter. She tells jokes out of old habit, and they fall flat, and she notices every time.",
+    first = "Her jokes fall flat, and she notices every time.",
     third = "{name} met Velora Nitely, a Forsaken armorsmith in the Trade Quarter who makes brutal legguards.",
   },
 

@@ -13,7 +13,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "wise", "devout" },
   notices = { "class", "form" },
   impression = {
-    first = "Ur'kyo trains priests in the Valley of Spirits and speaks of the loa and the Light as if they were neighbours who don't get along. He is patient, amused and hard to surprise, and he keeps an offering bowl at his feet that anyone may drop something into.",
+    first = "He speaks of the loa and the Light as quarrelsome neighbours.",
     third = "{name} met Ur'kyo, the Darkspear priest trainer in Orgrimmar's Valley of Spirits.",
   },
   greetings = {
@@ -128,7 +128,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "sharp" }, values = { "ambitious", "curious" },
   notices = { "arcane", "class" },
   impression = {
-    first = "Uthel'nay teaches magic in the Darkbriar Lodge in the Valley of Spirits and has no patience at all for slow students. She expects the Horde's mages to match any in Dalaran, she says so often, and her curtains are always slightly singed.",
+    first = "Her curtains are always slightly singed.",
     third = "{name} met Uthel'nay, a Darkspear mage trainer in Orgrimmar's Valley of Spirits.",
   },
   greetings = {
@@ -271,7 +271,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "fierce" }, values = { "proud", "devout" },
   notices = { "class" },
   impression = {
-    first = "Searn Firewarder trains shamans in the Valley of Wisdom and speaks of fire as if it were an old friend with a temper. He is warmer than his name, though not by much, and he never lets the brazier beside him burn low.",
+    first = "He speaks of fire as an old friend with a temper.",
     third = "{name} met Searn Firewarder, a shaman trainer in Orgrimmar's Valley of Wisdom.",
   },
   greetings = {
@@ -395,7 +395,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "brisk" }, values = { "kind", "practical" },
   notices = { "craft", "weary" },
   impression = {
-    first = "Arnok teaches first aid and spends most of his time patching up grunts from the training yards. He is kind, quick and tired of seeing the same wounds every day, and he keeps a chalk tally of every one on his wall.",
+    first = "He keeps a chalk tally of every wound on his wall.",
     third = "{name} met Arnok, who teaches first aid in Orgrimmar.",
   },
   greetings = {
@@ -510,7 +510,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "patient", "kind" },
   notices = { "craft" },
   impression = {
-    first = "Jandi teaches herbalism in the Valley of Spirits and always has dirt under the fingernails. Jandi treats every plant like a small, stubborn patient, and gives every seedling in the shop a name.",
+    first = "Every seedling in the shop has been given a name.",
     third = "{name} met Jandi, the herbalism trainer in Orgrimmar's Valley of Spirits.",
   },
   greetings = {

@@ -14,7 +14,7 @@ P:NPC {
   notices = { "arcane", "travel", "race" },
 
   impression = {
-    first = "Collin Mauren makes spells the way a cook makes soup, from whatever odd thing the world gives him. He is courteous and unhurried, and I suspect he's cleverer than he lets on by a good margin.",
+    first = "He makes spells the way a cook makes soup.",
     third = "{name} met Collin Mauren, a courteous spellcrafter in Stormwind's Mage Quarter who builds spells from strange reagents.",
   },
 

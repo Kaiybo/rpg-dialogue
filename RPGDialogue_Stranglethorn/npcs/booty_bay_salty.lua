@@ -14,7 +14,7 @@ P:NPC {
   notices = { "class", "weapon" },
 
   impression = {
-    first = "Catelyn the Blade lounges in the Salty Sailor with her boots on the table and an empty sheath at her hip. She talks like a pirate until she forgets to, and then she sounds like somebody who grew up among books.",
+    first = "She talks like a pirate until she forgets to.",
     third = "{name} met Catelyn the Blade, a Blackwater Raider in the Salty Sailor who was born a Dalaran archmage's daughter and chose the sea instead.",
   },
 
@@ -396,7 +396,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Deeg is a dwarf of the Blackwater Raiders with a pinch of snuff always halfway to his nose. He grumbles about the Bloodsail as if they'd stolen his own mother, and it turns out they stole his tobacco, which he seems to think is worse.",
+    first = "He grumbles as if the Bloodsail stole his mother, not his tobacco.",
     third = "{name} met Deeg, a dwarf of the Blackwater Raiders who keeps Booty Bay supplied with snuff and tobacco, when the Bloodsail aren't stealing it.",
   },
 
@@ -591,7 +591,7 @@ P:NPC {
   notices = { "voice", "smell" },
 
   impression = {
-    first = "Dizzy One-Eye sits by the Salty Sailor's window with his face turned toward the sea and two empty sockets where his eyes should be. He's cheerful in a brittle way, and he knew me by my footsteps before I'd said a word.",
+    first = "He has no eyes, and he knows me by my footsteps.",
     third = "{name} met Dizzy One-Eye, the Blackwater Raiders' lookout in Booty Bay, who lost his eyes in battle and then lost the enchanted glass eye that let him see again.",
   },
 
@@ -772,7 +772,7 @@ P:NPC {
   notices = { "class", "purse" },
 
   impression = {
-    first = "Sly Garrett sells poisons, powders and lockpicks from a narrow counter in Booty Bay, and he's the most straightforward man I've met in the port. He told me exactly what everything would do to a person, and he didn't once pretend any of it was medicine.",
+    first = "He never once pretends any of his poisons are medicine.",
     third = "{name} met Sly Garrett, Booty Bay's poison seller, a Hillsbrad man who calls his trade shady and means it as an honest description.",
   },
 
@@ -914,7 +914,7 @@ P:NPC {
   notices = { "purse", "kit" },
 
   impression = {
-    first = "Pix Xizzix is a young goblin trader who talks faster than I can follow and prices everything in sight, including the conversation. She's fresh from Undermine, short of capital and determined to make it big in Booty Bay.",
+    first = "She prices everything in sight, including the conversation.",
     third = "{name} met Pix Xizzix, a goblin trader from Undermine who set up shop in Booty Bay after pirates robbed her and her brothers of their start-up money.",
   },
 

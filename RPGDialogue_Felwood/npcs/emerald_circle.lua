@@ -14,7 +14,7 @@ P:NPC {
   notices = { "timbermaw" },
 
   impression = {
-    first = "Kelek Skykeeper is a night elf druid of the Emerald Circle who has spent more time among furbolgs than among his own people. He reads furbolg scratchings the way other scholars read old scrolls.",
+    first = "He reads furbolg scratchings the way other scholars read old scrolls.",
     third = "{name} met Kelek Skykeeper, an Emerald Circle druid at the Emerald Sanctuary who knows the furbolg tribes better than anyone.",
   },
 

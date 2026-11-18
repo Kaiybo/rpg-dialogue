@@ -18,7 +18,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "grim" }, values = { "brave", "vengeful" },
   notices = { "class", "trophy", "race" },
   impression = {
-    first = "Gur'ak is a scarred old orc at the Crossroads who has fought the Razormane longer than most grunts have been alive. He wants the head of the quilboar Chol'aruk, and he talks about it the way other orcs talk about supper.",
+    first = "He talks about taking Chol'aruk's head the way orcs talk about supper.",
     third = "{name} met Gur'ak, a grim veteran of the Crossroads who wants Chol'aruk the Ravener dead.",
   },
   greetings = {
@@ -220,7 +220,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "dry" }, values = { "practical", "curious" },
   notices = { "wounds", "race" },
   impression = {
-    first = "Pallwick Boneset is a Forsaken at the Crossroads who straightens broken limbs for orcs who would rather not look at him. He has a dry, cold humor and seems to find living bodies endlessly interesting.",
+    first = "He seems to find living bodies endlessly interesting.",
     third = "{name} met Pallwick Boneset, a Forsaken who sets broken bones at the Crossroads.",
   },
   greetings = {
@@ -328,7 +328,7 @@ P:NPC {
   temper = { "warm" }, values = { "practical", "brave" },
   notices = { "race", "form" },
   impression = {
-    first = "Sulhasa is a tauren from Camp Taurajo who climbed a tree to get away from the beasts in the field below and has been stuck there since. She takes it with good humor, mostly.",
+    first = "She climbed a tree to escape the beasts and is stuck there.",
     third = "{name} met Sulhasa, a tauren treed by beasts on the southern edge of the Barrens.",
   },
   greetings = {

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "craft", "class", "race" },
 
   impression = {
-    first = "Flora Silverwind keeps a shop full of drying herbs at the top of Booty Bay and talks about the jungle like a garden she loves and fears. Her eyes kept drifting to the harbour while we spoke.",
+    first = "She speaks of the jungle like a garden she loves and fears.",
     third = "{name} met Flora Silverwind, the human herbalism trainer who keeps All Things Flora on Booty Bay's top floor and still watches the harbour for someone.",
   },
 

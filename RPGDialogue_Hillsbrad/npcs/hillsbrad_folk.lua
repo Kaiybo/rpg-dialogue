@@ -18,7 +18,7 @@ P:NPC {
   notices = { "race", "faction" },
 
   impression = {
-    first = "Monika Sengutz stands apart in Tarren Mill, a thin Forsaken woman who keeps looking toward the road north as if somebody is late. She greets strangers coldly and doesn't seem to notice that she's doing it.",
+    first = "She keeps looking toward the north road as if somebody is late.",
     third = "{name} met Monika Sengutz, a Forsaken of Tarren Mill whose husband Vorrel was taken by the Scarlet Crusade.",
   },
 
@@ -136,7 +136,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Theodore Mont Claire keeps the stables at Tarren Mill with an old nobleman's manners and a Forsaken's patience. He speaks of horses he owned in life as though they were still waiting in a meadow somewhere.",
+    first = "He speaks of horses he owned in life as if they wait.",
     third = "{name} met Theodore Mont Claire, the Forsaken stable master of Tarren Mill.",
   },
 
@@ -207,7 +207,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Ott is a heavy, quiet orc who sells weapons in Tarren Mill and looks faintly uncomfortable among the Forsaken. He tests every edge on his own thumb and has the scars to show it.",
+    first = "He tests every edge on his own thumb and has the scars.",
     third = "{name} met Ott, the orc weaponsmith of Tarren Mill.",
   },
 
@@ -279,7 +279,7 @@ P:NPC {
   notices = { "mount", "race" },
 
   impression = {
-    first = "Darla Harris keeps Southshore's gryphons on the hill above the docks, a weathered woman with a sailor's squint who whistles to her birds instead of calling them. She watches the northern sky for bats more than she watches it for weather.",
+    first = "She watches the northern sky for bats more than for weather.",
     third = "{name} met Darla Harris, the gryphon master at Southshore.",
   },
 
@@ -346,7 +346,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Wesley is a young stable master who keeps Southshore's stalls by the mailbox in front of the inn. He is eager, freckled, and jumps a little at every loud noise from the north road.",
+    first = "He jumps a little at every loud noise from the north road.",
     third = "{name} met Wesley, the young stable master of Southshore.",
   },
 
@@ -417,7 +417,7 @@ P:NPC {
   notices = { "hunger", "weary" },
 
   impression = {
-    first = "Neema carries plates through Southshore's inn with a tray on each arm and an apron pocket full of everyone's gossip. She's quick, warm, and forgets nobody's order.",
+    first = "She forgets nobody's order and carries everyone's gossip.",
     third = "{name} met Neema, the waitress at Southshore's inn.",
   },
 

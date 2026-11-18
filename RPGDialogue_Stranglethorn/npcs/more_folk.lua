@@ -12,7 +12,7 @@ P:NPC {
   communities = { "gromgol" }, temper = { "calm", "dry" }, values = { "craft", "patient" },
   notices = { "craft" },
   impression = {
-    first = "Angrun teaches herbalism at Grom'gol and seems the only orc in camp who would rather crouch over a leaf than swing an axe. He knows which jungle plants heal and which kill, and he treats both with the same respect.",
+    first = "He respects the plants that kill as much as those that heal.",
     third = "{name} met Angrun, the herbalism trainer at Grom'gol Base Camp.",
   },
   greetings = {
@@ -93,7 +93,7 @@ P:NPC {
   communities = { "gromgol" }, temper = { "gruff", "blunt" }, values = { "practical", "craft" },
   notices = { "kit" },
   impression = {
-    first = "Hragran sells cloth and leather armour at Grom'gol and spends most of his day fighting mould. He believes the jungle is trying to rot his whole stock, and he may well be right.",
+    first = "He believes the jungle is trying to rot his whole stock.",
     third = "{name} met Hragran, who sells cloth and leather armour at Grom'gol Base Camp.",
   },
   greetings = {
@@ -165,7 +165,7 @@ P:NPC {
   communities = { "gromgol" }, temper = { "jovial", "gruff" }, values = { "practical", "friendly" },
   notices = { "hunger", "drink" },
   impression = {
-    first = "Nargatt sells provisions at Grom'gol and keeps up a friendly feud with the camp cook over who really feeds the place. He sells water by the barrel and claims every drop is cleaner than the river's.",
+    first = "He claims every drop of his water is cleaner than the river's.",
     third = "{name} met Nargatt, who sells food and drink at Grom'gol Base Camp.",
   },
   greetings = {
@@ -242,7 +242,7 @@ P:NPC {
   communities = { "gromgol" }, temper = { "eager", "blunt" }, values = { "craft", "loyal" },
   notices = { "pet" },
   impression = {
-    first = "Zudd trains hunters' beasts at Grom'gol and judges a hunter entirely by the state of their companion. He talks to animals as though they were promising young grunts.",
+    first = "He judges a hunter entirely by the state of their companion.",
     third = "{name} met Zudd, the pet trainer at Grom'gol Base Camp.",
   },
   greetings = {
@@ -316,7 +316,7 @@ P:NPC {
   communities = { "gromgol" }, temper = { "steady", "proud" }, values = { "craft", "proud" },
   notices = { "class", "pet" },
   impression = {
-    first = "Kragg trains hunters at Grom'gol and calls Stranglethorn the finest hunting ground in the world, if you survive it. He has no patience for the humans at Nesingwary's camp, who hunt for trophies.",
+    first = "He has no patience for humans who hunt for trophies.",
     third = "{name} met Kragg, the hunter trainer at Grom'gol Base Camp.",
   },
   greetings = {

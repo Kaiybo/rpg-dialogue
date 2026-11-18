@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "proud", "cautious" },
   notices = { "mage", "priest", "gnome" },
   impression = {
-    first = "Maginor Dumas warned me that magic burns the untrained before he'd tell me anything else. He speaks like a man who has written books on the subject, and he has.",
+    first = "He warns that magic burns the untrained before he says anything else.",
     third = "{name} met Maginor Dumas, Master Mage of the Wizard's Sanctum and one of Stormwind's most renowned magi.",
   },
 
@@ -297,7 +297,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "patient" }, values = { "proud", "patient" },
   notices = { "mage", "kaldorei" },
   impression = {
-    first = "Elsharin is a high elf who teaches Stormwind's youngest mages, patiently, as if she has all the time in the world, which perhaps she does. She stayed when her homeland burned.",
+    first = "She stayed when her homeland burned.",
     third = "{name} met Elsharin, a high elf who teaches apprentice mages in the Wizard's Sanctum.",
   },
 
@@ -547,7 +547,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "proud" },
   notices = { "mage" },
   impression = {
-    first = "Larimaine Purdue teaches portal magic and doubts that most people could grasp it. She said so to my face, politely enough, and seemed to think she'd done me a kindness.",
+    first = "She doubts most people could grasp portals and says so politely.",
     third = "{name} met Larimaine Purdue, who teaches portal magic in the Wizard's Sanctum to the few she thinks capable of it.",
   },
 
@@ -716,7 +716,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "calm" }, values = { "proud", "practical" },
   notices = { "warlock", "priest" },
   impression = {
-    first = "Zardeth of the Black Claw has excellent manners and speaks of keeping a lord preoccupied in a way that made the cellar feel colder. Whatever the Lamb's coven needs done quietly, I suspect he is the one who does it.",
+    first = "His manners are excellent, and the cellar feels colder for them.",
     third = "{name} met Zardeth of the Black Claw, who keeps the Slaughtered Lamb's coven safe from prying lords.",
   },
 
@@ -949,7 +949,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "proud" },
   notices = { "warlock", "priest" },
   impression = {
-    first = "Ursula Deline believes the arcane only corrupts the weak, and she looked me up and down as if deciding which I was. She teaches warlocks in the Slaughtered Lamb's cellar and suffers no one else.",
+    first = "She says the arcane corrupts only the weak, and eyes me accordingly.",
     third = "{name} met Ursula Deline, who trains warlocks in the cellar of the Slaughtered Lamb.",
   },
 
@@ -1154,7 +1154,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "eager" }, values = { "curious", "practical" },
   notices = { "warlock", "gnome", "imp" },
   impression = {
-    first = "Spackle Thornberry sells grimoires in the Slaughtered Lamb's cellar and talks about demons the way other gnomes talk about gears. He is cheerful about it, which somehow makes it worse.",
+    first = "He talks about demons the way other gnomes talk about gears.",
     third = "{name} met Spackle Thornberry, the gnome who sells demon grimoires in the Slaughtered Lamb's cellar.",
   },
 

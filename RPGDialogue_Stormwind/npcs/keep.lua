@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady", "sharp" }, values = { "discreet", "pious" },
   notices = { "priest", "noble", "rogue" },
   impression = {
-    first = "Bishop DeLavey speaks for the Church at court, and he chooses every word as if someone might write it down. He trusts a fisherman and a cheesemaker more than the courtiers around him.",
+    first = "He trusts a fisherman and a cheesemaker more than the courtiers.",
     third = "{name} met Bishop DeLavey, who represents the Church of the Holy Light in the court of Stormwind Keep.",
   },
 
@@ -264,7 +264,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "jovial" }, values = { "proud", "greedy" },
   notices = { "noble", "dwarf", "travel" },
   impression = {
-    first = "Count Remington Ridgewell talks about his family's collection the way other men talk about their children, and he'd like everyone to admire his new coat. He sends other people into ruins for treasure and pays them handsomely to do it.",
+    first = "He pays other people handsomely to go into ruins for him.",
     third = "{name} met Count Remington Ridgewell of the House of Nobles, whose family keeps a museum of jewels and art.",
   },
 
@@ -509,7 +509,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "proud", "lawful" },
   notices = { "warlock", "priest" },
   impression = {
-    first = "Lord Wishock means to have the warlocks under the Slaughtered Lamb dragged before the House of Nobles, and he found them by drinking there on credit. He is loud, red-faced and, about the warlocks at least, perfectly right.",
+    first = "He is loud, red-faced and perfectly right about the warlocks.",
     third = "{name} met Lord Baurles K. Wishock of the House of Nobles, who is lobbying to shut down the coven beneath the Slaughtered Lamb.",
   },
 

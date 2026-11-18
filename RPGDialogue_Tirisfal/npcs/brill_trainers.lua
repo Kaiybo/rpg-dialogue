@@ -11,7 +11,7 @@ P:NPC {
   communities = { "brill" }, temper = { "calm", "cold" }, values = { "wise", "stern" },
   notices = { "class", "race", "light", "form" },
   impression = {
-    first = "Dark Cleric Beryl teaches the Forsaken priests of Brill, and she insists they master the Light before she lets them near the shadow. She is cool and exact, and she seems to find the Light more useful than holy.",
+    first = "She seems to find the Light more useful than holy.",
     third = "{name} met Dark Cleric Beryl, Brill's priest trainer, who tests her students on the Light before teaching them darker things.",
   },
 
@@ -165,7 +165,7 @@ P:NPC {
   communities = { "brill" }, temper = { "chatty", "proud" }, values = { "curious", "ambitious" },
   notices = { "class", "arcane" },
   impression = {
-    first = "Cain Firesong teaches magic in the back of the Gallows' End and talks about fire the way other men talk about old sweethearts. He is vain, quick and good company, and he has not forgiven Dalaran for anything.",
+    first = "He has not forgiven Dalaran for anything.",
     third = "{name} met Cain Firesong, who trains mages at the Gallows' End in Brill.",
   },
   greetings = {
@@ -176,9 +176,50 @@ P:NPC {
   notice = {
     { id = "n_arcane", cat = "arcane", when = { class = { "MAGE", "WARLOCK" }, race = "Scourge" },
       text = "Your hands still remember the gestures, I can see it. Death steals the names and faces, but it leaves the spellwork, and I find that says something about where the mind keeps its treasures." },
+    { id = "n_living", cat = "class", when = { class = "MAGE", race = "Troll" },
+      text = "You cast with your whole arm, I notice, where we were taught to keep the elbow still. Don't change it on my account, because I want to see whether it's worse or only different." },
+    { id = "n_lock", cat = "arcane", when = { class = "WARLOCK" },
+      text = "One of Rupert's. He and I share a wall and a low opinion of each other's reading, but I'll say this for him, his pupils never set fire to the furniture." },
   },
   start = "hello",
   nodes = {
+    pupils = {
+      lines = { { id = "pu_default", text = "They have, and I point to each one with pride. That long scorch is a girl from Deathknell who had never held a flame before, and the round one is a clerk who sneezed halfway through the incantation, and both of them are in the Undercity now, doing well." } },
+      choices = {
+        { text = "What does Renee say about her ceiling?", next = "pupils2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pupils2 = {
+      lines = { { id = "pu2_default", text = "A great deal, and all of it deserved. I pay for the whitewash and I teach frost on the days she's cross, and we've agreed that the upstairs rooms are forbidden to anyone who can't yet put a fire out as fast as they can start one." } },
+      choices = {
+        { text = "That seems a fair treaty.", next = "BACK", reply = "It's the only one in Lordaeron that's being kept, so I'm rather proud of it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rivals = {
+      lines = { { id = "rv_default", text = "Colleagues, please. Rupert Boch has the warlocks and thinks mages are timid, Marion Call has the rogues and thinks everyone is loud, and Dark Cleric Beryl has the priests and thinks about things I prefer not to ask after." } },
+      choices = {
+        { text = "And what do they think of you?", next = "rivals2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rivals2 = {
+      big = true,
+      lines = { { id = "rv2_default", text = "That I talk too much and that I enjoy it too much, and they're right on both counts. Rupert says a Forsaken has no business being cheerful about magic after what magic did to Lordaeron, and I've never found the answer that shuts him up." } },
+      choices = {
+        { text = "Joy in your craft dishonours no one. Keep it.", next = "BACK", reply = "There! I shall quote you to him at supper, and watch him chew on it. Thank you, that's the answer I wanted.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He's right. Magic is a weapon, not a pleasure.", next = "BACK", reply = "Then you'll make a very efficient mage and a very dull one. I'll teach you all the same, and hope the fire changes your mind.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    school = {
+      lines = { { id = "sc_default", text = "Fire, because it's honest and it answers quickly, and nothing in these Glades likes it. Learn frost second, for the days when something is running at you faster than you can burn it, and leave the arcane until your hands have stopped shaking." } },
+      choices = {
+        { text = "Fire first, then. I'll mind the tablecloth.", next = "BACK", reply = "See that you do. I've used up all of Renee's forgiveness for this season.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Cain Firesong, at your service, and yes, it's the name I chose. When you come back from the grave you may as well come back as something memorable." },
@@ -187,6 +228,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? I'm happy to talk; it's the listening I've trouble with." },
         { id = "h_again2", text = "Go on. The fire's warm, or so they tell me." },
+        { id = "h_again3", text = "What else shall we talk about? I've a lesson in an hour, and until then I am entirely yours." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
@@ -194,6 +236,9 @@ P:NPC {
         { text = "What do you think of Dalaran?", next = "dalaran" },
         { text = "Why teach in a tavern?", next = "tavern" },
         { text = "Who is Anastasia Hartwell?", next = "anastasia", when = { class = "MAGE" } },
+        { text = "Your pupils have left marks on Renee's ceiling.", next = "pupils" },
+        { text = "You share the inn with a good many other trainers.", next = "rivals" },
+        { text = "What school should a mage of Brill learn first?", next = "school", when = { class = "MAGE" } },
         { text = "Farewell, Cain.", next = "END" },
       },
     },
@@ -230,6 +275,10 @@ P:NPC {
     },
   },
   topics = {
+    kirin_tor = { { id = "tp_kirin", text = "I applied to them twice in life and was told I lacked discipline. They may have had a point, but I've outlasted most of the committee." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They burn mages along with everyone else, and they're rather good at it, which I take as a professional insult." } },
+    advice = { { id = "tp_ad", text = "Finish the incantation before you admire the result. Most of the marks on that ceiling come from pupils who did it the other way round." } },
+    forsaken = { { id = "tp_forsaken", text = "We came back with our spellwork and without our names. I chose a new name to match the part I'd kept, and I recommend it to anyone." } },
     _none = { { id = "tp_none", text = "Not my subject. Mine is fire, and occasionally frost, when Renee complains." } },
   },
 }
@@ -241,7 +290,7 @@ P:NPC {
   communities = { "brill" }, temper = { "smooth", "watchful" }, values = { "cunning", "careful" },
   notices = { "class", "stealth" },
   impression = {
-    first = "Marion Call trains rogues in a quiet corner of the Gallows' End and notices everything said within earshot. She is soft-spoken and amused, and I had the feeling she knew more about me after five minutes than I'd meant to tell her.",
+    first = "Five minutes told her more about me than I meant to tell.",
     third = "{name} met Marion Call, who trains rogues at the Gallows' End in Brill.",
   },
   greetings = {
@@ -252,9 +301,51 @@ P:NPC {
   notice = {
     { id = "n_stealth", cat = "stealth", when = { stealthed = true },
       text = "Very good, but your shadow's on the wall behind you. Lamps, {class}; always know where the lamps are." },
+    { id = "n_living", cat = "class", when = { class = "ROGUE", race = { "Orc", "Troll" } },
+      text = "You breathe when you creep, which none of my other pupils do. We'll work on timing it, because you can't give it up and I can't teach around it." },
+    { id = "n_purse", cat = "class", when = { money = { min = 50000 } },
+      text = "That's a heavy purse to wear on the outside in a town full of my students. I've told them guests are off limits, but I'd not test how well they listen." },
   },
   start = "hello",
   nodes = {
+    corner = {
+      lines = { { id = "co_default", text = "I chose it with care. From here I can see the door, the stairs and the cellar hatch, and Renee's lamp doesn't reach me unless she trims the wick, which she does on purpose when she thinks I've been listening too long." } },
+      choices = {
+        { text = "The innkeeper keeps an eye on you, then.", next = "corner2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    corner2 = {
+      lines = { { id = "co2_default", text = "Renee keeps an eye on everyone, and she's better at it than I am, because nobody suspects the woman pouring the drinks. If she'd come to me young enough, I'd have made something frightening of her." } },
+      choices = {
+        { text = "Perhaps she already is.", next = "BACK", reply = "Now you're thinking the way I teach. Don't say it where she can hear, or she'll trim the lamp on both of us.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pupils = {
+      lines = { { id = "pp_default", text = "Poachers, pickpockets and one or two who were something worse and are honest about it. Death is a fine thing for a rogue, because we don't breathe and we don't tire, but it makes them careless about being seen, since they think nothing more can happen to them." } },
+      choices = {
+        { text = "And you teach them otherwise.", next = "pupils2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pupils2 = {
+      lines = { { id = "pp2_default", text = "I take them out to the Scarlet tower on the west road and let them watch what the Crusade does with a Forsaken it catches. After that they listen. The ones who do well I send down to Mennet Carkad in the Undercity, and I don't ask what he does with them." } },
+      choices = {
+        { text = "A hard lesson, but it sticks.", next = "BACK", reply = "The soft ones don't. I've buried pupils twice, and I'd like not to make it three times." },
+        { text = "Something else, Marion.", next = "BACK" },
+      },
+    },
+    fix = {
+      lines = {
+        { id = "fx_default", text = "Your eyes. You look at the thing you want, and anybody watching your face knows what it is before your hand moves. Look at the door, look at the barmaid, look at anything else, and let your fingers do the wanting." },
+        { id = "fx_high", when = { minLevel = 20 }, text = "Very little, at this point, and I don't say that often. You still check your purse after a job, though, with a little pat, and a watchman who knows the habit can pick you out of a crowd by it." },
+      },
+      choices = {
+        { text = "I'll practise on Renee's patrons.", next = "BACK", reply = "Practise looking, not taking. Guests of the inn are under the magistrate's eye, and so am I." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Marion Call. I teach the quiet arts to anyone with quick hands and a reason to use them. Brill's a small town, so I also hear most of what's said in it, and I tell Magistrate Sevren the parts that matter." },
@@ -262,6 +353,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Keep your voice low; Renee's tables have ears." },
         { id = "h_again2", text = "Go on. I'm listening, as always." },
+        { id = "h_again3", text = "Is there more? Lean in if there is, I'd sooner not raise my voice." },
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
@@ -269,6 +361,9 @@ P:NPC {
         { text = "You report to the magistrate?", next = "sevren" },
         { text = "What's worth hearing in Brill?", next = "gossip" },
         { text = "Who were you before?", next = "past" },
+        { text = "You picked the darkest corner of the inn.", next = "corner" },
+        { text = "What sort of pupils does Brill send you?", next = "pupils" },
+        { text = "What's the first thing you'd fix in me, Marion?", next = "fix", when = { class = "ROGUE" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -306,6 +401,9 @@ P:NPC {
   },
   topics = {
     syndicate = { { id = "tp_syndicate", text = "The Syndicate are Alterac's old nobles playing at thieves. They're not as clever as they think, but they're cleverer than the Deathguard think." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They've no rogues to speak of, only zealots, and a zealot always looks where he's told. It makes them easy to walk behind and very hard to bribe." } },
+    advice = { { id = "tp_ad", text = "Know where the lamps are and where the door is before you sit down. Everything else I teach is a refinement of that." } },
+    forsaken = { { id = "tp_forsaken", text = "We're a people who survive by being underestimated. I'd keep it that way as long as we can." } },
     _none = { { id = "tp_none", text = "Haven't heard that one. Give me a day." } },
   },
 }
@@ -317,7 +415,7 @@ P:NPC {
   communities = { "brill" }, temper = { "calm", "earnest" }, values = { "craft", "patient" },
   notices = { "craft", "race" },
   impression = {
-    first = "Faruza teaches herbalism in Brill and knows every weed in the Glades by its smell. She is calm and earnest, and she treats the blighted plants of Tirisfal as patients rather than lost causes.",
+    first = "She treats the blighted plants as patients rather than lost causes.",
     third = "{name} met Faruza, Brill's herbalism trainer.",
   },
   greetings = {

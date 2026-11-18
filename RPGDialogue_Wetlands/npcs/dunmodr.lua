@@ -9,7 +9,7 @@ P:NPC {
   notices = { "soldier", "kit" },
 
   impression = {
-    first = "Rhag Garmason holds the edge of Dun Modr with Longbraid's few dwarves and speaks of the Thandol Span as if the explosion still rings in his ears. He hopes for reinforcements more than he expects them.",
+    first = "He hopes for reinforcements more than he expects them.",
     third = "{name} met Rhag Garmason, one of Longbraid's dwarves clinging to the edge of fallen Dun Modr.",
   },
 

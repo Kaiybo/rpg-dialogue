@@ -9,7 +9,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "proud" }, values = { "proud", "brave" },
   notices = { "class", "weary" },
   impression = {
-    first = "Hana'zua lies bleeding in the Valley of Trials after a scorpid named Sarkoth caught him on the plateau. He cares less about his wound than about dying before he has done anything worth a song.",
+    first = "He fears dying before he has done anything worth a song.",
     third = "{name} met Hana'zua, a wounded Darkspear hunter in the Valley of Trials who wanted the scorpid Sarkoth dead for the sake of his honor.",
   },
 

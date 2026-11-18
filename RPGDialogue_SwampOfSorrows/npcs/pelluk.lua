@@ -10,7 +10,7 @@ P:NPC {
   notices = { "stare", "fisher", "light" },
 
   impression = {
-    first = "Pelluk is one of the Lost Ones who live at the Harborage, a hunched, quiet fisher who speaks slowly and watches whether you flinch. He talks about bait and nets the way other people talk about bread.",
+    first = "He speaks slowly and watches whether you flinch.",
     third = "{name} met Pelluk, a Lost One fisher at the Harborage in the Swamp of Sorrows.",
   },
 

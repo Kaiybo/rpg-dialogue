@@ -11,7 +11,7 @@ P:NPC {
   notices = { "soldier", "stealth" },
 
   impression = {
-    first = "Bailiff Conacher carries out the Magistrate's rulings and says the work is less glamorous than it sounds. He addressed me as citizen, and somehow it felt like a summons.",
+    first = "He calls me citizen, and somehow it sounds like a summons.",
     third = "{name} was received by Bailiff Conacher of the Court of Lakeshire, who sees the Magistrate's rulings carried out.",
   },
 
@@ -227,7 +227,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Deputy Feldon counts gnolls at the south end of the bridge, and the count keeps going up. He has a dry sense of humour about it that I suspect keeps him upright.",
+    first = "His gnoll count keeps rising, and dry humour keeps him upright.",
     third = "{name} met Deputy Feldon, who watches the south end of Lakeshire's bridge and keeps a rising count of gnolls.",
   },
 
@@ -439,7 +439,7 @@ P:NPC {
   notices = { "kit", "travel" },
 
   impression = {
-    first = "Guard Parker walks the road between Lakeshire and the Duskwood line and watches the hills like they owe him money. He wanted to know exactly where I was going.",
+    first = "He watches the hills like they owe him money.",
     third = "{name} was stopped on the road by Guard Parker, who patrols between Lakeshire and the Duskwood line.",
   },
 
@@ -654,7 +654,7 @@ P:NPC {
   notices = { "hunger", "drink" },
 
   impression = {
-    first = "Darcy called me love and seated me away from the wobbly table. She hears all the gossip in Lakeshire and swears she passes on only the nice parts.",
+    first = "She hears all the gossip and swears she repeats only the nice.",
     third = "{name} was served at the Lakeshire inn by Darcy, who hears all the town's gossip and claims to repeat only the kind parts.",
   },
 
@@ -919,7 +919,7 @@ P:NPC {
   notices = { "craft", "animal" },
 
   impression = {
-    first = "Martie Jainrose grows herbs for the healer and flowers for nobody in particular. Her garden by the lake is the gentlest thing I've seen in Redridge.",
+    first = "Her garden is the gentlest thing I've seen in Redridge.",
     third = "{name} met Martie Jainrose, who keeps a garden by the lake in Lakeshire and grows herbs for the town's healer.",
   },
 
@@ -1152,7 +1152,7 @@ P:NPC {
   notices = { "craft", "soldier" },
 
   impression = {
-    first = "Chef Breanna feeds every soldier Stormwind has sent to Lakeshire and makes it plain there aren't nearly enough of them. Her kitchen runs like a barracks, only louder.",
+    first = "Her kitchen runs like a barracks, only louder.",
     third = "{name} met Chef Breanna, who cooks for every soldier stationed in Lakeshire and wishes there were more of them.",
   },
 

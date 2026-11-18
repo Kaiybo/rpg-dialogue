@@ -11,7 +11,7 @@ P:NPC {
   communities = { "stonetalon_peak" }, temper = { "calm", "watchful" }, values = { "duty", "nature" },
   notices = { "race", "weary" },
   impression = {
-    first = "Teloren keeps the hippogryphs on Stonetalon Peak and watches the smoke rising from the valleys below as if he were counting it. He is calm, but he misses nothing.",
+    first = "He watches the smoke in the valleys as if counting it.",
     third = "{name} met Teloren, the watchful hippogryph master of Stonetalon Peak.",
   },
 

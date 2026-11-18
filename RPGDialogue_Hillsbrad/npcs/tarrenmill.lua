@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "High Executor Darthalia measures everyone by their use to the Dark Lady's front. She pushes the line toward Southshore one field at a time, and she doesn't intend to stop.",
+    first = "She measures everyone by their use to the Dark Lady's front.",
     third = "{name} met High Executor Darthalia, who holds Tarren Mill for the Dark Lady and presses the line against Southshore.",
   },
 
@@ -458,7 +458,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Apothecary Lydon told me not to touch anything, since most of it would kill me. He says he feels very little now, except about his work and something called Umpi.",
+    first = "He told me to touch nothing, since most of it kills.",
     third = "{name} met Apothecary Lydon of the Royal Apothecary Society, who brews deadly things at Tarren Mill.",
   },
 
@@ -775,7 +775,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Innkeeper Shay keeps chairs for guests who no longer need to rest. The humour at Tarren Mill's inn is as dry as old bone, and I suspect that's deliberate.",
+    first = "The inn keeps chairs for guests who no longer need to rest.",
     third = "{name} visited the inn at Tarren Mill, kept by Innkeeper Shay, whose guests rarely need to sleep.",
   },
 

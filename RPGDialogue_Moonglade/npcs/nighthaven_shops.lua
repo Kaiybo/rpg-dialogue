@@ -13,7 +13,7 @@ P:NPC {
   notices = { "class", "level" },
 
   impression = {
-    first = "Kharedon sells embroidered cloth and leather in Nighthaven, most of it sized for druids half my age who come up for their trials. He mends what you bring him and asks where it got torn.",
+    first = "He mends what you bring him and asks where it got torn.",
     third = "{name} met Kharedon, who sells light armor and does repairs for the young druids of Nighthaven.",
   },
 
@@ -174,7 +174,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Meliri sells swords and staves in Nighthaven, a village where the wardens forbid anyone to use them. She finds that funnier than the druids do.",
+    first = "She sells swords where nobody may use them, and finds it funny.",
     third = "{name} met Meliri, the weaponsmith of Nighthaven in Moonglade.",
   },
 
@@ -323,7 +323,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "My'lanna feeds Nighthaven's visitors kaldorei cooking and moonberry juice, and she seems to take it personally if anyone leaves hungry. She knows everyone's favourite dish, including the Keeper's.",
+    first = "She takes it personally if anyone leaves hungry.",
     third = "{name} met My'lanna, who sells food and drink to the visitors of Nighthaven.",
   },
 
@@ -496,7 +496,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Darnall sells thread and dyes in Nighthaven and holds strong opinions about both. He'll tell you which colours the moon approves of, if you let him.",
+    first = "He will tell you which colours the moon approves of.",
     third = "{name} met Darnall, the particular seller of tailoring supplies in Nighthaven.",
   },
 

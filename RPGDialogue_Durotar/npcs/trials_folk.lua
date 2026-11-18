@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Canaga Earthcaller speaks about the earth the way old soldiers speak about a reliable comrade. He tests young shaman with felstalker hooves and a sapta, and he tests everyone else by watching how they stand.",
+    first = "He speaks of the earth as old soldiers speak of a comrade.",
     third = "{name} met Canaga Earthcaller, the Darkspear shaman in the Valley of Trials who sets young shaman on the path of earth.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   communities = { "narache" }, temper = { "warm" }, values = { "patient", "helpful" },
   notices = { "craft", "greenness" },
   impression = {
-    first = "Karne Grayhoof is an old tauren at Camp Narache who helps the young ones choose a trade. He talks about crafts the way some elders talk about the seasons, as if each had its time.",
+    first = "He talks about crafts as if each had its season.",
     third = "{name} met Karne Grayhoof, who guides the young tauren of Camp Narache toward a trade.",
   },
   greetings = {
@@ -112,14 +112,17 @@ P:NPC {
   communities = { "narache" }, temper = { "gentle" }, values = { "nature", "patient" },
   notices = { "craft", "class" },
   impression = {
-    first = "Garan Sunstrider teaches herbs at Camp Narache and talks to the plants as he picks them. He believes every leaf is a gift of the Earth Mother and should be taken with thanks.",
+    first = "He talks to the plants as he picks them.",
     third = "{name} met Garan Sunstrider, the gentle junior herbalism trainer of Camp Narache.",
   },
   greetings = {
     { id = "g_default", text = "Peace, friend. The Earth Mother has been generous this season; come and see." },
     { id = "g_herb", when = { profession = "Herbalism" }, text = "You smell of earthroot. You've been digging, then, and listening." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. The silverleaf has come on nicely since you were last here." },
   },
   notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "You stepped around the peacebloom without looking down. Someone raised you well." },
     { id = "n_herb", cat = "craft", when = { profession = { name = "Herbalism", min = 50 } },
       text = "Your satchel is full and your hands are careful. You have learned to take only what the plant can spare, and I am glad." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
@@ -133,6 +136,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Garan Sunstrider, and I teach the gathering of herbs. Everything that grows on Red Cloud Mesa is a gift of the Earth Mother, and a gift should be taken with care and thanks." },
       },
       again = {
+        { id = "h_again3", text = "Yes, friend? Mind the seedlings by your hoof." },
         { id = "h_again", text = "What else, friend?" },
         { id = "h_again2", text = "Ask what you like. The plants are patient, and so am I." },
       },
@@ -141,6 +145,10 @@ P:NPC {
         { text = "Do you really talk to the plants?", next = "talk" },
         { text = "Why take them with thanks?", next = "thanks" },
         { text = "Teach me.", next = "BUSINESS" },
+        { text = "Who else teaches the young ones here?", next = "others" },
+        { text = "The quilboar must trample what you tend.", next = "bristle" },
+        { text = "I brew potions from what I pick.", next = "brew", when = { profession = "Alchemy" } },
+        { text = "My grandmother picked herbs the same way.", next = "gran", when = { race = "Tauren" } },
         { text = "Peace, Garan.", next = "END" },
       },
     },
@@ -191,6 +199,61 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    others = {
+      lines = {
+        { id = "others_d", text = "Nawka Wildsong teaches the skinning knife and Vartha Rockmane the pick, and between the three of us a calf can learn to live from the land. Nawka says I am too soft with my plants, and Vartha says nothing at all, which from her is agreement." },
+      },
+      choices = {
+        { text = "And who uses what you gather?", next = "others_moodan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others_moodan = {
+      lines = {
+        { id = "others_moodan_d", text = "Moodan Sungrain takes my wild herbs for his loaves, and Seer Graytongue burns the dried earthroot when he speaks with the spirits. The rest goes down to Bloodhoof by the bundle, where the healers are always short." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bristle = {
+      lines = {
+        { id = "bristle_d", text = "They do, and worse than that, their brambles follow them. Where the Bristleback camp for a season, the thorn vines come up thick and choke everything gentle, and I have lost a whole bed of peacebloom below the ravine to them." },
+      },
+      choices = {
+        { text = "Can the thorns be cleared?", next = "bristle_thorn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bristle_thorn = {
+      big = true,
+      lines = {
+        { id = "bristle_thorn_d", text = "They can be cut, but they come back, and I do not like to hate a plant for growing where it was sown. The thorns did not choose the quilboar any more than the peacebloom chose me." },
+      },
+      choices = {
+        { text = "Even a thorn is the Earth Mother's.", next = "BACK", reply = "That is what I tell myself when I am picking them out of my hands. Thank you for saying it aloud.", fx = { align = { light = 1 } } },
+        { text = "Burn them out. Your herbs matter more than their weeds.", next = "BACK", reply = "Fire on the mesa would take more than the brambles, friend. I will keep my knife and my patience.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brew = {
+      lines = {
+        { id = "brew_d", text = "Then you are the one I gather for, in a way. Tell the alchemists on the bluff that Bena Winterhoof still owes me a visit, and that the silverleaf she likes is at its best after rain." },
+      },
+      choices = {
+        { text = "I'll tell her.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gran = {
+      lines = {
+        { id = "gran_d", text = "Then she and mine would have got on well, and probably argued over the best patch. One in three, and thanks for each, and never the first you find; is that how she taught it?" },
+      },
+      choices = {
+        { text = "Word for word.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I have walked these plains picking herbs since I was a calf. There is no other story worth telling." } },
@@ -206,14 +269,17 @@ P:NPC {
   communities = { "narache" }, temper = { "fierce" }, values = { "respect", "practical" },
   notices = { "craft", "pet" },
   impression = {
-    first = "Nawka Wildsong teaches skinning at Camp Narache, quick-handed and fierce, and she will not waste any part of a kill. She thanks every beast she skins and expects her students to do the same.",
+    first = "She thanks every beast she skins and expects the same of students.",
     third = "{name} met Nawka Wildsong, the junior skinning trainer of Camp Narache.",
   },
   greetings = {
     { id = "g_default", text = "Care to learn how to take a hide from a beast properly? Or have you come for tools?" },
     { id = "g_skin", when = { profession = "Skinning" }, text = "You've been working. Did you thank them before you cut, as I taught you?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Show me your knife before you show me anything else." },
   },
   notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "You carry a hunter's patience in your shoulders. Good, because the skinning is no faster than the stalking, whatever the young ones think." },
     { id = "n_skin", cat = "craft", when = { profession = { name = "Skinning", min = 50 } },
       text = "Clean cuts, and whole hides. You have become good at this, and I am proud of you." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
@@ -228,6 +294,7 @@ P:NPC {
         { id = "h_orc", when = { race = "Orc" }, text = "An orc on the mesa. Your people are good hunters, I'm told, but wasteful, and here we waste nothing, so mind that while you learn." },
       },
       again = {
+        { id = "h_again3", text = "Speak while I scrape. I can do both." },
         { id = "h_again", text = "What else? Quickly, the hides are drying." },
         { id = "h_again2", text = "Ask, I'm listening." },
       },
@@ -236,6 +303,10 @@ P:NPC {
         { text = "What do you mean, waste nothing?", next = "waste" },
         { text = "Do you thank the beasts?", next = "thank" },
         { text = "Train me.", next = "BUSINESS" },
+        { text = "Who sends you your students?", next = "students" },
+        { text = "That knife has seen a great deal of work.", next = "knife" },
+        { text = "My beast makes most of my kills.", next = "beast", when = { class = "HUNTER" } },
+        { text = "I work the hides I take.", next = "lw", when = { profession = "Leatherworking" } },
         { text = "Not now, Nawka.", next = "END" },
       },
     },
@@ -284,6 +355,60 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    students = {
+      lines = {
+        { id = "students_d", text = "Lanka Farshot sends me her hunters once they can hit what they aim at, because she says a hunter who cannot dress a kill has only done half the work. Grull Hawkwind sends the rest, usually with a carcass already going stiff." },
+      },
+      choices = {
+        { text = "And the other junior trainers?", next = "students_others" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    students_others = {
+      lines = {
+        { id = "students_others_d", text = "Garan Sunstrider talks to his flowers and Vartha Rockmane talks to her rocks, and I am the only one of us whose work ever tried to bite back. They are good neighbours, though, and Garan's salve has saved my fingers more than once." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    knife = {
+      lines = {
+        { id = "knife_d", text = "It has, and I sharpen it every evening whether I have used it or not. A dull knife tears the hide and shames the beast, and I would rather go hungry than do either." },
+      },
+      choices = {
+        { text = "What do you say to a careless student?", next = "knife_careless" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    knife_careless = {
+      big = true,
+      lines = {
+        { id = "knife_careless_d", text = "I make them carry the ruined hide to Chief Hawkwind and explain it to him themselves. He does not shout, he only looks at them, and I have never had to send the same calf twice." },
+      },
+      choices = {
+        { text = "Shame teaches quickly.", next = "BACK", reply = "It does, and it leaves no scar on the hide. I will keep to my way.", fx = { align = { order = 1 } } },
+        { text = "That's harsh for a calf's first mistake.", next = "BACK", reply = "The beast had only one life to give, little one. I think a calf can bear one long walk across the camp.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beast = {
+      lines = {
+        { id = "beast_d", text = "Then teach it to kill cleanly, at the throat, and not to worry the body afterward. A hide full of tooth holes is worth half as much, and a beast that plays with its kill has forgotten what the kill is for." },
+      },
+      choices = {
+        { text = "I'll see to it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lw = {
+      lines = {
+        { id = "lw_d", text = "Good, then you see the whole road from the beast to the boot. When you get down to Bloodhoof, show your work to Chaw Stronghide, and tell him Nawka says your cuts are clean, if they are." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I hunted with my mother on the plains, and she taught me to waste nothing. I teach the same." } },
@@ -299,14 +424,17 @@ P:NPC {
   communities = { "narache" }, temper = { "steady" }, values = { "patient", "craft" },
   notices = { "craft", "race" },
   impression = {
-    first = "Vartha Rockmane teaches mining at Camp Narache, slow-spoken and steady as stone. She asks the Earth Mother's leave before she breaks the rock and expects her students to do the same.",
+    first = "She asks the Earth Mother's leave before she breaks the rock.",
     third = "{name} met Vartha Rockmane, the junior mining trainer of Camp Narache.",
   },
   greetings = {
     { id = "g_default", text = "How can I help you?" },
     { id = "g_mine", when = { profession = "Mining" }, text = "There is stone dust on your hands, so you have been working. Good." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back. Good. The stone has waited." },
   },
   notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "You have broad shoulders, young one. They would suit a pick as well as a totem." },
     { id = "n_mine", cat = "craft", when = { profession = { name = "Mining", min = 50 } },
       text = "Your hands have hardened, and your swing is steadier. The stone has been teaching you, I see." },
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
@@ -318,8 +446,10 @@ P:NPC {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "I am Vartha Rockmane, and I teach the young ones to take ore from the earth. It is hard work and slow work, and I find it suits a tauren very well." },
+        { id = "h_miner", when = { profession = "Mining" }, text = "I am Vartha Rockmane. You carry a pick already, so I will not tell you which end to hold, but there is always more the stone can teach." },
       },
       again = {
+        { id = "h_again3", text = "Yes? I am listening." },
         { id = "h_again", text = "What else would you know?" },
         { id = "h_again2", text = "Ask. The stone will wait." },
       },
@@ -329,6 +459,9 @@ P:NPC {
         { text = "Why does mining suit a tauren?", next = "suit" },
         { text = "Does the Earth Mother mind?", next = "mind" },
         { text = "Train me.", next = "BUSINESS" },
+        { text = "The goblins dig without asking anyone.", next = "venture" },
+        { text = "Who shares the teaching with you?", next = "others" },
+        { text = "I've worked veins outside Mulgore.", next = "veins", when = { profession = { name = "Mining", min = 50 } } },
         { text = "Not today, Vartha.", next = "END" },
       },
     },
@@ -382,6 +515,52 @@ P:NPC {
       choices = {
         { text = "Asking is right. Respect the earth and it provides.", next = "BACK", reply = "I think so too, and it is good to hear it from someone so young. The old miners on the bluffs ask before every strike, and their veins have never run dry.", fx = { align = { light = 1 } } },
         { text = "The earth is stone. Strike it and take what's there.", next = "BACK", reply = "It is stone, and stone is her bones, young one. Strike if you must, but you may find the veins run thinner for a careless miner.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    venture = {
+      lines = {
+        { id = "venture_d", text = "They do. The Venture Company has cut a mine into the hills east of Bloodhoof, and they take everything, down to the last pebble, and leave the hole open like a wound." },
+      },
+      choices = {
+        { text = "What should be done about them?", next = "venture_done" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    venture_done = {
+      big = true,
+      lines = {
+        { id = "venture_done_d", text = "The braves of Bloodhoof are already doing it, with axes. I would only ask that when the goblins are gone, someone goes back and closes what they opened, because the earth should not be left gaping." },
+      },
+      choices = {
+        { text = "I'd close it. The land should be made whole.", next = "BACK", reply = "Then you think as I do. I will remember that you said so.", fx = { align = { light = 1 } } },
+        { text = "Leave it open. The ore's still good, whoever dug it.", next = "BACK", reply = "The ore is good, yes. I had hoped you would think of more than the ore.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others = {
+      lines = {
+        { id = "others_d", text = "Garan Sunstrider teaches the herbs and Nawka Wildsong the skinning knife. Garan talks enough for all three of us, so I have never needed to." },
+      },
+      choices = {
+        { text = "And who takes your copper?", next = "others_copper" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others_copper = {
+      lines = {
+        { id = "others_copper_d", text = "It goes down to Bloodhoof for Mahnott Roughwound's blades and Harant Ironbrace's shield bosses. What they cannot use is carried up to the Stonehoof smiths in Thunder Bluff." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    veins = {
+      lines = {
+        { id = "veins_d", text = "Then you have seen more stone than I have. Tell me, is it true that there are veins of silver and gold in the Barrens that simply lie in the open?" },
+      },
+      choices = {
+        { text = "It's true, though the quilboar guard some.", next = "BACK", reply = "Then I will stay on my mesa with my copper. It is quieter.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

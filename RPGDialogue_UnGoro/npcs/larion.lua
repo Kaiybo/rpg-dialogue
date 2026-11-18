@@ -9,7 +9,7 @@ P:NPC {
   communities = { "marshals_refuge" }, temper = { "gruff", "stubborn" }, values = { "proud", "loyal" },
   notices = { "kin", "craft" },
   impression = {
-    first = "Larion is a red-clad dwarf who is certain his partner Muigin got them lost in Un'Goro, and who is waging a small war on Muigin's plant pests rather than talk to him. Under the grumbling, I think he misses his friend.",
+    first = "Under the grumbling, I think he misses his friend Muigin.",
     third = "{name} met Larion, a dwarf at Marshal's Refuge who blames his partner Muigin for getting them lost in Un'Goro Crater.",
   },
 

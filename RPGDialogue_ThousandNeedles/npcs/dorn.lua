@@ -9,7 +9,7 @@ P:NPC {
   temper = { "calm" }, values = { "wise", "patient" },
   notices = { "class", "level" },
   impression = {
-    first = "Dorn Plainstalker waits in a cave on the Weathered Nook and offers tests of spirit, body and mind to whoever finds him. He speaks as if he already knows how each test will end, and he will not say.",
+    first = "He speaks as if he already knows how each test will end.",
     third = "{name} met Dorn Plainstalker in the Weathered Nook, the cryptic tauren who sets tests of faith, endurance, strength and lore.",
   },
 

@@ -13,7 +13,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "race", "class" },
   impression = {
-    first = "Braug Dimspirit is a tauren shaman who keeps a hut by the Talondeep Path and tests the minds of those Dorn Plainstalker sends him. He spoke of goblins, night elves and the younger races all sharing the blame for the world's pain, and he spared none of them.",
+    first = "He blames every race for the world's pain and spares none.",
     third = "{name} met Braug Dimspirit, the shaman by the Talondeep Path who gives the Test of Lore.",
   },
   greetings = {
@@ -46,6 +46,8 @@ P:NPC {
         { text = "You blame everyone for the world's pain.", next = "blame" },
         { text = "Why do you live out here by the tunnel?", next = "tunnel" },
         { text = "Who will test me after you?", next = "after" },
+        { text = "The elements must weigh on you, out here alone.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Our people were hunted here once. I know the stories.", next = "tauren", when = { race = "Tauren" } },
         { text = "Earth Mother guide you, Braug.", next = "END" },
       },
     },
@@ -108,6 +110,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    shaman = {
+      lines = {
+        { id = "shaman_d", text = "They do, and you will learn that weight yourself before long. The spirits of this pass carry every axe-stroke from Ashenvale down the tunnel to me, and a shaman who listens cannot choose to hear only the pleasant part." },
+      },
+      choices = {
+        { text = "I'd rather hear it all than be deaf.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren = {
+      lines = {
+        { id = "tauren_d", text = "Then you know why I test those who come, and why I do not smile while I do it. A people who nearly vanished cannot afford braves who are strong in the arm and empty in the head." },
+      },
+      choices = {
+        { text = "Test me as hard as you like.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I am a shaman who prefers questions to answers. Dorn sends me those who can bear them." } },
@@ -125,14 +145,18 @@ P:NPC {
   communities = { "malakajin" }, temper = { "cheerful", "sly" }, values = { "trade", "hunt" },
   notices = { "race", "class" },
   impression = {
-    first = "Denni'ka butchers and sells meat at Malaka'jin, the troll camp where the Barrens road climbs into Stonetalon. She laughs a lot and cuts fast, and she claimed to know what every beast in the mountains tastes like.",
+    first = "She claims to know what every beast in the mountains tastes like.",
     third = "{name} met Denni'ka, the troll butcher at Malaka'jin.",
   },
   greetings = {
     { id = "g_hi", text = "Hungry, mon? Denni'ka got meat fresh from the hunt, and only a little bit of spider in it." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew you'd come back, they always do." },
+    { id = "g_back2", when = { metBefore = true }, text = "You came back, mon! And the spiders didn't get you, so dat's two good things." },
+    { id = "g_away", when = { away = 14 }, text = "{away} gone! I saved you nothin', but I got fresh." },
   },
   notice = {
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc! You want it in big lumps, ya? I know, I know, I get the cleaver." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "A Darkspear! Come, come, you get first pick before the tauren eat it all." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER", pet = { type = "Beast" } },
@@ -145,6 +169,7 @@ P:NPC {
         { id = "h_default", text = "I be Denni'ka, and I butcher for Malaka'jin. Xen'Zilla's hunters bring me the meat, I cut it, and everybody eats, so long as de spiders don't steal it first." },
       },
       again = {
+        { id = "h_again3", text = "Ya? Talk, mon, my hands know the work." },
         { id = "h_again", text = "What else, mon? The knife doesn't wait." },
         { id = "h_again2", text = "Ask, ask. I keep cuttin' while you talk." },
       },
@@ -152,6 +177,12 @@ P:NPC {
         { text = "Show me your meat.", next = "BUSINESS" },
         { text = "The spiders steal your meat?", next = "spiders" },
         { text = "What's the best meat in Stonetalon?", next = "best" },
+        { text = "Who else lives at Malaka'jin?", next = "camp" },
+        { text = "How do you know what a beast ate?", next = "ate" },
+        { text = "You laugh a lot for someone besieged by spiders.", next = "laugh" },
+        { text = "My beast eats better than I do.", next = "pet", when = { class = "HUNTER" } },
+        { text = "I can cook what you cut.", next = "cook", when = { profession = "Cooking" } },
+        { text = "Darkspear meat, cut the Darkspear way.", next = "troll", when = { race = "Troll" } },
         { text = "I'll be going, Denni'ka.", next = "END" },
       },
     },
@@ -178,8 +209,90 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    camp = {
+      lines = {
+        { id = "camp_d", text = "Not many, mon, and dat's how we like it. Xen'Zilla leads the hunters, Witch Doctor Jin'Zil keeps to his cave up the hill with his potions and his bad temper, and Ken'zigla runs errands for him and pretends it's important work." },
+      },
+      choices = {
+        { text = "What does the witch doctor want out here?", next = "camp_jinzil" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp_jinzil = {
+      lines = {
+        { id = "camp_jinzil_d", text = "Somethin' from the lake up at the Charred Vale, and somethin' from the spiders, and he don't explain himself to a butcher. I send up his meat, and it comes back as bones picked clean, so he's alive in dere at least." },
+      },
+      choices = {
+        { text = "I'll take my questions to him.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ate = {
+      lines = {
+        { id = "ate_d", text = "You open the belly and you look, mon, it's no great voodoo. A goat dat's been eatin' the grey moss by the goblin mill has a liver like a stone, and I don't sell dat to nobody I like." },
+      },
+      choices = {
+        { text = "The Venture Company's mill is poisoning the goats?", next = "ate_mill" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ate_mill = {
+      big = true,
+      lines = {
+        { id = "ate_mill_d", text = "Poisonin' the water, the moss, the goats and the wyverns dat eat the goats, ya. The tauren up at Sun Rock been shoutin' about it for a year, and they're right, even if they shout it very slow." },
+      },
+      choices = {
+        { text = "Then the mill has to burn.", next = "BACK", reply = "Ha! I hold your coat, mon. Bring me back a goblin's hat.", fx = { align = { order = -1 } } },
+        { text = "Sun Rock's elders should settle it properly.", next = "BACK", reply = "Dey been settlin' it properly a long time, and the moss still be grey. But ya, maybe you're right.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    laugh = {
+      lines = {
+        { id = "laugh_d", text = "What else you gonna do? De spiders don't go away if I cry, and the meat still needs cuttin'. My mother laughed through the whole crossin' from the Echo Isles, and she said the sea couldn't drown a troll who was busy." },
+      },
+      choices = {
+        { text = "Your mother sounds formidable.", next = "laugh_mother" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    laugh_mother = {
+      lines = {
+        { id = "laugh_mother_d", text = "She was, mon, and she taught me the knife. First rule: never cut angry, because the meat comes out ragged and so do you." },
+      },
+      choices = {
+        { text = "A good rule for more than butchery.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pet = {
+      lines = {
+        { id = "pet_d", text = "Den you're doin' it right, mon. Feed de beast first and it fights for you, feed it last and it thinks about how you'd taste." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cook = {
+      lines = {
+        { id = "cook_d", text = "Good! Den take de shank and cook it slow with something sour, and don't you dare boil it. I cut too careful to see my meat boiled." },
+      },
+      choices = {
+        { text = "Slow and sour. You have my word.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    troll = {
+      lines = {
+        { id = "troll_d", text = "Ya, across the grain and thin as a leaf, the way the old ones did on the isles. The orcs just hack it in lumps, and I love dem, but I can't watch." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    advice = { { id = "tp_ad", text = "Hang your meat high at night in dese mountains, mon. What the spiders don't take, the harpies will." } },
     background = { { id = "tp_bg", text = "I butcher. Before dat, I butchered on the Echo Isles, so not much has changed, mon, except it be colder." } },
     _none = { { id = "tp_none", text = "Dunno, mon, but ask me about meat and I talk all day." } },
   },

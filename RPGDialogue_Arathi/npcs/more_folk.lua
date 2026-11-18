@@ -13,7 +13,7 @@ P:NPC {
   notices = { "race", "stranger" },
 
   impression = {
-    first = "Lolo the Lookout is an ogre who sails with the Blackwater Raiders and talks about himself as though Lolo were somebody standing next to him. He's proud of his eyes, fond of his captain and frightened of the water.",
+    first = "He talks about Lolo as though Lolo stood next to him.",
     third = "{name} met Lolo the Lookout, the cheerful ogre who keeps watch over the stranded Blackwater Raiders at Faldir's Cove.",
   },
 
@@ -34,6 +34,34 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    x_hunter = {
+      lines = {
+        { id = "xh_default", text = "Lolo thought about that! But a hunter must be quiet, and Lolo is not quiet, and the gulls fly away when Lolo sneaks. Lolo will look, and the friend can shoot, and that is a good crew." },
+        { id = "xh_pet", when = { pet = true }, text = "Lolo thought about that! But a hunter needs a beast friend like {pet}, and the only beasts here are gulls and the captain's parrot. The parrot bit Lolo, so Lolo will stay a lookout." },
+      },
+      choices = {
+        { text = "You look, I'll shoot. Agreed.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else, Lolo.", next = "BACK" },
+      },
+    },
+    x_big = {
+      lines = {
+        { id = "xb_default", text = "Hm. Lolo looks again, and the friend is still small, but not so small as the goblins. Everybody is tiny from up here, even the captain, and Lolo does not tell him so." },
+      },
+      choices = {
+        { text = "Fair enough. From up there, we all are.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_fish = {
+      lines = {
+        { id = "xf_default", text = "Lots of fish, friend! Lolo sees them shine by the sunk masts in the morning, big ones. But the scaly ones swim there too, so Lolo would fish from the rocks and keep one eye on the water." },
+      },
+      choices = {
+        { text = "From the rocks, then. Thank you, Lolo.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -55,6 +83,9 @@ P:NPC {
         { text = "What does a lookout see from here?", next = "lookout" },
         { text = "Why do you speak of yourself like that?", next = "thirdperson" },
         { text = "Someone sent me looking for the captain.", next = "captain", when = { questBefore = TODO_QUEST("Land Ho!") } },
+        { text = "A good lookout would make a good hunter, Lolo.", next = "x_hunter", when = { class = "HUNTER" } },
+        { text = "You call me tiny, Lolo. Look again.", next = "x_big", when = { race = { "Tauren", "Orc", "Troll" } } },
+        { text = "Any fish worth catching in this cove?", next = "x_fish", when = { profession = "Fishing" } },
         { text = "Keep a good watch, Lolo.", next = "END" },
       },
     },
@@ -192,7 +223,7 @@ P:NPC {
   notices = { "gnome", "kit" },
 
   impression = {
-    first = "Doctor Draxlegauge is a gnome who builds things for the Blackwater Raiders and is plainly very clever and plainly very scared of deep water. He calls it scientific business on dry land, and he almost believes it.",
+    first = "He calls it scientific business on dry land and almost believes it.",
     third = "{name} met Doctor Draxlegauge, the gnome tinker who made the Raiders' gem-hunting goggles at Faldir's Cove.",
   },
 
@@ -369,7 +400,7 @@ P:NPC {
   notices = { "soldier", "pvp" },
 
   impression = {
-    first = "Sergeant Maclear runs the League of Arathor's supplies at Refuge Pointe and thinks most wars are lost in the larder before the field. She talked about lumber and grain the way other soldiers talk about glory.",
+    first = "She thinks wars are lost in the larder before the field.",
     third = "{name} met Sergeant Maclear, who gathers Arathi Basin's resources for the League of Arathor at Refuge Pointe.",
   },
 
@@ -518,7 +549,7 @@ P:NPC {
   notices = { "race", "pvp" },
 
   impression = {
-    first = "Deathstalker Mortis wants the League of Arathor starved rather than beaten, and he says so as calmly as a clerk. He doesn't care for Hammerfall's orcs, but he cares even less for Refuge Pointe.",
+    first = "He wants the League starved rather than beaten, and says so calmly.",
     third = "{name} met Deathstalker Mortis, who wants the League of Arathor's supply lines cut and keeps watch for the Defilers at Hammerfall.",
   },
 
@@ -539,6 +570,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    x_stalker = {
+      lines = {
+        { id = "xs_default", text = "I am one still. A Defiler is only a Deathstalker who has been told to stand where he can be seen, and I confess I do not enjoy it. You move like someone who would understand the complaint." },
+      },
+      choices = {
+        { text = "What would you have me do in the Basin?", next = "x_stalker_work" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_stalker_work = {
+      lines = {
+        { id = "xsw_default", text = "Leave the flags to the ones who like to shout. Find the wagon that feeds their farm and the smith who shoes their horses, and see that neither is there in the morning. That is how a battle is won before the horn." },
+      },
+      choices = {
+        { text = "Quiet work. I know it well.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_undercity = {
+      lines = {
+        { id = "xu_default", text = "The Dark Lady wants Arathi denied to the living, and Deathmaster Dwire reports our progress to her each week. Beyond that, the Undercity sends Twing his inventories and sends me nothing, which is how I prefer it." },
+      },
+      choices = {
+        { text = "Then we'll give Dwire something worth reporting.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_orc = {
+      lines = {
+        { id = "xo_default", text = "Some of them do, and Gor'mul has said it to my face, which I respect. Then his grunts eat the grain we carry off, and he says rather less about it." },
+      },
+      choices = {
+        { text = "A full belly quiets most objections.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -557,6 +624,9 @@ P:NPC {
         { text = "What do you want from the Basin?", next = "work" },
         { text = "You work with Hammerfall's orcs?", next = "orcs" },
         { text = "Starving soldiers. Not a very honourable war.", next = "honour" },
+        { text = "You were a Deathstalker before you were a Defiler.", next = "x_stalker", when = { class = "ROGUE" } },
+        { text = "What word from the Undercity, Deathstalker?", next = "x_undercity", when = { race = "Scourge" } },
+        { text = "The Warchief's orcs would call this a coward's war.", next = "x_orc", when = { race = "Orc" } },
         { text = "Farewell, Deathstalker.", next = "END" },
       },
     },
@@ -645,7 +715,7 @@ P:NPC {
   notices = { "reputation", "pvp" },
 
   impression = {
-    first = "Samuel Hawke hands out the League of Arathor's armour and arms to those who've fought for it in the Basin, and he reckons a soldier's worth by the marks they bring. Fair, if not generous.",
+    first = "He reckons a soldier's worth by marks, fair if not generous.",
     third = "{name} met Samuel Hawke, the League of Arathor's supply officer at Refuge Pointe.",
   },
 
@@ -656,6 +726,10 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_plate", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "You wear your plate as though you've slept in it, which most of the League's line has. I'll see it replaced before it fails you, if your marks allow." },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "That kit of yours is hanging together by its buckles, soldier. See Jannos Ironwill at the forge before you see me." },
     { id = "n_exalted", cat = "reputation", when = { reputation = { faction = "League of Arathor", min = "exalted" } },
       text = "The whole Pointe knows your name by now. I've had soldiers ask me which armour you wear, so they can wear the same." },
     { id = "n_pvp", cat = "pvp", when = { pvpRank = 6 },
@@ -664,6 +738,81 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    pointe = {
+      lines = {
+        { id = "pt_default", text = "It's a ring of tents under a cliff, with Captain Nials holding the line and Field Marshal Oslight planning the Basin from a camp table. We've been pushed out of Stromgarde itself, so this is what's left of Arathor until we take the rest back." },
+        { id = "pt_human", when = { race = "Human" }, text = "It's a ring of tents under a cliff, and it's the last ground in the Highlands that flies Stromgarde's colours. Every human kingdom began in these hills, friend, so I don't much like seeing them reduced to this." },
+      },
+      choices = {
+        { text = "Who keeps the camp fed and shod?", next = "pointe_folk" },
+        { text = "A cliff at your back is no bad thing.", next = "pointe_cliff" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pointe_folk = {
+      lines = {
+        { id = "pf_default", text = "Vikki Lonsav sells the everyday goods, Jannos Ironwill mends what the Basin breaks, and Narj Deepslice sees that nobody marches on an empty stomach. Cedrik Prose flies the dispatches out by gryphon, so if you want news of the south, he has it before I do." },
+      },
+      choices = {
+        { text = "A small camp, but everyone has a task.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pointe_cliff = {
+      lines = {
+        { id = "pc_default", text = "So Captain Nials says, and he chose the place. Nothing comes down on us from behind, and from the rise you can see the road from Hammerfall long before anything on it can see you." },
+      },
+      choices = {
+        { text = "Then it was well chosen.", next = "BACK" },
+        { text = "Let's see the goods.", next = "BUSINESS" },
+      },
+    },
+    basin = {
+      lines = {
+        { id = "bs_default", text = "Arathi Basin is the best land in the Highlands: a farm, a stable, a lumber mill, a gold mine and a smithy, all within sight of one another. Whoever holds three of the five can feed and arm an army, which is why the Forsaken sent their Defilers to take it." },
+      },
+      choices = {
+        { text = "Which of the five matters most to you?", next = "basin_which" },
+        { text = "The Defilers want it just as badly.", next = "basin_defilers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    basin_which = {
+      lines = {
+        { id = "bw_default", text = "The smithy, because it's my trade, though Sergeant Maclear would tell you the farm, and she has the crates to prove it. In truth the Field Marshal is right that it's the count that matters, and a soldier who chases one flag loses the other four." },
+      },
+      choices = {
+        { text = "I'll remember that when the horn sounds.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    basin_defilers = {
+      lines = {
+        { id = "bd_default", text = "They do, and they've a supply officer of their own at Hammerfall, a dead clerk named Twing who counts as carefully as I do. I'm told he's good at it, and I take no comfort in that." },
+      },
+      choices = {
+        { text = "An honest count is worth respecting, even over there.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ironforge = {
+      lines = {
+        { id = "if_default", text = "It does, and good steel too, though it comes the long way over the Thandol Span and half of it arrives late. I've asked for a dwarf smith to be posted here, and Jannos tells me I should be grateful I've got one already." },
+      },
+      choices = {
+        { text = "One good dwarf smith is worth three wagons.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    line = {
+      lines = {
+        { id = "ln_default", text = "For the line, I'd take the heaviest plate your marks will stretch to and a shield you can stand behind all afternoon. The flags are won by whoever is still standing beside them, and that is usually the one in the better armour." },
+      },
+      choices = {
+        { text = "Then show me the plate.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -676,12 +825,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else, soldier?" },
         { id = "h_again2", text = "Go on. The marks will keep." },
+        { id = "h_again3", text = "Ask what you like, though I'll keep counting while you do." },
       },
       choices = {
         { text = "Show me what the League offers.", next = "BUSINESS" },
         { text = "How does a soldier earn your gear?", next = "earn" },
         { text = "Where does all this come from?", next = "source" },
         { text = "Equipment doesn't win battles. Soldiers do.", next = "soldiers" },
+        { text = "Refuge Pointe looks like a hard posting.", next = "pointe" },
+        { text = "Tell me about the ground you're fighting over.", next = "basin" },
+        { text = "Does Ironforge send you steel?", next = "ironforge", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "I carry a shield into the Basin. What suits me?", next = "line", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -737,7 +891,7 @@ P:NPC {
   notices = { "reputation", "pvp" },
 
   impression = {
-    first = "Rutherford Twing hands out the Defilers' gear at Hammerfall with the air of a clerk who was once a better-paid clerk. He counts marks twice and seems to enjoy it.",
+    first = "He counts marks twice and seems to enjoy it.",
     third = "{name} met Rutherford Twing, supply officer to the Forsaken Defilers at Hammerfall.",
   },
 
@@ -748,6 +902,10 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
+      text = "Another of the Dark Lady's own, and upright, which is more than I can say for half the requisition forms I am sent." },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Your equipment is in a deplorable state. I shall note it as 'well used', which is the kindest entry I have." },
     { id = "n_exalted", cat = "reputation", when = { reputation = { faction = "The Defilers", min = "exalted" } },
       text = "Exalted with the Defilers. I've only written that word in my ledger a handful of times, and I underlined it each time." },
     { id = "n_pvp", cat = "pvp", when = { pvpRank = 6 },
@@ -756,6 +914,70 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    hammerfall = {
+      lines = {
+        { id = "hf_default", text = "It is loud, it smells of buzzard, and the orcs sharpen their axes at all hours. Still, Gor'mul keeps his walls manned and Drum Fel keeps his people busy, and I have worked in worse-run places that had roofs." },
+      },
+      choices = {
+        { text = "Do the orcs make room for your kind?", next = "hammerfall_orcs" },
+        { text = "Who else answers to the Undercity here?", next = "hammerfall_dead" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hammerfall_orcs = {
+      lines = {
+        { id = "ho_default", text = "They make room, and then they stand at the far end of it. The butcher Slagg is the exception, since he insists on offering me barbecued wings, and I have not the heart, nor the tongue, to tell him it is wasted on me." },
+      },
+      choices = {
+        { text = "It's a kindness all the same.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hammerfall_dead = {
+      lines = {
+        { id = "hd_default", text = "Deathmaster Dwire commands the Defilers here, Deathstalker Mortis sees to the Basin's plunder, and Doctor Gregory Victor patches whatever comes back. Between the four of us we are a very small Lordaeron, and a rather better organised one." },
+      },
+      choices = {
+        { text = "Let's see what a small Lordaeron issues.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    basin = {
+      lines = {
+        { id = "ba_default", text = "A farm, a stable, a mill, a mine and a forge are what an army eats, rides, builds with, pays with and fights with. Deny all five to the League of Arathor and Stromgarde stays a ruin, which keeps it from troubling Tarren Mill." },
+      },
+      choices = {
+        { text = "And what do the Forsaken need with a farm?", next = "basin_farm" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    basin_farm = {
+      lines = {
+        { id = "bf2_default", text = "Nothing at all, which is the elegance of it. We need only see that the living do not have it, and what we carry off goes to feed Hammerfall's orcs, who eat enough for both peoples." },
+      },
+      choices = {
+        { text = "A cold sort of arithmetic.", next = "BACK" },
+        { text = "It's sound strategy, whatever it looks like.", next = "BACK" },
+      },
+    },
+    undercity = {
+      lines = {
+        { id = "uc_default", text = "It seems far away, and its requests for inventory arrive with great regularity all the same. I confess I miss the quiet of the canals, though not the apothecaries, who never once returned a borrowed crate." },
+      },
+      choices = {
+        { text = "They don't return much of anything.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = {
+        { id = "rg_default", text = "It shows that the quiet ones bring back fewer marks and lose far less equipment, which I regard as a fair exchange. I keep the blackened leathers on the lower shelf for people of your profession." },
+      },
+      choices = {
+        { text = "Show me the lower shelf.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -768,11 +990,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything further?" },
         { id = "h_again2", text = "Do continue. I've another column to total." },
+        { id = "h_again3", text = "Yes? I am listening, and I am also adding." },
       },
       choices = {
         { text = "Show me what the Defilers offer.", next = "BUSINESS" },
         { text = "You keep a careful ledger.", next = "ledger" },
         { text = "What were you, before?", next = "before" },
+        { text = "Hammerfall seems an odd post for a Forsaken clerk.", next = "hammerfall" },
+        { text = "What do the Defilers want with a few farms?", next = "basin" },
+        { text = "How does the Undercity seem, from out here?", next = "undercity", when = { race = "Scourge" } },
+        { text = "Your ledger must show what a rogue is worth.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -807,6 +1034,7 @@ P:NPC {
     },
   },
   topics = {
+    hammerfall = { { id = "tp_hf", text = "A fort of orcs built on the grave of an orc, with a handful of the Dark Lady's servants billeted in the corner. It functions, which I did not expect." } },
     _none = { { id = "tp_none", text = "That isn't in my ledger, and so, as far as I am concerned, it does not exist." } },
   },
 }
@@ -819,7 +1047,7 @@ P:NPC {
   notices = { "craft", "hunger" },
 
   impression = {
-    first = "Slagg teaches cooking at Hammerfall and calls himself a superior butcher, and his buzzard wings argue that he's right. He thinks a warrior who can't cook is only half a warrior.",
+    first = "He thinks a warrior who can't cook is only half a warrior.",
     third = "{name} met Slagg, Hammerfall's butcher and cooking teacher.",
   },
 
@@ -827,9 +1055,14 @@ P:NPC {
     { id = "g_default", text = "You want to learn to cook, or you want to stand there smelling my fire?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good. The fire is hot and the buzzards are plucked." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "A cook! Come, I will show you what a buzzard is good for." },
+    { id = "g_troll", when = { race = "Troll" }, text = "A troll! Your people know spice, at least, so sit and tell me if my sauce has enough of it." },
   },
 
   notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren at my fire. Your people know the worth of a clean kill, and I will not serve you kodo, so do not look at me like that." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter. Bring your kills to a butcher before the sun spoils them, because half the meat in these hills is wasted by warriors who skin like children." },
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
       text = "You carry a cook's knife. Hold it like a weapon and it will serve you like one." },
     { id = "n_hunger", cat = "hunger", when = { durability = { max = 0.25 } },
@@ -838,6 +1071,70 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    eaters = {
+      lines = {
+        { id = "et_default", text = "Gor'mul's grunts, the wyvern riders who come through with Urda, and the dead ones from the Undercity who sit and do not eat. Innkeeper Adegwa sends her guests to me when her own pot runs low, and I send the thirsty ones back to her." },
+      },
+      choices = {
+        { text = "And Uttnar? He sells meat too.", next = "eaters_uttnar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eaters_uttnar = {
+      lines = {
+        { id = "eu_default", text = "Uttnar cuts well and sells cheap, and he thinks that is all there is to it. He says I talk too much about meat, and then he comes at night to buy my sauce, so I know who is right." },
+      },
+      choices = {
+        { text = "A butcher who buys your sauce has answered himself.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hammerfall = {
+      lines = {
+        { id = "hm_default", text = "The name is heavy because of what happened here. This was a prison camp of the humans, and Orgrim Doomhammer fell on this ground when the Horde broke it open, so the Warchief named it for him." },
+      },
+      choices = {
+        { text = "Then every meal here is eaten on honoured ground.", next = "hammerfall_ground" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hammerfall_ground = {
+      lines = {
+        { id = "hg_default", text = "Yes, and I tell the young grunts so when they complain about the dust. Drum Fel remembers more of it than I do, and he will tell you, if you can stand to hear an old orc be right for an hour." },
+      },
+      choices = {
+        { text = "I'll listen to him.", next = "BACK" },
+        { text = "Teach me your craft, Slagg.", next = "BUSINESS" },
+      },
+    },
+    camps = {
+      lines = {
+        { id = "cm_default", text = "You are an orc, so you know, or your father knows. They fed us grey porridge from a trough and we were too dull to care, and that is the part that shames me, more than the walls." },
+      },
+      choices = {
+        { text = "The shame belongs to the ones who built the walls.", next = "camps_now" },
+        { text = "And now you feed a whole fort.", next = "camps_now" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camps_now = {
+      lines = {
+        { id = "cn_default", text = "Now I stand where a camp stood and I cook what I choose, and no human hands me a bowl. Thrall gave us back our pride, and I say a full belly is where an orc keeps it." },
+      },
+      choices = {
+        { text = "Lok'tar, Slagg.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    larder = {
+      lines = {
+        { id = "ld_default", text = "Buzzard for the wings, raptor from the eastern hills if your teeth are good, and spider from the caves, which is better than it sounds. The secret of all three is the same: cut away what is tough and cook the rest slowly." },
+      },
+      choices = {
+        { text = "Show me how it's done.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -848,11 +1145,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? The fire will not wait forever." },
         { id = "h_again2", text = "Speak. My hands are busy, not my ears." },
+        { id = "h_again3", text = "Ask, then. The wings need turning soon." },
       },
       choices = {
         { text = "Teach me what you know.", next = "BUSINESS" },
         { text = "Buzzard? People eat buzzard?", next = "buzzard" },
         { text = "Why should a warrior learn to cook?", next = "warrior" },
+        { text = "Who eats at your fire?", next = "eaters" },
+        { text = "Hammerfall has a heavy name for a small fort.", next = "hammerfall" },
+        { text = "You spoke of the camps.", next = "camps", when = { race = "Orc" } },
+        { text = "I cook a little myself. What do the Highlands offer?", next = "larder", when = { profession = "Cooking" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -887,6 +1189,7 @@ P:NPC {
     },
   },
   topics = {
+    hammerfall = { { id = "tp_hf", text = "Doomhammer fell here, and the Warchief named the fort for him. I cook on that ground, so I do not cook badly." } },
     _none = { { id = "tp_none", text = "I know meat and fire. Ask Gor'mul about the rest." } },
   },
 }
@@ -899,7 +1202,7 @@ P:NPC {
   notices = { "hunger" },
 
   impression = {
-    first = "Uttnar sells meat at Hammerfall and doesn't waste words over it. He thinks Slagg fusses too much and says so, though he buys Slagg's sauce.",
+    first = "He says Slagg fusses too much, yet he buys Slagg's sauce.",
     third = "{name} met Uttnar, who sells meat to Hammerfall's warriors.",
   },
 
@@ -907,15 +1210,85 @@ P:NPC {
     { id = "g_default", text = "Meat. You want some, or not?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still hungry? Good. Buy." },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "The dead buy meat too, I have learned. I do not ask what for." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good, then you know what a clean kill is worth, and you will not argue about the price." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Late for buying meat, but the block is still wet, so choose." },
   },
 
   notice = {
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc with a real appetite, I hope. The dead ones pick at their food and the trolls argue about the price." },
+    { id = "n_skinner", cat = "craft", when = { profession = "Skinning" },
+      text = "You carry a skinning knife, and you keep it clean. Good, because a dirty knife spoils the hide and the meat both." },
     { id = "n_hunger", cat = "hunger", when = { durability = { max = 0.25 } },
       text = "You look half eaten yourself. Buy something and sit down before you fall down." },
   },
 
   start = "hello",
   nodes = {
+    warriors = {
+      lines = {
+        { id = "wr_default", text = "They eat like wolves, and Gor'mul's grunts eat most of all, because he drills them until they drop. A fort that is fed does not grumble, so I count my work as part of the watch." },
+      },
+      choices = {
+        { text = "Do the Forsaken buy from you as well?", next = "warriors_dead" },
+        { text = "An army marches on its butcher.", next = "warriors_pride" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warriors_dead = {
+      lines = {
+        { id = "wd_default", text = "They do. The clerk Twing buys a little every week and writes it in his book, and I think he feeds the Deathmaster's hounds with it. I do not ask, and he does not say, and the coin is good." },
+      },
+      choices = {
+        { text = "Good coin needs no questions.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warriors_pride = {
+      lines = {
+        { id = "wpr_default", text = "Hmph. That is the kind of thing Slagg would say, and he would take an hour to say it. It is true, though, so I will let you say it once." },
+      },
+      choices = {
+        { text = "Once is enough. Show me the meat.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ogres = {
+      lines = {
+        { id = "og_default", text = "The Boulderfist, in the hills to the west and at their big hall in the south. They take goats, boars, and a hunter now and then, and they waste half of what they kill." },
+      },
+      choices = {
+        { text = "Does Hammerfall do anything about them?", next = "ogres_hunt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ogres_hunt = {
+      lines = {
+        { id = "oh_default", text = "Drum Fel sends warriors against them, and Korin Fel pays for what they bring back. I would go myself, but then who would cut the meat? Kill some for me, and my hunters will come home with more." },
+      },
+      choices = {
+        { text = "I'll thin them out.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hu_default", text = "I have my own hunters, and they know how I like a carcass brought in. But walk the east hills with them once and bleed your kill properly, and I will not turn you away from my block." },
+      },
+      choices = {
+        { text = "Fair enough. What do you have today?", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren = {
+      lines = {
+        { id = "ta_default", text = "Boar and goat and buzzard, all killed clean, and I take no more from the hills than the fort will eat. A tauren told me once that this matters, and I found the meat tasted no worse for it." },
+      },
+      choices = {
+        { text = "The Earth Mother notices such things.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -924,11 +1297,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "More? Ask fast." },
         { id = "h_again2", text = "What else, then?" },
+        { id = "h_again3", text = "Talk while I cut, then. The knife does not stop." },
       },
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Where does the meat come from?", next = "meat" },
         { text = "You and Slagg sell the same thing.", next = "slagg" },
+        { text = "Hammerfall's warriors must keep you busy.", next = "warriors" },
+        { text = "You said the ogres take the goats.", next = "ogres" },
+        { text = "I hunt. Would you buy what I bring down?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What does a tauren find on your block?", next = "tauren", when = { race = "Tauren" } },
         { text = "Not now.", next = "END" },
       },
     },
@@ -963,6 +1341,1097 @@ P:NPC {
     },
   },
   topics = {
+    hammerfall = { { id = "tp_hf", text = "It is a fort, and forts eat. Gor'mul commands it, Drum Fel speaks for it, and I feed it." } },
+    slagg = { { id = "tp_slagg", text = "He cooks well and he knows it, and he will tell you so until the meat is cold. Buy his sauce and leave before the speech." } },
     _none = { { id = "tp_none", text = "I sell meat. That is all I know, and it is enough." } },
+  },
+}
+
+-- First Mate Nilzlix: goblin first mate of the Harbinger at Faldir's Cove; keeps the logs.
+P:NPC {
+  key = "ar_nilzlix", id = TODO_NPC("First Mate Nilzlix"), name = "First Mate Nilzlix", title = "Blackwater Raiders",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "faldirs_cove", "blackwater" }, temper = { "harried", "sharp" }, values = { "loyal", "practical", "greedy" },
+  notices = { "class", "race", "craft" },
+
+  impression = {
+    first = "First Mate Nilzlix keeps the Blackwater Raiders' logs at Faldir's Cove and frets over two sets of charts lying on the sea floor. He fears Fleet Master Seahorn more than he fears the naga, and says so.",
+    third = "{name} met First Mate Nilzlix, who keeps the logs for the stranded Blackwater Raiders at Faldir's Cove.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Whoa, whoa, watch the ledger, pal, the ink's still wet and it's the only dry thing I own." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! Good, good, I was just adding up what this whole mess has cost us, and I could use the distraction." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Deep Sea Salvage") }, text = "Got my charts and logs yet, friend? Every tide they sit down there is a tide somebody else could find them." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Deep Sea Salvage") }, text = "There's my favourite salvager! The logs are drying nicely, and I've stopped dreaming about the plank." },
+  },
+
+  notice = {
+    { id = "n_goblin", cat = "race", when = { race = "Goblin" },
+      text = "A goblin, out here! Tell me you're not from the Venture Company, pal, because I've had enough bad news this month." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "Another gnome? We've got one already, and he keeps asking me to pay for goggles. Don't you start." },
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "I know that walk, friend, I learned to count my pockets around it in Booty Bay. No offence meant, and none of my pockets are worth it anyway." },
+    { id = "n_swim", cat = "class", when = { class = { "DRUID", "SHAMAN" } },
+      text = "Hey, your sort can breathe down there, or walk on it, or something, right? That's a marketable skill in this cove, I'm telling ya." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Nilzlix, first mate of the Harbinger, and keeper of the logs for what used to be three ships. Two of them ran aground on some sort of temple in the reef, and their charts and logs went down with them, which is my problem and could be your payday." },
+        { id = "h_active", when = { questActive = TODO_QUEST("Deep Sea Salvage") },
+          text = "The Maiden's Folly and the Spirit of Silverpine are both out past the rocks, you can see the masts. The charts and the logs will be in the captains' cabins, in the lockboxes, and the naga are swimming all over them, so mind yourself." },
+        { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Deep Sea Salvage"), days = 3 } },
+          text = "Both logs, both sets of charts, and only a little chewed! You've saved the Raiders a fortune in secrets, friend, and you've saved me a very short walk off a very long plank." },
+        { id = "h_later", when = { questDone = TODO_QUEST("Deep Sea Salvage") },
+          text = "The charts are locked up tight and the logs are copied out fair, so Seahorn can't say I lost a thing. Now if somebody would only fetch us a shipwright, I could close this page of the ledger." },
+      },
+      again = {
+        { id = "h_again", text = "What else, pal? Talk fast, I'm paying myself by the hour." },
+        { id = "h_again2", text = "Go on, go on, the ledger isn't going anywhere, and neither are we." },
+        { id = "h_again3", text = "Something more? Fine, but if it costs money, the answer's no." },
+      },
+      choices = {
+        { text = "Why do the charts matter so much?", next = "charts" },
+        { text = "A temple in the reef. That's no accident.", next = "temple" },
+        { text = "What does a first mate do with no ship moving?", next = "mate" },
+        { text = "What has this cost the Raiders so far?", next = "cost" },
+        { text = "I can stay under longer than most. Where exactly?", next = "x_swim", when = { class = { "DRUID", "SHAMAN", "WARLOCK" } } },
+        { text = "A lockbox, you say. I'm good with locks.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "Does Booty Bay know you're stuck here?", next = "x_goblin", when = { race = { "Goblin", "Gnome" } } },
+        { text = "Keep your ledger dry, Nilzlix.", next = "END" },
+      },
+    },
+    charts = {
+      lines = {
+        { id = "ch_default", text = "Because they show every cove, every cache and every quiet channel the Blackwater Raiders use from here to Booty Bay. If the Bloodsail Buccaneers got hold of them, or the naga, or anybody with a boat, Fleet Master Seahorn would have us all walk the plank, me first." },
+      },
+      choices = {
+        { text = "And the logs?", next = "charts_logs" },
+        { text = "Seahorn sounds like a hard master.", next = "charts_seahorn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    charts_logs = {
+      lines = {
+        { id = "cl_default", text = "The logs say who was paid what, and for which cargo, and where it was sold after. That's a lot of names that would rather stay in a book at the bottom of a drawer than float up on a beach, if you follow me." },
+      },
+      choices = {
+        { text = "Secrets should stay bought. I'll fetch them back.", next = "BACK", reply = "That's the spirit, pal! Discretion is a service, and I pay for services.", fx = { align = { order = 1 } } },
+        { text = "A book like that is worth more than your fee.", next = "BACK", reply = "Whoa, whoa. It's worth a knife in the back to anyone who tries to sell it, friend, so let's stay friends.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    charts_seahorn = {
+      lines = {
+        { id = "cs_default", text = "He's fair, which is worse. He pays on time, he remembers every copper, and he's never once lost a ship without finding out whose fault it was. I intend for it to be nobody's fault, and for that I need the books." },
+      },
+      choices = {
+        { text = "Then let's keep it nobody's fault.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    temple = {
+      lines = {
+        { id = "tm_default", text = "That's what I said! I was at the rail when we struck, and I saw carved stone under the hulls, like a roof, with the weed grown over it. Then the naga came boiling up out of it, and I stopped taking notes." },
+      },
+      choices = {
+        { text = "Lolo says he saw them first.", next = "temple_lolo", when = { heardLine = "ar_lolo.sn_default" } },
+        { text = "What would naga want with an old ruin?", next = "temple_naga" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    temple_lolo = {
+      lines = {
+        { id = "tl_default", text = "He did, the big lug, and the captain told him he'd been at the rum. I've written it into the log properly since, with the time and the watch, because an ogre who's right ought to be right on paper." },
+      },
+      choices = {
+        { text = "That's decent of you, Nilzlix.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    temple_naga = {
+      lines = {
+        { id = "tn_default", text = "Beats me, pal, I'm a bookkeeper. The Professor says it's elven, older than old, and that there's treasure in it, which is why we sailed up here at all. The Daggerspine seem to think it's theirs, and they've got more spears than we do." },
+      },
+      choices = {
+        { text = "Then the treasure hunt found the wrong owners.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mate = {
+      lines = {
+        { id = "mt_default", text = "Everything the captain doesn't, friend. I count the stores, I set the watches, I keep Lolo fed and the Professor away from the powder, and I write it all down so there's a record when someone asks what went wrong." },
+      },
+      choices = {
+        { text = "How is Captain O'Breen bearing up?", next = "mate_obreen" },
+        { text = "And Captain Steelgut?", next = "mate_steelgut" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mate_obreen = {
+      lines = {
+        { id = "mo_default", text = "Shakes is Shakes. He laughs loud and he drinks a little more than he did, and he walks the deck at night when he thinks I'm asleep. He'll get us home, though, because he's never yet left a crew behind, and I've checked the books." },
+      },
+      choices = {
+        { text = "A captain who walks the deck is still on watch.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mate_steelgut = {
+      lines = {
+        { id = "ms_default", text = "He lost his ship and every hand on it, and he washed up alone. I put him on the roster as a passenger so nobody gives him orders, and I've told the crew that the first one who mentions the Maiden's Folly near him goes on half rations." },
+      },
+      choices = {
+        { text = "You run a kinder ship than you let on.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cost = {
+      big = true,
+      lines = {
+        { id = "co_default", text = "Two ships, two crews, the cargo, the Professor's first machine, and about forty barrels of everything. I've a column for the dead as well, pal, and I don't put a number in it, because I couldn't make it come out to anything I'd sign." },
+      },
+      choices = {
+        { text = "Some losses don't belong in a ledger. Leave it blank.", next = "BACK", reply = "Yeah. That's what I figured, too.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Every loss has a price. Seahorn will want it.", next = "BACK", reply = "He will, and I'll give him the ships and the cargo to the copper. The rest he can ask me to my face.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_swim = {
+      lines = {
+        { id = "xw_default", text = "Now you're talking! The Folly's the nearer mast and the Silverpine's the one leaning. Go in from the rocks on the north side, where the current does half the swimming for you, and the cabins are aft on both." },
+      },
+      choices = {
+        { text = "North rocks, aft cabins. I have it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_rogue = {
+      lines = {
+        { id = "xr_default", text = "I'll bet you are, and I'm not asking where you learned. The boxes are Booty Bay work, three tumblers and a false keyhole, so don't waste your breath on the one in the middle. Bring them up shut, if it's all the same to you." },
+      },
+      choices = {
+        { text = "Shut they'll stay. You have my word.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_goblin = {
+      lines = {
+        { id = "xg_default", text = "Not yet, and I'd like to send good news with the bad. 'Lost two ships' reads a whole lot better with 'recovered all charts and found the treasure' written underneath it, and I've only got the first line so far." },
+      },
+      choices = {
+        { text = "Then let's get you a second line.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    naga = { { id = "tp_naga", text = "Daggerspine, the Professor calls them. They came up out of that temple the night we struck, and they've been on the shore ever since, which is bad for morale and worse for salvage." } },
+    booty_bay = { { id = "tp_bb", text = "Home, pal, and I'd give a month's share to smell the fish market again. The Raiders sail for Fleet Master Seahorn out of there, and the Baron takes his cut of everybody." } },
+    _none = { { id = "tp_none", text = "That's not in my books, friend, and if it's not in my books I can't put a price on it." } },
+  },
+}
+
+-- Hammon Karwn: human trade goods vendor at Refuge Pointe, titled Superior Tradesman.
+P:NPC {
+  key = "ar_karwn", id = TODO_NPC("Hammon Karwn"), name = "Hammon Karwn", title = "Superior Tradesman",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "refuge_pointe" }, temper = { "proud", "genial" }, values = { "trade", "practical" },
+  notices = { "craft", "race" },
+
+  impression = {
+    first = "Hammon Karwn sells trade goods from a tent at Refuge Pointe and insists on being called a superior tradesman. His stock is ordinary, but he has it when nobody else in the Highlands does.",
+    third = "{name} met Hammon Karwn, who sells trade goods to the camp at Refuge Pointe.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Thread, flux, vials and dye, friend, and every bit of it carried over the Thandol Span on my own mule." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more? I thought you might be, since there's no one else to buy from." },
+    { id = "g_craft", when = { profession = { "Tailoring", "Blacksmithing", "Leatherworking", "Alchemy", "Engineering" } }, text = "A craftsman! Then you'll appreciate a tradesman who keeps the right goods dry." },
+  },
+
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf, and you'll have crossed Dun Modr to get here, or flown over it. Tell me the bridge still stands, because my next shipment depends on it." },
+    { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
+      text = "You've a tailor's eye, and it went straight to the dyes. They're true colours, I promise you, not the Southshore stuff that runs." },
+    { id = "n_engineer", cat = "craft", when = { profession = "Engineering" },
+      text = "An engineer. I've flux and I've coal, but please do your mixing on the far side of the camp." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Hammon Karwn, superior tradesman, at your service. Anything a craftsman needs to keep working in the field, I have, and what I haven't got is on its way from Menethil." },
+        { id = "h_horde", when = { faction = "Horde" },
+          text = "Hammon Karwn, tradesman, and I'd keep walking if I were you. The Captain's men are less patient than I am, and I am not very patient." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I do for you?" },
+        { id = "h_again2", text = "Go on, friend. Talk is free, though little else here is." },
+        { id = "h_again3", text = "Yes? I've the afternoon, and you've the look of a customer." },
+      },
+      choices = {
+        { text = "Let me see your goods.", next = "BUSINESS" },
+        { text = "What makes a tradesman superior?", next = "superior" },
+        { text = "It's a long road to bring goods up here.", next = "road" },
+        { text = "Who buys from you in a soldiers' camp?", next = "buyers" },
+        { text = "What sells best to a tailor up here?", next = "x_tailor", when = { profession = "Tailoring" } },
+        { text = "Does Ironforge trade this far north?", next = "x_dwarf", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Good day, Hammon.", next = "END" },
+      },
+    },
+    superior = {
+      lines = {
+        { id = "su_default", text = "Being here, friend. Any fool can sell thread in Stormwind, where there's a shop on every corner. It takes a superior sort to sell it under a cliff in the Highlands with ogres on one side and the Syndicate on the other." },
+      },
+      choices = {
+        { text = "You gave yourself the title, then.", next = "superior_title" },
+        { text = "Courage is a kind of quality, I'll grant.", next = "superior_title" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    superior_title = {
+      lines = {
+        { id = "st_default", text = "I painted it on the sign myself, and nobody in the camp has argued. Captain Nials read it, grunted, and bought a spool of thread for his tabard, which I took as a commission." },
+      },
+      choices = {
+        { text = "A grunt from the Captain is high praise.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road = {
+      lines = {
+        { id = "rd_default", text = "Menethil Harbor to Dun Modr, over the Thandol Span, and then up the Highlands road with one eye on the hills. The Dark Irons have made the bridge a misery, and the Syndicate like to collect a toll further on that nobody voted for." },
+      },
+      choices = {
+        { text = "Have you been robbed on it?", next = "road_robbed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road_robbed = {
+      big = true,
+      lines = {
+        { id = "rr_default", text = "Twice. The first time they took the mule's whole load, and the second time I paid them a little to leave the rest. I'm not proud of it, but the camp had its flux that week, and it wouldn't have otherwise." },
+      },
+      choices = {
+        { text = "You fed the camp. I'd have paid them too.", next = "BACK", reply = "That's how I reckon it. A tradesman's first duty is to arrive.", fx = { align = { honor = -1 } } },
+        { text = "Paying bandits only buys more bandits.", next = "BACK", reply = "So Captain Nials told me, and at some length. He's right, and I'd still do it again with an empty forge waiting.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers = {
+      lines = {
+        { id = "by_default", text = "More than you'd think. Jannos Ironwill takes my coal and flux for the forge, Androd Fadran takes salt for his hides, and Drovnar Strongbrew buys vials by the crate. Vikki Lonsav and I split the rest between us without ever quite discussing it." },
+      },
+      choices = {
+        { text = "You and Vikki sell side by side?", next = "buyers_vikki" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_vikki = {
+      lines = {
+        { id = "bv_default", text = "She has the bread, the waterskins and the bedrolls, and I have what goes into making things. If a soldier asks me for rations, I point to her tent, and she sends the crafters to mine. It's the nearest thing to a guild we've got." },
+      },
+      choices = {
+        { text = "A small camp can't afford a feud.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Let me see what goes into making things.", next = "BUSINESS" },
+      },
+    },
+    x_tailor = {
+      lines = {
+        { id = "xt_default", text = "Thread, and then more thread, because the wind up here finds every seam. I'd take the heavy silken if I were you, and a pot of dye, since the League likes its colours bright and its tabards mended." },
+      },
+      choices = {
+        { text = "Heavy silken and dye, then.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "It does, through me, and I've no complaints of Ironforge goods except the price of carrying them. Half my coal is from your mountain, and Jannos says he can tell the difference with his eyes shut." },
+      },
+      choices = {
+        { text = "Any dwarf could. It's good coal.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    refuge_pointe = { { id = "tp_rp", text = "A camp under a cliff, and all that's left of Stromgarde's ground outside the city walls. It isn't much, but it's well kept, and it pays its bills." } },
+    _none = { { id = "tp_none", text = "I couldn't say, friend. I deal in thread and flux, and news is Cedrik's line of work." } },
+  },
+}
+
+-- Androd Fadran: human leatherworking supplies vendor at Refuge Pointe.
+P:NPC {
+  key = "ar_fadran", id = TODO_NPC("Androd Fadran"), name = "Androd Fadran", title = "Leatherworking Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "refuge_pointe" }, temper = { "quiet", "steady" }, values = { "craft", "patient" },
+  notices = { "craft", "class", "pet" },
+
+  impression = {
+    first = "Androd Fadran sells leatherworking supplies at Refuge Pointe and smells of salt and tannin. He talks about hides the way other men talk about horses, and he knows every beast in the Highlands by its skin.",
+    third = "{name} met Androd Fadran, who supplies the leatherworkers at Refuge Pointe.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Salt, thread and dye for the leather trade. Have a look, and mind the drying racks behind you." },
+    { id = "g_back", when = { metBefore = true }, text = "Hello again. The racks are full today, so I hope you've come to buy and not to sell." },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker, by your hands. Good, I'll not need to explain what curing salt is for." },
+  },
+
+  notice = {
+    { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
+      text = "That's a skinning knife worn thin with honing. You'll have found the raptors up here, then, and their hides are worth the trouble." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter. If you take a beast up here, take the hide off it too, because I hate to see the buzzards get good leather." },
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "That's a fine animal, and I mean that as a man who admires them alive as well. {pet} needn't look at my racks like that." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Androd Fadran. I keep the leatherworkers of the Pointe in salt, thread and dye, and I cure a few hides of my own when the weather holds. The Highlands are good country for it, if you can keep your scalp." },
+        { id = "h_horde", when = { faction = "Horde" },
+          text = "Androd Fadran. Your people have a man called Tunkk at Hammerfall who sells what I sell, and you'd be safer buying it there." },
+      },
+      again = {
+        { id = "h_again", text = "Something else? I'm in no hurry." },
+        { id = "h_again2", text = "Go on. The hides won't cure any faster for my watching them." },
+        { id = "h_again3", text = "Aye? Ask away." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "What hides do the Highlands give you?", next = "hides" },
+        { text = "A soldiers' camp must go through a lot of leather.", next = "camp" },
+        { text = "You said a man has to keep his scalp.", next = "danger" },
+        { text = "Which hide here is hardest to take off whole?", next = "x_skin", when = { profession = { "Skinning", "Leatherworking" } } },
+        { text = "Where should a hunter look for good pelts?", next = "x_hunter", when = { class = "HUNTER" } },
+        { text = "Good day, Androd.", next = "END" },
+      },
+    },
+    hides = {
+      lines = {
+        { id = "hi_default", text = "Raptor, mostly, which is tough, scaled and takes a dye beautifully. Then there's buzzard for trim, and spider silk from the cave crawlers, if you count that, which the tailors do. I'd give a good deal for a whole hide off one of the big Highland striders, but they don't hold still." },
+      },
+      choices = {
+        { text = "Raptor leather. Who wears that?", next = "hides_raptor" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hides_raptor = {
+      lines = {
+        { id = "hr_default", text = "Scouts, when they can get it, because it turns a blade and doesn't creak. Half the League's skirmishers in the Basin are wearing Highland raptor on their shoulders, and they've no notion a quiet man in a tent salted it for them." },
+      },
+      choices = {
+        { text = "The quiet work is still the work.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = {
+        { id = "ca_default", text = "Straps, mostly. Sword belts, shield straps, saddle girths for Cedrik's gryphons, and boots, always boots. Samuel Hawke hands out the fine armour to the Basin's soldiers, and when it comes back cut to ribbons, somebody has to restitch it." },
+      },
+      choices = {
+        { text = "And that somebody buys from you.", next = "camp_who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp_who = {
+      lines = {
+        { id = "cw_default", text = "They do, and so does every soldier who can hold an awl. Hammon Karwn sells me salt by the sack, Jannos makes my needles, and I sell on to the rest. In a camp this small, every copper goes round three times before it leaves." },
+      },
+      choices = {
+        { text = "Then let mine go round as well.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    danger = {
+      big = true,
+      lines = {
+        { id = "da_default", text = "I meant it plainly. The Witherbark trolls to the east take heads, the Boulderfist ogres to the west take everything, and the Syndicate hold Stromgarde's streets. I go out for hides with two of the Captain's men or not at all." },
+      },
+      choices = {
+        { text = "No hide is worth a life. You're right to wait.", next = "BACK", reply = "So my wife said, in her last letter, and she underlined it.", fx = { align = { order = 1 } } },
+        { text = "A craftsman who waits on escorts makes little.", next = "BACK", reply = "And one who doesn't makes nothing at all, after the first trip. I'll keep my escorts.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_skin = {
+      lines = {
+        { id = "xs_default", text = "The raptor, without question. The scales run one way along the back and another on the flanks, so a careless cut tears across the grain. Start behind the jaw and follow the spine, and don't hurry the tail." },
+      },
+      choices = {
+        { text = "Behind the jaw, along the spine. Thank you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_hunter = {
+      lines = {
+        { id = "xh_default", text = "The raptors range the hills south and east of here, toward Witherbark Village, and the buzzards circle anything that's died. Keep clear of the stone circles, though. There are elementals about them that no arrow will trouble." },
+      },
+      choices = {
+        { text = "South and east, and clear of the circles.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    refuge_pointe = { { id = "tp_rp", text = "It's a camp, and a good one, as camps go. Captain Nials keeps it in order, and nobody goes short of work." } },
+    _none = { { id = "tp_none", text = "I don't know much beyond hides, I'm afraid. Captain Nials is the one to ask." } },
+  },
+}
+
+-- Drovnar Strongbrew: dwarf alchemy supplies vendor at Refuge Pointe.
+P:NPC {
+  key = "ar_strongbrew", id = TODO_NPC("Drovnar Strongbrew"), name = "Drovnar Strongbrew", title = "Alchemy Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "refuge_pointe" }, temper = { "hearty", "stubborn" }, values = { "craft", "generous" },
+  notices = { "craft", "race", "drink" },
+
+  impression = {
+    first = "Drovnar Strongbrew sells vials and alchemists' supplies at Refuge Pointe, and plainly wishes they were kegs. He is loud, fond of the camp, and convinced that a healing draught and a good ale are cousins.",
+    third = "{name} met Drovnar Strongbrew, the dwarf who supplies alchemists at Refuge Pointe.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Vials, flasks an' all an alchemist needs, {g:lad|lass}! Step up, they'll no' bite." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Good, I've fresh vials in, an' not a crack in the crate." },
+    { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist! Now there's a customer who knows a good flask from a bad one." },
+    { id = "g_drunk", when = { drunk = true }, text = "Ye've had a drop already, I see. Steady hands before ye touch the glass, if ye please." },
+  },
+
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf! Thank the stone, someone who'll understand me when I complain about the ale up here." },
+    { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
+      text = "Yer fingers are stained three colours, an' one o' them's swiftthistle. Ye've been busy, an' I approve." },
+    { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
+      text = "A herb gatherer, by the satchel. The Highlands are full o' goldthorn an' fadeleaf, if ye can pick faster than the raptors can run." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Drovnar Strongbrew, an' aye, wi' a name like that I should be sellin' ale. Instead I sell the glass that potions go in, an' I tell myself it's near enough the same trade." },
+        { id = "h_dwarf", when = { race = "Dwarf" },
+          text = "Drovnar Strongbrew, cousin, late o' Ironforge an' later o' this windy rock. I sell vials tae alchemists, an' I'd sell my beard for a proper Thunderbrew lager." },
+        { id = "h_horde", when = { faction = "Horde" },
+          text = "Drovnar Strongbrew, an' I've nothin' for the Horde but a hard look. Away wi' ye, before the Captain's lads take an interest." },
+      },
+      again = {
+        { id = "h_again", text = "What else, then? I've time, an' nae ale tae fill it." },
+        { id = "h_again2", text = "Go on, {g:lad|lass}, I'm listenin'." },
+        { id = "h_again3", text = "Aye? Speak up over the wind." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "A Strongbrew, selling empty bottles?", next = "name" },
+        { text = "Who needs potions most in this camp?", next = "camp" },
+        { text = "What's a dwarf doing in Stromgarde's war?", next = "why" },
+        { text = "What grows in the Highlands worth brewing?", next = "x_alch", when = { profession = { "Alchemy", "Herbalism" } } },
+        { text = "How does a dwarf stand the ale up here, cousin?", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Good day, Drovnar.", next = "END" },
+      },
+    },
+    name = {
+      lines = {
+        { id = "na_default", text = "I've heard that one more often than I've had hot dinners. My father brewed, an' his father, an' I've the nose for it but no' the patience. A potion's done in an hour, an' a good stout wants a season, so I went where the quick work was." },
+      },
+      choices = {
+        { text = "Is brewing so different from alchemy?", next = "name_same" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name_same = {
+      big = true,
+      lines = {
+        { id = "ns_default", text = "No' so different as the alchemists like tae think! Clean water, good herbs, the right heat an' a clean vessel. The difference is that nobody ever sang a song about a healin' potion, an' that tells ye which the world loves better." },
+      },
+      choices = {
+        { text = "The potion saves the life. That matters more.", next = "BACK", reply = "Aye, aye, I'll grant ye that, an' it's why I'm here an' no' in a tavern cellar.", fx = { align = { order = 1 } } },
+        { text = "The ale makes the life worth saving.", next = "BACK", reply = "Hah! Spoken like kin. I'll drink tae that the day a keg makes it over the Span.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = {
+        { id = "cp_default", text = "The Basin's wounded, first an' always. Every soldier who comes back from that valley on a litter gets a draught before he gets a bed. After them it's Captain Nials' patrols, an' the gryphon riders, who drink swiftness potions like water." },
+      },
+      choices = {
+        { text = "Who brews, if you only sell the glass?", next = "camp_brew" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp_brew = {
+      lines = {
+        { id = "cb_default", text = "Whoever can. Apprentice Kryten knows a little, bein' a mage's lad, an' half the soldiers have learned tae boil peacebloom in a helmet. I sell them the vials, an' Hammon Karwn sells them what else they need, an' between us the camp stays on its feet." },
+      },
+      choices = {
+        { text = "Peacebloom in a helmet. That's soldiering.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Then I'd best stock up too.", next = "BUSINESS" },
+      },
+    },
+    why = {
+      lines = {
+        { id = "wy_default", text = "The same as half the dwarves ye'll meet north o' the Span. Stromgarde stood wi' us in the Second War when the Horde came for Khaz Modan, an' a dwarf pays what he owes. Besides, the League o' Arathor pays in coin, an' on time." },
+      },
+      choices = {
+        { text = "Do you think they'll take the city back?", next = "why_city" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_city = {
+      lines = {
+        { id = "wc_default", text = "No' this year, {g:lad|lass}, an' I'll no' lie tae ye. There's Syndicate in one quarter an' ogres in another, an' the Prince holds a corner o' his own keep. But they said Ironforge couldnae hold either, once, an' here we are." },
+      },
+      choices = {
+        { text = "Stubbornness has held worse places.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_alch = {
+      lines = {
+        { id = "xa_default", text = "Goldthorn on the hillsides, fadeleaf in the shade o' the old walls, an' khadgar's whisker up near the farms, if the Syndicate havenae trampled it. Kingsblood too, lower down. It's a fine larder for a brewer o' potions." },
+      },
+      choices = {
+        { text = "Then I'll need vials to fill.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "xd_default", text = "Badly, cousin, badly. What the humans call ale here would be sent back in Kharanos as dishwater. I've written tae my brother in Ironforge for a keg, an' I check every gryphon that lands in case Cedrik's carryin' it." },
+      },
+      choices = {
+        { text = "I'll raise a mug for you in Ironforge.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    refuge_pointe = { { id = "tp_rp", text = "A cold camp wi' a warm heart, an' nae brewery. Captain Nials runs it well, an' I'd follow him further than I'd follow most humans." } },
+    _none = { { id = "tp_none", text = "Ye've got me there, {g:lad|lass}. Ask me about glass or about ale, an' I'm yer dwarf." } },
+  },
+}
+
+-- Graud: orc general goods vendor at Hammerfall.
+P:NPC {
+  key = "ar_graud", id = TODO_NPC("Graud"), name = "Graud", title = "General Goods",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "hammerfall" }, temper = { "steady", "gruff" }, values = { "practical", "loyal" },
+  notices = { "race", "weary" },
+
+  impression = {
+    first = "Graud sells general goods at Hammerfall and has an answer ready for whatever a warrior forgot to pack. He is an old campaigner who thinks most deaths begin with an empty waterskin.",
+    third = "{name} met Graud, who sells general goods at Hammerfall.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Food, water, rope and bags. Tell me what you forgot, and I will sell it to you." },
+    { id = "g_back", when = { metBefore = true }, text = "You are back, so you forgot something else. It is always so." },
+    { id = "g_orc", when = { race = "Orc" }, text = "Throm-ka, warrior. Check your pack before you march, and buy what is missing." },
+  },
+
+  notice = {
+    { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
+      text = "You come back torn and thirsty, and you went out the same way. Next time buy the waterskin first and the glory second." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear. Our shaman Tor'gan is one of yours, and he buys more rope than any three orcs, though he will not say why." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren. I have bags, but none made for shoulders like those, so you must let out the straps yourself." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I am Graud. I sell the things a warrior needs and does not think of until he is two days from a fort, and I have sold them in more camps than this one." },
+        { id = "h_alliance", when = { faction = "Alliance" },
+          text = "I am Graud, and I do not sell to the Alliance. Go back down the road while Gor'mul's guards are still only watching you." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Speak." },
+        { id = "h_again2", text = "Go on. I have stock to count, but I can count and listen." },
+        { id = "h_again3", text = "More questions? Good, a warrior who asks lives longer." },
+      },
+      choices = {
+        { text = "Show me your goods.", next = "BUSINESS" },
+        { text = "What do warriors forget most?", next = "forget" },
+        { text = "You've kept stores in other camps.", next = "camps" },
+        { text = "Hammerfall seems well supplied for a border fort.", next = "supply" },
+        { text = "What should an orc carry into these hills?", next = "x_orc", when = { race = "Orc" } },
+        { text = "I travel light. What can't I do without?", next = "x_light", when = { class = { "ROGUE", "HUNTER", "DRUID" } } },
+        { text = "Strength and honour, Graud.", next = "END" },
+      },
+    },
+    forget = {
+      lines = {
+        { id = "fg_default", text = "Water. They remember the axe, the whetstone and the trophy sack, and they walk into the Highlands with one skin of water and a head full of songs. The hills are dry between the farms, and the ogres do not share their wells." },
+      },
+      choices = {
+        { text = "And after water?", next = "forget_next" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forget_next = {
+      lines = {
+        { id = "fn_default", text = "A second bag, because a warrior who wins brings back more than he took. Then rope, and food that keeps. Uttnar's meat is good tonight and bad in three days, so buy his for the fire and mine for the road." },
+      },
+      choices = {
+        { text = "Sound counsel. Let me see the road food.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camps = {
+      lines = {
+        { id = "cm_default", text = "I carried stores for the Warchief's march out of Lordaeron, when we broke the camps one by one, and I kept them at the landing in Durotar after. A Horde that is fed and shod can go anywhere, and one that is not goes nowhere, however brave." },
+      },
+      choices = {
+        { text = "You were there when this camp was broken?", next = "camps_here" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camps_here = {
+      big = true,
+      lines = {
+        { id = "ch_default", text = "I was behind the lines with the wagons, and I heard it more than saw it. Doomhammer fell on this ground, and Thrall took up his hammer and his armour before the dust settled. I have sold bread here ever since, and I do not sell it lightly." },
+      },
+      choices = {
+        { text = "The ones behind the wagons won that day too.", next = "BACK", reply = "Hm. Few say so. I will remember that you did.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Glory belongs to those who held the axes.", next = "BACK", reply = "So it does, and I have never claimed otherwise. But they ate my bread before they held them.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    supply = {
+      lines = {
+        { id = "sp_default", text = "It is, because Drum Fel sees to it. The wind riders bring what is small and the caravans from Tarren Mill bring what is heavy, and Keena and I divide it. She takes the trade goods, and I take what a soldier eats and carries." },
+      },
+      choices = {
+        { text = "Who else trades inside the walls?", next = "supply_who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    supply_who = {
+      lines = {
+        { id = "sw_default", text = "Mu'uta makes bows, Tunkk and Jun'ha sell to those who work leather and cloth, and Slagg and Uttnar argue over meat. The dead ones have their own quartermaster, Twing, who writes down everything and smiles at nothing." },
+      },
+      choices = {
+        { text = "A fort with its own market. Not bad.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_orc = {
+      lines = {
+        { id = "xo_default", text = "Two skins of water, dried meat for four days, a spare bowstring even if you carry no bow, and a bandage you can tie with one hand. The humans of Stromgarde ride the roads, so leave the road when you hear hooves." },
+      },
+      choices = {
+        { text = "Dabu. I'll pack as you say.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_light = {
+      lines = {
+        { id = "xl_default", text = "Then carry little, but carry the right little: water, a flint, and one bag that is empty. The ones who travel light and come back rich are the ones who left room." },
+      },
+      choices = {
+        { text = "An empty bag. I hadn't thought of it.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    hammerfall = { { id = "tp_hf", text = "It was a prison of the humans, and Doomhammer died breaking it. Now it is ours, and it is named for him, and I keep it fed." } },
+    _none = { { id = "tp_none", text = "I do not know. Ask Drum Fel, who knows what happens in these hills." } },
+  },
+}
+
+-- Mu'uta: orc bowyer at Hammerfall.
+P:NPC {
+  key = "ar_muuta", id = TODO_NPC("Mu'uta"), name = "Mu'uta", title = "Bowyer",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "hammerfall" }, temper = { "patient", "proud" }, values = { "craft", "honor" },
+  notices = { "class", "kit", "pet" },
+
+  impression = {
+    first = "Mu'uta makes and sells bows at Hammerfall and tests each one on the wall before he will part with it. He has no patience for hunters who blame the bow.",
+    third = "{name} met Mu'uta, the bowyer of Hammerfall.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Bows and arrows. Every one is strung by my hand and shot by my hand before it is sold." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Has the string held? Show me." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good. Let me see how you hold a bow before I sell you one." },
+  },
+
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "Your draw arm is thicker than the other. You have shot for years, and you will know good work when it is in your hand." },
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "{pet} watches my hands and not my face. That is a beast that has hunted beside a bow, and learned where the danger comes from." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A troll. Your people throw axes and spears, and throw them well, but I will show you what a string can do that an arm cannot." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I am Mu'uta, bowyer of Hammerfall. The warriors here laugh at bows until an ogre is charging them across open ground, and then they come to me, and I do not laugh at them." },
+        { id = "h_hunter", when = { class = "HUNTER" },
+          text = "I am Mu'uta, bowyer of Hammerfall. Put down the bow you carry and try the pull of mine, hunter, and then tell me honestly which you would trust at eighty paces." },
+        { id = "h_alliance", when = { faction = "Alliance" },
+          text = "I am Mu'uta, and my bows are for the Horde. The only arrow of mine you will carry out of here is one you did not buy." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I can talk while I wax the string." },
+        { id = "h_again2", text = "Ask. A good question is like a good arrow, and it should go straight." },
+        { id = "h_again3", text = "Speak, then." },
+      },
+      choices = {
+        { text = "Show me your bows.", next = "BUSINESS" },
+        { text = "What makes a good bow in the Highlands?", next = "make" },
+        { text = "The warriors here laugh at bows?", next = "laugh" },
+        { text = "You test every bow on the wall.", next = "wall" },
+        { text = "What quarry do you send hunters after?", next = "x_hunter", when = { class = "HUNTER" } },
+        { text = "A warrior should carry a bow too, you'd say.", next = "x_war", when = { class = { "WARRIOR", "ROGUE" } } },
+        { text = "Shoot straight, Mu'uta.", next = "END" },
+      },
+    },
+    make = {
+      lines = {
+        { id = "mk_default", text = "Wood that has grown slowly in the wind, which these hills give me, and kodo horn for the belly of the bow, which the caravans carry up from the Barrens. The sinew I take from raptors. A bow made from the land it hunts on shoots truer there, or so my teacher said, and I have not found her wrong." },
+      },
+      choices = {
+        { text = "Who was your teacher?", next = "make_teacher" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    make_teacher = {
+      lines = {
+        { id = "mt_default", text = "An old orc woman in the camps, who had been a hunter on the other world and kept the craft in her head when they took the bows away. She taught me with a stick and a bootlace. Everything I make, I make so that she would not be ashamed of it." },
+      },
+      choices = {
+        { text = "She kept more than a craft alive.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    laugh = {
+      big = true,
+      lines = {
+        { id = "lg_default", text = "Some do. They say a true orc looks his enemy in the eye and uses an axe. I say the hunter who feeds the clan looked his enemy in the eye from a hundred paces, and went home to eat." },
+      },
+      choices = {
+        { text = "A kill at a hundred paces is as honourable as any.", next = "BACK", reply = "Yes. Skill is honour, whatever the distance.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "There's more honour in facing the enemy's blade.", next = "BACK", reply = "Then face it. But carry one of my bows for the day your enemy will not face yours.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wall = {
+      lines = {
+        { id = "wl_default", text = "Twenty arrows at the old post by the gate, at first light, before the wind rises. If the bow throws left, I unstring it and begin again. Gor'mul's guards have learned not to stand near the post at dawn." },
+      },
+      choices = {
+        { text = "How many do you unstring?", next = "wall_fail" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wall_fail = {
+      lines = {
+        { id = "wf_default", text = "One in three. Tunkk tells me I waste good sinew, and he may be right, but a hunter who buys from me stakes his life on the first shot. I will not sell him a bow I have only hoped about." },
+      },
+      choices = {
+        { text = "Then I'll trust the ones you kept.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_hunter = {
+      lines = {
+        { id = "xh_default", text = "The raptors of the eastern hills, first, because they are fast and they turn, and they will teach you to lead a shot. Then the buzzards on the wing. When you can take a buzzard from the air, go and find the ogres, who are easier to hit and harder to stop." },
+        { id = "xh_pet", when = { pet = { type = "Beast" } }, text = "The raptors of the eastern hills, first, because they are fast and they turn. Send {pet} to hold one while you learn its gait, and then try it with the beast held back. A hunter should know which of them is doing the work." },
+      },
+      choices = {
+        { text = "Raptors, then buzzards, then ogres.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_war = {
+      lines = {
+        { id = "xw_default", text = "I would. You will not always reach the one who is running to warn his camp, and an arrow will. Buy a plain bow, shoot it badly for a month, and you will still be worth more than you are today." },
+      },
+      choices = {
+        { text = "Fair. Show me a plain bow.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    hammerfall = { { id = "tp_hf", text = "A fort on ground that was a prison. They took our weapons from us here once, and now I make them here. I think of that most mornings." } },
+    _none = { { id = "tp_none", text = "I know wood, horn and string. For the rest, ask Drum Fel." } },
+  },
+}
+
+-- Jun'ha: orc tailoring supplies vendor at Hammerfall.
+P:NPC {
+  key = "ar_junha", id = TODO_NPC("Jun'ha"), name = "Jun'ha", title = "Tailoring Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "hammerfall" }, temper = { "sharp", "warm" }, values = { "craft", "practical" },
+  notices = { "craft", "class", "kit" },
+
+  impression = {
+    first = "Jun'ha sells thread, dye and needles at Hammerfall and mends half the fort's banners besides. She has a sharp tongue for warriors who think cloth is beneath them, and a soft spot for anyone who can sew.",
+    third = "{name} met Jun'ha, who sells tailoring supplies at Hammerfall.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Thread, dye and needles. If you tore it, I can sell you what mends it." },
+    { id = "g_back", when = { metBefore = true }, text = "Back so soon? Either you sew fast or you tear fast." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor! At last, someone in this fort who will not ask me what a bolt is." },
+  },
+
+  notice = {
+    { id = "n_cloth", cat = "class", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
+      text = "You wear cloth into battle, and it has been mended well, twice. Whoever did the second mend used better thread than the first." },
+    { id = "n_torn", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Look at you, all rags and loose seams. Sit still a moment and tell me what did that, so I know what thread to sell you." },
+    { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
+      text = "Those are needle calluses, and old ones. Good, we will understand each other." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "I am Jun'ha, and I keep Hammerfall in thread. The warriors think a fort is made of walls and axes, but every banner on those walls and every tabard under that armour came across my table first." },
+        { id = "h_forsaken", when = { race = "Scourge" },
+          text = "I am Jun'ha. Your Defilers buy more black dye from me than the rest of the fort together, and I have stopped asking what is wrong with any other colour." },
+        { id = "h_alliance", when = { faction = "Alliance" },
+          text = "I am Jun'ha, and there is nothing here for the Alliance. Leave, before a guard decides your tabard would look better with a hole in it." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I can stitch and talk." },
+        { id = "h_again2", text = "Go on, I am listening, and the needle knows its own way." },
+        { id = "h_again3", text = "Yes? Ask before I lose count of this hem." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "You mend the fort's banners yourself?", next = "banners" },
+        { text = "Where does good cloth come from, out here?", next = "cloth" },
+        { text = "The warriors don't think much of your trade.", next = "warriors" },
+        { text = "What sells to a tailor in the Highlands?", next = "x_tailor", when = { profession = "Tailoring" } },
+        { text = "My robes take a beating. What thread holds?", next = "x_cloth", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "Good day, Jun'ha.", next = "END" },
+      },
+    },
+    banners = {
+      lines = {
+        { id = "bn_default", text = "Every one. The wind off the hills shreds them in a season, and Gor'mul will not have a ragged banner on his wall, so I have a new one cut before the old one comes down. The red is hard to keep, because the sun here drinks it." },
+      },
+      choices = {
+        { text = "A banner matters that much to him?", next = "banners_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    banners_why = {
+      lines = {
+        { id = "bw_default", text = "It matters to all of us, here. This was a place where orcs sat behind walls with nothing of their own, not even a clan's colours. Now the first thing a rider sees from the road is the Horde's banner, whole and bright, and I am the one who keeps it so." },
+      },
+      choices = {
+        { text = "Then your needle guards the fort as well.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cloth = {
+      lines = {
+        { id = "ct_default", text = "The wool comes from Tarren Mill with the caravans, and the silk from the spiders in the caves, which the young grunts fetch for me when Drum Fel wants them kept busy. The finest bolts come by wind rider from Orgrimmar, and Urda grumbles at the weight." },
+      },
+      choices = {
+        { text = "Spider silk? From those caves?", next = "cloth_silk" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cloth_silk = {
+      lines = {
+        { id = "cs_default", text = "It is strong, it is light, and it takes dye better than wool. The grunts come back bitten and complaining, and I tell them a warrior who cannot face a spider should not talk so loudly about ogres. Then I pay them fairly, because I am not cruel." },
+      },
+      choices = {
+        { text = "Sharp words and fair pay. A good bargain.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warriors = {
+      big = true,
+      lines = {
+        { id = "wr_default", text = "They think it is soft work, until the strap of a shoulder plate gives way in a fight and they come to me holding the pieces. I mend it, and I say nothing, and I let them stand there while I do it slowly." },
+      },
+      choices = {
+        { text = "Every craft serves the Horde. They should respect it.", next = "BACK", reply = "They should, and the wise ones do. Tor'gan thanks me every time, and he is the wisest in the fort.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Let them sneer. Charge them double.", next = "BACK", reply = "Hah! I have thought of it. But a fort that cheats its own warriors does not stand long.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_tailor = {
+      lines = {
+        { id = "xt_default", text = "Heavy thread, always, and dye in the Horde's red. If you can work the spider silk, I will tell you this: Tunkk, beside me, lines his leather with it, and he pays well for a clean bolt. So do the Defilers, though they want it black." },
+      },
+      choices = {
+        { text = "Then show me the heavy thread.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_cloth = {
+      lines = {
+        { id = "xc_default", text = "Silken thread, doubled, and waxed where the seam takes the strain at the shoulder. Cloth will never turn an axe, so do not ask it to. Ask it to hold together while you run, and it will." },
+      },
+      choices = {
+        { text = "Doubled and waxed. I'll take some.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    hammerfall = { { id = "tp_hf", text = "A hard fort full of loud warriors, on ground that deserves to be remembered. I keep its banners whole, and that is my part of the watch." } },
+    _none = { { id = "tp_none", text = "That I cannot tell you. I know cloth, and Drum Fel knows the rest." } },
+  },
+}
+
+-- Tunkk: orc leatherworking supplies vendor at Hammerfall.
+P:NPC {
+  key = "ar_tunkk", id = TODO_NPC("Tunkk"), name = "Tunkk", title = "Leatherworking Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "hammerfall" }, temper = { "jovial", "blunt" }, values = { "craft", "thrifty" },
+  notices = { "craft", "class", "pet" },
+
+  impression = {
+    first = "Tunkk sells salt, thread and dye to Hammerfall's leatherworkers and wastes nothing, not a scrap of hide nor a length of sinew. He is cheerful about it, and loud.",
+    third = "{name} met Tunkk, who sells leatherworking supplies at Hammerfall.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Salt, thread and dye for the leather trade! Come and look, and do not mind the smell, it is the smell of work." },
+    { id = "g_back", when = { metBefore = true }, text = "Ha, you again! Good. Did you bring me hides, or only coin? I take both." },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker! Come, come, feel this thread and tell me it is not the best you have pulled." },
+  },
+
+  notice = {
+    { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
+      text = "A skinner, with a clean knife. Bring me nothing with holes in it, and we will be friends for life." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "Hunter! Shoot them in the eye, yes? An arrow through the flank is a hole in my leather." },
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "A fine beast. Do not worry, {pet}, I only take hides from the ones who lose." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Tunkk! I sell what a leatherworker needs, and I tan a little myself behind the wall, where Gor'mul has asked me to keep the vats, because of the smell. He is a great warrior with a small nose." },
+        { id = "h_tauren", when = { race = "Tauren" },
+          text = "Tunkk, friend tauren! Your people taught the Horde that every part of the kill has a use, and I have built my whole trade on it, so sit, you are welcome here." },
+        { id = "h_alliance", when = { faction = "Alliance" },
+          text = "Tunkk, and I sell nothing to the Alliance. Go, before I begin to wonder what your hide would fetch." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Ask, ask." },
+        { id = "h_again2", text = "Go on! I talk better than I tan, some say." },
+        { id = "h_again3", text = "More? Good, the vats can wait a little." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "What hides come out of these hills?", next = "hides" },
+        { text = "You waste nothing, I hear.", next = "waste" },
+        { text = "Who do you trade with in the fort?", next = "fort" },
+        { text = "What will you pay a skinner's eye for?", next = "x_skin", when = { profession = { "Skinning", "Leatherworking" } } },
+        { text = "The Earth Mother honours a kill used whole.", next = "x_tauren", when = { race = "Tauren" } },
+        { text = "Good tanning, Tunkk.", next = "END" },
+      },
+    },
+    hides = {
+      lines = {
+        { id = "hd_default", text = "Raptor, which is the best, tough as mail and light as cloth. Then the cave spiders, whose skin is bad but whose silk Jun'ha wants. And when the caravans come up from Tarren Mill they bring me kodo hide from the Barrens, thick as my thumb, and one of those keeps me in work for a month." },
+      },
+      choices = {
+        { text = "Who brings them in?", next = "hides_who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hides_who = {
+      lines = {
+        { id = "hw_default", text = "The fort's hunters, and Uttnar the butcher, who takes the meat and throws me the skin as if it were nothing. Ha! He sells a boar once, and I sell it four times: the hide, the sinew, the bristles and the fat for the leather." },
+      },
+      choices = {
+        { text = "Four sales from one boar. That's thrift.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    waste = {
+      big = true,
+      lines = {
+        { id = "ws_default", text = "Nothing! In the camps we had nothing, so we learned what a scrap is worth. I keep every offcut in that barrel, and when a young grunt needs a strap and has no coin, the barrel provides. Mu'uta says I am a miser, and he takes my sinew all the same." },
+      },
+      choices = {
+        { text = "Giving scraps to grunts who can't pay is no miser's act.", next = "BACK", reply = "Shh! Do not say it so loud, they will all come.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A strap given free is a strap never valued.", next = "BACK", reply = "Hm. Perhaps. But a grunt whose shield falls off is worth less than a strap, so I will keep the barrel.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fort = {
+      lines = {
+        { id = "ft_default", text = "Everyone! Keena sells me salt, Jun'ha sells me thread when mine runs short, and Mu'uta takes my sinew for his bowstrings and complains about the price. Tharlidun at the stables buys harness leather, and he at least does not haggle." },
+      },
+      choices = {
+        { text = "And the Forsaken? Do they buy leather?", next = "fort_dead" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fort_dead = {
+      lines = {
+        { id = "fd_default", text = "The Deathstalkers do, black and soft and quiet, and they pay without a word. I asked one how he liked the fit, and he looked at me until I went back to my vats. Good customers. I do not need them to be friends." },
+      },
+      choices = {
+        { text = "Coin without talk is its own kind of courtesy.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Let me see what they buy.", next = "BUSINESS" },
+      },
+    },
+    x_skin = {
+      lines = {
+        { id = "xs_default", text = "A whole raptor hide with the tail on, cut from the belly, and no arrow holes in the back. Bring me that and I will pay well and tell everyone your name. Bring me a hide like a fishing net and I will tell them that too." },
+      },
+      choices = {
+        { text = "Whole, belly cut, tail on. You'll have it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_tauren = {
+      lines = {
+        { id = "xt_default", text = "Yes! A tauren hunter told me that at the landing in Durotar, when I was throwing bones on the midden. He picked them up and made needles from them in front of me. I have never thrown a bone away since." },
+      },
+      choices = {
+        { text = "Then you honour the hunt better than most.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    hammerfall = { { id = "tp_hf", text = "A good fort, a proud name and a commander with a small nose. I would not tan anywhere else." } },
+    _none = { { id = "tp_none", text = "Ha! You ask the wrong orc. I know hides, and Drum Fel knows everything else." } },
   },
 }

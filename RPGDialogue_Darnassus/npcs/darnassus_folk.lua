@@ -15,7 +15,7 @@ P:NPC {
   notices = { "class", "race", "kit" },
 
   impression = {
-    first = "Darnath Bladesinger trains warriors on the Warrior's Terrace and speaks of a warrior's honor as if it were a blade he keeps sharp. He sends his best students far beyond Teldrassil to be tested by strangers.",
+    first = "He sends his best students beyond Teldrassil to be tested by strangers.",
     third = "{name} met Darnath Bladesinger, a warrior trainer on Darnassus's Warrior's Terrace.",
   },
 
@@ -108,7 +108,7 @@ P:NPC {
   notices = { "pet", "class" },
 
   impression = {
-    first = "Silvaria teaches hunters' companions new tricks in the Cenarion Enclave, and she speaks to the beasts first and their hunters second. She seems to know what a pet is thinking before its master does.",
+    first = "She speaks to the beasts first and their hunters second.",
     third = "{name} met Silvaria, the pet trainer in the Cenarion Enclave.",
   },
 
@@ -220,7 +220,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Alassin keeps the stables in the Cenarion Enclave and has a dry word for every hunter who leaves a companion with him too long. He has never yet lost an animal and is quietly proud of it.",
+    first = "He has never lost an animal and is quietly proud of it.",
     third = "{name} met Alassin, the stable master in the Cenarion Enclave.",
   },
 
@@ -344,7 +344,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Elissa Dumas is a human mage teaching portal magic inside the Temple of the Moon, which she admits is an odd place for a mage. She is careful with her words around the priestesses and much less careful once they've gone.",
+    first = "She guards her tongue only while the priestesses are in earshot.",
     third = "{name} met Elissa Dumas, the human mage who teaches Portal: Darnassus in the Temple of the Moon.",
   },
 
@@ -473,7 +473,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Lairn keeps the vaults in the Temple Gardens with Garryeth and Idriana, and treats every deposit as if it were an heirloom. He counts slowly, never makes a mistake, and is still unsettled by a shield with an orc's axe in it.",
+    first = "A shield with an orc's axe in it still unsettles him.",
     third = "{name} met Lairn, a banker of Darnassus.",
   },
 
@@ -590,7 +590,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Landria sells bows and arrows on the Tradesmen's Terrace and will tell you the wood, the age and the temperament of every bow on her rack. She judges customers by how they hold a bowstring.",
+    first = "She judges customers by how they hold a bowstring.",
     third = "{name} met Landria, who sells bows and arrows in Darnassus.",
   },
 

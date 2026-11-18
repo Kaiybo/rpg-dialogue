@@ -10,7 +10,7 @@ P:NPC {
   notices = { "purse", "drink" },
 
   impression = {
-    first = "Marin Noggenfogger talks about his elixir the way some people talk about their children, side effects and all. He was sweating, cheerful and already pricing me as a customer.",
+    first = "He talks about his elixir like a child, side effects and all.",
     third = "{name} met Marin Noggenfogger, the goblin alchemist who runs Gadgetzan and dreams of a fortune in elixirs.",
   },
 
@@ -446,7 +446,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Sprinkle calls everyone sweetie and believes that anything can taste good with the right ingredient. She lets Marin think he runs their partnership, and seems to enjoy it.",
+    first = "She lets Marin think he runs their partnership, and enjoys it.",
     third = "{name} met Sprinkle, the warm-hearted goblin of Gadgetzan who fixes food that tastes wrong.",
   },
 
@@ -693,7 +693,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Chief Engineer Bilgewhizzle watches his pressure gauge the way other men watch the sky for storms. In a desert town he keeps the water flowing, and it shows on his face.",
+    first = "He watches his pressure gauge the way others watch for storms.",
     third = "{name} met Chief Engineer Bilgewhizzle, the harried head of the Gadgetzan Water Company.",
   },
 
@@ -929,7 +929,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Senior Surveyor Fizzledowser keeps a map full of circles where water used to be, and he expects every simple job to go wrong. In fairness, out here, he's usually right.",
+    first = "He expects every simple job to go wrong, and is usually right.",
     third = "{name} met Senior Surveyor Fizzledowser, who searches the desert for new water on behalf of the Gadgetzan Water Company.",
   },
 
@@ -1139,7 +1139,7 @@ P:NPC {
   notices = { "craft", "pet" },
 
   impression = {
-    first = "Alchemist Pestlezugg keeps a rat named Rose for an assistant and seems to trust her over any person in Gadgetzan. He is brisk, curious and a little too pleased by horrible discoveries.",
+    first = "He trusts his rat Rose over any person in Gadgetzan.",
     third = "{name} met Alchemist Pestlezugg, the Gadgetzan alchemist who studies the desert's stranger creatures for the Water Company.",
   },
 
@@ -1366,7 +1366,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Tran'rek answered every question about his business without actually answering any of them. He buys what the desert offers, sells it elsewhere and keeps his margins very close.",
+    first = "He answered every question about his business without answering any.",
     third = "{name} met Tran'rek, an evasive goblin trader of Gadgetzan who deals in whatever the desert yields.",
   },
 
@@ -1674,7 +1674,7 @@ P:NPC {
   notices = { "drink", "weary" },
 
   impression = {
-    first = "Innkeeper Fizzgrimble runs the only inn in Gadgetzan and makes a joke of it before anyone else can. He calls the sand in the stew seasoning, and somehow I believed him.",
+    first = "He calls the sand in the stew seasoning, and I believed him.",
     third = "{name} met Innkeeper Fizzgrimble, the chatty keeper of the Road Warrior inn in Gadgetzan.",
   },
 
@@ -1985,7 +1985,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Stoley asked who sent me and then guessed before I could answer. He owes money in Booty Bay and seems to spend most of his days hoping nobody notices him.",
+    first = "He owes money in Booty Bay and hopes nobody notices him.",
     third = "{name} met Stoley, a nervous trader at Steamwheedle Port with debts in Booty Bay.",
   },
 
@@ -2199,7 +2199,7 @@ P:NPC {
   notices = { "craft", "purse" },
 
   impression = {
-    first = "Krinkle Goodsteel will pour a mold for anything if the coin is right, and he says so proudly. He fought the Repairers' Union and won, which tells me a lot about him.",
+    first = "He fought the Repairers' Union and won, which says a lot.",
     third = "{name} met Krinkle Goodsteel, a sharp-tongued goblin smith in Gadgetzan who makes molds nobody else will.",
   },
 
@@ -2339,6 +2339,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "More questions? Ask them over the anvil, pal, because the thorium cools while we chat, and cold thorium is money down the drain." },
         { id = "h_again2", text = "Still here? Then you're either buying or haggling, and I filed a complaint against haggling years ago." },
+        { id = "h_again_b1", text = "Ask quick, chum, because this pour won't wait and neither will the invoice." },
       },
       choices = {
         { text = "Does all this mining scar the desert?", next = "xdruid", when = { class = "DRUID" } },
@@ -2354,6 +2355,8 @@ P:NPC {
         { text = "Someone asked you to pour a demon, Krinkle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "A censer of thorium would cost a fair bit, I'd guess, Krinkle.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are your arrowheads any good against basilisk hide, Krinkle?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "That Repairers' Union still seems to rankle you.", next = "union" },
+        { text = "Is Wrinkle Goodsteel next door any relation?", next = "wrinkle" },
       },
     },
     who = {
@@ -2371,6 +2374,50 @@ P:NPC {
         { text = "I've seen better at the Great Forge.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },
+    union = {
+      lines = {
+        { id = "b_union_default", text = "Rankle? Pal, they pulled my mending rights over a price list, and I've got six complaints on file with the Cartel and a seventh half written. All I did was charge less than they do, which I'm told is unfair competition." },
+      },
+      choices = {
+        { text = "What did the Cartel say?", next = "union_cartel" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    union_cartel = {
+      lines = {
+        { id = "b_union_cartel_default", text = "The Cartel said they'd look into it, which in Gadgetzan means they're waiting to see who pays the bigger filing fee. So I pay mine on time, in full, with a receipt, and I keep every receipt in a strongbox." },
+      },
+      choices = {
+        { text = "And if they rule against you?", next = "union_rule" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    union_rule = {
+      lines = {
+        { id = "b_union_rule_default", text = "Then I appeal, buddy, and after that I appeal the appeal, and by then half the Union will have retired or blown up. I can't lose so long as I've got more patience than they've got members." },
+      },
+      choices = {
+        { text = "That's a long game for a goblin.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrinkle = {
+      lines = {
+        { id = "b_wrinkle_default", text = "That's my brother, friend, and he sells armor while I sell what goes into it and what goes through it. Folks say it's a conflict of interest, and I say it's a family business with excellent coverage." },
+      },
+      choices = {
+        { text = "So you profit whichever way the fight goes.", next = "wrinkle_both" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrinkle_both = {
+      lines = {
+        { id = "b_wrinkle_both_default", text = "Now you're thinking like a Goodsteel! He sells you the breastplate, I sell the other fella the mace, and then you both come back to one of us for repairs. It's a beautiful thing, and the paperwork's all in order." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -2383,6 +2430,8 @@ P:NPC {
     zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak have metal I've never seen, pal, old and strange and very hard to work. I'd pay well for a sample." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got a few good smiths, pal, but none of them can pour a mold like I can. I'd like them to try." } },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make the best steel in the world, pal, and they'd kill you before they'd sell it to you. I'd love to know their secrets, but I'm fond of my head." } },
+    trade = { { id = "tp_b_trade", text = "Thorium's up, iron's steady, and flux is whatever I say it is, because nobody else in Tanaris stocks it. Buy today, pal, while I'm in a generous mood." } },
+    mirage_raceway = { { id = "tp_b_mirage_raceway", text = "I pour axle pins for both crews at the Raceway, and they snap about as often as you'd expect. I don't warranty anything that goes that fast." } },
     _none = { { id = "tp_none", text = "That's not my trade, friend, my trade is metal, so how about buying some?" } },
   },
 }

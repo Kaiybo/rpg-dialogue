@@ -14,7 +14,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "wise", "patient" },
   notices = { "class", "race" },
   impression = {
-    first = "Sagorne Creststrider is a tauren who teaches shaman in Grommash Hold, slow of speech and hard to hurry. He talks about the elements the way a herdsman talks about weather, as something to respect rather than to own.",
+    first = "He says the elements are to be respected, not owned.",
     third = "{name} met Sagorne Creststrider, the tauren shaman trainer in Grommash Hold.",
   },
   greetings = {
@@ -127,7 +127,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "wry" }, values = { "wise", "loyal" },
   notices = { "class", "race" },
   impression = {
-    first = "Sian'tsu is a Darkspear shaman who trains students in Grommash Hold, sharp-eyed and quick to laugh at anyone who takes the elements too seriously. She talks about the Echo Isles as if she could still hear the surf from here.",
+    first = "She talks as if she can still hear the Echo Isles' surf.",
     third = "{name} met Sian'tsu, the troll shaman trainer in Grommash Hold.",
   },
   greetings = {
@@ -138,6 +138,10 @@ P:NPC {
   notice = {
     { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
       text = "Your fire totem be smokin' a little, did you know? It does dat when it's restless, so give it somethin' to burn soon." },
+    { id = "n_orc", cat = "race", when = { race = "Orc", class = "SHAMAN" },
+      text = "An orc shaman, and so serious about it! Loosen your shoulders, mon, de wind don't come to somebody clenched like a fist." },
+    { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
+      text = "Ooh, de water in my bowl just went still as glass. It don't like what you carry, mon, so stand a little dat way." },
   },
   start = "hello",
   nodes = {
@@ -149,12 +153,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, mon?" },
         { id = "h_again2", text = "Ask, ask, I got time till de next student trips over his totems." },
+        { id = "h_again3", text = "You still be here, and I still be smilin'. Dat be a good sign for both of us, mon." },
       },
       choices = {
         { text = "I'm ready to train.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "How do trolls come to the spirits?", next = "loa" },
         { text = "You don't seem to mind teaching orcs.", next = "orcs" },
         { text = "What's the hardest thing to teach?", next = "hard" },
+        { text = "Three peoples under one roof must argue.", next = "roof" },
+        { text = "You teach a stone's throw from the Warchief.", next = "hold" },
+        { text = "A Darkspear shaman is a rare thing, I'd have thought.", next = "rare", when = { race = "Troll" } },
+        { text = "The Earth Mother and your loa share this hall.", next = "tauren", when = { race = "Tauren" } },
         { text = "Farewell, Sian'tsu.", next = "END" },
       },
     },
@@ -180,10 +189,55 @@ P:NPC {
     },
     hard = {
       lines = { { id = "ha_default", text = "Patience, every time. Young shaman want de lightning first and de listening later, and de spirits teach dem de other way round, usually by knockin' dem on dere backside." } },
+      choices = {
+        { text = "Did the spirits ever knock you down?", next = "hard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard2 = {
+      lines = { { id = "ha2_default", text = "Ha, more dan once! I called a storm on de beach when I was a girl, to show my cousins, and de wave it sent took our boat and my father's nets. De water spirit never said a word about it, mon, it just let me watch de boat go." } },
+      choices = {
+        { text = "What did you learn from it?", next = "hard3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard3 = {
+      big = true,
+      lines = { { id = "ha3_default", text = "Dat de spirits be not servants and not teachers either. Dey be neighbours, mon, old ones, and you ask a neighbour for help de way you would want to be asked. I tell every student dat, and de ones who hear it need very little else from me." } },
+      choices = {
+        { text = "Asking with respect is the whole of the craft.", next = "BACK", reply = "Dat be it, and it took me a boat to learn it. You got it for free, so use it well.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A strong enough shaman need not ask.", next = "BACK", reply = "Dere was a troll who thought so, and now he sits on our islands with a head full of spite. Don't be dat one, mon.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roof = {
+      lines = { { id = "ro_default", text = "All de time, mon, and it be de best part! Kardris says de spirits must be approached with ceremony, Sagorne says dey must be approached with humility, and I say dey must be approached with a joke, and somehow de students come out knowin' all three." } },
+      choices = {
+        { text = "Which of you is right?", next = "roof2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roof2 = {
+      lines = { { id = "ro2_default", text = "Sagorne, probably, but don't tell him. De tauren never lost de spirits de way de orcs did, and never had to bargain with dem de way we did with de loa, so he comes to dem clean. I be a little jealous of dat, when I be honest." } },
+      choices = { { text = "Something else, Sian'tsu.", next = "BACK" } },
+    },
+    hold = {
+      lines = { { id = "ho_default", text = "I do, and he walks through sometimes and listens at de back like any student. De Warchief be de strongest shaman I ever stood near, mon, and he still asks old Kardris how she would do a thing before he does it. Dat tells you what kind of power he has." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rare = {
+      lines = { { id = "ra_default", text = "Rarer dan it should be, cousin. De tribe has witch doctors and priests and shadow hunters, and de elements got left to de fishermen who needed to know de weather. Vol'jin asked a few of us to learn it proper from de orcs, and I was de one who could not say no to a storm." } },
+      choices = { { text = "I'm glad you couldn't. Something else.", next = "BACK" } },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "Dey do, and dey get along better dan you would fear. Your Earth Mother be big enough to hold everything, and de loa be too proud to notice dey be standin' on her, so nobody quarrels. Sagorne laughed when I told him dat, and he does not laugh often." } },
+      choices = { { text = "That sounds like him. Something else.", next = "BACK" } },
     },
   },
   topics = {
+    thrall = { { id = "tp_thrall", text = "He pulled my people off a drownin' island with de sea witch reachin' for us. Every lesson I give in his hall be a small piece paid back." } },
+    the_elements = { { id = "tp_elements", text = "Water I know best, den air, den earth. Fire and I be polite to each other, mon, and we leave it at dat." } },
+    darkspear = { { id = "tp_darkspear", text = "We be few and far from home, and we be still laughin'. Nobody ever broke a people dat could still laugh." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin be de cleverest troll I ever met, and he sits beside Thrall like he was born dere. Don't tell him I said so, his head be big enough." } },
     echo_isles = { { id = "tp_echo", text = "Zalazane holds de isles now with his hexed fools, and I dream of de beaches anyway. One day, mon." } },
     _none = { { id = "tp_none", text = "Dat one I don't know, and de spirits ain't sayin' either." } },
@@ -199,7 +253,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "brisk" }, values = { "craft", "practical" },
   notices = { "craft", "race" },
   impression = {
-    first = "Zamja teaches cooking in the Drag, a troll with a cleaver who never stops chopping while she talks. She has firm opinions about orc seasoning and doesn't mind sharing them.",
+    first = "She has firm opinions about orc seasoning and shares them freely.",
     third = "{name} met Zamja, the troll cooking trainer in the Drag.",
   },
   greetings = {
@@ -211,6 +265,10 @@ P:NPC {
       text = "You smell like a cookfire, a good one with some pepper in it. Maybe dere's hope for you after all." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc. Let me guess, you like your boar burnt on de outside and raw in de middle, like every orc I ever fed." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear nose! Come, smell dis and tell me if it be right, because every orc I ask just says it be hot." },
+    { id = "n_dead", cat = "race", when = { race = "Scourge" },
+      text = "One of de dead ones. Can you taste, mon? No, don't tell me, I cook it right either way and I rather not know." },
   },
   start = "hello",
   nodes = {
@@ -222,12 +280,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? De meat won't chop itself." },
         { id = "h_again2", text = "Go on, I can talk and chop together." },
+        { id = "h_again3", text = "Talk, talk, but stand upwind of de pepper pot or you be cryin' on my floor." },
       },
       choices = {
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What's wrong with orc cooking?", next = "orcfood" },
         { text = "What do trolls cook that orcs don't?", next = "troll" },
         { text = "Where should a cook find good meat?", next = "meat" },
+        { text = "The Drag must be the busiest kitchen in the city.", next = "drag" },
+        { text = "I fish. What should I bring you from the water?", next = "fish", when = { profession = "Fishing" } },
+        { text = "A tauren's cooking would surprise you, I think.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Do any of your students cook well?", next = "students" },
         { text = "I'll leave you to your chopping.", next = "END" },
       },
     },
@@ -253,10 +316,59 @@ P:NPC {
     },
     meat = {
       lines = { { id = "me_default", text = "Boar from Durotar, but de young ones, because de old tusks be tough as boot leather. Out in de Barrens de kodo and de plainstriders be better, and de butchers in de Valley of Strength sell good cuts if you don't want to hunt." } },
+      choices = {
+        { text = "Which butcher do you buy from?", next = "meat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    meat2 = {
+      lines = { { id = "me2_default", text = "Olvia, by de inn, when I want it clean and quick, and Thuwd across de way when I want it cheap, because he only cares about de hide. I take de carcass after he be done with it, and he thinks he be gettin' rid of rubbish." } },
+      choices = {
+        { text = "What do you make from Thuwd's leavings?", next = "meat3" },
+        { text = "Something else, Zamja.", next = "BACK" },
+      },
+    },
+    meat3 = {
+      big = true,
+      lines = { { id = "me3_default", text = "Stew, and stock, and de marrow goes on bread for de peons who sweep de Drag at night. Nobody asks me to feed dem, mon, but dey work in my smell all day and go home to gruel, and I can't cook with dat on my mind." } },
+      choices = {
+        { text = "A good cook feeds whoever is hungry.", next = "BACK", reply = "Dat be what my mother said, with a ladle in her hand. Sit down some night and I feed you too.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Give it away and nobody will pay for it.", next = "BACK", reply = "De ones who can pay, pay. De ones who can't sweep my step without bein' asked, so who be de fool?", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drag = {
+      lines = { { id = "dr_default", text = "It be de only kitchen worth de name, mon! De inn does meat on a stick and calls it supper. Down here it stays cool under de awnings, de leatherworkers send me scraps, and every trade in de Drag comes past my block when de sun be highest." } },
+      choices = {
+        { text = "Who eats the most?", next = "drag2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drag2 = {
+      lines = { { id = "dr2_default", text = "De smiths' apprentices from de Valley of Honor, who run all de way here because Saru Steelfury won't let dem stop long. Den Nogg's engineers, who eat with black hands and never notice what dey be eatin', and it breaks my heart every day." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    students = {
+      lines = { { id = "st_default", text = "One or two. De orcs learn fast once dey believe a recipe be a kind of battle plan, and de tauren already know more about roots and grain dan I do. De Forsaken follow every step perfect and den ask me if it be good, mon, because dey can't tell." } },
+      choices = {
+        { text = "That must be hard to teach around.", next = "BACK", reply = "It be sad more dan hard. I tell dem to cook for somebody livin' and watch de face, and dat works.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fish = {
+      lines = { { id = "fi_default", text = "Anything from de coast with scales on it, and I don't care how ugly. Lumak teaches de fishin' up de way, and he and I got an arrangement, he sends me de students and I send him back de ones who burn everything." } },
+      choices = { { text = "I'll bring you my next catch. Something else.", next = "BACK" } },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "It already did, mon. A brave from Thunder Bluff showed me how dey bake bread in hot ash with no pot at all, and I been tryin' to get it right for a year. You know how, you come round de block and show me." } },
+      choices = { { text = "Gladly, when there's time. Something else.", next = "BACK" } },
     },
   },
   topics = {
+    darkspear = { { id = "tp_darkspear", text = "De tribe cooked for de orcs de first night we landed in Durotar. Half of dem cried from de pepper, and we been friends ever since." } },
+    thrall = { { id = "tp_thrall", text = "De Warchief eats what his grunts eat, dey say, and I say dat be loyalty gone too far. Somebody send him down here." } },
+    ratchet = { { id = "tp_ratchet", text = "De goblins sell spice from across de sea, at prices dat make me dizzy. I pay dem, mon, because a kitchen without spice be just a fire." } },
+    _gated = { { id = "tp_gated", text = "Dat I keep for people who have eaten at my block more dan once. Come back hungry." } },
     echo_isles = { { id = "tp_echo", text = "De best crabs in de world be on dose isles, and Zalazane's fools be eatin' dem all. Dat alone be reason enough to take de isles back." } },
     _none = { { id = "tp_none", text = "Dat ain't food, so I don't know it, mon." } },
   },
@@ -271,7 +383,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "craft", "practical" },
   notices = { "craft", "pet" },
   impression = {
-    first = "Thuwd teaches skinning in the Drag and never seems to put his knife down, since there's always a boar on the ground in front of him. He talks about hides the way other orcs talk about axes.",
+    first = "He talks about hides the way other orcs talk about axes.",
     third = "{name} met Thuwd, the orc skinning trainer in the Drag.",
   },
   greetings = {
@@ -283,6 +395,10 @@ P:NPC {
       text = "You've been skinning, I can see it under your nails. Good, the knife only teaches those who use it." },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Keep your {pet} back from my boar, hunter. It's had its dinner, I'm sure, and this one's mine." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter. Aim for the eye or the heart and leave the flank alone, because I'm the one who has to work around your holes." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren. Your people taught mine most of what I know about using the whole beast, and I'll say so to anyone." },
   },
   start = "hello",
   nodes = {
@@ -293,12 +409,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? The boar's getting stiff." },
         { id = "h_again2", text = "Ask. The knife can wait a breath." },
+        { id = "h_again3", text = "Talk if you must. I can listen and cut, and I'd sooner cut." },
       },
       choices = {
         { text = "Teach me skinning.", next = "BUSINESS" },
         { text = "A beast killed for nothing?", next = "waste" },
         { text = "Where do the hides go after you?", next = "hides" },
         { text = "That boar looks sick, Thuwd.", next = "boar" },
+        { text = "You learned this somewhere harder than the Drag.", next = "learned" },
+        { text = "Hunters must bring you some strange kills.", next = "strange" },
+        { text = "My people honor the beast before the knife.", next = "tauren", when = { race = "Tauren" } },
+        { text = "I work leather. Which hides should I ask for?", next = "lw", when = { profession = "Leatherworking" } },
         { text = "I'll get out of your light.", next = "END" },
       },
     },
@@ -313,7 +434,10 @@ P:NPC {
     },
     hides = {
       lines = { { id = "hi_default", text = "Across the Drag to Karolek and the Kodohide leatherworkers, mostly, who complain about every scratch I leave. The rest go to the armorers and the drum-makers, and the scraps go to the peons for their boots." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Drum-makers? Tell me about the drums.", next = "hides2" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     boar = {
       lines = { { id = "bo_default", text = "Sharp eyes. It's one of the mottled boars from the valley south of here, and something's got into them, they come out with rot in their gut and madness in their eyes. The meat's no good, but the hide still teaches the knife." } },
@@ -326,8 +450,51 @@ P:NPC {
       lines = { { id = "bo2_default", text = "Some say it's the Burning Blade and their foul magic in the caves, others say bad water. I just skin them, and I wash my hands after, and I tell the young ones to do the same." } },
       choices = { { text = "Something else, Thuwd.", next = "BACK", fx = { learn = { "burning_blade" } } } },
     },
+    hides2 = {
+      lines = { { id = "hi2_default", text = "The war drums in the Valley of Honor are kodo hide, stretched wet and dried in the sun for a month, and one drum takes a whole bull's back. I skinned the one that hangs over the Hall of the Brave, and it took four of us a day." } },
+      choices = {
+        { text = "Where does Orgrimmar get kodo?", next = "hides3" },
+        { text = "Something else, Thuwd.", next = "BACK" },
+      },
+    },
+    hides3 = {
+      big = true,
+      lines = { { id = "hi3_default", text = "From the Barrens, and only the ones that go to the graveyard to die, or so the tauren ask of us. Some of our hunters don't wait, and I've had hides brought to me that were plainly taken from a beast in its prime with a calf beside it." } },
+      choices = {
+        { text = "Refuse those hides. The tauren are our allies.", next = "BACK", reply = "I do refuse them, and I tell the hunter why, loudly. It costs me coin and I sleep the better for it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A hide is a hide once the beast is dead.", next = "BACK", reply = "Say that in Thunder Bluff and see how long you keep your welcome. The Horde's a pact, and I'll not skin a hole in it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    learned = {
+      lines = { { id = "le_default", text = "On the march, after Hyjal, when there was no supply train and we lived on what we killed. A tauren called it shameful that orcs threw half of every beast away, and he was right, so I sat down beside him with a knife and I've not stood up since." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    strange = {
+      lines = { { id = "st_default", text = "A thunder lizard once, with the skin still crackling so that the knife jumped in my hand. Raptors by the cartload, and now and then some fool brings me a basilisk and asks why its hide has turned his gloves to stone." } },
+      choices = {
+        { text = "What is the worst hide to work?", next = "strange2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strange2 = {
+      lines = { { id = "st2_default", text = "Scorpid, without question. It isn't a hide at all, it's plate with a grudge, and you must find the seams and pop each piece off whole. Karolek's people will pay well for clean scorpid scale, so it's worth the cut fingers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "I know it, and I've taken up the habit. I say a word over each carcass now, quietly, since the grunts would laugh. I don't know who hears it, but the knife goes cleaner after." } },
+      choices = { { text = "The Earth Mother hears it. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    lw = {
+      lines = { { id = "lw_default", text = "Light boar for practice, and medium hides off the Barrens cats when your hands are steadier. Don't buy from the auction house till you've seen the back of the hide, because half of what's sold there was skinned by someone in a hurry." } },
+      choices = { { text = "I'll check the backs. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    burning_blade = { { id = "tp_blade", text = "Something of theirs is in the Durotar boars, I'd swear to it. I've opened three this month that were black inside." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief wears black plate that was Doomhammer's. Under it there's a wolf-pelt mantle, and whoever skinned that wolf knew the trade." } },
+    cairne = { { id = "tp_cairne", text = "The old bull's people showed us how to live on this land without stripping it. I'd not have a craft without them." } },
+    centaur = { { id = "tp_centaur", text = "I've been asked what I would do with a centaur. I answered that I've standards, and left it there." } },
     _none = { { id = "tp_none", text = "If it hasn't got a hide, I've got no opinion on it." } },
   },
 }
@@ -341,7 +508,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "dry" }, values = { "practical" },
   notices = { "class", "kit" },
   impression = {
-    first = "Handor sells cloth and leather armor out of the Kodohide Leatherworkers shop in the Drag. He looks at every customer's gear first and says what's wrong with it before they've asked.",
+    first = "He says what's wrong with your gear before you've asked.",
     third = "{name} met Handor, who sells cloth and leather armor in the Drag.",
   },
   greetings = {
@@ -353,6 +520,10 @@ P:NPC {
       text = "A rogue. You'll want the soft leather, the kind that doesn't creak, and I've got it if you've got the coin." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid in my shop, and you're looking at the kodo hides as if you knew them. Don't tell me, I'd rather not know." },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 30 } },
+      text = "That isn't armor any more, it's a memory of armor. Take it off before it falls off, and I'll find you something that closes." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter. You'll want it loose at the shoulder for the draw, and you'll tell me so as if I'd never fitted an archer." },
   },
   start = "hello",
   nodes = {
@@ -363,11 +534,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else, or just browsing?" },
         { id = "h_again2", text = "Go on, I've time between customers." },
+        { id = "h_again3", text = "Still here. Good, it gives me longer to look at that stitching of yours." },
       },
       choices = {
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "Who does your stitching?", next = "shop" },
         { text = "Leather against an axe? Why bother?", next = "axe" },
+        { text = "You judged my boots before I'd said a word.", next = "eye" },
+        { text = "Tor'phan up the street says your leather creaks.", next = "torphan" },
+        { text = "What should a traveller wear for the Barrens?", next = "barrens" },
+        { text = "I need something that keeps quiet in the dark.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "I work leather. Would the shop buy from me?", next = "lw", when = { profession = "Leatherworking" } },
         { text = "Just looking, Handor.", next = "END" },
       },
     },
@@ -391,8 +568,46 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    axe2 = {
+      lines = { { id = "ax2_default", text = "More than the plate, some seasons. Plate gets a grunt killed slowly and leather gets a scout home quickly, and a scout who comes home tells the Warchief where the enemy is. I'd say that jerkin did more for the Horde than the breastplate did." } },
+      choices = {
+        { text = "The Horde needs its quiet ones as much as its loud.", next = "BACK", reply = "It does, and the quiet ones pay on time. Remember me when you need a jerkin.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A warrior should face the axe, not dodge it.", next = "BACK", reply = "Then go to the armorers in the Valley of Honor, and good luck to you. I'll be here when the dents start to pinch.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eye = {
+      lines = { { id = "ey_default", text = "It's the trade. Twenty steps is enough to see where someone has been and how they fight, if you know what wear looks like. Yours says a great deal of walking and not much sitting, and that you favour one side when you're tired." } },
+      choices = {
+        { text = "What else can you read from gear?", next = "eye2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eye2 = {
+      lines = { { id = "ey2_default", text = "Who's lying about where they've been, mostly. A grunt came in last month swearing he'd fought in Ashenvale, with not one thorn-snag on his leggings. I sold him the leggings he asked for and kept my mouth shut, which is the other half of the trade." } },
+      choices = { { text = "Something else, Handor.", next = "BACK" } },
+    },
+    torphan = {
+      lines = { { id = "tp_default", text = "New leather creaks. It stops when it's been worn, and his customers would know that if any of them wore his robes long enough to find out. He's a good salesman, I'll give him that, and Magar's needle is the best in the Drag, so between them they do no real harm." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    barrens = {
+      lines = { { id = "ba_default", text = "Light, and all of it broken in before you go. The Barrens is hot by day and cold by night and full of things with claws, so you want leather on the legs, cloth at the neck to keep the dust out, and boots that have already walked a week." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rogue = {
+      lines = { { id = "rg_default", text = "Then you want the oiled kodo calfskin on the back shelf, with the buckles wrapped. Shenthul's people from the Cleft buy it by the bundle and never give a name, and I've learned not to offer them a receipt." } },
+      choices = { { text = "No receipt, then. Something else.", next = "BACK" } },
+    },
+    lw = {
+      lines = { { id = "lw_default", text = "If the stitching's even and the hide's clean, yes. Bring a piece to Karolek first, because he decides what's good enough to hang under our sign, and he has turned away work from orcs twice your age." } },
+      choices = { { text = "I'll show Karolek. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    internment = { { id = "tp_internment", text = "They gave us one blanket each and nothing to mend it with. I learned to sew with a fish bone, and I've not wasted a scrap since." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief has his armor from Doomhammer and needs nothing from me. His wolf riders are another matter, and they are particular." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong outriders buy my lightest leather and bring it back in ribbons. Whatever lives in Ashenvale has sharp opinions." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about seams instead." } },
   },
 }
@@ -406,7 +621,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "smooth" }, values = { "practical", "ambitious" },
   notices = { "class", "purse" },
   impression = {
-    first = "Tor'phan sells cloth and leather armor at Magar's Cloth Goods, and he sells hard, calling every robe the finest in the Drag. He and Handor down the street seem to compete for every customer who walks by.",
+    first = "He calls every robe the finest in the Drag.",
     third = "{name} met Tor'phan, who sells armor at Magar's Cloth Goods in the Drag.",
   },
   greetings = {
@@ -469,7 +684,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "craft", "patient" },
   notices = { "race", "hunger" },
   impression = {
-    first = "Kor'jus sells mushrooms from his shop, Dark Earth, down in the Cleft of Shadow, and he's pale from years of living out of the sun. He's the calmest orc in the Cleft and proud of every cap he grows.",
+    first = "He is calm, sun-starved and proud of every cap he grows.",
     third = "{name} met Kor'jus, who sells mushrooms at Dark Earth in the Cleft of Shadow.",
   },
   greetings = {
@@ -537,7 +752,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "dry" }, values = { "craft" },
   notices = { "class" },
   impression = {
-    first = "Muragus sells staves in the Cleft of Shadow, lean and quiet, with a habit of weighing each staff in his hand before he hands it over. His best customers are the warlocks next door, and he doesn't seem to mind.",
+    first = "He weighs each staff in his hand before he hands it over.",
     third = "{name} met Muragus, the staff merchant in the Cleft of Shadow.",
   },
   greetings = {
@@ -600,7 +815,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "warm" }, values = { "practical", "kind" },
   notices = { "hunger", "race" },
   impression = {
-    first = "Shan'ti sells fruit on the road between the Valley of Strength and the Valley of Wisdom, and knows every passing grunt by what they buy. In a city of meat-eaters, she means to feed them something else.",
+    first = "In a city of meat-eaters, she means to feed them fruit.",
     third = "{name} met Shan'ti, the orc fruit seller on the way to the Valley of Wisdom.",
   },
   greetings = {
@@ -663,7 +878,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "honorable", "loyal" },
   notices = { "class", "soldier" },
   impression = {
-    first = "Stone Guard Zarg keeps the weapons of the Hall of Legends, the ones made only for the Horde's greatest champions. He looks at everyone who walks in as if measuring how far they have yet to go.",
+    first = "He measures how far everyone who walks in has yet to go.",
     third = "{name} met Stone Guard Zarg, who keeps the champions' weapons in the Hall of Legends.",
   },
   greetings = {
@@ -726,7 +941,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "honorable", "patient" },
   notices = { "race", "soldier" },
   impression = {
-    first = "Brave Stonehide keeps the officers' tabards and cloaks in the Hall of Legends. She speaks gently, which is rare in the Hall, and seems to care more about the people wearing her goods than the goods themselves.",
+    first = "She cares more about the people wearing her goods than the goods.",
     third = "{name} met Brave Stonehide, the tauren quartermaster in the Hall of Legends.",
   },
   greetings = {

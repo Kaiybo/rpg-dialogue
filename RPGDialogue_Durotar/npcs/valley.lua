@@ -8,7 +8,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "dutiful" },
   notices = { "greenness" },
   impression = {
-    first = "Kaltunk greets every recruit who walks into the Valley of Trials, because someone once greeted him and he remembers who. He is gruff about it, but he has not forgotten what it was to arrive with nothing.",
+    first = "He has not forgotten what it was to arrive with nothing.",
     third = "{name} met Kaltunk, the gruff orc who greets new blood at the mouth of the Valley of Trials.",
   },
 
@@ -221,7 +221,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "hard" }, values = { "stern", "dutiful" },
   notices = { "greenness", "class", "origin" },
   impression = {
-    first = "Gornek runs the Den and claims he is never asleep when the recruits whisper. The first lesson, to him, is getting back up, and he looks at newcomers as though deciding whether they will learn it.",
+    first = "The first lesson, to him, is getting back up.",
     third = "{name} met Gornek, the hard orc who runs the Den in the Valley of Trials and makes Horde out of whoever walks in.",
   },
 
@@ -456,7 +456,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "watchful" }, values = { "sharp", "dutiful" },
   notices = { "class" },
   impression = {
-    first = "Zureetha Fargaze watches the Burning Blade's caves to the north and wants every detail of what anyone saw there. Her contempt for the cultists who want the old fire back is fierce and wholly sincere.",
+    first = "Her contempt for cultists who want the old fire back is fierce.",
     third = "{name} met Zureetha Fargaze, who watches the Burning Blade's caves in the Valley of Trials and sends recruits to thin their ranks.",
   },
 
@@ -635,7 +635,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "exasperated" }, values = { "practical" },
   notices = { "idle" },
   impression = {
-    first = "Most of Foreman Thazz'ril's days go to keeping his peons awake, and mostly he fails. He is exasperated by their talent for napping and almost impressed by it, which makes him better company than he would guess.",
+    first = "His peons' talent for napping exasperates and almost impresses him.",
     third = "{name} met Foreman Thazz'ril, who struggles to keep the sleepy peons of the Valley of Trials gathering lumber.",
   },
 
@@ -647,6 +647,8 @@ P:NPC {
   notice = {
     { id = "n_peon", cat = "idle", when = { race = "Orc", maxLevel = 3 },
       text = "Hmm. You got the look of someone who'd nap behind a lumber pile, mon. Prove me wrong." },
+    { id = "n_peon_orc", cat = "idle", when = { resting = true },
+      text = "You look rested, mon, and I don't trust it. Nobody in dis valley gets rested by honest means." },
   },
 
   start = "hello",
@@ -749,10 +751,15 @@ P:NPC {
         { text = "The beasts here must bother your peons, Foreman.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Do the peons fear warlocks more than you?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Shall I wake your peons with the Light, Foreman?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "There aren't many trees in this valley to cut.", next = "trees" },
+        { text = "You were surveying near the Burning Blade's cave.", next = "survey" },
+        { text = "You've a camp full of orcs and a troll in charge.", next = "foreman" },
         { text = "I'll wake them.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Anything else? Ask fast, mon, before another one of them nods off." },
+        { id = "h_again2", text = "You still be awake, mon, which puts you ahead of my whole crew. What else?" },
+        { id = "h_again3", text = "Talk quick, I just heard a snore from behind de woodpile." },
       },
     },
     rogue = {
@@ -768,11 +775,58 @@ P:NPC {
     },
     rest = {
       lines = { { id = "r_default", text = "Rest? Orgrimmar's walls need lumber, mon, and these peons be the only ones meant to fetch it. If they rest any more, the walls be made of snores." } },
-      choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "What is all the lumber for?", next = "rest2" },
+        { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    rest2 = {
+      lines = { { id = "r2_default", text = "For everything, mon. Orgrimmar be still half built, Razor Hill wants a new palisade, and every watchtower from here to de Southfury started as a pile my peons were supposed to cut. De Horde be a young nation, and young nations eat wood." } },
+      choices = {
+        { text = "And if the wood doesn't come?", next = "rest3" },
+        { text = "Something else, Foreman.", next = "BACK" },
+      },
+    },
+    rest3 = {
+      big = true,
+      lines = { { id = "r3_default", text = "Den some grunt on some wall got a gap beside him where a timber should be, and one day somethin' comes through it. I don't tap my peons because I be cruel, mon, I tap dem because dat grunt can't." } },
+      choices = {
+        { text = "Then the blackjack is a kindness. Keep them working.", next = "BACK", reply = "A kindness with a lump on it, but yes, mon. You understand de job better dan most who laugh at it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Work got by the stick is poor work.", next = "BACK", reply = "Maybe so, mon, and I'd pay dem in honey if honey woke dem up. Bring me a better way and I throw de blackjack in de river.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trees = {
+      lines = { { id = "t_default", text = "You noticed, good, because de overseers in Orgrimmar never do. Durotar grows rock and cactus, mon, so my crew takes what stands along de valley walls and I send de real cuttin' orders north, where de Warsong be fellin' whole forests in Ashenvale." } },
+      choices = {
+        { text = "Then why keep a lumber camp here at all?", next = "trees2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trees2 = {
+      lines = { { id = "t2_default", text = "Because peons need trainin' same as warriors, and better dey learn to swing an axe here where de only thing dey can hurt be a dead tree. Kaltunk gets de recruits and I get de peons, and I think he got de easier job." } },
+      choices = { { text = "Something else, Foreman.", next = "BACK" } },
+    },
+    survey = {
+      lines = {
+        { id = "sv_default", text = "I was lookin' for iron in de rock up dere, before de cultists moved in like rats. Now de Burnin' Blade got de cave and a good seam besides, and Zureetha Fargaze be sendin' recruits in to clear dem out a few at a time." },
+        { id = "sv_done", when = { questDone = TODO_QUEST("Thazz'ril's Pick") }, text = "I was lookin' for iron up dere, and thanks to you I got my pick back to look again some day. De seam be still under dem cultists, mon, so I wait for Zureetha's recruits to finish what you started." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "burning_blade" } } } },
+    },
+    foreman = {
+      lines = { { id = "fm_default", text = "Dat be de Warchief's Horde for you, mon. De orc foremen kept fallin' asleep beside deir own crews, so somebody asked who in de Darkspear was too stubborn to nap, and every troll in Sen'jin pointed at me." } },
+      choices = {
+        { text = "The Horde is stronger for mixing its peoples.", next = "BACK", reply = "I think so too, mon, even on de days my crew makes me doubt everything else.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Orcs should answer to orcs, and trolls to trolls.", next = "BACK", reply = "Den you go wake dem, mon, and I go home to de beach. No? I thought not.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    burning_blade = { { id = "tp_blade", text = "Dey took my surveyin' cave and dey kept my pick, mon. I don't know deir demons, and I don't want to, but I know thieves." } },
+    warsong = { { id = "tp_warsong", text = "De Warsong cut more in a day in Ashenvale dan my crew cuts in a season. Dey also got night elves shootin' at dem, so I don't complain too loud." } },
     _none = { { id = "tp_none", text = "Don't ask me, mon; ask a peon, and wake him up first." } },
     thrall = { { id = "tp_thrall", text = "The Warchief says peons are the backbone of the Horde. I'd like to see him get them to stay awake." } },
     darkspear = { { id = "tp_darkspear", text = "The trolls work harder than my peons, and they don't even get paid. I don't tell my peons that, because they'd stop working entirely." } },
@@ -786,7 +840,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "longsuffering" }, values = { "practical", "generous" },
   notices = { "hunger" },
   impression = {
-    first = "Nobody thanks the cook, Galgar told me, but everybody notices when the pot is empty. He insists fried scorpid tail grows on you, and I am not yet convinced.",
+    first = "Nobody thanks the cook, he says, until the pot is empty.",
     third = "{name} met Galgar, the long-suffering cook who feeds the recruits, grunts and peons of the Valley of Trials.",
   },
 
@@ -798,6 +852,8 @@ P:NPC {
   notice = {
     { id = "n_cook", cat = "hunger", when = { profession = "Cooking" },
       text = "A cook! Then you know nobody thanks us, and everybody notices when we stop." },
+    { id = "n_thin", cat = "hunger", when = { maxLevel = 3 },
+      text = "You're all elbows, recruit. Sit down before Gornek sends you out, because I'll not have it said you fainted on an empty belly." },
   },
 
   start = "hello",
@@ -909,10 +965,15 @@ P:NPC {
         { text = "Would you still feed a warlock, Galgar?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Rogues must steal from your pot, Galgar.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Would you feed a paladin, Galgar?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "That pot looks older than half the recruits.", next = "pot" },
+        { text = "Zlagk sells meat a few steps from your fire.", next = "zlagk" },
+        { text = "The valley can't be an easy larder.", next = "larder" },
         { text = "Thanks, Galgar.", next = "END" },
       },
       again = {
         { id = "h_again", text = "Something else? Talk while I stir; the pot doesn't stop for anybody." },
+        { id = "h_again2", text = "Still here? Then hand me that ladle and keep talking." },
+        { id = "h_again3", text = "Ask away. The stew wants another hour, and so do I." },
       },
     },
     pet = {
@@ -934,11 +995,55 @@ P:NPC {
       lines = {
         { id = "c_camp", text = "In the camps, where you learn to make something out of nothing or you starve. Out here we've got scorpids, and that's not nothing; that's practically a feast." },
       },
-      choices = { { text = "I'll try the scorpid.", next = "BACK", fx = { affinity = 2 } } },
+      choices = {
+        { text = "What did you cook with in the camps?", next = "cook2" },
+        { text = "I'll try the scorpid.", next = "BACK", fx = { affinity = 2 } },
+      },
+    },
+    cook2 = {
+      lines = { { id = "c2_default", text = "Grain husks the guards threw out, rats when we could catch them, and once a boot, which I don't recommend. There were orcs beside me who had stopped caring whether they ate at all, and getting a bowl into their hands was the whole of my day." } },
+      choices = {
+        { text = "The lethargy took their hunger too?", next = "cook3" },
+        { text = "Something else, Galgar.", next = "BACK" },
+      },
+    },
+    cook3 = {
+      big = true,
+      lines = { { id = "c3_default", text = "It took everything, and hunger was the last thing to go and the first to come back. When the Warchief broke the gates, the first sign any of us were waking was that somebody finally complained about my cooking, and I nearly wept." } },
+      choices = {
+        { text = "Then every complaint here is a kind of thanks.", next = "BACK", reply = "Ha! I've never thought of it so, and now I'll never hear them grumble the same way. Have a bowl, on the strength of that.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "They should be made to thank you properly.", next = "BACK", reply = "You can't make an orc thankful, and I'd not want the kind of thanks that's been ordered. Let them grumble and eat.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pot = {
+      lines = { { id = "po_default", text = "It is. That pot came over the sea with the fleet from Lordaeron, and it has fed orcs on three shores since. I've mended the handle twice and the bottom once, and Kzan Thornslash has orders to beat a new one out of scrap the day it finally cracks." } },
+      choices = {
+        { text = "How many does it feed in a day?", next = "pot2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pot2 = {
+      lines = { { id = "po2_default", text = "Forty on a quiet day, and more when Kaltunk gets a fresh lot through. The recruits eat first because they're going out, the grunts second because they've been out, and the peons last, though Thazz'ril's lot would eat first, middle and last if I let them." } },
+      choices = { { text = "Something else, Galgar.", next = "BACK" } },
+    },
+    zlagk = {
+      lines = { { id = "zl_default", text = "He does, and good cuts too. Zlagk butchers what the recruits bring in and I stew what he can't sell, so between us nothing in this valley dies for nothing. He scowls at my scorpid, but he's never once left any in his bowl." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    larder = {
+      lines = { { id = "la_default", text = "It's boar, scorpid and cactus, and after that it's whatever Duokna can get carted in from Razor Hill. I used to dream of the green fields we could see through the camp fence, and now I've a whole valley and not one apple that doesn't bite back." } },
+      choices = {
+        { text = "A hard land of your own beats a soft one behind a fence.", next = "BACK", reply = "It does, every day of the week. I'd not trade one cactus for every field I ever saw through that fence.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Horde could have taken better land than this.", next = "BACK", reply = "Maybe so, but the Warchief wanted land nobody would come to take back. Looking at Durotar, I'd say he found it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 
   topics = {
+    internment = { { id = "tp_internment", text = "I cooked in the camps with nothing, for people who wanted nothing. I'll take a valley of ungrateful recruits over that, any day you like." } },
+    quilboar = { { id = "tp_quilboar", text = "The Razormane come down for the same cactus apples I want. I've sent more recruits to argue with them over fruit than Gornek has over land." } },
     _none = { { id = "tp_none", text = "I'm a cook. Ask me about cactus apples." } },
     thrall = { { id = "tp_thrall", text = "The Warchief ate my scorpid stew once, and he said it was very filling. I've chosen to take that as praise." } },
     darkspear = { { id = "tp_darkspear", text = "The trolls eat anything, and I mean anything, and they always come back for seconds. I like a troll in my kitchen." } },
@@ -952,7 +1057,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "curt" }, values = { "practical" },
   notices = { "kit" },
   impression = {
-    first = "Kzan Thornslash keeps the recruits armed while they keep dropping their weapons in the scrub. He is curt and charges for everything, but he knows his trade.",
+    first = "He is curt and charges for everything, but he knows his trade.",
     third = "{name} met Kzan Thornslash, the curt weaponsmith who keeps the recruits of the Valley of Trials armed.",
   },
 

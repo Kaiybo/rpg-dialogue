@@ -13,7 +13,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm", "proud" }, values = { "honest", "loyal" },
   notices = { "craft", "class" },
   impression = {
-    first = "Orm Stonehoof works near the pool by Thunder Bluff's great central totem, and he is respected across the bluffs for the helms he makes. He is slow to speak and slower to agree, and he will not make a helm for anyone who hasn't earned it.",
+    first = "He will not make a helm for anyone who hasn't earned it.",
     third = "{name} met Orm Stonehoof, the Thunder Bluff smith who makes the brutal helm.",
   },
 
@@ -49,6 +49,8 @@ P:NPC {
         { text = "How do you know Thun'grim?", next = "thungrim" },
         { text = "Are you kin to the other Stonehoofs?", next = "kin" },
         { text = "Why work beside the central totem?", next = "totem" },
+        { text = "I work a forge as well, Orm.", next = "smith", when = { profession = "Blacksmithing" } },
+        { text = "A warrior's helm should be earned, then.", next = "earn", when = { class = "WARRIOR" } },
         { text = "I'll leave you to the forge.", next = "END" },
       },
     },
@@ -87,6 +89,24 @@ P:NPC {
       lines = { { id = "to_default", text = "Because the water cools the iron and the totem reminds me why I shape it. My father worked here, and his mother before him, when the bluffs were only a camp and the lifts were rope and willow." } },
       choices = { { text = "Something else, Orm.", next = "BACK" } },
     },
+    smith = {
+      lines = {
+        { id = "smith_d", text = "Then you know the worth of a helm that has been shaped rather than merely hammered. Work the edge of the forge with Karn for a season, and when you can raise a bowl from one piece without a seam, come and show me." },
+      },
+      choices = {
+        { text = "One piece, no seam. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    earn = {
+      lines = {
+        { id = "earn_d", text = "It should, and it will be. I have made helms for braves who went on to do nothing with them, and I resolved long ago that the next ones would go to heads worth protecting." },
+      },
+      choices = {
+        { text = "Then I'll prove mine is worth the iron.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -105,7 +125,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm", "warm" }, values = { "practical" },
   notices = { "craft" },
   impression = {
-    first = "Karn Stonehoof teaches blacksmithing on the bluffs with a patience his brother Orm doesn't share. He likes beginners, because they haven't learned any bad habits yet.",
+    first = "He likes beginners, because they haven't learned any bad habits yet.",
     third = "{name} met Karn Stonehoof, the blacksmithing trainer of Thunder Bluff.",
   },
   greetings = {
@@ -206,7 +226,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "warm", "anxious" }, values = { "honest", "practical" },
   notices = { "craft", "kit" },
   impression = {
-    first = "Ahanu stitches leather at Hewa's Armory, at the foot of the wind rider tower, and he is happiest when a fresh bundle of hides arrives. He makes goods for Jahan Hawkwing to sell at the Crossroads and fusses over them like a parent.",
+    first = "He fusses over his leather goods like a parent.",
     third = "{name} met Ahanu, a leatherworker at Hewa's Armory in Thunder Bluff.",
   },
 
@@ -324,7 +344,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm", "cheerful" }, values = { "loyal" },
   notices = { "pet" },
   impression = {
-    first = "Bulrug keeps the stables on the Lower Rise of Thunder Bluff, a broad, unhurried tauren who talks to the animals more than he talks to their owners. The beasts in his care seem to like it.",
+    first = "He talks to the animals more than to their owners.",
     third = "{name} met Bulrug, the stable master of Thunder Bluff.",
   },
   greetings = {

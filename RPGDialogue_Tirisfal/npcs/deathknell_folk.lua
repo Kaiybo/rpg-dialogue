@@ -14,7 +14,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Kayla Smithe teaches warlocks' demons new tricks in Deathknell, with her own imp sulking at her feet. She talks about it the way other people talk about a bad-tempered old dog they would never give up.",
+    first = "She speaks of her sulking imp like a bad-tempered old dog.",
     third = "{name} met Kayla Smithe, the demon trainer of Deathknell.",
   },
 
@@ -134,7 +134,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Archibald Kava sells cloth and leather to the newly risen of Deathknell, most of whom arrive in nothing but a burial shroud. He unpicks the red from Scarlet coats before he sells them and finds hats for the ones who've gone quiet.",
+    first = "He unpicks the red from Scarlet coats before he sells them.",
     third = "{name} met Archibald Kava, who sells cloth and leather armor in Deathknell.",
   },
 

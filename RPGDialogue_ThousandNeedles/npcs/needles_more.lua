@@ -13,7 +13,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Zamek is a goblin who belongs to neither racing team and sells to both, and he finds this hilarious. He offered me a repair, a rumor and a distraction in the same breath, and the distraction was the only one with a fixed price.",
+    first = "He sells to both racing teams and finds this hilarious.",
     third = "{name} met Zamek, an independent goblin at the Mirage Raceway who sells repairs and, for the right customer, a diversion.",
   },
 
@@ -51,6 +51,8 @@ P:NPC {
         { text = "What's the deal with Rizzle?", next = "rizzle" },
         { text = "Who's the best racer out here?", next = "racers" },
         { text = "Let's do business.", next = "BUSINESS" },
+        { text = "I build a few gadgets of my own.", next = "eng", when = { profession = "Engineering" } },
+        { text = "A gnome can't get a straight answer out here.", next = "gnome", when = { race = "Gnome" } },
         { text = "See you around, Zamek.", next = "END" },
       },
     },
@@ -112,6 +114,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    eng = {
+      lines = {
+        { id = "eng_d", text = "No kiddin'? Then listen, pal, you and me are the only two people on this whole salt pan who know a torque wrench from a soup spoon. Fizzle's rig runs hot and Pozzik's runs rich, and I'll tell ya which one blows first for a very reasonable consulting fee." },
+      },
+      choices = {
+        { text = "Keep the fee. I'll watch for the smoke.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome = {
+      lines = {
+        { id = "gnome_d", text = "Sure ya can, friend, it just costs extra. Here's one on the house: your boys are better with numbers and our boys are better with fuel, and the day somebody hires both is the day I go out of business." },
+      },
+      choices = {
+        { text = "Then nobody had better tell them.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -133,7 +153,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Jandia is a tauren trader who keeps Freewind Post in thread, dye and salt, and knows exactly how much of each the lifts can carry. She is practical, warm, and cross about the harpies.",
+    first = "She is practical, warm, and cross about the harpies.",
     third = "{name} met Jandia, who sells trade supplies at Freewind Post.",
   },
 
@@ -259,7 +279,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Turhaw is an orc butcher on a mesa full of tauren, and he cheerfully admits it took him a season to stop offering them kodo steak. He talks with a cleaver in his hand and waves it for emphasis.",
+    first = "It took him a season to stop offering the tauren kodo steak.",
     third = "{name} met Turhaw, the orc butcher of Freewind Post.",
   },
 

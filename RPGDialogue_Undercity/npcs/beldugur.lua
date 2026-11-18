@@ -9,7 +9,7 @@ P:NPC {
   communities = { "undercity", "apothecarium" }, temper = { "cold" }, values = { "ambitious", "curious" },
   notices = { "arcane", "lore" },
   impression = {
-    first = "Keeper Bel'dugur collects the writings of dead mages and speaks of their consciences as a flaw. He was courteous to me in the way a man is courteous to a useful tool.",
+    first = "He was courteous the way a man is to a useful tool.",
     third = "{name} met Keeper Bel'dugur, who gathers forbidden books for the Apothecarium and certain parties among the Forsaken.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Longbraid the Grim holds what's left of Dun Modr against the Dark Irons, and he has earned his name.",
+    first = "He has earned that grim name of his.",
     third = "{name} met Longbraid the Grim, who leads the dwarves clinging to the edge of Dun Modr.",
   },
 
@@ -251,7 +251,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Motley Garmason camps near the Thandol Span and can't stop thinking about the Dark Irons who broke it.",
+    first = "He can't stop thinking about the Dark Irons who broke the Span.",
     third = "{name} met Motley Garmason, a dwarf of Dun Modr bent on avenging the Thandol Span.",
   },
 
@@ -420,7 +420,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Ormer Ironbraid guards Whelgar's Excavation from the raptors, and he holds a grudge against each raptor personally.",
+    first = "He holds a grudge against each raptor personally.",
     third = "{name} met Ormer Ironbraid at Whelgar's Excavation, a dwarf with a score to settle against the local raptors.",
   },
 
@@ -586,7 +586,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Prospector Whelgar runs the excavation that bears his name, and he cares more about what's under the mud than what's in the grass.",
+    first = "He cares more for what's under the mud than in the grass.",
     third = "{name} met Prospector Whelgar, who leads the Explorers' League dig in the Wetlands.",
   },
 

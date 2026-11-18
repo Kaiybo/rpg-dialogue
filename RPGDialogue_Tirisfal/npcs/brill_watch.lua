@@ -10,7 +10,7 @@ P:NPC {
   communities = { "brill" }, temper = { "dry", "gruff" }, values = { "practical", "dutiful" },
   notices = { "kit", "race", "greenness" },
   impression = {
-    first = "Deathguard Simmer sends fresh corpses out to steal pumpkins from under the Crusade's noses, and he finds the whole business funnier than he lets on. Something in him still knows a good harvest when he sees one.",
+    first = "He sends fresh corpses to steal pumpkins from under the Crusade's noses.",
     third = "{name} met Deathguard Simmer, who sent the newly risen to raid the pumpkin fields of the Solliden Farmstead.",
   },
 
@@ -165,7 +165,7 @@ P:NPC {
   communities = { "brill" }, temper = { "steady", "wry" }, values = { "dutiful", "practical" },
   notices = { "kit", "class", "weary" },
   impression = {
-    first = "Deathguard Linnea watches the east road for whatever the Bulwark lets slip, and she sounds tired in a way the dead shouldn't. She is level-headed and wry, and she gives credit where it's due without making a fuss of it.",
+    first = "She sounds tired in a way the dead shouldn't.",
     third = "{name} met Deathguard Linnea, who keeps watch east of Brill for Scourge that slip past the Bulwark.",
   },
 
@@ -183,10 +183,47 @@ P:NPC {
       text = "You've been out east already, I can see it on your gear. The horrors bleed, but they bite harder than they bleed." },
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN", "SHAMAN" } },
       text = "A healer, out on my road. Good, because the patrols that come back come back torn." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter, and one who listens before speaking. Stand a moment and tell me what you hear down the road, because I'd like a second pair of ears on it." },
   },
 
   start = "hello",
   nodes = {
+    listen = {
+      lines = { { id = "ls_default", text = "More than my eyes do, in this fog. A horror drags one foot and a ghoul runs on all fours, and the bleeding ones make a sound like a wet sack, so I usually know what's coming a good while before I see it." } },
+      choices = {
+        { text = "And the spirits? They make no sound at all.", next = "listen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    listen2 = {
+      lines = { { id = "ls2_default", text = "No, but everything else goes quiet when one's near, the bats and the crickets and the wind in the grass. If the road ever falls silent while you're on it, {class}, don't stop to wonder why." } },
+      choices = {
+        { text = "I'll remember that when it goes quiet.", next = "BACK", reply = "Do. It's the one thing I tell every patrol, and the ones who come back are the ones who listened.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    walked = {
+      lines = { { id = "wk_default", text = "I know it is. If I told volunteers the whole truth, I'd get no volunteers, and then I'd be walking it alone again. I'm sorry for it, and I'd do the same tomorrow." } },
+      choices = {
+        { text = "I'd have gone anyway. Tell the next one straight.", next = "BACK", reply = "You would have, I believe that. I'll try the truth on the next one and see whether they stay.", fx = { affinity = 1 } },
+        { text = "It got the road cleared. I'll not complain.", next = "BACK", reply = "That's a soldier's answer, and I'm glad of it. The road thanks you, in its way." },
+      },
+    },
+    spirits = {
+      lines = { { id = "sr_default", text = "I've wondered that myself. The horrors are only meat and want cutting down, but the spirits at Balnir were a family once, and they wail as if they still know it. If your prayers can quiet them for good, that's more than my sword has managed." } },
+      choices = {
+        { text = "I'll say the words over them when I pass.", next = "BACK", reply = "Then you'll have done that farm the first kindness it's had since the plague. I'll listen for whether the wailing stops.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    company = {
+      lines = { { id = "cm_default", text = "Hardly anyone. The couriers for the Bulwark ride through at a gallop without a word, and Gordo comes plodding along for his gloom weed and waves a hand the size of a shovel. I've grown fond of him, since he's the only one who slows down." } },
+      choices = {
+        { text = "An abomination for company. That's Tirisfal.", next = "BACK", reply = "He asks after my feet, which is more than the magistrate does. I'll take the company I'm given." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Deathguard Linnea. I keep the east road between Brill and the Bulwark, and I watch for the Scourge that get past the defenders there, which is more of them than anyone in Brill likes to hear." },
@@ -196,10 +233,12 @@ P:NPC {
           text = "Did Sevren read my report, or did he skim it and file it? Don't answer that, I know him." },
         { id = "h_recent", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rear Guard Patrol"), days = 3 } },
           text = "That's a fine patrol, horrors and spirits both, and I've seen Deathguard do worse in twice the time. I'll write it up for Zygand tonight." },
+        { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Deathguard Linnea, and you're a welcome sight on this road, {race}. The Scourge that slip past the Bulwark go for warm blood first, so walk in the middle of it and keep your weapon out." },
       },
       again = {
         { id = "h_again", text = "Anything else? Ask while the road's quiet." },
         { id = "h_again2", text = "Go on, I'm still listening, to you and the road both." },
+        { id = "h_again3", text = "What else? Keep it low, and I'll keep one ear for you." },
       },
       choices = {
         { text = "What gets past the Bulwark?", next = "past" },
@@ -207,6 +246,10 @@ P:NPC {
         { text = "What's the Bulwark like?", next = "bulwark" },
         { text = "How long have you stood this post?", next = "post" },
         { text = "Any work for me?", next = "BUSINESS" },
+        { text = "You listen to the road. What does it tell you?", next = "listen" },
+        { text = "I walked that patrol. Balnir is worse than you said.", next = "walked", when = { questDone = TODO_QUEST("Rear Guard Patrol") } },
+        { text = "Can a priest do anything for the Balnir spirits?", next = "spirits", when = { class = { "PRIEST", "PALADIN", "SHAMAN" } } },
+        { text = "Who else from Brill comes out this far?", next = "company" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -292,6 +335,9 @@ P:NPC {
 
   topics = {
     andorhal = { { id = "tp_andorhal", text = "Andorhal lies east past the Bulwark, and it's full of Scourge. That's all I know, and more than I'd like." } },
+    scourge = { { id = "tp_scourge", text = "The ones I see have slipped their leash or been sent to test the road, and I can't always tell which. I kill them either way and write down how many." } },
+    advice = { { id = "tp_ad", text = "Walk in the middle of the road and stop when it goes quiet. That's kept me standing longer than any armor." } },
+    forsaken = { { id = "tp_forsaken", text = "I came down this road once on the wrong side, and the Dark Lady gave me my mind back. Standing here is how I pay for it." } },
     _none = { { id = "tp_none", text = "Ask in Brill. Out here I only know the road." } },
   },
 }
@@ -303,7 +349,7 @@ P:NPC {
   communities = { "brill" }, temper = { "fierce", "anxious" }, values = { "devout", "proud" },
   notices = { "race", "class" },
   impression = {
-    first = "The Scarlet Zealot chained in Brill is frightened and furious in equal measure, and he holds on to his faith as though it were the last thing in the room that belongs to him. I could not decide whether I pitied him.",
+    first = "I could not decide whether I pitied him.",
     third = "{name} spoke with a Scarlet Zealot kept prisoner in Brill.",
   },
   greetings = {
@@ -315,9 +361,53 @@ P:NPC {
   notice = {
     { id = "n_scourge", cat = "race", when = { race = "Scourge" },
       text = "Your face is grey, but you were someone's son or daughter once. I'll pray for whoever you were, whether you want it or not." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "I can smell the brimstone on you from here. The dead traffic with demons now, and still you ask why we burn you." },
+    { id = "n_fpal", cat = "class", when = { class = "PALADIN", race = "Scourge" },
+      text = "No. That is not possible, the Light does not answer the dead. Whatever you are holding, it is a mockery, and it will leave you when it sees what you are." },
   },
   start = "hello",
   nodes = {
+    shaking = {
+      lines = { { id = "sh_default", text = "It is cold down here, that is all. I held the line at the tower for two winters and I never once ran, and I will not have a corpse tell me I am afraid." } },
+      choices = {
+        { text = "How were you taken?", next = "shaking2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shaking2 = {
+      lines = { { id = "sh2_default", text = "On the road, with a foraging party, by Deathguard who came out of the fog on every side at once. The others fought and were cut down, and I was struck from behind and woke in this town, and I have asked the Light every night since why it kept me." } },
+      choices = {
+        { text = "Perhaps it kept you so that you'd see us plainly.", next = "BACK", reply = "I see you plainly enough. I see a town of the dead going about its marketing, and I do not know what to do with that, so I pray instead." },
+        { text = "Luck kept you. The Light had no part in it.", next = "BACK", reply = "You would say so. A thing with no soul cannot be expected to see a purpose in anything." },
+      },
+    },
+    crusade = {
+      lines = { { id = "cr_default", text = "We are the ones who stayed when the kingdom fell, when the king's own son turned on us and the Alliance looked away. We hold the monastery and the towers and the northern farms, and every acre we hold is an acre the plague does not." } },
+      choices = {
+        { text = "And the farmers who shelter under you?", next = "crusade2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crusade2 = {
+      big = true,
+      lines = { { id = "cr2_default", text = "They are Lordaeron's own people, working Lordaeron's soil, and we guard them and ask only their faith. Your Deathguard cut them down in their fields for it. Tell me which of us is the murderer." } },
+      choices = {
+        { text = "They are living folk. Killing them is wrong.", next = "BACK", reply = "Then there is one of you with a conscience, for what that is worth in a corpse. Say it to your Executor, and see how long he lets you keep it.", fx = { align = { light = 1 } } },
+        { text = "They chose your side. They share your fate.", next = "BACK", reply = "There it is, the dead thing's creed, said plainly. I shall remember it when they bring the next vial, and I shall not be surprised.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light = {
+      lines = {
+        { id = "li_default", text = "Then the Light is more patient with sinners than I was taught, or you are deceived about what answers you. I have prayed in this cellar until my voice gave out, and I have had no answer at all." },
+        { id = "li_dead", when = { race = "Scourge" }, text = "That cannot be so. I have prayed in this cellar until my voice gave out and had no answer, and you tell me it comes to a dead thing at a word? Either you lie, or everything my commander told me was a lie." },
+      },
+      choices = {
+        { text = "It hears you. Silence is not the same as absence.", next = "BACK", reply = "My confessor used to say that. I did not expect to hear it again in this place, and from you.", fx = { affinity = 1 } },
+        { text = "Then ask why it left you here and came to me.", next = "BACK", reply = "Be silent! I will not hear that, not from you, not down here." },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am a soldier of the Scarlet Crusade, and that is all you will get from me. They can bring their vials and their questions, and I'll answer every one with a prayer." },
@@ -326,11 +416,15 @@ P:NPC {
       again = {
         { id = "h_again", text = "What more do you want? I've nothing left to take." },
         { id = "h_again2", text = "Ask, then. I've nowhere to go." },
+        { id = "h_again3", text = "Speak, if you must. It passes the time between their visits." },
       },
       choices = {
         { text = "Why are you kept here?", next = "why" },
         { text = "Why does the Crusade burn the Forsaken?", next = "burn" },
         { text = "Do you have family somewhere?", next = "family" },
+        { text = "You're shaking, soldier.", next = "shaking" },
+        { text = "Tell me about the Crusade you serve.", next = "crusade" },
+        { text = "The Light answers me as well as it answers you.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Leave him.", next = "END" },
       },
     },
@@ -374,6 +468,10 @@ P:NPC {
   },
   topics = {
     scarlet_crusade = { { id = "tp_scarlet", text = "We are the last of Lordaeron's faithful. Remember that, when you burn." } },
+    scarlet_monastery = { { id = "tp_monastery", text = "It stands in the hills to the north-east, and the faithful still keep the hours there. You will never see the inside of it except in chains." } },
+    lordaeron = { { id = "tp_lord", text = "This was the fairest kingdom of men, and I was born in it. You are standing in its corpse and calling yourselves its heirs." } },
+    scourge = { { id = "tp_scourge", text = "You say you are not the Scourge. The plague made both of you, and I was not taught to tell one rot from another." } },
+    holy_light = { { id = "tp_light", text = "The Light is all I have left down here. I'll thank you not to speak of it with that mouth." } },
     _none = { { id = "tp_none", text = "I'll tell you nothing, about that or anything else." } },
   },
 }

@@ -10,7 +10,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "dry", "sharp" }, values = { "ambitious", "cunning" },
   notices = { "class", "pet", "greenness" },
   impression = {
-    first = "Venya Marthand teaches the newly risen of Deathknell to bind their first demon, and she does not repeat a lesson. She is dry, exacting and faintly amused by everything, including her own death.",
+    first = "She is faintly amused by everything, including her own death.",
     third = "{name} met Venya Marthand, the warlock trainer of Deathknell, who teaches the risen to bind their first imp.",
   },
 
@@ -162,7 +162,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "wry", "watchful" }, values = { "cunning", "practical" },
   notices = { "class", "stealth" },
   impression = {
-    first = "David Trias teaches the risen rogues of Deathknell by the chapel and watches everyone's hands while he talks. He is wry and patient, with the air of a man who has picked a great many locks and regretted very few.",
+    first = "He watches everyone's hands while he talks.",
     third = "{name} met David Trias, the rogue trainer of Deathknell.",
   },
   greetings = {
@@ -277,7 +277,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "dry", "earnest" }, values = { "wise", "curious" },
   notices = { "class", "arcane" },
   impression = {
-    first = "Isabella teaches magic to the risen of Deathknell and cannot get through a lesson without a digression about Dalaran. She is scholarly and dry, and her disappointment in the Kirin Tor seems more personal than she admits.",
+    first = "Her disappointment in the Kirin Tor seems more personal than she admits.",
     third = "{name} met Isabella, the mage trainer of Deathknell.",
   },
   greetings = {

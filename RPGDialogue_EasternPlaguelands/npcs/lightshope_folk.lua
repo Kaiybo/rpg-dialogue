@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Khaelyn Steelwing keeps the Alliance gryphons at Light's Hope Chapel and flies them over the worst land in Lordaeron. She shares the yard with a Forsaken bat handler and has made a hard, practical peace with it.",
+    first = "She has made a hard, practical peace with the Forsaken bat handler.",
     third = "{name} met Khaelyn Steelwing, the dwarf gryphon master at Light's Hope Chapel.",
   },
 
@@ -208,7 +208,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Georgia handles the Forsaken bats at Light's Hope and speaks with a dry, chilly patience that hardly ever warms. She says the bats are the only things in this country that the plague can't touch.",
+    first = "She says the bats are the only things the plague can't touch.",
     third = "{name} met Georgia, the Forsaken bat handler at Light's Hope Chapel.",
   },
 
@@ -395,7 +395,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Jessica Chambers keeps the beds and the soup at Light's Hope Chapel, in the only safe room for miles. She speaks gently and plainly, and she has clearly fed a great many people who came in shaking.",
+    first = "She has clearly fed a great many people who came in shaking.",
     third = "{name} met Jessica Chambers, who keeps the inn at Light's Hope Chapel.",
   },
 
@@ -643,7 +643,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Jase Farlane sells trade supplies at Light's Hope Chapel and knows exactly how far every spool of thread had to travel to get there. He's brisk and practical, and he takes the Dawn's cause seriously.",
+    first = "He knows exactly how far every spool of thread had to travel.",
     third = "{name} met Jase Farlane, who sells trade supplies at Light's Hope Chapel.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   notices = { "kit", "level" },
 
   impression = {
-    first = "Yanni Stoutheart sells the plain things a traveller forgets until it's too late: rope, flasks, thread and the like. She sizes up a customer's pack at a glance and is usually right about what's missing.",
+    first = "She can tell at a glance what is missing from a pack.",
     third = "{name} met Yanni Stoutheart, who sells general supplies at Thelsamar's Stoutlager Inn.",
   },
 
@@ -115,7 +115,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Drac Roughcut sells trade goods out of the Stoutlager Inn: vials, spices, flux and the other small things a craftsman can't work without. He is gruff, short with chatter, and quietly helpful once he decides a customer is serious.",
+    first = "He is gruff until he decides a customer is serious.",
     third = "{name} met Drac Roughcut, the tradesman at Thelsamar's Stoutlager Inn.",
   },
 
@@ -125,6 +125,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_goblin_eng", cat = "craft", when = { profession = "Mining" },
+      text = "A miner, by the dust on ye. Ye'll want Karm Ironquill for picks, but come back tae me when ye need flux for what ye dig." },
     { id = "n_craft", cat = "craft", when = { profession = { "Blacksmithing", "Engineering", "Leatherworking", "Tailoring", "Alchemy", "Cooking" } },
       text = "Ye've a crafter's hands, which means ye'll actually buy somethin'. Come in, then." },
   },
@@ -139,6 +141,7 @@ P:NPC {
           text = "A cook! Vidra's always after my spices, an' she'll tell ye herself my spice is half o' what makes her sausages, though she'll no' say which half." },
       },
       again = {
+        { id = "h_again3", text = "Still here? Then buy somethin' or ask somethin', for I'll no' have ye just standin' on my clean floor." },
         { id = "h_again", text = "What else? I've stock tae count." },
         { id = "h_again2", text = "Ask, then, but be quick about it, for there's a crate o' vials on the step that wants bringin' in before it rains." },
       },
@@ -147,6 +150,8 @@ P:NPC {
         { text = "Where do your goods come from?", next = "goods" },
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "Do you sell Vidra her spices?", next = "spice", when = { profession = "Cooking" } },
+        { text = "You run a stall inside an inn.", next = "inn" },
+        { text = "I mine my own ore. What do smiths run short of?", next = "miner", when = { profession = { "Mining", "Blacksmithing" } } },
         { text = "Good day, Drac.", next = "END" },
       },
     },
@@ -196,9 +201,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    inn = {
+      lines = { { id = "in_default", text = "Aye, an' I pay Innkeeper Hearthstove for the corner, which is cheaper than a roof o' my own. Every traveller on the loch comes through that door sooner or later, an' most o' them have torn or broken somethin' on the way." } },
+      choices = {
+        { text = "And the noise doesn't bother you?", next = "inn_noise" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    inn_noise = {
+      lines = { { id = "nn_default", text = "It bothers me every night, an' I've learned tae count stock through a drinkin' song. The mountaineers come off watch thirsty an' loud, an' I'll no' grudge them, for it's their watch that keeps my carts comin'." } },
+      choices = {
+        { text = "They've earned their noise.", next = "BACK", reply = "They have, an' I've told them so exactly once. I'll no' be repeatin' it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    miner = {
+      lines = { { id = "mn_default", text = "Flux, always flux, an' coal in the winter when the carts are slow through the tunnel. Morhan Coppertongue would buy every ingot ye smelt, too, so dinnae haul yer copper all the way tae Ironforge for the sake o' a few coins." } },
+      choices = { { text = "I'll see Morhan first, then.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    thelsamar = { { id = "tp_thel", text = "A small town that eats well an' argues loud. I've traded in worse, an' I'd no' move now." } },
+    background = { { id = "tp_bg", text = "I'm a tradesman, an' I was a tradesman's son. I sell the wee things other folk forget tae make." } },
+    _none = { { id = "tp_none", text = "I couldnae tell ye. If it doesnae come in a crate, I've likely no' heard of it." } },
     background = { { id = "tp_bg", text = "I carted goods between Ironforge an' the loch for years before I settled. My back decided for me." } },
     advice = { { id = "tp_ad", text = "Buy good flux. Cheap flux ruins a better day's work than ye'd believe." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "The Dragonmaw are orcs on the Wetlands side o' the pass, an' they've cost me two crates o' good spice." } },
@@ -214,7 +240,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Vrok Blunderblast sells guns and shot in Thelsamar, and he talks about blunderbusses the way some dwarves talk about their children. He is loud, cheerful and very fond of the word 'boom'.",
+    first = "He is loud, cheerful and very fond of the word 'boom'.",
     third = "{name} met Vrok Blunderblast, Thelsamar's gunsmith.",
   },
 
@@ -320,7 +346,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Rann Flamespinner sells thread, dye and patterns in Thelsamar, a quiet dwarf in a town of loud ones. He notices what people wear and is too polite to say most of what he thinks about it.",
+    first = "He is too polite to say what he thinks of your clothes.",
     third = "{name} met Rann Flamespinner, who sells tailoring supplies in Thelsamar.",
   },
 
@@ -346,6 +372,7 @@ P:NPC {
           text = "A robe-wearer, an' ye'll be wantin' to mend it yerself one day, for robes tear in the oddest places. Come an' look at the silk thread." },
       },
       again = {
+        { id = "h_again3", text = "Ask what ye like. A question's easier tae untangle than a skein, most days." },
         { id = "h_again", text = "What else? Take yer time, for there's no hurry in thread." },
         { id = "h_again2", text = "Go on. I'll keep spinnin' while ye think." },
       },
@@ -353,6 +380,8 @@ P:NPC {
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Why 'Flamespinner'?", next = "name" },
         { text = "Who does tailoring in a mining town?", next = "who" },
+        { text = "Who are your neighbours in trade here?", next = "neighbours" },
+        { text = "I sew a little. What should I buy first?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "Good day, Rann.", next = "END" },
       },
     },
@@ -403,9 +432,18 @@ P:NPC {
         { text = "Keep them. They might be worth something.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
+    neighbours = {
+      lines = { { id = "nb_default", text = "Drac Roughcut has the trade goods in the Stoutlager, an' he an' I split the thread custom wi'out ever havin' discussed it. Yanni Stoutheart sells the general goods, an' Vidra Hearthstove feeds the lot o' us." } },
+      choices = { { text = "It sounds a settled sort of town.", next = "BACK", reply = "It is, an' I'd no' have it otherwise. I've had my fill o' cities.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    tailor = {
+      lines = { { id = "tl_default", text = "Coarse thread an' a bolt o' linen, an' dinnae let anyone sell ye silk till yer seams lie flat. I've watched young tailors ruin good cloth because they wanted a robe before they could manage a shirt." } },
+      choices = { { text = "Linen first. I'll be patient.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    thelsamar = { { id = "tp_thel", text = "Loud, friendly an' full o' sausage smoke. It's a good town for a quiet dwarf, for nobody notices ye sayin' nothin'." } },
     background = { { id = "tp_bg", text = "I'm the son o' a dyer from Ironforge. I came tae the loch for the quiet an' stayed for the sausages." } },
     advice = { { id = "tp_ad", text = "Double the thread at the shoulder. That's where everything tears first." } },
     _none = { { id = "tp_none", text = "I couldnae tell ye, friend. Thread's my business, an' it keeps me busy enough." } },

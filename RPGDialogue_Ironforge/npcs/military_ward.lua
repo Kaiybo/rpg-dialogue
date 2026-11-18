@@ -12,7 +12,7 @@ P:NPC {
   notices = { "soldier" },
 
   impression = {
-    first = "Sara Balloo waits in the Military Ward for news of her husband, Sully, who serves at the Thandol Span. She asks every traveler where they have been, and listens very carefully to the answer.",
+    first = "She waits for news of her husband Sully and questions every traveler.",
     third = "{name} met Sara Balloo of Ironforge, whose husband Sully was posted with the soldiers watching the Thandol Span.",
   },
 
@@ -279,7 +279,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Kelstrum Stonebreaker told me I wouldn't last a day under his training regimen, and laughed about it. I am not entirely sure he was wrong.",
+    first = "He said I wouldn't last a day under him, and laughed.",
     third = "{name} met Kelstrum Stonebreaker, a loud warrior trainer in the Hall of Arms.",
   },
 
@@ -503,7 +503,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Bilban Tosslespanner explains swordplay as if it were a faulty machine to be repaired. I understood perhaps half, but he was very sure of all of it.",
+    first = "He explains swordplay as if it were a faulty machine.",
     third = "{name} met Bilban Tosslespanner, a gnome warrior trainer in the Hall of Arms who talks about combat like an engineer.",
   },
 
@@ -718,7 +718,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Daera Brightspear looked at my companion before she looked at me, which I suppose is how hunters say hello. She speaks plainly and seems to trust beasts more than people.",
+    first = "She seems to trust beasts more than people.",
     third = "{name} met Daera Brightspear, a dwarf hunter trainer in the Hall of Arms.",
   },
 

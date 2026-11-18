@@ -14,7 +14,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "brave", "dutiful" },
   notices = { "class", "weary" },
   impression = {
-    first = "Frang trains the young warriors in the Den and judges them by how fast they get up, not how hard they fall. He is loud about it, but he watches every recruit closely.",
+    first = "He judges recruits by how fast they get back up.",
     third = "{name} met Frang, the warrior trainer in the Valley of Trials' Den.",
   },
   greetings = {
@@ -189,7 +189,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "class", "weary" },
   impression = {
-    first = "Ken'jai teaches the young priests in the Den, a patient troll who mends Frang's recruits after their lessons. He talks of the spirits as neighbours who need to be kept on good terms.",
+    first = "He talks of the spirits as neighbours to keep on good terms.",
     third = "{name} met Ken'jai, the troll priest trainer in the Valley of Trials.",
   },
   greetings = {
@@ -364,7 +364,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "brisk" }, values = { "practical" },
   notices = { "purse", "hunger" },
   impression = {
-    first = "Duokna sells the Den's recruits the plain things they forget they need: water, bread, thread and bags. The questions are as practical as the goods, and nobody leaves without being asked about their waterskin.",
+    first = "Nobody leaves without being asked about their waterskin.",
     third = "{name} bought supplies from Duokna, who keeps general goods for the recruits of the Valley of Trials.",
   },
   greetings = {
@@ -538,7 +538,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "gruff" }, values = { "proud", "craft" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Uhgar sells weapons in Razor Hill and judges a fighter by the edge they carry. He is gruff, proud of the iron, and quick to say which of the town's enemies blunts a blade fastest.",
+    first = "He judges a fighter by the edge they carry.",
     third = "{name} met Uhgar, the weaponsmith of Razor Hill.",
   },
   greetings = {
@@ -701,7 +701,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "calm" }, values = { "patient", "practical" },
   notices = { "class", "pet" },
   impression = {
-    first = "Thotar trains the hunters at Razor Hill and talks about beasts as if they were people worth respecting. He wants to know about every animal a hunter tames, and he is patient with all of them.",
+    first = "He talks about beasts as if they were people worth respecting.",
     third = "{name} met Thotar, who teaches Razor Hill's hunters to read the land and trust their beasts.",
   },
   greetings = {
@@ -864,7 +864,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "sly" }, values = { "cunning" },
   notices = { "class", "stealth" },
   impression = {
-    first = "Kaplak trains rogues out of a dim burrow under Razor Hill and speaks as if every conversation might be overheard. He seems to enjoy being underestimated.",
+    first = "He seems to enjoy being underestimated.",
     third = "{name} found Kaplak, the rogue trainer hidden beneath Razor Hill.",
   },
   greetings = {
@@ -1026,7 +1026,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "class", "weary" },
   impression = {
-    first = "Tai'jin teaches priests at Razor Hill, a warm troll who treats Durotar's wounded grunts like cousins. She talks freely about Sen'jin, and she does not hide that she misses the sea.",
+    first = "She does not hide that she misses the sea.",
     third = "{name} met Tai'jin, the troll priest trainer at Razor Hill.",
   },
   greetings = {
@@ -1203,7 +1203,7 @@ P:NPC {
   communities = { "senjin" }, temper = { "dry" }, values = { "curious", "proud" },
   notices = { "class", "arcane" },
   impression = {
-    first = "Un'Thuwa teaches magic in Sen'jin Village and is quietly proud that a Darkspear can bend the arcane as well as any elf. He is dry about it, and keen to hear where a student learned their first spell.",
+    first = "He is quietly proud that Darkspear bend the arcane like any elf.",
     third = "{name} met Un'Thuwa, the troll mage trainer of Sen'jin Village.",
   },
   greetings = {

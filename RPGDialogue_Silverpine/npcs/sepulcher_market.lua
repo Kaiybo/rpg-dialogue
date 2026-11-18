@@ -10,7 +10,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "proud", "dry" }, values = { "craft", "proud" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Alexandre Lefevre sells leather armor in the Sepulcher and judges every stitch on a customer's back. He is vain about his craft and quietly firm about the one hide he will never work.",
+    first = "There is one hide he will never work.",
     third = "{name} met Alexandre Lefevre, who sells and mends leather armor at the Sepulcher.",
   },
   greetings = {
@@ -105,7 +105,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "blunt", "dry" }, values = { "practical", "craft" },
   notices = { "class", "pet" },
   impression = {
-    first = "Nadia Vernon makes bows from wood she complains about and sells them to people she complains about too. She is blunt, practical and quietly pleased whenever a hunter handles her work properly.",
+    first = "She is quietly pleased when a hunter handles her work properly.",
     third = "{name} met Nadia Vernon, the bowyer of the Sepulcher.",
   },
   greetings = {
@@ -116,23 +116,67 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Keep your beast off my arrows. The last wolf in here ate a quiver of fletching, and I'm still finding feathers." },
+    { id = "n_rifle", cat = "class", when = { race = { "Orc", "Tauren" }, class = "HUNTER" },
+      text = "If that's one of those powder guns on your back, keep it pointed at the floor. They frighten the bats, and they've none of a bow's manners." },
   },
   start = "hello",
   nodes = {
+    sawyer = {
+      lines = { { id = "sy_default", text = "Abigail Sawyer, yes. She makes a decent stave and she doesn't mind the walk, so we don't tread on each other. I arm the Deathguard on these walls, and she sees to whoever passes through, and there are more than enough worgen for both our order books." } },
+      choices = {
+        { text = "No rivalry at all?", next = "sawyer2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sawyer2 = {
+      lines = { { id = "sy2_default", text = "She waxes her strings with tallow and I use beeswax, when I can get it, and each of us thinks the other is a savage. That's as far as it goes. There are too few people in this forest who can tiller a bow for any of them to fall out." } },
+      choices = {
+        { text = "Beeswax, in Silverpine?", next = "BACK", reply = "Andrew Hilbert gets it in with his trade goods, twice a year if the cart survives. I've been known to be civil to him around those dates." },
+        { text = "Something else, Nadia.", next = "BACK" },
+      },
+    },
+    fletch = {
+      lines = { { id = "fl_default", text = "It's the worst of it. There's hardly a goose left on the lake, the crows are too small, and the vultures on the Dead Field shed feathers that reek so badly the archers complain, and they're dead." } },
+      choices = {
+        { text = "So what do you use?", next = "fletch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fletch2 = {
+      big = true,
+      lines = { { id = "fl2_default", text = "Vulture, and I tell the archers to stand upwind of their own quivers. Renferrel has offered to treat the feathers with something of his that keeps them from rotting, and I've put him off twice, because I'm not sure I want my arrows carrying an apothecary's notion of an improvement." } },
+      choices = {
+        { text = "Take his treatment. A sharper edge is a sharper edge.", next = "BACK", reply = "Maybe so. If the worgen can die of a clean arrow, I suppose they can die of a dirty one quicker.", fx = { align = { honor = -1 } } },
+        { text = "Keep your arrows clean. Let the bow do the killing.", next = "BACK", reply = "That's the craftsman's answer, and it's mine. I'll tell him no a third time, and louder.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    troll = {
+      lines = { { id = "tl_default", text = "I know it, and I've had one apart to see how. You cut them short and thick and draw to the chest, which is why your hunters can shoot from a crouch in the brush. I can't get the wood to take that much bend, and it galls me." } },
+      choices = {
+        { text = "It's the horn backing that does it, not the wood.", next = "BACK", reply = "Horn! Of course it is. There, you've told me more in a breath than the Undercity has in a year.", fx = { affinity = 2 } },
+        { text = "A bowyer keeps some secrets, Nadia.", next = "BACK", reply = "Fair enough. I'd not tell you mine either, if I had any left worth keeping." },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Nadia Vernon, bowyer to the Deathguard, for my sins. I make good bows out of bad wood, and I'd make better ones out of good wood, if anybody would bring me some." },
         { id = "h_troll", when = { race = "Troll" }, text = "A troll, and you'll have opinions about bows, I expect, since your people throw spears and shoot better than any of ours. Go on, tell me what's wrong with my stock, everybody does." },
+        { id = "h_back", when = { metBefore = true }, text = "Nadia Vernon, still making good bows out of bad wood. You've not brought me any yew, I notice, so we'll both have to go on being disappointed." },
       },
       again = {
         { id = "h_again", text = "What else? I've strings to wax." },
         { id = "h_again2", text = "Go on, I'm listening, mostly." },
+        { id = "h_again3", text = "Was there something else? Talk to my hands, they're the part that's busy." },
       },
       choices = {
         { text = "Let me see your bows.", next = "BUSINESS" },
         { text = "What's wrong with Silverpine wood?", next = "wood" },
         { text = "Why bows, for the Forsaken?", next = "why" },
         { text = "Any advice for a hunter here?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "There's another bowyer in Silverpine, I've heard.", next = "sawyer" },
+        { text = "Fletching must be hard to come by here.", next = "fletch" },
+        { text = "Troll bows are cut differently from these.", next = "troll", when = { race = "Troll" } },
         { text = "Good day, Nadia.", next = "END" },
       },
     },
@@ -180,6 +224,9 @@ P:NPC {
   },
   topics = {
     worgen = { { id = "tp_worgen", text = "Big, fast, and they come at you sideways. Aim for the eye and keep shooting." } },
+    shadowfang = { { id = "tp_shadowfang", text = "The patrols that go up there take three sheaves of arrows each and come back with none, when they come back. That's all I hear of it, and it's enough." } },
+    advice = { { id = "tp_ad", text = "Keep your string dry and a spare inside your shirt. This forest drips all year round, and a wet string is a broken bow." } },
+    forsaken = { { id = "tp_forsaken", text = "Steady hands and no breath to hold. As archers go, we're the best this country ever had, and it only cost us everything." } },
     _none = { { id = "tp_none", text = "Don't know, don't care. Ask the innkeeper; he likes being asked things." } },
   },
 }
@@ -191,7 +238,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "gruff" }, values = { "practical", "dutiful" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Sebastian Meloche hammers dents out of Deathguard plate all day and talks about it as if the metal had personally wronged him. Under the grumbling he is careful and honest about what he will and won't sell.",
+    first = "He talks about dented plate as if it had personally wronged him.",
     third = "{name} met Sebastian Meloche, the Sepulcher's armorer.",
   },
   greetings = {
@@ -204,23 +251,67 @@ P:NPC {
       text = "That armor's held together with hope and a few rivets. Give it here before it falls off in front of the worgen." },
     { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
       text = "You smell of the forge. Good, at least one person in this crypt knows what an honest day's work feels like." },
+    { id = "n_orc", cat = "kit", when = { race = "Orc" },
+      text = "Orcish plate. Heavy, ugly and nearly impossible to dent, and I mean every word of that kindly. I can mend it, but I'll need the big tongs." },
   },
   start = "hello",
   nodes = {
+    forge = {
+      lines = { { id = "fg_default", text = "I've a forge in the only dry corner the High Executor would give me. The smoke goes up through a crack in the vault and comes out among the headstones, and the first week I was here a patrol nearly put an arrow in it, thinking the crypt was on fire." } },
+      choices = {
+        { text = "Do you share the work with anyone?", next = "forge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge2 = {
+      lines = { { id = "fg2_default", text = "Guillaume Sorouy teaches smithing a few paces off and thinks I hammer like a farrier, and Johan Focht brings us both ore from wherever a miner can dig without being eaten. Alexandre Lefevre does the straps, and I'll admit his straps outlast my buckles." } },
+      choices = {
+        { text = "That's high praise, from you.", next = "BACK", reply = "Don't repeat it. He's a saddler, and they're vain enough." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    arming = {
+      lines = { { id = "ar_default", text = "Hadrec's Deathguard, first and always. After them the deathstalkers, who want everything blackened and silent and then complain that it's thin, and after them whoever the Warchief has sent up from the south that month." } },
+      choices = {
+        { text = "And the patrols toward Shadowfang?", next = "arming2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    arming2 = {
+      big = true,
+      lines = { { id = "ar2_default", text = "They get my best, and most of it doesn't come back. The High Executor wants every patrol out in full plate, and the deathstalkers say plate only makes noise for the worgen to follow. I make what I'm told, but I'd like to know which of them is getting my work killed." } },
+      choices = {
+        { text = "Plate, and march in the open. Hadrec commands here.", next = "BACK", reply = "That's the order as it stands, and I'll keep filling it. An armorer who picks his own customers isn't an armorer for long.", fx = { align = { order = 1 } } },
+        { text = "The scouts know the forest. Make what they ask for.", next = "BACK", reply = "I've half a mind to, on the quiet. A suit that comes back is worth two that look well on parade.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    proof = {
+      lines = { { id = "pf_default", text = "Raise the collar and roll the edge of the pauldron outward, so a jaw slides off it and doesn't catch. And rivet, never weld, across the shoulder, because a worgen shakes what it bites, and a weld cracks where a rivet only loosens." } },
+      choices = {
+        { text = "Rolled edges. I hadn't thought of the jaw.", next = "BACK", reply = "Nobody does until they've seen one hang on. Now you won't need to see it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Sebastian Meloche, armorer. I fix what the forest breaks and sell what the Undercity sends, and some weeks the forest breaks more than the Undercity sends." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren! I'll have nothing that fits you, I'm sorry to say, unless you want a breastplate for one of your arms. The Undercity doesn't send me much in your size." },
+        { id = "h_smith", when = { profession = "Blacksmithing" }, text = "Sebastian Meloche, armorer, and you're a smith yourself by the look of your forearms. Then you'll know what it means when I say the Undercity sends me pig iron and expects plate." },
       },
       again = {
         { id = "h_again", text = "Something else? This rivet won't set itself." },
         { id = "h_again2", text = "Talk while I work, then. I can do both." },
+        { id = "h_again3", text = "What else? Say it over the hammering, I'm not stopping." },
       },
       choices = {
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "What breaks most often?", next = "breaks" },
         { text = "Where does your metal come from?", next = "metal" },
         { text = "Do you strip armor from the fallen?", next = "fallen" },
+        { text = "You've a forge in a graveyard, Meloche.", next = "forge" },
+        { text = "Who are you arming out here?", next = "arming" },
+        { text = "What would you teach a smith about worgen-proofing?", next = "proof", when = { profession = "Blacksmithing" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -258,6 +349,9 @@ P:NPC {
   },
   topics = {
     worgen = { { id = "tp_worgen", text = "Worgen chew pauldrons. That's what I know, and that's all I need to know." } },
+    shadowfang = { { id = "tp_shadowfang", text = "I've sent a wagon's worth of plate up that hill on Deathguard's backs. Very little of it has come down again." } },
+    advice = { { id = "tp_ad", text = "Mend it before you leave the crypt, not after. There's no anvil between here and Pyrewood, and the worgen won't wait while you look for one." } },
+    trade = { { id = "tp_trade", text = "The Undercity sends me less than I ask for and wants it accounted for by weight. I've started weighing the dents." } },
     _none = { { id = "tp_none", text = "Not my trade. Ask someone with less to hammer." } },
   },
 }
@@ -269,7 +363,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "chatty", "cheerful" }, values = { "practical", "profit" },
   notices = { "craft", "purse" },
   impression = {
-    first = "Andrew Hilbert sells thread, flux and empty vials at the Sepulcher and talks the whole time he does it. He is cheerful in a way that sits oddly on a dead man, and he knows exactly who buys what.",
+    first = "His cheer sits oddly on a dead man.",
     third = "{name} met Andrew Hilbert, who sells trade supplies at the Sepulcher.",
   },
   greetings = {
@@ -385,7 +479,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "gentle", "steady" }, values = { "kind", "patient" },
   notices = { "pet", "class" },
   impression = {
-    first = "Sarah Goode keeps the Sepulcher's stables and has the patience of someone animals still trust, which is rare among the dead. She talks to the beasts more kindly than to most people, and doesn't seem to mind who notices.",
+    first = "Animals still trust her, which is rare among the dead.",
     third = "{name} met Sarah Goode, the Sepulcher's stable master.",
   },
   greetings = {
@@ -396,23 +490,72 @@ P:NPC {
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "{pet}'s paws are sore from the pine needles. Let them rest here a night, and they'll thank you for it." },
+    { id = "n_tauren", cat = "class", when = { race = "Tauren" },
+      text = "The beasts have gone quite calm since you walked in. I don't know what your people carry with them, but I wish I could keep some of it in a jar by the door." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "They tell me your kind can take a beast's shape. If you ever do it in here, warn me first, because the wolves will want to know whose pack you belong to." },
   },
   start = "hello",
   nodes = {
+    kept = {
+      lines = { { id = "kp_default", text = "They need more keeping than the soldiers do. A Deathguard can go a month without food or sleep, but a wolf wants meat every day and clean straw, and both have to come from somewhere in a forest where half the game is sick." } },
+      choices = {
+        { text = "Where do you find clean meat in Silverpine?", next = "kept2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kept2 = {
+      lines = { { id = "kp2_default", text = "The hunters bring me what they can spare, and I look at the liver before I let anything eat it. Gwyn Farrow sends her spoiled mushrooms for the bedding, and Edwin Harly puts aside salt for me, so the whole crypt feeds my animals a little, whether it knows it or not." } },
+      choices = {
+        { text = "They've good neighbours, your beasts.", next = "BACK", reply = "Better than they know. I tell them so, on the quiet nights, and I think the old bear half understands.", fx = { affinity = 1 } },
+        { text = "Something else, Sarah.", next = "BACK" },
+      },
+    },
+    bats = {
+      lines = { { id = "ba_default", text = "I do, and they aren't mine to keep, thank goodness. Karos has the bats that carry riders, great leathery things that sleep all day, and he and I have an understanding that I don't comment on the smell and he doesn't let them hunt near my stalls." } },
+      choices = {
+        { text = "Do the other beasts mind them?", next = "bats2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bats2 = {
+      big = true,
+      lines = { { id = "ba2_default", text = "The cats hate them and the wolves ignore them, and the bats don't care for anybody. Karos says a beast is only a tool that eats, and that I waste my time talking to mine, and I've never quite known what to say to that." } },
+      choices = {
+        { text = "A beast that trusts you serves better. Keep talking.", next = "BACK", reply = "That's what I've always found, and it's good to hear someone else say it. I'll keep on, and Karos can keep his opinion.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "He's right. They serve; that's the sum of it.", next = "BACK", reply = "Perhaps, for a bat. I'll go on talking to mine all the same, because it does me good, if not them.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunter = {
+      lines = {
+        { id = "hn_default", text = "Let your beast meet the Forsaken one at a time, and never from behind. Keep your own smell on its bedding, feed it yourself, and don't bring it into the crypt proper until it has slept a night in the yard and woken to find you still there." },
+        { id = "hn_pet", when = { pet = { type = "Beast" } }, text = "You're doing it already, by the look of {pet}. Keep your own smell on the bedding and feed {pet} yourself, and don't go down into the crypt proper until you've both slept a night in the yard." },
+      },
+      choices = {
+        { text = "That's the best advice I've had in Silverpine.", next = "BACK", reply = "It's only what the pony taught me. Animals want to know you'll still be there in the morning, that's all.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Sarah Goode. I keep the stables, for whoever's beasts need keeping, and for the bats when Karos Razok, our bat handler, lets them out of his sight. It's quiet work, and that suits me." },
         { id = "h_scourge", when = { race = "Scourge", class = "HUNTER" }, text = "One of us, with a beast that trusts you anyway. That's a rare thing, and you should be proud of it, because most animals can smell the grave on us." },
+        { id = "h_back", when = { metBefore = true }, text = "Sarah Goode, at the stables, where else? The grey wolf has stopped pacing since you were last here, and I'd like to think he's settling, though he may only be tired." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a wolf that needs a bit of talking to." },
         { id = "h_again2", text = "Go on, I'm listening. So are they." },
+        { id = "h_again3", text = "What else? Ask it softly, and nobody in the stalls will mind." },
       },
       choices = {
         { text = "I'd like to stable a companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you calm animals, being dead?", next = "calm" },
         { text = "What do you keep here?", next = "keep" },
         { text = "Do the worgen bother the stables?", next = "worgen" },
+        { text = "The beasts here look better kept than the soldiers.", next = "kept" },
+        { text = "You share your yard with Karos Razok's bats.", next = "bats" },
+        { text = "How does a hunter keep a beast calm among the dead?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Good day, Sarah.", next = "END" },
       },
     },
@@ -450,6 +593,9 @@ P:NPC {
   },
   topics = {
     worgen = { { id = "tp_worgen", text = "My animals hate the worgen, and my animals are better judges than I am." } },
+    forsaken = { { id = "tp_forsaken", text = "Animals can smell the grave on us, and most won't come near. The ones that do have decided something about us, and I try to deserve it." } },
+    advice = { { id = "tp_ad", text = "Go slowly and speak low. It works on beasts, and it works on Deathguard too, if you ever need it to." } },
+    lordaeron = { { id = "tp_lord", text = "There were dairy farms all down this side of the lake. You can still find the stone troughs in the grass, if you know where the yards were." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Ask the innkeeper, he collects gossip like a magpie." } },
   },
 }

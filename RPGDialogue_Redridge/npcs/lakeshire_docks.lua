@@ -14,7 +14,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Arantir is a night elf rogue who stands on the Lakeshire docks beside Lucius and watches the mountains as if they owed him something. He's searched across continents and oceans for the Horns of Nez'ra, and he's finally found out who has them.",
+    first = "He has crossed oceans hunting the Horns of Nez'ra.",
     third = "{name} met Arantir, the night elf of Ravenholdt who hunts the stolen Horns of Nez'ra among the Blackrock orcs of Redridge.",
   },
 
@@ -141,7 +141,7 @@ P:NPC {
   notices = { "pet", "race" },
 
   impression = {
-    first = "Hilary is a little girl on the Lakeshire docks who dropped the necklace her father gave her into the lake. She's sure he'll be cross, and her cat Effsee is no help at all.",
+    first = "She dropped her father's necklace in the lake and dreads telling him.",
     third = "{name} met Hilary, a little girl in Lakeshire who lost her necklace in Lake Everstill.",
   },
 
@@ -152,6 +152,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_x1", cat = "pet", when = { pet = { family = "Cat" } },
+      text = "Effsee, look, look! That's the biggest cat in the whole world, and it didn't even hiss at you. Does it catch fish too?" },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Is that your {pet}? Can I pet it? Effsee doesn't like other animals, but I do, I like all of them." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
@@ -180,6 +182,9 @@ P:NPC {
         { text = "Tell me about Effsee.", next = "effsee" },
         { text = "Will your daddy really be mad?", next = "daddy" },
         { text = "What's it like, living in Lakeshire?", next = "lakeshire" },
+        { text = "The Light looks after lost things, Hilary.", next = "lightlost", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Where I come from, we'd build something to fetch it.", next = "build", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "Have you told your father about the necklace?", next = "told", when = { questDone = TODO_QUEST("Hilary's Necklace") } },
         { text = "I have to go now, Hilary.", next = "END" },
       },
     },
@@ -246,6 +251,39 @@ P:NPC {
       lines = { { id = "lar_default", text = "Only sometimes, when nobody's looking. Don't tell Mr. Solomon, please, I really like the sweets." } },
       choices = { { text = "I won't tell.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } } },
     },
+    lightlost = {
+      lines = {
+        { id = "lightlost_1", text = "Does it? The priest said that at the big Cathedral in Stormwind, when Mama took me. I said a prayer for my necklace already, but only a small one, because I didn't know if necklaces counted." },
+      },
+      choices = {
+        { text = "They count. Small prayers are heard too.", next = "lightlost2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lightlost2 = {
+      lines = {
+        { id = "lightlost2_1", text = "Then I'll say a bigger one tonight, and one for Effsee, and one for you, so the mean things in the lake don't get you. That's three, and I've never said three before." },
+      },
+      choices = {
+        { text = "Thank you, Hilary. Something else.", next = "BACK" },
+      },
+    },
+    build = {
+      lines = {
+        { id = "build_1", text = "Like a fishing rod with a hand on the end? Shawn tried to make one out of a stick and a hook, and he caught his own sleeve and fell in up to his knees. Could you really build one?" },
+      },
+      choices = {
+        { text = "Maybe I'll just go and look instead.", next = "BACK" },
+      },
+    },
+    told = {
+      lines = {
+        { id = "told_1", text = "I did! I told him everything, even the part where I wasn't careful, and he wasn't cross at all. He said the necklace mattered less than me telling the truth, and then he said don't do it again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -266,7 +304,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Zem Leeward fishes off the Lakeshire docks all day and catches almost nothing. He's sure the fish are just about to bite, and he's been sure of it for years.",
+    first = "He has been sure the fish are about to bite for years.",
     third = "{name} met Zem Leeward, who fishes off a Lakeshire dock with endless patience and very little success.",
   },
 

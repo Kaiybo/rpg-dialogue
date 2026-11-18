@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Denalan studies the plants of Teldrassil from his camp at Lake Al'Ameth, and something about them is troubling him.",
+    first = "Something about Teldrassil's plants is troubling him.",
     third = "{name} met Denalan, a druidic scholar who tends his experiments by Lake Al'Ameth.",
   },
 
@@ -186,7 +186,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Iverron lay sick on the road by the spider cave, poisoned by the webwood venom, and grateful for every kindness.",
+    first = "He lay poisoned by webwood venom, grateful for every kindness.",
     third = "{name} met Iverron, a young kaldorei of Shadowglen who was poisoned by the spiders near the cave.",
   },
 
@@ -371,7 +371,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Zarrin cooks for Dolanaar and keeps the old kaldorei recipes alive, one pot at a time.",
+    first = "The old kaldorei recipes stay alive here, one pot at a time.",
     third = "{name} met Zarrin, the cook of Dolanaar, who guards the recipes of the kaldorei.",
   },
 

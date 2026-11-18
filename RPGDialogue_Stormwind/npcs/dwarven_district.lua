@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gruff" }, values = { "proud", "generous" },
   notices = { "smith", "kit" },
   impression = {
-    first = "Therum Deepforge looked at my hands before my face and told me what he saw in them. He armours the House of Wrynn and still talks about his old masters in Ironforge as if he were their apprentice.",
+    first = "He reads a person's hands before he looks at their face.",
     third = "{name} met Therum Deepforge, Stormwind's royal armourer and blacksmithing trainer in the Dwarven District.",
   },
 
@@ -208,7 +208,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "jovial" }, values = { "practical", "proud" },
   notices = { "smith", "gnome" },
   impression = {
-    first = "Kaita Deepforge sells smithing supplies and holds a grudge against the merchants of the Trade District on principle. The gnomes' tram brings her goods straight from Ironforge, and she wants everyone to know it.",
+    first = "She holds a grudge against the Trade District merchants on principle.",
     third = "{name} met Kaita Deepforge, who sells blacksmithing supplies in the Dwarven District.",
   },
 
@@ -397,7 +397,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "eager" }, values = { "curious" },
   notices = { "engineer", "gnome" },
   impression = {
-    first = "Lilliam Sparkspindle is always halfway through a sum and finishes it before she answers you. She teaches engineering in the Dwarven District and talks about gnomish engineering as the one true discipline.",
+    first = "She is always halfway through a sum and finishes it before answering.",
     third = "{name} met Lilliam Sparkspindle, a gnome who teaches engineering in the Dwarven District.",
   },
 
@@ -602,7 +602,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gruff" }, values = { "practical" },
   notices = { "miner", "dwarf" },
   impression = {
-    first = "Gelman Stonehand told me I'd interrupted him and had better have a good reason. He came down from Ironforge to help rebuild Stormwind and means to teach enough miners that he can go home.",
+    first = "He means to teach enough miners that he can go home.",
     third = "{name} met Gelman Stonehand, the mining trainer of Stonehand Mining in the Dwarven District.",
   },
 

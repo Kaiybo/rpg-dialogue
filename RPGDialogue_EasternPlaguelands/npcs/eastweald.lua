@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Tirion Fordring was a lord and a paladin once, and now he fishes by a river with an old horse for company. He carries his losses quietly, and his kindness hasn't soured in the slightest.",
+    first = "He carries his losses quietly, and his kindness hasn't soured.",
     third = "{name} met Tirion Fordring, the exiled paladin who lives by a quiet stream in the Eastweald with his old horse Mirador.",
   },
 
@@ -346,7 +346,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Nathanos Blightcaller stands on his family's old land and speaks of the Banshee Queen as the one who gave him back his mind. He measured me as a tool, and found me adequate, barely.",
+    first = "He measured me as a tool and found me barely adequate.",
     third = "{name} met Nathanos Blightcaller, the cold Forsaken ranger who serves as the Banshee Queen's champion at Marris Stead.",
   },
 

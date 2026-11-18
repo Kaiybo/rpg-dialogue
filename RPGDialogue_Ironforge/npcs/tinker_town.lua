@@ -11,7 +11,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Tinkmaster Overspark apologizes for his melodrama and then carries straight on with it. He mourns a broken robot called Techbot as if it were a friend, and perhaps it was.",
+    first = "He mourns his broken robot Techbot as if it were a friend.",
     third = "{name} met Tinkmaster Overspark, the master of gnome engineering, who works in Tinker Town while Gnomeregan lies poisoned.",
   },
 
@@ -359,7 +359,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Master Mechanic Castpipe is organizing expeditions back into Gnomeregan to recover lost data, and talks about punch cards the way other people talk about lost children.",
+    first = "He talks about punch cards the way others talk about lost children.",
     third = "{name} met Master Mechanic Castpipe, who organizes missions into Gnomeregan to rescue the city's lost data.",
   },
 
@@ -618,7 +618,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Klockmort Spannerspan is on a quest for new alloys and harder metals for the greatest invention of all. He would not tell me what the invention is, and I suspect he doesn't know yet.",
+    first = "He won't name his great invention, and I suspect he can't yet.",
     third = "{name} met Klockmort Spannerspan, a gnomish blacksmith in Tinker Town forever chasing harder metals.",
   },
 
@@ -909,7 +909,7 @@ P:NPC {
   notices = { "kin" },
 
   impression = {
-    first = "Gnoarn lost his magnificent hair in the radiation leak and his temper along with it. He shakes his fist at the troggs whenever they come up, which is often, and talks about saving Gnomeregan like a general.",
+    first = "He lost his magnificent hair to the radiation, and his temper too.",
     third = "{name} met Gnoarn, a bald and furious gnome in Tinker Town who coordinates the effort to take back Gnomeregan.",
   },
 

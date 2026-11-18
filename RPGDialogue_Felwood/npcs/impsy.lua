@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Impsy is Niby the Almighty's imp, and he thinks his master is an idiot, which he will tell anyone. What he wants most in the world is a pet of his own, and he's building one out of whatever foul things he can get.",
+    first = "He calls his master an idiot and is building a foul pet.",
     third = "{name} met Impsy, a sulking fel imp in Felwood who serves Niby the Almighty and dreams of a pet of his own.",
   },
 

@@ -15,7 +15,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Mux Manascrambler is a goblin engineer who wants to build a machine that sees ghosts, and he's run out of money halfway through. He talks about ectoplasm the way other goblins talk about gold, which with Mux amounts to the same thing.",
+    first = "He wants a machine that sees ghosts, and the money ran out.",
     third = "{name} met Mux Manascrambler, the Gadgetzan engineer building an extra-dimensional ghost revealer.",
   },
 
@@ -154,10 +154,10 @@ P:NPC {
   key = "shreev", id = TODO_NPC("Shreev"), name = "Shreev",
   bible = "bibles/gadgetzan_more.md", role = "questgiver", tier = "quest",
   communities = { "gadgetzan" }, temper = { "sardonic", "careful" }, values = { "craft", "safety" },
-  notices = { "craft" },
+  notices = { "craft" , "race", "class" },
 
   impression = {
-    first = "Shreev runs the Gadgetzan Gizmorium and builds rocket parts for the Mirage Raceway, and he's the only goblin I've met who believes in safety catches. He thinks Razzeric is going to blow himself up, and he's mostly right.",
+    first = "He is the only goblin I've met who believes in safety catches.",
     third = "{name} met Shreev, who runs the Gadgetzan Gizmorium and builds boosters for the goblin racers of the Shimmering Flats.",
   },
 
@@ -171,6 +171,10 @@ P:NPC {
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "An engineer, and you're still whole, which tells me you respect a fuse. You're the rarest customer in Gadgetzan, friend." },
+    { id = "n_b1", cat = "race", when = { race = "Gnome" },
+      text = "A gnome, and looking at my fuses like you could do better. Maybe you could, pal, but mine have never once gone off in the box." },
+    { id = "n_b2", cat = "class", when = { class = "MAGE" },
+      text = "A mage, huh? Do me a favor and keep the sparks in your sleeves, because this whole shop is one big fuse." },
   },
 
   start = "hello",
@@ -187,12 +191,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Talk, but don't lean on the counter, it's full of seaforium." },
         { id = "h_again2", text = "Ask away, friend. Questions don't explode, mostly." },
+        { id = "h_again_b1", text = "Something else? Sure, pal, only stay on your side of the counter." },
       },
       choices = {
         { text = "Show me what you sell.", next = "BUSINESS" },
         { text = "What's this about Razzeric's booster?", next = "booster" },
         { text = "Tell me about the Mirage Raceway.", next = "raceway" },
         { text = "A goblin who believes in safety?", next = "safety" },
+        { text = "Everything in here is labeled twice.", next = "labels" },
+        { text = "Where does a goblin get this much seaforium?", next = "seaforium" },
+        { text = "What's your rule for a safe charge?", next = "charge", when = { profession = "Engineering" } },
+        { text = "Do the gnome drivers buy from you too?", next = "gnomes", when = { race = { "Gnome", "Dwarf" } } },
         { text = "Goodbye, Shreev.", next = "END" },
       },
     },
@@ -237,6 +246,67 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    labels = {
+      lines = {
+        { id = "b_labels_default", text = "Once in Common and once in pictures, friend, on account of a customer who couldn't read and found out what the red powder does. He's fine, mostly, though he whistles when he breathes now." },
+      },
+      choices = {
+        { text = "Do your neighbors worry about the shop?", next = "labels_neighbors" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    labels_neighbors = {
+      lines = {
+        { id = "b_labels_neighbors_default", text = "Nixx Sprocketspring next door checks my storeroom every week, and I let him, because he's the best engineer in town and he works for free. The Bruisers just ask that I give 'em some warning, and I always say I will." },
+      },
+      choices = {
+        { text = "Have you ever needed to warn them?", next = "labels_warn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    labels_warn = {
+      lines = {
+        { id = "b_labels_warn_default", text = "Once, pal, and I yelled plenty loud. The storeroom's got a new roof since then, and I stock the seaforium in smaller kegs, further apart, which is what I call learning from experience." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seaforium = {
+      lines = {
+        { id = "b_seaforium_default", text = "It comes up from Booty Bay by boat to Steamwheedle Port, and then across the sand by kodo, real slow, with a goblin walking in front checking for holes. I pay triple for the careful drivers and it's worth every copper." },
+      },
+      choices = {
+        { text = "What happens with a careless driver?", next = "seaforium_careless" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seaforium_careless = {
+      lines = {
+        { id = "b_seaforium_careless_default", text = "There's a crater on the Steamwheedle road with a kodo saddle at the bottom of it, friend. I point it out to every new driver, and then we talk about my rates." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    charge = {
+      lines = {
+        { id = "b_charge_default", text = "Work out what you need, pal, then halve it, and then stand twice as far back as you think you should. I've sold ten thousand charges on that rule, and the folks who followed it all came back for more." },
+      },
+      choices = {
+        { text = "Halve it and double the distance. I can do that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnomes = {
+      lines = {
+        { id = "b_gnomes_default", text = "Sure they do, and they pay on time, and they read the instructions, which is more than I can say for my own side. Don't spread that around the goblin pit crew, though, or I'll be drinking alone." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -244,6 +314,8 @@ P:NPC {
     background = { { id = "tp_bg", text = "Started in a rocket shop in Undermine, and I'm the only apprentice from it who still has both ears." } },
     advice = { { id = "tp_ad", text = "If it hisses, step back. If it stops hissing, run." } },
     mirage_raceway = { { id = "tp_race", text = "Best customers I've got, pal, until they aren't customers anymore.", next = "raceway" } },
+    steamwheedle = { { id = "tp_b_steamwheedle", text = "The Cartel licenses my explosives and takes a cut for the privilege, pal. In return nobody asks what's in the back room, and that suits us both." } },
+    gadgetzan = { { id = "tp_b_gadgetzan", text = "Nice town, good custom, and the walls are thick, which matters in my line. If my shop ever goes up, the damage stops at the Bruisers' barracks, probably." } },
     _none = { { id = "tp_none", text = "Doesn't tick, doesn't blow, doesn't sell. Not my department, pal." } },
   },
 }
@@ -258,7 +330,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Derotain Mudsipper is a Dark Iron dwarf of the Thorium Brotherhood who sells imperial plate plans for mountains of thorium and tells his customers to toughen up. He's rude, he's good at what he does, and he knows it.",
+    first = "He's rude, he's good at what he does, and he knows it.",
     third = "{name} met Derotain Mudsipper, the Thorium Brotherhood smith in Gadgetzan who trades imperial plate plans for thorium.",
   },
 
@@ -373,7 +445,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Nixx Sprocketspring teaches goblin engineering and sells it like a revival preacher. He'll explain the math of it to anybody: goblin plus engineering equals know-how, and anybody who disagrees can't add.",
+    first = "He sells goblin engineering like a revival preacher.",
     third = "{name} met Nixx Sprocketspring, Gadgetzan's goblin engineering trainer.",
   },
 
@@ -502,7 +574,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Jhordy Lapforge is a gnome in a yellow shirt and goggles who has built a matter transporter in the middle of a goblin town. All he needs is a skilled gnomish engineer to build a beacon for it, and he's very sure it's safe.",
+    first = "He is very sure his matter transporter is safe.",
     third = "{name} met Jhordy Lapforge, the gnome engineer in Gadgetzan who teaches the Ultrasafe Transporter to gnomish engineers.",
   },
 

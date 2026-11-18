@@ -15,7 +15,7 @@ P:NPC {
   notices = { "class", "kin" },
 
   impression = {
-    first = "Yala Windwatcher is Rorian's apprentice, sent to watch the agitated sprites at the standing stones, and she takes the work very seriously. It hurts her that the cure meant shedding shen'dorei blood.",
+    first = "It hurts her that the cure meant shedding shen'dorei blood.",
     third = "{name} met Yala Windwatcher, Rorian's apprentice, who watches the troubled winds at Thendal Grove's standing stones.",
   },
 
@@ -162,7 +162,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Elatrell Featherlight is a ranger with no patience for pests, and he sends the young out after cirrusflies with a dry joke and a warning. He thinks I'd make a fine ranger, if the other thing doesn't work out.",
+    first = "He thinks I'd make a fine ranger, if the other thing fails.",
     third = "{name} met Elatrell Featherlight, a dry-humored Ranger of Thendal Grove at war with the cirrusflies.",
   },
 
@@ -297,7 +297,7 @@ P:NPC {
   notices = { "class", "kin" },
 
   impression = {
-    first = "Valreaa Valewind is a ranger who can't stop thinking about the boy the ursera nearly killed by the elder tree. She does what has to be done, and keeps wondering why it had to be done at all.",
+    first = "She keeps wondering why it had to be done at all.",
     third = "{name} met Valreaa Valewind, a Ranger of Thendal Grove worried about the ursera growing bold.",
   },
 
@@ -420,7 +420,7 @@ P:NPC {
   notices = { "craft", "arcane" },
 
   impression = {
-    first = "Dalia the Collector gathers windstones from all over Thendal Grove and counts every one, because the island's magic is fading and the stones are what's left. She is cheerful about it in the way of someone determined not to be frightened.",
+    first = "Her cheer belongs to someone determined not to be frightened.",
     third = "{name} met Dalia the Collector, who gathers the precious windstones of Thendal Grove.",
   },
 

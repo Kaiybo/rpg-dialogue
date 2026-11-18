@@ -9,7 +9,7 @@ P:NPC {
   temper = { "gruff" }, values = { "proud", "honest" },
   notices = { "class", "kit" },
   impression = {
-    first = "Klannoc Macleod runs the fighting grate on Fray Island and tests warriors of every banner the same way. He asked me why I fight before he would let me near it, and he seemed to care about the answer.",
+    first = "He asked why I fight and seemed to care about the answer.",
     third = "{name} met Klannoc Macleod, who tests warriors on the fighting grate of Fray Island off the Barrens coast.",
   },
 
@@ -125,7 +125,7 @@ P:NPC {
   temper = { "jovial" }, values = { "greedy", "cunning" },
   notices = { "class", "kit" },
   impression = {
-    first = "Twiggy Flathead calls the fights on Fray Island and keeps the book on every one of them. He swears the book has been clean since Klannoc threw his last bookstand into the sea.",
+    first = "The book is clean, he swears, since Klannoc drowned his bookstand.",
     third = "{name} met Twiggy Flathead, the goblin who calls the fights and keeps the odds on Fray Island.",
   },
 

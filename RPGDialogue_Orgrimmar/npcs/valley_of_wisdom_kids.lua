@@ -15,7 +15,7 @@ P:NPC {
   notices = { "wonder", "kin", "hunger" },
 
   impression = {
-    first = "Migi is a small, loud orc boy who plays a war game with clay figures behind Grommash Hold and forgets to eat. His father Thatog worries about him, and Migi seems to think that's very funny.",
+    first = "He forgets to eat and finds his father's worrying very funny.",
     third = "{name} met Migi, Thatog's son, who plays behind Grommash Hold with his friends.",
   },
 
@@ -145,7 +145,7 @@ P:NPC {
   notices = { "wonder", "class" },
 
   impression = {
-    first = "Mogra is the orc girl who runs the children's war game behind Grommash Hold, and she runs it like a general. I had the feeling she'd already decided which side I'd be on before I spoke.",
+    first = "She had picked my side of the game before I spoke.",
     third = "{name} met Mogra, the girl who bosses the children's game behind Grommash Hold.",
   },
 
@@ -306,7 +306,7 @@ P:NPC {
   notices = { "wonder", "class" },
 
   impression = {
-    first = "Puk is the quiet one among the children behind Grommash Hold, the boy who always plays the shaman and spends his turns healing everybody else. He seemed more interested in the spirits than in winning.",
+    first = "He always plays the shaman and spends his turns healing the others.",
     third = "{name} met Puk, a gentle orc boy who plays the shaman in the children's game behind Grommash Hold.",
   },
 

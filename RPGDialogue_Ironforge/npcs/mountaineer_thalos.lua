@@ -11,7 +11,7 @@ P:NPC {
   notices = { "greenness", "kit" },
 
   impression = {
-    first = "Mountaineer Thalos keeps the mouth of Coldridge Pass and turns back anyone without good reason to go through. He judged me with one long look, and I was glad to pass it.",
+    first = "He judged me with one long look, and I passed gladly.",
     third = "{name} met Mountaineer Thalos, who guards the Coldridge end of the trogg-infested pass to Kharanos.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   notices = { "mount" },
 
   impression = {
-    first = "Shellei Brondir keeps the gryphons at Menethil Harbor and fights a losing battle against the damp in their feathers. She is brisk, practical and fond of her birds in a way she doesn't let show.",
+    first = "She is fonder of her birds than she lets show.",
     third = "{name} met Shellei Brondir, the gryphon master of Menethil Harbor.",
   },
 
@@ -195,7 +195,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Murndan Derth sells guns in Menethil Harbor and spends most of his day fighting rust. He thinks the Wetlands are the worst place in the world to keep a firearm, and he keeps a great many of them.",
+    first = "He calls the Wetlands the worst place in the world for guns.",
     third = "{name} met Murndan Derth, a dwarf gunsmith in Menethil Harbor.",
   },
 
@@ -377,7 +377,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Neal Allen sells engineering parts and general goods in Menethil Harbor, an odd mix that he says suits a harbor town perfectly. He keeps his blasting powder in sealed jars, and his patience in reserve for the gnomes.",
+    first = "He keeps his powder in sealed jars and his patience for gnomes.",
     third = "{name} met Neal Allen, who sells engineering supplies and general goods in Menethil Harbor.",
   },
 
@@ -559,7 +559,7 @@ P:NPC {
   notices = { "stealth" },
 
   impression = {
-    first = "Samor Festivus sells poisons from a corner upstairs in the Deepwater Tavern and calls himself a shady dealer without a trace of embarrassment. He is polite, unhurried and very good at not answering questions.",
+    first = "He is polite, unhurried and very good at not answering questions.",
     third = "{name} met Samor Festivus, the shady dealer upstairs in Menethil's Deepwater Tavern.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "kit", "race" },
 
   impression = {
-    first = "Quartermaster Lungertz runs Nethergarde from a desk piled with ledgers, counting every crate that makes it down the road from Darkshire. He's cheerful about it, the way people are when the alternative is despair.",
+    first = "He is cheerful the way people are when the alternative is despair.",
     third = "{name} met Quartermaster Lungertz, who keeps Nethergarde Keep fed and supplied from the far end of a very dangerous road.",
   },
 
@@ -392,7 +392,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Watcher Mahar Ba studies the Dark Portal the way some men pray, and talks about Khadgar as if he'd only stepped out of the room. He is earnest, overworked and a little lonely.",
+    first = "He speaks of Khadgar as if he'd only left the room.",
     third = "{name} met Watcher Mahar Ba, a mage of Nethergarde who studies the Dark Portal and everything Khadgar left behind.",
   },
 
@@ -758,7 +758,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Thadius Grimshade is a Wildhammer who traded the open sky for a tower full of strange books, and he doesn't apologise for it. He drives a hard bargain, but he lit up when the gryphons were mentioned.",
+    first = "He drives a hard bargain but lights up at talk of gryphons.",
     third = "{name} met Thadius Grimshade, a Wildhammer diviner who left Aerie Peak to study darker things in Nethergarde's mage tower.",
   },
 
@@ -1083,7 +1083,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Ambassador Ardalan is an elf who speaks very politely about very unwelcome ideas, chiefly that the Alliance should stop fighting the Horde. He never quite says whom he speaks for.",
+    first = "He never quite says whom he speaks for.",
     third = "{name} met Ambassador Ardalan, an elven envoy at Nethergarde Keep who urges Alliance and Horde to stand together against the Burning Legion.",
   },
 
@@ -1423,7 +1423,7 @@ P:NPC {
   notices = { "race", "drunk" },
 
   impression = {
-    first = "Enohar Thunderbrew is a dwarf who serves her watch at Nethergarde with a mug never far from her hand. Mention her family's ale and she bristles like a cat; mention home and she goes quiet.",
+    first = "Mention her family's ale and she bristles, mention home and she quiets.",
     third = "{name} met Enohar Thunderbrew, a dwarf of the famous brewing family serving at Nethergarde Keep.",
   },
 
@@ -1680,7 +1680,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Alexandra Constantine keeps Nethergarde's gryphons alive in a land that seems built to kill them. She speaks of her birds the way other people speak of their children.",
+    first = "She speaks of her gryphons the way others speak of their children.",
     third = "{name} met Alexandra Constantine, the gryphon master of Nethergarde Keep.",
   },
 
@@ -1874,7 +1874,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Bernie Heisten feeds Nethergarde from whatever the caravans bring, and talks the whole time he does it. He knows every soldier's order and most of their troubles.",
+    first = "He knows every soldier's order and most of their troubles.",
     third = "{name} met Bernie Heisten, who sells food and drink to the garrison at Nethergarde Keep.",
   },
 
@@ -2071,7 +2071,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Strumner Flintheel says as little as a dwarf can and still do business, and his hammer does the rest of the talking. He is, by his own reckoning, the only honest repair for leagues.",
+    first = "He reckons himself the only honest repair for leagues.",
     third = "{name} met Strumner Flintheel, the armorer at Nethergarde Keep.",
   },
 

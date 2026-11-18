@@ -9,7 +9,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "eager" }, values = { "kind", "practical" },
   notices = { "craft", "greenness" },
   impression = {
-    first = "Clarence Gillian greets the newly risen as if they had come to a village fair, and he wants every one of them to leave with a trade. His good cheer is so stubborn that it seems almost like defiance.",
+    first = "His good cheer is so stubborn that it seems almost like defiance.",
     third = "{name} met Clarence Gillian in Deathknell, who points the newly risen toward the trainers and the trades.",
   },
 
@@ -141,22 +141,81 @@ P:NPC {
   communities = { "deathknell" }, temper = { "brisk" }, values = { "orderly", "practical" },
   notices = { "craft" },
   impression = {
-    first = "Florence Nightshade teaches herbalism as if every careless picker were a personal insult. She is brisk and particular, and she plainly loves the plants more than the people who pick them.",
+    first = "She plainly loves the plants more than the people who pick them.",
     third = "{name} met Florence Nightshade, Deathknell's junior herbalism trainer, who has no patience for a root pulled the wrong way.",
   },
 
   greetings = {
     { id = "g_default", text = "If you've come to learn herbs, then come and learn them properly." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me your hands; I want to see whether you've been tearing leaves." },
+    { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist. Then you'll want your herbs whole and not bruised, and for once I'll have a pupil who understands why it matters." },
   },
 
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
       text = "You've been picking, I see, and not badly, though you've crushed half that silverleaf. Hold the stem lower next time." },
+    { id = "n_green", cat = "craft", when = { maxLevel = 4, race = "Scourge" },
+      text = "Your fingers are still stiff from the ground, which makes for clumsy picking. Flex them every morning, and don't practise on anything I'd miss." },
+    { id = "n_tauren", cat = "craft", when = { race = "Tauren" },
+      text = "Your people speak to the plants before they cut them, I've heard. I don't, but I'd sooner teach someone who does than someone who rips." },
   },
 
   start = "hello",
   nodes = {
+    junior = {
+      lines = {
+        { id = "jr_default", text = "Because I teach the first steps and no more, and I'm content with that. When you've learned what I know, Faruza in Brill will take you further, and after her there's Martha Alliestar in the Undercity's Apothecarium." },
+      },
+      choices = {
+        { text = "You don't want to teach the rest yourself?", next = "junior2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    junior2 = {
+      lines = {
+        { id = "jr2_default", text = "The first steps are the ones that matter. By the time a picker reaches Faruza, the habits are set, and if I've taught them to cut clean and leave the root, they'll do it for the rest of their days without thinking." },
+      },
+      choices = {
+        { text = "Then yours is the lesson that lasts.", next = "BACK", reply = "It is, and I'd thank you not to say so in front of Faruza. She thinks it's hers.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    where = {
+      lines = {
+        { id = "wh_default", text = "Along the fences and the old field walls, where the peacebloom likes the shelter, and under the trees on the north side for silverleaf. Keep away from the Scarlet camp to the south, because no herb is worth a Crusader's torch." },
+      },
+      choices = {
+        { text = "And earthroot?", next = "where2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    where2 = {
+      lines = {
+        { id = "wh2_default", text = "On the slopes and the rocky banks, further along the road toward Brill. You dig for that one, carefully, and you fill the hole in afterwards, which nobody ever does unless I've shouted at them first." },
+      },
+      choices = {
+        { text = "Consider me shouted at.", next = "BACK", reply = "Good. It saves me the walk." },
+        { text = "Something else, Florence.", next = "BACK" },
+      },
+    },
+    patch = {
+      lines = {
+        { id = "pa_default", text = "Thank you, and it takes some keeping. The mindless ones trample through it when Deathguard Saltain's scavengers stir them up, and I've had to replant the whole east row twice since the thaw." },
+      },
+      choices = {
+        { text = "Does anyone help you with it?", next = "BACK", reply = "Clarence Gillian waters it when I'm teaching, and tells every seedling how well it's doing. I can't say the encouragement hurts them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sick = {
+      lines = {
+        { id = "si_default", text = "They are sick, and they're growing anyway, which I find rather admirable. Don't go trying to mend the soil on my account, {class}; better people than either of us have looked at Tirisfal and shaken their heads." },
+      },
+      choices = {
+        { text = "I'll honor them for growing at all.", next = "BACK", reply = "That's the right spirit. Pick them gently, then, and you'll have honoured them enough.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Herbalism is the gentlest trade there is, and most people do it as if they were pulling weeds. I can teach you to do it properly, if you'll listen." },
@@ -164,6 +223,8 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Well? What else?" },
+        { id = "h_again2", text = "Go on, then, and mind where you're standing; that's a seedling." },
+        { id = "h_again3", text = "Is there more? I've a row of peacebloom to see to, so ask it briskly." },
       },
       choices = {
         { text = "Teach me herbalism.", next = "BUSINESS" },
@@ -171,6 +232,10 @@ P:NPC {
         { text = "Who buys what you pick?", next = "buyers" },
         { text = "Nightshade? Like the plant you sell?", next = "name" },
         { text = "Why does it matter so much how it's picked?", next = "careful" },
+        { text = "Why 'junior' trainer?", next = "junior" },
+        { text = "Where should a beginner pick, near Deathknell?", next = "where" },
+        { text = "Your patch is the only tidy thing in this village.", next = "patch" },
+        { text = "The plants here feel sick to me, Florence.", next = "sick", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Goodbye, Florence.", next = "END" },
       },
     },
@@ -193,7 +258,7 @@ P:NPC {
     },
     grows = {
       lines = {
-        { id = "g_default", text = "Peacebloom and silverleaf, mostly, and earthroot in the hills, all of them tougher than they ought to be after what this land has drunk. The plague didn't kill the glades, whatever you've heard, though it did leave them strange." },
+        { id = "gr_default", text = "Peacebloom and silverleaf, mostly, and earthroot in the hills, all of them tougher than they ought to be after what this land has drunk. The plague didn't kill the glades, whatever you've heard, though it did leave them strange." },
       },
       choices = {
         { text = "Strange how?", next = "strange" },
@@ -225,6 +290,8 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I picked herbs before, and I pick them now. The only difference is that I can't smell them anymore, and that's a loss I feel every day." } },
     advice = { { id = "tp_ad", text = "Take the leaf and leave the root, unless it's the root you're after. A patch you strip bare is a patch you'll never pick again." } },
+    new_plague = { { id = "tp_plague", text = "I don't ask what the Society does with what I sell, and I'd take it kindly if you didn't tell me. I teach the picking." } },
+    forsaken = { { id = "tp_forsaken", text = "The newly risen grab at everything as though it might run off. A season of herb picking steadies them better than any sermon I've heard in that chapel." } },
     _none = { { id = "tp_none", text = "I know plants, and that isn't one." } },
   },
 }
@@ -236,7 +303,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "gentle" }, values = { "patient", "practical" },
   notices = { "craft", "pet" },
   impression = {
-    first = "Margaret Weaver handles a skinning knife with quiet care and speaks to her students the same way. She is patient with the clumsy and firm with the wasteful.",
+    first = "She is patient with the clumsy and firm with the wasteful.",
     third = "{name} met Margaret Weaver, Deathknell's junior skinning trainer, who sells knives, salt and thread to the newly risen.",
   },
 
@@ -380,7 +447,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "cheerful" }, values = { "practical", "proud" },
   notices = { "craft", "race" },
   impression = {
-    first = "Walter Mason talks about copper veins the way other men talk about old friends. He sells picks and hammers to the newly risen and seems honestly delighted whenever one of them takes up the trade.",
+    first = "He talks about copper veins the way other men talk about friends.",
     third = "{name} met Walter Mason, Deathknell's junior mining trainer, who will talk about copper for as long as anyone lets him.",
   },
 

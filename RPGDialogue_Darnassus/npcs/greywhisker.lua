@@ -9,7 +9,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "fussy", "earnest" }, values = { "curious", "proud" },
   notices = { "race", "craft" },
   impression = {
-    first = "Chief Archaeologist Greywhisker is a dwarf of the Explorers' League who frets about his missing dig crew and about being taken seriously, in roughly equal measure. He thinks the old ruins are a warning, not a hobby.",
+    first = "He thinks the old ruins are a warning, not a hobby.",
     third = "{name} met Chief Archaeologist Greywhisker, an Explorers' League dwarf in Darnassus worried for his excavation team in Darkshore.",
   },
 

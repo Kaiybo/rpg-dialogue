@@ -10,7 +10,7 @@ P:NPC {
   communities = { "marshals_refuge" }, temper = { "eager", "cheerful" }, values = { "curious", "inventive" },
   notices = { "craft", "pet" },
   impression = {
-    first = "Karna Remtravel builds marvels and then sends them where marvels get dented. She is following in her uncle's footsteps, hunting lost cultures, and her mechanical ape A-Me 01 is her pride and her worry.",
+    first = "Her mechanical ape A-Me 01 is her pride and her worry.",
     third = "{name} met Karna Remtravel, a dwarf engineer of the Marshal Expedition who built a mechanical ape named A-Me 01.",
   },
 

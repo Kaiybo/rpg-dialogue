@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "form", "kit" },
 
   impression = {
-    first = "Thisalee Crow is young, quick and impatient with anyone who wants to talk a problem to death. She loves this mountain fiercely and seems to think caution is something that happens to other people.",
+    first = "She thinks caution is something that happens to other people.",
     third = "{name} met Thisalee Crow, a headstrong young Druid of the Talon who keeps watch over the wounded slopes of Mount Hyjal.",
   },
 

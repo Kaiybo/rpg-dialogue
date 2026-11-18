@@ -9,7 +9,7 @@ P:NPC {
   communities = { "silverwind_refuge" }, temper = { "sharp", "impatient" }, values = { "duty", "pride" },
   notices = { "arcane", "race" },
   impression = {
-    first = "Sentinel Velene Starstrike has a lake full of fouled elementals and a grudge against the one undead mage foolish enough to make them. She takes his smugness more personally than his magic.",
+    first = "She takes the mage's smugness more personally than his magic.",
     third = "{name} met Sentinel Velene Starstrike at Silverwind Refuge, who wanted the summoner of Mystral Lake's befouled water elementals found and destroyed.",
   },
 

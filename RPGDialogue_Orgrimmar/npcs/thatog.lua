@@ -11,7 +11,7 @@ P:NPC {
   notices = { "kin", "hunger", "race" },
 
   impression = {
-    first = "Thatog works upstairs in the armory in the Valley of Strength and spends most of his day fretting about his son Migi, who would rather play behind Grommash Hold than eat. He grumbles like a sergeant and worries like a mother.",
+    first = "He grumbles like a sergeant and worries like a mother.",
     third = "{name} met Thatog, an orc of the Valley of Strength who worries that his boy Migi forgets to eat.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "cenarion_hold" }, temper = { "calm", "dry" }, values = { "patient", "dutiful" },
   notices = { "race", "mount" },
   impression = {
-    first = "Runk Windtamer keeps the Horde's wind riders at Cenarion Hold and talks to them more than to people. He watches the sky for sandstorms the way other tauren watch for rain.",
+    first = "He watches for sandstorms the way other tauren watch for rain.",
     third = "{name} met Runk Windtamer, the tauren wind rider master at Cenarion Hold.",
   },
 
@@ -95,7 +95,7 @@ P:NPC {
   communities = { "cenarion_hold" }, temper = { "cheerful", "restless" }, values = { "loyal", "kind" },
   notices = { "race", "weary" },
   impression = {
-    first = "Cloud Skydancer tends the hippogryphs at Cenarion Hold and would rather be in the air than anywhere on the ground. He fusses over his birds' feathers and sings to them when the sand blows.",
+    first = "He sings to his hippogryphs when the sand blows.",
     third = "{name} met Cloud Skydancer, the night elf hippogryph master at Cenarion Hold.",
   },
 

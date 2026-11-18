@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "High Executor Derrington runs the Bulwark like a man who has buried his patience along with everything else. He has no use for Undercity's court games, only for whoever is still standing at dawn.",
+    first = "He cares only for whoever is still standing at dawn.",
     third = "{name} met High Executor Derrington, the Forsaken commander holding the Bulwark against the Scourge of the Plaguelands.",
   },
 
@@ -354,7 +354,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Shadow Priestess Vandis watched my hands while we talked, and I'm fairly sure she was counting my fingers. Whatever faith she had in life, she traded it for something sharper.",
+    first = "I'm fairly sure she was counting my fingers while we talked.",
     third = "{name} met Shadow Priestess Vandis at the Bulwark, who means to turn the plague cauldrons against their makers.",
   },
 
@@ -595,7 +595,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Apothecary Dithers is cheerful in a way that only a dead man elbow-deep in plague samples could be. He forecasts the weather with an exposed knee and seems proud of it.",
+    first = "He forecasts the weather with an exposed knee and seems proud.",
     third = "{name} met Apothecary Dithers, the Royal Apothecary Society's cheerful chemist on loan to the Bulwark.",
   },
 
@@ -889,7 +889,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Alexi Barov still wears the family signet and the family manners, which are worse. He spoke of his own brother's death the way other people discuss a late payment.",
+    first = "He spoke of his brother's death like a late payment.",
     third = "{name} met Alexi Barov, the Forsaken heir of House Barov, who waits at the Bulwark for his brother's fortune.",
   },
 
@@ -1152,7 +1152,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Argent Officer Garush spent his life as a weapon aimed by others, and he seems at peace now with the one enemy the Dawn gave him. He speaks plainly and means every word.",
+    first = "He speaks plainly and means every word.",
     third = "{name} met Argent Officer Garush, the orc who serves the Argent Dawn at the Bulwark.",
   },
 

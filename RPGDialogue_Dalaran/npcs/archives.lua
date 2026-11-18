@@ -13,7 +13,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Archivist Delv Fortuz keeps the late Grand Magus's belongings in labelled rows and speaks of Antonidas the way other men speak of a father. He dusts the cases while he talks and never quite stops.",
+    first = "He speaks of Antonidas the way other men speak of a father.",
     third = "{name} met Archivist Delv Fortuz, who keeps Antonidas' Antiquities in Dalaran.",
   },
 
@@ -225,7 +225,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Archivist Helm Anvilhand runs the Archival Exhibit like a tavern with a history lesson on tap, pressing old things into visitors' hands and daring them to drop one. A dwarf among the magi, and plainly having the time of his life.",
+    first = "He hands visitors old relics and dares them to drop one.",
     third = "{name} met Archivist Helm Anvilhand, a dwarf who keeps Dalaran's Archival Exhibit.",
   },
 
@@ -403,7 +403,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Ranath Nightstride is dead, Highborne, and entirely unbothered by either, and the Kirin Tor bring him texts that no living scholar can read. Four cats sleep around him as if he were a hearth.",
+    first = "Four cats sleep around him as if he were a hearth.",
     third = "{name} met Ranath Nightstride, a Highborne spirit who translates old tongues for the Kirin Tor in the Linguists Lounge.",
   },
 
@@ -553,7 +553,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Spellweaver Thaldris weaves glamours into cloth and steel so that a thing can look like anything its owner pleases. He judged my clothes before he judged me, and was kinder about the second.",
+    first = "He judged my clothes first and me second, and me more kindly.",
     third = "{name} met Spellweaver Thaldris, a night elf who weaves glamours at Talismanic Textiles in Dalaran.",
   },
 
@@ -720,7 +720,7 @@ P:NPC {
   notices = { "greenness" },
 
   impression = {
-    first = "The seasoned adventurer at Cantrips & Crows has the scars and the patience of someone who has gone down too many holes. He gave his advice freely and seemed to expect nobody would take it.",
+    first = "He gives advice freely and expects nobody to take it.",
     third = "{name} shared a word with a seasoned adventurer drinking at Cantrips & Crows in Dalaran.",
   },
 

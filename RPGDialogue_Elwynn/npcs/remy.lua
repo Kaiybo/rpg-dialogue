@@ -15,7 +15,7 @@ P:NPC {
     { id = "b_murlocs", when = { questBefore = TODO_QUEST("A Fishy Peril") }, text = "There are murlocs in the east, I tell you, murlocs in the east!" },
   },
   impression = {
-    first = "Everything Remy says, he says twice, as if the first time might not take. He would sell me anything at all, and I'd want to count my coins afterward.",
+    first = "He says everything twice, and I'd count my coins after buying.",
     third = "{name} met Remy, a Goldshire trader who repeats himself and always knows a fellow who knows a fellow.",
   },
 

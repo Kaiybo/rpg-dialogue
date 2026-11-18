@@ -9,7 +9,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "cowardly" }, values = { "kind", "romantic" },
   notices = { "stealth", "craft" },
   impression = {
-    first = "Maybell Maclure blushes easily and lies badly, and both have to do with a boy across the river. By her own account she has never been very good at rules.",
+    first = "She blushes easily and lies badly, over a boy across the river.",
     third = "{name} met Maybell Maclure, who counts grapes by the river while thinking of a Stonefield she isn't allowed to see.",
   },
 

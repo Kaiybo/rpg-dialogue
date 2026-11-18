@@ -9,7 +9,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "earnest", "troubled" }, values = { "nature", "duty" },
   notices = { "craft", "form" },
   impression = {
-    first = "Rellian Greenspyre wanted to grow a timberling from a seed and found the rot already inside it. He talks about cutting the sick ones down as if he were apologising to them.",
+    first = "He speaks of cutting down sick timberlings as if apologising to them.",
     third = "{name} met Rellian Greenspyre, a Darnassian druid who discovered the corruption carried in the timberlings' seeds.",
   },
 

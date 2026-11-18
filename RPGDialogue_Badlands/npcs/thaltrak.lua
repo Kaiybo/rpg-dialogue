@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "kin" },
 
   impression = {
-    first = "Thal'trak Proudtusk stands his post at Kargath and keeps looking east, toward the Burning Steppes, where his wife went with her platoon. He talks about her as if she might walk in at any moment.",
+    first = "He keeps looking east, where his wife went with her platoon.",
     third = "{name} met Thal'trak Proudtusk at Kargath, a troll soldier waiting on word of his wife, Sha'ni.",
   },
 

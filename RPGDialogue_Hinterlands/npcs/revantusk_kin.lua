@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Elder Torntusk sat in a Vilebranch cage at the top of Jintha'Alor and greeted me like a chieftain receiving a guest. He fought for the old Horde, and he talks about his mate as if she were the one in danger.",
+    first = "Caged, he still greeted me like a chieftain receiving a guest.",
     third = "{name} found Elder Torntusk of the Revantusk caged at Jintha'Alor, awaiting the Vilebranch altar.",
   },
 
@@ -182,7 +182,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Renn'az sells arrows on the Revantusk platforms and knows exactly how many he has left. He talks about the Vilebranch the way a farmer talks about weather.",
+    first = "He talks about the Vilebranch the way a farmer talks about weather.",
     third = "{name} bought arrows from Renn'az, the ammunition seller at Revantusk Village.",
   },
 
@@ -193,23 +193,89 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "Dat quiver be near empty, hunter. An empty quiver in de Hinterlands be a short story." },
+    { id = "n_darkspear", cat = "race", when = { race = { "Orc", "Tauren" } },
+      text = "De Horde send big ones dis time. Good, de Vilebranch be needin' somethin' big to worry about." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "A Darkspear cousin! Your arrows be from de islands, I see, an' dey fly crooked here because of de wind." },
   },
 
   start = "hello",
   nodes = {
+    village = {
+      lines = {
+        { id = "vi_default", text = "Primal Torntusk, first an' last, since dey took de Elder. Smith Slagtree keep de blades sharp, Lard keep de inn an' de pot, an' Katoom bring de fish in. Gorkas fly de wind riders out, so we not be cut off like before." },
+      },
+      choices = {
+        { text = "And the mystic?", next = "village_mystic" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village_mystic = {
+      lines = {
+        { id = "vm_default", text = "Yayo'jin, she read de bones an' sell de charms, an' she say de Vilebranch priests be callin' on somethin' dey should leave sleepin'. I don't know bones, but I know she never been wrong about de weather." },
+      },
+      choices = {
+        { text = "Then the village should heed her.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    game = {
+      lines = {
+        { id = "ga_default", text = "Turtles on de shore for de pot, wolves for de hides, an' de big owlbeasts when Huntsman Markhor feel brave. De gryphons too, when de dwarves fly low, but I don't sell arrows long enough for dat." },
+      },
+      choices = {
+        { text = "Markhor leads the hunts?", next = "game_markhor" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    game_markhor = {
+      lines = {
+        { id = "gm_default", text = "He keep de beasts an' teach de young ones not to shoot each other. He buy my blunt arrows for dem to learn with, an' he bring back half, which be better dan most customers." },
+      },
+      choices = {
+        { text = "A careful teacher saves you arrows.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = {
+        { id = "xh_default", text = "Heavy heads for de owlbeasts, 'cause de hide be thick, an' light shafts for de trolls in de trees, 'cause you want to shoot twice. Take both, an' keep dem dry, for de sea air here warp a shaft in a week." },
+      },
+      choices = {
+        { text = "Both kinds, then. Show me.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhorde = {
+      lines = {
+        { id = "xo_default", text = "Well enough, mon. De Horde send warriors an' wind riders, an' ask us only to hold dis shore, which we was doin' anyway. De Primal say a friend who come when you bleedin' be a friend, an' I don't argue with her." },
+      },
+      choices = {
+        { text = "The Horde stands by its own.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "Renn'az, an' I sell de arrows dat keep de Vilebranch off our platforms. Every one I sell be one less dey get to climb past." },
       },
-      again = { { id = "h_again", text = "What else? De arrows don't sell demselves." } },
+      again = {
+        { id = "h_again", text = "What else? De arrows don't sell demselves." },
+        { id = "h_again2", text = "Go on, mon. I can fletch an' listen." },
+        { id = "h_again3", text = "Ask, den. De tide be slow today an' so be de trade." },
+      },
       choices = {
         { text = "Show me your arrows.", next = "BUSINESS" },
         { text = "How often do the Vilebranch come?", next = "raids" },
         { text = "Where do you get your shafts?", next = "wood" },
         { text = "What do you think of the Wildhammer?", next = "wild" },
+        { text = "Who else keeps this village standing?", next = "village" },
+        { text = "What do the hunters shoot at, besides Vilebranch?", next = "game" },
+        { text = "I draw a bow myself. Which arrows for these hills?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "How do the Revantusk like the Horde so far?", next = "xhorde", when = { race = { "Orc", "Tauren", "Scourge" } } },
         { text = "Later, Renn'az.", next = "END" },
       },
     },

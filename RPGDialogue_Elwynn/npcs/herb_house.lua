@@ -10,7 +10,7 @@ P:NPC {
   communities = {}, temper = { "intent" }, values = { "precision", "craft" },
   notices = { "craft", "class" },
   impression = {
-    first = "Alchemist Mallory never once put down his stirring rod while we talked. He is courteous in a distracted way, and I suspect the potion had more of his attention than I did.",
+    first = "His potion had more of his attention than I did.",
     third = "{name} met Alchemist Mallory, who teaches alchemy from a hillside house east of Stormwind's gates.",
   },
   greetings = {
@@ -200,7 +200,7 @@ P:NPC {
   communities = {}, temper = { "warm" }, values = { "nature", "patient" },
   notices = { "craft", "class" },
   impression = {
-    first = "Herbalist Pomeroy keeps her boots muddy and her baskets full, and she spoke of Elwynn's hillsides as if each one were a friend. She seemed fond of Mallory and of teasing him.",
+    first = "She speaks of Elwynn's hillsides as if each one were a friend.",
     third = "{name} met Herbalist Pomeroy, who teaches herbalism beside Alchemist Mallory east of Stormwind's gates.",
   },
   greetings = {

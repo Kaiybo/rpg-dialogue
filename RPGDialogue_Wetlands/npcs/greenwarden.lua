@@ -10,7 +10,7 @@ P:NPC {
   notices = { "form", "fel", "class" },
 
   impression = {
-    first = "Rethiel the Greenwarden rose out of the marsh like a hill deciding to stand. It speaks for the Wetlands as if every fern were a wounded child, and it has little patience for fire.",
+    first = "It speaks for every fern and has little patience for fire.",
     third = "{name} met Rethiel the Greenwarden, the ancient guardian of the Wetlands' marshes.",
   },
 

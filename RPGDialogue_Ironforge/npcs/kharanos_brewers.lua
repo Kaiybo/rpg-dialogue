@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "drunk" },
 
   impression = {
-    first = "Marleth Barleybrew is a Barleybrew to her bootlaces, and she grinned the whole time she explained how I was going to sneak into the Thunderbrews' cellar for her.",
+    first = "She grinned while planning my raid on the Thunderbrews' cellar.",
     third = "{name} met Marleth Barleybrew of Brewnall Village, who'd like the whole of Dun Morogh to know the Thunderbrews aren't the only brewers in it.",
   },
 
@@ -156,7 +156,7 @@ P:NPC {
   notices = { "drunk", "race" },
 
   impression = {
-    first = "Jarven Thunderbrew guards the barrels in the distillery cellar, surrounded by more ale than any dwarf could drink and under strict orders not to touch a drop. It has not improved his temper.",
+    first = "Guarding ale he may not touch has not improved his temper.",
     third = "{name} met Jarven Thunderbrew, who guards the cellar of the Thunderbrew Distillery and is not allowed to drink any of it.",
   },
 
@@ -166,6 +166,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "Ye move too quiet for my likin', an' I've barrels tae think of. Keep yer hands where I can see them." },
     { id = "n_drunk", cat = "drunk", when = { drunk = true },
       text = "Ye've been drinkin'. I can smell it from here, an' I'm jealous, an' I want ye to know I'm jealous." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -186,6 +188,7 @@ P:NPC {
           text = "Somebody swapped a barrel on my watch, an' Ragnar's not spoken to me since. If I ever find out who did it, they'll be cleanin' these vats with their beard." },
       },
       again = {
+        { id = "h_again3", text = "Ye're still here, an' I'm still dry. Ask yer question an' let me get back tae my countin'." },
         { id = "h_again", text = "What else? An' make it quick, I'm on watch." },
         { id = "h_again2", text = "Go on, then, I've nothin' else to do but stand here an' suffer." },
       },
@@ -195,6 +198,8 @@ P:NPC {
         { text = "What do you think of the Barleybrews?", next = "barleybrews" },
         { text = "Here, have a Thunder Ale on me.", next = "BUSINESS", when = { questActive = TODO_QUEST("Distracting Jarven") } },
         { text = "Do the Thunderbrews ever bless their vats?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "It's a long watch down here.", next = "watch" },
+        { text = "A dwarf who can't drink has my sympathy.", next = "dwarf", when = { race = "Dwarf" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -239,9 +244,41 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    watch = {
+      lines = { { id = "wt_default", text = "From first light till the tavern shuts, an' the only company's the rats an' whatever noise comes down through the floor. I can tell ye who's singin' up there by the stamp o' their boots, an' Granis Swiftaxe's recruits stamp the loudest." } },
+      choices = {
+        { text = "What do you hear from upstairs?", next = "watch_hear" },
+        { text = "Does anyone come down to see you?", next = "watch_visit" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch_hear = {
+      lines = { { id = "wh_default", text = "Innkeeper Belm laughin' at his own jokes, mugs goin' down on the bar, an' every toast in Kharanos but none for me. Worst is when they tap a fresh keg, for I hear the bung go an' I know exactly which barrel it was." } },
+      choices = { { text = "That is a hard thing to listen to.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    watch_visit = {
+      lines = { { id = "wv_default", text = "Ragnar, tae count the barrels after I've counted them, an' the lad who brings my supper an' a mug o' water. Water, I ask ye, in a distillery!" } },
+      choices = {
+        { text = "Ragnar doesn't trust your counting?", next = "watch_count" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch_count = {
+      lines = { { id = "wc_default", text = "He trusts my countin' fine. It's my thirst he doesnae trust, an' I cannae say he's wrong, which is the worst o' it." } },
+      choices = { { text = "At least you're honest about it.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "Then ye're the first today tae offer any. Folk come down, look at the barrels, look at me, an' laugh, but a dwarf knows there's nothin' funny in it at all." } },
+      choices = {
+        { text = "I'll drink one for you upstairs.", next = "BACK", reply = "That's the cruellest kindness I've ever been offered, an' I'll take it. Make it a Thunder Ale.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    thunderbrew = { { id = "tp_thunder", text = "My family's name an' my family's ale, an' the best in Khaz Modan. I'd tell ye how it tastes this year, but I'm no' permitted tae know." } },
+    ragnar = { { id = "tp_ragnar", text = "Ragnar runs the distillery an' he runs me. He's fair, I'll say that through my teeth." } },
     _none = { { id = "tp_none", text = "I don't know, an' I'm not allowed upstairs to find out." } },
   },
 }
@@ -256,7 +293,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Rejold Barleybrew is chasing the perfect stout, and he talks about it the way some dwarves talk about lost gold. He has a plan, and the plan involves trolls.",
+    first = "He chases the perfect stout, and his plan involves trolls.",
     third = "{name} met Rejold Barleybrew, a brewer of Brewnall Village who believes the perfect stout grows on Shimmer Ridge.",
   },
 
@@ -366,7 +403,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Ozzie Togglevolt spoke to me mostly from inside a gearbox, and when he came out he had grease to the eyebrows and a phial of something green he called a cure.",
+    first = "He came out of a gearbox with grease to the eyebrows.",
     third = "{name} met Ozzie Togglevolt in Kharanos, the gnome inventor working with Razzle Sprysprocket on a cure for Gnomeregan's sickness.",
   },
 
@@ -498,7 +535,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Shelby Stoneflint keeps the stables in Kharanos, and she had a bear cub asleep on her boots and a ram nosing at her pockets the whole time we talked.",
+    first = "A bear cub sleeps on her boots while she talks.",
     third = "{name} met Shelby Stoneflint, the stable master of Kharanos.",
   },
 

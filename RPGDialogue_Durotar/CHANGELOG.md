@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.25.0 (2026-11-18)
+- Thin NPCs deepened with more to say, and NPCs that were missed added.
+- Journal: the note about each person is one short sentence (12 words or fewer) and shows on the People page only, not in the diary.
+
 ## 1.24.0 (2026-11-18)
 - "Where is...?" directions for Razor Hill (`directions.lua`, new file: restart the game fully).
 

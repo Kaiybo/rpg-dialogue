@@ -10,7 +10,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "race", "class" },
   impression = {
-    first = "Ayessa Dawnsinger leads the Windshapers with a steady hand and a careful word. She is grateful to Thunder Bluff, and plainly determined that her people never give the tauren cause to regret their welcome.",
+    first = "She is determined the tauren never regret welcoming her people.",
     third = "{name} met Ayessa Dawnsinger, leader of the Windshapers at Camp Gev'rek in Mulgore.",
   },
 
