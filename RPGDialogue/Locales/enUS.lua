@@ -32,7 +32,7 @@ L.HELP_LINES = {
   "probe - list which game APIs this client has",
   "tts - test text to speech and show what it's using",
   "auras - list your current auras with spell IDs",
-  "flagged - list lines you flagged as wrong",
+  "flagged - list lines you flagged as wrong (flagged copy, or flagged N, opens them to copy)",
   "packs - list content packs",
   "seed <n> - replay the next conversation with a fixed random seed",
   "threads [reset <id> | force <id> <beat>] - throughline states and beats",
@@ -97,7 +97,9 @@ L.FLAG_TIP = "This line is wrong"
 L.FLAG_TIP2 = "Saves this line, who said it and everything the addon knows about you right now, so it can be fixed. You can add a short note."
 L.FLAG_HINT = "Optional note, then Enter."
 L.FLAG_SAVED = "Flagged. Thank you."
-L.FLAG_SAVED_CHAT = "Flagged line %s. /rpgd flagged lists them."
+L.FLAG_SAVED_CHAT = "Flagged line %s. /rpgd flagged lists them; /rpgd flagged copy opens them to copy."
+L.FLAG_NOTE = "Note:"
+L.FLAG_COPY_TITLE = "Flagged line: Ctrl+C to copy, Esc to close"
 L.FLAG_NONE = "No flagged lines."
 L.FLAG_LIST = "%d flagged line(s):"
 L.OTHER_ADDON_INSIDE = "Working with %s: NPC conversations now happen inside %s's own window. Change this in /rpgd settings (Other dialogue addons)."
