@@ -644,8 +644,27 @@ function D.Layout()
   if not frame.ask:IsShown() then
     anchor, anchorPoint, gap = frame, "BOTTOMRIGHT", 0
   end
+  -- Game look (0.86.1): the bar is too narrow, so the actions get their own row above it,
+  -- left to right, and the bar keeps just Disposition and Ask about.
+  if game then
+    local prev
+    for _, b in ipairs(frame.persuade) do
+      b:SetShown(persuadeOn)
+      if persuadeOn then
+        b.label:SetShown(true)
+        b:SetHeight(20)
+        b.icon:SetSize(18, 18)
+        b:SetWidth(26 + (b.label:GetStringWidth() or 40))
+        b:ClearAllPoints()
+        if prev then b:SetPoint("LEFT", prev, "RIGHT", 16, 0)
+        else b:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 12, GAME_BAR + 2) end
+        prev = b
+      end
+    end
+  end
   for i = #frame.persuade, 1, -1 do
     local b = frame.persuade[i]
+    if game then break end
     b:SetShown(persuadeOn)
     if persuadeOn then
       b.label:SetShown(words)
@@ -673,6 +692,7 @@ function D.Layout()
   local barShown = frame.flagBox:IsShown() or frame.ask:IsShown() or frame.disp:IsShown() or frame.tone:IsShown() or persuadeOn
   if game then
     local bottom = barShown and GAME_BAR or 4
+    if persuadeOn then bottom = bottom + 24 end
     -- The flag hint ("say what's wrong", "saved") gets its own line above the bar.
     if frame.flagBox:IsShown() or (frame.flagHint:GetText() or "") ~= "" then
       y = y - 16

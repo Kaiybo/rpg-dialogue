@@ -2,6 +2,9 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.86.1 (2026-11-18)
+- Game look: Admire, Taunt and Intimidate get their own row above the bottom bar, so they no longer cover Disposition.
+
 ## 0.86.0 (2026-11-18)
 - Removed the Tone feature (Polite / Normal / Blunt): no selector on the bar or in DialogueUI, no settings, no `/rpgd tone`. Everyone speaks Normal.
 - Admire, Taunt and Intimidate now always show their names on the bottom bar, in both looks.
