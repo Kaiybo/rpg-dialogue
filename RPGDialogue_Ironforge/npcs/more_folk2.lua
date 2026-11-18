@@ -1901,3 +1901,1152 @@ P:NPC {
     _none = { { id = "tp_none", text = "No idea, I'm afraid! Unless it can be made to go up and sparkle, it's not really my area." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Second pass of missed Ironforge folk: named shopkeepers, the Timberline Arms and Goldfury counters,
+-- supply vendors, profession trainers and their apprentices, and class trainers.
+---------------------------------------------------------------------------
+
+---------------------------------------------------------------------------
+-- Grenil Steelfury: weapon merchant at Steelfury's Weapon Emporium in the Commons; Dolman's kinsman.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_grenil", id = TODO_NPC("Grenil Steelfury"), name = "Grenil Steelfury", title = "Weapon Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "genial", "shrewd" }, values = { "practical", "family" },
+  notices = { "kit", "race" },
+  impression = {
+    first = "Grenil Steelfury works the second counter at Steelfury's Weapon Emporium and smiles a good deal more than his kinsman Dolman. He will sell a customer whatever they ask for, wrap it nicely and wish them luck with it.",
+    third = "{name} met Grenil Steelfury, who sells weapons beside his kinsman at Steelfury's Weapon Emporium in the Ironforge Commons.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Welcome tae Steelfury's! Whatever ye've a mind tae swing, I've got it, an' I'll no' lecture ye about it the way some would." },
+    { id = "g_back", when = { metBefore = true }, text = "There ye are again! A returnin' customer is the best compliment a shop can get, so come in an' look about." },
+    { id = "g_gnome", when = { race = "Gnome" }, text = "Come in, wee friend! I've daggers at a sensible height on the low rack, an' I put them there for ye special." },
+  },
+  notice = {
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "That blade o' yours is near worn through, friend. I'll no' say a word against it, but I'll leave the new ones where ye can see them." },
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "Up on the tram from Stormwind, are ye? Ye'll be wantin' somethin' dwarf-made tae take home, an' ye've come tae the right counter." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Grenil Steelfury, at yer service. Dolman at the other counter is my kinsman, an' between us we've got every sort o' steel a body could want, though ye'll find I'm the easier one tae buy from." },
+        { id = "h_rich", when = { money = { min = 1000000 } }, text = "Grenil Steelfury, an' I can hear a heavy purse when it walks in. Let me show ye the pieces Dolman keeps at the back for folk he approves of." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I do for ye? There's nae hurry, the steel will keep." },
+        { id = "h_again2", text = "Aye, go on. I like a customer who talks, it gives me time tae think what tae sell them." },
+      },
+      choices = {
+        { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "Dolman says you'd sell anyone anything.", next = "dolman" },
+        { text = "How is trade in the Commons?", next = "trade" },
+        { text = "What's the strangest thing you've sold?", next = "strange" },
+        { text = "You must get a lot of first-time buyers.", next = "first" },
+        { text = "Good day, Grenil.", next = "END" },
+      },
+    },
+    dolman = {
+      lines = { { id = "do_default", text = "Ha! He said that, did he? I say a customer kens their own arm better than a shopkeeper does, an' if they don't, they'll learn it quicker wi' the wrong axe than wi' a lecture." } },
+      choices = {
+        { text = "And if the wrong axe gets them killed?", next = "dolman_risk" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dolman_risk = {
+      big = true,
+      lines = { { id = "dr_default", text = "Then I'll grieve, an' I mean that. But I've seen Dolman send a lad away empty-handed for pickin' the wrong sword, an' that lad went out the gates wi' nothin' at all. Which o' us did worse by him?" } },
+      choices = {
+        { text = "You did right. An armed fool beats an unarmed one.", next = "BACK", reply = "That's how I see it, an' I'll tell Dolman a customer agreed wi' me. He'll sulk till supper.", fx = { align = { order = -1 } } },
+        { text = "Dolman did. A shop should have standards.", next = "BACK", reply = "Aye, well, that's the family view, an' I've heard it at every dinner for thirty years.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade = {
+      lines = { { id = "tr_default", text = "Brisk, an' I'll no' complain. We're a short walk from the bank an' the auction house, so folk come past wi' fresh coin an' a notion tae spend it. Barim Jurgenstaad sends me his mages when they want a dagger, an' I send him anybody who asks me for powder." } },
+      choices = {
+        { text = "The shops here look after each other.", next = "trade_neighbours" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade_neighbours = {
+      lines = { { id = "tn_default", text = "We have tae, for the Commons is small an' a grudge would last a hundred years. Myra Tyrngaarde brings us bread at noon, Pithwick sells the bags our customers forget they need, an' nobody undercuts anybody on a feast day." } },
+      choices = { { text = "That sounds like a good neighbourhood.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    strange = {
+      lines = { { id = "st_default", text = "A two-handed hammer tae a gnome mage, who wanted it for a paperweight. She paid in full, had it carried tae the Hall o' Mysteries by two porters, an' as far as I ken it's holdin' down her notes tae this day." } },
+      choices = { { text = "Dolman must have loved that.", next = "BACK", reply = "He didnae speak tae me for a week, an' it was the most peaceful week I've had in this shop.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    first = {
+      lines = { { id = "fi_default", text = "Every day. Ye can tell them by the way they hold a sword out in front like it might bite. I give them somethin' plain an' sound, an' I tell them tae come back when they've notched it, because the second weapon is the one that matters." } },
+      choices = {
+        { text = "Why the second?", next = "first_second" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first_second = {
+      lines = { { id = "fs_default", text = "Because by then they ken what they are. The first one's bought on a dream, an' the second's bought by somebody who's been hit a few times an' has opinions about reach." } },
+      choices = { { text = "I remember buying my second.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    dolman = { { id = "tp_dolman", text = "The best judge o' steel in the Commons an' the worst salesman. I'd no' trade him, but I'd no' let him near the till on a busy day either." } },
+    commons = { { id = "tp_commons", text = "The best pitch in Ironforge. Everybody passes through wi' coin in hand, an' most o' them pass our door." } },
+    great_forge = { { id = "tp_forge", text = "Where our stock is born. I go up once a week tae haggle wi' the journeymen, an' I come back wi' singed eyebrows an' good prices." } },
+    background = { { id = "tp_bg", text = "A Steelfury, same as Dolman, an' raised behind this counter. I could price an axe before I could read." } },
+    _none = { { id = "tp_none", text = "I couldnae say, friend. Now if ye'd asked me what tae hit it wi', I'd have three answers ready." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Ginny Longberry: gnome reagent vendor who runs Longberry's Reagents in the Mystic Ward.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_ginny", id = TODO_NPC("Ginny Longberry"), name = "Ginny Longberry", title = "Reagents",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "brisk", "exact" }, values = { "knowledge", "order" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Ginny Longberry runs Longberry's Reagents in the Mystic Ward, a step from the Hall of Mysteries, and keeps every jar labelled twice. She can usually guess what a caster needs before they have finished asking.",
+    third = "{name} met Ginny Longberry, the gnome who runs Longberry's Reagents in the Mystic Ward of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Longberry's Reagents! Everything is labelled, everything is weighed, and nothing in here is as dangerous as it smells." },
+    { id = "g_back", when = { metBefore = true }, text = "Back so soon? You're either casting a great deal or wasting a great deal, and I'm happy to supply either habit." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Let me guess, you're down to your last rune and you only noticed at the door of the Hall." },
+  },
+  notice = {
+    { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
+      text = "You'll want candles, or a Symbol if you've got that far. The priests across the water buy them by the box, and I keep the good wax for them." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "It's good to see one of us in the Mystic Ward. The dwarves are kind, but they will keep putting things on the top shelf." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Ginny Longberry, and this is my shop. I sell the small things a spell uses up, which means powders, runes, candles and seeds, and I sell them to nearly everybody who walks out of the Hall of Mysteries." },
+        { id = "h_warlock", when = { class = "WARLOCK" }, text = "Ginny Longberry. I do stock what your sort needs, and I'd thank you to buy it quietly, because the priests next door count my customers." },
+      },
+      again = {
+        { id = "h_again", text = "Yes? I can weigh and talk at once, I've had the practice." },
+        { id = "h_again2", text = "Anything else? Mind the left-hand shelf, the jars there don't like being bumped." },
+      },
+      choices = {
+        { text = "Let me see your reagents.", next = "BUSINESS" },
+        { text = "Why does a spell need reagents at all?", next = "why" },
+        { text = "You're well placed, beside the Hall of Mysteries.", next = "place" },
+        { text = "Is Bimble Longberry a relation of yours?", next = "bimble" },
+        { text = "What sells out fastest?", next = "fast" },
+        { text = "Goodbye, Ginny.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "wy_default", text = "Because some magic wants paying in advance. A rune holds the shape of a place so the mage doesn't have to, and a pinch of powder gives a spell something to burn besides the caster. I think of myself as selling shortcuts, and safe ones." } },
+      choices = {
+        { text = "And without the shortcut?", next = "why_without" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_without = {
+      lines = { { id = "ww_default", text = "Then you get half a portal, which I'm told is a great deal worse than none. Milstaff Stormeye over in the Hall keeps a list of students who tried it, and he reads it aloud to each new class." } },
+      choices = { { text = "I'll keep my runes stocked.", next = "BACK", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    place = {
+      lines = { { id = "pl_default", text = "I chose it on purpose, after counting who went in and out for a week. Students come out of a lesson knowing exactly what they've run short of, and I'm the first door they see. Barim Jurgenstaad has the Commons, and we don't trouble each other." } },
+      choices = {
+        { text = "You counted for a whole week?", next = "place_count" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    place_count = {
+      lines = { { id = "pc_default", text = "Six days and a half, with a tally sheet for each door. It came to four hundred and twelve casters and one very lost ram, and I've never regretted the rent since." } },
+      choices = { { text = "That's a gnome's way to choose a shop.", next = "BACK", reply = "It's the only way! Anything else is guessing with your savings.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    bimble = {
+      lines = { { id = "bi_default", text = "She's family, yes, and she's the one walking round the ward with a basket of apples. We tried sharing the shop, but fruit and reagents can't sit on one counter, because people get muddled and I won't have anyone biting a rune." } },
+      choices = { { text = "A sensible separation.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    fast = {
+      big = true,
+      lines = { { id = "fa_default", text = "Runes of teleportation, by a long way, and I can tell you why: half the mages in this city hop to Stormwind for lunch. I've wondered whether I ought to sell a rune to someone who only wants it to skip a walk." } },
+      choices = {
+        { text = "Magic isn't a toy. Make them walk.", next = "BACK", reply = "That's what High Priest Rohan would say, and he'd be pleased with you. My till would not.", fx = { align = { order = 1 } } },
+        { text = "It's their coin and their spell.", next = "BACK", reply = "That's my feeling too. A walk never taught anyone arcane theory.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    mystic_ward = { { id = "tp_ward", text = "The quiet side of Ironforge, with the pool and the Hall of Mysteries. It smells of incense and wet stone, and I've grown fond of it." } },
+    hall_of_mysteries = { { id = "tp_hall", text = "Priests, paladins and mages all under one roof, and somehow they haven't burned it down. They're my best customers, every one." } },
+    barim = { { id = "tp_barim", text = "Barim Jurgenstaad sells reagents in the Commons. He's careful and dry and never short-weighs, and I'd buy from him if I didn't have my own." } },
+    background = { { id = "tp_bg", text = "I kept stores for a laboratory in Gnomeregan. It's the same work here, only now the shelves are my own." } },
+    _none = { { id = "tp_none", text = "That isn't on any of my labels, so I'm afraid I can't help you with it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Bimble Longberry: gnome fruit vendor who walks the Mystic Ward with a basket.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_bimble", id = TODO_NPC("Bimble Longberry"), name = "Bimble Longberry", title = "Fruit Vendor",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "sunny", "chatty" }, values = { "kind", "practical" },
+  notices = { "hunger", "race" },
+  impression = {
+    first = "Bimble Longberry walks the Mystic Ward with a basket of fruit nearly as big as she is, calling out what is ripe. She is certain that most of what ails Ironforge could be mended with an apple.",
+    third = "{name} met Bimble Longberry, a gnome who sells fruit from a basket in the Mystic Ward of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Fresh fruit! Apples, melons and bananas, all the way up the mountain and not a bruise on them!" },
+    { id = "g_back", when = { metBefore = true }, text = "Hello again! I've saved you a good one, or I would have if I'd known you were coming, so have this one instead." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Still up? So am I, because the mages study late and they forget to eat until somebody walks past with a basket." },
+  },
+  notice = {
+    { id = "n_tired", cat = "hunger", when = { durability = { max = 0.3 } },
+      text = "Oh, you look quite done in! Sit on the edge of the pool for a minute and eat something that grew in sunlight." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf who's stopped for fruit! You're the third this month, and I'm keeping count because I think it's catching on." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Bimble Longberry, and this is the only fresh fruit in the Mystic Ward. Dwarves eat bread and meat and more bread, so somebody has to walk about reminding people that apples exist." },
+        { id = "h_gnome", when = { race = "Gnome" }, text = "Bimble Longberry! You'll remember the hydroponic gardens on the fourth level, won't you? I think about those melons more than is probably healthy." },
+      },
+      again = {
+        { id = "h_again", text = "Something else? Hold the basket a moment if you like, my arm could do with the rest." },
+        { id = "h_again2", text = "Go on, I've got all day and only one circuit to walk." },
+      },
+      choices = {
+        { text = "What's in the basket today?", next = "BUSINESS" },
+        { text = "Where does fruit come from, up here?", next = "from" },
+        { text = "That basket is nearly as big as you are.", next = "basket" },
+        { text = "Who buys the most from you?", next = "buyers" },
+        { text = "Why walk, when you could have a stall?", next = "walk" },
+        { text = "Goodbye, Bimble.", next = "END" },
+      },
+    },
+    from = {
+      lines = { { id = "fr_default", text = "Not from Dun Morogh, I can tell you, because nothing grows out there but pine and bad tempers. It comes up from Elwynn on the Deeprun Tram, and I meet the morning car myself so that I get first pick of the crates." } },
+      choices = {
+        { text = "The tram must be hard on soft fruit.", next = "from_tram" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    from_tram = {
+      lines = { { id = "ft_default", text = "It's dreadful! The cars start with a jolt, and a jolt is all a peach needs. I've written to the tram engineers with a design for a sprung crate, and they wrote back that fruit was not a priority, which shows you what engineers eat." } },
+      choices = { { text = "A sprung crate sounds worth building.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    basket = {
+      lines = { { id = "ba_default", text = "It holds thirty-one apples or four melons, and I can carry it for exactly one circuit of the ward before I need to sit down. I did the sums so that the sitting down happens beside the pool, where the priests are." } },
+      choices = { { text = "You've planned your rests as well as your route.", next = "BACK", reply = "Of course! A rest beside customers is hardly a rest at all, it's a stall with no rent.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    buyers = {
+      lines = { { id = "bu_default", text = "The mage students, because they study till their hands shake and then remember they haven't eaten since yesterday. Bink buys a banana every afternoon, and High Priest Rohan takes one apple a week and blesses the basket, which I think helps." } },
+      choices = {
+        { text = "Does anyone refuse outright?", next = "buyers_refuse" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_refuse = {
+      lines = { { id = "br_default", text = "The paladins, mostly, and they're terribly polite about it. Brandur Ironhammer told me a dwarf gets all the fruit he needs from what goes into ale, and I couldn't think of an answer quickly enough." } },
+      choices = { { text = "He's not entirely wrong about ale.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    walk = {
+      lines = { { id = "wa_default", text = "Because nobody goes looking for fruit, they only buy it when it walks up to them. Ginny has her shop and her labels, and I have my feet. Between us we see everybody in the ward twice a day." } },
+      choices = { { text = "The ward is lucky to have you both.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    ginny = { { id = "tp_ginny", text = "Ginny's family, and she runs the reagent shop. She labels everything twice, including, one year, me." } },
+    mystic_ward = { { id = "tp_ward", text = "It's the prettiest part of the city, with the water and the lamps. It's also the only part where people look as if they need feeding." } },
+    gnomeregan = { { id = "tp_gnomer", text = "We had gardens under glass there, with lamps like little suns. I'd like to see them lit again before I'm too old to carry a basket." } },
+    background = { { id = "tp_bg", text = "I sell fruit and I walk in circles. It's healthier than most trades in this mountain." } },
+    _none = { { id = "tp_none", text = "I don't know anything about that, I'm sorry! I could tell you whether it's ripe, if it's a fruit." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Bretta Goldfury: gun merchant at Goldfury's Hunting Supplies in the Military Ward.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_bretta", id = TODO_NPC("Bretta Goldfury"), name = "Bretta Goldfury", title = "Gun Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "loud", "confident" }, values = { "craft", "family" },
+  notices = { "class", "craft" },
+  impression = {
+    first = "Bretta Goldfury sells rifles and shot at Goldfury's Hunting Supplies in the northeast corner of the Military Ward. She has spent so long around gunfire that she speaks a little louder than the room needs.",
+    third = "{name} met Bretta Goldfury, who sells guns at Goldfury's Hunting Supplies in the Military Ward of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Goldfury's! Guns on my side, bows on Skolmin's, an' if ye cannae decide I'll decide for ye, an' it'll be a gun." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more shot? Good, that means ye've been usin' it instead o' polishin' the barrel." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! Come round this side o' the shop, {g:lad|lass}, an' don't let my kinsman talk ye intae a bit o' bent wood." },
+  },
+  notice = {
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
+      text = "Ye've powder under yer nails, so ye make yer own. Show me the bore on yer best piece sometime, I like tae see what the workshops are turnin' out." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "Ye carry that like ye ken which end's which. Ye'd be surprised how many come in here who don't." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Bretta Goldfury, an' I sell the finest long guns in Ironforge. Skolmin sells bows at the other counter, for folk who like tae be quiet about their huntin', an' we've agreed tae differ on that for years." },
+        { id = "h_nohunter", when = { class = { "MAGE", "PRIEST", "WARLOCK", "PALADIN" } }, text = "Bretta Goldfury. Ye'll no' be shootin' one yerself, I can see that, but there's nae harm in admirin' good work, so look all ye like." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Speak up a bit, I've spent thirty years next tae a test range." },
+        { id = "h_again2", text = "Aye, go on, I'm listenin' wi' my good ear." },
+      },
+      choices = {
+        { text = "Show me your guns.", next = "BUSINESS" },
+        { text = "Why a gun over a bow?", next = "why" },
+        { text = "Who makes these rifles?", next = "makers" },
+        { text = "You two share a shop and disagree on everything.", next = "skolmin" },
+        { text = "What should a hunter carry in Dun Morogh?", next = "carry", when = { class = "HUNTER" } },
+        { text = "Good day, Bretta.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "wy_default", text = "Because a gun doesnae care how strong yer arm is or how long ye've practised. A dwarf, a gnome or a human recruit can pick one up an' put a hole in a trogg at sixty paces by the end o' the week. A bow takes years, an' the troggs willnae wait." } },
+      choices = {
+        { text = "And the noise?", next = "why_noise" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_noise = {
+      lines = { { id = "wn_default", text = "The noise is half the point! A wendigo that hears one shot thinks twice about the rest o' the party. Skolmin says ye scare off yer supper as well, an' I say supper's cheaper at the Stonefire than a new leg." } },
+      choices = { { text = "You've had this argument before.", next = "BACK", reply = "Every day since we opened, an' I've no' lost it yet, whatever he tells ye.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    makers = {
+      lines = { { id = "ma_default", text = "The barrels are bored by dwarves at the Great Forge, an' the locks come from Tinker Town, since the gnomes have smaller fingers an' more patience. I fit them together an' prove every one on the range before it goes on the wall." } },
+      choices = {
+        { text = "Dwarf barrel, gnome lock. Who gets the credit?", next = "makers_credit" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    makers_credit = {
+      lines = { { id = "mc_default", text = "The Goldfury name goes on the stock, an' I pay both o' them fair for the privilege. I'll say this for the gnomes, though: since they came tae live wi' us, I've no' had a single lock misfire." } },
+      choices = { { text = "That's fair praise.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    skolmin = {
+      big = true,
+      lines = { { id = "sk_default", text = "We do, an' it's good for trade, for a customer who hears us argue buys from one of us tae end it. Mind, there's truth under it. He thinks a hunter should take only what's needed, quiet-like, an' I think ye should make certain. Where do ye stand?" } },
+      choices = {
+        { text = "Take only what you need, and take it cleanly.", next = "BACK", reply = "Ye'd best go an' stand at his counter, then. He'll be unbearable about it.", fx = { align = { light = 1 } } },
+        { text = "Make certain. A wounded beast is worse than a dead one.", next = "BACK", reply = "There's sense! I'll tell Skolmin the customer has spoken.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    carry = {
+      lines = { { id = "ca_default", text = "A short rifle wi' a heavy ball, for the boars are thick in the hide an' the bears are thicker. Leave the long fowlin' pieces for Loch Modan, where ye've room tae see what ye're aimin' at." } },
+      choices = { { text = "Show me the short rifles.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    skolmin = { { id = "tp_skolmin", text = "My kinsman, an' a fine bowyer, an' wrong about nearly everythin'. I'd have nobody else across the shop from me." } },
+    military_ward = { { id = "tp_ward", text = "The Hall o' Arms is just along the way, so every recruit wi' a week's pay walks past my door. It's the best pitch in the city for my trade." } },
+    hall_of_arms = { { id = "tp_hall", text = "Regnus an' Daera teach the hunters there, an' they send them on tae us tae be kitted out. I send them back when they've questions I cannae answer wi' a price." } },
+    background = { { id = "tp_bg", text = "A Goldfury, born in this ward, an' I fired my first shot before I'd my first braid." } },
+    _none = { { id = "tp_none", text = "I've nae idea. If it cannae be loaded, aimed or cleaned, ye've come tae the wrong dwarf." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Skolmin Goldfury: bow merchant at Goldfury's Hunting Supplies in the Military Ward.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_skolmin", id = TODO_NPC("Skolmin Goldfury"), name = "Skolmin Goldfury", title = "Bow Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "quiet", "patient" }, values = { "craft", "nature" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Skolmin Goldfury sells bows, crossbows and arrows at Goldfury's Hunting Supplies, across the shop from Bretta and her guns. He speaks quietly, partly from habit and partly to make her lean in.",
+    third = "{name} met Skolmin Goldfury, who sells bows at Goldfury's Hunting Supplies in the Military Ward of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Welcome. Bows an' arrows are on this side, an' ye'll find it's the quieter side in every sense." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye've come back, so the string held. I'd expect nothin' less, but it's good tae hear." },
+    { id = "g_elf", when = { race = "NightElf" }, text = "A night elf in my shop. I'll no' pretend I can teach yer folk anythin' about a bow, but I'd be glad o' yer opinion on mine." },
+  },
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "Ye've a hunter's shoulders, the right one set a wee bit lower. That comes from years o' drawin', an' I'm glad tae see it." },
+    { id = "n_elf", cat = "race", when = { race = "NightElf" },
+      text = "Yer people have been bendin' wood since before this mountain was hollowed. I've a yew stave I'd like ye tae look at, if ye've a moment." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Skolmin Goldfury, bowyer. Most dwarves think a bow is a thing for elves an' poachers, an' my kinswoman Bretta will tell ye so from across the room. I've kept this counter thirty years all the same." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "Skolmin Goldfury. Ye'll have heard Bretta already, I expect, most o' the ward has. When ye're ready tae hunt somethin' without tellin' the whole valley, come an' see me." },
+      },
+      again = {
+        { id = "h_again", text = "What else would ye like tae ken? I'm in nae hurry." },
+        { id = "h_again2", text = "Aye, ask. I can string a bow an' listen at once." },
+      },
+      choices = {
+        { text = "Show me your bows.", next = "BUSINESS" },
+        { text = "A dwarf bowyer is a rare thing.", next = "rare" },
+        { text = "What wood do you use, in a land of pine?", next = "wood" },
+        { text = "Bretta says the gun has won the argument.", next = "bretta" },
+        { text = "What makes a good arrow?", next = "arrow" },
+        { text = "Good day, Skolmin.", next = "END" },
+      },
+    },
+    rare = {
+      lines = { { id = "ra_default", text = "It is, an' I've stopped mindin' the jokes. I learned it huntin' wi' my grandfather in the high passes, where one shot from a gun brings the snow down on yer head. Ye learn tae love a quiet weapon up there." } },
+      choices = {
+        { text = "Did the snow ever come down?", next = "rare_snow" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rare_snow = {
+      lines = { { id = "rs_default", text = "Once, on a party o' riflemen two ridges over. We dug for a day an' found three of the five. I've made bows ever since, an' I've never tried tae talk a rifleman out o' his gun, only tae sell him a second choice." } },
+      choices = { { text = "That's a hard way to learn a trade.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    wood = {
+      lines = { { id = "wo_default", text = "No' pine, that's certain, for it snaps like a biscuit. I have ash an' yew brought up from Elwynn, an' I back the heavier bows wi' ram's horn from the Amberstill ranch, which gives them a kick a plain stave never has." } },
+      choices = {
+        { text = "Horn-backed bows are a dwarven idea?", next = "wood_horn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wood_horn = {
+      lines = { { id = "wh_default", text = "It's my idea, an' I'm fair proud of it. A dwarf's arms are short an' strong, so I make a short bow that draws heavy. Put a long elven bow in a dwarf's hands an' he'll trip over it on the stairs." } },
+      choices = { { text = "Built for the archer, not the legend.", next = "BACK", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    bretta = {
+      lines = { { id = "br_default", text = "She says a good many things, an' she says them loud. A gun is the better tool for a soldier, an' I'll grant her that. But a hunter who cannae get close enough for a bow hasnae learned tae hunt, only tae shoot." } },
+      choices = {
+        { text = "A fair distinction.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Don't tell her I agreed with you.", next = "BACK", reply = "I'll no' need tae. She'll see it on my face an' start in before ye've reached the door.", fx = { trait = { witty = 1 } } },
+      },
+    },
+    arrow = {
+      lines = { { id = "ar_default", text = "Straightness first, an' then weight that matches the bow. Folk fuss over the head, but it's the fletchin' that decides where it goes. I use gryphon feathers when Gryth Thurden's birds are moultin', an' there's nothin' finer." } },
+      choices = { { text = "Gryphon-fletched arrows. I'll remember that.", next = "BACK", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    bretta = { { id = "tp_bretta", text = "Bretta's my kin an' the best gunsmith's eye in the ward. She's deaf in one ear an' pretends it's both when I'm winnin'." } },
+    military_ward = { { id = "tp_ward", text = "Soldiers, recruits an' drill sergeants, all o' them loud. I keep the quiet corner o' the loudest ward in Ironforge." } },
+    amberstill = { { id = "tp_amber", text = "The Amberstills raise rams out past Kharanos, an' they sell me the shed horn. It's the best bow-backin' in the Eastern Kingdoms, though they think I'm daft for wantin' it." } },
+    background = { { id = "tp_bg", text = "A Goldfury an' a bowyer, which my family thinks is one word too many." } },
+    _none = { { id = "tp_none", text = "I couldnae tell ye. I ken wood, horn an' feather, an' no' a great deal else." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brenwyn Wintersteel: blade merchant at Timberline Arms in the Military Ward.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_brenwyn", id = TODO_NPC("Brenwyn Wintersteel"), name = "Brenwyn Wintersteel", title = "Blade Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "cool", "exact" }, values = { "craft", "honest" },
+  notices = { "class", "kit" },
+  impression = {
+    first = "Brenwyn Wintersteel sells swords and daggers at Timberline Arms in the Military Ward. She tests an edge on her thumbnail while she talks and never seems to cut herself.",
+    third = "{name} met Brenwyn Wintersteel, the blade merchant at Timberline Arms in the Military Ward of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Timberline Arms. Blades are mine, so if it has an edge an' a point, ye're talkin' tae the right dwarf." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye're back. Let me see the edge on the last one before ye tell me how it served." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "Daggers are in the case on the left. I'll no' ask what they're for, an' ye'll no' tell me, an' we'll both sleep well." },
+  },
+  notice = {
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Ye've been choppin' wi' that blade like it was an axe. It's a sword, {g:lad|lass}, an' it wants tae be drawn across, no' swung down." },
+    { id = "n_war", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "Ye've the wrists for a longer blade than the one ye're wearin'. Try the third from the end before ye go." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Brenwyn Wintersteel. There are four of us under this roof, an' we split the trade by what the thing does: I sell what cuts, Hegnar sells what chops, Kelomir sells what crushes, an' Thalgus sells whatever's left." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "Brenwyn Wintersteel. Aye, a dwarf who sells swords, an' ye can save the joke, for Hegnar makes it every mornin' before his porridge." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I've an edge tae finish, but I can talk over it." },
+        { id = "h_again2", text = "Go on, then, an' keep yer sleeve away from the rack." },
+      },
+      choices = {
+        { text = "Show me your blades.", next = "BUSINESS" },
+        { text = "Why swords, in a city of axes?", next = "why" },
+        { text = "Four merchants in one shop sounds crowded.", next = "four" },
+        { text = "How do you tell a good edge?", next = "edge" },
+        { text = "What blade suits a quiet sort of work?", next = "quiet", when = { class = "ROGUE" } },
+        { text = "Good day, Brenwyn.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "wy_default", text = "Because an axe has one good answer an' a sword has a dozen. Ye can cut, thrust, parry an' turn another blade aside wi' it. I saw a Stormwind knight fence in the Hall o' Arms when I was a girl, an' I never looked at an axe the same way again." } },
+      choices = {
+        { text = "What did your family say?", next = "why_family" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_family = {
+      lines = { { id = "wf_default", text = "My father said it was a phase, an' that was sixty years ago. He carries one o' my short swords now, under his cloak, where his friends cannae see it." } },
+      choices = { { text = "That's a quiet sort of victory.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    four = {
+      lines = { { id = "fo_default", text = "It is, an' it works. Nobody steps on another's counter, an' a customer who cannae decide gets passed along the room till somethin' fits. The only quarrel is over who sweeps." } },
+      choices = {
+        { text = "And who does sweep?", next = "four_sweep" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    four_sweep = {
+      lines = { { id = "fw_default", text = "Thalgus, since he sells the odds an' ends an' has the least tae polish. He's kept a tally o' every sweepin' for eleven years, an' he reads it out at Winter Veil." } },
+      choices = { { text = "Every shop needs a Thalgus.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    edge = {
+      big = true,
+      lines = { { id = "ed_default", text = "By the light along it. Hold it tae the lamp, an' a true edge shows nae line at all, while a dull one shines back at ye. I'll sell a plain blade wi' a true edge before a pretty one wi' a false, though the pretty ones pay better." } },
+      choices = {
+        { text = "Honest steel first. The rest is vanity.", next = "BACK", reply = "Aye, an' I'd have ye say it louder, so the whole shop can hear.", fx = { align = { honor = 1 } } },
+        { text = "Sell the pretty ones. Coin keeps the doors open.", next = "BACK", reply = "Ye sound like my ledger. It isnae wrong, but I dinnae have tae like it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quiet = {
+      lines = { { id = "qu_default", text = "Somethin' short, dark in the steel an' thin enough tae find a gap. I keep a few I had blued so they'll no' catch the lamplight, an' Ormyr Flinteye's students buy them as fast as I can get them." } },
+      choices = { { text = "Show me those.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    timberline = { { id = "tp_timber", text = "Timberline Arms has stood in the Military Ward longer than I've been alive. The name's from the first owner, who came down from the tree line wi' a cart o' hunting knives." } },
+    hegnar = { { id = "tp_hegnar", text = "Hegnar Swiftaxe sells the axes, an' he thinks a sword is an axe that lost its nerve. He's a good dwarf, an' I'd no' tell him so." } },
+    military_ward = { { id = "tp_ward", text = "It's all drill an' shoutin', an' every one o' them needs somethin' sharp. I've nae complaints." } },
+    background = { { id = "tp_bg", text = "I've sold blades at this counter since I was old enough tae be trusted wi' the keys." } },
+    _none = { { id = "tp_none", text = "I dinnae ken. Ask me about a blade an' I'll keep ye here till supper." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Hegnar Swiftaxe: axe merchant at Timberline Arms in the Military Ward.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_hegnar_axe", id = TODO_NPC("Hegnar Swiftaxe"), name = "Hegnar Swiftaxe", title = "Axe Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "hearty", "stubborn" }, values = { "tradition", "brave" },
+  notices = { "race", "class" },
+  impression = {
+    first = "Hegnar Swiftaxe sells axes at Timberline Arms and believes no other weapon needs to exist. He is broad, loud and fond of demonstrating a swing in a shop that is too small for it.",
+    third = "{name} met Hegnar Swiftaxe, the axe merchant at Timberline Arms in the Military Ward of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Ho! Ye've the look o' somebody who needs an axe. Everybody has that look, mind, but on ye it's stronger." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Did it bite deep? O' course it did, I sold it tae ye." },
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf, by my beard, an' walkin' straight past the swords! Yer mother raised ye right." },
+  },
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "Ye've the shoulders for a great axe, {g:lad|lass}. It'd be a waste tae hang anythin' smaller on them." },
+    { id = "n_caster", cat = "class", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
+      text = "Ye'll no' be liftin' one o' mine, I think. Kelomir has staves at the next counter, an' he's gentle wi' yer sort." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Hegnar Swiftaxe, an' the name's nae accident. My family's sold axes in this ward since the War o' the Three Hammers, an' I've never once had a customer come back tae say it was too sharp." },
+        { id = "h_warrior", when = { class = "WARRIOR" }, text = "Hegnar Swiftaxe. A warrior, an' a proper one by the look. Come round the counter an' feel the weight o' this one before ye say a word." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Stand back a pace, I talk wi' my hands." },
+        { id = "h_again2", text = "Aye, ask away, I've nothin' but axes an' time." },
+      },
+      choices = {
+        { text = "Show me your axes.", next = "BUSINESS" },
+        { text = "Why does a dwarf love an axe so?", next = "love" },
+        { text = "You're kin to Granis Swiftaxe in Kharanos, I'd guess.", next = "granis" },
+        { text = "One hand or two?", next = "hands" },
+        { text = "Brenwyn says a sword has a dozen answers.", next = "brenwyn" },
+        { text = "Good day, Hegnar.", next = "END" },
+      },
+    },
+    love = {
+      lines = { { id = "lo_default", text = "Because it's honest! It fells a tree, splits yer firewood, opens a keg an' closes an argument, an' it never pretends tae be anythin' else. We cut this mountain's first timbers wi' axes before we'd a single forge lit." } },
+      choices = {
+        { text = "And it suits a dwarf's build.", next = "love_build" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    love_build = {
+      lines = { { id = "lb_default", text = "There, ye see it! We're short in the arm an' thick in the back, so all the weight goes tae the head o' the axe, where it's wanted. A tall man wi' a sword is reachin', an' a dwarf wi' an axe is arrivin'." } },
+      choices = { { text = "Reaching and arriving. I like that.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    granis = {
+      lines = { { id = "gr_default", text = "A cousin, aye, an' he teaches the young warriors down at the Thunderbrew. He sends them up tae me when they've outgrown their trainin' axe, an' I send him a cask at Brewfest for the custom." } },
+      choices = { { text = "A family business, then, one way or another.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    hands = {
+      lines = { { id = "ha_default", text = "That's the only real question in my trade. One hand an' a shield if ye mean tae stand in a line an' live, an' two hands if ye mean tae end it quick an' trust yer friends tae keep ye standin'." } },
+      choices = {
+        { text = "Which do you carry?", next = "hands_own" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hands_own = {
+      big = true,
+      lines = { { id = "ho_default", text = "Two hands, always, an' my wife calls it vanity. She says a dwarf wi' a family has nae business leavin' his shield at home. I say the best guard is tae finish it first. What's yer own way?" } },
+      choices = {
+        { text = "Shield up. You owe your family a safe return.", next = "BACK", reply = "Ye'd get on wi' her. Aye, well, maybe I'll take the buckler down an' dust it.", fx = { align = { order = 1 } } },
+        { text = "Strike first and hardest. Caution loses fights.", next = "BACK", reply = "Ha! I'll tell her a stranger took my side, an' sleep in the shop for it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brenwyn = {
+      lines = { { id = "bw_default", text = "Aye, an' eleven o' them are ways tae avoid hittin' somebody. She's the finest judge of an edge in Ironforge, I'll give her that, an' she sharpens my display pieces when she thinks I'm no' lookin'." } },
+      choices = { { text = "So you do like her swords a little.", next = "BACK", reply = "I like her edges. The swords I put up wi'.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    timberline = { { id = "tp_timber", text = "Four counters an' one roof. It'd be the finest shop in the ward if three o' them sold axes as well." } },
+    brenwyn = { { id = "tp_brenwyn", text = "Brenwyn Wintersteel sells swords an' daggers. She's sharp in every sense, an' I'd no' cross her on a matter of steel." } },
+    hall_of_arms = { { id = "tp_hall", text = "Kelstrum Stonebreaker trains the warriors there, an' he sends them tae me when they're ready for real iron. A good arrangement, that." } },
+    background = { { id = "tp_bg", text = "A Swiftaxe, an' we've sold what the name says for longer than the ward's had walls." } },
+    _none = { { id = "tp_none", text = "I couldnae tell ye, friend. Does it need choppin'? Then I can help." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Kelomir Ironhand: maces and staves at Timberline Arms in the Military Ward.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_kelomir", id = TODO_NPC("Kelomir Ironhand"), name = "Kelomir Ironhand", title = "Maces & Staves",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "gentle", "thoughtful" }, values = { "pious", "craft" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Kelomir Ironhand sells maces and staves at Timberline Arms, so his customers are paladins, priests and mages. He is the quietest of the four merchants and the only one the casters are not afraid to ask.",
+    third = "{name} met Kelomir Ironhand, who sells maces and staves at Timberline Arms in the Military Ward of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Good day tae ye. Maces an' staves are at this end, an' ye're welcome tae lift any o' them." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. I hope the last one sat well in the hand, an' if it didnae, tell me, an' we'll find ye another." },
+    { id = "g_pal", when = { class = "PALADIN" }, text = "Light be wi' ye, {g:brother|sister}. I've a hammer on the wall I think has been waitin' for a paladin." },
+  },
+  notice = {
+    { id = "n_caster", cat = "class", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
+      text = "Ye lean on that staff more than ye wield it, which tells me it's a hand too long. I can cut one tae yer height." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "I keep the short staves on the low pegs, friend. Ye'll no' need tae ask anybody tae fetch one down." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Kelomir Ironhand. The others in this shop sell things for cuttin', an' I sell things for folk who'd sooner no' draw blood, which is a larger crowd than ye'd think in a soldier's ward." },
+        { id = "h_priest", when = { class = "PRIEST" }, text = "Kelomir Ironhand, an' ye're very welcome. The priests come over from the Mystic Ward tae me, since I'm the only weapon merchant who doesnae make them feel foolish for askin'." },
+      },
+      again = {
+        { id = "h_again", text = "Is there aught else? Take yer time." },
+        { id = "h_again2", text = "Aye, I'm listenin'. The others are loud enough for the whole shop, so I've learned tae." },
+      },
+      choices = {
+        { text = "Show me your maces and staves.", next = "BUSINESS" },
+        { text = "Why do priests carry maces?", next = "priests" },
+        { text = "A staff is a strange thing to sell beside hammers.", next = "staff" },
+        { text = "How do you get on with the other three?", next = "others" },
+        { text = "What makes a paladin's hammer different?", next = "hammer", when = { class = "PALADIN" } },
+        { text = "Light keep you, Kelomir.", next = "END" },
+      },
+    },
+    priests = {
+      lines = { { id = "pr_default", text = "It's an old vow among some o' them, tae shed nae blood by the edge. A mace breaks a bone an' leaves the rest tae the Light's mercy. I've thought a good deal about whether that's a real difference or a comfortable one." } },
+      choices = {
+        { text = "And what did you decide?", next = "priests_decide" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priests_decide = {
+      big = true,
+      lines = { { id = "pd_default", text = "I havenae, an' I've sold maces forty years. A man struck down is struck down. Still, a priest who chooses the mace has at least stopped tae ask the question, an' most who buy swords never do. How does it sit wi' ye?" } },
+      choices = {
+        { text = "The asking matters. Restraint is a virtue.", next = "BACK", reply = "That's the kinder readin', an' I'll hold tae it. Thank ye.", fx = { align = { light = 1 } } },
+        { text = "Dead is dead. The vow is only for show.", next = "BACK", reply = "Aye, there are days I think the same. I sell them anyway, an' pray over the till.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    staff = {
+      lines = { { id = "sf_default", text = "It is, an' Hegnar calls my end o' the shop the firewood counter. But a mage's staff is turned an' balanced as careful as any blade, an' I have mine made from Elwynn ash by a turner who's never rushed a job in his life." } },
+      choices = {
+        { text = "Do the mages know the difference?", next = "staff_mages" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    staff_mages = {
+      lines = { { id = "sm_default", text = "The good ones do. Bink came in once an' tapped six staves on the floor before she found one that rang true, an' she said it would hold a charge better. I dinnae understand the half o' that, but I've tapped every staff since." } },
+      choices = { { text = "A merchant who listens to his customers.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    others = {
+      lines = { { id = "ot_default", text = "Well enough. Hegnar shouts, Brenwyn frowns, an' Thalgus counts things, an' I keep the peace an' the kettle. Somebody in a shop has tae be the one who remembers the birthdays." } },
+      choices = { { text = "And that falls to you.", next = "BACK", reply = "It always has. I dinnae mind it, there's worse things tae be known for.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    hammer = {
+      lines = { { id = "hm_default", text = "The balance sits further forward, for ye strike once an' mean it, an' the haft is long enough tae lean on while ye pray. Valgar Highforge had me alter the grip on his three times before he was satisfied." } },
+      choices = { { text = "Show me the hammers.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    timberline = { { id = "tp_timber", text = "It's a good shop wi' good folk in it. A wee bit noisy, but then so is the whole ward." } },
+    mystic_ward = { { id = "tp_mystic", text = "Half my customers walk over from there. I've thought o' movin' the counter closer, but the others would miss my tea." } },
+    thalgus = { { id = "tp_thalgus", text = "Thalgus Thunderfist sells what the rest of us dinnae, an' keeps the shop's accounts besides. He's fair, an' he's never been a copper out." } },
+    background = { { id = "tp_bg", text = "An Ironhand, an' a quiet one. I meant tae be a priest an' found I was better at fittin' them out." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I dinnae ken. I'd no' like tae guess an' send ye wrong." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Thalgus Thunderfist: weapon merchant at Timberline Arms; thrown weapons, shot and odds and ends.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_thalgus", id = TODO_NPC("Thalgus Thunderfist"), name = "Thalgus Thunderfist", title = "Weapon Merchant",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "fussy", "dry" }, values = { "order", "practical" },
+  notices = { "class", "kit" },
+  impression = {
+    first = "Thalgus Thunderfist keeps the fourth counter at Timberline Arms, where the throwing knives, shot, arrows and everything the other three will not stock end up. He also keeps the shop's ledger, and it shows.",
+    third = "{name} met Thalgus Thunderfist, a weapon merchant at Timberline Arms in the Military Ward of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Timberline Arms, fourth counter. If the other three havenae got it, I have, an' it's in a drawer wi' a number on it." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye again. I've yer last purchase in the book, so tell me how many ye lost an' I'll tell ye how many tae buy." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "Shot or arrows? I've both, counted intae hundreds, an' I'll thank ye no' tae ask me tae split a bundle." },
+  },
+  notice = {
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "Throwin' knives are in the second drawer. Ye'll want a dozen, for ye'll no' get back the ones that hit." },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Yer gear's in a state. I dinnae mend, but I'll write ye a list o' what tae replace first, in order o' urgency." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Thalgus Thunderfist. I sell the things a fighter runs out of: knives tae throw, shot, arrows an' the pouches tae carry them. It's no' glamorous, but nobody ever lost a battle for want of a second sword." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "Thalgus Thunderfist, an' ye're my best sort o' customer, for ye'll be back within the week. Tell me the bore or the draw, an' I'll have it counted before ye've found yer purse." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I'm in the middle of a count, but it'll keep." },
+        { id = "h_again2", text = "Aye? Go on, I've marked my place." },
+      },
+      choices = {
+        { text = "Show me what's in the drawers.", next = "BUSINESS" },
+        { text = "What's the name Thunderfist doing behind a ledger?", next = "name" },
+        { text = "You keep the accounts for all four counters.", next = "ledger" },
+        { text = "How much shot does a hunter go through?", next = "shot" },
+        { text = "I hear you do the sweeping.", next = "sweep" },
+        { text = "Good day, Thalgus.", next = "END" },
+      },
+    },
+    name = {
+      lines = { { id = "na_default", text = "My grandfather earned it wi' his fists at Grim Batol, an' I inherited it wi' a head for sums. Every family needs one who counts what the others bring home, an' in mine that's me." } },
+      choices = { { text = "A ledger wins wars too, in its way.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    ledger = {
+      lines = { { id = "le_default", text = "Somebody must. Hegnar rounds up, Brenwyn rounds down, an' Kelomir forgets tae charge the priests at all. Left tae themselves they'd have traded this shop for a keg an' a kind word years ago." } },
+      choices = {
+        { text = "Kelomir doesn't charge priests?", next = "ledger_priests" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ledger_priests = {
+      big = true,
+      lines = { { id = "lp_default", text = "He charges them less, an' thinks I havenae noticed. I've let it stand four years, because he's a good soul an' it's his own share he's givin' away. Still, a price is a price, an' the book ought tae be true. Should I put a stop tae it?" } },
+      choices = {
+        { text = "Let him be. It's charity, and his to give.", next = "BACK", reply = "Aye, I thought ye'd say so. I'll keep writin' it down as breakage, then, an' say nothin'.", fx = { align = { order = -1 } } },
+        { text = "A price is a price. Tell him to stop.", next = "BACK", reply = "That's the proper answer, an' I'm no' sure I've the heart for it. I'll think on it.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shot = {
+      lines = { { id = "sh_default", text = "A careful one, two hundred rounds a week. A careless one, the same in a day, an' he'll tell ye the beasts are gettin' tougher. I can tell ye a hunter's skill from the book wi'out ever seein' him shoot." } },
+      choices = {
+        { text = "What does the book say about most of them?", next = "shot_book" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shot_book = {
+      lines = { { id = "sb_default", text = "That they improve, an' that's the pleasant part o' the job. A recruit buys four hundred his first month an' two hundred his sixth, an' somewhere in between he's learned tae wait for the shot." } },
+      choices = { { text = "You see more from that counter than you let on.", next = "BACK", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    sweep = {
+      lines = { { id = "sw_default", text = "Brenwyn told ye, did she? Four thousand an' sixteen times as o' this mornin', against none at all for the other three. I'm no' bitter, mind, I only like the record kept." } },
+      choices = { { text = "Four thousand and sixteen is a lot of not being bitter.", next = "BACK", reply = "Hmph. Ye may have a point, but I'll no' be writin' that one down.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    timberline = { { id = "tp_timber", text = "A sound business, whatever the others do tae it. We've turned a profit every year but the one Hegnar bought forty great axes on a feelin'." } },
+    goldfury = { { id = "tp_goldfury", text = "The Goldfurys across the ward sell the guns an' bows, an' I sell what goes in them at a copper less. We nod tae each other." } },
+    kelomir = { { id = "tp_kelomir", text = "Kelomir Ironhand is the best of us, an' the worst wi' money. I look after the second so he can go on bein' the first." } },
+    background = { { id = "tp_bg", text = "A Thunderfist who can add. There's one born every third generation, an' the family's never sure what tae do wi' us." } },
+    _none = { { id = "tp_none", text = "That's no' in any drawer o' mine, so I cannae help ye." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Fillius Fizzlespinner: trade supplies at Fizzlespinner's General Goods in the Commons.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_fillius", id = TODO_NPC("Fillius Fizzlespinner"), name = "Fillius Fizzlespinner", title = "Trade Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "tidy", "principled" }, values = { "order", "honest" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Fillius Fizzlespinner owns Fizzlespinner's General Goods in the Commons and sells thread, flux, vials and spice from shelves arranged by trade. He would sooner lose a sale than hurry a customer.",
+    third = "{name} met Fillius Fizzlespinner, the gnome who keeps Fizzlespinner's General Goods in the Ironforge Commons.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Good day, and welcome to Fizzlespinner's. Trade supplies are on the left, sorted by craft, and you're free to browse without being pounced on." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. Nothing has moved since your last visit, which I mention because customers seem to find it reassuring." },
+    { id = "g_gnome", when = { race = "Gnome" }, text = "Hello, hello! The lower shelves are stocked exactly the same as the upper ones, so there's no need for the stool." },
+  },
+  notice = {
+    { id = "n_craft", cat = "craft", when = { profession = { "Tailoring", "Blacksmithing", "Alchemy", "Cooking", "Leatherworking", "Engineering", "Enchanting" } },
+      text = "You work a trade, I can tell by your hands. Whatever you've run out of, it's on the shelf with your craft's name on it." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "Flux is on the second shelf, master dwarf. It is always flux with your people, and I order it by the barrel." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Fillius Fizzlespinner, proprietor. I sell the little things every craft uses up, and I've arranged them so that a tailor never has to walk past a blacksmith's shelf. Pithwick has the corner for his bags, as you may have noticed." },
+        { id = "h_craft", when = { profession = { "Tailoring", "Blacksmithing", "Alchemy", "Leatherworking", "Engineering" } }, text = "Fillius Fizzlespinner. A working crafter is the customer this shop was built for, so tell me your trade and I'll point you to the right shelf." },
+      },
+      again = {
+        { id = "h_again", text = "Was there something else? Do take your time." },
+        { id = "h_again2", text = "Yes? I'm only straightening labels, so you aren't interrupting." },
+      },
+      choices = {
+        { text = "Let me see your supplies.", next = "BUSINESS" },
+        { text = "Everything in here is in its place.", next = "tidy" },
+        { text = "Pithwick wants arrows painted on your floor.", next = "arrows" },
+        { text = "Who else sells trade goods in the city?", next = "others" },
+        { text = "What do crafters forget most often?", next = "forget" },
+        { text = "Good day, Fillius.", next = "END" },
+      },
+    },
+    tidy = {
+      lines = { { id = "ti_default", text = "Thank you, it is. A crafter comes in halfway through a piece of work with their head full of it, and the kindest thing I can do is let them find the thread without having to think. A muddled shop steals a little of everybody's day." } },
+      choices = {
+        { text = "Were you always this orderly?", next = "tidy_always" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tidy_always = {
+      lines = { { id = "ta_default", text = "I kept a parts store on the second level of Gnomeregan, with eleven thousand drawers, and I could find any washer in it blindfolded. I left with what I could carry, so I'm rather attached to the shelves I have now." } },
+      choices = { { text = "I'm sorry about the drawers.", next = "BACK", reply = "That's kind of you. I still dream about the indexing.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    arrows = {
+      big = true,
+      lines = { { id = "ar_default", text = "He has told you too, has he? He's a dear fellow and a clever one, and he's quite right that it would sell more. But I think a person who walks into a shop should be left to decide what they want. Am I being old-fashioned?" } },
+      choices = {
+        { text = "No. A shop should serve, not steer.", next = "BACK", reply = "Thank you. I shall tell Pithwick the matter is settled, and he will raise it again on Thursday.", fx = { align = { honor = 1 } } },
+        { text = "A little. Let him paint one arrow.", next = "BACK", reply = "Hm. One arrow, and a small one, and I choose the colour. I'll consider it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others = {
+      lines = { { id = "ot_default", text = "Burbik Gearspanner has a shop up by the Great Forge, and he's welcome to the smiths, who track soot everywhere. Bryllia Ironbrand sells the general goods, the food and the lamp oil. There's trade enough that none of us goes short." } },
+      choices = { { text = "You speak well of your rivals.", next = "BACK", reply = "They're neighbours first. One can be a rival in a tidy way.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    forget = {
+      lines = { { id = "fo_default", text = "Thread, without question. A tailor will carry forty bolts of silk across the city and not one spool to sew them with. After thread it's vials, and after vials it's the alchemist coming back to say the vials were the wrong size." } },
+      choices = {
+        { text = "Are they ever the wrong size?", next = "forget_vials" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forget_vials = {
+      lines = { { id = "fv_default", text = "Never. They're labelled in two places and I ask at the counter besides. Tally Berryfizz once came back three times in a day, and on the third visit she laughed so hard she had to sit on my step." } },
+      choices = { { text = "A patient shopkeeper is a rare thing.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    pithwick = { { id = "tp_pithwick", text = "My tenant in the corner. He sells excellent bags and has a new idea for my shop every week, and I've grown fond of saying no to them." } },
+    commons = { { id = "tp_commons", text = "It's the heart of the city's trade, and noisier than I'd like. I close the shutters at the ninth bell and enjoy the quiet." } },
+    gnomeregan = { { id = "tp_gnomer", text = "I had a very good store there. I try not to think about what the troggs have done to the filing." } },
+    background = { { id = "tp_bg", text = "I'm a storekeeper, as I was at home. It's quiet work, and somebody has to know where things are." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't stock an answer to that. I'd only be guessing, and I dislike guessing." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Edris Barleybeard: barmaid at Bruuk's Corner in the Military Ward; Bruuk's kin.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_edris", id = TODO_NPC("Edris Barleybeard"), name = "Edris Barleybeard", title = "Barmaid",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "sharp", "warm" }, values = { "family", "practical" },
+  notices = { "drunk", "class" },
+  impression = {
+    first = "Edris Barleybeard carries the mugs at Bruuk's Corner in the Military Ward and can hold six in each hand. She knows which soldier owes what and who has had enough, and she is rarely argued with twice.",
+    third = "{name} met Edris Barleybeard, the barmaid at Bruuk's Corner in the Military Ward of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Sit where ye like, so long as it's no' the stool by the fire, for that's Pilot Longbeard's an' he sulks." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' ye paid last time, so ye're welcome. What'll it be?" },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The late watch is just off the gates, so mind yer elbows. I'll find ye a corner." },
+  },
+  notice = {
+    { id = "n_drunk", cat = "drunk", when = { drunk = true },
+      text = "Ye've had a few already, an' no' here. I'll serve ye one more an' then it's water, an' I'll no' be argued wi'." },
+    { id = "n_war", cat = "class", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } },
+      text = "Ye've a fighter's look, so ye'll fit in. Keep yer weapon peace-tied in here an' we'll get on fine." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Edris Barleybeard. Bruuk's my kin an' it's his name on the corner, but he stands behind the bar an' I'm the one who walks the floor, so if ye want a thing brought or a dwarf removed, ye ask me." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "Edris Barleybeard. Ye'll want the dark ale, bein' a dwarf o' sense, an' I'll bring it before ye've got yer cloak off." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Be quick, I've a tray gettin' warm." },
+        { id = "h_again2", text = "Aye, go on, I can listen an' carry." },
+      },
+      choices = {
+        { text = "I'll take a drink.", next = "BUSINESS" },
+        { text = "Bruuk says you've thrown out bigger dwarves than him.", next = "thrown" },
+        { text = "What sort of crowd drinks here?", next = "crowd" },
+        { text = "You must hear everything in a soldiers' bar.", next = "hear" },
+        { text = "How does this place compare to the Stonefire?", next = "stonefire" },
+        { text = "Good night, Edris.", next = "END" },
+      },
+    },
+    thrown = {
+      lines = { { id = "th_default", text = "I have, an' it's nae great trick. Ye take them by the collar an' the belt while they're still explainin' themselves, an' ye walk. A drunk dwarf goes where his belt goes." } },
+      choices = {
+        { text = "Who was the biggest?", next = "thrown_big" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thrown_big = {
+      lines = { { id = "tb_default", text = "A sergeant o' the siege brigade, the width o' that door an' twice as thick. He came back the next mornin' wi' his hat in his hands tae pay for the stool, an' he's left a copper on my tray every night since." } },
+      choices = { { text = "You've a firm hand and a fair one.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    crowd = {
+      lines = { { id = "cr_default", text = "Guards off the gates, recruits from the Hall o' Arms, an' the siege brigade lot when they've been paid. They're loud, an' they sing badly, but they look after the place, for it's the only bar in the ward." } },
+      choices = {
+        { text = "And the recruits? Do they behave?", next = "crowd_recruits" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crowd_recruits = {
+      big = true,
+      lines = { { id = "cc_default", text = "They try tae keep up wi' the veterans an' end the night under the table. Bruuk says a soldier learns his limit by findin' it, an' I say half o' them are bairns who miss their mothers. I water the last round for the youngest, an' he pretends no' tae see." } },
+      choices = {
+        { text = "You're right to. Someone should look out for them.", next = "BACK", reply = "Aye, well. They'll have hard enough mornin's ahead wi'out me addin' tae them.", fx = { align = { light = 1 } } },
+        { text = "Bruuk's right. Let them learn the hard way.", next = "BACK", reply = "Ye've never had tae carry one home, then. Suit yerself.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hear = {
+      lines = { { id = "he_default", text = "More than the Senate does, I'd wager. I ken which patrol's short o' boots an' which officer's no' trusted, an' I keep it between my ears. A barmaid who repeats what she hears is out o' work by Winter Veil." } },
+      choices = { { text = "Then I'll not ask you to.", next = "BACK", reply = "Good. Ye'd be surprised how many try, an' wi' how little coin.", fx = { trait = { reserved = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    stonefire = {
+      lines = { { id = "sf_default", text = "Firebrew's place is for travellers an' merchants, wi' beds an' a proper kitchen. Here ye get ale, a stool an' the truth about yer singin'. Gwenna over there is a friend o' mine, an' we swap stories about the worst o' them." } },
+      choices = { { text = "I'd pay to hear those stories.", next = "BACK", reply = "Ye couldnae afford them, an' half the folk in them are armed.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    bruuk = { { id = "tp_bruuk", text = "Bruuk's gruff an' he's soft as dough under it. He soldiered on the wall for years, an' he's never refused a veteran a drink on a bad night." } },
+    military_ward = { { id = "tp_ward", text = "It's loud from the first drill tae the last bell. I was born tae the noise, an' I cannae sleep anywhere quiet." } },
+    longbeard = { { id = "tp_longbeard", text = "Pilot Longbeard's in most nights, tellin' the same three stories. I could tell them for him by now, an' better." } },
+    background = { { id = "tp_bg", text = "A Barleybeard, an' I've carried mugs in this ward since I could lift a tray." } },
+    _none = { { id = "tp_none", text = "I dinnae ken, an' if I did I'd likely no' say. Drink up." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Tynnus Venomsprout: gnome shady dealer in the Forlorn Cavern; poisons and rogue supplies.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_tynnus", id = TODO_NPC("Tynnus Venomsprout"), name = "Tynnus Venomsprout", title = "Shady Dealer",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "soft-spoken", "sly" }, values = { "discretion", "craft" },
+  notices = { "class", "craft" },
+  impression = {
+    first = "Tynnus Venomsprout sells powders, vials and other quiet goods in the Forlorn Cavern, near the rogues of the Hidden Circle. He speaks softly, washes his hands often and never says the word poison.",
+    third = "{name} met Tynnus Venomsprout, a gnome who deals in rogues' supplies in the Forlorn Cavern of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Good day. Do keep your voice down, if you would, and tell me what sort of problem you have." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, you again. I take it the last purchase did what it said on the label I didn't put on it." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "One of Hulfdan's, unless I'm mistaken, and I'm not. Come round where the lamp doesn't reach." },
+  },
+  notice = {
+    { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
+      text = "An alchemist. We are in the same trade from opposite ends, you and I, and I'd be glad to compare notes on dosage some evening." },
+    { id = "n_pal", cat = "class", when = { class = { "PALADIN", "PRIEST" } },
+      text = "Oh, dear. You've wandered down the wrong passage, I think. I sell lamp oil and flash powder, and that is all you saw." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Tynnus Venomsprout, supplier of specialised goods. I sell powders, empty vials and certain preparations to people whose work requires them, and I ask no questions, because the answers would only worry me." },
+        { id = "h_rogue", when = { class = "ROGUE" }, text = "Tynnus Venomsprout. The Circle sends its people to me for the things a blade can't do alone. Tell me how quickly it needs to work, and how quietly." },
+      },
+      again = {
+        { id = "h_again", text = "Was there something more? Softly, please." },
+        { id = "h_again2", text = "Yes? I'm listening, and so is the cavern, so choose your words." },
+      },
+      choices = {
+        { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "You sell poison, then.", next = "poison" },
+        { text = "This is an odd corner for a shop.", next = "cavern" },
+        { text = "Where do you get your ingredients?", next = "source" },
+        { text = "What's the first rule of handling your goods?", next = "rule", when = { class = "ROGUE" } },
+        { text = "Goodbye, Tynnus.", next = "END" },
+      },
+    },
+    poison = {
+      lines = { { id = "po_default", text = "What an ugly word. I sell ingredients, and what a customer mixes at home is between them and their conscience. I will say that the king's own agents buy from me, so the mountain evidently feels the trade has its uses." } },
+      choices = {
+        { text = "Does it trouble you, what they're used for?", next = "poison_trouble" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    poison_trouble = {
+      big = true,
+      lines = { { id = "pt_default", text = "Now and then, at about three in the morning. A Dark Iron spy who dies quietly in a tunnel never opens a gate to his friends, and I think that a fair exchange. But I don't see the faces, and I've wondered whether that is wisdom or cowardice." } },
+      choices = {
+        { text = "Quiet work saves lives. You do your part.", next = "BACK", reply = "That is what I tell the ceiling. It's pleasant to hear it from someone who can answer.", fx = { align = { honor = -1 } } },
+        { text = "Killing unseen is no honest trade.", next = "BACK", reply = "No, it isn't, and I've never claimed otherwise. Honest trades don't keep spies out of Ironforge, though.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cavern = {
+      lines = { { id = "ca_default", text = "It's the only corner that suits. The Forlorn Cavern is where Ironforge keeps what it prefers not to look at: the rogues, the warlocks and a lake nobody fishes twice. The rent is low and the neighbours mind their own business." } },
+      choices = {
+        { text = "Who are the neighbours?", next = "cavern_neighbours" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cavern_neighbours = {
+      lines = { { id = "cn_default", text = "Hulfdan Blackbeard and Ormyr Flinteye teach the Circle's rogues, and Fenthwick too, who is the only one that says good morning. Gerrig Bonegrip's warlocks keep to their shop of runes, and I let them, because their ingredients are far worse than mine." } },
+      choices = { { text = "A dealer in poisons who's wary of warlocks.", next = "BACK", reply = "My goods only harm the person they're meant for. That's a great deal more than they can promise.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    source = {
+      lines = { { id = "so_default", text = "Spider glands from the Wetlands, certain mushrooms from the deep tunnels, and a salt the miners would rather not know they're selling me. I test every batch on a measured scale, and I have never once sold a preparation that was stronger or weaker than I said." } },
+      choices = { { text = "Precision, even in this.", next = "BACK", reply = "Especially in this. A careless grocer gives you a stomach ache, and a careless one of me is a funeral.", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    rule = {
+      lines = { { id = "ru_default", text = "Gloves, and then a second pair of gloves. After that, never coat a blade you mean to sheathe against your own leg, which sounds obvious until you meet the number of rogues who limp." } },
+      choices = { { text = "Two pairs. I'll remember.", next = "BACK", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    forlorn_cavern = { { id = "tp_cavern", text = "Dark, damp and discreet. Nobody comes here by accident twice, which keeps my custom to the serious sort." } },
+    hidden_circle = { { id = "tp_circle", text = "I couldn't possibly say. If there were such a body, I expect it would pay its accounts promptly, and in small coin." } },
+    hulfdan = { { id = "tp_hulfdan", text = "Master Blackbeard is a careful customer and a careful teacher. He has never asked me for anything he couldn't justify to the king." } },
+    background = { { id = "tp_bg", text = "I was a pest controller in Gnomeregan. The work has changed less than you might suppose." } },
+    _none = { { id = "tp_none", text = "I know nothing about that, and I find it's usually safest to stay that way." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Sognar Cliffbeard: meat vendor who walks the Military Ward.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_sognar", id = TODO_NPC("Sognar Cliffbeard"), name = "Sognar Cliffbeard", title = "Meat Vendor",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "jolly", "blunt" }, values = { "practical", "hearty" },
+  notices = { "class", "pet" },
+  impression = {
+    first = "Sognar Cliffbeard walks the Military Ward selling roast and cured meat to soldiers who have no time to sit down for it. He smells of woodsmoke and thinks vegetables are a rumour from Stormwind.",
+    third = "{name} met Sognar Cliffbeard, who sells meat on foot in the Military Ward of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Meat! Hot haunch, smoked ribs an' boar sausage, an' every bit of it was runnin' about Dun Morogh last week!" },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more, eh? I kent ye would be, nobody stops at one o' my sausages." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! Is that beast o' yours fed? I've offcuts cheap, an' he's lookin' at my tray like it owes him coin." },
+  },
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Yer {pet}'s got a good eye for quality. Keep a hand on him, mind, I've lost a string o' sausages that way before." },
+    { id = "n_war", cat = "class", when = { class = "WARRIOR" },
+      text = "Ye cannae swing steel on bread alone, whatever Myra tells ye. Get some meat in ye before the next drill." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Sognar Cliffbeard, an' I feed the Military Ward. A recruit gets a short rest between drills an' it's no' long enough tae reach a table, so I bring the table tae them, hot." },
+        { id = "h_cook", when = { profession = "Cooking" }, text = "Sognar Cliffbeard. Ye cook, I can tell by the way ye sniffed. Go on, then, guess what wood I smoke over, an' I'll tell ye if ye're close." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk fast, it's goin' cold." },
+        { id = "h_again2", text = "Aye, ask, I can walk an' talk an' sell all at once." },
+      },
+      choices = {
+        { text = "What's on the tray?", next = "BUSINESS" },
+        { text = "Where does your meat come from?", next = "from" },
+        { text = "You and Myra seem to be rivals.", next = "myra" },
+        { text = "How do you smoke it, inside a mountain?", next = "smoke" },
+        { text = "What do soldiers ask for most?", next = "soldiers" },
+        { text = "Good day, Sognar.", next = "END" },
+      },
+    },
+    from = {
+      lines = { { id = "fr_default", text = "Boar from the Kharanos hunters, mostly, for the crag boars are fat this year. I take bear when I can get it, an' ram when one o' the Amberstills' beasts gets too old an' too mean, though I dinnae tell the customers which ram." } },
+      choices = {
+        { text = "Do you know the rams by name?", next = "from_rams" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    from_rams = {
+      lines = { { id = "fm_default", text = "Rudra Amberstill does, an' she tells me every one, wi' tears, while she takes my coin. I've eaten a ram called Old Grumble that bit a mountaineer twice. He was tough tae the very end, an' I respected him for it." } },
+      choices = { { text = "A fitting end for Old Grumble.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    myra = {
+      big = true,
+      lines = { { id = "my_default", text = "Rivals? She sells bread in the Commons an' I sell meat here, an' on a feast day we stand together an' sell both for more than either's worth. Is that sharp practice, d'ye think, or only good sense?" } },
+      choices = {
+        { text = "It's sharp practice. Feast days aren't for gouging.", next = "BACK", reply = "Hmph. Ye've a point, an' the recruits are poor enough. I'll speak tae Myra.", fx = { align = { honor = 1 } } },
+        { text = "It's good sense. Folk pay what a thing's worth to them.", next = "BACK", reply = "That's how I see it! Nobody's ever handed one back.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    smoke = {
+      lines = { { id = "sm_default", text = "I've a wee smokehouse cut intae the rock behind the ward, wi' a flue that runs up tae the mountainside. I burn pine for the boar an' applewood for the ribs, an' the guards on the upper ledge say they can smell supper two hours early." } },
+      choices = {
+        { text = "Where does applewood come from, up here?", next = "smoke_apple" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    smoke_apple = {
+      lines = { { id = "sa_default", text = "Bimble Longberry saves me her broken fruit crates from the Mystic Ward. She thinks I use them for kindlin', an' I've never had the heart tae tell her they go intae the very thing she disapproves of." } },
+      choices = { { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    soldiers = {
+      lines = { { id = "sl_default", text = "Sausage, for ye can eat it wi' one hand an' hold a shield wi' the other. The officers want ribs, an' then they want somewhere tae wipe their fingers, an' that's how ye tell an officer." } },
+      choices = { { text = "I'll take the sausage, then.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    military_ward = { { id = "tp_ward", text = "A thousand hungry dwarves an' nae kitchen but mine an' Bruuk's. I'll never be rich, but I'll never be idle." } },
+    myra = { { id = "tp_myra", text = "Myra Tyrngaarde bakes the best bread in Ironforge, an' it goes very well under my sausage. Dinnae tell her I said the first part." } },
+    bruuk = { { id = "tp_bruuk", text = "Bruuk's Corner sells the ale that washes my meat down. He lets me stand by his door on cold days, an' I keep his regulars fed." } },
+    background = { { id = "tp_bg", text = "A Cliffbeard, a hunter's son, an' too fond o' the eatin' tae be much good at the chasin'." } },
+    _none = { { id = "tp_none", text = "Couldnae tell ye. Can ye roast it? No? Then I've nae opinion." } },
+  },
+}
