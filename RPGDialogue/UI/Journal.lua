@@ -15,10 +15,10 @@ ns.Journal = J
 UI.Journal = J
 
 local W, H = 660, 500
-local TAB_W, TAB_STEP = 100, 104
+local TAB_W, TAB_STEP = 86, 90
 local frame
 local current = "chronicle"
-local TABS = { "chronicle", "stories", "people", "heard", "sheet", "notes" }
+local TABS = { "chronicle", "stories", "people", "heard", "sheet", "transcript", "notes" }
 -- Old page names (saved bindings, macros) land on the page that holds them now.
 local ALIASES = { topics = "heard", deeds = "sheet", threads = "stories" }
 -- Pages with a search box.
@@ -572,6 +572,33 @@ local function myself(add, c)
   end
 end
 
+-- Transcript: the conversation you're in (or the last one), every word as it was shown.
+-- Nothing is shortened or reworded; only color codes are dropped.
+local function transcript(add, c)
+  local s = ns.Conversation and ns.Conversation.session
+  local name, log, at = s and s.info and s.info.name, s and s.log, nil
+  if not log or #log == 0 then
+    local t = c and c.transcript
+    if not t or not t.log or #t.log == 0 then return end
+    name, log, at = t.name, t.log, t.t
+  end
+  name = (name and name ~= "") and name or L.J_TRANSCRIPT_THEM
+  add(name, "section")
+  if at then add(when(at), "dim") end
+  for _, e in ipairs(log) do
+    local text = e.text:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", "")
+    if e.who == "you" then
+      add(HEAD .. L.J_TRANSCRIPT_YOU .. "|r  " .. text)
+    elseif e.who == "ask" then
+      add(HEAD .. L.J_TRANSCRIPT_YOU .. "|r  " .. L.HISTORY_ASKED:format(text))
+    elseif e.who == "narr" then
+      add(text, "dim")
+    else
+      add(HEAD .. name .. ":|r  " .. text)
+    end
+  end
+end
+
 -- A page as blocks: { text, kind } where kind is "section" (a day, a place, a category:
 -- set large with a rule under it), "head" (a person, a topic), "place" (a small heading
 -- inside a section), "note" (quoted or remembered words), "dim", or nil for plain text.
@@ -596,6 +623,9 @@ function J.Blocks(tab, search)
     if #out == 0 then add((search and search ~= "") and L.J_NO_MATCH or L.J_NOTHING_HEARD, "empty") end
   elseif tab == "sheet" then
     myself(add, c)
+  elseif tab == "transcript" then
+    transcript(add, c)
+    if #out == 0 then add(L.J_NO_TRANSCRIPT, "empty") end
   end
   return out
 end
@@ -1208,8 +1238,9 @@ function J.FitNotes()
   frame.content:SetHeight(h)
 end
 
-function J.Show(tab)
+function J.Show(tab, keepScroll)
   if not frame then create() end
+  local scrollWas = keepScroll and frame.scroll:GetVerticalScroll() or 0
   local target = ALIASES[tab] or tab or current
   if target ~= current and not switching then
     switching = true
@@ -1245,7 +1276,7 @@ function J.Show(tab)
     frame.notes:ClearFocus()
     J.Render(J.Blocks(current, frame.search:GetText()))
   end
-  frame.scroll:SetVerticalScroll(0)
+  frame.scroll:SetVerticalScroll(scrollWas)
   for id, b in pairs(frame.tabs) do
     b:SetText(L["J_TAB_" .. id:upper()])
     b.selected = id == current

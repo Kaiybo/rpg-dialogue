@@ -314,7 +314,7 @@ local function create()
     self:SetAlpha(1)
     D.HistoryTooltip(self)
   end)
-  frame.history:SetScript("OnClick", function() if ns.Journal and ns.Journal.Toggle then ns.Journal.Toggle() end end)
+  frame.history:SetScript("OnClick", function() if ns.Journal and ns.Journal.Show then ns.Journal.Show("transcript") end end)
   frame.history:SetScript("OnLeave", function(self) self:SetAlpha(0.55); GameTooltip:Hide() end)
 
   -- "Aa": text size, line spacing and fonts, changed live (UI/TextOptions.lua).
