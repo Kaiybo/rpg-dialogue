@@ -82,8 +82,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Slow? It hasn't answered one of them, and I've carried Lakeshire's danger on paper for too long. Your spirits might reach where my letters can't." } },
       choices = {
-        { text = "Keep writing, Magistrate. Someone will listen.", next = "BACK", reply = "I'll keep writing, of course, as long as there's ink and breath. Someone, somewhere, has to read them eventually.", fx = { align = { order = 1 } } },
-        { text = "Stop writing. Act yourself.", next = "BACK", reply = "Act how, with what, against whom? I am acting, as best a magistrate can, and that means letters.", fx = { align = { order = -1 } } },
+        { text = "Keep writing, Magistrate. Someone will listen.", next = "BACK", reply = "I'll keep writing, of course; the court's quills outnumber its soldiers. Someone in the Keep must read them eventually.", fx = { align = { order = 1 } } },
+        { text = "Stop writing letters, Magistrate, and act yourself.", next = "BACK", reply = "Act how, with what, against whom? I am acting, as best a magistrate can, and that means letters.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

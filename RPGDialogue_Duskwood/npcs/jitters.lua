@@ -75,7 +75,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Things out past the Yorgen farm that I'll not describe, not even to a warrior, and I ran from them and I've not stopped running since. If you've a sword, you'll want it out before you go that way, and you'll want someone watching your back as well." } },
       choices = {
         { text = "I'll find whatever you saw and put an end to it.", next = "BACK", reply = "You'd go there, on purpose, with your eyes open? Then you're braver than me, and I hope you come back to tell me it's gone.", fx = { align = { honor = 1 } } },
-        { text = "I'll stay clear of the Yorgen farm. Some things aren't worth it.", next = "BACK", reply = "That's the wisest thing anyone's said to me since I came to this hill. Nothing out there is worth what it costs.", fx = { align = { honor = -1 } } },
+        { text = "I'll stay clear of the Yorgen farm. Some things aren't worth it.", next = "BACK", reply = "That's the wisest thing anyone's said to me since I came to this hill. Stay on the road and keep walking, and don't look at the barn.", fx = { align = { honor = -1 } } },
         { text = "Something else, Jitters.", next = "BACK" },
       },
     },
@@ -94,7 +94,7 @@ P:NPC {
     xmage = {
       lines = { { id = "xma_default", text = "Will you? Will you really, all night? Because the last lamp went out in the fog, and that's when I saw them, and I haven't stopped seeing them since." } },
       choices = {
-        { text = "Steady breaths, Jitters. Fear needs discipline.", next = "BACK", reply = "Discipline, yes, steady breaths, like the sergeant used to shout. I'll try, but my breaths keep running off without me.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Steady breaths, Jitters. You can learn to master the fear.", next = "BACK", reply = "Discipline, yes, steady breaths, like the sergeant used to shout. I'll try, but my breaths keep running off without me.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Run if you must. Fear keeps you alive.", next = "BACK", reply = "That's what I've been doing, and look where it got me, hiding on a hill with no supper. Still, I'm alive, so maybe you're right.", fx = { align = { order = -1 } } },
         { text = "What did you see out there?", next = "saw" },
       },
@@ -223,7 +223,7 @@ P:NPC {
       },
       choices = {
         { text = "What happened?", next = "mine_worgen" },
-        { text = "Working men. Defias, I'd wager.", next = "mine_defias" },
+        { text = "They sound like working men. Defias, I'd wager.", next = "mine_defias" },
       },
     },
     mine_worgen = {
@@ -283,7 +283,7 @@ P:NPC {
         { id = "pt_default", text = "...All right, you say the words, and I'll keep my eyes open, because somebody has to." },
       },
       choices = {
-        { text = "Then keep watch. I'll pray.", next = "BACK", reply = "All right, all right, and I'll watch the trees for both of us. Say it slowly, so I can remember the words.", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } },
+        { text = "Then you keep watch, and I'll pray.", next = "BACK", reply = "All right, all right, and I'll watch the trees for both of us. Say it slowly, so I can remember the words.", fx = { affinity = 3, align = { light = 1 }, trait = { pious = 1 } },
           journal = { first = "Prayed with Jitters at Raven Hill, for Sven Yorgen's wife. He kept his eyes open the whole time.",
                       third = "{name} prayed with Jitters at Raven Hill, for a woman whose name neither of them knew." } },
         { text = "The Light wasn't there for her, so I'll keep watch instead.", next = "BACK", reply = "That's what I thought too, every night since. At least we'll both be watching, then.", fx = { align = { light = -1 } } },

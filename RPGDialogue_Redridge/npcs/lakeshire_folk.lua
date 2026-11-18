@@ -248,7 +248,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "There are more than yesterday and fewer than tomorrow. That's my joke, and it keeps me standing. Your spirits might have a better one." } },
       choices = {
         { text = "Then I'll help bring the count down, Feldon.", next = "BACK", reply = "You'd be the first to try in earnest, and I'd be grateful. I've run out of jokes and fingers both.", fx = { align = { honor = 1 } } },
-        { text = "Gnolls are endless. Count something else.", next = "BACK", reply = "What else is there, the wolves? No, I'll keep counting gnolls, because someone has to know how bad it is.", fx = { align = { honor = -1 } } },
+        { text = "There'll always be more gnolls. Count something cheerier.", next = "BACK", reply = "What else is there, the wolves? No, I'll keep counting gnolls, because someone has to know how bad it is.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -290,7 +290,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "More carefully, because the gnolls I can estimate and the fallen I have to spell right. The list goes to Stormwind with the report, and I suspect it's the page they read least." } },
       choices = {
-        { text = "Then I'll pray over every name on that list.", next = "BACK", reply = "That's kind, and someone ought to. I'll make sure the names are spelled right for you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll pray over every name on that list.", next = "BACK", reply = "Someone ought to, and it may as well be you. I'll make sure the names are spelled right.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Counting the dead won't help the living, Deputy.", next = "BACK", reply = "Maybe not, but it's the only thing I can do for them now. Someone has to remember.", fx = { align = { light = -1 } } },
         { text = "Something else, Deputy.", next = "BACK" },
       },
@@ -413,7 +413,7 @@ P:NPC {
     hunter = {
       lines = { { id = "hu_default", text = "Help? I'd weep with gratitude, and I might yet. You read tracks, so tell me whether those gnolls are coming down from the hills in packs or wandering in by ones and twos, because my count changes depending." } },
       choices = {
-        { text = "Packs. Someone's organizing them.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
+        { text = "Packs, you say? Someone's organizing them.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
         { text = "I'll go look and tell you.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -762,7 +762,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, love! Parker will want to meet you, because he says the Silver Hand are the bravest lot in the kingdom." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, love, and a night elf besides! The whole inn will be talking about you by supper, and I'll only pass on the nice parts." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock! I won't tell anyone, I promise, though the whole inn will know by supper, because it's that sort of inn." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Hello, love. A shaman! Sit away from the wobbly table. I'll tell you only the nice gossip, promise." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Hello, love, and a shaman, too! Sit away from the wobbly table, and I'll tell you only the nice gossip, I promise." },
       },
       again = {
         { id = "h_again", text = "What else, love? The tables can wait a minute." },
@@ -918,7 +918,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Because something gentle ought to grow in Redridge. The orcs trample the hills, but my garden stays soft." } },
       choices = {
-        { text = "Keep it growing, Martie. Gentleness is worth guarding.", next = "BACK", reply = "I will, and thank you for saying so. It's the one soft thing I can give this town.", fx = { align = { light = 1 } } },
+        { text = "Keep it growing, Martie. Lakeshire needs something pretty to look at.", next = "BACK", reply = "I will, and thank you for saying so. It's the one soft thing I can give this town.", fx = { align = { light = 1 } } },
         { text = "Grow food instead. Flowers don't feed soldiers.", next = "BACK", reply = "Flowers feed the spirit, love, and the herbs feed the healer. I grow both.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1188,7 +1188,7 @@ P:NPC {
     xlock = {
       lines = { { id = "xlo_default", text = "My kitchen has a fire that never goes out, and it's called me getting up at four. If you're offering something from wherever your sort draws their fire, I'll thank you kindly and keep cooking on plain wood." } },
       choices = {
-        { text = "Plain wood suits honest food.", next = "BACK", reply = "It does, and it always has. Thank you for understanding.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Plain wood suits honest food.", next = "BACK", reply = "It does, and it always has. My soldiers can taste a fancy fire, and they don't trust it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Fel fire cooks faster, you know.", next = "BACK", reply = "Faster, maybe, but my soldiers would taste it. Plain wood, thank you.", fx = { align = { light = -1 } } },
         { text = "How many soldiers do you feed?", next = "count" },
       },
@@ -1197,7 +1197,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Enough to stand, not enough to grow, and there's a difference you can see in their faces by the end of a week. I'd feed them twice as much if Stormwind sent half of what it promised, and I've told the Magistrate so in words he had to write down twice." } },
       choices = {
-        { text = "Stormwind will provide. Ration carefully until it does.", next = "BACK", reply = "I'll ration, and I'll keep writing. Stormwind will provide when it remembers.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stormwind will provide. Ration carefully until it does.", next = "BACK", reply = "I'll ration, and I'll keep writing. The last reply asked me to count the spoons.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Forget Stormwind's promises. Take what the soldiers need.", next = "BACK", reply = "I'd take it gladly if there were anything out there to take. I'll make do with what we've got, as always.", fx = { align = { order = -1 } } },
         { text = "Something else, Chef.", next = "BACK" },
       },

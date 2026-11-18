@@ -42,7 +42,7 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("What Comes Around...") },
           text = "He was sentenced to die, not to sit in a cell as a pawn for some noble's whims. Bring me his head, and Lakeshire will know it's done." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("What Comes Around..."), days = 3 } },
-          text = "So Targorr's met his end, and now he knows what it's like on the other side of the axe. Sometimes the truest justice is found outside the courtroom." },
+          text = "So Targorr's met his end, and now he knows what it's like on the other side of the axe. I'll not lose any sleep over the trial he never got." },
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A dwarf. Your king hangs his traitors, I've heard, and doesn't keep them as bargaining chips. I envy you that." },
       },

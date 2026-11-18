@@ -251,7 +251,7 @@ P:NPC {
         { id = "xrogue_default", text = "The wind riders watch it, and they sleep lighter than any guard. More than one thief has tried to climb the tower at night, and the beasts woke the whole rise before he reached the top, so I've never needed to sleep with one eye open." },
       },
       choices = {
-        { text = "Good beasts. Nobody should rob a flight master.", next = "BACK", reply = "Good, then you'll be welcome up here any time. The beasts like an honest face, and so do I.", fx = { align = { honor = 1 } } },
+        { text = "They're good beasts. Nobody should rob a flight master.", next = "BACK", reply = "Good, then you'll be welcome up here any time. The beasts like an honest face, and so do I.", fx = { align = { honor = 1 } } },
         { text = "Light sleepers only need a quieter thief.", next = "BACK", reply = "Then I wish him luck, because the last one fell off the tower. My riders sleep lighter than you'd guess, friend.", fx = { align = { honor = -1 } } },
         { text = "What is it like to fly?", next = "fly" },
       },
@@ -272,7 +272,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "Hamuul's druids say every beast can feel the Earth Mother's balance in them, and a wind rider is only a beast with very large wings. I've also noticed the druids feed them better than the traders do, so I won't swear which reason matters more." } },
       choices = {
         { text = "Beasts know an honest heart, and that's reason enough.", next = "BACK", reply = "That's what I think, though the druids would call it the Earth Mother's balance. Either way, the riders will know you for what you are.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A good meal buys any beast's trust. It's that simple.", next = "BACK", reply = "There's truth in that, and the traders would agree with you. Still, a good meal and an honest heart together never hurt anyone.", fx = { align = { honor = -1 } } },
+        { text = "A good meal buys any beast's trust. It's that simple.", next = "BACK", reply = "There's truth in that, and the traders would agree with you. Still, I've seen a trader with full pockets bitten for his trouble, so it isn't only the meal.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -500,7 +500,7 @@ P:NPC {
       lines = { { id = "h2_default", text = "Because we've seen what conquest did to the orcs and the humans both. The tauren fought only to survive the centaur, and the High Chieftain says we'll fight only to keep what we've built. I believe him." } },
       choices = {
         { text = "That's a wise way to fight.", next = "BACK", reply = "It is, and the High Chieftain has seen more war than most. A herd that fights only to protect lives longer than one that fights to conquer.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Sometimes the best defence is striking first.", next = "BACK", reply = "Sometimes, I'll grant, and I've seen it done well. But a herd that strikes first soon finds itself with more enemies than it can count.", fx = { align = { honor = -1 } } },
+        { text = "Sometimes the best defence is striking first.", next = "BACK", reply = "Sometimes, I'll grant, and I've seen it done well. But the centaur struck first for a hundred years, and look how many friends they have now.", fx = { align = { honor = -1 } } },
       },
     },
     xhsham = {
@@ -573,7 +573,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The wood comes only from fallen trees, so the Earth Mother gives each bow freely. Take {pet} out to the plains with one, and you'll both come home happy." },
       },
       choices = {
-        { text = "I'll honour the bow and the land it came from.", next = "BACK", reply = "Then the bow will serve you well, and my grandmother would have smiled. A gift honoured is a gift that keeps on giving.", fx = { align = { honor = 1 } } },
+        { text = "I'll honour the bow and the land it came from.", next = "BACK", reply = "Then the bow will serve you well, and my grandmother would have smiled. She strung the first bow of that pattern for my grandfather.", fx = { align = { honor = 1 } } },
         { text = "A bow is a tool. I care only how far it shoots.", next = "BACK", reply = "It will shoot far enough, and true, whatever you believe. I only hope one day you'll feel the difference in the draw.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -595,7 +595,7 @@ P:NPC {
         { id = "xmage_default", text = "A wand fires true, yes, but it's only a stick with somebody else's magic in it. A bow needs a string and a strong arm, and I'll wager on a strong arm over borrowed magic any day." },
       },
       choices = {
-        { text = "Perhaps. There's something to be said for simple tools.", next = "BACK", reply = "There's a great deal to be said, and I'll say it at length if you let me. A strong arm never runs dry.", fx = { align = { order = 1 } } },
+        { text = "Perhaps. There's something to be said for simple tools.", next = "BACK", reply = "There's a great deal to be said, and I'll say it at length if you let me. A wand runs out of charges, but a strong arm only needs supper.", fx = { align = { order = 1 } } },
         { text = "Magic is magic, borrowed or not. It works.", next = "BACK", reply = "It works until it doesn't, and then you'll want a bow. I'll keep one ready for that day.", fx = { align = { order = -1 } } },
         { text = "Is the hunter trainer on this rise your kin?", next = "holt" },
       },
@@ -740,7 +740,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a warrior on the road must eat, and the lakes of Mulgore are full of fish for anyone patient enough to catch them. The braves who learn to fish learn patience along with it, and patience is a warrior's best friend when the centaur are waiting in ambush." } },
       choices = {
-        { text = "Patience is worth learning. I'll try the line.", next = "BACK", reply = "Good, then come down to the lake one morning, and bring your patience. The fish will test it, I promise.", fx = { align = { order = 1 } } },
+        { text = "Patience is worth learning. I'll try the line.", next = "BACK", reply = "Good. The first lesson is sitting still, and most folk fail it before the line's even settled.", fx = { align = { order = 1 } } },
         { text = "Fishing is for peons. I'll eat jerky.", next = "BACK", reply = "Then your teeth will ache by the Crossroads, and you'll wish you'd listened. The lake will be here when you change your mind.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -783,7 +783,7 @@ P:NPC {
         { id = "xmage_default", text = "Because conjured bread tastes of nothing, and a fresh fish from Stonebull Lake tastes of Mulgore. Sit with a line for an afternoon and you'll see, though I'll warn you, the fish here laugh at impatient people." },
       },
       choices = {
-        { text = "I'll learn it the proper way, then.", next = "BACK", reply = "Good, the fish will laugh at you either way, but at least you'll be laughing with them. Come down to the lake whenever you like.", fx = { align = { honor = 1 } } },
+        { text = "I'll learn it the proper way, then.", next = "BACK", reply = "Good. Come down to the lake whenever you like; I'm there most mornings, and the fish are there all of them.", fx = { align = { honor = 1 } } },
         { text = "I'll freeze the lake. Fun's for people with time.", next = "BACK", reply = "Ha, then you'll have a very cold lake and a very angry Earth Mother. Try a line first, friend, it's gentler on the fish.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -890,7 +890,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have you been eating properly, or only that dry trail bread?" },
     { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "aska_fl_no" } }, text = "Well, look at you, all shoulders and no supper. Stand where I can see you, because somebody ought to be feeding you properly, and I've decided it might as well be me." },
     { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "aska_fl_yes" }, text = "There's my favourite hungry one! I made the plainstrider stew the way you like it, and if anybody on the rise asks, I made it for everyone." },
-    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "aska_fl_no" }, text = "Back for a lesson, are you? Good, because I've learned my place, and it's at the cooking pot, not at your elbow." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "aska_fl_no" }, text = "Back for a lesson, are you? Good, then; the pot goes between us, and that's where it'll stay." },
   },
 
   notice = {
@@ -953,7 +953,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a warrior who can cook keeps his strength on the road, and a warrior who can't eats jerky until his teeth ache. The braves who learn to stew a plainstrider at dawn fight better by noon, and they share their pot with whoever's beside them." } },
       choices = {
-        { text = "I'll learn to cook and share the pot.", next = "BACK", reply = "Good, then you'll be welcome at any fire on the road. Bring me a plainstrider, and I'll show you how.", fx = { align = { order = 1 } } },
+        { text = "I'll learn to cook and share the pot.", next = "BACK", reply = "Good, then you'll be welcome at any fire on the road. Nobody turns away the one holding the ladle.", fx = { align = { order = 1 } } },
         { text = "Jerky does me well enough. Cooking is for camps.", next = "BACK", reply = "Then your teeth will ache, and your belly will grumble, and you'll come back to me. I'll be here, dear.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -965,7 +965,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Plainstrider for stew and kodo for roasting. {pet} would like a share, I'd wager, so set a little aside every time you cook, and it'll never wander far from your fire." },
       },
       choices = {
-        { text = "I'll cook every part and waste nothing.", next = "BACK", reply = "Then the Earth Mother will smile on your pot, and so will I. Bring me what you have, and I'll show you how.", fx = { align = { honor = 1 } } },
+        { text = "I'll cook every part and waste nothing.", next = "BACK", reply = "Then you're my kind of cook, and the stew will be better for it. Bring me what you have, and I'll show you how.", fx = { align = { honor = 1 } } },
         { text = "I'll cook the best cuts and leave the rest.", next = "BACK", reply = "Then you'll leave the best of the beast to the vultures, and they'll thank you more than I will. Bring me the rest, dear, and I'll show you what it's good for.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1007,7 +1007,7 @@ P:NPC {
         { id = "xwarlock_default", text = "None of you do, because you're all too busy with books and soul shards to cook a decent meal. Learn to roast a kodo steak properly, and you'll find your spells come easier on a full stomach." },
       },
       choices = {
-        { text = "I'll cook for others too, once I've learned.", next = "BACK", reply = "That's the spirit, and you'll make friends faster than any spell could. A full bowl given freely is the oldest welcome there is.", fx = { align = { light = 1 } } },
+        { text = "I'll cook for others too, once I've learned.", next = "BACK", reply = "That's the spirit, and you'll make friends faster than any spell could. Take the big ladle; the small one looks stingy.", fx = { align = { light = 1 } } },
         { text = "I'll cook for myself and nobody else.", next = "BACK", reply = "A lonely pot, that, and a sad one. Learn to cook anyway, and maybe someone will smell it and come to sit by you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1061,7 +1061,7 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Because a full belly makes a calm mind, and a calm mind makes good choices. My brother Kah would say fishing does the same, but he's never had to feed a war band." } },
       choices = {
-        { text = "Sharing food builds trust.", next = "BACK", reply = "It does, and I've seen enemies become friends over a pot of stew. There's no finer magic than a shared meal.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Sharing food builds trust.", next = "BACK", reply = "It does, and I've seen enemies become friends over a pot of stew. Two Grimtotem and a Bloodhoof once shared my last bowl, and nobody drew a knife.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "A good meal is just fuel.", next = "BACK", reply = "Fuel, he says, as if the stew in my pot were firewood. Eat it slowly next time, dear, and see if you still think so.", fx = { align = { honor = -1 } } },
       },
     },
@@ -1373,7 +1373,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Peacebloom and silverleaf in the grass, and earthroot in the hills. {pet} has been sniffing at the peacebloom already, and some beasts know which plants heal better than we do." },
       },
       choices = {
-        { text = "I'll gather only what the land can spare.", next = "BACK", reply = "Then the land will give you more next season, and the season after. That's the tauren way, and the wise way.", fx = { align = { light = 1 } } },
+        { text = "I'll gather only what the land can spare.", next = "BACK", reply = "Then the land will give you more next season, and the season after. My mother picked the same slope south of Bloodhoof for forty years, and it's greener now than when she started.", fx = { align = { light = 1 } } },
         { text = "Every herb I find, I'll take.", next = "BACK", reply = "Then you'll find bare ground where peacebloom used to grow. Take what you need, and leave the rest for the next hand.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1385,7 +1385,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll thank her, and use them wisely.", next = "BACK", reply = "Good, that's all I ask of anyone, whatever their trade. The Earth Mother sees what we do with her gifts.", fx = { align = { light = 1 } } },
-        { text = "A plant is just a plant. I'll use it as I please.", next = "BACK", reply = "Then I hope you use it well, for the sake of the plant at least. The Earth Mother sees where her gifts end up.", fx = { align = { light = -1 } } },
+        { text = "A plant is just a plant. I'll use it as I please.", next = "BACK", reply = "Then I hope you use it well, for the plant's sake at least. Don't come to me when the hillside's bare.", fx = { align = { light = -1 } } },
         { text = "What herbs grow in Mulgore?", next = "herbs" },
       },
     },
@@ -1538,7 +1538,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "With respect, and with a sharp knife, so the hide isn't torn. {pet} is watching me very closely, {class}, but don't worry, I'd never use a hunter's companion." },
       },
       choices = {
-        { text = "I'll treat every hide with respect, Una.", next = "BACK", reply = "Good, then bring me your hides fresh, and I'll show you what they can become. A beast honoured is a beast well used.", fx = { align = { honor = 1 } } },
+        { text = "I'll treat every hide with respect, Una.", next = "BACK", reply = "Good, then bring me your hides fresh, and I'll show you what they can become. A kodo hide cured right will outlast the hunter who took it.", fx = { align = { honor = 1 } } },
         { text = "A hide is a hide. I'll sell it as it comes.", next = "BACK", reply = "Sell it if you like, but salt it first, or no one will buy it. And thank the beast, if you can spare a breath.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1629,7 +1629,7 @@ P:NPC {
       big = true,
       lines = { { id = "h2_default", text = "You thank it, and you use everything: the hide for armour, the sinew for thread, the bones for tools. A beast killed for sport and left on the plains is a shame to the hunter, and the Earth Mother remembers." } },
       choices = {
-        { text = "I'll waste nothing I take.", next = "BACK", reply = "Then the Earth Mother will smile on your hunts, and so will I. Bring me what you can't use, and I'll find a use for it.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I'll waste nothing I take.", next = "BACK", reply = "Good, then you're welcome at my rack. Bring me what you can't use, the sinew and the scraps, and I'll find a use for it.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "A beast is meat and leather, nothing more.", next = "BACK", reply = "Then you'll never make a leatherworker, and I doubt you'll make much of a hunter. A beast is a gift, and gifts deserve better.", fx = { affinity = -1, align = { light = -1 } } },
       },
     },

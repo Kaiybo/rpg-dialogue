@@ -118,7 +118,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "emerald_dream" } } } },
     },
     slow = {
-      lines = { { id = "sl_default", text = "Do I? Good. The young ones all talk as if they were being chased, and half of what they say is only noise to fill the space where listening should be." } },
+      lines = { { id = "sl_default", text = "Do I? Good, because the young ones all talk as if they were being chased, and half of what they say is only noise to fill the space where listening should be." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     outsiders = {

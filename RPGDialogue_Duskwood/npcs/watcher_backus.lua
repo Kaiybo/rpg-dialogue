@@ -45,7 +45,7 @@ P:NPC {
           text = "Worst hour of the night to be on this road. The worgen come down from the hills, and the dead come up out of Raven Hill, and I'm stuck between the two." },
       },
       again = {
-        { id = "h_again", text = "What else? Quietly." },
+        { id = "h_again", text = "What else? Keep your voice down." },
         { id = "h_again2", text = "Go on, but watch the trees while you talk." },
       },
       choices = {

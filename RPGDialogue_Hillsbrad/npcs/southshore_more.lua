@@ -318,7 +318,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Hillsbrad's own bell rang for burials every day that autumn, and then one morning it didn't ring at all, which is how Southshore knew the plague had taken the town. I wrote down the date because someone had to, and I've never been able to cross it out." } },
       choices = {
         { text = "Southshore should ring a bell for them every year.", next = "BACK", reply = "I've suggested it, and the Magistrate says he'll think on it. Perhaps you could mention it as well.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Let that date fade, Kundric. The town has to look forward.", next = "BACK", reply = "It has to, I suppose, but I'll keep the date in my books. Someone has to.", fx = { align = { light = -1 } } },
+        { text = "Let that date fade, Kundric. The town has to look forward.", next = "BACK", reply = "It has to, I suppose, but the date stays in my books, underlined.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -344,7 +344,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "That the orcs brought them, mostly, and the Horde's warlocks blackened whole hillsides in the Second War before Durnholde's camps took the orcs in. But there are older pages about Alterac's court magi dabbling where they shouldn't, and those I keep under the floorboards, because nobody in Southshore wants to read that their grandparents' lords were no better." } },
       choices = {
-        { text = "Write it all down, Kundric. The truth should be kept.", next = "BACK", reply = "I will, every blackened hill and every name. The truth is all a historian has.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Write it all down, Kundric. The truth should be kept.", next = "BACK", reply = "I will, every blackened hill and every name. If I don't, someone in Stormwind who's never seen the place will write it for me.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Some pages are better burned than kept, Kundric.", next = "BACK", reply = "Burned, maybe, but somebody would only write them again, and badly. I'll keep them, and keep them locked.", fx = { align = { honor = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -664,7 +664,7 @@ P:NPC {
       },
       choices = {
         { text = "Loose talk ruins people. Keep your counsel.", next = "BACK", reply = "Some loose talk, aye, and I keep that behind the bar. The rest I keep in my head, where it does some good.", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "Knowledge is armour. Keep listening.", next = "BACK", reply = "I always do. You'd be surprised what people say to a barkeep they've known for years.", fx = { align = { honor = -1 }, affinity = 2 } },
+        { text = "Keep listening, Kelly. What you hear in here could save lives.", next = "BACK", reply = "I always do. You'd be surprised what people say to a barkeep they've known for years.", fx = { align = { honor = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1101,7 +1101,7 @@ P:NPC {
     xhunter = {
       lines = { { id = "xhu_default", text = "Tame one? I swear on my granddaddy's grave, you'd be the first person in Hillsbrad to make one of those thieves useful. Just don't bring it near my stalls, because the horses won't care that it's tame." } },
       choices = {
-        { text = "It'll stay outside. Promise.", next = "BACK", fx = { affinity = 2 } },
+        { text = "It'll stay outside, I promise.", next = "BACK", fx = { affinity = 2 } },
         { text = "A tame lion's better than a dead one.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
@@ -1251,7 +1251,7 @@ P:NPC {
         { text = "What has happened to the turtles here?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you really cook for anyone, Jessen, even warlocks?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "I doubt the murlocs alone keep the turtles away.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "Smells good. Goodbye.", next = "END" },
+        { text = "Smells good in here. Goodbye, Jessen.", next = "END" },
       },
     },
 
@@ -1328,7 +1328,7 @@ P:NPC {
 
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A paladin. Of course. Come to call me mad as well, have you?" },
+      text = "A paladin, of course. Come to call me mad as well, have you?" },
     { id = "n_mount", cat = "mount", when = { mounted = true },
       text = "Hm, that beast you're riding could use a good feed and a better rider. Well, the feed I can help with." },
   },
@@ -1369,7 +1369,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Different, but no worse, since {pet} hasn't spooked a single horse in the paddock, and that's a beast that's been well loved. I'd sell to you on the strength of that alone, if you were buying." },
       },
       choices = {
-        { text = "Breeding and training make a sound animal. That's the right way.", next = "BACK", reply = "It does, and I've always thought so. A bloodline's worth a hundred wild beasts.", fx = { align = { order = 1 } } },
+        { text = "Breeding and training make a sound animal. That's the right way.", next = "BACK", reply = "It does, and I've always thought so. Some of my mares go back five generations, and you can see it in how they stand.", fx = { align = { order = 1 } } },
         { text = "The wild makes the best companions. No pedigree needed.", next = "BACK", reply = "They do, and I've seen it. I'll keep my pedigrees, but I'll not argue with your bond.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1451,7 +1451,7 @@ P:NPC {
         { text = "You work your horses hard, Merideth.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do your horses mind a mage on their backs, Merideth?", next = "xmage", when = { class = "MAGE" } },
         { text = "I doubt you'd trust a dwarf shaman with one of your horses.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "Fine horses. Good day.", next = "END" },
+        { text = "Fine horses, Merideth. Good day to you.", next = "END" },
       },
     },
 
@@ -1494,15 +1494,15 @@ P:NPC {
       },
       choices = {
         { text = "They were wrong. You deserve an apology.", next = "BACK", reply = "Thank you. I'll not get one from them, so I'll take yours.", fx = { align = { honor = 1 }, affinity = 2 } },
-        { text = "Grudges are poison. Let it go.", next = "BACK", reply = "Maybe so, but I've earned the right to keep this one. They called me a heretic, after all.", fx = { align = { honor = -1 }, affinity = -1 } },
+        { text = "Grudges are poison. Let this one go.", next = "BACK", reply = "Maybe so, but I've earned the right to keep this one. They called me a heretic, after all.", fx = { align = { honor = -1 }, affinity = -1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xnightelf = {
       lines = { { id = "xne_default", text = "Because a horse doesn't eat its rider when the oats run short, and I've heard what a saber costs to feed. I'll not sell you one of mine, since you didn't ask, but I'll admit your cats are handsome beasts." } },
       choices = {
-        { text = "Sabers are loyal. More loyal than people.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
-        { text = "Fair. Something else.", next = "BACK" },
+        { text = "My saber's more loyal than most people I've met.", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
+        { text = "Fair enough. Something else.", next = "BACK" },
       },
     },
   },
@@ -1567,7 +1567,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not so different, and your {pet} keeps eyeing my bucket, and I'll let it have the small ones, since the bay gives more than I need. Don't tell Lindea, though, because she counts the bait." },
       },
       choices = {
-        { text = "Take only what you need, from the bay or the hills.", next = "BACK", reply = "That's how it's done, in the bay or the hills. The sea respects a modest net.", fx = { align = { honor = 1 } } },
+        { text = "Take only what you need, from the bay or the hills.", next = "BACK", reply = "That's how it's done. My father fished this bay forty years with the same net, and it never once came up empty.", fx = { align = { honor = 1 } } },
         { text = "Take all you can. The bay won't miss a few fish.", next = "BACK", reply = "It will, friend, in a year or two, and then you'll know. I'll not argue more than that.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

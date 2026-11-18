@@ -98,7 +98,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "He'd be heartbroken, though he'd never show it, since he believes fishing is about patience, not power. I tell him the fish don't care how they're caught, and he tells me that's why I'll never understand fishing." } },
       choices = {
-        { text = "Donald is right. Patience is the real reward.", next = "BACK", reply = "You'll make his day if you tell him that yourself. Mind you, he'll keep you talking about patience till the tide comes in.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Donald's right. The waiting is half the pleasure.", next = "BACK", reply = "You'll make his day if you tell him that yourself. Mind you, he'll keep you talking about patience till the tide comes in.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The fish don't care how they're caught. Neither do I.", next = "BACK", reply = "That's what I keep telling him! Don't let him hear you, though, or I'll never hear the end of it.", fx = { align = { light = -1 } } },
         { text = "I'll ask about something else.", next = "BACK" },
       },
@@ -496,7 +496,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "Every week, from people who say they've lost their keys, and I send each one to the Magistrate. Southshore's a small town, and if a lock gets picked, everyone knows who bought the tools." } },
       choices = {
         { text = "You're right. A small town needs honest traders.", next = "BACK", reply = "It does, and I've seen what happens when trust breaks in a place like this. I'll keep sending them to the Magistrate.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A lockpick is just a tool. You could sell it to honest folk.", next = "BACK", reply = "Honestly to whom, though? I'll leave that to the dwarves, and keep my good name.", fx = { align = { order = -1 } } },
+        { text = "A lockpick is just a tool. You could sell it to honest folk.", next = "BACK", reply = "Sell them to whom, though? Honest folk don't need lockpicks, so I'll leave that trade to the dwarves and keep my good name.", fx = { align = { order = -1 } } },
         { text = "Something else, Micha.", next = "BACK" },
       },
     },

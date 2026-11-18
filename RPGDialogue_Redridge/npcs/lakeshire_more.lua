@@ -403,7 +403,7 @@ P:NPC {
       },
       choices = {
         { text = "Useful today, criminal tomorrow. Honesty matters.", next = "BACK", reply = "Maybe, but tomorrow's tomorrow and the orcs are today. I'll worry about honesty later.", fx = { align = { honor = 1 }, affinity = -1 } },
-        { text = "Agreed. A clever hand serves the kingdom too.", next = "BACK", reply = "Exactly, and I'm glad someone sees it. Not everyone does.", fx = { align = { honor = -1 }, affinity = 2 } },
+        { text = "Agreed. A clever hand serves the kingdom too.", next = "BACK", reply = "Exactly. My friends in Stormwind would agree with you, though they'd never say so out loud.", fx = { align = { honor = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -560,7 +560,7 @@ P:NPC {
         { id = "n_default", text = "Her daddy got it for her, and it's the prettiest thing she's got. She was showing it to Effsee and then it was just gone, and she cried, and I didn't know what to do, so I asked you." },
       },
       choices = {
-        { text = "I'll find it. I promise.", next = "BACK", when = { questBefore = TODO_QUEST("Hilary's Necklace") }, fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "I'll find it, I promise.", next = "BACK", when = { questBefore = TODO_QUEST("Hilary's Necklace") }, fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -570,7 +570,7 @@ P:NPC {
         { id = "s_default", text = "Our parents don't want us swimming in the lake. My mom says there's mean things in it, and Mister Baren says the murlocs come right up to the shore some mornings, so I don't even put my feet in." },
       },
       choices = {
-        { text = "Your mom's right. Stay out.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Your mother's right, so stay out of there.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -602,8 +602,8 @@ P:NPC {
     hunter = {
       lines = { { id = "hu_default", text = "Can I really? Hilary's going to be so jealous, because her mum says one cat is plenty. Does {pet} like fish, do you think, because I've caught three little ones and nobody wants them." } },
       choices = {
-        { text = "{pet} loves fish. Go on.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Careful. Pets bite strangers.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Go on, {pet} loves fish.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "Careful, now. Pets bite strangers.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
     paladin = {
@@ -665,7 +665,7 @@ P:NPC {
       lines = { { id = "xlock_default", text = "It does mine, and I've had a few troubles, though nothing like yours, I'd wager. Sit on the dock for an hour with a line in the water and see whether whatever whispers to you doesn't go quiet for a while." } },
       choices = {
         { text = "I might try that, Matthew. Thank you.", next = "BACK", reply = "Do, and you'll find it does wonders. The lake's good at listening.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "What whispers to me is worth hearing.", next = "BACK", reply = "Then it'll not be quiet, and you'll not catch anything. Suit yourself.", fx = { align = { light = -1 } } },
+        { text = "What whispers to me is worth hearing.", next = "BACK", reply = "Then it'll not be quiet, and you'll not catch anything, and I'll have the best seat on the dock to watch.", fx = { align = { light = -1 } } },
         { text = "Something else, Matthew.", next = "BACK" },
       },
     },
@@ -802,7 +802,7 @@ P:NPC {
       },
       choices = {
         { text = "Then drive them out. The lake's ours.", next = "BACK", reply = "Ours, aye, mostly. I'll fish it, and they'll fish it, and we'll see who blinks first.", fx = { align = { order = 1 } } },
-        { text = "Share the lake. They were hungry first.", next = "BACK", reply = "That's what I think too, and it's good to hear someone else say it. The lake's big enough.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Share the lake. They were hungry first.", next = "BACK", reply = "That's what I think too. The lake's big enough for all of us, if the poachers would only leave the shallows alone.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -859,7 +859,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Not much, for a man still wants his bread fresh from the oven, whatever he can conjure. Mind, a mage once filled my water barrels during a dry spell and wouldn't take a copper for it, and I've thought kindly of your kind ever since." } },
       choices = {
-        { text = "I'd fill your barrels gladly, Wental.", next = "BACK", reply = "That's kind of you, and the barrels would thank you. I'll think kindly of you too.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'd fill your barrels gladly, Wental.", next = "BACK", reply = "Then I'll hold you to it come the next dry spell, and I'll think kindly of you every time I knead the bread.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "My water isn't for giving away.", next = "BACK", reply = "That's fair, and I'll not ask again. Bread and cheese, then?", fx = { align = { honor = -1 } } },
         { text = "Something else, Wental.", next = "BACK" },
       },
@@ -1097,7 +1097,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapriest_default", text = "No, and before the war you could walk from here to Stonewatch through briarthorn so thick it caught your skirts. The Blackrock burn what they don't trample, and I've seen whole hillsides go black that'll take ten years to green again." } },
       choices = {
-        { text = "Then I'll pray for the hills, and help you replant.", next = "BACK", reply = "That's kind of you, and the hills would thank you. I'll take the help.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll pray for the hills, and help you replant.", next = "BACK", reply = "I'll take the help, and gladly. Bring gloves, because briarthorn lives up to its name.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Burnt land is the price of war. Accept it, Alma.", next = "BACK", reply = "Accept it? I've accepted it for years, and I still replant. Someone has to.", fx = { align = { light = -1 } } },
         { text = "Something else, Alma.", next = "BACK" },
       },
@@ -1107,7 +1107,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "I already do, every week, and the gnolls haven't caught me yet because they don't notice a woman bent over a bush. Martie thinks I'm mad and the healer thinks I'm a saint, and I think the herbs don't pick themselves." } },
       choices = {
         { text = "Next time, I'll stand guard while you gather.", next = "BACK", reply = "Would you? Then I'll gather twice as much and bring it to the healer. Thank you.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "That's your risk, Alma. Don't ask others to share it.", next = "BACK", reply = "I don't ask anyone. I just do it. That's the difference.", fx = { align = { honor = -1 } } },
+        { text = "That's your risk, Alma. Don't ask others to share it.", next = "BACK", reply = "I don't ask anyone to share it; I just do it, and that's the difference.", fx = { align = { honor = -1 } } },
         { text = "Something else, Alma.", next = "BACK" },
       },
     },
@@ -1276,7 +1276,7 @@ P:NPC {
       lines = { { id = "xma_default", text = "Could you? Then why have I been doing it with my back for eight months? Don't tell Oslow, because he'll have you on the payroll before supper." } },
       choices = {
         { text = "Honest labour builds a better bridge.", next = "BACK", reply = "That's what Oslow says, and he's right, I suppose. Back to the stones.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Work smarter, Trent. Spells beat backs.", next = "BACK", reply = "Spells beat backs, aye, but who pays the mage? I'll keep my back.", fx = { align = { order = -1 } } },
+        { text = "Work smarter, Trent. A good spell beats a sore back.", next = "BACK", reply = "A good spell, aye, but who pays the mage? I'll keep my back.", fx = { align = { order = -1 } } },
         { text = "What's Oslow like to work for?", next = "oslow" },
       },
     },
@@ -1293,7 +1293,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "They should, but they won't, and Oslow says a bridge built with our own hands is worth two built under guard. I'd still like a guard, mind, because I'm not as proud as the foreman." } },
       choices = {
-        { text = "Stormwind should send soldiers. That's what the crown is for.", next = "BACK", reply = "It is, and they should, and they don't. I'll keep hauling.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Stormwind should send soldiers. That's what the crown is for.", next = "BACK", reply = "It is, and they should, and they don't, so here we are, masons playing soldier with a trowel in one hand.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Don't wait on Stormwind. Arm the crew yourselves.", next = "BACK", reply = "With what, hammers? We'd do it if we could. Oslow would lead the charge.", fx = { align = { order = -1 } } },
         { text = "Something else, Trent.", next = "BACK" },
       },
@@ -1303,7 +1303,7 @@ P:NPC {
       lines = { { id = "xdruid_default", text = "From the quarry up the north shore, a cart at a time, and every cart has to pass a gnoll camp on the way down. Oslow says the hill gives the stone and the gnolls charge the toll, and he's not wrong." } },
       choices = {
         { text = "Then I'll clear that quarry road. The work should go on.", next = "BACK", reply = "That'd be a help, and the carts would move faster. Thank you, friend.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Let the gnolls keep it. Find stone somewhere quieter.", next = "BACK", reply = "There's nowhere quieter, friend, not in Redridge. We'll keep hauling.", fx = { align = { honor = -1 } } },
+        { text = "Let the gnolls keep it. Find stone somewhere quieter.", next = "BACK", reply = "There's nowhere quieter, friend, not in Redridge. The gnolls have found every quarry from here to Stonewatch.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1385,7 +1385,7 @@ P:NPC {
         { id = "p_default", text = "More? We'd settle for paid on time. I've heard what happened to the masons who built Stormwind and never saw their coin, so we all keep an eye on the purse." },
       },
       choices = {
-        { text = "Stormwind will pay. Trust the crown.", next = "BACK", reply = "Trust the crown, aye, I'll try. But I'll keep my eye on the purse.", fx = { align = { order = 1 } } },
+        { text = "Stormwind will pay in the end. Trust the crown.", next = "BACK", reply = "Trust the crown, aye, I'll try. But I'll keep my eye on the purse.", fx = { align = { order = 1 } } },
         { text = "If they don't, stop work until they do.", next = "BACK", reply = "That's what the masons did, and look where they are now. We'll keep working, for now.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK", fx = { learn = { "stonemasons" } } },
       },

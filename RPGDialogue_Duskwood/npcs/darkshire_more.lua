@@ -214,7 +214,7 @@ P:NPC {
       },
       choices = {
         { text = "You couldn't have known. Keep caring for people.", next = "BACK", reply = "Thank you, and I'll try, though I'll ask more questions now. The Light doesn't ask me to be a fool.", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Trust less. Darkshire can't afford kindness to strangers.", next = "BACK", reply = "Then we'd be no better than the woods. I'll keep caring, and I'll keep my eyes open too.", fx = { align = { light = -1 } } },
+        { text = "Trust less, Elaine. Kindness to strangers is how this happened.", next = "BACK", reply = "Then we'd be no better than the woods. I'll keep caring, and I'll keep my eyes open too.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -243,7 +243,7 @@ P:NPC {
       },
       choices = {
         { text = "The Light forsakes no one, Elaine.", next = "light_none", fx = { align = { light = 1 } } },
-        { text = "You're right. Faith without deeds is hollow.", next = "BACK", reply = "It is, and I'm glad someone sees it. Pick up a crate, {class}, and walk with me.", fx = { align = { honor = 1 }, affinity = 2 } },
+        { text = "You're right. Prayer's no use if nobody carries the crates.", next = "BACK", reply = "Then pick up a crate, {class}, and walk with me. The Light won't mind if we pray on the way.", fx = { align = { honor = 1 }, affinity = 2 } },
         { text = "Then the Light is a hard master.", next = "BACK", reply = "Hard, maybe, but honest. It asks for your hands, not just your knees.", fx = { align = { honor = -1 }, trait = { skeptical = 1 } } },
       },
     },
@@ -370,7 +370,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Because it watches the Blasted Lands, and the last time nobody was watching, the Horde came marching up through this very forest. People here think the dead are the worst of it, and I'd like to keep it that way." } },
       choices = {
-        { text = "Supply the keep first. Vigilance keeps the whole realm safe.", next = "BACK", reply = "That's the way of it, and I'm glad you see it. The realm's bigger than Duskwood.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Supply the keep first. If the Portal goes unwatched, we all pay.", next = "BACK", reply = "That's the way of it, and I'm glad you see it. The realm's bigger than Duskwood.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Darkshire's own dead matter more than an old fortress.", next = "BACK", reply = "They matter, and I'll not say they don't. But if the Portal opens, there won't be any Darkshire.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -553,7 +553,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Strong enough to see spirits without being a shaman, and the whispering's part of the flavour, so lean in close and try a sip!" } },
       choices = {
         { text = "I'll give it a fair try, Hann, and keep your secret.", next = "BACK", reply = "Honest and quiet, that's the way, friend! Here's a wee taste, if you'll pay the copper for it.", fx = { align = { honor = 1 } } },
-        { text = "Tell the Watch. Moonshine's trouble.", next = "BACK", reply = "Tell the Watch? They're my best customers! You'll get no moonshine, then.", fx = { align = { honor = -1 } } },
+        { text = "I'm telling the Watch, Hann. Moonshine's nothing but trouble.", next = "BACK", reply = "Tell the Watch? They're my best customers! You'll get no moonshine, then.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -573,7 +573,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Steady? No, friend, it does the opposite, but it makes you care a good deal less about the shaking. The Watch swear by a nip before a patrol, though I'd not tell the Commander that." } },
       choices = {
         { text = "I'll fight sober. The dead deserve a clear eye.", next = "BACK", reply = "Then you'll be the only sober one out there, and the dead will thank you. Mind yourself.", fx = { align = { order = 1 } } },
-        { text = "Pour me one. Courage is courage, wherever it comes from.", next = "BACK", reply = "That's the spirit! Silver on the counter, and I'll pour it quick.", fx = { align = { order = -1 } } },
+        { text = "Pour me one, Hann. I'll take my courage where I find it.", next = "BACK", reply = "That's the spirit! Silver on the counter, and I'll pour it quick.", fx = { align = { order = -1 } } },
         { text = "Something else, Hann.", next = "BACK" },
       },
     },
@@ -689,7 +689,7 @@ P:NPC {
       },
       choices = {
         { text = "A drunk watcher gets people killed.", next = "BACK", reply = "Maybe, maybe, but a sober watcher doesn't sleep at all. I'll keep pouring.", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "Let them drink. They've earned it.", next = "BACK", reply = "That's the spirit! Pull up a stool and I'll pour you one.", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "Let them drink. They've earned it.", next = "BACK", reply = "Ha! A watcher's friend, I see. Pull up a stool and I'll pour you one.", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -748,7 +748,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "I roll my eyes at every warning, but I love her. Your spirits might agree with her more than I do." } },
       choices = {
         { text = "Love her and listen. That's honest, Alyssa.", next = "BACK", reply = "That's what I try to do, mostly. She's right sometimes, which is the annoying part.", fx = { align = { honor = 1 } } },
-        { text = "Ignore her warnings. Good locks are better.", next = "BACK", reply = "That's what I tell her, and she laughs at me. Good locks never fail me.", fx = { align = { honor = -1 } } },
+        { text = "Ignore her warnings and buy a better lock.", next = "BACK", reply = "That's what I tell her, and she laughs at me. Good locks never fail me.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -872,8 +872,8 @@ P:NPC {
         { id = "c_default", text = "I believe she sees something, and I believe she's very good at telling people what they already fear. I'd rather trust a good lock and a lamp than a card, but I'd never say so in front of her." },
       },
       choices = {
-        { text = "Fate is real. Heed her.", next = "BACK", reply = "You sound like her, and that's a little frightening. I'll heed her, mostly.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Make your own fate. Locks and lamps.", next = "BACK", reply = "Exactly, and Gran will never forgive you for agreeing with me. Thank you.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Fate is real, Alyssa. Listen to your gran.", next = "BACK", reply = "You sound like her, and that's a little frightening. I'll heed her, mostly.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Make your own fate with good locks and lamps.", next = "BACK", reply = "Exactly, and Gran will never forgive you for agreeing with me. Thank you.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "What does she see for you?", next = "cards_you" },
       },
     },
@@ -905,7 +905,7 @@ P:NPC {
         { id = "er_default", text = "You're not going to tell me, are you? Then don't. If she sent someone to make me safe, I'll just say thank you and buy her something nice." },
       },
       choices = {
-        { text = "It's done. You're safe.", next = "BACK", fx = { affinity = 2 } },
+        { text = "It's taken care of. You're safe now.", next = "BACK", fx = { affinity = 2 } },
         { text = "Ask her yourself, someday.", next = "BACK" },
       },
     },
@@ -972,7 +972,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Could it? A good flash-bang will blind a ghoul for a moment, and a moment is all a sword arm like yours needs! Finbus could teach you to make one, if you've the patience to sit still for an afternoon." } },
       choices = {
-        { text = "A sword's honest. I'll leave gadgets to gnomes.", next = "BACK", reply = "Honest, and slower, but I'll not argue with a sword arm. Suit yourself.", fx = { align = { honor = 1 } } },
+        { text = "A sword's honest. I'll leave gadgets to gnomes.", next = "BACK", reply = "Honest, and slower, but I'll not argue with a sword arm. Finbus will sulk, mind; he's been itching to test the new batch.", fx = { align = { honor = 1 } } },
         { text = "If it wins the fight, I'll try any trick you've got.", next = "BACK", reply = "That's the spirit! A flash-bang and a sword arm, and the ghouls won't know which way to shamble, so ask Finbus about the recipe.", fx = { align = { honor = -1 } } },
         { text = "Something else, Herble.", next = "BACK" },
       },
@@ -992,7 +992,7 @@ P:NPC {
     xrogue = {
       lines = { { id = "xro_default", text = "Oh, I know they would, and I know which alley, because half my stock passed through it on the way here. But I'm a respectable exile now, and respectable exiles sell at the front door." } },
       choices = {
-        { text = "Respectable it is. Front door only.", next = "BACK", reply = "That's the spirit, and the front door's a lovely door. Welcome in.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Respectable it is, Herble. I'll use the front door.", next = "BACK", reply = "That's the spirit, and the front door's a lovely door. Welcome in.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Back alleys pay better, Herble.", next = "BACK", reply = "They do, but they also pay in knives. Front door, please.", fx = { align = { honor = -1 } } },
         { text = "Why Darkshire, of all places?", next = "why" },
       },
@@ -1057,7 +1057,7 @@ P:NPC {
         { text = "What's a gnome doing in Darkshire?", next = "why" },
         { text = "Who buys your tubes, out here?", next = "viktori" },
         { text = "You must miss Gnomeregan.", next = "gnomeregan" },
-        { text = "I mine. What sells here?", next = "mining", when = { profession = "Mining" } },
+        { text = "I do a bit of mining. What sells here?", next = "mining", when = { profession = "Mining" } },
         { text = "Your parts would sell well in Stormwind's back alleys.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Mages and engineers rarely agree, I've found.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Could an engineer's gadget help a warrior in this wood, Herble?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
@@ -1067,7 +1067,7 @@ P:NPC {
         { text = "Your machines can't be good for the forest, Herble.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do engineers ever use what warlocks summon, Herble?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I doubt gnomes would understand shamanism, Herble.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
-        { text = "Mind the shelf. Goodbye.", next = "END" },
+        { text = "I'll mind the shelf on my way out. Goodbye.", next = "END" },
       },
     },
 
@@ -1238,7 +1238,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "I've asked myself that every night since you walked in, and the answer keeps changing. With you beside me, perhaps, but I'd want to go in daylight, if Duskwood still has any." } },
       choices = {
-        { text = "In daylight, then. I'll come back for you.", next = "BACK", reply = "Then I'll wait for you, in daylight. Thank you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "In daylight, then. I'll come back for you.", next = "BACK", reply = "Then I'll wait, and I'll have my good coat brushed. He always liked that coat.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If you won't walk alone, you'll never really walk.", next = "BACK", reply = "You're right, and I hate that you're right. I'll try.", fx = { align = { honor = -1 } } },
         { text = "Something else, Farrin.", next = "BACK" },
       },

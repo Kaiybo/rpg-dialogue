@@ -207,7 +207,7 @@ P:NPC {
     morrow_lands = {
       lines = { { id = "ml_default", text = "Felwood, where the demons poisoned the forest, and the Barrens, which get drier every year whatever the Circle does. My father is patient about those places, and I'm less so, because I've walked through them." } },
       choices = {
-        { text = "Patience or haste. Which heals land?", next = "morrow_way" },
+        { text = "Patience or haste, then: which one heals the land?", next = "morrow_way" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -215,7 +215,7 @@ P:NPC {
       big = true,
       lines = { { id = "mw_default", text = "My father says patience, and he's older than I am by a long way. I say a sick forest doesn't care how patient we are, and sometimes you have to dig." } },
       choices = {
-        { text = "Your father's right. Land heals slowly.", next = "BACK", reply = "You and my father would get along, which doesn't surprise me at all. Patience is easy, though, when it isn't your forest that's dying.", fx = { align = { order = 1 } } },
+        { text = "Your father's right. Land heals at its own pace.", next = "BACK", reply = "You and my father would get along, which doesn't surprise me at all. Patience is easy, though, when it isn't your forest that's dying.", fx = { align = { order = 1 } } },
         { text = "You're right. Dig, and dig now.", next = "BACK", reply = "Thank you, I needed someone to say it besides me. My father will sigh, and I'll go and dig anyway, and the forest will be the better for it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

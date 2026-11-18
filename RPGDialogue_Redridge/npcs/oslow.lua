@@ -62,7 +62,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Not if the orcs keep interfering. They've taken it personally, it seems. Your spirits might help, if they're willing." } },
       choices = {
         { text = "Then let's finish it, Oslow. I'll help.", next = "BACK", reply = "Now that's the kind of talk I like to hear on a work site. Grab a hammer or a spear, whichever suits, and we'll have it done before the rains.", fx = { align = { order = 1 } } },
-        { text = "Forget the bridge. Defend the town.", next = "BACK", reply = "The town's no good without a way out of it, friend, and that's what this bridge is. Defend it by all means, but the crossing is the defence.", fx = { align = { order = -1 } } },
+        { text = "Forget the bridge, Oslow, and defend the town.", next = "BACK", reply = "The town's no good without a way out of it, friend, and that's what this bridge is. Defend it by all means, but the crossing is the defence.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -98,7 +98,7 @@ P:NPC {
     xmage = {
       lines = { { id = "xma_default", text = "A wizard could drop my bridge in the lake in a week, more like, and I've met the sort who'd do it for a laugh. Stone is laid by hand and checked by eye, and that's how bridges stay up." } },
       choices = {
-        { text = "Craft and rules. I respect that.", next = "BACK", reply = "Then you're the first wizard I've met who does, and I've met a few. Stand clear of the mortar, if you please.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Craft and rules, then. I can respect that.", next = "BACK", reply = "Then you're the first wizard I've met who does, and I've met a few. Stand clear of the mortar, if you please.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Bridges fall either way. Mine would be faster.", next = "BACK", reply = "Faster down, maybe, and never back up again. Mind your fireworks on the other side of the bridge, if you don't mind.", fx = { align = { order = -1 } } },
         { text = "Can I see your plans?", next = "plans" },
       },
@@ -311,7 +311,7 @@ P:NPC {
     plans = {
       lines = { { id = "pl_default", text = "A tradesman! Look here: new piers on the old footings, iron where the stone gave out. What would you change?" } },
       choices = {
-        { text = "Nothing. It's sound.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Nothing at all. It's sound.", next = "BACK", fx = { affinity = 1 } },
         { text = "Deeper piers. The lake will find any weakness.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
         { text = "Build it faster.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
       },

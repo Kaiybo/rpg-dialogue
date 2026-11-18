@@ -85,7 +85,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "If I had the men, yes, so give me numbers, shaman. Your spirits won't win this alone, but they might help." } },
       choices = {
         { text = "Then count me among your numbers, Marshal.", next = "BACK", reply = "Then you're one more than I had this morning. Report to the barracks, and I'll find a place for you.", fx = { align = { order = 1 } } },
-        { text = "Numbers don't win. Courage does.", next = "BACK", reply = "Courage gets men killed, shaman, and I've buried plenty of brave ones. Numbers keep the rest of us alive.", fx = { align = { order = -1 } } },
+        { text = "Numbers don't win battles, Marshal. Courage does.", next = "BACK", reply = "Courage gets men killed, shaman, and I've buried plenty of brave ones. Numbers keep the rest of us alive.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -248,7 +248,7 @@ P:NPC {
     orbs_priest = {
       lines = { { id = "op_default", text = "You'd know better than a soldier. Fine: the Light first, then the hammer. My men won't touch them either way." } },
       choices = {
-        { text = "The Light first. Always.", next = "BACK", reply = "Then do it that way, and I'll keep my men well clear. They've no desire to be close to whatever's in those orbs.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The Light comes first, always.", next = "BACK", reply = "Then do it that way, and I'll keep my men well clear. They've no desire to be close to whatever's in those orbs.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Smash them first, and the prayers can come after.", next = "BACK", reply = "A soldier's answer, and I'd usually agree. But if the priests want it the other way, I'll not argue with them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

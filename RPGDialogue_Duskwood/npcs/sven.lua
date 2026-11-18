@@ -35,7 +35,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "It was green and alive before the darkness came. Nothing much matters to me now, but your spirits might remember it." } },
       choices = {
         { text = "It can be green again, Sven. Don't lose hope.", next = "BACK", reply = "Hope is for younger men, friend, but I'll not mock you for it. If the trees ever turn green again, I'll plant something in your name.", fx = { align = { light = 1 } } },
-        { text = "It's gone. Accept the darkness.", next = "BACK", reply = "I've done nothing else for years, sitting here by this fire. It doesn't get easier, but it gets quieter.", fx = { align = { light = -1 } } },
+        { text = "It's gone, Sven. Make your peace with the dark.", next = "BACK", reply = "I've done nothing else for years, sitting here by this fire. It doesn't get easier, but it gets quieter.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

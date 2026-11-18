@@ -321,8 +321,8 @@ P:NPC {
       big = true,
       lines = { { id = "dic_default", text = "Every harvest fair, and she wins every time, because she cooks for soldiers and I cook for my mother. She keeps her recipe secret, too, and I can't decide whether a cook ought to share hers or keep it." } },
       choices = {
-        { text = "Share your recipes. Everyone eats better.", next = "BACK", reply = "Oh, that's a lovely thought, and you sound like my mother. Still, if I gave her my secrets I'd never win a ribbon in my life, so you'll forgive me if I keep the best one.", fx = { align = { order = 1 } } },
-        { text = "Keep your secrets. They're your living.", next = "BACK", reply = "Exactly, and thank you for saying so, because nobody else in Lakeshire will. A cook without a secret is just someone who boils things.", fx = { align = { order = -1 } } },
+        { text = "Share your recipes, and everyone eats better.", next = "BACK", reply = "Oh, that's a lovely thought, and you sound like my mother. Still, if I gave her my secrets I'd never win a ribbon in my life, so you'll forgive me if I keep the best one.", fx = { align = { order = 1 } } },
+        { text = "Keep your secrets, then. They're your living.", next = "BACK", reply = "Exactly, and thank you for saying so, because nobody else in Lakeshire will. My mother took her pie crust to the grave, and I mean to do the same.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -420,7 +420,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Wilma Ranthal. I skin what the hills give me and teach anybody who walks out this far. Not many do, which suits me." },
         { id = "h_hunter", when = { class = "HUNTER" },
-          text = "A hunter. Good. You'll have plenty of hides to practise on, and you'll know not to waste them." },
+          text = "A hunter, good! You'll have plenty of hides to practise on, and you'll know not to waste them." },
       },
       again = {
         { id = "h_again", text = "Something else?" },
@@ -479,7 +479,7 @@ P:NPC {
     worg = {
       lines = { { id = "wo_default", text = "Good eye. The Blackrock ride them and sometimes the beasts stray, and a stray worg near my camp doesn't stray again. Thick fur, tough hide, smells worse than I do." } },
       choices = {
-        { text = "Killing their beasts. Good. Hurt them any way you can.", next = "BACK", fx = { align = { light = -1 } },
+        { text = "Killing their beasts is good. Hurt them any way you can.", next = "BACK", fx = { align = { light = -1 } },
           reply = "I don't do it to hurt anybody. I do it so it doesn't eat me." },
         { text = "The beast didn't choose its master. Spare the strays.", next = "BACK", fx = { align = { light = 1 } },
           reply = "You can spare the next one, then, when it's got its teeth in your leg." },

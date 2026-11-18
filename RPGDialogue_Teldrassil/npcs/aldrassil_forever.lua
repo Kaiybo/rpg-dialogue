@@ -503,7 +503,7 @@ P:NPC {
         { id = "as_default", text = "That you skin only what you've killed for good reason, and that you waste nothing you take. A nightsaber gave its life on your blade, and the least you owe it is to use the whole of the gift." },
       },
       choices = {
-        { text = "I'll honour every beast I skin.", next = "BACK", reply = "Then the beasts will forgive you, and so will I. Every hide deserves respect.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll honour every beast I skin.", next = "BACK", reply = "Then the beasts will forgive you, and so will I. Bring me your first nightsaber hide, and I will show you where you cut too deep.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A hide is a hide. I'll sell what I can.", next = "BACK", reply = "Then sell it, but waste none of it, or the forest will remember. A nightsaber gave its life for that hide.", fx = { align = { honor = -1 } } },
         { text = "What counts as good reason?", next = "ask_reason" },
         { text = "Something else.", next = "BACK" },

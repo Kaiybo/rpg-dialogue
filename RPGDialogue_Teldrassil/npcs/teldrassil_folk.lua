@@ -432,7 +432,7 @@ P:NPC {
     sign = {
       lines = { { id = "si_default", text = "It's a sign she noticed me enough to ignore me, and that's a start. Love is patient, isn't it? I've got a few thousand years to wait." } },
       choices = {
-        { text = "Then keep trying. Never give up on love.", next = "BACK", reply = "Thank you, friend, I knew you would understand! I have three new poems already, and one of them almost rhymes.", fx = { align = { order = -1 } } },
+        { text = "Then keep trying. She may come round yet.", next = "BACK", reply = "Thank you, friend, I knew you would understand! I have three new poems already, and one of them almost rhymes.", fx = { align = { order = -1 } } },
         { text = "She's said no. Respect it and move on.", next = "BACK", reply = "Perhaps you are right, though it is very hard to hear. I will think about it, after one more poem.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -709,7 +709,7 @@ P:NPC {
     feralas_stance = {
       lines = { { id = "fs_default", text = "Easy to say when it isn't your only copy. But you're right, I suppose, and Troyas will look after it, or I'll hear about it." } },
       choices = {
-        { text = "Shared knowledge grows. Locked knowledge dies.", next = "BACK", reply = "It does, and you are right, though it still pains me to lend it. Troyas had better take good care of it.", fx = { align = { light = 1 } } },
+        { text = "Knowledge shared grows; knowledge locked away just dies.", next = "BACK", reply = "It does, and you are right, though it still pains me to lend it. Troyas had better take good care of it.", fx = { align = { light = 1 } } },
         { text = "Keep it safe. Borrowers rarely return things.", next = "BACK", reply = "They do, and I will remind Troyas of that in every letter. Still, knowledge locked away does no one any good either.", fx = { align = { light = -1 } } },
       },
     },

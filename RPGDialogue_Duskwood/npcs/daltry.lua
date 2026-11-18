@@ -34,7 +34,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Too many, and most of them say presumed wolf. I joke because the alternative is weeping into the ledgers. If your spirits know names, I'd take them." } },
       choices = {
-        { text = "Keep the records true, Daltry. Every name deserves an entry.", next = "BACK", reply = "I will, then, every name I can find, even the ones nobody comes asking after. Somebody ought to remember them besides the wolves.", fx = { align = { order = 1 } } },
+        { text = "Keep the records true, Daltry. Every one of them had a family.", next = "BACK", reply = "I will, then, every name I can find, even the ones nobody comes asking after. Somebody ought to remember them besides the wolves.", fx = { align = { order = 1 } } },
         { text = "Burn the ledger. Counting the dead won't bring them back.", next = "BACK", reply = "Burn it? I'd sooner burn my own fingers, which given my luck with candles is not out of the question. Somebody has to know who's gone.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -80,7 +80,7 @@ P:NPC {
       lines = { { id = "xlo_default", text = "That's either the most comforting thing anyone's said to me this month or the worst, and I can't decide which. I write missing, presumed wolf, because nobody in this town wants me to write what you just said." } },
       choices = {
         { text = "Write the truth, Daltry, even if it frightens them.", next = "BACK", reply = "Write it in my own hand, and sign my name below it? You're braver than I am, though I suppose that's not a very high wall to climb.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Keep writing wolf. Some truths help no one.", next = "BACK", reply = "Wolf it is, then, and may the Light forgive me for the tidy lie. It's the only word in my ledger that lets people sleep.", fx = { align = { honor = -1 } } },
+        { text = "Keep writing wolf, Daltry. The truth would only frighten them.", next = "BACK", reply = "Wolf it is, then, and may the Light forgive me for the tidy lie. It's the only word in my ledger that lets people sleep.", fx = { align = { honor = -1 } } },
         { text = "Who are the strangers in your book?", next = "strangers" },
       },
     },
@@ -195,7 +195,7 @@ P:NPC {
 
     census = {
       lines = {
-        { id = "cn_default", text = "Fewer than the register says, and more than the graveyard says. Somewhere in between, which is where Darkshire lives." },
+        { id = "cn_default", text = "Fewer than the register says, and more than the graveyard says. I've stopped trying to make the two agree." },
       },
       choices = {
         { text = "Where did the rest go?", next = "census_gone" },

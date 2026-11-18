@@ -100,7 +100,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Mostly, though a dry bar makes for short tempers, and I've had two scuffles this week over the last of the milk. The Marshal's lads are good boys, but they've nowhere to put their fear except on each other." } },
       choices = {
         { text = "They need discipline. The Marshal should come down hard.", next = "BACK", reply = "He might, but I'd rather they had a drink and a laugh. Discipline doesn't fill a mug.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Let them brawl a little. It's better than breaking.", next = "BACK", reply = "That's what I think, as long as they don't break my stools. Better a bruise than a broken heart.", fx = { align = { order = -1 } } },
+        { text = "Let them brawl a little. It's better than breaking.", next = "BACK", reply = "That's what I think, as long as they don't break my stools. I've only got the six left.", fx = { align = { order = -1 } } },
         { text = "Something else, Daniels.", next = "BACK" },
       },
     },
@@ -287,7 +287,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Twice a week, lately, and every time it's gnolls on the south road or orcs on the far shore. The guards do their best, but half of them are farm boys, and they'd stand a little taller with a real warrior beside them." } },
       choices = {
         { text = "I'll answer the bell while I'm here.", next = "BACK", reply = "Thank you, love, and the guards will be glad of you. The bell's on the corner post, you'll hear it.", fx = { align = { honor = 1 } } },
-        { text = "I paid for a room, Brianna. The guards can answer it.", next = "BACK", reply = "You did, and I'll not argue with a paying guest. The guards will do their best, as always.", fx = { align = { honor = -1 } } },
+        { text = "I paid for a room, Brianna. The guards can answer it.", next = "BACK", reply = "You did, and I'll not argue with a paying guest. I'll send the stable boy to bang on the guardhouse door instead.", fx = { align = { honor = -1 } } },
         { text = "Something else, Brianna.", next = "BACK" },
       },
     },
