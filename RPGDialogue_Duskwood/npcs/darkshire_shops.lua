@@ -212,7 +212,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Mostly it has. Wagons don't come, and folk don't buy. Your spirits won't bring the sun back, I'd guess." } },
       choices = {
-        { text = "Keep counting, Gunder. Order keeps hope alive.", next = "BACK", reply = "That's what I tell myself every morning, and it helps, mostly. One, two, three spools.", fx = { align = { order = 1 } } },
+        { text = "Keep counting, Gunder. Order keeps hope alive.", next = "BACK", reply = "That's what I tell myself every morning, and it helps, mostly, so long as the count comes out the same as yesterday.", fx = { align = { order = 1 } } },
         { text = "Stop counting. Close the shop and leave.", next = "BACK", reply = "And go where, exactly? Stormwind's full, and Darkshire still needs thread. I'll stay.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1323,7 +1323,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Here and there, pal, you know how it is: refugees from Lordaeron sellin' what they carried south, and a sailor who owed me money and paid in candlesticks. No questions asked, which is how I get the good stuff." } },
       choices = {
         { text = "Holy things shouldn't be sold off a cart, Kzixx.", next = "BACK", reply = "Holy things gotta eat too, pal, and so does Kzixx. It's a fair trade.", fx = { align = { light = 1 } } },
-        { text = "If it's blessed, it's blessed. Let me take a look.", next = "BACK", reply = "That's the spirit! Blessed and discounted, almost. Take a look.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "If it's blessed, it's blessed. Let me take a look.", next = "BACK", reply = "That's the spirit, pal, a customer who knows a blessing when one's sittin' right in front of 'em! Take a look, and mind the candlesticks, they bruise.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else, Kzixx.", next = "BACK" },
       },
     },
