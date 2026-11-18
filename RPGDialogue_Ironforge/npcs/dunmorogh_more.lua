@@ -209,7 +209,7 @@ P:NPC {
     gnome = {
       lines = { { id = "gg_default", text = "Do you really think so? Then I'll believe it too, at least until supper, and maybe longer if somebody else says it. Thank you, it helps to hear it from one of our own." } },
       choices = {
-        { text = "We will. I promise.", next = "BACK", fx = { affinity = 2 } },
+        { text = "We will, I promise you that.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },

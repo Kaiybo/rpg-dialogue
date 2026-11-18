@@ -251,7 +251,7 @@ P:NPC {
       },
       choices = {
         { text = "They opened their gates to you. Trust them.", next = "BACK", reply = "They did, and I'm grateful, truly, but gratitude and trust are two different columns on my list, and only one of them is filled in yet.", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "Keep watching them. Generosity always has a price.", next = "BACK", reply = "Finally, someone with sense, and I'll be adding your name to the short list of people in this city I needn't explain myself to.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Keep watching them. Nobody opens their gates for free.", next = "BACK", reply = "Finally, someone with sense, and I'll be adding your name to the short list of people in this city I needn't explain myself to.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

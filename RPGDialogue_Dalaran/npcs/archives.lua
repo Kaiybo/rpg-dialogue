@@ -191,7 +191,7 @@ P:NPC {
         { id = "xf_default", text = "No, I don't, and I'd be a poor keeper if I did. You may be no friend of the Scourge now, but the Scourge is what came through those gates, and it wore faces very like yours." },
       },
       choices = {
-        { text = "I'm not what killed him. Judge me by what I do.", next = "BACK", reply = "That is a fair request, and I'll try to honour it, but forgive me if I keep an eye on you near the staff cases all the same.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'm not what killed him. Judge me by what I do.", next = "BACK", reply = "That is a fair request, and I'll try to honour it. Forgive me if I keep an eye on you near the staff cases all the same.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Distrust me all you like. It changes nothing.", next = "BACK", reply = "It changes how carefully I dust while you're in the room, which is not nothing, and I'd thank you to keep your hands well away from the glass.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -284,7 +284,7 @@ P:NPC {
       },
       choices = {
         { text = "Magic that strong needs a council watching it.", next = "BACK", reply = "Aye, that's the Kirin Tor's own answer, and I'd not argue with ye in front of them, though I've read a few letters that'd make ye wonder who watches the watchers.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "No council should tell a mage what to study.", next = "BACK", reply = "Ha, ye'd have got on famously with half the magi in my letters, and every one of them came to a bad end, so mind which half ye're joinin', lad.", fx = { align = { order = -1 } } },
+        { text = "No council should tell a mage what to study.", next = "BACK", reply = "Ha! Ye'd have got on famously with half the magi in my letters, and every one of them came to a bad end. Mind which half ye're joinin', {g:lad|lass}.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -350,7 +350,7 @@ P:NPC {
         { id = "a3_default", text = "Never the same face, and never a name, and both times the guards found nothin' odd about him once he'd gone. I keep the seal in my pocket now, and I've told Fortuz to do the same with anything he'd miss." },
       },
       choices = {
-        { text = "Wise. Keep it close.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
+        { text = "Wise of you. Keep it close.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

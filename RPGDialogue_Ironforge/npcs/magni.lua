@@ -548,7 +548,7 @@ P:NPC {
           text = "I've seen yer name on a roster, I think, or yer da's. The Military Ward breeds good soldiers an' then I send them away from it, an' some nights I wonder whether it's a king's work or a fool's." },
       },
       choices = {
-        { text = "The road needs axes too, Your Majesty.", next = "BACK", reply = "They do, an' I'll no' argue, for the roads are where the trolls and the Dark Iron strike first, so swing that axe wherever it's needed.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "The road needs axes too, Your Majesty.", next = "BACK", reply = "They do. The roads are where the trolls an' the Dark Iron strike first, so swing that axe wherever it's needed.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Call me home and I'll come.", next = "BACK", reply = "Good, I'll remember that, an' I hope I never have tae send for ye, but it's a comfort tae know there's an axe I can count on.", fx = { align = { order = 1 }, affinity = 2, standing = { ironforge = 1 } } },
         { text = "Where's the line thinnest?", next = "reserve" },
       },

@@ -115,7 +115,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Some live in Tinker Town, some went to Stormwind, and some never came out of the radiation at all. The ones left are building again, which is the gnomish way, though their gadgets are rather more cautious now." } },
       choices = {
-        { text = "Caution is wise after a disaster like Gnomeregan.", next = "BACK", reply = "It is, and I'm glad someone sees it, because the younger gnomes keep calling me a coward for checking every rivet three times.", fx = { align = { order = 1 } } },
+        { text = "Caution is wise after a disaster like Gnomeregan.", next = "BACK", reply = "Thank you! The younger gnomes keep calling me a coward for checking every rivet three times, and I keep telling them that's exactly how many rivets Gnomeregan didn't check.", fx = { align = { order = 1 } } },
         { text = "Caution builds nothing. Gnomeregan fell because it hesitated.", next = "BACK", reply = "Oh, that's a terrible thing to say, and possibly true, which makes it worse, so I'll be thinking about that all evening, thank you very much.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -504,7 +504,7 @@ P:NPC {
       },
       choices = {
         { text = "For the data. The corridor's behind me.", next = "xorig_rear2", fx = { trait = { cautious = 1 } } },
-        { text = "For the corridor. I ran once. I won't again.", next = "xorig_rear2", fx = { trait = { brave = 1 } } },
+        { text = "For the corridor. I ran once, and I won't run again.", next = "xorig_rear2", fx = { trait = { brave = 1 } } },
         { text = "I don't know yet, Castpipe.", next = "xorig_rear2" },
       },
     },
@@ -1071,7 +1071,7 @@ P:NPC {
       },
       choices = {
         { text = "Science will cure them.", next = "BACK", reply = "It will, I know it will, and Ozzie says we're only a few dozen failed tests away, which is very nearly no tests at all.", fx = { align = { light = -1 }, learn = { "gnomeregan" } } },
-        { text = "They'll need prayer as much as science.", next = "BACK", reply = "Perhaps they will, and I'll not argue, because some days the lepers look like they need comfort as much as a cure.", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
+        { text = "They'll need prayer as much as science.", next = "BACK", reply = "Perhaps they will. Some days the lepers look like they need comfort as much as a cure, and I've no formula for comfort.", fx = { align = { light = 1 }, learn = { "gnomeregan" } } },
         { text = "Something else.", next = "BACK" },
       },
     },

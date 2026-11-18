@@ -74,7 +74,7 @@ P:NPC {
       big = true,
       lines = { { id = "wh_default", text = "Because when the Alliance comes over the hills, the Warchief wants every weapon he has, and we are a weapon that never tires. The shaman think we're a stain on the Horde, and perhaps we are, but a stain that keeps you alive is easy to forgive." } },
       choices = {
-        { text = "Power is power. The Horde should use all of it.", next = "BACK", reply = "Good, you understand the Horde as the Warchief does. Every weapon, warlock, and we're the sharpest.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Power is power. The Horde should use all of it.", next = "BACK", reply = "You understand the Horde as the Warchief does, whatever the shaman whisper. Every weapon, and we're the sharpest.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "The shaman are right. Fel nearly destroyed us once.", next = "BACK", reply = "They were right about the old Horde, and I won't deny it. But we've learned since, and the Horde needs us anyway.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -83,7 +83,7 @@ P:NPC {
       big = true,
       lines = { { id = "za_default", text = "I'll tell her that Dogran died bravely fighting the quilboar, which is how he wanted it told, and soon enough it will be true. She's young, and grief will pass faster than a lifetime spent nursing a broken mate." } },
       choices = {
-        { text = "That's a kindness. Let her grieve and move on.", next = "BACK", reply = "It is, and I'm glad you see it. She'll mourn, and then she'll live, and that's better than what he'd leave her.", fx = { align = { honor = -1 } } },
+        { text = "That's a kindness. Let her grieve and move on.", next = "BACK", reply = "It is. She'll mourn, and then she'll live, and that's better than sitting by his cot watching the fel eat him.", fx = { align = { honor = -1 } } },
         { text = "She deserves the truth, whatever he asked.", next = "BACK", reply = "The truth would chain her to a dying grunt for years. I'll tell her what she needs to hear, and you'll keep quiet.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

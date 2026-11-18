@@ -70,7 +70,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Tired an' scared, the both o' them, for they've been sittin' up nights wi' lanterns since the beast came down, an' one o' the lads saw it take a ram right in front o' him. He's no' said much since, an' I don't know what tae say tae him." } },
       choices = {
         { text = "Let me sit with him a while. Fear like that needs company.", next = "BACK", reply = "Bless ye for it, an' the lad would like that, though he'll pretend he doesnae need it, bein' a dwarf an' fourteen.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "He'll mend once the beast is dead. Words won't help.", next = "BACK", reply = "Maybe so, an' I'll no' say yer wrong about the beast, but he's only a lad, an' a kind word never killed anyone.", fx = { align = { light = -1 } } },
+        { text = "He'll mend once the beast is dead. Words won't help.", next = "BACK", reply = "Maybe so. But he's only a lad, an' a kind word never killed anyone.", fx = { align = { light = -1 } } },
         { text = "Tell me about the rams instead.", next = "BACK" },
       },
     },
@@ -89,7 +89,7 @@ P:NPC {
         { id = "xlock_default", text = "Scare them? One whiff o' brimstone an' they'd be over the fence an' halfway tae Gol'Bolar, an' I'd be countin' them till midnight. If ye want tae help, go up the mountain an' thin the yeti instead." },
       },
       choices = {
-        { text = "I'll keep it away and deal with the yeti.", next = "BACK", reply = "Thank ye, an' the rams thank ye too, an' if the beast's dealt wi' I might even forgive the brimstone smell when ye come back.", fx = { align = { order = 1 } } },
+        { text = "I'll keep it away and deal with the yeti.", next = "BACK", reply = "The rams thank ye too. If the beast's dealt wi', I might even forgive the brimstone smell when ye come back.", fx = { align = { order = 1 } } },
         { text = "Your rams can learn to live with it.", next = "BACK", reply = "They can learn it from yer side o' the fence, then, because I'll no' have my herd stampedin' over the hills for the sake o' yer pets.", fx = { align = { order = -1 } } },
         { text = "I had another question.", next = "BACK" },
       },
@@ -235,7 +235,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up intae the high snows, an' his tracks are deep enough tae lose a boot in, so ye'll no' miss them. Yer {pet} could have a go at him, I suppose, but I'd hate for it tae end up as his pudding." },
       },
       choices = {
-        { text = "I'll track him and bring your stash home.", next = "BACK", reply = "Good, an' bring it home whole if ye can, because I've been eatin' snow an' pride for three days an' neither one's fillin'.", fx = { align = { honor = 1 } } },
+        { text = "I'll track him and bring your stash home.", next = "BACK", reply = "Bring it home whole if ye can. I've been eatin' snow an' pride for three days, an' neither one's fillin'.", fx = { align = { honor = 1 } } },
         { text = "I'll track him, and keep the pelt for my trouble.", next = "BACK", reply = "Ha, fair enough, an' ye've earned it if ye can get it, though I'd ask ye tae leave his head on, for I've grown oddly fond o' the brute.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -592,7 +592,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "They frighten everythin' for a mile, an' then everythin' comes back, for the hills are stubborn. A good shot's quick an' clean, which is kinder than a bad arrow, whatever an elf might tell ye." } },
       choices = {
-        { text = "A clean kill is kinder, I agree with you there.", next = "BACK", reply = "Glad ye see it, for I've always thought so, though I'll admit I'd rather no' argue about it wi' a druid any longer than I must.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A clean kill is kinder, I agree with you there.", next = "BACK", reply = "I've always thought so. I'd rather no' argue about it wi' a druid any longer than I must, though.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "The hills were quieter before gunpowder ever came to them.", next = "BACK", reply = "They were, an' they were full o' trolls an' troggs back then too, so I'll take a bit o' noise over a spear in the back, thank ye.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -610,7 +610,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "More than ye'd think, for a pistol's a fine thing tae have when the dagger misses. I'll sell ye one, but if I hear it was used on an honest dwarf, I'll come lookin', an' I'm a very good shot." } },
       choices = {
-        { text = "I'd only ever aim it at an enemy, Hegnar.", next = "BACK", reply = "Good, an' I'll take ye at yer word, but I'll still be listenin', because Dun Morogh's a small place for rumours.", fx = { align = { honor = 1 } } },
+        { text = "I'd only ever aim it at an enemy, Hegnar.", next = "BACK", reply = "I'll take ye at yer word. I'll still be listenin', mind, because Dun Morogh's a small place for rumours.", fx = { align = { honor = 1 } } },
         { text = "Who I shoot is my business once I've paid.", next = "BACK", reply = "Is it now? Then ye can buy yer pistol somewhere else, an' I'll be keepin' my ears open in Kharanos for yer name.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -691,7 +691,7 @@ P:NPC {
     camp = {
       lines = { { id = "c_default", text = "Because the folk who need a gun are out here, no' in the city. Ironforge has its guards; a farmer on the road has only what he carries." } },
       choices = {
-        { text = "Every dwarf should be able to defend himself.", next = "BACK", reply = "Aye, they should, an' that's why I'm out here, so they can, for a dwarf who cannae defend himself is a dwarf waitin' tae be robbed.", fx = { align = { order = -1 } } },
+        { text = "Every dwarf should be able to defend himself.", next = "BACK", reply = "That's why I'm out here. A dwarf who cannae defend himself is a dwarf waitin' tae be robbed.", fx = { align = { order = -1 } } },
         { text = "The guards should keep the roads safe instead.", next = "BACK", reply = "They should, an' I'd love tae see it, but the guards cannae be everywhere, an' the trolls know it better than anyone.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

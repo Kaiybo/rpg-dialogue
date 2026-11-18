@@ -184,7 +184,7 @@ P:NPC {
     soft = {
       lines = { { id = "so_default", text = "They called me soft too, for carrying a human paladin out of a fallen tower. Peace with the Alliance is not softness, it is the hardest thing the Warchief has ever tried, and it may fail, but it is worth the trying." } },
       choices = {
-        { text = "Peace is worth the risk.", next = "BACK", reply = "It is, and I'm glad to hear it from you. The Warchief needs more voices like yours.", fx = { affinity = 1, align = { order = 1 }, opinion = { peace = "for" } } },
+        { text = "Peace is worth the risk.", next = "BACK", reply = "It is. Say that in the Valley of Strength sometime, where the grunts can hear it, because the Warchief needs more voices like yours.", fx = { affinity = 1, align = { order = 1 }, opinion = { peace = "for" } } },
         { text = "The Alliance only understands strength.", next = "BACK", reply = "They understand it, aye, but they also understand honor, as Tirion showed me. Don't judge them all by their worst.", fx = { align = { order = -1 }, opinion = { peace = "against" } } },
         { text = "And Jaina Proudmoore? Does the Warchief trust her too far?", next = "jaina_op" },
         { text = "Something else.", next = "BACK" },
@@ -209,7 +209,7 @@ P:NPC {
     warrior = {
       lines = { { id = "wa_default", text = "In front of you, where your enemy can see it. If you ever have to hide what you did with your axe, then you did the wrong thing with it, and I learned that one far too late." } },
       choices = {
-        { text = "I'll keep it in front, then.", next = "BACK", reply = "Good, and you'll never have to wonder whether you did right. Keep it in front, warrior.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll keep it in front, then.", next = "BACK", reply = "Then you'll never lie awake wondering whether you did right. I've done enough of that for both of us.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Winning matters more than how it looks.", next = "BACK", reply = "It does, until you have to live with how you won. I learned that one far too late, and I hope you don't.", fx = { align = { honor = -1 } } },
       },
     },

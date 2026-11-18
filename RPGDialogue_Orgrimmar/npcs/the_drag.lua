@@ -71,7 +71,7 @@ P:NPC {
       big = true,
       lines = { { id = "sd_default", text = "Rob is a very ugly word, pal. The dead don't need their boots, and the livin' do, so I'm providing a public service, and charging a modest fee for my trouble." } },
       choices = {
-        { text = "True enough, the dead have no use for boots.", next = "BACK", reply = "Exactly, pal, and the livin' have very cold feet. You understand business.", fx = { align = { honor = -1 } } },
+        { text = "True enough, the dead have no use for boots.", next = "BACK", reply = "Exactly, pal, and the livin' have very cold feet. You understand business, and I like that in a customer.", fx = { align = { honor = -1 } } },
         { text = "Some things should stay with the dead.", next = "BACK", reply = "Some things, sure, but boots? Pal, boots are the most useful thing a corpse ever owned.", fx = { affinity = -1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -171,7 +171,7 @@ P:NPC {
       big = true,
       lines = { { id = "si_default", text = "Not yet, and I'd appreciate it if you didn't tell him. A little honesty's good for business, but a little secrecy's good for family, as long as it's the right kind." } },
       choices = {
-        { text = "Your secret's safe. Family deserves some patience.", next = "BACK", reply = "You're a real friend, pal, and I owe you one. Family's worth a little patience.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Your secret's safe. Family deserves some patience.", next = "BACK", reply = "You're a real friend, pal, and I owe you one. Dran's a pain, but he's my pain.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I might tell him, if the price is right.", next = "BACK", reply = "The price is right, is it? Pal, you're a Droffers at heart, and I mean that as a warning.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -430,7 +430,7 @@ P:NPC {
       lines = { { id = "te_default", text = "Volunteers, yes, and sometimes they even know they're volunteering. I always pay them, though, and nobody's ever died, so I think that makes it fair." } },
       choices = {
         { text = "The apothecaries in the Undercity don't bother paying.", next = "apothecaries", when = { race = "Scourge" } },
-        { text = "They should always know what they're drinking.", next = "BACK", reply = "They should, and I tell them, mostly. The blue usually wears off by the morning.", fx = { align = { light = 1 } } },
+        { text = "They should always know what they're drinking.", next = "BACK", reply = "They should, and I tell them, mostly. The blue usually wears off by morning, and if it doesn't, it's a feature.", fx = { align = { light = 1 } } },
         { text = "Knowledge costs something. A blue grunt is cheap.", next = "BACK", reply = "Ha! Now there's a scientist after my own heart. The blue's temporary, the knowledge isn't.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -539,7 +539,7 @@ P:NPC {
       lines = { { id = "go_default", text = "A clean kill, a clean skin and a clean tan, in that order. A beast that died slowly gives a tough, ugly hide, so I tell every hunter that a kind kill makes the best leather." } },
       choices = {
         { text = "As a druid, I'd rather you killed nothing.", next = "druid", when = { class = "DRUID" } },
-        { text = "A clean kill honors the beast.", next = "BACK", reply = "It does, and it makes better leather too. A good hunter knows both.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A clean kill honors the beast.", next = "BACK", reply = "It does, and it makes better leather too. I can tell a hunter's character from the hide alone.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I care about the hide, not the beast.", next = "BACK", reply = "Then you'll get tough, ugly hides, and I'll pay you accordingly. Kill clean anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -707,7 +707,7 @@ P:NPC {
       big = true,
       lines = { { id = "dm_default", text = "Because a crafter who can't afford thread doesn't make anything, and then the whole Drag goes quiet. A fair price keeps this city sewing and smithing, and a busy stall suits me better than a fat purse." } },
       choices = {
-        { text = "Fair prices keep a city honest. You're right.", next = "BACK", reply = "Exactly, and the Drag stays busy. I'd rather be busy than rich any day.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Fair prices keep a city honest. You're right.", next = "BACK", reply = "Exactly, and look at my stall, never empty. I'd rather be busy than rich any day.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Charge what they'll pay. Dran has the right idea.", next = "BACK", reply = "Dran's richer, sure, but I've got more customers. Fair prices win in the end.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

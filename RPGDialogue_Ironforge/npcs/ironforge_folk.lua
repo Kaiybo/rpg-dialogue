@@ -85,7 +85,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "I think anythin' that tells folk tae be kind tae each other gets along fine, whatever name it answers to. The priests'll argue the details, but I've never seen a sermon stop a trogg." } },
       choices = {
-        { text = "Every faith that guards the weak walks the same road.", next = "BACK", reply = "Aye, that's how I see it, an' I'm glad tae hear it from one o' Elune's folk, for the priests up the stair could stand tae hear it more often.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Every faith that guards the weak walks the same road.", next = "BACK", reply = "That's how I see it. The priests up the stair could stand tae hear it from one o' Elune's folk more often.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "Elune is not the Light, and the difference matters.", next = "BACK", reply = "Maybe it does, an' I'll no' pretend tae know the moon as well as ye do, but I've never yet seen a difference that stopped a kindness.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -106,7 +106,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "In a clean kill an' a fair one, aye, for the Light only asks ye tae waste nothin' an' gloat over nothin'. An' yer {pet} is a blessin' too, if ye treat it like one, for the Light made the beasts as surely as it made us." },
       },
       choices = {
-        { text = "I'll hunt cleanly, and waste nothing.", next = "BACK", reply = "Good, an' the Light will see it, even if the boar doesnae thank ye, so bring the hide home whole an' eat the meat wi' a grateful heart.", fx = { align = { light = 1 } } },
+        { text = "I'll hunt cleanly, and waste nothing.", next = "BACK", reply = "The Light will see it, even if the boar doesnae thank ye. Bring the hide home whole, an' eat the meat wi' a grateful heart.", fx = { align = { light = 1 } } },
         { text = "A hunt's a hunt. I'll leave the Light to priests.", next = "BACK", reply = "Fair enough, the priests have plenty tae do, but ye'll find the Light walks the hills whether ye've asked it along or no'.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -234,7 +234,7 @@ P:NPC {
           text = "Everythin' ye've got, same as us. Ye'll have heard it said grander in Stormwind, but Duthorian Rall an' I agree on that much, an' we agree on very little." },
       },
       choices = {
-        { text = "The oath comes before my own life.", next = "BACK", reply = "That's the heart o' it, an' I'll no' argue, but I'd ask ye tae live a good long while first, for the oath gets more use from a livin' paladin.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "The oath comes before my own life.", next = "BACK", reply = "That's the heart o' it. But live a good long while first, for the oath gets more use from a livin' paladin.", fx = { align = { light = 1 }, affinity = 2 } },
         { text = "The oath serves people. When it doesn't, I'll choose people.", next = "BACK", reply = "That's a dangerous thought, an' maybe a true one, an' I've had it myself on the bad days, so just make sure it's people ye're choosin', an' no' yerself.", fx = { align = { order = -1 } } },
         { text = "And when I fail it?", next = "owe_fail" },
       },

@@ -121,7 +121,7 @@ P:NPC {
         { id = "hu_pet", when = { pet = { type = "Beast" } }, text = "Watch the snow, no' the beast, for a boar in a hurry is a boar that's already seen ye. An' let yer {pet} do the flushin'; that's what it's for, an' it'll enjoy it more than ye will." },
       },
       choices = {
-        { text = "Patience, then. I can learn that.", next = "BACK", reply = "Good, because patience is half the huntin', an' the other half is bein' cold an' hungry an' no' complainin' about it, which takes longer tae learn.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Patience, then. I can learn that.", next = "BACK", reply = "Patience is half the huntin'. The rest is bein' cold an' hungry an' no' complainin' about it, which takes longer tae learn.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "I'd rather trust my instincts than the snow.", next = "BACK", reply = "Ha, so did I at yer age, an' I came home wi' no boar an' a bruise the size o' my fist, so trust the snow until yer instincts earn it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

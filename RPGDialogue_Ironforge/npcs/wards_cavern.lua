@@ -40,8 +40,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Some do, an' I let them out on the hills when I can, but the hunters' beasts chose their masters, an' they're happy enough. A beast that's loved isnae a prisoner, whatever the elves might say." } },
       choices = {
-        { text = "Love and care are a fair bargain for any beast.", next = "BACK", reply = "Aye, that's how I see it, an' I'm glad tae hear it from a druid, for yer lot usually look at my stables as if they were cages.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "A beast bound by love is still bound.", next = "BACK", reply = "Maybe so, an' I'll no' argue, but I've never seen a happier prisoner than a hunter's wolf when its master walks through that door.", fx = { align = { order = -1 } } },
+        { text = "Love and care are a fair bargain for any beast.", next = "BACK", reply = "That's how I see it too. Yer lot usually look at my stables as if they were cages.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "A beast bound by love is still bound.", next = "BACK", reply = "Maybe so. But I've never seen a happier prisoner than a hunter's wolf when its master walks through that door.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -61,7 +61,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Fed, brushed an' talked tae every day, for a beast that's left alone starts tae think it's been abandoned. Yer {pet} looks well, I'm glad tae see; ye've been feedin' it properly, I can tell from the coat." },
       },
       choices = {
-        { text = "I'd never leave a beast longer than I must.", next = "BACK", reply = "Good, for they count the days, I swear it, an' a hunter who comes back on time is a hunter whose beast will never let him down.", fx = { align = { honor = 1 } } },
+        { text = "I'd never leave a beast longer than I must.", next = "BACK", reply = "They count the days, I swear it. A hunter who comes back on time is a hunter whose beast will never let him down.", fx = { align = { honor = 1 } } },
         { text = "A beast is a tool. It'll keep while I'm gone.", next = "BACK", reply = "It'll keep, aye, but it'll pine, an' a pinin' beast fights slower, so ye might find yer tool a wee bit blunter when ye come back.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -70,7 +70,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Better than most dwarves remember their debts. A hunter's wolf came back from a fight wi' a singed tail an' wouldnae let a mage near it for a month, so be gentle an' they'll forgive ye." } },
       choices = {
-        { text = "I'll be gentle, Ulbrek. The beasts deserve it.", next = "BACK", reply = "Thank ye, an' they'll remember it, for a beast's memory is longer than a dwarf's grudge, an' kinder too.", fx = { align = { honor = 1 } } },
+        { text = "I'll be gentle, Ulbrek. The beasts deserve it.", next = "BACK", reply = "They'll remember it. A beast's memory is longer than a dwarf's grudge, an' a good deal kinder.", fx = { align = { honor = 1 } } },
         { text = "Beasts are beasts. They'll get over it.", next = "BACK", reply = "They will, eventually, but a singed tail takes a month tae forgive, an' I'd rather ye didnae test that on my stables.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -97,7 +97,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Gently, an' wi' respect, for a charger will carry ye intae battle wi'out askin' why, an' that's a trust ye should never break. I've seen paladins who forget it, an' I've seen what happens tae their mounts, an' I'd rather no' see it again." } },
       choices = {
-        { text = "A charger's trust is sacred. I'll never break it.", next = "BACK", reply = "Good, for a charger that trusts ye will carry ye through fire, an' I'd like tae think yours will come home in one piece.", fx = { align = { light = 1 } } },
+        { text = "A charger's trust is sacred. I'll never break it.", next = "BACK", reply = "A charger that trusts ye will carry ye through fire. I'd like tae think yours will come home in one piece.", fx = { align = { light = 1 } } },
         { text = "A charger is a tool of war. It must serve.", next = "BACK", reply = "Aye, it is, an' it will, but it serves better when it loves ye, so treat it kindly an' ye'll find it serves twice as well.", fx = { align = { light = -1 } } },
         { text = "Something else, Ulbrek.", next = "BACK" },
       },
@@ -108,7 +108,7 @@ P:NPC {
         { id = "xrogue_default", text = "They trust anyone who's gentle wi' them, an' quiet folk usually are, for they've learned that loud ones get noticed. Speak low an' move slow, an' they'll come tae ye in time, same as they do tae me." },
       },
       choices = {
-        { text = "I'll be gentle with them.", next = "BACK", reply = "Good, an' they'll come tae ye, for quiet folk an' gentle hands are the two things a beast trusts most in this world.", fx = { align = { light = 1 } } },
+        { text = "I'll be gentle with them.", next = "BACK", reply = "Then they'll come tae ye. Quiet folk an' gentle hands are the two things a beast trusts most.", fx = { align = { light = 1 } } },
         { text = "I'm not here to make friends with rams.", next = "BACK", reply = "Fair enough, but they'll make friends wi' ye anyway, if ye stand still long enough, for they've no' much sense about who they like.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -281,7 +281,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Oh, I think so, because a priest who can't defend herself is a priest who'll be healing herself, and that's no good to anyone. But I'll admit the Mystic Ward's priests think differently, and they're very polite when they tell me so." } },
       choices = {
         { text = "A priest's strength is in faith. I'll keep my hands open.", next = "BACK", reply = "That's a lovely thought, and I won't argue with faith, but keep a little knife in your boot anyway, purely for emergencies.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You're right. A healer who can't fight is a target.", next = "BACK", reply = "Exactly, and I'm glad you see it, because the Mystic Ward's priests keep coming to me with bruises and asking where they went wrong.", fx = { align = { light = -1 } } },
+        { text = "You're right. A healer who can't fight is a target.", next = "BACK", reply = "Exactly! The Mystic Ward's priests keep coming to me with bruises, asking where they went wrong.", fx = { align = { light = -1 } } },
         { text = "Thanks, Bixi.", next = "BACK" },
       },
     },
@@ -290,7 +290,7 @@ P:NPC {
       lines = { { id = "xapala_default", text = "Is it honourable for an ogre to be three times your size? I think not, so I don't see why I should fight fair when he doesn't. But I'll admit a few paladins have told me otherwise, and very sternly." } },
       choices = {
         { text = "Honour doesn't depend on the foe's size. I'll fight fairly.", next = "BACK", reply = "That's very noble of you, and I'll respect it, though I'll keep a crossbow handy in case the ogre doesn't share your views.", fx = { align = { honor = 1 } } },
-        { text = "You're right. Use every advantage. Fairness is for duels.", next = "BACK", reply = "Exactly, and I'm glad you see it, because a paladin who fights smart lives long enough to fight fair another day.", fx = { align = { honor = -1 } } },
+        { text = "You're right. Use every advantage. Fairness is for duels.", next = "BACK", reply = "Exactly. A paladin who fights smart lives long enough to fight fair another day.", fx = { align = { honor = -1 } } },
         { text = "Thanks, Bixi.", next = "BACK" },
       },
     },
@@ -413,7 +413,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Aye, if the shaman could keep quiet, which few o' them can, what wi' all the thunder. Mind, a rogue who knew the very stones were listenin' would think twice about a job, for the earth's a witness who cannae be paid." } },
       choices = {
-        { text = "The earth sees everything. Rogues should remember that.", next = "BACK", reply = "Aye, they should, an' I'll pass it on, though most o' my lot think the walls are already on their side.", fx = { align = { honor = 1 } } },
+        { text = "The earth sees everything. Rogues should remember that.", next = "BACK", reply = "I'll pass it on, though most o' my lot think the walls are already on their side.", fx = { align = { honor = 1 } } },
         { text = "For the right job, the earth and I could look away.", next = "BACK", reply = "Ha, now that's a shaman I could use, an' I'll remember yer face, for a job that needs the earth lookin' away is worth a great deal.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -422,7 +422,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "There's honour in whatever ye do with it, an' none in the doin' itself. A cat stalks tae eat an' a rogue stalks tae get paid, an' I'll no' pretend one's nobler than the other." } },
       choices = {
-        { text = "Stealth serves the hunt, never a purse.", next = "BACK", reply = "Fair enough, an' I'll no' argue wi' a druid about the hunt, but a purse has fed more dwarves in this cavern than any deer.", fx = { align = { honor = 1 } } },
+        { text = "Stealth serves the hunt, never a purse.", next = "BACK", reply = "Ye know the hunt better than I do. But a purse has fed more dwarves in this cavern than any deer.", fx = { align = { honor = 1 } } },
         { text = "A purse is a hunt too. Survival is survival.", next = "BACK", reply = "That's the truth o' it, an' I'll no' pretend otherwise, so ye'd make a decent rogue if ye ever got tired o' the trees.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
@@ -432,7 +432,7 @@ P:NPC {
       lines = { { id = "xwarcl_default", text = "Because ye walk like a warrior, heavy an' straight an' lookin' ahead, an' everyone in the Forlorn Cavern can see ye comin'. A rogue would have yer coin before ye'd finished turnin' round, an' I'd no' stop them." } },
       choices = {
         { text = "I'll walk straight anyway. I've nothing to hide.", next = "BACK", reply = "Then ye'll keep yer honour an' lose yer coin, an' that's a fair trade for some, but mind yer pockets in the Forlorn Cavern.", fx = { align = { honor = 1 } } },
-        { text = "Then I'll learn to walk softer, and watch closer.", next = "BACK", reply = "Good, an' ye'll keep yer coin a good deal longer, an' maybe one day ye'll be the one watchin' the warriors walk past.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll learn to walk softer, and watch closer.", next = "BACK", reply = "Ye'll keep yer coin a good deal longer. Maybe one day ye'll be the one watchin' the warriors walk past.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -444,7 +444,7 @@ P:NPC {
       },
       choices = {
         { text = "My beast is honest. I'll not train that out of it.", next = "BACK", reply = "Fair enough, an' an honest beast is a fine thing, but it'll give ye away one day, an' then ye'll wish it had learned tae lie.", fx = { align = { honor = 1 } } },
-        { text = "A useful trick. I'll teach it to look away.", next = "BACK", reply = "Good, an' it'll take a few weeks, but once it's learned, ye'll be harder tae read than half the rogues in this cavern.", fx = { align = { honor = -1 } } },
+        { text = "A useful trick. I'll teach it to look away.", next = "BACK", reply = "It'll take a few weeks. Once it's learned, though, ye'll be harder tae read than half the rogues in this cavern.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -461,7 +461,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Peacefully enough, for both of us know the guards would happily throw us out together. We keep tae our corners, an' we nod in passin', an' that's how it'll stay." } },
       choices = {
-        { text = "Then I'll keep to my corner, and nod as I pass.", next = "BACK", reply = "Good, an' we'll get along fine, for a nod in passin' is the best friendship a rogue can offer in the Forlorn Cavern.", fx = { align = { order = 1 } } },
+        { text = "Then I'll keep to my corner, and nod as I pass.", next = "BACK", reply = "We'll get along fine, then. A nod in passin' is the best friendship a rogue can offer down here.", fx = { align = { order = 1 } } },
         { text = "Corners are for the cautious. I go where I like.", next = "BACK", reply = "Then ye'll find out how quickly the guards come runnin', an' I'll be nowhere near ye when they do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -603,7 +603,7 @@ P:NPC {
       lines = { { id = "xdsham_default", text = "Every day, an' I've half a mind tae ask ye tae call some up for me. There's an old dwarf tale that the mountain once had rivers runnin' through its halls, before the forges dried them out. I've no idea if it's true, but I'd give my best rod tae fish one." } },
       choices = {
         { text = "The forges matter more. The rivers can stay outside.", next = "BACK", reply = "Fair enough, an' the forges have earned their place, but I'd still give a great deal tae hear a river runnin' through the Commons.", fx = { align = { order = 1 } } },
-        { text = "The mountain should have its rivers back, Grimnur.", next = "BACK", reply = "Aye, it should, an' I'll drink tae the day it does, though I suspect the King would have a word or two about the forges.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The mountain should have its rivers back, Grimnur.", next = "BACK", reply = "I'll drink tae the day it does! Though I suspect the King would have a word or two about the forges.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -620,7 +620,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a warrior posted at Menethil or Thelsamar can eat fresh from the water instead o' hard biscuit, an' a warrior who eats well fights well. Patience is the lesson, mind, an' warriors are short on it, so they need it most." } },
       choices = {
-        { text = "Patience, then. I'll learn the knots.", next = "BACK", reply = "Good, an' the knots will teach ye patience faster than any drill, for a fish doesnae care how strong yer arm is.", fx = { align = { order = 1 } } },
+        { text = "Patience, then. I'll learn the knots.", next = "BACK", reply = "The knots will teach ye patience faster than any drill. A fish doesnae care how strong yer arm is.", fx = { align = { order = 1 } } },
         { text = "I'll learn, but I'll catch them my own way.", next = "BACK", reply = "Yer own way, eh? Well, the fish will teach ye theirs soon enough, an' then ye'll come back an' learn mine.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -641,7 +641,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "More than ye'd think, for fishin' is all about waitin' for the right moment an' strikin' quick. The best rogues I've known were good fishermen, an' the worst ones never sat still long enough tae learn." } },
       choices = {
-        { text = "Patience and timing. I'll learn both, Grimnur.", next = "BACK", reply = "Good, an' ye'll be a better rogue for it, for patience is the one thing ye cannae steal from anybody.", fx = { align = { order = 1 } } },
+        { text = "Patience and timing. I'll learn both, Grimnur.", next = "BACK", reply = "Ye'll be a better rogue for it. Patience is the one thing ye cannae steal from anybody.", fx = { align = { order = 1 } } },
         { text = "I'd rather take the fish from someone else's line.", next = "BACK", reply = "Ha, I've known a few who tried, an' they all ended up in the loch, so learn tae fish yer own, it's safer.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -650,7 +650,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "They think it makes the fish easier tae catch, but it only makes them angry an' cold. Use a rod like an honest dwarf, an' ye'll find it's more pleasant than any spell." } },
       choices = {
-        { text = "A rod it is, then. I'll fish the honest way.", next = "BACK", reply = "Good, an' ye'll find it's far more pleasant, for there's nothin' like the tug on a line tae make a mage forget his books.", fx = { align = { honor = 1 } } },
+        { text = "A rod it is, then. I'll fish the honest way.", next = "BACK", reply = "Ye'll find it far more pleasant. There's nothin' like the tug on a line tae make a mage forget his books.", fx = { align = { honor = 1 } } },
         { text = "A frozen fish is still a fish, Grimnur.", next = "BACK", reply = "Aye, but an angry, cold fish isnae worth eatin', an' the rest o' the loch will remember ye, so try a rod first.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -659,7 +659,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "One or two have, from the warlock trainers' corner o' the cavern, an' they were surprisingly patient. I'd ask ye only tae keep yer demon from scarin' off the fish, for they're shy enough already." } },
       choices = {
-        { text = "I'll keep my demon quiet and fish patiently.", next = "BACK", reply = "Good, an' ye'll find the fishin' does yer patience good, which is a thing every warlock could use a wee bit more of.", fx = { align = { light = 1 } } },
+        { text = "I'll keep my demon quiet and fish patiently.", next = "BACK", reply = "The fishin' will do yer patience good, which every warlock could use a wee bit more of.", fx = { align = { light = 1 } } },
         { text = "If my demon scares them up, that's quicker fishing.", next = "BACK", reply = "Quicker, aye, an' the fish will be too frightened tae taste right, so let the poor things come up in their own time.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -669,7 +669,7 @@ P:NPC {
       lines = { { id = "xapriest_default", text = "Some days, aye, when the line's still an' the water's quiet an' there's naught tae do but wait. I'll no' say the fish answer, but I've done a good deal o' thinkin' at the end o' a line, an' I've come home calmer than I left." } },
       choices = {
         { text = "Then it's prayer enough. Quiet waiting is holy work.", next = "BACK", reply = "That's a fine way tae put it, an' I'll think on it at the water's edge, for I've always felt there was somethin' holy in the waitin'.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Fishing is fishing. Prayer is something else entirely.", next = "BACK", reply = "Maybe so, an' I'll no' argue wi' a priest, but I've thought more holy thoughts at the loch than I ever did in a church.", fx = { align = { light = -1 } } },
+        { text = "Fishing is fishing. Prayer is something else entirely.", next = "BACK", reply = "Maybe so. But I've thought more holy thoughts at the loch than I ever did in a church.", fx = { align = { light = -1 } } },
         { text = "Teach me to fish, Grimnur.", next = "BACK" },
       },
     },
@@ -677,7 +677,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "Patience, an' how tae wait wi'out fidgetin', which most paladins I've met could use more of. A fish doesnae care how brave ye are, an' that's a good lesson for anyone who thinks bravery solves everythin'." } },
       choices = {
-        { text = "Patience is a virtue. I'll learn it, line and all.", next = "BACK", reply = "Good, an' ye'll find a fish teaches patience better than any sermon, an' it doesnae lecture ye while it does it.", fx = { align = { order = 1 } } },
+        { text = "Patience is a virtue. I'll learn it, line and all.", next = "BACK", reply = "A fish teaches patience better than any sermon, an' it doesnae lecture ye while it does it.", fx = { align = { order = 1 } } },
         { text = "Bravery solves more than patience. I'll stick to my hammer.", next = "BACK", reply = "Fair enough, but a hammer never caught a trout, an' I'll be here when ye decide ye'd like tae learn somethin' new.", fx = { align = { order = -1 } } },
         { text = "Good fishing, Grimnur.", next = "BACK" },
       },
