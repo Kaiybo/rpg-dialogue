@@ -6,6 +6,7 @@ P:NPC {
   key = "ragged_john", id = TODO_NPC("Ragged John"), name = "Ragged John",
   bible = "bibles/burningsteppes.md", role = "questgiver", tier = "major",
   communities = { "flame_crest" }, temper = { "cowardly", "sharp" }, values = { "loyal", "lazy" },
+  race = "Dwarf",
   notices = { "drink", "race", "poison" },
 
   impression = {
@@ -376,6 +377,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Och, go on wi' ye, nobody's said a kind thing about Ragged John since the Marshal went intae the mountain. *hic* I'll drink tae yer health for that, an' tae mine as well." },
+        { id = "s2", text = "Well, now, that's the nicest thing I've heard in this cave that didn't come out o' a cask. Ye've a good heart, an' good taste in dwarves besides." },
+      },
+      fail = {
+        { id = "f1", text = "Aye, an' I'm the King o' Ironforge. I may be drunk, but I'm no' daft, so ye can tell me what ye're after an' save the butter for yer bread." },
+        { id = "f2", text = "Folk only talk sweet tae old John when they want a story for nothin'. *hic* Ye'll need tae do better than that." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Aye, I'm a coward an' a drunk, an' ye've the cheek tae say it tae my face, which is more than the lads at the Vigil ever did. I like ye fine for it." },
+        { id = "s2", text = "Ye're no' wrong, an' I'll no' pretend ye are. *hic* A dwarf who can't laugh at himself has no business hidin' in a cave." },
+      },
+      fail = {
+        { id = "f1", text = "I've heard it all before, an' from better than you, an' it stung a good deal more comin' from them. Away an' bother the orcs if ye're wantin' sport." },
+        { id = "f2", text = "Ye weren't there, were ye? Fifty orcs came over that hill an' three hundred Dark Irons after them, an' ye'd have run the same as I did, so mind yer tongue." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "He scrambles back against the cave wall, clutching his mug.", text = "Easy, now, easy! There's no call for any o' that, I'm only an old dwarf wi' a cask. I'll tell ye whatever ye like, just keep yer hands where I can see them." },
+        { id = "s2", text = "Aye, aye, all right, ye've made yer point, an' I felt it in my knees. *hic* I ran from the Blackrock, an' I'm no' too proud tae back away from you." },
+      },
+      fail = {
+        { id = "f1", text = "Ye'll have tae do better than that, for I've been scared by experts. After what I saw come over that hill, ye're about as frightenin' as a wet worg pup." },
+        { id = "f2", text = "Go on an' loom, then. *hic* I've had too much ale tae be properly frightened, an' there's nothin' in this cave worth robbin' but the cask." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Ye'd be amazed what a dwarf picks up at the bottom of a mug in a goblin camp. Ask old John about any o' this." },
@@ -391,6 +424,10 @@ P:NPC {
     onyxia = { { id = "tp_onyxia", text = "There's a black dragon in Dustwallow, they say, an' she's the daughter o' the biggest black dragon there ever was. I'd stay well clear o' that family, lad." } },
     firegut = { { id = "tp_firegut", text = "The Firegut ogres on Dreadmaul Rock are loud an' stupid an' they can't hold their drink. I tried to share a cask wi' one once, an' I'm lucky I've still got my beard." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I've heard of most things, usually at the bottom of a mug." } },
+    _gated = {
+      { id = "gt1", text = "I'll no' be tellin' ye that, no' till I know ye a wee bit better. Come back an' share a mug or two first." },
+      { id = "gt2", text = "That's no' a tale for strangers, an' ye're still a stranger tae me. *hic* Ask me again when ye're no'." },
+    },
   },
 }
 

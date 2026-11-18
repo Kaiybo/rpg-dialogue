@@ -6,6 +6,7 @@ P:NPC {
   key = "itharius", id = TODO_NPC("Itharius"), name = "Itharius",
   bible = "bibles/itharius.md", role = "scholar", tier = "major",
   communities = { "swamp_of_sorrows" }, temper = { "aloof", "grave" }, values = { "wise", "proud" },
+  likesTone = "polite",
   notices = { "race", "form" },
 
   impression = {
@@ -242,6 +243,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You speak with a courtesy that few mortals trouble themselves to learn. It is noted, and I find my regard for your kind improved by a small measure." },
+        { id = "s2", text = "It is long since anyone offered me praise and wished only to give it. You have a gracious tongue, mortal, and the Dreamer's servants do not forget such things." },
+      },
+      fail = {
+        { id = "f1", text = "I have listened to the flatteries of princes who are dust these ten thousand years. Yours is not the equal of theirs, and theirs did not move me either." },
+        { id = "f2", text = "You offer sweet words as one offers meat to a beast, hoping it will grow tame. I am not what you take me for, and I am not so easily fed." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You jest with me, here, in my own cave. That is either great folly or a kind of courage, mortal, and I find that I am inclined to call it courage." },
+        { id = "s2", text = "The whelps nip at my heels in much the same manner, and I am fond of the whelps. You are bold, and boldness will be needed where I must send you." },
+      },
+      fail = {
+        { id = "f1", text = "You make sport of what you do not comprehend. Were I less patient, mortal, you would learn swiftly why the whelps obey me without a word." },
+        { id = "f2", text = "My kin lie in madness beneath the Pool of Tears, and you bring me mockery. Take it out of my cave, and return when you have remembered respect." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", narr = "The whelps fall silent and draw in close about his feet.", text = "There is more to you than your brief years would suggest, and I am old enough to recognise it. I will not provoke you needlessly, so ask what you would." },
+        { id = "s2", text = "You press me, and I feel the weight of it, which I did not expect from a mortal. Very well, I shall answer you with more care." },
+      },
+      fail = {
+        { id = "f1", text = "You would threaten me, little one. You have no notion of what stands before you, and it is better for your sleep that you never learn." },
+        { id = "f2", text = "I have watched ages turn from within the Dream, and nothing in your short life could trouble me. Be still, before the whelps mistake your manner for a challenge." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "I have watched this swamp and the world beyond it for a long while, mortal. I will tell you what a dragon thinks a mortal should know." },
@@ -260,5 +293,9 @@ P:NPC {
     cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids of the Cenarion Circle walk the Dream with my mistress's leave, and I count them among my few allies in this swamp. They are patient, which suits a dragon." } },
     black_dragonflight = { { id = "tp_black_dragonflight", text = "Deathwing's children are cruel and patient and very hard to kill, and they would see my mistress's flight broken. I watch for them, even here." } },
     _none = { { id = "tp_none", text = "That is beneath my notice, or beyond it. Either way, I will not speak of it." } },
+    _gated = {
+      { id = "gt1", text = "That is not for mortal ears, or at least not for yours as yet. Prove yourself a friend to my flight, and I may speak of it." },
+      { id = "gt2", text = "I will keep my own counsel on that matter. You have not earned such trust, and I do not give it lightly." },
+    },
   },
 }

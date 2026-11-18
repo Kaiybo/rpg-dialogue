@@ -7,6 +7,7 @@ P:NPC {
   key = "danitha", id = TODO_NPC("Danitha Morr"), name = "Danitha Morr",
   bible = "bibles/bandarion_keep.md", role = "questgiver", tier = "major",
   communities = { "bandarion_keep" }, temper = { "steady", "warm" }, values = { "devout", "loyal", "dutiful" },
+  private = { "background" },
   notices = { "paladin", "origin", "light" },
   impression = {
     first = "Danitha Morr leads the Forsaken paladins of Bandarion Keep, and she speaks of the Light like an old friend who has started to hurt her. She seems certain of one thing: the Forsaken are still the people she swore to protect.",
@@ -276,6 +277,39 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's kindly said, and I'll not pretend it's unwelcome. We hear so little praise at the keep that I'd half forgotten what to do with it." },
+        { id = "s2", text = "Garek used to say such things to cheer the squires, and I see now why it worked. Thank you; I'll carry that up the stairs with me tonight." },
+        { id = "s3", when = { class = "PALADIN", race = "Scourge" }, text = "From one who carries the Light in dead hands as I do, that means a good deal more than courtesy. Thank you, {g:brother|sister}." },
+      },
+      fail = {
+        { id = "f1", text = "You needn't sweeten me, friend, because I'd have heard you out regardless. A knight learns early to tell a kind word from a convenient one." },
+        { id = "f2", text = "I've been praised by bishops who later called me an abomination, so fine words weigh very little with me now. Tell me plainly what it is you want." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha, you've a soldier's mouth on you, and I've missed that since the old barracks. Go on and laugh at us; we're dead paladins in a ruin, and I know how it looks." },
+        { id = "s2", text = "You'll have to do better than that to sting me, though I'll grant you had the nerve to try. I like someone who tests the ground before standing on it." },
+      },
+      fail = {
+        { id = "f1", text = "I've buried friends for this keep, and I'll not hear it mocked by someone who hasn't bled for it. Mind your tongue under my roof." },
+        { id = "f2", text = "The Crusade says worse of us every day, and says it with torches, so you've neither hurt me nor made me laugh. I thought better of you than that." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've steel in you, and I'll not pretend I didn't feel it. I'd sooner have that pointed at Shadowvale than at me, so say what you need and we'll leave it there." },
+        { id = "s2", text = "There's no call to square up to me, though I'll own that you do it well. Very well, you've my full attention." },
+      },
+      fail = {
+        { id = "f1", text = "I held a line against the Scourge with the Light burning my own hands, and you think to frighten me with a hard look. Stand down, before you shame yourself." },
+        { id = "f2", text = "I don't frighten, friend, because I died already, and what's left is mostly stubbornness and prayer. Threaten my people again and you'll leave by the broken stairs." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "t_kn", text = "Letters reach me from Brill, the Undercity and Light's Hope, and the murlocs bring the rest. Ask, and I'll tell you what I can." },
@@ -285,6 +319,10 @@ P:NPC {
     argent_dawn = { { id = "tp_argent", text = "Good people, and Leonid is the best of them. They held this keep before us, and they'd have us back among them if I'd let them." } },
     background = { { id = "tp_bg", text = "A knight of the Silver Hand, once, and now whatever this is. I'm still deciding what to call it, and so is the Dark Lady." } },
     _none = { { id = "tp_none", text = "I don't know, and I won't guess at it. Ask Jorin; he hears everything that comes up the road." } },
+    _gated = {
+      { id = "gt1", text = "That's a thing I keep for friends of this keep, and you're not that yet. Stand with us a while, and then I'll speak of it gladly." },
+      { id = "gt2", text = "I'll not talk of that with someone I've only just met. Forgive me, but trust comes slowly here, and for good reason." },
+    },
   },
 }
 

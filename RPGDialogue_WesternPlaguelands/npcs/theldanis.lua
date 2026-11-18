@@ -7,6 +7,7 @@ P:NPC {
   key = "theldanis", id = TODO_NPC("High Priest Thel'danis"), name = "High Priest Thel'danis",
   bible = "bibles/theldanis.md", role = "priest", tier = "major",
   communities = { "uthers_tomb" }, temper = { "gentle", "steady" }, values = { "devout", "kind" },
+  likesTone = "polite",
   notices = { "light", "weary" },
   impression = {
     first = "High Priest Thel'danis keeps Uther's tomb swept and its garden green in the middle of a dead country. He is gentle with travellers and immovable about the tomb, and I believe both come from the same place.",
@@ -202,6 +203,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You're kind to say so, though the garden does most of the work and I only sweep. It warms an old priest to know that someone noticed." },
+        { id = "s2", text = "Lord Uther had a way of making people stand taller with a word, and you've a little of that gift yourself. Thank you, traveler; I shall remember it in my prayers." },
+      },
+      fail = {
+        { id = "f1", text = "I thank you, but there's no need to praise the keeper in order to visit the tomb. Whatever you've come to ask, you may simply ask it." },
+        { id = "f2", text = "Fair words are easily spent, and I've heard them from Crusaders at this very door. Sit a while and be honest with me instead, for it will serve you better." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ah, you jest at an old man and his broom, and the Light knows I've earned it. Lord Uther laughed more than the statues let on, so I think he would not mind." },
+        { id = "s2", text = "You've a quick tongue, and you're not afraid to use it on holy ground, which takes a certain boldness. I find I'm smiling, and that happens seldom out here." },
+      },
+      fail = {
+        { id = "f1", text = "Mock me if you must, but lower your voice, for this is a resting place. A better man than either of us lies within, and he deserves quiet." },
+        { id = "f2", text = "I had hoped for more from you than that, traveler. Unkindness comes cheaply in the Plaguelands, and I had thought you might leave yours at the foot of the hill." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There is great force in you, and I'll not pretend my old heart did not feel it. I ask only that you do not turn it on the tomb, and I will hear you out." },
+        { id = "s2", text = "Peace, I beg you. I am one priest with a broom, and I can see plainly that you are not to be trifled with." },
+      },
+      fail = {
+        { id = "f1", text = "The Scourge has ringed this hill many times and never once come into the garden. I do not believe you will frighten me where it could not." },
+        { id = "f2", text = "You may raise your voice, but I'll not be moved from this door by you or by anyone. Go in peace, and come back when your temper has cooled." },
+      },
+    },
+  },
   topics = {
     knows = { { id = "tp_knows", text = "I've watched this hill a long while, and travelers bring news with their hunger. Ask, and I'll tell you what I know, and no more than that." } },
     background = { { id = "tp_bg", text = "I'm the one who keeps the tomb. The rest of my story is long and mostly about sweeping, so I'll spare you." } },
@@ -220,5 +253,9 @@ P:NPC {
     stratholme = { { id = "tp_stratholme", text = "Uther's knights stood with the prince at Stratholme until they wouldn't, and Uther left in sorrow. He never spoke of it to me, and I never asked." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken come to the tomb sometimes, quietly, and they stand at the edge of the garden and don't come in. I don't turn them away, and I don't ask what they're remembering." } },
     _none = { { id = "tp_none", text = "That's beyond what an old tomb-keeper hears, I'm afraid. Ask at Chillwind Camp; they get the news before I do." } },
+    _gated = {
+      { id = "gt1", text = "Forgive me, but that is not a thing I share with those I scarcely know. Come and sit in the garden a few times more, and perhaps I will." },
+      { id = "gt2", text = "I would rather not speak of it yet, traveler. Some matters wait upon trust, and trust takes its time." },
+    },
   },
 }
