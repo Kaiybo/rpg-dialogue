@@ -60,7 +60,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A good one will, if it's mounted straight, and a cheap one will throw your shot a hand's width to the left, which is how bears get close. I sell the parts and the engineers mount them, so if it's crooked, it's their fault." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep your {pet} away from the flux, please, for it smells sweet and it isn't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A good one will, if it's mounted straight, and a cheap one will throw your shot a hand's width to the left. And keep your {pet} away from the flux, please, for it smells sweet and it isn't." },
       },
       choices = {
         { text = "I'll pay for good parts, mounted straight.", next = "BACK", fx = { align = { order = 1 } } },
@@ -252,7 +252,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That four legs are better than two, that a cat never falls over, and that a bear is just a very angry machine with excellent balance. My next prototype walks like a wolf, or it will, once it stops walking like a startled chicken." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Might I measure your {pet}'s stride while you're here? Purely for science, and I promise not to bring the calipers too close." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That four legs are better than two, and that a bear is just a very angry machine with excellent balance. Might I measure your {pet}'s stride while you're here? Purely for science, I promise." },
       },
       choices = {
         { text = "Measure away, if my beast agrees to it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -455,7 +455,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Peacebloom and silverleaf, mostly, and earthroot from the hills above Kharanos, for it grows where the boars root about. A hunter has an eye for where things grow, because a hunter has an eye for where things eat." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} probably knows more about herbs than either of us, since it's been sniffing them all its life." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Peacebloom and silverleaf, mostly, and earthroot from the hills above Kharanos, where the boars root about. Your {pet} probably knows more about herbs than either of us, since it's been sniffing them all its life." },
       },
       choices = {
         { text = "I'll pick carefully and leave the roots to regrow.", next = "BACK", fx = { align = { honor = 1 } } },

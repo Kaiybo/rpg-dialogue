@@ -293,7 +293,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Kurgul, and I sell the grimoires that teach your demons new ways to serve. Our grandfathers served the demons and paid in blood, and my books make sure the demons serve us now." },
-        { id = "h_void", when = { pet = { family = "Voidwalker" } }, text = "Kurgul, and that's a fine sulky voidwalker you've brought me. They never say thank you, but they remember who was kind to them, in their way." },
+        { id = "h_void", when = { pet = { family = "Voidwalker" } }, text = "Kurgul, and I sell the grimoires that teach demons like your sulky voidwalker new ways to serve. They never say thank you, but they remember who was kind to them, in their way." },
         { id = "h_felhunter", when = { pet = { family = "Felhunter" } }, text = "Kurgul, and your felhunter has been sniffing at my grimoires since you came down the ramp. Keep it on your side of the counter, please, because it eats magic the way a wolf eats mutton." },
       },
       again = {

@@ -83,7 +83,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Follow me? They wait for me, I swear, behind every tree I pass, and I hear them breathing even when there's nothing there. I know it's nonsense, mostly, but a man who's seen what I've seen gets suspicious of the bushes." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours keeps looking at the trees, {class}, and every time it does, I nearly jump out of my skin. Does it see something?" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Follow me? They wait for me, I swear, behind every tree I pass, and I hear them breathing even when there's nothing there. That {pet} of yours keeps looking at the trees, {class}, and every time it does, I nearly jump out of my skin." },
       },
       choices = {
         { text = "I'll keep watch tonight, Jitters. You can sleep.", next = "BACK", fx = { align = { light = 1 } } },

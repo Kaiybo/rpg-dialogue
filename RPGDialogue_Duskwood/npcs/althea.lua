@@ -450,7 +450,7 @@ P:NPC {
         { id = "hu_default", fx = { learn = { "worgen" } },
           text = "Then you've learned the first lesson faster than my watchers did: the grey wolves are hungry and the worgen are clever, and you can't track one the way you track the other. What did you find?" },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "Keep {pet} on a short leash past the lamps; the worgen have been known to call a beast away from its master. I've seen a mastiff walk into the trees and not come back." },
+          text = "Then you've learned faster than my watchers did: the grey wolves are hungry and the worgen are clever, and you can't track one like the other. Keep {pet} on a short leash past the lamps, though, because the worgen have been known to call a beast away from its master." },
       },
       choices = {
         { text = "Prints that walk on two legs, then four.", next = "hunter_prints" },

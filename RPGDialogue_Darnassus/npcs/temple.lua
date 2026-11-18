@@ -93,7 +93,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "She lights the night so that hunter and hunted can both see, and I think that is her answer. Take what you need with a clean shot and a grateful heart, and the goddess will not mind." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome under the Temple's roof, so long as it keeps its paws out of the fountain. Elune loves her creatures, though the Sisters love their floors." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "She lights the night so that hunter and hunted can both see, so take what you need with a clean shot and a grateful heart. Your {pet} is welcome under the Temple's roof, too, so long as it keeps its paws out of the fountain." },
       },
       choices = {
         { text = "A clean shot, and thanks after. Always.", next = "BACK", fx = { align = { light = 1 } } },
@@ -472,7 +472,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Sometimes, usually about a beast they couldn't save or one they had to put down. That kind of grief is real, and Elune doesn't weigh it any less because it was for an animal." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a companion that's been through a few things with you. Be kind to each other; that's all I'd ask of either of you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Sometimes, usually about a beast they couldn't save, and Elune doesn't weigh that grief any less because it was for an animal. Your {pet} has the look of a companion that's been through a few things with you, so be kind to each other." },
       },
       choices = {
         { text = "I grieve every companion I've lost.", next = "BACK", fx = { align = { light = 1 } } },
@@ -693,7 +693,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They will, though most forget to try until the hunter shouts. I tell my students to watch your beast as closely as they watch you, because a hunter whose companion falls usually follows it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a fighter, I can see that much. Keep it where the healer can see it and tell them its name, because people heal what they've been introduced to." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They will, though most forget to try until the hunter shouts. Keep your {pet} where the healer can see it and tell them its name, because people heal what they've been introduced to." },
       },
       choices = {
         { text = "I'll watch my companion's back as it watches mine.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -882,7 +882,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The owls, mostly, because they hunt by the same light I study and they never miss a change in it. When the owls go quiet over the Temple, something is moving in the dark, and I'd rather a hunter than a priestess went to see what." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watched the pool with me just now, did you notice? I think it saw something I missed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The owls, mostly, because when they go quiet over the Temple, something is moving in the dark. Your {pet} watched the pool with me just now, did you notice? I think it saw something I missed." },
       },
       choices = {
         { text = "I'll listen when the owls go quiet.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1067,7 +1067,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The squirrels do, and a white owl who sits on the moonwell some evenings as though he were a priestess himself. I'm not allowed to feed them, but I may have dropped a few seeds by accident once or twice." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is lovely, and it's looking at me as if it knows I'm a soft touch. I won't feed it, I promise, though I'd like to." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The squirrels do, and a white owl who sits on the moonwell some evenings as though he were a priestess himself. Your {pet} is lovely, too, and it's looking at me as if it knows I'm a soft touch." },
       },
       choices = {
         { text = "Rules are rules. Wild things should find their own food.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1318,7 +1318,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Trophies, mostly, claws and teeth and once a whole stuffed owl, which I recorded as one stuffed owl, wings slightly damaged. I don't ask why anyone wants such things kept safe, only that they're listed properly." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} may not come behind the counter, however politely it asks. The ledgers are very old and very chewable." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Trophies, mostly, claws and teeth and once a whole stuffed owl, wings slightly damaged. And your {pet} may not come behind the counter, however politely it asks, because the ledgers are very old and very chewable." },
       },
       choices = {
         { text = "I keep only what I need from a hunt.", next = "BACK", fx = { align = { honor = 1 } } },

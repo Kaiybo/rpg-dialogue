@@ -124,7 +124,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Whether the wolves are lean or fat, for that tells ye how hard the winter's bitin', an' whether the Frostmane are comin' down early. The Light speaks in plain things as often as in great ones, an' a hunter hears more o' the plain ones than any priest." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} is well, I hope; the Light's in the beasts too, ye know, though they've less tae say about it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Whether the wolves are lean or fat, for that tells ye how hard the winter's bitin', an' whether the Frostmane are comin' down early. An' yer {pet} is well, I hope; the Light's in the beasts too, ye know, though they've less tae say about it." },
       },
       choices = {
         { text = "I'll pray for an easy winter, High Priest.", next = "BACK", fx = { align = { light = 1 } } },
@@ -611,7 +611,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than a fire, some nights, for the cold gets intae the soul as well as the bones. I've known hunters lost in the snows above Kharanos who came home because they remembered tae pray, an' I've known others who didnae." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' keep yer {pet} close on cold nights, for there's warmth in a beast that the Light put there on purpose." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than a fire, some nights, for the cold gets intae the soul as well as the bones. Keep yer {pet} close on cold nights, an' all, for there's warmth in a beast that the Light put there on purpose." },
       },
       choices = {
         { text = "I'll remember to pray, Theodrus.", next = "BACK", fx = { align = { light = 1 } } },
@@ -795,7 +795,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Now an' then, wi' claw marks they've tried tae stitch themselves, an' badly, for a hunter will mend his beast before he mends himself. I tell them the Light doesnae mind which comes first, but it would like them both mended." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} looks well cared for, which tells me ye're the sort tae forget yer own wounds." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now an' then, wi' claw marks they've tried tae stitch themselves, an' badly, for a hunter will mend his beast before he mends himself. Yer {pet} looks well cared for, which tells me ye're the sort tae forget yer own wounds." },
       },
       choices = {
         { text = "My beast first, always. That's the hunter's way.", next = "BACK", fx = { align = { light = 1 } } },
@@ -989,7 +989,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The roads are fine; it's what's on them, for the raptors in the Wetlands have eaten two satchels this season an' the Mosshide made off wi' a third. A hunter who could get a letter tae Menethil an' back would be worth {g:his|her} weight in parchment." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} could carry a satchel, I suppose, though I'd want it back wi'out teeth marks." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The roads are fine; it's what's on them, for the Wetlands raptors have eaten two satchels this season. Yer {pet} could carry a satchel tae Menethil, I suppose, though I'd want it back wi'out teeth marks." },
       },
       choices = {
         { text = "I'll carry them, and keep them safe.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1172,7 +1172,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "By keepin' the wolves off a farmer's flock an' the bears off a miner's road, an' askin' nothin' for it but a meal. That's virtue in plain boots, an' my paladins would do well tae learn it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} would be a fine example for my young ones, for it serves ye wi'out askin' anythin' back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "By keepin' the wolves off a farmer's flock an' the bears off a miner's road, an' askin' nothin' for it but a meal. Yer {pet} would be a fine example for my young ones, too, for it serves ye wi'out askin' anythin' back." },
       },
       choices = {
         { text = "I'll keep doing it, and ask nothing back.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1443,7 +1443,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Dark Irons, more than there should be, diggin' at somethin' an' guardin' it close, an' I got near enough tae count them before they counted me. A hunter wi' a long rifle could watch from the ridge an' never come within reach o' their axes, which is the part I got wrong." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} would smell them before ye saw them, for Dark Irons stink o' forge smoke an' sulphur." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dark Irons, more than there should be, diggin' at somethin' an' guardin' it close. Yer {pet} would smell them before ye saw them, for Dark Irons stink o' forge smoke an' sulphur." },
       },
       choices = {
         { text = "I'll watch from the ridge and report what I see.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1689,7 +1689,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "We both hate being hit, we both fight from far away, and we both panic slightly when something gets close. The difference is, you have a beast to hide behind and I have a frost nova, and I'd call that about even." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is lovely, by the way, and I promise I'll never turn it into a sheep, unless it's very rude." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "We both hate being hit, we both fight from far away, and we both panic slightly when something gets close. Your {pet} is lovely, by the way, and I promise I'll never turn it into a sheep, unless it's very rude." },
       },
       choices = {
         { text = "Distance is wisdom. We agree on that, Bink.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1913,7 +1913,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It could, and it would arrive on the other side in a temper that would take a week to settle. I once had a ram come through with a student, and the ram has not forgiven either of us." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks as though it would bite the first thing it saw on the other side, which is precisely why I'd rather it walked." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It could, and it would arrive on the other side in a temper that would take a week to settle. Your {pet} looks as though it would bite the first thing it saw over there, which is precisely why I'd rather it walked." },
       },
       choices = {
         { text = "Then my beast and I will walk, thank you.", next = "BACK", fx = { align = { order = 1 } } },

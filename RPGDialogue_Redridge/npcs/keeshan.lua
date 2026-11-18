@@ -86,7 +86,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the orcs feed them better than they fed me, and that they're kept on the east side of Stonewatch where the wind carries the scent away from the walls. A hunter who knew that could come at the keep from downwind." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would give the Blackrock wolves a fight, {class}. I'd pay a month's wages to watch it, if the army ever paid me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the orcs feed them better than they fed me, and they're kept on the east side of Stonewatch, so a hunter could come at the keep from downwind. Your {pet} would give those wolves a fight, {class}, and I'd pay a month's wages to watch it." },
       },
       choices = {
         { text = "I'll go in downwind and take the wolves first.", next = "BACK", fx = { align = { honor = 1 } } },

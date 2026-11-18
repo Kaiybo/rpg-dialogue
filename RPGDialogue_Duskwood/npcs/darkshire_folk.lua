@@ -59,7 +59,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Living things, yes, and the worgs leave tracks a child could follow, which worries me more than if they hid them. The dead are harder, because they wander, but they all wander back toward Raven Hill sooner or later, like drunks finding their own doorstep." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} on the near side of the lamps after dark. The things out there have learned to take a beast first and its master after." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Living things, yes, and the worgs leave tracks a child could follow, while the dead all wander back toward Raven Hill sooner or later. Keep your {pet} on the near side of the lamps after dark, because the things out there take a beast first and its master after." },
       },
       choices = {
         { text = "I'll track them to their lairs and finish them there.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -301,7 +301,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the worgs circle a post three times before they rush it, and the spiders hang their webs just above head height. A hunter with sharp eyes could have saved me a few good men." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches the trees the way I used to. Trust it, because a beast's nose is better than any watchman's eyes out here." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the worgs circle a post three times before they rush it, and the spiders hang their webs just above head height. Your {pet} watches the trees the way I used to, so trust it, because a beast's nose is better than any watchman's eyes out here." },
       },
       choices = {
         { text = "I'll put those lessons to use and keep the roads safe.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -549,7 +549,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Deer and boar, mostly, and Elwynn-sized wolves, according to the old game rolls. Then the wood went dark, the wolves grew larger and meaner, and the deer simply stopped appearing in anyone's accounts." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at my bookshelf with the look of something hungry, {class}. Please assure me it doesn't eat vellum." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Deer and boar, mostly, and Elwynn-sized wolves, until the wood went dark and the wolves grew larger and meaner. Your {pet} is staring at my bookshelf with the look of something hungry, {class}, so please assure me it doesn't eat vellum." },
       },
       choices = {
         { text = "I'll help the wood recover what it lost.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -839,7 +839,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The worgs do, I'm almost certain of it, because they howl loudest on the nights the clouds part. I've half a theory that the dark changed the animals here, and I'd dearly love a hunter's notes to prove it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking up when I do, and I find that wonderful. Perhaps beasts remember the sky better than the townsfolk." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The worgs do, I'm almost certain, because they howl loudest on the nights the clouds part. Your {pet} keeps looking up when I do, and I find that wonderful; perhaps beasts remember the sky better than the townsfolk." },
       },
       choices = {
         { text = "I'll keep notes for you. Your theory deserves an answer.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1305,7 +1305,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It would if the treasury held anything but moths, I'm sorry to say. Stormwind's taxes leave us little enough for lamp oil, but the farmers would thank you, and their thanks costs the council nothing." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours is a better watchman than half the council, {class}, and I'd say so in a letter if anyone in Stormwind still read mine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It would if the treasury held anything but moths, I'm sorry to say, though the farmers would thank you for nothing. That {pet} of yours is a better watchman than half the council, {class}, and I'd say so in a letter if anyone in Stormwind still read mine." },
       },
       choices = {
         { text = "I'll hunt them anyway. The farmers need it more than I need coin.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1573,7 +1573,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Into the edges, yes, sniffing round the stables and the bins behind the kitchen. A good beast that barks at them is worth more to me than another lock on the door." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can have the rug by the fire, {class}, so long as it warns us before the wolves do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Into the edges, yes, sniffing round the stables and the bins behind the kitchen. Your {pet} can have the rug by the fire, {class}, so long as it warns us before the wolves do." },
       },
       choices = {
         { text = "I'll hunt the ones that come too close to town.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1753,7 +1753,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Broad and heavy at the tip, with a good barb, and I've made hundreds for the Watch's bowmen. A worg takes three soft arrows to drop, but one good one in the right place does the job." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has better claws than anything I could forge, {class}, though I'd not tell Morg I said so." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It does, unless the head is broad and heavy with a good barb, and I've made hundreds of those for the Watch's bowmen. That {pet} of yours has better claws than anything I could forge, {class}, though I'd not tell Morg I said so." },
       },
       choices = {
         { text = "One good arrow, cleanly placed. That's how I hunt.", next = "BACK", fx = { align = { honor = 1 } } },

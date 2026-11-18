@@ -73,7 +73,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every night, and I've no idea what, because I'm far too important to stay up and watch. Something small with clever paws, I think, and if you caught it I'd name a dirt pile after you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is eyeing my piles right now, isn't it? I can see it thinking, and I'll thank it to think about something else." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every night, and I've no idea what, though I think it's something small with clever paws. And your {pet} is eyeing my piles right now, isn't it? I'll thank it to think about something else." },
       },
       choices = {
         { text = "I'll catch your little digger and let it go elsewhere.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -315,7 +315,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Close enough that I've lost marks to hunters who got there first. You stalk to kill a beast and I stalk to finish a job, but the forest doesn't care which, so long as you keep off the dry leaves." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} moves more quietly than you do, which you should take as a lesson rather than an insult." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Close enough that I've lost marks to hunters who got there first, and the forest doesn't care which of us is stalking. Your {pet} moves more quietly than you do, which you should take as a lesson rather than an insult." },
       },
       choices = {
         { text = "I hunt in the open. My quarry sees me coming.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -825,7 +825,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, and I tell them it's a different bond, because they become the beast for a while and you walk beside one for years. The best of them come to respect you for it, and the rest grow up eventually." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the calm of a well-loved animal, and Cenarius would be glad of it. Treat it as one of his children, for in a way it is." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and I tell them it's a different bond, because they become the beast for a while and you walk beside one for years. Your {pet} has the calm of a well-loved animal, and Cenarius would be glad of it." },
       },
       choices = {
         { text = "My companion is family, as Cenarius would want.", next = "BACK", fx = { align = { light = 1 } } },

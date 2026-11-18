@@ -109,7 +109,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "When the throne lets me, which isnae often, for there's no air like the air above Kharanos an' no ram like an Amberstill ram. I've brought down a bear or two in my time, an' I'll tell ye about every one o' them if ye've an hour." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' that's a fine {pet} ye have! Treat it well, for a beast that trusts ye is worth more than a mountain o' gold, an' I say that as a dwarf who has the gold." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When the throne lets me, which isnae often, for there's no air like the air above Kharanos. An' that's a fine {pet} ye have! Treat it well, for a beast that trusts ye is worth more than a mountain o' gold." },
       },
       choices = {
         { text = "I'd be honoured to hunt beside you someday, Your Majesty.", next = "BACK", fx = { align = { honor = 1 } } },

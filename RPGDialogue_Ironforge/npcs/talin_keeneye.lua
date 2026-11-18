@@ -118,7 +118,7 @@ P:NPC {
     hunter = {
       lines = {
         { id = "hu_default", text = "Watch the snow, no' the beast. Tracks tell ye where it's been an' how fast it was goin', an' a boar in a hurry is a boar that's already seen ye." },
-        { id = "hu_pet", when = { pet = { type = "Beast" } }, text = "An' let yer {pet} do the flushin'; that's what it's for, an' it'll enjoy it more than ye will." },
+        { id = "hu_pet", when = { pet = { type = "Beast" } }, text = "Watch the snow, no' the beast, for a boar in a hurry is a boar that's already seen ye. An' let yer {pet} do the flushin'; that's what it's for, an' it'll enjoy it more than ye will." },
       },
       choices = {
         { text = "Patience, then. I can learn that.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },

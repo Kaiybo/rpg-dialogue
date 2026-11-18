@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bread doesn't need much meat, dear, but meat pies do, and I'd sell twice as many pies if anyone brought me a clean haunch. Most of what's out in the wood isn't fit for a pie, though, so be choosy." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed, {class}, which is more than I can say for half of Darkshire. You take good care of it, I can tell." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bread doesn't need much meat, dear, but meat pies do, so bring me a clean haunch and be choosy about it. Your {pet} looks well fed, {class}, which is more than I can say for half of Darkshire." },
       },
       choices = {
         { text = "I'll bring you good game for pies, and not a scrap of rot.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -241,7 +241,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I buy the clean ones and turn them into leather, though I'll not pay much for a pelt with a hole through the middle. A hunter who shoots clean brings me a hide worth twice what a sloppy one does." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} would fetch a fine price as leather, {class}, though I can see from your face you'd not take kindly to the thought. My apologies." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I buy the clean ones, and a hunter who shoots clean brings me a hide worth twice what a sloppy one does. That {pet} would fetch a fine price as leather too, {class}, though I can see from your face you'd not take kindly to the thought." },
       },
       choices = {
         { text = "I'll bring you clean hides from clean kills.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -414,7 +414,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It'll slow you a step, and a step is cheaper than a throat. I've watched too many hunters go out in leathers because it's quiet, and the worgs don't care how quiet you were once they've caught you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} won't wear my armour, {class}, more's the pity. Keep it close, then, so it can stand between you and the teeth." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It'll slow you a step, and a step is cheaper than a throat, because the worgs don't care how quiet you were once they've caught you. Your {pet} won't wear my armour, more's the pity, so keep it close to stand between you and the teeth." },
       },
       choices = {
         { text = "Mail, then. I'll take the step slower.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -575,7 +575,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Spiders, mostly, since they love the dark, and a few worgs where the shafts open into caves. Brightwood Grove had a fine copper seam once, and now it's thick with webs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would sniff out a nest of spiders before you walked into one, {class}, so I'd let it go first." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Spiders, mostly, since they love the dark, and a few worgs where the shafts open into caves. Your {pet} would sniff out a nest of spiders before you walked into one, {class}, so I'd let it go first." },
       },
       choices = {
         { text = "I'll clear the shafts so the miners can go back.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -766,7 +766,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Buy it? I'd kiss you for it, because good silk thread from those great spiders out by the Darkened Bank sews finer than anything from Stormwind. Gather it clean, mind, and not covered in whatever the spider was eating." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is lovely, {class}, but it's looking at Sheri's yarn the way a cat looks at a mouse. Hold it tight." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Buy it? I'd kiss you for it, because silk from those great spiders by the Darkened Bank sews finer than anything from Stormwind. Your {pet} is lovely, {class}, but it's looking at Sheri's yarn the way a cat looks at a mouse, so hold it tight." },
       },
       choices = {
         { text = "I'll bring you clean silk. Good work deserves good thread.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -942,7 +942,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not hides, but I'd buy spider silk if it's clean, and Danielle says it sews finer than anything from Stormwind. I keep the accounts, so I'll pay you fair, but don't expect me to haggle; I'll only lose." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at my scissors, {class}, and I'd rather it didn't, because those are the good scissors." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not hides, but I'd buy spider silk if it's clean, and I'll pay you fair. Your {pet} is staring at my scissors, though, {class}, and I'd rather it didn't, because those are the good scissors." },
       },
       choices = {
         { text = "I'll bring you silk at a fair price.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1100,7 +1100,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Worgs, three of them, on a night with no moon, and they took the whole flock but the ram. I'd ask the council for compensation, but I'd get another letter, and I can't eat a letter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have kept my sheep safe, {class}, I'm sure of it. I'd buy a dog, but the last two ran off into the woods and never came back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Worgs, three of them, on a night with no moon, and they took the whole flock but the ram. Your {pet} would have kept my sheep safe, {class}, I'm sure of it, but my last two dogs ran off into the woods and never came back." },
       },
       choices = {
         { text = "I'll hunt down the worgs that took your flock.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1294,7 +1294,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Do I buy 'em? I buy anything rare, pal, and a pelt off one of those big worgs would sell twice over in Booty Bay, so there's margin in it for both of us. Keep it clean and keep it whole, and Kzixx'll make you a deal you'll talk about for years." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours would fetch a fortune in Booty Bay, pal, no offence. I'm only sayin' what I see, and everything I see comes with a price tag." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do I buy 'em? I buy anything rare, pal, and a big worg pelt would sell twice over in Booty Bay, so keep it clean and whole. That {pet} of yours would fetch a fortune there too, no offence, because everything I see comes with a price tag." },
       },
       choices = {
         { text = "I'll bring you pelts, but I'll set the price myself.", next = "BACK", fx = { align = { order = 1 } } },

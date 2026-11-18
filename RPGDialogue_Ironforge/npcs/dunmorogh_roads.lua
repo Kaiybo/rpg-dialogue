@@ -232,7 +232,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Up intae the high snows, an' his tracks are deep enough tae lose a boot in, so ye'll no' miss them. I've lived out here longer than some o' the hills, but I've never seen a bear so set on another dwarf's dinner." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} could have a go at him, I suppose, but I'd hate for it tae end up as his pudding." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up intae the high snows, an' his tracks are deep enough tae lose a boot in, so ye'll no' miss them. Yer {pet} could have a go at him, I suppose, but I'd hate for it tae end up as his pudding." },
       },
       choices = {
         { text = "I'll track him and bring your stash home.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -425,7 +425,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar, wolf and bear, if you can manage the bear, for I'm told the flight's long and the clouds don't serve lunch. Steelgrill says I'm overpacking, but Steelgrill's never been stuck on a mountaintop with nothing to eat but a spanner." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} can have a share of whatever's left over, since it'll be doing half the work, I imagine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar, wolf and bear, if you can manage the bear, for I'm told the flight's long and the clouds don't serve lunch. Your {pet} can have a share of whatever's left over, since it'll be doing half the work, I imagine." },
       },
       choices = {
         { text = "I'll bring exactly what's on your list.", next = "BACK", fx = { align = { order = 1 } } },

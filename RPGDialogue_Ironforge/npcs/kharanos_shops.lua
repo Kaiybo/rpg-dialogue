@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The wendigo in the high caves, for they're bigger than they look an' meaner than that, an' the bears up near Shimmer Ridge. The boars an' wolves are fine for practice, but a hunter who goes after the wendigo too young comes back carried." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} looks like it could take a boar, but mind it near the wendigo, for they've a cold bite." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The wendigo in the high caves, for they're meaner than they look, an' the bears up near Shimmer Ridge. Yer {pet} looks like it could take a boar, but mind it near the wendigo, for they've a cold bite." },
       },
       choices = {
         { text = "I'll wait until I'm ready for the wendigo.", next = "BACK", fx = { align = { order = 1 } } },
@@ -252,7 +252,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Somethin' short an' heavy, for when the bear's on top o' ye there's no room tae swing anythin' long. A hunter's blade gets used less than a warrior's, but it gets used when it matters most." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} would keep the bear off ye long enough tae draw it, I'd hope, which is what a good beast is for." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Somethin' short an' heavy, for when the bear's on top o' ye there's no room tae swing anythin' long. Yer {pet} would keep the bear off ye long enough tae draw it, I'd hope, which is what a good beast is for." },
       },
       choices = {
         { text = "I'll keep it sharp and use it only when I must.", next = "BACK", fx = { align = { order = 1 } } },
@@ -445,7 +445,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Light mail over a fur linin', for ye'll be lyin' still in the snow for hours, an' the cold'll do ye in quicker than any bear. I line the shoulders thick, for a hunter's always carryin' a rifle on one an' a carcass on the other." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} has its own fur, lucky beast, so it'll no' need my help, though I'd make it somethin' if I could." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Light mail over a fur linin', for ye'll be lyin' still in the snow for hours, an' the cold'll do ye in quicker than any bear. Yer {pet} has its own fur, lucky beast, so it'll no' need my help." },
       },
       choices = {
         { text = "The warm lining, then. Patience in the cold wins hunts.", next = "BACK", fx = { align = { order = 1 } } },
@@ -638,7 +638,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Somethin' soft at the knees an' tough at the shoulders, for a hunter kneels a lot an' carries a lot. I've watched a good many young hunters go out o' Anvilmar, an' the ones that come back always have muddy knees." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' look after yer {pet}, mind, for I've seen hunters come back wi'out their beasts, an' it's a sadder thing than ye'd think." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Somethin' soft at the knees an' tough at the shoulders, for a hunter kneels a lot an' carries a lot. An' look after yer {pet}, mind, for I've seen hunters come back wi'out their beasts, an' it's a sadder thing than ye'd think." },
       },
       choices = {
         { text = "I'll look after my beast before myself.", next = "BACK", fx = { align = { honor = 1 } } },

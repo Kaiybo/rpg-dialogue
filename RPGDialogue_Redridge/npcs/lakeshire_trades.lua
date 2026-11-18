@@ -48,7 +48,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because the Blackrock shoot at anything that flies, and they've got black dragon whelps nesting in the hills above the falls. A gryphon knows a dragon when it smells one, even a small one, and it'll turn back every time." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has my gryphons nervous, {class}, but they're nervous of everything lately, so don't take it personally." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because the Blackrock shoot at anything that flies, and there are black dragon whelps nesting above the falls. Your {pet} has my gryphons nervous too, {class}, but they're nervous of everything lately, so don't take it personally." },
       },
       choices = {
         { text = "I'll clear the whelps so your birds can fly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -226,7 +226,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hundreds a week, and half of them stuck in trees, because the gnolls duck better than you'd think. A hunter who shoots clean and picks up after himself is worth twice as much to me as one who doesn't." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is chewing my fletching, {class}, and those are goose feathers, so get it away before it costs you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hundreds a week, and half of them stuck in trees, because the gnolls duck better than you'd think. Your {pet} is chewing my fletching, {class}, and those are goose feathers, so get it away before it costs you." },
       },
       choices = {
         { text = "I'll recover every arrow I can. Waste helps no one.", next = "BACK", fx = { align = { order = 1 } } },
@@ -388,7 +388,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Rifle, every time, because a goretusk's skull will turn an arrow and it won't turn a ball of good dwarven lead. Measure your powder to the grain, mind, or you'll blow your own hand off instead of the boar's head." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't flinch at a gunshot, {class}, I can tell, and that's a well-trained beast. Most of them bolt." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rifle, every time, because a goretusk's skull will turn an arrow but not a ball of good dwarven lead. Your {pet} doesn't flinch at a gunshot, {class}, I can tell, and that's a well-trained beast." },
       },
       choices = {
         { text = "I'll measure every grain. Care is half of good shooting.", next = "BACK", fx = { align = { order = 1 } } },

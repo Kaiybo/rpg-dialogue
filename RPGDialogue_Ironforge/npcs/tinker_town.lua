@@ -103,7 +103,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It chased a trogg back into Gnomeregan and never came out, which I choose to believe was an act of great heroism. Your beasts have one advantage over mine, at least, which is that they come back when you call them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would put my poor hound to shame, I'm sure, but please don't tell it I said so." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It chased a trogg back into Gnomeregan and never came out, which I choose to believe was great heroism. Your {pet} would put my poor hound to shame, I'm sure, but please don't tell it I said so." },
       },
       choices = {
         { text = "Then your hound died a hero. I'll believe that too.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -406,7 +406,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The approaches, mostly, for the troggs have dug their own tunnels into ours, and nobody knows where half of them lead. If you mark them for me, I'll fold them into the procedure, which is complicated, but improving." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would hear the machines before we did, I expect, which would save us a great many unpleasant surprises." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The approaches, mostly, for the troggs have dug their own tunnels into ours, and nobody knows where half of them lead. Your {pet} would hear the machines before we did, I expect, which would save us many unpleasant surprises." },
       },
       choices = {
         { text = "I'll mark every tunnel and follow your procedure.", next = "BACK", fx = { align = { order = 1 } } },
@@ -665,7 +665,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because every time I make one lighter it bends, and every time I make one stronger it gains a pound. Somewhere between the two is the perfect barrel, and I mean to find it before the dwarves stop buying rifles, which I suspect is never." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} could carry a heavy one for you, I suppose, which is an engineering solution I hadn't considered." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because every time I make one lighter it bends, and every time I make one stronger it gains a pound. Your {pet} could carry a heavy one for you, I suppose, which is an engineering solution I hadn't considered." },
       },
       choices = {
         { text = "I'd carry a heavy barrel that never bends.", next = "BACK", fx = { align = { order = 1 } } },
@@ -958,7 +958,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "All around Gnomeregan's entrance, and they bring their filthy cave beasts with them, which is why I've lost my hair and my patience both. If you count them and tell me which tunnels they use, I'll put it in the plans." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep your {pet} away from the radiation, if you would, for I'd hate for it to lose its fur the way I lost my hair." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "All around Gnomeregan's entrance, and they bring their filthy cave beasts with them, so count them and tell me which tunnels they use. And keep your {pet} away from the radiation, for I'd hate for it to lose its fur the way I lost my hair." },
       },
       choices = {
         { text = "I'll count them carefully and bring you the numbers.", next = "BACK", fx = { align = { order = 1 } } },

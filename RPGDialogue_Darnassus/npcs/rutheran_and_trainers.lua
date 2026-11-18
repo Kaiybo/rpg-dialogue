@@ -57,7 +57,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Badly, because a hippogryph is half eagle and the eagle half thinks your companion is supper, or the other way round. Keep your beast at heel near the roost, and nobody loses a feather." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at my birds the way it would stare at a rabbit, and they've noticed. Keep it by your side, friend, and we'll all stay friends." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Badly, because the eagle half of a hippogryph thinks your companion is supper, or the other way round. Your {pet} is staring at my birds already, and they've noticed, so keep it by your side, friend." },
       },
       choices = {
         { text = "I'll keep it at heel. Your birds come first here.", next = "BACK", fx = { align = { order = 1 } } },
@@ -225,7 +225,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I can teach you to draw it the same way a thousand times, which is what the Sentinels need when the Warsong come through the trees. A hunter's instinct is a fine thing, but instinct tires and a trained arm doesn't." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I can't teach your {pet} anything, so it may sit and watch. It'll learn more from your footwork than you will, I suspect." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I can teach you to draw it the same way a thousand times, because instinct tires and a trained arm doesn't. Your {pet} may sit and watch, and I suspect it'll learn more from your footwork than you will." },
       },
       choices = {
         { text = "Discipline, then. I'll draw it your way.", next = "BACK", fx = { align = { order = 1 } } },
@@ -418,7 +418,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "To listen before you draw, because Teldrassil is full of beasts that are not your enemies, and the nightsabers of the old groves deserve that much from us. The Sentinels ride with hunters for that reason, since we know which shadow is a cat and which is a Gnarlpine." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has chosen you well. Speak to it often, even when you think it doesn't understand, because it understands more of you than you know." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "To listen before you draw, because Teldrassil is full of beasts that are not your enemies. Your {pet} has chosen you well, so speak to it often, because it understands more of you than you know." },
       },
       choices = {
         { text = "I'll listen first, and draw only when I must.", next = "BACK", fx = { align = { honor = 1 } } },

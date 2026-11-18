@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Now an' then, though the gunsmiths do the fine work; I make the steel an' they make it sing. A dwarf hunter wi' a Great Forge barrel can hit a ram's horn at three hundred paces, an' I've seen it done." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' a collar for yer {pet}, if ye'd like one, for a good collar's just a ring o' steel that's learned some manners." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now an' then, though the gunsmiths do the fine work; I make the steel an' they make it sing. An' a collar for yer {pet}, if ye'd like one, for a good collar's just a ring o' steel that's learned some manners." },
       },
       choices = {
         { text = "I'll trust Great Forge steel over any other.", next = "BACK", fx = { align = { order = 1 } } },
@@ -264,7 +264,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Troggs, if ye've the stomach, an' the spiders that nest in the old shafts, which I'd shoot on sight. Mind ye don't take a beast down a narrow tunnel, though, for there's no room tae turn round an' they panic." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} would fill a tunnel wall tae wall, I'd say, so keep it tae the wide shafts an' it'll be fine." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Troggs, if ye've the stomach, an' the spiders that nest in the old shafts, which I'd shoot on sight. Yer {pet} would fill a tunnel wall tae wall, though, so keep it tae the wide shafts or it'll panic." },
       },
       choices = {
         { text = "I'll keep to the wide shafts and go carefully.", next = "BACK", fx = { align = { order = 1 } } },
@@ -458,7 +458,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar from Dun Morogh, for it's lean an' sweet, an' bear when ye can get it, for it's rich enough tae feed a family. Bring me crag boar ribs an' I'll teach ye somethin' Ragnar Thunderbrew would pay tae know." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} would eat well too, if ye'd learn a bit o' cookin', for a beast likes a warm meal as much as any dwarf." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar from Dun Morogh, for it's lean an' sweet, an' bear when ye can get it, for it's rich enough tae feed a family. Yer {pet} would eat well too, if ye'd learn a bit o' cookin', for a beast likes a warm meal as much as any dwarf." },
       },
       choices = {
         { text = "I'll take only what the pot needs.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -678,7 +678,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Mild spices an' a pinch o' salt, an' no' a grain more, for boar's got its own flavour if ye let it. Daryl would drown it in nutmeg, but he's my brother, so I'll say only that he's wrong." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} would like a bit o' seasonin' too, I'd wager, though most beasts are happy wi' what ye kill raw." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mild spices an' a pinch o' salt, an' no' a grain more, for boar's got its own flavour if ye let it. Yer {pet} would like a bit o' seasonin' too, I'd wager, though most beasts are happy wi' what ye kill raw." },
       },
       choices = {
         { text = "Keep it simple. Let the meat speak for itself.", next = "BACK", fx = { align = { order = 1 } } },
@@ -870,7 +870,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hunters get bitten more than most, an' bites fester, which is worse than any cut. A bear's claw's dirty an' a wolf's tooth's dirtier, an' I've had tae clean both out o' more hunters than I care tae count." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I'll no' bandage yer {pet}, before ye ask; I'm a physician, no' an animal doctor, though I've been asked." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hunters get bitten more than most, an' bites fester, which is worse than any cut. An' I'll no' bandage yer {pet}, before ye ask; I'm a physician, no' an animal doctor, though I've been asked." },
       },
       choices = {
         { text = "I'll keep my wounds clean and come to you.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1075,7 +1075,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Oh yes, a good enchantment on your gloves or your bow will steady your aim better than a deep breath ever could. I'd tell you more, but I've already said too much, and you're looking at my notes." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} mustn't touch the enchanted rods, please, because the last beast that did glowed for a week." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh yes, a good enchantment on your gloves or your bow will steady your aim better than a deep breath ever could. But your {pet} mustn't touch the enchanted rods, please, because the last beast that did glowed for a week." },
       },
       choices = {
         { text = "I'll keep my eyes off your notes, Gimble.", next = "BACK", fx = { align = { honor = 1 } } },

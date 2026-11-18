@@ -81,7 +81,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That the gnolls know them better than the guard does, and the Blackrock know them better than the gnolls. A hunter who can track a gnoll back to its camp could learn a great deal, and I'd pay to hear it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its eye on my drink, {class}, and it can have the rest, because I don't like the look of it either." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That the gnolls know them better than the guard, and the Blackrock know them better than the gnolls, so I'd pay to hear where their camps are. Your {pet} has its eye on my drink, {class}, and it can have the rest, because I don't like the look of it either." },
       },
       choices = {
         { text = "I'll take what I learn to the Marshal, not to you.", next = "BACK", fx = { align = { honor = 1 } } },

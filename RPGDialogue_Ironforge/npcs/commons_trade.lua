@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bear pelts from the high snows an' boar hide from Loch Modan, for every leatherworker in Ironforge wants them an' none o' them want tae go out an' get them. A hunter who knows the market can do very well, if he doesnae flood it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep yer {pet} off the counter, mind, for the last one ate a buyer's gloves an' I'm still hearin' about it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bear pelts from the high snows an' boar hide from Loch Modan, for every leatherworker in Ironforge wants them. Keep yer {pet} off the counter, mind, for the last one ate a buyer's gloves an' I'm still hearin' about it." },
       },
       choices = {
         { text = "I'll sell what I take, and no more than I need.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -279,7 +279,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Pelts are up, meat's down, and anything with a claw on it sells to the alchemists for more than you'd think. Bring me a good bear hide from Dun Morogh, and I'll have it sold before you've finished your ale." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}'s not for sale, I take it? A pity, for I could get a very good price." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Pelts are up, meat's down, and anything with a claw on it sells to the alchemists for more than you'd think. And your {pet}'s not for sale, I take it? A pity, for I could get a very good price." },
       },
       choices = {
         { text = "Never. My beast is a companion, not stock.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -493,7 +493,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, an' arrows too, for the elves an' the humans who come through, though the dwarves buy the shot by the sackful. Ye'd no' believe how many hunters leave Ironforge wi' a fine rifle an' nothin' tae put in it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' a wee bit o' meat for yer {pet}, if ye like, for a hungry beast is a cranky beast, same as a hungry dwarf." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, an' arrows too, though the dwarves buy the shot by the sackful. An' a wee bit o' meat for yer {pet}, if ye like, for a hungry beast is a cranky beast, same as a hungry dwarf." },
       },
       choices = {
         { text = "I'll buy enough for me and leave some for others.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -706,7 +706,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Small ones, mostly, for hunters like their own company an' their beasts' better than anyone else's. I wrote one last month called the Riflemen o' the High Snows, an' every one o' them brought a ram tae the signin'." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ye'd want yer {pet} on the crest, I'd wager, an' Lyesa, who makes the tabards, would stitch it well enough tae fool its own mother." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Small ones, mostly, for hunters like their own company an' their beasts' better than anyone else's. Ye'd want yer {pet} on the crest, I'd wager, an' Lyesa would stitch it well enough tae fool its own mother." },
       },
       choices = {
         { text = "A guild makes a hunter stronger, beasts and all.", next = "BACK", fx = { align = { order = 1 } } },
@@ -907,7 +907,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Browns an' greys for the hills, white for the high snows, an' green if ye're bound for the Wetlands, though the mud'll make it brown soon enough. I made one for a dwarf hunter once wi' her ram stitched on the front, an' she cried when she saw it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I could put yer {pet} on a crest, if ye'd like, for I've stitched bears an' wolves an' one very difficult owl." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Browns an' greys for the hills, white for the high snows, an' green if ye're bound for the Wetlands. An' I could put yer {pet} on a crest, if ye'd like, for I've stitched bears an' wolves an' one very difficult owl." },
       },
       choices = {
         { text = "Put my beast on it, not my kills.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1099,7 +1099,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, an' the ones who cure them first are welcome. I once had a bear hide in here that smelled so badly the whole row had tae be aired out, an' the Stonemantles have long memories." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' no beasts past the counter, if ye please, though yer {pet} looks better behaved than most o' my customers." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, an' the ones who cure them first are welcome, for the Stonemantles have long memories about smells. No beasts past the counter, if ye please, though yer {pet} looks better behaved than most o' my customers." },
       },
       choices = {
         { text = "I'll cure every hide before it comes near your vault.", next = "BACK", fx = { align = { order = 1 } } },

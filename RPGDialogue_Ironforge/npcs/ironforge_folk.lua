@@ -103,7 +103,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "In a clean kill an' a fair one, aye, for the Light doesnae ask ye tae spare the boar, only tae waste nothin' an' gloat over nothin'. The best hunters I've known were quiet about it, an' grateful." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} is a blessin' too, if ye treat it like one, for the Light made the beasts as surely as it made us." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "In a clean kill an' a fair one, aye, for the Light only asks ye tae waste nothin' an' gloat over nothin'. An' yer {pet} is a blessin' too, if ye treat it like one, for the Light made the beasts as surely as it made us." },
       },
       choices = {
         { text = "I'll hunt cleanly, and waste nothing.", next = "BACK", fx = { align = { light = 1 } } },
@@ -331,7 +331,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than anything, for most of them have never been outside the city walls, and a bear is as good as a dragon to them. If you're ever in Stormwind, come to the orphanage and tell them a story; Stephanie might even let you keep your boots on." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And if you bring your {pet}, they'll never forget it, though I'd keep it away from the little ones' sweets." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than anything, for most of them have never been outside the city walls, and a bear is as good as a dragon to them. If you bring your {pet} to the orphanage, they'll never forget it, though I'd keep it away from the little ones' sweets." },
       },
       choices = {
         { text = "I'll visit, and bring the gentlest story I have.", next = "BACK", fx = { align = { light = 1 } } },
@@ -551,7 +551,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I forge for anyone who comes to the anvil, for the Light doesn't ask to see a tabard before it warms the iron. A hunter's arrowhead needs a fine edge and a true weight, and I've learned to make both out here in the cold." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And a ring for your {pet}'s collar, if you like; I've made a few for the hunters at the gates." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I forge for anyone who comes to the anvil, and a hunter's arrowhead needs a fine edge and a true weight, which I've learned to make out here. I'll make a ring for your {pet}'s collar, too, if you like." },
       },
       choices = {
         { text = "Blessed steel will serve me well, then.", next = "BACK", fx = { align = { light = 1 } } },

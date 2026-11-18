@@ -52,7 +52,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than I care to count, and I'm paid to count. The Nightbane worgs come down from the east of the wood, and they're cleverer than wolves have any right to be, so watch your back trail." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a beast I'd rather not record, {class}. Keep it close, because the worgs out there don't take kindly to rivals." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than I care to count, and the Nightbane worgs from the east of the wood are cleverer than wolves have any right to be. Keep your {pet} close, {class}, because the worgs out there don't take kindly to rivals." },
       },
       choices = {
         { text = "I'll hunt the worgs down and balance your ledger.", next = "BACK", fx = { align = { honor = 1 } } },

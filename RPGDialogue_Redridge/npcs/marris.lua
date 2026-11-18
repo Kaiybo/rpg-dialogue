@@ -317,7 +317,7 @@ P:NPC {
       lines = {
         { id = "hu_default", text = "Good, because my guards stomp like oxen and the orcs hear them a mile off. Keep your beast quiet, watch for smoke from the camps, and don't go near Stonewatch on your own." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "That animal of yours has better ears than any guard I've got. Take it up Render's Valley and see what it smells; I'll want to know where the camps have moved." },
+          text = "Good, because my guards stomp like oxen and the orcs hear them a mile off. That animal of yours has better ears than any guard I've got, so take it up Render's Valley and tell me where the camps have moved." },
       },
       choices = {
         { text = "I'll go alone. I'm quieter that way.", next = "BACK", fx = { trait = { brave = 1 } } },

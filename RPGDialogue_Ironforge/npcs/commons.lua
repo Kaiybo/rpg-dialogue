@@ -308,7 +308,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The yeti, mostly, for every account I have was written by somebody runnin' away from one. If ye ever get a good look at a yeti an' live, I'd be very glad tae write down what ye saw." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet}, while I think on it; I'd like tae know how ye came by it, for the bestiary's thin on tamed beasts." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The yeti, mostly, for every account I have was written by somebody runnin' away from one. An' yer {pet}, while I think on it, for the bestiary's thin on tamed beasts an' I'd like tae know how ye came by it." },
       },
       choices = {
         { text = "I'll bring you an honest account, every detail of it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -517,7 +517,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, for nobody else can read the Badlands, where the troggs move by night an' the buzzards tell ye where somethin's died. A hunter wi' a good rifle walks ahead o' a dig, an' the dig comes home." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' a beast like yer {pet} smells a trogg long before a scholar trips over one, which is a mercy I wish more o' my colleagues had had." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, for nobody else can read the Badlands, where the troggs move by night an' the buzzards tell ye where somethin's died. A beast like yer {pet} smells a trogg long before a scholar trips over one, which is a mercy in itself." },
       },
       choices = {
         { text = "I'll walk ahead of your digs and see them home.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -772,7 +772,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than ye'd think, for the passes o' Khaz Modan are long an' the mountaineers cannae watch them all. A hunter who brings word o' the Frostmane movin' in the high snows does the King as much service as a regiment." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I see yer {pet} is well kept, which tells me more about ye than any letter o' introduction." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than ye'd think, for the passes o' Khaz Modan are long, an' word o' the Frostmane movin' in the high snows serves the King as well as a regiment. An' I see yer {pet} is well kept, which tells me more about ye than any letter o' introduction." },
       },
       choices = {
         { text = "I'll carry word to the throne whenever I can.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1004,7 +1004,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because ye both have tae see what's no' there yet, the beast in the brush or the statue in the block. I carved a ram for the Amberstills once, an' I spent a week watchin' the real ones before I touched the stone." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} would make a grand statue, ye know, if it'd sit still for a week, which I doubt." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because ye both have tae see what's no' there yet, the beast in the brush or the statue in the block. Yer {pet} would make a grand statue, ye know, if it'd sit still for a week, which I doubt." },
       },
       choices = {
         { text = "A beast is best honoured alive, not in stone.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1236,7 +1236,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They're raised beside it from the egg, an' they grow up thinkin' fire's just weather. A Wildhammer bird would moult in a week down here, but mine preen in the sparks like it's a warm spring day." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} would never stand the heat so well, I'd wager, but it's a fine beast all the same, an' I'll no' say otherwise." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They're raised beside it from the egg, an' they grow up thinkin' fire's just weather. That {pet} would never stand the heat so well, I'd wager, but it's a fine beast all the same." },
       },
       choices = {
         { text = "A beast is made by how it's raised. You've done well.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1443,7 +1443,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Better than ye'd think, for we both know how tae wait an' how tae watch, an' neither of us likes a fair fight. The only trouble is the beasts, for a pet that growls at the wrong moment has sunk more than one o' my jobs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' that {pet} o' yours had better no' growl down here, friend, or the guards'll be on us before ye can say Bronzebeard." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better than ye'd think, for we both know how tae wait an' how tae watch, but a pet that growls at the wrong moment has sunk more than one o' my jobs. So that {pet} o' yours had better no' growl down here, friend." },
       },
       choices = {
         { text = "My beast and I fight in the open, thank you.", next = "BACK", fx = { align = { honor = 1 } } },

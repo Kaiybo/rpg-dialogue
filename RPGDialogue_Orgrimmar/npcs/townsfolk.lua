@@ -57,7 +57,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I take anything that fits, though I'd thank you to clean it first. One hunter left a whole kodo horn with me last summer, and the grunts at the door still talk about the stink, so tan your hides before they reach my counter." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And no, your {pet} can't come into the vault with you. The last one chewed through a strongbox, and I've never managed to explain that to the owner." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I take anything that fits, though I'd thank you to tan your hides before they reach my counter. And no, your {pet} can't come into the vault with you, because the last one chewed through a strongbox." },
       },
       choices = {
         { text = "I'll tan every hide properly. Waste insults the beast.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -247,7 +247,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Well enough if they're whole, and the leatherworkers pay best for the thick ones out of the Barrens. Bring me raptor hides and scorpid scales untorn, and the house takes its cut and you take the rest, without haggling with any trader in the Drag." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't go on the lists, before you ask. Somebody always asks, and the answer is always no." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Well enough if they're whole, and the leatherworkers pay best for raptor hides and scorpid scales out of the Barrens. Your {pet} doesn't go on the lists, though, before you ask, because somebody always asks." },
       },
       choices = {
         { text = "I sell only what the hunt leaves over.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -433,7 +433,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Slowly, and with a great deal of raw meat. A wind rider is part lion and part bat and all temper, so you earn its trust the way a hunter earns a beast's, by feeding it and never once lying to it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} close on the roost. The wind riders have never eaten a hunter's beast, but they look at them sometimes, and I don't like the look." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Slowly, and with a great deal of raw meat, by feeding it and never once lying to it, the same way a hunter earns a beast's trust. Keep your {pet} close on the roost, though, because the wind riders look at them sometimes, and I don't like the look." },
       },
       choices = {
         { text = "Patience and trust. That's the only way to tame anything.", next = "BACK", fx = { align = { order = 1 } } },
@@ -606,7 +606,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every clan had them, and the good ones fed the whole camp through the winter. The Frostwolves still ride their wolves up in Alterac, and the old clans had trackers who could follow a scent across a river, so don't let anyone tell you hunters stand outside the clans." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} counts as one of the guild too, as far as I'm concerned, though I've never managed to make one sign the book." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every clan had them, and the good ones fed the whole camp through the winter, so don't let anyone tell you hunters stand outside the clans. Your {pet} counts as one of the guild too, though I've never managed to make one sign the book." },
       },
       choices = {
         { text = "Then I'll put my name beside a clan's.", next = "BACK", fx = { align = { order = 1 } } },
@@ -872,7 +872,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Durotar's thin on game and thick on teeth, which tells you something. Go south past Razor Hill for the boar and the scorpids, and if you want a real fight, the raptors of the Barrens will give you one before you've walked a day past the Southfury." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours stands straighter than half my recruits. If it ever wants to join the guard, it'll have to learn to salute." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Durotar's thin on game and thick on teeth, so go south past Razor Hill for boar and scorpids, or cross the Southfury for the raptors of the Barrens. That {pet} of yours stands straighter than half my recruits, by the way." },
       },
       choices = {
         { text = "I hunt to feed the Horde, Overlord, not for sport.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1268,7 +1268,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Closer than most hunters think. You read the water the way you read tracks, you wait where the prey wants to be, and you never take more than you'll eat, because the river remembers greed the same way the plains do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like a fish, I think, by the way it's watching my bucket. Go on, then; it's earned one more than most of the grunts who walk past." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Closer than most hunters think, because you read the water the way you read tracks and never take more than you'll eat. Your {pet} would like a fish, I think, by the way it's watching my bucket, so go on and give it one." },
       },
       choices = {
         { text = "Take only what you'll eat. That's the rule I live by.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1447,7 +1447,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The hills around Razor Hill and the canyons near Skull Rock are thick with copper, and the harpies of Dustwind Cave nest on some of the best of it. Keep an eye on the cliffs while you track, and you'll come home with more than hides." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And mind your {pet} near the cliff edges, because a beast after a lizard doesn't look where it's running, and Durotar's canyons are deep." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The hills around Razor Hill and the canyons near Skull Rock are thick with copper, and the harpies of Dustwind Cave nest on some of the best of it. Mind your {pet} near the cliff edges, though, because a beast after a lizard doesn't look where it's running." },
       },
       choices = {
         { text = "I'll take what ore I need and leave the rest.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1644,7 +1644,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than a hunter likes to admit, because arrowheads, skinning knives and the axe on your back all come from a forge like mine. A good skinning knife takes a hide off clean in one pull and a bad one tears it, and the leatherworkers will pay you for the difference." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't care for the forge noise, I see. Most beasts don't, though I had a boar once who'd sleep right beside the anvil." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than a hunter likes to admit, because your arrowheads and skinning knives all come from a forge like mine. Your {pet} doesn't care for the forge noise, I see, though I had a boar once who'd sleep right beside the anvil." },
       },
       choices = {
         { text = "A clean skinning honours the kill. I'll buy the better knife.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1826,7 +1826,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Your aim, no, but your gun, absolutely! A good scope and some proper black powder, and you'll put a shot through a harpy's wing from the far side of a canyon, though I'll admit the first few scopes I made were mostly decorative." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And that {pet} of yours could use some goggles, pal. Don't laugh; I've sold three pairs to hunters already, and only one of the beasts ate them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your aim, no, but your gun, absolutely, with a good scope and some proper black powder! And that {pet} of yours could use some goggles, pal; I've sold three pairs to hunters already, and only one of the beasts ate them." },
       },
       choices = {
         { text = "A true hunter relies on skill, not gadgets.", next = "BACK", fx = { align = { order = 1 } } },

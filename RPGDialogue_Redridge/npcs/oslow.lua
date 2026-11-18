@@ -79,7 +79,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The gnolls' dogs do, digging under the stone piles, and a great boar knocked over two scaffolds last week as though they were made of straw. I'd pay a hunter in thanks, which is all I've got, to keep them off." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks better behaved than the gnolls' dogs, {class}, but I'd still rather it stayed off my scaffolding." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The gnolls' dogs do, digging under the stone piles, and a great boar knocked over two of my scaffolds last week. Your {pet} looks better behaved than the gnolls' dogs, {class}, but I'd still rather it stayed off my scaffolding." },
       },
       choices = {
         { text = "I'll keep the beasts away from your bridge.", next = "BACK", fx = { align = { honor = 1 } } },

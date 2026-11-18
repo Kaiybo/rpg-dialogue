@@ -58,7 +58,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Fed, brushed an' talked tae every day, for a beast that's left alone forgets its manners an' starts tae think it's been abandoned. I tell them their hunters are comin' back, an' I'll swear they understand me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} looks well, I'm glad tae see; ye've been feedin' it properly, I can tell from the coat." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Fed, brushed an' talked tae every day, for a beast that's left alone starts tae think it's been abandoned. Yer {pet} looks well, I'm glad tae see; ye've been feedin' it properly, I can tell from the coat." },
       },
       choices = {
         { text = "I'd never leave a beast longer than I must.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -250,7 +250,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Quieter, cheaper, and they don't blow up in your face when the powder's damp, which is more than any rifle can say in a Wetlands rain. The dwarves won't hear a word of it, of course, but then the dwarves also like loud noises." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} won't flinch at every shot, either, which I always think is kinder." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Quieter, cheaper, and they don't blow up in your face when the powder's damp. And your {pet} won't flinch at every shot, either, which I always think is kinder." },
       },
       choices = {
         { text = "I'll learn the crossbow properly, from the start.", next = "BACK", fx = { align = { order = 1 } } },
@@ -440,7 +440,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It looks at what it's thinkin' about, an' a watcher can follow its eyes tae yer target before ye've drawn. Train it tae look away, an' ye'll be harder tae read than half the rogues I teach." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} is lookin' at me now, as it happens, which tells me ye've already decided I'm the danger in this room." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It looks at what it's thinkin' about, an' a watcher can follow its eyes tae yer target, so train it tae look away. Yer {pet} is lookin' at me now, as it happens, which tells me ye've already decided I'm the danger in this room." },
       },
       choices = {
         { text = "My beast is honest. I'll not train that out of it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -629,7 +629,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Easier than most, for ye already know how tae wait an' how tae read where somethin' wants tae be. A fish is just a deer that's learned tae swim, an' a good hunter knows that the first time he casts a line." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} would like fishin' too, as long as ye share the catch, for no beast likes watchin' its hunter eat alone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Easier than most, for ye already know how tae wait an' how tae read where somethin' wants tae be. Yer {pet} would like fishin' too, as long as ye share the catch." },
       },
       choices = {
         { text = "I'll share the catch with my beast.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -820,7 +820,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That's what I'm hoping, for if it draws a fish out of the deep, it might draw a fox out of the brush. Grimnur says I'm mixing up my trades, but Grimnur's been fishing in a cave for twenty years, so I'm not sure he's the one to talk." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} could tell me whether it sounds right, though I'd hold on to it in case it sounds too right." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's what I'm hoping, for if it draws a fish out of the deep, it might draw a fox out of the brush. Your {pet} could tell me whether it sounds right, though I'd hold on to it in case it sounds too right." },
       },
       choices = {
         { text = "I'll test it fairly and tell you honestly.", next = "BACK", fx = { align = { honor = 1 } } },

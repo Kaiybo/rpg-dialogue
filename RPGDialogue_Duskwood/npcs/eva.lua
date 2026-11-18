@@ -79,7 +79,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Something with a hunger older than the forest, and with a man's face it no longer remembers. I'd tell you more, but the cards turned dark when I tried to look, and I don't press them when they do that." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fate of its own, {class}, tangled with yours, and the cards say it will stand beside you longer than you might think." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Something with a hunger older than the forest, and with a man's face it no longer remembers, though the cards turned dark when I looked further. Your {pet} has a fate of its own, {class}, tangled with yours, and it will stand beside you longer than you might think." },
       },
       choices = {
         { text = "I'll face whatever the cards foretold. Fate won't scare me.", next = "BACK", fx = { align = { order = 1 } } },

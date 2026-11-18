@@ -60,7 +60,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Of course you should. Your beast will hold most things off, but one day a raptor will get past it, and on that day you'll want to know how to block with an axe rather than how to run, so spend a week sparring with my recruits and you'll thank me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better footwork than half my students, and it doesn't talk back. I might start charging it for lessons." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Of course you should, because one day a raptor will get past your beast and you'll want to know how to block with an axe. Mind you, your {pet} has better footwork than half my students, and it doesn't talk back." },
       },
       choices = {
         { text = "I'll learn the axe. A hunter shouldn't hide behind a beast.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -222,7 +222,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "With food, with patience and with your own voice, every day, until it knows yours from any other. Durotar's beasts stay half wild even when they're tamed, so start with a boar if you're nervous, and move to the raptors only when you've learned to read a temper." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well kept. Good, because I judge my students by their beasts more than by their aim." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "With food, with patience and with your own voice, every day, until it knows yours from any other. Your {pet} looks well kept, which is good, because I judge my students by their beasts more than by their aim." },
       },
       choices = {
         { text = "A beast is my partner. I'll earn its trust.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -430,7 +430,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every beast has a spirit, and the spirits of the wild watch over those who walk with them honestly. Our ancestors hunted Draenor with wolves at their side long before the demons taught them to hunt their own kind, and the spirits remember that better than we do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a calm spirit. That comes from you, {class}, so keep it that way." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every beast has a spirit, and the spirits of the wild watch over those who walk with them honestly. Your {pet} has a calm spirit, and that comes from you, {class}, so keep it that way." },
       },
       choices = {
         { text = "I'll honour my companion's spirit in all I do.", next = "BACK", fx = { align = { light = 1 } } },
@@ -591,7 +591,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Your beast loves you, and mine would devour me the moment I faltered, so I suppose the difference is trust. A hunter tames by patience and a warlock binds by will, and only one of us sleeps soundly at night, though I'll leave you to guess which." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't care for me, I see. Animals never do; they can smell the Twisting Nether on our robes." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your beast loves you, and mine would devour me the moment I faltered, so I suppose the difference is trust. Your {pet} doesn't care for me, I see, because animals can smell the Twisting Nether on our robes." },
       },
       choices = {
         { text = "Trust is stronger than any binding, warlock.", next = "BACK", fx = { align = { light = 1 } } },

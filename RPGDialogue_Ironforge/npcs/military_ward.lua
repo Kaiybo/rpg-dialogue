@@ -62,7 +62,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Just that he's well, an' eatin', an' no' doin' anythin' daft, for he's a dwarf who'd charge a red dragon if it insulted his beard. Ye'll know him by his voice before ye see him, I promise ye." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} might find him first, for he always smells o' boot grease an' gun oil, the great lump." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Just that he's well, an' eatin', an' no' doin' anythin' daft, for he'd charge a red dragon if it insulted his beard. Yer {pet} might find him first, for he always smells o' boot grease an' gun oil, the great lump." },
       },
       choices = {
         { text = "I'll find him and bring you word, Sara.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -325,7 +325,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Plenty, for the day yer beast falls an' the bear's still standin', ye'll want tae know how tae take a blow. Come tae the yard an' I'll knock ye down a few times, an' ye'll thank me in the high snows." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours has more fight in its eyes than half my recruits, I'll say that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Plenty, for the day yer beast falls an' the bear's still standin', ye'll want tae know how tae take a blow. Mind, that {pet} o' yours has more fight in its eyes than half my recruits." },
       },
       choices = {
         { text = "I'll take the training. Every hunter should stand firm.", next = "BACK", fx = { align = { order = 1 } } },
@@ -543,7 +543,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Oh, quite simply: your weak point is the gap between your rifle and your beast, where an enemy can close before you've reloaded. Close the gap with footwork and a sharp knife, and you'll be a much better-tuned machine." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a remarkable piece of engineering, by the way, even if nobody designed it, which I find unsettling." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, quite simply: close the gap between your rifle and your beast with footwork and a sharp knife, and you'll be a much better-tuned machine. Your {pet} is a remarkable piece of engineering, by the way, even if nobody designed it, which I find unsettling." },
       },
       choices = {
         { text = "Footwork and a knife, then. I'll practise.", next = "BACK", fx = { align = { order = 1 } } },

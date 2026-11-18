@@ -342,7 +342,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The same as it means to a warrior: holding when every part of you wants to run. A hunter whose companion falls must still loose the next arrow, and I have seen Sentinels do it in Ashenvale with tears on their faces." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has resolve of its own; I can see it in how it stands its ground. Be worthy of it, {class}, because it will stand for you to the end." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The same as it means to a warrior: holding when every part of you wants to run, and loosing the next arrow even when your companion falls. Your {pet} has resolve of its own, {class}, so be worthy of it." },
       },
       choices = {
         { text = "I'll hold my ground, whatever falls beside me.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -608,7 +608,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It could, though it's too precious to leave in a Gnarlpine, and the priestesses would have words with me if I tried. A dwarven friend in Ironforge swears by rifle shot instead, and I'll admit his methods interest me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing at my anvil since you came in, and I think it smells the coal. Tell it there's nothing here to eat but iron." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It could, though elunite is too precious to leave in a Gnarlpine, and the priestesses would have words with me. Your {pet} has been sniffing at my anvil since you came in, so tell it there's nothing here to eat but iron." },
       },
       choices = {
         { text = "Elunite is sacred. Keep it for blades of honor.", next = "BACK", fx = { align = { light = 1 } } },
@@ -855,7 +855,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some of it, perhaps, for you do not flinch when I look at you, and most do. But your spirit lives in the bow and in your bond with the wild, and that is a different strength, though no lesser one." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} carries a warrior's spirit, I think, more than you do. Do not take offense, for that is high praise from me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some of it, perhaps, but your spirit lives in the bow and in your bond with the wild, and that is no lesser strength. Your {pet} carries a warrior's spirit, I think, more than you do, and that is high praise from me." },
       },
       choices = {
         { text = "My beast and I trust each other. I need nothing else.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1046,7 +1046,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Word from Darkshore says the thistle bears have gone mad, foaming and turning on their own cubs, and Tharnariun Treetender in Auberdine would welcome a steady bow. I'd proclaim it louder, but frankly the bears frighten me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And may your {pet} be proclaimed the finest beast on the Terrace, at least until the next one walks past. I say that to all the companions, but I mean it every time." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Word from Darkshore says the thistle bears have gone mad, and Tharnariun Treetender in Auberdine would welcome a steady bow. And may your {pet} be proclaimed the finest beast on the Terrace, at least until the next one walks past!" },
       },
       choices = {
         { text = "I'll go and help Tharnariun with his bears.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1265,7 +1265,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I do, and I'm proud of it: dried meat for the cats, fish for the ones who'll eat it, and bread for the strange ones who won't eat either. A hero's companion is a hero too, as far as I'm concerned." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it eats well, and I'd like to keep it that way. Tell me what it favors, and I'll see whether it's on my shelves." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I do, and I'm proud of it: dried meat for the cats, fish for the ones who'll eat it, and bread for the strange ones. Your {pet} looks like it eats well, so tell me what it favors, and I'll see whether it's on my shelves." },
       },
       choices = {
         { text = "My companion eats before I do. Always.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1441,7 +1441,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "He studied the quilboar and the tales of their fallen boar god, Agamaggan, but he wrote about the zhevras and the great kodos in every letter. He would have liked you, because you'd have known which beasts he was describing." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would have fascinated him, and he'd have asked you a hundred questions about it before you'd taken your boots off." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "He studied the quilboar mostly, but he wrote about the zhevras and the great kodos in every letter. Your {pet} would have fascinated him, and he'd have asked you a hundred questions about it before you'd taken your boots off." },
       },
       choices = {
         { text = "If I'm in the Barrens, I'll look for his trail.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1681,7 +1681,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They're very particular, because Telonis says a badly skinned stag is an insult to the stag, but a clean hide from a hunter who knows the work always gets a smile. Radnaal Maneweaver taught half the skinners on Teldrassil, so if he taught you, say so!" },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} is beautiful, but please don't let it near the hides in the back, because the last companion took a whole bolt of leather for a bed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They're very particular, but a clean hide from a hunter who knows the work always gets a smile. Please don't let your {pet} near the hides in the back, though, because the last companion took a whole bolt of leather for a bed." },
       },
       choices = {
         { text = "I take only what I can use, and skin it cleanly.", next = "BACK", fx = { align = { honor = 1 } } },

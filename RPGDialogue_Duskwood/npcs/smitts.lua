@@ -85,7 +85,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every night, and I've heard of worgs as big as a cart and spiders that could swallow a horse whole. Some of those tales are true, mind, which is the worst part of keeping a tavern in Duskwood." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks steadier than most of my customers, {class}, and it doesn't ask for credit, which makes it my favourite already." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every night, and some of the tales of cart-sized worgs and horse-swallowing spiders are true, which is the worst part. Your {pet} looks steadier than most of my customers, {class}, and it doesn't ask for credit, which makes it my favourite already." },
       },
       choices = {
         { text = "I'll tell only what's true. The town's frightened enough.", next = "BACK", fx = { align = { honor = 1 } } },

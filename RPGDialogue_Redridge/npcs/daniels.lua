@@ -54,7 +54,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar, if you can get it, and condor if you can't, though condor's tough as a saddle. Sherman over at the inn's block takes whatever's clean, so bring it to him and tell him I sent you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the look of a beast that eats better than my customers, {class}. I'd not say no to a share of its supper." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar, if you can get it, and condor if you can't, so take it to Sherman at the inn's block and tell him I sent you. Your {pet} has the look of a beast that eats better than my customers, {class}." },
       },
       choices = {
         { text = "I'll hunt for the soldiers. They've earned a good meal.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -295,7 +295,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Good hunting, and bad company, because the gnolls hunt the same hills you will. Chef Breanna buys condor and boar for the soldiers' stew, and she pays fair, though she'll tell you what's wrong with every cut." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is welcome under my roof, {class}, and I'll put a blanket down for it. It's more polite than half my guests." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Good hunting, and bad company, because the gnolls hunt the same hills, and Chef Breanna buys condor and boar for the soldiers' stew. Your {pet} is welcome under my roof, {class}, and I'll put a blanket down for it." },
       },
       choices = {
         { text = "I'll hunt for Breanna's stew. The soldiers need feeding.", next = "BACK", fx = { align = { honor = 1 } } },

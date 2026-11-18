@@ -53,7 +53,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, if ye've the legs, though the challenge was meant for warriors, and they'll grumble if a hunter beats their time. Leave yer beast behind, mind, because it'll not like the smell o' the brew." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours would outrun any warrior in this inn, {class}, and I'd put a silver on it, if I had one to spare." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, if ye've the legs, though the warriors will grumble if a hunter beats their time. That {pet} o' yours would outrun any of them, {class}, and I'd put a silver on it, if I had one to spare." },
       },
       choices = {
         { text = "I'll run it with my beast at my side, fair and square.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -258,7 +258,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "How to move without that beast giving you away, for a start, though I suppose it does the same job as a sharp ear. Most hunters I've met track things that can't talk, and I track things that can, so we're not so different." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has its eye on my pocket, {class}, and I'd keep hold of it, because I've known pickpockets with worse manners." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "How to move without that beast giving you away, for a start, since I track things that can talk. That {pet} of yours has its eye on my pocket, {class}, and I've known pickpockets with worse manners." },
       },
       choices = {
         { text = "I'll track the honest way, Lucius.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -700,7 +700,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Murlocs by the hundred, and they're the least of it, because there was something big in the deep water last summer that broke three lines in an afternoon. I'd like to know what it was, and then I'd like it gone." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is watching the water like it wants a fish, {class}, and I'll give it one, because a hungry beast is a noisy one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Murlocs by the hundred, and something big in the deep water last summer that broke three lines in an afternoon. Your {pet} is watching the water like it wants a fish, {class}, and I'll give it one, because a hungry beast is a noisy one." },
       },
       choices = {
         { text = "I'll find what's breaking your lines.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -877,7 +877,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not me, but Sherman on the block will, and Chef Breanna will too, for the soldiers' stew. Bring them boar or condor and you'll eat well here for a week." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is looking at my cheese, {class}, and I'll let it have the rind, but no more than that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not me, but Sherman on the block will, and Chef Breanna too, for the soldiers' stew. Your {pet} is looking at my cheese, {class}, and I'll let it have the rind, but no more than that." },
       },
       choices = {
         { text = "I'll hunt for the soldiers' stew.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1069,7 +1069,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Briarthorn under the trees and earthroot in the open, and if you see a patch of it torn up, that'll be the boars or the gnolls. The hills grow more than people think, and I'd like to know before it's all been rooted out." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sniffing my peacebloom, {class}, and it's a good nose, because that patch is the best in Lakeshire." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Briarthorn under the trees and earthroot in the open, and torn-up patches mean boars or gnolls. Your {pet} has been sniffing my peacebloom, {class}, and it's a good nose, because that patch is the best in Lakeshire." },
       },
       choices = {
         { text = "I'll gather gently and leave the roots.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1256,7 +1256,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Up into the hills past Alther's Mill, I'd guess, though nobody's been brave enough to follow them. A hunter could track them easy, I'd think, and bring back a pick or two if the gnolls haven't eaten them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would sniff out our tools in an afternoon, {class}, and I'd buy it a whole ham if it did." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up into the hills past Alther's Mill, I'd guess, though nobody's been brave enough to follow them. Your {pet} would sniff out our tools in an afternoon, {class}, and I'd buy it a whole ham if it did." },
       },
       choices = {
         { text = "I'll track them and bring back your tools.", next = "BACK", fx = { align = { honor = 1 } } },

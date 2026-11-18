@@ -54,7 +54,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Gnolls, mostly, with their dogs, sniffing round the stone piles for tools to steal. And there's a great boar that roots about the lake shore, Bellygrub the children call him, who's knocked over two of my scaffolds already." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is eyeing my lunch, {class}, and I'll not share it with a beast, though I might share it with you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Gnolls, mostly, with their dogs, and a great boar the children call Bellygrub, who's knocked over two of my scaffolds already. Your {pet} is eyeing my lunch, {class}, and I'll not share it with a beast, though I might share it with you." },
       },
       choices = {
         { text = "I'll keep the gnolls off your stone piles.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -232,7 +232,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Only from the bridge, but I've seen condors as big as a cart, and boars with tusks like scythes, and once a spider the size of my head! The foreman says I imagine half of it, but I didn't imagine the spider." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Can I pet your {pet}? Just once? I'll be careful, I promise, and if it bites me I won't tell the foreman." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only from the bridge, but I've seen condors as big as a cart and once a spider the size of my head! Can I pet your {pet}? Just once? I'll be careful, I promise." },
       },
       choices = {
         { text = "Watch the beasts from the bridge, Jess. That's the safe way.", next = "BACK", fx = { align = { honor = 1 } } },

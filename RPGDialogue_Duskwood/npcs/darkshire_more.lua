@@ -67,7 +67,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Anything that's changed: a worg den where there wasn't one, spiders in a house that was empty last week, tracks heading toward town. Jonathan hunts what I write down, so the better your eyes, the safer we all are." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine scout, {class}. Animals notice things long before people do, and in Duskwood that's often the difference." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Anything that's changed: a new worg den, spiders in a house that was empty last week, tracks heading toward town. Your {pet} would make a fine scout for that, {class}, because animals notice things long before people do." },
       },
       choices = {
         { text = "I'll report everything I see. Your list keeps people alive.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -324,7 +324,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Worgs along the eastern stretch, and spiders that string webs across the road at night as neat as a toll gate. A hunter clearing the road ahead of my wagons would save me more crates than any guard." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} would keep my oxen nervous, {class}, but I'd rather nervous oxen than dead drivers, so walk it ahead of the wagons." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Worgs along the eastern stretch, and spiders that string webs across the road at night as neat as a toll gate. That {pet} would keep my oxen nervous, {class}, but I'd rather nervous oxen than dead drivers, so walk it ahead of the wagons." },
       },
       choices = {
         { text = "I'll clear the road ahead of your wagons.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -581,7 +581,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not me, I'm drink and drink only, but Grual in the kitchen will take a good haunch off your hands. Mind you, half of what's out there now isn't fit to eat, so bring him something that was healthy when you shot it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can have the water bowl, {class}, but not the jug. I tried that once with a stray dog and it never walked straight again." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not me, I'm drink and drink only, but Grual in the kitchen will take a good haunch off your hands. Your {pet} can have the water bowl, {class}, but not the jug." },
       },
       choices = {
         { text = "I'll hunt only the clean game. Grual's customers deserve it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -776,7 +776,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not much, I'm afraid, because my shelves are mostly for mages and priests. If you need arrows, though, the fletchers in Lakeshire do good work, and the road there is only half as bad as the one to anywhere else." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing my reagents, {class}, and I'd rather it didn't, because some of those powders make beasts sneeze fire." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not much, I'm afraid, because my shelves are mostly for mages and priests, so try the fletchers in Lakeshire for arrows. And your {pet} is sniffing my reagents, {class}, which I'd rather it didn't, because some of those powders make beasts sneeze fire." },
       },
       choices = {
         { text = "I'll keep it outside. Your shop isn't a kennel.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -981,7 +981,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Scopes, mostly, and good dwarven ones, though Finbus would argue gnomish lenses are better, and Finbus is wrong. A scope that lets you see a worg before it sees you is worth every copper in this dark wood." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} has got its nose in my crate of springs, {class}, and if it swallows one I'll want it back, if you follow." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Scopes, mostly, and good dwarven ones, because a scope that shows you a worg before it sees you is worth every copper. That {pet} has got its nose in my crate of springs, {class}, and if it swallows one I'll want it back, if you follow." },
       },
       choices = {
         { text = "I'll trust my eyes. A scope's a crutch.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1201,7 +1201,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Wolves, as big as ponies some of them, and spiders that hang in the trees by the cemetery. My father used to walk this wood to fish the Darkened Bank, and now I can't walk to the end of the street." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would see the dead coming before they reached you, {class}. I've half a mind to buy a dog, but there's none left in Darkshire." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wolves as big as ponies, some of them, and spiders that hang in the trees by the cemetery. Your {pet} would see the dead coming before they reached you, {class}; I'd buy a dog myself, but there's none left in Darkshire." },
       },
       choices = {
         { text = "I'll clear the way to the cemetery for you.", next = "BACK", fx = { align = { honor = 1 } } },

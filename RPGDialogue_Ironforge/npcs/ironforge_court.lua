@@ -120,7 +120,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Oh, a great deal, for the troggs that poured out of the deep have spread all over Dun Morogh, and someone has to watch where they go. A hunter who could track them back to the city's outer tunnels would save my engineers a great many dangerous guesses." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}! Splendid creature; I once designed a mechanical one, but it kept trying to fetch the furniture." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, a great deal, for the troggs have spread all over Dun Morogh, and a hunter who could track them back to the outer tunnels would save my engineers many dangerous guesses. And your {pet}! Splendid creature; I once designed a mechanical one, but it kept fetching the furniture." },
       },
       choices = {
         { text = "I'll track them and report every tunnel, High Tinker.", next = "BACK", fx = { align = { order = 1 } } },
@@ -626,7 +626,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They do, for the first rams ever ridden in Khaz Modan were tamed by hunters in the high snows, long before the Three Hammers fell out. A hunter with a rifle on a ram's back is as old an Ironforge picture as a smith at the Forge, whatever the smiths tell ye." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I can hear yer {pet} breathin' at yer heel, slow an' easy, which tells me it trusts ye." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, for the first rams ever ridden in Khaz Modan were tamed by hunters in the high snows. An' I can hear yer {pet} breathin' at yer heel, slow an' easy, which tells me it trusts ye." },
       },
       choices = {
         { text = "Then I'll carry that tradition with pride.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1323,7 +1323,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye. Ye'd read the ground, see the troggs comin' an' bring down supper when the rations run out, which is three uses more than most o' the folk Magellas sends me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} looks like it'd dig as fast as my crew, which isnae sayin' much." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye. Ye'd read the ground, see the troggs comin' an' bring down supper when the rations run out. An' that {pet} looks like it'd dig as fast as my crew, which isnae sayin' much." },
       },
       choices = {
         { text = "I'll scout for the League, and gladly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1642,7 +1642,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Better than a clerk, for ye'll know the difference between a trogg's track an' a bear's, an' my clerks wouldnae. Tell me where they go at night, an' I'll tell the Senate somethin' worth hearin' for once." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} could flush them out o' the rocks, I imagine, which would make the countin' a great deal quicker." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better than a clerk, for ye'll know a trogg's track from a bear's, so tell me where they go at night. An' yer {pet} could flush them out o' the rocks, I imagine, which would make the countin' a great deal quicker." },
       },
       choices = {
         { text = "I'll give you an honest count, Senator.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1922,7 +1922,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The loudest, anyway, for every bear grows a foot taller wi' every pint, an' I've heard o' rams that could leap the Great Forge. I like a hunter's story, though, for there's usually a true one hidin' underneath." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' I'll wager yer {pet} has a story or two o' its own, if only it could talk an' drink." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The loudest, anyway, for every bear grows a foot taller wi' every pint, though there's usually a true story hidin' underneath. An' I'll wager yer {pet} has a story or two o' its own, if only it could talk an' drink." },
       },
       choices = {
         { text = "My stories stay the size they were.", next = "BACK", fx = { align = { honor = 1 } } },

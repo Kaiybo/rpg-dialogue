@@ -46,7 +46,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The court pays nothing, citizen, because the court has nothing; the Lakeshire guard pays, out of the Magistrate's purse, for proof of the deed. Bring it to Marshal Marris, and he'll see the books are kept straight." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is not, strictly speaking, a citizen, {class}, but the court will overlook it, so long as it doesn't eat one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The court pays nothing, citizen; the Lakeshire guard pays, out of the Magistrate's purse, so bring proof to Marshal Marris. Your {pet} is not, strictly speaking, a citizen, {class}, but the court will overlook it, so long as it doesn't eat one." },
       },
       choices = {
         { text = "I'll bring proof to the Marshal, as the law asks.", next = "BACK", fx = { align = { order = 1 } } },
@@ -477,7 +477,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Smoke, first, because it means orcs, and dogs barking, because it means gnolls. The condors are only birds, but they circle where something's died, so I watch them too." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps its eye on the hills same as me, {class}. I'd sign it up for the guard if it could hold a spear." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Smoke, first, because it means orcs, and dogs barking, because it means gnolls, and condors circling where something's died. Your {pet} keeps its eye on the hills same as me, {class}, and I'd sign it up for the guard if it could hold a spear." },
       },
       choices = {
         { text = "I'll report anything I find to the guard.", next = "BACK", fx = { align = { order = 1 } } },
@@ -700,7 +700,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The best, love, though half of them are lies and the other half are worse. There's one about a boar called Bellygrub who ate a guard's boot right off his foot, and I've heard it told twelve different ways." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a sweetheart, love, and I'll not hear a word against it. Would it like a bit of ham?" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The best, love, though half of them are lies, like the one about Bellygrub eating a guard's boot right off his foot. Your {pet} is a sweetheart, and I'll not hear a word against it. Would it like a bit of ham?" },
       },
       choices = {
         { text = "I'll tell only true stories, Darcy.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1169,7 +1169,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Tarantula legs, goretusk flank and condor, and don't make that face, because it's the best stew in Redridge. The soldiers don't care what's in it, so long as it's hot and there's plenty." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will want a bowl of its own, {class}, and it can have one when you bring me back enough for the soldiers." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tarantula legs, goretusk flank and condor, and don't make that face, because it's the best stew in Redridge. Your {pet} will want a bowl of its own, {class}, and it can have one when you bring me back enough for the soldiers." },
       },
       choices = {
         { text = "I'll bring what you need. The soldiers come first.", next = "BACK", fx = { align = { honor = 1 } } },

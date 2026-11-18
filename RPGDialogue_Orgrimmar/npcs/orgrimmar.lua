@@ -112,7 +112,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They did, and they taught me that a Frostwolf rider never cages his wolf and never rides one that has not chosen him. A hunter who remembers that will never want for a loyal companion, and the Horde could stand to remember it too." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches me the way a Frostwolf watches a stranger, which is to say wisely. Treat it as kin, {class}, and it will stand by you when others will not." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They did, and they taught me that a Frostwolf rider never cages his wolf and never rides one that has not chosen him. Your {pet} watches me the way a Frostwolf watches a stranger, which is to say wisely, so treat it as kin, {class}." },
       },
       choices = {
         { text = "My companion is my equal, Warchief, not my servant.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1167,7 +1167,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Beasts have honest noses, and the Cleft smells of things that were summoned rather than born. Pay it no mind, my friend; the warlocks keep their pets on short leashes, which is more than I can say for some hunters I've met in the Drag." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps looking at me, doesn't it? Animals are such poor judges of character, and I've always found that rather charming." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Beasts have honest noses, and the Cleft smells of things that were summoned rather than born. Your {pet} keeps looking at me the same way, doesn't it? Animals are such poor judges of character, and I find that rather charming." },
       },
       choices = {
         { text = "I trust my beast's nose more than any warlock's word.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1548,7 +1548,7 @@ P:NPC {
       lines = {
         { id = "hu_default", text = "A hunter! Then you're the only kind of guest who brings meat into my inn instead of just taking it out. Hang it by the spit and tell me where you shot it, because I like to know whose kodo I'm roasting." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "And {pet} wants the bones, I can see it in those eyes. Go on, then, one bone, and don't tell the grunts I'm soft." },
+          text = "A hunter! Then you're the only kind of guest who brings meat into my inn instead of just taking it out. Hang it by the spit, and yes, {pet} can have one bone, but don't tell the grunts I'm soft." },
       },
       choices = { { text = "Out past the Crossroads, in the Barrens.", next = "BACK", fx = { affinity = 2 } } },
     },
@@ -1644,7 +1644,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hunt? I used to run plainstriders through the grass of Mulgore with my brothers, and I could bring one down faster than any of them. Now the only thing I track is the ale barrel, and Tazan says I'm losing the scent of that too." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours is the only one in Orgrimmar who's looked at me kindly all week. Can it stay a while? It's warmer than the floor." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I used to run plainstriders through the grass of Mulgore with my brothers, faster than any of them. Now I only track the ale barrel, and that {pet} of yours is the only one in Orgrimmar who's looked at me kindly all week." },
       },
       choices = {
         { text = "Get up, Gamon. A hunt would do you good.", next = "BACK", fx = { align = { honor = 1 } } },

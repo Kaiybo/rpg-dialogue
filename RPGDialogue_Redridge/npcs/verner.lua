@@ -65,7 +65,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not unless you've seen it lying about in the hills, and you might have, because the gnolls loot every cart they catch. If you find any scrap on their bodies, bring it to me, and I'll make something useful of it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better claws than my best horseshoe nails, {class}, and I'm a little jealous of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not unless you've seen it lying about in the hills, so bring me any scrap you find on the gnolls. Your {pet} has better claws than my best horseshoe nails, {class}, and I'm a little jealous of it." },
       },
       choices = {
         { text = "I'll bring you every scrap I find.", next = "BACK", fx = { align = { honor = 1 } } },

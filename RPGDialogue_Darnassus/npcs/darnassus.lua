@@ -116,7 +116,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They do, and they always have. In Ashenvale the Warsong cut deeper every season, and a hunter who reads the forest can find their scouts before they find us; Shandris Feathermoon would tell you the same, and more sharply." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches me as the Sentinels' nightsabers do, calmly and missing nothing. Keep it close, for Elune gave us such companions so that none of us would walk the dark alone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They do, and they always have, for a hunter who reads the forest can find the Warsong scouts before they find us. Your {pet} watches me as the Sentinels' nightsabers do, calmly and missing nothing, so keep it close." },
       },
       choices = {
         { text = "I'll serve where the Sentinels place me.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1119,7 +1119,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A druid becomes the bear for a while and must remember how to come back, which is harder than it sounds. A hunter stays who they are and earns the beast's trust instead, and I sometimes think yours is the humbler path." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} trusts you; I can see it in how it sits. That trust is not something any druid can take by changing shape, and you should be proud of it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A druid becomes the bear for a while, while a hunter stays who they are and earns the beast's trust instead. Your {pet} trusts you; I can see it in how it sits, and no druid can take that by changing shape." },
       },
       choices = {
         { text = "My companion is my equal, not my tool.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1421,7 +1421,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "She does, for she lights the paths you walk at night and the eyes of every beast you follow. Take only what the hunt needs and thank her for the rest, and she will not turn her face from you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And over your {pet} as well, little star, for the moon shines on the beasts as freely as on us. Let it rest by the pool a while; the Sisters won't mind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "She does, for she lights the paths you walk at night and the eyes of every beast you follow. She watches over your {pet} as well, little star, so let it rest by the pool a while." },
       },
       choices = {
         { text = "I thank Elune for every hunt.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1958,7 +1958,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It may, so long as it doesn't sharpen its claws on the posts, because this inn is part of a living tree and the druids notice. Most companions settle well enough once they stop looking over the railing." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can have the rug by the hearth, if it's the sleeping sort. Just keep it away from the railing, because the drop does strange things to animals." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It may, so long as it doesn't sharpen its claws on the posts, because this inn is part of a living tree. Your {pet} can have the rug by the hearth, but keep it away from the railing, because the drop does strange things to animals." },
       },
       choices = {
         { text = "My companion will respect the tree, as I do.", next = "BACK", fx = { align = { order = 1 } } },

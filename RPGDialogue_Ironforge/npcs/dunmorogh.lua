@@ -272,7 +272,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Wolves, mostly, an' the boars that root about the hills, fer they're fat an' slow an' good practice. Once ye can bring down a boar wi' one shot, ye'll be ready fer the troggs, an' no' before." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} looks keen enough, though I'd keep it off the mail sacks if I were ye." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wolves, mostly, an' the boars that root about the hills, fer they're fat an' slow an' good practice. Yer {pet} looks keen enough fer them, though I'd keep it off the mail sacks if I were ye." },
       },
       choices = {
         { text = "I'll practise on the boars until I'm ready.", next = "BACK", fx = { align = { order = 1 } } },
@@ -705,7 +705,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, the wolves an' the boars an' the bears, an' they leave the bones in heaps outside Frostmane Hold. If ye want tae know how many trolls there are, count the bones, for a troll eats more than three dwarves." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' keep yer {pet} close, for the trolls would eat it too, an' they'd no' be fussy about the recipe." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, the wolves an' the boars an' the bears, an' they leave the bones in heaps outside Frostmane Hold. Keep yer {pet} close, for the trolls would eat it too, an' they'd no' be fussy about the recipe." },
       },
       choices = {
         { text = "I'll count their bones and report honestly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -992,7 +992,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Would I? {g:Lad|Lass}, I'd buy them by the cartload, for the patrons want their ribs an' my supplier's off wi' the King's army. Crag boar's best, fresh an' fat, an' if ye bring me the rough cuts I'll know, so bring me the good ones." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "An' yer {pet} can have the scraps, if it'll keep its nose out o' the vats." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would I? {g:Lad|Lass}, I'd buy them by the cartload, an' crag boar's best, fresh an' fat. Yer {pet} can have the scraps, if it'll keep its nose out o' the vats." },
       },
       choices = {
         { text = "I'll bring you the best cuts, every time.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1269,7 +1269,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, though they're up an' out before the sun, an' they come back wi' snow on their boots an' a boar over their shoulders. I've learned tae keep a bucket by the door for the meltwater, an' a bone for whatever's followin' them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "There's a bone behind the bar for yer {pet}, if it'll wait politely, which most o' them do for a bone." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, though they're up an' out before the sun an' back wi' snow on their boots an' a boar over their shoulders. There's a bone behind the bar for yer {pet}, if it'll wait politely, which most o' them do for a bone." },
       },
       choices = {
         { text = "I'll wipe my boots and keep the beast quiet.", next = "BACK", fx = { align = { order = 1 } } },

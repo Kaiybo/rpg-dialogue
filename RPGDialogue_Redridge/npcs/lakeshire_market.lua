@@ -73,7 +73,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boars, mostly, rooting up the windfalls, and they've grown fat and bold since the farmers fled. I'd not mind a boar or two, but they've started knocking the young trees down, and those take years to grow back." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like it'd enjoy an apple, {class}, though I'd rather it didn't eat the whole crate. Here, a small one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boars, mostly, rooting up the windfalls and knocking the young trees down now that the farmers have fled. Your {pet} looks like it'd enjoy an apple, {class}, so here, a small one, but not the whole crate." },
       },
       choices = {
         { text = "I'll clear the boars and spare the trees.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -228,7 +228,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every one, every time, and anyone who tells you otherwise has never put an arrow through a goretusk's hide. A dull arrowhead skids off the bone, and a skidding arrow means a charging boar." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has teeth that could use a whetstone too, {class}, though I'd not try sharpening them myself." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every one, every time, because a dull arrowhead skids off the bone, and a skidding arrow means a charging boar. Your {pet} has teeth that could use a whetstone too, {class}, though I'd not try sharpening them myself." },
       },
       choices = {
         { text = "I'll keep every arrowhead sharp. A clean kill matters.", next = "BACK", fx = { align = { order = 1 } } },
@@ -415,7 +415,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Now and then, a small buckler for the off arm, because a boar's tusk will open you up quick if you've nothing to catch it on. Most of them laugh until they've been gored once." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a fine shield in its own right, {class}, and it doesn't need striking to prove it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now and then, a small buckler for the off arm, because a boar's tusk will open you up quick. Your {pet} is a fine shield in its own right, though, {class}, and it doesn't need striking to prove it." },
       },
       choices = {
         { text = "I'll take a buckler. Better safe than gored.", next = "BACK", fx = { align = { order = 1 } } },
@@ -596,7 +596,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The same fish and more besides, and they'll take a fisherman's catch straight off his line if he's slow reeling in. A hunter who could thin them out along the shore would have every angler in Lakeshire buying him a drink." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is watching the water like it wants to dive in, {class}, and I'd keep hold of it, because the murlocs bite." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The same fish and more besides, and they'll take a catch straight off your line if you're slow reeling in. Your {pet} is watching the water like it wants to dive in, {class}, so keep hold of it, because the murlocs bite." },
       },
       choices = {
         { text = "I'll thin the murlocs so the anglers can fish.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -774,7 +774,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "One arrow behind the shoulder, and none of this hacking at the haunch, because it ruins the meat. The goretusks up in the hills are big enough to take three arrows, so make the first one count." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks like a fine hunter, {class}, and I'd wager it knows more about a clean kill than half the men who bring me meat." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "One arrow behind the shoulder, and none of this hacking at the haunch, because it ruins the meat. Your {pet} looks like a fine hunter, {class}, and I'd wager it knows more about a clean kill than half the men who bring me meat." },
       },
       choices = {
         { text = "One clean arrow, and nothing wasted.", next = "BACK", fx = { align = { order = 1 } } },
@@ -926,7 +926,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They eat what I can carry to them, which isn't enough, and what they can hunt, which is less. If you'd leave a haunch at a watchtower now and then, I'd count it the kindest thing anyone's done for them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks better fed than the soldiers at the towers, {class}, and I mean that kindly, though it does make me sad." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They eat what I can carry to them, which isn't enough, so leave a haunch at a watchtower now and then if you can. Your {pet} looks better fed than the soldiers at the towers, {class}, and I mean that kindly, though it does make me sad." },
       },
       choices = {
         { text = "I'll leave them game whenever I pass.", next = "BACK", fx = { align = { honor = 1 } } },
