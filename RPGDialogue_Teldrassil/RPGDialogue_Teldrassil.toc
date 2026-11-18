@@ -25,3 +25,5 @@ npcs\amara.lua
 npcs\erelas.lua
 npcs\aldrassil_forever.lua
 npcs\more_folk.lua
+npcs\missed.lua
+npcs\missed2.lua
