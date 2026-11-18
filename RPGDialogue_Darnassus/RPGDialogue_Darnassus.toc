@@ -25,4 +25,5 @@ npcs\dorion.lua
 npcs\prejudices.lua
 npcs\teuren.lua
 npcs\more_folk.lua
+npcs\more_folk2.lua
 directions.lua
