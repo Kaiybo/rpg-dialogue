@@ -1301,7 +1301,7 @@ P:NPC {
   bible = "bibles/benedictus.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "gentle" }, values = { "pious", "patient" },
   spiritSensitive = true,
-  notices = { "light", "form" },
+  notices = { "light", "form", "race" },
   impression = {
     first = "Brother Joshua teaches beside the altar because people listen better near it, and I suspect he's right. He has watched the first light come through the east window for years and never tired of it.",
     third = "{name} met Brother Joshua, a quiet priest trainer who teaches beside the Cathedral's altar.",
@@ -1315,6 +1315,8 @@ P:NPC {
   notice = {
     { id = "n_shadow", cat = "form", when = { form = "shadow" },
       text = "Shadowform, at the altar? The altar doesn't mind, but I'll pray for you twice, once for each road you're walking." },
+    { id = "n_dwarf_priest", cat = "light", when = { race = "Dwarf", class = "PRIEST" },
+      text = "A dwarven priest. Your people came to the Light through our missionaries, and I've often thought you've kept it more plainly than we have, which I mean as praise." },
   },
 
   start = "hello",
@@ -1397,6 +1399,7 @@ P:NPC {
       },
     },
     hello = {
+      hub = true,
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, at first light. Your order has sworn its oaths at altars like this one, so you'll know how the morning lies across the stone." },
         { id = "h_default", key = true, text = "Brother Joshua. I teach by the altar, because people pay attention near it. They don't always notice they're doing it." },
@@ -1411,11 +1414,25 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage, by the altar. Come and stand in the window's light a moment, it's warmer than any fire you can conjure." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "People listen better near the altar, I've found. I wonder whether your spirits listen better near the earth." },
       },
-      again = { { id = "h_again", text = "Something else?" } },
+      again = {
+        { id = "h_again", text = "Something else?" },
+        { id = "h_again2", text = "Ask what you like. The altar and I have all morning." },
+        { id = "h_again3", text = "Go on, friend. I'll listen, which you'll remember is the part I said people skip." },
+      },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why teach by the altar?", next = "altar" },
         { text = "I've seen you at prayer often, Brother.", next = "pray" },
+        { text = "What do you teach the novices first?", next = "teach" },
+        { text = "Where did you learn to pray yourself?", next = "northshire" },
+        { text = "Who else teaches here in the Cathedral?", next = "cathedral_folk" },
+        { text = "There's a Scarlet Crusader recruiting downstairs.", next = "crusade" },
+        { text = "You look like you've been up since well before dawn.", next = "dawn" },
+        { text = "What should a priest know that the spells don't teach?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "Elune's light and yours. Are they so different?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "I was a novice at Northshire, Brother.", next = "xabbey", when = { origin = "human_abbey_novice" } },
+        { text = "I prayed in Lordaeron, before it fell.", next = "xrefugee", when = { origin = "human_lordaeron_refugee" } },
+        { text = "I learned my lessons here, among the Cathedral's pupils.", next = "xgnome", when = { origin = "gnome_cathedral_pupil" } },
         { text = "Is the altar watching me, Brother?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'm not sure what a warrior should listen for at an altar.", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Stillness seems a hard thing for the Light to teach.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -1429,14 +1446,162 @@ P:NPC {
     },
     altar = {
       lines = { { id = "a_default", text = "Because it reminds the students, and me, that none of this is ours. We only borrow it, and we're expected to give it back better." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Give it back better? How?", next = "altar_window" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    altar_window = {
+      big = true,
+      lines = { { id = "aw_default", text = "By healing someone who goes on to heal someone else, mostly, the way the dawn comes through the east window and lights the whole nave, not just the altar. A priest who keeps the Light for himself is a window with the shutters closed." } },
+      choices = {
+        { text = "The Light is meant for everyone, or it's meant for no one.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Some don't deserve healing. A priest must choose.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     pray = {
       lines = { { id = "p_default", text = "Badly, and often. Mostly I say thank you and then I listen. The listening is the part people skip." } },
       choices = {
         { text = "Listening is the part I skip, so I'll try harder.", next = "BACK", fx = { align = { light = 1 }, trait = { pious = 1 } } },
         { text = "I'd rather talk than listen, and the Light can wait its turn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What do you hear, when you listen?", next = "pray_listen" },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    pray_listen = {
+      lines = { { id = "pl_default", text = "Nothing, most mornings, and I've come to think the nothing is part of the answer. Now and then there's a warmth, or a name comes to me, someone I ought to visit, and I've learned to go when it does." } },
+      choices = {
+        { text = "A name? Whose, the last time?", next = "pray_name" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pray_name = {
+      lines = { { id = "pn_default", text = "A widow in the Canals I hadn't seen in a year, and when I knocked she'd been sitting in the dark since morning, with nobody to tell. I don't claim it was the Light that sent me, but I don't claim it wasn't, either." } },
+      choices = {
+        { text = "It was the Light, Brother. I'm sure of it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Or simply a good man's memory.", next = "BACK" },
+      },
+    },
+
+    -- Teaching
+    teach = {
+      lines = { { id = "t_default", text = "To look at the person and not the wound, before I teach them a single word of healing. The wound is the easy part; it's the frightened face above it that a priest has to reach." } },
+      choices = {
+        { text = "Have you ever lost a student?", next = "teach_fail" },
+        { text = "What do you teach them second?", next = "teach_face" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teach_face = {
+      lines = { { id = "tf_default", text = "To rest. Novices think the Light will carry them through a third night without sleep, and it won't, because it isn't a mule. A priest who faints in the middle of a battle has helped nobody, however devout he was when he fell." } },
+      choices = {
+        { text = "That's more practical than I expected from a priest.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teach_fail = {
+      big = true,
+      lines = { { id = "tfl_default", text = "One, a bright young woman who went north to Lordaeron with the relief caravans and came back unable to pray at all. She said she'd called on the Light in Andorhal and it hadn't come, and I had no answer for her that she'd accept.",
+          fx = { learn = { "scourge", "andorhal" } } } },
+      choices = {
+        { text = "The Light never left her. She'll find it again.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Maybe it truly didn't come. Faith has its limits.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "What became of her?", next = "teach_after" },
+      },
+    },
+    teach_after = {
+      lines = { { id = "ta_default", text = "She keeps the candles in the side chapel now, every morning, and she won't speak of it. I light one beside her each day, and neither of us says a word, and I'm content to let that be our prayer for now." } },
+      choices = {
+        { text = "That's a gentle sort of patience, Brother.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- His past and the Cathedral
+    northshire = {
+      lines = { { id = "n_default", text = "At Northshire Abbey, as a boy who'd rather be fishing in the river below the vineyards. The brothers there taught me that prayer is mostly showing up, and I showed up mostly for the bread.",
+          fx = { learn = { "northshire_abbey", "brotherhood_northshire" } } } },
+      choices = {
+        { text = "And the prayer took, in the end?", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cathedral_folk = {
+      lines = { { id = "cf_default", text = "High Priestess Laurena, who teaches the hardest lessons and makes them sound easy, and Brother Benjamin, who teaches on his feet and is wearing a groove in the eastern hall. Above us all there's the Archbishop, who I see mostly from a respectful distance." } },
+      choices = {
+        { text = "What's Archbishop Benedictus like, up close?", next = "cathedral_benedictus" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cathedral_benedictus = {
+      lines = { { id = "cb_default", text = "Kind, careful and very tired, I think, with the King away and the whole city looking to the Cathedral for comfort. He remembers every novice's name, and I've never once seen him hurry, which in these days is a sort of miracle." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crusade = {
+      big = true,
+      lines = { { id = "cr_default", text = "Brother Crowley, yes, and he's sincere, which is what troubles me. The Crusade fights the Scourge with real courage, but I've heard what it does to the living it suspects, and a light that only burns isn't one I recognise.",
+          fx = { learn = { "scarlet_crusade" } } } },
+      choices = {
+        { text = "The Scourge must be stopped at any cost. The Crusade understands that.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "A Light that tortures the living isn't the Light at all.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- An observation
+    dawn = {
+      lines = { { id = "d_default", text = "Every day, friend, since I was a novice, because I don't want to miss the first light through that window. I sleep in the afternoons like an old cat, and nobody in the Cathedral thinks any less of me for it." },
+        { id = "d_dawn", when = { timeOfDay = "dawn" }, text = "Since well before, yes, and you've arrived just in time; look at the window now, how the light comes across the floor. I've seen it thousands of times and it still stops me where I stand." },
+      },
+      choices = {
+        { text = "Is it truly never the same?", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    -- Who the player is
+    xpriest = {
+      lines = { { id = "xp_default", text = "That you'll be tired, and frightened, and that people will look to you as though you weren't. The spells are only half of it; the other half is standing in a room full of grief and staying until it's time to go." },
+        { id = "xp_shadow", when = { class = "PRIEST", minLevel = 20 }, text = "That the Light and the shadow are both close at hand to anyone who prays long enough, and that you'll be tempted. I won't lecture you, only remember that the shadow is very good at sounding like comfort." },
+      },
+      choices = {
+        { text = "I'll remember that, Brother.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf = {
+      lines = { { id = "xn_default", text = "I don't know, and I find I'm glad not to. A sister of Elune prayed here once, at dawn, and when I asked her what she felt, she said it was like hearing a friend's voice in another room, and I've thought about that ever since.",
+          fx = { learn = { "elune" } } } },
+      choices = {
+        { text = "Then we're praying in neighbouring rooms, Brother.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Elune is not your Light, Brother.", next = "BACK" },
+      },
+    },
+    xabbey = {
+      lines = { { id = "xa_default", text = "Then we've walked the same cloister and probably dodged the same wasps in the vineyard. Do they still ring the bell late on feast days, because the brother who rings it falls asleep at dinner?" },
+      },
+      choices = {
+        { text = "Every single feast day.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I couldn't say. I kept to my studies.", next = "BACK" },
+      },
+    },
+    xrefugee = {
+      lines = { { id = "xr_default", text = "Then you'll have prayed where the Light was hardest to hear, and you're still praying, or you'd not have come to this altar. Sit a while, if you like; nobody here will ask you what you saw." },
+      },
+      choices = {
+        { text = "Thank you, Brother. I'll sit.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'd rather not speak of it.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = { { id = "xg_default", text = "I remember you, I think, the little one who asked whether the Light could be measured, and if so, in what units. I never had an answer, and I've been rather hoping you'd come back with one." },
+      },
+      choices = {
+        { text = "Still working on it, Brother.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Some things don't measure, I've learned.", next = "BACK" },
       },
     },
   },
@@ -1445,6 +1610,7 @@ P:NPC {
     holy_light = { { id = "tp_holy_light", text = "I teach here beside the altar because I've watched the first light come through that window every morning for years. Every time, it reminds me the Light comes back whether we deserve it or not." } },
     scourge = { { id = "tp_scourge", text = "The Scourge is a darkness that doesn't sleep, and I've seen priests come home from Lordaeron who'd forgotten how to pray. I sit with them, and sometimes they remember, and sometimes they don't." } },
     brotherhood_northshire = { { id = "tp_brotherhood_northshire", text = "The Brotherhood at Northshire are good people, and they taught me how to pray when I was a boy who'd rather be fishing. I still go back now and then, mostly for the bread." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade", text = "Brave people, and frightened ones, and I've learned that the two together can do terrible things in the Light's name. I pray for them, and I pray for whoever they've decided is unclean." } },
     elune = { { id = "tp_elune", text = "The night elves pray to Elune by moonlight, and I've learned to love the quiet of their prayers. I've told them our Light comes with the morning, and they smiled, as if they knew something I didn't." } },
     background = { { id = "tp_bg", text = "A brother of the Cathedral, and nothing else I'd want to be." } },
     advice = { { id = "tp_ad", text = "When you heal someone, look at their face, not the wound. The wound is the easy part." } },
