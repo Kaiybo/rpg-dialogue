@@ -624,3 +624,481 @@ P:NPC {
     _none = { { id = "tp_none", text = "I wouldn't know, dear. Ask me about bread." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Magistrate Marduke: ghost of Caer Darrow's magistrate, who remembers everything and means to unmake Ras Frostwhisper.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "marduke", id = TODO_NPC("Magistrate Marduke"), name = "Magistrate Marduke",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "caer_darrow" }, temper = { "grave", "exact" }, values = { "justice", "dutiful" },
+  notices = { "deeds", "class" },
+  impression = {
+    first = "Magistrate Marduke is a ghost who stands by the door of Scholomance and remembers all of what was done to his town. He has spent his death building a case against the lich who runs the school, and he means to see sentence carried out.",
+    third = "{name} met the ghost of Magistrate Marduke at Caer Darrow, who planned the destruction of Ras Frostwhisper.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Some were spared the anguish that memories provide. I was not, and so I have had time to think." },
+    { id = "g_back", when = { metBefore = true }, text = "You have returned. Good. A magistrate learns to distrust those who promise and are not seen again." },
+    { id = "g_keepsake", when = { questActive = TODO_QUEST("The Human, Ras Frostwhisper") }, text = "A keepsake of remembrance is a rare find, {class}. Have you been to Stromgarde?" },
+    { id = "g_lich", when = { questActive = TODO_QUEST("The Lich, Ras Frostwhisper") }, text = "You carry the means to make him a man again. Then go below, and finish what this town could not." },
+  },
+
+  notice = {
+    { id = "n_schol", cat = "deeds", when = { deed = "dungeon:Scholomance" },
+      text = "You have been inside the school. I can see it on you, as one sees a courtroom on a man who has just been sentenced." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage, properly trained. The one I mean to destroy was a hedge wizard who never earned his robes, and I think that is where his resentment began." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Marduke, magistrate of Caer Darrow, though there is no town left to hear my rulings. The Cult of the Damned made its school beneath us, and I have one case remaining on my docket, against its overseer." },
+        { id = "h_before", when = { minLevel = 55, questBefore = TODO_QUEST("The Human, Ras Frostwhisper") }, text = "The lich Ras Frostwhisper cannot be killed as he is. I mean to rob him of his powers, return him to his mortal form, and then have him slain once and for all. For that I need a keepsake from his years among the living, and his home was Stromgarde." },
+        { id = "h_found", when = { questDone = TODO_QUEST("The Human, Ras Frostwhisper"), questBefore = TODO_QUEST("The Lich, Ras Frostwhisper") }, text = "I had doubted that such an item could exist, and you have set it in my hand. Prepare yourself, {class}, because what I ask of you next will take you into the depths of that school." },
+        { id = "h_done", when = { questDone = TODO_QUEST("The Lich, Ras Frostwhisper") }, text = "Ras Frostwhisper died a man, in the place where he chose to stop being one. The sentence is carried out, and the court of Caer Darrow thanks you, though the court is one old ghost." },
+      },
+      again = {
+        { id = "h_again", text = "Ask. I have nothing but time, and a great deal of evidence." },
+        { id = "h_again2", text = "Go on. I shall answer as exactly as I am able." },
+        { id = "h_again3", text = "Yes? Speak plainly, as before a bench." },
+      },
+      choices = {
+        { text = "Who is Ras Frostwhisper?", next = "ras" },
+        { text = "What is the Cult of the Damned, truly?", next = "cult" },
+        { text = "How do you unmake a lich?", next = "plan" },
+        { text = "What happened to your town?", next = "town" },
+        { text = "I've walked his halls. He's worse than you say.", next = "walked", when = { deed = "dungeon:Scholomance" } },
+        { text = "Was any of this lawful, magistrate?", next = "law", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "Court is adjourned, magistrate.", next = "END" },
+      },
+    },
+    ras = {
+      lines = { { id = "r_default", text = "The overseer of this school, and the one who trains its dark masters. He was a favoured pupil of Kel'Thuzad, and before that a hedge mage of Stromgarde who never had his formal training from Dalaran." } },
+      choices = {
+        { text = "How did such a man become a lich?", next = "ras2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ras2 = {
+      lines = { { id = "r2_default", text = "When Kel'Thuzad opened the Cult, Ras was among the first to join, because he believed dark magic would give him immortality. He rose quickly, and the Lich King himself granted the wish. So you see that he was given exactly what he asked for." } },
+      choices = {
+        { text = "Then he'll get what he's owed, too.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult = {
+      lines = { { id = "c_default", text = "It has grown large in scope. Nearly every city, from the capitals to the small hamlets, has Cult members hidden among its people. They wear a uniform only for ritual, and it is quite possible that you have spoken with one and never known." } },
+      choices = {
+        { text = "Living people, serving the Scourge?", next = "cult2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult2 = {
+      big = true,
+      lines = { { id = "c2_default", text = "Consider which is worth more to Kel'Thuzad: one undead soldier, or a zealous living follower who can work his way into a town and then loose a plague upon thousands. This was always their method, and the Scholomance is where they learn it." } },
+      choices = {
+        { text = "Then every town should be searched.", next = "BACK", reply = "And every neighbour suspected? That is how the Scarlet Crusade began. No. Strike the school, and the pupils have no master.", fx = { align = { order = 1 } } },
+        { text = "You can't purge a town on suspicion.", next = "BACK", reply = "No, you cannot, and I would not sign such an order. That is why we strike at the source instead.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plan = {
+      lines = {
+        { id = "p_default", text = "There are very few ways in which a lich can truly be destroyed, and none of them are open to you or to me. So we do not destroy the lich. We take from him what makes him one, and we kill the man who is left." },
+        { id = "p_active", when = { questDone = TODO_QUEST("The Human, Ras Frostwhisper") }, text = "With the keepsake, a lifestone can be made, and with that he can be forced back into the flesh he threw away. Leonid Barthalomew at Light's Hope Chapel knows more of the working than I do, and you will need him." },
+      },
+      choices = {
+        { text = "And the keepsake makes that possible?", next = "plan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plan2 = {
+      lines = { { id = "p2_default", text = "The undead fear life as the living fear death. Most destroy every remnant of who they were, once turned. If Ras left even one such thing behind in Stromgarde, it is a thread still tied to his mortal self, and I intend to pull on it." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    town = {
+      lines = { { id = "t_default", text = "The Barovs sold the cellars of their house to the Cult, and a sickness came up out of them before there was any Scourge to blame. None survived. Most of my people walk here still, cursed to repeat their last contented hour." } },
+      choices = {
+        { text = "Why were you spared the forgetting?", next = "town2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    town2 = {
+      lines = { { id = "t2_default", text = "I do not know. Rory the fisherman remembers, and the artist, and I. Perhaps it is those of us who suspected something and did too little. I had complaints about that house on my desk for a year, and I was waiting for proof." } },
+      choices = {
+        { text = "You couldn't have known what it was.", next = "BACK", reply = "I could have asked sooner. It is kind of you, and I shall not accept it.", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Then this is your proof, late as it is.", next = "BACK", reply = "Just so. And a late verdict is still a verdict." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    walked = {
+      lines = { { id = "w_default", text = "I do not doubt it. I have only the evidence of what came out of that door, and you have seen what remains within. Tell me one thing for the record. Do the students go to him willingly?" } },
+      choices = {
+        { text = "Willingly, and eagerly. They compete for it.", next = "BACK", reply = "Then they are accomplices, and I shall not mourn them. Let that be entered.", fx = { trait = { honest = 1 } } },
+        { text = "Some looked afraid. I couldn't swear to more.", next = "BACK", reply = "Then some may be victims, and I am glad you said so. A court should know the difference, even at the end.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    law = {
+      lines = { { id = "l_default", text = "A fair question, and I have put it to myself. I am a judge with no court, passing sentence on one who is beyond every statute Lordaeron ever wrote. I have decided that where there is no law, there may still be justice, if it is done soberly." } },
+      choices = {
+        { text = "The Light asks no more than that.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    scholomance = { { id = "tp_schol", text = "The primary source of the Cult's training. Everything that leaves it is a crime not yet committed." } },
+    kelthuzad = { { id = "tp_kt", text = "He came to the Barovs as a gentleman with a proposal. I am told he was very courteous, and I have distrusted courtesy ever since." } },
+    scourge = { { id = "tp_scourge", text = "They came after we were already dead. Do not let anyone tell you that the Scourge destroyed Caer Darrow. Men did it, for a fee." } },
+    _none = { { id = "tp_none", text = "That is outside the matter before me, and I have only the one matter." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Magnus Frostwake: dwarf ghost at Caer Darrow who still sells smithing plans and recipes from a forge long cold.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "magnus_frostwake", id = TODO_NPC("Magnus Frostwake"), name = "Magnus Frostwake",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "caer_darrow" }, temper = { "gruff", "proud" }, values = { "craft", "practical" },
+  notices = { "craft" },
+  impression = {
+    first = "Magnus Frostwake is the ghost of a dwarven smith who kept a forge on Caer Darrow and still sells his plans from it. He believes trade has merely been slow, and he blames the ferry.",
+    third = "{name} met Magnus Frostwake, a dwarven ghost who still sells smithing plans at Caer Darrow.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Aye, come in out of the wind. I've plans and recipes, good ones, and not a customer since I can't say when." },
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "By my beard, a dwarf! Sit ye down, {g:lad|lass}. I've not heard a proper voice on this rock in an age." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Good. You're the only trade I've had all week, and I've stopped counting the weeks." },
+  },
+
+  notice = {
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "Ye've a smith's hands, and ye've burned them on the same spot I did. Then ye'll know my plans are worth what I ask." },
+    { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
+      text = "An alchemist, are ye? I took a few recipes in trade from the academy's own stillroom. I can't make head nor tail of them, but they're genuine." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Magnus Frostwake, smith. I came up from Ironforge to shoe Lord Barov's horses and stayed for the lake air, and I've a fair wee forge here, though the coals have been stubborn of late." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "Magnus Frostwake, of Ironforge, a long time since. Tell me, {g:lad|lass}, does the Great Forge still burn? I've had nae letters, and I've begun to think the post is lost." },
+      },
+      again = {
+        { id = "h_again", text = "Aye? What else are ye after?" },
+        { id = "h_again2", text = "Go on, I've nae other custom to mind." },
+        { id = "h_again3", text = "Speak up, the bellows are loud. Or they were." },
+      },
+      choices = {
+        { text = "Show me your plans.", next = "BUSINESS" },
+        { text = "What brought a dwarf to Caer Darrow?", next = "why" },
+        { text = "Your forge is cold, Magnus.", next = "cold" },
+        { text = "What do you make of the Barovs?", next = "barovs" },
+        { text = "The Great Forge still burns. Ironforge stands.", next = "home", when = { race = "Dwarf" } },
+        { text = "Where did you learn these designs?", next = "designs", when = { profession = "Blacksmithing" } },
+        { text = "Good trading, Magnus.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Coin, at first. The Barovs keep forty horses and wanted a dwarf to shoe them, for the look of the thing. Then I found the fishing was good and the ale tolerable, and a smith with steady work doesn't go looking for more." } },
+      choices = {
+        { text = "Do you miss the mountain?", next = "why2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why2 = {
+      lines = { { id = "w2_default", text = "Every winter, when the lake freezes and looks a wee bit like Loch Modan. I keep meaning to go back for a visit. But there's always another order, and the ferryman's been unreliable. I'll go in the spring." } },
+      choices = {
+        { text = "In the spring, then.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cold = {
+      lines = { { id = "c_default", text = "Cold? It's banked, that's all. I've had trouble getting it to draw, I'll grant ye. The charcoal's damp, or the wind's wrong. I'll have it roaring by supper, ye'll see." } },
+      choices = {
+        { text = "I'm sure you will.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "It's been cold for years. You died here.", next = "cold2" },
+      },
+    },
+    cold2 = {
+      big = true,
+      lines = { { id = "c2_default", text = "Died? Dinnae talk daft. A dwarf knows when he's dead, there's a hall and ancestors and a great deal of drink. I'm standing in my own smithy with a customer. Now are ye buying, or are ye here to upset an old man?" } },
+      choices = {
+        { text = "Buying. Forget I spoke.", next = "BACK", reply = "Aye, well. Nae harm done. Have a look at the plans.", fx = { align = { honor = -1 } } },
+        { text = "You deserve the truth, even unwelcome.", next = "BACK", reply = "Then ye've said it, and I've heard it, and I'll thank ye to leave it there. I've work to do.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    barovs = {
+      lines = { { id = "b_default", text = "They pay, and that's the best I'll say. The old lord's grown strange, and there are robed fellows up at the house who order odd things. Hooks, and wee saws, and manacles sized for a child. I made the first lot. I'll nae make a second." } },
+      choices = {
+        { text = "You refused them?", next = "BACK", reply = "I told them the iron was short. A dwarf doesn't lie, as a rule, but there's a time for a thing being short.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = { { id = "h2_default", text = "Does it! Och, that's the best word I've had in years. And King Magni, he's well? Good. Then all's as it should be under the mountain, and I can stop fretting. Ye've done an old smith a kindness, {g:lad|lass}." } },
+      choices = {
+        { text = "He's well. The city's as proud as ever.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    designs = {
+      lines = { { id = "d_default", text = "Half from my old master in the Great Forge, and half worked out here on long nights. There's a balance to a blade that nae plan can give ye, mind. Follow the drawing, and then pick it up, and if it doesn't sit right, start again." } },
+      choices = {
+        { text = "Start again. That's the hard part.", next = "BACK", reply = "It's the only part. The rest is just hitting things.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    magni = { { id = "tp_magni", text = "A fine king, and a better smith than most kings. I saw him at the anvil once, when I was an apprentice." } },
+    scholomance = { { id = "tp_schol", text = "The academy under the big house? Their stewards buy lamp brackets, and pay in old coin. I don't ask what they're studying." } },
+    advice = { { id = "tp_ad", text = "Never quench in a hurry. A blade remembers how it was treated." } },
+    background = { { id = "tp_bg", text = "Ironforge born, Caer Darrow by choice. I've shod every horse on this island, and a few of the lords." } },
+    _none = { { id = "tp_none", text = "Cannae help ye. If it's nae iron, ask the magistrate; he knows everything and enjoys none of it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Melia: child ghost of Caer Darrow, forever racing Sammy round the fountain.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "melia_darrow", id = TODO_NPC("Melia"), name = "Melia",
+  bible = "bibles/more_folk.md", role = "child", tier = "service",
+  communities = { "caer_darrow" }, temper = { "bossy", "bright" }, values = { "play", "fair" },
+  notices = { "pet", "class" },
+  impression = {
+    first = "Melia is the ghost of a small girl who races her friend Sammy around Caer Darrow's fountain and wins more often than he thinks is fair. She does not know anything is wrong, except that the grown-ups have gone quiet.",
+    third = "{name} met Melia, the ghost of a little girl still playing by the fountain at Caer Darrow.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Ready. Set. Oh! You made me lose my count. Are you racing, or are you just standing there?" },
+    { id = "g_back", when = { metBefore = true }, text = "It's you again! I've beaten Sammy two more times since you went, and he says he wasn't ready, but he was." },
+    { id = "g_tall", when = { race = { "Tauren", "Orc", "NightElf" } }, text = "You're very big. You can't race, it wouldn't be fair, but you can say go." },
+  },
+
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = true },
+      text = "Is that yours? Can I pat it? Sammy, look! Mother says I'm not to touch strange animals, but that one looks sensible." },
+    { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
+      text = "You look like the priest who comes over on the ferry. He gave me a sweet once. Have you got any sweets?" },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Melia. That's Sammy, and he's my best friend, but he cheats. We're racing round the fountain, best two out of three, and I'm winning." },
+        { id = "h_gnome", when = { race = "Gnome" }, text = "I'm Melia. You're the same size as me! Are you a grown-up? You can race if you like, but Sammy has to say go, because I said it last time." },
+      },
+      again = {
+        { id = "h_again", text = "What? Hurry up, we're about to go again." },
+        { id = "h_again2", text = "Ask me quick. Sammy's getting a head start, I can tell." },
+        { id = "h_again3", text = "Yes? I'm listening. I'm also watching Sammy." },
+      },
+      choices = {
+        { text = "Who's winning?", next = "winning" },
+        { text = "Where are your mother and father?", next = "parents" },
+        { text = "It's very quiet on the island today.", next = "quiet" },
+        { text = "I'll say go for you.", next = "go" },
+        { text = "I'll race you. I'm your size.", next = "race", when = { race = { "Gnome", "Dwarf" } } },
+        { text = "Have a sweet, Melia.", next = "sweet", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Go and play, Melia.", next = "END" },
+      },
+    },
+    winning = {
+      lines = { { id = "w_default", text = "Me. I've won lots of times, and Sammy's only won when I tripped on the loose stone, which doesn't count. He says I start before go. I don't. I start on the guh." } },
+      choices = {
+        { text = "Starting on the guh is cheating a little.", next = "winning2" },
+        { text = "That sounds fair to me.", next = "winning2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    winning2 = {
+      big = true,
+      lines = { { id = "w2_default", text = "Well, he pushes at the corner, so it's even. Anyway, we're friends again after. We're always friends again after. Father says that's the main thing about racing, but I think the main thing is winning." } },
+      choices = {
+        { text = "Your father's right. Friends come first.", next = "BACK", reply = "That's what grown-ups always say. I'll let Sammy win one. Maybe.", fx = { align = { honor = 1 } } },
+        { text = "You're right. Win if you can.", next = "BACK", reply = "See! I'm telling Sammy a grown-up said so.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    parents = {
+      lines = { { id = "p_default", text = "Father's at the big house. He works for Lord Barov, carrying things down to the cellars. Mother's got a cough and she's lying down. She said to go and play and not come in till supper, so I'm playing ever so hard." } },
+      choices = {
+        { text = "Has she had the cough long?", next = "parents2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    parents2 = {
+      lines = { { id = "p2_default", text = "Since the day before the day before yesterday. Lots of people have got it. Baker Masterson gave me a roll to take home for her, and she said it tasted funny, but she ate it to be polite. It'll be supper soon, won't it? It's been nearly supper for ages." } },
+      choices = {
+        { text = "Soon, I'm sure. Keep playing.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quiet = {
+      lines = { { id = "q_default", text = "It is, isn't it? Nobody's shouted at us to stop running. Usually the magistrate comes out and says the square isn't a racetrack. He just stands by the school door now and looks sad. I waved, and he waved back, but slowly." } },
+      choices = {
+        { text = "He has a lot on his mind.", next = "BACK", reply = "Grown-ups always do. I'm never going to have things on my mind. I'm going to race." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    go = {
+      lines = { { id = "g2_default", text = "Will you? Say it properly, though. Ready, set, go, and don't say it sneaky like Sammy does. Sammy! Come here, the big one's going to say it!" } },
+      choices = {
+        { text = "Ready. Set. GO!", next = "BACK", reply = "I win! I win! Did you see? Sammy, I won and a grown-up saw!", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    race = {
+      lines = { { id = "r_default", text = "All right! But no magic and no pushing, and you have to go round the fountain twice. Sammy, you say it. Not yet. Not yet! Sammy!" } },
+      choices = {
+        { text = "I let her win by a nose.", next = "BACK", reply = "I beat a grown-up! I beat a grown-up! You're quite fast, though. Best two out of three?", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I ran my best and beat her.", next = "BACK", reply = "HEY! No fair! Your legs are older. Wanna race again? I wasn't ready." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sweet = {
+      lines = { { id = "s_default", text = "Oh! Thank you. I can't taste it very much. I think I've got Mother's cough coming. But I'll save half for Sammy, because he gave me his apple on market day." } },
+      choices = {
+        { text = "That's a good friend to be.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    scholomance = { { id = "tp_schol", text = "That's the school. We're not allowed near it. The big boys who go there never come out to play." } },
+    background = { { id = "tp_bg", text = "I'm seven and three quarters. I live in the house with the blue door, and I can run faster than anybody." } },
+    advice = { { id = "tp_ad", text = "Watch the loose stone by the fountain. It gets you every time." } },
+    _none = { { id = "tp_none", text = "I don't know. Ask a grown-up. They never know either, but they take longer to say so." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Sammy: child ghost of Caer Darrow, Melia's friend, who is sure she cheats and has started to notice things.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "sammy_darrow", id = TODO_NPC("Sammy"), name = "Sammy",
+  bible = "bibles/more_folk.md", role = "child", tier = "service",
+  communities = { "caer_darrow" }, temper = { "earnest", "worried" }, values = { "fair", "loyal" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Sammy is the ghost of a small boy who races Melia around the fountain at Caer Darrow and loses with great dignity. He has noticed more than she has, and he keeps running so that he will not have to think about it.",
+    third = "{name} met Sammy, the ghost of a little boy playing by the fountain at Caer Darrow.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "She cheated! Did you see? You were standing right there, you must have seen." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, hello. I still haven't won. I nearly did, and then she tripped me, by accident she says." },
+    { id = "g_soldier", when = { class = { "WARRIOR", "PALADIN" } }, text = "Are you a real soldier? With a real sword? Can I hold it? Only for a second. I'll be careful." },
+  },
+
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = { "MAGE", "WARLOCK", "PRIEST" } },
+      text = "Are you from the school? No, you're not, your robe's the wrong colour. Good. I don't like the ones from the school." },
+    { id = "n_scourge", cat = "race", when = { race = "Scourge" },
+      text = "You look like the men who carry things out of Lord Barov's cellar at night. But you've got nicer eyes. Are you ill as well?" },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Sammy. I'm racing Melia, and she always says go when she's already going. I'm not cross. I just think there should be rules." },
+        { id = "h_soldier", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } }, text = "I'm Sammy. When I'm big I'm going to be a guardsman like my uncle, up on the wall with the cannon. He lets me polish his helmet. He hasn't come down for his dinner in a long time, though." },
+      },
+      again = {
+        { id = "h_again", text = "What is it? I've got to watch her or she'll start." },
+        { id = "h_again2", text = "Go on. She's tying her shoe, so we've got a minute." },
+        { id = "h_again3", text = "Yes? I'm listening." },
+      },
+      choices = {
+        { text = "Does Melia really cheat?", next = "cheat" },
+        { text = "Have you noticed anything odd lately?", next = "odd" },
+        { text = "Tell me about your uncle on the wall.", next = "uncle" },
+        { text = "Why don't you like the school?", next = "school" },
+        { text = "Here. Hold the hilt, carefully.", next = "sword", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "I'm not ill, Sammy. I'm only different.", next = "ill", when = { race = "Scourge" } },
+        { text = "Good luck in the race, Sammy.", next = "END" },
+      },
+    },
+    cheat = {
+      lines = { { id = "c_default", text = "She starts early. Every time. And when I say so, she says I pushed her at the corner, and I only pushed her once, a long time ago, and I said sorry. But she's my friend, so I keep racing." } },
+      choices = {
+        { text = "You could refuse to race until she's fair.", next = "cheat2" },
+        { text = "Why keep racing, if it's not fair?", next = "cheat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cheat2 = {
+      big = true,
+      lines = { { id = "c2_default", text = "Because if we stop, there's nothing to do but go home. And it's quiet at home. I'd rather lose. Is that silly?" } },
+      choices = {
+        { text = "No. Stay with your friend. That matters more.", next = "BACK", reply = "That's what I thought. I'll tell her I don't mind losing. She won't believe me.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A bit. Rules matter, even between friends.", next = "BACK", reply = "I know. I'll say it to her again. She'll say guh isn't the same as go.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    odd = {
+      lines = { { id = "o_default", text = "The ferry hasn't come. And the birds have stopped. And I knocked at the baker's and he gave me a bun, and it was the same bun as yesterday, I'm nearly sure, with the same burnt bit." } },
+      choices = {
+        { text = "Have you told anyone?", next = "odd2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    odd2 = {
+      lines = { { id = "o2_default", text = "I told Rory, the fisherman, because he listens. He went all quiet, and then he said I was a sharp lad and I should go and play as long as I could. So I am. I don't think he meant it in a nice way, but he gave me a fish hook." } },
+      choices = {
+        { text = "He meant it kindly, I think.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    uncle = {
+      lines = { { id = "u_default", text = "He's a guardsman. He's got a cannon that can shoot right across the lake, and he's never fired it, not once, because nobody's ever attacked. He says that's the best kind of cannon. I'd fire it, if it was mine." } },
+      choices = {
+        { text = "He sounds like a wise man.", next = "BACK", reply = "He is. He's just a bit slow coming down for dinner. I've saved him a bun." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    school = {
+      lines = { { id = "s_default", text = "The big boys go in and they don't come out to play any more. And there's a tall thin man who walks to the door at night, and the cold comes off him like when you open the ice house. I hid behind the fountain. He looked right at it." } },
+      choices = {
+        { text = "Stay away from that door, Sammy.", next = "BACK", reply = "I will. I do. I told Melia, and she said I made it up to get out of racing.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sword = {
+      lines = { { id = "w_default", text = "Oh! It's heavy. It's really heavy. Uncle's is lighter, I think, or maybe I was littler. When I'm a guardsman I'm going to have one just like this, and nobody's going to make Melia's mother cough any more." } },
+      choices = {
+        { text = "You'll be a fine guardsman.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ill = {
+      lines = { { id = "i_default", text = "Different how? Like the men from the cellar? They don't talk. You talk. So you're a different kind of different. That's all right, then. Do you want to say go for us? Melia won't let me." } },
+      choices = {
+        { text = "Ready. Set. GO!", next = "BACK", reply = "HEY! No fair! She went on the ready! You saw that, didn't you?", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    scholomance = { { id = "tp_schol", text = "I don't like it. It used to have a bell for lessons. Now it hasn't got a bell." } },
+    background = { { id = "tp_bg", text = "I'm eight. I live over the chandler's with my uncle, who's a guardsman, and I'm going to be one too." } },
+    advice = { { id = "tp_ad", text = "If you're racing Melia, go on the ready. It's the only way." } },
+    _none = { { id = "tp_none", text = "I don't know that. I know about racing, and cannons, a bit." } },
+  },
+}
