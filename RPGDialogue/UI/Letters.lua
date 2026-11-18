@@ -270,9 +270,10 @@ function P.Refresh()
   end
 end
 
--- /rpgd letters: open the panel anywhere (handy when a mailbox is far off).
+-- /rpgd letters: show or hide the panel, only while a mailbox is open.
 function P.Toggle()
   if frame and frame:IsShown() then frame:Hide(); return end
+  if not mailOpen then ns.Print(L.LETTERS_NEED_MAILBOX); return end
   if not frame then create() end
   style()
   reading = nil
@@ -289,11 +290,5 @@ ns.On("MAIL_SHOW", function()
 end)
 ns.On("MAIL_CLOSED", closeAtMail)
 ns.Listen("LETTERS_CHANGED", function()
-  if (mailOpen or (frame and frame:IsShown())) and frame then
-    ns.Guard("letters panel", function()
-      if mailOpen then P.Refresh() elseif reading then showLetter(reading) else showList() end
-    end)
-  elseif mailOpen then
-    ns.Guard("letters panel", P.Refresh)
-  end
+  if mailOpen then ns.Guard("letters panel", P.Refresh) end
 end)
