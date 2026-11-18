@@ -998,6 +998,7 @@ P:NPC {
 
 P:NPC {
   key = "renee", id = TODO_NPC("Innkeeper Renee"), name = "Innkeeper Renee",
+  gender = "female",
   bible = "bibles/tirisfal.md", role = "innkeeper", tier = "service",
   communities = { "brill" }, temper = { "gentle" }, values = { "kind", "generous" },
   notices = { "weary", "race" },
@@ -1014,6 +1015,9 @@ P:NPC {
     { id = "g_away_long", when = { away = 60 }, text = "You've been gone {away}, and I was starting to think you'd found yourself a better tavern. Sit down, and the first drink's on the house for coming home." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "One of my regulars couldn't stop talking about you last night, and they don't usually talk at all. Whatever you said to them, it did some good." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Somebody came in here last week muttering about you, and muttering's bad for business. Keep your quarrels out of the Gallows' End, if you please." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "ren_fl_no" } }, text = "Well, aren't you a welcome sight? Sit near the bar, love, where I can keep an eye on you, and I promise it's purely for your own safety." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "ren_fl_yes" }, text = "There's my favourite trouble. I kept your seat at the bar warm, which is quite a feat for someone with no warmth of her own." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "ren_fl_no" }, text = "Just a room and a quiet drink, I remember, and no fuss from me. I'll behave myself, love, mostly." },
   },
 
   notice = {
@@ -1025,6 +1029,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Do I? Well, I've no pulse to give me away and no blush to hide behind, so I suppose my eyes have to do all the work. You've a kind face, love, and you'd be surprised how few of those come through Brill." } },
+      choices = {
+        { text = "Then look all you like, Renee.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "ren_fl_yes" }, clear = { "ren_fl_no" } } } },
+        { text = "No pulse? Then how would I ever know you liked me?", next = "fl_pulse" },
+        { text = "Doesn't a warm-blooded guest make you nervous?", next = "fl_warm", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "You're sweet, but I'm not looking for company.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "ren_fl_no" }, clear = { "ren_fl_yes" } } }, reply = "Then you'll have a room and a quiet drink and no fuss from me, love. The friendly ear stays on offer, though." },
+        { text = "I'd sooner not be stared at, Renee.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "ren_fl_no", "ren_fl_rebuff" }, clear = { "ren_fl_yes" } } }, reply = "Fair enough, love. I'll stare at the glasses instead; they never complain." },
+      },
+    },
+    fl_pulse = {
+      lines = { { id = "flp_default", text = "You'd know because I'd remember how you take your drink, and I'd pour it before you'd sat down, and I'd laugh at your jokes even when they weren't funny. Down here, love, that's as close to a racing heart as any of us gets." } },
+      choices = {
+        { text = "I'd like to see that, Renee.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "ren_fl_yes" }, clear = { "ren_fl_no" } } } },
+        { text = "Let's keep it to the drinks, Renee.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "ren_fl_no" }, clear = { "ren_fl_yes" } } }, reply = "The drinks it is. I'll still remember how you take it, mind; that's only good service." },
+      },
+    },
+    fl_warm = {
+      lines = { { id = "flw_default", text = "Nervous? Love, you're the warmest thing that's sat in this tavern in months, and I've half a mind to warm my hands on you like a hearth. Don't fret, I'll ask first, and I'll take no for an answer." } },
+      choices = {
+        { text = "Ask away, Renee. The answer's yes.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "ren_fl_yes" }, clear = { "ren_fl_no" } } } },
+        { text = "No, I think, but thank you for asking.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "ren_fl_no" }, clear = { "ren_fl_yes" } } }, reply = "Then I'll warm them by the fire like a proper innkeeper. Thank you for being gentle about it." },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Careful, love, or I'll start remembering how to flirt properly, and I was dreadful at it the first time round. Come back when the tavern's quiet and I'll sit with you a while and tell you about the girl I was before all this." } },
+      choices = {
+        { text = "I'd like that, Renee.", next = "BACK", reply = "So would I. It's been a long while since anyone asked." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     op_sylvanas = {
       big = true,
       lines = {
@@ -1094,6 +1129,7 @@ P:NPC {
         { text = "I doubt many mages drink at the Gallows' End, Renee.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will you serve a warlock under your roof, Renee?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why do you ask paladins how sure they are, Renee?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "You keep looking over here, Renee.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "ren_fl_rebuff" } } },
         { text = "Just a room, thanks.", next = "END" },
       },
       again = {

@@ -411,7 +411,7 @@ P:NPC {
 
 -- Tally Berryfizz: alchemy trainer at Berryfizz's Potions and Mixed Drinks in Tinker Town.
 P:NPC {
-  key = "if_tally", id = TODO_NPC("Tally Berryfizz"), name = "Tally Berryfizz",
+  key = "if_tally", id = TODO_NPC("Tally Berryfizz"), name = "Tally Berryfizz", gender = "female",
   bible = "bibles/tinker_town_shops.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "eager" }, values = { "curious", "friendly" },
   notices = { "craft" },
@@ -424,6 +424,12 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to Berryfizz's Potions and Mixed Drinks! Potions on the left, drinks on the right, a precise three feet between them, and please don't mix them up." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did that last potion agree with you? I hope so, because I measured it to the drop, and it was meant to." },
+    { id = "g_fl_spill", when = { flirt = true, metBefore = true, chance = 0.4 },
+      text = "Oh! It's you, and I've just spilled a measured dram of peacebloom tincture down my sleeve, which I almost never do. That's the third time this month, and each time you've been standing exactly where you are now." },
+    { id = "g_fl_back", when = { flirt = true, npcFlagBefore = "fl_yes" }, cooldown = "3d",
+      text = "You're back! I've put a cushion on the stool by the bench, raised a precise nine inches, in case you'd like to sit and watch me boil things." },
+    { id = "g_fl_no", when = { flirt = true, npcFlagBefore = "fl_no" }, once = true,
+      text = "Welcome back! Potions on the left, drinks on the right, and no more clumsy remarks from me; I've written that down, so it must be true." },
   },
 
   notice = {
@@ -546,7 +552,35 @@ P:NPC {
         { text = "Do you ever brew anything to protect others, Tally?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Why does your shop smell of sulfur, Tally?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Does a shaman pick herbs differently, Tally?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You've measured that same vial three times, Tally.", next = "fl_vial", when = { flirt = true } },
         { text = "Goodbye, Tally.", next = "END" },
+      },
+    },
+    fl_vial = {
+      lines = {
+        { id = "fl_vial_default", text = "Have I? Oh dear, I have. I've been working out a little formula for how much nicer the shop is when you're in it, and I keep getting a number that's frankly unscientific." },
+        { id = "fl_vial_tall", when = { race = { "Human", "NightElf", "Dwarf" } },
+          text = "Have I? Oh dear, I have. I keep looking up at you and losing count, and I've worked out that the shop is roughly forty percent nicer when you're in it, which is a frankly unscientific result." },
+        { id = "fl_vial_gnome", when = { race = "Gnome" },
+          text = "Have I? Oh dear, I have. You've the steadiest hands I've seen since Gnomeregan, and I've been wondering whether you'd share a pot of tea after closing, purely in the interest of research." },
+      },
+      choices = {
+        { text = "Your numbers sound right to me, Tally.", next = "fl_vial2",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_yes" } } } },
+        { text = "I'd be glad to share that tea, Tally.", next = "fl_vial2", when = { race = "Gnome" },
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_yes" } } } },
+        { text = "Check your sums again, Tally. I'm only a customer.", next = "BACK",
+          reply = "Oh! Yes, of course, a customer, which is a perfectly good thing to be. I'll check my sums at once, and then possibly hide under the bench for a while.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "fl_no" } } } },
+      },
+    },
+    fl_vial2 = {
+      lines = {
+        { id = "fl_vial2_default", text = "Oh! Well, that's very good to hear, and I'm writing it in the margin of my ledger right next to the price of earthroot, so I don't forget it. Now hand me that vial, please, before I drop something that explodes." },
+      },
+      choices = {
+        { text = "Carefully, Tally. I'd like you in one piece.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

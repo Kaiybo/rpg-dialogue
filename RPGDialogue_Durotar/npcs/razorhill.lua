@@ -455,6 +455,7 @@ P:NPC {
 
 P:NPC {
   key = "grosk", id = TODO_NPC("Innkeeper Grosk"), name = "Innkeeper Grosk",
+  gender = "male",
   bible = "bibles/durotar.md", role = "innkeeper", tier = "service",
   communities = { "razor_hill" }, temper = { "dry" }, values = { "practical" },
   notices = { "weary", "drink" },
@@ -469,6 +470,9 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? Your bed's still here, and I've shaken the scorpids out of it at least once." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Somebody came through here grumbling about you, and they drank a good deal while they did it. Whatever you said to them, keep it outside my door." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Folk say you've been doing good work around Razor Hill, and that's worth a free mug. Only the one, mind." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "grosk_fl_no" } }, text = "Sit down. You're the best thing that's come in off the rocks all day, which isn't much of a compliment in Durotar, but it's the best one I've got." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "grosk_fl_yes" }, text = "Back again, and I shook your blanket out twice for scorpids this time. Don't read anything into that, though you're welcome to." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "grosk_fl_no" }, text = "Bed and ale and nothing else, I remember. I've kept my mouth shut about the rest, which is harder than it looks." },
   },
 
   notice = {
@@ -480,6 +484,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "I can, but I save it, because Durotar doesn't give a man much to smile about. Then you walk in with the red dust on your boots, and I find I've spent a whole day's ration of it on you." } },
+      choices = {
+        { text = "Then I'll come by often and use them all up.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "grosk_fl_yes" }, clear = { "grosk_fl_no" } } } },
+        { text = "Is that an orc's idea of sweet talk?", next = "fl_sweet" },
+        { text = "In the camps, nobody had time for this, Grosk.", next = "fl_camps", when = { race = "Orc" } },
+        { text = "Kind of you, Grosk. Just the bed tonight, though.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "grosk_fl_no" }, clear = { "grosk_fl_yes" } } }, reply = "Just the bed. I'll put the smile back where I keep it." },
+        { text = "Save it for the scorpids, Grosk.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "grosk_fl_no", "grosk_fl_rebuff" }, clear = { "grosk_fl_yes" } } }, reply = "Ha! The scorpids don't appreciate it either. Your bed's upstairs." },
+      },
+    },
+    fl_sweet = {
+      lines = { { id = "fls_default", text = "It's the only kind we've got, and it's more than most orcs manage before their third ale. You're lucky I said anything at all, since my father courted my mother by dragging a boar's head to her tent, and she married him for it." } },
+      choices = {
+        { text = "A boar's head? I'll settle for an ale.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "grosk_fl_yes" }, clear = { "grosk_fl_no" } } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fl_camps = {
+      lines = { { id = "flc_default", text = "No, we didn't, and plenty of us walked out of those gates knowing nothing but how to fight and how to work. The Warchief gave us our freedom, so I'm spending a little of it to tell you you've a fine, fierce look about you, and I'll stop there before I make a fool of myself." } },
+      choices = {
+        { text = "Don't stop, Grosk. You're doing fine.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "grosk_fl_yes" }, clear = { "grosk_fl_no" } } } },
+        { text = "Keep your freedom for the ale, Grosk.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "grosk_fl_no" }, clear = { "grosk_fl_yes" } } }, reply = "Fair enough. The ale never complains about how I spend it." },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Then sit where I can see you, and I'll pretend to be busy with the mugs. It's not a boar's head, but it's the best Razor Hill has to offer, and I'm offering it." } },
+      choices = {
+        { text = "I'll take it, Grosk.", next = "BACK", reply = "Good. Don't tell the grunts on the wall, or I'll never hear the end of it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "The old ones mind. They saw that light on the Silver Hand's knights at the camps and they don't forget. The young ones only stare. Pay for your bed, keep the glow down after dark, and nobody will start anything in my inn." } },
@@ -611,6 +646,7 @@ P:NPC {
         { text = "I'd guess few warlocks stop at the inn.", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do many mages stay at your inn, Grosk?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Do the grunts here mind a Forsaken paladin, Grosk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Are you smiling, Grosk? I didn't think you could.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "grosk_fl_rebuff" } } },
         { text = "Just a meal, thanks.", next = "END" },
       },
     },

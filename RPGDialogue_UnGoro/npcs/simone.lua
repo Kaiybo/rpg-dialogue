@@ -6,6 +6,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "simone_inconspicuous", id = TODO_NPC("Simone the Inconspicuous"), name = "Simone the Inconspicuous",
+  gender = "female",
   bible = "bibles/simone.md", role = "citizen", tier = "quest",
   temper = { "cheerful", "sly" }, values = { "vain", "cruel" },
   notices = { "pet", "kin" },
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Well, aren't you a pleasant surprise in all this steam? Come closer, darling; Precious only bites the people I don't like." },
+    { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "My gallant one, back again! I told Precious you'd come, and now he owes me a lizard." },
+    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Oh, it's my sensible friend. Don't worry, darling, I shan't flutter at you today, though it does take a great deal of effort." },
     { id = "g_default", text = "What a wonderful day to be alive, don't you think? Come, stand in the sun with me a while." },
     { id = "g_stave", when = { class = "HUNTER", questActive = TODO_QUEST("Stave of the Ancients") },
       text = "Oh, look at you, all grim and purposeful. I wondered which of you the old tree would send this time." },
@@ -31,6 +35,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    flirt = {
+      lines = { { id = "fl_default", text = "Friendly? Darling, I'm being positively shy. You've strong arms and a long road behind you, and a girl alone in the crater does so like having someone to look after her." } },
+      choices = {
+        { text = "Then I'd gladly look after you, Simone.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "I know a demon's charm when I hear one.", next = "flirt_lock", when = { class = "WARLOCK" }, fx = { trait = { cautious = 1 } } },
+        { text = "You're lovely, but I'll keep my distance.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Sensible, and a little disappointing. Never mind, darling, I'm terribly patient, and the springs aren't going anywhere." },
+        { text = "Save the honeyed words. I'm not interested.", next = "BACK", fx = { affinity = -1, trait = { cautious = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Ooh, prickly! I do like prickly, sweet, but have it your way; Precious will cheer me up, won't you, darling?" },
+      },
+    },
+    flirt_warm = {
+      lines = { { id = "flw_default", text = "How gallant! I knew you'd say yes, darling, because I can always tell. Come and sit by the springs with me one evening, and we'll see whether you're still so brave once the sun goes down." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    flirt_lock = {
+      lines = { { id = "fll_default", text = "Hush, you'll spoil it! Yes, it's a habit of my kind, and it's wasted on someone who keeps one of my sisters bound in a soul shard. Still, you went a little pink just now, darling, and I'm counting that as a win." } },
+      choices = { { text = "I did not. Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Simone, just Simone, a simple jungle troll out enjoying the crater with her wolf. Look at the beauty all around you, friend, the steam and the ferns and the great lizards, and tell me life isn't sweet." },
@@ -56,6 +79,7 @@ P:NPC {
         { text = "Something about you reeks of the Nether.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "The ancient in Felwood sent me for your head.", next = "reveal",
           when = { class = "HUNTER", questActive = TODO_QUEST("Stave of the Ancients") } },
+        { text = "You're very friendly for a stranger, Simone.", next = "flirt", when = { flirt = true } },
         { text = "Enjoy the sunshine, Simone.", next = "END" },
       },
     },

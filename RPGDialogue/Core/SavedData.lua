@@ -25,6 +25,7 @@ SD.ACCOUNT_DEFAULTS = {
     ackChance = 0.35,           -- noticing-moment frequency
     barks = true,
     letters = true,             -- people you've met sometimes write; letters wait at the mailbox
+    flirting = true,            -- people of the opposite sex sometimes flirt with you (condition `flirt`)
     insanityFx = true,
     insanityIntensity = 0.5,
     journalVoice = "first",     -- "first" (diary) | "third" (chronicle)

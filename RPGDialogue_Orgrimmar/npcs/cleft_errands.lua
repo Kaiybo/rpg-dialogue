@@ -332,6 +332,7 @@ P:NPC {
 ---------------------------------------------------------------------------
 P:NPC {
   key = "jesrimon", id = TODO_NPC("Jes'rimon"), name = "Jes'rimon",
+  gender = "male",
   bible = "bibles/cleft_errands.md", role = "questgiver", tier = "quest",
   communities = { "orgrimmar" }, temper = { "smooth", "cheerful" }, values = { "cunning", "greedy" },
   notices = { "class", "purse" },
@@ -343,6 +344,9 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "Ah, you find the stairs, mon, and most folk never even look up. That be the first good sign." },
     { id = "g_tablet", when = { questActive = TODO_QUEST("Delivery to Jes'rimon") }, text = "That be Jediga's package you carryin', me can smell the Azshara salt on it from here. Come, come, set it down gentle." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "jr_fl_no" } }, text = "Jes'rimon been sittin' up here all day waitin' for somethin' worth the view, and here you be, climbin' the stairs like the loa heard me. Come in, come in, and mind the low beam." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "jr_fl_yes" }, text = "There be the one who give Jes'rimon a smile worth more than anything on these shelves. Me been keepin' the good stool by the window for you, mon." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "jr_fl_no" }, text = "Business only, me remember, and Jes'rimon keep his word to a friend. Still, nobody can stop a troll from noticin' when the view improve." },
   },
 
   notice = {
@@ -354,6 +358,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Everyone get a welcome, mon, but not everyone get the good one, and you be gettin' the good one. A fence learn to know a rare piece the moment it come up the stairs, and me not seen one this fine since Jediga send that tablet." } },
+      choices = {
+        { text = "Flatter me some more and I might believe you.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "jr_fl_yes" }, clear = { "jr_fl_no" } } } },
+        { text = "Me grandmother warned me about smooth trolls like you.", next = "fl_yes", when = { race = "Troll" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "jr_fl_yes" }, clear = { "jr_fl_no" } } }, reply = "Your grandmother be a wise woman, mon, and she probably say the same thing about your grandfather." },
+        { text = "I thought Jediga had your heart, Jes'rimon.", next = "fl_jediga" },
+        { text = "I'm flattered, but I'm only here on business.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "jr_fl_no" }, clear = { "jr_fl_yes" } } }, reply = "Business it be, then, and Jes'rimon be a professional, mostly. The good stool by the window stay open all the same, mon." },
+        { text = "Save the honey for your buyers, troll.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "jr_fl_no", "jr_fl_rebuff" }, clear = { "jr_fl_yes" } } }, reply = "Ha! Fair enough, mon, me hear you. Jes'rimon put the honey back on the shelf where it belong." },
+      },
+    },
+    fl_jediga = {
+      lines = { { id = "flj_default", text = "Jediga have Jes'rimon's admiration, mon, and his respect, and a very sharp knife waitin' if he ever forget either one. But she be all the way off in Azshara with the night elf ruins, and a man can still enjoy the scenery close to home." } },
+      choices = {
+        { text = "Then enjoy it while I'm standing here.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "jr_fl_yes" }, clear = { "jr_fl_no" } } } },
+        { text = "I'd rather not come between a troll and his knife-woman.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "jr_fl_no" }, clear = { "jr_fl_yes" } } }, reply = "Smart, mon, very smart. Jediga throw straighter than anybody in the Hand." },
+        { text = "Something else, Jes'rimon.", next = "BACK" },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Flattery be the only thing Jes'rimon give away for nothin', mon, so take all you like. Come up these stairs some night when you not got a package under your arm, and me show you the Drag from the window, when the lanterns be lit and nobody look up." } },
+      choices = {
+        { text = "I might just do that, Jes'rimon.", next = "BACK", reply = "Jes'rimon be right here, mon. He always be right here." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Jes'rimon and the Shattered Hand both bid you welcome, {class}. Don't look so surprised, mon, because even the highest roofs in Orgrimmar throw a shadow, and somebody got to live in it." },
@@ -371,6 +400,7 @@ P:NPC {
         { text = "Where is Un'Goro Crater?", next = "ungoro" },
         { text = "Who buys weapons made of raptor claw?", next = "claws" },
         { text = "Tell me about Jediga.", next = "jediga" },
+        { text = "Do you greet everyone this sweetly, Jes'rimon?", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "jr_fl_rebuff" } } },
         { text = "I'll leave you to your perch.", next = "END" },
       },
     },

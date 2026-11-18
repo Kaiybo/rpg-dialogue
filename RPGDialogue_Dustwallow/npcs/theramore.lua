@@ -1505,6 +1505,7 @@ P:NPC {
 
 P:NPC {
   key = "janene", id = TODO_NPC("Innkeeper Janene"), name = "Innkeeper Janene",
+  gender = "female",
   bible = "bibles/dustwallow.md", role = "innkeeper", tier = "service",
   communities = { "theramore" }, temper = { "steady" }, values = { "loyal", "generous" },
   notices = { "weary", "drink" },
@@ -1515,6 +1516,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Come in out of the damp, love, and let me look at you. My, you clean up nicely for someone who's been wading through Dustwallow all day." },
+    { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "There you are, love! I kept the stool nearest the fire for you, and I told the soldiers it was saved for someone better looking than the lot of them." },
+    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Come in and get dry, love. The soup's on, and I'll keep my compliments for the soup this time." },
     { id = "o_ther_stifle", when = { gossip = { topic = "theramore", stance = "stifling" } }, text = "I hear you told old Nat that Theramore's all soldiers and rules. Well, there's no rule against seconds in my kitchen, so you might want to rethink that." },
     { id = "o_orcs_hate", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "The Lady was quiet over her supper, and I gather it was something you said about the orcs. We don't hold with that sort of talk in this kitchen, love, but sit down and eat anyway." },
     { id = "g_inn", text = "Come in out of the damp. Dustwallow gets into your bones; a hot meal gets it out again." },
@@ -1534,6 +1538,20 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    flirt = {
+      lines = { { id = "fl_default", text = "Am I? Well, I suppose I am, and there's no use pretending otherwise at my age. You've good manners and a good appetite, and in an inn full of soldiers who track the swamp across my floor, someone with both is worth a second look." } },
+      choices = {
+        { text = "Then I'll come back for a third look, Janene.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "You're very kind, but I'm only passing through.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Most folk are, love, and I'd not keep anyone from the road. The soup will be here when you pass through again." },
+        { text = "Save your second looks for the soldiers, innkeeper.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Ha! The soldiers can't afford them. Fair enough, love; you'll get your soup and no more nonsense from me." },
+      },
+    },
+    flirt_warm = {
+      lines = { { id = "flw_default", text = "Listen to you! Go and sit down before I burn the bread, and come back after supper, when the soldiers have gone to their bunks and it's only us and the fire." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "Some grumble, but they grumble about the soup too, and they eat that. In my inn, anyone who keeps the peace gets a bowl, and I'll throw out anyone who says otherwise." } },
@@ -1642,6 +1660,7 @@ P:NPC {
         { text = "Do many of the Silver Hand come through Theramore, Janene?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Sailors are a superstitious lot, Janene.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Do the soldiers here mind sharing a table with me, Janene?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You're kind to everyone, Janene, but you're smiling at me.", next = "flirt", when = { flirt = true } },
         { text = "Just passing through.", next = "END" },
       },
     },

@@ -69,6 +69,7 @@ B.npcGUID = function(ctx) return ctx.unit and C.GUID(ctx.unit) end
 B.npcID = function(ctx) return C.NPCID(ctx.npcGUID) end
 B.npcName = function(ctx) return ctx.unit and C.Name(ctx.unit) end
 B.npcLevel = function(ctx) return ctx.unit and C.Level(ctx.unit) end
+B.npcGender = function(ctx) return ctx.unit and C.Sex(ctx.unit) end
 B.npcElite = function(ctx)
   local c = ctx.unit and C.Classification(ctx.unit)
   return c == "elite" or c == "rareelite" or c == "worldboss"
@@ -219,7 +220,7 @@ Ctx.DUMP_ORDER = {
   "name", "race", "class", "gender", "level", "band", "faction", "guild", "guildRank", "title",
   "money", "durability", "nearlyNaked", "tabard", "hardcore",
   "pvpRank", "pvpRankName", "pvpFlagged", "honorKills", "dishonorKills",
-  "npcName", "npcID", "npcLevel", "npcElite", "npcReaction", "npcSubtitle", "power", "levelDiff",
+  "npcName", "npcID", "npcLevel", "npcGender", "npcElite", "npcReaction", "npcSubtitle", "power", "levelDiff",
   "zone", "subzone", "mapID", "capital", "resting", "atInn", "inInstance", "hour", "tod", "holiday",
   "party", "form", "mounted", "stealthed", "ghost", "pet", "debuffTypes", "resSick", "camping", "drunk", "outOfPlace",
 }

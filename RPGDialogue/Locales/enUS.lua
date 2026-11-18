@@ -411,6 +411,7 @@ L.OPT_GAMEPAD = "Gamepad: D-pad to choose, A to confirm, B to get on with it, X 
 L.LOCKED_MARK = "(Locked)"
 L.OPT_BARKS = "Nearby NPCs speak up now and then"
 L.OPT_LETTERS = "People you've met send letters to your mailbox"
+L.OPT_FLIRTING = "People of the opposite sex sometimes flirt with you"
 L.LETTER_ARRIVED = "A letter from %s is waiting for you at the mailbox."
 L.LETTERS_ARRIVED = "%d letters are waiting for you at the mailbox."
 L.LETTER_JOURNAL = "A letter came from %s: \"%s\"."

@@ -876,6 +876,7 @@ P:NPC {
 -- Aska Mistrunner: the cooking trainer, Kah's sister.
 P:NPC {
   key = "aska", id = TODO_NPC("Aska Mistrunner"), name = "Aska Mistrunner", title = "Cooking Trainer",
+  gender = "female",
   bible = "bibles/townsfolk.md", role = "trainer", tier = "service",
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "generous", "practical" },
   notices = { "profession" },
@@ -887,6 +888,9 @@ P:NPC {
   greetings = {
     { id = "g_hi", text = "You look hungry. Everyone does, but you look hungrier than a kodo at the end of a dry season." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have you been eating properly, or only that dry trail bread?" },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "aska_fl_no" } }, text = "Well, look at you, all shoulders and no supper. Stand where I can see you, because somebody ought to be feeding you properly, and I've decided it might as well be me." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "aska_fl_yes" }, text = "There's my favourite hungry one! I made the plainstrider stew the way you like it, and if anybody on the rise asks, I made it for everyone." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "aska_fl_no" }, text = "Back for a lesson, are you? Good, because I've learned my place, and it's at the cooking pot, not at your elbow." },
   },
 
   notice = {
@@ -896,6 +900,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Every traveller gets fed, but not every one gets fed by me, with the good spices I trade for at Camp Taurajo. The Earth Mother made you fine and strong, and it would shame the whole herd to let you waste away on trail bread." } },
+      choices = {
+        { text = "Then I'd better eat whatever you cook me.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "aska_fl_yes" }, clear = { "aska_fl_no" } } } },
+        { text = "Careful, Aska. A troll eats a great deal.", next = "fl_troll", when = { race = "Troll" } },
+        { text = "Do you flirt with all your pupils, Aska?", next = "fl_pupils" },
+        { text = "I'm grateful, Aska, but let's keep to cooking.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "aska_fl_no" }, clear = { "aska_fl_yes" } } }, reply = "Cooking it is, dear, and no harm done. The pot doesn't mind who's stirring it." },
+        { text = "I can feed myself, thank you.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "aska_fl_no", "aska_fl_rebuff" }, clear = { "aska_fl_yes" } } }, reply = "So you say, and so they all say until they taste my stew. I'll keep my spoon to myself, then." },
+      },
+    },
+    fl_pupils = {
+      lines = { { id = "flp_default", text = "Only the ones who stand up straight and finish their bowls, and precious few of them manage it. Mostly I shout at the young braves about burned pots, so you'd do well to count yourself lucky." } },
+      choices = {
+        { text = "I'll count myself very lucky, Aska.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "aska_fl_yes" }, clear = { "aska_fl_no" } } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fl_troll = {
+      lines = { { id = "flt_default", text = "Good! A troll with an appetite is a fine thing to cook for, and you're taller than most of my braves, which is not a thing I often get to say. I'll need a bigger bowl, and I find I don't mind that one bit." } },
+      choices = {
+        { text = "A bigger bowl it is, then.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "aska_fl_yes" }, clear = { "aska_fl_no" } } } },
+        { text = "The usual bowl will do me fine, Aska.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "aska_fl_no" }, clear = { "aska_fl_yes" } } }, reply = "Hmph. You'll be back for a second, mark my words." },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Good, because a stew is meant for sharing, and I've been cooking for one up here on the bluff for too many seasons. Come by at sundown when the pots are quiet, and I'll show you how to roast kodo the old way, slow, over a low fire." } },
+      choices = {
+        { text = "I'll be there at sundown, Aska.", next = "BACK", reply = "And bring an appetite. I'll know if you've been eating trail bread." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Because the orcs remember the Light from the camps, the trolls watch the dead, and the tauren are curious but cautious. A paladin who brings stew to the campfire gets a seat. That's how it works." } },
@@ -1004,6 +1039,7 @@ P:NPC {
         { text = "What should a druid cook out on the plains, Aska?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I doubt warlocks eat properly, Aska.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Why would a paladin need friends, Aska?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do you fuss over every traveller like this, Aska?", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "aska_fl_rebuff" } } },
         { text = "Farewell, Aska.", next = "END" },
       },
     },

@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.duskwood")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
-  key = "eva", id = TODO_NPC("Madame Eva"), name = "Madame Eva",
+  key = "eva", id = TODO_NPC("Madame Eva"), name = "Madame Eva", gender = "female",
   bible = "bibles/eva.md", role = "questgiver", tier = "quest",
   communities = { "darkshire" }, temper = { "steady" }, values = { "curious", "cunning" },
   spiritSensitive = true,
@@ -20,6 +20,12 @@ P:NPC {
     { id = "g_op_necro_eva", when = { opinion = { topic = "necromancy", stance = "tempting" } }, text = "The cards turned up the Needle when you walked in, and the Lovers reversed beside it. Somewhere, you told someone you'd bring back the dead. Be careful who heard you." },
     { id = "g_expected", text = "Ah, there you are, {name}. The stars said you would come; they did not say you would be so late." },
     { id = "g_back", when = { metBefore = true }, text = "Sit, please. The cards have been restless since you left." },
+    { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "eva_flirt_no" } }, cooldown = "2d",
+      text = "The cards turned up the Lovers this morning, and I laughed, because I'm far too old for them. Then you walked in, and I stopped laughing." },
+    { id = "g_flirt_yes", when = { flirt = true, npcFlagBefore = "eva_flirt_yes" }, priority = 8, cooldown = "1d",
+      text = "My charming one returns! The Lovers have turned up three mornings running, and I've had to hide the deck from Alyssa, who asks far too many questions." },
+    { id = "g_flirt_no", when = { npcFlagBefore = "eva_flirt_no" }, priority = 8, once = true,
+      text = "Sit, child, and we'll read only what the cards are paid to read. An old woman may be forgiven a little mischief, I hope." },
     { id = "g_comb", when = { questActive = TODO_QUEST("Return the Comb") }, text = "You have seen Blind Mary; it is written on your face. Give me the comb, child." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}, child, and the cards would not stop turning up the Wanderer. Now sit, and let us see what the road has written on you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "The stars spoke of a small thing grown great, and I see now they meant you. Your fate has thickened since we last met, child." },
@@ -141,6 +147,10 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest of the Light, at my table. Your Church calls my work superstition, but sit anyway; the cards don't mind being doubted." },
         { id = "h_cards", when = { metBefore = true }, text = "The cards turned up the Tower again this morning, as they always do in Duskwood, and I've stopped charging extra for it." },
+        { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "eva_flirt_no" } }, cooldown = "3d",
+          text = "Come closer to the candle, so I can see your face properly. Ah, yes; the stars did say handsome, but the stars are known to understate." },
+        { id = "h_flirt_yes", when = { flirt = true, npcFlagBefore = "eva_flirt_yes" }, priority = 6, cooldown = "1d",
+          text = "There you are, and the candle leaned toward the door before you opened it. Even the flame has its favourites, child." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The cards showed me a sword drawn against the dark, and I wondered whose hand would be on the hilt, but now I suppose I know." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The cards spoke of a beast at your side and a beast in your path, and I'm glad to see it's the first that walked in with you." },
       },
@@ -164,7 +174,34 @@ P:NPC {
         { text = "What beast is in my path, Madame Eva?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "What did your cards say about the Knight, madame?", next = "xapala", when = { class = "PALADIN" } },
         { text = "I dug graves at Raven Hill, Madame. The dead talked back.", next = "xorig_gravedigger", when = { origin = "human_raven_hill_gravedigger" } },
+        { text = "Did your cards say anything else about me, Madame?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "eva_flirt_no" } } },
         { text = "I'll go.", next = "END" },
+      },
+    },
+    flirt = {
+      lines = {
+        { id = "fl_default", text = "They turned up the Lovers, child, upright and bold as brass, beside a card I'd swear was smiling. Were I forty years younger I'd take it as an invitation, and at my age I'm tempted to take it anyway." },
+        { id = "fl_again", when = { npcFlagBefore = "eva_flirt_yes" }, priority = 5,
+          text = "The Lovers again, and the Fool beside them this time, which I suspect is me. Sit down; an old woman is allowed to enjoy the view while she shuffles." },
+      },
+      choices = {
+        { text = "Age is no matter to me, Madame. Deal another card.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "eva_flirt_yes" }, clear = { "eva_flirt_no" } } } },
+        { text = "Careful, Madame. I steal hearts as well as purses.", next = "flirt_yes", when = { class = "ROGUE" },
+          reply = "Then mine is in the drawer with the cards, child, and the lock is older than you are.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "eva_flirt_yes" }, clear = { "eva_flirt_no" } } } },
+        { text = "I think your cards are teasing us both, Madame.", next = "BACK",
+          reply = "Oh, they are, the wicked things, and they'll spend the night in the drawer for it. Ask me something sensible, child.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "eva_flirt_no" }, clear = { "eva_flirt_yes" } } } },
+        { text = "Read my fate, not my face, Madame.", next = "BACK",
+          reply = "As you like, and no offence taken. The face was the pleasanter reading, but fate pays better.",
+          fx = { trait = { stern = 1 }, npcFlag = { set = { "eva_flirt_no" }, clear = { "eva_flirt_yes" } } } },
+      },
+    },
+    flirt_yes = {
+      lines = { { id = "fy_default", text = "Then here is the Sun, which means joy and warm evenings, and I won't say what else. Off you go before Alyssa comes in and sees her grandmother blushing, because I'd never hear the end of it." } },
+      choices = {
+        { text = "Until next time, Madame.", next = "BACK",
+          reply = "Until next time, child. The cards will be watching for you, and so shall I." },
       },
     },
     xorig_gravedigger = {

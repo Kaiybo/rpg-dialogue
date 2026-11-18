@@ -4,6 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "vizzie", id = TODO_NPC("Innkeeper Vizzie"), name = "Innkeeper Vizzie",
+  gender = "female",
   bible = "bibles/winterspring.md", role = "innkeeper", tier = "service",
   communities = { "everlook" }, temper = { "jumpy" }, values = { "friendly", "practical" },
   notices = { "weary", "drink" },
@@ -14,6 +15,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Come in, shut the door, and oh, look at you, sugar, with frost in your hair like somethin' carved for a trade prince's mantelpiece! You didn't bring any bugs in, did you? Not on a face like that, surely." },
+    { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "Sugar, you came back! I warmed the seat by the fire for you and checked it twice for beetles, which you should know is the nicest thing I do for anybody." },
+    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Shut the door, sugar, and come get warm. I'll keep my chatter to the price list, like you wanted, and the price list is very short." },
     { id = "g_inn", text = "Come in and shut the door, shut it, sugar, before the cold gets in, and the bugs, because I pay good gold for firewood and I'm not heatin' the whole mountain! You didn't bring any bugs, did you?" },
     { id = "g_home", when = { homeInn = { "Everlook" } }, text = "Welcome back, sugar! There's a warm bed, a hot drink and no bugs, because I checked twice, and the room rate's the same as last time, which in Everlook is practically a miracle." },
     { id = "g_away", when = { away = 14 }, text = "Shut the door, shut it, you've been gone {away} and you're letting all the warm out, and warm costs money up here! Let me look at you, sugar, and make sure you didn't bring any bugs back." },
@@ -31,6 +35,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    flirt = {
+      lines = { { id = "fl_default", text = "The fire? Sure, sugar, let's say it's the fire, because I'm not about to admit a customer made me go all pink. Only, listen, it gets awful long and cold up here, and a girl with a warm hearth and no bugs is a girl worth knowin', that's all I'm sayin'." } },
+      choices = {
+        { text = "Then I'd like to know you better, Vizzie.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "Do you say that to every frozen traveller?", next = "flirt_every" },
+        { text = "You're sweet, but I only came in for the fire.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Oh, sure, sure, the fire's very popular, and it doesn't talk back. No harm done, sugar, and the room rate's the same either way." },
+        { text = "I'm not interested, innkeeper. Just the room.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Right, right, the room, just the room, got it. I'll stop flappin' my mouth and start flappin' the bedsheets, which is what you're payin' for anyway." },
+      },
+    },
+    flirt_warm = {
+      lines = { { id = "flw_default", text = "Oh! Well, good, that's settled then, and I'll stop fussin' with this rag before I wipe a hole in the bar. Come by after the trappers have gone to bed, sugar, and I'll put the kettle on and we'll see what's what." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    flirt_every = {
+      lines = { { id = "fle_default", text = "Every one? Sugar, most of 'em come in smellin' of wet furbolg, and I make 'em stand by the door till they drip dry! You're the first in a month I've let straight up to the fire, and I don't do that for just anybody." } },
+      choices = {
+        { text = "Then I'll take the warm seat, Vizzie.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "Something else, sugar.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Oh, all the time, sugar, mostly on their way to fight the Winterfall or coming back from them with claw marks. They eat like bears, sleep like bears and tip like bears, which is to say not at all, and every one of 'em swears they'll kill my beetle and then leaves it alive." } },
@@ -171,6 +197,7 @@ P:NPC {
         { text = "The folk at your fire look like they've had a hard road, Vizzie.", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Do you get many warriors through Everlook, Vizzie?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Someone like me stayed at your inn, Vizzie?", next = "xalt_vizzie", when = { alt = true } },
+        { text = "You're blushing, Vizzie. Is it the fire?", next = "flirt", when = { flirt = true } },
         { text = "Goodbye.", next = "END" },
       },
     },

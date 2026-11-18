@@ -8,6 +8,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 -- Classic chain: Ansirem's Key (ends here), "Pretty Boy" Duncan, The Curse of the Tides.
 P:NPC {
   key = "catelyn", id = TODO_NPC("Catelyn the Blade"), name = "Catelyn the Blade", title = "Blackwater Raiders",
+  gender = "female",
   bible = "bibles/booty_bay_salty.md", role = "questgiver", tier = "quest",
   communities = { "booty_bay", "blackwater" }, temper = { "sharp", "wry" }, values = { "proud", "free" },
   notices = { "class", "weapon" },
@@ -18,6 +19,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Well, look who washed in on the tide, and looking far better than most of what the tide brings. Sit down before somebody uglier takes the stool." },
+    { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "There's my favourite trouble! I told Deeg you'd be back, and he bet me a pinch of snuff you'd lost your nerve." },
+    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Pull up a stool, friend. I'll mind my tongue tonight, which you should know is a great sacrifice for a pirate." },
     { id = "g_op_pirates", when = { gossip = { topic = "pirates", stance = "hate" } }, text = "Fleet Master Seahorn says you told him pirates are pirates, code or no code. He laughed it off, but he's been very quiet at the rail since, so I hope you meant it." },
     { id = "g_tavern", text = "Pull up a stool if you're staying, and mind the third one, because it bites." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Sit down, then, and tell me something more interesting than the tide tables." },
@@ -39,6 +43,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    flirt = {
+      lines = { { id = "fl_default", text = "Eyeing you? I've been sizing you up, which is a pirate's habit and an archmage's daughter's bad manners all at once. You look like you could hold a deck in a storm, and I've a weakness for that, so tell me plainly whether I'm wasting my rum." } },
+      choices = {
+        { text = "You're not wasting it. Pour me one.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "Does your father know you flirt with mages?", next = "flirt_mage", when = { class = "MAGE" } },
+        { text = "Your rum's safe, but my heart isn't on offer.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Spoken like someone with sense, which is rarer in here than a dry stool. No harm done, and the stool's still yours, without the eyeing." },
+        { text = "Find yourself another mark, pirate.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Ouch, clean through the ribs, and I'll admit I asked for it! Go on, then, before I start liking you for it." },
+      },
+    },
+    flirt_warm = {
+      lines = { { id = "flw_default", text = "Ha! Now that's an answer with some salt in it. Sit, then, and if anyone asks, you're helping me plan a raid, which is the only excuse in this tavern nobody ever questions." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    flirt_mage = {
+      lines = { { id = "flm_default", text = "My father thinks I spend my nights reading by candlelight, so no, and you'll not tell him. Though if he knew I'd found a mage with a sense of humour, he might finally stop writing to me about suitable matches in Dalaran." } },
+      choices = {
+        { text = "Then I'll be your unsuitable match.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "I'd sooner stay out of family business.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Wise of you; the last suitor who got between me and my father ended up a very confused newt. I'm joking, mostly." },
+      },
+    },
     op_kirintor = {
       lines = {
         { id = "opk_default", text = "My father thinks the Kirin Tor are the last sane people in Lordaeron, sitting under their dome and calling it wisdom. I've my own view, but you look like you've got one too, so go on: are they wise, or only frightened?" },
@@ -115,6 +142,7 @@ P:NPC {
         { text = "Have you heard of a house in the Alterac hills?", next = "ravenholdt", when = { class = "ROGUE", minLevel = 24 } },
         { text = "Your father is Ansirem Runeweaver? Of the Kirin Tor?", next = "xmage", when = { class = "MAGE" } },
         { text = "Pirates and paladins don't often share a table.", next = "xpala", when = { class = "PALADIN" } },
+        { text = "You've been eyeing me since I walked in, Catelyn.", next = "flirt", when = { flirt = true } },
         { text = "I'll leave you to your cup.", next = "END" },
       },
     },

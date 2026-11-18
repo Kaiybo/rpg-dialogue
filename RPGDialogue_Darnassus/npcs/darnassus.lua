@@ -1854,7 +1854,7 @@ P:NPC {
 }
 
 P:NPC {
-  key = "saelienne", id = TODO_NPC("Innkeeper Saelienne"), name = "Innkeeper Saelienne",
+  key = "saelienne", id = TODO_NPC("Innkeeper Saelienne"), name = "Innkeeper Saelienne", gender = "female",
   bible = "bibles/darnassus.md", role = "innkeeper", tier = "service",
   communities = { "darnassus" }, temper = { "warm" }, values = { "kind" },
   notices = { "weary", "race" },
@@ -1866,6 +1866,12 @@ P:NPC {
   greetings = {
     { id = "g_rest", text = "Ishnu-alah, traveller, and rest a while. The branches rock a little at night, and most find it soothing." },
     { id = "g_home", when = { homeInn = { "Darnassus", "Craftsmen's Terrace" } }, text = "You're home. Elune guard your dreams tonight." },
+    { id = "g_fl_moon", when = { flirt = true, timeOfDay = "night", chance = 0.35 },
+      text = "Ishnu-alah. The moon is very bright on the terrace tonight, and I find I'm glad you came up the stairs to see it, though I couldn't tell you why." },
+    { id = "g_fl_back", when = { flirt = true, npcFlagBefore = "fl_moon" }, cooldown = "3d",
+      text = "You've come back. I left the lantern by the east branch lit, in case you wanted to sit beneath the moon again, and I'll pretend I do that for every guest." },
+    { id = "g_fl_kind", when = { flirt = true, npcFlagBefore = "fl_kind" }, once = true,
+      text = "Welcome back, traveller. Your bed is aired, and I'll keep my talk of moonlight to myself, as a good innkeeper should." },
     { id = "g_away", when = { away = 14 }, text = "You've returned after {away}, traveller. Your bed has rocked with the branches all this while, waiting for someone to sleep in it." },
     { id = "g_away_long", when = { away = 60 }, text = "It has been {away} since you last rested here, and I had begun to wonder whether the world had kept you. Come, the terrace is quiet tonight." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "I've heard kind words about you among my guests, traveller. They say you are good company, and I don't doubt it." },
@@ -2051,7 +2057,40 @@ P:NPC {
         { text = "Why must my servant sleep out on the branch?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Do travellers ever fall from your terrace, Saelienne?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
         { text = "Do many outsiders stay at your inn?", next = "xpt_saelienne", when = { party = { race = "Dwarf" } } },
+        { text = "Do you ever rest yourself, Saelienne?", next = "fl_rest", when = { flirt = true } },
         { text = "Just resting.", next = "END" },
+      },
+    },
+    fl_rest = {
+      lines = {
+        { id = "fl_rest_default", text = "Not often, for there is always a guest who needs something at the hour Elune is highest. I have been thinking, though, that I wouldn't mind sitting out on the terrace with one of them, if it were you." },
+        { id = "fl_rest_nelf", when = { race = "NightElf" },
+          text = "Not often. You would think a woman who remembers the old world would have stopped blushing like a temple novice, and yet here I am. I would sit beneath the moon with you, if you'd let me, and we needn't say anything at all." },
+        { id = "fl_rest_human", when = { race = "Human" },
+          text = "Not often. Your people burn so brightly and so briefly that I've learned not to grow fond of the guests who come up from the boats, but I find I'm failing at it with you." },
+        { id = "fl_rest_dwarf", when = { race = "Dwarf" },
+          text = "Not often. I'll confess I've never sat beneath the moon with a dwarf, and I suspect you'd talk about stone the whole while, but I find I would like to hear it." },
+      },
+      choices = {
+        { text = "I'd like that, Saelienne. We'll watch the moon together.", next = "fl_rest2",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_moon" } } } },
+        { text = "Elune's light has never looked lovelier than on you.", next = "fl_rest2", when = { race = "NightElf" },
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_moon" } } } },
+        { text = "You're kind, but I'd rather keep to my room.", next = "BACK",
+          reply = "Of course. Forgive me, traveller; the moon makes fools of innkeepers too. Sleep well.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "fl_kind" } } } },
+        { text = "I'm only passing through. Don't wait up for me.", next = "BACK",
+          reply = "Then I won't, though I'll leave the lantern lit for whoever climbs the stairs next. Safe travels, wherever the road takes you.",
+          fx = { npcFlag = { set = { "fl_kind" } } } },
+      },
+    },
+    fl_rest2 = {
+      lines = {
+        { id = "fl_rest2_default", text = "Then come out when the branches settle, and I'll bring moonberry juice and a blanket, because the wind off the sea is colder than it looks. I haven't done this in a very long time, so you'll have to be patient with me." },
+      },
+      choices = {
+        { text = "I'll be patient. Take all the time you need.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     outsiders = {

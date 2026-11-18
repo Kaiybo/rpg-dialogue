@@ -1630,6 +1630,7 @@ P:NPC {
 
 P:NPC {
   key = "fizzgrimble", id = TODO_NPC("Innkeeper Fizzgrimble"), name = "Innkeeper Fizzgrimble",
+  gender = "male",
   bible = "bibles/tanaris.md", role = "innkeeper", tier = "service",
   communities = { "gadgetzan" }, temper = { "chatty" }, values = { "generous" },
   notices = { "drink", "weary" },
@@ -1640,6 +1641,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Well, would you look at that, the desert finally sent me somethin' better than sand! Grab a stool, friend, and I'll pretend I'm not lookin' at you while I wipe the bar." },
+    { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "There you are, sweetheart! I swept the sand off your stool personally and put it on nobody's bill, which for me is practically a love letter." },
+    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Welcome back to the Road Warrior, pal! Drinks, rooms and gossip, and nothin' else on the menu, just like we agreed." },
     { id = "o_sw_greedy", when = { gossip = { topic = "steamwheedle", stance = "greedy" } }, text = "Word around the inn is you called the Cartel thieves with a ledger! Keep your voice down in here, pal, because the Bruisers drink here too and the stew's bad enough already." },
     { id = "g_inn", text = "Welcome to the Road Warrior, pal! Grab a stool, grab a drink, shake the sand out of your boots, and the sand's free, the drinks aren't." },
     { id = "g_home", when = { homeInn = { "Gadgetzan", "The Road Warrior" } }, text = "You again! Your room's ready and the sand's been swept out of it, mostly, and I only charged you for the sweeping once." },
@@ -1658,6 +1662,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    flirt = {
+      lines = { { id = "fl_default", text = "Attentive? Sweetheart, I run the only inn in Gadgetzan, so I see every face in Tanaris sooner or later, and most of 'em are sunburned and cranky. Yours isn't, and that's a rare commodity, so how about I show you the roof after sundown, because the stars over the dunes are the one thing in this town I don't charge for." } },
+      choices = {
+        { text = "Show me the roof, then, Fizzgrimble.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "A goblin courting a gnome? The Cartel would laugh.", next = "flirt_gnome", when = { race = "Gnome" } },
+        { text = "That's sweet, but I'm only after a bed and a drink.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "And a bed and a drink you'll have, friend, no hard feelings, because a happy customer's worth more to me than a broken heart. Well, about the same, but the customer pays." },
+        { text = "I didn't come here to be sweet-talked, goblin.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Fair enough, fair enough, consider the sweet talk withdrawn and the offer void. It was worth a try, and tries are free, which is why I make so many." },
+      },
+    },
+    flirt_warm = {
+      lines = { { id = "flw_default", text = "Now you're talkin', and I'll even dust off the second chair, which nobody's sat in since the last sandstorm. Mind the loose shingle by the chimney, though, because that chimney took my cousin's eyebrows and I'd hate for it to take yours." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    flirt_gnome = {
+      lines = { { id = "flg_default", text = "Let 'em laugh, sweetheart, because the Cartel's been doin' business with gnomes for years and never once admitted it. Besides, your lot build things that blow up and so do mine, so we'd never run out of things to talk about." } },
+      choices = {
+        { text = "Then show me the roof, Fizzgrimble.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_fizzgrimble = {
       big = true,
       lines = { { id = "xpt_fizzgrimble_default", text = "I mean I've watched more companies break up over loot than over any monster, and it always starts at my tables after the third drink, usually with a broken chair. The smart ones decide who gets what before they go out, and the rest end up asking me to hold a grudge for them, which I do, for a small fee." } },
@@ -1842,6 +1868,7 @@ P:NPC {
         { text = "What are people saying about Zul'Farrak tonight?", next = "xcl_zf", when = { cleared = "Zul'Farrak" } },
         { text = "What do you mean, settle our shares?", next = "xpt_fizzgrimble", when = { party = { size = { min = 2 } } } },
         { text = "Someone like me has stayed here before, Fizzgrimble?", next = "xalt_fizzgrimble", when = { alt = true } },
+        { text = "You're very attentive tonight, Fizzgrimble.", next = "flirt", when = { flirt = true } },
         { text = "Just a drink, thanks.", next = "END" },
       },
     },

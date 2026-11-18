@@ -1262,6 +1262,7 @@ P:NPC {
 
 P:NPC {
   key = "darsok", id = TODO_NPC("Darsok Swiftdagger"), name = "Darsok Swiftdagger",
+  gender = "male",
   bible = "bibles/crossroads.md", role = "questgiver", tier = "quest",
   communities = { "crossroads" }, temper = { "boastful" }, values = { "proud" },
   notices = { "class", "stealth" },
@@ -1273,6 +1274,9 @@ P:NPC {
   greetings = {
     { id = "g_blade", text = "Need someone dead? I'm the best there is. Need someone dead quietly? That's still me, and I'm cheaper, too." },
     { id = "g_back", when = { metBefore = true }, text = "Ha, my favourite errand-runner. How many feathers today?" },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "dar_fl_no" } }, text = "Well, well, the Crossroads just got a good deal prettier, and I'd know, because I've watched every road into it for years. Need someone dead, or just someone dashing?" },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "dar_fl_yes" }, text = "There's my favourite! I told the grunts on the tower you'd be back, and I told them why, and they didn't believe a word of it." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "dar_fl_no" }, text = "Business only, I know. Darsok can take a hint, though he's better at taking heads." },
   },
 
   notice = {
@@ -1286,6 +1290,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Only the ones worth looking at, and I've looked at a great many errand-runners, so take it as the compliment it is. I'm the best blade in the Barrens and the best-looking one besides, and I think we'd make a fine pair up at the harpy roosts." } },
+      choices = {
+        { text = "The best-looking? I'll be the judge of that.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "dar_fl_yes" }, clear = { "dar_fl_no" } } } },
+        { text = "Takes one blade to know another, Darsok.", next = "fl_yes", when = { class = "ROGUE" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "dar_fl_yes" }, clear = { "dar_fl_no" } } }, reply = "Ha! A blade with a mouth on them. Even better." },
+        { text = "Is there anything you're not the best at?", next = "fl_best" },
+        { text = "I'll stick to harpy talons, Darsok.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "dar_fl_no" }, clear = { "dar_fl_yes" } } }, reply = "Talons it is. Darsok can wait, and he's the best at that too." },
+        { text = "You're not half as charming as you think.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "dar_fl_no", "dar_fl_rebuff" }, clear = { "dar_fl_yes" } } }, reply = "Half is still more than anyone else at the Crossroads has, but I hear you. Back to work." },
+      },
+    },
+    fl_best = {
+      lines = { { id = "flb_default", text = "Modesty, and I've never once missed it. Ask anyone at the Crossroads and they'll tell you Darsok has the fastest knife, the quietest step and the warmest smile on the whole road from Ratchet to the Mor'shan Rampart." } },
+      choices = {
+        { text = "I'll grant you the smile, at least.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "dar_fl_yes" }, clear = { "dar_fl_no" } } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Ha! A challenge, and I never turn one down. Bring me Serena Bloodfeather's head someday, and then you can tell me to my face which of us is better-looking, over a mug of something at Boorand's." } },
+      choices = {
+        { text = "I'll hold you to that, Darsok.", next = "BACK", reply = "Hold me to anything you like. I'm the best at being held to things." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Only when it's pointed at me. Paladins don't usually approve of my line of work, and I don't usually approve of glowing at people in the dark. But you're Horde, so we'll call it professional courtesy and leave it there." } },
@@ -1398,6 +1426,7 @@ P:NPC {
         { text = "My imp does the dirty work for me. Jealous, Darsok?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do your partners ever need a priest, Darsok?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Does the Light bother you, Darsok?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Do you talk this way to every errand-runner, Darsok?", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "dar_fl_rebuff" } } },
         { text = "I'll handle the harpies.", next = "END", fx = { affinity = 1 } },
       },
       again = {

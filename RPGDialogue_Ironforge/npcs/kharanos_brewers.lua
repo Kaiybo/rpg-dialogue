@@ -8,7 +8,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 -- Marleth Barleybrew
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "dm_marleth", id = TODO_NPC("Marleth Barleybrew"), name = "Marleth Barleybrew",
+  key = "dm_marleth", id = TODO_NPC("Marleth Barleybrew"), name = "Marleth Barleybrew", gender = "female",
   bible = "bibles/kharanos_brewers.md", role = "questgiver", tier = "quest",
   communities = { "dunmorogh" }, temper = { "mischievous", "proud" }, values = { "family", "craft" },
   notices = { "race", "drunk" },
@@ -21,6 +21,12 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Well now, ye've an honest face an' quiet boots, an' that's exactly what I need. Come here, come here, I've a wee job for ye." },
     { id = "g_back", when = { metBefore = true }, text = "There's my accomplice! Sit down an' have a mug, for ye've earned one, or ye will have soon enough." },
+    { id = "g_fl_eye", when = { flirt = true, chance = 0.4 },
+      text = "Well now, ye've broad shoulders for barrel work an' a smile that'd make old Jarven forget what he was guardin'. Come here, {g:lad|lass}, I've a mug wi' yer name on it." },
+    { id = "g_fl_back", when = { flirt = true, npcFlagBefore = "fl_sweet" }, cooldown = "3d",
+      text = "There's my handsome accomplice! I told cousin Rejold about ye, an' he says I've gone soft, an' I told him tae mind his stout." },
+    { id = "g_fl_no", when = { flirt = true, npcFlagBefore = "fl_no" }, once = true,
+      text = "Ach, it's you! Dinnae fret, I've no designs on ye but the barrel-swappin' kind, an' those I'll never give up." },
   },
 
   notice = {
@@ -53,7 +59,36 @@ P:NPC {
         { text = "Isn't swapping their barrel a bit low?", next = "prank" },
         { text = "Tell me about Brewnall Village.", next = "brewnall" },
         { text = "My clan drinks Thunderbrew, Marleth.", next = "clan", when = { race = "Dwarf" } },
+        { text = "Why pick me for the job, Marleth?", next = "fl_why", when = { flirt = true } },
         { text = "I'll be on my way.", next = "END" },
+      },
+    },
+    fl_why = {
+      lines = {
+        { id = "fl_why_default", text = "Because ye've the kind o' smile that gets a body past a cellar door wi'out a word said, an' that's the honest truth. The other truth is I'd no' mind lookin' at it a while longer meself." },
+        { id = "fl_why_dwarf", when = { race = "Dwarf" },
+          text = "Because o' that beard, if I'm honest, braided proper an' combed besides, an' a Barleybrew lass notices a beard. I'd no' mind lookin' at it a good while longer, an' that's nothin' tae do wi' barrels." },
+      },
+      choices = {
+        { text = "Then I'll stay a while longer. Pour the Scalder.", next = "fl_why2",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_sweet" } } } },
+        { text = "Like the beard? Wait until you see it braided for a feast.", next = "fl_why2", when = { race = "Dwarf" },
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_sweet" } } } },
+        { text = "I'm here for the prank, Marleth, not for courting.", next = "BACK",
+          reply = "Ha! Fair enough, an' a Barleybrew can take no for an answer, so long as the barrel still gets swapped.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "fl_no" } } } },
+        { text = "I'd sooner court a Thunderbrew, Marleth.", next = "BACK",
+          reply = "Ach, that's a low blow, {g:lad|lass}, an' I'll be thinkin' o' a reply tae it for a week.",
+          fx = { trait = { witty = 1 }, npcFlag = { set = { "fl_no" } } } },
+      },
+    },
+    fl_why2 = {
+      lines = {
+        { id = "fl_why2_default", text = "Ha! Ye're a bold one, an' I like a bold one. Mind, if my da ever hears I'm sweet on somebody who's drunk Thunder Ale, he'll write me out o' the family recipe, so we'll keep this between us an' the barrels." },
+      },
+      choices = {
+        { text = "Between us and the barrels, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

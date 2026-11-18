@@ -442,7 +442,7 @@ P:NPC {
 -- Innkeeper Kaylisk
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "kaylisk", id = TODO_NPC("Innkeeper Kaylisk"), name = "Innkeeper Kaylisk", title = "Innkeeper",
+  key = "kaylisk", id = TODO_NPC("Innkeeper Kaylisk"), name = "Innkeeper Kaylisk", title = "Innkeeper", gender = "female",
   bible = "bibles/horde_outposts.md", role = "innkeeper", tier = "service",
   communities = { "splintertree" }, temper = { "gruff", "warm" }, values = { "practical", "generous" },
   notices = { "weary", "hunger" },
@@ -455,6 +455,12 @@ P:NPC {
   greetings = {
     { id = "g_hello", text = "In, in, before the elves see the door open. There's stew, and it's hot, and that's the best I can say for it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and walking. Sit, eat, and don't tell me what you killed." },
+    { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "kaylisk_flirt_no" } }, cooldown = "2d",
+      text = "In, before the elves see the door. You look well fed for once, and it suits you, so sit where I can look at it." },
+    { id = "g_flirt_yes", when = { flirt = true, npcFlagBefore = "kaylisk_flirt_yes" }, priority = 8, cooldown = "1d",
+      text = "There you are. I kept the good bowl back, the one without the chip in it, and I don't do that for grunts." },
+    { id = "g_flirt_no", when = { npcFlagBefore = "kaylisk_flirt_no" }, priority = 8, once = true,
+      text = "Stew's hot, and that's all you'll get from me today. I don't ask twice and I don't sulk, so sit down and eat." },
   },
 
   notice = {
@@ -470,6 +476,10 @@ P:NPC {
           text = "Kaylisk, and this is my inn, for as long as the walls stand. Food, drink and a bed, and I'll keep your hearthstone tied here if you want somewhere to come back to." },
         { id = "h_orc", when = { race = "Orc" },
           text = "Sit down, sit down. You've the Warsong look about you, half asleep and still angry, so eat first and be angry after." },
+        { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "kaylisk_flirt_no" } }, cooldown = "3d",
+          text = "You've a good scar on you, and you wear it well. Sit down before I say something foolish, because I've been on my feet since dawn." },
+        { id = "h_flirt_yes", when = { flirt = true, npcFlagBefore = "kaylisk_flirt_yes" }, priority = 6, cooldown = "1d",
+          text = "Alive again, and walking on your own legs. Good, because I'd have had words with the elves if you weren't." },
       },
       again = {
         { id = "h_again", text = "Anything else? The pot won't stir itself." },
@@ -479,7 +489,40 @@ P:NPC {
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "How do you keep an inn in a war?", next = "war" },
         { text = "What's in the stew?", next = "stew" },
+        { text = "Does anyone look after you, Kaylisk?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "kaylisk_flirt_no" } } },
         { text = "Thanks, Kaylisk.", next = "END" },
+      },
+    },
+    flirt = {
+      lines = {
+        { id = "fl_default", text = "Nobody's offered, and I'd have thrown the stew at them if they had. You, though, I might only throw the bowl at, which is as near to sweet as I get in a war." },
+        { id = "fl_again", when = { npcFlagBefore = "kaylisk_flirt_yes" }, priority = 5,
+          text = "You do, when you come through that door alive, and that's enough looking after for an orc. Don't let it go to your head; I said the same to the stew pot this morning." },
+      },
+      choices = {
+        { text = "Then I'll keep coming back alive, Kaylisk.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kaylisk_flirt_yes" }, clear = { "kaylisk_flirt_no" } } } },
+        { text = "Lok'tar, Kaylisk. A warrior's heart knows a strong woman.", next = "flirt_yes", when = { race = "Orc" },
+          reply = "Hah! An orc with a tongue in his head, and a civil one. Mind it doesn't get you hit.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kaylisk_flirt_yes" }, clear = { "kaylisk_flirt_no" } } } },
+        { text = "My people say a full pot means a warm heart, Kaylisk.", next = "flirt_yes", when = { race = "Tauren" },
+          reply = "Then mine must be scalding, because I've never once let this pot go empty.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kaylisk_flirt_yes" }, clear = { "kaylisk_flirt_no" } } } },
+        { text = "You cook like a Darkspear mother, Kaylisk. Dat be high praise.", next = "flirt_yes", when = { race = "Troll" },
+          reply = "From a troll, I'll take it, though I've met your mothers and they frighten me.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kaylisk_flirt_yes" }, clear = { "kaylisk_flirt_no" } } } },
+        { text = "Throw the bowl at someone else, Kaylisk. I'm only here to eat.", next = "BACK",
+          reply = "Fair enough. Eat, then, and I'll save my aim for the elves.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "kaylisk_flirt_no" }, clear = { "kaylisk_flirt_yes" } } } },
+        { text = "Keep your mind on the stew, innkeeper.", next = "BACK",
+          reply = "My mind's always on the stew, and it slipped for a moment, but it won't again. Sit and eat.",
+          fx = { trait = { stern = 1 }, npcFlag = { set = { "kaylisk_flirt_no" }, clear = { "kaylisk_flirt_yes" } } } },
+      },
+    },
+    flirt_yes = {
+      lines = { { id = "fy_default", text = "Good, because I'm sick of burying the ones who don't. Come back alive, eat what I give you, and maybe one night, when the shutters are closed and the elves are quiet, I'll sit down with you." } },
+      choices = {
+        { text = "I'll hold you to that one night.", next = "BACK",
+          reply = "Hold me to it, then. Now eat, before it goes cold and you blame my cooking." },
       },
     },
     war = {

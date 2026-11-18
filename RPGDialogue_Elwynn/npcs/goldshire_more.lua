@@ -212,7 +212,7 @@ P:NPC {
 
 -- Kira Songshine: the traveling baker on Elwynn's roads.
 P:NPC {
-  key = "kira", id = TODO_NPC("Kira Songshine"), name = "Kira Songshine", title = "Traveling Baker",
+  key = "kira", id = TODO_NPC("Kira Songshine"), name = "Kira Songshine", title = "Traveling Baker", gender = "female",
   bible = "bibles/goldshire_more.md", role = "vendor", tier = "service", communities = { "goldshire" },
   temper = { "cheerful" }, values = { "practical" }, notices = { "hunger", "weary" },
   impression = {
@@ -222,6 +222,12 @@ P:NPC {
   greetings = {
     { id = "g_bread", text = "Fresh bread, sweet water, and a smile thrown in! You won't find better between here and the city." },
     { id = "g_road", when = { metBefore = true }, text = "Twice in one week! Either you like my bread or you keep walking the same road I do." },
+    { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "kira_flirt_no" } }, cooldown = "2d",
+      text = "Fresh bread and a fresh face on my road, and I'll admit I'm gladder of the second. Don't tell the bread." },
+    { id = "g_flirt_yes", when = { flirt = true, npcFlagBefore = "kira_flirt_yes" }, priority = 8, cooldown = "1d",
+      text = "There's my favourite customer! I've been humming since I saw you coming up the road, and the bread's been none the better for it." },
+    { id = "g_flirt_no", when = { npcFlagBefore = "kira_flirt_no" }, priority = 8, once = true,
+      text = "Bread and water and nothing else, I promise, love. I talk too much on a long road, and you were kind about it." },
   },
   notice = {
     { id = "n_hunger", cat = "hunger", when = { durability = { max = 0.3 } },
@@ -321,6 +327,10 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin on my road! I always feel safer when there's plate in sight, even if it's only passing." },
         { id = "h_default", text = "I'm Kira Songshine, the baker, and I bring the bakery to you! North to the city gates, east toward the tower, and southwest as far as the garrison, depending on my feet." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "I should be home by now, but there's always one more traveler on the road. Lucky for you it's this one." },
+        { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "kira_flirt_no" } }, cooldown = "3d",
+          text = "Well, the road's improved! I've walked from Goldshire to the city gates this morning, and you're the handsomest thing I've passed, and I passed a very fine cow." },
+        { id = "h_flirt_yes", when = { flirt = true, npcFlagBefore = "kira_flirt_yes" }, priority = 6, cooldown = "1d",
+          text = "You found me again! Either the road's very small or you've been looking, and I'll choose to believe you've been looking." },
         { id = "h_hogger", when = { questActive = TODO_QUEST("WANTED: \"Hogger\"") },
           text = "If you're going after Hogger, take two loaves, one for the walk there and one for the walk back, because I'm an optimist." },
         { id = "h_gnome", when = { race = "Gnome" },
@@ -353,7 +363,34 @@ P:NPC {
         { text = "Where does your flour come from, Kira?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does anyone ever steal from your basket on the road, Kira?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "You seem to walk every road in Elwynn, Kira.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Does anyone ever walk the road with you, Kira?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "kira_flirt_no" } } },
         { text = "Safe walking.", next = "END" },
+      },
+    },
+    flirt = {
+      lines = {
+        { id = "fl_default", text = "Not often, love, because nobody keeps up with me past the Eastvale bend. For someone with shoulders like yours, though, I'd walk slower, and you could carry the basket." },
+        { id = "fl_again", when = { npcFlagBefore = "kira_flirt_yes" }, priority = 5,
+          text = "Only you, and only when you're kind enough to carry the basket. My feet have been asking after you all week, which is a strange thing for feet to do." },
+      },
+      choices = {
+        { text = "I'd carry that basket all the way to Stormwind.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kira_flirt_yes" }, clear = { "kira_flirt_no" } } } },
+        { text = "Shoulders like these come from the forge, lass, not the road.", next = "flirt_yes", when = { race = "Dwarf" },
+          reply = "A forge! No wonder you're so warm to stand next to.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kira_flirt_yes" }, clear = { "kira_flirt_no" } } } },
+        { text = "That's sweet, Kira, but I walk alone.", next = "BACK",
+          reply = "Then walk safe, and wave when you pass me. A baker can't help asking; it's how we sell bread.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "kira_flirt_no" }, clear = { "kira_flirt_yes" } } } },
+        { text = "I'm spoken for, Kira.", next = "BACK",
+          reply = "Oh! Well, lucky them, and I hope they feed you properly. Take a loaf home for the both of you, if you've the coin.",
+          fx = { trait = { stern = 1 }, npcFlag = { set = { "kira_flirt_no" }, clear = { "kira_flirt_yes" } } } },
+      },
+    },
+    flirt_yes = {
+      lines = { { id = "fy_default", text = "Then it's settled, though I'll warn you that I talk the whole way and sing when I run out of talk. Come back whenever your road crosses mine, and I'll be glad of it, and not only for the help with the basket." } },
+      choices = {
+        { text = "I'll look for you on the Goldshire road.", next = "BACK",
+          reply = "And I'll be the one humming, so you'll hear me before you see me." },
       },
     },
     road = {

@@ -1231,7 +1231,7 @@ P:NPC {
 }
 
 P:NPC {
-  key = "shaussiy", id = TODO_NPC("Innkeeper Shaussiy"), name = "Innkeeper Shaussiy",
+  key = "shaussiy", id = TODO_NPC("Innkeeper Shaussiy"), name = "Innkeeper Shaussiy", gender = "female",
   bible = "bibles/auberdine.md", role = "innkeeper", tier = "service",
   communities = { "auberdine" }, temper = { "warm" }, values = { "kind", "devout" },
   notices = { "weary" },
@@ -1242,6 +1242,12 @@ P:NPC {
 
   greetings = {
     { id = "g_rest", text = "Ishnu-alah. Your spirit is tired, I can tell, so rest here; the waves are loud, but they'll sing you to sleep after a night or two." },
+    { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "shaussiy_flirt_no" } }, cooldown = "2d",
+      text = "Ishnu-alah. I've brought tea, as I always do, though I'll admit I made this pot a little more carefully than the others." },
+    { id = "g_flirt_yes", when = { flirt = true, npcFlagBefore = "shaussiy_flirt_yes" }, priority = 8, cooldown = "1d",
+      text = "Elune-adore, you've come back. I kept the window seat for you, and I've been telling myself all week that it was only for the view of the water." },
+    { id = "g_flirt_no", when = { npcFlagBefore = "shaussiy_flirt_no" }, priority = 8, once = true,
+      text = "Ishnu-alah, friend. Your tea is here, and only the tea, I promise, for I've reminded myself that I'm an innkeeper, and that is no small thing." },
     { id = "g_home", when = { homeInn = { "Auberdine" } }, text = "Auberdine again! The sea air is good for you, mostly, when the wind isn't coming off that dead thresher on the beach." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and your spirit looks more tired than ever. Sit, and I'll bring you tea, and this time do try to drink it." },
     { id = "g_away_long", when = { away = 60 }, text = "It's been {away} since you slept to the sound of these waves, and I wondered if they'd ever sing you to sleep again. Welcome back, friend." },
@@ -1344,6 +1350,10 @@ P:NPC {
           text = "So you've spoken with Cerellean. He stands on that dock every day, and I bring him tea, and he forgets to drink it, and I bring him more." },
         { id = "h_boards", when = { metBefore = true }, text = "The sailors swear the floorboards creak in a different key before a storm. I've started listening, and they're right." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Look at the moon on the water out there. On nights like this, I forgive the sea for everything." },
+        { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "shaussiy_flirt_no" } }, cooldown = "3d",
+          text = "Oh, I've spilled the tea. You came in so quietly, with the moon behind you, and I quite forgot where the cup was." },
+        { id = "h_flirt_yes", when = { flirt = true, npcFlagBefore = "shaussiy_flirt_yes" }, priority = 6, cooldown = "1d",
+          text = "You're here, and I've counted the cups twice and still poured one too many. I think the extra one was always meant for you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and seasick, I'd guess, from the look of you. Sit down and I'll bring tea before you fall over." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Your companion took the crossing better than you did, I see; they usually do." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, under my roof! Then you will understand why I say a prayer in every room before a guest sleeps in it, because nobody sleeps well on Darkshore just now." },
@@ -1368,7 +1378,37 @@ P:NPC {
         { text = "Do your guests come to any harm on these roads?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do many mages pass through your inn, Shaussiy?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do the waves really sing, Shaussiy?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do you ever leave the inn, Shaussiy?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "shaussiy_flirt_no" } } },
         { text = "Just resting.", next = "END" },
+      },
+    },
+    flirt = {
+      lines = {
+        { id = "fl_default", text = "Seldom, though when the moon is full I walk the shore as far as the old ruins and back. It's a quiet walk, and I've always thought it would be a pleasanter one with company, if the company were someone like you." },
+        { id = "fl_again", when = { npcFlagBefore = "shaussiy_flirt_yes" }, priority = 5,
+          text = "On the full moon, along the shore, as we spoke of, and I've been counting the nights to the next one. I've seen more moons than I could number, and I've never counted down to one before." },
+      },
+      choices = {
+        { text = "Then walk the shore with me at the next full moon.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "shaussiy_flirt_yes" }, clear = { "shaussiy_flirt_no" } } } },
+        { text = "I'll be grey before you've aged a day, Shaussiy.", next = "flirt_yes", when = { race = "Human" },
+          reply = "Then I'll learn to love grey, and we'll make the most of the moons we have.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "shaussiy_flirt_yes" }, clear = { "shaussiy_flirt_no" } } } },
+        { text = "I'd walk your shore, lass, if the damp kept out of my beard.", next = "flirt_yes", when = { race = "Dwarf" },
+          reply = "Then I'll bring a towel for your beard, and the damp may do its worst.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "shaussiy_flirt_yes" }, clear = { "shaussiy_flirt_no" } } } },
+        { text = "That's kind, Shaussiy, but I'll just take the tea.", next = "BACK",
+          reply = "Then take it hot, for once, and forgive an innkeeper her daydreams. The sea puts strange ideas in all of us.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "shaussiy_flirt_no" }, clear = { "shaussiy_flirt_yes" } } } },
+        { text = "I'm not looking for company, Shaussiy.", next = "BACK",
+          reply = "Of course. I spoke out of turn, and Elune will laugh at me tonight, though gently. Rest well all the same.",
+          fx = { trait = { stern = 1 }, npcFlag = { set = { "shaussiy_flirt_no" }, clear = { "shaussiy_flirt_yes" } } } },
+      },
+    },
+    flirt_yes = {
+      lines = { { id = "fy_default", text = "Then I'll bring the lantern, and you'll bring nothing but yourself, and we'll see whether the moonkin keep out of our way. Elune guard your dreams until then; I suspect mine will be pleasant." } },
+      choices = {
+        { text = "Until the full moon, Shaussiy.", next = "BACK",
+          reply = "Until the full moon. I'll keep the tea warm, and I'll try very hard not to spill it." },
       },
     },
     guests = {
