@@ -484,6 +484,7 @@ P:NPC {
     third = "{name} met Quartermaster Hicks, who keeps the weapons at Westbrook Garrison in Elwynn Forest.",
   },
   greetings = {
+    { id = "g_y1", when = { timeOfDay = "night" }, text = "Night issue. Sign for what you take, and bring it back with blood on it or not at all." },
     { id = "g_default", text = "Westbrook armoury. Swords on the left, axes on the right, and hands off the rack until you've said what you want." },
     { id = "g_2", when = { metBefore = true }, text = "You're back. How did the edge hold?" },
     { id = "g_3", when = { questActive = TODO_QUEST("Wanted: \"Hogger\"") }, text = "You're after Hogger, by that look. Then you'll want something that keeps its edge on bone. Come here." },
@@ -581,6 +582,8 @@ P:NPC {
     },
   },
   topics = {
+    riverpaw = { { id = "tp_y_riverpaw", text = "They fight in a pack and break when the big one falls. Kill the big one first." } },
+    defias = { { id = "tp_y_defias", text = "Better armed every month, and with good Stormwind steel. Somebody inside the walls is selling to them." } },
     background = { { id = "tp_background", text = "Twelve years a footman, then a quartermaster when my shield arm went. I know what a bad blade costs because I've carried one." } },
     westfall = { { id = "tp_westfall", text = "The road west used to bring grain. Now it brings refugees, and the men who robbed them come a day behind." } },
     advice = { { id = "tp_advice", text = "Check your edge before you sleep, not when you wake. You'll not get time when you wake." } },
@@ -600,6 +603,7 @@ P:NPC {
     third = "{name} met Quartermaster Hudson, who keeps the armour and shields at Westbrook Garrison.",
   },
   greetings = {
+    { id = "g_y1", when = { timeOfDay = "night" }, text = "Out at night, are you? Wonderful. They can see in the dark, you know, and you can't. Take a second shield." },
     { id = "g_default", text = "Come for armour? Good, because you'll need it. Have you seen what's out in those woods? No, you haven't, or you'd be wearing more." },
     { id = "g_2", when = { metBefore = true }, text = "You're alive! That's a pleasant surprise, and I don't get many." },
     { id = "g_3", when = { maxLevel = 8 }, text = "Look at you, fresh off the abbey road with a wooden shield. They're sending us children now. Come here, let me find you something that'll stop a spear." },
@@ -697,6 +701,8 @@ P:NPC {
     },
   },
   topics = {
+    riverpaw = { { id = "tp_y_riverpaw", text = "Gnolls. Big, mean, and too many. I've counted their campfires from the wall, and I stopped at forty." } },
+    defias = { { id = "tp_y_defias", text = "Masks and knives, and they know the patrol times better than we do. Don't tell me that's luck." } },
     background = { { id = "tp_background", text = "I was a shield-bearer in the king's levy, and I've the dents to show for it. They put me behind a counter when I started flinching at loud noises." } },
     westfall = { { id = "tp_westfall", text = "It's gone, as far as the crown's concerned. The folk there have a militia now, I hear, and good luck to them. They'll need it." } },
     advice = { { id = "tp_advice", text = "Tighten every strap, then tighten it again when you're tired. Tired is when it matters." } },
@@ -712,7 +718,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "easy", "persuasive" }, values = { "trade", "craft" },
   notices = { "kit", "class", "craft" },
   impression = {
-    first = "Veldan Lightfoot sells leather armour from a corner of the Westbrook armoury and is the only one of the three there who is not a soldier. He talks as he fits a jerkin and has usually sold the gloves as well before he stops.",
+    first = "Veldan Lightfoot sells leather armour from a corner of the Westbrook armoury, the only one of the three there who is no soldier. He talks while he fits a jerkin, and has usually sold the gloves too before he stops.",
     third = "{name} met Veldan Lightfoot, who sells leather armour at Westbrook Garrison.",
   },
   greetings = {
