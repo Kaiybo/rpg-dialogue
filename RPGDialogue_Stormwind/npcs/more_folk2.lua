@@ -3090,7 +3090,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Good day. Have a look, and pull on any seam you like." },
-    { id = "g_2", when = { metBefore = true }, text = "You've come back. Did the stitching hold?" },
+    { id = "g_2", when = { metBefore = true }, text = "You've come back, so tell me, did the stitching hold?" },
     { id = "g_3", when = { class = { "ROGUE", "HUNTER", "DRUID" } }, text = "You'll know good leather when you handle it, I think. Go ahead." },
   },
   notice = {
@@ -3212,7 +3212,7 @@ P:NPC {
     third = "{name} met Mayda Thane, the cobbler who keeps Thane's Boots in Stormwind's Old Town.",
   },
   greetings = {
-    { id = "g_default", text = "Come in, come in, and let me see what you're walking on. Oh dear. Sit down." },
+    { id = "g_default", text = "Come in, come in, and let me see what you're walking on. Oh dear, you had better sit down." },
     { id = "g_2", when = { metBefore = true }, text = "There you are, and how are the heels? Lift one up and show me." },
     { id = "g_3", when = { class = { "WARRIOR", "PALADIN" } }, text = "A soldier's feet, flat and sore, I'll wager. Sit yourself down before you fall down, {class}." },
   },
@@ -3317,7 +3317,7 @@ P:NPC {
     },
   },
   topics = {
-    rumors = { { id = "tp_rumors", text = "A fellow came in wanting soft soles on a soldier's boot, so they'd look regulation and make no noise. I made them. I didn't like him." } },
+    rumors = { { id = "tp_rumors", text = "A fellow came in wanting soft soles on a soldier's boot, so they'd look regulation and make no noise. I made them, though I didn't like him." } },
     background = { { id = "tp_background", text = "Thanes have made boots on this street since before the First War. The shop burned with the rest, and I rebuilt it with my husband's tools." } },
     advice = { { id = "tp_advice", text = "Dry your boots slowly, away from the fire, stuffed with straw. And change your stockings, for the Light's sake." } },
     _none = { { id = "tp_none", text = "That's above my ankles, love, and I don't go higher." } },
@@ -3569,252 +3569,6 @@ P:NPC {
     background = { { id = "tp_background", text = "My people kept a glover's stall in the Trade District. I wanted to make something larger than a glove, so I came to Simon." } },
     advice = { { id = "tp_advice", text = "Finish your edges, oil your seams, and stand up straight. Two of those are leatherworking." } },
     _none = { { id = "tp_none", text = "I couldn't say. It doesn't sound as though it would suit me." } },
-  },
-}
-
--- Captain Dirgehammer: dwarf officer who issues the knights' armour in the Champions' Hall, Old Town.
-P:NPC {
-  key = "captain_dirgehammer", id = TODO_NPC("Captain Dirgehammer"), name = "Captain Dirgehammer", title = "Armor Quartermaster", gender = "male",
-  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
-  communities = { "stormwind" }, temper = { "gruff", "fatherly" }, values = { "honor", "duty" },
-  notices = { "rank", "kit", "race" },
-  impression = {
-    first = "Captain Dirgehammer issues armour to the Alliance's newly ranked officers in the Champions' Hall and remembers every knight he has fitted. He is gruff about it and keeps a list of those who never came back for the next set.",
-    third = "{name} met Captain Dirgehammer, an armour quartermaster of Stormwind's Champions' Hall.",
-  },
-  greetings = {
-    { id = "g_default", text = "Well met. If ye've earned a knight's rank, I've the armour that goes with it. If ye haven't, ye may look." },
-    { id = "g_2", when = { metBefore = true }, text = "Back, are ye? Then let's see if ye've outgrown what I gave ye." },
-    { id = "g_3", when = { pvpRank = { min = 6 } }, text = "A knight's welcome to ye. Step up, and mind ye stand straight for the fitting." },
-  },
-  notice = {
-    { id = "n_1", cat = "rank", when = { pvpRank = false },
-      text = "There's nae rank on ye yet. That's nae shame, since every marshal in this hall stood where ye're standing once." },
-    { id = "n_2", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "Ye've been in the thick of it, by that breastplate. Get it hammered out, {g:lad|lass}. A dent ye can see hides a crack ye cannae." },
-    { id = "n_3", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf in the Champions' Hall! Then I'll expect twice as much of ye, and so will Clate." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = {
-        { id = "hello_1", text = "Captain Dirgehammer. Sergeant Major Clate keeps the marshals' plate, and I keep what a knight wears on the way up to it. Most of them come to me first, so I see them while they're still surprised to be officers." },
-      },
-      again = {
-        { id = "hello_again1", text = "What else, then?" },
-        { id = "hello_again2", text = "Speak up, I've racks to count." },
-        { id = "hello_again3", text = "Aye?" },
-      },
-      choices = {
-        { text = "Show me the armour.", next = "BUSINESS" },
-        { text = "What's a knight's first set like?", next = "first" },
-        { text = "You remember everyone you've fitted?", next = "remember" },
-        { text = "Who else serves in the hall?", next = "hall" },
-        { text = "Armour ought to go to whoever needs it, ranked or not.", next = "need" },
-        { text = "What have ye heard from Alterac?", next = "alterac", when = { race = "Dwarf" } },
-        { text = "What should a new knight know?", next = "newknight", when = { pvpRank = { min = 1 } } },
-        { text = "Good day, Captain.", next = "END" },
-      },
-    },
-    first = {
-      lines = {
-        { id = "first_1", text = "Heavier than they expect, and plainer. There's nae gilt on it, only the lion and good steel. I tell every one of them the same thing, that it's made to be seen by their own side in the smoke and nae to be admired." },
-      },
-      choices = {
-        { text = "Do they listen?", next = "listen" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    listen = {
-      lines = {
-        { id = "listen_1", text = "The good ones do. The others come back wanting it polished, and I polish it, and I tell them again. By the third battleground they've stopped asking." },
-      },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    remember = {
-      lines = {
-        { id = "remember_1", text = "Every one, by the shoulders. I've a ledger with each name and the measure I took, and I mark it when they come for the next rank's set. Too many of those lines have only the one mark on them." },
-      },
-      choices = {
-        { text = "What do you do with those?", next = "lines" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    lines = {
-      lines = {
-        { id = "lines_1", text = "I leave them open. I'll nae close a line on a soldier while there's a chance he'll walk back through that door, and I've been wrong to despair before. A lass came in last winter that I'd mourned for a year." },
-      },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    hall = {
-      lines = {
-        { id = "hall_1", text = "Clate and I share the armour. Captain O'Neal and wee Jackspring have the weapons, and they bicker over them like brothers. Biggins has the insignia and Lieutenant Karter greets the newcomers. It's a good hall, and it's quieter than it ought to be." },
-      },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    need = {
-      big = true,
-      lines = {
-        { id = "need_1", text = "I've lain awake on that one. There are militia in Westfall fighting in aprons. But this steel's what the Alliance has to say thank ye with. If any hand could take it, it'd be only armour, and there's armour in every shop." },
-      },
-      choices = {
-        { text = "Honours must be earned, or they mean nothing.", next = "BACK", reply = "Aye. And there's nae a piece on these racks that wasnae paid for in full.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "Steel on a rack while farmers die is a disgrace.", next = "BACK", reply = "I'll nae call ye wrong. I'd strip these racks tomorrow if the order came, and gladly.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    alterac = {
-      lines = {
-        { id = "alterac_1", text = "That the Stormpikes are holding and the Frostwolves are too, and the snow's taking as many as the axes. My sister's lad is up there. He writes that the ale freezes in the mug, and I ken then that he's alive to complain." },
-      },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    newknight = {
-      lines = {
-        { id = "newknight_1", text = "That the rank's a debt and nae a prize. The men behind ye will look at that lion on your chest when it all goes wrong, and ye'd best be standing where they can see it." },
-      },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-  },
-  topics = {
-    rumors = { { id = "tp_rumors", text = "They say the Warsong are cutting deeper into Ashenvale every month. The Sentinels send us their wounded to be ranked, and there are more of them each time." } },
-    background = { { id = "tp_background", text = "Thirty years under the mountain in Magni's guard, and then the king lent me to Stormwind. I've been fitting humans ever since, and they've nae shoulders to speak of." } },
-    advice = { { id = "tp_advice", text = "Strap your own armour, every buckle. The day ye let another do it is the day one's left loose." } },
-    _none = { { id = "tp_none", text = "That's nae in my ledger, and I dinnae guess." } },
-  },
-}
-
--- Captain O'Neal: human officer who keeps the high marshals' weapons in the Champions' Hall, Old Town.
-P:NPC {
-  key = "captain_oneal", id = TODO_NPC("Captain O'Neal"), name = "Captain O'Neal", title = "Weapons Quartermaster", gender = "male",
-  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
-  communities = { "stormwind" }, temper = { "crisp", "wry" }, values = { "honor", "excellence" },
-  notices = { "rank", "kit" },
-  impression = {
-    first = "Captain O'Neal keeps the finest weapons in the Champions' Hall, the ones reserved for the Alliance's highest marshals, and has handed over very few of them. He is crisp and dry, and he dusts the racks himself.",
-    third = "{name} met Captain O'Neal, a weapons quartermaster of Stormwind's Champions' Hall.",
-  },
-  greetings = {
-    { id = "g_default", text = "Good day. You may admire the racks. Whether you may do more depends on what's on your shoulder." },
-    { id = "g_2", when = { metBefore = true }, text = "Back again. The swords are where you left them, and so, I regret to say, am I." },
-    { id = "g_3", when = { pvpRank = { min = 10 } }, text = "Sir. It's a pleasure to have someone in here I might actually be permitted to serve." },
-  },
-  notice = {
-    { id = "n_1", cat = "rank", when = { pvpRank = false },
-      text = "No rank at all, I see. Then we shall both treat this as a visit to a gallery, and I shall be your guide." },
-    { id = "n_2", cat = "rank", when = { pvpRank = { min = 6 } },
-      text = "A knight, and climbing. Keep at it. I should dearly like to unlock one of these before I retire." },
-    { id = "n_3", cat = "kit", when = { class = { "WARRIOR", "PALADIN", "ROGUE" } },
-      text = "You carry that like someone who uses it, and not like someone who was issued it. One can tell at once." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = {
-        { id = "hello_1", text = "Captain O'Neal. The weapons on this wall are for marshals, field marshals and the Grand Marshal, when we have one. Lieutenant Jackspring tests them, and I guard them, chiefly from Lieutenant Jackspring." },
-      },
-      again = {
-        { id = "hello_again1", text = "Was there something further?" },
-        { id = "hello_again2", text = "Do go on." },
-        { id = "hello_again3", text = "Yes?" },
-      },
-      choices = {
-        { text = "Show me the weapons.", next = "BUSINESS" },
-        { text = "How many of these have you handed over?", next = "handed" },
-        { text = "You and Jackspring don't get along?", next = "jackspring" },
-        { text = "Who makes weapons like these?", next = "makes" },
-        { text = "The best weapons shouldn't hang on a wall.", next = "wall" },
-        { text = "What do the marshals say of the war?", next = "war", when = { pvpRank = { min = 6 } } },
-        { text = "A warrior could do a great deal with that claymore.", next = "claymore", when = { class = "WARRIOR" } },
-        { text = "Good day, Captain.", next = "END" },
-      },
-    },
-    handed = {
-      lines = {
-        { id = "handed_1", text = "In all my years here, fewer than I have fingers. It takes more than courage to reach that rank. It takes months in the field without a week's rest, and most who are good enough are killed or promoted to a desk before they arrive." },
-      },
-      choices = {
-        { text = "Who was the last?", next = "last" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    last = {
-      lines = {
-        { id = "last_1", text = "A night elf, a Sentinel out of Ashenvale, who took the glaive and thanked me in her own tongue. She was back at Silverwing Hold within the week. I hear of her now and then, and I listen for it." },
-      },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    jackspring = {
-      lines = {
-        { id = "jackspring_1", text = "We get along famously. He believes a weapon is not understood until it has been tested to breaking, and I believe a weapon reserved for a Grand Marshal should not be broken by a gnome with a clamp. We discuss it daily." },
-      },
-      choices = {
-        { text = "Has he broken one?", next = "broken" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    broken = {
-      lines = {
-        { id = "broken_1", text = "Once, a dirk, and he was so pleased with what he'd learned that I hadn't the heart to report him. The replacement is better, I admit. I have not told him so, and you will oblige me by not doing it either." },
-      },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    makes = {
-      lines = {
-        { id = "makes_1", text = "The blades come from Ironforge's Great Forge and the bows from Darnassus, and each is finished by a master who makes perhaps three in a year. Every weapon here has a number and a maker's mark, and I know them as a shepherd knows sheep." },
-      },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    wall = {
-      big = true,
-      lines = {
-        { id = "wall_1", text = "I've heard it said, and I've said it myself after a bad dispatch. But these were made as the Alliance's highest honour. If I handed them to every captain who asked, the honour would be gone and we'd have forty swords the fewer." },
-      },
-      choices = {
-        { text = "An honour kept rare is an honour worth bleeding for.", next = "BACK", reply = "Quite. And they do bleed for it, which is why I dust the racks myself.", fx = { align = { order = 1 }, affinity = 1 } },
-        { text = "A sword's honour is in the using. Arm the front.", next = "BACK", reply = "A soldier's answer. I was one, and on some mornings I agree with you entirely.", fx = { align = { order = -1 } } },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    war = {
-      lines = {
-        { id = "war_1", text = "What marshals always say, that they need more of everything and will make do. The gulch and the basin swallow companies, and nobody in the Keep has yet decided whether those are wars or quarrels." },
-      },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    claymore = {
-      lines = {
-        { id = "claymore_1", text = "No doubt you could. It has been on that hook for six years, and I have oiled it every week of them. Earn it, {class}, and I shall hand it to you myself and consider the oil well spent." },
-      },
-      choices = {
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-  },
-  topics = {
-    rumors = { { id = "tp_rumors", text = "I'm told the Horde keeps a hall like this in Orgrimmar, with a wall like mine. I should like to compare notes with whoever dusts it, after the war." } },
-    background = { { id = "tp_background", text = "Twenty years a line officer, and a knee that ended it at the Thandol Span. They gave me this wall so that I'd stop writing to the Keep." } },
-    advice = { { id = "tp_advice", text = "Oil a blade whether you've used it or not. Rust doesn't check whether you've been busy." } },
-    _none = { { id = "tp_none", text = "I have no intelligence on that, I'm afraid." } },
   },
 }
 
@@ -4218,7 +3972,7 @@ P:NPC {
         { id = "hello_1", text = "Owen Vaughn, reagents. Whatever a spell eats, I sell: powder for the mages, seeds for the druids in the Park, candles for the priests. A caster without reagents is only somebody waving, as my old master used to say." },
       },
       again = {
-        { id = "hello_again1", text = "Was there something else? There usually is." },
+        { id = "hello_again1", text = "Was there something else? In my experience there usually is." },
         { id = "hello_again2", text = "Go on, I'm listening, mostly." },
         { id = "hello_again3", text = "Yes?" },
       },

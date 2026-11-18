@@ -82,7 +82,6 @@ Files: `npcs/more_folk.lua` (quest givers), `npcs/more_folk2.lua` (shops and cor
 ### Sources
 - warcraft.wiki.gg pages for each name (infobox title, place, relatives, gossip). Retail-only details dropped: Lion's Rest (the druids and Sylista are in the Park), the Hero's Call Board, Legion/Veiled Hand scenes (Malagan's betrayal, Trader's Hall), Officer Jaxon's later-revealed family, Rebecca's Outland tabards, Lenny's lucky charms, Nurse Lillian's Cataclysm quest, O'Neal's and Dirgehammer's later stock and titles.
 - Existing pack lines these entries had to agree with: trade_district.lua (Harlan: Carla cloth, Lara leather, Aldric mail, "they argue every single day"; Thurman: Edna "the brains of this shop"), old_town.lua (Erika by the hearth, fixed prices, "go and find a goblin"; Simon: Randal "a dandy, but dependable"), unsung_oldtown.lua (Seoman makes the armour, Alyssa sells bags), unsung_mage.lua (Tel'Athir "asks a great many questions", Maria "the only one who can bargain with a human"; Duncan owns Duncan's Textiles; Ardwyn beside Allan Hafgan), stormwind_more.lua (Jalane: "Duncan Cullen pretends I don't exist"), dwarven_district.lua (Therum: Borgus the best weaponsmith he ever met), more_folk2.lua (Karrina on the three hunter trainers and Ulfir's view of pets; Julia and canals.lua on Roberto, the cellar key, the boars, the Lakeshire cask), city2.lua (Elling: Ben sells the cheese; "Tyrion's in the castle garden with his contraption"), park.lua (Sheldras), Duskwood's Legend of Stalvan lines.
-- Captain Dirgehammer and Captain O'Neal: the wiki pages show only their later stock (O'Neal's list still carries the Grand Marshal's weapons); written as the Classic Champions' Hall quartermasters beside Clate and Jackspring. Lieutenant Rachel Vaccar, the battlemasters (Elfarran, Thelman Slatefist, Lady Hoteshem), Emissary Taluun and Zggi were left out (see Never).
 
 ### Their quests
 - Caretaker Folsom: The Legend of Stalvan (the Flintridge estate went to auction; an unsold crate of Stalvan's by the canal; points on to Marshal Haggard at Eastvale). Lines for active and done.
@@ -105,8 +104,6 @@ Files: `npcs/more_folk.lua` (quest givers), `npcs/more_folk2.lua` (shops and cor
 - Mayda Thane · human · motherly, blunt; "love"; reads people by their boots; scorn for army lasts.
 - Sloan McCoy · human · cool, sardonic; exact about doses, vague about everything else.
 - Randal Worth · human · vain, good-natured; finished edges; fond of Simon in spite of himself.
-- Captain Dirgehammer · dwarf · gruff, fatherly; keeps a ledger of every knight he has fitted.
-- Captain O'Neal · human · crisp, wry; guards the marshals' weapons, chiefly from Jackspring.
 - Allan Hafgan · human · scholarly, fussy; strikes each staff on the floor and listens.
 - Duncan Cullen · human · proper, proud; the name over the door; will not speak of Jalane.
 - Maria Lumere · human · cheerful, sharp; "dear"; does the elves' bargaining.

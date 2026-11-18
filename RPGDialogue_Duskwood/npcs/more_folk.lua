@@ -2090,7 +2090,7 @@ P:NPC {
   },
   notice = {
     { id = "n_1", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "Something bit your armour! Was it a ghoul? Jonathan says a ghoul's bite goes bad by morning, so you should wash it." },
+      text = "Something bit your armour, and I'll bet it was a ghoul! Jonathan says a ghoul's bite goes bad by morning, so you should wash it." },
     { id = "n_2", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Is that yours? Does it bite the dead ones? Calor says a dog won't go near a ghoul, but that isn't a dog." },
     { id = "n_3", cat = "light", when = { class = { "PALADIN", "PRIEST" } },
@@ -2377,7 +2377,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hello, hello! You've walked in on a disagreement about focal lengths. It's entirely amicable, and I'm entirely right." },
     { id = "g_2", when = { metBefore = true }, text = "You're back! Good, you can settle something. No, wait, you'll side with Finbus, people do." },
-    { id = "g_3", when = { race = "Gnome" }, text = "A gnome, in Duskwood! Sit down, sit down. Herble, look, there's four of us now, that's a quorum!" },
+    { id = "g_3", when = { race = "Gnome" }, text = "A gnome, in Duskwood! Sit down, sit down, and Herble, look, there's four of us now, that's a quorum!" },
   },
   notice = {
     { id = "n_1", cat = "gnome", when = { race = "Gnome" },

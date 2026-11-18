@@ -183,7 +183,7 @@ P:NPC {
     },
     therum = {
       lines = {
-        { id = "therum_1", text = "Did he, now? It'll have pained him. He's a fine armourer, and we've argued for twenty years whether it's harder to make the thing that cuts or the thing that stops it. I'd tell him he's the best I've met as well, if I thought he could bear it." },
+        { id = "therum_1", text = "Did he, now? Well, it'll have pained him to say it. He's a fine armourer, and we've argued for twenty years whether it's harder to make the thing that cuts or the thing that stops it. I'd tell him he's the best I've met as well, if I thought he could bear it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -270,7 +270,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Hello there! Mind the quench barrel, it's deeper than it looks, and I'd know." },
-    { id = "g_2", when = { metBefore = true }, text = "Aye, welcome back. I mean yes. They've got me doing it now." },
+    { id = "g_2", when = { metBefore = true }, text = "Aye, welcome back, and by that I mean yes. They've got me doing it now." },
     { id = "g_3", when = { profession = "Blacksmithing" }, text = "Another smith! Come and tell me I'm holding these tongs right, because Therum says I'm not." },
   },
   notice = {
@@ -685,7 +685,7 @@ P:NPC {
     },
     best = {
       lines = {
-        { id = "best_1", text = "In the city? In the kingdom, {g:lad|lass}! I shot the pipe out of a mountaineer's mouth at eighty paces on a wager, and he's still my friend. He stands a good way off at feasts, mind." },
+        { id = "best_1", text = "In the city, ye say? In the whole kingdom, {g:lad|lass}! I shot the pipe out of a mountaineer's mouth at eighty paces on a wager, and he's still my friend. He stands a good way off at feasts, mind." },
       },
       choices = {
         { text = "Who taught you?", next = "taught" },
@@ -789,8 +789,8 @@ P:NPC {
     third = "{name} met Thorfin Stoneshield, a dwarf who trains hunters in Stormwind's Dwarven District.",
   },
   greetings = {
-    { id = "g_default", text = "Well met. Sit, if ye like. There's nae hurry here." },
-    { id = "g_2", when = { metBefore = true }, text = "Ye've come back whole. Good. That's the first thing I look for." },
+    { id = "g_default", text = "Well met. Sit, if ye like, for there's nae hurry here." },
+    { id = "g_2", when = { metBefore = true }, text = "Ye've come back whole, and that's the first thing I look for." },
     { id = "g_3", when = { class = "HUNTER" }, text = "A hunter. Tell me, what's your plan when the beast doesnae fall?" },
   },
   notice = {
@@ -860,7 +860,7 @@ P:NPC {
     },
     saved = {
       lines = {
-        { id = "saved_1", text = "Did he say twice? It was three times. He's forgotten the ram, because he'd as soon nobody knew about the ram. I'll leave that one with him." },
+        { id = "saved_1", text = "Did he say twice? It was three times, by my count. He's forgotten the ram, because he'd as soon nobody knew about the ram. I'll leave that one with him." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -1665,7 +1665,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Citizen. Keep the peace and you'll have no quarrel with my guards." },
     { id = "g_2", when = { metBefore = true }, text = "You again. No complaints against you yet, which is more than I can say for most." },
-    { id = "g_3", when = { origin = "human_city_guard" }, text = "I know that stance. You've worn the tabard. Good to see one of ours." },
+    { id = "g_3", when = { origin = "human_city_guard" }, text = "I know that stance, and you've worn the tabard. It's good to see one of ours." },
   },
   notice = {
     { id = "n_1", cat = "kit", when = { durability = { max = 0.3 } },
@@ -1932,7 +1932,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Shh! Not so loud. I'm a gardener, as far as anyone here knows, and gardeners don't get visitors." },
     { id = "g_2", when = { metBefore = true }, text = "You again. Stand behind the hedge this time, will you? You're taller than the roses." },
-    { id = "g_3", when = { questActive = TODO_QUEST("Infiltrating the Castle") }, text = "Trias sent you? About time. I've been pruning the same bush for three days, and it's nearly gone." },
+    { id = "g_3", when = { questActive = TODO_QUEST("Infiltrating the Castle") }, text = "Trias sent you? It's about time, because I've been pruning the same bush for three days, and it's nearly gone." },
     { id = "g_4", when = { questActive = TODO_QUEST("The Attack!") }, text = "It's now or never. Stay put, keep quiet, and don't move until I say. The spybot goes in first." },
   },
   notice = {
@@ -1941,7 +1941,7 @@ P:NPC {
     { id = "n_2", cat = "stealth", when = { class = "ROGUE" },
       text = "You came through the garden without setting off my tripwire. Either you're good, or it's broken, and I checked it this morning." },
     { id = "n_3", cat = "craft", when = { profession = "Engineering" },
-      text = "You're an engineer? Don't touch the spybot. I know that look, and the answer's no." },
+      text = "You're an engineer? Then don't touch the spybot, please. I know that look, and the answer's no." },
   },
   start = "hello",
   nodes = {
@@ -2076,7 +2076,7 @@ P:NPC {
     third = "{name} met Nurse Lillian, who tends the wounded at the Stormwind Stockade.",
   },
   greetings = {
-    { id = "g_default", text = "Are you hurt? No? Then mind the doorway, please, they bring them out this way." },
+    { id = "g_default", text = "Are you hurt at all? If not, then mind the doorway, please, they bring them out this way." },
     { id = "g_2", when = { metBefore = true }, text = "You again. You're still in one piece, I see. Good, I've no spare beds." },
     { id = "g_3", when = { class = { "PRIEST", "PALADIN" } }, text = "Light be praised, someone with healing hands. If you've a moment, I've a guard inside with a cracked skull." },
   },
@@ -2455,7 +2455,7 @@ P:NPC {
     rumors = { { id = "tp_rumors", text = "Word is the Stockade lads are getting messages out. There's only two ways through that gate, and neither one's a pick." } },
     background = { { id = "tp_background", text = "Canal born, and self-taught on my mother's larder. I did my years, learned my trade properly inside, and came out a careful man." } },
     advice = { { id = "tp_advice", text = "Never hurry a lock, and never trust an easy one." } },
-    _none = { { id = "tp_none", text = "Couldn't say, friend. I only stand here." } },
+    _none = { { id = "tp_none", text = "I couldn't say, friend, since I only stand here." } },
   },
 }
 
@@ -2856,7 +2856,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Citizen." },
     { id = "g_2", when = { metBefore = true }, text = "You again. Good day." },
-    { id = "g_3", when = { origin = "human_city_guard" }, text = "You've served. I can see it. Well met." },
+    { id = "g_3", when = { origin = "human_city_guard" }, text = "You've served, and I can see it. Well met." },
   },
   notice = {
     { id = "n_1", cat = "stealth", when = { class = "ROGUE" },
