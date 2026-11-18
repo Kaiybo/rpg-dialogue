@@ -226,10 +226,13 @@ Working examples of every kind are in the two shipped packs; `PACK_AUTHORING.md`
 | `sys` | override which pacing budgets the line draws from (normally inferred from `when`) |
 | `fx` | effects when the line is shown (rare: learn a topic, hear a claim) |
 | `journal` | `{ first = "…", third = "…" }`: diary and chronicle voices |
+| `narr` | narration (0.85.0): one short stage direction shown above the line in dim ink and typed before it ("He sets down the hammer and looks you over, slow."). A string, or `{ { text, when }, … }` (first that passes). Tokens allowed. See below and CONTENT_GUIDE §2a |
+
+**Narration (`narr`, 0.85.0).** BG3-style stage directions, optional everywhere. It can sit on a line, a node (used when the node shows a fresh line, never with an `again` line), a `reply` entry, or a choice (for its `reply`). One per page: the reply's wins, then the line's, then the node's. The box draws it as its own paragraph in the palette's `dim` colour, typed before the NPC's words (the client has no italic face, so dim ink stands in); with DialogueUI it's prepended as its own paragraph in a muted grey-brown. It is not a line: no anti-repetition, no pacing budgets, no `Shown`, no topic links, no insanity scramble, not read aloud by TTS and not logged. The `narration` setting (default on) hides it entirely (`Conv.Narration` returns nil).
 
 ### 2.6 Node and choice
 
-A **node** is `{ lines = {…}, again = {…}, choices = {…}, big = true|nil, hub = true|nil, rotating = true|nil, journal = … }`. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more. `hub` marks a node that `BACK` returns to (the start node always is one). `again` holds short lines shown when the player comes back to a node already shown in this conversation (0.26.0; CONTENT_GUIDE §7a). `rotating` marks a node that is meant to be visited again and again in one conversation (a story told, a question asked; 0.31.0): replies leading to it are never hidden as answered, and coming back to it draws a fresh line instead of an `again` line. Its lines usually set an `npcFlag` so that only the replies for the line just said pass.
+A **node** is `{ lines = {…}, again = {…}, choices = {…}, big = true|nil, hub = true|nil, rotating = true|nil, narr = …, journal = … }`. `narr` is the node's narration (§2.5), used when the chosen line has none of its own. `big` marks a conversation that matters: alignment-reactive lines are allowed there, and alignment shifts count more. `hub` marks a node that `BACK` returns to (the start node always is one). `again` holds short lines shown when the player comes back to a node already shown in this conversation (0.26.0; CONTENT_GUIDE §7a). `rotating` marks a node that is meant to be visited again and again in one conversation (a story told, a question asked; 0.31.0): replies leading to it are never hidden as answered, and coming back to it draws a fresh line instead of an `again` line. Its lines usually set an `npcFlag` so that only the replies for the line just said pass.
 
 **Exploring (0.26.0).** The session keeps the nodes shown (`s.visited`); NPC memory keeps every node shown in any conversation (`mem.nodes`). `Engine.Choices` hides a reply whose target was already shown in this conversation, unless the target is a hub or the reply is `repeatable`; replies to nodes explored in earlier conversations are marked `explored` (dimmed in the box). At most `Engine.MAX_CHOICES` (6) show, in the writer's order; when there are more, explored replies drop first, then unconditional branches, then any branch; exits stay.
 
@@ -245,6 +248,7 @@ A **choice**:
 | `next` | a node id, `"END"`, `"BUSINESS"` (closes our window and leaves the Blizzard window that is already open underneath), or `"BACK"` (the last hub visited) |
 | `repeatable` | keep offering it after its node was shown in this conversation |
 | `reply` | the NPC's answer to this reply, said before the next page: a string, or `{ { text, when }, … }` (first that passes). With `BACK` it replaces the hub's "anything else?" line; with `END` it's shown with a single farewell instead of closing at once; with a node id it comes before that node's line. Give a stance that goes `BACK`/`END` one wherever a real person would answer. |
+| `narr` | narration before the `reply` (§2.5). A `reply` entry may carry its own `narr` (`{ text = …, when = …, narr = … }`), which wins over the choice's |
 | `fail` | for checks: `{ fx = …, next = … }` |
 | `journal` | `{ first = …, third = … }` |
 

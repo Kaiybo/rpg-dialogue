@@ -51,6 +51,17 @@ How to write dialogue for RPG Dialogue, for people and for AI sessions. Read it 
 - **Even a brush-off has a voice.** Every NPC gets a `_none` topic answer that sounds like them.
 - **No promises the game can't keep.** No discounts, free drinks, rewards or "I'll fix that for you" (the addon can't change prices or give items).
 
+## 2a. Narration (stage directions, 0.85.0)
+
+`narr` adds one line of what the NPC *does*, shown dim above what they *say* (DESIGN §2.5): `narr = "He sets down the hammer and looks you over, slowly."` It goes on a line, a node, or a choice's `reply`; conditions work like a reply's (`narr = { { text = "…", when = { … } }, { text = "…" } }`), and tokens work.
+
+- **Present tense, one sentence.** Third person about the NPC ("She…", "Thrall…") or second person about what the player sees ("You catch him glancing at the door."). Never both in one sentence.
+- **Physical and specific.** Hands, eyes, posture, the thing they're holding, the room around them: the marshal's map, the Warchief's armour, the high priestess's bow. "He looks thoughtful" is not narration; "He rubs his thumb along the edge of the map" is.
+- **Never tells the player what they feel**, and never tells them what the NPC feels in so many words ("She is sad"). Show it and let the player read it.
+- **Never repeats the line.** If the words say he's tired, the narration doesn't yawn. It adds what the words can't: a pause, a glance, a gesture that undercuts or sharpens them.
+- **Sparingly: maybe one node in four.** Big moments, first meetings, a turn in the talk. A page of narration on every node turns into a novel and slows the box down.
+- Same voice rules as everything else: whole sentences, Classic-era only, nothing an NPC's model couldn't plausibly be doing in the game.
+
 ## 3. Noticing moments (acknowledgments)
 
 A noticing moment is *this* NPC reacting to something about the player *they in particular* would care about.

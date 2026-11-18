@@ -683,15 +683,37 @@ local function choiceLabel(entry)
   return text
 end
 
+-- Narration (BG3-style stage direction, 0.85.0): `narr` on a line, a node, a reply entry
+-- or a choice. A string, or a list of { text, when } (or { "text", when = ... }) where the
+-- first whose conditions pass is used. Nil when the setting is off. It's shown dim above
+-- the NPC's words and never counts as a line (no anti-repetition, no pacing budgets).
+function Conv.Narration(n, ctx, env)
+  if n == nil or not ns.db or ns.db.settings.narration == false then return nil end
+  if type(n) == "string" then return Tokens.Render(n, ctx, env) end
+  if type(n) == "table" then
+    for _, e in ipairs(n) do
+      local text = type(e) == "string" and e or (type(e) == "table" and (e.text or e[1]))
+      local when = type(e) == "table" and e.when or nil
+      if text and (not when or Cond.Eval(when, ctx, env)) then
+        return Tokens.Render(text, ctx, env, when)
+      end
+    end
+  end
+  return nil
+end
+
 -- A reply's own answer from the NPC (choice.reply, 0.82.0): a string, or a list of
--- { text, when } where the first whose conditions pass is said.
+-- { text, when } where the first whose conditions pass is said. Second return: its
+-- narration (the entry's `narr`, else the choice's own `narr`).
 function Conv.ReplyText(choice, ctx, env)
   local r = choice and choice.reply
-  if type(r) == "string" then return Tokens.Render(r, ctx, env) end
+  if type(r) == "string" then
+    return Tokens.Render(r, ctx, env), Conv.Narration(choice.narr, ctx, env)
+  end
   if type(r) == "table" then
     for _, line in ipairs(r) do
       if type(line) == "table" and line.text and (not line.when or Cond.Eval(line.when, ctx, env)) then
-        return Tokens.Render(line.text, ctx, env, line.when)
+        return Tokens.Render(line.text, ctx, env, line.when), Conv.Narration(line.narr or choice.narr, ctx, env)
       end
     end
   end
@@ -699,7 +721,7 @@ function Conv.ReplyText(choice, ctx, env)
 end
 
 -- The NPC answers a reply that ends the visit: their answer, then a single farewell.
-function Conv.ShowReplyEnd(text)
+function Conv.ShowReplyEnd(text, narr)
   local s = Conv.session
   if not s then return end
   local info = s.info
@@ -710,7 +732,7 @@ function Conv.ShowReplyEnd(text)
   s.choiceEntries = { { choice = { text = L.FAREWELL, next = "END" } } }
   present(s, {
     name = info.name, subtitle = info.subtitle, unit = s.unit,
-    text = text, linkedText = linked, choices = { { text = L.FAREWELL } },
+    text = text, linkedText = linked, narr = narr, choices = { { text = L.FAREWELL } },
     said = (ns.db.settings.echoReply ~= false) and said or nil,
     canAsk = ns.Topics and ns.Topics.Any(), askCount = ns.Topics and ns.Topics.Count(),
     disposition = Conv.DispositionView(s),
@@ -718,7 +740,7 @@ function Conv.ShowReplyEnd(text)
   if ns.db.settings.tts then Conv.Speak(s, text) end
 end
 
-function Conv.ShowNode(nodeId, reply)
+function Conv.ShowNode(nodeId, reply, replyNarr)
   local s = Conv.session
   if not s then return end
   local info, ctx, env = s.info, s.ctx, s.env
@@ -748,6 +770,13 @@ function Conv.ShowNode(nodeId, reply)
   end
   local main = winner and Tokens.Render(winner.line.text, ctx, env, winner.line.when) or L.FALLBACK_LINE
   if reply then main = winner and (reply .. "\n\n" .. main) or reply end
+  -- One stage direction per page: the reply's, else the line's, else the node's (the
+  -- node's only with a fresh line, never with an "again" line).
+  local narr = replyNarr
+  if not narr and winner then
+    narr = Conv.Narration(winner.line.narr, ctx, env)
+    if not narr and not (returning and not node.rotating) then narr = Conv.Narration(node.narr, ctx, env) end
+  end
   Conv.Shown(winner)
   s.lastLine = winner and winner.gid or s.lastLine
 
@@ -764,7 +793,7 @@ function Conv.ShowNode(nodeId, reply)
       Conv.Shown(notice)
       local text = Tokens.Render(notice.line.text, ctx, env, notice.line.when)
       local place = notice.line.place or "before"
-      if place == "replace" then main = text
+      if place == "replace" then main = text; narr = replyNarr
       elseif place == "after" then after = text
       else before = text end
     end
@@ -801,7 +830,7 @@ function Conv.ShowNode(nodeId, reply)
   s.said = nil
   present(s, {
     name = Ins and Ins.Name(info.name, env.seed) or info.name, subtitle = info.subtitle, unit = s.unit,
-    text = body, linkedText = linked, choices = Conv.BuildChoices(node, isStart),
+    text = body, linkedText = linked, narr = narr, choices = Conv.BuildChoices(node, isStart),
     said = (ns.db.settings.echoReply ~= false) and said or nil,
     lineGid = winner and winner.gid, canAsk = ns.Topics and ns.Topics.Any(),
     askCount = ns.Topics and ns.Topics.Count(), disposition = Conv.DispositionView(s),
@@ -990,9 +1019,9 @@ function Conv.Choose(index)
     Conv.ShowNode(s.hub or (s.info.def and s.info.def.start) or "hello", Conv.ReplyText(choice, ctx, env))
     Conv.ShowPendingNote()
   elseif nextId == nil or nextId == "END" then
-    local answer = Conv.ReplyText(choice, ctx, env)
+    local answer, narr = Conv.ReplyText(choice, ctx, env)
     if answer then
-      Conv.ShowReplyEnd(answer)
+      Conv.ShowReplyEnd(answer, narr)
       Conv.ShowPendingNote()
     else
       s.pendingNote = nil
