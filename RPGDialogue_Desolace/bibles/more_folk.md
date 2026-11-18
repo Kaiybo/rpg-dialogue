@@ -46,3 +46,18 @@ Willow's true allegiance stated plainly; anything after Year 1 (no Cataclysm Des
 
 ### Authored, not canon
 Azore's doubts about the Dawn's priorities; Hornizz's skinless kodo; the skull on Bibbly's doorstep; Narv's words over a hide; Mai'Lahii's charms; Wulan's hidden store under the inn and her friendship with Sikewa.
+
+## Added later (keys: tukk, haewilani)
+
+### Sources
+- warcraft.wiki.gg (Classic parts only): Tukk <General Goods> (jungle troll, male, Shadowprey Village; the page has a Classic section; there is no wiki page for "Tukaw", so the Classic name Tukk is used). Hae'Wilani <Axecrafter> (jungle troll, female, axe vendor at Shadowprey Village).
+
+### Their quests
+- none: vendors, built from role, place and neighbours.
+
+### Voices
+- **Tukk.** Easy, sly Darkspear; reads a traveller by what has run out; homesick for Sen'jin's smoked fish.
+- **Hae'Wilani.** Exacting, fierce; axes and nothing else; complains about the forge and would not move it. Consistent with Lah'Mawhani's line that she buys flux and says it is not hot enough.
+
+### Authored, not canon
+Tukk's lost season against Lah'Mawhani, his torches cut open on the road, the waterskin he leaves for Drulzegar; Hae'Wilani's mother on the Echo Isles, the driftwood charcoal, and the axe she made for Drulzegar.

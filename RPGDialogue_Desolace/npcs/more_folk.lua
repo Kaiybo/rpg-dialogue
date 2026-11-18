@@ -2134,3 +2134,306 @@ P:NPC {
     _none = { { id = "tp_none", text = "I could not tell you. Ask Sikewa at the inn; travellers tell her everything." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Tukk: general goods vendor at Shadowprey Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "tukk", id = TODO_NPC("Tukk"), name = "Tukk", title = "General Goods",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "shadowprey" }, temper = { "easy", "sly" }, values = { "trade", "the village" },
+  notices = { "travel", "race", "class" },
+  impression = {
+    first = "Tukk sells general goods at Shadowprey Village and can tell how far a traveller has come by what has run out in their pack. He is easy company, and he sold me a waterskin while I was still telling him I had one.",
+    third = "{name} met Tukk, who sells general goods at Shadowprey Village.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Hey, mon, come out of dat grey dust and into de sea air. You crossed Desolace to get here, so I already know half of what you need." },
+    { id = "g_back", when = { metBefore = true }, text = "Back at Tukk's, ya? Good, de land out dere eats supplies, and I be de one who sells dem again." },
+    { id = "g_away", when = { away = 14 }, text = "{away}, mon! I thought de centaur had you. Sit, show me de pack, and we see what's left in it." },
+  },
+  notice = {
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "Darkspear! You come all de way from de Echo Isles side to de far side of de world, and still you find a troll sellin' torches. Dat's us, mon." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter, and one who's been shootin' at somethin' big, by how light dat quiver sits. I got arrows and shot both, so don't be shy." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "One of de tauren, like Taiga and her kin up de hill. Your people buy slow and never haggle, and I can't decide if I like dat or miss de fight." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I be Tukk. Bags, waterskins, torches, arrows and shot, and whatever else de road took from you between Ghost Walker Post and here, which is a long, dry way." },
+        { id = "h_troll", when = { race = "Troll" }, text = "I be Tukk, and it's good to hear a Darkspear step on de boards. Buy what you need, and den tell me if Sen'jin Village still smells of smoked fish, because I dream about it." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "I be Tukk. You be wantin' arrows or shot, hunter, and plenty, because de kodo out dere take a lot of convincin' and de scorpids take more." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? De tide's not goin' anywhere fast." },
+        { id = "h_again2", text = "Ask away, I be listenin'." },
+        { id = "h_again3", text = "Ya, mon?" },
+      },
+      choices = {
+        { text = "Show me your goods.", next = "BUSINESS" },
+        { text = "What does Desolace use up fastest?", next = "uses" },
+        { text = "Shadowprey is a long way from anywhere.", next = "far" },
+        { text = "Who else trades in the village?", next = "village" },
+        { text = "Do the naga trouble your trade?", next = "naga" },
+        { text = "Sen'jin still smells of smoked fish.", next = "senjin", when = { race = "Troll" } },
+        { text = "What should I carry for kodo?", next = "kodo", when = { class = "HUNTER" } },
+        { text = "Stay easy, Tukk.", next = "END" },
+      },
+    },
+    uses = {
+      lines = {
+        { id = "uses_d", text = "Water first, mon, always water. Dere's not a clean stream between here and de Stonetalon pass, and what pools you find got demon stink or kodo bones in dem." },
+      },
+      choices = {
+        { text = "And after water?", next = "uses_after" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    uses_after = {
+      lines = {
+        { id = "uses_after_d", text = "Torches, because de sky over Desolace be grey all day and black all night, and folk get caught out. After dat it's bags, for all de bones and horns everyone carries back and nobody ever tells me why." },
+      },
+      choices = {
+        { text = "I've carried a few bones myself.", next = "BACK", reply = "See? Everybody. One day I'm gonna ask what dey for, and I bet I don't like de answer.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    far = {
+      lines = {
+        { id = "far_d", text = "Dat's de point of it, mon. De fish be thick here, de Horde wanted a dock on dis coast, and nobody else wanted de place. We got de sea in front and all dat dead land behind, and most days I only look at de sea." },
+      },
+      choices = {
+        { text = "How do your goods reach you?", next = "far_goods" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    far_goods = {
+      lines = {
+        { id = "far_goods_d", text = "Some come by wyvern with Thalon, de small things, and de rest come overland from Sun Rock Retreat when de centaur let de road alone. I order double and hope for half, and dat's about what gets here." },
+      },
+      choices = {
+        { text = "The centaur take the rest?", next = "far_centaur" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    far_centaur = {
+      big = true,
+      lines = {
+        { id = "far_centaur_d", text = "De Kolkar or de Magram or whoever be winnin' dat week, ya. Dey don't even use most of it, mon, dey just cut de packs open and leave it in de dust, and I find my own torches on de road goin' north." },
+      },
+      choices = {
+        { text = "The Horde should guard that road properly.", next = "BACK", reply = "I been sayin' so to Vark Battlescar, and he says he got demons to think about first. He's right, and I'm still short of torches.", fx = { align = { order = 1 } } },
+        { text = "Pay one clan to leave your packs alone.", next = "BACK", reply = "Ha, I thought of it! Den de other clans want payin' too, and now I'm feedin' every centaur in Desolace.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village = {
+      lines = {
+        { id = "village_d", text = "Lah'Mawhani got de makers' supplies and she'll talk you out of your boots. Mai'Lahii has de fishin' gear, Wulan de spices, and Hae'Wilani makes axes dat I wouldn't want to argue with." },
+      },
+      choices = {
+        { text = "Do you and Lah'Mawhani compete?", next = "village_lah" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village_lah = {
+      lines = {
+        { id = "village_lah_d", text = "We tried it one season, mon, and she won so bad I had to borrow thread from her to mend my own awning. Now she sells to de makers and I sell to de walkers, and we both sleep better." },
+      },
+      choices = {
+        { text = "A wise surrender.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    naga = {
+      lines = {
+        { id = "naga_d", text = "Dey don't come up on de docks, not yet. But de boats stay closer in dan dey used to, since Drulzegar Skraghook came back alone, and fewer boats means fewer fishers buyin' from Tukk." },
+      },
+      choices = {
+        { text = "Do you speak with Drulzegar?", next = "naga_drul" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    naga_drul = {
+      lines = {
+        { id = "naga_drul_d", text = "I bring him a waterskin most evenings and set it down beside him, and he don't say thanks and I don't need him to. A troll who lost his whole crew gets to be quiet as long as he likes." },
+      },
+      choices = {
+        { text = "That is kindly done.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    senjin = {
+      lines = {
+        { id = "senjin_d", text = "Ahh, don't tell me dat, mon, now I got to sit down. De fish here be bigger, but nobody smokes dem right, and Wulan keeps tellin' me it's de pepper when I know it's de wood." },
+      },
+      choices = {
+        { text = "It's de wood, mon. Always de wood.", next = "BACK", reply = "Thank you! Go tell Wulan, and stand back when you do.", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kodo = {
+      lines = {
+        { id = "kodo_d", text = "Heavy shot or broad arrows, and twice what you think. An old kodo can walk a long way with a quiver's worth in him, and it's a bad thing for you both if he does." },
+      },
+      choices = {
+        { text = "I'll make it quick for the beast.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    centaur = { { id = "tp_cen", text = "Four clans of dem, mon, all fightin' each other, and somehow dey still find time for my supply packs." } },
+    background = { { id = "tp_bg", text = "I came over with de first boats to build de docks. When de buildin' was done, somebody had to sell de nails, and I never left." } },
+    advice = { { id = "tp_ad", text = "Fill your waterskins here, mon. De next clean water north of dis village be a very long walk." } },
+    _none = { { id = "tp_none", text = "Dat's past what Tukk knows, mon. Ask Sikewa at de inn, she hears it all." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Hae'Wilani: axecrafter at Shadowprey Village.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "haewilani", id = TODO_NPC("Hae'Wilani"), name = "Hae'Wilani", title = "Axecrafter",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "shadowprey" }, temper = { "exacting", "fierce" }, values = { "craft", "strength" },
+  notices = { "kit", "class", "craft" },
+  impression = {
+    first = "Hae'Wilani makes axes at Shadowprey Village and complains that nothing on this coast burns hot enough for proper steel. She weighed my weapon in one hand and found it wanting before I had spoken.",
+    third = "{name} met Hae'Wilani, the axecrafter at Shadowprey Village.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Stand dere, where I can see how you carry your weight. I don't sell an axe to anyone till I know which side dey lean on." },
+    { id = "g_back", when = { metBefore = true }, text = "You be back, and de edge is still on it. So you been usin' it right, or you not been usin' it at all." },
+    { id = "g_away", when = { away = 14 }, text = "{away}, and look at dat haft, all dried out by de dust. Give it here before it splits in your hand." },
+  },
+  notice = {
+    { id = "n_axe", cat = "class", when = { class = { "WARRIOR", "SHAMAN", "HUNTER" } },
+      text = "Now here's an arm dat knows what an axe is for. Good, mon, I get tired of sellin' to folk who only want one to hang on a wall." },
+    { id = "n_smith", cat = "craft", when = { profession = { "Blacksmithing", "Mining" } },
+      text = "You be a smith, ya? Den tell me true, does your flux run clean, because what I get here spits like a wet cat." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc. Your people and mine both love de axe, and we never agree how long de haft should be. Yours be too short, mon, I'm only sayin'." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I be Hae'Wilani, and I make axes, one-hand and two-hand, and nothin' else. A smith who makes everything makes nothin' well, and dere's enough in one axe to keep me learnin' all my life." },
+        { id = "h_axe", when = { class = { "WARRIOR", "SHAMAN", "HUNTER" } }, text = "I be Hae'Wilani. You got de shoulders for my work, so hold out your arm and let me see de reach, because I don't sell de same axe to two different bodies." },
+        { id = "h_smith", when = { profession = { "Blacksmithing", "Mining" } }, text = "I be Hae'Wilani, axecrafter. You know de forge, so you know what it means when I say I do dis with driftwood charcoal and a sea wind in de bellows." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk while de steel cools." },
+        { id = "h_again2", text = "Go on, mon, I can hammer and hear." },
+        { id = "h_again3", text = "Ya?" },
+      },
+      choices = {
+        { text = "Show me your axes.", next = "BUSINESS" },
+        { text = "Why only axes?", next = "only" },
+        { text = "A forge by the sea must be hard to keep.", next = "sea" },
+        { text = "Who carries your work?", next = "carry" },
+        { text = "What do you make of Desolace?", next = "land" },
+        { text = "Fit an axe to my reach, then.", next = "reach", when = { class = { "WARRIOR", "SHAMAN", "HUNTER" } } },
+        { text = "Lah'Mawhani says you complain about her flux.", next = "flux", when = { profession = { "Blacksmithing", "Mining" } } },
+        { text = "Strong steel to you, Hae'Wilani.", next = "END" },
+      },
+    },
+    only = {
+      lines = {
+        { id = "only_d", text = "Because de axe is honest, mon. A sword asks you to be clever and a mace asks you to be strong, but an axe asks for both and forgives neither, and I like a thing dat don't flatter." },
+      },
+      choices = {
+        { text = "Who taught you the craft?", next = "only_taught" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    only_taught = {
+      lines = {
+        { id = "only_taught_d", text = "My mother, on de Echo Isles, with stone and bone before we ever had much iron. When de Darkspear came to Durotar, de orcs showed me deir steel, and I showed dem how a troll balances a throw. It was a fair trade." },
+      },
+      choices = {
+        { text = "So your axes are part troll and part orc.", next = "BACK", reply = "Troll in de balance and orc in de weight, ya. Dat be de Horde in one piece of steel, if you want to be pretty about it.", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sea = {
+      lines = {
+        { id = "sea_d", text = "It be a curse, mon. De salt air rusts a blade while I'm still lookin' at it, de driftwood burns too cool, and Lah'Mawhani's flux is not hot enough, which I tell her every time and she laughs every time." },
+      },
+      choices = {
+        { text = "Then why not forge inland?", next = "sea_inland" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sea_inland = {
+      big = true,
+      narr = "She turns a half-finished axe head over in the tongs and holds it up against the grey light.",
+      lines = {
+        { id = "sea_inland_d", text = "Because dis is where de axes be needed. Dere's naga in de water and demons at Mannoroc and centaur everywhere between, and de fishers here had nothin' but gaffs till I came. A good forge far away is no use to dem." },
+      },
+      choices = {
+        { text = "A smith belongs where the need is greatest.", next = "BACK", reply = "Dat's how I see it, mon. I complain about de forge all day, and I'd not move it one step.", fx = { align = { light = 1 } } },
+        { text = "Your skill is wasted on fishers. Orgrimmar would pay more.", next = "BACK", reply = "Orgrimmar got a hundred smiths, and Shadowprey got me. I know which one misses me if I go.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    carry = {
+      lines = {
+        { id = "carry_d", text = "De village guardians, every one, and Vark Battlescar, who dented his on a demon's skull and brought it back like it was my fault. Drulzegar Skraghook asked for one last, and he didn't want it for choppin' wood." },
+      },
+      choices = {
+        { text = "You made Drulzegar his axe?", next = "carry_drul" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    carry_drul = {
+      lines = {
+        { id = "carry_drul_d", text = "I did, mon, and I put more care in it dan in any I ever made. He lost five of his crew to de Slitherblade, and if an axe is all I can give him for dat, den it's gonna be de best axe on dis coast." },
+      },
+      choices = {
+        { text = "He'll put it to good use.", next = "BACK", fx = { affinity = 1 } },
+        { text = "An axe won't bring his crew back.", next = "BACK", reply = "No, it won't, and he knows it, and I know it. I made it anyway.", fx = { trait = { honest = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    land = {
+      lines = {
+        { id = "land_d", text = "It's a dead land, and it makes everything in it hard. De centaur be hard, de kodo be hard, even de tauren up de hill got a look in deir eye dey don't have in Mulgore. I suppose I got harder too." },
+      },
+      choices = {
+        { text = "Hard land makes good steel, they say.", next = "BACK", reply = "Dey say dat who never had to find charcoal here. But ya, maybe, a little.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reach = {
+      narr = "She measures your arm from shoulder to knuckle with a knotted cord, and then does it again.",
+      lines = {
+        { id = "reach_d", text = "Longer in de arm dan you look, so you want de haft a hand shorter dan you been carryin'. You been swingin' wide to make up for it, mon, and it's a wonder nobody's stepped inside and gutted you." },
+      },
+      choices = {
+        { text = "A hand shorter. I'll trust your eye.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    flux = {
+      lines = {
+        { id = "flux_d", text = "Ha, she told you dat! It's true, and I'll say it to her face and to yours. It does de job, I admit, but it does it slow, and I never yet met a smith who was happy with what dey could get." },
+      },
+      choices = {
+        { text = "No smith ever is.", next = "BACK", reply = "Dere, you see? You understand. Now go tell her you agree with me.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    naga = { { id = "tp_naga", text = "De Slitherblade got scales, mon, and scales turn a thin edge. I grind my axes thicker behind de bite because of dem." } },
+    background = { { id = "tp_bg", text = "I learned on de Echo Isles and finished learnin' in Durotar. I came here because dere was no smith, and a village with no smith is only waitin'." } },
+    advice = { { id = "tp_ad", text = "Oil de head every night on dis coast, mon. De sea don't sleep, and neither does rust." } },
+    _none = { { id = "tp_none", text = "I don't know, and I got steel coolin'. Ask Sikewa, or Tukk, who never stops listenin'." } },
+  },
+}
