@@ -1149,6 +1149,7 @@ P:NPC {
 
 P:NPC {
   key = "nixxrax", id = TODO_NPC("Nixxrax Fillamug"), name = "Nixxrax Fillamug",
+  gender = "male",
   title = "Food & Drink",
   bible = "bibles/stranglethorn.md", role = "vendor", tier = "service",
   communities = { "booty_bay" }, temper = { "cheerful" }, values = { "generous", "greedy" },
@@ -1160,6 +1161,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Well hello, sweetheart, the Salty Sailor just got better lookin' by a margin I can't even put a price on! Sit down, sit down, the smile's free and the bread's a copper." },
+    { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "There's my favourite customer, sweetheart! I saved you the table with only one wobbly leg, which around here counts as a reservation, and I didn't even bill you for the sentiment." },
+    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Food or drink, pal, strictly business, just like you asked! Mind you, business is the one thing I never get tired of." },
     { id = "g_food", text = "Are you hungry or thirsty, pal? If it's both, you're my favorite kind of customer, and I've got a combination price!" },
   },
 
@@ -1170,6 +1174,28 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    flirt = {
+      lines = { { id = "fl_default", text = "Every customer? No, no, I call the ones I like sweetheart, and the rest I call pal and add a copper to the bill. Listen, listen, I close the kitchen at midnight, and a goblin with a full larder and an empty table is a sad sight, so if you came by after hours, I'd call it an investment in customer relations." } },
+      choices = {
+        { text = "Midnight it is, then. Save me some bread.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "Is there any decent ale in that larder, goblin?", next = "flirt_ale", when = { race = "Dwarf" } },
+        { text = "You're sweet, but I'm only here for the food.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Hey, the food's the best part of me anyway, and it's on the menu every day. No hard feelings, pal, and no charge for the askin'." },
+        { text = "Keep your customer relations to yourself, goblin.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Whoa, whoa, message received, loud and clear! The bread's still a copper, and you can have my dignity for nothin', since that's apparently what it's worth." },
+      },
+    },
+    flirt_warm = {
+      lines = { { id = "flw_default", text = "Sweetheart, you just made my whole week, and my week included a shark in the cellar! I'll wipe down the good table and light the lantern that doesn't smoke, and you'll see a goblin can be romantic when he isn't counting." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    flirt_ale = {
+      lines = { { id = "fla_default", text = "Decent ale? Sweetheart, I've a cask of Thunderbrew that came off a smuggler's boat at a price I'd blush to tell you, and I've been savin' it for somebody who'd know the difference. Come by at midnight and I'll tap it, and we'll argue about whether dwarves or goblins brew better." } },
+      choices = {
+        { text = "Dwarves, obviously. I'll come and prove it.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Too much, usually, and then they complain about it halfway up the hill to the Mosh'Ogg camp. Eat a good supper the night before, bought here, and a light breakfast on the day, friend, and you'll fight better than the fellow who stuffed himself at dawn." } },
@@ -1287,6 +1313,7 @@ P:NPC {
         { text = "Where does your meat come from, Nixxrax?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "I'd guess you serve little a druid would eat, Nixxrax.", next = "xdruid", when = { class = "DRUID" } },
         { text = "What do you feed someone wearing plate in this heat, Nixxrax?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do you call every customer sweetheart, Nixxrax?", next = "flirt", when = { flirt = true } },
         { text = "I'm not hungry.", next = "END" },
       },
     },

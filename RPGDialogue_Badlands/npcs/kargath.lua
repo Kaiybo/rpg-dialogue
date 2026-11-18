@@ -4,6 +4,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "goretooth", id = TODO_NPC("Warlord Goretooth"), name = "Warlord Goretooth",
+  gender = "male",
   bible = "bibles/badlands.md", role = "soldier", tier = "quest",
   communities = { "kargath" }, temper = { "boisterous" }, values = { "proud", "loyal", "brave" },
   prejudice = { class = "WARLOCK", faction = "Horde", amount = 10, why = "An old Horde warrior who remembers Gul'dan's warlocks leading the orcs to demon blood." },
@@ -15,6 +16,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Lok'tar! Now there's a sight worth the climb; the vultures never looked half so fine, and they've had years to practise." },
+    { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "Ha! There's the one who promised me a drink by the fire! Theodora keeps asking why I've started oiling my tusks, and I keep telling her it's none of her business." },
+    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Ah, it's you. Don't fret, I'll keep my boasting for the Dark Irons today, and they never turn me down." },
     { id = "g_op_goretooth", when = { gossip = { topic = "goretooth", stance = "wrong" } }, text = "Thal'trak tells me you think I'm wrong to keep him at his post. Maybe I am, but if every soldier ran off after his wife, Kargath would be guarded by Lexlort's lizards." },
     { id = "g_prej1", when = { prejudiced = true }, text = "A warlock, climbing my tower. The last time I trusted one of your trade, Gul'dan's lot were handing round a cup of something red, and I've had the taste in my mouth ever since." },
     { id = "g_prej2", when = { prejudiced = true }, text = "Keep your imp at the foot of the stairs, warlock. The vultures don't like it, and neither do I." },
@@ -39,6 +43,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    flirt = {
+      lines = {
+        { id = "fl_default", text = "Staring? I'm admiring, which is a different thing, and a warrior should admire strength wherever he finds it. You climbed my tower without losing your breath, so if you'd share a drink by the fire when the watch changes, I'd count it an honor." },
+        { id = "fl_orc", when = { race = "Orc" }, text = "Staring? I'm admiring, and any orc should know the difference. You've the shoulders of a Frostwolf and the eyes of a Warsong, so if you'd share a drink by the fire when the watch changes, I'd count it an honor." },
+      },
+      choices = {
+        { text = "Save me a seat by the fire, Warlord.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "Bring me a Dark Iron's beard first. Then we'll drink.", next = "flirt_dare", fx = { affinity = 1, trait = { brave = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "I'm dead, Warlord. Doesn't that put you off?", next = "flirt_dead", when = { race = "Scourge" } },
+        { text = "I'm flattered, Warlord, but my heart is spoken for.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Then whoever holds it is lucky, and I hope they know it. If they don't, send them up my tower and I'll explain it to them." },
+        { text = "Keep your eyes on the Spire, Warlord, not on me.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Ha! Spoken like an officer, and you're right, curse you. The Spire it is, then, though it's not half as pretty." },
+      },
+    },
+    flirt_warm = {
+      lines = { { id = "flw_default", text = "Ha! Then it's settled, and I'll have Shul'kar keep back the good grog, the jug he hides from Lexlort. Don't tell the ladies at the fire, mind, or I'll never hear the end of it." } },
+      choices = { { text = "Something else, Warlord.", next = "BACK" } },
+    },
+    flirt_dare = {
+      lines = { { id = "fld_default", text = "Now that's how the old clans did their courting, with a trophy and a boast before the fire! Bring me that beard and I'll pour the drink myself, and every grunt in Kargath will know why." } },
+      choices = { { text = "Something else, Warlord.", next = "BACK" } },
+    },
+    flirt_dead = {
+      lines = { { id = "fldd_default", text = "Put me off? Half the company I keep is dead, and they talk better than the living half. Besides, you've a fine pair of eyes, even if they do glow a little in the dark." } },
+      choices = {
+        { text = "Then I'll share that drink, Warlord.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "Theodora would never let me hear the end of it.", next = "BACK", fx = { trait = { witty = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "No, she wouldn't, and neither would Vivian, and that's the trouble with this fort. There are too many sharp tongues on it and not one of them on my side." },
+      },
+    },
     prej = {
       lines = { { id = "prej_default", text = "I think the warlocks of the old Horde sold us to the demons and called it strength, and every orc my age paid for it. When I see a warlock now, I see Gul'dan smiling at the back of the tent, and that's not your fault, but it's there." } },
       choices = {
@@ -232,6 +267,7 @@ P:NPC {
         { text = "Wyrmthalak is dead, Warlord. I've seen the lower Spire.", next = "xcl_lbrs", when = { cleared = "Lower Blackrock Spire", faction = "Horde" } },
         { text = "You don't think much of warlocks, Warlord.", next = "prej", when = { prejudiced = true } },
         { text = "I was Blackrock, Warlord. I left Rend's banner.", next = "xorig_brock", when = { origin = "orc_blackrock_defector" } },
+        { text = "You're staring, Warlord. Is something on your mind?", next = "flirt", when = { flirt = true } },
         { text = "Point me at the Dark Irons.", next = "END", fx = { affinity = 2, trait = { brave = 1 }, standing = { kargath = 1 } } },
       },
     },

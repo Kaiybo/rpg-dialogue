@@ -6,6 +6,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 -- Ian Strom: the quiet trade, taught in a pirate tavern.
 P:NPC {
   key = "ianstrom", id = TODO_NPC("Ian Strom"), name = "Ian Strom", title = "Rogue Trainer",
+  gender = "male",
   bible = "bibles/stranglethorn.md", role = "trainer", tier = "service",
   communities = { "booty_bay" }, temper = { "sharp" }, values = { "cunning", "practical" },
   notices = { "stealth", "purse" },
@@ -16,6 +17,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "You came in, found the exits, and then found me. I'll take that as a compliment, since most people never get past the exits." },
+    { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "There you are. I kept the stool beside mine empty all evening, which in the Salty Sailor took two threats and a bribe." },
+    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Good evening to you. It's business only at this table now, as you asked, and I'm a man who keeps to terms." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Sit with your back to the wall and order something, so you look like you belong here. Then we can talk." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "If you're looking for the bar, it's behind you, and if you're looking for me, I'd wonder why." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you came in by the side stair this time. Somebody's been paying attention." },
@@ -36,6 +40,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    flirt = {
+      lines = { { id = "fl_default", text = "Because you're better company than the door, and the door has been my closest friend for years. I don't say that to many people in this tavern, so if you'd share a bottle some quiet night, I'd teach you how to lose a tail on the docks, and you could teach me whatever you like." } },
+      choices = {
+        { text = "I'd like that, Strom. You pick the night.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "One rogue to another, I'd sooner rob you than court you.", next = "flirt_rogue", when = { class = "ROGUE" },
+          fx = { affinity = 1, trait = { witty = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "You're charming, but I'm only here for the rum.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Fair enough, and the rum's the more honest of the two of us anyway. I'll not raise it again." },
+        { text = "I don't drink with men who study my pockets.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Then you've learned the first lesson without paying for it. I'll keep my eyes on the door, as you like." },
+      },
+    },
+    flirt_warm = {
+      lines = { { id = "flw_default", text = "The night after a Bloodsail raid, then, when the Bruisers are tired and the tavern's half empty. I'll be in this corner with my back to the wall, and you'll be the only one through that door I'm glad to see." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    flirt_rogue = {
+      lines = { { id = "flr_default", text = "That's the most honest thing anyone's said to me in this tavern, and I'm half tempted to let you try. Come back when you've lifted a coin off Krazek without him noticing, and we'll see which of us is courting whom." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -93,6 +117,7 @@ P:NPC {
         { text = "Have you ever traded secrets with a warlock?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Could a cat teach your students more than you?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the spirits ever give a rogue away?", next = "xsham", when = { class = "SHAMAN" } },
+        { text = "You watch the door, Strom. Why are you watching me?", next = "flirt", when = { flirt = true } },
         { text = "I'll leave you to your corner.", next = "END" },
       },
     },
@@ -888,6 +913,7 @@ P:NPC {
 -- Elril Everlight: a night elf in plate who lets Booty Bay wonder whether she's a paladin.
 P:NPC {
   key = "elril", id = TODO_NPC("Elril Everlight"), name = "Elril Everlight",
+  gender = "female",
   bible = "bibles/stranglethorn.md", role = "citizen", tier = "quest",
   communities = { "booty_bay" }, temper = { "steady" }, values = { "loyal", "careful" },
   notices = { "race", "kit" },
@@ -898,6 +924,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "You've come to watch the tide again, or so you'll tell me. I don't mind which, friend, because the view has improved since you arrived." },
+    { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "Ishnu-alah, my moonlit friend. I saved you the dry end of the bench, and I'll have you know I fought a gull for it." },
+    { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Ishnu-alah. The bench is yours if you want it, and I promise to speak only of tides and pickpockets." },
     { id = "g_default", text = "Ishnu-alah, friend, and welcome to the quietest stretch of boards in Booty Bay. The gulls make up for it." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back to the water's edge. The sea does that to people, as Elune's tides do, and to me most of all." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You wear Horde colors and this is neutral ground, so you have my courtesy, and I hope I have yours." },
@@ -913,6 +942,35 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    flirt = {
+      lines = { { id = "fl_default", text = "Because you keep coming to sit by the water with me, and in Booty Bay that's very nearly a proposal. I've lived a long time, and I've learned that when someone is pleasant company, it's foolish not to tell them so." } },
+      choices = {
+        { text = "Then I'll say it too. I like your company, Elril.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "It's been long since a kaldorei smiled at me like that.", next = "flirt_kin", when = { race = "NightElf" },
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "Is that a confession, or another of your mysteries?", next = "flirt_mystery" },
+        { text = "You're kind, but I only came for the quiet.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "Then you shall have it, and I'll not spoil it again. The sea makes good company too, if you let it." },
+        { text = "I'd rather you kept your smiles to yourself.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, npcFlag = { set = { "flirt_declined" } } },
+          reply = "As you like. I meant no offence and I'll take none, though the gulls will be very disappointed in you." },
+      },
+    },
+    flirt_warm = {
+      lines = { { id = "flw_default", text = "Then we understand each other, and I'll keep a place for you on this bench whenever you're in the Bay. I still won't tell you whether I'm a paladin, mind, because a lady should keep one secret even from someone she likes." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    flirt_kin = {
+      lines = { { id = "flk_default", text = "Too long, I'd wager, for we're a solemn people and the Sentinels frown on lingering glances. Down here there's nobody to frown but the gulls, so I'll smile for as long as you let me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    flirt_mystery = {
+      lines = { { id = "flm_default", text = "Both, I think, and you'll have to decide which you'd rather have. I'll give you a hint, though: I don't share this bench with everyone, and I've never once let a Bruiser sit on it." } },
+      choices = {
+        { text = "Then I'll take the confession, Elril.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
+        { text = "I'll leave it a mystery for now.", next = "BACK", fx = { trait = { discreet = 1 } },
+          reply = "Wise. Mysteries keep better than confessions in this damp, and I'll still be here when you want to solve it." },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -963,6 +1021,7 @@ P:NPC {
         { text = "Strom says you guard nothing in particular.", next = "k_rogue", when = { class = "ROGUE", heardLine = "ianstrom.ge_default" } },
         { text = "I doubt the Alliance knows where you are.", next = "k_alliance", when = { faction = "Alliance", ["not"] = { race = "NightElf" } } },
         { text = "Have you heard of Illari Duskfeather?", next = "illari", when = { any = { { heardLine = "tokal.il_default" }, { questActive = TODO_QUEST("No Honor Among Thieves") } } } },
+        { text = "You keep smiling at me, Elril. Why is that?", next = "flirt", when = { flirt = true } },
         { text = "May the tides be kind to you.", next = "END" },
       },
     },
