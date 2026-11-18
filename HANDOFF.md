@@ -8,7 +8,10 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; follow `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.86.0)
+## State (0.87.0)
+- 0.87.0 (user: "build the next release"): open PRs #141 (its later commits; 0.86.0 had only the early part), #143-#147 merged. Conflicts: Wenna Silkbeard dropped from Barrens `unsung.lua` (#141 moved her to Wetlands); #144 was cut from the pre-0.86.0 base, so its changelogs/handoff were dropped (ours kept) and its `.toc` file lists kept both. Every pack bumped one minor. Only `luac -p` run; nothing seen in game.
+- **Duplicates:** #141 and #144 both added "missed" NPCs in the same zones, so ~337 TODO_NPC names now exist twice under different keys. Nothing breaks (the last-loaded copy wins `byName`; the other is dead weight), but they should be deduped, keeping the deeper copy. List: `git grep -hoP 'id = TODO_NPC\("\K[^"]+' -- 'RPGDialogue_*/npcs/*.lua' | sort | uniq -d`.
+- #143 added `likesTone` to many majors; tone was removed in 0.86.0, so it's unused data.
 - 0.86.0 (user: "build a release with all PRs"): open PRs #135-#141 merged. Conflicts: #135 and #137 both built Joke; kept #135's scoring/locale/bar row plus #137's `say` lines (`Engine.PickSay`, World `persuade_say.lua`, NEW FILE). #139's version bumps replaced by one release bump. Only `luac -p` run; nothing seen in game. Joke icon `INV_Misc_Bell_01` may not exist on this client.
 - 0.85.0 (user: "build the new release"): open PRs #128-#133 merged into one release: letters walk-away fix, gut feelings (DESIGN §3.15), narration `narr` (§2.5/2.6, CONTENT_GUIDE §2a), "Where is...?" (§3.11), Admire/Taunt/Intimidate + disposition gates (§3.16), tone Polite/Normal/Blunt (§3.17, CONTENT_GUIDE §7b). NEW FILES (full restart): `Systems/Insight.lua`, `Systems/Persuasion.lua`, `Systems/Directions.lua`, World `gut.lua` + `persuade.lua`, `directions.lua` in 9 packs. Conflicts were all keep-both (settings, locale, PackAPI kinds, the bottom bar: tone at left beside disposition, persuasion buttons at right; DialogueUI rows: Persuade..., Get on with it, Tone; Thrall's "For the Horde." keeps its narration and gains tone variants). Only `luac -p` run; nothing seen in game.
 - After 0.85.0, unreleased (no version bump or changelog yet): all 116 `tier = "major"` NPCs in 42 packs have their own `persuade` answers (Admire/Taunt/Intimidate, success and fail) and a `topics._gated` refusal; 20 have `private` topics (e.g. Jaina `arthas`/`stratholme`, Tyrande `malfurion`, Vol'jin `yenniku`, Eitrigg `blackrock`, Varimathras `burning_legion`); many gained `likesTone`, and orc/troll/dwarf majors gained `race`. Only `luac -p` run. Judgement calls: Tyrande and Seahorn blunt, Larksbane polite.
@@ -32,6 +35,7 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Whether the Forever NPCs added in 0.78.0-0.81.0 open our box. If one doesn't, capture the in-game name.
 
 ## Next step
+0. Dedupe the doubled NPCs above.
 1. The user's in-game test of 0.85.0 (and of 0.84.0), and their `/rpgd tts` output. Bottom bar crowding with disposition, tone, three persuasion buttons and "Ask about..." in the game look; DialogueUI rows.
 2. Spot checks: Admire a vain NPC, Intimidate a coward; a secret topic refused below Warm; tone at Thrall; "Where is...?" in Stormwind (with TomTom); a friendly imp or voidwalker (and a felhunter); "Teach me." at a trainer in DialogueUI; `/rpgd letters` away from and at a mailbox, then walk off; a Skyborne druid at an innkeeper; an innkeeper after dying a lot; a new `more_folk` NPC in Ironforge or Orgrimmar; a quest turned in inside a town (standing +3).
 3. Disposition next: put the major-NPC pass in a release when the user says; the same pass for `tier = "minor"` named NPCs if the user likes it in game.
