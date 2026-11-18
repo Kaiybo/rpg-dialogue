@@ -571,16 +571,9 @@ local function myself(add, c)
   end
 end
 
--- Transcript: the conversation you're in (or the last one), every word as it was shown.
+-- Transcript: recent conversations (the last 20), oldest first, every word as it was shown.
 -- Nothing is shortened or reworded; only color codes are dropped.
-local function transcript(add, c)
-  local s = ns.Conversation and ns.Conversation.session
-  local name, log, at = s and s.info and s.info.name, s and s.log, nil
-  if not log or #log == 0 then
-    local t = c and c.transcript
-    if not t or not t.log or #t.log == 0 then return end
-    name, log, at = t.name, t.log, t.t
-  end
+local function transcriptOne(add, name, log, at)
   name = (name and name ~= "") and name or L.J_TRANSCRIPT_THEM
   add(name, "section")
   if at then add(when(at), "dim") end
@@ -595,6 +588,23 @@ local function transcript(add, c)
     else
       add(HEAD .. name .. ":|r  " .. text)
     end
+  end
+end
+
+local function transcript(add, c)
+  local list = c and c.transcripts
+  if not list and c and c.transcript then list = { c.transcript } end
+  local s = ns.Conversation and ns.Conversation.session
+  local live = s and s.log
+  local shownLive = false
+  for _, t in ipairs(list or {}) do
+    if t.log and #t.log > 0 then
+      transcriptOne(add, t.name, t.log, t.t)
+      if t.log == live then shownLive = true end
+    end
+  end
+  if live and #live > 0 and not shownLive then
+    transcriptOne(add, s.info and s.info.name, live, nil)
   end
 end
 
