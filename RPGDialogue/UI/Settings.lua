@@ -288,6 +288,7 @@ local function build()
   cycle(L.OPT_LOOK, "look", { "game", "wood" }, { L.LOOK_GAME, L.LOOK_WOOD })
   if not UI.Theme.GameArt() then note(L.OPT_LOOK_MISSING) end
   slider(L.OPT_SCALE, "scale", 0.7, 1.5, 0.05, times)
+  checkbox(L.OPT_LARGE_BOX, "largeBox")
   slider(L.OPT_TEXT_SIZE, "textSize", 10, 24, 1)
   slider(L.OPT_SPACING, "lineSpacing", 0, 10, 1)
   fontPicker(L.OPT_FONT_TEXT, "fontBody", "body")
