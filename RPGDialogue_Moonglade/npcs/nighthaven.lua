@@ -325,7 +325,7 @@ P:NPC {
       },
       choices = {
         { text = "Do all of you agree?", next = "staghelm" },
-        { text = "I'd like to help keep it.", next = "BACK", fx = { affinity = 2, learn = { "cenarion_circle" }, align = { order = 1 } } },
+        { text = "I'd like to help keep it.", next = "BACK", reply = "Then you are welcome in this glade, and the wild will teach you in its own time. Begin by walking softly, and you will find the balance needs gentle hands more than strong ones.", fx = { affinity = 2, learn = { "cenarion_circle" }, align = { order = 1 } } },
         { text = "Balance is for the wild to keep, not a circle of druids.", next = "BACK", reply = "Perhaps the wild could keep it alone, once, before the Legion came and the Well shattered. Now it needs hands to help it, and the Circle's are some of the gentlest.", fx = { align = { order = -1 } } },
       },
     },
@@ -364,7 +364,7 @@ P:NPC {
         { id = "sl_default", text = "Those who gave up their waking lives to go into the Dream and guard it. Malfurion Stormrage himself walks there, and his body sleeps while his spirit wanders. I worry for them more each season, because the Dream has grown dangerous even for its friends." },
       },
       choices = {
-        { text = "Then they need someone watching over them.", next = "BACK", fx = { affinity = 2, learn = { "malfurion" }, align = { light = 1 } } },
+        { text = "Then they need someone watching over them.", next = "BACK", reply = "They do, and the Circle keeps what watch it can over their sleeping bodies. If you would help, walk carefully in the waking world, because what is done here echoes in the Dream.", fx = { affinity = 2, learn = { "malfurion" }, align = { light = 1 } } },
         { text = "They chose to sleep, and the waking world has troubles enough.", next = "BACK", reply = "Some chose it, and some were chosen, and all of them carry the waking world on their backs. Be gentle when you speak of them.", fx = { align = { light = -1 } } },
         { text = "What else should I know?", next = "BACK", fx = { learn = { "malfurion" } } },
       },
@@ -436,7 +436,7 @@ P:NPC {
         { id = "d_default", text = "Only that you listen, and that you come home to it when the world is loud. Dendrite will set your trials, and the Great Bear Spirit will teach you what strength is for. The rest you will learn by walking." },
       },
       choices = {
-        { text = "I'll listen, Keeper.", next = "BACK", fx = { affinity = 2, standing = { nighthaven = 1 }, align = { order = 1 } } },
+        { text = "I'll listen, Keeper.", next = "BACK", reply = "Good, for listening is the first lesson and the last one too. The wild speaks quietly, and those who hear it are rarer than those who claim to.", fx = { affinity = 2, standing = { nighthaven = 1 }, align = { order = 1 } } },
         { text = "I'll learn by walking, Keeper, and find my own way.", next = "BACK", reply = "That is the best way, little one, and the only way the Circle truly teaches. The glade will be here when you return.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1540,7 +1540,7 @@ P:NPC {
         { id = "pr_default", text = "Pray, then, and I will keep still beside you, which is a thing I am very good at. Your Light and my mountain will not quarrel, little one; they have both been here too long for that." },
       },
       choices = {
-        { text = "(Pray a while beside the bear.)", next = "BACK", fx = { affinity = 2, trait = { pious = 1 }, align = { light = 1 } } },
+        { text = "(Pray a while beside the bear.)", next = "BACK", reply = "There, you see, the mountain does not mind your Light at all, little one. Stay as long as you like, for I have nowhere to be, and I have not had company this quiet in a long while.", fx = { affinity = 2, trait = { pious = 1 }, align = { light = 1 } } },
         { text = "I'll sit with you, but I've no prayer in me today.", next = "BACK", reply = "Then sit without one, little one, for stillness is also a prayer. The mountain has never once asked me for words.", fx = { align = { light = -1 } } },
         { text = "(Rise.)", next = "BACK" },
       },

@@ -308,7 +308,7 @@ P:NPC {
         { id = "pa_default", text = "We did. Sir Howard the Stout rode out with the Light on him and didn't come back. If you're asking whether there's room for another, there's always room." },
       },
       choices = {
-        { text = "I'd be honored.", next = "BACK", fx = { affinity = 2, standing = { farholde = 2 }, align = { light = 1 } },
+        { text = "I'd be honored.", next = "BACK", reply = "The honor's ours, and I mean that. Sir Howard would have liked you, I think, though I'd rather you came back from the field than end up a name we say at supper.", fx = { affinity = 2, standing = { farholde = 2 }, align = { light = 1 } },
           journal = { first = "Demar Brant told me the Brotherhood always has room for a paladin. Sir Howard's memorial is in the courtyard.",
                       third = "{name} told Knight Commander Brant they'd stand with the Brotherhood of the Horse." } },
         { text = "I'm not looking to die gloriously.", next = "BACK", reply = "Good. We've enough glorious dead on the wall already, and I'd rather have you alive on it.", fx = { align = { honor = -1 }, trait = { cautious = 1 } } },
@@ -358,7 +358,7 @@ P:NPC {
     priest_bless = {
       lines = { { id = "pb_default", text = "Sister Rowland does, when she can leave the chapel, which is rarely. Yes: at the gate, at dawn. They'll stand straighter for it, and some will come back because they did." } },
       choices = {
-        { text = "At dawn, then.", next = "BACK", fx = { affinity = 3, standing = { farholde = 2 }, align = { light = 1 } } },
+        { text = "At dawn, then.", next = "BACK", reply = "At dawn, then, and I'll make sure the gate watch is awake for it. Sister Rowland will be glad to hear she's not the only one carrying that burden.", fx = { affinity = 3, standing = { farholde = 2 }, align = { light = 1 } } },
         { text = "They'd stand straighter for a hot meal than a blessing.", next = "BACK", reply = "Sister Rowland would agree with you, and so would they. Do both, if you can.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

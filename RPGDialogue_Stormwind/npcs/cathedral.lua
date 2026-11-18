@@ -771,7 +771,7 @@ P:NPC {
         { id = "c_default", text = "Too many, and not enough beds. The wars made orphans faster than anyone could build homes for them." },
       },
       choices = {
-        { text = "That's a hard thing.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "That's a hard thing.", next = "BACK", reply = "It is, love, and harder still on them, though they're braver about it than most grown folk. Visit them if you've a moment, because a friendly face does them more good than you'd think.", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Orphans are the price of war, and they'd better learn it early.", next = "BACK", reply = "They've learned it already, love. That's why they're here.", fx = { align = { light = -1 } } },
         { text = "Someone should do something.", next = "someone" },
       },

@@ -606,7 +606,7 @@ P:NPC {
       },
       choices = {
         { text = "She's home with Makaba. Revenge can wait.", next = "BACK", reply = "It can, and it will, because she's safe and that's all that matters. Thank you for bringing her home.", fx = { align = { honor = -1 }, affinity = 3, trait = { kind = 1 } } },
-        { text = "The Grimtotem will answer for it.", next = "BACK", fx = { affinity = 1, learn = { "grimtotem" }, align = { honor = 1 } } },
+        { text = "The Grimtotem will answer for it.", next = "BACK", reply = "They will, and the Earth Mother keeps a longer memory than any of us. But I've no stomach for that hunt now, and I'll leave it to stronger hearts than mine.", fx = { affinity = 1, learn = { "grimtotem" }, align = { honor = 1 } } },
       },
     },
     druid = {
@@ -614,7 +614,7 @@ P:NPC {
         { id = "d_default", text = "Oh, would you? Talk to them, then, however you druids do it, and tell them the rock is a safe place to grow. They'll take it better from you than from me." },
       },
       choices = {
-        { text = "(Kneel and lay a hand on the shoots.)", next = "BACK", fx = { affinity = 2, standing = { sun_rock = 1 }, align = { order = 1 } } },
+        { text = "(Kneel and lay a hand on the shoots.)", next = "BACK", reply = "Look at them, they're leaning toward your hand like grass toward the sun. Whatever you said to them, they heard it, and I'll trust the rock to hold them now.", fx = { affinity = 2, standing = { sun_rock = 1 }, align = { order = 1 } } },
         { text = "They'll grow wild and strong without my coaxing.", next = "BACK", reply = "Maybe so, and maybe that's better. I'll trust you, because you know them better than I do.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -809,7 +809,7 @@ P:NPC {
         { id = "r_default", text = "Because life without magic coursing through your veins is a pale, grey mockery of living. The kaldorei spurn that gift and call themselves wise for it, and I'll never understand them." },
       },
       choices = {
-        { text = "Some would call that hunger.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = 1 }, opinion = { arcane_magic = "dangerous" } } },
+        { text = "Some would call that hunger.", next = "BACK", reply = "Hunger, thirst, call it whatever you like, but at least I know I'm alive when I feel it. The druids starve themselves and call it balance, which sounds a great deal worse to me.", fx = { trait = { skeptical = 1 }, align = { light = 1 }, opinion = { arcane_magic = "dangerous" } } },
         { text = "I know the feeling.", next = "BACK", reply = "Then you're one of the few, and I'm glad of it. The druids never will be.", fx = { affinity = 1, align = { light = -1 }, opinion = { arcane_magic = "gift" } } },
       },
     },

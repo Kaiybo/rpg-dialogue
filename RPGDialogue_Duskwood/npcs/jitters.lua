@@ -172,8 +172,8 @@ P:NPC {
           text = "Riders in black came to the Yorgen farm looking for something, and they killed everyone there. I was in the barn the whole time, and I didn't move, I didn't do anything, I just watched." },
       },
       choices = {
-        { text = "You couldn't have stopped them.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
-        { text = "You should have tried.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 }, align = { light = -1 } } },
+        { text = "You couldn't have stopped them.", next = "BACK", reply = "You don't know that, you weren't there, but, but it's kind of you to say it, and maybe if I say it to myself enough times I'll start to believe it.", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "You should have tried.", next = "BACK", reply = "I know, I know I should have, don't you think I tell myself that every single night when the wind gets into the barn and it sounds like those riders coming back?", fx = { affinity = -2, trait = { stern = 1 }, align = { light = -1 } } },
         { text = "Who was at the farm that night?", next = "saw_wife" },
       },
     },

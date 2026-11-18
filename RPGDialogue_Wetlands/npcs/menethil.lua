@@ -234,7 +234,7 @@ P:NPC {
         { id = "d_default", text = "Orcs that rode dragons in the Second War. They burned half the coast from those beasts' backs. Now they've no dragons left to ride an' they're angrier for it." },
       },
       choices = {
-        { text = "Then let's finish them.", next = "BACK", fx = { affinity = 2, learn = { "dragonmaw" }, align = { honor = 1 } } },
+        { text = "Then let's finish them.", next = "BACK", reply = "Aye, that's the spirit I've been waitin' on, an' there's few enough of it in this bog. Mind ye, Grim Batol's a long climb, so we'll start wi' their camps on the road an' work our way up.", fx = { affinity = 2, learn = { "dragonmaw" }, align = { honor = 1 } } },
         { text = "Let them rot in the hills, and spare our own dwarves.", next = "BACK", reply = "That's my aim exactly, an' it's why I keep the lads close tae the walls. Let the Dragonmaw rot up there, an' good riddance.", fx = { align = { honor = -1 } } },
         { text = "No dragons at all?", next = "none", fx = { learn = { "dragonmaw" } } },
       },

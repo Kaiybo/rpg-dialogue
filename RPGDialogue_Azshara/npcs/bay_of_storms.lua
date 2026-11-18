@@ -233,8 +233,8 @@ P:NPC {
     lords_neptulon = {
       lines = { { id = "ln_default", text = "The Lord of the Tides, master of every deep. He does not come to mortals, and you should pray he never has reason to. I speak for him here, and that is as near as you will ever stand to him." } },
       choices = {
-        { text = "I'd stand nearer, given the chance.", next = "BACK", fx = { trait = { brave = 1 }, align = { order = -1 } } },
-        { text = "I'll keep my distance, Duke.", next = "BACK", fx = { trait = { cautious = 1 }, align = { order = 1 } } },
+        { text = "I'd stand nearer, given the chance.", next = "BACK", reply = "Bold words from so small a vessel, mortal, and the tide has drowned bolder ones. Should the Lord of the Tides ever turn his gaze upon you, you will wish you had kept them to yourself.", fx = { trait = { brave = 1 }, align = { order = -1 } } },
+        { text = "I'll keep my distance, Duke.", next = "BACK", reply = "Wisdom, at last, from a creature of the dry lands. Keep to the shallows of his notice, and you may live long enough to be of use to us.", fx = { trait = { cautious = 1 }, align = { order = 1 } } },
       },
     },
     lords_broke = {
@@ -260,7 +260,7 @@ P:NPC {
       },
       choices = {
         { text = "Should the Dark Iron be forgiven for waking him?", next = "op_darkiron" },
-        { text = "Then I'll fight fire for you.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 }, align = { honor = 1 } } },
+        { text = "Then I'll fight fire for you.", next = "BACK", reply = "Then you are a better tool than most, mortal, for courage is rarer than greed on these shores. Ragnaros has burned unchecked for too long, and the deep remembers those who stood against him.", fx = { affinity = 1, trait = { brave = 1 }, align = { honor = 1 } } },
         { text = "I'll fight fire when it pays, Duke.", next = "BACK", reply = "Pay it shall, mortal, for the Waterlords reward their tools generously. Bring me ashes, and you will have your due.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

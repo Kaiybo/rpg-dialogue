@@ -154,8 +154,8 @@ P:NPC {
       big = true,
       lines = { { id = "ws_default", text = "I make bows, I don't make treaties, so take that up with someone who wears a crown. All I know is that a stave from Ashenvale shoots true, and the Deathguard live longer with true bows." } },
       choices = {
-        { text = "Then the Warchief is right to cut it.", next = "BACK", fx = { learn = { "ashenvale" }, align = { honor = -1 } } },
-        { text = "I'd rather not build our bows on a grudge.", next = "BACK", fx = { learn = { "ashenvale" }, align = { honor = 1 } } },
+        { text = "Then the Warchief is right to cut it.", next = "BACK", reply = "Then you can tell the Deathguard why their arrows fly crooked, because I won't be the one doing it. The Warchief can cut what he likes, but I still have to make bows from what's left.", fx = { learn = { "ashenvale" }, align = { honor = -1 } } },
+        { text = "I'd rather not build our bows on a grudge.", next = "BACK", reply = "Sensible, and rarer than good yew around here. Grudges make poor staves, in my experience, because they crack the first time you put any real weight on them.", fx = { learn = { "ashenvale" }, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

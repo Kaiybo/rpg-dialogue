@@ -363,7 +363,7 @@ P:NPC {
     nefarian_inside = {
       lines = { { id = "ni_default", text = "That's the part I don't put in reports, deputy. Dragons don't win wars with claws alone, and Windsor never trusted a soul at court." } },
       choices = {
-        { text = "Then neither will I.", next = "BACK", fx = { trait = { cautious = 1 }, align = { honor = -1 } } },
+        { text = "Then neither will I.", next = "BACK", reply = "Smart, deputy, though it's a lonely way to serve a kingdom. Keep your reports short, your eyes open, and your back to a wall whenever someone from Stormwind comes calling.", fx = { trait = { cautious = 1 }, align = { honor = -1 } } },
         { text = "The court's not perfect, but I'll trust it until it fails me.", next = "BACK", reply = "That's your right, and I hope it never does. Windsor trusted it once too.", fx = { align = { honor = 1 } } },
       },
     },

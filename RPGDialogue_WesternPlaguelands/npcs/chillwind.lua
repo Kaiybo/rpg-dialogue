@@ -289,7 +289,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll stay a while and help.", next = "BACK", reply = "Thank you. MacDonnell will be glad of you, and so will the wounded.", fx = { affinity = 2, align = { light = 1 }, standing = { chillwind_camp = 1 } } },
-        { text = "I'm more use out in the field.", next = "BACK", fx = { trait = { brave = 1 }, align = { light = -1 } } },
+        { text = "I'm more use out in the field.", next = "BACK", reply = "Then go, and fight hard, because every ghoul you put down out there is one less on a stretcher in here. MacDonnell will understand, even if she won't say so.", fx = { trait = { brave = 1 }, align = { light = -1 } } },
       },
     },
     refugee = {
@@ -616,7 +616,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll try it at the first cauldron.", next = "BACK", reply = "Good. Hold the dead in your mind, and hold on tight when it answers.", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "That sounds like anger, not faith.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { light = -1 } } },
+        { text = "That sounds like anger, not faith.", next = "BACK", reply = "Call it anger if you like, and maybe it is, but anger can be faithful too. The Light was never meant only for soft hands, and the dead of Andorhal have earned a hard answer.", fx = { trait = { skeptical = 1 }, align = { light = -1 } } },
         { text = "Does the burning ever frighten you, Priestess?", tag = "Persuade", next = "priest_fear",
           check = { pass = { any = { { disposition = { min = 60 } }, { trait = "pious" }, { questDone = TODO_QUEST("Target: Felstone Field") } } } },
           fail = { next = "priest_brush", fx = { affinity = -1 } } },
@@ -1184,7 +1184,7 @@ P:NPC {
         { id = "wo_default", text = "Worth it? I have my deeds and my brother is ash, so by any honest accounting, yes. Ask me again in a year, when I've had time to miss him, and I'll tell you the same thing." },
       },
       choices = {
-        { text = "I hope you find some peace.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, align = { honor = 1 } } },
+        { text = "I hope you find some peace.", next = "BACK", reply = "Peace? How very kind, and how very unlike anyone else in my family. I'll settle for comfort, I think, which is easier to buy and doesn't ask awkward questions.", fx = { affinity = 1, trait = { kind = 1 }, align = { honor = 1 } } },
         { text = "Enjoy the money.", next = "END", reply = "Oh, I shall, every last copper. It's the only family legacy worth having.", fx = { align = { honor = -1 } } },
       },
     },
@@ -1662,7 +1662,7 @@ P:NPC {
         { id = "f_default", text = "We lost friends and cousins, some we buried and some we never got the chance to. Father made it to Stormwind and never stopped talking about the mill, so you see, I'm not really here for the wood." },
       },
       choices = {
-        { text = "You're here for him.", next = "BACK", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "You're here for him.", next = "BACK", reply = "Aye, I am, and I suppose I always knew it. If I can bring back one good plank from the old mill, he'll have something of home to hold onto before the end.", fx = { affinity = 3, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "Revenge, then.", next = "revenge", fx = { affinity = 1, align = { light = -1 } } },
       },
     },

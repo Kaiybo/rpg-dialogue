@@ -210,8 +210,8 @@ P:NPC {
           fx = { learn = { "burning_legion" } } },
       },
       choices = {
-        { text = "He kept your people alive. That counts for something.", next = "BACK", fx = { opinion = { shd_prince = "survivor" }, align = { honor = -1 } } },
-        { text = "A prince who chains demons is no prince.", next = "BACK", fx = { opinion = { shd_prince = "tyrant", demons = "hate" }, affinity = 1, align = { honor = 1 } } },
+        { text = "He kept your people alive. That counts for something.", next = "BACK", reply = "Alive, yes, as a jailer keeps his prisoners alive, and I have counted the price of that survival for longer than you can imagine. Do not mistake breath for life, outsider, for the Shen'dralar have had little else.", fx = { opinion = { shd_prince = "survivor" }, align = { honor = -1 } } },
+        { text = "A prince who chains demons is no prince.", next = "BACK", reply = "So I have said in the quiet of my own chambers for many centuries, though never so plainly aloud. Hearing it from a stranger's lips makes it sound less like treason and more like truth.", fx = { opinion = { shd_prince = "tyrant", demons = "hate" }, affinity = 1, align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -350,8 +350,8 @@ P:NPC {
           fx = { learn = { "queen_azshara" } } },
       },
       choices = {
-        { text = "Then they were right to cast you out.", next = "BACK", fx = { opinion = { shd_highborne = "guilty" }, align = { order = 1 }, affinity = -1 } },
-        { text = "Ten thousand years is long enough to forgive.", next = "BACK", fx = { opinion = { shd_highborne = "forgiven" }, align = { order = -1 }, affinity = 1 } },
+        { text = "Then they were right to cast you out.", next = "BACK", reply = "Perhaps they were, and I have stopped arguing that point with myself. We earned our exile, and the only question left to us is whether we can earn anything else.", fx = { opinion = { shd_highborne = "guilty" }, align = { order = 1 }, affinity = -1 } },
+        { text = "Ten thousand years is long enough to forgive.", next = "BACK", reply = "You speak with the haste of the young, though I am grateful for the kindness in it. Ten thousand years is long enough to remember, I think, and whether it is long enough to forgive is for the Kaldorei to decide.", fx = { opinion = { shd_highborne = "forgiven" }, align = { order = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

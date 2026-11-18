@@ -1773,7 +1773,7 @@ P:NPC {
       lines = { { id = "w_default", text = "The guards are on the walls, an' the walls are where they belong. A senator who won't get his boots dirty for his own district isn't worth the chair." } },
       choices = {
         { text = "Respect.", next = "BACK", reply = "Thank ye, an' it's no' often a senator hears that, so I'll take it wi' me intae the next debate an' wave it about.", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "And it wins votes.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 }, align = { honor = -1 } } },
+        { text = "And it wins votes.", next = "BACK", reply = "Aye, it does, an' I'll no' pretend otherwise, for a senator who cannae win a vote cannae help anybody. But I'd be out here wi' the troggs even if nae one in the district ever heard of it.", fx = { affinity = -1, trait = { witty = 1 }, align = { honor = -1 } } },
       },
     },
     troggs = {
@@ -1791,7 +1791,7 @@ P:NPC {
       },
       choices = {
         { text = "Honest of you.", next = "BACK", reply = "It's the only kind o' talk worth doin' out here, for the troggs dinnae care about speeches, an' the quarry doesnae either.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Maybe you should stop.", next = "BACK", fx = { trait = { cautious = 1 }, align = { order = -1 } } },
+        { text = "Maybe you should stop.", next = "BACK", reply = "Stop diggin'? Ye might as well ask a dwarf tae stop breathin', friend. We'll dig, an' we'll pay for it, an' we'll learn tae dig a wee bit smarter next time, which is the best I can promise the Senate.", fx = { trait = { cautious = 1 }, align = { order = -1 } } },
       },
     },
     senate = {

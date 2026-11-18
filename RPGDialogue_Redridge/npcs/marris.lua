@@ -196,7 +196,7 @@ P:NPC {
         { id = "sw_default", text = "We held the Keep with a platoon, and they came with an army. Good soldiers died on those walls, and the rest of us fell back to the lake." },
       },
       choices = {
-        { text = "Then we take it back.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 } } },
+        { text = "Then we take it back.", next = "BACK", reply = "That's what I tell myself every morning when I look up at those walls, and I mean to see it done. Help me thin the orcs out first, though, because a platoon won't retake what an army holds.", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 } } },
         { text = "Stonewatch is lost, so hold the lake and let it go.", next = "BACK", reply = "Easy to say for someone who didn't watch it burn. I'll hold the lake, aye, but I'll not let it go.", fx = { align = { honor = -1 } } },
         { text = "You did what you could.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "You must have lost good soldiers there.", next = "stonewatch_lost" },

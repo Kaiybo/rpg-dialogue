@@ -318,7 +318,7 @@ P:NPC {
         { id = "t_default", text = "The Venture Company cuts the land in the east, and the Palemane gnolls raid from the west. At Bael'dun, the dwarves blast the ground until the earth's spirits cry out. I warned them, and they kept digging." },
       },
       choices = {
-        { text = "I'll help.", next = "BACK", fx = { affinity = 2, standing = { bloodhoof = 1 }, align = { honor = 1 } } },
+        { text = "I'll help.", next = "BACK", reply = "Then you have a good heart, and my father will hear of it. Start where the need is sharpest, for the Earth Mother feels every wound in this land, and so do the people who live on it.", fx = { affinity = 2, standing = { bloodhoof = 1 }, align = { honor = 1 } } },
         { text = "The Venture Company pays well, and I won't cross them for a few hills.", next = "BACK", reply = "Then I'm sorry to hear it, and sorrier that the hills don't get a say. Take their coin, but don't be surprised if Mulgore remembers whose side you stood on.", fx = { align = { honor = -1 } } },
       },
     },

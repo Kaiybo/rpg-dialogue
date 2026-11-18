@@ -300,7 +300,7 @@ P:NPC {
         { id = "pr_default", text = "They could. Look at them. Bless the room if you like, but quietly, because some of them lost friends up at Raven Hill and haven't said a word since." },
       },
       choices = {
-        { text = "I'll say a prayer for Raven Hill's dead.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { light = 1 } } },
+        { text = "I'll say a prayer for Raven Hill's dead.", next = "BACK", reply = "Do that, and keep it short and kind, because they've had their fill of long speeches. I'll put a bowl of stew in front of each of them afterward, and maybe between the two they'll sleep.", fx = { affinity = 2, standing = { darkshire = 1 }, align = { light = 1 } } },
         { text = "They don't need prayers; they need Raven Hill burned clean.", next = "BACK", reply = "Burned clean, maybe, and I'd hand you the torch myself. But mind these folk tonight, they're not ready to hear it.", fx = { align = { light = -1 } } },
         { text = "Who did they lose?", next = "priest_lost" },
       },

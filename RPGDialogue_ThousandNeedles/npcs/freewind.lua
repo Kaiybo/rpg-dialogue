@@ -253,7 +253,7 @@ P:NPC {
         { id = "sp_default", text = "North of us, at Splithoof Crag, hard against the cliffs, with their scouts, wranglers and windchasers all about. Go there with wrath to guide your hand, and come back to tell me of it." },
       },
       choices = {
-        { text = "I will.", next = "BACK", fx = { affinity = 2, standing = { freewind = 1 }, align = { honor = 1 } } },
+        { text = "I will.", next = "BACK", reply = "Good, and may the winds carry you swiftly to them. Come back with your tale, and the elders of Freewind will hear it beside the fire.", fx = { affinity = 2, standing = { freewind = 1 }, align = { honor = 1 } } },
         { text = "I'll pick them off quietly, and leave wrath out of it.", next = "BACK", reply = "Then do it quietly, and come back to tell me, because the result matters more than the anger behind it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -551,7 +551,7 @@ P:NPC {
       },
       choices = {
         { text = "That's theft, plainly.", next = "BACK", reply = "It is, and I know it, and I will carry that weight, though I wish I had another road to the Hoof.", fx = { align = { honor = 1 }, trait = { stern = 1 } } },
-        { text = "Knowledge has a price.", next = "BACK", fx = { trait = { curious = 1 }, align = { honor = -1 } } },
+        { text = "Knowledge has a price.", next = "BACK", reply = "It does, and I pay it gladly, though Ashenvale may not see it that way. The Hoof must learn, and learning has never come cheaply to anyone.", fx = { trait = { curious = 1 }, align = { honor = -1 } } },
       },
     },
     listen = {

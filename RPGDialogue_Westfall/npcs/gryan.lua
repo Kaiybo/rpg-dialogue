@@ -184,7 +184,7 @@ P:NPC {
       choices = {
         { text = "And you came back for it.", next = "back" },
         { text = "Some folk must still hold out.", next = "holdouts" },
-        { text = "I'll help you take it back.", next = "BACK", fx = { affinity = 2, learn = { "westfall" }, align = { order = 1 } } },
+        { text = "I'll help you take it back.", next = "BACK", reply = "Then you're welcome at Sentinel Hill, and I'll be glad of the help. Every Defias you drive off this land is one more family that might come home.", fx = { affinity = 2, learn = { "westfall" }, align = { order = 1 } } },
         { text = "Maybe the Defias have earned a share of it.", next = "BACK", reply = "A share of what, the graves they've dug? I'll hear that from a farmer who lost nothing, and I've yet to meet one.", fx = { align = { order = -1 } } },
       },
     },
@@ -258,7 +258,7 @@ P:NPC {
     nobles = {
       lines = { { id = "no_default", text = "Someone in the House of Nobles keeps telling the Regent that Westfall can wait. I don't know who, but I know they've never stood on this hill." } },
       choices = {
-        { text = "Then somebody should find out who.", next = "BACK", fx = { trait = { curious = 1 }, align = { order = -1 } } },
+        { text = "Then somebody should find out who.", next = "BACK", reply = "Aye, and I've half a mind to ride to Stormwind and ask it myself. But a soldier who questions the House of Nobles finds himself posted somewhere colder, so I'll need friends who can ask for me.", fx = { trait = { curious = 1 }, align = { order = -1 } } },
         { text = "It isn't our place to question the House of Nobles.", next = "BACK", reply = "It's my place to ask, as a man of Westfall, even if no one answers. But I'll not trouble you with it further.", fx = { align = { order = 1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },

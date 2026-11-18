@@ -158,7 +158,7 @@ P:NPC {
         { id = "b_default", text = "Verna says yes. I say yes when she's listening. Truth is, I don't know if I've the stomach for it anymore." },
       },
       choices = {
-        { text = "You will. Give it time.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
+        { text = "You will. Give it time.", next = "BACK", reply = "Maybe you're right, and maybe the soil will forgive me for leaving it. Verna's always been the patient one, so I'll borrow some of hers until I find my own again.", fx = { affinity = 2, trait = { kind = 1 }, align = { light = 1 } } },
         { text = "There's no shame in starting over.", next = "BACK", reply = "No, I suppose there isn't, though it feels like there is. Verna will have to be brave enough for both of us again.", fx = { align = { light = -1 }, affinity = 1, trait = { skeptical = 1 } } },
         { text = "What would it take?", next = "back_take" },
       },

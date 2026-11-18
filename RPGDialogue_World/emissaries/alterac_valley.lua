@@ -147,8 +147,8 @@ P:NPC {
         { id = "fc_dwarf", when = { race = "Dwarf" }, text = "They'll tell ye they were exiled there and made it home, and that's true enough. But ye know as well as I do, {g:lad|lass}, that a dwarf doesn't give back a mine he's bled for, and the Guard won't be driven off land we've worked with our own hands." },
       },
       choices = {
-        { text = "Then the Guard holds what it's built. Dun Baldar stands.", next = "BACK", fx = { opinion = { alterac_valley = "stormpike" }, align = { honor = 1 }, affinity = 1 } },
-        { text = "They were there first. Some ground isn't ours to take.", next = "BACK", fx = { opinion = { alterac_valley = "frostwolf" }, align = { honor = -1 } } },
+        { text = "Then the Guard holds what it's built. Dun Baldar stands.", next = "BACK", reply = "That's a soldier's answer, an' the right one, so I'll raise a mug tae ye at the next muster. Dun Baldar was raised by dwarven hands, an' dwarven hands will hold it against the whole Frostwolf clan.", fx = { opinion = { alterac_valley = "stormpike" }, align = { honor = 1 }, affinity = 1 } },
+        { text = "They were there first. Some ground isn't ours to take.", next = "BACK", reply = "Ye'll find a few in Dun Baldar who'd thump ye for sayin' it, an' I'll no' be one of them. But first or no', we've dug our roots deep in that rock now, an' roots dinnae pull up easy.", fx = { opinion = { alterac_valley = "frostwolf" }, align = { honor = -1 } } },
         { text = "I'll judge that for myself once I've seen it.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -253,8 +253,8 @@ P:NPC {
       big = true,
       lines = { { id = "ke_default", text = "Ye'll not be the first Sentinel to tell me that, and it's true that dwarves don't always know when to stop digging. But the Frostwolves have no love for any of the Alliance, and if the valley falls to them, ye'll be fighting them a good deal closer to Ashenvale." } },
       choices = {
-        { text = "The Alliance stands together, even in the snow.", next = "BACK", fx = { opinion = { alliance = "united" }, align = { order = 1 }, affinity = 1 } },
-        { text = "I'll fight the orcs. Your digging stays your own affair.", next = "BACK", fx = { opinion = { dwarves = "wary" }, align = { order = -1 } } },
+        { text = "The Alliance stands together, even in the snow.", next = "BACK", reply = "Spoken like a true sister o' the Alliance, an' I'll no' forget it. Come tae Dun Baldar an' ye'll find dwarves who'll stand by Ashenvale in turn, when the time comes.", fx = { opinion = { alliance = "united" }, align = { order = 1 }, affinity = 1 } },
+        { text = "I'll fight the orcs. Your digging stays your own affair.", next = "BACK", reply = "Fair enough, an' I'll take a Sentinel's bow on any terms ye like. Just keep the orcs off my miners, an' I'll keep my miners out o' your forest.", fx = { opinion = { dwarves = "wary" }, align = { order = -1 } } },
         { text = "Ashenvale has orcs enough already.", next = "BACK", fx = { learn = { "warsong" } } },
       },
     },
@@ -402,8 +402,8 @@ P:NPC {
         { id = "ct_orgrimmar", when = { zone = "Orgrimmar" }, text = "Raised a slave by humans, and still he found his way back to us through the snow, and Drek'Thar taught him the way of the spirits. You stand in the city he built, and every stone of it was laid by someone who remembers that." },
       },
       choices = {
-        { text = "Then Alterac must be held. It's where the Horde was reborn.", next = "BACK", fx = { opinion = { alterac_valley = "frostwolf", warchief = "trust" }, align = { order = 1 }, affinity = 1 } },
-        { text = "Thrall made his own way. The valley's only rock and snow.", next = "BACK", fx = { opinion = { warchief = "respect" }, align = { order = -1 } } },
+        { text = "Then Alterac must be held. It's where the Horde was reborn.", next = "BACK", reply = "Yes, and every Frostwolf feels it in the blood. If Alterac falls, the place where the Warchief became himself falls with it, and no orc who knows the tale will allow that.", fx = { opinion = { alterac_valley = "frostwolf", warchief = "trust" }, align = { order = 1 }, affinity = 1 } },
+        { text = "Thrall made his own way. The valley's only rock and snow.", next = "BACK", reply = "Rock and snow, you say? Then you have never stood at Drek'Thar's fire and felt the spirits answer, and I pity you for it. Fight for the Horde all the same, but do not speak so before my elders.", fx = { opinion = { warchief = "respect" }, align = { order = -1 } } },
         { text = "I'd like to hear more of the clan's tale someday.", next = "BACK", fx = { affinity = 1, trait = { curious = 1 } } },
       },
     },
@@ -438,8 +438,8 @@ P:NPC {
         { id = "fc_tauren", when = { race = "Tauren" }, text = "Of course they do, for every thief says the dog bit first. You of all people know what it is to watch strangers dig into the land your ancestors sleep in, and to be called the savage for defending it." },
       },
       choices = {
-        { text = "A home is held by strength. Drive them out.", next = "BACK", fx = { opinion = { alterac_valley = "frostwolf" }, align = { honor = 1 }, affinity = 1 } },
-        { text = "If they want ore, let them trade for it. Not every quarrel needs blood.", next = "BACK", fx = { opinion = { peace = "for" }, align = { honor = -1 } } },
+        { text = "A home is held by strength. Drive them out.", next = "BACK", reply = "Lok'tar, now you speak like a Frostwolf! We will drive them back down the mountain, and every dwarf who flees will carry the tale of our strength to Ironforge.", fx = { opinion = { alterac_valley = "frostwolf" }, align = { honor = 1 }, affinity = 1 } },
+        { text = "If they want ore, let them trade for it. Not every quarrel needs blood.", next = "BACK", reply = "Trade, with dwarves who fill our valley with walls and call it theirs? You have a kinder heart than I do, and it may yet be wiser, but the Stormpike did not come to bargain.", fx = { opinion = { peace = "for" }, align = { honor = -1 } } },
         { text = "I'll see the valley before I judge.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },

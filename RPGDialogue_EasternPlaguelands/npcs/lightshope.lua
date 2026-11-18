@@ -230,7 +230,7 @@ P:NPC {
       lines = { { id = "p_default", text = "Wherever the dead walk and someone stands against them. The Hand was a banner, but the Light was never in the banner; stand here long enough and you'll see it doesn't need one." } },
       choices = {
         { text = "Then I'll stand here.", next = "BACK", reply = "Then stand here, and you'll find the Light where you stand.", fx = { affinity = 3, align = { light = 2 }, standing = { light_hope = 2 } } },
-        { text = "I still miss the banner.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, align = { order = 1 } } },
+        { text = "I still miss the banner.", next = "BACK", reply = "So do I, some nights, and there's no shame in it, because it flew over good men. But a banner can burn, and the Light we carried under it never once went out.", fx = { affinity = 1, trait = { kind = 1 }, align = { order = 1 } } },
       },
     },
     squire = {

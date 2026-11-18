@@ -149,7 +149,7 @@ P:NPC {
       },
       choices = {
         { text = "I'm sorry, Sven.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
-        { text = "Then we find the riders.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 }, learn = { "dark_riders" } } },
+        { text = "Then we find the riders.", next = "BACK", reply = "Aye, and when we do, I want to be there to see it. Whoever sent them wants that scythe badly, and men that hungry for something always come back for it.", fx = { affinity = 2, trait = { brave = 1 }, align = { honor = 1 }, learn = { "dark_riders" } } },
         { text = "Give them the scythe, and maybe they'll leave you be.", next = "BACK", reply = "Give them the scythe, and they'll kill me anyway, the same as they killed my family. No, I'll keep it where they'll never find it.", fx = { align = { honor = -1 } } },
         { text = "Where were you?", next = "family_away" },
       },

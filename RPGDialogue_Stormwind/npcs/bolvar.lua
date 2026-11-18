@@ -266,7 +266,7 @@ P:NPC {
       },
       choices = {
         { text = "Then send them help.", next = "help", fx = { opinion = { westfall = "abandoned" }, align = { honor = 1 } } },
-        { text = "Patience is wise.", next = "BACK", fx = { opinion = { westfall = "patience" }, affinity = 1, align = { order = 1 } } },
+        { text = "Patience is wise.", next = "BACK", reply = "It is, so my councillors keep telling me, and I know a kingdom cannot spend what it does not have. Still, patience comes easier in a palace than on a burning farm, and I try never to forget that.", fx = { opinion = { westfall = "patience" }, affinity = 1, align = { order = 1 } } },
       },
     },
     help = {

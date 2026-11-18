@@ -89,7 +89,7 @@ P:NPC {
         { id = "ti_default", text = "Hand them over, then, and know that I'll send word to Silverwing Hold, Refuge Pointe and Dun Baldar that one soldier fought for all three. Tell me, why did you do it, when most folk only fight where the honor comes easiest?" },
       },
       choices = {
-        { text = "Because the Alliance is one army, or it's nothing.", next = "BACK", fx = { opinion = { alliance = "united" }, align = { order = 1 }, affinity = 1 } },
+        { text = "Because the Alliance is one army, or it's nothing.", next = "BACK", reply = "Well said, soldier, and I'll put those very words in the report, because the generals need reminding of it more than you'd think. An army that fights only for its own valley loses all the others.", fx = { opinion = { alliance = "united" }, align = { order = 1 }, affinity = 1 } },
         { text = "Because I go wherever the best fight is.", next = "BACK", reply = "Ha, I had a sergeant like you once, and she was the best I ever served with, though I spent half my time pulling her out of fights she hadn't been invited to.", fx = { align = { order = -1 } } },
         { text = "The honor, General. I won't lie about it.", next = "BACK", fx = { trait = { honest = 1 } } },
       },
@@ -277,8 +277,8 @@ P:NPC {
       big = true,
       lines = { { id = "avf_default", text = "They were, and I'll say it here though I'd not say it in Ironforge. Gul'dan exiled Durotan's clan into those mountains before the First War, and they made a home of it, but the Stormpike are Alliance and Alterac's under Alliance banners now, so what would you have me do with a fact like that?" } },
       choices = {
-        { text = "Nothing. Alliance land is Alliance land.", next = "BACK", fx = { opinion = { alterac_valley = "alliance" }, align = { light = -1 } } },
-        { text = "Remember it. Even an enemy can have a just claim.", next = "BACK", fx = { opinion = { alterac_valley = "frostwolf" }, align = { light = 1 } } },
+        { text = "Nothing. Alliance land is Alliance land.", next = "BACK", reply = "That's how Stormwind sees it, and Ironforge too, and I'll not argue with you in front of the men. But I've found it pays to know the enemy's reasons, even when I've no use for them.", fx = { opinion = { alterac_valley = "alliance" }, align = { light = -1 } } },
+        { text = "Remember it. Even an enemy can have a just claim.", next = "BACK", reply = "That's a rare thing to hear in a soldier, and I'll admit I've thought it myself on cold nights. A just claim doesn't make the Frostwolves our friends, but it might keep us honest in how we fight them.", fx = { opinion = { alterac_valley = "frostwolf" }, align = { light = 1 } } },
         { text = "Another field.", next = "BACK" },
       },
     },
@@ -321,7 +321,7 @@ P:NPC {
       lines = { { id = "kd_default", text = "Because word of every one of them reaches Orgrimmar, soldier, and the Horde's officers make sure their grunts hear it before every battle. Each dead cook puts another angry orc on the field against us, and I'd rather you did your killing where it does the Alliance some good." } },
       choices = {
         { text = "You're right. I'll keep my blade for soldiers.", next = "BACK", reply = "Good, because the Alliance needs every blade you've got, and I'd rather you spent your anger on men who can fight back than give the Horde another grievance.", fx = { align = { honor = 1 } } },
-        { text = "The Horde's all the same to me, armed or not.", next = "BACK", fx = { opinion = { horde = "hate" }, align = { honor = -1 } } },
+        { text = "The Horde's all the same to me, armed or not.", next = "BACK", reply = "Then the Horde will be all the same to them about you, soldier, and they'll come for every farmer in Arathi just as you came for their cooks. Think on that before your next battle, I beg you.", fx = { opinion = { horde = "hate" }, align = { honor = -1 } } },
         { text = "They keep a list?", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
@@ -501,8 +501,8 @@ P:NPC {
       big = true,
       lines = { { id = "pwh_default", text = "To the Alliance, to the world, and to ourselves most of all, warrior, because there are orcs who still remember the bloodlust and want it back. What do you think the Horde should be, when the battle's done?" } },
       choices = {
-        { text = "What Thrall says: warriors with honor.", next = "BACK", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
-        { text = "Strong enough that no one can cage us again.", next = "BACK", fx = { opinion = { horde = "strength" }, align = { honor = -1 } } },
+        { text = "What Thrall says: warriors with honor.", next = "BACK", reply = "Lok'tar, then you understand the Warchief's heart. Fight with honor in every battle, warrior, and the Alliance will one day have nothing to say about orcs that is not grudging respect.", fx = { opinion = { warchief = "trust" }, align = { honor = 1 } } },
+        { text = "Strong enough that no one can cage us again.", next = "BACK", reply = "Strength, yes, and no orc who wore the chains will argue with you. But strength without honor is what the demons gave us, warrior, so be strong and be careful what you become.", fx = { opinion = { horde = "strength" }, align = { honor = -1 } } },
         { text = "I don't know yet.", next = "BACK", fx = { trait = { honest = 1 } } },
       },
     },

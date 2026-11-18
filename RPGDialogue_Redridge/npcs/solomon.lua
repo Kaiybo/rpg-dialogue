@@ -408,7 +408,7 @@ P:NPC {
           text = "Northshire trained you? Then you know how to work on an empty stomach and no sleep. You'll need both here." },
       },
       choices = {
-        { text = "Take me to them.", next = "BACK", fx = { affinity = 3, standing = { lakeshire = 2 }, align = { light = 1 } },
+        { text = "Take me to them.", next = "BACK", reply = "Bless you, then, and go quickly, because some of them won't last the night without help. Ask any guard for the wounded, and they'll walk you there themselves.", fx = { affinity = 3, standing = { lakeshire = 2 }, align = { light = 1 } },
           journal = { first = "Magistrate Solomon told me Lakeshire has no priest of its own. I said I'd see to the wounded.",
                       third = "{name} offered to tend Lakeshire's wounded." } },
         { text = "I'm not here to nurse anyone, Magistrate.", next = "BACK", reply = "Then I'll not ask you to, and the wounded will lie where they are. The guards will keep you posted, should you change your mind.", fx = { affinity = -1, align = { light = -1 } } },

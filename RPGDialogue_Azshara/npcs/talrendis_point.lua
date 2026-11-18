@@ -218,7 +218,7 @@ P:NPC {
       },
       choices = {
         { text = "The Alliance and Horde could learn from that.", next = "BACK", reply = "They could, if they would only stand still long enough to try. Perhaps one day they will.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Peace that needs watching isn't peace at all.", next = "BACK", fx = { trait = { skeptical = 1 }, align = { order = -1 } } },
+        { text = "Peace that needs watching isn't peace at all.", next = "BACK", reply = "Perhaps not, but peace that nobody watches does not last a season out here. I will take a watched peace over an honest war, and so, I think, would the bridge.", fx = { trait = { skeptical = 1 }, align = { order = -1 } } },
         { text = "Do they really trust you, Loh'atu?", tag = "Persuade", next = "trust",
           check = { pass = { any = { { disposition = { min = 65 } }, { race = "Tauren" }, { questDone = TODO_QUEST("Spiritual Unrest") } } } },
           fail = { next = "trust_fail", fx = { affinity = -1 } } },

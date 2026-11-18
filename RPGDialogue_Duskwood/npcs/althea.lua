@@ -350,7 +350,7 @@ P:NPC {
         { id = "pr_default", text = "Then you're welcome here. The ones back from Raven Hill don't sleep, and some of them ask whether the dead up there feel anything. I've no answer for them, but you might." },
       },
       choices = {
-        { text = "I'll sit with them tonight.", next = "BACK", fx = { affinity = 3, standing = { darkshire = 2 }, align = { light = 1 } },
+        { text = "I'll sit with them tonight.", next = "BACK", reply = "Thank you, truly, because they've had nobody but me, and I've run out of things to say to them. Bring a candle, for the dark seems to sit heavier on them after midnight.", fx = { affinity = 3, standing = { darkshire = 2 }, align = { light = 1 } },
           journal = { first = "Sat a night with the Night Watch's wounded in Darkshire, at Commander Ebonlocke's welcome.",
                       third = "{name} sat a night with the Night Watch's wounded in Darkshire." } },
         { text = "The dead feel nothing now, and they should hear that plainly.", next = "BACK", reply = "Then tell them, priest, and tell them kindly, because it'll be the first plain answer they've had. Some of them might sleep.", fx = { align = { light = -1 } } },

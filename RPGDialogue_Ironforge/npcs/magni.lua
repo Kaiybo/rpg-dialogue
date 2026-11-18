@@ -268,7 +268,7 @@ P:NPC {
         { id = "dw_default", text = "Madoran Bronzebeard broke their armies at our gates. His statue still watches the pass in Loch Modan. Some grudges outlive everyone who started them." },
       },
       choices = {
-        { text = "Then it's time someone ended it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 }, align = { honor = 1 } } },
+        { text = "Then it's time someone ended it.", next = "BACK", reply = "Aye, an' I'd like tae be the king who does it, but it takes two tae end a feud an' Thaurissan's heirs are bowin' tae a fire lord. Bring me a Dark Iron who'll talk instead o' fight, an' I'll listen.", fx = { affinity = 1, trait = { brave = 1 }, align = { honor = 1 } } },
         { text = "Grudges can be set down, too.", next = "BACK", reply = "Aye, they can, an' I'd set mine down tomorrow if the Dark Iron would, but they've no' shown the slightest sign o' wantin' tae.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
         { text = "Keep the gate shut, then.", next = "BACK", reply = "That's the Senate's answer, an' usually mine too, though I'd like tae think my grandchildren might one day open it for somethin' better.", fx = { align = { order = 1 }, trait = { stern = 1 } } },
       },
@@ -288,7 +288,7 @@ P:NPC {
       },
       choices = {
         { text = "Spoken like a king.", next = "BACK", reply = "Ha, flattery, is it? Well, it's the right kind, so I'll take it, an' I'll keep my word tae the Alliance as long as there's a beard on my chin.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Your own valleys bleed for it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 }, align = { honor = -1 } } },
+        { text = "Your own valleys bleed for it.", next = "BACK", reply = "Dinnae think I dinnae know it, for I hear every name read out from Dun Morogh tae the Wetlands. But a promise kept only when it's cheap isnae a promise, an' Ironforge keeps its word.", fx = { affinity = -1, trait = { stern = 1 }, align = { honor = -1 } } },
       },
     },
 
@@ -445,7 +445,7 @@ P:NPC {
       },
       choices = {
         { text = "That's fair.", next = "BACK", reply = "Glad ye see it, because there's a few in this hall who'd happily tell the Senate tae take the month an' then another for good measure.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A king shouldn't wait on anyone.", next = "BACK", fx = { trait = { stern = 1 }, align = { order = -1 } } },
+        { text = "A king shouldn't wait on anyone.", next = "BACK", reply = "Ha, ye'd fit right in wi' my grandfather's court, an' look how well that served the Dark Iron. A king who answers tae no one ends up answerin' tae his own worst temper, an' I've a fair bit o' that already.", fx = { trait = { stern = 1 }, align = { order = -1 } } },
       },
     },
 

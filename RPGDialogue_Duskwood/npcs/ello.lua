@@ -194,7 +194,7 @@ P:NPC {
         { id = "n_default", text = "Soldiers, walls, and a light that lasts past noon. Failing those, we have the Night Watch and whatever adventurers wander in out of the fog." },
       },
       choices = {
-        { text = "Then I'll help the Night Watch.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 }, align = { order = 1 } } },
+        { text = "Then I'll help the Night Watch.", next = "BACK", reply = "Then you'll find Commander Althea at the town hall, and she'll be glad of another sword. The Watch is mostly farmers with spears, so a true fighter will be worth half a dozen of them.", fx = { affinity = 2, standing = { darkshire = 1 }, align = { order = 1 } } },
         { text = "I'd sooner hunt these woods alone than march with the Watch.", next = "BACK", reply = "Then hunt them, and I'll not stop you, though the woods have swallowed hunters before you. The Watch would welcome you if you change your mind.", fx = { align = { order = -1 } } },
         { text = "I saw no walls around Darkshire.", next = "need_walls" },
         { text = "Sounds grim.", next = "BACK" },
@@ -275,7 +275,7 @@ P:NPC {
       },
       choices = {
         { text = "Lakeshire's fighting orcs alone.", next = "solomon_push", fx = { align = { honor = 1 } } },
-        { text = "You chose your own people. That's fair.", next = "BACK", fx = { affinity = 1, learn = { "blackrock" }, align = { honor = -1 } } },
+        { text = "You chose your own people. That's fair.", next = "BACK", reply = "I'm glad someone sees it that way, because Solomon certainly doesn't. A town must keep its own lamps lit before it can lend its light to anyone else.", fx = { affinity = 1, learn = { "blackrock" }, align = { honor = -1 } } },
       },
     },
     solomon_push = {
@@ -368,7 +368,7 @@ P:NPC {
         { id = "nb_default", text = "Then you've sat in that chamber yourself. When my letters are read aloud, does anyone actually listen, or do they wait politely for luncheon?" },
       },
       choices = {
-        { text = "They wait for luncheon.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 }, align = { honor = -1 } } },
+        { text = "They wait for luncheon.", next = "BACK", reply = "I suspected as much, though it stings to hear it said so plainly. I'll keep writing all the same, because one day the luncheon may run late and someone may be bored enough to listen.", fx = { affinity = 1, trait = { witty = 1 }, align = { honor = -1 } } },
         { text = "Some of them listen.", next = "BACK", reply = "Some of them, you say, which is more than I'd hoped. I'll write more letters, then, and perhaps the right ones will listen.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll speak for Darkshire there.", next = "BACK", fx = { affinity = 3, standing = { darkshire = 2 } },
           journal = { first = "Told Lord Ello Ebonlocke I'd speak for Darkshire in the House of Nobles.",

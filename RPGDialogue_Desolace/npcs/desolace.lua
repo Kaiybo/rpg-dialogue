@@ -259,7 +259,7 @@ P:NPC {
     priest_chaplain = {
       lines = { { id = "pch_default", text = "They need a chaplain, a cook and forty more swords, and I'll take the chaplain. Brother Anton prays, but only for the Crusade. My men would like someone to pray for them." } },
       choices = {
-        { text = "I'll pray for them.", next = "BACK", fx = { affinity = 3, standing = { nijels_point = 2 }, align = { light = 1 } } },
+        { text = "I'll pray for them.", next = "BACK", reply = "Then you'll do more for this camp than the Crusade ever has, and I'm grateful for it. Pray for the lads on the walls first, because they're the ones who'll need it soonest.", fx = { affinity = 3, standing = { nijels_point = 2 }, align = { light = 1 } } },
         { text = "Your men need swords more than they need prayers.", next = "BACK", reply = "Maybe they do, but I can't conjure forty swords, and a chaplain is something I can actually get.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
