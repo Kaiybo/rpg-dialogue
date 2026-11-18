@@ -713,7 +713,7 @@ P:NPC {
 
 -- Jarel Moor: bartender of the Slaughtered Lamb; knows exactly what's under his floor.
 P:NPC {
-  key = "jarel_moor", id = TODO_NPC("Jarel Moor"), name = "Jarel Moor", title = "Bartender",
+  key = "jarel_moor", id = TODO_NPC("Jarel Moor"), name = "Jarel Moor", title = "Bartender", gender = "male",
   bible = "bibles/stormwind_more.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "steady", "dry" }, values = { "discreet", "practical" },
   notices = { "drink", "cellar", "class" },
@@ -728,6 +728,12 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. Same as last time, or are you feeling brave?" },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Going down? Wipe your feet on the way back up; whatever's on the cellar floor, I don't want it on mine." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late for a drink, but not late for this place. Pull up a stool and keep your back to the wall." },
+    { id = "g_fl_dry", when = { flirt = true, chance = 0.4 },
+      text = "Evening. I'd tell you to stay away from the shadows, but I suspect the shadows would be on their best behaviour around you." },
+    { id = "g_fl_back", when = { flirt = true, npcFlagBefore = "fl_warm" }, cooldown = "3d",
+      text = "You came back. I've been polishing your cup on the off chance, and I'll deny that if anyone in this room asks." },
+    { id = "g_fl_cool", when = { flirt = true, npcFlagBefore = "fl_cool" }, once = true,
+      text = "Evening, friend. Same as before, and no speeches from me this time; you have a bartender's word on it, for what that's worth." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Heard your name spoken kindly across the Quarter. That's rarer in here than an honest dice game." },
   },
 
@@ -775,7 +781,35 @@ P:NPC {
         { text = "Do the warlocks treat you well?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Thunderbrew, you said? Prove it.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Pour me something.", next = "BUSINESS" },
+        { text = "You've polished that cup since I walked in, Jarel.", next = "fl_cup", when = { flirt = true } },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+    fl_cup = {
+      lines = {
+        { id = "fl_cup_default", text = "Have I? I suppose I have. A man in my trade learns to keep his hands busy when there's something in the room more worth watching than the door, and tonight there is." },
+      },
+      choices = {
+        { text = "Then keep polishing, Jarel. I don't mind being watched.", next = "fl_cup2",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_warm" } } } },
+        { text = "Careful, Jarel. I know what lives in those shadows.", next = "fl_cup2", when = { class = "WARLOCK" },
+          reply = "I've no doubt you do, and I find I don't mind nearly as much as I ought to.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_warm" } } } },
+        { text = "Watch the door instead. It's safer for us both.", next = "BACK",
+          reply = "Fair enough. The door's never once disappointed me, though I'll grant it's never once smiled at me either.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "fl_cool" } } } },
+        { text = "Save it for the next lass at the bar.", next = "BACK",
+          reply = "There isn't one, which was rather my point, but I'll take the hint along with the empty cup.",
+          fx = { affinity = -1, npcFlag = { set = { "fl_cool" } } } },
+      },
+    },
+    fl_cup2 = {
+      lines = {
+        { id = "fl_cup2_default", text = "Then I'll take the Dalaran Noir down off the good shelf for you, which I don't do for the robes or the cellar crowd, and we'll say no more about it. A bartender who talks too much loses his customers, and I'd rather not lose this one." },
+      },
+      choices = {
+        { text = "Pour it, then. I'll be back for another.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

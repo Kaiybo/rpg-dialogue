@@ -1208,7 +1208,7 @@ P:NPC {
 }
 
 P:NPC {
-  key = "belm", id = TODO_NPC("Innkeeper Belm"), name = "Innkeeper Belm",
+  key = "belm", id = TODO_NPC("Innkeeper Belm"), name = "Innkeeper Belm", gender = "male",
   bible = "bibles/dunmorogh.md", role = "innkeeper", tier = "service",
   communities = { "kharanos" }, temper = { "sociable" }, values = { "generous", "friendly" },
   notices = { "weary", "race" },
@@ -1220,6 +1220,12 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "Grab a mug, find a stool, an' put yer feet near the fire. Ye've earned it, whatever it was." },
+    { id = "g_fl_fluster", when = { flirt = true, chance = 0.35 },
+      text = "Grab a mug, find a stool, an'... well, ye look very fine this evenin', is what I was goin' tae say, so I'll just go an' fetch the mug." },
+    { id = "g_fl_back", when = { flirt = true, npcFlagBefore = "fl_fond" }, cooldown = "3d",
+      text = "Ah! It's you! I've wiped yer stool down special an' built the fire up, an' I've no' told a soul why, so dinnae ask me." },
+    { id = "g_fl_sheep", when = { flirt = true, npcFlagBefore = "fl_sheepish" }, once = true,
+      text = "Evenin'. I'll keep my compliments tae the ale this time, for the ale's never once turned me down." },
     { id = "g_home", when = { homeInn = { "Kharanos", "Thunderbrew Distillery" } }, text = "Home again! Yer room's warm an' yer tankard's clean, or mostly clean." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' ye look like ye've earned a mug twice over. Sit by the fire an' I'll fetch it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown a good deal sturdier since ye first warmed yer hands in here. The Thunderbrews would say it's the ale, an' I'd not argue." },
@@ -1369,7 +1375,41 @@ P:NPC {
         { text = "Do night elves ever drink Thunderbrew, Belm?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Don't you want to know what I've been up to, Belm?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do folk in Kharanos mind a shaman under your roof?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You keep wiping that same spot on the bar, Belm.", next = "fl_bar", when = { flirt = true } },
         { text = "Just a room, thanks.", next = "END" },
+      },
+    },
+    fl_bar = {
+      lines = {
+        { id = "fl_bar_default", text = "Do I? Well, it's a stubborn spot, an'... ach, my beard's goin' red tae the roots. Ye've a bonny way about ye, lass, an' I've been tryin' tae think how tae say so for three mugs now." },
+        { id = "fl_bar_dwarf", when = { race = "Dwarf" },
+          text = "Do I? Ach, it's that braid o' yers, lass, it's put me clean off my polishin'. My mother always said I'd meet a lass who could out-drink me, an' I've a terrible feelin' it's you." },
+        { id = "fl_bar_nelf", when = { race = "NightElf" },
+          text = "Do I? Ach, I didnae mean tae stare, lass, only ye kaldorei are awful tall an' awful bonny, an' I'm a plain innkeeper wi' a crick in his neck from lookin' up at ye." },
+        { id = "fl_bar_gnome", when = { race = "Gnome" },
+          text = "Do I? Ach, I didnae mean tae stare, lass, only Lazlo never had hair like yers, an' every time I look over I forget which tap I'm pourin' from." },
+      },
+      choices = {
+        { text = "That's sweet, Belm. Say it again over a mug.", next = "fl_bar2",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_fond" } } } },
+        { text = "Out-drink you? Pour two, and we'll find out.", next = "fl_bar2", when = { race = "Dwarf" },
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_fond" } } } },
+        { text = "You're very kind, Belm, but I'm spoken for.", next = "BACK",
+          reply = "Spoken for! Of course ye are, a lass like you. He's a lucky fellow, whoever he is, an' I'll stop wipin' the bar now.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "fl_sheepish" } } } },
+        { text = "Wipe the bar, Belm, and leave me be.", next = "BACK",
+          reply = "Aye, right ye are, an' I'll go an' see tae the taps, which is where I should've been all along.",
+          fx = { affinity = -1, npcFlag = { set = { "fl_sheepish" } } } },
+      },
+    },
+    fl_bar2 = {
+      lines = {
+        { id = "fl_bar2_default", text = "Again? Ach, then I'll make a fool o' myself twice: ye're the bonniest guest this inn's had since the Faire came by, an' I'll argue it wi' any Thunderbrew who says different. There, I've said it, an' now I'll need a mug myself." },
+      },
+      choices = {
+        { text = "Pour two, then, Belm.", next = "BACK", fx = { affinity = 1 },
+          reply = "Two it is, an' I'll mind no' tae spill either one, though my hands are shakin' somethin' awful." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     lazlo = {

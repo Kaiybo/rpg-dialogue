@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.darnassus")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
-  key = "dar_teuren", id = TODO_NPC("Teuren Vineshade"), name = "Teuren Vineshade", title = "Barber",
+  key = "dar_teuren", id = TODO_NPC("Teuren Vineshade"), name = "Teuren Vineshade", title = "Barber", gender = "male",
   bible = "bibles/teuren.md", role = "vendor", tier = "service",
   communities = { "darnassus" }, temper = { "warm", "chatty" }, values = { "beauty", "craft", "friendly" },
   notices = { "beard", "markings", "weathered" },
@@ -17,6 +17,12 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to my barbershop! Cuts, colours and more; have a seat and we'll get to work." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? Either you loved it or you hated it, and I'm hoping for the first." },
+    { id = "g_fl_face", when = { flirt = true, chance = 0.4 },
+      text = "Oh, now that is a face I would cross the sea for! Sit down, sit down, and let me pretend I'm studying your parting rather than simply admiring you." },
+    { id = "g_fl_back", when = { flirt = true, npcFlagBefore = "fl_muse" }, cooldown = "3d",
+      text = "My muse returns! I've sketched a dozen styles for you since you left, and not one of them did you justice, so you'll simply have to sit for me again." },
+    { id = "g_fl_no", when = { flirt = true, npcFlagBefore = "fl_no" }, once = true,
+      text = "Welcome back! Strictly scissors today, I promise; I've put my compliments away in a drawer, where they are sulking terribly." },
     { id = "g_away", when = { away = 21 }, text = "Gone {away}, and it shows, my friend. Sit, sit, before something nests in there." },
   },
 
@@ -50,7 +56,41 @@ P:NPC {
         { text = "Why does Darnassus need a barber?", next = "why" },
         { text = "Who sits in your chair?", next = "who" },
         { text = "Would you trim a dwarf's beard?", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "You're staring, Teuren. Is something wrong with my hair?", next = "fl_stare", when = { flirt = true } },
         { text = "Farewell, Teuren.", next = "END" },
+      },
+    },
+    fl_stare = {
+      lines = {
+        { id = "fl_stare_default", text = "Wrong? Nothing in the world, and that's precisely the trouble, because a barber looks for something to fix and I can't find a thing. I've cut hair for a very long time, and I'll confess I would rather just look at yours." },
+        { id = "fl_stare_dwarf", when = { race = "Dwarf" },
+          text = "Wrong? Nothing, and that's the trouble! Braids like those take years, and I've half a mind to ask how they're done and the other half to sit here admiring them, and I can't decide which half is winning." },
+        { id = "fl_stare_gnome", when = { race = "Gnome" },
+          text = "Wrong? Not at all! I've simply never seen hair so bright, nor a smile so near the height of my comb, and I'm trying to remember how one holds a pair of scissors." },
+        { id = "fl_stare_human", when = { race = "Human" },
+          text = "Wrong? Nothing, and that's the trouble! You humans grow lovelier in a single season than we manage in a century, which hardly seems fair, and I've decided I don't mind in the least." },
+      },
+      choices = {
+        { text = "Then admire away, Teuren. I'll sit as long as you like.", next = "fl_stare2",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_muse" } } } },
+        { text = "Flattery won't earn you a bigger tip, Teuren.", next = "fl_stare2",
+          reply = "Won't it? Then I'll flatter you for nothing, which is the purest kind there is.",
+          fx = { trait = { witty = 1 }, npcFlag = { set = { "fl_muse" } } } },
+        { text = "Just the trim, please, Teuren. Nothing more.", next = "BACK",
+          reply = "Just the trim, of course, and I'll keep my eyes on the scissors, where they belong.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "fl_no" } } } },
+        { text = "Save the poetry for your other customers.", next = "BACK",
+          reply = "Ah, but my other customers have heard all my poetry, and you were a fresh audience. I'll mind my manners, I promise.",
+          fx = { affinity = -1, npcFlag = { set = { "fl_no" } } } },
+      },
+    },
+    fl_stare2 = {
+      lines = {
+        { id = "fl_stare2_default", text = "Then sit, and I'll do your hair as though Elune herself were coming to supper, and when you walk out every head on the Terrace will turn. I'll tell them who cut it, naturally, but I'll be thinking of who wore it." },
+      },
+      choices = {
+        { text = "Make it worth turning heads for, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

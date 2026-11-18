@@ -447,7 +447,7 @@ P:NPC {
 }
 
 P:NPC {
-  key = "elly_langston", id = TODO_NPC("Elly Langston"), name = "Elly Langston", title = "Barmaid",
+  key = "elly_langston", id = TODO_NPC("Elly Langston"), name = "Elly Langston", title = "Barmaid", gender = "female",
   bible = "bibles/old_town.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "friendly", "practical" },
   notices = { "light", "kin", "drink" },
@@ -458,6 +458,12 @@ P:NPC {
 
   greetings = {
     { id = "g_drink", text = "What'll it be, love? Ale, wine or something you'll regret?" },
+    { id = "g_fl_wink", when = { flirt = true, chance = 0.4 },
+      text = "Well, aren't you a sight at the end of a long shift, love. Sit where I can see you, and I'll have your ale there before the soldiers notice I've got favourites." },
+    { id = "g_fl_back", when = { flirt = true, npcFlagBefore = "fl_warm" }, cooldown = "3d",
+      text = "There's my one in twenty, back again! I kept your stool warm, or Bartleby did, which I'll grant isn't quite the same thing." },
+    { id = "g_fl_cool", when = { flirt = true, npcFlagBefore = "fl_cool" }, once = true,
+      text = "Evening, love. Don't look so worried; I've put my eyelashes away, and it's strictly ale and manners from me tonight." },
   },
 
   notice = {
@@ -592,7 +598,35 @@ P:NPC {
         { text = "What do the soldiers say about druids over their pints, Elly?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do mages make trouble at the Pig and Whistle, Elly?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Do soldiers here ever cause trouble, Elly?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do you call every man in here love, Elly?", next = "fl_love", when = { flirt = true } },
         { text = "Not tonight.", next = "END" },
+      },
+    },
+    fl_love = {
+      lines = {
+        { id = "fl_love_default", text = "Every one of them, sweetheart, because it saves me learning their names. I only mean it with about one in twenty, mind, and I'll leave you to guess which one you are." },
+      },
+      choices = {
+        { text = "I'd like to think I'm the one in twenty.", next = "fl_love2",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_warm" } } } },
+        { text = "Twenty to one? A dwarf takes those odds every time.", next = "fl_love2", when = { race = "Dwarf" },
+          reply = "Ha! I've watched your sort win and lose a fortune at the dice in the corner, love, so don't wager more than your beard.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_warm" } } } },
+        { text = "I'll guess I'm one of the other nineteen, Elly.", next = "BACK",
+          reply = "Modest as well! That's a shame, love, but it's your loss, and the ale's just as cold either way.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "fl_cool" } } } },
+        { text = "Keep it for the soldiers. I'm only here to drink.", next = "BACK",
+          reply = "Suit yourself, love. The ale doesn't flirt back either, so the pair of you will get on fine.",
+          fx = { affinity = -1, npcFlag = { set = { "fl_cool" } } } },
+      },
+    },
+    fl_love2 = {
+      lines = {
+        { id = "fl_love2_default", text = "Careful, love, or Reese will start charging you for the attention. I'll bring yours in the good mug, the one without the chip, and that's as far as a barmaid's favour goes on a busy night." },
+      },
+      choices = {
+        { text = "The good mug, then. I'll count myself lucky.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     regulars = {
