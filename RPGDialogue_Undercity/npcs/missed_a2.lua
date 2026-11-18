@@ -803,7 +803,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     abom = {
-      lines = { { id = "a_default", text = "You stay inside the reach of its hook, so that it can't get a swing, and you cut the stitching and not the meat. One of us holds its eye and the other opens the seams, and it comes apart like a badly sewn sack." } },
+      lines = { { id = "a_default", text = "You stay inside the swing of its chain, where the cleaver can't reach you, and you cut the stitching and not the meat. One of us holds its eye and the other opens the seams, and it comes apart like a badly sewn sack." } },
       choices = { { text = "I'll remember that in the Plaguelands.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
