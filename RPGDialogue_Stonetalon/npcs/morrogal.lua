@@ -89,7 +89,7 @@ P:NPC {
         { id = "et_default", text = "No one does, and I think that is as it should be. Some things in the deep places are better left to the Earth Mother's keeping than dug up and asked questions." },
       },
       choices = {
-        { text = "Then we should seal it away, not study it.", next = "BACK", reply = "Then we think alike, and I'm glad of it. The Earth Mother keeps her secrets for good reason, and we should help her keep them.", fx = { align = { order = 1 } } },
+        { text = "Then we should seal it away, not study it.", next = "BACK", reply = "Then we think alike, and I'm glad of it. I'll ask the elders to send stones to block the kobolds' tunnel.", fx = { align = { order = 1 } } },
         { text = "Knowledge is power. We should learn all we can.", next = "BACK", reply = "Power, yes, and the hunger for it is what dug the thing up in the first place. Learn what you must, young one, but walk carefully in the deep places.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

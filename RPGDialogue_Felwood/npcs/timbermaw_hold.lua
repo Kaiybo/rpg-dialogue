@@ -129,7 +129,7 @@ P:NPC {
         { id = "ds_default", text = "The shamans say no, not the ones who have gone deep, and Gorn has stopped arguing with the shamans. So the Timbermaw ask outsiders to thin the Deadwood camps, and Gorn asks them to do it quickly, and not to enjoy it." },
       },
       choices = {
-        { text = "I'll do it quickly and without cruelty. They deserve that much.", next = "BACK", reply = "Gorn thanks you, outsider, and the shamans will hear of it. Quick is kind, for the Deadwood.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll do it quickly and without cruelty. They deserve that much.", next = "BACK", reply = "Gorn thanks you, outsider, and the shamans will hear of it. Some of those Deadwood once fished beside Gorn.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "They're killers now. How they die doesn't matter.", next = "BACK", reply = "It matters to Gorn, and to the Timbermaw. Do it however you like, but do not tell Gorn about it after.", fx = { affinity = -1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -150,7 +150,7 @@ P:NPC {
         { id = "tp_hated", when = { reputation = { faction = "Timbermaw Hold", max = "unfriendly" } }, text = "You know that power well, Gorn thinks, since our guards would sooner gut you than let you pass. Change that, and the road opens again." },
       },
       choices = {
-        { text = "Guarding the road is your right. It's your home.", next = "BACK", reply = "It is, and Gorn is glad an outsider sees it. The road is our home, and our home is the road.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Guarding the road is your right. It's your home.", next = "BACK", reply = "It is, and Gorn is glad an outsider sees it. Most only see a toll they wish they did not have to pay.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Roads should be open to everyone, furbolg or not.", next = "BACK", reply = "Open roads are for those who have nothing to lose, outsider. The Timbermaw have lost enough.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -208,7 +208,7 @@ P:NPC {
         { id = "xn_default", text = "Gorn is glad to hear it, Kaldorei. The old stories say the furbolgs and the elves shared the forest without fences, and then the elves went to their trees and their wars and forgot us, and the corruption found us alone." },
       },
       choices = {
-        { text = "Then my people owe you. I'll help repay it.", next = "BACK", reply = "Gorn is glad to hear it, Kaldorei, and the elders will be too. The old days could come again.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Then my people owe you. I'll help repay it.", next = "BACK", reply = "Gorn is glad to hear it, Kaldorei, and the elders will be too. They still tell stories of elves at our fires.", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "My people had their own war to survive, Gorn.", next = "BACK", reply = "Gorn knows, and Gorn does not blame you, not much. But the forest remembers who left.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -392,7 +392,7 @@ P:NPC {
         { id = "d_default", text = "Because each one was a furbolg's prayer before it was a demon's, and burning it feels like burning the last thing that furbolg made with a sane heart. Some of the elders say I'm sentimental, and they may be right." },
       },
       choices = {
-        { text = "You're right to keep them. Their makers deserve that much.", next = "BACK", reply = "Thank you, and I'll keep that in mind when the elders shout. A prayer made with a sane heart deserves remembering.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "You're right to keep them. Their makers deserve that much.", next = "BACK", reply = "Thank you, and I'll keep that in mind when the elders shout. Someone's grandmother carved these with her own hands.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Sentiment is how sickness spreads. Destroy them all.", next = "BACK", reply = "You sound like the elders, and they're not wrong, which is the worst part. I'll destroy the worst of them, at least.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -490,7 +490,7 @@ P:NPC {
         { id = "ls_default", text = "Because the last outsiders who came quickly wanted our tunnels for their own wars. Meilosh would rather wait a year for a true friend than open his packs to a false one in a day." },
       },
       choices = {
-        { text = "A wise rule. Trust should be earned slowly.", next = "BACK", reply = "Meilosh is glad you see it, outsider. You will be a true friend in time, Meilosh thinks.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "A wise rule. Trust should be earned slowly.", next = "BACK", reply = "Meilosh is glad you see it, outsider. Come back often, and one day Meilosh will open his packs for you.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules like that keep good friends waiting outside.", next = "BACK", reply = "They do, and Meilosh is sorry for it. But a good friend waits, and a false one does not.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -528,7 +528,7 @@ P:NPC {
         { id = "dh_default", text = "Every time, outsider, and Meilosh hopes it always will. The day it stops hurting is the day the Timbermaw have started to go the same way." },
       },
       choices = {
-        { text = "Keep that hurt. It's what keeps you whole.", next = "BACK", reply = "Meilosh will, outsider, and thanks you for saying it. Hurt is how we remember who they were.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep that hurt. It's what keeps you whole.", next = "BACK", reply = "Meilosh will, outsider, and thanks you for saying it. Meilosh still has a Deadwood belt, from before, that he cannot throw away.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Hurt makes your hand slow. Harden your heart to them.", next = "BACK", reply = "A hard heart is how the Deadwood began, outsider. Meilosh would rather be slow than lost.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

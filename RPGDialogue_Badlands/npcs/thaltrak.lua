@@ -35,9 +35,9 @@ P:NPC {
         { id = "opo_default", text = "That be the question I ask the sky every night, mon, and the sky never answer. The Warlord got Blackrock on every side, and my Sha'ni be out there alone. You tell me, is he right?" },
       },
       choices = {
-        { text = "Orders are orders. The Warlord is right to hold you.", next = "op_post_right", fx = { align = { order = 1 }, opinion = { goretooth = "respect" } } },
+        { text = "Orders are orders, soldier. Your Warlord is right to hold you here.", next = "op_post_right", fx = { align = { order = 1 }, opinion = { goretooth = "respect" } } },
         { text = "Your wife comes first. The orders can wait.", next = "op_post_wrong", fx = { affinity = 2, align = { order = -1 }, opinion = { goretooth = "wrong" } } },
-        { text = "I'll judge the Warlord when Sha'ni's home.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Let's get Sha'ni home first. Then we'll judge the Warlord.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
     op_post_right = {
@@ -85,7 +85,7 @@ P:NPC {
       lines = {
         { id = "sh_default", text = "Best scout in the platoon, and stubborn as a raptor, and she laugh louder than anyone in Kargath. We was married before the Warlord sent us out here, and we said this would be our last tour." },
         { id = "sh_done", when = { questDone = TODO_QUEST("Krom'Grul") },
-          text = "She was the best scout in the platoon, mon, and stubborn, and she laugh louder than anybody. It be strange how fast you start saying 'was'." },
+          text = "She was the best scout in the platoon, mon, and stubborn, and she laugh louder than anybody. Listen to me, mon, already saying 'was' like it be nothing." },
       },
       choices = {
         { text = "Your last tour? Then what?", next = "shani_plans" },
@@ -108,7 +108,7 @@ P:NPC {
           text = "It would have been, mon. Now I don't know where I go, because the Hinterlands was her home and not mine." },
       },
       choices = {
-        { text = "I'll find her, Thal'trak. One way or another.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
+        { text = "I'll find her, Thal'trak, one way or another. You have my word.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -179,7 +179,7 @@ P:NPC {
       },
       choices = {
         { text = "It won't ever be enough. You'll carry her instead.", next = "BACK", reply = "Carry her, ya, I think you be right. Maybe that be what the spirits been trying to say to me all along.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Then go kill more ogres. It helps.", next = "BACK", reply = "More ogres? Ha, maybe it help for a day, mon. But I don't think Sha'ni would want me to turn into a killer for her sake.", fx = { align = { light = -1 } } },
+        { text = "Then go kill more ogres. It helped me.", next = "BACK", reply = "More ogres? Ha, maybe it help for a day, mon. But I don't think Sha'ni would want me to turn into a killer for her sake.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

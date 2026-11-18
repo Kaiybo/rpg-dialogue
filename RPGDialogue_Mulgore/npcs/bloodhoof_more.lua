@@ -44,7 +44,7 @@ P:NPC {
         { id = "h_hunterway", when = { questActive = TODO_QUEST("The Hunter's Way") },
           text = "Melor Stonehoof waits on the Hunter's Rise, and he will want to see the flatland prowlers' claws. Do not bring him broken ones; he notices." },
         { id = "h_hunter", when = { class = "HUNTER" },
-          text = "A hunter! Sit, sit. For hunting is a tauren's greatest honor, and it warms an old heart to see a young one take it up." },
+          text = "A hunter! Sit down, sit down, because hunting is a tauren's greatest honor, and it warms an old heart to see a young one take it up." },
         { id = "h_orc", when = { race = "Orc" },
           text = "An orc of Thrall's Horde. Your people hunt hungry, and mine hunt grateful, but we both come home with meat, and that is a kind of friendship." },
       },
@@ -317,7 +317,7 @@ P:NPC {
       big = true,
       lines = { { id = "seh_default", text = "A priest heal, mon, and a priest also protect, and sometimes protectin' mean makin' the other fella weaker. Some say that be no work for a holy one, and some say it be the holiest work there is." } },
       choices = {
-        { text = "Weakening a foe to protect friends is righteous.", next = "BACK", reply = "Dat be how I see it too, mon, and the loa don't complain. A friend kept alive be worth a dozen enemies cursed a little.", fx = { align = { light = 1 } } },
+        { text = "Weakening a foe to protect friends is righteous.", next = "BACK", reply = "Dat be how I see it too, mon, and the loa don't complain. Ur'kyo never yet lost sleep over a curse that kept his brother breathing.", fx = { align = { light = 1 } } },
         { text = "Hexes are dirty magic, whoever casts them.", next = "BACK", reply = "Some say so, and maybe dey be right. But I'd rather get my hands dirty than watch a friend fall, and the loa can judge me later.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -523,7 +523,7 @@ P:NPC {
           text = "A druid! Please don't change into anything in here, friend; it frightens the cats, and the cats frighten everyone else." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Softly, please." },
+        { id = "h_again", text = "Anything else? Softly, please, or the cats will wake." },
         { id = "h_again2", text = "Yes, friend? The swoop is listening, but it won't tell." },
       },
       choices = {

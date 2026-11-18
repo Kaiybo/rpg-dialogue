@@ -369,7 +369,7 @@ P:NPC {
       big = true,
       lines = { { id = "bw_default", text = "Weaker be too slow for a grunt with the rot in his wound, mon. A weak brew be safe for the brewer, because nobody blames you, but the patient dies polite and slow." } },
       choices = {
-        { text = "Better strong and dangerous than safe and useless.", next = "BACK", reply = "Dat be what I say every time, mon, and nobody listen. Strong and careful, and the grunt lives to complain.", fx = { align = { order = -1 } } },
+        { text = "Better strong and dangerous than safe and useless.", next = "BACK", reply = "Dat be what I say every time, mon, and nobody listen. Make it strong, pour it careful, and the grunt live to complain about da taste.", fx = { align = { order = -1 } } },
         { text = "A healer should follow the safe measure, always.", next = "BACK", reply = "Safe for the brewer, mon, and slow for the dying. I'll follow it when I must, but I won't like it.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

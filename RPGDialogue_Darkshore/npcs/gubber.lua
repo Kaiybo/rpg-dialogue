@@ -66,7 +66,7 @@ P:NPC {
         { id = "ho_default", text = "It's real easy. You take a pole with a line on it, put some bait on if you got some, and cast it out in the water, and sure enough, them fish start biting." },
       },
       choices = {
-        { text = "They might not bite at all.", next = "howto_wait" },
+        { text = "And if they don't bite at all, Gubber?", next = "howto_wait" },
         { text = "I don't have a pole.", next = "BUSINESS" },
       },
     },

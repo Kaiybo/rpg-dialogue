@@ -66,14 +66,14 @@ P:NPC {
       big = true,
       lines = { { id = "wad_default", text = "Then the beasts go first, back to Orgrimmar, because I won't watch them die of thirst for the sake of a flag. The Warlord might keep the grunts here, but he'll be keeping them without wolves." } },
       choices = {
-        { text = "The beasts come first. You're right, Greth.", next = "BACK", reply = "At least someone sees sense. The Warlord will curse me for it, but a dead wolf carries no grunt to Orgrimmar.", fx = { align = { light = 1 } } },
-        { text = "The outpost comes first. The beasts can suffer with us.", next = "BACK", reply = "Then you can carry the packs yourself when the beasts drop, outsider. I'll not watch them die for a flag.", fx = { align = { light = -1 } } },
+        { text = "The beasts come first. You're right, Greth.", next = "BACK", reply = "At least someone sees sense. The Warlord will curse me for it, but he can curse me from the back of a living wolf.", fx = { align = { light = 1 } } },
+        { text = "The outpost comes first. The beasts can suffer with us.", next = "BACK", reply = "Then you can carry the grunts' packs yourself when the wolves drop, and we'll see how far you get.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
 
     wilds = {
-      lines = { { id = "wi_default", text = "Buzzards, which won't attack a healthy beast but will follow a sick one for a day, waiting. Coyotes that hunt in packs, and the basilisks in the hills, which turn a beast to stone if it looks at them too long." } },
+      lines = { { id = "wi_default", text = "Buzzards, which won't attack a healthy beast but will follow a sick one for a day, waiting. Then there are the coyotes, which hunt in packs, and the basilisks in the hills, which turn a beast to stone if it looks at them too long." } },
       choices = {
         { text = "Turn it to stone?", next = "wilds_basilisk" },
         { text = "Something else.", next = "BACK" },

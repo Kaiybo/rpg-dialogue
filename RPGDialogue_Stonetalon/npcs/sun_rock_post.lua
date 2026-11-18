@@ -97,7 +97,7 @@ P:NPC {
         { id = "lt_default", text = "I did, and I paid for it in the camps like everyone else, but my hands are clean of that work. Some say the knowledge itself was tainted, and I say the hand that uses it decides, and we'll never agree." },
       },
       choices = {
-        { text = "Knowledge is only a tool. The hand decides.", next = "BACK", reply = "Then we agree, and you're welcome on my ledge. Use it well, and nobody will ever ask where it came from.", fx = { align = { light = -1 } } },
+        { text = "Knowledge is only a tool. The hand decides.", next = "BACK", reply = "Then we agree, and you're welcome on my ledge. Sit down out of the wind and show me your rod.", fx = { align = { light = -1 } } },
         { text = "Some knowledge stains whoever learns it.", next = "BACK", reply = "Then you'll never learn from me, and that's your choice to make. I won't argue it again; I've had that argument for twenty years.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

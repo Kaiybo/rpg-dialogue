@@ -86,8 +86,8 @@ P:NPC {
     delgren_mind = {
       lines = { { id = "dm_default", text = "Some of the elder ones think I've forgotten Elune, and they say so, usually when I'm in earshot. I haven't forgotten her at all, but Delgren speaks to me as an equal, and the elders never once have." } },
       choices = {
-        { text = "Good teachers earn loyalty. You chose well.", next = "BACK", reply = "They do, and I would choose him again a hundred times. Thank you for saying so.", fx = { align = { honor = 1 } } },
-        { text = "Your elders have a point. Remember who you are.", next = "BACK", reply = "They do, I suppose, and I have never truly forgotten. But a good teacher is worth a little grumbling.", fx = { align = { honor = -1 } } },
+        { text = "Good teachers earn loyalty. You chose well.", next = "BACK", reply = "They do, and I would choose him again a hundred times. He taught me to read a trail by moonlight when I could barely hold a bow.", fx = { align = { honor = 1 } } },
+        { text = "Your elders have a point. Remember who you are.", next = "BACK", reply = "They do, I suppose, and I have never truly forgotten. But my elders never sat up with me through a fever, and he did.", fx = { align = { honor = -1 } } },
       },
     },
 
@@ -95,7 +95,7 @@ P:NPC {
       lines = { { id = "st_default", text = "Because the day I leave will be the day they do something worth seeing, and I'll have missed it. Elissa will be cross, I know, and she'll be right to be." } },
       choices = {
         { text = "Duty first. A report late is a report wasted.", next = "BACK", reply = "You are probably right, and Elissa would agree with you. I will send the report, and stay a little longer anyway.", fx = { align = { order = 1 } } },
-        { text = "You're right to stay. Trust your instincts.", next = "BACK", reply = "Thank you, and Elissa will be cross with both of us. I would rather see what they do.", fx = { align = { order = -1 } } },
+        { text = "You're right to stay. Trust your instincts.", next = "BACK", reply = "Thank you, though Elissa will be cross with both of us. I want to see what they do when they think no one is watching.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -180,7 +180,7 @@ P:NPC {
       lines = { { id = "pi_default", text = "Some days I do, because plenty of them were only servants and scribes who never chose anything. Other days I remember what Azshara's court did to the rest of us and I can't find much pity at all." } },
       choices = {
         { text = "Servants or not, they shared the blame.", next = "BACK", reply = "Perhaps they did, and the Sentinels would agree with you. Still, I cannot help pitying the scribes.", fx = { align = { light = -1 }, learn = { "highborne" } } },
-        { text = "The dead deserve rest, whatever they did.", next = "BACK", reply = "They do, I suppose, though the ruins do not let them have it. Perhaps someday they will.", fx = { align = { light = 1 }, learn = { "highborne" } } },
+        { text = "The dead deserve rest, whatever they did.", next = "BACK", reply = "They do, I suppose, though the ruins will not let them have it. Some nights I hear them weeping from the road.", fx = { align = { light = 1 }, learn = { "highborne" } } },
         { text = "Let's talk about something else.", next = "BACK" },
       },
     },
@@ -195,8 +195,8 @@ P:NPC {
     spirits_run = {
       lines = { { id = "sr_default", text = "A dead Sentinel guards nothing, {class}, and I've a road to watch. If you think yourself braver, the ruins are just east of here and they'll be glad of the company." } },
       choices = {
-        { text = "Courage means standing your ground.", next = "BACK", reply = "It does, and I will stand mine, but not in the ruins. I have a road to watch, {class}.", fx = { align = { honor = 1 } } },
-        { text = "You're right. Living to fight again is smarter.", next = "BACK", reply = "It is, and I am glad you understand. A dead Sentinel guards nothing.", fx = { align = { honor = -1 } } },
+        { text = "Courage means standing your ground.", next = "BACK", reply = "It does, and I will stand mine, but on this road and not in those ruins. Someone has to warn the travellers.", fx = { align = { honor = 1 } } },
+        { text = "You're right. Living to fight again is smarter.", next = "BACK", reply = "It is, and I am glad you understand. My sisters already have too many names to sing at the shrine.", fx = { align = { honor = -1 } } },
       },
     },
 

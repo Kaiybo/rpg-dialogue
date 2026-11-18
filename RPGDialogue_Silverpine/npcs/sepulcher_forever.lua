@@ -449,7 +449,7 @@ P:NPC {
         { id = "l_default", text = "Partly, and I won't dress it up as anything nobler. Two people were lost and we'd have looked for them regardless, but if finding them makes the Horde think twice before spitting at a Forsaken paladin, I'll take that too. Does that sit badly with you?" },
       },
       choices = {
-        { text = "No. We do good, and let it be seen.", next = "BACK", reply = "That's how I'd like it too, and it's a better answer than mine. Thank you.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "No. We do good, and let it be seen.", next = "BACK", reply = "That's how I'd like it too, and it's a better answer than mine. Danitha would say the same, more loudly.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "A little. Good deeds shouldn't be done for credit.", next = "BACK", reply = "No, they shouldn't, and I'm not proud of it. But the Undercity notices deeds that come with names.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -554,7 +554,7 @@ P:NPC {
         { id = "o_default", text = "Because I bought a sword from him once, an ordinary-looking thing, and when I took it to the Undercity for maintenance the smiths there swore it came from a famous master. It came from Ott, a plain orc in Tarren Mill who has never been asked to do anything special. I'd like to give him the chance; wouldn't you?" },
       },
       choices = {
-        { text = "Yes. Talent deserves its chance.", next = "BACK", reply = "It does, and that sword proved it. I'll keep sending him business.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Yes. Talent deserves its chance.", next = "BACK", reply = "It does, and that sword proved it. I'll keep sending him business, whether he grumbles or not.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'd rather trust a proven master.", next = "BACK", reply = "Proven masters were all once talents somebody took a chance on. Still, it's your coin.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -696,7 +696,7 @@ P:NPC {
         { id = "pd_default", text = "Less than charitable things, mostly from Forsaken who don't trust the Light and from orcs who remember the Alliance's knights. As a sky-touched elf walking through Horde lands, I know how easily that sort of thing takes root, so I prefer to judge by what I see. What would you have me see in you?" },
       },
       choices = {
-        { text = "A shield for anyone who needs one.", next = "BACK", reply = "A shield, yes, and it's the best answer I've heard here. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A shield for anyone who needs one.", next = "BACK", reply = "A shield, yes, and it's the best answer I've heard below the clouds. My mother would have liked you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A weapon pointed at the Horde's enemies.", next = "BACK", reply = "Pointed at the enemies, yes, but I'd rather it protected than struck. Still, I'll not argue with you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -752,7 +752,7 @@ P:NPC {
         { id = "d_default", text = "He knew what would happen and he shielded me anyway. We Windshapers always pay our debts, and I owe him one, so if such a thing is possible I'll see the creature that doomed him dead, so it can never do this to another living thing. Do you understand that, or does it sound like vengeance to you?" },
       },
       choices = {
-        { text = "A debt is a debt. Pay it.", next = "BACK", reply = "Then I'll pay it, and the winds will see it done. Thank you for understanding.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A debt is a debt. Pay it.", next = "BACK", reply = "Then I'll pay it, and the winds will see it done. Banon would have done the same for me.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Vengeance, and that's fine. Just make it hurt.", next = "BACK", reply = "Pain, yes, but clean pain. The Windshapers do not linger over cruelty.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -774,8 +774,8 @@ P:NPC {
           text = "Kinder than I was warned, starting with you. On the isle we scatter our dead to the wind, and here you are, standing and walking and arguing with me, and I can't decide yet whether that's a horror or a courage I don't have a word for. Which is it, from where you stand?" },
       },
       choices = {
-        { text = "Courage. We chose to keep going.", next = "BACK", reply = "Courage, then, and I'll tell my people so. It's not the story they expect.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Neither. We simply refuse to lie down.", next = "BACK", reply = "Simply refuse, yes, and I can see it in every face here. That's its own kind of strength.", fx = { align = { light = -1 } } },
+        { text = "Courage. We chose to keep going.", next = "BACK", reply = "Then I'll tell my people so, though it's not the story they expect. They think you're all bitterness.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Neither. We simply refuse to lie down.", next = "BACK", reply = "I can see it in every face here. Back on the isle, we'd call that a storm that won't blow itself out.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

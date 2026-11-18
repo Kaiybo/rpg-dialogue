@@ -94,7 +94,7 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_rfk_default", text = "Then you've seen that the quilboar are not only raiders, whatever the young braves say. They have a holy place and elders and a crone who speaks for them, which means there is someone who could be spoken to, if she weren't so set on war. I'd rather have had a word with Charlga than a fight, though I know she'd never have allowed it." } },
       choices = {
-        { text = "There's always someone to speak with, Baine. You're right to try.", next = "BACK", reply = "Thank you, that means more to me than you'd think. My father says a door that's never knocked on never opens.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "There's always someone to speak with, Baine. You're right to try.", next = "BACK", reply = "Thank you, that means more to me than you'd think. I'll keep sending runners, then, whatever answer they bring back.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Talk wouldn't have stopped her, Baine. Only steel would.", next = "BACK", reply = "Maybe not, and I'll not pretend I know her heart. Still, I'd rather have tried and failed than never tried at all.", fx = { align = { honor = -1 } } },
         { text = "Your father must have tried to make peace with them.", next = "xcl_rfk2" },
       },
@@ -107,7 +107,7 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Every honest strength has a place here. The tauren never needed the Light, but I would rather talk the gnolls and the goblins down than fight them, and I suspect a paladin knows something about choosing mercy when a hammer would be easier." } },
       choices = {
-        { text = "Mercy first, Baine, and the hammer only when needed.", next = "BACK", reply = "Then we understand each other, paladin. The hammer is quicker, but mercy leaves fewer graves behind it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Mercy first, Baine, and the hammer only when needed.", next = "BACK", reply = "Then we understand each other, paladin. Bloodhoof has buried enough of its young without adding strangers to the count.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The hammer is quicker. Mercy can wait.", next = "BACK", reply = "It is quicker, and the graves come quicker too. I'd ask you to try mercy first while you're in Bloodhoof, for my father's sake.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -238,8 +238,8 @@ P:NPC {
           text = "You'll stand with the braves at Bael'dun or against the Palemane one day, and I'll be glad of you. Only remember that the best fight is the one you were strong enough not to need." },
       },
       choices = {
-        { text = "Strength is what makes them listen, Baine.", next = "BACK", reply = "Sometimes it is, and I'll not pretend otherwise. But strength that listens first is the kind they remember.", fx = { align = { honor = -1 } } },
-        { text = "Then I'll talk first and fight only if I must.", next = "BACK", reply = "That's what my father taught me, and I'm glad to hear it from you. Most fights end better when they never begin.", fx = { affinity = 2, align = { honor = 1 } } },
+        { text = "Strength is what makes them listen, Baine.", next = "BACK", reply = "Sometimes it is, and I'll not pretend otherwise. But the Palemane have plenty of strength, and see how little listening it's taught them.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll talk first and fight only if I must.", next = "BACK", reply = "That's what my father taught me, and it's good to hear it in someone else's voice. Bloodhoof could use more like you.", fx = { affinity = 2, align = { honor = 1 } } },
       },
     },
     forsaken = {
@@ -432,7 +432,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "The spirits mind very little, so long as they are not ignored, and a prayer is half listening anyway. Your shadow and your loa are strange to them, but they are patient, and they have heard stranger things since the Horde came to Mulgore." } },
       choices = {
-        { text = "I'll honour your spirits as I would my own.", next = "BACK", reply = "Then you'll find them patient, and kind in their way. Honour them, and they'll honour you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll honour your spirits as I would my own.", next = "BACK", reply = "Then you'll find them patient, and kind in their way. Leave a pinch of tobacco at the stones when you pass; they like that.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "My prayers answer to me, not to your spirits.", next = "BACK", reply = "They may, but the spirits will still hear them. Pray as you like, child, and let the dead listen as they will.", fx = { align = { light = -1 } } },
         { text = "Something else, Zarlman.", next = "BACK" },
       },
@@ -441,7 +441,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "They do, and they ask only that you fight for something worth their watching. The braves who fell to the centaur in the long years of wandering rest easier now that the tauren have a home, and a warrior who guards that home walks with their blessing." } },
       choices = {
-        { text = "I'll fight to guard this home, as they did.", next = "BACK", reply = "Then they'll walk beside you, and you'll feel them at your back. That is a blessing worth carrying.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight to guard this home, as they did.", next = "BACK", reply = "Then they'll walk beside you, and some cold morning out on the plains you'll feel them at your back.", fx = { align = { honor = 1 } } },
         { text = "The dead can watch. My fight is my own.", next = "BACK", reply = "It is, and they'll watch it all the same. Fight well, and give them something worth their watching.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -619,7 +619,7 @@ P:NPC {
       lines = { { id = "xhpriest_default", text = "You can try, but they've ached since the centaur chased us across the Barrens, and I've grown fond of them as a weather vane. Say a word over the swoops instead, if you like, because there are far too many of them this year and something has made them bold." } },
       choices = {
         { text = "Pain isn't a keepsake, Harken. Let me ease it.", next = "BACK", reply = "Ha, you're kind, but these knees have told me about every storm for forty winters. Leave them be, and bless the swoops instead.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Keep your weather vane, then. I won't waste a prayer.", next = "BACK", reply = "Fair enough, they're old friends now, and they'd miss me. Save your prayers for the swoops, then.", fx = { align = { light = -1 } } },
+        { text = "Keep your aching knees, then. I'll save my prayers.", next = "BACK", reply = "Fair enough, they're old friends now, and they'd miss me. Save your prayers for the swoops, then.", fx = { align = { light = -1 } } },
         { text = "Something else, Harken.", next = "BACK" },
       },
     },
@@ -627,7 +627,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "To a grown warrior, no, but to the young ones out in the fields, very much so. There are too many of them this year and they've grown bold, so thin them where they nest, and the farmers of Bloodhoof will sleep easier for it." } },
       choices = {
-        { text = "I'll thin them where they nest, for the farmers.", next = "BACK", reply = "Thank you, the farmers will sleep easier for it, and so will I. Go to where they nest, and thin them well.", fx = { align = { honor = 1 } } },
+        { text = "I'll thin them where they nest, for the farmers.", next = "BACK", reply = "Thank you, the farmers will sleep easier for it, and so will I. Mind their beaks; the big ones aim for the eyes.", fx = { align = { honor = 1 } } },
         { text = "Swoops aren't worth a warrior's time, Harken.", next = "BACK", reply = "Perhaps not, but they're worth a farmer's crop, and the farmers are worth your time. Think on it, warrior.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -658,7 +658,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "You could ask, but I suspect they'd blame the Windfury harpies, the same as I do, because the harpies have pushed every swoop off their ridge and down onto our fields. The druids tell me the plains keep their own balance, and I'm an old sky-watcher who isn't sure the plains have heard about harpies." } },
       choices = {
-        { text = "Bloodhoof's fields come first, so we keep the swoops in check.", next = "BACK", reply = "That's what the farmers say, and they're usually right. Keep them in check, and the fields will thank you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Bloodhoof's fields come first, so we keep the swoops in check.", next = "BACK", reply = "That's what the farmers say, and they're usually right. Bring me the quills when you're done, because nothing goes to waste here.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The plains will find their own balance without our hand on it.", next = "BACK", reply = "Maybe they will, and maybe the druids are right. But the plains' balance doesn't feed the farmers this year.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -788,7 +788,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "The young hunters call it Mazzranache, and it's bigger than any prairie wolf or cougar I've seen, with tracks that cross the plains and vanish into the hills. If it comes at you, don't run, because nothing that size has ever been outrun on open ground." } },
       choices = {
-        { text = "I'll stand my ground if it comes, Maur.", next = "BACK", reply = "Good, that's the only thing that's ever saved anyone. Stand firm, and let it come to you.", fx = { align = { honor = 1 } } },
+        { text = "I'll stand my ground if it comes, Maur.", next = "BACK", reply = "Good. It charges anything that turns its back, so you'll live longer facing it.", fx = { align = { honor = 1 } } },
         { text = "If it comes, I'll run. There's no shame in living.", next = "BACK", reply = "No shame at all, and I'd rather you lived. But it's faster than you, so run toward the trees.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -800,7 +800,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll strike before it knows I'm there.", next = "BACK", reply = "Then you'll be the first, and I'll want to hear every detail. Mind the wind, rogue.", fx = { align = { honor = -1 } } },
-        { text = "I want it to see me. Let it be a fair hunt.", next = "BACK", reply = "Then you're a hunter after my own heart. A fair hunt is the only kind worth telling.", fx = { align = { honor = 1 } } },
+        { text = "I want it to see me. Let it be a fair hunt.", next = "BACK", reply = "Then you're a hunter after my own heart, and I'll want the whole story at Kauth's fire.", fx = { align = { honor = 1 } } },
         { text = "How did you come by your name?", next = "name" },
       },
     },
@@ -810,7 +810,7 @@ P:NPC {
         { id = "xmage_default", text = "You could, but the hide would come back scorched, and I want that hide to hang in Bloodhoof. A hunt is a conversation between the hunter and the hunted, and fire is no kind of conversation at all." },
       },
       choices = {
-        { text = "You're right. The beast deserves an honest hunt.", next = "BACK", reply = "It does, and I'm glad you see it. Fire is no way to meet a beast that old.", fx = { align = { light = 1 } } },
+        { text = "You're right. The beast deserves an honest hunt.", next = "BACK", reply = "It does, and I'm glad you see it. I've followed that beast for years, and I'd hate to see it end as a pile of ash.", fx = { align = { light = 1 } } },
         { text = "Hunting isn't a conversation. It's a kill.", next = "BACK", reply = "For some, perhaps, but not for that beast, and not for me. Leave Mazzranache to me, mage.", fx = { align = { light = -1 } } },
         { text = "How did you get your name?", next = "name" },
       },
@@ -819,7 +819,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Help me find it and I'll be glad of you, because no tracker in Bloodhoof has ever seen it twice in the same place. But a druid might also tell me that a beast so old belongs to the plains more than to my skinning knife, and I'm not certain I want to hear that." } },
       choices = {
-        { text = "A beast that old has earned a fair hunt, face to face.", next = "BACK", reply = "It has, and I'd want it no other way. Face to face, as it deserves.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A beast that old has earned a fair hunt, face to face.", next = "BACK", reply = "It has, and I'd want it no other way. Let it see who has come for it.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Old or not, it's a danger. Take it however you can.", next = "BACK", reply = "It is a danger, I'll not argue. But I'd still rather meet it honestly than take it like a thief.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -874,7 +874,7 @@ P:NPC {
           text = "Your mother or father hunted out of Narache, didn't they? Then you were raised on the same tracks I was. Look for where it drinks, and wait there; it's thirsty after a kill." },
       },
       choices = {
-        { text = "Then we'll wait for it, and be patient.", next = "BACK", reply = "That's what I hoped to hear. Patience has caught more old beasts than any spear.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Then we'll wait for it, and be patient.", next = "BACK", reply = "That's what I hoped to hear. Find where it drinks, and I'll bring the jerky.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I'd rather drive it out and finish it fast.", next = "BACK", reply = "Then you'll drive it into the hills, and it'll learn another lesson. Go slowly, friend, as I do.", fx = { align = { order = -1 } } },
       },
     },
@@ -888,7 +888,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhsham_default", text = "I asked an elder that once, and she told me the spirits don't frown on a hunt, only on a waste. If I take its hide, I'll honor every part of it, and I'll thank the earth for letting us meet." } },
       choices = {
-        { text = "A clean hunt, honestly given. The spirits can't ask more.", next = "BACK", reply = "It can't, and I'm glad to hear you say it. A clean hunt, and thanks after, and the spirits are content.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A clean hunt, honestly given. The spirits can't ask more.", next = "BACK", reply = "It can't, and I'm glad to hear you say it. Say the words over it afterward, and its spirit will run easy.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A trap works better than a chase, and nobody's the wiser.", next = "BACK", reply = "Nobody but the beast, and the spirits, and me. A trap is a coward's hunt, and I'll not set one.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -949,7 +949,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Venture Company thugs, mostly, with clubs and too much confidence. They've set up at the sacred wells and won't leave for any words of mine, so if they won't listen to reason, perhaps they'll listen to an axe, though I'd rather it didn't come to that." } },
       choices = {
-        { text = "I'll drive them off, but only if words fail.", next = "BACK", reply = "That's how I'd want it, and I'm glad you see it. Words first, and the axe only if they won't hear.", fx = { align = { honor = 1 } } },
+        { text = "I'll drive them off, but only if words fail.", next = "BACK", reply = "That's how I'd want it. Goblins can be talked round, if you mention their profits early enough.", fx = { align = { honor = 1 } } },
         { text = "Words always fail with goblins. I'll start with the axe.", next = "BACK", reply = "Maybe they do, and maybe I'm a fool for trying. Still, try once, for my sake, before you swing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1331,7 +1331,7 @@ P:NPC {
         { id = "xrogue_default", text = "Easy to rob and hard to carry, friend, because it's iron and it's hot and it's bigger than you. Besides, nobody in Bloodhoof needs to steal from me, since I feed anyone who asks, and that's the best lock any inn ever had." },
       },
       choices = {
-        { text = "That's a good lock. I'd never rob a kind host.", next = "BACK", reply = "Then you're welcome at my table any night. A kind guest is the best kind, and the rarest.", fx = { align = { honor = 1 } } },
+        { text = "That's a good lock. I'd never rob a kind host.", next = "BACK", reply = "Then you're welcome at my table any night, and I'll stop counting the ladles.", fx = { align = { honor = 1 } } },
         { text = "A full belly never stopped a real thief.", next = "BACK", reply = "Maybe not, but it's never failed me yet. Eat your stew, friend, and we'll see.", fx = { align = { honor = -1 } } },
         { text = "What's in the stew today?", next = "stew" },
       },
@@ -1362,7 +1362,7 @@ P:NPC {
         { id = "xmage_default", text = "Troll mages, mostly, on the road up to Thunder Bluff, and now and then a Forsaken who won't eat a thing. The trolls eat like kodos and the Forsaken don't eat at all, so I've learned to cook for both by cooking too much, and nobody pays for seconds." },
       },
       choices = {
-        { text = "I'll pay my way, Kauth, like any other guest.", next = "BACK", reply = "That's kind of you, and I'll take it gladly. A paying guest is a welcome one.", fx = { align = { honor = 1 } } },
+        { text = "I'll pay my way, Kauth, like any other guest.", next = "BACK", reply = "That's kind of you, and I'll take it gladly. Most of the young braves pay me in promises.", fx = { align = { honor = 1 } } },
         { text = "If the bowl's on offer, I'll take it free.", next = "BACK", reply = "It's on offer, friend, and I'll not take it back. Eat your fill, and remember Bloodhoof kindly.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

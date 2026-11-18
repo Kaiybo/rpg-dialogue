@@ -68,7 +68,7 @@ P:NPC {
     druid_q = {
       lines = { { id = "dq_default", text = "No' always, if the old ruins are anythin' tae go by, for nobody builds that grand in a desert. Somethin' dried it out long ago, an' the stones are the only ones left who remember what." } },
       choices = {
-        { text = "Then dig it up and learn, Prospector.", next = "BACK", reply = "Learn, aye, that's the League's whole creed. I'll dig, an' the land can keep the secrets it wants.", fx = { align = { order = 1 } } },
+        { text = "Then dig it up and learn, Prospector.", next = "BACK", reply = "That's the League's whole creed, an' I'll keep diggin'. The land can hang on tae whatever it's stubborn about.", fx = { align = { order = 1 } } },
         { text = "Let the land keep its own secrets.", next = "BACK", reply = "Maybe it should, but the troggs are diggin' them up anyway. Better us than them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -77,7 +77,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Maybe, if ye're quiet an' patient, for the troggs are stupid but they're no' deaf. Hammertoe went in loud, singin', I shouldnae wonder, an' I'd give a lot for him tae have had yer sense." } },
       choices = {
-        { text = "Anything of Hammertoe's comes back to you.", next = "BACK", reply = "Thank ye, that means more than ye know. A pick, a page, anythin' at all.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Anything of Hammertoe's comes back to you.", next = "BACK", reply = "Thank ye, that means more than ye know. Bring me a pick, a page, anythin' at all.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Finders keepers, Prospector. Whatever's down there is mine.", next = "BACK", reply = "Yours? No' while I'm breathin'. Hammertoe's notes come back tae me, or ye'll answer tae the League.", fx = { align = { honor = -1 } } },
         { text = "Never mind that for now.", next = "BACK" },
       },
@@ -113,8 +113,8 @@ P:NPC {
       big = true,
       lines = { { id = "xcl_ulda_default", text = "Then ye walked the halls Hammertoe was so desperate tae see, an' ye saw the end o' them, which he never did. He'd have wanted every carvin' copied an' every door opened, an' I'd have told him tae slow down, an' he'd have ignored me, same as always." } },
       choices = {
-        { text = "Hammertoe found the way. The League should honour his name.", next = "BACK", reply = "He did, an' he will be, if I've anythin' tae say about it. His name on every page.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "He chased old stones to his death, Ryedol. It wasn't worth it.", next = "BACK", reply = "Wasn't it? He'd disagree, if he could, an' so do I. Some things are worth the price.", fx = { align = { honor = -1 } } },
+        { text = "Hammertoe found the way. The League should honour his name.", next = "BACK", reply = "He did, an' he will be, if I've anythin' tae say about it. I'll see his name on every page the League prints.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "He chased old stones to his death, Ryedol. It wasn't worth it.", next = "BACK", reply = "Wasn't it? He'd disagree, if he could, an' so do I. He died doin' the one thing he ever wanted tae do.", fx = { align = { honor = -1 } } },
         { text = "What will you do now, Ryedol?", next = "xcl_ulda2" },
       },
     },
@@ -289,7 +289,7 @@ P:NPC {
         { id = "ope_default", text = "Cruel to a rock? The shamans do say so, very loudly, and one of them threw a sandal at Lucien once. I've never had an elemental complain, but I'd like an outside opinion: is it cruel?" },
       },
       choices = {
-        { text = "Elementals aren't toys. Let them go.", next = "op_el_free", fx = { affinity = -1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
+        { text = "Elementals aren't your toys, gnome. Let them go.", next = "op_el_free", fx = { affinity = -1, align = { light = 1 }, opinion = { the_elements = "respect" } } },
         { text = "A rock is a rock. Bind it and learn something.", next = "op_el_bind", fx = { affinity = 1, align = { light = -1 }, opinion = { the_elements = "useful" } } },
         { text = "The spirits remember every chain, Lotwil.", next = "op_el_free", fx = { affinity = -1, opinion = { the_elements = "respect" } }, when = { class = "SHAMAN" } },
         { text = "I'll leave that to you and the shamans.", next = "BACK" },

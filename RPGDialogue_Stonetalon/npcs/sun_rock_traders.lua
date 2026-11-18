@@ -253,7 +253,7 @@ P:NPC {
         { id = "ma_default", text = "We did, for grey dye, and some at Sun Rock said it was wrong to make anything from that burning. I said wasting it was worse, since the trees had already given everything they had." },
       },
       choices = {
-        { text = "Nothing should be wasted, not even ash.", next = "BACK", reply = "That's what I said, and I'm glad someone agrees. The trees gave everything, and I won't let it go to waste.", fx = { align = { light = 1 } } },
+        { text = "Nothing should be wasted, not even ash.", next = "BACK", reply = "That's what I said, and I'm glad someone agrees. The ash dye takes beautifully, too, a grey like a storm coming in.", fx = { align = { light = 1 } } },
         { text = "Some things should be left alone to mourn.", next = "BACK", reply = "Perhaps some things should, and I've wondered. But the ash will go to the wind either way, and I'd rather it went into cloth.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
