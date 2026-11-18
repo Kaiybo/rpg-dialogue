@@ -729,6 +729,7 @@ function Conv.ShowReplyEnd(text, narr)
   if not s then return end
   local info = s.info
   local linked = Conv.Hear(text)
+  Conv.Log("narr", narr)
   Conv.Log("npc", text)
   local said = s.said
   s.said = nil
@@ -828,6 +829,7 @@ function Conv.ShowNode(nodeId, reply, replyNarr)
   end
 
   s.page = nil
+  Conv.Log("narr", narr)
   Conv.Log("npc", body)
   local said = s.said
   s.said = nil
@@ -919,7 +921,16 @@ function Conv.Log(who, text)
   if not s or not text or text == "" then return end
   s.log = s.log or {}
   s.log[#s.log + 1] = { who = who, text = text }
-  if #s.log > 40 then table.remove(s.log, 1) end
+  if #s.log > 400 then table.remove(s.log, 1) end
+  -- The journal's Transcript page keeps the last conversation after it ends (0.86.0).
+  if ns.char then
+    local t = ns.char.transcript
+    if not t or t.log ~= s.log then
+      ns.char.transcript = { name = s.info and s.info.name, t = C.Now(), log = s.log }
+    end
+  end
+  local J = ns.Journal
+  if J and J.IsShown and J.IsShown() and J.Current() == "transcript" then J.Show("transcript", true) end
 end
 
 function Conv.Choose(index)

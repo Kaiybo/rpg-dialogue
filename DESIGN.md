@@ -850,6 +850,7 @@ If a line throws an error, paste the error instead. That tells us something too.
 
 ### 3.13 The journal and the self-writing diary (0.35.0)
 - **Pages** (`UI/Journal.lua`, `J.Text(tab, search)` is pure and tested): Diary (`chronicle`), Stories (`stories`), People (`people`), Heard of (`heard`), Myself (`sheet`), Notes. Search on Diary, People and Heard of. Old names alias: `topics` -> Heard of, `deeds` -> Myself, `threads` -> Stories.
+- **Transcript** (`transcript`, after 0.85.0): the conversation you are in, or the last one (`char.transcript`, kept across sessions), every line in full: narration, their words, your replies, what you asked about. `Conv.Log` feeds it (up to 400 entries); the box's book button opens it, and it refreshes while open.
 - **Stories:** every thread with a beat heard, live ones first. Thread fields `title` and `story = { stirring|unfolding|resolved|soured = { first, third } }`; a faded thread shows its last live text, marked "(left unfinished)". Under it, each beat heard: who said it, when, the line.
 - **People:** grouped by the zone where you last spoke with them (`mem.zone`, set on `CONVERSATION_ENDED`), with title, disposition word, the impression (once written), topics asked of them, the last thing they said.
 - **Heard of:** topics by category; who first spoke of it (`Topics.Source`) and what each person answered when asked (`Topics.RecordAnswer`: `rec.said`, one per person, up to 8, stored as line ids).
