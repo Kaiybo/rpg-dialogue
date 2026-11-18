@@ -8,6 +8,7 @@ P:NPC {
   key = "galthuk", id = TODO_NPC("Galthuk"), name = "Galthuk",
   bible = "bibles/galthuk.md", role = "vendor", tier = "major",
   communities = { "orgrimmar" }, temper = { "gruff", "proud" }, values = { "proud", "loyal" },
+  likesTone = "blunt",
   race = "Orc",
   notices = { "dead", "warlock", "veteran" },
 
@@ -300,7 +301,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You've an eye for good steel and you're not afraid to say so, which I like. Most who walk in here can't tell an axe from a shovel." },
+        { id = "s2", text = "Hm, that's fair praise and plainly given, and I'll not pretend I mind hearing it. I've put a lot of years into these blades." },
+      },
+      fail = {
+        { id = "f1", text = "Flattery won't put an edge on a blade, and it won't put one on me either. If you want something, say it straight." },
+        { id = "f2", text = "I've heard smoother talk from goblins trying to sell me pig iron, and I threw them out too. Keep your sweet words for someone softer." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've got a mouth on you, and I've not had a good insult since the camps. An orc who'll needle an old grunt to his face is an orc worth knowing." },
+        { id = "s2", text = "That's the kind of cheek Doomhammer's grunts used to trade around the fire, and I'd forgotten how much I liked it. You'll do, {class}." },
+      },
+      fail = {
+        { id = "f1", text = "I carried an axe under Doomhammer while you were still learning which end to hold. Mock me again and you can buy your blades from someone else." },
+        { id = "f2", text = "You think that stings, after the years I spent behind human walls with humans laughing at me? Try harder, or better yet, get out of my shop." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, I can see you're not one to cross, and I'm too old to prove otherwise over nothing. You've made your point." },
+        { id = "s2", text = "I know that look, because I've seen it across a battlefield, and the ones who wore it usually walked away. I'll not push you, {class}." },
+      },
+      fail = {
+        { id = "f1", text = "You're threatening an orc who stands in a room full of axes, and I sharpened every one of them myself. Think about that for a moment." },
+        { id = "f2", text = "Human wardens with whips couldn't frighten me into bowing, and you're no warden. Put your chest back in and act like you belong in this city." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's my business and none of yours, not until I know you better than I do." },
+      { id = "gt2", text = "I don't tell that to every stranger with coin in hand, so prove yourself first, and then we'll see." },
+    },
     knows = { { id = "tp_knows", text = "I know steel, and war, and which folk in this city I'd trust at my back. Ask, and I'll tell you straight." } },
     background = { { id = "tp_bg", text = "A grunt under Doomhammer, then years in the human camps, then Thrall. Now I sell axes, which is the closest thing to peace I've found." } },
     advice = { { id = "tp_ad", text = "Buy the heaviest blade you can swing for a whole day, not the heaviest you can lift once. The second kind gets you killed by noon." } },

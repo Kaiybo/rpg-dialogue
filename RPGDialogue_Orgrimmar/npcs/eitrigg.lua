@@ -7,6 +7,7 @@ P:NPC {
   key = "eitrigg", id = TODO_NPC("Eitrigg"), name = "Eitrigg",
   bible = "bibles/eitrigg.md", role = "noble", tier = "major",
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "honorable", "wise", "loyal" },
+  private = { "blackrock" },
   race = "Orc", likesTone = "blunt",
   notices = { "race", "soldier" },
   impression = {
@@ -265,7 +266,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "I've been praised by better liars than you, {class}, so I know honest words when I hear them. I'll take those, and I thank you for them." },
+        { id = "s2", text = "An old orc doesn't hear much of that, and less still that he believes. You meant it, I think, and so it sits well with me." },
+      },
+      fail = {
+        { id = "f1", text = "Save the honey for the merchants in the Drag, because I spent too many years among flatterers in Blackrock Spire to have any taste left for it." },
+        { id = "f2", text = "I know what I am and what I've done, and neither deserves words that sweet. Speak plainly to me or don't speak at all." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! It's been a long time since anyone in this hall dared prod the old deserter, and I find I've missed it. You have a spine, and the Horde can use it." },
+        { id = "s2", text = "You've a sharp tongue, and you aimed it at me without flinching, which is more than most of the Warchief's guards would do. I respect that, though I'd not make a habit of it." },
+      },
+      fail = {
+        { id = "f1", text = "I've been called worse by orcs I had to kill afterward, so your jabs fall well short. Mind your tongue in the Warchief's hall." },
+        { id = "f2", text = "A pup barks at an old wolf because it doesn't yet know what teeth are for. I'll let it pass once, and only once." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I've stood before warlords, and few of them had that look in their eye. I'm too old to fear you, but I'm not too old to take you seriously, and I do." },
+        { id = "s2", text = "There's real strength behind that, and I'd be a fool to pretend otherwise. Very well, you have my attention, and I'll not waste yours." },
+      },
+      fail = {
+        { id = "f1", text = "I stood on a human gallows in Stratholme with the rope around my neck, and I didn't beg then. You'll have to do far better than that to move me." },
+        { id = "f2", text = "Threats work on those who still have something to lose, and I gave most of that up in the hills of Lordaeron. Lower your voice, {class}, because you shame yourself." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's a thing I speak of with those who've earned it, and you haven't yet. Show me what kind of {class} you are, and ask again." },
+      { id = "gt2", text = "I'll keep that to myself for now, because I don't know you well enough to hand you the heavier parts of my life." },
+    },
     knows = {
       { id = "tp_knows", text = "I have lived long enough to have opinions about most things, and to know which ones are worth saying aloud. Ask, and I'll tell you what I can." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "Sit, then, and ask. I tell you more than I tell most, and I think you know why." },

@@ -7,6 +7,7 @@ P:NPC {
   key = "rg_kromrosh", id = TODO_NPC("Krom'rosh"), name = "Krom'rosh",
   bible = "bibles/riverglades.md", role = "questgiver", tier = "major",
   communities = { "rogmar" }, temper = { "proud", "steady" }, values = { "brave", "stern", "loyal" },
+  race = "Orc", likesTone = "blunt", private = { "internment" },
   notices = { "class", "race", "kit" },
 
   impression = {
@@ -341,6 +342,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. Rog'mar hears few good words, because those who would speak them are mostly dead in the caves. I accept yours on behalf of my fighters." },
+        { id = "s2", text = "You speak well of this camp, and you speak as one who has looked at it properly. I will remember that, {class}." },
+      },
+      fail = {
+        { id = "f1", text = "The warlocks of the old Horde had honeyed tongues as well, and we followed them into ruin. Keep your praise, and bring me dead cultists." },
+        { id = "f2", text = "I do not need to be told my worth by one who has not yet set foot in Krol'dok. Go into the caves and come back alive, and then your words will weigh something." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You bare your teeth at me in my own hall, and that is the first thing anyone has done today that made me laugh. Lok'tar, you have the heart for these glades." },
+        { id = "s2", text = "Good, you have a spine. Too many come to Rog'mar with soft voices and lowered eyes, and the ogres eat that kind first." },
+      },
+      fail = {
+        { id = "f1", text = "I have counted the dead I sent into those caves, every one of them, and you make sport of me? Watch your tongue, or I will send you in next, and alone." },
+        { id = "f2", text = "I have been cursed by dying cultists who meant every word, and I slept well after. Your insults are not worth my anger." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Hold. I know the look of a killer who is finished talking, and I will not lose fighters to a brawl while Krol'dok still stands. Say what you came for." },
+        { id = "s2", text = "There is a storm in you, and I have seen what such storms do in a crowded hall. I will listen, but turn that fury on the Hammer when we are done." },
+      },
+      fail = {
+        { id = "f1", text = "I have stood before ogres with cultists chanting behind them, and I am still here and they are not. Lower your voice in my hall." },
+        { id = "f2", text = "You threaten me, with all of Rog'mar's blades around you? You are brave or you are foolish, and either way I am not moved." },
+      },
+    },
+  },
   topics = {
     knows = { { id = "tp_knows", text = "I know the caves, the cult and the glades between us and them. Ask about those, and don't waste my time on the rest." } },
     background = { { id = "tp_bg", text = "I fought in the Warchief's wars and buried enough friends for two lifetimes. Now I bury cultists instead, which I prefer." } },
@@ -360,6 +393,10 @@ P:NPC {
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is the wisest of the Warchief's allies, and his warriors are strong. I'd welcome a tauren or two in Rog'mar." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen is the Warchief's ally, not mine. I'll fight beside her people, but I'll watch them while I do it." } },
     bolvar = { { id = "tp_bolvar", text = "The human Regent holds Stormwind and sends nothing here, which suits me fine. The fewer humans in these glades, the fewer I have to watch." } },
+    _gated = {
+      { id = "gt1", text = "That is not for your ears yet. Shed blood for Rog'mar first, and then ask me." },
+      { id = "gt2", text = "I do not speak of such things with those who have not earned it, so ask about the caves or the cult instead." },
+    },
     _none = { { id = "tp_none", text = "That's no concern of mine. Ask Neza, who listens to everything." } },
   },
 }

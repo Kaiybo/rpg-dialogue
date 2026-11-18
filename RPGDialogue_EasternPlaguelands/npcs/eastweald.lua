@@ -6,6 +6,7 @@ P:NPC {
   key = "tirion", id = TODO_NPC("Tirion Fordring"), name = "Tirion Fordring",
   bible = "bibles/easternplaguelands.md", role = "noble", tier = "major",
   communities = { "eastweald" }, temper = { "weary" }, values = { "honorable", "loyal", "kind" },
+  likesTone = "polite", private = { "silver_hand" },
   notices = { "race", "class" },
 
   impression = {
@@ -311,6 +312,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "It's been a long while since anyone had a good word for Tirion Fordring, and longer since I believed one. You're kind, and I thank you for it." },
+        { id = "s2", text = "You make an old fisherman sound like more than he is, though I'll not deny it's pleasant to hear. Sit a while; I think Mirador likes you better already." },
+      },
+      fail = {
+        { id = "f1", text = "You needn't flatter me, friend, for I've no title left to hand out favours with. I sat at court long enough to learn what honeyed words are worth." },
+        { id = "f2", text = "That's kindly meant, perhaps, but I've lived alone too long to be turned by it. Speak honestly with me, and you'll find it gets you further." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You're right to laugh, for I've caught nothing in this river but an old boot and a cold. It does me good to be teased, and nobody has dared in years." },
+        { id = "s2", text = "You've spirit, and you don't bow to a grey beard merely because it's grey. I was much the same at your age, and my commanders despaired of me." },
+      },
+      fail = {
+        { id = "f1", text = "I've been called a traitor by the whole of Lordaeron, so you'll find little left in me to wound. Still, I'd thought you above trying." },
+        { id = "f2", text = "Mock an old man if it pleases you, but it's a poor use of the breath the Light gave you. I'll be here by the water when you've something worthier to say." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There's iron in you, and I felt it even sitting here by the water. I've no quarrel with you, so put it away, and I'll tell you what I can." },
+        { id = "s2", text = "Easy, friend. I've seen that look on men before a battle, and I've sense enough to respect it." },
+      },
+      fail = {
+        { id = "f1", text = "I stood alone against my own order rather than break my word, and I lost everything for it. There's nothing left that you could threaten me with." },
+        { id = "f2", text = "You'd bully a hermit by a river, and I'm sorry to see it. Put your hand down; I may be old, but I was a knight of the Silver Hand, and I remember how it's done." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "I've been out of the world a long while, but an old knight remembers more than he lets on. Ask me about any of these and I'll tell you what I can." },
@@ -335,6 +368,10 @@ P:NPC {
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron was my home, and it fell from within as much as from without. I fish by this river now, because it's the last place in the kingdom that still looks the way I remember." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "Kel'Thuzad's necropolis hangs over the east like a storm that never breaks. The Dawn keeps watch on it, and I keep watch on the Dawn, from a distance." } },
     _none = { { id = "tp_none", text = "I've been out of the world a long while, friend. Ask the chapel." } },
+    _gated = {
+      { id = "gt1", text = "That's an old wound, and I don't open it for someone I hardly know. Sit by the river a few times more, and perhaps I'll tell you." },
+      { id = "gt2", text = "I'd rather not speak of that just yet. Forgive an old man his silences, for they've been his only company for years." },
+    },
   },
 }
 
@@ -342,6 +379,7 @@ P:NPC {
   key = "nathanos", id = TODO_NPC("Nathanos Blightcaller"), name = "Nathanos Blightcaller",
   bible = "bibles/easternplaguelands.md", role = "soldier", tier = "major",
   communities = { "marris_stead" }, temper = { "cold" }, values = { "loyal", "proud" },
+  likesTone = "blunt", private = { "lordaeron" },
   prejudice = { race = "Troll", amount = 10, why = "A ranger lord of Quel'Thalas who fought the Amani; he sees all trolls the same." },
   notices = { "race", "class" },
 
@@ -575,6 +613,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You've eyes in your head, which puts you ahead of most who wander onto my land. I'll allow that it was well said." },
+        { id = "s2", text = "Praise means little to me unless it comes from the Banshee Queen, but yours was at least accurate. You may stay, and try not to disappoint me." },
+      },
+      fail = {
+        { id = "f1", text = "I don't require the admiration of errand-runners, and I certainly don't reward it. Bring me results from the field, and keep your opinions with your rations." },
+        { id = "f2", text = "Flattery is the habit of the weak and the living, and I've no patience left for either. Be useful or be gone." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "So there's some bite in you after all, and I had you marked as another whimpering recruit. Good; the Plaguelands eat the meek, and I've buried enough of them." },
+        { id = "s2", text = "You dare say that to my face, on my own land, with my hounds at your heels. I almost respect it, and almost is more than most ever get from me." },
+      },
+      fail = {
+        { id = "f1", text = "My hounds haven't been fed today, and you are trying what remains of my patience. Speak that way again and I'll let them settle the matter." },
+        { id = "f2", text = "I was the Banshee Queen's champion before you could lift a blade, whelp. You'll keep a civil tongue here, or you'll leave it nailed to my fence." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "That's a killer's stare, and I know one when I meet it. I don't fear you, but I'll grant that you may be worth more than the rabble she usually sends me." },
+        { id = "s2", text = "Good. I've been waiting for one of you to show some teeth instead of grovelling for orders, and I'll speak to you as a soldier for it." },
+      },
+      fail = {
+        { id = "f1", text = "You threaten me on the ground where I died and rose again. The Scourge couldn't keep me down, and you're a far lesser thing than the Scourge." },
+        { id = "f2", text = "Pathetic. I've put arrows through better than you at three hundred paces, and they had the wit not to announce themselves first." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "I know these fields and the vermin crawling over them better than any living soul. Ask about these, and be brief about it." },
@@ -589,5 +659,9 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The orcish Warchief is my lady's ally, and I respect her judgment. I have no particular opinion of him beyond that." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme is the Scourge's heart in these lands, and its walls are thick with the dead. I'd burn the whole city if my lady asked." } },
     _none = { { id = "tp_none", text = "Irrelevant." } },
+    _gated = {
+      { id = "gt1", text = "That's none of your concern, and it won't be until you've proven you're more than adequate. Go and earn the right to ask." },
+      { id = "gt2", text = "I don't speak of that to servants I've barely tested. Finish the work I set you, and I may reconsider." },
+    },
   },
 }

@@ -7,6 +7,7 @@ P:NPC {
   prejudice = { race = "Scourge", amount = 8, why = "Zalazane raises dead Darkspear as puppets on the Echo Isles; walking corpses are personal for him." },
   bible = "bibles/durotar.md", role = "priest", tier = "major",
   communities = { "senjin" }, temper = { "folksy" }, values = { "wise", "proud" },
+  race = "Troll", likesTone = "polite",
   notices = { "race", "class", "origin" },
   impression = {
     first = "He taught Vol'jin and Zalazane both, and only one makes him proud.",
@@ -326,7 +327,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Heh heh, you be buttering up an old witch doctor, and he be liking it more than he should. Come and sit closer, because kind words be rare as rain in Durotar." },
+        { id = "s2", text = "Ah, now dat be a thing Gadrin don't hear often enough. The loa be smiling on those who honor their elders, yes." },
+      },
+      fail = {
+        { id = "f1", text = "Vol'jin himself tried flattering Gadrin when he was a boy wanting out of his lessons, and it didn't work then. It not gonna work for you now, no." },
+        { id = "f2", text = "Sweet words, sweet words, and nothing behind them but wind. An old troll can smell dat from across the village." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha ha! You be teasing old Gadrin like he was one of the young ones, and it make these bones feel lighter. You got spirit, and the loa like spirit." },
+        { id = "s2", text = "Oh ho, such cheek, and to a witch doctor too. Careful, mon, or I be starting to like you." },
+      },
+      fail = {
+        { id = "f1", text = "You be mocking a troll who can make your teeth fall out with a little powder and a song. I not saying I would, but I be thinking about it." },
+        { id = "f2", text = "The young always think the old be soft, and the old always remember who said so. Mind yourself in my hut." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, all right, Gadrin see you be someone to step lightly around. Even the spirits in dis hut gone quiet, and they don't do dat for just anybody." },
+        { id = "s2", text = "Hoo, you got a dark cloud on you when you want to, and this old troll be feeling it in his knees. No need to show me again, yes?" },
+      },
+      fail = {
+        { id = "f1", text = "Gadrin watched Zalazane turn his own kin to puppets across dat water, so a scowl not gonna move him much. Sit down before you hurt yourself." },
+        { id = "f2", text = "You want to frighten a witch doctor, you be needing more than a loud voice. I got jars on the shelf scarier than you." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "No, no, dat be a story Gadrin only tell to friends, and you not be one just yet. Help the village some more and come ask again." },
+      { id = "gt2", text = "An old witch doctor be allowed to keep a few things to himself. I know the answer well enough, but I not be giving it to you today." },
+    },
     knows = {
       { id = "tp_knows", text = "Old Gadrin hear everything eventually, because everybody come to the witch doctor sooner or later. Ask me about these, child." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You be good to this old man, so sit, and I tell you all of it, the long way round." },

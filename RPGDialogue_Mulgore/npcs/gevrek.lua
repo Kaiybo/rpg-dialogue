@@ -7,6 +7,7 @@ P:NPC {
   key = "ayessa", id = TODO_NPC("Ayessa Dawnsinger"), name = "Ayessa Dawnsinger",
   bible = "bibles/mulgore.md", role = "noble", tier = "major",
   communities = { "gevrek" }, temper = { "steady" }, values = { "loyal", "devout", "proud" },
+  likesTone = "polite", private = { "two_orders" },
   spiritSensitive = true,
   notices = { "race", "class" },
   impression = {
@@ -260,7 +261,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's kindly said, and I'll carry it back to my people, who need kind words more than I do. Winds be with you for it." },
+        { id = "s2", text = "We came to this land as strangers, and every warm word still surprises me. Thank you; I'll not forget who spoke it." },
+      },
+      fail = {
+        { id = "f1", text = "The wind spirits taught me to listen for what's under a voice, and under yours I hear something being asked for. Say it plainly, and we'll get on better." },
+        { id = "f2", text = "My people can't afford a leader who's easily flattered, not with so much still to prove down here. I'd rather have your honesty." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! On the isle the elders would have sent you to fast for that, but I find I'd rather laugh. It's good to be teased like kin and not handled like a guest." },
+        { id = "s2", text = "You've a bold tongue, and you use it on me as you might on one of your own. That's a kind of welcome, and I'll take it as one." },
+      },
+      fail = {
+        { id = "f1", text = "I've given the tauren no cause to regret us, and I'll give you none either, but I won't be mocked in my own camp. Mind your words at Gev'rek." },
+        { id = "f2", text = "My people crossed more than you know to stand on this ground, and they did it without your leave. Keep your scorn for someone who's earned it." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I feel that as I'd feel a storm front coming over the plain, and I know better than to stand against one. Speak, and I'll listen with care." },
+        { id = "s2", text = "The wind's gone still around you, and it doesn't do that lightly. I've no wish for a quarrel, so tell me what you need." },
+      },
+      fail = {
+        { id = "f1", text = "I've walked the elemental trials and stood in winds that would strip the hide from you, so a hard voice at my fire doesn't shake me." },
+        { id = "f2", text = "You came in peace or you came by mistake, and either way you'll not frighten the Windshapers from the home we were given. Sit down, or go." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's a matter for my own people, and for friends who've proven themselves to us. You may become one, but you aren't yet." },
+      { id = "gt2", text = "I'll not speak of that with you today. Some of what we carried from the isle isn't mine to hand to a stranger." },
+    },
     two_orders = { { id = "tp_orders", text = "Sacred sites, old wrongs and new deaths. We'll speak of it another day, but not today." } },
     al_aketh = { { id = "tp_aketh", text = "Grey robes and shaved heads. If you ever see them on this side of the sky, tell me before you tell anyone else." } },
     windstones = { { id = "tp_windstones", text = "Power and coin both, on the isle. Down here they're a reminder of home, mostly." } },

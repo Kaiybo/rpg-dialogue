@@ -8,6 +8,7 @@ P:NPC {
   rivals = { "kebok" },
   bible = "bibles/stranglethorn.md", role = "questgiver", tier = "major",
   communities = { "nesingwary_camp" }, temper = { "gruff" }, values = { "brave", "proud" },
+  race = "Dwarf", likesTone = "blunt",
   notices = { "class", "pet", "kit" },
 
   impression = {
@@ -397,6 +398,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well now, that's kindly said, an' I'll not pretend a hunter doesnae like tae hear it. Ye've a good eye, an' a good eye is half o' the hunt." },
+        { id = "s2", text = "Ha! Barnil's forever tellin' me my head's swelled past my hat, an' ye've just made his job harder. Sit down, then, for I like the company o' folk wi' sense." },
+      },
+      fail = {
+        { id = "f1", text = "Save yer breath, for I've had lords from Stormwind tae Ironforge butter me up over trophies they never shot themselves. Out here a hunter's judged by what's hangin' on the rack, an' not by pretty words." },
+        { id = "f2", text = "Flattery scares off no game an' brings none in either, so it's no use tae me. Go an' bag somethin' worth the powder, an' then we'll talk." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Ye've got some bite tae ye, an' I like a beast that snaps back when ye prod it. There's not many who'd cheek a dwarf wi' a loaded rifle across his knees." },
+        { id = "s2", text = "Oh, is that how it is? Well, ye've a steady nerve, I'll grant ye, an' a steady nerve is what keeps yer hands still when the tiger's comin' straight at ye." },
+      },
+      fail = {
+        { id = "f1", text = "I've been roared at by beasts that could swallow ye whole, so yer yappin' doesnae trouble me. Mind yer manners in my camp, or go an' hunt somewhere else." },
+        { id = "f2", text = "Keep yer voice down, for ye're scarin' the game an' botherin' me, an' I'm not sure which I mind more. A mouth like that gets a hunter killed out here." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Easy, now. I've looked enough big cats in the eye tae know when one's about tae spring, an' ye've that same look about ye. I'll not test it, so say yer piece.", narr = "Hemet's thumb rests on the hammer of his rifle, though he keeps the barrel pointed at the ground." },
+        { id = "s2", text = "Hm, there's teeth behind that, an' I'm too old a hunter tae poke at somethin' wi' teeth just for the sport of it. Ye've made yer point, so let's have it plainly." },
+      },
+      fail = {
+        { id = "f1", text = "I've stood my ground wi' a pack o' raptors comin' through the brush, an' ye're not half so quick nor so hungry. Sit down before ye embarrass yerself." },
+        { id = "f2", text = "Ye'll not frighten me in my own camp, for I've a rifle, a steady hand an' a lifetime o' things far uglier than ye glarin' at me. Try that on the trolls an' see how ye fare." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "I've hunted every corner o' this jungle, an' I know it better than any map. Ask, an' I'll tell ye what I've learned." },
@@ -411,6 +444,10 @@ P:NPC {
     onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow, eh? Now there's a trophy, but I've a feeling she'd mount my head first. I'll leave that one to braver men." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire has a shooting gallery, an' I've never once lost at it. They've asked me not to come back, which I take as a compliment." } },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer hunt from gryphon back, an' I've seen one drop a boar from a hundred feet up. Finest hunters in the Alliance, after me." } },
+    _gated = {
+      { id = "gt1", text = "That's a story I keep for huntin' companions, an' ye've not yet brought a single trophy back tae this camp. Earn yer place at the fire first." },
+      { id = "gt2", text = "I'll not be tellin' ye that, for I dinnae know ye well enough. Go an' hunt a while, an' ask me again." },
+    },
     _none = { { id = "tp_none", text = "Does it have fur, claws or teeth? No? Then I couldnae care less." } },
   },
 }

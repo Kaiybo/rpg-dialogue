@@ -723,7 +723,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That is a generous thing to say to an old druid at the top of a tree. I thank you, and I think Shadowglen has taught you well." },
+        { id = "s2", text = "You warm me more than the climb did, friend. It is good to know that those I send down the tree think kindly of what they found at the top." },
+      },
+      fail = {
+        { id = "f1", text = "You are kind, but I have watched a great many young ones climb this tree with fair words ready. I listen more closely to what they do once they walk back down." },
+        { id = "f2", text = "Praise slides off me like rain off a leaf, I'm afraid. Tell me instead what you have seen in the glen, for that I can use." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! It has been an age since anyone climbed all this way only to tease me. You have spirit, and Shadowglen is too quiet for want of it." },
+        { id = "s2", text = "You are impertinent, and I find I rather enjoy it. The young should prod at the old, or else we take root where we stand." },
+      },
+      fail = {
+        { id = "f1", text = "I have time for those who climb, but I had hoped you climbed for a better reason than that. Unkind words carry a long way from the top of Aldrassil." },
+        { id = "f2", text = "That did not sting as you meant it to, though it saddens me a little. I had thought better of you when you came up the ramp." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Peace, peace. I am a keeper of saplings and not a warrior, and I'll not stand against you over this, now that you've shown me how much it matters to you." },
+        { id = "s2", text = "You have a fierceness I did not see at first, and it gives me pause. Very well, I will not argue it, though I ask you to carry that temper carefully." },
+      },
+      fail = {
+        { id = "f1", text = "I watched the Legion burn its way up Hyjal, so there is little left that can make me tremble. Sit down and breathe, and tell me what truly troubles you." },
+        { id = "f2", text = "You would threaten me here, in the heart of Shadowglen? I am not angry, but I am disappointed, and the Sentinels below would be a good deal less patient than I am." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is a thing I share only with those I have come to know well. Climb to me a few more times, and we shall see." },
+      { id = "gt2", text = "I would rather keep that to myself for now, friend. You and I have not yet shared enough for me to speak of it." },
+    },
     knows = {
       { id = "tp_knows", text = "From the top of Aldrassil I see much of the glade, and the wind brings me the rest. Ask what you like, young one." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },

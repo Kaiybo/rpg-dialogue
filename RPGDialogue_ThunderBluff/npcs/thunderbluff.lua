@@ -9,6 +9,7 @@ P:NPC {
   rivals = { "magatha" },
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "honorable", "gentle", "wise" },
+  likesTone = "polite",
   notices = { "race", "class" },
   impression = {
     first = "He means to keep Mulgore, and I would not test him.",
@@ -631,7 +632,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You honor an old bull, young one, and you do it with a good heart. The Earth Mother hears kind words as surely as I do, and she doesn't forget them." },
+        { id = "s2", text = "It's a long time since anyone spoke so warmly on this rise without wanting a favor after. I thank you, and I'll carry it with me through the day." },
+      },
+      fail = {
+        { id = "f1", text = "I've lived long enough to know when a calf is nuzzling for the feed bag. Speak honestly with me, young one, because that's worth more than praise." },
+        { id = "f2", text = "Kind words are welcome here, but those weren't kind, only sweet. Let the wind carry them off, and try again with true ones." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ho! It's been many seasons since anyone dared lock horns with me, even in jest. You've a bold spirit, and an old warrior is glad to meet it.", narr = "Cairne laughs, low and slow, and the feathers on his totem shake with it." },
+        { id = "s2", text = "You tease the High Chieftain on his own rise, and you do it smiling. My son was the same when he was young, and I'll not hold it against you." },
+      },
+      fail = {
+        { id = "f1", text = "I led my people across the Barrens with centaur at our heels, and I've earned better than mockery. I'll forgive it, but I'll ask you not to repeat it." },
+        { id = "f2", text = "There's a time for jesting and a way to do it, and that was neither. Walk the rise a while, and think on how you speak to your elders." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I've grown old, but I'm not blind, and I see the strength you carry. I'd not wish to test it, and I'm glad the Earth Mother set you on our side." },
+        { id = "s2", text = "There's thunder in you, young one, and even these old bones felt it. Speak, and I'll weigh your words as I'd weigh a chieftain's." },
+      },
+      fail = {
+        { id = "f1", text = "The centaur tried to frighten the Bloodhoof for generations, and it was the centaur who were driven from Mulgore in the end. Calm yourself, and remember you're a guest." },
+        { id = "f2", text = "I'm too old and too heavy to be pushed, young one. Set that anger down before it does you harm." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's a matter I keep for those I know well, and we've only begun to know each other. Walk with us a while longer, and I'll speak of it gladly." },
+      { id = "gt2", text = "I'll not answer that today, young one. Some things an old chief shares only with those who've stood beside his people." },
+    },
     knows = {
       { id = "tp_knows", text = "Many voices come up the lifts to the High Rise, and an old bull listens to all of them. Ask me about these, and I'll tell you what I've heard." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "You have walked with honor among my people, so ask freely, and I'll answer as I would my own son." },
@@ -664,6 +701,7 @@ P:NPC {
   rivals = { "magatha" },
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "wise", "balanced" },
+  likesTone = "polite",
   notices = { "form", "race" },
   impression = {
     first = "He has spent years trying to be worth Malfurion's yes.",
@@ -954,7 +992,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You're kind to say so, and I can hear there's no guile in it. May the Earth Mother return the warmth to you many times over." },
+        { id = "s2", text = "An old druid seldom hears such things, since the trees aren't given to compliments. I thank you, traveller, and I'll remember your courtesy." },
+      },
+      fail = {
+        { id = "f1", text = "Praise that comes so quickly is like a spring flood, loud and soon gone. I'd sooner you sat quietly with me than flattered me." },
+        { id = "f2", text = "I've listened to the wind long enough to know when words are empty. There's no need for that here, so speak what's true." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha, you'd tug the beard of an arch druid, would you? There's a little of the young bear in you, and Elder Rise could use the laughter." },
+        { id = "s2", text = "Few speak to me so freely, and I find I don't mind it at all. The Earth Mother made the jay as well as the owl, and she had her reasons." },
+      },
+      fail = {
+        { id = "f1", text = "That was unkind, and it wasn't clever enough to excuse the unkindness. Lower your voice, because the elders are thinking, and so should you be." },
+        { id = "f2", text = "I've been mocked by Grimtotem with far sharper tongues, and I answered them with patience. You'll have the same, but you'll not have my good opinion." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There's a storm in you, and I've the sense to respect a storm. I'll listen, traveller, and I'll choose my words carefully." },
+        { id = "s2", text = "I've walked beside the great bears of the wild, and I know when to stand still and give way. You've made yourself felt, and I don't dismiss it." },
+      },
+      fail = {
+        { id = "f1", text = "I've worn the shape of the bear for longer than you've drawn breath, and I don't frighten easily. Be at peace, or take your anger down from this rise." },
+        { id = "f2", text = "The wild doesn't bow to shouting, and neither do its druids. Sit, breathe, and let that pass through you." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not a thing I speak of with one I've only just met. Give it time, and let me come to know your heart first." },
+      { id = "gt2", text = "Forgive me, but I'll keep my own counsel on that for now. There are matters the Circle shares only with proven friends." },
+    },
     knows = {
       { id = "tp_knows", text = "The Circle sends word from Moonglade, and the young druids carry the rest up the lift with them. Ask me of these, and I'll tell you what the wind has told me." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "Sit, sit; you have the patience of someone worth talking to, and I have many seasons of things to say." },
@@ -1189,6 +1263,7 @@ P:NPC {
   rivals = { "cairne", "hamuul" },
   bible = "bibles/thunderbluff.md", role = "noble", tier = "major",
   communities = { "thunder_bluff" }, temper = { "cunning" }, values = { "proud", "ambitious" },
+  likesTone = "polite",
   notices = { "race", "class" },
   impression = {
     first = "Every courtesy she offered came with a reason she kept to herself.",
@@ -1518,7 +1593,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. You've better manners than most who climb to this rise, and better sense too. An old crone remembers those who show her proper respect." },
+        { id = "s2", text = "So someone still knows how to speak to an elder. That's well done, child, and it hasn't gone unnoticed." },
+      },
+      fail = {
+        { id = "f1", text = "I was being flattered by cleverer tongues than yours before your mother was weaned. Don't waste my time with it." },
+        { id = "f2", text = "Sweet words are what the weak offer when they've nothing else, child. I'd hoped you had something else." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. So there's a little spine under that hide after all, and I'm glad to see it. I've more use for one who'll bite than for a hundred who only bow." },
+        { id = "s2", text = "You'd sharpen your tongue on the Elder Crone herself, and without your voice shaking. Cairne's city breeds few like you, and I find it refreshing." },
+      },
+      fail = {
+        { id = "f1", text = "Careful, child, because I've outlived everyone who ever laughed at me, and I mean to go on doing so." },
+        { id = "f2", text = "The Grimtotem don't forget a slight, and I'm the oldest memory they have. You'd do well to mind how you speak on this rise." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Well, well. There's real strength in you, and I've never been too proud to see where strength lies. Speak, then, and I'll listen closely." },
+        { id = "s2", text = "I know power when it stands before me, child, as I know the earth under my hooves. You needn't press the point, because you've made it." },
+      },
+      fail = {
+        { id = "f1", text = "You're a calf stamping at a thunderhead. The earth and the storm answer when I call, and neither one is impressed by you." },
+        { id = "f2", text = "I've sat across the council fire from Cairne Bloodhoof for years and never once looked away. You won't manage what he couldn't." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's a matter for those I trust, child, and I trust very few. You aren't yet among them." },
+      { id = "gt2", text = "I'll keep that behind my teeth for now. Show me you're worth the telling, and perhaps I'll think again." },
+    },
     knows = {
       { id = "tp_knows", text = "I hear what the elders say on their rise, and what they say when they think the old crone isn't listening. Ask, if you've the stomach for an honest answer." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get answers from me, child, but you won't enjoy a single one of them." },

@@ -8,6 +8,7 @@ P:NPC {
   key = "raene", id = TODO_NPC("Raene Wolfrunner"), name = "Raene Wolfrunner",
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "major",
   communities = { "astranaar" }, temper = { "fierce" }, values = { "protective", "loyal" },
+  likesTone = "blunt",
   notices = { "pet", "form", "class" },
   impression = {
     first = "Her grief for Teronis sits close under all that fierceness.",
@@ -347,7 +348,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That's good to hear, and I don't hear it often out here. I'll take it back to the Sentinels on the wall, because they've earned a share of it." },
+        { id = "s2", text = "You've a kind tongue, and you sound as if you mean it. Thank you, because the forest wears on a hunter, and a word like that helps." },
+      },
+      fail = {
+        { id = "f1", text = "Don't waste flattery on me, because I can't make arrows out of it. If you think well of Astranaar, pick up a blade and show me." },
+        { id = "f2", text = "I've tracked enough game to know when I'm being led down a trail. Whatever you're after, ask for it straight." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've got a wolf's cheek, and I like it. The Sentinels are so grim these days that I'd forgotten what it was to be needled." },
+        { id = "s2", text = "Careful, or I'll start to enjoy your company. You've a quick tongue, and I'd wager a quick blade to go with it." },
+      },
+      fail = {
+        { id = "f1", text = "I've buried friends this season, so I've no patience for that. Say it again and you can find another village to rest in." },
+        { id = "f2", text = "That's the kind of talk I'd expect from someone who has never stood a night watch on the Ashenvale border. Go and stand one, and then come and mock me." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, you've made yourself clear, and I'm not fool enough to pick a fight inside my own walls while the orcs are outside them. Have it your way." },
+        { id = "s2", text = "You've a look in your eye I've seen on cornered nightsabers, and I respect it enough to step back. Tell me what you want." },
+      },
+      fail = {
+        { id = "f1", narr = "Her hand drops to the bow at her side.", text = "I hunt things in the dark that would turn your stomach, so that glare is wasted on me. Stand down before I decide you're a threat to Astranaar." },
+        { id = "f2", text = "Try to frighten me again and I'll have the Sentinels walk you to the bridge. I have real enemies in this forest, and I haven't time for a pretend one." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not something I'll talk about with someone I've barely hunted beside. Do some work for Astranaar, and I may tell you." },
+      { id = "gt2", text = "I know, and I'm keeping it to myself until I'm surer of you. Out here we've learned to be careful about whom we trust." },
+    },
     knows = {
       { id = "tp_knows", text = "My scouts bring me word of everything that moves in this forest, and Korra brings me the rest. Ask what you need." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } },

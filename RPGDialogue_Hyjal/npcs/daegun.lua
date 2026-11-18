@@ -6,6 +6,7 @@ P:NPC {
   key = "hyj_yashiro", id = TODO_NPC("Yashiro"), name = "Yashiro", title = "Blademaster",
   bible = "bibles/hyjal.md", role = "questgiver", tier = "major",
   communities = { "hyjal" }, temper = { "proud", "steady" }, values = { "brave", "stern", "loyal" },
+  race = "Orc",
   notices = { "class", "race", "kit" },
 
   impression = {
@@ -300,7 +301,45 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You speak with honour, and I receive it as it was given. My master taught me that praise is a weight to be carried well, and I will try to carry yours." },
+        { id = "s2", text = "Those are generous words to bring to a lonely fire. I thank you for them, and the spirits of my fathers have heard you say them." },
+        { id = "s3", when = { race = "Orc" }, text = "It is good to hear such words from one of my own blood, this far from Durotar. Sit with me, {g:brother|sister}, for I have not had kin at this fire in a long time." },
+      },
+      fail = {
+        { id = "f1", text = "A blade does not grow sharper because someone admires it. I would rather you watched how I fight in Dae'gun, and judged me afterward." },
+        { id = "f2", text = "You praise what you have not yet seen, and the wind carries such words away quickly. Speak to me again when we have stood against the demons together." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You test the edge before you trust the blade, and that is wisely done. I am not offended, because I would have done the same in your place." },
+        { id = "s2", text = "There is fire in your tongue, and you do not hide behind it. One who dares to speak so to a blademaster may also dare to stand beside one." },
+      },
+      fail = {
+        { id = "f1", text = "My master would have struck a student for words like those, and then made him sweep the yard. I will only ask you to be silent until you have something worth saying." },
+        { id = "f2", text = "I do not draw steel over an insult, because steel is for demons. But I heard you, and I will remember what you chose to say at my fire." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I see your strength, and I do not mistake it for bluster. There is no shame in giving way to one who has earned the ground, and so I give it." },
+        { id = "s2", text = "You stand like one who has already decided how the fight ends. I have stood so myself, and I honour it in you, so say what you would have of me." },
+      },
+      fail = {
+        { id = "f1", text = "I stood on this mountain when Archimonde walked it, and I did not run. You are not so terrible as that, and I think you know it." },
+        { id = "f2", text = "Fear is a weapon for those who doubt their own steel, and I have never needed it. Lower your voice, and let us save our anger for Dae'gun." },
+      },
+    },
+  },
+
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is a thing I do not speak of with one I have not fought beside. Stand with me in Dae'gun, and then ask." },
+      { id = "gt2", text = "I will keep my silence on that. Trust is forged as a blade is forged, slowly, and ours is still in the fire." },
+    },
     knows = {
       { id = "tp_knows", text = "I know blades and demons and the slopes between here and Dae'gun. Ask about those, and you will get a straight answer." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Ask, if you must. I will decide if the question deserves an answer." },

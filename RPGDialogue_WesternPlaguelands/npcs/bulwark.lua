@@ -6,6 +6,7 @@ P:NPC {
   key = "derrington", id = TODO_NPC("High Executor Derrington"), name = "High Executor Derrington",
   bible = "bibles/westernplaguelands.md", role = "questgiver", tier = "major",
   communities = { "bulwark" }, temper = { "sharp", "steady" }, values = { "practical", "cunning" },
+  likesTone = "blunt", private = { "background" },
   notices = { "race", "class" },
 
   impression = {
@@ -321,6 +322,38 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "It's a wall of junk and timber, and you've the sense to see what it's holding back. I don't hear that often, and I'll not pretend it's unwelcome." },
+        { id = "s2", text = "The court sends me orders and the Scourge sends me corpses, so a kind word makes a change from both. Well said; now don't spoil it." },
+      },
+      fail = {
+        { id = "f1", text = "Flattery belongs in the Royal Quarter, where they've the leisure for it. Out here I count who's still standing at dawn, and pretty words have never once been among them." },
+        { id = "f2", text = "You want something, and you thought to grease the hinge first. I'd have respected you more if you'd simply asked." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "You've a tongue on you, and you'd need one to last out here. Keep it sharp, because the Plaguelands have dulled better." },
+        { id = "s2", text = "I've had ghouls show me more respect, though none of them were half as entertaining. You've nerve, and nerve is what I'm shortest of on this wall." },
+      },
+      fail = {
+        { id = "f1", text = "I buried my patience some while ago, and you've just gone digging for it. Mock the Bulwark again and you can sleep on the far side of the gate tonight." },
+        { id = "f2", text = "My soldiers hold this line every night while you find it amusing. Watch your mouth, or go and practise your wit on the dead in Felstone Field." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "You've the look of someone who'd go through me if I stood in the way. I've no wish to test it, since I need every fighter I can get pointed east." },
+        { id = "s2", text = "That's a cold stare, and I've stood opposite the Scourge often enough to know a real one. Fair enough; say your piece, and I'll listen." },
+      },
+      fail = {
+        { id = "f1", text = "There are more dead beyond that gate than anyone has counted, and every one of them means me harm. If you want to frighten me, you'll have to wait your turn." },
+        { id = "f2", text = "Lean on me again and I'll have the Deathguard walk you through the gate at dusk, unarmed. We'll see who is frightened then." },
+      },
+    },
+  },
   topics = {
     knows = {
       { id = "tp_knows", text = "Everything that comes over this wall crosses my desk first, and I remember all of it. Ask about these, and keep it useful." },
@@ -344,6 +377,10 @@ P:NPC {
     stratholme = { { id = "tp_stratholme", text = "Stratholme is the Scourge's crown in the east, and the Crusade wastes its zealots on the gates. I'd let them keep at it, since every Crusader who dies there is one I won't have to kill myself." } },
     lordaeron = { { id = "tp_lordaeron", text = "The Bulwark was the last refuge of the capital's survivors, and they held here until they couldn't. We hold it now, for different reasons." } },
     _none = { { id = "tp_none", text = "Does it come over the wall? If not, take it to Undercity, where they have time for such things." } },
+    _gated = {
+      { id = "gt1", text = "That's my own business, and I don't hand it to people I haven't seen fight. Come back through that gate a few more times and ask again." },
+      { id = "gt2", text = "I'll not speak of that to you, not yet. Trust is rationed on this wall, the same as everything else." },
+    },
   },
 }
 

@@ -9,6 +9,7 @@ P:NPC {
   key = "stoutfist", id = TODO_NPC("Captain Stoutfist"), name = "Captain Stoutfist",
   bible = "bibles/menethil.md", role = "soldier", tier = "major",
   communities = { "menethil" }, temper = { "fierce" }, values = { "dutiful", "brave" },
+  likesTone = "blunt", race = "Dwarf",
   notices = { "soldier", "kit" },
 
   impression = {
@@ -450,7 +451,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, that's a rare thing tae hear on this wall, an' I'll no' turn it away. The lads have held Menethil on short rations an' shorter sleep, so I'll pass it on tae them." },
+        { id = "s2", text = "Ha, ye've a good eye for soldierin', I'll say that. It's kind o' ye, an' it'll keep me warm on the night watch." },
+      },
+      fail = {
+        { id = "f1", text = "I've nae time for sweet talk wi' the Dragonmaw on the hill. If ye think so well o' the garrison, grab a shield an' join it." },
+        { id = "f2", text = "That's the sort o' thing a merchant says before he names his price. Speak plain tae me, for I'm a soldier an' I've nae ear for the other kind." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Ye've a mouth on ye like a sergeant I served under in the Second War, an' he was the best I ever knew. Aye, I can take it, an' I'll give ye worse back when I've a minute." },
+        { id = "s2", text = "Cheeky, are ye? Good, for I'd sooner have someone wi' a bit o' fire than another recruit who salutes the mud." },
+      },
+      fail = {
+        { id = "f1", text = "Ye'll no' talk tae me like that in my own keep, in front o' my own guard. One more word an' ye'll be scrubbin' the harbor steps wi' the tide comin' in." },
+        { id = "f2", text = "I've lost good dwarves on this wall, an' I'll no' be laughed at by someone who's never stood on it. Get tae the point or get out." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Aye, all right, ye've a hard look an' I've nae doubt ye can back it. I've enemies enough outside the gate wi'out makin' one inside, so have yer say." },
+        { id = "s2", text = "Ye'd make a fair drill sergeant, glowerin' like that. Fine, I'll give ye the point, for I've nae hands tae spare on a quarrel." },
+      },
+      fail = {
+        { id = "f1", text = "I watched red dragons burn these hills, so ye'll forgive me if I dinnae quake. Try that again an' I'll show ye how a dwarf settles it." },
+        { id = "f2", text = "Are ye leanin' on the captain o' Menethil Keep, wi' the whole garrison in earshot? Ye're either very brave or very daft, an' I've nae time tae find out which." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's keep business, an' I'll no' share it wi' someone I've no' seen fight. Earn yer place on the wall an' ask me again." },
+      { id = "gt2", text = "I know well enough, but I'm no' tellin' a stranger. A captain keeps his mouth shut till he knows who's listenin'." },
+    },
     knows = {
       { id = "tp_knows", text = "Every scout an' sentry on this coast reports tae me, an' most o' what they report is bad. Ask me about any o' this." },
     },

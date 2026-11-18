@@ -8,6 +8,7 @@ P:NPC {
   key = "kaga_mistrunner", id = TODO_NPC("Kaga Mistrunner"), name = "Kaga Mistrunner",
   bible = "bibles/kaga_mistrunner.md", role = "vendor", tier = "major",
   communities = { "thunder_bluff" }, temper = { "gruff", "proud" }, values = { "honest", "loyal" },
+  likesTone = "blunt",
   notices = { "dead", "warlock", "hunter" },
 
   impression = {
@@ -253,7 +254,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, that's a kind thing to say, and I don't get many of those between the haggling. Thank you, friend." },
+        { id = "s2", text = "You know good meat when you see it, and you've the decency to say so. My son will be glad to hear it, since he did the hunting." },
+      },
+      fail = {
+        { id = "f1", text = "I've been buttered up by better than you, usually just before they ask for a lower price, and the price hasn't moved yet." },
+        { id = "f2", text = "Don't soft-talk me, friend, because I've no patience for it. Plain words keep better than sweet ones." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've a tongue like a skinning knife, and I'll admit I walked into that one. Not many will trade jabs with a butcher." },
+        { id = "s2", text = "The hunters needle me just that way when they bring in a thin kill, and I've never managed to stay cross with them. You've got some nerve, and I like it." },
+      },
+      fail = {
+        { id = "f1", text = "I cut meat for a living, and I've heard every joke about it there is. Yours wasn't a new one, and it wasn't a good one either." },
+        { id = "f2", text = "I'll not be laughed at on my own mat. Buy something or move along, and take your cleverness with you." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, there's no call for that, and I can see you're not one to trifle with. Let's speak civilly and leave it there." },
+        { id = "s2", text = "Hm. I've stood in front of a charging kodo, and you've something of the same look about you. I'll mind my tone if you'll mind yours." },
+      },
+      fail = {
+        { id = "f1", text = "I spend my days with a cleaver in my hand, friend, so think again about who you're leaning on. The Bluffwatchers are within a shout, besides." },
+        { id = "f2", text = "You don't frighten me, and you shame yourself trying it on a meat seller. Go and cool your head in the wind." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's family business, and I don't lay it out for every customer. Come by a few more times, and we'll see." },
+      { id = "gt2", text = "I'd sooner not speak of that with someone I hardly know. Ask me about the meat instead." },
+    },
     knows = { { id = "tp_knows", text = "I know meat and the plains it comes from, and what's been happening on these mesas. Ask, and I'll give you my opinion whether you want it or not." } },
     background = { { id = "tp_bg", text = "A Mistrunner, born on the plains of Mulgore, and I've sold meat on these mesas since the High Chieftain brought us here. My son hunts it and I cut it, and that's all the story there is." } },
     advice = { { id = "tp_ad", text = "Take only what you'll eat, and thank the beast for it. The plains remember who's greedy." } },

@@ -7,6 +7,7 @@ P:NPC {
   key = "gilroy", id = 1316, name = "Adair Gilroy", title = "Librarian",
   bible = "bibles/gilroy.md", role = "vendor", tier = "major",
   communities = { "stormwind" }, temper = { "fussy", "warm" }, values = { "learning", "patience" },
+  likesTone = "polite",
   notices = { "arcane", "learning", "light" },
 
   impression = {
@@ -319,7 +320,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Oh, well, that's very kind, and nobody compliments a copyist; they only complain when the ink runs. I shall be insufferable to Milton about it at supper." },
+        { id = "s2", text = "You've an eye for a clean hand, then, and that's rarer than you'd think in a quarter full of mages. Thank you; I'll rule my lines straighter all afternoon for it." },
+      },
+      fail = {
+        { id = "f1", text = "That's laid on rather thick, like ink from a pen that wants trimming. I sell scrolls that crumble when they're read, friend, so let's not call it literature." },
+        { id = "f2", text = "Hm. The last person who praised my shelves that warmly had a scroll of Agility up his sleeve when he left. I'll thank you and keep counting, if it's all the same to you." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Well, yes, I do sell books that fall to dust the moment anyone reads them, and I've made the same joke myself for nineteen years. You may stay, since you're funnier than the cat." },
+        { id = "s2", text = "That's impudent, and quite fair. I came south from Dalaran for two years and I'm still here blotting my cuffs, so I can hardly object to being laughed at." },
+      },
+      fail = {
+        { id = "f1", text = "I'll thank you not to sneer at honest copying in my own shop. Every one of those scrolls took an evening and a steady hand, which is more than your wit did." },
+        { id = "f2", text = "Mind the shelves, mind the ink, and mind your tongue, please, in that order. I've turned apprentice mages out of this shop for less." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Goodness, there's no need to loom, and please don't lean on the counter, because the top row's still wet. Yes, all right, you shall have what you came about." },
+        { id = "s2", narr = "He moves the inkwell out of your reach before he answers.", text = "Very well, very well, you've made your point. I'm a scribe and not a soldier, and I'd rather give way than see a month's copying knocked to the floor." },
+      },
+      fail = {
+        { id = "f1", text = "I trained in the lower stacks of the Violet Citadel, where the books themselves bite. You'll have to do a good deal better than a scowl." },
+        { id = "f2", text = "Every scroll behind this counter does something unpleasant if I read it aloud, and I read very quickly. Do stop that, and we'll say no more about it." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's a story for people I've shared a pot of tea with, and we've not got that far. Stay and talk a while when you next come for scrolls, and we'll see." },
+      { id = "gt2", text = "I'd rather not go into that with someone I barely know. It's nothing against you; I'm as careful with my words as I am with my ink." },
+    },
     background = { { id = "tp_bg", text = "A scribe from Dalaran's lower stacks who came south to write for a city that had no one. I've been writing ever since." } },
     advice = { { id = "tp_ad", text = "Read the whole scroll before you need it, not while something's chewing on you." } },
     _none = { { id = "tp_none", text = "Not a subject I've copied, I'm afraid. Milton Sheaf at the Royal Library might know, if you can stand the history lesson." } },

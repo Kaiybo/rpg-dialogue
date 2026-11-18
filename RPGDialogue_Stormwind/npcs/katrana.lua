@@ -8,6 +8,7 @@ P:NPC {
   rivals = { "baros" },
   bible = "bibles/katrana.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "proud" }, values = { "ambitious", "cunning" },
+  likesTone = "polite",
   notices = { "status", "ambition" },
   impression = {
     first = "I couldn't decide whether she had welcomed me or appraised me.",
@@ -352,7 +353,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "How charming, and how well delivered. Most who try that in this court trip over their own tongues, darling, so do go on standing where I can see you." },
+        { id = "s2", text = "You have manners, which is more than I can say for half the House of Nobles. I shall remember your face, and you may count that a rare thing." },
+      },
+      fail = {
+        { id = "f1", text = "Flattery, and such clumsy flattery. I have heard it done properly by dukes, little hero, and it did them no good either." },
+        { id = "f2", text = "Do you imagine I am some lonely countess to be turned by a pretty word? Run along and try it on the stable hands, who may be grateful." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", narr = "She laughs, low and unhurried, and looks at you properly for the first time.", text = "Well, it has teeth after all. I had begun to think this court had forgotten how to bite, and I do so enjoy being proven wrong." },
+        { id = "s2", text = "Such impertinence, and to my face rather than behind a fan like the rest of them. You amuse me, darling, and very few people in this keep can claim as much." },
+      },
+      fail = {
+        { id = "f1", text = "Careful, little hero. Men with titles and estates have spoken to me so, and they found the court a much colder place by the next season." },
+        { id = "f2", text = "How tiresome. I advise the throne of Stormwind, and I do not trade barbs with whatever wanders in from the Trade District." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "My, how fierce. Very well, you have made your point, and I shall concede it this once, since a scene before the king would bore us both." },
+        { id = "s2", text = "There is no need for all that, darling, I assure you. Say what you want of me and I shall consider it, and do lower your voice while you say it." },
+      },
+      fail = {
+        { id = "f1", text = "Was that meant to frighten me? You stand in Stormwind Keep with the royal guard at every door, and you are still the least alarming thing I have seen this week." },
+        { id = "f2", text = "Oh, do try that again, a little louder, so that the Highlord may hear it. I should so like to watch you explain yourself to him." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "I do not discuss such things with strangers, darling, and you are still very much a stranger to me." },
+      { id = "gt2", text = "That is a matter for the council, and you are not of it. Perhaps we shall speak of it when you have made yourself more agreeable." },
+    },
     varian = { { id = "tp_varian", text = "Poor Varian, lost at sea on a mission of peace, and the kingdom left to manage without him. We all miss him terribly, of course, and we do our best in his absence." } },
     bolvar = { { id = "tp_bolvar", text = "Dear Bolvar is a fine soldier, and he carries the burden of the regency as best he can. He relies on my counsel, and I'm happy to give it, because someone must." } },
     thrall = { { id = "tp_thrall", text = "The orc warchief talks of peace and builds his city on stolen land, and the Alliance is expected to applaud. I find it all rather quaint, little one, though I'd not say so before Lady Proudmoore." } },
