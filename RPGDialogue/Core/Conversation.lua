@@ -482,15 +482,20 @@ end
 
 -- The one gossip option a "get on with it" (or a reply like "Show me your wares.") should
 -- pick straight away, so the game opens the vendor or trainer without its menu first.
+-- "I wish to unlearn my talents" and a pet trainer's "I wish to untrain my pet" wear the
+-- trainer's icon (and say "train"): never the one to pick.
+local function isUndo(name)
+  name = (name or ""):lower()
+  return name:find("unlearn", 1, true) or name:find("untrain", 1, true) or name:find("reset", 1, true)
+end
+
 function Conv.ServiceOption(s, hint)
   if C.InCombat() then return nil end
   local options = C.GossipOptions()
   local services = {}
   for _, o in ipairs(options) do
     local kind = Conv.OptionKind(o)
-    -- "I wish to unlearn my talents" wears the trainer's icon too: never the one to pick.
-    local unlearn = (o.name or ""):lower():find("unlearn", 1, true)
-    if kind and not unlearn then services[#services + 1] = { id = o.id, kind = kind } end
+    if kind and not isUndo(o.name) then services[#services + 1] = { id = o.id, kind = kind } end
   end
   if #services == 0 then return nil end
   local want = (hint and wordsKind(hint, WANT_WORDS)) or ROLE_SERVICE[s.info.role or ""]
@@ -501,7 +506,7 @@ function Conv.ServiceOption(s, hint)
   if want == "trainer" then
     for _, o in ipairs(options) do
       local name = (o.name or ""):lower()
-      if (name:find("train", 1, true) or name:find("teach", 1, true)) and not name:find("unlearn", 1, true) then
+      if (name:find("train", 1, true) or name:find("teach", 1, true)) and not isUndo(name) then
         return { id = o.id, kind = "trainer" }
       end
     end
