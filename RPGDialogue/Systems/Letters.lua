@@ -33,11 +33,14 @@ end
 
 function Letters.Def(id) return ns.Data.letters and ns.Data.letters[id] end
 
--- Who signs it: `from`, else the NPC's name, else the key.
+-- Who signs it: `from`, else the NPC's name, else the key. The NPC's zone pack is often not
+-- loaded (you read the letter somewhere else), so the name you remember them by comes next.
 function Letters.From(def)
   if def.from then return def.from end
   local npc = def.npc and ns.Data.npcs[def.npc]
-  return (npc and npc.name) or def.npc or "?"
+  if npc and npc.name then return npc.name end
+  local mem = def.npc and ns.char and ns.char.npc and ns.char.npc[def.npc]
+  return (mem and mem.name) or def.npc or "?"
 end
 
 local function envFor(def, now)
