@@ -31,4 +31,7 @@ npcs\cleft_errands.lua
 npcs\warlock_errand.lua
 npcs\drag_and_honor.lua
 npcs\more_folk.lua
+npcs\missed_b.lua
+npcs\missed_b2.lua
+npcs\missed_b3.lua
 directions.lua
