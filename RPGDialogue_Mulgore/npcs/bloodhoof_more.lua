@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "gh3_default", text = "Kindly said, but you must understand what you would be killing. Ghost Howl is not a beast to be skinned and sold; he is an old friend who is suffering, and his death should be a mercy, not a trophy." } },
       choices = {
-        { text = "Then it will be a mercy, and I'll honor him.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "A mad wolf is a mad wolf. I'll keep the hide.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then it will be a mercy, and I'll honor him.", next = "BACK", reply = "Then you understand, and Ghost Howl will go to the Earth Mother gently. Thank you, from an old friend who couldn't do it himself.", fx = { align = { honor = 1 } } },
+        { text = "A mad wolf is a mad wolf. I'll keep the hide.", next = "BACK", reply = "Then you are not the one I want for this, and I will find another. Ghost Howl was my friend before he was a hide.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -219,8 +219,8 @@ P:NPC {
       big = true,
       lines = { { id = "ahw_default", text = "Because I'm a fair stitcher and a good seller, and Ahanu is the reverse. Some say a tauren should make everything with his own hands, but I'd rather the hides become the best goods they can." } },
       choices = {
-        { text = "Every tauren should work with their own hands.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Do what you're good at. Let others do the rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Every tauren should work with their own hands.", next = "BACK", reply = "There is truth in that, and Ahanu would agree with you. Still, the hides are honoured either way, and I'd rather they were honoured well.", fx = { align = { order = 1 } } },
+        { text = "Do what you're good at. Let others do the rest.", next = "BACK", reply = "That's how I see it, and so does Ahanu, most days. He stitches the best seams in Mulgore, and I sell them, and nobody goes hungry.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -317,8 +317,8 @@ P:NPC {
       big = true,
       lines = { { id = "seh_default", text = "A priest heal, mon, and a priest also protect, and sometimes protectin' mean makin' the other fella weaker. Some say that be no work for a holy one, and some say it be the holiest work there is." } },
       choices = {
-        { text = "Weakening a foe to protect friends is righteous.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Hexes are dirty magic, whoever casts them.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Weakening a foe to protect friends is righteous.", next = "BACK", reply = "Dat be how I see it too, mon, and the loa don't complain. A friend kept alive be worth a dozen enemies cursed a little.", fx = { align = { light = 1 } } },
+        { text = "Hexes are dirty magic, whoever casts them.", next = "BACK", reply = "Some say so, and maybe dey be right. But I'd rather get my hands dirty than watch a friend fall, and the loa can judge me later.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

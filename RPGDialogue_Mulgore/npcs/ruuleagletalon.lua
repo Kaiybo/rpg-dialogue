@@ -71,16 +71,16 @@ P:NPC {
       big = true,
       lines = { { id = "f_default", text = "Then they come back and try again, and nobody in Bloodhoof says a word about it, because I'll not let them. The only way to fail my trial is to die in it, so don't." } },
       choices = {
-        { text = "Patience with the young makes good warriors.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Failure should sting. That's how you learn.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Patience with the young makes good warriors.", next = "BACK", reply = "It does, and I've seen the proof come back up this road a hundred times. A young brave who isn't laughed at tries again, and the one who tries again lives.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Failure should sting. That's how you learn.", next = "BACK", reply = "It stings well enough on its own, believe me, without my adding to it. I'd rather they learn from the sting than from my scorn.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     ready = {
       lines = { { id = "r_default", text = "When you can fight something faster than you and come back with a lesson instead of just a wound. The Barrens and the Needles are beyond our hills, and they're not patient with fools, though the Earth Mother is." } },
       choices = {
-        { text = "I'd rather learn than bleed.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Sometimes bleeding is how you learn.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'd rather learn than bleed.", next = "BACK", reply = "Then you're wiser than most who come through Bloodhoof. Keep that thought, and the Barrens will teach you gently, mostly.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Sometimes bleeding is how you learn.", next = "BACK", reply = "Sometimes it is, and I've the scars to prove it. Just make sure you bleed for the lesson and not for your pride.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

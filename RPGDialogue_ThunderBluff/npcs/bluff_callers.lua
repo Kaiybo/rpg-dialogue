@@ -65,8 +65,8 @@ P:NPC {
       big = true,
       lines = { { id = "fi_default", text = "It is the one young shaman love best and understand least. Some think fire must be mastered and held tight, and others say it must be let run, because a fire held too tightly goes out." } },
       choices = {
-        { text = "A shaman must master the fire, always.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fire has to run free, or it isn't fire.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A shaman must master the fire, always.", next = "BACK", reply = "Many shaman have said so, and the fire has burned many of them for it. Hold it firmly if you must, but never so tightly that it has nothing left to give you.", fx = { align = { order = 1 } } },
+        { text = "Fire has to run free, or it isn't fire.", next = "BACK", reply = "You speak like someone the fire has already chosen. Let it run, then, but run beside it, or you will find it has run straight through your village.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -153,8 +153,8 @@ P:NPC {
       big = true,
       lines = { { id = "fo_default", text = "The elders argue about it every evening, and I only carry the news, I don't choose it. The Warchief says the Horde needs timber to live, and the night elves say every tree is sacred, and somebody always ends up dead." } },
       choices = {
-        { text = "The Horde needs timber. Ashenvale has plenty.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "We should leave their forest alone.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Horde needs timber. Ashenvale has plenty.", next = "BACK", reply = "Many in the Horde agree, and the Warchief must feed and house his people. Only remember that the sentinels count every tree, and they count the dead as well.", fx = { align = { light = -1 } } },
+        { text = "We should leave their forest alone.", next = "BACK", reply = "Some of the elders would cheer to hear you, and some would call you soft. I only cry the news, but I would be glad to cry less of it from Ashenvale.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "warsong" } } },
       },
     },
@@ -257,8 +257,8 @@ P:NPC {
       big = true,
       lines = { { id = "pi_default", text = "Do I want help? Every Private who's ever dropped soil here has walked off and left me to haul it up alone, so yes, I'd like help, if you're offering, which you aren't." } },
       choices = {
-        { text = "I am offering. Hand me a shovel.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Hauling dirt is your job, not mine.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I am offering. Hand me a shovel.", next = "BACK", reply = "Well, that's a first, and I'll believe it when the dirt moves. The shovel's by the pile, and mind you don't scatter any, because the Circle counts every handful.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hauling dirt is your job, not mine.", next = "BACK", reply = "There it is, same as every Private, and I'd have bet my boots on it. Go on, then, walk off, and the dirt and I will keep each other company again.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

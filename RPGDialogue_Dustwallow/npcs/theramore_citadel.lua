@@ -71,8 +71,8 @@ P:NPC {
       big = true,
       lines = { { id = "ht_default", text = "I have to, or I can't command them. But if one of mine has turned, I'll have to start asking every man on this isle where he goes at night, and a garrison that's watched that closely starts to rot from the inside." } },
       choices = {
-        { text = "Watch them all. Better safe than betrayed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Trust your men. Suspicion does more harm.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Watch them all. Better safe than betrayed.", next = "BACK", reply = "Safe is a hard thing to be on this isle, and I'll do it if I must. I only hope the men forgive me for it when this is over.", fx = { align = { order = 1 } } },
+        { text = "Trust your men. Suspicion does more harm.", next = "BACK", reply = "I want to, and most days I do. But if Hendel's gone over and I'm wrong about my men, it's Jaina who'll pay for my trust.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -203,8 +203,8 @@ P:NPC {
       big = true,
       lines = { { id = "ew_default", text = "Because she's trying to keep a peace, and nothing says peace like a catapult pointed at Brackenwall. The captain says it's prudence; the archmage says it's an invitation." } },
       choices = {
-        { text = "The captain's right. Be ready for war.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "The archmage is right. Weapons invite war.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The captain's right. Be ready for war.", next = "BACK", reply = "Prudence, aye, and I'll keep building them, because that's what I'm paid for. If they never get fired, I'll call it the best work I ever did.", fx = { align = { light = -1 } } },
+        { text = "The archmage is right. Weapons invite war.", next = "BACK", reply = "The archmage is a smart lady, I'll give her that, and smarter than me about orcs. Still, the captain signs my orders, so I keep tightening bolts.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -287,8 +287,8 @@ P:NPC {
       big = true,
       lines = { { id = "wp_default", text = "She does, an' I sell guns to the men who keep her peace, which is a funny sort o' joke when ye think on it. Some nights I think she's right, an' some nights I hear them drums again." } },
       choices = {
-        { text = "She's right. The war has to end somewhere.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Keep your powder dry. Orcs don't change.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "She's right. The war has to end somewhere.", next = "BACK", reply = "Aye, it does, an' I'd like tae see it end afore I'm grey all the way through. Maybe she's the one tae do it, if anyone can.", fx = { align = { light = 1 } } },
+        { text = "Keep your powder dry. Orcs don't change.", next = "BACK", reply = "That's what the drums tell me, friend, an' I keep my powder dry anyway. Still, it'd be a fine thing tae be wrong for once.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -70,8 +70,8 @@ P:NPC {
         { id = "bt_default", text = "Some do, and they tell me so, very politely. They say the Horde should mend what it has before it fights for what it lost, and Borook says a people who forget their old home forget themselves too. Who be right?" },
       },
       choices = {
-        { text = "Your people's old home is worth fighting for.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Mend what the Horde has first. The past can wait.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Your people's old home is worth fighting for.", next = "BACK", reply = "Ha, dat be what Borook wants to hear, mon. The Echo Isles still remember Darkspear feet, and one day they gonna feel them again.", fx = { align = { order = -1 } } },
+        { text = "Mend what the Horde has first. The past can wait.", next = "BACK", reply = "You talk like a tauren elder, slow and sensible, and maybe you be right. But Zalazane sits on our islands while we mend, and the loa don't wait forever.", fx = { align = { order = 1 } } },
         { text = "You both are, in your way.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },

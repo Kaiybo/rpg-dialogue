@@ -73,8 +73,8 @@ P:NPC {
       big = true,
       lines = { { id = "ce_default", text = "Cities protect us, and I would not tear this one down for anything. But a city that forgets the plains beneath it is only a high place to fall from, so I light the fire, and the rest is up to each of us." } },
       choices = {
-        { text = "The old ways must be kept, whatever the cost.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "People change. Let them find new ways.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "The old ways must be kept, whatever the cost.", next = "BACK", reply = "You speak like my grandmother, who kept the fire burning through three hard winters. Only take care the cost is not paid by the young, who never chose it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "People change. Let them find new ways.", next = "BACK", reply = "Perhaps they will, and the Earth Mother is patient with change. But a new trail is still walked on old ground, and I would have them remember that much.", fx = { align = { order = -1 } } },
         { text = "Something else, Zangen.", next = "BACK" },
       },
     },
@@ -88,8 +88,8 @@ P:NPC {
     moonwell = {
       lines = { { id = "m_default", text = "Rau says the artifact is bound in a way that only pure water can loosen, and the moonwells are the purest water in Kalimdor. The night elves would not give it to us, so we must take it gently and hope they forgive us." } },
       choices = {
-        { text = "Taking from a moonwell is still taking.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "The elves don't own the water. We need it.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Taking from a moonwell is still taking.", next = "BACK", reply = "It is, and I feel the weight of it each time I think of the elves. We will take only what we need, and give thanks to the water as we would to the hunt.", fx = { align = { light = 1 } } },
+        { text = "The elves don't own the water. We need it.", next = "BACK", reply = "The water belongs to the Earth Mother, yes, though the elves have kept it longer than we have had a city. Need is a good reason, but it is not the same as a right.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

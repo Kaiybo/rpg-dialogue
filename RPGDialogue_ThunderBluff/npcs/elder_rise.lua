@@ -91,8 +91,8 @@ P:NPC {
       big = true,
       lines = { { id = "tc_default", text = "They went willingly, as Grimtotem do when she asks. A leader who never risks her people never learns anything, and the Elder Crone grieves each of them, whatever the Bloodhoof whisper about her." } },
       choices = {
-        { text = "A leader should go first into danger.", next = "BACK", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "A leader who dies first leads no one.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A leader should go first into danger.", next = "BACK", reply = "Then you would understand the Elder Crone better than most Bloodhoof do. She has walked into more danger than any of the young bulls who whisper about her.", fx = { affinity = -1, align = { honor = 1 } } },
+        { text = "A leader who dies first leads no one.", next = "BACK", reply = "A leader who never risks herself leads no one worth following. Keep your caution, if it comforts you, but don't mistake it for wisdom.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -121,8 +121,8 @@ P:NPC {
       big = true,
       lines = { { id = "mg_default", text = "Strength for the tauren, and an end to bending our necks to outsiders. The High Chieftain gave our people to the orcs out of gratitude, and gratitude is a debt that grows larger every year you pay it." } },
       choices = {
-        { text = "The Horde saved the tauren. That debt is honorable.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "The tauren should stand on their own.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The Horde saved the tauren. That debt is honorable.", next = "BACK", reply = "Honorable to whom? The orcs took our gratitude and gave us a war that was never ours, and the Elder Crone remembers who paid for it.", fx = { affinity = -1, align = { order = 1 } } },
+        { text = "The tauren should stand on their own.", next = "BACK", reply = "Magatha would be pleased to hear it from an outsider. Many think it and few say it, and fewer still say it so near the High Chieftain's lodge.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "grimtotem" } } },
       },
     },
@@ -215,8 +215,8 @@ P:NPC {
       big = true,
       lines = { { id = "mw_default", text = "My father says patience, and he's older than I am by a long way. I say a sick forest doesn't care how patient we are, and sometimes you have to dig." } },
       choices = {
-        { text = "Your father's right. Land heals slowly.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right. Dig, and dig now.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Your father's right. Land heals slowly.", next = "BACK", reply = "You and my father would get along, which doesn't surprise me at all. Patience is easy, though, when it isn't your forest that's dying.", fx = { align = { order = 1 } } },
+        { text = "You're right. Dig, and dig now.", next = "BACK", reply = "Thank you, I needed someone to say it besides me. My father will sigh, and I'll go and dig anyway, and the forest will be the better for it.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -302,8 +302,8 @@ P:NPC {
       big = true,
       lines = { { id = "fs_default", text = "Then you'll learn slower, and the bear will teach you the hard way instead of the easy one. The young bulls on Hunter Rise always think the claws are the lesson, and they always come back here bruised." } },
       choices = {
-        { text = "Stillness first, then. I'll try.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "I'll learn by doing, bruises and all.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Stillness first, then. I'll try.", next = "BACK", reply = "Good, that's all I ask of a young druid. The bear is patient with those who are patient with it, and much less so with anyone else.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll learn by doing, bruises and all.", next = "BACK", reply = "Then I'll see you back here soon with fur in your teeth and a bruise on your pride. Come in quietly when you do, and I won't say I told you.", fx = { align = { order = -1 } } },
       },
     },
     hamuul = {
@@ -368,8 +368,8 @@ P:NPC {
       big = true,
       lines = { { id = "pe_default", text = "They do, and I listen, mostly. I just think a druid ought to earn her wisdom with sore legs and a scratched nose, and the elders seem to think it comes from a good cushion." } },
       choices = {
-        { text = "Listen to the elders. They've earned it.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "You're right. Learn it on the plains.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Listen to the elders. They've earned it.", next = "BACK", reply = "The elders would thank you for that, and so would my aching legs some evenings. Still, I've never learned a thing worth knowing while sitting on a cushion.", fx = { align = { order = 1 } } },
+        { text = "You're right. Learn it on the plains.", next = "BACK", reply = "Then come running with me sometime, and we'll see how far your wisdom carries you. The cat has taught me more on one night's hunt than the Hall has in a season.", fx = { affinity = 1, align = { order = -1 } } },
       },
     },
     nara = {

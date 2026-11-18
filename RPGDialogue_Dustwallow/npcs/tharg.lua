@@ -118,8 +118,8 @@ P:NPC {
       big = true,
       lines = { { id = "vb_default", text = "Tharg says yes, every day, and the young ones laugh at Tharg. Brackenwall is not home, it is a wet place where ogres hide, and ogres are not good at hiding." } },
       choices = {
-        { text = "Then go back and take it. Hiding shames you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Home is where your people live now. Let it go.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then go back and take it. Hiding shames you.", next = "BACK", reply = "Tharg wants to, very much, and Tharg's fists want to most of all. But Tharg is old, and the Overlord says wait, and Tharg is tired of waiting.", fx = { align = { honor = 1 } } },
+        { text = "Home is where your people live now. Let it go.", next = "BACK", reply = "Small friend is kind, and maybe small friend is right. But Tharg's wife is in the old village, in the ground, and Tharg cannot let that go.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -138,8 +138,8 @@ P:NPC {
       big = true,
       lines = { { id = "wr_default", text = "Tharg wants revenge, yes, and Tharg wants to go home, and Tharg does not know any more which one Tharg wants more. Maybe they are the same thing, for an old ogre." } },
       choices = {
-        { text = "Revenge is fair. The dragons earned it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "Go home for her, Tharg, not for hate.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Revenge is fair. The dragons earned it.", next = "BACK", reply = "They did, and Tharg will smash them for it, if Tharg's legs hold. Thank you, small friend, for not saying Tharg is wrong.", fx = { align = { light = -1 } } },
+        { text = "Go home for her, Tharg, not for hate.", next = "BACK", reply = "For her, yes, for her. Tharg will think about that, and Tharg does not think quickly, but Tharg will remember it.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -183,8 +183,8 @@ P:NPC {
     },
     spirits = {
       lines = { { id = "sp_default", text = "You would do that for an old ogre? Tharg does not know if spirits listen to ogres, but if they do, tell her Tharg is still angry, and Tharg is still waiting, and Tharg did not forget." } },
-      choices = { { text = "I'll ask them, Tharg.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "Some words are best kept for yourself.", next = "BACK", fx = { align = { light = -1 } } },
+      choices = { { text = "I'll ask them, Tharg.", next = "BACK", reply = "Thank you, small friend. Tharg does not know words for this, so Tharg will just say thank you again.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "Some words are best kept for yourself.", next = "BACK", reply = "Maybe so, and Tharg will keep them, then. Tharg has kept them a long time already, and they are heavy, but Tharg is strong.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" } },
     },
     after = {

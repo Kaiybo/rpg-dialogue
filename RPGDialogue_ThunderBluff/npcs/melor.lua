@@ -73,8 +73,8 @@ P:NPC {
       big = true,
       lines = { { id = "me_default", text = "Grateful, or sorry, or satisfied that a thing was done that needed doing. Pride belongs to the beast that ran well, and the hunter should leave it with the carcass." } },
       choices = {
-        { text = "Gratitude, not pride. I'll remember.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A good kill should be celebrated.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Gratitude, not pride. I'll remember.", next = "BACK", reply = "Remember it on the trail, when the hunt has gone your way and your blood is still singing. That is the moment it matters, and the moment it is hardest.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A good kill should be celebrated.", next = "BACK", reply = "Celebrate the meat on the fire and the hides for the winter, and I will sit beside you. But the beast died, young one, and that is not a thing to cheer.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -88,8 +88,8 @@ P:NPC {
     cruel = {
       lines = { { id = "c_default", text = "Most can't, and that's why the Earth Mother blesses them. A beast that kills more than it eats, and leaves the bodies to rot, has stepped outside that blessing, and it's for hunters to return it to the earth." } },
       choices = {
-        { text = "Then the hunt is a mercy.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Then the hunt is a punishment.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then the hunt is a mercy.", next = "BACK", reply = "A mercy to the land, and maybe to the beast as well, if it suffers what it has become. Go gently in your heart, even if your arrows must not.", fx = { align = { light = 1 } } },
+        { text = "Then the hunt is a punishment.", next = "BACK", reply = "That is how the young see it, and I saw it so once. But we are not judges of beasts, only hands that give back to the Earth Mother what has gone astray.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

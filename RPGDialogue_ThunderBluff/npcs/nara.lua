@@ -74,8 +74,8 @@ P:NPC {
       big = true,
       lines = { { id = "s_default", text = "Some of the lesser ones, maybe, if Naralex wakes. The four leaders, Cobrahn and Anacondra and Pythas and Serpentis, carry the nightmare in their dream gems, and I don't think anything is left in them to save." } },
       choices = {
-        { text = "Then end them, and spare the rest if we can.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "They chose this. End them all.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Then end them, and spare the rest if we can.", next = "BACK", reply = "Then we think alike, and I'm glad of it. Cut the nightmare out at its root, and maybe the ones it only brushed will wake and find their way home.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "They chose this. End them all.", next = "BACK", reply = "You sound like the dreams sound at their worst, and I don't like hearing it in daylight. Kill the four, yes, but leave me some hope for the rest.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,8 +89,8 @@ P:NPC {
     hamuul = {
       lines = { { id = "h2_default", text = "He's patient with me, which I don't always deserve. He studied with the night elves, the first of us to do it, and he tells me a druid's first duty is to listen, though I'd rather act." } },
       choices = {
-        { text = "Acting without listening gets people killed.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Sometimes listening is just waiting too long.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Acting without listening gets people killed.", next = "BACK", reply = "Hamuul would like you, and he'd tell me to listen to you, too. I suppose I'm hearing it twice now, so the Earth Mother must mean it.", fx = { align = { order = 1 } } },
+        { text = "Sometimes listening is just waiting too long.", next = "BACK", reply = "Yes! That's what I keep telling him, though he only smiles and pours more tea. The Barrens are dying while we sit and listen to the wind.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

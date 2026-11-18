@@ -76,8 +76,8 @@ P:NPC {
       big = true,
       lines = { { id = "r3_default", text = "They win battles, sometimes, and they lose themselves always. The Earth Mother does not punish them, but she stops speaking to them, and a tauren who hears nothing from her goes hollow." } },
       choices = {
-        { text = "I'll fight to protect, not for glory.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Glory gives the young a reason to fight at all.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll fight to protect, not for glory.", next = "BACK", reply = "Then the Earth Mother will keep speaking to you, and you will not go hollow. Hold to that, young one, and remember it after your first victory.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Glory gives the young a reason to fight at all.", next = "BACK", reply = "It does, and I will not deny the young their songs. But a reason is not the same as a purpose, and the hollow ones learn that too late.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -91,8 +91,8 @@ P:NPC {
     reason = {
       lines = { { id = "re_default", text = "Some say so, and I have heard of quilboar who trade with travelers in the south. The ones in our thornsnarl only want our land, so we answer them with spears until they want something else." } },
       choices = {
-        { text = "Peace should be tried first.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Spears are the only answer they'll understand.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Peace should be tried first.", next = "BACK", reply = "The elders say so, and so do I, when the quilboar will listen. Try it, if you can, but keep your spear close while you do.", fx = { align = { light = 1 } } },
+        { text = "Spears are the only answer they'll understand.", next = "BACK", reply = "For now, perhaps, and I will not send braves to die on a hope. But the Earth Mother watches how we answer, and I would have us answer well.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

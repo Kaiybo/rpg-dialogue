@@ -80,8 +80,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "The elements came first for my people, and the Light is a stranger to us. But we came to the Horde with our own odd gifts and were given a place to stand, and I would offer you the same welcome the tauren offered us." } },
       choices = {
-        { text = "Then I'll honour that welcome, and earn it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I've earned my place already, Ayessa.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Then I'll honour that welcome, and earn it.", next = "BACK", reply = "Then you are already halfway to earning it, and I will tell the camp so. A guest who honours a welcome makes the next welcome easier.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I've earned my place already, Ayessa.", next = "BACK", reply = "Perhaps you have, and I will not count anyone's deeds for them. Still, a place kept with gratitude is kept longer than one held by pride.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -89,8 +89,8 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "We have those who ask the wind to carry sickness away, and sometimes it listens, though it is a fickle healer. Your way seems steadier to me, and I would be grateful if you shared a little of it with Gev'rek's young ones." } },
       choices = {
-        { text = "Gladly, Elder. Healing should be shared.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "My faith isn't for sharing with outsiders, Elder.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Gladly, Elder. Healing should be shared.", next = "BACK", reply = "Thank you, and the young ones will thank you too, once they stop staring. The wind has been a fickle healer this season.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "My faith isn't for sharing with outsiders, Elder.", next = "BACK", reply = "Then I will not ask again, and I hope I gave no offence. We are new here, and still learning which doors open and which do not.", fx = { align = { light = -1 } } },
         { text = "Something else, Elder.", next = "BACK" },
       },
     },
@@ -98,8 +98,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "We need friends more than we need blades, but a friend with a blade is welcome at Gev'rek. The plains are new to us, and the gnolls and the goblins do not care whose guests we are, so a warrior who stands with us honours the welcome Thunder Bluff gave us." } },
       choices = {
-        { text = "I'll stand with Gev'rek, Elder, as the Horde does.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Your people should learn to guard themselves, Elder.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'll stand with Gev'rek, Elder, as the Horde does.", next = "BACK", reply = "Then you are welcome at our fire, and the gnolls will learn to think twice about Gev'rek. The tauren gave us this ground, and we would keep it well.", fx = { align = { honor = 1 } } },
+        { text = "Your people should learn to guard themselves, Elder.", next = "BACK", reply = "We are learning, and quickly, I promise you that. But no people stands alone on new ground, as the tauren taught us when they took us in.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -110,8 +110,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a fine creature. The young ones will want to follow it about the camp, and I hope you'll forgive them." },
       },
       choices = {
-        { text = "Respect the herds, and the plains will welcome you.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "The herds are food, Elder. That's all they are.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Respect the herds, and the plains will welcome you.", next = "BACK", reply = "That is the lesson I hope we never forget. The plains have been kinder to us than we had any right to expect.", fx = { align = { honor = 1 } } },
+        { text = "The herds are food, Elder. That's all they are.", next = "BACK", reply = "To you, perhaps, and I will not argue with how you hunt. But the tauren taught us otherwise, and I think they were right.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -121,8 +121,8 @@ P:NPC {
         { id = "xmage_default", text = "We do not, because the wind answers us as a friend and not as a tool, and I would rather not say more of our ways than that. The Horde's mages have been kind to us, though, and I would only ask that you be careful with fire on these plains, which we owe to the tauren." },
       },
       choices = {
-        { text = "I'll be careful, Elder. Mulgore is the tauren's gift to you.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "My magic is my own affair, Elder.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll be careful, Elder. Mulgore is the tauren's gift to you.", next = "BACK", reply = "It is, and I am grateful you see it so. The tauren have been patient with us, and I would not have them regret it.", fx = { align = { order = 1 } } },
+        { text = "My magic is my own affair, Elder.", next = "BACK", reply = "It is, and I would never ask you to change it. I only ask about the fire, because the grass here is not ours to burn.", fx = { align = { order = -1 } } },
         { text = "Something else, Elder.", next = "BACK" },
       },
     },
@@ -132,8 +132,8 @@ P:NPC {
         { id = "xwarlock_default", text = "We fear what we don't understand, and we don't understand the things you call, though the orcs have told us their story. Gev'rek owes Thunder Bluff its welcome, so I would ask you to keep your demon out of our camp, out of respect for them and for us." },
       },
       choices = {
-        { text = "I'll keep it out of your camp, Elder.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Your people will have to get used to me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "I'll keep it out of your camp, Elder.", next = "BACK", reply = "Thank you, and Gev'rek thanks you, though the young ones will still stare. Come to us without it, and you will be welcome.", fx = { align = { order = 1 } } },
+        { text = "Your people will have to get used to me.", next = "BACK", reply = "They may, in time, but I would rather they never had to. Gev'rek is a guest on tauren ground, and I will not have them shamed by us.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -188,8 +188,8 @@ P:NPC {
         { id = "sh_default", text = "Then you carry the oldest thing we brought down from the sky. Our patrons fell silent, but the elements did not, and every Windshaper who learns to hear them is proof that the wind didn't abandon us entirely." },
       },
       choices = {
-        { text = "I'll serve the elements, as our people always have.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "The spirits left us once. I'll trust my own strength.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "I'll serve the elements, as our people always have.", next = "BACK", reply = "Then the wind is glad of you, and so am I. Every Windshaper who hears it is a promise kept to those who came before.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "The spirits left us once. I'll trust my own strength.", next = "BACK", reply = "I understand that, more than I would like to admit. But the elements did not leave us, only our patrons did, and I would ask you not to confuse them.", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Why did the spirits go silent?", next = "shaman_silent" },
       },
     },
@@ -212,8 +212,8 @@ P:NPC {
           text = "Nightclaw, from Shadowgale. They kept to themselves on the isle, and you'll be tempted to do the same here, so don't. The Horde trusts what it can see." },
       },
       choices = {
-        { text = "I'll walk both paths, Elder.", next = "BACK", fx = { affinity = 2, align = { order = -1 } } },
-        { text = "I'm a Windshaper first, and always will be.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "I'll walk both paths, Elder.", next = "BACK", reply = "Then walk them carefully, and listen to both voices. The tauren druids will help with the green, and the wind will always know where you are.", fx = { affinity = 2, align = { order = -1 } } },
+        { text = "I'm a Windshaper first, and always will be.", next = "BACK", reply = "Then the wind will be glad of you, and you will always have a home at Gev'rek. Still, the green has its own wisdom, if you ever want it.", fx = { affinity = 2, align = { order = 1 } } },
       },
     },
     ring = {
@@ -230,8 +230,8 @@ P:NPC {
         { id = "xho_default", text = "The tauren taught me an answer without meaning to. They thank the Earth Mother for every kodo and every stalk of grain, though she never thanks them back, so I've started thanking the wind for every breeze over the plateau, whether it's ours or not. Would you call that faith, or habit?" },
       },
       choices = {
-        { text = "Faith. A debt honored in silence is still honored.", next = "BACK", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
-        { text = "Habit, and a comfortable one. The debt died with them.", next = "BACK", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Faith. A debt honored in silence is still honored.", next = "BACK", reply = "Then I am not so foolish as I feared, and I will keep thanking it. Perhaps the debt is honoured simply by not forgetting it.", fx = { affinity = 2, align = { light = 1 }, trait = { pious = 1 } } },
+        { text = "Habit, and a comfortable one. The debt died with them.", next = "BACK", reply = "Maybe it did, and maybe I only keep it because it comforts me. Still, a comfortable habit is no bad thing for a people far from home.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Something else, Elder.", next = "BACK" },
       },
     },
@@ -248,8 +248,8 @@ P:NPC {
       },
       choices = {
         { text = "How do the Windshapers see the Horde, Elder?", next = "op_horde" },
-        { text = "I'd like to learn.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
-        { text = "The elements don't need my worship, and I don't need theirs.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd like to learn.", next = "BACK", reply = "Then come to the camp, and walk with us a while, and the rest will follow. The elements are patient with the willing.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "The elements don't need my worship, and I don't need theirs.", next = "BACK", reply = "Perhaps they do not, and the wind will not mind either way. Still, Gev'rek will welcome you, worship or no.", fx = { align = { light = -1 } } },
       },
     },
     order = {
