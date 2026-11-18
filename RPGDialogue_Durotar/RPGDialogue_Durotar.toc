@@ -25,3 +25,4 @@ npcs\larprowltusk.lua
 npcs\rezlak.lua
 npcs\rhinag.lua
 npcs\durotar_forever.lua
+npcs\more_folk.lua
