@@ -3817,3 +3817,883 @@ P:NPC {
     _none = { { id = "tp_none", text = "I have no intelligence on that, I'm afraid." } },
   },
 }
+
+-- Allan Hafgan: sells staves at Stormwind Staves in the Mage Quarter, beside Ardwyn Cailen's wands.
+P:NPC {
+  key = "allan_hafgan", id = TODO_NPC("Allan Hafgan"), name = "Allan Hafgan", title = "Staves Merchant", gender = "male",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "scholarly", "fussy" }, values = { "knowledge", "craft" },
+  notices = { "arcane", "kaldorei", "class" },
+  impression = {
+    first = "Allan Hafgan sells staves at Stormwind Staves in the Mage Quarter and can name the wood, the grove and the enchanter of every one. He taps each staff on the floor and listens to it before he will let it leave the shop.",
+    third = "{name} met Allan Hafgan, who sells staves at Stormwind Staves in the Mage Quarter.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to Stormwind Staves. Do take your time, and please don't lean on the display." },
+    { id = "g_2", when = { metBefore = true }, text = "Ah, you've returned. I trust the last one hasn't warped, because I'd want to know." },
+    { id = "g_3", when = { class = { "MAGE", "WARLOCK", "PRIEST", "DRUID" } }, text = "A practitioner, good. You'll want to hold several before you choose, and I insist on it." },
+  },
+  notice = {
+    { id = "n_1", cat = "arcane", when = { class = "MAGE" },
+      text = "You've the Quarter's posture, {class}, with the weight on the back foot. A staff should balance that, and most of what apprentices carry doesn't." },
+    { id = "n_2", cat = "kaldorei", when = { race = "NightElf" },
+      text = "One of the kaldorei! Half my best wood is cut by your people, I'm told with ceremony, and I can believe it from the grain." },
+    { id = "n_3", cat = "class", when = { class = { "WARRIOR", "ROGUE" } },
+      text = "These would serve you as walking sticks, I'm afraid, and costly ones. Ardwyn can at least sell you a wand to point at things." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Allan Hafgan. I keep the staves here and Ardwyn Cailen keeps the wands, and between us we've equipped most of the apprentices in the tower. A staff is half a mage's reach, so I take some care over who walks out with what." },
+      },
+      again = {
+        { id = "hello_again1", text = "Is there anything further?" },
+        { id = "hello_again2", text = "Do go on, I'm only sorting by grain." },
+        { id = "hello_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "Let me see the staves.", next = "BUSINESS" },
+        { text = "What makes a good staff?", next = "good" },
+        { text = "Tell me about Ardwyn.", next = "ardwyn" },
+        { text = "Where does a staff's wood come from now?", next = "wood" },
+        { text = "A staff is only a stick with pretensions.", next = "stick" },
+        { text = "Who in the Quarter buys from you?", next = "buys" },
+        { text = "Which wood holds an enchantment longest?", next = "enchant", when = { profession = "Enchanting" } },
+        { text = "You must have traded with Dalaran once.", next = "dalaran", when = { origin = "human_dalaran_stray" } },
+        { text = "Good day, Allan.", next = "END" },
+      },
+    },
+    good = {
+      lines = {
+        { id = "good_1", text = "Straight grain, slow growth and a clean note. Strike the foot on stone, so, and listen. A staff with a flaw in the heart rings dull, and it will split the first time a real working goes through it." },
+      },
+      choices = {
+        { text = "What happens when it splits?", next = "splits" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    splits = {
+      lines = {
+        { id = "splits_1", text = "If you are fortunate, you lose the spell and your eyebrows. An apprentice of Jennea Cannon's lost a good deal more than that with a bargain staff from a dockside stall, and she has sent every pupil to me since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ardwyn = {
+      lines = {
+        { id = "ardwyn_1", text = "She cannot cast so much as a spark, and she is the best judge of a wand in the kingdom. She weighs them in her fingers like a jeweller. I find it humbling, and I have told her so exactly once." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wood = {
+      lines = {
+        { id = "wood_1", text = "Ash and oak from Elwynn for the plain work. The finer woods came from the forests about Dalaran and from Quel'Thalas, and there's no more to be had from either. I've a dozen lengths of Silverpine yew in the back that I shall not sell until I must." },
+      },
+      choices = {
+        { text = "What will you do when they're gone?", next = "gone" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gone = {
+      lines = {
+        { id = "gone_1", text = "Learn the Kalimdor woods, I suppose, as everyone must. The night elves send a little ironwood through Darnassus, and it takes a charge beautifully. It is very dear, and it arrives when the elves think it should." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stick = {
+      big = true,
+      lines = {
+        { id = "stick_1", text = "My dear {class}, so is a sword only a long knife. The wood remembers every working that passes through it. An old staff knows its wielder's hand, and I've seen one refuse a stranger." },
+      },
+      choices = {
+        { text = "A tool that knows its master deserves respect.", next = "BACK", reply = "There, you see it. I sell to people like you with a lighter heart.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Power is in the caster. The rest is merchandise.", next = "BACK", reply = "Then you'll want the cheapest one, by the door, and it will serve you exactly as well as you expect.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buys = {
+      lines = {
+        { id = "buys_1", text = "The tower's apprentices, on their masters' accounts. The priests buy now and then, when Gregory Ardus across the city hasn't a plain one to suit. And there are certain customers from the tavern on the corner, who pay well and whom I do not ask about." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    enchant = {
+      lines = {
+        { id = "enchant_1", text = "Yew, for anything of frost or shadow, and it will hold a charge for a generation. Ash takes fire well and loses it quickly. Lucan Cordell will tell you differently, and Lucan is thinking of metal." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dalaran = {
+      lines = {
+        { id = "dalaran_1", text = "Every season, and I had a standing order with a wood-warden beyond the lake. I never learned what became of him. You'll forgive me, I hope, if I don't ask what became of yours." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rumors = { { id = "tp_rumors", text = "An apprentice swears the wizard's tower hums at night when no one is casting. I told him that towers settle, and I've started listening for it myself." } },
+    background = { { id = "tp_background", text = "I failed my apprentice's examination twice, and I found I'd fallen in love with the tools more than the Art. It was the better bargain." } },
+    advice = { { id = "tp_advice", text = "Never buy a staff you haven't struck on the floor. And never strike one on the floor that isn't yours without asking." } },
+    _none = { { id = "tp_none", text = "That lies outside my study, I'm afraid. Ask at the tower." } },
+  },
+}
+
+-- Duncan Cullen: owns Duncan's Textiles in the Mage Quarter and sells the finished light armour.
+P:NPC {
+  key = "duncan_cullen", id = TODO_NPC("Duncan Cullen"), name = "Duncan Cullen", title = "Light Armor Merchant", gender = "male",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "proper", "proud" }, values = { "reputation", "craft" },
+  notices = { "craft", "warlock", "noble" },
+  impression = {
+    first = "Duncan Cullen owns Duncan's Textiles in the Mage Quarter and sells the finished cloth and leather himself, with his name over the door and his eye on every hem. He is proud of the house's reputation and nervous of anything that might stain it.",
+    third = "{name} met Duncan Cullen, owner of Duncan's Textiles in Stormwind's Mage Quarter.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to Duncan's Textiles. Everything on these racks was made under this roof, and I'll stand behind every stitch." },
+    { id = "g_2", when = { metBefore = true }, text = "A returning customer is the best advertisement. Welcome back." },
+    { id = "g_3", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "Robes for a {class}, I expect. You've come to the proper house." },
+  },
+  notice = {
+    { id = "n_1", cat = "craft", when = { profession = "Tailoring" },
+      text = "You're of the trade. Georgio teaches upstairs, and he'll find fault with your work, and you'll be the better for it." },
+    { id = "n_2", cat = "warlock", when = { class = "WARLOCK" },
+      text = "I serve every paying customer, naturally. I'll only ask that the creature wait outside, and that you not mention the tavern on the corner." },
+    { id = "n_3", cat = "noble", when = { origin = "human_minor_noble" },
+      text = "I know a house-taught bearing when I see it. We keep a private fitting room, if you would prefer it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Duncan Cullen, and the name over the door is mine. Georgio Bolero teaches the craft here, Alexandra keeps the thread, young Lawrence takes the beginners, and I sell what's finished and answer for all of it." },
+      },
+      again = {
+        { id = "hello_again1", text = "Is there something more?" },
+        { id = "hello_again2", text = "Please, go on." },
+        { id = "hello_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "Let me see the armour.", next = "BUSINESS" },
+        { text = "How did you come to own the shop?", next = "own" },
+        { text = "There's a quartermaster working in your shop.", next = "clavicus" },
+        { text = "Who buys from you?", next = "buyers" },
+        { text = "I hear a tailor under the Lamb weaves shadow.", next = "jalane" },
+        { text = "A shop's good name is only vanity.", next = "name" },
+        { text = "What should a tailor never sell?", next = "never", when = { profession = "Tailoring" } },
+        { text = "Good day, Master Cullen.", next = "END" },
+      },
+    },
+    own = {
+      lines = {
+        { id = "own_1", text = "I bought the lease after the Second War, when half this quarter was scaffolding. I couldn't sew then and I can barely sew now. I could tell good work from bad, though, and I hired people who could do the good kind." },
+      },
+      choices = {
+        { text = "And Georgio?", next = "georgio" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    georgio = {
+      lines = {
+        { id = "georgio_1", text = "He's the finest cutter in the city and he knows it to the inch. He would tell you the shop is his in all but name, and I let him say so, because he's worth three of anyone else and stays for the flattery." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clavicus = {
+      lines = {
+        { id = "clavicus_1", text = "Clavicus Knavingham, the city's cloth quartermaster. The crown asked for a corner, and one doesn't refuse the crown. He frets over the stockpile all day, and I confess it's taught me how thin the kingdom's wool has run." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers = {
+      lines = {
+        { id = "buyers_1", text = "The tower's mages, the better sort of clerk, and nobles' households when they want something that will pass at court. Lately I sell travelling clothes to people I used to dress for banquets." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jalane = {
+      lines = {
+        { id = "jalane_1", text = "I'm sure I couldn't say. This house works in wool, linen, silk and mageweave, and in nothing that needs a cellar to be made in. If one of my former pupils has taken up something else, she didn't learn it here." },
+      },
+      choices = {
+        { text = "You know exactly who I mean.", next = "know" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    know = {
+      lines = {
+        { id = "know_1", text = "I know that I trained a gifted young woman, and that she no longer sends me a card at Winter Veil. That's all I shall say in my own shop, with the door open." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name = {
+      big = true,
+      lines = {
+        { id = "name_1", text = "It's the only thing I truly own. The cloth is bought and the lease is rented, and Georgio could walk out tomorrow. People come here because the name has meant sound work for twenty years, and I'd not sell that for any price." },
+      },
+      choices = {
+        { text = "A good name is earned, and worth guarding.", next = "BACK", reply = "I'm glad to hear someone say so. It costs more to keep than people think.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "You'd disown a pupil to keep your sign clean.", next = "BACK", reply = "That's unkind, and it isn't wholly false. I've thirty people's wages hanging on that sign.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    never = {
+      lines = {
+        { id = "never_1", text = "Anything with a seam they'd not show the customer. And nothing on credit to an adventurer, with respect. I've a drawer of notes from people who meant very well and went to Stranglethorn." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rumors = { { id = "tp_rumors", text = "The Keep ordered mourning cloth by the bolt last month and then cancelled the order. I've wondered ever since who it was that didn't die." } },
+    background = { { id = "tp_background", text = "I was a draper's clerk in the old city, and I carried his ledgers out when it burned. I came back with the ledgers and no draper." } },
+    advice = { { id = "tp_advice", text = "Buy one good garment and not three poor ones. It's cheaper within the year, and you'll look like someone worth extending credit to." } },
+    _none = { { id = "tp_none", text = "That isn't something I could speak to. I keep to cloth." } },
+  },
+}
+
+-- Maria Lumere: sells vials and alchemists' supplies at Alchemy Needs in the Mage Quarter, among night elves.
+P:NPC {
+  key = "maria_lumere", id = TODO_NPC("Maria Lumere"), name = "Maria Lumere", title = "Alchemy Supplies", gender = "female",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "cheerful", "sharp" }, values = { "thrift", "friendship" },
+  notices = { "craft", "purse" },
+  impression = {
+    first = "Maria Lumere sells vials and supplies at Alchemy Needs in the Mage Quarter, the one human in a shop of night elves. She does the bargaining for all of them and has picked up more of their tongue than she admits.",
+    third = "{name} met Maria Lumere, who sells alchemy supplies at Alchemy Needs in Stormwind's Mage Quarter.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hello! Vials, flasks and everything to fill them with. Mind the low beam, the elves never notice it." },
+    { id = "g_2", when = { metBefore = true }, text = "Back for more vials? I knew you'd run through them." },
+    { id = "g_3", when = { race = "NightElf" }, text = "Ishnu-alah! There, I've used up half my Darnassian. Come in." },
+  },
+  notice = {
+    { id = "n_1", cat = "craft", when = { profession = "Alchemy" },
+      text = "Stained fingers and a scorched cuff, so you're one of ours. Lilyssia will want to hear what you've been brewing." },
+    { id = "n_2", cat = "craft", when = { profession = "Herbalism" },
+      text = "You've been picking, I can smell peacebloom on you. Eldraeith buys good herbs, if you've more than you need." },
+    { id = "n_3", cat = "purse", when = { money = { max = 500 } },
+      text = "Buy the plain glass, dear. The potion doesn't know what the vial cost." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Maria Lumere! Lilyssia Nightbreeze teaches alchemy here, Tel'Athir is learning to teach it, and Eldraeith sells the herbs. I sell the glass and do the haggling, since the elves think arguing over a price is beneath them." },
+      },
+      again = {
+        { id = "hello_again1", text = "What else can I get you?" },
+        { id = "hello_again2", text = "Go on, I can talk and count." },
+        { id = "hello_again3", text = "Yes, dear?" },
+      },
+      choices = {
+        { text = "Let me see the supplies.", next = "BUSINESS" },
+        { text = "How did a human end up in an elven shop?", next = "how" },
+        { text = "What are the elves like to work with?", next = "elves" },
+        { text = "You do all the bargaining?", next = "bargain" },
+        { text = "Night elves have no business running a Stormwind shop.", next = "business" },
+        { text = "What are alchemists short of?", next = "short" },
+        { text = "What should a beginner brew first?", next = "brew", when = { profession = "Alchemy" } },
+        { text = "Good day, Maria.", next = "END" },
+      },
+    },
+    how = {
+      lines = {
+        { id = "how_1", text = "It was my shop first, or my aunt's, and failing. Lilyssia came in one day to buy every vial I had, and she asked why the place was so badly run. She was right, so I asked her to stay." },
+      },
+      choices = {
+        { text = "And she did.", next = "stayed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stayed = {
+      lines = {
+        { id = "stayed_1", text = "She did, and she brought the others. Now the sign's the same and the trade's tripled, and I've learned that an elf's \"soon\" means before the leaves turn. I plan my orders around it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves = {
+      lines = {
+        { id = "elves_1", text = "Kind, and slow, and very particular. Lilyssia will spend a morning on one flask. Tel'Athir asks me a hundred questions a day about humans, and yesterday it was why we shake hands. I told him it's to show we aren't holding a knife, and he was appalled." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bargain = {
+      lines = {
+        { id = "bargain_1", text = "Every bit of it. A carter tried to charge Eldraeith double for crates because she wouldn't argue, and I caught him at the door. Now they send every tradesman to me, and they stand behind me looking ancient, which helps." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    business = {
+      big = true,
+      lines = {
+        { id = "business_1", text = "Oh, I've heard that across the counter, mostly from people buying their potions. They crossed an ocean to stand with us, and they pay the city's taxes, the same as I do. I'd take more neighbours like them." },
+      },
+      choices = {
+        { text = "They came to help. The city should welcome them.", next = "BACK", reply = "That's what I say, and I say it loudly when the carters are in.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Stormwind's trade should stay in Stormwind's hands.", next = "BACK", reply = "It is in Stormwind's hands, dear. They're mine, and I chose my partners.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    short = {
+      lines = {
+        { id = "short_1", text = "Vials, always, since every company marching out wants healing draughts by the crate. And swiftthistle, which Eldraeith says the briars in the Barrens are full of. Nobody on our side cares to go and pick it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brew = {
+      lines = {
+        { id = "brew_1", text = "Minor healing, until you can do it half asleep, because you'll be doing it half dead one day. Lilyssia makes her pupils brew forty before she'll teach them anything with a colour to it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rumors = { { id = "tp_rumors", text = "Somebody's been buying empty leaded vials in Old Town by the gross. You only need lead for a thing that eats through glass, and I'd rather not know what." } },
+    background = { { id = "tp_background", text = "My aunt left me a failing shop and a cupboard of cracked flasks. It's the best thing anyone ever gave me, though it didn't look it that winter." } },
+    advice = { { id = "tp_advice", text = "Cork it before you shake it. You'd think nobody would need telling." } },
+    darnassus = { { id = "tp_darnassus", text = "I've never seen it. Lilyssia says the trees there are taller than the Cathedral, and I've decided to believe her." } },
+    _none = { { id = "tp_none", text = "I wouldn't know, dear. Ask Lilyssia, and bring a chair, because she'll take her time." } },
+  },
+}
+
+-- Owen Vaughn: sells reagents to the Mage Quarter's casters.
+P:NPC {
+  key = "owen_vaughn", id = TODO_NPC("Owen Vaughn"), name = "Owen Vaughn", title = "Reagent Vendor", gender = "male",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "affable", "absent-minded" }, values = { "curiosity", "order" },
+  notices = { "arcane", "class" },
+  impression = {
+    first = "Owen Vaughn sells reagents in the Mage Quarter and knows which spell every customer is about to cast by what they buy. He is friendly and a little vague, and he keeps a slate of the oddest orders.",
+    third = "{name} met Owen Vaughn, a reagent vendor in Stormwind's Mage Quarter.",
+  },
+  greetings = {
+    { id = "g_default", text = "Good day, good day. Powders, runes, feathers and seeds, and I had a list somewhere." },
+    { id = "g_2", when = { metBefore = true }, text = "Ah, it's you. You bought the, no, don't tell me, I'll have it in a moment." },
+    { id = "g_3", when = { class = "MAGE" }, text = "A mage! Arcane powder and runes, then, and a light feather in case of stairs." },
+  },
+  notice = {
+    { id = "n_1", cat = "arcane", when = { class = "MAGE" },
+      text = "You've rune dust on your sleeve. Teleportation or a portal? I can never tell them apart by the stain." },
+    { id = "n_2", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
+      text = "Candles and symbols for you, I think. Brother Cassius at the Cathedral keeps the same, and he blesses his, which I can't." },
+    { id = "n_3", cat = "class", when = { class = { "WARRIOR", "ROGUE" } },
+      text = "Nothing here goes on a sword, I'm afraid, though the flash powder is popular with a certain sort of customer." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Owen Vaughn, reagents. Whatever a spell eats, I sell: powder for the mages, seeds for the druids in the Park, candles for the priests. A caster without reagents is only somebody waving, as my old master used to say." },
+      },
+      again = {
+        { id = "hello_again1", text = "Was there something else? There usually is." },
+        { id = "hello_again2", text = "Go on, I'm listening, mostly." },
+        { id = "hello_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "Let me see the reagents.", next = "BUSINESS" },
+        { text = "You can tell a spell from the shopping?", next = "tell" },
+        { text = "What's the oddest thing you've been asked for?", next = "odd" },
+        { text = "Who are your regulars?", next = "regulars" },
+        { text = "You should ask what your reagents are used for.", next = "ask" },
+        { text = "Where do reagents come from?", next = "source" },
+        { text = "Do you stock anything for a summoning?", next = "stones", when = { class = "WARLOCK" } },
+        { text = "The druids in the Park buy from you?", next = "seeds", when = { class = "DRUID" } },
+        { text = "Good day, Owen.", next = "END" },
+      },
+    },
+    tell = {
+      lines = {
+        { id = "tell_1", text = "Almost always. One rune of teleportation means somebody's going home, and ten means a party's going somewhere unpleasant. When a young mage buys a single light feather, I know which tower window he's been dared to jump from." },
+      },
+      choices = {
+        { text = "Do they survive the window?", next = "window" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    window = {
+      lines = {
+        { id = "window_1", text = "Usually. Maginor Dumas sends them to me in a group at the start of each term and makes them buy three, so there's one for the jump and two for when they drop the first." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    odd = {
+      lines = {
+        { id = "odd_1", text = "I keep a slate. A gnome wanted forty candles and wouldn't say why. A paladin wanted a symbol of kings and had no idea what one was for. And a gentleman from the Lamb asked what I'd charge for a shard of something I don't sell and won't name." },
+      },
+      choices = {
+        { text = "What did you tell the gentleman?", next = "lamb" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lamb = {
+      lines = {
+        { id = "lamb_1", text = "That I'd never heard of it, and I said it very politely. He smiled and bought a candle, and I've burned sage in here every evening since. I'm told it does nothing, but it settles me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    regulars = {
+      lines = {
+        { id = "regulars_1", text = "The tower's apprentices, who buy on credit and pay at term's end. The Bouchers send over when their own stock runs short, and I send to them, and we pretend we're rivals. Then there's Larimaine Purdue, who uses more portal runes than the rest of the city together." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ask = {
+      big = true,
+      lines = {
+        { id = "ask_1", text = "I've wondered about it. But I sell powder and seeds, friend, and I sell them to a hundred people a day. If I questioned each one I'd be an inquisitor with a shop, and a poor one, since anybody can lie about a spell." },
+      },
+      choices = {
+        { text = "A merchant isn't his customers' keeper.", next = "BACK", reply = "No. Though I do keep the slate, and I'd show it to the right person if they asked.", fx = { align = { order = -1 } } },
+        { text = "In a city full of cultists, somebody must ask.", next = "BACK", reply = "You may be right. I'll ask the next one who smiles at me that way, if I can find my nerve.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    source = {
+      lines = {
+        { id = "source_1", text = "The powders are ground here in the Quarter, and I've a man who does nothing else. The runes were carved in Dalaran once, and now a dwarf in Ironforge does them. They're squarer, but they work." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stones = {
+      lines = {
+        { id = "stones_1", text = "Candles, yes, and plain powders. For the rest you'll want your own people. I say that with respect, {class}, and I'd say it from behind the counter either way." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seeds = {
+      lines = {
+        { id = "seeds_1", text = "Maple seeds, by the pouch, and Theridran sends a pupil for them every week. He told me once what they're for and I've tried not to think about it since, because it involved somebody being dead first." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rumors = { { id = "tp_rumors", text = "Portal runes for Darnassus are selling at three times last year's pace. The elves are coming or our people are going, and I can't tell which from a rune." } },
+    background = { { id = "tp_background", text = "I was a mage's shop-boy, and the mage went north to Dalaran and didn't come back. He left the stock and no instructions, so I went on selling it." } },
+    advice = { { id = "tp_advice", text = "Buy more than the spell calls for. A reagent you don't need weighs nothing, and you'll remember the one you lacked for the rest of your life." } },
+    _none = { { id = "tp_none", text = "I did know something about that. No, it's gone, I'm sorry." } },
+  },
+}
+
+-- Tel'Athir: night elf journeyman at Alchemy Needs in the Mage Quarter; learning under Lilyssia Nightbreeze and puzzling over humans.
+P:NPC {
+  key = "tel_athir", id = TODO_NPC("Tel'Athir"), name = "Tel'Athir", title = "Journeyman Alchemist", gender = "male",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "stormwind" }, temper = { "curious", "courteous" }, values = { "knowledge", "balance" },
+  notices = { "kaldorei", "craft", "race" },
+  impression = {
+    first = "Tel'Athir teaches beginners at Alchemy Needs in the Mage Quarter and is himself a pupil of Lilyssia Nightbreeze. He is old by any human count and young among his own people, and he asks as many questions as he answers.",
+    third = "{name} met Tel'Athir, a night elf journeyman alchemist at Alchemy Needs in Stormwind's Mage Quarter.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah. You have come to learn, or to buy, and Maria tells me I must ask which before I begin talking." },
+    { id = "g_2", when = { metBefore = true }, text = "You return. Good. I have thought of more questions since you left." },
+    { id = "g_3", when = { race = "NightElf" }, text = "Elune-adore, {g:brother|sister}. It is restful to hear my own tongue among so much stone." },
+  },
+  notice = {
+    { id = "n_1", cat = "kaldorei", when = { race = "NightElf" },
+      text = "You too have left the trees for this city. Tell me, do you sleep here? I have not yet learned to, with the bells." },
+    { id = "n_2", cat = "craft", when = { profession = "Alchemy" },
+      text = "Your hands know the pestle. Then you will not mind if I ask how your people taught you, for I am collecting the differences." },
+    { id = "n_3", cat = "race", when = { race = "Human" },
+      text = "Forgive me if I stare. I am still learning to tell how old your people are, and I have been wrong in both directions." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "I am Tel'Athir. Lilyssia Nightbreeze is my shan'do in this craft, and she permits me to teach those who are beginning. I have studied the herbs of Teldrassil for two centuries, and the herbs of your kingdom for two years, and the second is harder." },
+      },
+      again = {
+        { id = "hello_again1", text = "What more would you ask? I enjoy it." },
+        { id = "hello_again2", text = "Speak. I am listening." },
+        { id = "hello_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "Teach me alchemy.", next = "BUSINESS" },
+        { text = "What's hard about our herbs?", next = "herbs" },
+        { text = "What's Lilyssia like as a teacher?", next = "lilyssia" },
+        { text = "You ask a lot of questions about humans.", next = "humans" },
+        { text = "Alchemy cheats nature of its time.", next = "cheats" },
+        { text = "Who else works in this shop?", next = "shop" },
+        { text = "How was alchemy taught in Darnassus?", next = "darnassus", when = { race = "NightElf" } },
+        { text = "What would you teach me first?", next = "first", when = { profession = "Alchemy" } },
+        { text = "Good day, Tel'Athir.", next = "END" },
+      },
+    },
+    herbs = {
+      lines = {
+        { id = "herbs_1", text = "They are in such haste. Peacebloom here flowers and seeds and dies within one season, and the potion made from it works quickly and fades quickly. At home a root may take forty years to ripen, and the draught lasts as long as it took." },
+      },
+      choices = {
+        { text = "Which is better?", next = "better" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    better = {
+      lines = {
+        { id = "better_1", text = "I believed ours was, when I came. Then I watched a human healer save a child with a potion brewed that morning from a weed. A forty-year root is of no use to a child who has an hour left." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lilyssia = {
+      lines = {
+        { id = "lilyssia_1", text = "Patient, and without mercy. She had me grind silverleaf for a year before I was allowed to heat it. When I complained, she told me she had ground it for ten. I have not complained since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    humans = {
+      lines = {
+        { id = "humans_1", text = "Because you are the great puzzle of this age. You live eighty years and build a city like this one twice. Maria explains you to me. She says that you hurry because you must, and that it is not rude to say so." },
+      },
+      choices = {
+        { text = "What puzzles you most?", next = "puzzle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    puzzle = {
+      lines = {
+        { id = "puzzle_1", text = "That you grieve as deeply as we do, and have so little time to do it in. A widow who buys her sleeping draught from me was dancing at the Midsummer fire. I do not know whether that is a weakness or the bravest thing I have seen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cheats = {
+      big = true,
+      lines = {
+        { id = "cheats_1", text = "The druids at the Park have said the same to me, gently. A wound that closes in a breath did not heal as wounds were meant to. Still, I have not found the place in nature where it is written that the wounded must wait." },
+      },
+      choices = {
+        { text = "Easing pain is no offence against the balance.", next = "BACK", reply = "So I have come to think, in this city of short lives. Lilyssia agrees, though she took a century to say so.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "What's healed in haste is paid for later.", next = "BACK", reply = "That is the old teaching, and I do not dismiss it. I only notice who is asked to pay.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shop = {
+      lines = {
+        { id = "shop_1", text = "Maria Lumere, who sells the glass and frightens the carters, and Eldraeith, who keeps the herbs and misses Teldrassil more than she admits. The shop was Maria's, and she says it is ours. I am told that is unusual among humans, and it is unusual among us also." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darnassus = {
+      lines = {
+        { id = "darnassus_1", text = "In silence, under the boughs, with one teacher and one pupil and no coin changing hands. Here I teach six at once while a gnome shouts a question from the door. I did not expect to prefer it, and some days I do." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first = {
+      lines = {
+        { id = "first_1", text = "To smell each herb before you crush it, every time. The plant tells you whether it is ready, and a recipe will never tell you that. Then the minor healing draught, forty times over, as Lilyssia requires." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rumors = { { id = "tp_rumors", text = "A herb-gatherer says the plants in the wood your people call Duskwood are growing wrong, pale and too quickly. I would like to see one, and I would like more to know why." } },
+    background = { { id = "tp_background", text = "I was a gatherer under Teldrassil's boughs, and before that in Ashenvale. I came here because Lilyssia asked, and because I had never seen a people in such a hurry." } },
+    advice = { { id = "tp_advice", text = "Smell it first. Your nose is older than any recipe." } },
+    _none = { { id = "tp_none", text = "I do not know. I will add it to my questions." } },
+  },
+}
+
+-- Sellandus: night elf tailor who teaches at Duncan's Textiles in the Mage Quarter.
+P:NPC {
+  key = "sellandus", id = TODO_NPC("Sellandus"), name = "Sellandus", title = "Expert Tailor", gender = "male",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "stormwind" }, temper = { "serene", "exacting" }, values = { "patience", "beauty" },
+  notices = { "craft", "kaldorei", "arcane" },
+  impression = {
+    first = "Sellandus is a night elf who teaches tailoring in the Mage Quarter and handles cloth as though it might wake. He is patient to the point of stillness, and he will unpick a pupil's whole seam for one loose stitch.",
+    third = "{name} met Sellandus, a night elf tailor who teaches in Stormwind's Mage Quarter.",
+  },
+  greetings = {
+    { id = "g_default", text = "Good day to you." },
+    { id = "g_2", when = { metBefore = true }, text = "Good day again. Your hem has come down on the left, and I shall try not to look at it." },
+    { id = "g_3", when = { race = "NightElf" }, text = "Ishnu-alah. It is good to see one of our own in this quarter of stone and smoke." },
+  },
+  notice = {
+    { id = "n_1", cat = "craft", when = { profession = "Tailoring" },
+      text = "You sew. Show me the inside of your cuff, and I shall know everything else." },
+    { id = "n_2", cat = "kaldorei", when = { race = "NightElf" },
+      text = "You wear human cloth now, as I do. It is warm and it is honest, and I miss the moonlight in ours." },
+    { id = "n_3", cat = "arcane", when = { class = "MAGE" },
+      text = "Your robe has been mended with a spell and not a needle. It will hold, and it will never hang properly again." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "I am Sellandus. I teach those who have passed beyond Lawrence Schneider's lessons and are not yet ready for Georgio Bolero's opinions. I have sewn for a very long time, and I am still learning what human hands can do in a hurry." },
+      },
+      again = {
+        { id = "hello_again1", text = "There was something more?" },
+        { id = "hello_again2", text = "Speak, I can sew and listen." },
+        { id = "hello_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "Teach me tailoring.", next = "BUSINESS" },
+        { text = "How does a night elf come to teach here?", next = "come" },
+        { text = "What do you make of human tailoring?", next = "human" },
+        { text = "Tell me about Georgio.", next = "georgio" },
+        { text = "You'd unpick a whole seam for one stitch?", next = "unpick" },
+        { text = "A robe only needs to hold together.", next = "hold" },
+        { text = "What did the Sisters wear, in your youth?", next = "sisters", when = { race = "NightElf" } },
+        { text = "What cloth should I learn on?", next = "learn", when = { profession = "Tailoring" } },
+        { text = "Good day, Sellandus.", next = "END" },
+      },
+    },
+    come = {
+      lines = {
+        { id = "come_1", text = "My people have need of this alliance, and I have no gift for the bow. I asked what I might offer, and a priestess looked at the robe I had made her and said to go and teach them that. So I came across the sea." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    human = {
+      lines = {
+        { id = "human_1", text = "It is quick, bold and fond of buttons. You invent a new cut every ten years and forget the old one. I thought that foolish, and then I saw that every cut is tried once by someone, and so your craft moves while ours has rested." },
+      },
+      choices = {
+        { text = "What have you learned from us?", next = "learned" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    learned = {
+      lines = {
+        { id = "learned_1", text = "The pocket. We had pouches and never thought to sew one into the garment itself. Alexandra Bolero showed me, and I laughed aloud, which I am told startled the whole shop." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    georgio = {
+      lines = {
+        { id = "georgio_1", text = "A master, and a loud one. He looks at a person's coat before their face, and I look at the stitches before the coat, and so between us nobody who enters is seen as they would wish. We respect one another greatly and speak rarely." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    unpick = {
+      lines = {
+        { id = "unpick_1", text = "I would, and I do. A loose stitch is where the seam begins to die. The pupil is angry for a day. Ten years on, the robe is still whole, and they have forgotten that they were angry." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hold = {
+      big = true,
+      lines = {
+        { id = "hold_1", text = "So a young mage told me, the week before he went to Redridge. Perhaps for him it was true. But a thing made with care carries the care with it, and I think the wearer stands differently for knowing it." },
+      },
+      choices = {
+        { text = "Beauty is worth the hours it takes.", next = "BACK", reply = "Then you understand why I unpick. Few here do, and I do not blame them.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "The young mage was right. People need robes now.", next = "BACK", reply = "That is the human answer, and this is a human city. I give them the robe, and I grieve a little over the seam.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sisters = {
+      lines = {
+        { id = "sisters_1", text = "Silk spun under the full moon and cut without iron, as you will remember. I sewed for the temple before the World Tree burned. I have one length of that silk left, and I have never found the garment worthy of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    learn = {
+      lines = {
+        { id = "learn_1", text = "Linen, until your stitches are even. Then wool, which forgives nothing. Leave silk until you have stopped being proud of yourself, for silk will know." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rumors = { { id = "tp_rumors", text = "Duncan frowns whenever a certain cloth is mentioned, one that is woven in a cellar. I have seen a scrap of it. It is beautiful work, and I did not like to touch it." } },
+    background = { { id = "tp_background", text = "I sewed for the Temple of the Moon for longer than this city has stood. I say that without pride, for it is only a count of years." } },
+    advice = { { id = "tp_advice", text = "Wash your hands before you touch the cloth. Then wash them again." } },
+    _none = { { id = "tp_none", text = "I cannot say. It has not come across my table." } },
+  },
+}
+
+-- Connor Rivers: apprentice in the Blue Recluse's kitchen in the Mage Quarter; sells the kitchen's supplies.
+P:NPC {
+  key = "connor_rivers", id = TODO_NPC("Connor Rivers"), name = "Connor Rivers", title = "Apprentice Chef", gender = "male",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "stormwind" }, temper = { "harried", "cheerful" }, values = { "craft", "friendship" },
+  notices = { "craft", "arcane", "drink" },
+  impression = {
+    first = "Connor Rivers is the apprentice chef at the Blue Recluse in the Mage Quarter and does most of the chopping, carrying and apologising. He sells the kitchen's flour and spice on the side and takes Angus Stern's shouting as a kind of affection.",
+    third = "{name} met Connor Rivers, apprentice chef at the Blue Recluse in Stormwind's Mage Quarter.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hello! Mind the pot, it's hot, and so is Chef this morning." },
+    { id = "g_2", when = { metBefore = true }, text = "You again! Good, a friendly face. I've had two mages send back the soup for being \"insufficiently warm\"." },
+    { id = "g_3", when = { timeOfDay = "night" }, text = "We're at the supper rush, friend, so talk fast and I'll chop faster." },
+  },
+  notice = {
+    { id = "n_1", cat = "craft", when = { profession = "Cooking" },
+      text = "You cook, don't you? You looked at the knives before the food. Tell Chef his sauce is good, because he's been cross all day." },
+    { id = "n_2", cat = "arcane", when = { class = "MAGE" },
+      text = "Please don't heat your own plate at the table. Chef takes it personally, and then I hear about it." },
+    { id = "n_3", cat = "drink", when = { drunk = true },
+      text = "You've met Joachim's pouring arm, I see. Sit by the kitchen door and I'll find you some bread." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Connor Rivers, apprentice chef. Angus Stern runs the kitchen, Joachim Brenlow runs the bar, and I run between them. I sell flour, spice and water out the kitchen door as well, which Chef allows so long as his own shelf stays full." },
+      },
+      again = {
+        { id = "hello_again1", text = "What else? I've a minute, probably." },
+        { id = "hello_again2", text = "Go on, I can stir and talk." },
+        { id = "hello_again3", text = "Yes?" },
+      },
+      choices = {
+        { text = "Let me see the kitchen supplies.", next = "BUSINESS" },
+        { text = "What's Angus Stern like to work for?", next = "angus" },
+        { text = "Who eats at the Blue Recluse?", next = "eats" },
+        { text = "You look run off your feet.", next = "run" },
+        { text = "An apprentice shouldn't put up with being shouted at.", next = "shout" },
+        { text = "What do you hear from the tables?", next = "hear" },
+        { text = "What's the dish you're proudest of?", next = "proud", when = { profession = "Cooking" } },
+        { text = "I was raised in this quarter. Is the Recluse the same?", next = "same", when = { origin = "human_mage_quarter" } },
+        { text = "Good day, Connor.", next = "END" },
+      },
+    },
+    angus = {
+      lines = {
+        { id = "angus_1", text = "Loud, exact, and the best cook I'll ever stand next to. He threw a ladle at me my first week for salting his stock. He was right about the stock, and he missed with the ladle on purpose." },
+      },
+      choices = {
+        { text = "What's he taught you?", next = "taught" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    taught = {
+      lines = {
+        { id = "taught_1", text = "That you taste everything, twice, and that a feast is won the day before. He's planning a great one for the Recluse, with dishes from all over, and I've been peeling for it since the new moon." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eats = {
+      lines = {
+        { id = "eats_1", text = "Mages, and they are the worst customers alive. They read at table and let it go cold, and then they complain. The students tip in conjured bread. The warlocks from down the lane tip well and eat everything, and I've decided to like them for it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    run = {
+      lines = {
+        { id = "run_1", text = "I am! There's the breakfast for the tower, the dinner for the tavern, and a mage who wants his eggs \"exactly as yesterday\". I don't mind it. If I stood still, I'd have to think about how much there is to learn." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shout = {
+      big = true,
+      lines = {
+        { id = "shout_1", text = "He shouts at the soup, mostly, and I happen to be standing by it. I asked for this kitchen, friend. Half the cooks in Stormwind would take a ladle to the head to learn what I'm learning." },
+      },
+      choices = {
+        { text = "A hard master makes a good craftsman.", next = "BACK", reply = "That's what I tell my mother. Though I'd not mind if he missed by a little more.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "No craft is worth being treated like a dog.", next = "BACK", reply = "It's kind of you to say. He's never been cruel, though, only loud, and I do know the difference.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hear = {
+      lines = {
+        { id = "hear_1", text = "More than they think, since nobody lowers their voice for the lad with the plates. The apprentices are frightened of their examinations. Their masters are frightened of something to the north, and they stop talking about it when I come to the table." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    proud = {
+      lines = {
+        { id = "proud_1", text = "A crab cake, with Westfall crab when we can get it. Chef ate one, said nothing, and put it on the slate the next day. I've not slept properly since for fear of getting it wrong." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    same = {
+      lines = {
+        { id = "same_1", text = "Same beams, same smell, and the same scorch on the ceiling from whatever that was. You'll know the corner table, then, where the students sit, and you'll know not to sit under the scorch." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rumors = { { id = "tp_rumors", text = "A man came asking after a soldier called Hyal, who drank here once. I told him what I knew, which was that the fellow talked a great deal about Theramore and paid in foreign coin." } },
+    background = { { id = "tp_background", text = "My father's a carter, and I was meant to be one. I delivered flour to this kitchen, smelled what Chef was making, and never got back on the cart." } },
+    advice = { { id = "tp_advice", text = "Sharpen your knife before you start, not when it slips. I've the scar to show for learning it." } },
+    _none = { { id = "tp_none", text = "I've no idea, sorry. If it isn't in the pot, I've likely missed it." } },
+  },
+}

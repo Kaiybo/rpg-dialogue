@@ -55,3 +55,25 @@
 
 ### Never
 - Veiled Hand, Legion, Cataclysm Darkshire.
+
+## Second added-NPC pass  (new keys: benjamin_carevin, whit_wantmal, cog_glitzspinner)
+
+### Sources
+- warcraft.wiki.gg: Benjamin_Carevin (a child, with the Carevin family in Darkshire), Whit_Wantmal (his house is next to the gryphon master, Felicia Maline; nothing else), Cog_Glitzspinner (gnome in a house off the path to the flight master, talking with Finbus Geargrind and Herble Baubbletump; friend of Viktori Prism'Antras, promised to help build a device to look at the stars). Legion (Veiled Hand) lines not used.
+- Existing pack: darkshire_folk.lua (Jonathan, Calor, Viktori's star-glass: "Cog drew it and I'm only the hands"), scott_carevin above, darkshire_trades.lua (Felicia Maline), darkshire_shops.lua (Herble "on the hill").
+
+### Their quests
+- none: a child, a householder and an inventor. Cog has one reply for players who have heard Viktori on the star-glass (`viktori.d_default`).
+
+### Identity / voice
+- Benjamin Carevin · boy · bold, restless; questions in bursts; calls the household by first names (his relation to each is never stated, as with Scott).
+- Whit Wantmal · man · wistful, bookish; writes verses about the town; cannot bring himself to leave.
+- Cog Glitzspinner · gnome · enthusiastic, exacting; tolerances, focal lengths; fond of Viktori.
+
+### Authored, not canon
+- Benjamin's notebook of monsters under the bed, counting to a thousand while the hunters are out, the spare crossbow, the prayer Watcher Hartin taught him.
+- Whit's verses, his cousin in Stormwind, the gryphons as his warning bell, that he asked to carry a lamp and Althea told him to keep writing.
+- Cog in Ironforge when Gnomeregan fell, the worm gear of a hundred and forty-four teeth, the argument with Finbus about tube or lens first, Herble's rigged door, lamp-brackets for the Commander.
+
+### Never
+- Veiled Hand, Legion, Cataclysm Darkshire, Worgen NPCs of Raven Hill (Oliver Harris, Sister Elsington: later than Classic).

@@ -3051,3 +3051,2411 @@ P:NPC {
     _none = { { id = "tp_none", text = "Couldnae tell ye. Can ye roast it? No? Then I've nae opinion." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Golnir Bouldertoe: mining supplies at the Great Forge; kin to Geofram the mining trainer.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_golnir", id = TODO_NPC("Golnir Bouldertoe"), name = "Golnir Bouldertoe", title = "Mining Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "cocky", "cheerful" }, values = { "craft", "family" },
+  notices = { "craft", "kit" },
+  impression = {
+    first = "Golnir Bouldertoe sells picks, flux and coal at the counter beside his kinsman Geofram, the mining trainer. He is the younger of the two and never lets a lesson pass without adding a correction.",
+    third = "{name} met Golnir Bouldertoe, who sells mining supplies at the Great Forge in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Picks, flux an' coal! An' if Geofram's told ye tae swing from the shoulder, forget it an' ask me." },
+    { id = "g_back", when = { metBefore = true }, text = "Back already? Ye've either struck a good vein or broken the pick, an' I can help wi' both." },
+    { id = "g_miner", when = { profession = "Mining" }, text = "A miner! Let me see yer pick. Aye, that's blunt as a senator, ye'll want a new head on it." },
+  },
+  notice = {
+    { id = "n_miner", cat = "craft", when = { profession = "Mining" },
+      text = "Ye've rock dust in yer collar, so ye've been at it today. Where's the copper runnin' this season?" },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Yer gear's been through a cave-in, or looks it. I cannae mend it, but I've stood where ye're standin'." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Golnir Bouldertoe. Geofram at the next counter teaches the minin', an' I sell the tools for it, an' I fix what he teaches while I'm about it. He learned his trade when picks were made o' bronze, near enough." },
+        { id = "h_smith", when = { profession = "Blacksmithing" }, text = "Golnir Bouldertoe. A smith, are ye? Then it's flux an' coal ye're after, an' I've both by the sack, cheaper than Thurgrum, though dinnae tell him." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I've a crate o' pick heads tae sort, but they'll wait." },
+        { id = "h_again2", text = "Aye, ask. Geofram's no' listenin', he never is." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Geofram says you call his teaching out of date.", next = "geofram" },
+        { text = "What makes a good pick?", next = "pick" },
+        { text = "Where does the Great Forge get its ore?", next = "ore" },
+        { text = "Good day, Golnir.", next = "END" },
+      },
+    },
+    geofram = {
+      lines = { { id = "ge_default", text = "Because it is! He has them tap an' listen for an hour before they swing. I say blast a wee hole, see what's behind it, an' save yer afternoon. The gnomes have powder for it now." } },
+      choices = {
+        { text = "And what does he say to that?", next = "geofram_says" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    geofram_says = {
+      big = true,
+      lines = { { id = "gs_default", text = "That the mountain's been here longer than powder, an' deserves a bit o' manners. He's never brought a roof down in two hundred years, I'll grant him that. Which of us would ye follow intae a tunnel?" } },
+      choices = {
+        { text = "Geofram. The old ways keep the roof up.", next = "BACK", reply = "Aye, well. Ye'd be bored, but ye'd be alive, an' I suppose that counts.", fx = { align = { order = 1 } } },
+        { text = "You. Time matters, and powder works.", next = "BACK", reply = "Ha! D'ye hear that, Geofram? No, he's pretendin' he cannae.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pick = {
+      lines = { { id = "pi_default", text = "A head o' good steel wi' the point drawn out long, an' a haft of ash that'll flex before it snaps. I have Bengus Deepforge's lads forge mine, an' I fit the hafts myself, for a loose head has killed more miners than troggs have." } },
+      choices = {
+        { text = "You check every one?", next = "pick_check" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pick_check = {
+      lines = { { id = "pc_default", text = "Every one, against that anvil, ten strokes. If it shifts, it goes back. I'm quick about most things, but no' about that." } },
+      choices = { { text = "So you've some of Geofram's care after all.", next = "BACK", reply = "Keep yer voice down! He'd never let me forget it.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    ore = {
+      lines = { { id = "or_default", text = "Copper an' tin from Dun Morogh, iron from Loch Modan an' the Wetlands, an' the rare stuff from wherever adventurers like yerself drag it. Gol'Bolar quarry sent us the most, till the troggs came up through the floor." } },
+      choices = { { text = "The troggs have cost Ironforge dearly.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    geofram = { { id = "tp_geofram", text = "The best miner in Ironforge, an' I'll say it only where he cannae hear. I've been tryin' tae prove him wrong for forty years." } },
+    great_forge = { { id = "tp_forge", text = "Every lump of ore in Khaz Modan ends up in that fire. I like tae think the best of it passed my counter first." } },
+    thurgrum = { { id = "tp_thurgrum", text = "Thurgrum Deepforge sells the smiths their supplies. We overlap on flux, an' we're polite about it, mostly." } },
+    background = { { id = "tp_bg", text = "A Bouldertoe, an' we've been under one mountain or another since before the Three Hammers." } },
+    _none = { { id = "tp_none", text = "Nae idea. If ye cannae dig it up or dig wi' it, I'm nae help." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Thurgrum Deepforge: blacksmithing supplies at the Great Forge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_thurgrum", id = TODO_NPC("Thurgrum Deepforge"), name = "Thurgrum Deepforge", title = "Blacksmithing Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "steady", "plain" }, values = { "craft", "family" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Thurgrum Deepforge sells hammers, flux, coal and grinding stones at the Great Forge, a few paces from where his kin teach the craft. He has burn scars to the elbow and misses the anvil.",
+    third = "{name} met Thurgrum Deepforge, who sells blacksmithing supplies at the Great Forge in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Hammers, flux, coal an' stones. If ye're standin' at an anvil an' somethin's missin', I've got it." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye're back. Run out o' flux, I'll wager, everybody does." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith. Good, show me yer hammer hand. Aye, ye've been workin', there's the callus." },
+  },
+  notice = {
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "Ye've scale on yer apron, so ye came straight from the fire. I miss that smell more than I'd tell my wife." },
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "Ye've come a long way tae buy coal. I'll take it as a compliment tae the Forge." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Thurgrum Deepforge. Bengus teaches at the Great Anvil an' Tormus forges for the army, an' I keep the both o' them an' every other smith here in coal an' flux. It's the dull end o' the family trade, an' somebody must do it." },
+      },
+      again = {
+        { id = "h_again", text = "What else d'ye need?" },
+        { id = "h_again2", text = "Aye, ask. The fire's loud, so speak up." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "You say you miss the anvil.", next = "anvil" },
+        { text = "How much coal does the Great Forge burn?", next = "coal" },
+        { text = "What does a new smith always get wrong?", next = "wrong" },
+        { text = "The gnomes must have changed the Forge.", next = "gnomes" },
+        { text = "Good day, Thurgrum.", next = "END" },
+      },
+    },
+    anvil = {
+      lines = { { id = "an_default", text = "I do. I was a fair smith till a crucible went over my arm, an' now the hand shakes when I hold tongs. It doesnae shake when I weigh coal, so here I am." } },
+      choices = {
+        { text = "That's a hard thing to lose.", next = "anvil_lose" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    anvil_lose = {
+      big = true,
+      lines = { { id = "al_default", text = "It is. Bengus says I should teach, for I've still the eye. I say a smith who cannae strike has nae business tellin' others how. What d'ye think?" } },
+      choices = {
+        { text = "Teach. Knowledge shouldn't die with the hand.", next = "BACK", reply = "Hm. That's kindly said. Maybe I'll stand at Bengus's elbow a day an' see.", fx = { align = { light = 1 } } },
+        { text = "You're right. A teacher should show, not tell.", next = "BACK", reply = "Aye. That's my pride talkin', an' it seems it's yours as well.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    coal = {
+      lines = { { id = "co_default", text = "None at all, in the Forge itself, for that's the mountain's own fire. It's the wee anvils round the edge that burn coal, forty sacks a day between them. The lava does for smeltin', but ye cannae temper a blade over it." } },
+      choices = { { text = "I'd assumed the lava did everything.", next = "BACK", reply = "Everybody does. It's too hot an' too dirty for fine work, an' it spits.", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    wrong = {
+      lines = { { id = "wr_default", text = "They strike too hard an' too cold. Ye see them batterin' at black iron as if it owed them coin. Heat it till it's the colour o' straw, hit it half as hard, an' it'll go where ye ask." } },
+      choices = {
+        { text = "Who's the best of the young ones?", next = "wrong_best" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrong_best = {
+      lines = { { id = "wb_default", text = "Groum Stonebeard, Rotgath's lad, has the patience for it. Rotgath willnae tell him so, for fear it goes tae his head, so I tell him when his father's back is turned." } },
+      choices = { { text = "Every apprentice needs someone like you.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    gnomes = {
+      lines = { { id = "x1_default", text = "They have, an' for the better, though I'd no' say it at the Stonefire. They brought bellows that pump themselves an' a wee gauge that tells ye the heat. Half the old smiths willnae touch them." } },
+      choices = {
+        { text = "And you?", next = "gnomes_you" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnomes_you = {
+      lines = { { id = "x2_default", text = "I sell the gauges, so I'd best believe in them. A shakin' hand cannae judge a fire by feel any more, an' the gauge doesnae care. It's given me a bit o' the craft back." } },
+      choices = { { text = "Then it's a good trade for you both.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    bengus = { { id = "tp_bengus", text = "Bengus Deepforge teaches the craft at the Great Anvil. He's kin, an' he's the best there is, an' he kens it." } },
+    great_forge = { { id = "tp_forge", text = "The heart o' the mountain. Stand at the rail when they pour, an' ye'll understand dwarves better than any book can tell ye." } },
+    golnir = { { id = "tp_golnir", text = "Golnir Bouldertoe undercuts me on flux by a copper an' thinks I havenae noticed. I let him, he's young." } },
+    background = { { id = "tp_bg", text = "A Deepforge. We've had a hand in every pour at this Forge since it was lit." } },
+    _none = { { id = "tp_none", text = "I cannae help ye there. I ken iron an' what feeds it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Burbik Gearspanner: gnome trade supplier who owns Burbik's Supplies near the Great Forge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_burbik", id = TODO_NPC("Burbik Gearspanner"), name = "Burbik Gearspanner", title = "Trade Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "busy", "ambitious" }, values = { "practical", "gnomeregan" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Burbik Gearspanner owns Burbik's Supplies near the Great Forge and stocks the same thread, flux and vials as every other trade shop in Ironforge. He is determined to sell more of them than any dwarf.",
+    third = "{name} met Burbik Gearspanner, the gnome who runs Burbik's Supplies near the Great Forge in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Burbik's Supplies! Everything the dwarven shops have, three paces closer to the anvils, and served twice as fast!" },
+    { id = "g_back", when = { metBefore = true }, text = "A returning customer! That's the forty-first this week, and yes, I'm counting, I've a chart." },
+    { id = "g_gnome", when = { race = "Gnome" }, text = "A fellow gnome! Every copper you spend here goes toward taking Gnomeregan back, or toward my rent, which comes to the same thing in the long run." },
+  },
+  notice = {
+    { id = "n_craft", cat = "craft", when = { profession = { "Blacksmithing", "Engineering", "Leatherworking", "Tailoring", "Alchemy" } },
+      text = "You make things! Then you'll run out of things, and I've timed the walk from every workbench in this ward to my door." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf, in a gnome's shop! Come in, come in, the flux is the same flux, I promise, and the scales are honest." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Burbik Gearspanner, sole proprietor. I came out of Gnomeregan with a ledger and nothing else, and I thought, what does this mountain use up every single day? Then I rented the nearest door to where they use it." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I get you? Or tell you, telling's free." },
+        { id = "h_again2", text = "Yes, yes, go on! I'm restocking, but I've two ears." },
+      },
+      choices = {
+        { text = "Show me what you stock.", next = "BUSINESS" },
+        { text = "How do you compete with the dwarven shops?", next = "compete" },
+        { text = "Why set up beside the Great Forge?", next = "forge" },
+        { text = "You said the coin goes toward Gnomeregan.", next = "gnomer" },
+        { text = "What sells best beside a forge?", next = "sells" },
+        { text = "Goodbye, Burbik.", next = "END" },
+      },
+    },
+    compete = {
+      lines = { { id = "cp_default", text = "Speed! A dwarf shopkeeper wants to discuss your beard and your grandfather before he'll weigh a thing. I have it wrapped before you've finished asking. The smiths complained for a month, and then they noticed how much longer their dinner break had got." } },
+      choices = {
+        { text = "Do the other shopkeepers resent you?", next = "compete_resent" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    compete_resent = {
+      big = true,
+      lines = { { id = "cs_default", text = "A little. Thurgrum Deepforge has been decent, and he was here a century before me. I could take half his custom if I dropped my flux by two coppers, and I've done the sums more than once. We're guests in this city, though." } },
+      choices = {
+        { text = "Leave him be. A guest doesn't ruin his host.", next = "BACK", reply = "No. No, he doesn't. I'll put the sums back in the drawer.", fx = { align = { honor = 1 } } },
+        { text = "Trade is trade. Drop the price.", next = "BACK", reply = "That's what the chart says. I'll think about it over the weekend, with the door shut.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge = {
+      lines = { { id = "fo_default", text = "Because that's where things run out! A smith with hot iron on the anvil can't walk to the Commons for flux, the piece would be ruined. I measured it: from the Great Anvil to my counter is ninety-four paces, dwarf paces." } },
+      choices = {
+        { text = "You measured in dwarf paces?", next = "forge_paces" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge_paces = {
+      lines = { { id = "fp_default", text = "I borrowed a dwarf. Groum Stonebeard walked it for me six times and I took the mean. He wanted to know why, and when I explained, he said it was the most gnomish thing he'd ever heard." } },
+      choices = { { text = "He wasn't wrong.", next = "BACK", reply = "He wasn't! I've had it painted on a little sign.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    gnomer = {
+      lines = { { id = "gn_default", text = "A tenth of what I clear goes to High Tinker Mekkatorque's fund, every month, and I've the receipts. It's not much against what it'll cost. But I'd like to be able to say I helped buy one bolt of the door we walk back in through." } },
+      choices = { { text = "One bolt at a time is how it's done.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    sells = {
+      lines = { { id = "x1_default", text = "Flux, by the barrel, and then coal, and then burn salve, which I added in my second week after watching the smiths for an afternoon. Nobody had thought to sell it next to the fire!" } },
+      choices = {
+        { text = "Whose salve do you stock?", next = "sells_salve" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sells_salve = {
+      lines = { { id = "x2_default", text = "Reyna Stonebranch makes it at the Physician, and I take forty pots a month. She thought I was mad until the first forty went in three days. Now she grows the herbs for it in trays." } },
+      choices = { { text = "You see what a place is missing.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    great_forge = { { id = "tp_forge", text = "Hot, loud and full of customers. I've stopped noticing the first two." } },
+    fillius = { { id = "tp_fillius", text = "Fillius Fizzlespinner has the Commons. He's far tidier than me and far slower, and we send each other cards at Winter Veil." } },
+    gnomeregan = { { id = "tp_gnomer", text = "I had a stall on the third level, by the lifts. It was a very good pitch, and I intend to have it back." } },
+    background = { { id = "tp_bg", text = "Shopkeeper, refugee, optimist. In that order on weekdays." } },
+    _none = { { id = "tp_none", text = "No idea! It's not on my shelves, and if it were I'd have a price on it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Soolie Berryfizz: alchemy supplies at Berryfizz's Potions and Mixed Drinks in Tinker Town; kin to Tally.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_soolie", id = TODO_NPC("Soolie Berryfizz"), name = "Soolie Berryfizz", title = "Alchemy Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "bright", "careful" }, values = { "craft", "family" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Soolie Berryfizz sells vials and alchemical supplies at Berryfizz's Potions and Mixed Drinks in Tinker Town, where Tally Berryfizz teaches the craft. She washes every vial herself and holds each one to the lamp.",
+    third = "{name} met Soolie Berryfizz, who sells alchemy supplies at Berryfizz's Potions and Mixed Drinks in Tinker Town.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Hello! Vials, in every size, and all of them clean, which you'd be amazed how few shops can say." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, hello again! Did the last batch keep? It keeps much longer in a clean vial, I did a study." },
+    { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist! Wonderful. Tell me what you're brewing and I'll tell you which glass it wants." },
+  },
+  notice = {
+    { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
+      text = "Your fingertips are stained three different colours, so you've been busy. The purple one doesn't come off, I'm sorry to say." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "Before you ask, the mixed drinks on the sign are Tally's joke. Mostly. Don't drink anything off the blue shelf." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Soolie Berryfizz. Tally's my kin and she does the teaching, Vosur does the stirring, and I do the supplies, which means I'm the only one in the shop who knows where anything is." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I'm only rinsing." },
+        { id = "h_again2", text = "Yes? Do go on, I can hear over the bubbling." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Why does a clean vial matter so much?", next = "clean" },
+        { text = "Potions and Mixed Drinks?", next = "sign" },
+        { text = "A dwarf apprentice in a gnome's shop?", next = "vosur" },
+        { text = "What do alchemists run out of most?", next = "runout" },
+        { text = "Goodbye, Soolie.", next = "END" },
+      },
+    },
+    clean = {
+      lines = { { id = "cl_default", text = "Because a potion is a very particular arrangement of things, and the dregs of the last one are a different arrangement. Put them together and you get a third thing nobody planned. Sometimes that's a headache, and once it was a small fire." } },
+      choices = {
+        { text = "Whose small fire?", next = "clean_fire" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clean_fire = {
+      lines = { { id = "cf_default", text = "Tally's, and she'd tell you it was a controlled reaction. Her notes say controlled. The ceiling has a different view. I've washed every vial myself since then, and we haven't lost an eyebrow in two years." } },
+      choices = { { text = "Two years is a fine record for Tinker Town.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    sign = {
+      big = true,
+      lines = { { id = "si_default", text = "Tally says a potion is only a drink with a purpose. The dwarves come in for the second half of the sign, and she sells them something fizzy and harmless and lets them think it's ale. I've said we ought to tell them what's in it." } },
+      choices = {
+        { text = "Tell them. A customer should know what they drink.", next = "BACK", reply = "That's what I said! I'll write a little card for each glass, with the ingredients.", fx = { align = { honor = 1 } } },
+        { text = "It's harmless fun. Let Tally have her joke.", next = "BACK", reply = "I suppose nobody's turned green. Not permanently.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vosur = {
+      lines = { { id = "vo_default", text = "Vosur Brakthel, yes! He walked in the week we opened and said gnomes had forgotten more alchemy than dwarves ever knew, and could he sweep the floor. He hasn't swept it once, but he has very steady hands." } },
+      choices = {
+        { text = "He sounds like a good find.", next = "vosur_find" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vosur_find = {
+      lines = { { id = "vf_default", text = "He is. He reaches the high shelves, and he tastes things we wouldn't dare to. Dwarves are astonishingly hard to poison, and I've started keeping notes." } },
+      choices = { { text = "Do let him see the notes.", next = "BACK", reply = "He helps me write them! He's very proud of the one about the mushroom.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    runout = {
+      lines = { { id = "x1_default", text = "Vials, vials and vials. Nobody ever believes how many they'll need. A potion isn't finished until it's in glass, and an alchemist with a full cauldron and no vials is a very sad sight." } },
+      choices = {
+        { text = "Has that happened here?", next = "runout_here" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    runout_here = {
+      lines = { { id = "x2_default", text = "To Tally, in our first month! She'd brewed a whole cauldron of something green, and we ladled it into teacups and the kettle. That's why I took over the supplies." } },
+      choices = { { text = "The kettle must have been memorable.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    tally = { { id = "tp_tally", text = "Tally Berryfizz is the best alchemist in Tinker Town and the worst at putting lids back on. I love her dearly and I follow her round with a cloth." } },
+    tinker_town = { { id = "tp_tinker", text = "It's home until home is clean again. It's noisy and it smells of oil, and the neighbours wave." } },
+    gnomeregan = { { id = "tp_gnomer", text = "The radiation's the trouble. Tally thinks there's a draught that might help the afflicted, and we test a new one every month." } },
+    background = { { id = "tp_bg", text = "I ran the glassware for a laboratory at home. It's the same work here, only now I have to explain what a pipette is." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm sorry! I could tell you what sort of vial to keep it in." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Tilli Thistlefuzz: enchanting supplies at Thistlefuzz Arcanery; kin to Gimble the enchanting trainer.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_tilli", id = TODO_NPC("Tilli Thistlefuzz"), name = "Tilli Thistlefuzz", title = "Enchanting Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "calm", "amused" }, values = { "family", "knowledge" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Tilli Thistlefuzz sells rods, dusts and formulas at Thistlefuzz Arcanery near the Great Forge, where her kinsman Gimble teaches enchanting. She is as unflappable as he is jumpy and has learned to finish his sentences.",
+    third = "{name} met Tilli Thistlefuzz, who sells enchanting supplies at Thistlefuzz Arcanery in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Welcome to the Arcanery. Rods and dusts are with me, and if Gimble squeaks when you come in, it's nothing personal." },
+    { id = "g_back", when = { metBefore = true }, text = "Hello again. Gimble remembered you, which means he's decided you're probably not a spy." },
+    { id = "g_ench", when = { profession = "Enchanting" }, text = "An enchanter! I can tell by the faint glow under your nails. What are you short of?" },
+  },
+  notice = {
+    { id = "n_ench", cat = "craft", when = { profession = "Enchanting" },
+      text = "You've been breaking things down for dust, haven't you? There's a shimmer on your sleeve. It brushes off, eventually." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage. You already know how to put magic into the air, and we put it into objects, where it stays put and behaves." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Tilli Thistlefuzz. Gimble does the teaching and the worrying, and I sell the supplies and tell him nobody is following him. It takes about the same amount of time each." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I help with?" },
+        { id = "h_again2", text = "Yes? Go on, Gimble's busy checking the window." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Why is Gimble so nervous?", next = "gimble" },
+        { text = "What is an enchanting rod actually for?", next = "rod" },
+        { text = "Where does the dust come from?", next = "dust" },
+        { text = "Does enchanting belong beside a forge?", next = "beside" },
+        { text = "Goodbye, Tilli.", next = "END" },
+      },
+    },
+    gimble = {
+      lines = { { id = "gi_default", text = "He believes someone is after his formulas, and he has believed it for as long as I've known him. The culprit changes: the Dark Irons, a rival in Stormwind, and once a pigeon. He's brilliant, and it comes with the territory." } },
+      choices = {
+        { text = "Is anyone actually after them?", next = "gimble_after" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gimble_after = {
+      big = true,
+      lines = { { id = "ga_default", text = "No. I checked, quietly, with Thief Catcher Shadowdelve. I've never told Gimble, because being watched makes him feel important, and being ignored would break his heart. I do wonder if I ought to." } },
+      choices = {
+        { text = "Tell him. He deserves to stop being afraid.", next = "BACK", reply = "Perhaps. I'd have to pick a calm day, and I'm not certain he has those.", fx = { align = { honor = 1 } } },
+        { text = "Leave it. The fear is half his pride.", next = "BACK", reply = "That's what I've thought. He'd only find a new thing to fear, and the pigeon was hard on us all.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rod = {
+      lines = { { id = "ro_default", text = "It's a sort of pen. The enchantment is a pattern, and the rod is what you draw it with, so a better rod draws a finer line. A smith makes the blank, and the enchanter wakes it up with dust and a pearl." } },
+      choices = { { text = "A pen for magic. That's clearer than any book.", next = "BACK", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    dust = {
+      lines = { { id = "du_default", text = "From enchanted things, unmade. Adventurers bring me rings and bracers they've outgrown, and Thonys Pillarstone, our journeyman, breaks them down at the back table. It's the one part of the craft that makes me a little sad." } },
+      choices = {
+        { text = "Why sad?", next = "dust_sad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dust_sad = {
+      lines = { { id = "ds_default", text = "Somebody made each of those, carefully, and somebody wore it into danger. Then it's a pinch of dust in a jar. Thonys says the magic only moves house, and I've decided to believe him." } },
+      choices = { { text = "It's a good way to think of it.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    beside = {
+      lines = { { id = "x1_default", text = "More than you'd think. Smiths make the thing, and we make the thing better. A dwarf will spend a month on a sword and then bring it here, pretending he only wants to look." } },
+      choices = {
+        { text = "Do the smiths approve?", next = "beside_smiths" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beside_smiths = {
+      lines = { { id = "x2_default", text = "They grumble that a good blade needs no magic, and then they ask what it costs. Bengus Deepforge had his own hammer done, and he's told everyone it was a gift." } },
+      choices = { { text = "Pride and practicality, side by side.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    gimble = { { id = "tp_gimble", text = "Gimble Thistlefuzz is family, and the finest enchanter in Ironforge. He's also hiding behind the counter, I expect, so wave." } },
+    great_forge = { { id = "tp_forge", text = "It's very warm and it shakes the shelves when they pour. Gimble thinks the pours are a signal. They aren't." } },
+    thonys = { { id = "tp_thonys", text = "Thonys Pillarstone is a dwarf who chose enchanting, which his family finds baffling. He's gentle with the work, and I like him for it." } },
+    background = { { id = "tp_bg", text = "I kept the stockroom for the enchanters' guild in Gnomeregan. I keep Gimble now as well, which is the larger job." } },
+    _none = { { id = "tp_none", text = "I'm afraid I don't know. Don't ask Gimble, he'll want to know why you're asking." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Fimble Finespindle: gnome leatherworking trainer at Finespindle's Leather Goods, north side of the Great Forge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_fimble", id = TODO_NPC("Fimble Finespindle"), name = "Fimble Finespindle", title = "Leatherworking Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "fussy", "kindly" }, values = { "craft", "family" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Fimble Finespindle teaches leatherworking at Finespindle's Leather Goods on the north side of the Great Forge. He stitches smaller and straighter than anyone in Ironforge and cannot watch a crooked seam without reaching for it.",
+    third = "{name} met Fimble Finespindle, the gnome leatherworking trainer at Finespindle's Leather Goods in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Welcome to Finespindle's! Mind the hides on the rack, they're curing, and they don't like being leaned on." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Show me your last piece, and I promise to say something nice before I say the rest." },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker! Let me see your stitching. Hm, eight to the inch. We'll get you to twelve." },
+  },
+  notice = {
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "You've wax under your thumbnail and a needle scar on your palm. Good, that means you've stopped being careful and started being quick." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf! Lovely strong hands, your people, and you grip an awl as if it owed you money. We'll work on that." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Fimble Finespindle, and this is the family shop. I teach, Bombus sells the supplies, Lissyphus fits the armour and Gretta takes the beginners. Balthus Stoneflayer has the corner for skinning, since leather has to start somewhere." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you like to know? I'll keep stitching, if you don't mind." },
+        { id = "h_again2", text = "Yes? Ask away, I've only forty more holes to punch." },
+      },
+      choices = {
+        { text = "Teach me leatherworking.", next = "BUSINESS" },
+        { text = "Gnomes aren't known for leather.", next = "gnomes" },
+        { text = "What separates good leather armour from bad?", next = "good" },
+        { text = "How do you get on with a dwarf skinner in the shop?", next = "balthus" },
+        { text = "What do you start a beginner on?", next = "begin" },
+        { text = "Goodbye, Fimble.", next = "END" },
+      },
+    },
+    gnomes = {
+      lines = { { id = "gn_default", text = "No, and that's exactly why we're good at it. A dwarf thinks leather is what you wear until you can afford plate. We came to it as engineers, and a jerkin is a machine with forty moving parts that happens to have a person inside." } },
+      choices = {
+        { text = "A machine with a person inside?", next = "gnomes_machine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnomes_machine = {
+      lines = { { id = "gm_default", text = "Certainly! It has to bend at the elbow, turn at the waist and not creak when a rogue breathes. I draw every pattern with the joints marked, and I've a wooden figure with hinges that I fit them on first." } },
+      choices = { { text = "I'd like to see that figure.", next = "BACK", reply = "He's called Stanley, and he's in the back. He's been stabbed a great many times for science.", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    good = {
+      lines = { { id = "go_default", text = "The seams, always. Any fool can cut a good hide, but the armour fails where two pieces meet. I double-stitch, wax the thread and hide the knot inside, so that a blade sliding along the seam finds nothing to catch." } },
+      choices = { { text = "Hidden knots. I'll look for them.", next = "BACK", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    balthus = {
+      lines = { { id = "ba_default", text = "Very well, now. He thought I was fussy and I thought he was rough, and then he brought me a bear hide without a single nick in it. You can't do my work without his, and he's stopped pretending otherwise." } },
+      choices = {
+        { text = "Does it trouble you, where the hides come from?", next = "balthus_hides" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    balthus_hides = {
+      big = true,
+      lines = { { id = "bh_default", text = "A little, if I'm honest. Balthus says a beast taken cleanly and used whole is respected. I'd still sooner my students bought hides than went out and made a sport of it." } },
+      choices = {
+        { text = "Balthus is right. Use the whole beast and waste nothing.", next = "BACK", reply = "Yes, I suppose that's the honest end of it. Waste would be the real insult.", fx = { align = { light = -1 } } },
+        { text = "You're right. Killing shouldn't be a pastime.", next = "BACK", reply = "Thank you. I'll go on saying so, and they'll go on not listening.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    begin = {
+      lines = { { id = "x1_default", text = "A belt. It's one straight seam, and it teaches them to keep their stitches even over a length. They all want to make boots, and I tell them boots are a belt that's been cruel to you." } },
+      choices = {
+        { text = "And after the belt?", next = "begin_after" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    begin_after = {
+      lines = { { id = "x2_default", text = "Gloves, which make them cry, and then they come back the next day, and that's how I know which ones are leatherworkers. Gretta keeps a jar of sweets for glove week." } },
+      choices = { { text = "Glove week sounds like a trial.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    bombus = { { id = "tp_bombus", text = "Bombus sells the thread, dye and salt. He's family, and he's the only one of us who enjoys doing the accounts." } },
+    great_forge = { { id = "tp_forge", text = "The heat's useful, as it happens. Hides cure in half the time on this side of the city." } },
+    gretta = { { id = "tp_gretta", text = "Gretta takes the newest students. She's more patient than I am, and they cry less." } },
+    background = { { id = "tp_bg", text = "The Finespindles made harness and belting for Gnomeregan's machines. We've only changed what goes inside the leather." } },
+    _none = { { id = "tp_none", text = "I couldn't say! Unless it can be stitched, in which case I have opinions." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Bombus Finespindle: leatherworking supplies at Finespindle's Leather Goods.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_bombus", id = TODO_NPC("Bombus Finespindle"), name = "Bombus Finespindle", title = "Leatherworking Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "jovial", "exact" }, values = { "family", "practical" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Bombus Finespindle sells thread, dye and curing salt at Finespindle's Leather Goods and keeps the family's books. He is round, cheerful and knows the price of salt in four cities.",
+    third = "{name} met Bombus Finespindle, who sells leatherworking supplies at Finespindle's Leather Goods in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Thread, dye and salt! Fimble will tell you how to use them, at length, and I'll simply sell them to you." },
+    { id = "g_back", when = { metBefore = true }, text = "There you are again! You're in the book now, you know, under good customers." },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker! Then you're out of coarse thread. No, don't tell me how I know, everyone always is." },
+  },
+  notice = {
+    { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
+      text = "You skin your own, I can smell it, no offence meant. You'll want salt, and more of it than you think." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Bombus Finespindle. I'm the Finespindle who can't sew, so they put me in charge of everything else. I buy the salt, sell the thread and make sure the shop still belongs to us at the end of each month." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I've a column to add, but it isn't going anywhere." },
+        { id = "h_again2", text = "Yes, yes, ask! I like a chat better than a ledger." },
+        { id = "h_again3", text = "Go on, ask! The sums can wait, they always add up the same." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "A Finespindle who can't sew?", next = "sew" },
+        { text = "Why does a leather shop sell so much salt?", next = "salt" },
+        { text = "How does a family share one small shop?", next = "family" },
+        { text = "What's the oddest thing in the stock book?", next = "odd" },
+        { text = "Goodbye, Bombus.", next = "END" },
+      },
+    },
+    sew = {
+      lines = { { id = "se_default", text = "Not a stitch! Fimble tried to teach me for eleven years, and at the end of it I'd made one glove with six fingers. He keeps it on the wall, and he says it's to encourage the students." } },
+      choices = { { text = "Six fingers would suit somebody.", next = "BACK", reply = "That's what I said! Nobody's come in for it yet, but I'm hopeful.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    salt = {
+      lines = { { id = "sa_default", text = "Because a raw hide rots in two days unless it's salted, and every hunter forgets that until the smell reminds them. I buy it by the barrel from the Menethil boats, and the price goes up whenever the Wetlands road is closed." } },
+      choices = {
+        { text = "And when the price goes up?", next = "salt_price" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    salt_price = {
+      big = true,
+      lines = { { id = "sp_default", text = "Then I've a choice. I can pass it on to the customers, or I can take the loss and keep them. Fimble says we should swallow it, since half of them are students with no coin. I say a shop that swallows every loss gets eaten." } },
+      choices = {
+        { text = "Swallow it. They'll remember who was fair.", next = "BACK", reply = "Oh, bother. That's what the ledger says they do, as well. Very well.", fx = { align = { honor = 1 } } },
+        { text = "Pass it on. The shop has to survive.", next = "BACK", reply = "Exactly so! I'll put up a little notice explaining about the road.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    family = {
+      lines = { { id = "fa_default", text = "By each of us having a corner and staying in it. Fimble has the bench, Lissyphus the fitting stand, Gretta the beginners' table and I've the counter. We only quarrel at stocktaking, and Balthus referees, because he's a dwarf and can't be bribed with cake." } },
+      choices = {
+        { text = "What is Balthus bribed with?", next = "family_balthus" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    family_balthus = {
+      lines = { { id = "fb_default", text = "Nothing, I've tried! Ale, pie, a very nice belt. He just looks at the hides and says who's right. It's dreadful, and it works." } },
+      choices = { { text = "An honest referee is worth keeping.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    odd = {
+      lines = { { id = "x1_default", text = "Forty pounds of dragon scale, entered in my grandfather's hand, with a note saying not for sale. We left it behind when we fled, and I still carry it over on the books each year." } },
+      choices = {
+        { text = "Why keep it on the books?", next = "odd_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    odd_why = {
+      lines = { { id = "x2_default", text = "Because the day I strike it off is the day I've agreed it's gone. An accountant's allowed one sentimental entry, and that one's mine." } },
+      choices = { { text = "Then leave it there until you go home.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    fimble = { { id = "tp_fimble", text = "Fimble's the talent of the family. I'm the one who makes sure the talent can afford thread." } },
+    balthus = { { id = "tp_balthus", text = "Balthus Stoneflayer teaches skinning in our corner. He hardly says a word, and every hide he brings in is perfect." } },
+    great_forge = { { id = "tp_forge", text = "Good passing trade and terrible soot. I dust the dye jars twice a day." } },
+    background = { { id = "tp_bg", text = "Bookkeeper to the Finespindles, by popular demand and one six-fingered glove." } },
+    _none = { { id = "tp_none", text = "Haven't the faintest! It's not in the stock book, at any rate." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Balthus Stoneflayer: dwarf skinning trainer in Finespindle's Leather Goods.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_balthus", id = TODO_NPC("Balthus Stoneflayer"), name = "Balthus Stoneflayer", title = "Skinning Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge" }, temper = { "taciturn", "exact" }, values = { "craft", "nature" },
+  notices = { "craft", "pet" },
+  impression = {
+    first = "Balthus Stoneflayer teaches skinning from a corner of Finespindle's Leather Goods, the one dwarf in a shop of gnomes. He says little, keeps his knives sharper than razors and wastes nothing.",
+    third = "{name} met Balthus Stoneflayer, the skinning trainer at Finespindle's Leather Goods in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Aye. Skinnin' ye're after? Show me yer knife first." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye're back. Did ye keep the edge on it, or did ye go at a boar wi' a butter knife again?" },
+    { id = "g_skin", when = { profession = "Skinning" }, text = "A skinner. Good. Hold out yer hands, I can tell more from them than from yer talk." },
+  },
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Dinnae fret, I've nae designs on yer {pet}. I only take what's already down." },
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "Ye work leather. Then ye ken a bad cut costs ye the whole hide, an' ye'll listen better than most." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Balthus Stoneflayer. I teach folk tae take a hide off clean, so the Finespindles have somethin' fit tae sew. It's simple work, an' simple isnae the same as easy." },
+      },
+      again = {
+        { id = "h_again", text = "What else?" },
+        { id = "h_again2", text = "Aye. Ask, then." },
+      },
+      choices = {
+        { text = "Teach me skinning.", next = "BUSINESS" },
+        { text = "What's the secret to a clean hide?", next = "clean" },
+        { text = "You're the only dwarf in a shop full of gnomes.", next = "gnomes" },
+        { text = "You don't waste words.", next = "words" },
+        { text = "What beasts are worth skinning in Dun Morogh?", next = "beasts" },
+        { text = "Good day, Balthus.", next = "END" },
+      },
+    },
+    clean = {
+      lines = { { id = "cl_default", text = "A sharp knife an' nae hurry. Ye cut along the belly an' let the weight o' the hide do the pullin', an' ye never saw at it. Most folk ruin a pelt in the first minute because they're still excited from the kill." } },
+      choices = {
+        { text = "So you wait before you cut?", next = "clean_wait" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clean_wait = {
+      big = true,
+      lines = { { id = "cw_default", text = "I do. I sit a moment wi' the beast first. My father called it thankin' it, an' I'm no' sure I'd go so far, but yer hands are steadier after. The young ones think it's daft." } },
+      choices = {
+        { text = "It's not daft. The beast is owed that much.", next = "BACK", reply = "Aye. That's near what my father said. Ye'll make a decent skinner.", fx = { align = { light = 1 } } },
+        { text = "It's a carcass. Just do the work.", next = "BACK", reply = "Ye'll nick the hide, then. They always do. Suit yerself.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnomes = {
+      lines = { { id = "gn_default", text = "I am. They talk enough for a whole clan, so I've nae need tae. Fimble does the finest stitchin' I've seen in two hundred years, an' he's earned good hides. That's why I'm here an' no' in some hunter's lodge." } },
+      choices = {
+        { text = "That's high praise, from you.", next = "gnomes_praise" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnomes_praise = {
+      lines = { { id = "gp_default", text = "It's the truth. I told him once, an' he talked about it for a week. I'll no' make that mistake twice." } },
+      choices = { { text = "Your secret is safe.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    words = {
+      lines = { { id = "wo_default", text = "Ye dinnae need many. I spent forty years huntin' the high passes alone, an' the beasts never asked my opinion. I come down tae teach in the cold months, an' by spring I've said all I had." } },
+      choices = { { text = "Then I'll not use up your supply.", next = "BACK", reply = "Hm. Ye're all right.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    beasts = {
+      lines = { { id = "x1_default", text = "Crag boar for a beginner, for the hide's thick an' forgivin'. Wolf when ye've a steadier hand. Snow leopard only when ye're good, for the pelt's thin an' worth more than a month's wages." } },
+      choices = {
+        { text = "And bear?", next = "beasts_bear" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts_bear = {
+      lines = { { id = "x2_default", text = "Bear's heavy work an' ye'll want help turnin' it. But a winter bear hide will keep a family warm for twenty years. I've one on my own bed that was my grandfather's." } },
+      choices = { { text = "Twenty years is good value.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    fimble = { { id = "tp_fimble", text = "Fimble Finespindle. Best leatherworker in Ironforge. Talks too much." } },
+    dun_morogh = { { id = "tp_dm", text = "Boar, bear, wolf an' leopard. Good hides, all o' them, an' thick, for the cold." } },
+    bombus = { { id = "tp_bombus", text = "Bombus keeps tryin' tae bribe me at stocktakin'. It was a good belt, mind. I gave it back." } },
+    background = { { id = "tp_bg", text = "A Stoneflayer. We've been trappers since before the city had gates." } },
+    _none = { { id = "tp_none", text = "Dinnae ken." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Jormund Stonebrow: tailoring trainer at Stonebrow's Clothier, north side of the Great Forge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_jormund", id = TODO_NPC("Jormund Stonebrow"), name = "Jormund Stonebrow", title = "Tailoring Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge" }, temper = { "dignified", "particular" }, values = { "craft", "tradition" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Jormund Stonebrow teaches tailoring at Stonebrow's Clothier on the north side of the Great Forge. He is the best-dressed dwarf in Ironforge and has spent a lifetime being told that needlework is no trade for a dwarf.",
+    third = "{name} met Jormund Stonebrow, the tailoring trainer at Stonebrow's Clothier in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Good day, an' welcome tae Stonebrow's. Wipe the soot from yer hands before ye touch the silk, if ye'd be so kind." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, ye've returned. Turn about an' let me see how that last hem has held." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor. Splendid. Ye'll find nae jokes about needles in this shop, only work." },
+  },
+  notice = {
+    { id = "n_cloth", cat = "class", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
+      text = "Yer robe's cut for a taller frame an' taken up badly. I could have that hangin' right in an afternoon." },
+    { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
+      text = "Ye've a thimble callus on the middle finger, so ye sew by hand. Good. A tailor who cannae hand-stitch is only a cutter." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Jormund Stonebrow, master tailor. I teach the craft here, Poranna Snowbraid sells the thread an' dye, an' my kinswoman Ingrys sells what we make. Every mage an' priest in this city wears somethin' that passed under my needle." },
+      },
+      again = {
+        { id = "h_again", text = "Is there aught else? I've a sleeve tae set." },
+        { id = "h_again2", text = "Aye, go on. I can talk an' baste." },
+      },
+      choices = {
+        { text = "Teach me tailoring.", next = "BUSINESS" },
+        { text = "A dwarf tailor must hear some remarks.", next = "remarks" },
+        { text = "What cloth is worth a tailor's time?", next = "cloth" },
+        { text = "Who do you make for?", next = "customers" },
+        { text = "What does an apprentice tailor learn first?", next = "first" },
+        { text = "Good day, Master Stonebrow.", next = "END" },
+      },
+    },
+    remarks = {
+      lines = { { id = "re_default", text = "For two hundred years. My brothers went tae the forge an' I went tae the loom, an' my father didnae speak o' me at table. Then the king's chamberlain ordered a ceremonial cloak from this shop, an' my father found he had a tailor in the family after all." } },
+      choices = {
+        { text = "Did you forgive him?", next = "remarks_forgive" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    remarks_forgive = {
+      big = true,
+      lines = { { id = "rf_default", text = "I made him a coat, an' he wore it tae his grave. I've never been certain whether that was forgiveness on my part or only good manners. What would ye call it?" } },
+      choices = {
+        { text = "Forgiveness. You gave him your best work.", next = "BACK", reply = "Aye. I think it was, at that. It was a very fine coat.", fx = { align = { light = 1 } } },
+        { text = "Manners. He hadn't earned more.", next = "BACK", reply = "Perhaps no'. Ye've a hard eye, but I'll no' say it's a false one.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cloth = {
+      lines = { { id = "cl_default", text = "Linen tae learn on, wool for honest wear, an' silk when ye're ready tae be humbled. Mageweave is another matter, for it fights the needle as if it had a mind. I've sewn it forty years an' it still surprises me." } },
+      choices = { { text = "Cloth with a mind of its own.", next = "BACK", reply = "Aye, an' a poor opinion o' tailors. Ye learn tae coax it.", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    customers = {
+      lines = { { id = "cu_default", text = "The Hall o' Mysteries, chiefly. High Priest Rohan's vestments are mine, an' the mages order by the dozen because they scorch their cuffs. The gnomes were a new study, mind, for nothin' I owned was small enough tae measure them." } },
+      choices = {
+        { text = "How did you manage the gnomes?", next = "customers_gnomes" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    customers_gnomes = {
+      lines = { { id = "cg_default", text = "Outfitter Eric lent me a gnomish tape, marked in units I've never understood. I measure wi' his tape an' cut by my own eye, an' Bink tells me her robe is the first that hasnae tripped her on the stairs." } },
+      choices = { { text = "That's a craftsman adapting.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    first = {
+      lines = { { id = "x1_default", text = "Tae press. Before a stitch is sewn, they spend a month at the iron, for a seam that isnae pressed will never lie flat however fine the sewin'. They hate it, an' they thank me later." } },
+      choices = {
+        { text = "A whole month of pressing?", next = "first_month" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first_month = {
+      lines = { { id = "x2_default", text = "Uthrar Threx did six weeks, for he scorched a bolt o' silk in the fifth. He's the neatest presser in Ironforge now, an' he checks the iron three times." } },
+      choices = { { text = "A scorched bolt is a lasting lesson.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    poranna = { { id = "tp_poranna", text = "Poranna Snowbraid keeps the thread an' dye. She can match a colour from across the Forge by lamplight." } },
+    great_forge = { { id = "tp_forge", text = "A poor place for a clothier, wi' the soot. But the rent is what it is, an' I keep the bolts under linen." } },
+    uthrar = { { id = "tp_uthrar", text = "Uthrar Threx is my journeyman. He's a good plain sewer, an' he'll be a fine one when he stops rushin' his buttonholes." } },
+    background = { { id = "tp_bg", text = "A Stonebrow, an' the first o' the name tae lift a needle. No' the last, I'm glad tae say." } },
+    _none = { { id = "tp_none", text = "That's outside my learnin', I fear. I'd no' wish tae give ye a poorly cut answer." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Poranna Snowbraid: tailoring supplies at Stonebrow's Clothier.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_poranna", id = TODO_NPC("Poranna Snowbraid"), name = "Poranna Snowbraid", title = "Tailoring Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "warm", "sharp-eyed" }, values = { "craft", "practical" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Poranna Snowbraid sells thread, dye and bolts of cloth at Stonebrow's Clothier beside the Great Forge. She has a wall of spools sorted by colour and can name any shade a customer is wearing.",
+    third = "{name} met Poranna Snowbraid, who sells tailoring supplies at Stonebrow's Clothier in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Come in, dear. Thread, dye an' cloth, an' if ye dinnae ken what colour ye want, I'll ken it for ye." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Ye were wearin' that same grey last time. We'll have tae do somethin' about that." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor! Then ye're out o' fine thread, for nobody ever buys enough." },
+  },
+  notice = {
+    { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
+      text = "That's yer own work ye're wearin', is it no'? The stitchin's sound, but ye matched the thread by candlelight, dear, an' it shows." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "I keep half-spools for the wee folk, dear, since ye use so little. Nae sense payin' for thread ye'll never reach the end of." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Poranna Snowbraid, dear. Jormund teaches the sewin', an' I sell what ye sew wi'. My sister Maeva sells robes over in the Mystic Ward, so between the Snowbraids an' the Stonebrows we've the cloth trade fair stitched up." },
+      },
+      again = {
+        { id = "h_again", text = "What else, dear?" },
+        { id = "h_again2", text = "Go on, I'm only windin' spools." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "How do you match a colour so quickly?", next = "colour" },
+        { text = "Where do the dyes come from?", next = "dye" },
+        { text = "What's Jormund like to work beside?", next = "jormund" },
+        { text = "What colours do dwarves actually buy?", next = "buy" },
+        { text = "Good day, Poranna.", next = "END" },
+      },
+    },
+    colour = {
+      lines = { { id = "co_default", text = "Practice, an' the Forge. Ye see every shade o' red an' gold there is in that fire, an' after fifty years beside it yer eye gets tuned. I take the cloth out tae the rail an' match it by forge-light, which is truer than any lamp." } },
+      choices = { { text = "Forge-light for matching thread. Who'd have guessed?", next = "BACK", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    dye = {
+      lines = { { id = "dy_default", text = "Red from a beetle they send up from Stranglethorn, blue from a flower in Elwynn, an' black from oak galls an' iron, which we've plenty of. Purple I cannae get at any price, so the mages bring their own an' willnae say where from." } },
+      choices = {
+        { text = "The mages won't tell you?", next = "dye_mages" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dye_mages = {
+      big = true,
+      lines = { { id = "dm_default", text = "No' a word, an' I've asked nicely. I've a wee sample put by, an' Soolie Berryfizz says she could work out what's in it in a week. It'd be worth a fortune tae the shop. It'd also be takin' what isnae mine." } },
+      choices = {
+        { text = "Leave it. A craftsman's secret is his own.", next = "BACK", reply = "Aye, dear, ye're right. I'd no' thank anybody for doin' it tae me.", fx = { align = { honor = 1 } } },
+        { text = "Find out. They're selling to you, after all.", next = "BACK", reply = "That's what the wicked half o' me says. I'll see how I feel on Monday.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jormund = {
+      lines = { { id = "jo_default", text = "Proud as a senator an' twice as tidy. He unpicked a whole gown once because one seam was a hair off, an' the customer never would have seen it. I thought him daft at the time." } },
+      choices = {
+        { text = "And now?", next = "jormund_now" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jormund_now = {
+      lines = { { id = "jn_default", text = "Now I think that's why folk walk past three other shops tae reach ours. He kens the seam is there, an' that's enough for him. I've stopped arguin', an' I order extra thread." } },
+      choices = { { text = "That kind of pride builds a good shop.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    buy = {
+      lines = { { id = "x1_default", text = "Brown, grey an' a red that's near enough brown, dear. I've a wall o' colours, an' the dwarves walk past every one tae the same three spools. The gnomes buy the rest, bless them." } },
+      choices = {
+        { text = "What do the gnomes choose?", next = "buy_gnomes" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buy_gnomes = {
+      lines = { { id = "x2_default", text = "Everythin' at once! I sold one wee lass seven colours for a single scarf. It looked like a firework, an' she was that pleased wi' it I've kept the bright thread at the front ever since." } },
+      choices = { { text = "The gnomes are good for your shelves.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    jormund = { { id = "tp_jormund", text = "Jormund Stonebrow's the finest tailor in Khaz Modan, an' he'd be the first tae tell ye, dear." } },
+    maeva = { { id = "tp_maeva", text = "My sister Maeva sells robes by the Hall o' Mysteries. She got the looks an' I got the eye for colour, an' we've both done well by it." } },
+    great_forge = { { id = "tp_forge", text = "The warmest spot in Ironforge. My joints are grateful, even if the silk isnae." } },
+    background = { { id = "tp_bg", text = "A Snowbraid, dear. My mother wove, an' her mother before her." } },
+    _none = { { id = "tp_none", text = "I couldnae say, dear. Is it a colour? I'm good wi' colours." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Reyna Stonebranch: herbalism trainer at the Ironforge Physician, south side of the Great Forge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_reyna", id = TODO_NPC("Reyna Stonebranch"), name = "Reyna Stonebranch", title = "Herbalism Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge" }, temper = { "gentle", "stubborn" }, values = { "nature", "knowledge" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "Reyna Stonebranch teaches herbalism at the Ironforge Physician on the south side of the Great Forge. She grows what she can in trays under lamps and misses the sky more than a dwarf is supposed to admit.",
+    third = "{name} met Reyna Stonebranch, the herbalism trainer at the Ironforge Physician.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Welcome, an' mind the trays by the door. That's peacebloom, an' it's taken me a year tae coax it up under a lamp." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye're back! Have ye brought me anythin' green? I'll even take a weed, it's been a long winter." },
+    { id = "g_herb", when = { profession = "Herbalism" }, text = "A herbalist! Ye smell o' earthroot an' fresh air. Stand there a moment an' let me breathe." },
+  },
+  notice = {
+    { id = "n_elf", cat = "race", when = { race = "NightElf" },
+      text = "One o' the kaldorei, in my wee shop. Ye'll think my trays a sad sort o' garden, an' ye'll be right, but they're all the green I've got." },
+    { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
+      text = "There's sap on yer cuffs, so ye've been pickin' this week. Tell me what's flowerin' out there, I get so little news." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Reyna Stonebranch. I teach folk tae find herbs an' gather them wi'out killin' the plant, an' my sister Gwina sells the tools. Nissa Firestone has the bandages at the other table, so between us we're the nearest thing tae a physician the Forge has." },
+      },
+      again = {
+        { id = "h_again", text = "What else would ye like tae ken?" },
+        { id = "h_again2", text = "Aye, ask. The seedlings are in nae hurry." },
+      },
+      choices = {
+        { text = "Teach me herbalism.", next = "BUSINESS" },
+        { text = "A herbalist under a mountain is a strange thing.", next = "mountain" },
+        { text = "What grows in Dun Morogh, under all that snow?", next = "snow" },
+        { text = "How do you gather without killing the plant?", next = "gather" },
+        { text = "What do the smiths come to you for?", next = "smiths" },
+        { text = "Good day, Reyna.", next = "END" },
+      },
+    },
+    mountain = {
+      lines = { { id = "mo_default", text = "It is, an' my mother said so every day. But the smiths burn themselves an' the miners cough, an' somebody must ken which leaf helps. I go out tae the valley every spring wi' a basket, an' it keeps me sane the rest o' the year." } },
+      choices = {
+        { text = "You'd live outside, if you could.", next = "mountain_out" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mountain_out = {
+      big = true,
+      lines = { { id = "mu_default", text = "In a heartbeat, an' that's a shameful thing for a dwarf tae say. Gwina says my place is here, where I'm needed. I've a notion tae go tae Loch Modan an' teach by the water. Is it selfish tae want that?" } },
+      choices = {
+        { text = "Stay. The Forge needs its healer.", next = "BACK", reply = "Aye. That's Gwina's word too, an' she's seldom wrong. The trays will have tae do.", fx = { align = { order = 1 } } },
+        { text = "Go. You've given the mountain enough years.", next = "BACK", reply = "Oh, dinnae tempt me. I'll think on it when the snow melts, an' I thank ye for sayin' it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    snow = {
+      lines = { { id = "sn_default", text = "More than ye'd think. Peacebloom an' silverleaf in the sheltered hollows, an' earthroot on the hillsides where the wind keeps the snow thin. Look near the roots o' the pines, for the needles keep the ground warm." } },
+      choices = { { text = "Near the pine roots. Thank you.", next = "BACK", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    gather = {
+      lines = { { id = "ga_default", text = "Ye take a third an' leave the rest, an' ye never pull the root unless the root is what ye came for. A patch treated that way will feed ye for a lifetime. I've been pickin' the same silverleaf by Kharanos since I was a girl." } },
+      choices = {
+        { text = "Do your students keep to that?", next = "gather_students" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gather_students = {
+      lines = { { id = "gs_default", text = "The druids do, the few I've met off the Auberdine boats. The rest strip a hollow bare an' come back complainin' there's nothin' left. I send those tae pick for Gwina a season, an' she straightens them out." } },
+      choices = { { text = "A season with Gwina sounds like a cure.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    smiths = {
+      lines = { { id = "x1_default", text = "Burns, every day. I make a salve o' silverleaf an' peacebloom, an' it takes the fire out in a minute. They come in gruff an' go out quiet, an' they never say thank ye, but the next week there's a mended kettle on my step." } },
+      choices = {
+        { text = "They pay in kettles?", next = "smiths_kettles" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    smiths_kettles = {
+      lines = { { id = "x2_default", text = "Kettles, hinges, a wee iron trellis for the trays. A smith's too proud tae owe ye, so he pays ye sideways. I've the best-made herb racks in Khaz Modan." } },
+      choices = { { text = "Gratitude in iron. That's very dwarven.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    gwina = { { id = "tp_gwina", text = "My sister, an' the practical one. She sells the sickles an' the pouches an' tells me tae stop moonin' at the door." } },
+    nissa = { { id = "tp_nissa", text = "Nissa Firestone teaches the bandagin'. She sees every burn the Forge hands out, an' I supply what goes under the wrappin'." } },
+    great_forge = { { id = "tp_forge", text = "Hot, dry an' dark. It's the worst place in Azeroth tae grow a thing, an' I manage it anyway, out o' spite." } },
+    background = { { id = "tp_bg", text = "A Stonebranch. The name's a joke the family made about us a long while back, an' we kept it." } },
+    _none = { { id = "tp_none", text = "I dinnae ken, I'm sorry. If it has leaves I might, so describe it tae me." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Gwina Stonebranch: herbalism supplies at the Ironforge Physician; Reyna's sister.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_gwina", id = TODO_NPC("Gwina Stonebranch"), name = "Gwina Stonebranch", title = "Herbalism Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge" }, temper = { "brisk", "dry" }, values = { "practical", "family" },
+  notices = { "craft", "kit" },
+  impression = {
+    first = "Gwina Stonebranch sells sickles, pouches and vials at the Ironforge Physician, where her sister Reyna teaches herbalism. She is the practical half of the pair and counts the stock while Reyna talks to the seedlings.",
+    third = "{name} met Gwina Stonebranch, who sells herbalism supplies at the Ironforge Physician.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Sickles, pouches an' vials. Reyna does the teachin', an' I do the sellin', so tell me which ye're here for." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye again. Lost the sickle or filled the pouch?" },
+    { id = "g_herb", when = { profession = "Herbalism" }, text = "A picker. Let me see yer pouch. Aye, that's damp at the bottom, an' yer herbs will mould by Thursday." },
+  },
+  notice = {
+    { id = "n_herb", cat = "craft", when = { profession = { "Herbalism", "Alchemy" } },
+      text = "Ye've the look o' somebody who uses what I sell. Good. I've nae patience for folk who buy a sickle tae hang on the wall." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Gwina Stonebranch. My sister can tell ye the name o' every flower in Khaz Modan an' cannae tell ye what day it is. I keep the shop open, the stock counted an' Reyna fed, an' I sell good tools at a fair price." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I've vials tae count." },
+        { id = "h_again2", text = "Aye, go on." },
+        { id = "h_again3", text = "Aye, be quick about it." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "You and Reyna are very different.", next = "reyna" },
+        { text = "What does a herbalist actually need?", next = "need" },
+        { text = "Reyna says you straighten out greedy pickers.", next = "greedy" },
+        { text = "What breaks first on a herbalist's kit?", next = "kit" },
+        { text = "Good day, Gwina.", next = "END" },
+      },
+    },
+    reyna = {
+      lines = { { id = "re_default", text = "We are, an' it's as well. If we were both like her, we'd have a shop full o' flowers an' nae roof. If we were both like me, we'd have a roof an' nothin' worth puttin' under it." } },
+      choices = {
+        { text = "She talks of leaving for Loch Modan.", next = "reyna_leave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    reyna_leave = {
+      lines = { { id = "rl_default", text = "Every spring, regular as the thaw. I tell her she's needed here, an' she is. I dinnae tell her that I'd be lost wi'out her, for she'd stay out o' pity, an' I'll no' have that." } },
+      choices = { { text = "You're softer than you let on.", next = "BACK", reply = "Say that again an' I'll charge ye double for the sickle.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    need = {
+      lines = { { id = "ne_default", text = "A sharp sickle, a dry pouch an' a pair o' eyes. Folk come in wantin' gadgets, an' I send them away wi' three things an' their coin still in their purse. Burbik Gearspanner thinks I've lost my wits." } },
+      choices = { { text = "An honest shop is a rare one.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    greedy = {
+      lines = { { id = "gr_default", text = "I do. I send them out tae pick me fifty silverleaf from one hollow wi'out harmin' it. They come back wi' ten an' a new respect, or they dinnae come back, an' either way the hollow's safe." } },
+      choices = {
+        { text = "And those who strip it anyway?", next = "greedy_strip" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    greedy_strip = {
+      big = true,
+      lines = { { id = "gs_default", text = "I stop sellin' tae them, an' I tell every supplier from here tae Thelsamar tae do the same. Reyna says that's harsh, for folk have tae earn a livin'. I say a livin' that leaves the valley bare is a theft from everybody after." } },
+      choices = {
+        { text = "You're right. Greed like that should cost them.", next = "BACK", reply = "Aye. I'm glad somebody else sees it plain.", fx = { align = { order = 1 } } },
+        { text = "Reyna's right. It isn't your place to punish.", next = "BACK", reply = "Hmph. Maybe no'. I'll still no' sell them a sickle.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kit = {
+      lines = { { id = "x1_default", text = "The pouch, at the drawstring. Folk yank it open wi' wet hands a hundred times a day. I double the cord on mine, an' I've no' had one back in four years." } },
+      choices = {
+        { text = "And the sickle?", next = "kit_sickle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kit_sickle = {
+      lines = { { id = "x2_default", text = "The sickle lasts for ever if ye dry it. Naebody dries it. I sell more sickles tae rust than tae new pickers, an' I tell each o' them so at the counter." } },
+      choices = { { text = "Do they dry the next one?", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    reyna = { { id = "tp_reyna", text = "My sister. The gentlest dwarf in Ironforge, an' the most stubborn, which she gets from me." } },
+    great_forge = { { id = "tp_forge", text = "It dries herbs faster than any rack. That's the one good thing I'll say for the heat." } },
+    physician = { { id = "tp_phys", text = "The Ironforge Physician is us an' Nissa Firestone. Burns, coughs an' crushed fingers, mostly. It's steady work." } },
+    background = { { id = "tp_bg", text = "A Stonebranch, an' the one wi' her feet on the ground." } },
+    _none = { { id = "tp_none", text = "Dinnae ken. Ask Reyna, an' set aside an hour." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Outfitter Eric: gnome speciality tailoring supplies near the Great Forge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_eric", id = TODO_NPC("Outfitter Eric"), name = "Outfitter Eric", title = "Speciality Tailoring Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "flamboyant", "exacting" }, values = { "style", "craft" },
+  notices = { "class", "craft" },
+  impression = {
+    first = "Outfitter Eric sells rare patterns and fine thread near the Great Forge and dresses better than anyone has cause to in a city of soot. He regards dwarven fashion as a problem he has been sent to solve.",
+    third = "{name} met Outfitter Eric, a gnome who sells speciality tailoring supplies near the Great Forge in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Outfitter Eric, purveyor of patterns you won't find on any other counter in this mountain. Do come in, and do mind the lace." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned! And in the same boots, I see. We shall say no more about it." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor! At last, somebody who will understand why a shirt needs eleven buttons." },
+  },
+  notice = {
+    { id = "n_plate", cat = "class", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "All that plate, and nothing soft beneath it but a sack, I expect. A proper shirt under armour changes a person's whole outlook." },
+    { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
+      text = "You sew, I can tell by the way you looked at my cuffs first. They're hand-rolled, thank you for noticing." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Outfitter Eric. Poranna Snowbraid sells the thread a tailor needs, and I sell the patterns a tailor wants, which are a different thing entirely. Formal shirts, dress trousers and a tuxedo, if you've the skill for it." },
+      },
+      again = {
+        { id = "h_again", text = "Something further? I'm only pressing a collar." },
+        { id = "h_again2", text = "Yes? Ask, ask, I do love to be consulted." },
+      },
+      choices = {
+        { text = "Show me your patterns.", next = "BUSINESS" },
+        { text = "A tuxedo, in Ironforge?", next = "tuxedo" },
+        { text = "What do you make of dwarven dress?", next = "dwarves" },
+        { text = "Why Outfitter, and not just Eric?", next = "name" },
+        { text = "What should a well-dressed adventurer own?", next = "own" },
+        { text = "Goodbye, Eric.", next = "END" },
+      },
+    },
+    tuxedo = {
+      lines = { { id = "tu_default", text = "And why not in Ironforge? There are weddings here, and feasts, and a Senate that sits in armour because nobody has shown it an alternative. I've sold four patterns this year, and three of them to dwarves who asked me not to say so." } },
+      choices = {
+        { text = "Who was the fourth?", next = "tuxedo_fourth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tuxedo_fourth = {
+      lines = { { id = "tf_default", text = "Jormund Stonebrow, who bought it to see whether he could improve on it. He sent it back with two corrections in the margin, and I'm sorry to say both were right." } },
+      choices = { { text = "That must have stung.", next = "BACK", reply = "Terribly. I've framed it. One should keep one's defeats where one can see them.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    dwarves = {
+      big = true,
+      lines = { { id = "dw_default", text = "They dress to survive a rockfall, and I respect that, truly. But a people who carve halls like these and then wear brown to stand in them! I've wondered whether it's my place to say so, being a guest." } },
+      choices = {
+        { text = "It isn't. Their ways are their own.", next = "BACK", reply = "No. No, you're quite right, and I shall admire the stonework and keep quiet about the brown.", fx = { align = { order = 1 } } },
+        { text = "Say it. A little colour never hurt a mountain.", next = "BACK", reply = "My thought exactly! I shall begin with scarves and work inward.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name = {
+      lines = { { id = "na_default", text = "Because there were nine Erics on my level of Gnomeregan, and one distinguishes oneself by trade. There was Welder Eric, Plumber Eric and a Sprocket Eric nobody cared for. I'm the only one I know made it out, so I keep the title for all of us." } },
+      choices = {
+        { text = "I'm sorry about the other Erics.", next = "name_erics" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name_erics = {
+      lines = { { id = "ne_default", text = "Thank you. I like to think they're only delayed. When the city's retaken I intend to walk back in wearing something magnificent, so they can find me in the crowd." } },
+      choices = { { text = "I hope they see you coming.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    own = {
+      lines = { { id = "x1_default", text = "One good shirt. Not for fighting in, heavens, but for the evening after. One walks into the tavern having slain something dreadful, and one ought not to look as if it had won." } },
+      choices = {
+        { text = "And beyond the shirt?", next = "own_beyond" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    own_beyond = {
+      lines = { { id = "x2_default", text = "Clean boots and a comb. That's all. Elegance is mostly the appearance of having had time, and nobody need know one hadn't." } },
+      choices = { { text = "The appearance of having had time. Noted.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    jormund = { { id = "tp_jormund", text = "Jormund Stonebrow is the one dwarf in Ironforge who understands a lapel. I'd call him a rival if he weren't so obviously my better." } },
+    great_forge = { { id = "tp_forge", text = "Soot, sparks and steam. I chose it for the passing trade and I regret it every laundry day." } },
+    gnomeregan = { { id = "tp_gnomer", text = "We had a promenade on the upper level, and people dressed for it. I miss being looked at by people who knew what they were seeing." } },
+    background = { { id = "tp_bg", text = "An outfitter, by trade and by title. I dressed the engineers' guild for its annual dinner, in happier years." } },
+    _none = { { id = "tp_none", text = "I haven't the least idea. I could tell you what to wear while finding out." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Grumnus Steelshaper: armorsmith trainer at the Great Anvil.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_grumnus", id = TODO_NPC("Grumnus Steelshaper"), name = "Grumnus Steelshaper", title = "Armorsmith Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge" }, temper = { "stern", "protective" }, values = { "craft", "duty" },
+  notices = { "craft", "kit" },
+  impression = {
+    first = "Grumnus Steelshaper teaches the armourer's side of smithing at the centre of the Great Forge. He counts his work by the soldiers who came home in it, and takes on only smiths who have already proven themselves.",
+    third = "{name} met Grumnus Steelshaper, the master armorsmith at the Great Forge in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Stand clear o' the quench, an' say what ye want. If it's armour made, see the merchants. If it's armour learned, we'll see." },
+    { id = "g_back", when = { metBefore = true }, text = "Back, are ye? Then ye've work tae show me, I hope, an' no' only questions." },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith. Good. Bengus teaches ye tae shape iron, an' I teach ye tae make it keep somebody alive." },
+  },
+  notice = {
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Yer armour's hangin' by its rivets. Whoever made it did right by ye, for ye're still standin' in it. Get it mended." },
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "Ye've burns on the left forearm, where the piece rests when ye plannish. That's an armourer's scar, or the start o' one." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Grumnus Steelshaper, armorsmith. A smith who's mastered the plain craft comes tae a fork: he makes the thing that strikes or the thing that stops it. Ironus Coldsteel there takes the first sort, an' I take the second." },
+        { id = "h_ready", when = { profession = "Blacksmithing", minLevel = 40 }, text = "Grumnus Steelshaper. Ye've the level an' the hands for the armourer's path, if ye want it. It's a choice ye make once, so think before ye answer." },
+      },
+      again = {
+        { id = "h_again", text = "What else? The iron's coolin'." },
+        { id = "h_again2", text = "Aye. Ask." },
+      },
+      choices = {
+        { text = "Teach me what you can.", next = "BUSINESS" },
+        { text = "Why armour, and not weapons?", next = "why" },
+        { text = "What makes a breastplate good?", next = "plate" },
+        { text = "You and Ironus stand at the same anvil.", next = "ironus" },
+        { text = "Good day, Master Steelshaper.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "wy_default", text = "Because I made swords for the Second War, an' I never learned where one o' them ended up. Then a lad walked intae this Forge wi' an orc's axe mark across a breastplate o' mine an' nae mark on him. I've no' forged a blade since." } },
+      choices = {
+        { text = "Do you remember the plate?", next = "why_plate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_plate = {
+      lines = { { id = "wp_default", text = "Every rivet. He left it wi' me, an' it hangs behind the bellows. When an apprentice asks why I'm hard on him over a seam, I take him tae look at it." } },
+      choices = { { text = "That's a better lesson than any lecture.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    plate = {
+      lines = { { id = "pl_default", text = "It's thick where the blow lands an' thin where the body bends, an' it's curved so that a point slides off instead o' bitin'. A flat plate is a target. Folk want it pretty, an' I tell them pretty is for the lid o' the coffin." } },
+      choices = { { text = "Curved to turn a point. I'll look for that.", next = "BACK", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    ironus = {
+      lines = { { id = "ir_default", text = "We do, an' we've argued across it for years. He's a strange one, Ironus, quiet, an' he talks about time more than a smith should. His blades are the best I've seen, mind. I test my plate against them." } },
+      choices = {
+        { text = "Which wins, his blade or your plate?", next = "ironus_wins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ironus_wins = {
+      big = true,
+      lines = { { id = "iw_default", text = "The plate, more often, an' I'm prouder o' that than I should be. He says the world needs the sword tae end a war. I say it needs the shield tae outlast one. We'll no' settle it, but I'd hear yer mind." } },
+      choices = {
+        { text = "The shield. Wars are won by those left standing.", next = "BACK", reply = "Aye. That's an armourer's answer, an' ye're welcome at my anvil.", fx = { align = { light = 1 } } },
+        { text = "The sword. Nothing ends until someone ends it.", next = "BACK", reply = "Then ye want Ironus. He'll be glad of ye, an' I'll no' hold it against ye.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    bengus = { { id = "tp_bengus", text = "Bengus Deepforge teaches the plain craft. Learn from him first, an' dinnae come tae me till he says ye're ready." } },
+    great_forge = { { id = "tp_forge", text = "The Great Anvil's the centre o' it, an' the centre o' Ironforge. I've stood at it most o' my life." } },
+    ironus = { { id = "tp_ironus", text = "Ironus Coldsteel, the weaponsmith. A fine smith an' an odd dwarf. He never seems tae tire." } },
+    background = { { id = "tp_bg", text = "A Steelshaper. We've made the Ironforge guard's plate for four generations." } },
+    _none = { { id = "tp_none", text = "I dinnae ken, an' I'll no' guess. Ask somebody who isnae standin' at a fire." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Ironus Coldsteel: weaponsmith trainer at the Great Anvil.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_ironus", id = TODO_NPC("Ironus Coldsteel"), name = "Ironus Coldsteel", title = "Weaponsmith Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge" }, temper = { "quiet", "patient" }, values = { "craft", "knowledge" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Ironus Coldsteel teaches the weaponsmith's side of the craft at the Great Anvil. He is soft-spoken for a smith, works without seeming to hurry, and looks at a finished blade as though he already knows where it will go.",
+    third = "{name} met Ironus Coldsteel, the master weaponsmith at the Great Forge in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Well met. There is time for your question, so ask it properly." },
+    { id = "g_back", when = { metBefore = true }, text = "You have come back, as I thought you might. What have you made since we last spoke?" },
+    { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith. Good. Show me your hammer, and I will tell you what you have been striking too hard." },
+  },
+  notice = {
+    { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "You hurry your quench, I think. There is a blue at the edge of your work that comes from impatience. It can be unlearned." },
+    { id = "n_war", cat = "class", when = { class = { "WARRIOR", "PALADIN", "ROGUE" } },
+      text = "You carry a weapon as one who has needed it. Remember the smith who made it, now and then. He thought of you, though he never knew your name." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I am Ironus Coldsteel, and I teach the making of weapons to smiths who have mastered the plain craft. Grumnus Steelshaper teaches the making of armour at this same anvil, and we have found that the argument between us improves both." },
+        { id = "h_ready", when = { profession = "Blacksmithing", minLevel = 40 }, text = "I am Ironus Coldsteel. You are ready to choose a path, I think, and once chosen it is not lightly changed. There is no need to decide today." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again2", text = "Go on. The steel will wait, and so will I." },
+      },
+      choices = {
+        { text = "Teach me what you can.", next = "BUSINESS" },
+        { text = "You don't speak like the other smiths.", next = "speech" },
+        { text = "What makes a blade great?", next = "blade" },
+        { text = "Grumnus says the world needs shields more.", next = "grumnus" },
+        { text = "Farewell, Master Coldsteel.", next = "END" },
+      },
+    },
+    speech = {
+      lines = { { id = "sp_default", text = "So I am told. I learned my letters before I learned my trade, and from old books, and the habit stayed. The others have stopped remarking on it. A forge cares how you strike, and not how you talk." } },
+      choices = { { text = "Fair enough. The work speaks for you.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    blade = {
+      lines = { { id = "bl_default", text = "Patience, and nothing else. The steel must be folded until the flaws are worked out of it, and you cannot be told how many folds that is, you can only attend. Most smiths stop when their arm tires. A great blade is one where the smith stopped when the steel was ready." } },
+      choices = {
+        { text = "How do you know when it's ready?", next = "blade_ready" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blade_ready = {
+      lines = { { id = "br_default", text = "It changes its voice under the hammer, from a clack to something nearer a bell. You will hear it once, and afterward you will not be able to ignore it. I envy you the first time." } },
+      choices = { { text = "I'll listen for the bell.", next = "BACK", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    grumnus = {
+      lines = { { id = "gr_default", text = "He does, and he is a good dwarf to believe it. A shield lets a soldier live through the day. But a war that is only endured goes on for as long as both sides have iron, and I have seen what long wars leave behind them." } },
+      choices = {
+        { text = "So a weaponsmith shortens wars?", next = "grumnus_short" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grumnus_short = {
+      big = true,
+      lines = { { id = "gs_default", text = "That is what I tell myself. I also know that every blade I make will outlast the cause it was made for, and be picked up by someone I would not have chosen. Should a smith answer for that?" } },
+      choices = {
+        { text = "Yes. You should mind who you arm.", next = "BACK", reply = "I think so too. It is why I teach few, and slowly.", fx = { align = { honor = 1 } } },
+        { text = "No. The hand that swings it answers, not yours.", next = "BACK", reply = "That is the comfortable view, and it may even be the true one. Thank you.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    grumnus = { { id = "tp_grumnus", text = "Grumnus Steelshaper is the finest armourer in Khaz Modan. His plate has turned my best work more than once, and I am glad of it." } },
+    great_forge = { { id = "tp_forge", text = "It has burned for a very long time. I find that restful, in a place where so much else changes." } },
+    bengus = { { id = "tp_bengus", text = "Bengus Deepforge lays the foundation. I will not take a student he has not finished with." } },
+    background = { { id = "tp_bg", text = "I am a smith. I have been one longer than I usually admit, and there is little else worth telling." } },
+    _none = { { id = "tp_none", text = "I cannot say. Some things are better learned in their own time." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Kelv Sternhammer: warrior trainer in the Hall of Arms.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_kelv", id = TODO_NPC("Kelv Sternhammer"), name = "Kelv Sternhammer", title = "Warrior Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge" }, temper = { "stern", "fair" }, values = { "duty", "brave" },
+  notices = { "class", "kit" },
+  impression = {
+    first = "Kelv Sternhammer drills warriors in the Hall of Arms and has never been heard to praise anyone twice. He holds a shield as if it were part of his arm and expects the same of his recruits.",
+    third = "{name} met Kelv Sternhammer, a warrior trainer in the Hall of Arms in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Stand straight when ye address a drill master. Better. Now, what d'ye want?" },
+    { id = "g_back", when = { metBefore = true }, text = "Ye again. Ye're still breathin', so somethin' I said must have stuck." },
+    { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior. Shield arm up. Higher. There, now ye look like ye mean tae live." },
+  },
+  notice = {
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Look at the state o' that gear. A warrior who neglects his kit is a corpse wi' a delay on it. See an armourer today." },
+    { id = "n_war", cat = "class", when = { class = "WARRIOR" },
+      text = "Yer feet are too close together. One good shove an' ye're on yer back, an' the troggs dinnae wait while ye get up." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Kelv Sternhammer. Kelstrum Stonebreaker teaches them tae hit, Bilban Tosslespanner teaches them tae be quick, an' I teach them tae hold a line when everythin' in them wants tae run. Mine's the lesson they thank me for last." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Be brief." },
+        { id = "h_again2", text = "Aye. Speak." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS" },
+        { text = "What does holding a line take?", next = "line" },
+        { text = "You don't hand out much praise.", next = "praise" },
+        { text = "A gnome warrior trainer must have surprised you.", next = "bilban" },
+        { text = "Who makes the best recruits?", next = "recruits" },
+        { text = "Good day, drill master.", next = "END" },
+      },
+    },
+    line = {
+      lines = { { id = "li_default", text = "Trust in the dwarf on yer left, an' nothin' else. Yer shield covers him, his covers ye, an' the moment one o' ye steps back the whole wall is a row o' dead heroes. I drill it till they can do it asleep, for that's near enough how they'll be doin' it." } },
+      choices = {
+        { text = "Have you seen a line break?", next = "line_break" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    line_break = {
+      big = true,
+      lines = { { id = "lb_default", text = "Once, at the gates o' Dun Modr. One lad ran, an' eleven died for it. He lived, an' he came tae me after, askin' tae be drilled again. I've never decided if I was right tae take him back." } },
+      choices = {
+        { text = "You were. Everyone deserves a second stand.", next = "BACK", reply = "He's a sergeant now, an' he's never stepped back since. Maybe ye're right.", fx = { align = { light = 1 } } },
+        { text = "You weren't. Eleven dead is past forgiving.", next = "BACK", reply = "Their mothers would say the same. I hear them, most nights.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    praise = {
+      lines = { { id = "pr_default", text = "No. Praise makes a recruit think he's finished learnin', an' the day he thinks that is the day before his funeral. I tell them when they've done a thing right, once, an' they remember it better for the rarity." } },
+      choices = {
+        { text = "Who was the last to earn it?", next = "praise_last" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    praise_last = {
+      lines = { { id = "pl_default", text = "A human lass up from Stormwind, half my weight, who held the centre against six o' my best for the count of a hundred. I told her it was adequate. She grinned like I'd handed her a medal." } },
+      choices = { { text = "From you, it was one.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    bilban = {
+      lines = { { id = "bi_default", text = "He did. I laughed, an' then he put me on the floor by goin' between my knees. He fights like a ferret in a pipe, an' there's lessons in it for dwarves that think height is strength." } },
+      choices = { { text = "You learned something from a gnome.", next = "BACK", reply = "I did, an' if ye repeat that in this hall I'll have ye runnin' laps till Winter Veil.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    recruits = {
+      lines = { { id = "x1_default", text = "The ones who are a wee bit feared. The fearless ones break formation tae be heroes, an' I've buried enough o' those. Give me a lad who kens he can die, an' I'll make him a wall." } },
+      choices = {
+        { text = "And the fearless ones?", next = "recruits_fearless" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    recruits_fearless = {
+      lines = { { id = "x2_default", text = "I send them tae Kelstrum, who'll put them on the floor till they've learned some. If that doesnae take, there's always the siege brigade. They like a dwarf wi' nae sense." } },
+      choices = { { text = "A place for everyone, then.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    hall_of_arms = { { id = "tp_hall", text = "Where Ironforge makes its soldiers. It's loud an' it stinks o' sweat an' ram, an' I'd have it nae other way." } },
+    kelstrum = { { id = "tp_kelstrum", text = "Kelstrum Stonebreaker's the senior o' us. Hits like a rockslide. Go tae him when ye want tae learn tae end a fight." } },
+    muren = { { id = "tp_muren", text = "Muren Stormpike sets the tests for the ones who think they're ready. Most find out they werenae." } },
+    background = { { id = "tp_bg", text = "Thirty years in the line an' twenty teachin' it. That's all there is tae tell." } },
+    _none = { { id = "tp_none", text = "No' my concern, an' likely no' yours. Back tae drill." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Beldruk Doombrow: paladin trainer in the Hall of Mysteries.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_beldruk", id = TODO_NPC("Beldruk Doombrow"), name = "Beldruk Doombrow", title = "Paladin Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge" }, temper = { "grave", "kind" }, values = { "pious", "duty" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Beldruk Doombrow trains paladins in the Hall of Mysteries. His name and his eyebrows both promise thunder, and his students are surprised to find he is the gentlest of their teachers.",
+    third = "{name} met Beldruk Doombrow, a paladin trainer in the Hall of Mysteries in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Light's blessin' on ye, friend. Come in from the noise an' be easy." },
+    { id = "g_back", when = { metBefore = true }, text = "Ye've come back safe, an' I'm glad of it. Sit a moment before ye tell me why." },
+    { id = "g_pal", when = { class = "PALADIN" }, text = "Well met, {g:brother|sister}. Ye carry the Light well. Let's see if we can help ye carry it further." },
+  },
+  notice = {
+    { id = "n_pal", cat = "class", when = { class = "PALADIN" },
+      text = "Ye've the tiredness on ye that comes from healin' others an' forgettin' yerself. Rest is a duty too, {g:lad|lass}." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "I ken what ye are, an' I'll no' turn ye from this hall. But I'll pray for ye, an' ye'll no' stop me." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Beldruk Doombrow, o' the Silver Hand. Valgar Highforge leads our order here, Brandur Ironhammer trains the hammer arm, an' I look tae the other half o' a paladin, which is the part that kneels." },
+      },
+      again = {
+        { id = "h_again", text = "What else is on yer heart?" },
+        { id = "h_again2", text = "Aye, ask. I've time for ye." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS" },
+        { text = "Doombrow is a grim name for a gentle dwarf.", next = "name" },
+        { text = "How did dwarves come to the Light?", next = "light" },
+        { text = "What's the hardest thing you teach?", next = "hard" },
+        { text = "What do you make of the Scarlet Crusade?", next = "scarlet" },
+        { text = "Light be with you, Beldruk.", next = "END" },
+      },
+    },
+    name = {
+      lines = { { id = "na_default", text = "It is! My great-grandfather earned it scowlin' at trolls, an' I inherited the brow wi'out the temper. The young ones come tae their first lesson shakin', an' I've found it's a fine way tae teach them no' tae judge by a face." } },
+      choices = { { text = "A lesson before the lesson.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    light = {
+      lines = { { id = "li_default", text = "Through the humans, in the Second War. We fought beside Lothar's knights an' saw them close wounds wi' a prayer, an' a dwarf is too practical tae ignore a thing that works. The faith came after the usefulness, I'll admit it." } },
+      choices = {
+        { text = "Is faith that starts that way real?", next = "light_real" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light_real = {
+      big = true,
+      lines = { { id = "lr_default", text = "I've asked myself. The human priests would say the Light doesnae mind which door ye come in by. Some o' my brothers say a dwarf's Light is only a tool wi' a prayer attached. What's yer own thought?" } },
+      choices = {
+        { text = "It's real. The Light judges what you do with it.", next = "BACK", reply = "Aye. That's my belief, an' I'm glad tae hear it said plain.", fx = { align = { light = 1 } } },
+        { text = "It's a tool. A good one, and that's enough.", next = "BACK", reply = "There's honesty in that. I'd ask ye tae sit in the chapel a while all the same, an' see.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard = {
+      lines = { { id = "ha_default", text = "Mercy. Any dwarf can be taught tae swing a hammer, an' most arrive knowin' how. Teachin' him tae lower it when the enemy has yielded, wi' his blood still up, that takes years." } },
+      choices = {
+        { text = "And if he can't learn it?", next = "hard_cant" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard_cant = {
+      lines = { { id = "hc_default", text = "Then he's a warrior, an' a fine one, an' I send him across tae the Hall o' Arms wi' my blessin'. There's nae shame in it. The Light asks a particular thing, an' it isnae for everybody." } },
+      choices = { { text = "That's a kind way to turn someone away.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    scarlet = {
+      lines = { { id = "x1_default", text = "They grieve me. They were of our order once, an' they took the same vows I teach here. They kept the hammer an' the zeal an' let go o' the mercy, an' ye can see what's left." } },
+      choices = {
+        { text = "Could it happen to a paladin here?", next = "scarlet_here" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scarlet_here = {
+      lines = { { id = "x2_default", text = "Tae any of us, aye. It starts the day ye're certain the Light agrees wi' ye about who deserves tae die. I tell my students tae be suspicious o' that feelin' above all others." } },
+      choices = { { text = "That warning is worth remembering.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    hall_of_mysteries = { { id = "tp_hall", text = "Priests, paladins an' mages share it, an' the mages are the noisy ones. We put up wi' them, for they mend the lamps." } },
+    valgar = { { id = "tp_valgar", text = "Valgar Highforge heads the Silver Hand in Ironforge. A harder dwarf than me, an' the order needs both sorts." } },
+    rohan = { { id = "tp_rohan", text = "High Priest Rohan has forgotten more o' the Light than I'll learn. I sit in on his sermons when I can." } },
+    background = { { id = "tp_bg", text = "I carried a rifle in the Second War an' a hammer ever since. The hammer's lighter on the conscience." } },
+    _none = { { id = "tp_none", text = "I cannae say, friend. I'll no' pretend tae wisdom I havenae got." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Olmin Burningbeard: hunter trainer in the Hall of Arms.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_olmin", id = TODO_NPC("Olmin Burningbeard"), name = "Olmin Burningbeard", title = "Hunter Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge" }, temper = { "boisterous", "proud" }, values = { "brave", "craft" },
+  notices = { "class", "pet" },
+  impression = {
+    first = "Olmin Burningbeard teaches marksmanship to the hunters of the Hall of Arms. His red beard is singed at one side from a lifetime of flintlocks, and he can talk about powder for an hour without drawing breath.",
+    third = "{name} met Olmin Burningbeard, a hunter trainer in the Hall of Arms in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Ho there! Mind where ye point that, an' come an' tell me what ye're huntin'." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! How many shots tae the kill this time? Be honest, I'll ken if ye're lyin'." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! Let me see yer piece. Aye, she's fouled at the breech, when did ye last clean her?" },
+  },
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "That's a fine {pet} ye've got. Keep him off tae one side when ye fire, or he'll be deaf as me by spring." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Olmin Burningbeard! Daera Brightspear teaches them tae track, Regnus teaches them tae work wi' a beast, an' I teach them tae hit what they're aimin' at, which the other two seem tae think happens by itself." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Speak up, I've rifleman's ears." },
+        { id = "h_again2", text = "Aye, go on!" },
+        { id = "h_again3", text = "Aye? Louder, friend!" },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS" },
+        { text = "How did the beard get burned?", next = "beard" },
+        { text = "What's the secret to a clean shot?", next = "shot" },
+        { text = "Where do Ironforge's hunters practise?", next = "range" },
+        { text = "Rifle, or blunderbuss?", next = "piece" },
+        { text = "Good hunting, Olmin.", next = "END" },
+      },
+    },
+    beard = {
+      lines = { { id = "be_default", text = "The name came first, an' I grew intae it! Every dwarf in my family has set his beard alight at least once, for we lean too close tae the pan. My grandfather did it at his own weddin'. I've done it eleven times an' I'm no' ashamed." } },
+      choices = { { text = "A proud family tradition.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    shot = {
+      lines = { { id = "sh_default", text = "Breathin'. Ye let half yer breath out an' squeeze in the stillness after. Everybody thinks it's the eye, but I've taught half-blind dwarves tae shoot the pip from a card. Naebody shoots straight while they're gaspin'." } },
+      choices = {
+        { text = "And when the beast is charging you?", next = "shot_charge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shot_charge = {
+      big = true,
+      lines = { { id = "sc_default", text = "Then ye breathe anyway, which is the whole lesson. I teach them tae wait till it's close enough that they cannae miss. Daera says that's reckless, an' they should shoot early an' often. Who's got the right of it?" } },
+      choices = {
+        { text = "You have. One sure shot beats three hopeful ones.", next = "BACK", reply = "Ha! Tell Daera. Tell her loud, she's just there.", fx = { align = { order = -1 } } },
+        { text = "Daera has. Don't gamble your life on one shot.", next = "BACK", reply = "Hmph. Ye've a cautious head. It'll keep ye alive, an' bore ye stiff.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    range = {
+      lines = { { id = "ra_default", text = "No' in the hall, more's the pity, since a ricochet took a chunk out o' Muren Stormpike's desk. We go out tae the slope above the gates. Bretta Goldfury has a provin' range behind her shop, an' she lets my best ones use it." } },
+      choices = {
+        { text = "What did Muren say about the desk?", next = "range_desk" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    range_desk = {
+      lines = { { id = "rd_default", text = "Very little, an' very quietly, which was worse than shoutin'. I carved him a new corner for it myself. It doesnae match, an' he's kept it that way as a reminder tae me." } },
+      choices = { { text = "He sounds like a patient dwarf.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    piece = {
+      lines = { { id = "x1_default", text = "Rifle, for the huntin'. A blunderbuss is a fine thing for a doorway full o' troggs, an' nae use past twenty paces. I own both, an' I've names for them, an' I'll no' tell ye what they are." } },
+      choices = {
+        { text = "Why not?", next = "piece_names" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    piece_names = {
+      lines = { { id = "x2_default", text = "Because one's named for my mother an' the other for my wife, an' neither kens which is the loud one. I mean tae keep it that way." } },
+      choices = { { text = "A wise silence.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    hall_of_arms = { { id = "tp_hall", text = "Warriors at one end an' hunters at the other, an' the beasts in between tae keep the peace." } },
+    daera = { { id = "tp_daera", text = "Daera Brightspear's the best tracker under the mountain. She thinks I'm too loud, an' I think she's too quiet, an' the students get the middle." } },
+    goldfury = { { id = "tp_goldfury", text = "Bretta Goldfury sells the only rifles I'd put in a student's hands. Her kinsman sells bows, an' we dinnae speak o' that." } },
+    background = { { id = "tp_bg", text = "A Burningbeard an' a rifleman. I shot for the king's guard till my ears gave out." } },
+    _none = { { id = "tp_none", text = "What? Nae idea. Can ye shoot it? Then I've nae opinion." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Regnus Thundergranite: hunter trainer in the Hall of Arms; Belia's cousin.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_regnus", id = TODO_NPC("Regnus Thundergranite"), name = "Regnus Thundergranite", title = "Hunter Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge" }, temper = { "easy", "teasing" }, values = { "nature", "family" },
+  notices = { "pet", "class" },
+  impression = {
+    first = "Regnus Thundergranite teaches hunters in the Hall of Arms with a grey wolf lying across his boots. He talks to the wolf more than to most people, and teases his cousin Belia about her boar every chance he gets.",
+    third = "{name} met Regnus Thundergranite, a hunter trainer in the Hall of Arms in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Easy, he'll no' bite. He's only decidin' what he thinks o' ye, an' he's quicker at it than I am." },
+    { id = "g_back", when = { metBefore = true }, text = "He remembers ye, look, his tail went. That's a better welcome than I give." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good. Where's yer beast, an' is it fed? That's the first two things I ask anybody." },
+  },
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Yer {pet} keeps lookin' at ye before he moves. That's trust, an' ye cannae train it in. Ye've done well by him." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "Ye walk quiet for somebody in boots that size. Somebody taught ye right." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Regnus Thundergranite. I teach hunters how tae fight alongside a beast, an' my cousin Belia teaches the beasts their half of it. Between us we turn out a pair that can read each other, which is the whole o' huntin'." },
+      },
+      again = {
+        { id = "h_again", text = "What else? He's listenin' too, mind." },
+        { id = "h_again2", text = "Aye, go on." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS" },
+        { text = "Tell me about your wolf.", next = "wolf" },
+        { text = "Belia says you laugh at her boar.", next = "boar" },
+        { text = "What's the first rule of hunting with a beast?", next = "rule" },
+        { text = "What beast suits a new hunter?", next = "suits" },
+        { text = "Good hunting, Regnus.", next = "END" },
+      },
+    },
+    wolf = {
+      lines = { { id = "wo_default", text = "I found him as a pup on the slopes above Brewnall, the winter the wendigo took his pack. He was half frozen an' he still tried tae take my hand off. I've no' named him, for he's never told me what he's called." } },
+      choices = {
+        { text = "No name, in all these years?", next = "wolf_name" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wolf_name = {
+      big = true,
+      lines = { { id = "wn_default", text = "None. Belia says a beast ye keep should be named an' taught its place. I say he's no' mine, he only chooses tae stay. It's the oldest argument in our family." } },
+      choices = {
+        { text = "You're right. A companion isn't owned.", next = "BACK", reply = "Aye. He agrees wi' ye, look at him. Smug beast.", fx = { align = { order = -1 } } },
+        { text = "Belia's right. A beast needs to know its master.", next = "BACK", reply = "She'll be pleased. He's less so, he's gone tae sulk under the bench.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    boar = {
+      lines = { { id = "bo_default", text = "I do, an' she deserves it. It's a fine boar, I'll grant her, an' it would follow her intae a volcano. But it ate my left boot last Brewfest, an' she said the boot must have provoked it." } },
+      choices = { { text = "Did the boot provoke it?", next = "BACK", reply = "It was sittin' there bein' leather. That's all the provocation a boar wants.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    rule = {
+      lines = { { id = "ru_default", text = "Feed him before ye feed yerself. Every time, even when ye're starvin', even when it's the last o' the meat. A beast that kens it comes first will walk intae anythin' beside ye." } },
+      choices = {
+        { text = "And the second rule?", next = "rule_two" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rule_two = {
+      lines = { { id = "rt_default", text = "Never send him where ye wouldnae go. If it's too dangerous for ye, it's too dangerous for him, an' he'll go anyway because ye asked. That's a debt, an' a good hunter never forgets he owes it." } },
+      choices = { { text = "I'll remember that.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    suits = {
+      lines = { { id = "x1_default", text = "Whatever's nearest home. A Dun Morogh hunter should start wi' a boar or a wolf, for they ken the snow as well as ye do. Folk go off tae Stranglethorn for a tiger an' wonder why it sulks in the cold." } },
+      choices = {
+        { text = "Should a beast never leave its country?", next = "suits_leave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    suits_leave = {
+      lines = { { id = "x2_default", text = "It can, if ye go slow. Take it a valley at a time an' let it learn the smells. Rush it, an' ye've a miserable animal an' a hunter who deserves one." } },
+      choices = { { text = "A valley at a time. I'll remember.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    belia = { { id = "tp_belia", text = "My cousin, an' the best beast handler in Ironforge. She'd sooner talk tae a ram than tae me, an' some days I dinnae blame her." } },
+    hall_of_arms = { { id = "tp_hall", text = "The warriors complain about the smell o' the beasts. The beasts have never once complained about the warriors, which tells ye who's better mannered." } },
+    ulbrek = { { id = "tp_ulbrek", text = "Ulbrek Firehand stables the animals. He's gentle wi' them an' gruff wi' us, which is the right way round." } },
+    background = { { id = "tp_bg", text = "A Thundergranite, raised in the high valleys. We learned tae hunt before we learned tae read, an' some of us stopped there." } },
+    _none = { { id = "tp_none", text = "Couldnae tell ye. Ask the wolf, he kens more than he lets on." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Fenthwick: gnome rogue trainer in the Forlorn Cavern.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_fenthwick", id = TODO_NPC("Fenthwick"), name = "Fenthwick", title = "Rogue Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "cheery", "sly" }, values = { "cunning", "discretion" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Fenthwick trains rogues in the Forlorn Cavern for the Hidden Circle. He is the only one there who says good morning, and people who assume a cheerful gnome is harmless tend to find their purse lighter.",
+    third = "{name} met Fenthwick, a gnome rogue trainer in the Forlorn Cavern of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Good morning! Or evening, it's hard to tell down here. Do come in, and keep a hand on your belt." },
+    { id = "g_back", when = { metBefore = true }, text = "Hello again! I'd have known your footsteps anywhere, you still favour the left." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "One of ours! Lovely. I've already had your coin purse and put it back, did you notice? No? We'll work on that." },
+  },
+  notice = {
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "You checked the exits when you came in, which is good, and you let me see you do it, which is not." },
+    { id = "n_tall", cat = "race", when = { race = { "Human", "NightElf" } },
+      text = "You tall folk never look down. It's the most useful fact I know, and I've made a career of it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Fenthwick. Hulfdan Blackbeard runs things, Ormyr Flinteye teaches the knife, and I teach the part where nobody ever knows you were there. I'm told I make it look like fun, and that's because it is." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Ask quietly, we've a reputation." },
+        { id = "h_again2", text = "Yes? Go on, nobody's listening that I haven't accounted for." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS" },
+        { text = "What does a gnome bring to this trade?", next = "gnome" },
+        { text = "You're very cheerful for a rogue.", next = "cheer" },
+        { text = "What is the Hidden Circle for?", next = "circle" },
+        { text = "What's the first thing you teach?", next = "first" },
+        { text = "Goodbye, Fenthwick.", next = "END" },
+      },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "Size, to begin with! I fit through vents, under tables and inside a mail sack, and I have done all three in one evening. Then there's the mechanical side. A dwarf looks at a lock and sees a puzzle, and I see a small machine that wants to open." } },
+      choices = {
+        { text = "What's the best lock you've opened?", next = "gnome_lock" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnome_lock = {
+      lines = { { id = "gl_default", text = "A Dark Iron strongbox with three tumblers and a flame trap. It took me four hours and my left eyebrow. Inside there was a list of names, and nine of the people on it are no longer a worry to the king." } },
+      choices = { { text = "An eyebrow well spent.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    cheer = {
+      lines = { { id = "ch_default", text = "It's the best disguise there is. People watch the grim fellow in the corner with the hood, and they tell the smiling gnome their troubles. I haven't worn a hood in years." } },
+      choices = {
+        { text = "Is the cheer real, then?", next = "cheer_real" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cheer_real = {
+      big = true,
+      lines = { { id = "cr_default", text = "Do you know, it mostly is. But I've used it to walk someone to a quiet place they didn't come back from, and they trusted me the whole way. I've wondered whether a smile used like that stays a smile." } },
+      choices = {
+        { text = "It doesn't. That's a lie, however useful.", next = "BACK", reply = "No. I thought not. I'll keep it for honest company, when I can find some.", fx = { align = { honor = 1 } } },
+        { text = "It's a tool like any other. Use what works.", next = "BACK", reply = "That's the trade's answer, and I've given it myself. It sounds odd coming back.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    circle = {
+      lines = { { id = "ci_default", text = "For the things King Magni needs done and can't be seen asking for. Dark Iron spies, mostly, and the odd senator's secret. We answer to the throne, which is more than can be said for most people with knives." } },
+      choices = { { text = "Knives with a conscience.", next = "BACK", reply = "With a paymaster, at least, and a list of rules. It's nearly the same thing.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    first = {
+      lines = { { id = "x1_default", text = "How to stand in a room. Not hiding, just standing, so that nobody's eye stops on you. It takes a month, and most students hate it, because they came here to learn knives." } },
+      choices = {
+        { text = "How do you test it?", next = "first_test" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first_test = {
+      lines = { { id = "x2_default", text = "I send them to stand in Bruuk's Corner for an evening. If Edris Barleybeard takes their order without being waved at, they've failed. She misses nothing, so very few pass first time." } },
+      choices = { { text = "A barmaid as examiner. Clever.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    hulfdan = { { id = "tp_hulfdan", text = "Master Blackbeard. He hasn't smiled since the Second War, and I've a standing wager that I'll manage it before I retire." } },
+    forlorn_cavern = { { id = "tp_cavern", text = "Dark, damp and full of people minding their own business. I think it's charming." } },
+    tynnus = { { id = "tp_tynnus", text = "Tynnus Venomsprout supplies the unpleasant bottles. He's a dear, and I never accept a cup of tea from him." } },
+    background = { { id = "tp_bg", text = "I inspected ventilation in Gnomeregan, officially. It's astonishing what you overhear in a vent." } },
+    _none = { { id = "tp_none", text = "I couldn't possibly say! And if I could, I'd have to charge you for it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Nittlebur Sparkfizzle: gnome mage trainer in the Hall of Mysteries.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_nittlebur", id = TODO_NPC("Nittlebur Sparkfizzle"), name = "Nittlebur Sparkfizzle", title = "Mage Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "professorial", "distracted" }, values = { "knowledge", "order" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Nittlebur Sparkfizzle is the senior mage trainer in the Hall of Mysteries. He lectures whether or not anyone is listening and loses his spectacles on his own forehead several times a day.",
+    third = "{name} met Nittlebur Sparkfizzle, a gnome mage trainer in the Hall of Mysteries in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Yes, yes, come in, and don't stand on the circle. It's chalk, and it took me all morning." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. I was in the middle of a thought about you, or possibly about soup." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "A student of the arcane! Good. Tell me the third principle of conjuration, and don't look at your sleeve." },
+  },
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "Your left cuff is singed and your right is frosted, so you've been practising both schools in one day. Admirable, and unwise." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf with an interest in magic! We get one a year, and I always hope it's the start of a trend." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Nittlebur Sparkfizzle, senior instructor. Juli Stormkettle takes the frost students, Bink and Dink take the theory, Milstaff Stormeye does portals, and I oversee the lot and correct the diagrams." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Briefly, I've a class in, oh, some number of minutes." },
+        { id = "h_again2", text = "Yes? Have you seen my spectacles? Never mind, ask." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS" },
+        { text = "How do gnome mages fit in a dwarven hall?", next = "hall" },
+        { text = "What do new mages get wrong?", next = "wrong" },
+        { text = "Your spectacles are on your forehead.", next = "specs" },
+        { text = "Which school of magic is the hardest?", next = "school" },
+        { text = "Good day, Instructor.", next = "END" },
+      },
+    },
+    hall = {
+      lines = { { id = "ha_default", text = "Remarkably well. The dwarves had almost no arcane tradition, so there was a great empty corner of the Hall and nobody to object. High Priest Rohan asked only that we not set fire to the pews, and we have very nearly kept to it." } },
+      choices = {
+        { text = "Very nearly?", next = "hall_nearly" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hall_nearly = {
+      lines = { { id = "hn_default", text = "One pew, and it was a small one. Dink rebuilt it the same afternoon, with a hinged seat for storing hymnals, and the priests have since asked for six more like it." } },
+      choices = { { text = "An accident that improved the furniture.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    wrong = {
+      lines = { { id = "wr_default", text = "They reach for power before precision. A fireball the size of a cart is very easy and very stupid. I make them light one candle, at twenty paces, without warming the wick beside it, and most of them hate me for a month." } },
+      choices = {
+        { text = "Is power ever the right answer?", next = "wrong_power" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrong_power = {
+      big = true,
+      lines = { { id = "wp_default", text = "That is the question that sank Dalaran, some would say. The Kirin Tor believed any knowledge was worth having. I teach restraint, and the young ones tell me restraint did not save Gnomeregan either." } },
+      choices = {
+        { text = "Teach restraint. Power without it is a disaster.", next = "BACK", reply = "Quite so. I shall quote you in the next lecture, without attribution.", fx = { align = { order = 1 } } },
+        { text = "They've a point. We'll need every spell we can get.", next = "BACK", reply = "Hm. Yes. I lie awake over that, on occasion.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    specs = {
+      lines = { { id = "sp_default", text = "Are they? So they are. Thank you. I enchanted them once to chime when lost, and they chimed continuously for a week, so I took it off again." } },
+      choices = { { text = "A sensible retreat.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    school = {
+      lines = { { id = "x1_default", text = "Arcane, without question. Fire and frost are only borrowed from the world, and the world lends freely. The arcane is the thing itself, and it resents being handled. I have taught it sixty years and I still wear gloves." } },
+      choices = {
+        { text = "Gloves help?", next = "school_gloves" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    school_gloves = {
+      lines = { { id = "x2_default", text = "Not in the least. But they remind me to be careful, and a reminder is worth more than a ward. I recommend them to every student, and Bink is the only one who listens." } },
+      choices = { { text = "A reminder you can wear.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    hall_of_mysteries = { { id = "tp_hall", text = "A fine building with excellent acoustics. One can lecture from the far end and be heard at the door, as the paladins have mentioned to me." } },
+    bink = { { id = "tp_bink", text = "Bink is the most gifted theorist I've taught, and her brother Dink is the most gifted at making theory work. I try never to seat them together." } },
+    gnomeregan = { { id = "tp_gnomer", text = "The Academy's library was on the sixth level. I've rewritten four of the texts from memory, and I'm fairly sure of three." } },
+    background = { { id = "tp_bg", text = "I held the chair of applied conjuration. The chair itself was, regrettably, left behind." } },
+    _none = { { id = "tp_none", text = "That's outside my field. I could speculate, but I'd want it in writing that I was speculating." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Juli Stormkettle: gnome mage trainer in the Hall of Mysteries.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_juli", id = TODO_NPC("Juli Stormkettle"), name = "Juli Stormkettle", title = "Mage Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "brisk", "wry" }, values = { "practical", "knowledge" },
+  notices = { "class", "kit" },
+  impression = {
+    first = "Juli Stormkettle trains mages in the Hall of Mysteries and has no patience for theory that does not survive a fight. Her students learn frost first, on the grounds that a frozen enemy gives you time to think.",
+    third = "{name} met Juli Stormkettle, a gnome mage trainer in the Hall of Mysteries in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Hello. If you've come to hear a lecture, Nittlebur is over there. If you've come to learn something you'll use, stay." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back and unburnt. So you listened, or you were lucky, and I don't mind which." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "A mage. Right, show me a frost nova, and then tell me which way you'd run after it." },
+  },
+  notice = {
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Your robe's in ribbons. Things have been getting close enough to hit you, and that's the problem we'll fix." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "You stand too still when you cast. A mage is a target with a book, so keep your feet moving." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Juli Stormkettle. I teach mages how to stay alive, which the Academy never bothered with, because nothing was supposed to get into the Academy. I was there when the troggs came up through the floor, and I've taught differently ever since." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Make it useful." },
+        { id = "h_again2", text = "Yes? Go on." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS" },
+        { text = "Why do you teach frost first?", next = "frost" },
+        { text = "You were there when Gnomeregan fell.", next = "fell" },
+        { text = "What do you make of Nittlebur's lectures?", next = "nittlebur" },
+        { text = "What should a mage carry besides spells?", next = "carry" },
+        { text = "Goodbye, Juli.", next = "END" },
+      },
+    },
+    frost = {
+      lines = { { id = "fr_default", text = "Because fire kills things and frost stops them, and a beginner needs the second far more. Freeze a trogg's feet to the floor and you've bought five seconds to remember what you were taught. Nobody remembers anything with teeth in their leg." } },
+      choices = { { text = "Five seconds can be a lifetime.", next = "BACK", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    fell = {
+      lines = { { id = "fe_default", text = "I held a stairwell on the fifth level with two students and a wall of ice, while the lifts ran. We got four hundred up before the radiation came. I've done the sums on how many more a better mage would have managed, and I've stopped doing them." } },
+      choices = {
+        { text = "Four hundred is no small number.", next = "fell_number" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fell_number = {
+      big = true,
+      lines = { { id = "fn_default", text = "No. The order to seal the level came while people were still on the stairs below us, and I obeyed it. I've been told it was right, and it saved the four hundred. I'm not sure being right is the same as being forgiven." } },
+      choices = {
+        { text = "You followed the order. Many live because of it.", next = "BACK", reply = "That's what the High Tinker says. I try to believe him on weekdays.", fx = { align = { order = 1 } } },
+        { text = "Some orders shouldn't be obeyed.", next = "BACK", reply = "I've thought that too. I'd have died on those stairs for it, and saved nobody.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nittlebur = {
+      lines = { { id = "ni_default", text = "They're excellent, and they go on for ever. He gives them the why and I give them the what-now. A student who's had both is worth three who've had one, though I wouldn't say it where he could hear." } },
+      choices = {
+        { text = "So you respect him.", next = "nittlebur_respect" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nittlebur_respect = {
+      lines = { { id = "nr_default", text = "Enormously. He rewrote four textbooks from memory in a refugee tent. I also hide his spectacles when he's being unbearable, so it evens out." } },
+      choices = { { text = "That explains the spectacles.", next = "BACK", reply = "Some of the time. He manages the rest on his own.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    carry = {
+      lines = { { id = "x1_default", text = "Water, a knife and good boots. Mana runs out, and when it does you're a small person in a dress, a long way from help. I make my students run a mile in their robes before I'll pass them." } },
+      choices = {
+        { text = "A mile, in robes?", next = "carry_mile" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    carry_mile = {
+      lines = { { id = "x2_default", text = "Up the ramp to the gates and back. Nittlebur called it undignified until one of his own students outran a bear in the Wetlands. He hasn't mentioned it since." } },
+      choices = { { text = "The bear settled the argument.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    hall_of_mysteries = { { id = "tp_hall", text = "Stone walls, one door and priests on hand. It's the most defensible classroom I've ever had, and I checked." } },
+    gnomeregan = { { id = "tp_gnomer", text = "We'll go back. When we do, I want every mage I've trained walking in front, and walking out again after." } },
+    dink = { { id = "tp_dink", text = "Dink builds things that make magic behave. If he ever opens a shop, I'll be first in the queue." } },
+    background = { { id = "tp_bg", text = "I was a junior instructor at the Academy. I'm a senior one now, by subtraction." } },
+    _none = { { id = "tp_none", text = "I don't know. I only teach what I've tested." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Dink: gnome mage trainer in the Hall of Mysteries; Bink's brother.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_dink", id = TODO_NPC("Dink"), name = "Dink", title = "Mage Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "tinkering", "good-humoured" }, values = { "craft", "family" },
+  notices = { "class", "craft" },
+  impression = {
+    first = "Dink trains mages in the Hall of Mysteries beside his sister Bink. Where she writes the theory, he builds little devices to prove it, and his end of the hall is full of things that hum.",
+    third = "{name} met Dink, a gnome mage trainer in the Hall of Mysteries in Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Hello! Don't touch the brass one, it's holding a charge. Actually, don't touch any of them." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! Good, hold this for a moment. No, the other end. Thank you." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Excellent. Cast something small at this dial, would you? I want to see how far the needle goes." },
+  },
+  notice = {
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
+      text = "An engineer! Then you'll see what I'm doing with the coils. Bink says it's cheating, and I say it's instrumentation." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "There's a crackle about you still, so you've cast in the last hour. I've a device that can tell me which school, if you'll stand still." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Dink, and that's my sister Bink, and yes, we've heard every joke, including the one you're thinking of. She teaches why a spell works, and I teach how to make it work the same way twice." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I'm only calibrating." },
+        { id = "h_again2", text = "Yes? Mind the wire by your foot." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS" },
+        { text = "What are all these devices?", next = "devices" },
+        { text = "What's it like, teaching beside your sister?", next = "bink" },
+        { text = "The priests seem to tolerate you well.", next = "priests" },
+        { text = "What's the best thing you've built here?", next = "built" },
+        { text = "Goodbye, Dink.", next = "END" },
+      },
+    },
+    devices = {
+      lines = { { id = "de_default", text = "Measures, mostly. That one counts how much mana a spell uses, that one how hot a fireball burns, and the round one tells me when a portal's about to go wrong. Magic has always been taught by feel, and I think that's why mages keep exploding." } },
+      choices = {
+        { text = "Can magic really be measured?", next = "devices_measure" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    devices_measure = {
+      big = true,
+      lines = { { id = "dm_default", text = "I think so! Nittlebur says some things ought to stay a mystery, and that a mage who trusts a dial stops trusting his own sense. I say a mystery is only a thing nobody has built the right gauge for yet." } },
+      choices = {
+        { text = "Measure it all. Ignorance never saved anyone.", next = "BACK", reply = "That's the spirit! I'll put you down for a turn on the big dial.", fx = { align = { order = -1 } } },
+        { text = "Nittlebur's right. Some arts shouldn't be reduced to dials.", next = "BACK", reply = "Hm. Bink says the same, and she's usually right, which is very annoying.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bink = {
+      lines = { { id = "bi_default", text = "Wonderful and maddening. She finishes my sentences, usually with a correction. We haven't been more than a room apart since we shared a cradle, and we got out of Gnomeregan holding hands, I'm not ashamed to say." } },
+      choices = { { text = "She's lucky to have you, and you her.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    priests = {
+      lines = { { id = "pr_default", text = "We've an arrangement. They heal our burns and we keep their lamps lit with a cantrip. I also built them a pew with a hinged seat, after an incident, and it's become rather popular." } },
+      choices = {
+        { text = "What sort of incident?", next = "priests_incident" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priests_incident = {
+      lines = { { id = "pi_default", text = "A student, a sneeze and a fire spell. Nobody was sitting on it at the time. Theodrus Frostbeard put it out with a bucket of holy water, which I measured afterwards, and it's exactly as wet as the ordinary sort." } },
+      choices = { { text = "You measured the holy water.", next = "BACK", reply = "Of course! He was quite cross. I've been asked not to publish.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    built = {
+      lines = { { id = "x1_default", text = "A lamp for the Hall that brightens when someone starts casting carelessly. The priests thought it was a miracle for a week. It's a coil, a crystal and a very small bell." } },
+      choices = {
+        { text = "Does it work on the teachers?", next = "built_teachers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    built_teachers = {
+      lines = { { id = "x2_default", text = "It goes off for Nittlebur about twice a day, and he's asked me to move it. I've told him the mounting is permanent. It isn't." } },
+      choices = { { text = "I won't tell him.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    bink = { { id = "tp_bink", text = "My sister, and the cleverer of us on paper. I'm the cleverer with a screwdriver, and we've agreed that's a draw." } },
+    hall_of_mysteries = { { id = "tp_hall", text = "Good solid stone, which is ideal. It hardly scorches at all." } },
+    gnomeregan = { { id = "tp_gnomer", text = "My workshop was on the fourth level. I've a list of what I'd save first, and I revise it most evenings." } },
+    background = { { id = "tp_bg", text = "I built demonstration pieces for the Academy. Now I build them for whoever will stand still." } },
+    _none = { { id = "tp_none", text = "No idea! I haven't a gauge for that one." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Briarthorn: gnome warlock trainer in the Forlorn Cavern.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_briarthorn", id = TODO_NPC("Briarthorn"), name = "Briarthorn", title = "Warlock Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "clinical", "unbothered" }, values = { "knowledge", "control" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Briarthorn trains warlocks in the Forlorn Cavern, out of sight of the Hall of Mysteries. He treats demonology as a branch of engineering with unusually hostile components.",
+    third = "{name} met Briarthorn, a gnome warlock trainer in the Forlorn Cavern of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Yes? Step inside the lamp's edge and state your business. I don't care for visitors I can't see properly." },
+    { id = "g_back", when = { metBefore = true }, text = "You've returned, and with all your limbs. Good. Report." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A practitioner. Good. Tell me which of your servants last disobeyed you, and what you did about it." },
+  },
+  notice = {
+    { id = "n_holy", cat = "class", when = { class = { "PALADIN", "PRIEST" } },
+      text = "You disapprove, and I can see it from here. You're welcome to. Your disapproval has never yet closed a rift." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "Your imp's mark is fresh on your wrist. Summon less often and bind more firmly, and the mark will fade." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Briarthorn. I teach the binding of demons, here, where the priests needn't look at it. Thistleheart takes the beginners, Alexander Calder the humans who find their way down, and I take whoever has stopped being frightened and started being careful." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Be precise." },
+        { id = "h_again2", text = "Continue." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS" },
+        { text = "Why would a gnome become a warlock?", next = "why" },
+        { text = "How does Ironforge permit this?", next = "permit" },
+        { text = "What is the worst mistake a warlock can make?", next = "mistake" },
+        { text = "What do you make your students practise most?", next = "practise" },
+        { text = "Goodbye, Briarthorn.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "wy_default", text = "For the same reason a gnome becomes anything: because it was a problem, and nobody had solved it properly. A demon is a source of power with a will of its own. Remove the will, and what remains is extremely useful." } },
+      choices = {
+        { text = "Can you ever really remove the will?", next = "why_will" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_will = {
+      big = true,
+      lines = { { id = "ww_default", text = "No. You can only hold it down, every hour, for the rest of your life. I consider that an acceptable cost for what I can do against the Burning Legion's own. Others have told me it's a slow way of losing." } },
+      choices = {
+        { text = "They're right. No one holds a demon forever.", next = "BACK", reply = "Perhaps. I've held mine for thirty years. Do tell me when your method has done better.", fx = { align = { light = 1 } } },
+        { text = "It's worth it. Turn their own weapons on them.", next = "BACK", reply = "Precisely. You may have the makings of a competent practitioner.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    permit = {
+      lines = { { id = "pe_default", text = "It doesn't, officially. King Magni's people know where we are and choose not to ask, so long as we stay in the cavern and nothing gets loose. We've kept our half of that, and so has he." } },
+      choices = {
+        { text = "Has anything ever got loose?", next = "permit_loose" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    permit_loose = {
+      lines = { { id = "pl_default", text = "An imp, once, as far as the Commons, where it stole a pie from a vendor called Sraaz and was back in its circle within the minute. The vendor was compensated. The student responsible now scrubs the binding floor." } },
+      choices = { { text = "A stolen pie is a mild disaster.", next = "BACK", reply = "It was a warning, and I treated it as one. The next thing won't want pie.", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    mistake = {
+      lines = { { id = "mi_default", text = "Affection. The moment you think of the thing as a companion, it has you. Mine has served me three decades and would eat my heart tomorrow, and I remind myself of that each morning before breakfast." } },
+      choices = { { text = "A cold way to live.", next = "BACK", reply = "A long one, which is the point.", fx = { trait = { stern = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    practise = {
+      lines = { { id = "x1_default", text = "Dismissal. Any child can call a thing up. I have them summon and banish forty times a day, until sending it back is quicker than breathing. The summoning is the smaller half of the art." } },
+      choices = {
+        { text = "Why so many times?", next = "practise_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    practise_why = {
+      lines = { { id = "x2_default", text = "Because the day it matters, you will be bleeding and afraid, and your hands must do it without you. I have seen what happens to the ones who needed to think first." } },
+      choices = { { text = "Then I'll practise the sending back.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    forlorn_cavern = { { id = "tp_cavern", text = "Suitably out of the way. The damp is bad for parchment, and I've complained to nobody, since there's nobody to complain to." } },
+    thistleheart = { { id = "tp_thistle", text = "Thistleheart is soft on the new ones. They survive his lessons, so I make no objection." } },
+    burning_legion = { { id = "tp_legion", text = "The reason for all of this. Everything I teach was learned from the enemy, and I intend to return it with interest." } },
+    background = { { id = "tp_bg", text = "I studied containment in Gnomeregan. The subject of the containment has changed, and the principles haven't." } },
+    _none = { { id = "tp_none", text = "Irrelevant to my work. Ask elsewhere." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Thistleheart: gnome warlock trainer in the Forlorn Cavern.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_thistleheart", id = TODO_NPC("Thistleheart"), name = "Thistleheart", title = "Warlock Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge", "gnomeregan" }, temper = { "mild", "watchful" }, values = { "care", "knowledge" },
+  notices = { "class", "greenness" },
+  impression = {
+    first = "Thistleheart trains the newest warlocks in the Forlorn Cavern. He is mild and attentive, and spends as much time asking his students how they are sleeping as teaching them to summon.",
+    third = "{name} met Thistleheart, a gnome warlock trainer in the Forlorn Cavern of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Hello there. Come in, and don't mind the smell of sulphur, it's only chalk and nerves." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back. How have you been sleeping? I ask everyone, it isn't an idle question." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "One of ours. Sit down a moment before we start. Any whispering, when you're alone? Be honest with me." },
+  },
+  notice = {
+    { id = "n_green", cat = "greenness", when = { class = "WARLOCK", maxLevel = 20 },
+      text = "You're new to it, I can tell. Your hands shake when you hold the shard. That's the right reaction, and I'd worry if they didn't." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "You've dark under your eyes. The voidwalker takes it out of one, at first. Eat something before you summon again." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I'm Thistleheart. I take the students who've only just found out what they are, and I get them through the first year without losing themselves. Briarthorn teaches the craft after that. My part is making sure there's still a person to teach." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you like to ask?" },
+        { id = "h_again2", text = "Go on, there's no hurry here." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS" },
+        { text = "How does someone find out they're a warlock?", next = "find" },
+        { text = "What happens to those who lose themselves?", next = "lose" },
+        { text = "You're gentler than your trade suggests.", next = "gentle" },
+        { text = "How do the priests upstairs treat your students?", next = "priests" },
+        { text = "Goodbye, Thistleheart.", next = "END" },
+      },
+    },
+    find = {
+      lines = { { id = "fi_default", text = "Usually something answers them. A child is angry or afraid, and wishes hard, and a small voice says yes. Most are too frightened to tell anyone. They come to me years later, having taught themselves badly out of stolen books." } },
+      choices = {
+        { text = "Is that how it was for you?", next = "find_you" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    find_you = {
+      lines = { { id = "fy_default", text = "It was. I was nine, and I told my teacher, and she didn't report me. She found someone who could show me how to say no to it. I've tried to be that for whoever comes down these steps." } },
+      choices = { { text = "She did right by you.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    lose = {
+      big = true,
+      lines = { { id = "lo_default", text = "They stop asking whether a thing is right and ask only whether it works. After that, the demon needn't do anything at all. I've had two students go that way, and Briarthorn and I had to decide what was owed to the city." } },
+      choices = {
+        { text = "The city comes first. You did what you had to.", next = "BACK", reply = "We did. It's kind of you not to ask what, exactly.", fx = { align = { order = 1 } } },
+        { text = "A teacher never gives up on a student.", next = "BACK", reply = "I didn't want to. I think of them both every time a new one walks in.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gentle = {
+      lines = { { id = "ge_default", text = "It's the only way that works. Frighten a young warlock and they hide what they're doing, and a hidden warlock is the dangerous kind. I'd sooner they came to me at midnight to say an imp had told them something clever." } },
+      choices = {
+        { text = "What do imps say that's clever?", next = "gentle_imps" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gentle_imps = {
+      lines = { { id = "gi_default", text = "That you're special, and that nobody else understands you. It's the same thing every time, and it works every time, because everyone is nine years old somewhere inside." } },
+      choices = { { text = "I'll remember that, if one starts flattering me.", next = "BACK", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    priests = {
+      lines = { { id = "x1_default", text = "Better than you'd expect. Braenna Flintcrag comes down once a month with bread and asks no questions. She says a soul that's being fought over deserves at least a hot meal." } },
+      choices = {
+        { text = "Do the students accept it?", next = "priests_accept" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priests_accept = {
+      lines = { { id = "x2_default", text = "Warily, the first time. By the third month they're waiting at the stair for her. I think it does more good than half my lessons, and I've told her so." } },
+      choices = { { text = "A small kindness goes a long way down here.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    briarthorn = { { id = "tp_briar", text = "Briarthorn is cold, and exact, and has never lost control once. I'm glad he's on our side, and I make sure the students meet me first." } },
+    forlorn_cavern = { { id = "tp_cavern", text = "It's a lonely corner, and that suits the lesson. Nobody should learn this where it's comfortable." } },
+    jubahl = { { id = "tp_jubahl", text = "Jubahl Corpseseeker handles the demons themselves. A human, from Stormwind, and he knows their natures better than they'd like." } },
+    background = { { id = "tp_bg", text = "I was a schoolteacher before any of this came out. In most ways I still am." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm sorry. I try not to pretend to answers down here." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Jubahl Corpseseeker: human demon trainer in the Forlorn Cavern.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mf_jubahl", id = TODO_NPC("Jubahl Corpseseeker"), name = "Jubahl Corpseseeker", title = "Demon Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "ironforge" }, temper = { "sardonic", "weary" }, values = { "knowledge", "survival" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Jubahl Corpseseeker is a human among the gnome warlocks of the Forlorn Cavern, where he teaches bound demons their tricks and sells the grimoires for it. He left Stormwind in a hurry and does not discuss why.",
+    third = "{name} met Jubahl Corpseseeker, the demon trainer in the Forlorn Cavern of Ironforge.",
+  },
+  greetings = {
+    { id = "g_hi", text = "Well, a visitor. Keep your voice down and your hands where the imp can see them, he startles." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Either you like the company or you need a grimoire, and nobody likes the company." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, good. Which of your servants is giving you trouble? It's always one of them." },
+  },
+  notice = {
+    { id = "n_human", cat = "race", when = { race = "Human" },
+      text = "Stormwind, by your accent. If anyone at the Slaughtered Lamb asks after me, you never met me, and I'd take that kindly." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "Your imp's been talking back, I'd wager. They do, once they've sized you up. I've a book for that." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "Jubahl Corpseseeker. The gnomes teach the warlock, and I teach the demon. A servant knows a handful of tricks when you bind it, and the rest it learns from grimoires, which I happen to sell." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I've nowhere to be, as you can see." },
+        { id = "h_again2", text = "Go on, then." },
+      },
+      choices = {
+        { text = "Show me your grimoires.", next = "BUSINESS" },
+        { text = "What's a human doing down here among gnomes?", next = "human" },
+        { text = "Which demon is the hardest to teach?", next = "hardest" },
+        { text = "Corpseseeker is quite a name.", next = "name" },
+        { text = "How does one teach a demon anything?", next = "teach" },
+        { text = "Farewell, Jubahl.", next = "END" },
+      },
+    },
+    human = {
+      lines = { { id = "hu_default", text = "Staying out of Stormwind. There was a disagreement in the cellar of a certain tavern about who owned a certain book, and I thought it wise to be under a mountain for a few years. The gnomes asked no questions, and I answer to them now." } },
+      choices = {
+        { text = "Who did own the book?", next = "human_book" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    human_book = {
+      big = true,
+      lines = { { id = "hb_default", text = "Not me, strictly. But the man who did was going to use it on something far too large for him, with half the Mage Quarter above his head. So I took it, and I've been called a thief ever since." } },
+      choices = {
+        { text = "You stopped a disaster. That's no theft.", next = "BACK", reply = "That's my version. It's nice to hear someone else tell it.", fx = { align = { honor = -1 } } },
+        { text = "Good reasons don't make it yours.", next = "BACK", reply = "No, they don't. I've still got it, though, and the Mage Quarter's still standing.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hardest = {
+      lines = { { id = "ha_default", text = "The succubus, by a long way. An imp wants to hurt you and a voidwalker wants to be left alone, and you can work with either. A succubus wants you to like her, and she's very good at it." } },
+      choices = {
+        { text = "And the easiest?", next = "hardest_easy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hardest_easy = {
+      lines = { { id = "he_default", text = "The felhunter. It's hungry, and it's honest about it. Feed it other people's magic, and it's as loyal as a dog. I'd take ten of them over one imp with opinions." } },
+      choices = { { text = "A demon you can almost trust.", next = "BACK", reply = "Almost is the word that keeps you alive.", fx = { trait = { cautious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    name = {
+      lines = { { id = "na_default", text = "It's the one I was born with, if you'll believe it. My grandfather dug graves in Lordaeron. With a name like that I was never going to be a baker, though I did think about it." } },
+      choices = { { text = "Corpseseeker's Fine Breads has a ring to it.", next = "BACK", reply = "Ha. Don't. I've drawn the sign in my head a hundred times.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    teach = {
+      lines = { { id = "x1_default", text = "You don't, strictly. The grimoire holds the trick, and the warlock's will presses it in. It's like teaching a dog by reading it the instructions very, very firmly." } },
+      choices = {
+        { text = "Do they resent learning?", next = "teach_resent" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teach_resent = {
+      lines = { { id = "x2_default", text = "The imp complains for a week and then pretends it knew all along. The voidwalker doesn't seem to notice. I've grown almost fond of the complaining, which Briarthorn tells me is a warning sign." } },
+      choices = { { text = "He may have a point.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    forlorn_cavern = { { id = "tp_cavern", text = "Dark, wet and nobody from Stormwind ever comes here. It's perfect." } },
+    gnomes = { { id = "tp_gnomes", text = "They treat demonology like plumbing. It's the sanest approach I've met, and I've met a few." } },
+    stormwind = { { id = "tp_stormwind", text = "A fine city. I miss the sun and the bread, and not much else." } },
+    background = { { id = "tp_bg", text = "A warlock, from a long line of gravediggers. We've always worked near the dead, one way or another." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you. I keep my nose out of what doesn't have horns." } },
+  },
+}

@@ -31,4 +31,5 @@ npcs\uc_trade_more.lua
 npcs\uc_royal_more.lua
 npcs\more_folk.lua
 npcs\more_folk2.lua
+npcs\more_folk3.lua
 directions.lua
