@@ -163,7 +163,7 @@ P:NPC {
     },
     miner = {
       lines = { { id = "mi_default", text = "Dig where somebody else already dug, pal, and bring a big friend. That's the whole art, and it's served me well and cheap." } },
-      choices = { { text = "Words to live by.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "Words to live by, I suppose.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     druid = {
       lines = { { id = "dr_default", text = "Wrong? They try to eat us every day, pal! If it makes you feel better, bring me bones from the ones that charge first, because that's self-defence, and I'll write it down in the ledger if you like." } },

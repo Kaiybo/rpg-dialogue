@@ -236,7 +236,7 @@ P:NPC {
       },
       choices = {
         { text = "Leave the nests alone. This place should stay wild.", next = "BACK", reply = "Wild, sure, friend, but wild doesn't pay the bills. Fine, fine, I'll ease off the nests a bit, for my conscience.", fx = { align = { order = 1 } } },
-        { text = "The crater's huge. A few eggs won't matter.", next = "BACK", reply = "That's what I keep sayin', friend! A million raptors, a few eggs, and everybody's happy except the eggs.", fx = { align = { order = -1 } } },
+        { text = "The crater's huge. A few eggs won't matter.", next = "BACK", reply = "That's what I keep sayin'! There's a million raptors out there, and nobody's countin' eggs but me.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -320,7 +320,7 @@ P:NPC {
         { id = "d_default", text = "Me? Ha! I hid under a crate while one walked past, and the ground shook so hard the crate fell over and I had to hide under a different crate. That's my one devilsaur story, and I tell it to every customer, so now you've heard it too." },
       },
       choices = {
-        { text = "Smart. Living merchants sell more swords.", next = "BACK", reply = "That's what I say too, friend! A dead merchant's got no inventory and no customers.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Smart. Dead merchants don't sell many swords.", next = "BACK", reply = "That's what I say too, friend! A dead merchant's got no inventory and no customers.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "You should know the beasts your blades are meant for.", next = "BACK", reply = "Know 'em, sure, friend, from a safe distance under a crate. I know they're big, and that's all the research I need.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

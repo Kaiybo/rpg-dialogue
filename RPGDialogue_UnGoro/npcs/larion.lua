@@ -73,7 +73,7 @@ P:NPC {
     },
     lost_map = {
       lines = { { id = "lm_default", text = "Wrong? A dwarven map? I'll pretend ye didn't say that, for the sake of our friendship, which is now very new and very fragile." } },
-      choices = { { text = "Of course. Forget I asked.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "Of course not. Forget I asked.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     talk = {
       lines = { { id = "t_default", text = "Talk to him? He'll only say it was my fault, and then I'll say it was his, and we'll be right back where we started, only louder." } },
@@ -87,7 +87,7 @@ P:NPC {
       lines = { { id = "ts_default", text = "The pests are his way of saying he's sorry without saying it, and the zapper's my way of saying I'm not ready to hear it. That's how partners talk, when they've been partners long enough." } },
       choices = {
         { text = "Swallow your pride and go and make it up.", next = "BACK", reply = "Swallow my pride? Ye've no idea how big it is, it'd choke a kodo! Still, maybe ye're right, and maybe I'll try, once the pests are gone.", fx = { align = { honor = 1 } } },
-        { text = "Let him come to you. He started it.", next = "BACK", reply = "Aye, that's what I've been saying all along! He started it with his shortcut, and he can finish it with an apology.", fx = { align = { honor = -1 } } },
+        { text = "Let him come to you. He started it.", next = "BACK", reply = "Aye, that's what I've been sayin' all along! He started it wi' his blasted shortcut, so he can finish it wi' an apology, and I'll be right here, zapper in hand.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -142,7 +142,7 @@ P:NPC {
     },
     crater_moving = {
       lines = { { id = "cm_default", text = "Tar pits creep, the ferns grow over a path in a week, and I swear one of the crystal outcrops was a hundred yards further east last month. A dwarf can't map a place that won't hold still, and that's not an excuse, that's science." } },
-      choices = { { text = "Of course it is.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "Of course it is, Larion.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     plants = {
       lines = { { id = "pl_default", text = "Plants that bite my ankles at breakfast, and that walk, and that come from his patch every time! I don't care if they're flowers or fiends, they're his, and the zapper doesn't ask questions." } },

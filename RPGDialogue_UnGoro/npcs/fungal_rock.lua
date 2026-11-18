@@ -73,7 +73,7 @@ P:NPC {
         { id = "fi_default", text = "Karna did not build me to fight. She built me to watch and to be a good companion, and a good companion does not hurt the family it is visiting, even when the family is rude." },
       },
       choices = {
-        { text = "That was kind of you, A-Me. Gentleness is strength.", next = "BACK", reply = "Thank you. Karna said gentleness takes more strength than a fist, and I think she was right, though my dents disagree.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "That was kind of you, A-Me. It takes strength to be gentle.", next = "BACK", reply = "Thank you. Karna said gentleness takes more strength than a fist, and I think she was right, though my dents disagree.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Next time, hit back. Kindness got you dented.", next = "BACK", reply = "Perhaps I should, but then I would not be the companion Karna built. I would rather be dented and kind.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -92,7 +92,7 @@ P:NPC {
         { id = "kw_default", text = "She oils my joints every evening, and she named me, and she said I was her finest work. I do not know if that is what people mean by treating someone well, but it is what I want to go home to." },
       },
       choices = {
-        { text = "That sounds like family to me.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "That sounds like family to me, A-Me.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

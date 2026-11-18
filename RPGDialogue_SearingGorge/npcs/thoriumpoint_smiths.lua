@@ -167,7 +167,7 @@ P:NPC {
       },
       choices = {
         { text = "Ironforge will always stand first. That won't change.", next = "BACK", reply = "Maybe it will, an' maybe it won't, but we'll see whose anvil's still ringin' when the Firelord's gone. Come back in ten years.", fx = { align = { order = 1 }, affinity = -1 } },
-        { text = "Then let the work decide, not the clan.", next = "BACK", reply = "Now that's a fair-minded thing tae hear from a stranger. Let the steel speak, an' I'll stand by mine.", fx = { align = { order = -1 }, affinity = 2 } },
+        { text = "Forget the clans. Let the steel decide.", next = "BACK", reply = "Now that's a fair-minded thing tae hear from a stranger. Let the steel speak, an' I'll stand by mine.", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -180,7 +180,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll treat it better.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
-        { text = "It's a tool. It breaks, I replace it.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
+        { text = "It's a tool. When it breaks, I'll buy another.", next = "BACK", fx = { affinity = -1, trait = { stern = 1 } } },
       },
     },
 
@@ -304,7 +304,7 @@ P:NPC {
       },
       choices = {
         { text = "A debt like that can be paid off.", next = "BACK", reply = "I hope so, an' I'll keep payin' till it is. One supper at a time.", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Some ledgers never balance, Scrange.", next = "BACK", reply = "Maybe they don't, but a dwarf keeps payin' anyway. That's the only honest thing left tae do.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Some ledgers never balance, Scrange.", next = "BACK", reply = "Maybe they don't, but I'll keep payin' anyway, an' the lads'll keep eatin' while I do.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -369,7 +369,7 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll keep cutting them down.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "A week is something.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Only a week? Still, I'll take it.", next = "BACK", fx = { affinity = 1 } },
       },
     },
 

@@ -416,7 +416,7 @@ P:Views { topic = "scholomance", views = {
 P:Views { topic = "black_dragonflight", views = {
   { id = "fear", text = "Deathwing's children. I'd sooner face an army than one of them.", fx = { opinion = { black_dragonflight = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "So would most armies. The Burning Steppes are still smoking from the last time they took an interest in the place." },
-    { id = "b", text = "Wise. They're cleverer than any general, and older than most kingdoms. Fear is the right answer." },
+    { id = "b", text = "That's wise. They're cleverer than any general and older than most kingdoms, so fear is the right answer." },
   } },
   { id = "hunt", text = "Every dragon bleeds. Someday I'll prove it on a black one.", fx = { opinion = { black_dragonflight = "hate" }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Plenty have sworn the same at the bottom of Blackrock Mountain. Very few of them came back down to tell us how it went." },

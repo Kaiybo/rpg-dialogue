@@ -551,7 +551,7 @@ P:NPC {
       lines = { { id = "kf_default", text = "The clan trusts the Warchief, and the Warchief has chosen to call your people allies. I do not understand the Forsaken, but I have seen them on the Field of Strife, and none of them ran." } },
       choices = {
         { text = "We have nothing left to fear. That helps.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
-        { text = "Trust isn't required. Only results.", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "You don't need to trust me. You only need the results.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
 
@@ -583,7 +583,7 @@ P:NPC {
       lines = { { id = "xw_default", text = "We fight low and fast, for the snow is deep and a heavy warrior who charges too far is a dead one. Learn the paths between the towers, and you will kill more dwarves than any warrior who only knows how to run forward." } },
       choices = {
         { text = "I'll learn the paths.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } },
-        { text = "I run forward. It works for me.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "I just run straight at them. It's worked so far.", next = "BACK", fx = { trait = { brave = 1 } } },
       },
     },
     xdruid = {
