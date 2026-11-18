@@ -14,7 +14,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_kaldorei_home", when = { opinion = { topic = "night_elves", stance = "keep_home" } }, text = "You again, the one who would send me back to Ashenvale. I've thought on it, and I'm still here, but I listen to the east wind more than I did." },
+    { id = "g_op_westfall_help", when = { opinion = { topic = "westfall", stance = "self_reliance" } }, text = "You again, the one who said Westfall should look after itself. I've thought on it, and I've stopped looking east for the king's soldiers." },
     { id = "g_map", text = "Don't stand on the map." },
     { id = "g_bandanas", when = { questActive = TODO_QUEST("Red Leather Bandanas") }, text = "Bandanas? Count them out on the table; every one's a pin on my map." },
     { id = "g_after", when = { questDone = TODO_QUEST("Red Leather Bandanas") }, text = "My map's half red now, and that's your doing. It's a good red, too." },
@@ -35,32 +35,27 @@ P:NPC {
 
   start = "hello",
   nodes = {
-    op_kaldorei = {
+    op_westfall = {
       lines = {
-        { id = "op_kaldorei_a", text = "Some of them do not, and they say so with arrows on the practice range. Humans cut and burn and build, and then they ask us to help guard what they've built. You live among them, or you are one of them, so tell me: is this Alliance worth the kaldorei's arrows?" },
+        { id = "op_westfall_a", text = "Some of them in Stormwind don't, and they say so by sending nothing. We built their walls, then they let our farms go to dust and called the men who complained thieves. So you tell me: is Westfall worth saving, or should we stop waiting for the king?" },
       },
       choices = {
-        { text = "It is. Alone, every one of us falls to the Scourge or the Horde.", next = "op_kaldorei_1", fx = { opinion = { night_elves = "ally", alliance = "worth_it" }, align = { order = 1 }, affinity = 1 } },
-        { text = "No. Your people should guard Ashenvale and leave Westfall to us.", next = "op_kaldorei_2", fx = { opinion = { night_elves = "keep_home", ashenvale = "kaldorei_right" }, align = { order = -1 } } },
-        { text = "Humans owe you a debt. Hyjal saved all of us.", next = "op_kaldorei_3", fx = { opinion = { night_elves = "admire", humans = "indebted" }, trait = { curious = 1 }, affinity = 2 } },
-        { text = "Humans are short-lived and careless. We should keep our distance.", next = "op_kaldorei_4", when = { race = "NightElf" }, fx = { opinion = { humans = "careless", night_elves = "keep_home" }, trait = { proud = 1 } } },
-        { text = "That's for Darnassus to decide, not me.", next = "BACK" },
+        { text = "The crown will set it right. Hold the line until then.", next = "op_westfall_1", fx = { opinion = { westfall = "patience" }, align = { order = 1 }, affinity = 1 } },
+        { text = "Stop waiting. The militia is all Westfall needs.", next = "op_westfall_2", fx = { opinion = { westfall = "self_reliance" }, align = { order = -1 }, affinity = 1 } },
+        { text = "Stormwind abandoned you. That's the plain truth of it.", next = "op_westfall_3", fx = { opinion = { westfall = "abandoned" }, align = { order = -1 }, trait = { honest = 1 } } },
+        { text = "That's for Gryan and the king to settle, not me.", next = "BACK" },
       },
     },
-    op_kaldorei_1 = {
-      lines = { { id = "op_kaldorei_r1", text = "That is what Shandris Feathermoon says, and she has been right more often than I have. I'll keep my arrows on this map, then, and not on the practice range." } },
+    op_westfall_1 = {
+      lines = { { id = "op_westfall_r1", text = "That's what Gryan says, and he's been right more often than I have. I'll keep my pins in the map, then, and my temper in my pocket." } },
       choices = { { text = "Something else, scout.", next = "BACK" } },
     },
-    op_kaldorei_2 = {
-      lines = { { id = "op_kaldorei_r2", text = "Half my kin would embrace you for that. Ashenvale bleeds while I count bandanas here, and I think of it every night when the wind turns east." } },
+    op_westfall_2 = {
+      lines = { { id = "op_westfall_r2", text = "Half the hill would cheer you for that. Farmers with pitchforks and a scout with a map, and somehow we're still here, so maybe you're right." } },
       choices = { { text = "Something else, scout.", next = "BACK" } },
     },
-    op_kaldorei_3 = {
-      lines = { { id = "op_kaldorei_r3", text = "Few humans say it, and fewer know it. Remember it when someone calls us cold, and remind them who stood at the mountain when the Legion came." } },
-      choices = { { text = "Something else, scout.", next = "BACK" } },
-    },
-    op_kaldorei_4 = {
-      lines = { { id = "op_kaldorei_r4", text = "Careful, {g:brother|sister}. They are careless, yes, and they also die for farms that are not theirs, and I have watched them do it on this hill. Keep your distance if you like, but watch them first." } },
+    op_westfall_3 = {
+      lines = { { id = "op_westfall_r3", text = "Few outsiders say it, and fewer mean it. Remember it the next time someone in Stormwind calls this place a nest of thieves, and remind them who drove the farmers out." } },
       choices = { { text = "Something else, scout.", next = "BACK" } },
     },
     xdsham = {
@@ -82,34 +77,34 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "My people remember what the Well of Eternity did to the world, so yes, I watch your hands when you cast. But I've seen a human mage pin a Defias runner to the coast road with frost, and that was precise work, which I respect." } },
+      lines = { { id = "xma_default", text = "Farmers remember what the Dalaran sort did when they came through in the war, so yes, I watch your hands when you cast. But I've seen a human mage pin a Defias runner to the coast road with frost, and that was precise work, which I respect." } },
       choices = {
-        { text = "Magic is a tool, scout, and tools need rules.", next = "BACK", reply = "That is wiser than most of your kind manage, and I shall watch your hands a little less closely for it.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Magic should be free, whatever your elders fear.", next = "BACK", reply = "Free magic once drowned a continent, so forgive me if I prefer my elders' fear. Cast precisely, and we will not need to argue.", fx = { align = { order = -1 } } },
-        { text = "What brought you so far from your forests?", next = "kaldorei" },
+        { text = "Magic is a tool, scout, and tools need rules.", next = "BACK", reply = "That is wiser than most mages manage, and I shall watch your hands a little less closely for it.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Magic should be free, whatever farmers fear.", next = "BACK", reply = "Free magic is how Lordaeron got the plague, from what I hear, so forgive me if I side with the farmers. Cast precisely, and we will not need to argue.", fx = { align = { order = -1 } } },
+        { text = "How did you come to scouting?", next = "scouting_learn" },
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "I have, long ago and in another forest, and the things that whisper to you whispered to my people first. Keep your demon away from my maps, and we'll get along well enough." } },
+      lines = { { id = "xlo_default", text = "I have, in the war, when the orcs brought their warlocks over the mountains, and I saw what those things did to them. Keep your demon away from my maps, and we'll get along well enough." } },
       choices = {
-        { text = "Their power is mine now, scout, not theirs.", next = "BACK", reply = "That is precisely what the Highborne told themselves, and my people watched the sea take their city. Keep it away from my maps, warlock.", fx = { align = { light = -1 } } },
+        { text = "Their power is mine now, scout, not theirs.", next = "BACK", reply = "That is precisely what the orc warlocks told themselves, and look where it got them. Keep it away from my maps, warlock.", fx = { align = { light = -1 } } },
         { text = "I hold it so it can't hold anyone else.", next = "BACK", reply = "A noble purpose, if it holds, and I hope it does. I will still keep the demon away from my pins.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What are you watching for out there?", next = "watchers" },
       },
     },
     druid_talk = {
-      lines = { { id = "dt_default", text = "Because the Alliance asked, and because Shandris Feathermoon would not refuse it. The humans paid in blood at Mount Hyjal. I can spare a few seasons in their dust for that." } },
+      lines = { { id = "dt_default", text = "Because it's my farmland too. I grew up two hills from here, and when the Defias came I had a choice between a pitchfork and a map, and I've a better eye than arm." } },
       choices = {
-        { text = "Then I'll stand with you. We owe them.", next = "BACK", reply = "Then you are welcome on the hill, and I am glad of the company. Few of our people understand why I came.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Our place is in Ashenvale, not in their dust.", next = "BACK", reply = "Perhaps it is, and I will go home when this debt is paid. Until then, the dust is where I am needed.", fx = { align = { honor = -1 } } },
+        { text = "Then the land's lucky to have you. I'll help.", next = "BACK", reply = "Then you're welcome on the hill, druid, and I'm glad of the company. The soil here could use someone who listens to it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Land this poisoned should be left to heal alone.", next = "BACK", reply = "Perhaps it should, but the families on it can't wait that long. Until they can, I'm staying.", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Whoever is nearest, which is usually me, and I am a far better scout than a healer. Elune knows the hill could use a priest of any faith, and I would mark your name on my map gladly." } },
+      lines = { { id = "xapriest_default", text = "Whoever is nearest, which is usually me, and I am a far better scout than a healer. The Light knows the hill could use a priest, and I would mark your name on my map gladly." } },
       choices = {
-        { text = "Then I'll tend them. Every wounded farmer deserves the care.", next = "BACK", reply = "Then Elune guide your hands, and I will mark your name on the map gladly. The farmers will remember you.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll tend them. Every wounded farmer deserves the care.", next = "BACK", reply = "Then the Light guide your hands, and I will mark your name on the map gladly. The farmers will remember you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Healing farmers is wasted effort. Train real soldiers instead.", next = "BACK", reply = "Real soldiers come from those farmers, priest, or they come from nowhere. You do not know this hill as well as you think.", fx = { align = { light = -1 } } },
         { text = "Something else, scout.", next = "BACK" },
       },
@@ -126,7 +121,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_druidx", when = { class = "DRUID" },
-          text = "Elune's light on you, druid. It is good to see one of the Cenarion Circle this far from home." },
+          text = "A druid, in Westfall? The land could use you; nothing's grown right here since the Defias came." },
         { id = "h_default", text = "I'm Galiaan, scout for the militia. The Defias front moves every few days, so I move with it and write down where it's been." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Red Leather Bandanas") },
           text = "They wear red leather on their faces and they're proud of it, and that pride is how I track them. Bring me their bandanas and I'll tell you where they've been." },
@@ -139,7 +134,7 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "You walk light, like someone used to wind in your face, and that's useful in a scout. I'm not recruiting, mind; I'm only noticing." },
         { id = "h_human_hunter", when = { race = "Human", class = "HUNTER" },
-          text = "A human who tracks with a beast at heel. Not many of your folk take to it. The ones who do make the best scouts I've seen." },
+          text = "A human who tracks with a beast at heel. Not many of our folk take to it. The ones who do make the best scouts I've seen." },
         { id = "h_dust", when = { metBefore = true }, text = "Westfall hides nothing from a patient eye, though it hides everything under dust. I've dust in my boots, my bedroll, and my bread, and I've stopped minding." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The Defias front moves, so I hope you move with it, rather than standing in one place to be found." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. The militia lose more men to fever and wounds than to the Defias, so you are welcome on my side of the map." },
@@ -151,15 +146,15 @@ P:NPC {
         { id = "h_again2", text = "More questions? Fine, but mind the pins." },
       },
       choices = {
-        { text = "Why does a Sentinel scout watch over human farmland?", next = "druid_talk", when = { class = "DRUID" } },
+        { text = "Why does a scout guard farmland nobody else will?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Show me your map.", next = "map" },
         { text = "They all seem to wear red.", next = "bandanas" },
         { text = "Teach me something about scouting.", next = "scouting" },
         { text = "Those walking scarecrows didn't build themselves.", next = "watchers" },
         { text = "I could get closer to their camps than you.", next = "rogue", when = { class = "ROGUE" } },
         { text = "My beast could follow their trail by scent.", next = "hunter", when = { class = "HUNTER" } },
-        { text = "The kaldorei have scouted forests for ten thousand years.", next = "kaldorei", when = { race = "NightElf" } },
-        { text = "Your people distrust magic like mine, don't they?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "My people have scouted forests for ten thousand years.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "Westfall folk distrust magic like mine, don't they?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "You look at me like you've seen my kind before.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "How should a warrior fight a front that keeps moving?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Who tends the militia's wounded after your scouting runs?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -201,7 +196,7 @@ P:NPC {
     silk = {
       lines = { { id = "si_default", text = "The cloth's the rank: leather on the road, silk on the ones who give orders. Silk never comes up to the farms. It stays under Moonbrook and sends the leather out." } },
       choices = {
-        { text = "Do your people think the humans worth the trouble?", next = "op_kaldorei" },
+        { text = "Does Stormwind think Westfall is worth the trouble?", next = "op_westfall" },
         { text = "Then I'll stick to asking about the silk.", next = "BACK", fx = { learn = { "moonbrook" }, trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -264,7 +259,7 @@ P:NPC {
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail Buccaneers have been seen along the coast near the lighthouse, and I've started marking their sails. If they ever make common cause with the Defias, I'll need a bigger map and a lot more pins." } },
     si7 = { { id = "tp_si7", text = "SI:7 sends a man to ask for my maps now and then, and he never says why or gives them back. I've started making a second copy, and I'd advise any scout to do the same." } },
     the_stockade = { { id = "tp_the_stockade", text = "Every Defias I've ever seen taken in for the Stockade has been back in Westfall within the season. I mark it on my map with a little black pin, and I'm running out of black pins." } },
-    background = { { id = "tp_bg", text = "I'm a scout, and before that I was an elf who liked walking. The militia found a use for the walking." } },
+    background = { { id = "tp_bg", text = "I'm a scout, and before that I was a farmer's son who liked walking more than ploughing. The militia found a use for the walking." } },
     advice = { { id = "tp_ad", text = "Count the bandanas in a camp before you go in, then count them again, because someone's always lying down." } },
     defias = { { id = "tp_defias", text = "They wear red bandanas and good boots, and they've better discipline than they've any right to." } },
     moonbrook = {
