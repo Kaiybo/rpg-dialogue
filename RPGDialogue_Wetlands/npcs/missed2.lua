@@ -146,7 +146,7 @@ P:NPC {
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "A smith's forearms, those are. I've flux an' coal for ye, an' Brak Durnad's forge is up the street if ye need tae borrow heat." },
     { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
-      text = "Ye cook, do ye? Then take spices, for marsh meat wants all the help it can get." },
+      text = "Ye do yer own cookin', do ye? Then take spices, for marsh meat wants all the help it can get." },
   },
   start = "hello",
   nodes = {

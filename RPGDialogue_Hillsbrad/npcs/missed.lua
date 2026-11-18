@@ -98,7 +98,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "I am Tog'thar. We walked into Durnholde to look, and found more swords than we had seen outside a war, with robed men behind them throwing shadow. I woke in irons, with a human called Marlgen holding the key." },
+        { id = "h_default", text = "I am Tog'thar. We walked into Durnholde to look around, and we found more swords than we had seen outside a war, with robed men behind them throwing shadow. I woke in irons, with a human called Marlgen holding the key." },
         { id = "h_free", when = { questDone = TODO_QUEST("The Rescue") }, text = "I am Tog'thar, and I owe you a life, which an orc does not say lightly. Drull and I will stand beside you when you call for it." },
       },
       again = {
