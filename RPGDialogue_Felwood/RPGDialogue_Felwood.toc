@@ -28,3 +28,4 @@ npcs\jaedenar.lua
 npcs\impsy.lua
 npcs\talonbranch_trade.lua
 npcs\irontree_ancients.lua
+npcs\missed_folk.lua

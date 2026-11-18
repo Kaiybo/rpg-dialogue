@@ -141,11 +141,16 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_x1", when = { timeOfDay = "night" }, text = "Night flight, pal, best view of nothin' you'll ever pay for! She leaves when she leaves, so stay close to the tower." },
     { id = "g_default", text = "Tirisfal Glades, pal, the Undercity line, leaving from the top of the tower whenever the wind and the Cartel agree, which is about twice a day if the gas bags behave!" },
     { id = "g_back", when = { metBefore = true }, text = "My favorite repeat customer! Well, top five, but the list is short and you're on it." },
   },
 
   notice = {
+    { id = "n_x1", cat = "weary", when = { minLevel = 40 },
+      text = "You look like a frequent flyer, friend. I oughta start a ledger for folks like you, ten trips and the eleventh costs exactly the same." },
+    { id = "n_x2", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear headin' north! The Forsaken don't say much to your people, pal, but they don't say much to anybody, so don't take it personal." },
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "Going home, are ya? Lovely, lovely, and listen, you folks don't breathe, so you won't need a seat by the rail for the air, and I'll sell that one to a troll." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
@@ -164,6 +169,7 @@ P:NPC {
           text = "A tauren for the northern run! Stand in the middle, big fella, because the last time a tauren leaned on the starboard rail we came down in Hillsbrad with a lot of explaining to do." },
       },
       again = {
+        { id = "h_x_again1", text = "What else, pal? She's not in yet, so I'm all yours." },
         { id = "h_again", text = "What else, pal? The ship's late, so I've got nothing but time and opinions." },
         { id = "h_again2", text = "Go on, go on, ask away, every question's free until it's a ticket." },
       },
@@ -171,6 +177,9 @@ P:NPC {
         { text = "Is the zeppelin really safe?", next = "safe" },
         { text = "What's the Undercity like to deal with?", next = "undercity" },
         { text = "Why does a goblin run Horde zeppelins?", next = "cartel" },
+        { text = "How long is the run to Tirisfal?", next = "run" },
+        { text = "You and Nez'raz split the towers.", next = "nezraz" },
+        { text = "I'd sooner march than fly in that thing.", next = "march", when = { race = "Orc", class = "WARRIOR" } },
         { text = "I'll go and wait for the zeppelin.", next = "END" },
       },
     },
@@ -214,9 +223,46 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    run = {
+      lines = {
+        { id = "run_1", text = "Depends on the wind and the pilot, friend, and whether we go round the storm or through it. Call it long enough to regret your lunch and short enough that you can't ask for your money back." },
+      },
+      choices = {
+        { text = "What's below, on the way?", next = "below" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    below = {
+      lines = {
+        { id = "below_1", text = "Jungle, then swamp, then mountains with dwarves in 'em who'd love a shot at us, then a whole lot of dead farmland. I tell passengers to look at the clouds, on account of the clouds haven't got opinions." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nezraz = {
+      lines = {
+        { id = "nezraz_1", text = "We flipped a coin for Orgrimmar and I'd like it on record that it was his coin. He gets warriors goin' home happy, and I get folks goin' to the Undercity, who tip like they're already dead." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    march = {
+      lines = {
+        { id = "march_1", text = "From here to Tirisfal? Pal, that's through Duskwood, Stormwind's whole kingdom, three dwarf lands and the plague, and I admire the spirit, I do. The zeppelin's faster and the only thing shootin' at you is weather." },
+      },
+      choices = {
+        { text = "You make a fair case. Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    background = { { id = "tp_x_background", text = "Steamwheedle through and through, pal. I started on the Booty Bay docks countin' crates, and now I count passengers, which complain more." } },
+    rumors = { { id = "tp_x_rumors", text = "Word from the Tirisfal tower is the apothecaries are shipping crates south marked \"do not open\". I do not open 'em, friend, and I charge extra for not openin' 'em." } },
+    gromgol = { { id = "tp_x_gromgol", text = "Nice little camp, good customers, terrible weather for canvas. I patch that gas bag more than I patch my trousers." } },
+    advice = { { id = "tp_x_advice", text = "Stand in the middle of the deck, hold the rail, and don't lean out to wave. I've lost two hats and one passenger that way." } },
     _none = { { id = "tp_none", text = "No idea, pal, and I don't charge for not knowing, so you're getting a bargain." } },
   },
 }

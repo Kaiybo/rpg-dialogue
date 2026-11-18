@@ -529,7 +529,7 @@ P:NPC {
   key = "mf_roetten", id = TODO_NPC("Roetten Stonehammer"), name = "Roetten Stonehammer", title = "Reclaimers Inc.",
   bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "restless", "salesman" }, values = { "profit", "practical" },
-  notices = { "greenness" },
+  notices = { "greenness", "craft" },
   impression = {
     first = "Roetten Stonehammer paces the Library like a man waiting for a ship that's late. He works for Reclaimers Inc., which recovers valuables from places nobody else will go, and he talks about Desolace as though it were a gold mine.",
     third = "{name} met Roetten Stonehammer, a Reclaimers Inc. agent in the Ironforge Library who recruits for salvage work in Desolace.",
@@ -644,7 +644,7 @@ P:NPC {
   key = "mf_longbeard", id = TODO_NPC("Pilot Longbeard"), name = "Pilot Longbeard",
   bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "jovial", "nostalgic" }, values = { "friendship", "adventure" },
-  notices = { "race" },
+  notices = { "race", "craft" },
   impression = {
     first = "Pilot Longbeard has goggles pushed up on his forehead and a story ready for anyone who stands still. He talks fondly of the Brassbolts brothers out at the Shimmering Flats, as though racing gnomes were family.",
     third = "{name} met Pilot Longbeard, a jovial dwarf pilot in the Hall of Arms with friends among the racers of the Shimmering Flats.",
@@ -756,7 +756,7 @@ P:NPC {
   key = "mf_sheldonore", id = TODO_NPC("Artilleryman Sheldonore"), name = "Artilleryman Sheldonore",
   bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
   communities = { "ironforge" }, temper = { "loud", "boastful" }, values = { "proud", "craft" },
-  notices = { "class" },
+  notices = { "class", "craft" },
   impression = {
     first = "Artilleryman Sheldonore is a loud dwarf with gunpowder in his beard and strong opinions about bows. He'll talk your ear off about the virtues of a good rifle, and seems to think archery is a hobby for elves.",
     third = "{name} met Artilleryman Sheldonore, a gun-loving dwarf in the Commons who thinks arrows are for sissies.",
@@ -868,7 +868,7 @@ P:NPC {
   key = "mf_calder", id = TODO_NPC("Alexander Calder"), name = "Alexander Calder", title = "Warlock Trainer",
   bible = "bibles/more_folk.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "cold", "precise" }, values = { "power", "knowledge" },
-  notices = { "class" },
+  notices = { "class", "race" },
   impression = {
     first = "Alexander Calder is a pale, soft-spoken man who teaches warlocks in the back of Bonegrip's shop. He speaks slowly and precisely, as if each word costs him something, and he doesn't seem to blink often.",
     third = "{name} met Alexander Calder, a human warlock trainer in the Forlorn Cavern.",
@@ -1064,7 +1064,7 @@ P:NPC {
   key = "mf_belia", id = TODO_NPC("Belia Thundergranite"), name = "Belia Thundergranite", title = "Pet Trainer",
   bible = "bibles/more_folk.md", role = "trainer", tier = "service",
   communities = { "ironforge" }, temper = { "warm", "brisk" }, values = { "animals", "family" },
-  notices = { "class" },
+  notices = { "class", "pet" },
   impression = {
     first = "Belia Thundergranite teaches hunters how to train their beasts, and she greets the animals before she greets their owners. She has a laugh like a rockslide and a short temper for anyone who mistreats a pet.",
     third = "{name} met Belia Thundergranite, a dwarf pet trainer in the Hall of Arms.",

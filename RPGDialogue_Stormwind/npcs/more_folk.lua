@@ -667,11 +667,17 @@ P:NPC {
     third = "{name} met Garion Wendell, the librarian of Stormwind's Wizard's Sanctum.",
   },
   greetings = {
+    { id = "g_x1", when = { class = "MAGE" }, text = "Ah, one of the Sanctum's own. Have you brought me a book, or have you come to ask for one?" },
+    { id = "g_x2", when = { questDone = TODO_QUEST("Reading Room") }, text = "Welcome back to the reading room. Your table's free, and I've kept the lamp trimmed." },
     { id = "g_default", text = "Welcome to the Sanctum's library. Do you have a book for me? Everyone always seems to have a book for me, except when I ask." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you! Did you find anything on your travels? Even a torn page is worth a look." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage of the Sanctum! You'll be out in the world more than I ever am, so keep your eye out for books, will you?" },
   },
   notice = {
+    { id = "n_x1", cat = "arcane", when = { class = "WARLOCK" },
+      text = "I know what you study, and I'll thank you not to name it under this roof. If you've books on the subject, though, I'd sooner they were here than anywhere else." },
+    { id = "n_x2", cat = "arcane", when = { race = "Gnome" },
+      text = "A gnome! Your people's notebooks are the delight and the despair of my shelves. No two of them use the same numbering, and every one of them is right." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
       text = "Bring me the books you find out there, and the library is yours to study in. That's an old arrangement, and a good one." },
   },
@@ -683,6 +689,8 @@ P:NPC {
         { id = "h_access", when = { questDone = TODO_QUEST("Research Access") }, text = "The study tables are yours whenever you need them, as we agreed. I've kept the good lamp aside for you." },
       },
       again = {
+        { id = "h_x_again1", text = "Yes? I was only cataloguing. It will keep." },
+        { id = "h_x_again2", text = "Another question, and welcome. A library is for asking." },
         { id = "h_again", text = "Something else? I'm only cataloguing, and the catalogue never ends." },
         { id = "h_again2", text = "Go on. I've just finished a chapter, so I'm in a good mood." },
       },
@@ -691,6 +699,10 @@ P:NPC {
         { text = "What does a mage get for bringing one?", next = "access", when = { class = "MAGE" } },
         { text = "Some of those books must be dangerous.", next = "danger" },
         { text = "How does this compare to Dalaran's libraries?", next = "dalaran" },
+        { text = "Where do the books go once you have them?", next = "shelves" },
+        { text = "You speak of lost books as if they were people.", next = "people" },
+        { text = "I've found books in stranger places than tombs.", next = "finds", when = { class = "MAGE", minLevel = 30 } },
+        { text = "My people kept libraries before yours had letters.", next = "elves", when = { race = "NightElf" } },
         { text = "Good day, Garion.", next = "END" },
       },
     },
@@ -725,8 +737,51 @@ P:NPC {
       lines = { { id = "da_default", text = "Ours is a candle to Dalaran's sun, or it was, before the city fell. Who knows what was lost in the burning, and that's why I can't bear to turn away even a single page.", fx = { learn = { "dalaran" } } } },
       choices = { { text = "Something else, Garion.", next = "BACK" } },
     },
+    shelves = {
+      lines = {
+        { id = "shelves_1", text = "Into the catalogue first, with a note of who found it and where, and then to the shelf its subject earns. Geomancy has outgrown its case twice, and the works on the troll empires are stacked on the floor until the High Sorcerer finds me another room." },
+      },
+      choices = {
+        { text = "Who reads them?", next = "readers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    readers = {
+      lines = {
+        { id = "readers_1", text = "Apprentices, when their masters send them, and the masters themselves late at night when they think nobody will see what they've had to look up. I never tell, and I'm sure that's why they're so civil to me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    people = {
+      lines = {
+        { id = "people_1", text = "I suppose I do. A book is all that's left of somebody's whole mind, sometimes, and when one's burned or left to rot in a ruin it's a second death. I lost friends in Dalaran, and their books with them, so I can't always keep the two apart." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    finds = {
+      lines = {
+        { id = "finds_1", text = "Tell me, do, and slowly, so I can note it down. I've had volumes brought from a harpy's nest, a murloc's hut and the stomach of a crocolisk, and each time I think I've heard the last odd shelf-mark I shall have to invent." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    elves = {
+      lines = {
+        { id = "elves_1", text = "You did, and I'd give a great deal to see one. The oldest thing on my shelves is a few centuries; your people's youngest scroll would be the senior of everything in this tower, and I'd catalogue it standing up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    rumors = { { id = "tp_x_rumors", text = "An apprentice tells me a dealer in the canals is selling pages cut out of old spellbooks. If you see him, buy nothing, and tell me where he stands." } },
+    advice = { { id = "tp_x_advice", text = "Write your name in nothing and the place you found it in everything. A book without a provenance is only half a book." } },
     background = { { id = "tp_bg", text = "I wasn't much of a mage, but I was very good at finding things on shelves, so the Sanctum kept me." } },
     dalaran = { { id = "tp_dal", text = "They say the Violet Citadel's library survived. I'd give a great deal to see it, and a great deal more to borrow from it." } },
     _none = { { id = "tp_none", text = "I don't think we have a book on that, but I'll look, if you've an afternoon to spare." } },

@@ -585,3 +585,129 @@ P:NPC {
     _none = { { id = "tp_none", text = "I could not say. Ask the dwarves; they will tell you at great length." } },
   },
 }
+
+-- Jekyll Flandring: Forsaken Frostwolf Supply Officer outside the Horde tunnel (added later; the Horde
+-- counterpart to Thanthaldis Snowgleam).
+P:NPC {
+  key = "dal_jekyll", id = TODO_NPC("Jekyll Flandring"), name = "Jekyll Flandring", title = "Frostwolf Supply Officer",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "frostwolf" }, temper = { "dry", "meticulous" }, values = { "duty", "practical" },
+  notices = { "reputation", "race" },
+
+  impression = {
+    first = "Jekyll Flandring is a Forsaken quartermaster keeping the Frostwolf Clan's stores in the snow outside Alterac Valley. He hands out gear by standing with the clan and keeps his ledgers with a dead man's patience.",
+    third = "{name} met Jekyll Flandring, the Forsaken who supplies the Frostwolf Clan outside Alterac Valley.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "The Frostwolf stores are open to those the clan has reason to thank. State your business, and close the flap behind you." },
+    { id = "g_back", when = { metBefore = true }, text = "You are back, and still breathing, if you are the breathing kind. Let us see whether the clan thinks better of you than last time." },
+    { id = "g_rep", when = { reputation = { faction = "Frostwolf Clan", min = "revered" } }, text = "The orcs say your name at their fires. I have checked the ledger, and for once the talk and the figures agree." },
+    { id = "g_alliance", when = { faction = "Alliance" }, text = "You have walked to the wrong side of the mountain. I issue nothing to the Alliance but directions, and those lead away." },
+  },
+
+  notice = {
+    { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
+      text = "Another of the Dark Lady's own, in all this snow. The cold is the one thing here that does not trouble us, and I have learned not to mention it to the orcs." },
+    { id = "n_exalted", cat = "reputation", when = { reputation = { faction = "Frostwolf Clan", min = "exalted" } },
+      text = "Exalted among the Frostwolves. They do not give that to outsiders lightly, and I should know, for I am still waiting." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc. You will find the clan's welcome warmer than mine, but mine comes with an inventory." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Jekyll Flandring, supply officer to the Frostwolf Clan. What I am permitted to issue depends on your standing with the clan, so go into the valley, be useful to them, and return when the ledger has something to say for you." },
+        { id = "h_alliance", when = { faction = "Alliance" },
+          text = "There is nothing on these shelves for you. The Stormpike keep their own stores on their own side, and I suggest you go and trouble them." },
+      },
+      again = {
+        { id = "h_again", text = "Something further? Be brief, for the ink freezes if I leave it." },
+        { id = "h_again2", text = "Ask. I have nothing but time, as it happens." },
+        { id = "h_again3", text = "Yes? I am listening, and counting, and I can do both." },
+      },
+      choices = {
+        { text = "Show me the clan's stores.", next = "BUSINESS" },
+        { text = "A Forsaken, keeping stores for orcs?", next = "forsaken" },
+        { text = "How do I earn the clan's regard?", next = "regard" },
+        { text = "Who else keeps this camp?", next = "camp" },
+        { text = "What does the Dark Lady want with this valley?", next = "lady", when = { race = "Scourge" } },
+        { text = "Another time.", next = "END" },
+      },
+    },
+    forsaken = {
+      lines = {
+        { id = "fo_default", text = "The Warchief asked his allies for hands, and the Undercity sent what it could spare, which was a clerk. The orcs fight, the orcs sing, and the orcs cannot keep a tally to save their lives, so I was made welcome after a fashion." },
+      },
+      choices = {
+        { text = "What do the Frostwolves make of you?", next = "forsaken_clan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken_clan = {
+      lines = {
+        { id = "fc_default", text = "They are courteous, and they stand upwind. A Frostwolf will share his fire with anyone who shares his fight, and I respect that, though I notice the wolves will not come near me. Animals are more honest than people about such things." },
+      },
+      choices = {
+        { text = "Does that trouble you?", next = "forsaken_trouble" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken_trouble = {
+      big = true,
+      lines = {
+        { id = "ft_default", text = "Less than you would think. I was a quartermaster's clerk in Lordaeron while I lived, and I am one still. The uniform has changed and the pulse has gone, but a ledger is a ledger. I serve this clan well, and whether I owe it any more than service is a question I have not settled." },
+      },
+      choices = {
+        { text = "They took you in. You owe them loyalty.", next = "BACK", reply = "Perhaps I do. It is an odd thing to find at the end of one's death, a debt one does not resent.", fx = { align = { honor = 1 } } },
+        { text = "Serve your queen. The orcs are only useful.", next = "BACK", reply = "That is the Undercity's view, and it is tidy. I find the valley makes tidy views harder to hold.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    regard = {
+      lines = {
+        { id = "re_default", text = "Fight where Drek'Thar wants fighting, take what he wants taken, and carry back what the clan can use. I record every deed that reaches me, and the better the record reads, the deeper into these crates I may reach on your behalf." },
+      },
+      choices = {
+        { text = "Then I'll give you something to write down.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Let me see what's on offer now.", next = "BUSINESS" },
+      },
+    },
+    camp = {
+      lines = {
+        { id = "ca_default", text = "Warmaster Laggrond commands the approach and speaks for the clan to those who come to fight. Corporal Teeka Bloodsnarl gives out the day's orders, loudly. I keep what they need, and I am the only one of the three who has never mislaid a crate." },
+      },
+      choices = {
+        { text = "How do you find Corporal Bloodsnarl?", next = "camp_teeka" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp_teeka = {
+      lines = {
+        { id = "ct_default", text = "Admirably direct. She tells me daily that the dead should be buried and not billeted, and then she signs for her supplies in a firm hand. I prefer an honest insult to a polite silence, and she has never once given me the second." },
+      },
+      choices = {
+        { text = "An honest insult is a kind of respect.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lady = {
+      lines = {
+        { id = "la_default", text = "The same thing she wants everywhere, which is allies who owe us and neighbours who do not march on us. A Horde that remembers the Forsaken held a supply line in the snow is a Horde less likely to forget us when the Scourge comes south again." },
+      },
+      choices = {
+        { text = "Then we are an investment.", next = "BACK", reply = "We are, and I keep the accounts. Do try to yield a return.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    frostwolf = { { id = "tp_frost", text = "A clan that kept its own counsel in these mountains while the old Horde burned the south. They are proud, and I have come to think they have earned it." } },
+    stormpike = { { id = "tp_storm", text = "Dwarves with picks and a claim. They are stubborn enough to die here in great numbers, which I say with a certain professional interest." } },
+    undercity = { { id = "tp_under", text = "Home, if the word applies. It is warmer, darker and a good deal quieter than this, and nobody there sings." } },
+    _none = { { id = "tp_none", text = "That is not in my ledgers, and what is not in my ledgers I do not vouch for." } },
+  },
+}

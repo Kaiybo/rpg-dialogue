@@ -153,7 +153,7 @@ P:NPC {
   key = "dm_jarven", id = TODO_NPC("Jarven Thunderbrew"), name = "Jarven Thunderbrew",
   bible = "bibles/kharanos_brewers.md", role = "questgiver", tier = "quest",
   communities = { "kharanos" }, temper = { "grumpy", "dutiful" }, values = { "family", "duty" },
-  notices = { "drunk", "race" },
+  notices = { "drunk", "race", "class" },
 
   impression = {
     first = "Jarven Thunderbrew guards the barrels in the distillery cellar, surrounded by more ale than any dwarf could drink and under strict orders not to touch a drop. It has not improved his temper.",

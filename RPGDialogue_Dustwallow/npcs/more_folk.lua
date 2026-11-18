@@ -688,3 +688,1076 @@ P:NPC {
     _none = { { id = "tp_none", text = "Zulrg does not know that thing. Zulrg knows axes, so ask about axes." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Guard Byron (Theramore: They Call Him Smiling Jim)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "byron", id = TODO_NPC("Guard Byron"), name = "Guard Byron",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "theramore" }, temper = { "sympathetic", "plain" }, values = { "duty", "kind" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Guard Byron stands his watch in Theramore and worries about a neighbour while he does it. He talks about the burned inn on the north road as a man talks about something that happened to a friend.",
+    third = "{name} met Guard Byron of Theramore, who worries over the innkeeper they call Smiling Jim.",
+  },
+  greetings = {
+    { id = "g_default", text = "Afternoon. Mind how you go on the planks, they're slick after the rain, and it's always after the rain." },
+    { id = "g_2", when = { metBefore = true }, text = "Hello again. Still dry inside your boots, I hope? There's nothing else in Theramore that is." },
+    { id = "g_3", when = { questActive = TODO_QUEST("They Call Him Smiling Jim") }, text = "Have you spoken to Clerk Lendry yet? He keeps the records, and he'll know more about poor Jim than I do." },
+    { id = "g_4", when = { questDone = TODO_QUEST("They Call Him Smiling Jim") }, text = "Thank you for asking after Jim. Hardly anyone does now, and I think that's the worst part of it." },
+  },
+  notice = {
+    { id = "n_1", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
+      text = "You're of the Light, aren't you? There's a man in this town who could use a kind word from your sort, if he'd only hear it." },
+    { id = "n_2", cat = "race", when = { race = "NightElf" },
+      text = "We don't see many of your folk on the isle. You're welcome here, and the Lady would say the same." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "I'm Guard Byron, and I walk this stretch between the inn and the docks. It's a quiet beat, most days, and that leaves me a good deal of time to think about things I can't mend." },
+        { id = "hello_2", when = { questBefore = TODO_QUEST("They Call Him Smiling Jim") }, text = "You'll have seen the man who wanders by the inn, laughing at nothing. That's James Hyal, and they call him Smiling Jim now, and it's a shame what happened to him. Clerk Lendry has the whole story, if you care to hear it." },
+        { id = "hello_3", when = { questActive = TODO_QUEST("They Call Him Smiling Jim") }, text = "Clerk Lendry's in the citadel, with the town's papers. Ask him about James Hyal and the Shady Rest Inn, and be gentle if Jim himself wanders past while you do." },
+        { id = "hello_4", when = { questDone = TODO_QUEST("They Call Him Smiling Jim") }, text = "So now you know as much as any of us do. I only hope that Captain Vimes finds whoever lit that fire, for Jim's sake." },
+      },
+      again = {
+        { id = "hello_again1", text = "Anything else? I've an hour before the watch changes." },
+        { id = "hello_again2", text = "Go on, I'm listening. It makes the beat go quicker." },
+        { id = "hello_again3", text = "Ask away, friend." },
+      },
+      choices = {
+        { text = "Who is Smiling Jim?", next = "jim" },
+        { text = "Your beat looks quiet enough.", next = "beat" },
+        { text = "What do the guards make of the peace with the Horde?", next = "peace" },
+        { text = "Can nothing be done for him?", next = "healing", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Where were you before Theramore?", next = "before", when = { race = "Human" } },
+        { text = "Is there something I can do?", next = "BUSINESS" },
+        { text = "Stay dry, Byron.", next = "END" },
+      },
+    },
+    jim = {
+      lines = {
+        { id = "jim_default", text = "James Hyal kept the Shady Rest Inn, out on the road north through the marsh. He was a cheerful sort who'd stand a tired guard a drink, and that's where the name came from, back when it was a kind one." },
+      },
+      choices = {
+        { text = "What happened to the inn?", next = "jim_inn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jim_inn = {
+      lines = {
+        { id = "jim_inn_default", text = "It was burned to the ground one night, with his wife and his little one inside it. Jim was away, and he came home to find it still smoking. He hasn't been right since, and now he smiles at everything, because I think it's all he has left." },
+      },
+      choices = {
+        { text = "Who would burn a roadside inn?", next = "jim_who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jim_who = {
+      narr = "He glances up the street toward the citadel before he answers.",
+      lines = {
+        { id = "jim_who_default", text = "That's what Captain Vimes is trying to find out. Half the garrison says it was the Horde, and they say it loudly. I've heard no proof, mind, and I'll not hang a crime on anyone for the sake of having a name." },
+      },
+      choices = {
+        { text = "Wait for proof. Blame without it starts wars.", next = "BACK", reply = "That's what I tell the lads in the barracks. They don't always thank me for it, but it wants saying.", fx = { align = { order = 1 } } },
+        { text = "It was the Horde. Nobody else is out there.", next = "BACK", reply = "Maybe so, and you've plenty of company in thinking it. I'd still rather know than guess.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beat = {
+      lines = {
+        { id = "beat_default", text = "It is, and I'm glad of it. The lads on the towers get the raptors and the spiders, and I get drunken sailors and the odd lost chicken." },
+      },
+      choices = {
+        { text = "Do the sailors give you trouble?", next = "beat_sailors" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beat_sailors = {
+      lines = {
+        { id = "beat_sailors_default", text = "Only on the nights the Menethil boat comes in late. Bartender Lillian sends them out to me when they've had enough, and I walk them down to the docks and point them at the right ship." },
+      },
+      choices = {
+        { text = "And the wrong ship?", next = "beat_wrong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beat_wrong = {
+      lines = {
+        { id = "beat_wrong_default", text = "Once. He woke up halfway to Ratchet, and I'm told he liked it there and stayed. So I count that a service to the man." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peace = {
+      lines = {
+        { id = "peace_default", text = "We do as the Lady says, and most of us are glad to. I buried enough friends in Lordaeron, and I've no wish to bury more over a swamp." },
+      },
+      choices = {
+        { text = "Not every guard feels that way.", next = "peace_others" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peace_others = {
+      lines = {
+        { id = "peace_others_default", text = "No, and you'll hear them say so in the inn of an evening. Some of the old Kul Tiras men never forgave what happened to the Admiral, and they've started slipping away from the towers. Commander Samaul's none too pleased about it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    healing = {
+      lines = {
+        { id = "healing_default", text = "Doctor VanHowzen has tried, and so has the chaplain. They say there's nothing wrong with his body, and that the rest of him is somewhere they can't reach. A prayer wouldn't hurt, though, if you've one to spare." },
+      },
+      choices = {
+        { text = "I'll say one for him and his family.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before = {
+      lines = {
+        { id = "before_default", text = "I was a farmhand outside Andorhal, and after that I was a footman, for a short and ugly time. I came over on the Lady's ships with nothing but a borrowed sword, and Theramore gave me a wage and a dry bunk, more or less dry." },
+      },
+      choices = {
+        { text = "You've done well by it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    knows = { { id = "tp_knows", text = "I know this street, and who walks it, and who's stopped walking it. Ask, and I'll tell you what I can." } },
+    background = { { id = "tp_background", text = "I'm one of the Theramore Guard, on the town watch. It's not glorious work, and that suits me well enough." } },
+    theramore = { { id = "tp_theramore", text = "It's a hard little town full of folk who've lost everything once already. We look after one another because nobody else is going to." } },
+    jaina = { { id = "tp_jaina", text = "The Lady knows every guard by name, mine included. I'd not have believed that of a ruler before I came here." } },
+    rumors = { { id = "tp_rumors", text = "They found hoofprints in the ash at the Shady Rest, or so the scouts say. I don't know what to make of it, and neither does the captain." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you, friend. I just walk the beat." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Captain Evencane (Foothold Citadel, warrior trainer)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "evencane", id = TODO_NPC("Captain Evencane"), name = "Captain Evencane", title = "Warrior Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "theramore" }, temper = { "stern", "exact" }, values = { "duty", "strength" },
+  notices = { "class", "kit" },
+  impression = {
+    first = "Captain Evencane drills Theramore's soldiers in Foothold Citadel and watches a stranger's footwork before he looks at their face. He has no praise to spare for flourishes.",
+    third = "{name} met Captain Evencane, who trains warriors in Theramore's Foothold Citadel.",
+  },
+  greetings = {
+    { id = "g_default", text = "Stand straight when you come into my yard. Now, what do you want?" },
+    { id = "g_2", when = { metBefore = true }, text = "You're back. Let me see your guard; I'll know in a moment whether you've practised." },
+  },
+  notice = {
+    { id = "n_1", cat = "class", when = { class = "WARRIOR" },
+      text = "Your weight sits too far forward. You'll win quickly that way, or you'll lose quickly, and I train soldiers to do neither." },
+    { id = "n_2", cat = "kit", when = { class = { "ROGUE", "HUNTER" } },
+      text = "You're no line soldier, and I can see it from here. That's no insult, but stay off my drill square while the men are working." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "I am Captain Evencane, and I train the warriors of the Theramore Guard. Every soldier on these walls has stood in my yard until his arms shook, and every one of them is still alive, and those two facts are related." },
+        { id = "hello_2", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Good, because I've little patience for anyone else today. Show me your stance, and then we'll talk about what it's costing you." },
+        { id = "hello_3", when = { faction = "Horde" }, text = "You've some nerve, walking into the citadel. The Lady's peace covers you, so keep your hands still and be brief." },
+      },
+      again = {
+        { id = "hello_again1", text = "Is there more? The recruits are getting comfortable, and I can't allow that." },
+        { id = "hello_again2", text = "Ask. Then I've a drill to run." },
+        { id = "hello_again3", text = "Go on. Keep it short." },
+      },
+      choices = {
+        { text = "I'm here to train.", next = "BUSINESS", when = { class = "WARRIOR", faction = "Alliance" } },
+        { text = "How do you train men to fight in a swamp?", next = "swamp" },
+        { text = "Your recruits look young.", next = "young" },
+        { text = "Drill is for parades. Real fights are chaos.", next = "drill" },
+        { text = "What's the commonest mistake you see?", next = "mistake", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "I'll leave you to your drill, Captain.", next = "END" },
+      },
+    },
+    swamp = {
+      lines = {
+        { id = "swamp_default", text = "I make them drill in the shallows north of the gate, in full mail, until they stop looking at their feet. A man who watches his footing in the marsh doesn't see the crocolisk, and a man who watches for the crocolisk falls on his face, so he must learn to do both at once." },
+      },
+      choices = {
+        { text = "How long does that take?", next = "swamp_long" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    swamp_long = {
+      lines = {
+        { id = "swamp_long_default", text = "A month for a good recruit, three for a poor one. A few never learn it at all, and Commander Samaul puts those on the docks, where the ground stays where it's put." },
+      },
+      choices = {
+        { text = "That's a kindness, in its way.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young = {
+      lines = {
+        { id = "young_default", text = "They are. Most were children when Lordaeron fell, and they grew up on this rock hearing about a war they don't remember. They want one of their own, and that's the most dangerous thing about them." },
+      },
+      choices = {
+        { text = "What do you tell them?", next = "young_tell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young_tell = {
+      lines = {
+        { id = "young_tell_default", text = "That I've had mine, and that they're welcome to it. Then I run them round the walls until they're too tired to want anything except their supper." },
+      },
+      choices = {
+        { text = "Does it work?", next = "young_work" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young_work = {
+      lines = {
+        { id = "young_work_default", text = "Until the next morning. Then I run them again. That's what peacetime soldiering is, and nobody writes songs about it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drill = {
+      big = true,
+      lines = {
+        { id = "drill_default", text = "I've heard that from every brawler who ever picked up a sword. Chaos is exactly when a man does what his body has done a thousand times before, and so I decide beforehand what that will be." },
+      },
+      choices = {
+        { text = "You're right. Discipline holds when courage runs out.", next = "BACK", reply = "It does. I've watched it hold, with nothing else left standing.", fx = { align = { order = 1 } } },
+        { text = "Instinct wins fights. Drill only makes men predictable.", next = "BACK", reply = "Then I hope your instincts are very good. I've buried a great many who trusted theirs.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mistake = {
+      lines = {
+        { id = "mistake_default", text = "They swing with the arm and not with the hips, and then they wonder why they're spent after five strokes. Power comes up from the ground, through the legs, and anyone who tells you otherwise has never fought past noon." },
+      },
+      choices = {
+        { text = "From the ground. I'll work on it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "I was a sergeant under Lordaeron's banner and I've been a captain under the Lady's. The uniform changed, and the work didn't." } },
+    advice = { { id = "tp_advice", text = "Sleep when you can and eat when you can. A battle never waits for you to do either." } },
+    lordaeron = { { id = "tp_lordaeron", text = "I trained men there too. Most of them are dead, and I see their mistakes in every recruit, which is why I'm hard on these ones." } },
+    _none = { { id = "tp_none", text = "That's no concern of the drill yard. Ask someone with time to gossip." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brother Karman (Theramore, paladin trainer by the training dummies)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "karman", id = TODO_NPC("Brother Karman"), name = "Brother Karman", title = "Paladin Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "theramore" }, temper = { "grave", "kind" }, values = { "faith", "duty" },
+  notices = { "class", "light" },
+  impression = {
+    first = "Brother Karman teaches Theramore's paladins beside the training dummies outside the citadel. He speaks of the Light as something to be carried rather than something to be shown off.",
+    third = "{name} met Brother Karman, the paladin trainer of Theramore Isle.",
+  },
+  greetings = {
+    { id = "g_default", text = "Light be with you, friend. Come out of the wet, such as it is, and tell me what you need." },
+    { id = "g_2", when = { metBefore = true }, text = "Well met again. You look a little steadier than when I saw you last, and I'm glad of it." },
+  },
+  notice = {
+    { id = "n_1", cat = "class", when = { class = "PALADIN" },
+      text = "You carry a libram, and you carry it where you can reach it. Good, because too many of the young ones pack it under their rations." },
+    { id = "n_2", cat = "light", when = { class = "PRIEST" },
+      text = "A priest. We serve the same Light, you and I, though you mend what I can only stand guard over." },
+    { id = "n_3", cat = "class", when = { class = "WARLOCK" },
+      text = "I can smell brimstone on you, and I won't pretend otherwise. The Lady's peace holds for you as it does for anyone, so we'll both keep it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "I am Brother Karman, and I teach the Light's knights on this isle. The Silver Hand fell with Lordaeron, but a paladin's oath was never made to a kingdom, and so here we still are." },
+        { id = "hello_2", when = { class = "PALADIN", faction = "Alliance" }, text = "A knight of the Light, and one who's seen some road. Kneel a moment if you wish to, and then we'll see what I can teach you." },
+      },
+      again = {
+        { id = "hello_again1", text = "Is there more on your mind? I've time, and I'll have it until evening prayer." },
+        { id = "hello_again2", text = "Ask freely. A question has never offended the Light." },
+        { id = "hello_again3", text = "Go on, friend." },
+      },
+      choices = {
+        { text = "I've come for training.", next = "BUSINESS", when = { class = "PALADIN", faction = "Alliance" } },
+        { text = "What became of the Silver Hand here?", next = "hand" },
+        { text = "You teach beside the practice dummies, not in a chapel.", next = "yard" },
+        { text = "The Light didn't save Lordaeron.", next = "doubt" },
+        { text = "How do you keep faith in a place like this?", next = "faith", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "Light keep you, Brother.", next = "END" },
+      },
+    },
+    hand = {
+      lines = {
+        { id = "hand_default", text = "A handful of us sailed west with the Lady, and we've trained a few more since. We've no grand master and no chapter house, only a corner of a drill yard and whoever comes to it." },
+      },
+      choices = {
+        { text = "Is that enough to keep an order alive?", next = "hand_enough" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hand_enough = {
+      lines = {
+        { id = "hand_enough_default", text = "An order is an oath that people keep, friend. So long as one knight on this rock keeps it honestly, the Silver Hand is alive, and I've counted eleven." },
+      },
+      choices = {
+        { text = "Eleven is more than I expected.", next = "hand_eleven" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hand_eleven = {
+      lines = {
+        { id = "hand_eleven_default", text = "It's more than I expected myself, the day we landed. Three of them were born on this isle and have never seen a cathedral, and they're as true as any I knew in the old days." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yard = {
+      lines = {
+        { id = "yard_default", text = "Captain Evencane lends me the corner, and in exchange I patch up his recruits when they've hit one another too hard. A paladin who learns only in a chapel is surprised by his first battle, and I'd sooner they were surprised here." },
+      },
+      choices = {
+        { text = "Do you and the captain get on?", next = "yard_captain" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yard_captain = {
+      lines = {
+        { id = "yard_captain_default", text = "He thinks I'm soft on them, and I think he's hard on them, and between the two of us they turn out about right. I'd not tell him that, for he'd only run them harder." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    doubt = {
+      big = true,
+      lines = {
+        { id = "doubt_default", text = "No, it didn't. I was there, and I prayed as hard as any man living, and the dead got up all the same. I've had a good many nights to think about why." },
+      },
+      choices = {
+        { text = "The Light works through people. People failed, not the Light.", next = "BACK", reply = "That's where I came to rest as well, after a long while. It's a harder creed than the one I was taught, and I trust it more.", fx = { align = { light = 1 } } },
+        { text = "Then faith is no shield. Only strength is.", next = "BACK", reply = "I'll not argue with what you've seen. I'll only say that the strong fell there too, and they fell just as fast.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    faith = {
+      lines = {
+        { id = "faith_default", text = "I keep it small. I don't ask the Light for victories any more, only for enough to help the next person who's standing in front of me. It has never refused me that much." },
+      },
+      choices = {
+        { text = "That's a prayer I can use.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "I was a brother of the Silver Hand in Lordaeron, and I'm one still. I followed the Lady because she was saving people while others argued." } },
+    advice = { { id = "tp_advice", text = "Rest when you're wounded. The Light can mend flesh, but it doesn't mend foolishness." } },
+    silver_hand = { { id = "tp_silver_hand", text = "It's scattered, and not ended. Wherever one of us keeps the oath, there it is." } },
+    holy_light = { { id = "tp_holy_light", text = "I've stopped trying to explain it. I only try to be of use, and I find that the Light is there when I do." } },
+    scourge = { { id = "tp_scourge", text = "I'll not speak lightly of them. Every one was somebody's kin, and that is the cruelty of it." } },
+    _none = { { id = "tp_none", text = "I've no wisdom on that, I'm afraid. Ask me something nearer to my calling." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Alchemist Narett (Theramore, alchemy trainer)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "narett", id = TODO_NPC("Alchemist Narett"), name = "Alchemist Narett", title = "Alchemy Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "theramore" }, temper = { "fussy", "curious" }, values = { "craft", "careful" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Alchemist Narett teaches alchemy in Theramore and regards the surrounding marsh as a vast, badly labelled storeroom. He talks to his glassware under his breath.",
+    third = "{name} met Alchemist Narett, the alchemy trainer of Theramore Isle.",
+  },
+  greetings = {
+    { id = "g_default", text = "Don't breathe too deeply by that retort, if you please. It won't harm you, but it does linger." },
+    { id = "g_2", when = { metBefore = true }, text = "Ah, it's you. I've had a thought since you were last here, and it very nearly worked." },
+  },
+  notice = {
+    { id = "n_1", cat = "craft", when = { profession = "Alchemy" },
+      text = "Those are an alchemist's sleeves if ever I saw them. Tell me, do you rinse your vials with marsh water? Please say that you don't." },
+    { id = "n_2", cat = "craft", when = { profession = "Herbalism" },
+      text = "You've been picking in the marsh, I think. If there's any fresh liferoot in that bag, Uma Bartulm will take it, and I'll have it from her by supper." },
+    { id = "n_3", cat = "class", when = { class = "MAGE" },
+      text = "One of the Lady's sort. Archmage Tervosh borrows my alembics and returns them cleaner than he found them, which I find suspicious." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "I am Narett, alchemist to the garrison, and I teach the craft to anyone careful enough to learn it. Dustwallow is a foul place to live and a wonderful place to gather, and I've made my peace with both." },
+        { id = "hello_2", when = { profession = "Alchemy" }, text = "A fellow of the craft! Come in, come in, and mind the floor, because I spilled something this morning and it hasn't quite decided what it is." },
+      },
+      again = {
+        { id = "hello_again1", text = "Something more? Ask it while this settles." },
+        { id = "hello_again2", text = "Go on. I've a quarter of an hour before the next stage." },
+        { id = "hello_again3", text = "Yes, yes, what is it?" },
+      },
+      choices = {
+        { text = "Teach me alchemy.", next = "BUSINESS", when = { faction = "Alliance" } },
+        { text = "What does the marsh give an alchemist?", next = "marsh" },
+        { text = "Who drinks all these potions?", next = "who" },
+        { text = "Alchemy is just cooking with worse smells.", next = "cooking" },
+        { text = "What's the oddest thing you've brewed from the marsh?", next = "oddest", when = { profession = { "Alchemy", "Herbalism" } } },
+        { text = "Good luck with your work, Narett.", next = "END" },
+      },
+    },
+    marsh = {
+      lines = {
+        { id = "marsh_default", text = "Liferoot and fadeleaf along the banks, kingsblood on the drier ground, and bogbean nearly everywhere. Half of what grows here will cure you and the other half will kill you, and a good many do one or the other depending on the dose." },
+      },
+      choices = {
+        { text = "How do you tell which is which?", next = "marsh_tell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    marsh_tell = {
+      lines = {
+        { id = "marsh_tell_default", text = "By reading, and testing, and one regrettable afternoon in my first year. Doctor VanHowzen has asked me not to test on myself any longer, and I've agreed in principle." },
+      },
+      choices = {
+        { text = "In principle?", next = "marsh_principle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    marsh_principle = {
+      lines = {
+        { id = "marsh_principle_default", text = "Well, somebody must be the first to taste a thing. I take a great deal less than I used to, and I leave notes on the bench in case I'm found asleep." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who = {
+      lines = {
+        { id = "who_default", text = "The Guard, chiefly. Every patrol that goes up the north road takes healing draughts and something against fever, and Commander Samaul sends back the empties with a count of how many worked." },
+      },
+      choices = {
+        { text = "How many do work?", next = "who_count" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who_count = {
+      lines = {
+        { id = "who_count_default", text = "All of the draughts, and most of the fever cures. The marsh breeds a new sickness every wet season, and I'm always one season behind it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cooking = {
+      big = true,
+      lines = {
+        { id = "cooking_default", text = "Morgan Stern says exactly the same, and he means it as a compliment. The difference is that when his stew goes wrong somebody has a bad night, and when my draught goes wrong somebody doesn't wake up." },
+      },
+      choices = {
+        { text = "That's why your craft needs rules, and plenty of them.", next = "BACK", reply = "Quite so! I've a list of forty on the wall, and I add to it whenever something surprises me.", fx = { align = { order = 1 } } },
+        { text = "Rules never discovered anything. Experiment more.", next = "BACK", reply = "Oh, don't tempt me. That's just what I say to myself shortly before the regrettable afternoons.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oddest = {
+      lines = {
+        { id = "oddest_default", text = "A tonic from crocolisk bile and bogbean that was meant to settle the stomach. It turned the drinker's tongue bright green for a week, and it did settle the stomach, so I've called it a success." },
+      },
+      choices = {
+        { text = "I'd take the green tongue.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "I trained in Dalaran, among people who never left their towers. I came west with the Lady and found that I rather like mud." } },
+    advice = { { id = "tp_advice", text = "Label everything, and date it. Your memory is not as good as you believe it to be." } },
+    dalaran = { { id = "tp_dalaran", text = "It's a fine city for theory. For practice, give me a swamp and a strong stomach." } },
+    theramore = { { id = "tp_theramore", text = "It's a town that needs a great many healing draughts, and so it's a good town for an alchemist, sad as that is." } },
+    _none = { { id = "tp_none", text = "That's outside my field. If it bubbles, bring it to me." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Brant Jasperbloom (Theramore, herbalism trainer)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "jasperbloom", id = TODO_NPC("Brant Jasperbloom"), name = "Brant Jasperbloom", title = "Herbalism Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "theramore" }, temper = { "gentle", "wry" }, values = { "nature", "patient" },
+  notices = { "craft", "weary" },
+  impression = {
+    first = "Brant Jasperbloom teaches herbalism in Theramore and goes into the marsh more often than the guards think wise. He names every plant on the isle as a neighbour might name the people in his street.",
+    third = "{name} met Brant Jasperbloom, the herbalism trainer of Theramore Isle.",
+  },
+  greetings = {
+    { id = "g_default", text = "Good day to you. Mind the pots by the door, for they're seedlings, and they're sulking about the salt air." },
+    { id = "g_2", when = { metBefore = true }, text = "Back again, and with mud to the knee. You've been out picking, haven't you?" },
+  },
+  notice = {
+    { id = "n_1", cat = "craft", when = { profession = "Herbalism" },
+      text = "There's green under your nails, friend, and you have a gatherer's stoop. I'd guess you know your way around a root." },
+    { id = "n_2", cat = "weary", when = { durability = { max = 0.35 } },
+      text = "The marsh has had a go at you, I see. Sit down a moment, because nothing grows faster for being picked by a tired hand." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "I'm Brant Jasperbloom, and I teach folk to gather without killing what they gather from. Dustwallow looks like rot and ruin, but there's more growing in one acre of it than in the whole of Elwynn." },
+        { id = "hello_2", when = { profession = "Herbalism" }, text = "A fellow gatherer! Then you'll have seen what the marsh keeps. Tell me that you take the leaf and leave the root, and we'll be friends." },
+      },
+      again = {
+        { id = "hello_again1", text = "What else can I tell you? The seedlings won't mind." },
+        { id = "hello_again2", text = "Ask away. I talk to plants all day, so a person makes a nice change." },
+        { id = "hello_again3", text = "Go on, friend." },
+      },
+      choices = {
+        { text = "Teach me herbalism.", next = "BUSINESS", when = { faction = "Alliance" } },
+        { text = "What's worth picking in the marsh?", next = "picking" },
+        { text = "The guards say you go out alone.", next = "alone" },
+        { text = "A weed's a weed. Pull it and move on.", next = "weed" },
+        { text = "Where does the best liferoot grow?", next = "liferoot", when = { profession = { "Herbalism", "Alchemy" } } },
+        { text = "Good growing to you, Brant.", next = "END" },
+      },
+    },
+    picking = {
+      lines = {
+        { id = "picking_default", text = "Liferoot by the water, fadeleaf in the shade of the big cypress, and goldthorn up on the dry ridges toward the Barrens. And bogbean, of course, which Morgan Stern at the inn wants by the basket for some recipe he won't describe." },
+      },
+      choices = {
+        { text = "What does he do with bogbean?", next = "picking_bogbean" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    picking_bogbean = {
+      lines = {
+        { id = "picking_bogbean_default", text = "He won't say, and I've given up asking. He sent young Ignatz out past North Point Tower to gather more of it, with the raptors about, so it must be a remarkable dish." },
+      },
+      choices = {
+        { text = "Is the lad safe out there?", next = "picking_ignatz" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    picking_ignatz = {
+      lines = {
+        { id = "picking_ignatz_default", text = "As safe as anyone is who talks that much near raptors. He's quick on his feet, I'll give him that, and the soldiers at the tower keep half an eye on him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alone = {
+      lines = {
+        { id = "alone_default", text = "I do, and Captain Vimes has had words with me about it. But six soldiers in mail frighten off everything, the herbs included, I sometimes think, and one quiet man with a basket walks past a great deal." },
+      },
+      choices = {
+        { text = "Has the marsh ever caught you out?", next = "alone_caught" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alone_caught = {
+      lines = {
+        { id = "alone_caught_default", text = "A spider the size of a cart dropped onto my basket once, near the Darkmist Cavern. I left the basket and kept my legs, and I've not picked on that side since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    weed = {
+      big = true,
+      lines = {
+        { id = "weed_default", text = "There are folk who'd burn the whole marsh for pasture, and some of them sit on the town council. I tell them that the fever cure in their cupboard grew in the very bog they'd like to drain." },
+      },
+      choices = {
+        { text = "Leave the marsh be. It gives more than it takes.", next = "BACK", reply = "That's my whole sermon, said shorter than I've ever managed it.", fx = { align = { light = 1 } } },
+        { text = "People need dry land more than they need herbs.", next = "BACK", reply = "Then I hope they'll remember where the medicine came from, once it's all gone under the plough.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    liferoot = {
+      lines = {
+        { id = "liferoot_default", text = "Along the banks south of the Witch Hill road, where the water runs slowly. Take every third plant and leave the rest, and it'll be there for you again in a month." },
+      },
+      choices = {
+        { text = "Every third plant. I'll keep to that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "I kept a herb garden in Lordaeron before the plague. Nothing grows there now that I'd care to pick, so I garden here." } },
+    advice = { { id = "tp_advice", text = "Cut cleanly, and never pull. A torn stem is a dead plant." } },
+    theramore = { { id = "tp_theramore", text = "It's all stone and salt, and so I grow what I can in pots. The Lady lets me keep a bed behind the citadel, which is kind of her." } },
+    _none = { { id = "tp_none", text = "I couldn't say. I know leaves and roots, and not a great deal else." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Bartender Lillian (Theramore inn, drinks)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "lillian", id = TODO_NPC("Bartender Lillian"), name = "Bartender Lillian", title = "Bartender",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "theramore" }, temper = { "brisk", "sharp" }, values = { "practical", "kind" },
+  notices = { "drink", "class" },
+  impression = {
+    first = "Bartender Lillian pours the drinks at Theramore's inn and knows, by the second cup, who ought not to have a third. Very little is said in that taproom that she doesn't hear.",
+    third = "{name} met Bartender Lillian, who keeps the bar at Theramore's inn.",
+  },
+  greetings = {
+    { id = "g_default", text = "What'll it be? And wipe your boots, please, because I've only just swept the marsh out." },
+    { id = "g_2", when = { metBefore = true }, text = "Back again. The usual, or have you got brave since last time?" },
+  },
+  notice = {
+    { id = "n_1", cat = "drink", when = { race = "Dwarf" },
+      text = "A dwarf! Now I'll hear what's wrong with my ale. Go on, I've heard it all and I've poured it anyway." },
+    { id = "n_2", cat = "class", when = { class = "ROGUE" },
+      text = "I saw you count the doors as you came in. There are three, love, and the guards know about all of them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "I'm Lillian, and this is my bar, whatever Janene says about whose inn it is. Soldiers, sailors and strays all end up on those stools sooner or later, and I pour for the lot of them." },
+        { id = "hello_2", when = { faction = "Horde" }, text = "Well, now, that's not a face we often see in here. I've no quarrel with you, but half this room does, so I'd drink up quickly if I were you." },
+      },
+      again = {
+        { id = "hello_again1", text = "Something else, love? I can talk and pour at once." },
+        { id = "hello_again2", text = "Go on, then. It's a slow hour." },
+        { id = "hello_again3", text = "Yes? Ask before the watch changes and the rush comes in." },
+      },
+      choices = {
+        { text = "Pour me something.", next = "BUSINESS" },
+        { text = "What do the soldiers talk about in here?", next = "talk" },
+        { text = "That man by the door keeps smiling at nothing.", next = "jim" },
+        { text = "A barkeep shouldn't repeat what she hears.", next = "confide" },
+        { text = "Do you serve anything from back home?", next = "home", when = { race = { "Human", "Dwarf" } } },
+        { text = "Thanks, Lillian.", next = "END" },
+      },
+    },
+    talk = {
+      lines = {
+        { id = "talk_default", text = "The damp, their feet, their sergeants, and lately the Shady Rest. There's not a table in here that hasn't decided who burned it, and no two tables agree." },
+      },
+      choices = {
+        { text = "What do most of them think?", next = "talk_think" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    talk_think = {
+      lines = {
+        { id = "talk_think_default", text = "The Horde, mostly, and the more they drink the surer they get. A few of the old hands say it was done too neatly for a raiding party, and those ones don't raise their voices." },
+      },
+      choices = {
+        { text = "Which ones do you believe?", next = "talk_believe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    talk_believe = {
+      lines = {
+        { id = "talk_believe_default", text = "The quiet ones, love, every time. I've stood behind this bar long enough to know that the truth is hardly ever what's being shouted." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jim = {
+      lines = {
+        { id = "jim_default", text = "That's James Hyal, and you'll leave him be. He lost his wife and child when the Shady Rest burned, and he's not been himself since. He comes in for the noise, I think, and I never charge him." },
+      },
+      choices = {
+        { text = "That's kind of you.", next = "jim_kind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jim_kind = {
+      lines = {
+        { id = "jim_kind_default", text = "It's not kindness, it's manners. He kept an inn himself, and he'd have done the same for any of us. Guard Byron walks him home when it gets late." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    confide = {
+      big = true,
+      lines = {
+        { id = "confide_default", text = "No, she shouldn't, and mostly I don't. But if a man sits on that stool and says he's had enough of standing guard over orcs, and next week he's missing from his tower, I've a choice to make." },
+      },
+      choices = {
+        { text = "Tell the commander. A deserter endangers everyone.", next = "BACK", reply = "That's what I did, in the end. I didn't enjoy it, and I'd do it again.", fx = { align = { order = 1 } } },
+        { text = "Keep his confidence. A bar should be safe ground.", next = "BACK", reply = "I used to say the same. Then I thought about who'd be standing that watch in his place, and I changed my mind.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = {
+        { id = "home_default", text = "I've a few bottles of Stormwind red that come over by way of Menethil, and a dwarven stout that I keep for when Torq Ironblast is in a mood. It's not cheap, but then homesickness never is." },
+      },
+      choices = {
+        { text = "I'll remember the stout.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "I poured in a tavern on the Lordaeron coast before all this. It's the same trade and the same sorts of people, only with more mud." } },
+    advice = { { id = "tp_advice", text = "Don't drink the well water without boiling it. Ale's a good deal safer, and I'd say so even if I didn't sell it." } },
+    rumors = { { id = "tp_rumors", text = "A sailor swore to me that he'd seen lights out at Alcaz Island, where nobody's meant to be. He was three cups in, mind you." } },
+    theramore = { { id = "tp_theramore", text = "Everyone here has lost somebody, and that's why nobody asks. It makes for a quiet taproom, most nights." } },
+    _none = { { id = "tp_none", text = "That's never come up at the bar, love, and nearly everything does." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Balai Lok'Wein (Brackenwall Village, potions, scrolls and reagents)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "balai", id = TODO_NPC("Balai Lok'Wein"), name = "Balai Lok'Wein", title = "Potions, Scrolls and Reagents",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "brackenwall" }, temper = { "sly", "easy" }, values = { "spirits", "practical" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Balai Lok'Wein sells potions and scrolls among the ogres of Brackenwall and seems amused to find herself there. She watches the marsh as though it might tell her something worth knowing.",
+    third = "{name} met the troll Balai Lok'Wein, who sells potions and reagents in Brackenwall Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Come close, mon. Balai got what ya need, and a few tings ya don't know ya need yet." },
+    { id = "g_2", when = { metBefore = true }, text = "Ya come back to Balai. De spirits said ya would, though dey didn't say when." },
+  },
+  notice = {
+    { id = "n_1", cat = "class", when = { class = { "SHAMAN", "PRIEST" } },
+      text = "Ya walk with de spirits, I can see dem crowdin' round ya. Dis marsh be full of dem, so mind who ya listen to." },
+    { id = "n_2", cat = "race", when = { race = "Troll" },
+      text = "Ah, one of me own, here in de mud with de big ones! Sit, {g:brother|sister}, and tell me how de Echo Isles be lookin'." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "I be Balai Lok'Wein, and I keep de potions and de scrolls for dis village. De ogres got strong arms and bad stomachs, mon, so dey need me more dan dey like to say." },
+        { id = "hello_2", when = { faction = "Alliance" }, text = "Ya not Horde, and de big ones don't like ya standin' here. Balai don't sell to ya, but she'll talk a little, since talk be free." },
+      },
+      again = {
+        { id = "hello_again1", text = "Someting more, mon? Balai got time." },
+        { id = "hello_again2", text = "Ask. De marsh not goin' anywhere." },
+        { id = "hello_again3", text = "Speak up. De frogs be loud today." },
+      },
+      choices = {
+        { text = "Show me your wares.", next = "BUSINESS", when = { faction = "Horde" } },
+        { text = "How does a troll end up among ogres?", next = "ogres" },
+        { text = "You keep looking out at the marsh.", next = "marsh" },
+        { text = "Spirits are for the weak. Potions do the real work.", next = "spirits" },
+        { text = "What haunts this swamp?", next = "haunts", when = { class = { "SHAMAN", "PRIEST", "WARLOCK" } } },
+        { text = "Spirits be with you, Balai.", next = "END" },
+      },
+    },
+    ogres = {
+      lines = {
+        { id = "ogres_default", text = "De Warchief sent help when de black dragons burned de Stonemaul out of dere old home, and someone had to bring de medicine. Balai lost de draw, mon, and den she found out she liked it here." },
+      },
+      choices = {
+        { text = "What's to like about Brackenwall?", next = "ogres_like" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ogres_like = {
+      lines = {
+        { id = "ogres_like_default", text = "Nobody here lies to ya. An ogre who don't like ya says so and hits ya, and one who likes ya shares his meat. After Orgrimmar, where everybody be smilin' and plottin', dat's restful." },
+      },
+      choices = {
+        { text = "And Mok'Morokk?", next = "ogres_mok" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ogres_mok = {
+      lines = {
+        { id = "ogres_mok_default", text = "De Overlord be loud and he be scared, and de village know it. Tharg buys a lot of healin' potions for an ogre who's supposed to be stayin' home, so ya can tink on dat." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    marsh = {
+      lines = {
+        { id = "marsh_default", text = "Dere's old tings in it, mon. Witch Hill to de north be bad ground, and de dead walk at de old wrecks on de shore. I don't sleep facin' dat way." },
+      },
+      choices = {
+        { text = "What makes Witch Hill bad ground?", next = "marsh_hill" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    marsh_hill = {
+      lines = {
+        { id = "marsh_hill_default", text = "Folk died dere wrong, long ago, and nobody put dem down proper. Draz'Zilb says it's superstition, and Draz'Zilb be very clever, but I notice he don't walk dere after dark either." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spirits = {
+      big = true,
+      lines = {
+        { id = "spirits_default", text = "De orcs say dat to me sometimes. Den dey get de marsh fever, and I give dem de potion and say de words over it as well, and dey don't ask me to leave de words out." },
+      },
+      choices = {
+        { text = "Respect the spirits. They were here before us.", next = "BACK", reply = "Dat's right, mon. Ya be a guest in dis swamp, same as Balai.", fx = { align = { light = 1 } } },
+        { text = "Words are wind. The potion cured them.", next = "BACK", reply = "Maybe so. Ya be welcome to try de marsh widout de words, and tell me how it goes.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    haunts = {
+      lines = {
+        { id = "haunts_default", text = "Drowned sailors on de coast, and someting older under de mud dat don't have a name I know. De loa don't like to talk about dat one, and when de loa go quiet, Balai goes quiet too." },
+      },
+      choices = {
+        { text = "Then I'll tread lightly.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "Balai be Darkspear, from de islands. De Warchief asked for healers for de ogres, and here I am, knee deep in it." } },
+    advice = { { id = "tp_advice", text = "Boil de water, wear ya boots, and don't follow any light ya see in de marsh at night." } },
+    darkspear = { { id = "tp_darkspear", text = "We be a small tribe and we be owin' de orcs a big debt. So we go where we're asked, even to de mud." } },
+    thrall = { { id = "tp_thrall", text = "He keeps his word to de small tribes as well as de big ones. Dat's why Balai don't complain too loud." } },
+    _none = { { id = "tp_none", text = "Balai don't know dat one, mon. De spirits didn't mention it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Krak (Brackenwall Village, armorer)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "krak", id = TODO_NPC("Krak"), name = "Krak", title = "Armorer",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "brackenwall" }, temper = { "jolly", "simple" }, values = { "strong", "loyal" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Krak sells armor in Brackenwall Village and tests each piece by hitting it. He is cheerfully certain that whatever survives Krak will survive anything.",
+    third = "{name} met the ogre Krak, who sells armor in Brackenwall Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Krak has armor! Good armor, strong armor. Krak hit it himself, and it did not break." },
+    { id = "g_2", when = { metBefore = true }, text = "You are back, and you are not dead. See? Krak's armor works." },
+  },
+  notice = {
+    { id = "n_1", cat = "class", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } },
+      text = "You wear metal. Good! Krak likes a customer who knows that skin is not enough." },
+    { id = "n_2", cat = "race", when = { race = "Orc" },
+      text = "Orc! Krak has orc sizes now. Krak did not have orc sizes before, and orcs laughed, so Krak learned." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "This is Krak's armor, and Krak is Krak. The Stonemaul did not wear much armor before, but then the dragons came with fire, and now the Stonemaul think that armor is a good idea." },
+        { id = "hello_2", when = { faction = "Alliance" }, text = "You are not Horde, so Krak cannot sell to you. Krak can still talk, though, because Krak likes talking and nobody here listens." },
+      },
+      again = {
+        { id = "hello_again1", text = "More talk? Good. Krak likes talk." },
+        { id = "hello_again2", text = "Ask Krak. Krak is not busy." },
+        { id = "hello_again3", text = "What else? Krak will wait." },
+      },
+      choices = {
+        { text = "Show me your armor.", next = "BUSINESS", when = { faction = "Horde" } },
+        { text = "How do you test your armor?", next = "test" },
+        { text = "Where does an ogre get armor to sell?", next = "get" },
+        { text = "Armor is for cowards. The strong don't need it.", next = "coward" },
+        { text = "Which piece matters most?", next = "piece", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Farewell, Krak.", next = "END" },
+      },
+    },
+    test = {
+      lines = {
+        { id = "test_default", text = "Krak puts it on a post and hits it with the big club. If it bends, Krak sells it cheap, and if it breaks, Krak gives it to Zulrg to hit people with." },
+      },
+      choices = {
+        { text = "What if it doesn't bend at all?", next = "test_none" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    test_none = {
+      lines = {
+        { id = "test_none_default", text = "Then Krak hits it again, harder. Nothing does not bend, little one. But the good ones bend only a little, and Krak sells those to friends." },
+      },
+      choices = {
+        { text = "Am I a friend?", next = "test_friend" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    test_friend = {
+      lines = {
+        { id = "test_friend_default", text = "You are talking to Krak, and you did not call Krak stupid. So yes, Krak thinks you are a friend." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    get = {
+      lines = {
+        { id = "get_default", text = "Orcs bring it from the big orc city, in boxes, on the flying beasts. Some Krak finds on the road, where the Theramore men fought the spiders and lost. Krak washes those ones first." },
+      },
+      choices = {
+        { text = "Do the orcs treat the Stonemaul fairly?", next = "get_fair" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    get_fair = {
+      lines = {
+        { id = "get_fair_default", text = "Orcs pay, and orcs do not cheat on the count. Krog is a good orc, and he asks Krak what the village needs before he writes his letters. The Overlord never asks Krak anything." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    coward = {
+      big = true,
+      lines = {
+        { id = "coward_default", text = "Mok'Morokk says this! He says that a real ogre needs only fists. Then the dragon fire came, and many real ogres are dead now, and Mok'Morokk ran very fast." },
+      },
+      choices = {
+        { text = "Armor is good sense. A dead warrior wins nothing.", next = "BACK", reply = "Yes! That is what Krak says, and Krak is alive, so Krak is right.", fx = { align = { order = 1 } } },
+        { text = "Mok'Morokk's right. Fists and courage are an ogre's armor.", next = "BACK", reply = "Then you can go and fight the dragons with fists. Krak will keep your armor safe here while you are gone.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    piece = {
+      lines = {
+        { id = "piece_default", text = "The hat. Krak has been hit in every place, and the head is the place where it matters. An ogre has two heads sometimes, but you have only the one." },
+      },
+      choices = {
+        { text = "I'll look after it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "Krak was a smasher. Then Krak's leg got burned by a dragon, and now Krak sells armor so that other legs do not get burned." } },
+    advice = { { id = "tp_advice", text = "Wear the hat. Always wear the hat." } },
+    onyxia = { { id = "tp_onyxia", text = "Krak does not know that name. Krak knows that the black dragons took the old home, and Krak wants it back." } },
+    _none = { { id = "tp_none", text = "Krak does not know. Krak knows armor, and how hard to hit it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Zanara (Brackenwall Village, bowyer)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zanara", id = TODO_NPC("Zanara"), name = "Zanara", title = "Bowyer",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "brackenwall" }, temper = { "blunt", "proud" }, values = { "honor", "craft" },
+  notices = { "class", "kit" },
+  impression = {
+    first = "Zanara sells bows in a village of ogres who have no use for them, and she has made her peace with it. She keeps her stock oiled against the damp with a soldier's stubbornness.",
+    third = "{name} met the orc Zanara, who sells bows in Brackenwall Village.",
+  },
+  greetings = {
+    { id = "g_default", text = "Bows, arrows, and strings that the marsh has not rotted. Look them over, and be quick about it." },
+    { id = "g_2", when = { metBefore = true }, text = "You return. Good, for the last one who bought from me came back too, and that is the best thing a bowyer can hear." },
+  },
+  notice = {
+    { id = "n_1", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter. At last, a customer who will not ask me which end the arrow goes in." },
+    { id = "n_2", cat = "kit", when = { class = { "WARRIOR", "ROGUE" } },
+      text = "You could use something that reaches further than your arm. The spiders here spit, and they do not wait for you to close with them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_default", key = true, text = "I am Zanara. I sell bows to the Horde's hunters in this marsh, and I try to sell them to ogres, who snap them like twigs and ask for something heavier." },
+        { id = "hello_2", when = { faction = "Alliance" }, text = "I do not sell to the Alliance. You may look, and then you may leave, and that is more courtesy than Theramore would show me." },
+      },
+      again = {
+        { id = "hello_again1", text = "What else? Speak while I oil this stave." },
+        { id = "hello_again2", text = "Ask, then. The damp never rests, but I can." },
+        { id = "hello_again3", text = "Go on." },
+      },
+      choices = {
+        { text = "Show me your bows.", next = "BUSINESS", when = { faction = "Horde" } },
+        { text = "Why sell bows to ogres at all?", next = "ogres" },
+        { text = "How do you keep a bow sound in this damp?", next = "damp" },
+        { text = "A bow is a coward's weapon.", next = "coward" },
+        { text = "What's worth hunting out there?", next = "hunting", when = { class = "HUNTER" } },
+        { text = "Strength and honor, Zanara.", next = "END" },
+      },
+    },
+    ogres = {
+      lines = {
+        { id = "ogres_default", text = "Because Krog asked for a bowyer for the outpost, and I am a soldier who goes where she is sent. The ogres are not the customers, they are only the neighbours. The customers are the scouts who watch Theramore." },
+      },
+      choices = {
+        { text = "Do the ogres give you trouble?", next = "ogres_trouble" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ogres_trouble = {
+      lines = {
+        { id = "ogres_trouble_default", text = "One of them sat on a crate of my arrows in the first week. He was sorry, and he brought me a boar to make up for it, which is more than most orcs would do. I have liked them since." },
+      },
+      choices = {
+        { text = "Even Mok'Morokk?", next = "ogres_mok" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ogres_mok = {
+      lines = {
+        { id = "ogres_mok_default", text = "I said the ogres, and I did not say their Overlord. He shouts at those weaker than he is, and he bows to anyone stronger. I have known orcs like that, and none of them were worth following." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    damp = {
+      lines = {
+        { id = "damp_default", text = "Oil, wax, and never leaving one strung overnight. I lost a third of my first shipment to rot before I learned it. Now I keep them wrapped in oiled hide, up off the ground." },
+      },
+      choices = {
+        { text = "That's hard-won knowledge.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    coward = {
+      big = true,
+      lines = {
+        { id = "coward_default", text = "I have heard that from warriors who have never been shot at. My mother put an arrow through a human knight's visor at eighty paces in the Second War, and he had no time to call her anything at all." },
+      },
+      choices = {
+        { text = "Skill at any range is still skill. I was wrong.", next = "BACK", reply = "You were, and it takes some honour to say so. Most do not.", fx = { align = { honor = 1 } } },
+        { text = "Honour means facing your enemy up close.", next = "BACK", reply = "Then face them, and I will be on the hill behind you, keeping you alive. We shall see whom the songs remember.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunting = {
+      lines = {
+        { id = "hunting_default", text = "There are raptors to the north, and crocolisks in every pool, and those are good for the meat. The big spiders near Darkmist are worth nothing at all, but killing them is good practice and a service to the village." },
+      },
+      choices = {
+        { text = "Raptors, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "I carried a bow for the Horde before I ever sold them. An old wound keeps me from the front, and so I arm those who can still go." } },
+    advice = { { id = "tp_advice", text = "Check your string before every hunt. It will break only on the day that you did not." } },
+    thrall = { { id = "tp_thrall", text = "He has given the Horde a home worth guarding, and I would stand in a worse swamp than this one to guard it." } },
+    internment = { { id = "tp_internment", text = "I was a child in the camps. I remember that the grown orcs did not look up at anything, and I have looked up ever since." } },
+    _none = { { id = "tp_none", text = "That is not my concern. Ask Krog, for he is paid to know such things." } },
+  },
+}

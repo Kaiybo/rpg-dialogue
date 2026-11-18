@@ -223,8 +223,6 @@ P:NPC {
 
   topics = {
     thelsamar = { { id = "tp_thel", text = "A small town that eats well an' argues loud. I've traded in worse, an' I'd no' move now." } },
-    background = { { id = "tp_bg", text = "I'm a tradesman, an' I was a tradesman's son. I sell the wee things other folk forget tae make." } },
-    _none = { { id = "tp_none", text = "I couldnae tell ye. If it doesnae come in a crate, I've likely no' heard of it." } },
     background = { { id = "tp_bg", text = "I carted goods between Ironforge an' the loch for years before I settled. My back decided for me." } },
     advice = { { id = "tp_ad", text = "Buy good flux. Cheap flux ruins a better day's work than ye'd believe." } },
     dragonmaw = { { id = "tp_dragonmaw", text = "The Dragonmaw are orcs on the Wetlands side o' the pass, an' they've cost me two crates o' good spice." } },

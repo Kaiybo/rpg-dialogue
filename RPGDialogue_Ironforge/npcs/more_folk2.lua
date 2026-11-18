@@ -214,7 +214,7 @@ P:NPC {
   key = "mf_milli", id = TODO_NPC("Milli Featherwhistle"), name = "Milli Featherwhistle", title = "Mechanostrider Merchant",
   bible = "bibles/more_folk.md", role = "vendor", tier = "service",
   communities = { "dunmorogh", "gnomeregan" }, temper = { "cheerful", "proud" }, values = { "craft", "gnomeregan" },
-  notices = { "race" },
+  notices = { "race", "craft" },
   impression = {
     first = "Milli Featherwhistle builds every mechanostrider in her pen herself, and she can tell you the gear ratio of each one. She only sells to gnomes or to those the gnomes trust, and she isn't apologetic about it.",
     third = "{name} met Milli Featherwhistle, the gnome who builds and sells mechanostriders at Steelgrill's Depot.",
@@ -313,7 +313,7 @@ P:NPC {
   key = "mf_granis", id = TODO_NPC("Granis Swiftaxe"), name = "Granis Swiftaxe", title = "Warrior Trainer",
   bible = "bibles/more_folk.md", role = "trainer", tier = "service",
   communities = { "dunmorogh" }, temper = { "blunt", "hearty" }, values = { "brave", "honest" },
-  notices = { "class" },
+  notices = { "class", "drunk", "race" },
   impression = {
     first = "Granis Swiftaxe trains warriors in the back of the Thunderbrew Distillery, and the smell of ale doesn't slow him down. He's quick with an axe and quicker with a joke, and sends his best students to Ironforge.",
     third = "{name} met Granis Swiftaxe, the warrior trainer in the Thunderbrew Distillery in Kharanos.",
@@ -557,7 +557,7 @@ P:NPC {
       lines = { { id = "fb_default", text = "Some say a lot o' things. Tell me, wot d'ye trust more, yer own eyes or someone else's words?" } },
       choices = {
         { text = "My own eyes. Experience is the best teacher.", next = "BACK", reply = "Aye, that's the hunter's way.", fx = { align = { order = -1 } } },
-        { text = "The wisdom of others. Why make their mistakes?", next = "BACK", reply = "Hmph. Fair, maybe, but ye'll still learn more in the snow.", fx = { align = { order = 1 } } },
+        { text = "The wisdom of others. Their mistakes need not be mine.", next = "BACK", reply = "Hmph. Fair, maybe, but ye'll still learn more in the snow.", fx = { align = { order = 1 } } },
       },
     },
     hunting = {

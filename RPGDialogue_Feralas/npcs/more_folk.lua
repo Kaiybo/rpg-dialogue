@@ -1646,7 +1646,7 @@ P:NPC {
 P:NPC {
   key = "mardrack", id = TODO_NPC("Mardrack"), name = "Mardrack", title = "Food & Drink",
   bible = "bibles/more_folk.md", role = "vendor", tier = "service",
-  communities = { "feathermoon" }, temper = { "warm", "bustling" }, values = { "kind", "practical" },
+  communities = { "feathermoon" }, temper = { "warm", "busy" }, values = { "kind", "practical" },
   notices = { "hunger", "race" },
   impression = {
     first = "Mardrack bakes the bread of Feathermoon Stronghold and judges every arrival by how recently they have eaten. He believes that most quarrels on the isle begin on an empty stomach.",

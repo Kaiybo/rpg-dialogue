@@ -1760,3 +1760,1184 @@ P:NPC {
     _none = { { id = "tp_none", text = "That's not a matter of charters, I'm afraid." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Bragor Bloodfist: the Warchief's orc in the Royal Quarter, watching the Forsaken and the Scourge alike.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_bragor", id = TODO_NPC("Bragor Bloodfist"), name = "Bragor Bloodfist",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "undercity" }, temper = { "blunt", "watchful" }, values = { "honor", "loyal" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Bragor Bloodfist stands in the Dark Lady's throne room as the Warchief's eyes, and he does not pretend to be comfortable there. He trusts the Forsaken to fight the Scourge and very little further than that.",
+    third = "{name} met Bragor Bloodfist, the orc Thrall posted to the Royal Quarter of the Undercity.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Speak, {class}, and keep it short. I stand a long watch in this room, and I don't spend it on idle talk." },
+    { id = "g_orc", when = { race = "Orc" }, text = "Lok'tar, {class}. It's good to hear a voice in here that has breath behind it." },
+    { id = "g_books", when = { questActive = TODO_QUEST("The Power to Destroy...") }, text = "The books from Ragefire, do you have them? Hand them to me, and to nobody else in this city." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Good, I remember who's useful." },
+  },
+
+  notice = {
+    { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
+      text = "A warlock. I've watched what that craft did to my people, so understand me: I'll judge you by what you do with it, and I'll be watching while you do." },
+    { id = "n_scourge", cat = "race", when = { race = "Scourge" },
+      text = "One of the Dark Lady's own. You fight well, your kind, and I've said so to the Warchief. I've said a few other things to him as well." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Bragor Bloodfist. The Warchief sent me to stand beside the Dark Lady's throne, and so I stand, and I listen, and what I hear goes back to Orgrimmar." },
+        { id = "h_before", when = { minLevel = 13, questBefore = TODO_QUEST("The Power to Destroy...") }, text = "Listen up, {class}. Orgrimmar has a nest of Shadow Council cultists in Ragefire Chasm, the Searing Blade, and they hold two books I want out of their hands. I'll not trust it to the grunts there, and I'll not have those books fall to anyone in this city either." },
+        { id = "h_malcin", when = { questActive = TODO_QUEST("An Unholy Alliance") }, text = "That scroll carried a Scourge seal I last saw in Northrend. The one who wrote it, Malcin, waits outside Razorfen Downs, and I want him dead before his offer reaches any ear that might listen." },
+        { id = "h_done", when = { questDone = TODO_QUEST("The Power to Destroy...") }, text = "The books are locked away, and the Searing Blade is weaker for it. There's always something that needs doing here, so check back with me." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Say it plainly." },
+        { id = "h_again2", text = "Go on. The dreadlord's listening anyway, so you may as well speak up." },
+        { id = "h_again3", text = "Hrm. Ask." },
+      },
+      choices = {
+        { text = "Why does Thrall keep a watchman here?", next = "watch" },
+        { text = "What are these books in Ragefire?", next = "books" },
+        { text = "You were in Northrend?", next = "north" },
+        { text = "You stand ten paces from a dreadlord.", next = "dread" },
+        { text = "How does an orc bear this place?", next = "orc", when = { race = "Orc" } },
+        { text = "Do you trust us at all?", next = "trust", when = { race = "Scourge" } },
+        { text = "Strength and honor, Bragor.", next = "END" },
+      },
+    },
+    watch = {
+      lines = { { id = "w_default", text = "Because an ally you never look at is an ally you don't know. The Forsaken joined the Horde because they had nowhere else to go, and the Warchief took them in with his eyes open. I'm the eyes." } },
+      choices = {
+        { text = "And what have you seen?", next = "watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch2 = {
+      big = true,
+      lines = { { id = "w2_default", text = "Soldiers who don't break, and apothecaries who never say what they're brewing. I report both. The Dark Lady has never once asked what I send to Orgrimmar, and I've not decided whether that's honesty or contempt." } },
+      choices = {
+        { text = "Allies deserve trust. You insult them by spying.", next = "BACK", reply = "Trust is earned on the field, and they're earning it. The watching stays until they've finished.", fx = { align = { honor = 1 } } },
+        { text = "You're right to watch. They hide too much.", next = "BACK", reply = "Then keep your own eyes open down here, and tell me what the apothecaries won't.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    books = {
+      lines = { { id = "b_default", text = "Spells of Shadow and Incantations from the Nether. They're Shadow Council work, the same poison that chained my people to demons, and the Searing Blade are orcs who've learned nothing from it." } },
+      choices = {
+        { text = "Why bring them to you and not burn them?", next = "books2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    books2 = {
+      lines = { { id = "b2_default", text = "Because the Warchief will want to know what's in them before they burn, and because I'd sooner hold them than wonder where they went. The last thing the Horde needs is a strong Shadow Council rising again, here or anywhere." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    north = {
+      lines = { { id = "n_default", text = "I've seen the Lich King's work closer than I ever wanted to, and that's all I'll say of it. It's enough that I know a Scourge seal when I see one, and I know how they talk when they want something." } },
+      choices = {
+        { text = "How do they talk?", next = "north2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    north2 = {
+      lines = { { id = "n2_default", text = "Politely. They offer power, and lands, and ask only for a little freedom to act. Every word of it is a hook. The day someone in this room answers one of those letters is the day I stop standing and start swinging." } },
+      choices = {
+        { text = "I'd swing beside you.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dread = {
+      lines = { { id = "d_default", text = "I do, and I've never turned my back to him. The Dark Lady says Varimathras serves her, and she may be right. I fought the Legion, {class}, and I've yet to meet a demon who served anyone but the Legion for long." } },
+      choices = {
+        { text = "Does he know you think so?", next = "BACK", reply = "He knows. He smiles about it. I let him, and I keep my axe where I can reach it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orc = {
+      lines = { { id = "o_default", text = "Badly. There's no sky, the air tastes of the grave, and nothing here laughs. But the Warchief asked it of me, and I've stood worse posts for worse masters, back when we had masters. I'll stand this one until he calls me home." } },
+      choices = {
+        { text = "Durotar remembers you, brother.", next = "BACK", reply = "Then tell them at the gates of Orgrimmar that Bloodfist still holds his post. That's all I want said.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trust = {
+      lines = { { id = "t_default", text = "I trust you to hate the Scourge, because I've seen it in every one of you. I trust your blades. What I don't know is what your people want when the Scourge is gone, and I don't think you all want the same thing." } },
+      choices = {
+        { text = "We want to be left to exist.", next = "BACK", reply = "I believe that of you. Say it loudly, and often, where your apothecaries can hear.", fx = { affinity = 1 } },
+        { text = "We want what we're owed.", next = "BACK", reply = "Hrm. That's the answer that keeps me standing here. At least you gave it to my face." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    thrall = { { id = "tp_thrall", text = "He broke our chains and gave us a home. When he says stand in a tomb and watch, I stand in a tomb and watch." } },
+    sylvanas = { { id = "tp_syl", text = "A general, and a good one. She's never lied to me that I've caught, and I've been trying to catch her." } },
+    scourge = { { id = "tp_scourge", text = "They want Kalimdor next. They'll not have it while I've an arm to lift." } },
+    burning_legion = { { id = "tp_legion", text = "We drank their blood once. I'll die before I see an orc kneel to that again." } },
+    _none = { { id = "tp_none", text = "That's not my watch. Ask someone with time to gossip." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Genavie Callow: lost her family and estate, then her last heirlooms to the Dabyries; wants their heads.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_genavie", id = TODO_NPC("Genavie Callow"), name = "Genavie Callow",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "undercity" }, temper = { "bitter", "proud" }, values = { "vengeful", "status" },
+  notices = { "class", "origin" },
+  impression = {
+    first = "Genavie Callow lost her family to the plague and her estate to looters, and the last of her heirlooms to a farming family called Dabyrie. She talks of nothing else, and she no longer wants the heirlooms back.",
+    third = "{name} met Genavie Callow in the Trade Quarter, a Forsaken gentlewoman who wanted a family of thieves dead.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Don't stand so close, I've had quite enough taken from me already." },
+    { id = "g_active", when = { questActive = TODO_QUEST("To Steal From Thieves") }, text = "Well? Have you been to Arathi? I want all three heads, and I want hers most of all." },
+    { id = "g_done", when = { questDone = TODO_QUEST("To Steal From Thieves") }, text = "My figure of vengeance returns. I slept the better for it, or I would have, if I slept." },
+  },
+
+  notice = {
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "You've a thief's hands. I ought to send you away, but the plain truth is that I need someone with exactly those." },
+    { id = "n_noble", cat = "origin", when = { origin = "human_minor_noble" },
+      text = "You were raised in a house with a name, I can hear it. Then you'll understand what it means to have the family silver sold off a cart by a farmer's brat." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Genavie Callow. I had a family, and the plague took it, and I had an estate, and the war burned it. What little I carried out with me was stolen afterwards, and I know exactly who has it." },
+        { id = "h_before", when = { minLevel = 30, questBefore = TODO_QUEST("To Steal From Thieves") }, text = "The harlot Kenata Dabyrie still lives, {class}, with her family healthy and prospering on a farm in Arathi while I rot in a sewer. I don't care about the things they stole any more. What I want now are their heads." },
+        { id = "h_done", when = { questDone = TODO_QUEST("To Steal From Thieves") }, text = "With that cow dead, and her brood with her, I find I can think about other things. I hope you looted the farmstead after you'd finished, because I'd hate to think of it going to waste." },
+      },
+      again = {
+        { id = "h_again", text = "What is it now?" },
+        { id = "h_again2", text = "Go on. I've nothing left to do but talk and wait." },
+        { id = "h_again3", text = "Yes? Do get on with it." },
+      },
+      choices = {
+        { text = "Who are the Dabyries?", next = "dabyrie" },
+        { text = "What did they take from you?", next = "taken" },
+        { text = "What was the Callow estate like?", next = "estate" },
+        { text = "Where is this farmstead?", next = "where" },
+        { text = "I've lost a house and a name myself.", next = "noble", when = { origin = "human_minor_noble" } },
+        { text = "I'll leave you to your grievances.", next = "END" },
+      },
+    },
+    dabyrie = {
+      lines = { { id = "d_default", text = "Farmers. Kenata was a tenant's wife on land that bordered ours, and she curtsied to my mother every market day. When the plague came, she and her children Fardel and Marcel went through our house before the ashes were cold." } },
+      choices = {
+        { text = "They robbed the dead, then.", next = "dabyrie2" },
+        { text = "Desperate people take what they can carry.", next = "dabyrie2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dabyrie2 = {
+      big = true,
+      lines = { { id = "d2_default", text = "They robbed me, and I was not yet dead enough for their liking. Now they farm in the Arathi Highlands under Stromgarde's protection, alive and fat, with my family's things on their shelves. And I'm told the world calls us the monsters." } },
+      choices = {
+        { text = "They'll pay for it. All three.", next = "BACK", reply = "Yes. Say it again, slowly. It's the first pleasant thing I've heard this year.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Heirlooms aren't worth three lives, Genavie.", next = "BACK", reply = "They are worth precisely three, and I have counted. Keep your mercy for someone who was shown some.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    taken = {
+      lines = { { id = "t_default", text = "A locket of my mother's, my father's signet, and a set of silver spoons that had been in the family since King Terenas was a boy. They were all I'd saved, and I'd sewn them into my hem." } },
+      choices = {
+        { text = "And you no longer want them back?", next = "taken2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    taken2 = {
+      lines = { { id = "t2_default", text = "What would I do with spoons? I can't eat. I can't wear a locket without it falling through my collarbone. No, the things are spoiled now that she's handled them, and all I want is to know she has stopped breathing." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    estate = {
+      lines = { { id = "e_default", text = "A stone house with a walled garden, an hour's ride from the capital. We were not a great family, but we were a known one, and we kept eleven servants. I couldn't tell you now what colour the drawing room was, and it torments me." } },
+      choices = {
+        { text = "Is anything left of it?", next = "estate2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    estate2 = {
+      lines = { { id = "e2_default", text = "A chimney, I'm told. Sheldon Von Croy, who sells caps in the Magic Quarter, rode past it once and was kind enough to lie about how it looked. He is a pompous man, but he knew to lie, and I've thought better of him since." } },
+      choices = {
+        { text = "That was a kindness.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    where = {
+      lines = {
+        { id = "wh_default", text = "The Dabyrie Farmstead, in the Arathi Highlands, north and east of the Alliance camp they call Refuge Point. You'll know it by the smug look of the place." },
+        { id = "wh_active", when = { questActive = TODO_QUEST("To Steal From Thieves") }, text = "North and east of Refuge Point, as I told you. Kenata keeps to the house, and her whelps work the fields. Bring me all three heads." },
+      },
+      choices = {
+        { text = "The Alliance will defend them.", next = "BACK", reply = "Then go around the Alliance. I'm told that people of your sort are good at that." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    noble = {
+      lines = { { id = "no_default", text = "Then you know. It isn't the money, is it? It's that nobody will ever again know who you were without being told, and that the telling sounds like boasting." } },
+      choices = {
+        { text = "That's it exactly.", next = "BACK", reply = "Well. It is something to be understood, even down here. Sit a moment, if you like.", fx = { affinity = 1 } },
+        { text = "I let the name go. It was only a name.", next = "BACK", reply = "How fortunate for you. Mine is all I have, and I intend to keep it sharp." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    lordaeron = { { id = "tp_lord", text = "It was a kingdom in which people knew their place, and mine was a good one. I see no reason to pretend I don't miss it." } },
+    forsaken = { { id = "tp_fs", text = "Forsaken indeed. The word might have been cut to my measure." } },
+    background = { { id = "tp_bg", text = "A daughter of the Callows, of Lordaeron. You won't have heard of us, and that is precisely my complaint." } },
+    syndicate = { { id = "tp_syn", text = "Half of them are gentry gone to seed. I knew two of their mothers, and I'm not in the least surprised." } },
+    sylvanas = { { id = "tp_syl", text = "She at least understands a grievance. I'm told she has kept hers very carefully." } },
+    _none = { { id = "tp_none", text = "I neither know nor care. I've one subject, and you've heard it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Oran Snakewrithe: the Magic Quarter's scholar of the Witherbark trolls; wants the Highvale elves kept isolated.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_oran", id = TODO_NPC("Oran Snakewrithe"), name = "Oran Snakewrithe",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "undercity" }, temper = { "precise", "cool" }, values = { "knowledge", "loyal" },
+  notices = { "race", "class" },
+  impression = {
+    first = "Oran Snakewrithe studies the Witherbark trolls of the Hinterlands from a desk in the Magic Quarter, and she guards that knowledge jealously. She would rather burn another scholar's notes than see them shared with the Alliance.",
+    third = "{name} met Oran Snakewrithe, a Forsaken scholar of the Witherbark trolls in the Undercity's Magic Quarter.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "One moment. There, the line is finished. Now, what do you want of me?" },
+    { id = "g_tablet", when = { questActive = TODO_QUEST("Rin'ji's Secret") }, text = "Well, now, what is this you're carrying? Set it down where the light is better." },
+    { id = "g_lines", when = { questActive = TODO_QUEST("Lines of Communication") }, text = "Keeping the Highvale elves isolated is the key. Have you found the lodge?" },
+  },
+
+  notice = {
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear. I mean no offence when I say your Witherbark cousins interest me more, since yours is a tribe that still writes its own history." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage. You'll have been taught that troll script is crude. It isn't, and I can show you a Witherbark tally that would shame a Dalaran ledger." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "You've spent time in wild country. Good. I may ask you presently how tall a Hinterlands troll stands, since my sources disagree by a full head." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Oran Snakewrithe. I study the Witherbark trolls of the Hinterlands, their marks and their movements, and I am told I'm the best authority this side of the mountains. I see no reason to dispute it." },
+        { id = "h_before", when = { minLevel = 43, questBefore = TODO_QUEST("Lines of Communication") }, text = "The Quel'Danil Lodge is where the high elves of the Hinterlands keep everything they know of the Witherbark, and they have begun sharing it with other races. We don't need the Highvale building alliances, {class}. I want their documents burned." },
+        { id = "h_tablet_done", when = { questDone = TODO_QUEST("Rin'ji's Secret") }, text = "That tablet of Rin'ji's was quite unusual, and I am still working through the last of its markings. You did well to bring it to me, and not to someone who would only have admired it." },
+      },
+      again = {
+        { id = "h_again", text = "Yes? I can spare you another question." },
+        { id = "h_again2", text = "Go on, but be exact. I dislike vague questions." },
+        { id = "h_again3", text = "Ask. My ink is drying in any case." },
+      },
+      choices = {
+        { text = "Why the Witherbark, of all tribes?", next = "wither" },
+        { text = "What have the Highvale elves done to you?", next = "highvale" },
+        { text = "How does one study trolls from a cellar?", next = "method" },
+        { text = "I can read some of those marks for you.", next = "troll", when = { race = "Troll" } },
+        { text = "I've been among the Witherbark. They aren't what you think.", next = "been", when = { minLevel = 42 } },
+        { text = "I'll leave you to your notes.", next = "END" },
+      },
+    },
+    wither = {
+      lines = { { id = "w_default", text = "Because they hold the southern Hinterlands and the ruins of Zun'watha and Shadra'Alor, and nobody has troubled to learn why. They keep to themselves, they trade with no one, and they have a hatred of elves that I find instructive." } },
+      choices = {
+        { text = "Instructive how?", next = "wither2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wither2 = {
+      lines = { { id = "w2_default", text = "A people who hate the same enemy for three thousand years have learned things about that enemy. The Witherbark know how the high elves build, patrol and retreat, and all of it is cut into their tablets for anyone with the patience to read." } },
+      choices = {
+        { text = "You'd use the trolls against the elves.", next = "BACK", reply = "I would use a book against the elves, if it were heavy enough. The trolls are simply a better book." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    highvale = {
+      lines = { { id = "h2_default", text = "Nothing, yet. They are a remnant, living at a lodge and writing reports. But they are writing them for the dwarves of Aerie Peak and whoever else will listen, and a remnant with allies does not stay a remnant." } },
+      choices = {
+        { text = "So you'd burn a library to keep them alone.", next = "highvale2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    highvale2 = {
+      big = true,
+      lines = { { id = "h3_default", text = "Three sets of documents, {class}, and not a library. I am a scholar, and I don't say this lightly, but knowledge shared with our enemies is knowledge turned upon us. While they recover what was lost, we close the lines further." } },
+      choices = {
+        { text = "Knowledge shouldn't be burned, even theirs.", next = "BACK", reply = "A pretty principle. I held it too, until Dalaran shut its gates on me with my own books inside.", fx = { align = { order = -1 } } },
+        { text = "The Dark Lady's interests come before any archive.", next = "BACK", reply = "Just so. I shall copy what is useful first, naturally. One isn't a barbarian.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    method = {
+      lines = { { id = "m_default", text = "Through other people's feet. The Horde keeps a village of Revantusk trolls on the Hinterlands coast, and their traders send me rubbings and sketches. Deathstalkers bring the rest, when they remember that I asked." } },
+      choices = {
+        { text = "Wouldn't you rather go yourself?", next = "method2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    method2 = {
+      lines = { { id = "m2_default", text = "I should like nothing better. But the Apothecary Society has first call on every escort that leaves this city, and a scholar of trolls ranks somewhere beneath a crate of jars. So I sit, and I wait for travellers such as you." } },
+      choices = {
+        { text = "I'll bring you whatever I find out there.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    troll = {
+      lines = { { id = "tr_default", text = "Can you! Then look at this one, the hooked stroke beneath the tally. I have it as a count of the dead, and a Revantusk trader swore it means a debt. Which is it?" } },
+      choices = {
+        { text = "Both. A death is a debt, to a troll.", next = "BACK", reply = "Both. Of course it is both. That resolves four tablets at a stroke, and I am most sincerely obliged to you.", fx = { affinity = 1 } },
+        { text = "It's a boast. Whoever carved it was lying.", next = "BACK", reply = "A lying tablet! I had not allowed for vanity. How very like the living, and how tiresome for my index.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    been = {
+      lines = { { id = "be_default", text = "Then you have the advantage of me, and I'll hear it. Tell me one thing you saw with your own eyes, and I'll tell you whether my tablets agree." } },
+      choices = {
+        { text = "They keep prisoners alive, for reasons of their own.", next = "BACK", reply = "That agrees with Rin'ji's account, and with nothing else I have. I'll mark it as confirmed, on your word.", fx = { affinity = 1 } },
+        { text = "They're fewer than your tallies say.", next = "BACK", reply = "Then the tallies count their dead among the living. That is worth knowing, and I thank you for it.", fx = { trait = { curious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    dalaran = { { id = "tp_dal", text = "I had a carrel in its library and eleven years of notes. The carrel is behind the dome, and I've rebuilt the notes from memory, twice." } },
+    kirin_tor = { { id = "tp_kt", text = "They prize knowledge until it is held by someone inconvenient. I have learned from their example." } },
+    advice = { { id = "tp_ad", text = "Write down what you see before you decide what it means. Most error comes from doing those in the wrong order." } },
+    forsaken = { { id = "tp_fs", text = "Death has been excellent for my concentration. I recommend it to no one, but I note the effect." } },
+    _none = { { id = "tp_none", text = "That lies outside my field, and I don't speculate outside my field." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Apothecary Keever: Faranell's assistant, damaged by his first death; turns caged subjects into animals and speaks of himself as Keever.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_keever", id = TODO_NPC("Apothecary Keever"), name = "Apothecary Keever",
+  bible = "bibles/more_folk.md", role = "scholar", tier = "service",
+  communities = { "undercity", "apothecarium" }, temper = { "muttering", "fussy" }, values = { "curious", "loyal" },
+  notices = { "profession", "class" },
+  impression = {
+    first = "Apothecary Keever tests serums on caged subjects in the Apothecarium and is disappointed, each time, by the small animal that results. He speaks of himself as Keever, as if he were his own assistant.",
+    third = "{name} met Apothecary Keever, Master Faranell's muttering assistant in the Apothecarium.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Hmm? Oh. Keever did not send for anyone. Stand over there, away from the vials, and Keever will attend to you presently." },
+    { id = "g_back", when = { metBefore = true }, text = "It is the one from before. Keever remembers, and Keever does not remember many." },
+    { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "A living one, and walking about loose! Keever was not told of a new subject. No? A visitor. How disappointing." },
+  },
+
+  notice = {
+    { id = "n_alch", cat = "profession", when = { profession = "Alchemy" },
+      text = "Those are an alchemist's stains. Keever approves. Perhaps the visitor can tell Keever whether earthroot weakens a transmuting serum, because Keever has begun to suspect it." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage. Mages make sheep with a word and a wave, and Keever needs three vials and a subject. Keever finds this unjust." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "So large! Keever wonders what the serum would make of so much subject. No, no, Keever only wonders. Keever has been told not to wonder aloud at guests." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "This is Apothecary Keever, assistant to Master Faranell, of the Royal Apothecary Society. Keever is seeking a serum that will make a weapon of great power out of a prisoner, and so far Keever has made a frog." },
+        { id = "h_alch", when = { profession = "Alchemy" }, text = "Apothecary Keever, and the visitor is of the craft, so Keever will speak plainly. Three batches, three subjects, and not one result of any military value. Keever is most unhappy." },
+      },
+      again = {
+        { id = "h_again", text = "Yes, yes. Keever is listening with one ear." },
+        { id = "h_again2", text = "Another question. Keever will allow it, while the third batch settles." },
+        { id = "h_again3", text = "Speak, then, before the subject wakes." },
+      },
+      choices = {
+        { text = "What exactly are you trying to make?", next = "weapon" },
+        { text = "Who are the subjects in the cages?", next = "subjects" },
+        { text = "Why do you speak of yourself that way?", next = "keever" },
+        { text = "You work under Master Faranell.", next = "master" },
+        { text = "You've added too much earthroot.", next = "earth", when = { profession = { "Alchemy", "Herbalism" } } },
+        { text = "I'll leave Keever to his work.", next = "END" },
+      },
+    },
+    weapon = {
+      lines = { { id = "w_default", text = "Something large, with teeth. The Dark Lady has enemies with armies, and Keever reasoned that a prisoner might be turned into a beast and sent back among his own. It is a sound idea, and only the serum disagrees." } },
+      choices = {
+        { text = "What has the serum produced so far?", next = "weapon2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    weapon2 = {
+      lines = { { id = "w2_default", text = "A frog, a rabbit, a snake of no great size, and yesterday a sheep. Did Keever ask for a sheep? Keever wanted a weapon of great power, and all he got was a sheep. It is still in the cage, and it looks at Keever." } },
+      choices = {
+        { text = "Perhaps a larger dose.", next = "BACK", reply = "A larger dose! Keever had thought the same. The visitor has the makings of an apothecary." },
+        { text = "Perhaps the idea itself is wrong.", next = "BACK", reply = "The idea is Keever's, and so it cannot be wrong. It is the earthroot. Keever is nearly sure of it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    subjects = {
+      lines = { { id = "s_default", text = "Scarlet zealots, mostly, brought in by the Deathstalkers, and a few others who were found where they ought not to have been. Keever does not ask their names, as it makes the notes untidy." } },
+      choices = {
+        { text = "They're people, Keever.", next = "subjects2" },
+        { text = "Better them than us.", next = "subjects2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    subjects2 = {
+      big = true,
+      lines = { { id = "s2_default", text = "They were people who would have burned Keever, and now they are subjects, and soon they will be something small with fur. Master Faranell says there is no cruelty in science, only results. Does the visitor say otherwise?" } },
+      choices = {
+        { text = "I do. A prisoner is not a reagent.", next = "BACK", reply = "Keever will write that down under objections. It is a short page, and the visitor is the second entry.", fx = { align = { light = 1 } } },
+        { text = "No. The Crusade earned every vial.", next = "BACK", reply = "Just so. Keever is pleased to be understood, and will name the next frog for the visitor.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keever = {
+      lines = { { id = "k_default", text = "Which way? Oh. Keever died badly, and something was mislaid in the dying. There is the one who thinks, and there is Keever who does the work, and it is tidier to keep the two of them apart." } },
+      choices = {
+        { text = "Does it trouble you?", next = "BACK", reply = "It troubled the one who thinks, for a while. Keever has the serums to see to, and is not troubled by anything but sheep.", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    master = {
+      lines = { { id = "m_default", text = "Keever has that honour. Master Faranell sets the great questions, and Keever is permitted the small ones. Keever also has a rival, a fool named Abernathy, who keeps taking Keever's subjects for his own bench without asking." } },
+      choices = {
+        { text = "Have you complained to the Master?", next = "master2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    master2 = {
+      lines = { { id = "m2_default", text = "Keever does not carry tales. But if that fool keeps taking Keever's subjects, Keever may have to have a word with him, and Keever has a vial set aside for the occasion. It is the one that made the snake." } },
+      choices = {
+        { text = "I'd like to see that.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    earth = {
+      lines = { { id = "e_default", text = "Too much earthroot! Keever said so. Keever said so aloud, to the frog, on the very first day. And what would the visitor put in its place, to bind the change without shrinking it?" } },
+      choices = {
+        { text = "Kingsblood. It strengthens what it touches.", next = "BACK", reply = "Kingsblood. Bold, and costly. Keever will try it on the next Scarlet, and credit the visitor in a footnote.", fx = { affinity = 1 } },
+        { text = "Nothing. Leave it out and halve the dose.", next = "BACK", reply = "Less of everything? How very unlike an apothecary. Keever will consider it, when all else has failed." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    new_plague = { { id = "tp_np", text = "That is the Master's work and not Keever's. Keever makes frogs, and is not asked about anything else." } },
+    scarlet_crusade = { { id = "tp_sc", text = "Excellent subjects. They shout a good deal before the serum, and not at all after." } },
+    sylvanas = { { id = "tp_syl", text = "The Dark Lady has not yet visited Keever's bench. Keever would like to have something larger than a sheep to show her first." } },
+    forsaken = { { id = "tp_fs", text = "Keever is Forsaken, and so is the one who thinks. It is the only matter on which they are in full agreement." } },
+    advice = { { id = "tp_ad", text = "Label every vial. Keever did not, once, and that is why there is a rabbit." } },
+    _none = { { id = "tp_none", text = "Keever does not know, and Keever is busy. Ask the one who thinks, if he ever comes back." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Lexington Mortaim: portal trainer in the Magic Quarter; knows the roads between the Horde's cities better than any map.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_lexington", id = TODO_NPC("Lexington Mortaim"), name = "Lexington Mortaim", title = "Portal Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "undercity" }, temper = { "dry", "exact" }, values = { "knowledge", "order" },
+  notices = { "class", "race" },
+  impression = {
+    first = "Lexington Mortaim teaches mages to open portals to the Undercity, and he treats distance as a clerical error that he is paid to correct. He has not walked further than the Trade Quarter in a year and sees no reason to.",
+    third = "{name} met Lexington Mortaim, the portal trainer of the Undercity's Magic Quarter.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Mind the mark on the floor. That is where things arrive, and they do not look first." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "A mage. Then you have walked here, I suppose, and you would like never to do so again." },
+    { id = "g_back", when = { metBefore = true }, text = "You have returned by the stairs. I had hoped to see you step out of the air by now." },
+  },
+
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "You hold your focus like one of Kaelystia's students, all in the wrist. It will serve for a bolt of frost, and it will tear a portal in half." },
+    { id = "n_notmage", cat = "class", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } },
+      text = "You have no gift for this, and I mean no slight by it. Stand clear of the mark, and I shall answer what I can." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear. Your own mages open their doors by a different road than ours, and I should like to compare notes with one before I die again." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Lexington Mortaim, portal trainer. I teach mages of sufficient skill to fold the road between here and anywhere into a single step, and I keep the Undercity's own arrival mark from drifting, which it likes to do." },
+        { id = "h_mage_low", when = { class = "MAGE", maxLevel = 39 }, text = "Lexington Mortaim. You are a mage, but not yet a strong enough one to hold a door open for others. Come back when you have more behind you, and meanwhile learn the theory, since it costs nothing." },
+        { id = "h_mage", when = { class = "MAGE", minLevel = 40 }, text = "Lexington Mortaim. You are ready for the larger working, I think, the door that others may walk through after you. It is a responsibility, and I shall treat it as one even if you do not." },
+      },
+      again = {
+        { id = "h_again", text = "Yes? Be exact, if you please." },
+        { id = "h_again2", text = "Another question. Very well; I have until the next arrival." },
+        { id = "h_again3", text = "Go on. Nothing is due on the mark for a quarter of an hour." },
+      },
+      choices = {
+        { text = "Teach me the way to the Undercity.", next = "BUSINESS", when = { class = "MAGE" } },
+        { text = "How does a portal actually work?", next = "theory" },
+        { text = "What happens when one goes wrong?", next = "wrong" },
+        { text = "Where can a mage of the Horde travel?", next = "roads" },
+        { text = "You've not left the city in a year, I hear.", next = "stay" },
+        { text = "I learned the short step in Dalaran.", next = "dalaran", when = { origin = "forsaken_dalaran_apprentice" } },
+        { text = "I'll take the stairs.", next = "END" },
+      },
+    },
+    theory = {
+      lines = { { id = "t_default", text = "You do not travel, strictly. You persuade two places that they are the same place for a moment, and you step across before they notice the error. The skill lies in knowing the far place well enough to describe it without a single mistake." } },
+      choices = {
+        { text = "And a rune helps you describe it?", next = "theory2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    theory2 = {
+      lines = { { id = "t2_default", text = "The rune is a memory you can hold in your hand. Hannah Akeley sells them along the way, and I advise carrying more than you think you need, because a mage without a rune is merely a person a long way from home." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrong = {
+      lines = { { id = "w_default", text = "Usually nothing happens, and the mage is embarrassed. Occasionally the door opens on the right place at the wrong height. I have a student who arrived in the canal, and another who arrived above it." } },
+      choices = {
+        { text = "And the worst you've seen?", next = "wrong2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrong2 = {
+      big = true,
+      lines = { { id = "w2_default", text = "A young man who pictured the Undercity as he remembered it from life, with the palace whole and the sun on the square. The door opened. I shut it at once, and I have never been certain what it opened onto. Was I right to shut it?" } },
+      choices = {
+        { text = "Yes. Some doors should stay shut.", next = "BACK", reply = "So I told him. He has not forgiven me, and I have not asked him to.", fx = { align = { order = 1 } } },
+        { text = "No. You should have looked through.", next = "BACK", reply = "Perhaps. I think of it most nights, and on most nights I am glad I did not.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roads = {
+      lines = { { id = "r_default", text = "To this city, to Orgrimmar and to Thunder Bluff, and each is taught in its own city by one who knows its mark. I teach ours. For Orgrimmar you want the trainer there, a troll named Thuul, who is competent and rather loud." } },
+      choices = {
+        { text = "And beyond the three cities?", next = "BACK", reply = "Beyond them you walk, or you pay a goblin. I recommend walking, since it is merely slow." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stay = {
+      lines = { { id = "s_default", text = "Why should I? Everything that matters arrives on that mark sooner or later. Pierce Shackleton calls it a failure of curiosity. I call it the natural result of knowing precisely how far away everything is." } },
+      choices = {
+        { text = "There's more to a place than its distance.", next = "BACK", reply = "So travellers tell me, usually while complaining of their feet.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dalaran = {
+      lines = { { id = "d_default", text = "Then you had it from the same school as I, and you will remember the practice hall with the brass circles. I could open a door to that hall tonight, in theory. In practice the dome would have a good deal to say about it." } },
+      choices = {
+        { text = "Have you ever been tempted?", next = "BACK", reply = "Daily. I resist by reminding myself what the Kirin Tor do to uninvited guests, which is thorough.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    dalaran = { { id = "tp_dal", text = "I know its arrival mark as I know my own name. I shall very likely never use it again, and I keep it polished in my memory all the same." } },
+    kirin_tor = { { id = "tp_kt", text = "They taught me to cross the world in a step, and then drew a line I may not cross. I admire the consistency of the first lesson more than the second." } },
+    advice = { { id = "tp_ad", text = "Never open a door to a place you have only heard described. Go there on foot first, once, and look at the floor." } },
+    forsaken = { { id = "tp_fs", text = "We have no pulse to steady before a casting, which is a real advantage. I mention it to living mages whenever they become tiresome." } },
+    sylvanas = { { id = "tp_syl", text = "Her Majesty travels by her own means and has never needed mine. I keep the mark exact regardless, in case she should." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief's shamans do not use portals and are suspicious of them. I am told the suspicion is mutual, at the Orgrimmar end." } },
+    _none = { { id = "tp_none", text = "That is neither here nor there, and those are the only two places I concern myself with." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Martha Strain: demon trainer in the Magic Quarter; sells the grimoires that teach a warlock's servants their tricks.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_strain", id = TODO_NPC("Martha Strain"), name = "Martha Strain", title = "Demon Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "undercity" }, temper = { "brisk", "wry" }, values = { "practical", "knowledge" },
+  notices = { "pet", "class" },
+  impression = {
+    first = "Martha Strain sells grimoires to warlocks and speaks of demons the way a kennel keeper speaks of hounds. She is fonder of the creatures than of the people who command them, and says so.",
+    third = "{name} met Martha Strain, who trains warlocks' demons in the Undercity's Magic Quarter.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Grimoires on the left, and don't open one unless you mean to buy it. They bite the idle." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "Let's have a look at what you've brought me. Stand it where I can see it, and tell it to stop that." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for another book? Your servant must be learning faster than you are." },
+  },
+
+  notice = {
+    { id = "n_imp", cat = "pet", when = { pet = { family = "Imp" } },
+      text = "That imp's been at somebody's candle wax, I can see it on his chin. Feed him properly and he'll leave the furniture be." },
+    { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
+      text = "A priest. You'll not find anything here for you, but you may look, and I'll thank you not to mutter at the shelves." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "You've a steady hand on the leash, by the look of it. That's rarer than talent, and worth a good deal more." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Martha Strain, demon trainer. The masters down the hall teach the warlock, and I teach the demon, by way of a book the warlock reads aloud. It's the more honest half of the trade, since the demon at least knows what it is." },
+        { id = "h_mount", when = { class = "WARLOCK", minLevel = 60, questBefore = TODO_QUEST("Mor'zul Bloodbringer") }, text = "Martha Strain. You've come as far as this hall can take you, so I'll tell you what I tell very few. There's an orc named Mor'zul Bloodbringer in the Burning Steppes, near the Altar of Storms, and he knows a working that will put a dreadsteed under you." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Mind the voidwalker, he's sulking." },
+        { id = "h_again2", text = "Go on, then, I can shelve and listen." },
+        { id = "h_again3", text = "Ask it, before something in here gets bored." },
+      },
+      choices = {
+        { text = "Show me the grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "How do you train a demon with a book?", next = "book" },
+        { text = "You sound fond of them.", next = "fond" },
+        { text = "Which servant gives the most trouble?", next = "trouble" },
+        { text = "How do you get on with the warlock masters?", next = "masters" },
+        { text = "My demon's stopped obeying the small commands.", next = "obey", when = { class = "WARLOCK" } },
+        { text = "I'll leave you to your shelves.", next = "END" },
+      },
+    },
+    book = {
+      lines = { { id = "b_default", text = "Each grimoire holds one trick, written so the demon can't pretend to misunderstand it. The warlock reads, the demon listens, and after that it can't say it was never told. Half of demonology is removing excuses." } },
+      choices = {
+        { text = "Who writes them?", next = "book2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    book2 = {
+      lines = { { id = "b2_default", text = "I copy most myself, from masters kept under lock by Carendin Halgar. It's slow work, because a grimoire copied carelessly teaches the trick to the wrong party, and I've no wish to meet a warlock who fetches on command." } },
+      choices = {
+        { text = "Has that ever happened?", next = "BACK", reply = "Once, in Dalaran, to a man I disliked. I've been careful ever since, and a little wistful.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fond = {
+      lines = { { id = "f_default", text = "Of the creatures, yes. An imp is a liar and a felhunter is a glutton, but neither pretends otherwise, and after a year among the dead I value that. It's the warlocks who tell themselves stories." } },
+      choices = {
+        { text = "What stories?", next = "fond2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fond2 = {
+      big = true,
+      lines = { { id = "f2_default", text = "That the demon likes them. That it's loyal. It is neither, and the moment the leash slips it will prove it. I tell every student so, and they nod, and then they give the thing a pet name. Do you think I'm too hard on them?" } },
+      choices = {
+        { text = "No. A leash is a leash. Never forget it.", next = "BACK", reply = "Good. Say that to yourself each night, and you may keep all your fingers.", fx = { align = { order = 1 } } },
+        { text = "Yes. Even a demon answers to decent treatment.", next = "BACK", reply = "It answers to it, certainly. It takes note of it, and waits. But I've heard worse philosophies.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trouble = {
+      lines = { { id = "tr_default", text = "The succubus, without question. A voidwalker wants only to be left alone and a felhunter wants only to eat. The succubus wants to know what you want, and that is a far more dangerous kind of attention." } },
+      choices = {
+        { text = "And the easiest?", next = "BACK", reply = "The voidwalker. Feed him a shard now and then and he'll stand between you and anything, sighing all the while." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    masters = {
+      lines = { { id = "m_default", text = "Well enough. Richard Kerwin sends his students to me with a list, which is civil of him. Luther Pickman sends his with a warning about me, which is flattering. And Kaal Soulreaper's felhound has eaten two of my ledgers." } },
+      choices = {
+        { text = "Only the ledgers?", next = "BACK", reply = "And a shoe that belonged to their acolyte, the sour boy. He was more upset about the shoe than his foot would have been." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    obey = {
+      lines = { { id = "o_default", text = "Then it's testing whether you still mean it. They do that when the warlock's tired, or distracted, or newly sure of himself. Which are you?" } },
+      choices = {
+        { text = "Tired. I've been travelling hard.", next = "obey2" },
+        { text = "Sure of myself, I suppose.", next = "obey2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    obey2 = {
+      lines = { { id = "o2_default", text = "Then say the small commands aloud for a week, every one, as if it were the first day. It will sulk, and then it will obey, because you'll have reminded it that you're paying attention. It's nearly always that." } },
+      choices = {
+        { text = "I'll do it. Thank you, Martha.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    burning_legion = { { id = "tp_legion", text = "The Legion breeds them and we borrow them. I'd not call it theft, exactly, but I'd not send the Legion a receipt either." } },
+    dalaran = { { id = "tp_dal", text = "They pretended nobody there studied what I studied. There was a locked floor for the nobody." } },
+    advice = { { id = "tp_ad", text = "Never thank a demon. It keeps count, and it will mention it later." } },
+    forsaken = { { id = "tp_fs", text = "We make careful warlocks, most of us. Once you've been something's puppet, you don't hold a leash lightly." } },
+    scourge = { { id = "tp_scourge", text = "They bind the dead the way a bad warlock binds a demon, with no terms and no end. I've never forgiven the workmanship." } },
+    _none = { { id = "tp_none", text = "Not in any book of mine. Try the masters, they like being asked." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Randolph Montague: the fourth Montague at the Trade Quarter bank; the affable one.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_rmontague", id = TODO_NPC("Randolph Montague"), name = "Randolph Montague", title = "Banker",
+  bible = "bibles/more_folk.md", role = "banker", tier = "service",
+  communities = { "undercity" }, temper = { "affable", "shrewd" }, values = { "discretion", "profit" },
+  notices = { "purse", "race" },
+  impression = {
+    first = "Randolph Montague is the one banker in the Trade Quarter who smiles at his depositors, and he watches their hands while he does it. He seems to enjoy the vault as other men enjoy a good cellar.",
+    third = "{name} met Randolph Montague, one of the Montague bankers of the Undercity.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Good evening, and welcome to the safest hole in Lordaeron. What shall we look after for you?" },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, a familiar face. Your box has missed you, or I have, and at my age it is hard to tell the difference." },
+    { id = "g_rich", when = { money = { min = 1000000 } }, text = "Now there is a purse that wants a rest. Do come to my end of the counter; Mortimer will only make you feel guilty about it." },
+  },
+
+  notice = {
+    { id = "n_poor", cat = "purse", when = { money = { max = 5000 } },
+      text = "Travelling light, I see. No shame in it, friend. Every great account at this counter began as three coppers and a button." },
+    { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
+      text = "One of our living allies. You'll find your Orgrimmar box is our box, to the last coin, though I can't promise it will smell the same." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Randolph Montague, banker, at your service. There are four of us Montagues at this counter, and I am the one who doesn't mind being asked questions, so the others send the talkative customers down to me." },
+        { id = "h_met", when = { metBefore = true }, text = "Randolph Montague, as before. You'll find everything as you left it. We have never lost so much as a copper, though Mortimer once mislaid a decimal and didn't speak for a week." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else I can do for you?" },
+        { id = "h_again2", text = "Go on, I'm in no hurry. Money is very patient company." },
+        { id = "h_again3", text = "Ask away. William is glaring, but he glares at everyone." },
+      },
+      choices = {
+        { text = "I'd like my box.", next = "BUSINESS" },
+        { text = "What are the other Montagues like?", next = "four" },
+        { text = "What do the Forsaken keep in a bank?", next = "keep" },
+        { text = "Does trade still reach the Undercity?", next = "trade" },
+        { text = "How's the Horde's credit, between cities?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "That'll be all.", next = "END" },
+      },
+    },
+    four = {
+      lines = { { id = "f_default", text = "William is the senior and guards the keys as if they were his own ribs. Ophelia has the best head for figures of any of us. Mortimer counts everything twice, and I am told I talk too much, which I consider a service to the customer." } },
+      choices = {
+        { text = "Are you truly all one family?", next = "four2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    four2 = {
+      lines = { { id = "f2_default", text = "We answer to one name and we woke within a street of one another, and that is all any of us can swear to. I've decided we are cousins. It costs nothing, and it gives me someone to be exasperated by at the end of the day." } },
+      choices = {
+        { text = "That's as good a family as any.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "A name isn't blood.", next = "BACK", reply = "No, but it is on the door, and the door is what the customers trust." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keep = {
+      lines = { { id = "k_default", text = "Less gold than you'd think, and more keepsakes. A wedding band, a child's shoe, a letter they can no longer bring themselves to read. We charge the same for a shoe as for a sovereign, and we guard it rather more carefully." } },
+      choices = {
+        { text = "Why more carefully?", next = "keep2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keep2 = {
+      lines = { { id = "k2_default", text = "Because gold can be made good, and the shoe can't. I had a woman come every week for a year only to open her box and look. One week she took the thing out and left, and I've never been sure whether to count that as a loss to the bank." } },
+      choices = {
+        { text = "I'd call it the bank doing its work.", next = "BACK", reply = "So would I, privately. Don't tell Mortimer; he has it entered as a closed account.", fx = { affinity = 1 } },
+        { text = "A bank isn't a shrine, Randolph.", next = "BACK", reply = "Quite right, and I'd never say otherwise in front of the ledgers." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade = {
+      lines = { { id = "t_default", text = "More each season. The goblins fly in from Orgrimmar and Grom'gol, the auctioneers across the hall never close, and Tarren Mill sends up what Hillsbrad gives it. We are a dead city with a very lively market." } },
+      choices = {
+        { text = "Who spends the most?", next = "BACK", reply = "The Apothecary Society, by a wide margin, and always on glassware. I've stopped asking what happens to the old glassware." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    living = {
+      lines = { { id = "l_default", text = "Excellent, and I say it as one who checks. Your Warchief's treasurers pay on the day, the tauren pay early, which unsettles me, and the trolls pay in full and argue about it afterwards. I'd lend to any of them." } },
+      choices = {
+        { text = "And would they lend to the Forsaken?", next = "living2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    living2 = {
+      big = true,
+      lines = { { id = "l2_default", text = "They do, with a little more counting than they give each other. I don't take offence. We are new neighbours, and a careful lender is a neighbour who intends to stay. Do you think they're wrong to count twice with us?" } },
+      choices = {
+        { text = "Yes. Allies should deal as equals.", next = "BACK", reply = "A generous view, and I'll repeat it to the next Orgrimmar clerk who asks for a third signature.", fx = { align = { honor = 1 } } },
+        { text = "No. Trust is earned, and yours is young.", next = "BACK", reply = "Fairly said, and a banker can hardly object to anyone checking the sums.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    lordaeron = { { id = "tp_lord", text = "A rich kingdom, and a careless one. It kept its treasury above ground, where anyone could set fire to it." } },
+    forsaken = { { id = "tp_fs", text = "We make excellent bankers. We've no appetites to speak of, and nothing whatever to retire to." } },
+    syndicate = { { id = "tp_syn", text = "They tried Mortimer's end of the vault twice. Nobody ever tries mine, and I've begun to feel rather slighted." } },
+    advice = { { id = "tp_ad", text = "Put a little aside when times are good. They are never good for as long as you expect." } },
+    sylvanas = { { id = "tp_syl", text = "The Dark Lady's treasury is the soundest in the north, and I say it as one who is shown only a corner of it." } },
+    thrall = { { id = "tp_thrall", text = "A ruler who pays his debts on the day. I had not met one before, and I've been a banker in two lifetimes." } },
+    _none = { { id = "tp_none", text = "Not a thing I've an account of, I'm afraid. Try the auctioneers; they hear everything." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Eunice Burch: cooking trainer in the Trade Quarter; teaches the dead to cook for the living Horde.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_eburch", id = TODO_NPC("Eunice Burch"), name = "Eunice Burch", title = "Cooking Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "undercity" }, temper = { "brisk", "motherly" }, values = { "craft", "community" },
+  notices = { "race", "profession" },
+  impression = {
+    first = "Eunice Burch teaches cooking in the Trade Quarter to students who cannot taste what they make. She has worked out a whole method around that, and she is proud of it and a little fierce about it.",
+    third = "{name} met Eunice Burch, the cooking trainer of the Undercity.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Wipe your feet and wash your hands, in that order. I don't care that you're dead, the food does." },
+    { id = "g_cook", when = { profession = "Cooking" }, text = "A cook already, are you? Let me see your hands. Hm. You stir too fast, but we can mend that." },
+    { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "A customer with a tongue in their head! Sit down, you're tasting for me today, and I won't hear no." },
+  },
+
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren. Your people roast better than anyone living, and I'll thank you to tell me how you keep kodo from going tough." },
+    { id = "n_fisher", cat = "profession", when = { profession = "Fishing" },
+      text = "You fish. Then bring me what you catch in the Tirisfal lakes, and I'll show my students which of it is supper and which of it is a warning." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Eunice Burch, and I teach cooking. Most of my students can't taste a thing, so I teach them to cook by eye and ear and the clock, and I'll put their stew against any living cook's in Lordaeron." },
+        { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Eunice Burch. I teach the dead to cook for folk like you, since the Horde eats and somebody in this city has to feed it. You'll tell me honestly what you think of the pot, and I'll thank you for it either way." },
+      },
+      again = {
+        { id = "h_again", text = "What else, dear? Mind that pan, it's hot." },
+        { id = "h_again2", text = "Go on, I can talk and stir." },
+        { id = "h_again3", text = "Ask away. The dumplings want another minute." },
+      },
+      choices = {
+        { text = "Teach me what you know.", next = "BUSINESS" },
+        { text = "How do you cook without tasting?", next = "taste" },
+        { text = "Who eats what your students make?", next = "eats" },
+        { text = "Where do your ingredients come from?", next = "larder" },
+        { text = "Raleigh Andrean was a chef. Does he help you?", next = "raleigh", when = { heardLine = "uc_raleigh.h_default" } },
+        { text = "Let me taste the pot for you.", next = "tastes", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "I'll leave you to your stove.", next = "END" },
+      },
+    },
+    taste = {
+      lines = { { id = "t_default", text = "You listen to the fat, for a start. A pan tells you when it's ready, and a stew changes its bubble when it thickens. I've a sand-glass for every dish and a colour card for every sauce, and I drill them like a sergeant." } },
+      choices = {
+        { text = "And the seasoning?", next = "taste2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    taste2 = {
+      lines = { { id = "t2_default", text = "By weight, to the grain. I kept my mother's recipes in my head, and when I woke I wrote out every one with the salt measured, before I could forget. They're on that shelf, and I'd go back into a burning house for them." } },
+      choices = {
+        { text = "That's a real inheritance.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eats = {
+      lines = { { id = "e_default", text = "Innkeeper Norman's guests, first. Then the orcs who come in on the zeppelin half starved, and the deathguards' living auxiliaries. And a good many of our own, who can't taste it and eat anyway, because a hot bowl in the hands is a comfort." } },
+      choices = {
+        { text = "Is it wrong to cook for those who can't taste?", next = "eats2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eats2 = {
+      big = true,
+      lines = { { id = "e2_default", text = "Some of the apothecaries say I waste good provisions on a habit. I say that a people who sit down to supper together are still a people. I'll not be told otherwise in my own kitchen, but I'll hear your view." } },
+      choices = {
+        { text = "You're right. Keep the table laid.", next = "BACK", reply = "I will, dear. There'll be a bowl for you whenever you're through.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The apothecaries are right. It's waste.", next = "BACK", reply = "Then you'll not want any, and there's more for those who do. Mind the door on your way.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    larder = {
+      lines = { { id = "l_default", text = "Ronald Burch sells me the flour and spices from his stall, and Tawny Grisette the mushrooms. The meat comes down from Brill, darkhound and bat mostly, and the fish from the lakes when Armand Cromwell's students have had a good day." } },
+      choices = {
+        { text = "Darkhound and bat?", next = "larder2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    larder2 = {
+      lines = { { id = "l2_default", text = "Don't make that face. A darkhound haunch braised long with Tirisfal pumpkin is as good as mutton, and I've had orcs ask for a second plate. The bat I'll grant you is mostly for soup, and mostly for the brave." } },
+      choices = {
+        { text = "I'd try the haunch.", next = "BACK", reply = "Good! That's the spirit that built the Horde. Sit, and I'll cut you some.", fx = { trait = { brave = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    raleigh = {
+      lines = { { id = "r_default", text = "He won't hold a spoon, poor man, but he answers my students' questions, and he's never once been wrong. I send him the clever ones. I think it does him as much good as it does them, though he'd never own to it." } },
+      choices = {
+        { text = "He said he lasted a morning here.", next = "BACK", reply = "He lasted a morning at the stove. He's lasted a year at the door, and that's the part that counts." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tastes = {
+      lines = { { id = "ts_default", text = "Would you? There's a dear. It's the spiced bat broth, and I want to know two things: is there too much pepper, and can you taste the pumpkin at all? Take your time, and don't be polite." } },
+      choices = {
+        { text = "Too much pepper. The pumpkin's lost.", next = "BACK", reply = "I knew it! Halve the pepper, and write it on the card. Thank you, that's a week of guessing saved.", fx = { affinity = 1, trait = { honest = 1 } } },
+        { text = "It's perfect as it is.", next = "BACK", reply = "Is it, now? You've a kind face and watering eyes, dear. I'll halve the pepper." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    forsaken = { { id = "tp_fs", text = "We don't hunger, but we remember hungering, and I think that's why they still come to my table." } },
+    lordaeron = { { id = "tp_lord", text = "I kept a cookshop two streets from the palace gate. The street's still up there, and my chimney with it, for all I know." } },
+    advice = { { id = "tp_ad", text = "Low heat and patience, dear. There's hardly a dish in the world that's improved by hurrying." } },
+    thrall = { { id = "tp_thrall", text = "I've never met him, dear, but his orcs clean their plates and say thank you, and you can tell a great deal about a chief from that." } },
+    scarlet_crusade = { { id = "tp_sc", text = "They burned the wheat fields north of Brill rather than let us have them. I've no time for anyone who'll burn bread." } },
+    sylvanas = { { id = "tp_syl", text = "She doesn't eat, they say, and never did sit down much even in life. I'd cook for her all the same, if she ever asked." } },
+    _none = { { id = "tp_none", text = "I couldn't tell you, dear. If it can't be boiled, baked or fried, it's past me." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Tawny Grisette: wandering mushroom seller of the Trade Quarter.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_tawny", id = TODO_NPC("Tawny Grisette"), name = "Tawny Grisette", title = "Mushroom Seller",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "undercity" }, temper = { "soft_spoken", "dreamy" }, values = { "practical", "community" },
+  notices = { "profession", "class" },
+  impression = {
+    first = "Tawny Grisette wanders the Trade Quarter with a basket of mushrooms and talks to them under her breath between customers. She knows every damp corner of the city and speaks of them like a gardener speaks of beds.",
+    third = "{name} met Tawny Grisette, who sells mushrooms in the Undercity's Trade Quarter.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Mushrooms? They're fresh this hour. I picked them where the old well drips, and they've hardly noticed yet." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. The ones you had last time came from the same bed, so they'll remember you." },
+    { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "You're warm! I can feel it from here. Come and choose, the caps like a warm hand." },
+  },
+
+  notice = {
+    { id = "n_herb", cat = "profession", when = { profession = "Herbalism" },
+      text = "You gather growing things, don't you? You've soil under your nails that isn't from here. I'd love to know what the ground is like where the sun still reaches it." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid. Oh, I've wanted to meet one. Would you tell my mushrooms they're doing well? They'd take it better from you." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Tawny Grisette. I walk the Trade Quarter with my basket, and I sell what grows in the quiet parts of the city. They're good mushrooms, and I raised every one of them from a speck." },
+        { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "I'm Tawny Grisette. You'll want the forest caps and the red-speckled ones, and they're all safe for the living, I promise. I've a troll who comes every week, and he's never been ill once." },
+      },
+      again = {
+        { id = "h_again", text = "Was there something else? I'm only walking my round." },
+        { id = "h_again2", text = "Go on, I'm listening. So are they, a little." },
+        { id = "h_again3", text = "Yes? Walk with me, if you like, I'm going as far as the bridge." },
+      },
+      choices = {
+        { text = "Let me see the basket.", next = "BUSINESS" },
+        { text = "Where do you grow them?", next = "beds" },
+        { text = "You talk to them.", next = "talk" },
+        { text = "Why do you wander, when others keep stalls?", next = "wander" },
+        { text = "Morley Bates says yours are prettier than his.", next = "morley", when = { heardLine = "uc_bates.o_default" } },
+        { text = "The earth here is sick. Do they mind?", next = "sick", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "Good growing, Tawny.", next = "END" },
+      },
+    },
+    beds = {
+      lines = { { id = "b_default", text = "All over, wherever the stone weeps. There's a bed behind the bank where the old cistern cracked, and one under the bat roost, which is the richest. And one in a crypt I shan't name, where it's very peaceful." } },
+      choices = {
+        { text = "Under the bat roost?", next = "beds2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beds2 = {
+      lines = { { id = "b2_default", text = "Patrick Garrett sweeps it all into a corner for me. He says it's beneath a Garrett to be thanked for it, so I leave a basket by his broom instead, and we've never spoken of it. He's very proud, and very kind, and he thinks nobody's noticed." } },
+      choices = {
+        { text = "I won't tell him you have.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    talk = {
+      lines = { { id = "t_default", text = "I do. They grow better for it, I'm sure they do. And they're good listeners, which you can't say for most of this quarter, where everyone's shouting prices over everyone else." } },
+      choices = {
+        { text = "What do you tell them?", next = "talk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    talk2 = {
+      big = true,
+      lines = { { id = "t2_default", text = "The news, mostly. Who's come in on the zeppelin, what the auctioneers are cross about. And I tell them they'll be eaten by somebody who needs them, because I think it's only fair they should know. Is that a foolish thing to do?" } },
+      choices = {
+        { text = "No. It's a gentle thing. Keep doing it.", next = "BACK", reply = "I will, then. I'll tell them you said so, they like to hear of visitors.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Yes. They're mushrooms, Tawny.", next = "BACK", reply = "I know what they are. I was a great many things once myself, and nobody talked to me either.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wander = {
+      lines = { { id = "w_default", text = "A stall is one place, and the beds are in twenty. If I walked only to fetch and carry, I might as well sell on the way. And I like to see who's about. Jeremiah Payson under the bridge always has a new roach to show me." } },
+      choices = {
+        { text = "Roaches and mushrooms. A natural friendship.", next = "BACK", reply = "Isn't it? We're the only two in the quarter selling things that are glad of the dark.", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    morley = {
+      lines = { { id = "m_default", text = "Did he say that? Oh, that's generous of him. His are hardier, though, and they keep twice as long. I gave him spores from my speckled bed last winter when his went black, and he gave me a jug and wouldn't look at me." } },
+      choices = {
+        { text = "He seemed glad of the trade.", next = "BACK", reply = "He'd never say so. That's how I know he was." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sick = {
+      lines = { { id = "s_default", text = "I've wondered. They grow so eagerly here, more than they ever did in my mother's cellar. I can't tell whether that's because the ground's ill, or because they're the first thing trying to mend it." } },
+      choices = {
+        { text = "They're mending it. That's what they do.", next = "BACK", reply = "Oh. Oh, I had hoped so. I'll tell every bed tonight, they ought to know what they're for.", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "They're feeding on the sickness. Be careful.", next = "BACK", reply = "Then I'll watch them more closely, and thank you. I'd not want to carry harm about in a basket.", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    forsaken = { { id = "tp_fs", text = "We're a bit like what I grow, aren't we? We came up in the dark, out of things that had died, and here we are." } },
+    advice = { { id = "tp_ad", text = "Pick them young and carry them gently. That's true of mushrooms, and I've found it's true of most things." } },
+    background = { { id = "tp_bg", text = "I kept my mother's cellar beds in the capital. It's the one thing I did before that I can still do." } },
+    lordaeron = { { id = "tp_lord", text = "It's still up there, over the beds. Sometimes the rain comes down through the old palace floor, and they like that best of all." } },
+    sylvanas = { { id = "tp_syl", text = "I saw her once, crossing the bridge. I don't think she saw me, and I didn't mind. I told the mushrooms about it for a week." } },
+    scourge = { { id = "tp_scourge", text = "Nothing grew where they walked. That's how you can tell we're different, I think, because things grow for us." } },
+    _none = { { id = "tp_none", text = "I don't know that. I could ask the mushrooms, but they only know what I've told them." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Victor Ward: tailor of the Magic Quarter, Angela Ward's brother; hums while he works and teaches anyone who will sit still.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "uc_vward", id = TODO_NPC("Victor Ward"), name = "Victor Ward",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "undercity" }, temper = { "genial", "talkative" }, values = { "craft", "community" },
+  notices = { "profession", "kit" },
+  impression = {
+    first = "Victor Ward teaches tailoring in the Magic Quarter and hums the same four bars over every seam. He sewed palace liveries with his sister for thirty years, and he talks about thread as if it were good news.",
+    third = "{name} met Victor Ward, a tailor who teaches in the Undercity's Magic Quarter.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Come in, come in, and mind the pins. I've a hem to finish, but I talk better with my hands busy." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor! Sit down, sit down. Show me your running stitch, and we'll see where you've got to." },
+    { id = "g_back", when = { metBefore = true }, text = "There you are again. I was only just humming, and here's company. Splendid." },
+  },
+
+  notice = {
+    { id = "n_tailor", cat = "profession", when = { profession = "Tailoring" },
+      text = "You've a needle callus on the second finger. Good. That's the only honest sign of a tailor, and my sister will tell you the same, at greater length." },
+    { id = "n_torn", cat = "kit", when = { durability = { max = 0.4 } },
+      text = "Forgive me, but you've a seam going at the shoulder. It's all I can see. Stand still a moment and I'll put two stitches in it." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Victor Ward, tailor. I'll teach anyone who can thread a needle, and a fair few who can't yet. My sister Angela sells the patterns along the way, so between the pair of us a beginner can leave this quarter knowing how to make something." },
+        { id = "h_angela", when = { heardLine = "uc_angela_ward.h_default" }, text = "Victor Ward. You've met my sister, I hear, and she'll have told you I hum. I do. It keeps the stitches even, and after thirty years beside her I'm astonished she still notices." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I've yards to go, so ask away." },
+        { id = "h_again2", text = "Go on. I'm only basting." },
+        { id = "h_again3", text = "Hm hm hm. Oh, I beg your pardon. You were saying?" },
+      },
+      choices = {
+        { text = "Teach me to sew.", next = "BUSINESS" },
+        { text = "What's the tune you keep humming?", next = "tune" },
+        { text = "Tell me about the other tailors here.", next = "tailors" },
+        { text = "What do the Forsaken need sewn?", next = "need" },
+        { text = "Angela says you sewed the pages' liveries.", next = "livery", when = { heardLine = "uc_angela_ward.cl_default" } },
+        { text = "How do I get past plain linen?", next = "learn", when = { profession = "Tailoring" } },
+        { text = "I'll leave you to your hem.", next = "END" },
+      },
+    },
+    tune = {
+      lines = { { id = "tu_default", text = "Do you know, I've no idea. It's four bars of something, and I woke up with it. Angela says it was a street song the ribbon sellers sang outside our shop. She won't sing me the rest, because she says four bars are quite enough." } },
+      choices = {
+        { text = "Maybe someone else remembers it.", next = "tune2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tune2 = {
+      lines = { { id = "tu2_default", text = "I ask everyone. A deathguard knew the fifth bar, and a woman at the bank knew the words to the sixth, which were not respectable. One day I'll have the whole of it, and I shall hum it straight through and astonish my sister." } },
+      choices = {
+        { text = "I hope you find the rest.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tailors = {
+      lines = { { id = "ta_default", text = "We're a proper little guild. I take the beginners, Rhiannon Davis takes them when they're past me, and Josephine Lister teaches the finest work in the city to the few who'll ever manage it. Millie Gregorian keeps us all in thread." } },
+      choices = {
+        { text = "And Lucille Castleton sells the results.", next = "tailors2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tailors2 = {
+      lines = { { id = "ta2_default", text = "She does, and she sends back one in four with a note pinned to it. My students dread those notes. I keep every one, because she's never been wrong yet, and a tailor who can please Lucille can please anybody living or dead." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    need = {
+      lines = { { id = "n_default", text = "Everything the living do, and one thing more. Robes for the casters, shirts for the deathguards, and a great deal of plain mending, because we can't feel a tear until it's past saving. And shrouds, now and then, for those who don't get up a third time." } },
+      choices = {
+        { text = "You sew shrouds for the Forsaken?", next = "need2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    need2 = {
+      big = true,
+      lines = { { id = "n2_default", text = "For any who fall and are brought home. The apothecaries would sooner have the bodies for their studies, and they say a shroud is sentiment. I say that anyone who died twice for this city has earned a clean hem. What would you say?" } },
+      choices = {
+        { text = "Sew the shroud. They've earned their rest.", next = "BACK", reply = "Thank you. I'll go on doing it, then, with a lighter heart.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The dead can still serve. Give them to the Society.", next = "BACK", reply = "That's the Society's argument, and it's a tidy one. I'll go on sewing all the same, if it's all one to you.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    livery = {
+      lines = { { id = "li_default", text = "Blue and gold, three hundred a year, and the last set for the prince's homecoming. She's told you, then. I think of the stitching and not the day, and I've told her to do the same, though I know she can't always." } },
+      choices = {
+        { text = "You're easier about it than she is.", next = "BACK", reply = "I'm easier about most things. One of us had to be, and she'd already taken the other part." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    learn = {
+      lines = { { id = "le_default", text = "Wool next, then silk, and don't hurry between them. Wool forgives a crooked seam and silk remembers it forever. When you can set a sleeve in wool without a pucker, go and see Rhiannon, and tell her I said you were ready." } },
+      choices = {
+        { text = "I'll practise the sleeve.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    lordaeron = { { id = "tp_lord", text = "It kept me in work for thirty years, and I was happy in it. I'll not pretend otherwise because of how it ended." } },
+    arthas = { { id = "tp_arthas", text = "I sewed for his homecoming. They were very good liveries, and that's as far as I go with it." } },
+    advice = { { id = "tp_ad", text = "Press every seam as you sew it. Nobody does, and it's the whole difference between made and well made." } },
+    forsaken = { { id = "tp_fs", text = "We keep coming apart at the seams, and I mean that kindly. It's steady work for a tailor." } },
+    sylvanas = { { id = "tp_syl", text = "I should dearly love to make her a cloak. I've never dared offer, and Angela says I'd only hum at her." } },
+    dalaran = { { id = "tp_dal", text = "The Kirin Tor wore the best violet cloth I ever handled. I've a scrap of it still, pinned inside my sewing box." } },
+    _none = { { id = "tp_none", text = "I've not the faintest idea, but sit down and tell me about it anyway." } },
+  },
+}

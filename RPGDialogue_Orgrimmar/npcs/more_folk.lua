@@ -492,7 +492,7 @@ P:NPC {
   },
   topics = {
     burning_blade = { { id = "tp_blade", text = "Something of theirs is in the Durotar boars, I'd swear to it. I've opened three this month that were black inside." } },
-    thrall = { { id = "tp_thrall", text = "The Warchief wears black plate that was Doomhammer's. Under it there's a wolf-pelt mantle, and whoever skinned that wolf knew the trade." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief keeps wolves and honors them, as the Frostwolves always have. I've never been brought a wolf pelt in this city, and I'd not take one." } },
     cairne = { { id = "tp_cairne", text = "The old bull's people showed us how to live on this land without stripping it. I'd not have a craft without them." } },
     centaur = { { id = "tp_centaur", text = "I've been asked what I would do with a centaur. I answered that I've standards, and left it there." } },
     _none = { { id = "tp_none", text = "If it hasn't got a hide, I've got no opinion on it." } },
@@ -514,6 +514,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Kodohide Leatherworkers. Your boots are worn through at the heel, by the way, so you came to the right shop." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Let me see how my leather held up, then." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone a while, and your gear shows every mile of it. Stand still and let me see the damage." },
   },
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
@@ -565,6 +566,7 @@ P:NPC {
       choices = {
         { text = "Fair enough. Every fighter has a place.", next = "BACK", reply = "That's it. The Horde needs its archers as much as its grunts, and the archers need my leather.", fx = { align = { order = 1 } } },
         { text = "A real warrior faces the axe. The rest hide.", next = "BACK", reply = "Then go and face it, and come back for bandages from someone else. I'll be here selling to the ones who lived.", fx = { align = { order = -1 } } },
+        { text = "Has your leather ever decided a real fight?", next = "axe2" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -627,10 +629,15 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to Magar's! Whatever Handor told you, his leather creaks, and ours doesn't." },
     { id = "g_back", when = { metBefore = true }, text = "A returning customer, and a wise one. Come in, come in." },
+    { id = "g_away", when = { away = 14 }, text = "My friend, where have you been? The whole season's cut has changed since you left, and you are wearing last season." },
   },
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage! The robes on the left are cut for spellwork, with room in the sleeves so your hands move freely." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "A warlock! We keep the darker bolts at the back, out of the light, where they hold their colour and nobody stares." },
+    { id = "n_worn", cat = "kit", when = { durability = { max = 30 } },
+      text = "Friend, I say this with respect, but you are wearing rags with a memory of thread in them. Let me help before someone mistakes you for a peon." },
   },
   start = "hello",
   nodes = {
@@ -641,11 +648,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else can I show you?" },
         { id = "h_again2", text = "Take your time, though not too much, because the good robes go quickly." },
+        { id = "h_again3", text = "Ask anything, friend. Questions are free, and they're the only thing in here that is." },
       },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "You and Handor don't get along?", next = "handor" },
         { text = "Magar doesn't like selling?", next = "magar" },
+        { text = "Every robe can't be the finest in the Drag.", next = "finest" },
+        { text = "Who buys cloth in a city of warriors?", next = "buyers" },
+        { text = "I'm a tailor. Would Magar look at my work?", next = "tailor", when = { profession = "Tailoring" } },
+        { text = "The Forsaken dress more finely than you'd expect.", next = "forsaken", when = { race = "Scourge" } },
         { text = "I'll look elsewhere.", next = "END" },
       },
     },
@@ -653,6 +665,7 @@ P:NPC {
       big = true,
       lines = { { id = "ha_default", text = "We get along fine, so long as he keeps to his side of the Drag. A city this size has room for two armor shops, but only one of them can be the best, and it isn't his." } },
       choices = {
+        { text = "How long have you two been at this?", next = "handor2" },
         { text = "Rivalry keeps you both honest. Good.", next = "BACK", reply = "Exactly what I tell Magar! The customers win, and so do I, most days.", fx = { align = { honor = 1 } } },
         { text = "Undercut him and drive him out. That's business.", next = "BACK", reply = "Ha, I've thought of it, but then who would I complain about? No, I'll beat him fair and enjoy it more.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -669,8 +682,51 @@ P:NPC {
       lines = { { id = "ma2_default", text = "I can sew a button on, and that's the end of it. Every orc in this city learned a trade after the camps, and mine turned out to be talking, which is useful in a shop if nowhere else." } },
       choices = { { text = "Something else, Tor'phan.", next = "BACK" } },
     },
+    handor2 = {
+      lines = { { id = "ha2_default", text = "Since the Drag had awnings. His shop opened a week before ours, and he has never once let me forget that week. But when a fire took our back room two winters ago, it was Handor who came across with buckets before the grunts did, and he'd deny it if you asked." } },
+      choices = {
+        { text = "So the feud is mostly for show.", next = "handor3" },
+        { text = "Something else, Tor'phan.", next = "BACK" },
+      },
+    },
+    handor3 = {
+      big = true,
+      lines = { { id = "ha3_default", text = "Don't say that where customers can hear! A little rivalry brings people down the Drag to see who's shouting, and they leave with a robe from one of us. He knows it and I know it, and neither of us would be fool enough to make peace." } },
+      choices = {
+        { text = "An honest rivalry sharpens you both.", next = "BACK", reply = "It does, and it's kept us both fed. I'll tell him you said so, and he'll scowl, and that's as near as he comes to smiling.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A clever trick to play on your customers.", next = "BACK", reply = "Trick is a hard word, friend. Call it theatre. They get a good robe and a story, and nobody's the poorer.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    finest = {
+      lines = { { id = "fi_default", text = "Ah, but each is the finest of its kind, you see. This is the finest linen robe, and that is the finest woollen one, and the one you're looking at is the finest in the Drag at that price. I've never told a lie in this shop; I've only been generous with my categories." } },
+      choices = {
+        { text = "Which one would you buy yourself?", next = "finest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    finest2 = {
+      lines = { { id = "fi2_default", text = "The plain grey travelling robe on the second peg, with the double seam. Magar cut it himself, it'll outlast three of the fancy ones, and I can never sell it because it doesn't look like anything. There, now you know more than most of my customers." } },
+      choices = { { text = "I'll remember the second peg. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    buyers = {
+      lines = { { id = "bu_default", text = "More than you'd guess. The mages and priests from the Valley of Spirits, every warlock in the Cleft, and half the shaman in Grommash Hold. Then the grunts' mates want a tabard mended, and the tauren want everything let out at the shoulders, and it adds up to a living." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tailor = {
+      lines = { { id = "ta_default", text = "He would, and he'd tell you every fault in it before he found a kind word. Go and show him, he's right there at the bench, and if he grunts twice it means it's good. If any of it's fit to sell, I'm the one you'll haggle with." } },
+      choices = { { text = "Two grunts. I'll hope for them. Something else.", next = "BACK" } },
+    },
+    forsaken = {
+      lines = { { id = "fo_default", text = "So I've noticed, and I've learned from it. Your people come in wanting silk and a proper cuff, cut the way it was done in Lordaeron, and they know good work when they see it. Magar grumbles and then spends all night on the order." } },
+      choices = { { text = "Standards survive the grave. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    internment = { { id = "tp_internment", text = "We all wore the same sacking in the camps, friend. I think that's why I love a shop where no two things on the wall match." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief dresses for war and nothing else. A great orc, but between us, a wasted opportunity for a tailor." } },
+    ratchet = { { id = "tp_ratchet", text = "The goblins bring dyes we can't make here, and they know it. I haggle with them the way you'd wrestle a crocolisk, carefully and for a long time." } },
+    advice = { { id = "tp_ad", text = "Buy the plain one with the good seam. I'll deny I said it." } },
     _none = { { id = "tp_none", text = "I couldn't say, friend, but I could sell you a robe while you wonder." } },
   },
 }
@@ -694,6 +750,10 @@ P:NPC {
   notice = {
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "One of the Forsaken. Your people eat my mushrooms more than anyone, and I've stopped asking why." },
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman. If you've come for the grey caps with the ring, they're on the top shelf, and I'll want to hear a teacher's name before I sell them." },
+    { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
+      text = "A cook, by the smell of woodsmoke. Don't wash them, whatever you do, only brush them, or you'll boil out everything I spent a month growing." },
   },
   start = "hello",
   nodes = {
@@ -704,12 +764,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else would you like to know?" },
         { id = "h_again2", text = "Ask away, the mushrooms aren't going anywhere." },
+        { id = "h_again3", text = "Take your time. Nothing down here grows quickly, and I've learned not to either." },
       },
       choices = {
         { text = "Show me your mushrooms.", next = "BUSINESS" },
         { text = "You don't mind living down here?", next = "cleft" },
         { text = "Mushrooms only mostly safe?", next = "safe" },
         { text = "You look like you never see the sun.", next = "sun" },
+        { text = "Growing food underground is a strange trade for an orc.", next = "trade" },
+        { text = "Who are your neighbours down here?", next = "neighbours" },
+        { text = "I gather herbs. Mushrooms aren't so different.", next = "herb", when = { profession = "Herbalism" } },
+        { text = "Do the Forsaken truly eat these?", next = "forsaken", when = { race = "Scourge" } },
         { text = "Good day, Kor'jus.", next = "END" },
       },
     },
@@ -717,6 +782,7 @@ P:NPC {
       big = true,
       lines = { { id = "cl_default", text = "The Cleft gets a bad name, because of the warlocks and the shadowy types, but the Warchief lets them stay so long as they keep his law. My neighbours keep to themselves and pay on time, which is more than I can say for some in the Drag." } },
       choices = {
+        { text = "Which neighbours do you mean?", next = "cleft2" },
         { text = "Thrall is wise to keep them where he can see them.", next = "BACK", reply = "That's how I see it. Better under the city's eye than out in the hills plotting with the Burning Blade.", fx = { align = { light = 1 } } },
         { text = "Their magic is power. The Horde should use more of it.", next = "BACK", reply = "Maybe, but I remember what that sort of power cost us once. I'll stick to mushrooms.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -737,8 +803,51 @@ P:NPC {
       lines = { { id = "su_default", text = "I don't, and I don't miss it much, since mushrooms hate the sun and I've come to agree with them. A grunt told me I look like a Forsaken, and I took it as a compliment, since they're my best customers." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    cleft2 = {
+      lines = { { id = "cl2_default", text = "Rekkul sells poisons two doors along and buys my deathcaps without a word. Muragus has his staves, the Shattered Hand come and go by the back, and Neeru Fireblade holds court farther in, where I don't go. It's a quiet street, in its way." } },
+      choices = {
+        { text = "You don't go near Neeru. Why?", next = "cleft3" },
+        { text = "Something else, Kor'jus.", next = "BACK" },
+      },
+    },
+    cleft3 = {
+      big = true,
+      lines = { { id = "cl3_default", text = "Because his visitors come at odd hours, and they don't buy mushrooms. I notice who walks past my door, and I've noticed that some who walk in toward Neeru wear the Burning Blade's look about them. I've said as much to a grunt, once, and was told it's known." } },
+      choices = {
+        { text = "You did right to report it. Keep watching.", next = "BACK", reply = "I will. A shopkeeper sees a great deal if he keeps his mouth shut and his door open.", fx = { affinity = 1, align = { order = 1 }, learn = { "neeru" } } },
+        { text = "Safer to see nothing in a street like this.", next = "BACK", reply = "Safer, yes. But it's my city too, and I'd not have it rot from the cellar up.", fx = { align = { order = -1 }, learn = { "neeru" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade = {
+      lines = { { id = "tr_default", text = "It is, and I came to it by accident. I was a peon digging these tunnels when Orgrimmar was founded, and where we broke through to damp rock, things started growing by themselves. Everyone else cursed the mould, and I ate one to see what would happen." } },
+      choices = {
+        { text = "And what happened?", next = "trade2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade2 = {
+      lines = { { id = "tr2_default", text = "Nothing, the first time, which is the best thing a mushroom can do. The fourth kind I tried put me on my back for two days, and that's the one Rekkul buys. I put down my pick the week after and I've not dug for anyone since." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    neighbours = {
+      lines = { { id = "ne_default", text = "Warlocks, poisoners and people who'd rather not be asked, and I'll tell you they're the best neighbours I've had. Nobody down here borrows anything, nobody sings, and when my roof leaked it was a warlock's voidwalker that held the beam while I patched it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    herb = {
+      lines = { { id = "he_default", text = "They're different in the one way that matters, which is that a herb you've mistaken leaves you with a bad poultice and a mushroom you've mistaken leaves you dead. Jandi up in the Drag knows her leaves. If you find anything with a cap, bring it to me before you taste it." } },
+      choices = { { text = "I'll bring it to you first. Something else.", next = "BACK" } },
+    },
+    forsaken = {
+      lines = { { id = "fo_default", text = "Your people buy more than they could possibly eat, so I've stopped assuming they eat them. The apothecaries take the spotted ones by the crate. I don't ask what for, and I notice you aren't telling me." } },
+      choices = { { text = "No, I'm not. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    burning_blade = { { id = "tp_blade", text = "They're under this city, in the fire caves, and everyone in the Cleft knows it. It's the ones who aren't in the caves that worry me." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief came down here once, with no guard, and bought a bag of browncaps. I've kept the coin." } },
+    forsaken = { { id = "tp_forsaken", text = "Good customers. They never haggle and they never complain about the damp." } },
+    neeru = { { id = "tp_neeru", text = "He's a warlock with the Warchief's leave to be here, and more visitors than a warlock needs. That's all I know, and all I want to." } },
     _none = { { id = "tp_none", text = "That doesn't grow in the dark, so I couldn't tell you." } },
   },
 }
@@ -762,6 +871,10 @@ P:NPC {
   notice = {
     { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
       text = "A warlock, of course. You all come to me after Mirket and Zevrost, and you all want the darkest wood I've got." },
+    { id = "n_staff", cat = "kit", when = { class = { "MAGE", "PRIEST", "DRUID", "SHAMAN" } },
+      text = "You hold that one too near the top. Drop your hand a span, and it will stop pulling your shoulder." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior among the staves. If you're lost, the axes are in the Valley of Honor, and if you aren't, I'm curious." },
   },
   start = "hello",
   nodes = {
@@ -772,11 +885,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else?" },
         { id = "h_again2", text = "Ask, if you need to." },
+        { id = "h_again3", text = "You've more to ask. Go on; wood keeps." },
       },
       choices = {
         { text = "Show me your staves.", next = "BUSINESS" },
         { text = "What does a warlock want in a staff?", next = "locks" },
         { text = "Where does the wood come from?", next = "wood" },
+        { text = "You weigh every staff before you hand it over.", next = "weigh" },
+        { text = "The Cleft seems an odd place for an honest shop.", next = "cleft" },
+        { text = "I'm a mage. Your warlock stock won't suit me.", next = "mage", when = { class = "MAGE" } },
+        { text = "A druid's staff should be living wood.", next = "druid", when = { class = "DRUID" } },
+        { text = "Is a staff any use to someone who can't cast?", next = "plain" },
         { text = "Not today, Muragus.", next = "END" },
       },
     },
@@ -784,6 +903,7 @@ P:NPC {
       big = true,
       lines = { { id = "lo_default", text = "Something that holds a spell without splitting, and something that looks frightening, which matters to them more than it should. I sell to them because their coin is good and the Warchief allows them, but I don't ask what they do with my wood." } },
       choices = {
+        { text = "Has one of your staves ever come back wrong?", next = "locks2" },
         { text = "A trader shouldn't ask. Coin is coin.", next = "BACK", reply = "That's how I've kept this shop open. What happens after the staff leaves my hand is the Warchief's business, not mine.", fx = { align = { order = -1 } } },
         { text = "Maybe you should ask. The Horde remembers fel magic.", next = "BACK", reply = "Maybe, and I do watch who comes back for a second one. Grunts from the Hold walk this Cleft too, you know.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -800,8 +920,59 @@ P:NPC {
       lines = { { id = "wo2_default", text = "Every staff from it carries a little of that forest, the mages tell me, and they pay double for it. I only know it bends without breaking, which is all I ask of wood." } },
       choices = { { text = "Something else, Muragus.", next = "BACK", fx = { learn = { "warsong" } } } },
     },
+    locks2 = {
+      lines = { { id = "lo2_default", text = "Once. A young one came back with a staff I'd sold him, charred black from the grip up, and wanted his coin returned because it had cracked. I asked what he had put through it, and he wouldn't say, and I've thought about that crack more than I'd like." } },
+      choices = {
+        { text = "Did you tell anyone?", next = "locks3" },
+        { text = "Something else, Muragus.", next = "BACK" },
+      },
+    },
+    locks3 = {
+      big = true,
+      lines = { { id = "lo3_default", text = "I told Zevrost, who teaches them, since it seemed his affair. He looked at the staff for a long time and then asked for the student's name, very quietly. I've not seen that student in the Cleft since, and I've not asked." } },
+      choices = {
+        { text = "The warlocks police their own. That's as it should be.", next = "BACK", reply = "So the Warchief requires, and so far they have. I sleep a little easier next door to them for it.", fx = { align = { order = 1 } } },
+        { text = "You should have kept quiet. It wasn't your business.", next = "BACK", reply = "Perhaps. But my name was burned into that staff under the grip, and I'd not have it found somewhere worse.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    weigh = {
+      lines = { { id = "we_default", text = "Balance. A staff that's heavy at the head tires the wrist in an hour, and a tired caster drops a word. I weigh it, I look at who's buying, and if the two don't suit, I take down another one whether they asked or not." } },
+      choices = {
+        { text = "Do customers mind being overruled?", next = "weigh2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    weigh2 = {
+      lines = { { id = "we2_default", text = "The young ones do. They want the tallest staff with the most carving, and I hand them something plain that fits. The ones who come back a year later are the ones who took the plain staff, and I've stopped arguing with the rest." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cleft = {
+      lines = { { id = "cf_default", text = "The rent's low and the customers come to me. Kor'jus grows his mushrooms across the way, Rekkul has his poisons, and none of us are troubled by sightseers. I'd make twice the coin in the Drag and spend it all on shouting to be heard." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mage = {
+      lines = { { id = "ma_default", text = "No. For you I keep the pale ash on the left wall, straight-grained, nothing bound into it that you didn't put there yourself. The mages in the Valley of Spirits send their students to me for exactly those, and I keep them well away from the dark stock." } },
+      choices = { { text = "Pale ash it is. Something else.", next = "BACK" } },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "So the tauren tell me, and I've nothing living to sell you. What I can do is tell you which of these was cut from deadfall and which from a standing tree, because I ask, and I'll understand if that decides it for you." } },
+      choices = {
+        { text = "Deadfall only. Thank you for asking it.", next = "BACK", reply = "Three on the end rack, then. I'd keep more if the suppliers were more careful.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Wood is wood. Show me the strongest.", next = "BACK", reply = "As you like. The ironwood, then, and I'll not tell you where it stood.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plain = {
+      lines = { { id = "pl_default", text = "More than you'd think. It's reach, it's a third leg on a bad road, and it breaks a wrist as well as any mace if you know where to put it. Half the caravan drivers out of the Barrens carry one of mine and have never cast a spell in their lives." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    warsong = { { id = "tp_warsong", text = "They cut the wood and I shape it. I'm told the forest objects, and I believe it; some of those logs arrive with arrows in them." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief fights with a hammer and speaks with the elements. He's never needed a staff, and I don't hold it against him." } },
+    burning_blade = { { id = "tp_blade", text = "Bad customers. They want things bound into the wood that I won't bind, and they don't ask twice." } },
+    advice = { { id = "tp_ad", text = "Buy the staff that fits your hand and not your pride. I say it daily, to no one who listens." } },
     _none = { { id = "tp_none", text = "I sell staves. Ask someone who sells answers." } },
   },
 }
@@ -825,6 +996,10 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren! You're my best customers, all of you, because you never ask me if I've got any meat instead." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear! You'll want the mangoes, and I've none, because the goblins say the boat sank. They say that every time the price is about to go up." },
+    { id = "n_child", cat = "greenness", when = { maxLevel = 10 },
+      text = "You're new to the city, I can tell by the way you look up at everything. Here, take your bearings: the Valley of Strength is behind you, and Wisdom's ahead." },
   },
   start = "hello",
   nodes = {
@@ -835,11 +1010,17 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, friend?" },
         { id = "h_again2", text = "Go on, I've a moment between grunts." },
+        { id = "h_again3", text = "Ask away, and have a slice while you do. It's bruised, I can't sell it anyway." },
       },
       choices = {
         { text = "Let me see the fruit.", next = "BUSINESS" },
         { text = "Where does fruit come from, in Durotar?", next = "where" },
         { text = "Orcs don't eat fruit?", next = "orcs" },
+        { text = "You know every grunt who passes by what they buy.", next = "grunts" },
+        { text = "This road sees half the city go by.", next = "road" },
+        { text = "A troll will always take fruit over dried meat.", next = "troll", when = { race = "Troll" } },
+        { text = "The dead don't trouble your stall much, I imagine.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "I cook. What keeps well on a long march?", next = "cook", when = { profession = "Cooking" } },
         { text = "Farewell, Shan'ti.", next = "END" },
       },
     },
@@ -858,13 +1039,61 @@ P:NPC {
       big = true,
       lines = { { id = "or_default", text = "Some do, and the ones who do live longer, if you ask me. In the camps we ate what the humans threw us, and some of us swore we'd only ever eat meat again, but a warrior who never eats a green thing gets slow and sour." } },
       choices = {
+        { text = "Slow and sour? What happens to them?", next = "orcs2" },
         { text = "You're right. A strong Horde eats well.", next = "BACK", reply = "Tell that to the grunts in the Hold, would you? They might listen to someone with an axe.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them eat what they like. They've earned it.", next = "BACK", reply = "They have, I won't argue that. I'll just keep the fruit out, in case they change their minds.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
+    orcs2 = {
+      lines = { { id = "or2_default", text = "Slow, then tired, then their gums bleed, and then one day an old wound opens that closed years ago. I watched it happen to orcs in the camps who had nothing else wrong with them. The human guards had a name for it, and I never learned the word, but I learned the cure." } },
+      choices = {
+        { text = "And the cure was fruit.", next = "orcs3" },
+        { text = "Something else, Shan'ti.", next = "BACK" },
+      },
+    },
+    orcs3 = {
+      big = true,
+      lines = { { id = "or3_default", text = "Sour apples, thrown over the fence by a farm child who felt sorry for us. Six of us shared them and six of us got our teeth back, and I've never forgotten it. So when a grunt tells me fruit is for peons, I tell him about his gums until he buys something to make me stop." } },
+      choices = {
+        { text = "That child's kindness deserves remembering.", next = "BACK", reply = "I remember it every day I set out this stall. Not all of them hated us, and I'll say so even here.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "One apple doesn't pay for the camps.", next = "BACK", reply = "No, it doesn't, and I never said it did. But I'll not pretend it wasn't thrown.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grunts = {
+      lines = { { id = "gr_default", text = "I do. The one on the east tower buys a pear every morning and pretends it's for his wolf. The pair by the bank split a melon and argue over the bigger half, and Gamon, poor soul, buys whatever's cheapest and has it knocked out of his hand before he's past the inn." } },
+      choices = {
+        { text = "Why does everyone pick on Gamon?", next = "grunts2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grunts2 = {
+      lines = { { id = "gr2_default", text = "I've never found out, and I've asked. It started before I had this stall, and now the young ones do it because the old ones did. I put a bruised apple aside for him most days, and neither of us mentions it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    road = {
+      lines = { { id = "ro_default", text = "All of it, sooner or later. Shaman going up to the Valley of Wisdom, petitioners for the Warchief, wolf riders coming down, and the children who run between the valleys all day and steal my grapes when they think I'm not looking. I'm always looking; I only pretend I'm not." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    troll = {
+      lines = { { id = "tl_default", text = "And that's why I like you all. The trolls in the Valley of Spirits send up for a basket every few days, and they send it back empty with a flower in it. I don't know what the flower means, and I've decided it's thanks." } },
+      choices = { { text = "It's thanks. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    forsaken = {
+      lines = { { id = "fo_default", text = "One of you buys from me, every week, a single red apple. He doesn't eat it. He told me once that he likes to hold it and remember what it was to want one, and I've not charged him since." } },
+      choices = { { text = "That was kindly done. Something else.", next = "BACK" } },
+    },
+    cook = {
+      lines = { { id = "ck_default", text = "Dried, all of it. Apples in rings, the Barrens pears sliced thin, and prickly pear boiled down to a paste that'll keep a month in a skin. Zamja in the Drag buys the paste from me and puts pepper in it, which I think is a crime, but the trolls love it." } },
+      choices = { { text = "I'll try it without the pepper. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    internment = { { id = "tp_internment", text = "I learned what hunger does to a body in those camps, slowly, on people I knew. It's why I sell what I sell." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief stops when he walks this road, if he's no one with him. He takes a pear and pays for it, though I've told him not to." } },
+    ratchet = { { id = "tp_ratchet", text = "Everything sweet in this city came through Ratchet first and cost me dearly on the dock. I'd grow my own, if Durotar grew anything." } },
+    oases = { { id = "tp_oases", text = "The Barrens oases grow fruit I can't get anywhere else, when the caravans can reach them. Lately the drivers say the centaur are thick around the water." } },
     _none = { { id = "tp_none", text = "I only know fruit and gossip, and that's neither." } },
   },
 }
@@ -888,6 +1117,10 @@ P:NPC {
   notice = {
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior. Every axe on these walls was made for one like you, and every one of them must still be earned." },
+    { id = "n_rank", cat = "pvp", when = { pvpRank = 6 },
+      text = "I know that insignia. You have earned your place in this hall, and I will not ask you to lower your voice." },
+    { id = "n_green", cat = "greenness", when = { maxLevel = 20 },
+      text = "You are young to be standing here. Look at the walls as long as you like; wanting is where every name up there began." },
   },
   start = "hello",
   nodes = {
@@ -898,11 +1131,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, soldier?" },
         { id = "h_again2", text = "Ask what you will. The Hall listens." },
+        { id = "h_again3", text = "Speak. I have stood this post long enough to have patience for questions." },
       },
       choices = {
         { text = "Let me see the weapons.", next = "BUSINESS" },
         { text = "What makes a High Warlord?", next = "warlord" },
         { text = "Who are the legends honored here?", next = "legends" },
+        { text = "You wear a Stone Guard's rank yourself.", next = "rank" },
+        { text = "Not every champion fights for the right reasons.", next = "reasons" },
+        { text = "I've bled on those fields. I know what they cost.", next = "veteran", when = { pvpRank = 3 } },
+        { text = "Does the Hall honor those who fight unseen?", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll come back when I've earned it.", next = "END" },
       },
     },
@@ -924,10 +1162,56 @@ P:NPC {
     },
     legends = {
       lines = { { id = "le_default", text = "Those who fought for the Horde when it had nothing, and those who still fight for it now. Brave Stonehide keeps the trinkets and accessories by the other wall, so ask her if you wish to know what the officers wear." } },
-      choices = { { text = "Something else, Zarg.", next = "BACK" } },
+      choices = {
+        { text = "Is there one weapon here you'd point to?", next = "legends2" },
+        { text = "Something else, Zarg.", next = "BACK" },
+      },
+    },
+    legends2 = {
+      lines = { { id = "le2_default", text = "There is a blade on the north wall with a notch a hand's width from the hilt. It was carried at Hyjal by a grunt whose name I was never told, and it stopped something that should have killed the orc behind him. The smiths wanted to grind the notch out, and I refused." } },
+      choices = {
+        { text = "Why keep a flawed blade on the wall?", next = "legends3" },
+        { text = "Something else, Zarg.", next = "BACK" },
+      },
+    },
+    legends3 = {
+      big = true,
+      lines = { { id = "le3_default", text = "Because the weapons I guard are perfect, and they are given for a tally of kills. That one is ruined, and it was given for a single moment when one orc stood where he was. The young ones should see both, and decide which they came here for." } },
+      choices = {
+        { text = "One moment of standing firm outweighs any tally.", next = "BACK", reply = "I think so. I am not permitted to say it to those who come to buy, so I let the notch say it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The tally is what wins wars. Sentiment doesn't.", next = "BACK", reply = "That is what the tally-keepers say, and they are not wrong about wars. I only wonder what it is we win them for.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rank = {
+      lines = { { id = "ra_default", text = "I do, and I earned it before there was a hall to hang it in. A Stone Guard is no great rank beside the warlords whose weapons I keep, and I am content with that. Someone must stand still in this place while the others climb." } },
+      choices = {
+        { text = "Where did you earn it?", next = "rank2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rank2 = {
+      lines = { { id = "ra2_default", text = "In Ashenvale, with the Warsong, in the first year after the founding. We held a lumber camp for nine days against the night elves, and at the end of it there were enough of us left to be given ranks. I do not tell it as a boast." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "warsong" } } } },
+    },
+    reasons = {
+      lines = { { id = "re_default", text = "No, and the Hall cannot see into them. Some come for the Horde, some for the weapon, and some because they have found they like the killing and this gives it a name. The tally counts them all the same, and I hand over the blade to whichever stands before me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    veteran = {
+      lines = { { id = "ve_default", text = "Then you need no lecture from a quartermaster. I will say only this, as one soldier to another: write down the names of the ones who fell beside you while you still remember them. The Hall keeps weapons, and nobody keeps those." } },
+      choices = { { text = "I'll write them down. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    rogue = {
+      lines = { { id = "rg_default", text = "It honors those whose deeds are counted, and yours seldom are. But the daggers on the lower rack were not forged for grunts, and someone has earned every one of them, so the Hall remembers more than it admits." } },
+      choices = { { text = "That's enough for me. Something else.", next = "BACK" } },
     },
   },
   topics = {
+    warsong = { { id = "tp_warsong", text = "Grom's clan, still in Ashenvale, still cutting. They fight in the gulch for every tree, and many of the names in this hall were made there." } },
+    alterac = { { id = "tp_alterac", text = "The Frostwolves hold their valley against the dwarves of Stormpike. It is the Warchief's own clan, and the champions who return from there are quieter than the rest." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief would have peace if the Alliance allowed it. Until it does, he honors those who fight, and I keep what he honors them with." } },
+    second_war = { { id = "tp_second_war", text = "There were no halls for heroes in the old Horde, only the next battle. I think this is better, though I am not always sure." } },
     _none = { { id = "tp_none", text = "That is not a matter for the Hall of Legends." } },
   },
 }
@@ -951,6 +1235,10 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A brave of the herd. It does my heart good to see another tauren among these orcs." },
+    { id = "n_rank", cat = "pvp", when = { pvpRank = 6 },
+      text = "You carry an officer's bearing, and an officer's weariness with it. Sit, if you wish; the Hall can spare you a moment's rest." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid, far from the green places. I hope the stone of this city does not weigh on you as it sometimes does on me." },
   },
   start = "hello",
   nodes = {
@@ -961,17 +1249,27 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else would you know?" },
         { id = "h_again2", text = "Ask, if the Hall's quiet doesn't trouble you." },
+        { id = "h_again3", text = "I am listening. There is no hurry in me, whatever the Hall may think." },
+        { id = "h_again4", text = "Speak as you would by a fire. The banners will not mind." },
       },
       choices = {
         { text = "Let me see what you keep.", next = "BUSINESS" },
         { text = "Why does a tauren serve here?", next = "why" },
         { text = "Do ranks matter on a battlefield?", next = "ranks" },
+        { text = "This hall is a loud place for a quiet voice.", next = "quiet" },
+        { text = "Stone Guard Zarg seems a hard one to share a hall with.", next = "zarg" },
+        { text = "I've earned a mark or two on those fields.", next = "veteran", when = { pvpRank = 3 } },
+        { text = "It's good to hear the Earth Mother named in Orgrimmar.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Do the Darkspear send their own to these battles?", next = "troll", when = { race = "Troll" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
     why = {
       lines = { { id = "wh_default", text = "Because the Horde is my tribe now as much as Thunder Bluff is, and Cairne sent braves to fight beside the orcs in Warsong Gulch and Alterac. Someone must keep the honors of those braves, and I asked to be that one." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Did you know the braves who went?", next = "why2" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     ranks = {
       big = true,
@@ -982,8 +1280,56 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    why2 = {
+      lines = { { id = "wh2_default", text = "I knew many of them. My own brother went to the gulch with the first braves Cairne sent, to stand with the Warsong, and he came home with an officer's cloak and a silence I had not seen in him before. He hung the cloak on the lodge wall and has not worn it since." } },
+      choices = {
+        { text = "What did he see there?", next = "why3" },
+        { text = "Something else, Stonehide.", next = "BACK" },
+      },
+    },
+    why3 = {
+      big = true,
+      lines = { { id = "wh3_default", text = "He has not said, and I do not press him. I think it was only war, which our people have known since the centaur, but war for a forest that the elves have tended ten thousand years. He told me once that he was proud to stand with the orcs and was not sure the Earth Mother was proud of him." } },
+      choices = {
+        { text = "Loyalty to allies is its own kind of balance.", next = "BACK", reply = "That is what I told him, and I believe it on most days. Thank you for saying it to me in turn.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "He was right to doubt. That fight isn't the tauren's.", next = "BACK", reply = "Perhaps it is not. But the orcs bled for us against the centaur when no one else would, and a herd does not count such debts.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quiet = {
+      lines = { { id = "qu_default", text = "It is, and so I have made a quiet corner in it. The warlords come to Zarg for their blades with their blood still up, and afterward some of them drift to this wall and stand a while, and say nothing. I think they come for the cloth less than for the stillness." } },
+      choices = {
+        { text = "What do you say to them?", next = "quiet2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quiet2 = {
+      lines = { { id = "qu2_default", text = "Very little. I ask where they are from, and whether anyone waits for them there. It is surprising how many have not been asked in a year, and how long they will talk once they begin." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    zarg = {
+      lines = { { id = "za_default", text = "He is stone on the outside, as his rank says, and he would be displeased to hear me tell you otherwise. But there is a notched blade on his wall that he will not let the smiths mend, and when you have a moment, you might ask him why." } },
+      choices = { { text = "I'll ask him. Something else.", next = "BACK" } },
+    },
+    veteran = {
+      lines = { { id = "ve_default", text = "Then wear them without shame and without too much pride, if I may say so. I have fitted cloaks to champions who could no longer sleep, and to champions who slept too easily, and I was more afraid for the second kind." } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "I say her name aloud here every morning, so that the walls grow used to it. The orcs do not mind. One of the grunts at the door has begun to say it with me, badly, and I have not the heart to correct him." } },
+      choices = { { text = "May she hear you both. Something else.", next = "BACK" } },
+    },
+    troll = {
+      lines = { { id = "tl_default", text = "They do, and they fight with a laughter that unsettles the orcs. The Darkspear who come to me for their insignia always ask if it can be worn on a tusk, and I have learned to say yes." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    cairne = { { id = "tp_cairne", text = "Our High Chieftain gave his word to the Warchief, and so his braves go where the Horde fights. He grieves each one, and I am told he knows their names." } },
+    earth_mother = { { id = "tp_em", text = "She is under this stone as she is under the grass of Mulgore. I remind myself of it when the Hall is loud." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong fight for timber the Horde truly needs. I only wish the need and the forest did not stand in the same place." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief honors those who fight and mourns that they must. I have seen both on his face in this very hall." } },
+    alterac = { { id = "tp_alterac", text = "A cold valley, far to the east, where the Frostwolves stand against the dwarves. The braves who return from it bring frostbite and few words." } },
     _none = { { id = "tp_none", text = "That is beyond my knowing, traveler. Perhaps the elders could help you." } },
   },
 }
