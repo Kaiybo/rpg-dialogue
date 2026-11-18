@@ -206,12 +206,72 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "You have horns! Jom-jom knew an ogre with one horn, but you have two, and they are the same size." },
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Little one has a beast friend. Jom-jom will not step on {pet}, Jom-jom promises." },
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc! Orcs are Bolder'ok's friends, so you take Jom-jom home, yes?" },
   },
 
   start = "hello",
   nodes = {
+    clugfist = {
+      lines = {
+        { id = "cl_default", text = "Clugfist looks after everybody, and shouts at everybody, and it is the same thing. Clugfist said the prophets never climb on their own stones, and then Bolder'ok left, and Jom-jom went too." },
+      },
+      choices = {
+        { text = "He sounds like a wise ogre.", next = "clugfist_wise" },
+        { text = "Will he be angry with you?", next = "clugfist_angry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clugfist_wise = {
+      lines = {
+        { id = "cw_default", text = "Clugfist is the smartest ogre Jom-jom knows! He can count past his fingers, and he knew the Twilight were lying before anybody. Jom-jom should have listened about not going alone." },
+      },
+      choices = {
+        { text = "You'll listen next time.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clugfist_angry = {
+      lines = {
+        { id = "ca_default", text = "Very angry, and very loud, and then he will give Jom-jom meat. That is how Clugfist is angry at ogres he likes. Jom-jom would rather have that than the quiet out here." },
+        { id = "ca_done", when = { questDone = TODO_QUEST("Jom-Jom's Escape") }, text = "He was very angry, and very loud, and then he gave Jom-jom meat. That is how Clugfist is angry at ogres he likes, and Jom-jom did not mind the shouting at all." },
+      },
+      choices = {
+        { text = "That's a good kind of angry.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xorc = {
+      lines = {
+        { id = "xo_default", text = "Yes! Orcs like you come over the river with axes and meat, and Bolder'ok ogres go and fight for the orcs. Jom-jom is not picked to fight yet, but Jom-jom carries the axes, and that is important too." },
+      },
+      choices = {
+        { text = "Every warband needs someone to carry the axes.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshaman = {
+      lines = {
+        { id = "xs_default", text = "Little one talks to spirits? The robe men said the spirits wanted ogres on the stones, and Jom-jom believed it for a long time. Jom-jom is glad it was a lie, but Jom-jom is sad for the ones who went up." },
+      },
+      choices = {
+        { text = "It was a lie, Jom-jom. You were right to leave.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwar = {
+      lines = {
+        { id = "xw_default", text = "Jom-jom is big, but the Twilight have many, and one big ogre against many is one dead ogre. Clugfist says running is not shame when you run home. Little one fights like many, so now Jom-jom is not hiding." },
+      },
+      choices = {
+        { text = "Then stay behind me, and we'll walk out.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -227,6 +287,8 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Little one has more questions? Jom-jom will try to answer." },
+        { id = "h_again2", text = "Jom-jom is listening. Jom-jom is also watching for robe men." },
+        { id = "h_again3", text = "Ask, little one, but ask quiet." },
       },
       choices = {
         { text = "Who was your friend?", next = "friend" },
@@ -234,6 +296,10 @@ P:NPC {
         { text = "Bolder'ok must be a fine place for an ogre.", next = "home" },
         { text = "You must miss the Twilight's Hammer a little.", next = "twilight" },
         { text = "I'll get you home, Jom-jom.", next = "END", when = { questBefore = TODO_QUEST("Jom-Jom's Escape") } },
+        { text = "Clugfist looks after you, it seems.", next = "clugfist" },
+        { text = "The orcs bring axes to Bolder'ok?", next = "xorc", when = { race = "Orc" } },
+        { text = "The spirits don't want anyone on those stones, Jom-jom.", next = "xshaman", when = { class = { "SHAMAN", "PRIEST", "DRUID" } } },
+        { text = "A warrior your size shouldn't have to hide.", next = "xwar", when = { class = "WARRIOR" } },
         { text = "Stay close.", next = "END" },
       },
     },

@@ -1060,6 +1060,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Need something mended, or something new? It's all salvage either way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let's see what you've broken this time." },
+    { id = "g_fpal", when = { class = "PALADIN", race = "Scourge" }, text = "Another of Danitha's knights. Stand still and let me look at your straps, because I'll wager nobody has since you left Deathknell." },
   },
 
   notice = {
@@ -1067,10 +1068,59 @@ P:NPC {
       text = "Light's mercy, look at that armour. Give it here before it falls off you on the road." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "You've a smith's burns on your hands, I see. Good; one more who knows what a hammer's for." },
+    { id = "n_plate", cat = "kit", when = { class = "WARRIOR" },
+      text = "That's a soldier's kit, and looked after like one. You'd be surprised how many knights can call down the Light and can't oil a hinge." },
   },
 
   start = "hello",
   nodes = {
+    smithy = {
+      lines = {
+        { id = "sm_default", text = "It is. The hearth's from when this was Dawn's Watch and Lordaeron's army shod its horses here, and I only had to dig a murloc's nest out of the chimney to get it drawing. The tools I carried up from Deathknell on my own back." },
+      },
+      choices = {
+        { text = "Who else uses the forge?", next = "smithy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    smithy2 = {
+      lines = {
+        { id = "sm2_default", text = "Ephram Barbaro, for his horseshoes, and he's the only man in the keep I'll trust with my second-best hammer. Evin Schmidtt comes by for hinges and nails nearly every day, and he always tells me which door they're for, as if I'd asked." },
+      },
+      choices = {
+        { text = "You sound fond of the pair of them.", next = "BACK", reply = "Don't spread it about. A smith who's known to be soft gets asked for favours." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light = {
+      lines = {
+        { id = "li_default", text = "Not a spark of it, and I've never minded. Aramis had the calling since we were boys, and somebody in the family had to learn a trade that pays, so he got the Light and I got the hammer." },
+      },
+      choices = {
+        { text = "Yet you've thrown in with paladins.", next = "light2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light2 = {
+      big = true,
+      lines = {
+        { id = "li2_default", text = "I have. I watch them pick up the Light knowing it'll burn them, every morning, and go out and do it again, and I'm not a man who can see that and go back to selling horseshoes in Brill. What I can't tell you is whether it's wisdom or plain stubbornness." },
+      },
+      choices = {
+        { text = "It's faith, Angus, and it deserves your hammer.", next = "BACK", reply = "That's about what Aramis says, though he takes longer over it. They'll have my hammer as long as there's an arm to swing it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "It's stubbornness. The Light has no use for the dead.", next = "BACK", reply = "Maybe so. But I've seen it answer them, burning or not, and a thing that answers isn't finished with you.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsmith = {
+      lines = {
+        { id = "xs_default", text = "I don't trust any piece until I've seen its grain, so everything gets broken down, sorted by how it sparks on the wheel, and welded up again in layers. It's slow, and Jorin complains about the charcoal, but I've not had a blade snap in a knight's hand yet." },
+      },
+      choices = {
+        { text = "Sorting by spark is an old army trick.", next = "BACK", reply = "It is, and I had it from an army farrier in this very yard, a long time ago. Good to know somebody else still remembers it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -1078,16 +1128,22 @@ P:NPC {
           text = "It's my job to see the paladins of Bandarion Keep properly armed and armoured. It's not much, but it's honest work, and I've a thing or two for sale as well, should you need gear." },
         { id = "h_aramis", when = { heardLine = "aramis.h_default" },
           text = "You've met Aramis down at Deathknell, have you? Then you've met the Hammerhand who got the Light, and now you've met the one who got the hammer." },
+        { id = "h_smith", when = { profession = "Blacksmithing" },
+          text = "A fellow smith is always welcome at this forge. I keep the paladins of Bandarion Keep armed and armoured, mostly out of scrap, so if you see me doing something foolish with a rivet, say so." },
       },
       again = {
         { id = "h_again", text = "Anything else? The forge doesn't like waiting." },
         { id = "h_again2", text = "Go on. I can listen and hammer at the same time." },
+        { id = "h_again3", text = "What else can I tell you? Mind the sparks while you ask." },
       },
       choices = {
         { text = "Are you kin to Aramis Hammerhand?", next = "aramis" },
         { text = "What do the paladins need most?", next = "gear" },
         { text = "Any advice for a new paladin?", next = "xpal", when = { class = "PALADIN", race = "Scourge" } },
         { text = "I'd like to see your wares.", next = "BUSINESS" },
+        { text = "Your forge looks older than your tools.", next = "smithy" },
+        { text = "You don't carry the Light yourself, then.", next = "light" },
+        { text = "How do you make salvage hold an edge, Angus?", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "Keep the forge hot, Angus.", next = "END" },
       },
     },
@@ -1130,6 +1186,10 @@ P:NPC {
   },
 
   topics = {
+    scarlet_crusade = { { id = "tp_scarlet", text = "They make good plate and they leave it lying about on their dead, so I've no complaint against them as suppliers. As neighbours they're another matter." } },
+    background = { { id = "tp_bg", text = "My father was a smith and I'm a smith. Aramis is the one in the family with a story worth telling." } },
+    advice = { { id = "tp_ad", text = "Bring your armour in when it's dented, not when it's holed. I say it to every knight here, and about one in five of them listens." } },
+    forsaken = { { id = "tp_forsaken", text = "Most of Brill thinks a dead paladin is either a liar or a traitor waiting to happen. I shoe the horses of some who are neither, and that's all I know about it." } },
     _none = { { id = "tp_none", text = "Can't help you there. If it isn't made of iron, I don't know much about it." } },
   },
 }
@@ -1154,10 +1214,77 @@ P:NPC {
       text = "You've the hands of someone who worked the soil before all this, the same as me. They never quite lose the shape of a hoe, do they?" },
     { id = "n_green", cat = "greenness", when = { maxLevel = 9, race = "Scourge" },
       text = "Newly risen, are you? If you see a face you know out in the fields, don't stop to talk to it. It won't know you." },
+    { id = "n_fpal", cat = "origin", when = { class = "PALADIN", race = "Scourge" },
+      text = "You carry the Light, and it costs you to carry it; I can see that in how you hold your shoulders. They'll be glad of you up at the keep, and Hilda will be glad of somebody new to shout at." },
   },
 
   start = "hello",
   nodes = {
+    tower = {
+      lines = {
+        { id = "to_default", text = "At the ruined watch tower south of the keep, where the bluff road meets the fields. The Crusade held it once and may want it again, so I climb what's left of the stair every round and look toward their outpost before I turn for home." },
+      },
+      choices = {
+        { text = "What do you see from the top?", next = "tower2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tower2 = {
+      lines = {
+        { id = "to2_default", text = "The Crusader's Outpost and its red tents, and my family's chimney beyond it with smoke still coming out. I count the Crusaders and I look at the smoke, and I tell Breton about the first and nobody about the second." },
+      },
+      choices = {
+        { text = "You've told me.", next = "BACK", reply = "So I have. It must be the walking, because I don't usually say so much standing still.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keepfolk = {
+      lines = {
+        { id = "kf_default", text = "I'm no paladin, only a farmer's son with good legs and a reason to watch these fields. Breton Samuels takes my reports at the gate, and if it's serious he walks me in to Danitha Morr, who has never once made me feel like the hired hand." },
+      },
+      choices = {
+        { text = "And the rest of them?", next = "keepfolk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    keepfolk2 = {
+      lines = {
+        { id = "kf2_default", text = "Hilda the Breaker shouts at the trainees until they stop flinching, and Jorin Croge counts every nail I ask him for. Angus Hammerhand mended my scythe without being asked, though, and Evin Schmidtt saves me the dry corner of the gatehouse when it rains." },
+      },
+      choices = {
+        { text = "They've made room for you.", next = "BACK", reply = "They have, and I didn't expect it. I suppose people who've been turned away themselves know what a door's worth." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    murlocs = {
+      lines = {
+        { id = "mu_default", text = "The Vile Fin come up from the coast and the lake, and before the paladins arrived they'd made the keep itself their spawning ground. They've not forgotten it, so every few nights a pack of them tries the road, and I run for the gate with them croaking behind me." },
+      },
+      choices = {
+        { text = "You run? You don't fight them?", next = "murlocs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    murlocs2 = {
+      big = true,
+      lines = {
+        { id = "mu2_default", text = "One or two I'll fight, and gladly. Six I'll outrun, because a lookout who dies on the road has warned nobody, and Breton would sooner have me breathless at the gate than brave in a ditch." },
+      },
+      choices = {
+        { text = "That's a lookout's duty, and you do it right.", next = "BACK", reply = "Thank you. It doesn't feel like much when I'm running, but the gate's never been taken by surprise on my watch.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'd have stood and fought them all.", next = "BACK", reply = "Then you'd have made a fine story and a poor lookout. I'll keep to running, and leave the stories to the knights.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpal = {
+      lines = {
+        { id = "xp_default", text = "I didn't think it would, from what the knights tell me. Danitha says the Light answers what you mean and not how much it hurts, so if you mean to give the ones in the fields their rest, I'd guess it's with you out there whether it eases you or not." },
+      },
+      choices = {
+        { text = "Then I'll mean it, every time.", next = "BACK", reply = "That's all any of us can do. Say a word over the Solliden ones for me, if you pass that way.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -1165,16 +1292,23 @@ P:NPC {
           text = "I lived near here in my first life, and I still wander the fields of my childhood farmstead now and then. It saddens me to see the people I knew and loved shambling about as mindless thralls, but that pain gives me strength and purpose." },
         { id = "h_touring", tags = { "news" }, when = { questActive = TODO_QUEST("Touring the Grounds") },
           text = "Breton's sending you round, is he? I'm Ander Solliden, and I walk this road from the ruined tower to the gates and back, and I report to the paladins at the keep." },
+        { id = "h_back", when = { metBefore = true },
+          text = "I've been to the tower and back twice since we last spoke, and the fields were no emptier for it. Walk a little way with me, if you've a question, because I think better when I'm moving." },
       },
       again = {
         { id = "h_again", text = "Anything else? I don't mind; the road is lonely." },
         { id = "h_again2", text = "Go on. Talking keeps me from listening for footsteps." },
+        { id = "h_again3", text = "Ask it, then, and we'll keep walking while you do." },
       },
       choices = {
         { text = "What dangers do you face out here, Ander?", next = "dangers" },
         { text = "Solliden, like the farmstead?", next = "farm" },
         { text = "Why walk the fields, if it hurts you?", next = "fields" },
         { text = "I farmed near Brill, before.", next = "xfarmer", when = { origin = "forsaken_brill_farmer" } },
+        { text = "Where does this road of yours end?", next = "tower" },
+        { text = "You report to the paladins, yet you carry no Light.", next = "keepfolk" },
+        { text = "The murlocs come this far inland?", next = "murlocs" },
+        { text = "The Light has not made the fields easier for me.", next = "xpal", when = { class = "PALADIN", race = "Scourge" } },
         { text = "Keep watch, Ander.", next = "END" },
       },
     },
@@ -1229,6 +1363,9 @@ P:NPC {
 
   topics = {
     scarlet_crusade = { { id = "tp_crusade", text = "They hold the tower west of my family's fields and pay my kin in protection. I try not to think about what that makes us." } },
+    scourge = { { id = "tp_scourge", text = "The ones in my family's fields don't answer to anyone now, I think; they only wander where they used to work. I'd take that as a mercy if they didn't still go for the throat." } },
+    lordaeron = { { id = "tp_lord", text = "For me it was forty acres, a pumpkin patch and a chapel bell on rest days. I never saw the capital, and I never wanted to." } },
+    forsaken = { { id = "tp_forsaken", text = "We woke up with our wits, and that's the whole difference between me and the ones I put down. I try to deserve it." } },
     _none = { { id = "tp_none", text = "I wouldn't know. I walk a road and watch the trees; that's about the size of my world now." } },
   },
 }
@@ -1368,30 +1505,88 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Mind the north stairs; they're older than I am, and I'm dead." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Wipe your boots, if you would; I've just swept." },
+    { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Oh! A guest with a pulse. Do mind your head on the lintels, because the keep was built for men of Lordaeron and nobody thought to allow for horns or tusks." },
   },
 
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 10, race = "Scourge" },
       text = "First time in the keep? Don't lean on the battlements on the west side, because they lean back, and it's a long way down." },
+    { id = "n_kit", cat = "greenness", when = { durability = { max = 0.3 } },
+      text = "You're shedding rivets on my clean flagstones. Angus Hammerhand has the forge across the yard, and I'd take it as a kindness if you saw him before you walked through the hall." },
+    { id = "n_fpal", cat = "greenness", when = { class = "PALADIN", race = "Scourge" },
+      text = "One of the knights, and a new one. Your cot is in the east barracks, the roof there only leaks at the far end, and I'll thank you not to hang your shield on the lamp brackets." },
   },
 
   start = "hello",
   nodes = {
+    cistern = {
+      lines = {
+        { id = "ci_default", text = "They do, and I wish I knew how. There must be a channel from the lake that Lordaeron's masons cut and nobody wrote down, because I've barred the cistern door twice and still found Vile Fin tracks on the inside of it." },
+      },
+      choices = {
+        { text = "What do you do when you find one?", next = "cistern2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cistern2 = {
+      lines = {
+        { id = "ci2_default", text = "I shut the door very quietly and I go and fetch Breton Samuels, who is good at murlocs. I am good at hinges, and I've found that a man is happiest when he knows which of the two he is." },
+      },
+      choices = {
+        { text = "That's sound sense, keeper.", next = "BACK", reply = "It's kept me in one piece through two lives, more or less. I can't say the same for the cistern door.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rooms = {
+      lines = {
+        { id = "ro_default", text = "Forty-one that I can get into, and at least three that I can't. The cellars are the trouble, because the lower doors are rusted shut and Jorin Croge says something's been moving behind them, which is why he wants Breton and the recruits to clear it." },
+      },
+      choices = {
+        { text = "Which room do you like best?", next = "rooms2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rooms2 = {
+      big = true,
+      lines = {
+        { id = "ro2_default", text = "The old chapel, though it's hardly a room any more, with half its roof gone. The knights want it mended first, before the barracks or the wall, and I've told Danitha that people who sleep dry will pray better than people who sleep wet." },
+      },
+      choices = {
+        { text = "The chapel first. It's what the keep is for.", next = "BACK", reply = "That's what Danitha said, in nearly those words. Very well, I'll find the slates somewhere, and the barracks can drip a while longer.", fx = { align = { light = 1 } } },
+        { text = "Walls and roofs first. Prayer keeps no rain off.", next = "BACK", reply = "Thank you! A practical voice at last. I'll tell her a visitor agreed with me, though I shan't say which one.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    short = {
+      lines = {
+        { id = "sh_default", text = "We are a long way from the Undercity, and the Undercity is in no hurry to send carts to paladins. Jorin stretches what we have, Angus makes iron out of scrap, and I've learned to cut one good door out of two rotten ones." },
+      },
+      choices = {
+        { text = "And still you all stay.", next = "BACK", reply = "Where else would we go? It's a grand old place, and it was empty, and now it isn't, and I think the stones like that." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true,
           text = "Evin Schmidtt, keeper of Bandarion Keep, which means I count the rooms, mend the doors, and chase the murlocs out of the cistern. It's a grand old place, if you don't look at it too closely." },
+        { id = "h_back", when = { metBefore = true },
+          text = "Evin Schmidtt, keeper of the keep, as before. I've mended two doors and lost a third to the damp since you were last here, so you find me about even." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a door that's come off its hinges again." },
         { id = "h_again2", text = "Go on. I know every stone of this place, so ask away." },
+        { id = "h_again3", text = "What else can I tell you? I do like a question about the old place." },
       },
       choices = {
         { text = "How old is this keep?", next = "history" },
         { text = "What does a keeper do, exactly?", next = "keeper" },
         { text = "Who's the man with the dog?", next = "relreo" },
         { text = "Do many outsiders come here?", next = "xvisitor", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "The murlocs get into the cistern?", next = "cistern" },
+        { text = "You count the rooms. How many are there?", next = "rooms" },
+        { text = "Your knights seem short of everything but faith.", next = "short" },
         { text = "I'll let you get on.", next = "END" },
       },
     },
@@ -1431,6 +1626,10 @@ P:NPC {
   },
 
   topics = {
+    argent_dawn = { { id = "tp_dawn", text = "They held this keep before us and left it tidy, I'll say that. I still find their candle stubs in the wall niches, and I leave them where they are." } },
+    lordaeron = { { id = "tp_lord", text = "The army built this place to last, and it nearly has. You can tell which walls are theirs, because those are the ones still standing straight." } },
+    background = { { id = "tp_bg", text = "I was a groundskeeper in life, and I'm a groundskeeper now with a larger set of keys. It's the only promotion I ever had, and I had to die for it." } },
+    advice = { { id = "tp_ad", text = "Keep off the west battlements and the north stairs, and always shut the cistern door behind you. That's all the wisdom this keep has taught me." } },
     _none = { { id = "tp_none", text = "Couldn't say. If it isn't a door, a stair or a leaking roof in this keep, it's beyond me." } },
   },
 }

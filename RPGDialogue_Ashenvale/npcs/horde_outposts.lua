@@ -145,12 +145,46 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman. Go and talk with Je'neu when you done here, mon, because he been listening to dat water for weeks and he don't like what it say." },
+    { id = "n_orc", cat = "class", when = { race = "Orc" },
+      text = "An orc, come all dis way to da wet end of da forest. Karang be glad of you, mon, he been short of his own kind since da last boat." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter. Naga be slippery in da water, so you shoot dem on da sand and save yourself da swim." },
   },
 
   start = "hello",
   nodes = {
+    watch = {
+      lines = { { id = "wt_default", text = "Dat be my whole job, mon. I count da heads dat come up at dusk and I count da ones dat go back down at dawn, and when da two numbers don't match I go wake Karang. Last week dey didn't match three nights running." } },
+      choices = {
+        { text = "Where did the missing ones go?", next = "watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch2 = {
+      lines = { { id = "wt2_default", text = "Up da strand toward da old elf ruins, where dey be digging in da sand for something. Naga don't dig for fun, mon, so whatever be under dere, dey want it more dan dey want us, and dat be da only reason we still got tents." } },
+      choices = {
+        { text = "Then strike while their backs are turned.", next = "BACK", reply = "Dat be what Karang say too, and why he send for fighters like you. Hit dem while dey be looking down.", fx = { align = { order = -1 } } },
+        { text = "Watch longer. Learn what they're digging for.", next = "BACK", reply = "Patient, mon, like a good fisherman. I keep counting heads, den, and you keep your spear dry.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    city = {
+      lines = { { id = "ci_default", text = "You got dat right. Da elves call it Zoram, and when da tide go out you see da tops of da towers standing in da surf like broken teeth. Da old folk on da Isles would say a place like dat keep its dead, and I not be going out dere to find out." } },
+      choices = {
+        { text = "And the Deeps beyond it?", next = "city2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    city2 = {
+      lines = { { id = "ci2_default", text = "Blackfathom, north along da cliff, where da water go down into da dark and don't come back up. Je'neu say something old be sleeping down dere and da naga and da hooded ones both be whispering to it. I say let it sleep, but nobody ask Marukai." } },
+      choices = { { text = "I'll ask Je'neu about it. Something else.", next = "BACK", fx = { learn = { "blackfathom" } } } },
+    },
+    xsham = {
+      lines = { { id = "xs_default", text = "Uneasy be a kind word for it, mon. Da water spirits here been turned around by something in da Deeps, and Je'neu Sancrea of da Earthen Ring sit up every night trying to talk dem calm. If you got da gift, he could use another voice." } },
+      choices = { { text = "I'll lend him mine. Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_dd_vorsha", tags = { "news" }, when = { questDone = TODO_QUEST("Vorsha the Lasher") }, text = "Muglash be tellin' everybody you stood beside him when Vorsha come up out of de water, and dat de hydra be dead now. De naga still crawl up de strand, but at least de sea not be eatin' our boats no more." },
@@ -162,6 +196,7 @@ P:NPC {
           text = "Darkspear blood, good. You know da sea like I know da sea, and you know when something in it be wrong." },
       },
       again = {
+        { id = "h_again3", text = "Go on, mon. Da naga don't come till dark, so I got time to be asked things." },
         { id = "h_again", text = "What else? Talk fast, da tide be turning." },
         { id = "h_again2", text = "Ask, mon. I got nothing better to do but glare." },
       },
@@ -170,6 +205,9 @@ P:NPC {
         { text = "How does Zoram'gar hold out?", next = "outpost" },
         { text = "You and Mitsuwa are kin?", next = "mitsuwa" },
         { text = "Do you miss the Echo Isles?", next = "isles", when = { race = "Troll" } },
+        { text = "You watch the water more than you watch me.", next = "watch" },
+        { text = "That drowned city is no place for the living.", next = "city" },
+        { text = "The spirits of this shore are uneasy.", next = "xsham", when = { class = "SHAMAN" } },
         { text = "I'll go down to the strand.", next = "END" },
       },
     },
@@ -203,6 +241,11 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
+  topics = {
+    background = { { id = "tp_bg", text = "I keep da watch on da strand at Zoram'gar, mon. It not be exciting till it be too exciting." } },
+    blackfathom = { { id = "tp_bfd", text = "Da Deeps be north along da cliff, and something old be sleeping in dem. Go with friends or don't go, mon." } },
+    _none = { { id = "tp_none", text = "Don't know dat one, mon. Ask Karang, or ask da sea, and da sea be more likely to answer." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -227,12 +270,42 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_priest", cat = "class", when = { class = { "PRIEST", "SHAMAN" } },
+      text = "You be one who talk to what we can't see. Good, mon, because I got six names to say tonight and I would not mind another voice saying dem." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren. Your people know how to speak of da dead without shame, mon, and dat be a rare thing in a war camp." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
       text = "Darkspear. Den you know what dese charms be worth, and why I can't leave dem in a furbolg's den." },
   },
 
   start = "hello",
   nodes = {
+    door = {
+      lines = { { id = "dr_default", text = "Dat be a knot of sea-grass, mon, one strand for each of dem. It not be a proper charm, only a promise dat da proper ones be coming, so da spirits know where to wait." } },
+      choices = {
+        { text = "Does the camp let you grieve in peace?", next = "door2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    door2 = {
+      lines = { { id = "dr2_default", text = "Better dan I expect. Karang give me da quiet watch and don't say why, Marukai stand between me and anybody who talk too loud, and Je'neu come by at dusk and sit without speaking. Dey be rough folk, but dey know what a death be." } },
+      choices = {
+        { text = "Take the time you need. The war will keep.", next = "BACK", reply = "It always do, mon, dat be da one thing you can trust about a war. I thank you.", fx = { align = { light = 1 } } },
+        { text = "Grief won't hold this beach. Pick up your spear.", next = "BACK", reply = "I never put it down, mon. A troll can mourn and stand watch both, we had plenty of practice.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sister = {
+      lines = { { id = "si_default", text = "Da old boat songs, da ones we sing rowing out from da Isles before Zalazane take dem from us. She had a voice dat carry over water like a gull's, and da little ones follow her round da village just to hear it. I try to sing dem now and it come out wrong, but I try." } },
+      choices = {
+        { text = "Sing them anyway. She'd know the tune.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpriest = {
+      lines = { { id = "xp_default", text = "Your rites not be ours, mon, but da dead not be proud about such things. Say what you say for your own, and say dem by name, and I think my kin hear it kindly." } },
+      choices = { { text = "Tell me their names. Something else after.", next = "BACK", reply = "I tell you at dusk, mon, when da names be said. Come back den.", fx = { affinity = 1 } } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -243,6 +316,7 @@ P:NPC {
           text = "I hang one charm over da door for each of dem dat fell. Da others I keep for da young ones who come after, so dey know who walk dis road first." },
       },
       again = {
+        { id = "h_again3", text = "Sit, mon, and ask. Marukai do da glaring for both of us, so I got time." },
         { id = "h_again", text = "What else, mon?" },
         { id = "h_again2", text = "Ask. Talking of dem keep dem close." },
       },
@@ -251,6 +325,9 @@ P:NPC {
         { text = "What are the troll charms?", next = "charms" },
         { text = "Why did the furbolgs attack them?", next = "furbolgs" },
         { text = "Do you want revenge?", next = "revenge" },
+        { text = "You've hung something over the door already.", next = "door" },
+        { text = "Your sister sang. Tell me what she sang.", next = "sister", when = { race = "Troll" } },
+        { text = "I can speak the rites for them, if you wish.", next = "xpriest", when = { class = { "PRIEST", "SHAMAN" } } },
         { text = "I'll bring the charms back.", next = "END" },
       },
     },
@@ -281,6 +358,11 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I keep da quiet watch at Zoram'gar, mon, and I wait for my kin's charms to come home." } },
+    furbolgs = { { id = "tp_furbolgs", text = "Da Thistlefur be sick in da head, mon, and dey kill what come near. I hate dem and I pity dem, and I don't know which be heavier." } },
+    _none = { { id = "tp_none", text = "I don't know, mon. Ask Je'neu, who know many things, or Marukai, who think he do." } },
   },
 }
 
@@ -425,6 +507,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear. Your kin at Zoram'gar send to me for rope every month and never say what they do with it. Naga, I suppose." },
     { id = "n_war", cat = "class", when = { class = "WARRIOR" },
       text = "Good arms on you. You could carry a crate of axes without dropping it, which is more than my last runner managed." },
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
@@ -433,6 +517,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    mastok = {
+      lines = { { id = "mk_default", text = "That's the way of it. Mastok Wrilehiss keeps the tally for Orgrimmar and I keep the wagons rolling, and between us we know where every plank in Splintertree came from. Kuray'bin gives the orders, but he asks the two of us first whether there's rope enough to carry them out." } },
+      choices = {
+        { text = "And the Lumber Camp answers to you as well?", next = "mastok2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mastok2 = {
+      lines = { { id = "mk2_default", text = "The camp answers to the Warsong, and the Warsong answer to nobody they can avoid. They want blades yesterday and oil the day before, and when a wagon's lost they send a rider to ask me why, as if I'd hidden it." } },
+      choices = {
+        { text = "Soldiers should respect the ones who supply them.", next = "BACK", reply = "They should, and one day one of them will. Until then I'll settle for my wagons arriving.", fx = { align = { order = 1 } } },
+        { text = "Warriors do the bleeding. Let them shout.", next = "BACK", reply = "They do bleed, I'll give them that. But they'd bleed a deal faster with no axes, and they forget it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camps = {
+      lines = { { id = "cp_default", text = "Five years behind a human fence, with nothing to do and nothing to count but the days. When Thrall broke the gates I swore I'd never sit idle again, and I haven't. Lists and wagons may not sound like much to a young warrior, but they are mine, and nobody handed them to me through a fence." } },
+      choices = {
+        { text = "That is as good a reason as any I've heard.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwar = {
+      lines = { { id = "xw_default", text = "Then you're worth three of my runners. The axe crate went off the road near the lake when the kodo bolted, and it's heavy enough that the elves couldn't be bothered to drag it far. Bring it back without dropping it and I'll say your name to Kuray'bin." } },
+      choices = { { text = "I'll keep both hands on it. Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -443,6 +553,7 @@ P:NPC {
           text = "One of the clans! Then you know what wood means to us now, walls and fires and a roof that isn't a Lordaeron prison camp. Help me get the supplies back where they belong." },
       },
       again = {
+        { id = "h_again3", text = "Ask, and I'll answer while I count. I can do both, which is why they gave me the job." },
         { id = "h_again", text = "What else? Make it quick." },
         { id = "h_again2", text = "Go on. Then go find my supplies." },
       },
@@ -451,6 +562,9 @@ P:NPC {
         { text = "How do the elves keep getting at you?", next = "elves" },
         { text = "What happens if the supplies don't arrive?", next = "lost" },
         { text = "The elves were here first. You're stealing their trees.", next = "xstealing" },
+        { text = "Mastok counts the wagons, and you fill them?", next = "mastok" },
+        { text = "You were in the camps yourself.", next = "camps", when = { race = "Orc" } },
+        { text = "I've hauled worse loads than a crate of axes.", next = "xwar", when = { class = { "WARRIOR", "SHAMAN" }, faction = "Horde" } },
         { text = "I'll find your supplies.", next = "END" },
       },
     },
@@ -486,6 +600,11 @@ P:NPC {
         { text = "Land belongs to those who can hold it.", next = "BACK", reply = "Aye, and that's how the Horde's lived since the camps. I'll not apologise for surviving.", fx = { align = { honor = -1 } } },
       },
     },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I keep the supplies moving from Splintertree out to the Warsong camps. If it's on a wagon, it's on my list." } },
+    warsong = { { id = "tp_warsong", text = "The Warsong cut the timber and I keep them in saws to do it. They're hard to like and harder to do without." } },
+    _none = { { id = "tp_none", text = "That's not on any list of mine. Ask Mastok, or ask Kaylisk at the inn, who hears more than both of us." } },
   },
 }
 

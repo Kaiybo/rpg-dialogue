@@ -231,6 +231,10 @@ P:NPC {
   notice = {
     { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
       text = "A leatherworker! Then you know what I mean about the hides here. Half of them are rotten before you skin them." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "A tauren. Your people tan a hide better than mine, and I'll say it, since no orc is near enough to hear me." },
+    { id = "n_skin", cat = "craft", when = { profession = "Skinning" },
+      text = "You've a skinning knife. Good. Then you can tell me if the bears up north are still clean, because I've had nothing sound in a month." },
   },
 
   start = "hello",
@@ -239,13 +243,22 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Werg Thickblade. I sell leatherworking supplies to whoever stands still long enough, which out here is mostly the dead." },
+        { id = "h_orc", when = { race = "Orc" }, text = "Werg Thickblade. Good to see a green face at this wall, {class}. I sell leatherworking supplies, and I'd trade the lot for one dry afternoon in Durotar." },
       },
-      again = { { id = "h_again", text = "What else? Make it quick." } },
+      again = {
+        { id = "h_again", text = "What else? Make it quick." },
+        { id = "h_again2", text = "Speak. The wind's cold and I'm not getting warmer." },
+        { id = "h_again3", text = "Hrm. Go on, then." },
+      },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "How's trade at the Bulwark?", next = "trade" },
         { text = "Why would an orc come here?", next = "why" },
         { text = "What do you think of the Forsaken?", next = "forsaken" },
+        { text = "Who else holds the Bulwark with you?", next = "wall" },
+        { text = "You must see everything that crosses east.", next = "east" },
+        { text = "The camps. You grew up in them?", next = "camps", when = { race = "Orc" } },
+        { text = "What supplies does a leatherworker need out here?", next = "need", when = { profession = "Leatherworking" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -291,10 +304,56 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    wall = {
+      lines = { { id = "wl_default", text = "High Executor Derrington gives the orders, and he's fair enough for a man with no lips. Shadow Priestess Vandis I stay away from. The Argent Dawn's orc, Garush, shares my fire some nights, and we talk about anything but this place." } },
+      choices = {
+        { text = "An orc in the Argent Dawn?", next = "wall2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wall2 = {
+      lines = { { id = "wl2_default", text = "He says the Scourge is everyone's war, and he'd sooner fight it beside a human who means it than sit safe behind one who doesn't. I told him that was soft talk. I've thought about it most nights since, and I've not told him that." } },
+      choices = {
+        { text = "He has the right of it.", next = "BACK", reply = "Maybe. Don't tell him I said maybe." },
+        { text = "An orc fights for the Horde first.", next = "BACK", reply = "That's what I said. It sounded better before I'd watched what comes out of Andorhal." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    east = {
+      lines = { { id = "ea_default", text = "Everything. Adventurers go out past the barricade with clean armor and come back with half of it, if they come back. The apothecary sends them to those cauldrons in the fields, and I sell the ones who return something to patch their boots." } },
+      choices = {
+        { text = "How many don't return?", next = "east2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    east2 = {
+      lines = { { id = "ea2_default", text = "I stopped counting, and an orc who stops counting his dead has been somewhere too long. If you go out, stay off the road through Andorhal and don't sleep at Felstone Field. That's free, and it's worth more than my thread." } },
+      choices = {
+        { text = "I'll remember it. Throm-ka, Werg.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camps = {
+      lines = { { id = "cp_default", text = "Aye, in Lordaeron, not three days' ride from this wall. I was a whelp behind a human fence, and now I sell thread to dead humans on the same soil. The spirits have a hard sense of humour, {class}." } },
+      choices = {
+        { text = "Thrall broke those fences.", next = "BACK", reply = "He did, and I'd follow him into worse than this. That's why I'm still standing here.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    need = {
+      lines = { { id = "nd_default", text = "Salt, more than you think, because nothing cures right in this damp. Heavy thread, and black dye to hide the stains. And if you're working rugged hides from the far hills, get your curing done before you cross back, or the rot gets into it at the wall." } },
+      choices = {
+        { text = "Show me the salt and thread.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "Grew up in the camps, skinned my first boar in Durotar, and now I sell thread to corpses. That's my life." } },
+    thrall = { { id = "tp_thrall", text = "He asked, and I came. I'd not have come for anyone else, and I'll say that to anyone." } },
+    scourge = { { id = "tp_scourge", text = "No honor in it, and no end to it. You kill one and it's some farmer's boy, and there's another behind him." } },
+    argent_dawn = { { id = "tp_ad2", text = "They pay for what they take and they fight what needs fighting. I've known clans with less to say for themselves." } },
     _none = { { id = "tp_none", text = "Don't know, don't care. Ask the Forsaken; they know everything and say it slowly." } },
   },
 }
@@ -373,7 +432,7 @@ P:NPC {
 
     -- Her grudge
     grudge = {
-      lines = { { id = "g_default", text = "They burned my sister on the green at Hearthglen while she was still breathing, because she'd nursed a plague victim and they called that taint. I came along a few weeks later in a cart of corpses, and by the time I woke up, they'd forgotten both our names." } },
+      lines = { { id = "sis_default", text = "They burned my sister on the green at Hearthglen while she was still breathing, because she'd nursed a plague victim and they called that taint. I came along a few weeks later in a cart of corpses, and by the time I woke up, they'd forgotten both our names." } },
       choices = {
         { text = "I'm sorry, Mickey.", next = "grudge2" },
         { text = "Something else.", next = "BACK" },

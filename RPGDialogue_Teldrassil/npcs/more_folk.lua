@@ -135,6 +135,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_herb", cat = "class", when = { profession = "Herbalism" },
+      text = "Those are an herbalist's stained fingers, if I am any judge. Then you will carry my package the right way up, which is more than I can say for the last messenger." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "Another of Shadowglen's druids, freshly woken to the world. The Conservator speaks well of the young ones this season." },
     { id = "n_outsider", cat = "race", when = { race = { "Human", "Dwarf", "Gnome" } },
@@ -143,6 +145,36 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    folk = {
+      lines = { { id = "fk_default", text = "After so many seasons, I ought to. Conservator Ilthalaine watches the balance of the glade, Melithar Staghelm sees to the young who have just woken, and Tenaron Stormgrip sits atop Aldrassil and thinks about the tree itself. I carry word and bundles between them, since none of the three cares to leave his post." } },
+      choices = {
+        { text = "And which of them worries most?", next = "folk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    folk2 = {
+      lines = { { id = "fk2_default", text = "Tenaron, though he hides it best. He has had water drawn from the moonwell and sent up to Darnassus more than once this year, and a druid does not send vials to the Arch Druid's own people because he is content. I do not ask, and I do notice." } },
+      choices = {
+        { text = "The young should be told if the tree is ailing.", next = "BACK", reply = "Perhaps so. I think they will be, when Tenaron knows what to tell them, and no sooner.", fx = { align = { order = -1 } } },
+        { text = "Let the elders be sure before they speak.", next = "BACK", reply = "That is my own feeling, young one. A half-known fear does more harm than a whole one.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "teldrassil" } } },
+      },
+    },
+    xherb = {
+      lines = { { id = "xh_default", text = "By all means, only do not loosen the twine. You will see the silverleaf is cut above the second joint so that the plant comes again, and the peacebloom is taken with the dew still on it. The druids here are particular, and they have made me so." } },
+      choices = { { text = "It's well gathered. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xbalance = {
+      lines = { { id = "xb_default", text = "So he told me, and I wrote your tally in my record beside his. It is a hard first lesson, to be asked to kill in order to keep a place whole, and I thought no less of the young ones who came back quiet from it." } },
+      choices = {
+        { text = "It was needed. I'd do it again.", next = "BACK", reply = "That is the Conservator's own view, and he has kept this glade a long while. Good.", fx = { align = { order = 1 } } },
+        { text = "It sat badly with me, needed or not.", next = "BACK", reply = "Then it sat as it should. I would worry for a druid's glade if it sat easily with everyone.", fx = { align = { order = -1 } } },
+      },
+    },
+    xdruid = {
+      lines = { { id = "xdr_default", text = "More grells than last year by a third, and bolder ones, and nightsabers ranging closer to Aldrassil than they ought. The webwood spiders at Shadowthread Cave are larger with every count as well. I only record it, but Ilthalaine reads my pages twice." } },
+      choices = { { text = "I'll keep my own eyes open. Something else.", next = "BACK", fx = { learn = { "teldrassil" } } } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -153,6 +185,7 @@ P:NPC {
           text = "You delivered the herbs, and Keldamyr is satisfied, I hope. He's a fine host, and a fine friend, though we've seasons of talk between us still unspoken." },
       },
       again = {
+        { id = "h_again3", text = "Yes, young one? I am glad of the company, truth be told, for counting grells is lonely work." },
         { id = "h_again", text = "Something else, young one?" },
         { id = "h_again2", text = "Ask away. The druids won't miss me for a moment." },
       },
@@ -161,6 +194,10 @@ P:NPC {
         { text = "What business keeps you here?", next = "business" },
         { text = "Who is Keldamyr?", next = "keldamyr" },
         { text = "You could carry it yourself in an afternoon.", next = "lazy" },
+        { text = "You know the folk of Shadowglen well.", next = "folk" },
+        { text = "I gather herbs myself. Let me see the bundle.", next = "xherb", when = { profession = "Herbalism" } },
+        { text = "The Conservator set me to thinning the glade.", next = "xbalance", when = { questDone = TODO_QUEST("The Balance of Nature") } },
+        { text = "I'm of the Circle. What did your count show?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -205,6 +242,7 @@ P:NPC {
   },
 
   topics = {
+    advice = { { id = "tp_advice", text = "Keep to the road between Shadowglen and Dolanaar, young one. It is short, and the Sentinels watch it, which they cannot do for the woods." } },
     background = { { id = "tp_bg", text = "I help the druids of Shadowglen and send what's needed down to Dolanaar. Small work, but it matters to someone." } },
     teldrassil = { { id = "tp_teldrassil", text = "The World Tree is young yet, and young things need watching. I try to be one of the watchers." } },
     _none = { { id = "tp_none", text = "I'm afraid I couldn't say. Ask Keldamyr when you see him; he hears everything at that inn." } },
@@ -331,6 +369,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "HUNTER" },
+      text = "A dwarf hunter! Your people favour bears and boars, I'm told, and good stout ones. I should like to meet one, if you ever bring it this far." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter. Have you found your first companion yet, or are you still looking?" },
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
@@ -339,12 +379,47 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    talk = {
+      lines = { { id = "tk_default", text = "I do, because the animal will tell me the truth. A hunter says the bond is strong, and then I watch the beast flinch when a hand is raised, and I know what I am really here to mend. I say nothing sharp about it, and I simply begin with the hand." } },
+      choices = {
+        { text = "And when the hunter won't learn?", next = "talk2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    talk2 = {
+      lines = { { id = "tk2_default", text = "Then I tell Dazalar, and he has a quiet word, and usually that is enough. Once it was not, and the nightsaber walked back into the glade of her own accord, and nobody here stopped her. A beast is a companion and never a possession, whatever was paid for the collar." } },
+      choices = {
+        { text = "You did right to let her go.", next = "BACK", reply = "I think so. The hunter did not, at the time, though he came back a year later and said it.", fx = { align = { light = 1 } } },
+        { text = "A tamed beast belongs to its hunter.", next = "BACK", reply = "So some believe, and their beasts know it. I would ask you to watch your own companion's eyes when you say that.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stable = {
+      lines = { { id = "sb_default", text = "Every day. Seriadne houses and feeds them, and I see to their schooling, and she tells me which ones were restless in the night before I have even asked. Between us we know every companion that has passed through Dolanaar this past century, and a fair number of their hunters." } },
+      choices = { { text = "A good arrangement. Something else.", next = "BACK" } },
+    },
+    sick = {
+      lines = { { id = "sk_default", text = "No, they are not, and you have a good eye to have seen it. The nightsabers nearest Ban'ethil have turned short-tempered, and the owls about the Oracle Glade fly by day as if something drove them from their roosts. I do not let my students tame from either place until the druids can tell me why." } },
+      choices = {
+        { text = "What do the druids say?", next = "sick2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sick2 = {
+      lines = { { id = "sk2_default", text = "That the tree is young and that young things take ill easily, which is what they say of everything this season. Denalan at Lake Al'Ameth is franker than most, and he tells me the plants have changed too. I trust the beasts' judgment above anyone's, and the beasts are uneasy." } },
+      choices = { { text = "Then I'll watch them as I travel. Something else.", next = "BACK", fx = { learn = { "teldrassil" } } } },
+    },
+    xdruid = {
+      lines = { { id = "xd_default", text = "A druid's way is the deepest there is, for you can ask the cat what troubles her in her own shape. I envy it a little. If you pass the kennels as a nightsaber, go gently, because my students' beasts will not know what to make of you." } },
+      choices = { { text = "I'll walk past on two legs. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Keldas, and I help hunters teach their companions what they need to know. The beasts do most of the learning; I mostly teach the hunters to listen." },
       },
       again = {
+        { id = "h_again3", text = "Ask what you like. The young strider behind me has finished sulking, so I've a moment." },
         { id = "h_again", text = "Anything else, friend?" },
         { id = "h_again2", text = "Go on." },
       },
@@ -353,6 +428,10 @@ P:NPC {
         { text = "How do you train a beast?", next = "train" },
         { text = "What beast should I tame here?", next = "tame", when = { class = "HUNTER" } },
         { text = "Animals don't need teaching. They need leading.", next = "leading" },
+        { text = "You talk to the animals before their owners.", next = "talk" },
+        { text = "Seriadne keeps the stable here. You must work together.", next = "stable" },
+        { text = "Not all the island's beasts are as they should be.", next = "sick" },
+        { text = "I'm no hunter, but I've always had a way with animals.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -385,6 +464,8 @@ P:NPC {
   },
 
   topics = {
+    teldrassil = { { id = "tp_teldrassil", text = "The beasts were the first to notice that something on this island is amiss. They usually are, if anyone troubles to watch them." } },
+    advice = { { id = "tp_advice", text = "Feed your companion before yourself at the end of a day's march. It costs you a few minutes and buys you a great deal." } },
     background = { { id = "tp_bg", text = "I train hunters' companions in Dolanaar. The beasts are better students than the hunters." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask me about beasts, and I'll be more use." } },
   },
@@ -410,6 +491,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_dwarf", cat = "class", when = { race = "Dwarf" },
+      text = "A dwarf! Go on, then, say it. Ironweave. I've heard every jest your people have, and I've started keeping a tally of the good ones." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "A warrior. You'll want a shield before you go near the Gnarlpine, trust me." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
@@ -418,12 +501,51 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    young = {
+      lines = { { id = "yo_default", text = "Most of them do, I'm glad to say, and they come back with dents to show me as if I were their mother. Sentinel Kyra Starsong sends them up to Ban'ethil, and Tallonkai sends them to Gaerolas at the barrow, and I get to see what the Gnarlpine did to my shields on the way." } },
+      choices = {
+        { text = "What do the dents tell you?", next = "young2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young2 = {
+      lines = { { id = "yo2_default", text = "That the furbolgs are hitting harder than they used to. I've a shield on the back wall with the boss stove right in, and the girl who carried it swears a single Gnarlpine did it with a club. Ten years ago they'd have run from a raised voice." } },
+      choices = {
+        { text = "Then the young ones shouldn't be sent at all.", next = "BACK", reply = "I've thought it, some nights. But somebody must go, and I'd rather it were someone carrying my work.", fx = { align = { light = 1 } } },
+        { text = "Hard knocks make hard fighters. Send them.", next = "BACK", reply = "They do, when the fighter lives through them. That's my half of the bargain.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
+      },
+    },
+    smiths = {
+      lines = { { id = "sm_default", text = "They are, and good ones. Shalomon sells the blades and says about six words a day, Jeena Featherbow strings the bows, and Sinda cuts the leathers. We share one fire in the cold months, and I do all the talking for the four of us." } },
+      choices = {
+        { text = "Shalomon seems heavy-hearted.", next = "smiths2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    smiths2 = {
+      lines = { { id = "sm2_default", text = "He is, bless him. He minds what his blades are used for, and it weighs on him more each season. I tell him that a shield is only ever a kindness, and that he ought to have taken up my trade, and once in a while he nearly smiles." } },
+      choices = { { text = "He's lucky in his neighbour. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xdwarf = {
+      lines = { { id = "xd_default", text = "Ha! That's one for the tally, though it's the commonest. No beard, but I'll match rings with any smith in Ironforge, and I once made a dwarf from the boats admit my rivets were tidy, which I'm told is as near as your people come to weeping." } },
+      choices = { { text = "Tidy is high praise. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    xsmith = {
+      lines = { { id = "xs_default", text = "Gladly. Each ring's riveted, never butted, with a flat peen so nothing catches the cloth under it, and I work four into one the old way. It takes a week for a shirt, and I've never had one come back split." } },
+      choices = { { text = "That's patient work. Something else.", next = "BACK" } },
+    },
+    xwar = {
+      lines = { { id = "xw_default", text = "Then take the round one with the iron rim, and keep your elbow tucked. Kyra Windblade teaches the stance at the edge of the village, and she'll tell you what I do: the shield isn't there to hide behind, it's there so somebody else can." } },
+      choices = { { text = "So somebody else can. I'll remember that.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Meri Ironweave, armorer and shieldcrafter of Dolanaar. Most of what I sell goes out the door on young shoulders heading for the Gnarlpine or the Fel Rock." },
       },
       again = {
+        { id = "h_again3", text = "Go on, ask! I can link rings in my sleep, so you'll not be keeping me from anything." },
         { id = "h_again", text = "Anything else?" },
         { id = "h_again2", text = "What else can I do for you?" },
       },
@@ -431,6 +553,11 @@ P:NPC {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Ironweave? That's not a night elf name.", next = "name" },
         { text = "What should a newcomer wear?", next = "newcomer" },
+        { text = "You must know which young ones come back.", next = "young" },
+        { text = "Dolanaar's other smiths are your neighbours.", next = "smiths" },
+        { text = "Any beard hidden, then?", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "I've worked a forge. Show me how you close the rings.", next = "xsmith", when = { profession = "Blacksmithing" } },
+        { text = "I'll be holding the line with this shield.", next = "xwar", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -451,6 +578,8 @@ P:NPC {
   },
 
   topics = {
+    furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine hit harder every season. I can read it in the shields that come back to me." } },
+    advice = { { id = "tp_advice", text = "Oil your mail after rain, every time. This island's damp will rust a shirt in a week if you let it." } },
     background = { { id = "tp_bg", text = "I sell mail and shields in Dolanaar. It's honest work, and it keeps the young ones alive." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Ask me about rivets and I'll talk your ear off." } },
   },
@@ -476,6 +605,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid. I keep a few staves of Teldrassil wood, fallen and never cut. I thought you would wish to know that before you asked." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "You hold yourself like someone who's been taught by a good master. The Warrior's Terrace, or your own people?" },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
@@ -484,12 +615,47 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fire = {
+      lines = { { id = "fi_default", text = "We do. Meri Ironweave talks, Jeena Featherbow mends her strings, and I listen. It is the best hour of my day, though I have never found the way to say so to either of them." } },
+      choices = {
+        { text = "Meri worries for you.", next = "fire2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fire2 = {
+      lines = { { id = "fi2_default", text = "I know it, and I am sorry to be a cause of worry. She believes a shield is a kindness and a blade is a grief, and she is not wrong. But someone must sell the blades, and it had better be someone who takes no pleasure in it." } },
+      choices = {
+        { text = "That is exactly who should sell them.", next = "BACK", reply = "So I tell myself each morning. It is good to hear it in another voice.", fx = { align = { honor = 1 } } },
+        { text = "A trade you grieve over is the wrong trade.", next = "BACK", reply = "Perhaps. I have thought of bows, or of ploughs. But the Gnarlpine would not wait while I learned.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    once = {
+      lines = { { id = "on_default", text = "I did, at Hyjal, with a great many others. I will not make a tale of it. I came home and found that I could no longer bear to sharpen an edge for my own hand, and so I sharpen them for others, who still can." } },
+      choices = {
+        { text = "What do you tell the young who buy from you?", next = "once2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    once2 = {
+      lines = { { id = "on2_default", text = "To come back. I say it to every one, and Sentinel Kyra Starsong has told me it has become a kind of blessing among her recruits, which I never intended. If it helps even one of them remember to turn for home, I do not mind." } },
+      choices = { { text = "It's a good blessing. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xsmith = {
+      lines = { { id = "xs_default", text = "Slowly, in water from the moonwell, and never twice. Our steel is folded thin and trusts its edge more than its weight. A dwarf would call it a kitchen knife, until he had seen it turn a furbolg's club without a notch." } },
+      choices = { { text = "I'd like to see that. Something else.", next = "BACK" } },
+    },
+    xguard = {
+      lines = { { id = "xg_default", text = "Then I will not grieve over this one. Tallonkai Swiftroot will tell you where the Gnarlpine press hardest, and Athridas Bearmantle will tell you why. Listen to both before you draw it." } },
+      choices = { { text = "I'll hear them first. Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Shalomon, and I sell weapons to those who must defend Dolanaar and the roads beyond it. I would rather sell fewer, but there's no sign of that happening soon." },
       },
       again = {
+        { id = "h_again3", text = "Ask. I am in no hurry, and the blades are in less." },
         { id = "h_again", text = "What else?" },
         { id = "h_again2", text = "Go on." },
       },
@@ -497,6 +663,10 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why would you sell fewer?", next = "fewer" },
         { text = "What weapon suits me?", next = "suits" },
+        { text = "Meri says you share a fire in the cold months.", next = "fire" },
+        { text = "You carried a blade yourself once, I think.", next = "once" },
+        { text = "Light steel has its uses. Tell me how you temper it.", next = "xsmith", when = { profession = "Blacksmithing" } },
+        { text = "I'll use what I buy to guard this village.", next = "xguard", when = { race = "NightElf" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -520,6 +690,8 @@ P:NPC {
   },
 
   topics = {
+    furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine were neighbours once. I think of that with every blade I hand across." } },
+    advice = { { id = "tp_advice", text = "Come back. That is all the advice I have, and I give it to everyone." } },
     background = { { id = "tp_bg", text = "I sell weapons in Dolanaar. More every season, for worse reasons every season." } },
     _none = { { id = "tp_none", text = "I don't know. I keep to my blades." } },
   },
@@ -545,6 +717,8 @@ P:NPC {
   },
 
   notice = {
+    { id = "n_druid", cat = "race", when = { class = "DRUID" },
+      text = "A druid! Kal will have been at you about balance already, I expect. Have a pear, it's the only balanced thing I sell." },
     { id = "n_weary", cat = "weary", when = { resting = true },
       text = "You look worn through. Eat something before Keldamyr sees you, or he'll give you a lecture about rest." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
@@ -553,12 +727,47 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    quarrel = {
+      lines = { { id = "qu_default", text = "Well, since you ask. Zarrin and Nyoma are not speaking, because he changed her soup recipe in front of a student, and Syral Bladeleaf has told Tallonkai Swiftroot twice that he frets too much about the furbolgs, which only makes him fret more. It is all very gentle, as quarrels go, but it is what we have." } },
+      choices = {
+        { text = "And what does Tallonkai fret about?", next = "quarrel2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quarrel2 = {
+      lines = { { id = "qu2_default", text = "The Gnarlpine, friend, and I think he is right to. They were quiet neighbours at Ban'ethil when I was young, and now they snarl at the road and paint themselves with something green that glows. Athridas Bearmantle has been sending young ones up there to find out what has got into them." } },
+      choices = {
+        { text = "The village should stop bickering and stand together.", next = "BACK", reply = "Oh, it will, when it matters. We only bicker because nothing has frightened us quite enough yet.", fx = { align = { order = 1 } } },
+        { text = "A little bickering keeps a village honest.", next = "BACK", reply = "That's what I always say! Nobody thanks me for it, mind.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } },
+      },
+    },
+    island = {
+      lines = { { id = "is_default", text = "Near enough! The pears and moonberries grow along the road to Darnassus, the cheese comes down from the city, and the water I draw at the moonwell with Corithras Moonrage's leave. He blesses it, I think, or at any rate he looks at it very seriously." } },
+      choices = {
+        { text = "Has the food changed since the tree was planted?", next = "island2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    island2 = {
+      lines = { { id = "is2_default", text = "What a clever question. The fruit grows faster than it ever did on the mainland, and bigger, and Denalan down at the lake says some of the plants have gone strange besides. My pears are only large, thank Elune, and I mean to keep selling them until one of them looks back at me." } },
+      choices = { { text = "I'll check mine before I bite. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+    xnelf = {
+      lines = { { id = "xn_default", text = "Then you know I am doing the village a service! Somebody has to carry the news from the inn to the moonwell and back, and it might as well be someone who brings bread with it. Which village was yours? I shall know someone there, I always do." } },
+      choices = { { text = "I'll tell you when the bread's wrapped. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xcook = {
+      lines = { { id = "xc_default", text = "Nyoma's, for the bread, and my grandmother's for everything else. If you want to learn properly, Zarrin teaches at the inn, but for pity's sake praise Nyoma's soup in front of him and let me watch." } },
+      choices = { { text = "I'll keep out of that quarrel. Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
           text = "I am Danlyia, and I keep Dolanaar fed when Keldamyr's kitchen is busy. Bread, water, cheese and fruit, all of it from the island, or near enough." },
       },
       again = {
+        { id = "h_again3", text = "Oh, do ask! I've been dying to tell somebody something all morning." },
         { id = "h_again", text = "Anything else? I've time, the bread's still rising." },
         { id = "h_again2", text = "What else, friend?" },
       },
@@ -566,6 +775,10 @@ P:NPC {
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "What's the news in Dolanaar?", next = "news" },
         { text = "You and Keldamyr are rivals, then?", next = "keldamyr" },
+        { text = "So who is quarrelling with whom this week?", next = "quarrel" },
+        { text = "Everything from the island, you said.", next = "island" },
+        { text = "I grew up in a village like this. Nothing stays secret.", next = "xnelf", when = { race = "NightElf" } },
+        { text = "I cook a little. Whose recipes do you use?", next = "xcook", when = { profession = "Cooking" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -593,6 +806,8 @@ P:NPC {
   },
 
   topics = {
+    furbolgs = { { id = "tp_furbolgs", text = "The Gnarlpine used to trade honey for my bread at the edge of the village. Now Tallonkai won't let me walk the Ban'ethil road alone." } },
+    advice = { { id = "tp_advice", text = "Eat something before you go up to the Fel Rock, friend. Everyone who comes back from there says they lost their appetite for a week." } },
     background = { { id = "tp_bg", text = "I sell food and drink in Dolanaar. I also know everyone's business, but that's free." } },
     _none = { { id = "tp_none", text = "Oh, I haven't heard a thing about that, and I hear most things. Ask Keldamyr?" } },
   },

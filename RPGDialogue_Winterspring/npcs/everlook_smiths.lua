@@ -116,7 +116,7 @@ P:NPC {
   key = "seril", id = TODO_NPC("Seril Scourgebane"), name = "Seril Scourgebane",
   bible = "bibles/everlook_smiths.md", role = "blacksmith", tier = "quest",
   communities = { "everlook" }, temper = { "cold", "blunt" }, values = { "craft", "stern" },
-  notices = { "undead", "smith" },
+  notices = { "undead", "smith" , "class" },
 
   impression = {
     first = "Most of his reasons for being short come from Stratholme.",
@@ -135,6 +135,10 @@ P:NPC {
       text = "Forsaken. I've killed a great many of your shape in Lordaeron, and I've not yet decided whether you're different. Keep your hands where I can see them." },
     { id = "n_smith", cat = "smith", when = { profession = "Blacksmithing" },
       text = "A smith? Good, then you know a sword when you see one, which puts you ahead of most of this town." },
+    { id = "n_b1", cat = "class", when = { class = "PALADIN" },
+      text = "A paladin. Your order died well in Lordaeron, which is more than I can say for most. Stand where you like." },
+    { id = "n_b2", cat = "class", when = { class = "WARRIOR" },
+      text = "You carry that like you've used it. Good, because I've no patience for people who wear swords as jewellery." },
   },
 
   start = "hello",
@@ -153,6 +157,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Make it quick." },
         { id = "h_again2", text = "Still here? Ask, then." },
+        { id = "h_again_b1", text = "Ask, then, or go. I've steel waiting." },
       },
       choices = {
         { text = "Why do they call you Scourgebane?", next = "name" },
@@ -160,6 +165,10 @@ P:NPC {
         { text = "Why are swords the best?", next = "sword" },
         { text = "What do you think of Kilram and Lilith?", next = "rivals" },
         { text = "I've been to Stratholme.", next = "strat", when = { cleared = "Stratholme" } },
+        { text = "You work with your back to a wall.", next = "wall" },
+        { text = "What makes a blade fit for the Scourge?", next = "craft", when = { profession = "Blacksmithing" } },
+        { text = "The Light gave you no comfort in Lordaeron.", next = "light", when = { class = "PALADIN" } },
+        { text = "What part of Lordaeron were you from?", next = "home", when = { race = "Human" } },
         { text = "I'm going.", next = "END" },
       },
     },
@@ -202,11 +211,68 @@ P:NPC {
       lines = { { id = "st_default", text = "Then you've seen what the Baron has made of that city. I used to sell blades in its market. Now it's a slaughterhouse with a crown on top, and every soul that dies there gets up again to serve him." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "new_plague" } } } },
     },
+    wall = {
+      lines = {
+        { id = "b_wall_default", text = "I do, and I'll go on doing it. I turned my back once on people I'd known all my life, and they'd been dead an hour and hadn't the decency to lie down." },
+      },
+      choices = {
+        { text = "Nothing here will come at you from behind.", next = "wall_safe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wall_safe = {
+      lines = {
+        { id = "b_wall_safe_default", text = "So the goblins tell me, and the goblins also sell charms against frostbite that are made of painted tin. I'll keep the wall, and you can keep your reassurance." },
+      },
+      choices = {
+        { text = "That's fair.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    craft = {
+      lines = {
+        { id = "b_craft_default", text = "Weight toward the point, so that it cleaves bone instead of sliding off it, and an edge that holds after forty strokes, because you'll need forty. The dead don't stop for one good cut, so forget whatever your first master taught you about elegance." },
+      },
+      choices = {
+        { text = "And the temper?", next = "craft_temper" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    craft_temper = {
+      lines = {
+        { id = "b_craft_temper_default", text = "Harder than you'd dare for a living enemy. A blade that chips can be reground, but one that bends in a ghoul's ribs leaves you holding a handle while it eats you." },
+      },
+      choices = {
+        { text = "I'll forge mine that way.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    light = {
+      lines = {
+        { id = "b_light_default", text = "It gave me a sword arm and the sense to use it, and I never asked it for anything more. Comfort is for people who have time to sit down." },
+      },
+      choices = {
+        { text = "Then the Light and I see you clearly.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = {
+        { id = "b_home_default", text = "A village on the Stratholme road whose name you'd not know, and it isn't on any map now. That's all you're getting, so don't dig." },
+      },
+      choices = {
+        { text = "I won't.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Swords and the Scourge. There's little else worth knowing." } },
     scholomance = { { id = "tp_scholo", text = "A nest of necromancers. Burn it." } },
+    stratholme = { { id = "tp_b_stratholme", text = "I sold swords in its market once. Now the only smith in the city is a dead man working for the Baron, and I want his plans." } },
+    lordaeron = { { id = "tp_b_lordaeron", text = "It's gone. I'll not mourn it in front of a stranger." } },
+    everlook = { { id = "tp_b_everlook", text = "It's cold, it's far from the plague, and goblins don't ask a woman's business if she pays her rent. That's why I'm here." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't care." } },
   },
 }

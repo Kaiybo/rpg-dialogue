@@ -106,6 +106,10 @@ P:NPC {
     { id = "g_hunt", when = { class = "HUNTER" }, text = "A hunter! Come in, an' let's see how yer aim's improved." },
   },
   notice = {
+    { id = "n_pet", cat = "class", when = { pet = { type = "Beast" } },
+      text = "{pet} is watchin' the trophies on the wall an' no' likin' them much. That's a sensible beast ye've got." },
+    { id = "n_elf", cat = "class", when = { race = "NightElf" },
+      text = "An elf at the Lodge. Vyrin'll be glad o' the company, for she's had tae listen tae dwarves talk about rifles for years." },
     { id = "n_hunt", cat = "class", when = { class = "HUNTER" },
       text = "Ye hold yer rifle like ye mean it, an' that's a good start." },
   },
@@ -116,6 +120,7 @@ P:NPC {
         { id = "h_default", text = "Dargh Trueaim, hunter trainer. The Farstriders have hunted Loch Modan since before Thelsamar had a wall, an' I teach the young ones how tae do it right." },
       },
       again = {
+        { id = "h_again3", text = "Ask it, then. I can talk an' watch the wind at the same time." },
         { id = "h_again", text = "What else? The light's good for shootin', an' I'd like tae get back to it." },
         { id = "h_again2", text = "Go on, then." },
       },
@@ -123,6 +128,9 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What's the secret to a good shot?", next = "shot" },
         { text = "What do the Farstriders hunt?", next = "farstriders" },
+        { text = "Tell me about the Lodge.", next = "lodge" },
+        { text = "That's a great many trophies on the wall.", next = "trophies" },
+        { text = "What should a hunter take first in Loch Modan?", next = "first", when = { class = "HUNTER" } },
         { text = "Farewell, Dargh.", next = "END" },
       },
     },
@@ -145,8 +153,38 @@ P:NPC {
       lines = { { id = "fa_default", text = "Bears, boars, crocolisks an' the odd trogg that wanders too close. We keep the wildlife in check so the farmers can sleep." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    lodge = {
+      lines = { { id = "lo_default", text = "The Farstrider Lodge sits on the east shore o' the loch, an' it's been a hunters' hall longer than I've been alive. Marek Ironheart keeps the trophies, Daryl the Youngling keeps boastin', an' I keep the young ones from shootin' each other." } },
+      choices = {
+        { text = "What do you make of Daryl?", next = "lodge_daryl" },
+        { text = "Who else lives out here?", next = "lodge_folk" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lodge_daryl = {
+      lines = { { id = "ld_default", text = "He's a fine shot an' he knows it, an' the second part does him nae favours. He'll be the best o' us one day, if he learns that the beast doesnae care what his name is." } },
+      choices = { { text = "He'll learn, or the loch will teach him.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    lodge_folk = {
+      lines = { { id = "lf_default", text = "Vyrin Swiftwind, an elf from the far north wi' a grudge against a bear, an' a handful o' traders who sell us powder, leather an' bowstrings. It's a quiet hall till somebody brings in a kill, an' then ye cannae hear yerself think." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    trophies = {
+      lines = { { id = "tp_default", text = "Marek's, mostly, an' he'll tell ye the story o' every one if ye stand still. The big crocolisk is his pride, though the one that hangs there is no' the one he's still after." } },
+      choices = {
+        { text = "A hunter should take only what he needs.", next = "BACK", reply = "That's the old Farstrider way, an' I hold tae it. Marek would say a trophy is a kind o' need, an' we've argued it for years.", fx = { align = { light = 1 } } },
+        { text = "A wall like that is worth the powder.", next = "BACK", reply = "Marek'll like ye. I'll only say the wall doesnae feed anybody.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    first = {
+      lines = { { id = "fr_default", text = "The boars on the hills above the Lodge, tae learn their charge, an' then the bears. Leave the crocolisks on the islands till ye can put a shot through an eye at fifty paces, for their hide turns anythin' less." } },
+      choices = { { text = "Boars, bears, then crocolisks. Understood.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    marek = { { id = "tp_marek", text = "Marek Ironheart's the heart o' this Lodge, an' a better hunter than me, though he shoots for the wall an' I shoot for the pot." } },
+    crocolisks = { { id = "tp_croc", text = "They lie on the islands like logs till ye're close, an' then they're no' logs. Dinnae wade where ye cannae see the bottom." } },
     background = { { id = "tp_bg", text = "I'm a Farstrider an' a trainer. My aim speaks for itself." } },
     _none = { { id = "tp_none", text = "I couldnae say. Ask me about huntin'." } },
   },
@@ -169,6 +207,10 @@ P:NPC {
     { id = "g_eng", when = { profession = "Engineering" }, text = "A fellow engineer! Come, come, I've something to show you." },
   },
   notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "A gnome on the dam! Come and look at the sluice housing with me, because nobody else here appreciates a properly cut worm gear." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf! Your grandfathers cut this stone, and I tell everyone so, because the dwarves on the dam are far too modest to mention it more than hourly." },
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
       text = "Your goggles are scorched on the left side, which suggests a gunpowder mishap. Common, very common, don't worry." },
   },
@@ -179,6 +221,7 @@ P:NPC {
         { id = "h_default", text = "Deek Fizzlebizz, engineering trainer, and I've the best view in Loch Modan. The dwarves built this dam, but the gnomes helped with the clever bits, and I keep them working." },
       },
       again = {
+        { id = "h_again3", text = "More questions? Wonderful! Stand on this side of the rail, though, the other one's wet." },
         { id = "h_again", text = "What else? I've a sluice gate to check, but I can talk!" },
         { id = "h_again2", text = "Go on, ask me anything!" },
       },
@@ -186,6 +229,9 @@ P:NPC {
         { text = "Train me in engineering.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "Tell me about the dam.", next = "dam" },
         { text = "Why train here, and not Ironforge?", next = "why" },
+        { text = "Who works the dam with you?", next = "crew" },
+        { text = "You keep looking over the edge.", next = "edge" },
+        { text = "How do the sluice gears work?", next = "gears", when = { any = { { profession = "Engineering" }, { race = "Gnome" } } } },
         { text = "Goodbye, Deek.", next = "END" },
       },
     },
@@ -208,8 +254,42 @@ P:NPC {
       lines = { { id = "wh_default", text = "Because Tinker Town's full, and because the dam is the finest piece of engineering in Khaz Modan! Where better to learn than in the middle of it?" } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    crew = {
+      lines = { { id = "cw_default", text = "Chief Engineer Hinderweir runs everything, and he's the seventh Hinderweir to do it, which he mentions slightly more often than necessary. The mountaineers keep everyone else off the walkway, and I keep the gears turning and the apprentices from oiling the wrong side of anything." } },
+      choices = {
+        { text = "What's Hinderweir like to work for?", next = "crew_chief" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crew_chief = {
+      lines = { { id = "cc_default", text = "Thorough! He walks the full length every morning with a little hammer, tapping, and he can hear a hairline crack the way I can hear a loose bolt. I've suggested a listening device and he says he already has two, one on each side of his head." } },
+      choices = {
+        { text = "He sounds hard to impress.", next = "crew_impress" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crew_impress = {
+      lines = { { id = "ci_default", text = "Very, and that's why I like it here. In Tinker Town everybody says an idea is brilliant before they've finished hearing it, and on the dam somebody actually checks the arithmetic." } },
+      choices = { { text = "Checked arithmetic is a comfort.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    edge = {
+      lines = { { id = "ed_default", text = "Do I? I suppose I do. It's a very long way down on the north side, and when you know exactly how much water is leaning on the south side, the comparison is hard to stop thinking about." } },
+      choices = {
+        { text = "Best not to think about it, then.", next = "BACK", reply = "That's the dwarven approach, and it seems to work for them. I'll try it for an afternoon." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gears = {
+      lines = { { id = "ge_default", text = "Oh, I hoped you'd ask! Each gate is far too heavy to lift directly, so there's a worm drive that trades speed for force, about three hundred turns of the wheel to one foot of gate. It's slow on purpose, because a gate that opens quickly is a flood." } },
+      choices = {
+        { text = "Slow on purpose. That's good design.", next = "BACK", reply = "Isn't it? The dwarves wanted it slow and the gnomes made it smooth, and that's the best sort of partnership.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hinderweir = { { id = "tp_hind", text = "The Chief Engineer, seventh of his name, and the most careful person I've ever met. If he's worried about something, I start worrying immediately." } },
+    dark_iron = { { id = "tp_dark", text = "They'd like nothing better than to crack this dam, and they're good with powder, which I say with professional regret. The mountaineers watch the north approach for exactly that reason." } },
     background = { { id = "tp_bg", text = "I'm a gnome engineer, and I love this dam." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, unless it has gears in it." } },
   },
@@ -232,6 +312,10 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye must like my bread, or ye're just hungry." },
   },
   notice = {
+    { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
+      text = "A cook! Then ye'll no' mind me sayin' the secret's in a long slow prove, an' that I'll no' tell ye a word more than that." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf on the road wi' an appetite, I'd wager. I've a dark loaf that tastes like the ones they bake under the mountain." },
     { id = "n_hungry", cat = "hunger", when = { durability = { max = 0.25 } },
       text = "Ye look half-starved an' half-dead. Buy some bread, an' eat it before ye fall over." },
   },
@@ -242,6 +326,7 @@ P:NPC {
         { id = "h_default", text = "Greishan Ironstove, travellin' merchant. I bake in Thelsamar an' walk the roads sellin' tae the mountaineers an' travellers, for they get hungry out here an' there's no inn for miles." },
       },
       again = {
+        { id = "h_again3", text = "Walk wi' me if ye've more tae ask, for the loaves get nae fresher standin' still." },
         { id = "h_again", text = "What else? I've a long road ahead." },
         { id = "h_again2", text = "Go on, I've a minute." },
       },
@@ -249,6 +334,9 @@ P:NPC {
         { text = "Show me your bread.", next = "BUSINESS" },
         { text = "Isn't the road dangerous?", next = "road" },
         { text = "What's the news on the road?", next = "news" },
+        { text = "Where does the bread come from?", next = "bakery" },
+        { text = "You must know every mountaineer by name.", next = "posts" },
+        { text = "I bake a little myself.", next = "cook", when = { profession = "Cooking" } },
         { text = "Farewell, Greishan.", next = "END" },
       },
     },
@@ -271,8 +359,39 @@ P:NPC {
       lines = { { id = "ne_default", text = "The troggs are worse near the excavation, the dam's still standin', an' Mountaineer Stormpike's lookin' for someone tae run errands. That's about all." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    bakery = {
+      lines = { { id = "bk_default", text = "My own oven in Thelsamar, lit well before dawn. Honni Goldenoat has the bakery in town an' the town's custom wi' it, so I took the road instead, an' we've no' had a cross word since." } },
+      choices = {
+        { text = "Two bakers and no quarrel?", next = "bakery_honni" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bakery_honni = {
+      lines = { { id = "bh_default", text = "She bakes sweet an' I bake hard, for a road loaf has tae last three days in a pack. Folk who want a honey bun go tae her, an' folk who want somethin' tae break a trogg's skull wi' come tae me." } },
+      choices = { { text = "A fair division of the trade.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
+    posts = {
+      lines = { { id = "ps_default", text = "Every one, an' how they like their crust. Cobbleflint an' Gwarth at the Valley o' Kings want it dark, Kadrell in town wants it soft, an' the lads at the Algaz gate will eat whatever's left an' thank me for it." } },
+      choices = {
+        { text = "Which post is the hardest walk?", next = "posts_hard" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    posts_hard = {
+      lines = { { id = "ph_default", text = "North, up tae the gate at Dun Algaz, for the road climbs the whole way an' the wind comes down it like a slammed door. I do it twice a week, an' Pilot Hammerfoot always buys a loaf an' never eats it while I'm there." } },
+      choices = {
+        { text = "He's grieving a friend, I think.", next = "BACK", reply = "Aye, I'd heard. I leave him an extra heel o' bread an' say nothin', which is all a baker can do.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cook = {
+      lines = { { id = "ck_default", text = "Do ye, now? Then here's one thing free: bake hotter than ye think an' shorter than ye think, an' let it cool on stone, no' on wood. The rest ye can pry out o' Vidra Hearthstove, if ye're brave." } },
+      choices = { { text = "Hotter and shorter. Thank you, Greishan.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    thelsamar = { { id = "tp_thel", text = "Home, an' the best wee town on the loch. Ye'll smell Vidra's sausages before ye see the roofs." } },
+    mountaineers = { { id = "tp_mount", text = "Good lads an' lasses, an' hungry every one. They keep the troggs off the road an' I keep them fed, an' that's Loch Modan in a sentence." } },
     background = { { id = "tp_bg", text = "I'm a baker an' a walker. That's my life." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, but have some bread anyway." } },
   },

@@ -158,6 +158,10 @@ P:NPC {
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage! Then you'll understand why an elven master's lost artifacts would be worth chasing across the sea." },
+    { id = "n_b1", cat = "race", when = { race = "NightElf" },
+      text = "A kaldorei, here! Forgive an old tauren's eagerness, but your people remember the Highborne, and I have ten thousand questions." },
+    { id = "n_b2", cat = "class", when = { class = "DRUID" },
+      text = "A druid of the herd will understand patience. I have followed one set of footprints for more winters than some braves have lived." },
   },
 
   start = "hello",
@@ -176,6 +180,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else would you know? I have more answers than this camp has ears for." },
         { id = "h_again2", text = "Ask on, ask on." },
+        { id = "h_again_b1", text = "There is more, I hope? My scrolls never ask me anything." },
       },
       choices = {
         { text = "Why follow one elf so far?", next = "why" },
@@ -183,6 +188,9 @@ P:NPC {
         { text = "Did you travel alone?", next = "companion" },
         { text = "What do you hope to learn?", next = "learn" },
         { text = "I'll search Dire Maul for him.", next = "BUSINESS" },
+        { text = "These scrolls came a long way with you.", next = "scrolls" },
+        { text = "What sort of artifacts did Telmius carry?", next = "artifacts", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
+        { text = "What does the camp make of your search?", next = "camp", when = { race = "Tauren" } },
         { text = "Farewell, Sage.", next = "END" },
       },
     },
@@ -241,12 +249,67 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    scrolls = {
+      lines = {
+        { id = "b_scrolls_default", text = "Every one of them, on my own back and on one long-suffering kodo. That pile I copied in the ruins of Quel'Thalas with ash still on the stones, and those I bought dearly from a goblin in the Burning Steppes." },
+      },
+      choices = {
+        { text = "What did the goblin know of elves?", next = "scrolls_goblin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scrolls_goblin = {
+      lines = {
+        { id = "b_scrolls_goblin_default", text = "Nothing whatever, which is why he sold them so cheaply, if a tauren may call that price cheap. He had taken them from a camp he found abandoned, and I believe it was one of Telmius's own." },
+      },
+      choices = {
+        { text = "So you were close behind him even then.", next = "scrolls_close" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scrolls_close = {
+      lines = {
+        { id = "b_scrolls_close_default", text = "Close in miles, and years behind in time, which is the sorrow of all scholarship. The ashes of his fire were cold long before I was born, and still I knelt and felt them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    artifacts = {
+      lines = {
+        { id = "b_artifacts_default", text = "Relics of the Highborne, I believe, carried east across the sea in the first exile and kept by his line ever after. I do not know what they do, and I would be a poor scholar if I pretended otherwise." },
+      },
+      choices = {
+        { text = "Things like that are dangerous in the wrong hands.", next = "artifacts_danger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    artifacts_danger = {
+      lines = {
+        { id = "b_artifacts_danger_default", text = "They are, and I have thought on it often by this fire. I do not wish to wield them, only to read what is written on them, though I know that every fool who was ever burned by magic said the same." },
+      },
+      choices = {
+        { text = "Then read them carefully, Sage.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = {
+        { id = "b_camp_default", text = "Rok Orhan thinks I am a waste of a tent, and says so. Witch Doctor Uzer'i is kinder, because he chases strange things himself, and Loorana sends bread whether I remember to eat it or not." },
+      },
+      choices = {
+        { text = "A camp needs its thinkers too.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "I know elves, ruins, the old roads of the world, and one particular elf who refuses to be found." } },
     background = { { id = "tp_bg", text = "A sage of the tauren, too old to stop walking.", next = "why" } },
     highborne = { { id = "tp_high", text = "The Highborne were brilliant, proud and ruinous. I study them the way a sailor studies storms." } },
+    dire_maul = { { id = "tp_b_dire_maul", text = "The ogres call it Dire Maul, and they have no notion what they are sitting on. I would give my best scrolls for one quiet afternoon in its library." } },
+    earth_mother = { { id = "tp_b_earth_mother", text = "She made the tauren patient, and I thank her for it daily. A hasty people could never have followed this trail to its end." } },
     _none = { { id = "tp_none", text = "Hm. I have no notes on that, which is rare enough that I'll write it down." } },
   },
 }

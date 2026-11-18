@@ -1,4 +1,4 @@
--- Aerie Peak's gryphon master and smith's supplier, with nothing to say until now. Voice: bibles/unsung.md
+-- Aerie Peak's gryphon master and smith's supplier, and the gnome trader on the hill road. Voice: bibles/unsung.md
 local P = RPGDialogueAPI:Pack("rpgd.hinterlands")
 local TODO_NPC = P.TODO_NPC
 
@@ -423,5 +423,173 @@ P:NPC {
     magni = { { id = "tp_magni", text = "The Bronzebeards have mines right under their mountain, an' I'd give my beard for one. Haulin' it all up from the valleys is no work for a dwarf." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay buys iron from the south, they say, and sells it for twice the price. I'd sell to them, if they'd fly up here to fetch it." } },
     _none = { { id = "tp_none", text = "Don't know, an' I've no time tae find out. Ask at the inn; Thulfram hears everythin'." } },
+  },
+}
+
+-- Gigget Zipcoil: gnome trade supplies vendor camped by the road northeast of Quel'Danil Lodge. Neutral.
+P:NPC {
+  key = "hl_gigget", id = TODO_NPC("Gigget Zipcoil"), name = "Gigget Zipcoil", title = "Trade Supplies",
+  bible = "bibles/unsung.md", role = "vendor", tier = "service",
+  communities = { "hinterlands_road" }, temper = { "bright", "brisk" }, values = { "trade", "curious", "brave" },
+  notices = { "craft", "race", "class" },
+
+  impression = {
+    first = "Gigget Zipcoil sells trade supplies from a small camp in the Hinterlands hills, to anyone of either side who walks up. She has worked out the odds of being eaten out here to two decimal places and decided they are acceptable.",
+    third = "{name} met Gigget Zipcoil, a gnome who sells trade supplies from a roadside camp in the Hinterlands.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Oh, a customer! Splendid. Thread, vials, flux, dye and fishing poles, all sorted by weight and then by colour." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back! That makes you a repeat customer, and my repeat rate just went up by a whole percentage point." },
+    { id = "g_craft", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Engineering", "Alchemy" } }, text = "A crafter, I can tell by the hands! Do look, I have nearly everything, and a list of what I haven't." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Still open! I don't close, strictly speaking, because the wolves don't either." },
+  },
+
+  notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "Another gnome, out here! Oh, that's wonderful. Do you know, you're the first person in a month I haven't had to look straight up at." },
+    { id = "n_horde", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } },
+      text = "Horde coin spends exactly as well as Alliance coin, I've tested it, so please don't loom. Looming makes me miscount." },
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
+      text = "An engineer! Is that a gyrochronatom in your pack? No, don't tell me, I'll only want to take it apart." },
+    { id = "n_lw", cat = "craft", when = { profession = "Leatherworking" },
+      text = "A leatherworker. I have a pattern you'll want to see, for shoulders, with feathers. I don't understand it, but people who do get very excited." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "Gigget Zipcoil, trade supplies! I set up here because there are crafters in these hills on both sides, and not one shop between Aerie Peak and the coast, which is what we call an underserved market." },
+        { id = "h_dwarf", when = { race = "Dwarf" },
+          text = "Gigget Zipcoil, trade supplies! You'll be from the Peak, or bound for it. Do tell Nioma I am not undercutting her on purpose, it's simply that my overheads are a tent." },
+        { id = "h_troll", when = { race = "Troll" },
+          text = "Gigget Zipcoil, trade supplies! You're with the Revantusk on the coast, I expect, and not the ones in the ruins. I can tell because you haven't thrown anything, and I do appreciate it." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I tell you? I do like questions." },
+        { id = "h_again2", text = "Go on! I've nobody to talk to out here but the mule, and she's a poor conversationalist." },
+        { id = "h_again3", text = "Yes? Ask away, I can talk and take inventory at the same time, within a small margin of error." },
+      },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "This is a dangerous place for a shop.", next = "danger" },
+        { text = "You sell to the Horde and the Alliance alike?", next = "sides" },
+        { text = "Who are your neighbours out here?", next = "neighbours" },
+        { text = "What's a gnome trader's life, since Gnomeregan?", next = "x_gnome", when = { race = "Gnome" } },
+        { text = "You mentioned a pattern with feathers.", next = "x_lw", when = { profession = "Leatherworking" } },
+        { text = "What sells best to people like me?", next = "x_craft", when = { profession = { "Tailoring", "Blacksmithing", "Engineering", "Alchemy" } } },
+        { text = "Good trading, Gigget.", next = "END" },
+      },
+    },
+    danger = {
+      lines = {
+        { id = "dg_default", text = "Oh, measurably! There are wolves, owlbeasts, three separate tribes of trolls and a lodge full of elves who shoot at everyone. But I've kept a tally, and since nobody wants to drive off the only shop for miles, I'm attacked far less often than you'd predict." },
+      },
+      choices = {
+        { text = "And when you are attacked?", next = "danger_when" },
+        { text = "You're braver than you look.", next = "danger_brave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    danger_when = {
+      lines = {
+        { id = "dw_default", text = "Then I have a very loud whistle, a mule who kicks, and a small device under the counter that I'd rather not describe. It has only gone off once, and the tent was the wrong colour for a week afterwards, but the wolf did leave." },
+      },
+      choices = {
+        { text = "I won't ask to see the device.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    danger_brave = {
+      lines = {
+        { id = "db_default", text = "That's kind, though I think it's mostly arithmetic. A shop in Ironforge has forty competitors and no wolves, and a shop here has no competitors and some wolves. When I ran the figures, the wolves came out cheaper." },
+      },
+      choices = {
+        { text = "Only a gnome would price a wolf.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sides = {
+      big = true,
+      lines = {
+        { id = "sd_default", text = "I do. The Wildhammer buy thread and salt, the Revantusk buy dye and fishing line, and neither asks who else has been by. I did wonder at first whether it was quite right, selling flux to people who might make axes of it for use on my other customers." },
+      },
+      choices = {
+        { text = "Trade keeps both sides fed. There's no wrong in it.", next = "BACK", reply = "That's where I came out too, after some thought. A needle doesn't take sides, and I try to be at least as sensible as a needle.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A trader should stand with her own people.", next = "BACK", reply = "Perhaps she should. But my own people lost their city, and I learned then that a full strongbox is the only wall I can build. I'll keep both doors open.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neighbours = {
+      lines = {
+        { id = "nb_default", text = "Quel'Danil Lodge is just down the hill to the southwest, and I don't go near it, because the elves there are not buying. Aerie Peak is west, the Revantusk are east on the shore, and somewhere south of here a dwarf called Shindigger is brewing something I can smell when the wind turns." },
+      },
+      choices = {
+        { text = "The elves won't trade at all?", next = "neighbours_elves" },
+        { text = "Do you trade with Shindigger?", next = "neighbours_brew" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neighbours_elves = {
+      lines = {
+        { id = "ne_default", text = "I walked down once with samples and a very polite sign. An arrow went through the sign, exactly in the middle of the word 'welcome', which I took as a considered reply. I've marked them in my ledger as 'not at present'." },
+      },
+      choices = {
+        { text = "A wise entry. Leave it at that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    neighbours_brew = {
+      lines = {
+        { id = "nbr_default", text = "He buys vials from me by the dozen and returns none of them, so I assume the product is popular or the vials are dissolving. I haven't tried it. I need all of my faculties for the bookkeeping." },
+      },
+      choices = {
+        { text = "From what I hear, that's the right decision.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_gnome = {
+      lines = {
+        { id = "xg_default", text = "Portable! We all learned that, didn't we? I had a proper shop with shelves on the third tier, and I left it with one bag when the alarms went. Now everything I own folds, and I can be packed and moving in eleven minutes." },
+      },
+      choices = {
+        { text = "We'll have shelves again, in our own city.", next = "x_gnome_home" },
+        { text = "Eleven minutes is a fine time.", next = "x_gnome_home" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_gnome_home = {
+      lines = {
+        { id = "xgh_default", text = "I've drawn the shop I'll open when Gnomeregan is clean again, to scale, with a counter at a sensible height. Until the High Tinker says it's time, I'll sell thread on a hillside and keep the drawing dry." },
+      },
+      choices = {
+        { text = "Keep it dry, Gigget. You'll need it.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_lw = {
+      lines = {
+        { id = "xl_default", text = "Ironfeather shoulders! It calls for feathers off the big owlbeasts up here, which is why I stock it here and not somewhere safe. I'm told the result is very fine, and that collecting the feathers is the difficult step." },
+      },
+      choices = {
+        { text = "Let me see the pattern.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_craft = {
+      lines = {
+        { id = "xc_default", text = "Out here? Whatever you ran out of yesterday. Nobody plans to buy thread in the Hinterlands, they simply find themselves a long way from a city with a hole in something. I stock for emergencies, and I price for them only a little." },
+      },
+      choices = {
+        { text = "Honest of you to admit the little.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    quel_danil = { { id = "tp_qd", text = "The elves' lodge, down the hill. They aren't friendly to anyone at present, me included, so I'd walk around it." } },
+    _none = { { id = "tp_none", text = "Oh, I don't have data on that, I'm afraid. I could guess, but I'd rather not sell you a guess." } },
   },
 }

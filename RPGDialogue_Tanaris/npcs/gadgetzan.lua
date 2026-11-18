@@ -2339,6 +2339,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "More questions? Ask them over the anvil, pal, because the thorium cools while we chat, and cold thorium is money down the drain." },
         { id = "h_again2", text = "Still here? Then you're either buying or haggling, and I filed a complaint against haggling years ago." },
+        { id = "h_again_b1", text = "Ask quick, chum, because this pour won't wait and neither will the invoice." },
       },
       choices = {
         { text = "Does all this mining scar the desert?", next = "xdruid", when = { class = "DRUID" } },
@@ -2354,6 +2355,8 @@ P:NPC {
         { text = "Someone asked you to pour a demon, Krinkle?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "A censer of thorium would cost a fair bit, I'd guess, Krinkle.", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are your arrowheads any good against basilisk hide, Krinkle?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "That Repairers' Union still seems to rankle you.", next = "union" },
+        { text = "Is Wrinkle Goodsteel next door any relation?", next = "wrinkle" },
       },
     },
     who = {
@@ -2371,6 +2374,50 @@ P:NPC {
         { text = "I've seen better at the Great Forge.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },
+    union = {
+      lines = {
+        { id = "b_union_default", text = "Rankle? Pal, they pulled my mending rights over a price list, and I've got six complaints on file with the Cartel and a seventh half written. All I did was charge less than they do, which I'm told is unfair competition." },
+      },
+      choices = {
+        { text = "What did the Cartel say?", next = "union_cartel" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    union_cartel = {
+      lines = {
+        { id = "b_union_cartel_default", text = "The Cartel said they'd look into it, which in Gadgetzan means they're waiting to see who pays the bigger filing fee. So I pay mine on time, in full, with a receipt, and I keep every receipt in a strongbox." },
+      },
+      choices = {
+        { text = "And if they rule against you?", next = "union_rule" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    union_rule = {
+      lines = {
+        { id = "b_union_rule_default", text = "Then I appeal, buddy, and after that I appeal the appeal, and by then half the Union will have retired or blown up. I can't lose so long as I've got more patience than they've got members." },
+      },
+      choices = {
+        { text = "That's a long game for a goblin.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrinkle = {
+      lines = {
+        { id = "b_wrinkle_default", text = "That's my brother, friend, and he sells armor while I sell what goes into it and what goes through it. Folks say it's a conflict of interest, and I say it's a family business with excellent coverage." },
+      },
+      choices = {
+        { text = "So you profit whichever way the fight goes.", next = "wrinkle_both" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrinkle_both = {
+      lines = {
+        { id = "b_wrinkle_both_default", text = "Now you're thinking like a Goodsteel! He sells you the breastplate, I sell the other fella the mace, and then you both come back to one of us for repairs. It's a beautiful thing, and the paperwork's all in order." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -2383,6 +2430,8 @@ P:NPC {
     zul_farrak = { { id = "tp_zul_farrak", text = "The trolls of Zul'Farrak have metal I've never seen, pal, old and strange and very hard to work. I'd pay well for a sample." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's got a few good smiths, pal, but none of them can pour a mold like I can. I'd like them to try." } },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons make the best steel in the world, pal, and they'd kill you before they'd sell it to you. I'd love to know their secrets, but I'm fond of my head." } },
+    trade = { { id = "tp_b_trade", text = "Thorium's up, iron's steady, and flux is whatever I say it is, because nobody else in Tanaris stocks it. Buy today, pal, while I'm in a generous mood." } },
+    mirage_raceway = { { id = "tp_b_mirage_raceway", text = "I pour axle pins for both crews at the Raceway, and they snap about as often as you'd expect. I don't warranty anything that goes that fast." } },
     _none = { { id = "tp_none", text = "That's not my trade, friend, my trade is metal, so how about buying some?" } },
   },
 }

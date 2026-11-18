@@ -172,6 +172,10 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
       text = "You've a gambler's hands. Don't sit down at a table with me, friend; Quintis will tell you why." },
+    { id = "n_b1", cat = "race", when = { race = "NightElf" },
+      text = "Ishnu-alah. If you came by way of Darnassus, I'd welcome any news that's fresher than my last dispatch bag." },
+    { id = "n_b2", cat = "class", when = { class = "HUNTER" },
+      text = "A tracker would be worth ten clerks to me this week. If you find a boot print on the Forgotten Coast, I want to hear about it." },
   },
 
   start = "hello",
@@ -195,6 +199,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I've a dispatch to finish, but it can wait." },
         { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again_b1", text = "Anything more? The courier bag is still empty, so I've time." },
       },
       choices = {
         { text = "Tell me about Raschal.", next = "raschal" },
@@ -202,6 +207,9 @@ P:NPC {
         { text = "What's this about Quintis and cards?", next = "cards" },
         { text = "How did the stronghold come to be here?", next = "stronghold" },
         { text = "What can I do?", next = "BUSINESS" },
+        { text = "Your table is buried in dispatches.", next = "dispatches" },
+        { text = "I can read a trail. Where did Raschal land?", next = "trail", when = { class = { "ROGUE", "HUNTER" } } },
+        { text = "Does Darnassus answer your reports?", next = "darnassus", when = { faction = "Alliance" } },
         { text = "I'll keep an eye out for him.", next = "END" },
       },
     },
@@ -260,12 +268,58 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    dispatches = {
+      lines = {
+        { id = "b_dispatches_default", text = "Half of them are mine and half are waiting on a courier to carry them. Latronicus wants word sent about the Hatecrest, Troyas wants books from Darnassus, and Pratt wants to know where his leather order went." },
+      },
+      choices = {
+        { text = "And all of it waits on Raschal?", next = "dispatches_wait" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dispatches_wait = {
+      lines = {
+        { id = "b_dispatches_wait_default", text = "Most of it. Fyldren's hippogryphs carry the urgent things, but a bird can't take a crate or walk into Thalanaar with a parcel under its arm. For that you need a courier, and I am one short." },
+      },
+      choices = {
+        { text = "I've carried a parcel or two myself.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trail = {
+      lines = {
+        { id = "b_trail_default", text = "Somewhere on the Forgotten Coast, south of the jetty, if he kept to his plan. He always dragged his boat above the tide line and covered it with brush, so look for brush that's browner than it ought to be." },
+      },
+      choices = {
+        { text = "And from the boat, which way would he go?", next = "trail_inland" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trail_inland = {
+      lines = {
+        { id = "b_trail_inland_default", text = "Inland and south, keeping to the low ground between the hills, where the Woodpaw gnolls have their camps. He knew they were there and trusted himself to slip past them, and I've wondered since whether that trust was misplaced." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darnassus = {
+      lines = {
+        { id = "b_darnassus_default", text = "Eventually, and politely, and usually to ask for more reports. The Temple cares a great deal about Feathermoon, because the General is the High Priestess's own daughter in all but blood, but Darnassus is a long way off." },
+      },
+      choices = {
+        { text = "So the isle mostly looks after itself.", next = "BACK", reply = "It does, and it does it well. I only wish it didn't have to do it with one courier fewer." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Who left, who came back, and who's late. That's all the dispatch office is, friend, and lately it's mostly the last one." } },
     background = { { id = "tp_bg", text = "One of the general's expedition, keeper of the stronghold's dispatches.", next = "stronghold" } },
     sentinels = { { id = "tp_sent", text = "The finest soldiers in Kalimdor, and the worst at writing reports, so the General keeps a clerk on the island, and the clerk is me." } },
+    tyrande = { { id = "tp_b_tyrande", text = "The High Priestess reads every dispatch that carries the General's name, or so I'm told. It makes a clerk careful with his spelling." } },
+    rumors = { { id = "tp_b_rumors", text = "The only rumour I care about this week is where Raschal's boat went, and nobody on this isle has it." } },
     _none = { { id = "tp_none", text = "Nothing in the dispatches about that, I'm afraid." } },
   },
 }

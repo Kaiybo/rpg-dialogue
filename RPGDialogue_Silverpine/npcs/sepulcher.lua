@@ -706,10 +706,80 @@ P:NPC {
   notice = {
     { id = "n_rogue", cat = "stealth", when = { class = "ROGUE" },
       text = "Quiet feet, I see, and I've uses for quiet feet. Come and see me when you're ready to earn your keep in shadows." },
+    { id = "n_weary", cat = "class", when = { durability = { max = 0.3 } },
+      text = "You have been in a fight, and you came straight to me before the armorer, which tells me the news is good or very bad. Sit, and tell me which." },
   },
 
   start = "hello",
   nodes = {
+    watchers = {
+      lines = { { id = "wa_default", text = "Nobody you would look at twice, which is the whole of their value. A ferryman, a woman who sells mushrooms, a Deathguard who is thought to be slow, and a few who are not Forsaken at all and would be very surprised to learn whom they report to." } },
+      choices = {
+        { text = "How do you know which of them to believe?", next = "watchers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watchers2 = {
+      lines = { { id = "wa2_default", text = "I believe none of them, and I write down all of it. When three watchers who have never met tell me the same thing in different words, I take it to the Dark Lady, and when one tells me something that nobody else has seen, I ask myself what that one wants." } },
+      choices = {
+        { text = "And when a watcher lies to you outright?", next = "watchers3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watchers3 = {
+      big = true,
+      lines = { { id = "wa3_default", text = "Then I have learned something true about the watcher, which is often worth more than the report. Some I correct, and some I go on using, because a liar whose lies I can read is a better instrument than an honest fool. You may think that cold." } },
+      choices = {
+        { text = "It's sound. Use every tool the Dark Lady has.", next = "BACK", reply = "I am glad you see it. Sentiment is a luxury the Forsaken put down with our coffin lids.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "A servant who lies to you deserves better than use.", next = "BACK", reply = "Better, or worse? You have a tidy conscience, and I shall make a note of it, without malice.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ambermill = {
+      lines = { { id = "am_default", text = "The worgen are a sickness, and a sickness does not plan. Dalaran's mages plan. They have walled a farming village, set wards on its roads and begun some great working inside it, and not one of my watchers has been able to tell me what it is for." } },
+      choices = {
+        { text = "What have you learned so far?", next = "ambermill2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ambermill2 = {
+      lines = {
+        { id = "am2_default", text = "That they draw on the old ley lines that run under Silverpine, and that the wards are fed from within the town hall. Dalar Dawnweaver reads their runes for me, and he was one of them once, so he tells me what they mean and I decide what they are for." },
+        { id = "am2_done", when = { questDone = TODO_QUEST("The Weaver") }, text = "A good deal more than I knew before you went there. With their Weaver dead the wards have thinned, and Dalar Dawnweaver believes they meant to draw the ley lines under Silverpine into some great working of their own, which is a thing the Dark Lady will want to hear." },
+      },
+      choices = {
+        { text = "You trust a Dalaran mage to read Dalaran's runes?", next = "ambermill3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ambermill3 = {
+      lines = { { id = "am3_default", text = "I trust his resentment, which is deep and has never yet misled me. The Kirin Tor left Dalar in the rubble when their city fell, and a man does not forget who walked past him. I check his readings all the same." } },
+      choices = {
+        { text = "You check everyone's, I think.", next = "BACK", reply = "I do, and you should be flattered to be included. I only trouble to check the ones who matter." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hadrec = {
+      lines = { { id = "hd_default", text = "We share a purpose, which is more than most colleagues can say. High Executor Hadrec fights the war he can see, against the worgen and Arugal's keep, and I mind the one he cannot, so we seldom want the same soldier on the same day." } },
+      choices = {
+        { text = "And when you do want the same soldier?", next = "hadrec2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hadrec2 = {
+      lines = { { id = "hd2_default", text = "Then I let him have the soldier, and I hear afterwards everything the soldier saw. Hadrec believes he has won on those days, and I see no reason to spoil it for him. Apothecary Renferrel plays the same game with his samples, rather less gracefully." } },
+      choices = {
+        { text = "The Sepulcher is a small place for three such people.", next = "BACK", reply = "It is a crypt, and crypts were always crowded. We manage, as the dead do, by not standing on ceremony." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    papers = {
+      lines = { { id = "pp_default", text = "That Dalaran's couriers have been passing through the south of Silverpine for months, under our noses, with crates for Ambermill. I had suspected it and could not prove it, and proof is the only coin the Dark Lady accepts." } },
+      choices = {
+        { text = "I'm glad they were worth the walk.", next = "BACK", reply = "They were worth a good deal more than that. I have written your name beside them, in a column where it will do you some good.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "That there are a handful of you, and that the Scarlet Crusade would pay very well to learn your names, because a dead paladin is an insult to everything they stand for. I keep those names to myself, {class}, but I do keep them, and you'd be wise to remember that." } },
@@ -778,6 +848,10 @@ P:NPC {
         { text = "My spells could serve your watchers, Allister.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Demons make fine watchers, Allister.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What do your watchers say about paladins like me?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Who are these watchers of yours?", next = "watchers" },
+        { text = "Ambermill seems to trouble you more than the worgen.", next = "ambermill" },
+        { text = "You and the High Executor share a crypt and little else.", next = "hadrec" },
+        { text = "I crossed the border for you. What did the papers say?", next = "papers", when = { questDone = TODO_QUEST("Border Crossings") } },
         { text = "What do you want me to learn?", next = "END", fx = { affinity = 1, trait = { curious = 1 } } },
         { text = "I'm good in the shadows. Make me one of your watchers.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Warriors must be of some use to your watchers, Shadow Priest.", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
@@ -786,6 +860,8 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Lower your voice, though; even crypts have ears." },
+        { id = "h_again2", text = "Was there more? I have a report to finish, but I would sooner have a fresh one from you." },
+        { id = "h_again3", text = "Go on. I am listening, which you will find I do rather well." },
       },
     },
     rogue = {
@@ -857,6 +933,9 @@ P:NPC {
     dalaran = { { id = "tp_dalaran", text = "My watchers tell me Dalaran is rebuilding steadily, and that the Kirin Tor keep the gates shut to all but their own. They also tell me which of their own are unhappy about it." } },
     gilneas = { { id = "tp_gilneas", text = "Nothing comes over the Greymane Wall, not even rumors, and that bothers me more than I'd like. I hate a closed door." } },
     shadowfang = { { id = "tp_shadowfang", text = "I know a good deal about what goes on inside Shadowfang Keep, and none of it is pleasant. Arugal is mad, but a madman can still be useful." } },
+    kirin_tor = { { id = "tp_kirin", text = "They are rebuilding, and they are frightened, and frightened mages build things they cannot control. I would know what they are building at Ambermill before it is finished." } },
+    worgen = { { id = "tp_worgen", text = "Hadrec's concern, chiefly, though I keep a count of them. They do not plot, and I have little use for an enemy who does not plot." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "I have a watcher among their camp followers who thinks she reports to a merchant in Southshore. The Crusade is loud, and the loud are easy to follow." } },
     _none = { { id = "tp_none", text = "If I knew, I wouldn't tell you for free, and I don't know." } },
   },
 }

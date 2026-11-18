@@ -412,15 +412,63 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Keep moving, unless you need directions." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Don't tell me you're still lost." },
+    { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "You're off the zeppelin, I take it. Brill is north and the Undercity is east of it, and that's two questions I've saved you asking." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You've been in the manor, haven't you? It shows. Get to Brill and get that mended." },
+    { id = "n_green", cat = "kit", when = { maxLevel = 7, race = "Scourge" },
+      text = "You're not long up from Deathknell, by that stagger. Stay on this side of the bridge until you've stopped walking like a foal." },
   },
 
   start = "hello",
   nodes = {
+    road = {
+      lines = {
+        { id = "rd_default", text = "I don't. Deathguard Dillinger has the stretch west toward Deathknell, and the patrols from Brill pass me twice a watch. Gordo comes lumbering by as well, with his arms full of gloom weed for the apothecaries, and he's the only one who never asks me anything." },
+      },
+      choices = {
+        { text = "What comes down the road that shouldn't?", next = "road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road2 = {
+      lines = {
+        { id = "rd2_default", text = "Darkhounds, when they're hungry, and duskbats after sunset. The odd ghoul wanders out of the manor grounds and has to be put back down, and I do that myself, since there's nobody else on the bridge to do it." },
+      },
+      choices = {
+        { text = "A dull posting, you called it.", next = "BACK", reply = "It is dull. A ghoul a week doesn't make it lively, it only makes it a ghoul a week." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lost = {
+      lines = {
+        { id = "lo_default", text = "All day long, and there is a signpost not twenty paces behind me with every town on it. The newly risen I can forgive, since half of them have forgotten their letters, but the living come off that zeppelin with two good eyes and still ask." },
+      },
+      choices = {
+        { text = "Perhaps they'd rather hear it from a person.", next = "lost2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lost2 = {
+      lines = {
+        { id = "lo2_default", text = "Perhaps they would. Deathguard Cyrus in Brill enjoys it, and he'll recite the whole town to anyone who stands still. I only want them off my bridge before something follows them onto it." },
+      },
+      choices = {
+        { text = "Then I'll read the signpost next time.", next = "BACK", reply = "You'd be the first. I'll remember your face for it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    inside = {
+      lines = {
+        { id = "in_default", text = "Then you know more of it than I do, and I'd sooner not hear the details. I knew that house by sight when it had lamps in the windows, and I'd like to keep it that way in my head while I stand here looking at it." },
+      },
+      choices = {
+        { text = "I'll say only that it's quieter now.", next = "BACK", reply = "Quieter will do. Thank you for that, and for not saying more.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -432,6 +480,8 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I'm on duty, so be quick about it." },
+        { id = "h_again2", text = "Go on, then. The bridge isn't going anywhere, and neither am I." },
+        { id = "h_again3", text = "What else? Ask it plainly and I'll answer it plainly." },
       },
       choices = {
         { text = "Why guard a bridge out here?", next = "post" },
@@ -439,6 +489,9 @@ P:NPC {
         { text = "What do you think of the Executor's motivator?", next = "motivator" },
         { text = "Which way to Brill?", next = "directions" },
         { text = "What's the life of a Deathguard like?", next = "life" },
+        { text = "You can't have this whole road to yourself.", next = "road" },
+        { text = "People keep asking you the way, I gather.", next = "lost" },
+        { text = "I've been inside the manor, Deathguard.", next = "inside", when = { minLevel = 8 } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -490,6 +543,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a Deathguard on a bridge. That's all the background I have time for." } },
     advice = { { id = "tp_ad", text = "Look up from your boots once in a while. The roads are marked for a reason." } },
+    scourge = { { id = "tp_scourge", text = "The mindless ones drift out of the manor grounds now and then. They don't plan and they don't hurry, which is the only good thing I can say about them." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They keep to the west and the north, mostly, but I watch for red tabards on this road all the same. They'd love to burn that zeppelin tower." } },
+    forsaken = { { id = "tp_forsaken", text = "We stand our posts and we don't complain where the Executor can hear. It's a living, in a manner of speaking." } },
     _none = { { id = "tp_none", text = "Ask someone in Brill. I'm only the bridge." } },
   },
 }
@@ -648,15 +704,65 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Waiting for the zeppelin? It'll be late, because it's always late." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The zeppelin still isn't here, in case you wondered." },
+    { id = "g_tauren", when = { race = "Tauren" }, text = "A tauren, and still on the platform after a whole minute. You've already outlasted the last one of your people I saw here." },
   },
 
   notice = {
     { id = "n_orc", cat = "race", when = { race = { "Orc", "Troll" } },
       text = "Fresh off the ship from Durotar, by the look of you. Don't worry; the ground stops swaying in an hour or so." },
+    { id = "n_forsaken", cat = "race", when = { race = "Scourge", maxLevel = 12 },
+      text = "You're one of ours, and going out rather than coming in, by the look of that pack. Kalimdor's all sun, I'm told, so mind you don't dry out." },
+    { id = "n_engineer", cat = "travel", when = { profession = "Engineering" },
+      text = "You've an engineer's goggles, so tell me honestly whether that balloon looks sound to you. No, on second thought, don't tell me." },
   },
 
   start = "hello",
   nodes = {
+    ride = {
+      lines = {
+        { id = "ri_default", text = "Never, and I never shall. I have already died once on solid ground, which was bad enough, and I see no reason to try it from a great height in a basket nailed together by goblins." },
+      },
+      choices = {
+        { text = "The dead can't be much hurt by a fall.", next = "ride2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ride2 = {
+      lines = {
+        { id = "ri2_default", text = "We can be scattered by one, and I've no wish to spend eternity as a wide patch of Deyrek somewhere in the middle of the sea. A man likes to know where all of himself is." },
+      },
+      choices = {
+        { text = "That's the best case against flying I've heard.", next = "BACK", reply = "I've had a long time on this platform to perfect it. The goblins have heard it too, and they offered me a discount.", fx = { affinity = 1 } },
+        { text = "Something else, Deyrek.", next = "BACK" },
+      },
+    },
+    tally = {
+      lines = {
+        { id = "ta_default", text = "In my head, yes, and I'm seldom wrong. This week it was eleven orcs, six trolls, one tauren, a goblin with a crate that ticked, and more sacks of Durotar grain than this country has seen since it stopped growing its own." },
+      },
+      choices = {
+        { text = "Does anyone ask you for the count?", next = "tally2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tally2 = {
+      lines = {
+        { id = "ta2_default", text = "The Deathguard on the Brill road ask, now and then, when the Executor wants to know who's about. Mostly it's for my own satisfaction, because a country that has visitors again is a country that isn't finished, and I like to keep count of the proof." },
+      },
+      choices = {
+        { text = "That's a hopeful thing to count.", next = "BACK", reply = "Don't tell anyone in Brill. Hope's not fashionable there, and I've a reputation to keep." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rode = {
+      lines = {
+        { id = "ro_default", text = "You're standing here, so I can't argue that it went badly. Tell me, though, and tell me straight, did it creak the whole way, or only when the wind got up?" },
+      },
+      choices = {
+        { text = "The whole way. You get used to it.", next = "BACK", reply = "I knew it. No, I shan't get used to it, because I shan't get on it, but thank you for an honest answer.", fx = { affinity = 1 } },
+        { text = "It never creaked once. Smooth as a lake.", next = "BACK", reply = "Now I know you're lying, because I can hear it creaking from here while it's tied up. Still, it was kindly meant." },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -666,6 +772,8 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've nothing but time until the next ship." },
+        { id = "h_again2", text = "Go on. If the ship comes in while you're asking, I'll only be surprised." },
+        { id = "h_again3", text = "Was there more? I can talk and watch the sky at once; it's most of what I do." },
       },
       choices = {
         { text = "Why watch the zeppelins?", next = "why" },
@@ -673,6 +781,9 @@ P:NPC {
         { text = "What do you think of our new allies?", next = "allies" },
         { text = "Who are the strangest passengers you've seen?", next = "passengers" },
         { text = "The Scarlets meant to burn this tower?", next = "fire", when = { questDone = TODO_QUEST("A Lesson in Divinity") } },
+        { text = "You've never once ridden one.", next = "ride" },
+        { text = "Do you keep a record of what comes through?", next = "tally" },
+        { text = "I came in on that ship, and it was no accident.", next = "rode", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Goodbye, Deyrek.", next = "END" },
       },
     },
@@ -704,7 +815,7 @@ P:NPC {
     },
     goblins = {
       lines = {
-        { id = "g_default", text = "They'll fly anyone anywhere for coin, and they'll tell you the airship's perfectly safe while they're patching the balloon. I respect a people who can lie that cheerfully, though I'd never get on one of their machines." },
+        { id = "gb_default", text = "They'll fly anyone anywhere for coin, and they'll tell you the airship's perfectly safe while they're patching the balloon. I respect a people who can lie that cheerfully, though I'd never get on one of their machines." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -726,6 +837,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm from round here, and I'm staying round here. That's my story, and the zeppelin's late." } },
     advice = { { id = "tp_ad", text = "Hold on to something when the zeppelin docks. The goblins call it a landing; I'd call it an accident they've rehearsed." } },
+    forsaken = { { id = "tp_forsaken", text = "We were a kingdom that kept to itself, and now we've a mooring tower with the whole Horde coming down the steps. I think it's good for us, though you'll not hear many say so." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They'd love to see this tower burn, with all its foreign passengers. I watch the road for them when I remember to stop watching the sky." } },
+    thrall = { { id = "tp_thrall", text = "I've never laid eyes on him, but I've seen what he sends us, and it's grain and soldiers. For a Warchief who owes the Forsaken nothing, that's handsome." } },
     _none = { { id = "tp_none", text = "Couldn't say. Ask someone coming off the zeppelin; they've seen more than I have." } },
   },
 }
@@ -744,6 +858,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hello there. Mind Max; he'll want to sniff you." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Max remembers you, I think; look at that tail." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! Max, sit, and let the {class} see what a well-kept dog looks like. He's a little vain about his coat, I'm afraid." },
   },
 
   notice = {
@@ -751,10 +866,57 @@ P:NPC {
       text = "Oh, and you've brought a friend for Max! Let them sniff each other, {pet} won't mind, and Max has better manners than I do." },
     { id = "n_fpal", cat = "class", when = { class = "PALADIN", race = "Scourge" },
       text = "One of the knights from the Keep. Max and I walk up there most days, and they always find a scrap for him." },
+    { id = "n_living", cat = "class", when = { race = { "Orc", "Troll", "Tauren" } },
+      text = "Max has taken to you straight away, and I think it's because you smell alive. He's very polite about the rest of us, but he does notice." },
   },
 
   start = "hello",
   nodes = {
+    feeding = {
+      lines = {
+        { id = "fe_default", text = "It was a puzzle at first, because I'd forgotten that anything needs breakfast. I set snares for the forest hares now, and I trade mushrooms in Brill for bones and scraps, and Innkeeper Renee puts aside what her living guests leave on the plate." },
+      },
+      choices = {
+        { text = "And water? Nothing in Tirisfal runs clean.", next = "feeding2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    feeding2 = {
+      lines = {
+        { id = "fe2_default", text = "There's a spring behind the cottage that comes up clear, the only one I know of this side of the lake. I boil it anyway, twice, and I taste nothing myself, so I watch Max's face when he drinks and I go by that." },
+      },
+      choices = {
+        { text = "He's lucky to have you.", next = "BACK", reply = "Oh, it's quite the other way about. I'd have no reason to boil a kettle at all, if it weren't for him.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quiet = {
+      lines = {
+        { id = "qu_default", text = "It does, and I'm grateful. The deer are shy and the bears keep to the far side, and the only things that trouble us are the Vile Fin when they come up from the bluffs, and the little darters when they've been at the mushrooms." },
+      },
+      choices = {
+        { text = "What happens when the darters have been at the mushrooms?", next = "quiet2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quiet2 = {
+      lines = {
+        { id = "qu2_default", text = "They get quite silly, and then they get quite cross, and they'll nip at anything that walks under them. Max chased one once and came home with a singed ear and a very thoughtful expression, and he has left them alone ever since." },
+      },
+      choices = {
+        { text = "A wise dog learns the first time.", next = "BACK", reply = "He's wiser than I am, then, because I still go and watch them every week." },
+        { text = "Something else, Relreo.", next = "BACK" },
+      },
+    },
+    ring = {
+      lines = {
+        { id = "rg_default", text = "Then you can tell me something I've always wondered. All of Tirisfal is sick, the trees and the beasts and the soil, and yet that one ring of mushrooms is as bright as a spring morning. Is it the faerie dragons who keep it so?" },
+      },
+      choices = {
+        { text = "They may. Such creatures carry a little of the Dream.", next = "BACK", reply = "A little of the Dream, here, in Tirisfal. Do you hear that, Max? I knew it was more than mushrooms.", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "I can't say. Some places simply refuse to die.", next = "BACK", reply = "I rather like that answer too. There's a good deal of that about in these woods, when you think of it." },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -764,12 +926,17 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Max is patient, and so am I." },
+        { id = "h_again2", text = "Go on, we've nowhere to be until Max decides it's time for his walk." },
+        { id = "h_again3", text = "Ask anything you like. It's a treat to have a visitor who isn't a deer." },
       },
       choices = {
         { text = "A living dog, with a Forsaken?", next = "max" },
         { text = "Why walk up to the Keep?", next = "keep" },
         { text = "What's in the Whispering Forest?", next = "forest" },
         { text = "How did you come to live out here?", next = "cottage" },
+        { text = "It can't be easy, feeding a living dog out here.", next = "feeding" },
+        { text = "The forest keeps its distance from your door.", next = "quiet" },
+        { text = "I know the faerie ring you mean, Relreo.", next = "ring", when = { class = "DRUID" } },
         { text = "Goodbye, Relreo, and goodbye to you too, Max.", next = "END" },
       },
     },
@@ -835,6 +1002,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've a cottage and a dog, and most of us came back to neither. I don't go looking for the rest." } },
     advice = { { id = "tp_ad", text = "Find something that's glad to see you. It makes the long nights shorter." } },
+    forsaken = { { id = "tp_forsaken", text = "I'm fond of my own people, truly, but they will talk about the grave so. Max never mentions it, which is one of the things I like about him." } },
+    scourge = { { id = "tp_scourge", text = "They don't come into the forest much, I'm glad to say. Max growls at the wind when it blows from the east, and I've learned to bring him indoors when he does." } },
+    lordaeron = { { id = "tp_lord", text = "These woods were the king's hunting ground once, I believe. The deer don't seem to miss him." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Max might, but he's not telling." } },
   },
 }
@@ -853,15 +1023,63 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Eyes east, {class}. That's where the trouble comes from." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the wall? Rickard said you'd be back. Don't tell him he was right." },
+    { id = "g_soldier", when = { class = { "WARRIOR", "PALADIN" } }, text = "You've stood a wall before, {class}, I can see it in your feet. Come and stand this one a minute and tell Rickard he's looking the wrong way." },
   },
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You've been over the wall, by the look of that armor. Get it mended before you go back; the plague doesn't care how brave you are." },
+    { id = "n_forsaken", cat = "race", when = { race = "Scourge", maxLevel = 30 },
+      text = "You're young to be this far east, for one of us. The Plaguelands eat the young ones first, so listen twice to whatever the High Executor tells you." },
   },
 
   start = "hello",
   nodes = {
+    dawn = {
+      lines = {
+        { id = "dw_default", text = "They're living folk, most of them, and paladins besides, and not five years ago their kind were burning ours on sight. But Argent Officer Garush pays in good coin for every Scourge trinket brought across this wall, and I've seen his people bleed beside ours." },
+      },
+      choices = {
+        { text = "So which is it, pity or blessing?", next = "dawn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dawn2 = {
+      lines = {
+        { id = "dw2_default", text = "A blessing, and it pains me to say it. Rickard said so the first week they came and I told him he was a soft-headed old fool, and I've been finding ways not to admit he was right ever since." },
+      },
+      choices = {
+        { text = "Your secret is safe at this end of the wall.", next = "BACK", reply = "See that it is. He's hard enough to stand beside when he's wrong.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nights = {
+      lines = {
+        { id = "ni_default", text = "It is, when you don't sleep. The wind comes off Andorhal after dark and you can hear things in it, bells sometimes, though there's no one over there with any business ringing a bell. Rickard says it's only loose iron in the ruins." },
+      },
+      choices = {
+        { text = "And what do you say it is?", next = "nights2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nights2 = {
+      lines = {
+        { id = "ni2_default", text = "I say it's loose iron too, out loud, because the young Deathguard are listening. Between you and me I couldn't tell you, and I've stopped wanting to know, so long as it stays on its own side of the wall." },
+      },
+      choices = {
+        { text = "That's all a wall is for.", next = "BACK", reply = "It is. People think a wall is to keep things out, but mostly it's so you needn't look at them." },
+        { text = "Something else, Adelbert.", next = "BACK" },
+      },
+    },
+    goeast = {
+      lines = {
+        { id = "ge_default", text = "Then report to High Executor Derrington first, because he knows what the cauldrons are doing to the fields and he'll not send you blind. Go by daylight, keep off the Andorhal road, and if the crows go up all at once, Rickard says to lie flat and wait." },
+      },
+      choices = {
+        { text = "I'll come back and tell you how it went.", next = "BACK", reply = "Do that. The young ones never do, and I'd like to be wrong about one of them.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -871,12 +1089,17 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Rickard's watching the road, so I've time." },
+        { id = "h_again2", text = "Go on. If anything moves out there, Rickard will say so before I do." },
+        { id = "h_again3", text = "Ask, then. It's a long watch and I've said everything to Rickard twice." },
       },
       choices = {
         { text = "What's the Bulwark like?", next = "wall" },
         { text = "Have you known Rickard long?", next = "rickard" },
         { text = "What's out there to the east?", next = "east" },
         { text = "Is Rickard's eye a problem on watch?", next = "eye" },
+        { text = "You don't sound pleased to share the wall with the Dawn.", next = "dawn" },
+        { text = "It must be a long watch out here.", next = "nights" },
+        { text = "I mean to go east, Adelbert. What should I know?", next = "goeast", when = { minLevel = 45 } },
         { text = "Goodbye, Adelbert.", next = "END" },
       },
     },
@@ -932,6 +1155,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I stood a wall in life and I stand one now. I'm good at it, so I'll keep doing it." } },
     advice = { { id = "tp_ad", text = "Never turn your back to the east. Rickard learned that the hard way, whatever he tells you." } },
+    scourge = { { id = "tp_scourge", text = "More of them past that ridge than there are stones in this wall. They don't tire and they don't bargain, so we don't either." } },
+    argent_dawn = { { id = "tp_dawn", text = "They share the Bulwark with us and they fight the same enemy. I'll not say more than that where Rickard can hear me being fair to them." } },
+    andorhal = { { id = "tp_andorhal", text = "It was the granary of Lordaeron, and the first place the plagued grain went out from. Nothing in it is alive now, and too much of it is still moving." } },
     _none = { { id = "tp_none", text = "Ask Rickard. He's the one who sees things, he says." } },
   },
 }
@@ -949,6 +1175,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Come round to my left side, would you? That's the one that works." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. I'd know that walk anywhere, even with one eye." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "Light feet, and coming up on my blind side. Try the other, friend, it's better manners and you'll get a straighter answer." },
   },
 
   notice = {
@@ -956,10 +1183,57 @@ P:NPC {
       text = "You can come out of the shadows, friend. One eye or not, I've been watching shadows on this wall for longer than you've been sneaking." },
     { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
       text = "A hunter. You'll have better eyes than mine, then, so tell me if you see anything moving out past the ridge." },
+    { id = "n_living", cat = "class", when = { race = { "Orc", "Troll", "Tauren" } },
+      text = "You'll want to step back from the edge when the wind turns, friend. What blows over from the east doesn't trouble us, but I've seen it lay a living orc out flat." },
   },
 
   start = "hello",
   nodes = {
+    camp = {
+      lines = {
+        { id = "ca_default", text = "It was. When the capital fell, the ones who got out alive were gathered here before they went south, and they say Uther himself stood guard over them. You can still find tent pegs in the ground if you kick about behind the wagons." },
+      },
+      choices = {
+        { text = "And now the dead hold it against the dead.", next = "camp2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp2 = {
+      lines = {
+        { id = "ca2_default", text = "Funny, isn't it? Adelbert likes to think we're keeping it for the same reason they did, to give folk behind us time to get away. I let him think it, because it's a better reason than most soldiers ever get." },
+      },
+      choices = {
+        { text = "You believe it too, I think.", next = "BACK", reply = "Maybe I do. Don't tell the old goat, he'll want it in writing.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mist = {
+      lines = {
+        { id = "mi_default", text = "It is thinner. When I first stood here you couldn't see the ridge at noon, and now I can make out single trees on it, such as they are. The Argent Dawn says it's the work being done against the cauldrons over there." },
+      },
+      choices = {
+        { text = "Adelbert doesn't trust it.", next = "mist2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mist2 = {
+      lines = {
+        { id = "mi2_default", text = "Adelbert doesn't trust a sunny day. He's right that the Scourge gives nothing away for free, but somebody over there is paying for that clear air, and I'd sooner thank them than squint at it." },
+      },
+      choices = {
+        { text = "Then I'll take your thanks east with me.", next = "BACK", reply = "Do, if you're going. And look back at the wall once, so I can tell Adelbert I saw you wave." },
+        { text = "Something else, Rickard.", next = "BACK" },
+      },
+    },
+    ridge = {
+      lines = {
+        { id = "rg_default", text = "Two plague hounds near the dead oak, and something slower behind them that hasn't decided yet which way it's going. You look, {class}, and tell me if the slow one's carrying anything, because that's past what I can make out." },
+      },
+      choices = {
+        { text = "Nothing in its hands. It's only wandering.", next = "BACK", reply = "Good. Wanderers we can leave for the next patrol. It's the ones carrying things that mean somebody's giving orders.", fx = { affinity = 1 } },
+        { text = "I can't tell at this distance either.", next = "BACK", reply = "Then we'll both keep watching it, and you can stop feeling sorry for my eye." },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -967,12 +1241,17 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Stay on my good side." },
+        { id = "h_again2", text = "Go on. I can listen with both ears, at least." },
+        { id = "h_again3", text = "What else? Keep your voice down a little, I'm watching that ridge." },
       },
       choices = {
         { text = "What happened to your eye?", next = "eye" },
         { text = "What do you watch for?", next = "watch" },
         { text = "Adelbert says you walked into a door.", next = "door", when = { heardLine = "tf_adelbert.h_default" } },
         { text = "What's Adelbert like?", next = "adelbert" },
+        { text = "This wall was a refugee camp once, I hear.", next = "camp" },
+        { text = "The mist over the Plaguelands looks thinner than the stories say.", next = "mist" },
+        { text = "What does your one eye make of that ridge today?", next = "ridge", when = { class = "HUNTER" } },
         { text = "Goodbye, Rickard.", next = "END" },
       },
     },
@@ -1019,8 +1298,8 @@ P:NPC {
         { id = "d_default", text = "He would, the old goat, and he'll tell you that one every day until the wall falls. Let him; it's the only joke he has, and I'd miss it. Some friendships run on insults, and some on honesty; which kind do you keep?" },
       },
       choices = {
-        { text = "Honest ones. I say what I mean.", next = "BACK", reply = "A rare thing in Brill, and Rickard would call you a fool for it. I'll take a friend who tells me the truth, though I'd not say no to a few insults besides.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The other kind. Honesty's overrated, if you ask me.", next = "BACK", reply = "Then you and Rickard will get on splendidly, and I'll be the one stuck listening to the pair of you. Mind the old goat doesn't steal your boots.", fx = { align = { honor = -1 } } },
+        { text = "Honest ones. I say what I mean.", next = "BACK", reply = "A rare thing in Brill, and Adelbert would call you a fool for it. I'll take a friend who tells me the truth, though I'd not say no to a few insults besides.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The other kind. Honesty's overrated, if you ask me.", next = "BACK", reply = "Then you and Adelbert will get on splendidly, and I'll be the one stuck listening to the pair of you. Mind the old goat doesn't steal your boots.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1029,6 +1308,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I stood a watch before I died and I stand one now. The view hasn't improved." } },
     advice = { { id = "tp_ad", text = "Watch what the crows do. They see more than any guard." } },
+    scourge = { { id = "tp_scourge", text = "The mindless ones just come on, in a straight line, and they're no trouble to a wall. It's when they stop and wait that I send for the High Executor." } },
+    argent_dawn = { { id = "tp_dawn", text = "Decent people, and they watch well. Adelbert grumbles about sharing the wall, but he saves them a place by the fire." } },
+    forsaken = { { id = "tp_forsaken", text = "We're what's left of Lordaeron, minus a few parts. I gave an eye, and I count myself let off lightly." } },
     _none = { { id = "tp_none", text = "Never saw it, and I'd have noticed. Probably." } },
   },
 }

@@ -28,6 +28,10 @@ P:NPC {
       text = "A paladin. The Lady's guard could use a few more of your kind, if you ever tire of wandering." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
       text = "You carry yourself like a soldier. Whose army trained you, and why aren't you still in it?" },
+    { id = "n_b1", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf. Your riflemen held a pass beside my company in the last war, and I've not forgotten how they held it." },
+    { id = "n_b2", cat = "race", when = { race = "NightElf" },
+      text = "One of the kaldorei. Your people fought beside the Lady at Hyjal, and that buys you a hearing in my garrison." },
   },
 
   start = "hello",
@@ -46,6 +50,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Anything else? Be brief." },
         { id = "h_again2", text = "Go on. I'm listening, for the moment." },
+        { id = "h_again_b1", text = "What else? I have a watch to inspect." },
       },
       choices = {
         { text = "What sort of man is Private Hendel?", next = "hendel" },
@@ -53,6 +58,9 @@ P:NPC {
         { text = "How do you deal with deserters?", next = "deserters" },
         { text = "What do you think of the Lady's peace with the Horde?", next = "peace" },
         { text = "I'm looking into Hendel.", next = "BUSINESS" },
+        { text = "Your towers are spread very thin along that road.", next = "towers" },
+        { text = "What do you look for in a soldier?", next = "recruit", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "You fought for Lordaeron before all this.", next = "lordaeron", when = { race = "Human" } },
         { text = "I'll not keep you, Commander.", next = "END" },
       },
     },
@@ -114,11 +122,66 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    towers = {
+      lines = {
+        { id = "b_towers_default", text = "They are, and I'll not pretend otherwise to someone with eyes. North Point and Sentry Point each hold a handful of men, and the marsh between them belongs to whatever crawls through it." },
+      },
+      choices = {
+        { text = "Why not pull them back to the isle?", next = "towers_pull" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    towers_pull = {
+      lines = {
+        { id = "b_towers_pull_default", text = "Because then the first I'd know of an attack would be the sound of it at the gate. Those towers buy me an hour of warning, and I have spent soldiers' lives on worse bargains." },
+      },
+      choices = {
+        { text = "An hour can save a city.", next = "towers_hour" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    towers_hour = {
+      lines = {
+        { id = "b_towers_hour_default", text = "It saved this one once already, in the first year, when the murlocs came up the shore in numbers. Captain Vimes had the gate shut and the archers standing ready before the first of them reached the bridge." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    recruit = {
+      lines = {
+        { id = "b_recruit_default", text = "Someone who's on time, who cleans his own kit, and who tells me the truth when the truth is bad. Courage I can do without for a week, but I can't do without those three for a day." },
+      },
+      choices = {
+        { text = "That rules out half the heroes I've met.", next = "BACK", reply = "It rules out most of them. I'd take one dull, reliable private over three heroes, and so would any commander who's had to write the letters afterwards." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lordaeron = {
+      lines = {
+        { id = "b_lordaeron_default", text = "I did, right up until there was nothing left of it to fight for. I followed the Lady across the sea because she was the only one giving orders that still made sense." },
+      },
+      choices = {
+        { text = "Do you regret leaving?", next = "lordaeron_regret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lordaeron_regret = {
+      lines = {
+        { id = "b_lordaeron_regret_default", text = "Not once. Everyone I left behind who stayed is dead or worse, and everyone who sailed with her is alive to grumble about the damp. That's all the proof a soldier needs." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "The garrison, the towers, the roster, and who's late for his watch." } },
     background = { { id = "tp_bg", text = "A soldier of Lordaeron who followed the Lady west, and now I run her guard." } },
+    theramore = { { id = "tp_b_theramore", text = "This city exists because a few thousand people did as they were told on the worst day of their lives. I mean to see that it was worth it." } },
+    jaina = { { id = "tp_b_jaina", text = "I've served under generals and kings, and she is the only commander I've known who has never once wasted a man. I'd follow her into the sea." } },
+    lordaeron = { { id = "tp_b_lordaeron", text = "I don't speak of it much. It was home, and now it's a graveyard with a banshee's flag over it." } },
     _none = { { id = "tp_none", text = "That's not a matter for the Guard. Ask the archmage, or the captain." } },
   },
 }
@@ -131,7 +194,7 @@ P:NPC {
   title = "Engineering Trainer",
   bible = "bibles/theramore_citadel.md", role = "trainer", tier = "quest",
   communities = { "theramore" }, temper = { "chatty", "restless" }, values = { "craft", "curiosity" },
-  notices = { "race", "craft" },
+  notices = { "race", "craft" , "class" },
 
   impression = {
     first = "When he's bored he talks, and he draws on whatever's nearest.",
@@ -148,6 +211,8 @@ P:NPC {
       text = "An engineer! Oh, splendid; finally someone who'll understand when I say my gear ratios are sulking." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
       text = "Another gnome, out here in the swamp! Were you in Gnomeregan when it happened? No, don't answer, not yet, I'll get maudlin." },
+    { id = "n_b1", cat = "class", when = { class = "MAGE" },
+      text = "A mage! Archmage Tervosh says engines are what people build when they can't cast, and I say spells are what people cast when they can't build." },
   },
 
   start = "hello",
@@ -166,6 +231,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I've time; I've far too much time." },
         { id = "h_again2", text = "Ask away! Questions are the second-best cure for boredom." },
+        { id = "h_again_b1", text = "Still here? Wonderful! Nobody stays this long unless something of theirs is broken." },
       },
       choices = {
         { text = "Teach me engineering.", next = "BUSINESS" },
@@ -173,6 +239,9 @@ P:NPC {
         { text = "What engines are you building?", next = "engines" },
         { text = "What did you see in that shield?", next = "shield" },
         { text = "How did you end up in Theramore?", next = "how" },
+        { text = "That harbor crane leans badly to one side.", next = "crane" },
+        { text = "Show me those schematics you mentioned.", next = "schematics", when = { profession = "Engineering" } },
+        { text = "Do you miss Khaz Modan out here?", next = "khaz", when = { race = { "Gnome", "Dwarf" } } },
         { text = "Good luck with the boredom, Caz.", next = "END" },
       },
     },
@@ -227,12 +296,67 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    crane = {
+      lines = {
+        { id = "b_crane_default", text = "It leans because the marsh is eating the pilings, and no amount of gearing will fix a foundation made of mud. I've written three reports on it, and I believe the dockmaster uses them to light his pipe." },
+      },
+      choices = {
+        { text = "What would it take to fix it properly?", next = "crane_fix" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crane_fix = {
+      lines = {
+        { id = "b_crane_fix_default", text = "Stone footings sunk right down to the bedrock, a month of dry weather, and a dock crew who'll stop using it while I work. I can't get any one of those in Dustwallow, never mind all three." },
+      },
+      choices = {
+        { text = "So you patch it and hope.", next = "crane_patch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    crane_patch = {
+      lines = {
+        { id = "b_crane_patch_default", text = "I patch it and I measure the lean every morning, which is quite a different thing from hoping. When it reaches nine degrees, I'll stop writing reports and start shouting." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    schematics = {
+      lines = {
+        { id = "b_schematics_default", text = "Here, look at this one: a counterweighted arm that throws twice the load at half the strain on the frame. The garrison wanted something simple, so I gave them something simple, and I kept the good one in this drawer." },
+      },
+      choices = {
+        { text = "Build the good one anyway.", next = "schematics_build" },
+        { text = "It looks likely to shake itself apart.", next = "schematics_build" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    schematics_build = {
+      lines = {
+        { id = "b_schematics_build_default", text = "That's the trouble with an honest colleague; you say what my own sums say. The pivot wants a better alloy than Theramore can pour, so in the drawer it stays, until somebody ships me thorium." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    khaz = {
+      lines = {
+        { id = "b_khaz_default", text = "The cold, mostly, and tunnels that don't sweat. In Dun Morogh a bolt stays where you put it, and here I've watched rust arrive overnight like a caller who won't take a hint." },
+      },
+      choices = {
+        { text = "The marsh is hard on good steel.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Gears, springs, rivets, and roughly everything else that clicks." } },
     background = { { id = "tp_bg", text = "Gnomish engineer, accidental smith, and the man the harbor crane forgot.", next = "how" } },
     gnomeregan = { { id = "tp_gnomer", text = "I'd rather not talk about it, if that's all the same, because I had friends there." } },
+    theramore = { { id = "tp_b_theramore", text = "It's a brave little city built on the worst ground in Kalimdor. As an engineer I disapprove, and as a resident I'm rather proud of it." } },
+    jaina = { { id = "tp_b_jaina", text = "The Lady reads every work order herself, you know. She once sent one back with a correction to my arithmetic, and she was right, which stung for a week." } },
     _none = { { id = "tp_none", text = "No idea! But if it has moving parts, bring it here and I'll find out." } },
   },
 }
