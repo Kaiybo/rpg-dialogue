@@ -481,8 +481,65 @@ P:NPC {
         { text = "I need to stable a beast.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Whose bear cub is that?", next = "cub" },
         { text = "What's the hardest beast you've kept?", next = "hardest" },
+        { text = "That ram's been eyeing my pockets since I walked in.", next = "ram" },
+        { text = "How do you keep beasts alive through a Dun Morogh winter?", next = "winter" },
+        { text = "Did my cat give you trouble too?", next = "elf", when = { race = "NightElf" } },
+        { text = "Would you stable a mechanostrider?", next = "strider", when = { race = "Gnome" } },
+        { text = "Which beast should a new hunter tame here?", next = "tame", when = { class = "HUNTER" } },
         { text = "I'll be going.", next = "END" },
       },
+    },
+
+    ram = {
+      lines = { { id = "ra_default", text = "Aye, he would, he can smell an apple through two layers o' leather. He's one o' Veron Amberstill's rams from the ranch down the road, here to be shod, an' he's decided my stable's a better class o' lodging than his own." } },
+      choices = {
+        { text = "Tell me about the Amberstill ranch.", next = "ra_ranch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ra_ranch = {
+      lines = { { id = "rar_default", text = "Veron raises the finest rams in Dun Morogh, the kind the Mountaineers ride an' the kind every young dwarf dreams o' owning. They're nae cheap, mind, an' he'll nae sell one to just anybody, but once ye've ridden a ram ye'll never want a horse." } },
+      choices = {
+        { text = "Why won't he sell to just anybody?", next = "ra_sell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ra_sell = {
+      lines = { { id = "ras_default", text = "Because a ram's a dwarf's beast, an' Veron thinks it takes a dwarf, or a friend o' the dwarves, to understand one. Some call that stubborn an' some call it proper, an' Veron calls it his business." } },
+      choices = {
+        { text = "Good beasts should go to whoever can pay.", next = "BACK", fx = { align = { order = -1 } },
+          reply = "Ye'd get on wi' the goblins, then. Veron wouldnae." },
+        { text = "He's right. A beast should go to those who honor it.", next = "BACK", fx = { align = { order = 1 } },
+          reply = "Spoken like a proper mountain folk. I'll tell Veron ye said so." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    winter = {
+      lines = { { id = "wi_default", text = "Straw a foot deep, a brazier that never goes out, an' a warm mash o' oats an' boar fat every night. The cold's nae the worst of it, though; it's the ice between the toes an' the wolves that come down from the ridge when the snow's deep." } },
+      choices = {
+        { text = "Wolves come down this far?", next = "wi_wolves" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wi_wolves = {
+      lines = { { id = "wiw_default", text = "In a hard winter, aye, an' the Frostmane trolls behind them sometimes, sniffin' about for anything they can carry off. I keep a hammer by the door an' the cub's mother's growl in my memory, an' between the two o' them I've nae lost a beast yet." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "frostmane" } } } },
+    },
+
+    elf = {
+      lines = { { id = "el_default", text = "Not yet, but give it time! Your folk's cats are lovely beasts that hate snow wi' the whole o' their hearts. Leave yours by the brazier an' keep yer blankets well away from it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
+
+    strider = {
+      lines = { { id = "st_default", text = "I'd stable it, but I wouldnae know what to feed it! Ozzie Togglevolt says they drink oil an' complain in clicks, an' I've enough complainin' wi' the ram. Take it to a gnome, love, I'll keep to the beasts that breathe." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    tame = {
+      lines = { { id = "ta_default", text = "A bear, if ye've the patience, for they're steady an' they don't mind the cold. A boar's a good fighter but thick as a door, an' a snow leopard's lovely if ye can find one that'll let ye near. Whatever ye pick, bring it here first an' let me have a look at its paws." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
 
     cub = {
@@ -506,5 +563,8 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "I couldn't tell ye. Ask Belm at the inn, he hears everythin'." } },
+    knows = { { id = "tp_knows", text = "Beasts, straw, an' how to keep paws warm in the snow." } },
+    advice = { { id = "tp_ad", text = "Check yer beast's paws every night. Ice cuts worse than any wolf." } },
+    frostmane = { { id = "tp_frostmane", text = "Thievin' trolls. They follow the wolves down in a hard winter, an' I keep a hammer by the door." } },
   },
 }

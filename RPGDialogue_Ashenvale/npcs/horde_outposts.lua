@@ -319,6 +319,9 @@ P:NPC {
         { text = "Why do you hate this hydra so much?", next = "why" },
         { text = "How do you call up a hydra?", next = "brazier" },
         { text = "Wouldn't it be smarter to leave her be?", next = "leave" },
+        { text = "What is Zoram'gar doing on this beach?", next = "outpost" },
+        { text = "What will you do now she's dead?", next = "after", when = { questDone = TODO_QUEST("Vorsha the Lasher") } },
+        { text = "A shaman could ask the waters where she sleeps.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "I'll help you kill her.", next = "END" },
       },
     },
@@ -327,13 +330,26 @@ P:NPC {
       choices = {
         { text = "A blood oath must be kept. I'll stand with you.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Oaths made in grief are foolish. Still, I'll help.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Tell me about your shield-brother.", next = "brother" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    brother = {
+      lines = { { id = "bo_default", text = "Gorlash. We were in the same pen in the camps, and we broke out the same night, and we crossed the sea on the same ship with Thrall. He couldn't swim, and he laughed about it, and he said the sea would never get the chance to drown an orc as stubborn as him." } },
+      choices = {
+        { text = "The sea took him anyway.", next = "brother_sea" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brother_sea = {
+      lines = { { id = "bs_default", text = "No. Vorsha took him, and that's different, because you can't kill the sea, but you can kill a hydra. When she's dead, I'll go out on the water in a boat and tell him so, and then maybe I'll learn to swim, just to spite him." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     brazier = {
       lines = { { id = "br_default", text = "The naga worship her, or feed her, I'm not sure which, and they light a brazier on the sand when they want her to come. So we light it for them, and kill whatever naga object, and then she rises." } },
       choices = {
         { text = "That's a plan with a lot of fighting in it.", next = "brazier_fight" },
+        { text = "Where do these naga come from?", next = "naga" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -341,12 +357,35 @@ P:NPC {
       lines = { { id = "bf_default", text = "That's what makes it a good plan! Bring a friend if you have one, because the naga don't come one at a time and neither do Vorsha's heads." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    naga = {
+      lines = { { id = "na_default", text = "Out of the sea and up out of Blackfathom, where the old elf temple sank. The Darkspear here say they serve something down in the deep that's worse than any hydra, and I say one monster at a time." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "blackfathom" } } } },
+    },
     leave = {
       lines = { { id = "le_default", text = "Smarter, maybe. But I didn't cross an ocean and fight demons and humans and elves to be smart, I came here to be free, and a free orc chooses his own enemies." } },
       choices = {
         { text = "Then choose her, and I'll follow.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    outpost = {
+      lines = { { id = "ou_default", text = "Watching Blackfathom, and the naga, and the elves to the north, and giving the Horde a foothold on the water so the Warsong aren't the only orcs in Ashenvale. Je'neu of the Earthen Ring came to study the deeps, and the Darkspear came to fish, and I came for Vorsha." } },
+      choices = {
+        { text = "The Earthen Ring are here?", next = "outpost_ring" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    outpost_ring = {
+      lines = { { id = "or_default", text = "Je'neu Sancrea, a shaman who talks to the water and listens to its answers. He says the sea here is sick with whatever sleeps in Blackfathom, and I believe him, because I've seen what swims up out of it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    after = {
+      lines = { { id = "af_default", text = "I took a boat out past the strand, the way I said I would, and I told Gorlash it was done. Then I sat there until the sun went down, and I came back to shore, and I still can't swim, so I suppose he wins that one." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "Je'neu tried it, and the waters told him she sleeps deep and wakes hungry, which I already knew. The spirits don't like hydras any better than I do, shaman, so if they'll help you aim, let them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 }
@@ -470,6 +509,8 @@ P:NPC {
           text = "Kaylisk, and this is my inn, for as long as the walls stand. Food, drink and a bed, and I'll keep your hearthstone tied here if you want somewhere to come back to." },
         { id = "h_orc", when = { race = "Orc" },
           text = "Sit down, sit down. You've the Warsong look about you, half asleep and still angry, so eat first and be angry after." },
+        { id = "h_tauren", when = { race = "Tauren" },
+          text = "Mind your horns on the beam, friend, everyone does. Kaylisk, and this is my inn, and there's grain in the back for those who'd rather not eat whatever the hunters brought in today." },
       },
       again = {
         { id = "h_again", text = "Anything else? The pot won't stir itself." },
@@ -479,6 +520,9 @@ P:NPC {
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "How do you keep an inn in a war?", next = "war" },
         { text = "What's in the stew?", next = "stew" },
+        { text = "Who comes through Splintertree?", next = "guests" },
+        { text = "Where were you before Splintertree?", next = "past" },
+        { text = "I'm a cook myself. Need a hand?", next = "cook", when = { profession = "Cooking" } },
         { text = "Thanks, Kaylisk.", next = "END" },
       },
     },
@@ -486,6 +530,7 @@ P:NPC {
       lines = { { id = "wa_default", text = "By keeping the shutters closed and the fire low, and by not asking where the meat came from. We've had arrows through the roof twice this season, and both times I patched it before supper." } },
       choices = {
         { text = "That's the spirit of the Horde.", next = "war_stance" },
+        { text = "Who shot the arrows?", next = "war_arrows" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -496,10 +541,58 @@ P:NPC {
         { text = "Feed the fighters, forget the rest. That's war.", next = "BACK", fx = { align = { honor = -1 } } },
       },
     },
+    war_arrows = {
+      lines = { { id = "wr_default", text = "Sentinels, from the ridge to the west, at night, when the lamps are lit. I don't think they were aiming at me; I think they were aiming at the roof, to tell us they could. I kept one of the arrows over the bar, to tell them we're still here." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } } },
+    },
     stew = {
       lines = { { id = "st_default", text = "Whatever the hunters bring in, and whatever grows near the post that the shamans say won't kill you. Today it's mostly deer, and maybe some of a furbolg's lunch, so don't look too closely." } },
-      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = {
+        { text = "What won't you put in the pot?", next = "stew_never" },
+        { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
     },
+    stew_never = {
+      lines = { { id = "sn_default", text = "Anything from the furbolg camps, because the beasts there are sick, and anything a troll brings in smiling. Kuray'bin swears his last offering was boar, and maybe it was, but I've never seen a boar with that many legs." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    guests = {
+      lines = { { id = "gu_default", text = "Lumber crews who've lost a saw, runners from Zoram'gar with sand in everything, the odd tauren from the Barrens looking sad at the stumps, and grunts on their way to the Warsong camps. They all eat the same stew, and they all complain the same way." } },
+      choices = {
+        { text = "The tauren don't like the logging?", next = "guests_tauren" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guests_tauren = {
+      big = true,
+      lines = { { id = "gt_default", text = "They don't, and they're polite about it, which is worse. One sat at that table for an hour last week and told me the forest was crying, and I told him the forest could cry all it liked, so long as my roof had beams. Maybe I was hard on him." } },
+      choices = {
+        { text = "He's right. We take too much from this forest.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Horde needs the wood. Tears won't build walls.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "warsong" } } },
+      },
+    },
+    past = {
+      lines = { { id = "pa_default", text = "In the camps, like most of us my age, stirring gruel for the humans' guards and planning how I'd poison them. Thrall got us out before I tried it, and I've cooked for orcs ever since, which is a much better use of a ladle." } },
+      choices = {
+        { text = "Would you really have poisoned them?", next = "past_poison" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "internment" } } },
+      },
+    },
+    past_poison = {
+      lines = { { id = "pp_default", text = "I thought about it every night, and I never did it, because they'd have hanged every orc in the kitchen for it. That's the thing you learn in a camp: anger keeps you warm, but patience keeps you alive, and the trick is having both." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "thrall" } } } },
+    },
+    cook = {
+      lines = { { id = "co_default", text = "Not with my pot, you won't, nobody touches my pot. But tell me what the hunters are bringing in further out, because I'm tired of deer, and the grunts are tired of me being tired of deer." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "Who's eating, who's sleeping, and who's coming back from the lumber camps. Most of the time." } },
+    internment = { { id = "tp_intern", text = "I cooked for the humans' guards there. I cook for orcs now. That's all the history I need." } },
+    _none = { { id = "tp_none", text = "Don't know, and the stew doesn't either. Ask someone who's been out past the trees." } },
   },
 }
 
@@ -533,6 +626,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Vhulgra. I keep the wind riders at Splintertree, and they'll carry you anywhere the Horde has a roost. Mind the beak, though, because they bite strangers." },
+        { id = "h_alliance", when = { faction = "Alliance" },
+          text = "You're a long way past the treeline for one of the Alliance, and my riders don't carry your kind. Say what you came to say, and keep your hands where the birds can see them." },
       },
       again = {
         { id = "h_again", text = "Anything else before you fly?" },
@@ -542,6 +637,9 @@ P:NPC {
         { text = "Show me where I can fly.", next = "BUSINESS" },
         { text = "Is it safe to fly over Ashenvale?", next = "safe" },
         { text = "What are wind riders like to keep?", next = "riders" },
+        { text = "You fly the wounded out?", next = "wounded" },
+        { text = "Where did the Horde find wind riders?", next = "origin" },
+        { text = "I've ridden wolves all my life. Birds are different.", next = "wolves", when = { race = "Orc" } },
         { text = "Thanks.", next = "END" },
       },
     },
@@ -562,8 +660,47 @@ P:NPC {
     },
     riders = {
       lines = { { id = "ri_default", text = "Proud, hungry and loyal once they've decided you're worth the trouble. They eat more than a grunt and complain less, so I'll take them over most of the post." } },
+      choices = {
+        { text = "How do they decide you're worth it?", next = "riders_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    riders_trust = {
+      lines = { { id = "rt_default", text = "You feed them by hand for a month and let them bite you once without hitting back. After that, they'll fly through a storm for you, and you'd better do the same for them, because they remember who left them out in the rain." } },
+      choices = {
+        { text = "Did one ever bite you badly?", next = "riders_bite" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    riders_bite = {
+      lines = { { id = "rb_default", text = "The old grey one took two fingers' worth of my hand when I was new to them, and I've still got the scar. I didn't hit him, and he's carried me home from three fights since, so I'd call that a fair trade." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    wounded = {
+      lines = { { id = "wo_default", text = "When the lumber camps are hit, the ones who can't walk come here, and I strap them to a rider and send them to Orgrimmar or the Crossroads. Not all of them land breathing, but more do than would on a wagon through Sentinel country." } },
+      choices = {
+        { text = "That's a heavy job.", next = "wounded_heavy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wounded_heavy = {
+      lines = { { id = "wh_default", text = "It's the job that needs doing. Kaylisk feeds them, the shamans bind them, and I fly them, and between the three of us Splintertree loses fewer than it should. I don't count the ones we lose; Mastok does that, and he never sleeps." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    origin = {
+      lines = { { id = "or_default", text = "The wild ones nest on the high cliffs of Kalimdor, and the tauren knew them long before we came, and they taught us to ask them politely instead of throwing a net. It took the orcs a while to learn the asking part." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cairne" } } } },
+    },
+    wolves = {
+      lines = { { id = "wl_default", text = "They are. A wolf runs with you, but a wind rider carries you, and it can drop you any time it likes. The first time up, every orc grips too hard and shouts, and the bird remembers it for a week." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "The riders, the roosts, and what the sky over Ashenvale looks like on a bad day." } },
+    sentinels = { { id = "tp_sent", text = "Good archers, poor reach. My riders stay above their arrows and below the hippogryphs." } },
+    _none = { { id = "tp_none", text = "Don't know. The riders might, but they won't tell you." } },
   },
 }
 
@@ -597,6 +734,8 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "Qeeju, and dese be my stables. I keep your beasts fed and quiet while you go do whatever you hunters do in dese trees, and I don't ask too many questions." },
+        { id = "h_troll", when = { race = "Troll" },
+          text = "Ah, a Darkspear, far from da Echo Isles like me! Qeeju, and dese be my stables, and you be welcome to sit wit' da beasts any time you miss da sound of da sea, because dey breathe slow like da tide." },
       },
       again = {
         { id = "h_again", text = "What else, mon?" },
@@ -606,6 +745,9 @@ P:NPC {
         { text = "I'd like to use the stables.", next = "BUSINESS" },
         { text = "How do you keep them so calm?", next = "calm" },
         { text = "Any beasts here worth taming?", next = "tame" },
+        { text = "What do you sing to them?", next = "song" },
+        { text = "How did a Darkspear end up in Ashenvale?", next = "home" },
+        { text = "My pet's been off its food lately.", next = "pet_sick", when = { class = "HUNTER" } },
         { text = "Thanks.", next = "END" },
       },
     },
@@ -614,12 +756,61 @@ P:NPC {
       choices = {
         { text = "A gentle hand is best with any beast.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Some only learn from the whip.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The grunts kick the beasts?", next = "grunts" },
         { text = "Something else.", next = "BACK" },
       },
     },
+    grunts = {
+      lines = { { id = "gr_default", text = "Only once each, mon. Da first time, I explain it nice. Da second time, I let da raptor explain it, and da raptor not so nice as Qeeju, so word get around fast in a post dis small." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
     tame = {
       lines = { { id = "ta_default", text = "Da forest got fine wolves and bears, and da elves' nightsabers if you be brave or stupid. Dere be a big black cat dat walk da hills to da north, too, but nobody come back from looking for her with all deir parts." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Tell me more about this black cat.", next = "cat" },
+        { text = "Something else.", next = "BACK" },
+      },
     },
+    cat = {
+      lines = { { id = "ct_default", text = "Big as a kodo calf and quiet as a shadow, and she walk da same path every night like she own it. Some hunters say she be a spirit, some say she just a cat, and Qeeju say whatever she be, she don't want a saddle." } },
+      choices = {
+        { text = "I'll be the one to tame her.", next = "cat_brag" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cat_brag = {
+      lines = { { id = "cb_default", text = "Ha! Dat be what da last three said, mon. If you do it, you bring her here first, and Qeeju give her da best corner and a whole deer, and we see who be taming who." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+    },
+    song = {
+      lines = { { id = "sg_default", text = "Old songs from da islands, about da tide and da raptors and da loa who watch da hunt. Da beasts don't understand da words, but dey understand a slow voice, and a slow voice be hard to find in a war camp." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "echo_isles" } } } },
+    },
+    home = {
+      lines = { { id = "ho_default", text = "Same as all of us, mon. Thrall gave da Darkspear a home in Durotar when we had none, and when da Warsong came to cut dese trees, somebody had to mind da wolves. Qeeju be good wit' beasts and bad wit' axes, so here I be." } },
+      choices = {
+        { text = "Do you miss the islands?", next = "home_miss" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "darkspear" } } },
+      },
+    },
+    home_miss = {
+      big = true,
+      lines = { { id = "hm_default", text = "Every night. Zalazane still sit on da Echo Isles wit' his hexed slaves, and some say Vol'jin should take dem back now, and some say Durotar be home enough. Qeeju just want to hear da sea again before he old." } },
+      choices = {
+        { text = "Take the islands back. They're your people's home.", next = "BACK", fx = { align = { order = -1 }, learn = { "echo_isles" } } },
+        { text = "Durotar's home now. Stand with the Horde there.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pet_sick = {
+      lines = { { id = "ps_default", text = "Den you let it drink from da wrong stream, maybe, or it eat somet'ing from near da furbolg camps, where da water go bad. Give it clean meat and clean water for three days, and if it still sad, bring it to Qeeju and I sing to it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } } },
+    },
+  },
+
+  topics = {
+    knows = { { id = "tp_knows", text = "Beasts, mon, and da songs dat calm dem. Not much else worth knowin'." } },
+    echo_isles = { { id = "tp_echo", text = "Home, mon, and Zalazane sittin' on it like a vulture. One day we take it back." } },
+    _none = { { id = "tp_none", text = "Qeeju don't know dat one, mon. Ask a beast; dey know more dan you t'ink." } },
   },
 }

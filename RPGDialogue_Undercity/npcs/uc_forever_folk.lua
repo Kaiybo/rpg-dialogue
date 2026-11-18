@@ -354,12 +354,22 @@ P:NPC {
         { text = "Are you related to Victor Ward?", next = "victor" },
         { text = "What about Carolyn Ward, in the Rogues' Quarter?", next = "carolyn" },
         { text = "Show me your patterns.", next = "BUSINESS" },
+        { text = "Who did you sew for in the capital?", next = "capital" },
+        { text = "Any advice for a fellow tailor?", next = "tailor", when = { profession = "Tailoring" } },
+        { text = "I keep my reagents loose in my robes.", next = "caster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
         { text = "Good day.", next = "END" },
       },
     },
 
     bags = {
       lines = { { id = "ba_default", text = "Because the mages in this quarter carry their reagents loose in their robes like children with sweets, and then wonder why they can't find a pinch of anything in a fight. A proper bag with proper pockets saves lives, and I'll not hear otherwise." } },
+      choices = {
+        { text = "How many pockets does a mage need?", next = "bags_pockets" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bags_pockets = {
+      lines = { { id = "bp_default", text = "One more than they think, and every one lined, because powders find any gap and then you've a robe that sneezes. The warlocks want an extra pocket for their shards, and I've stopped asking why it has to be so deep." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     victor = {
@@ -377,9 +387,47 @@ P:NPC {
       lines = { { id = "ca_default", text = "Ward was a common enough name in Lordaeron, and I've never asked her and she's never asked me. If she's family, she's the sort that keeps a knife in her sleeve, and I'd rather not find out at supper." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    capital = {
+      lines = { { id = "cp_default", text = "For the palace, in the end, though only for the servants, since the royal tailors wouldn't have let us near the king's own coats. Victor and I sewed liveries for the footmen and the pages, blue and gold, three hundred of them a year." } },
+      choices = {
+        { text = "What was the last thing you sewed there?", next = "capital_last" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    capital_last = {
+      lines = { { id = "cl_default", fx = { learn = { "arthas" } }, text = "New liveries for the prince's homecoming, because the whole court was to line the road and cheer him in from Northrend. We finished the last of them the night before, and the pages wore them at the gate when he came through." } },
+      choices = {
+        { text = "That must be a hard thing to remember.", next = "capital_pride" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    capital_pride = {
+      big = true,
+      lines = { { id = "cr_default", text = "It was the finest work we ever did, and the pages looked splendid, and I've never known what to do with that. Victor says to be proud of the stitches and forget the occasion, and some nights I manage it." } },
+      choices = {
+        { text = "Good work is good work. Be proud of it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Burn the memory. That day deserves nothing.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tailor = {
+      lines = { { id = "ta_default", text = "Wash your linen before you cut it, because it shrinks, and nobody believes me until their first shirt fits a gnome. And buy your thread from someone who isn't my brother, because he'll talk your ear off while he's measuring it." } },
+      choices = {
+        { text = "Thank you, Angela. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    caster = {
+      lines = { { id = "cs_default", text = "Of course you do, and I'd wager there's a pinch of something in your boot as well. Buy a pattern, sew a bag, and let your robes be robes again, for pity's sake." } },
+      choices = {
+        { text = "Fine. Show me the pattern.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    arthas = { { id = "tp_arthas", next = "capital_last", text = "I sewed the pages' liveries for his homecoming. I'd rather not say more than that." } },
     background = { { id = "tp_bg", text = "A seamstress in the capital, my brother beside me, and now a pattern-seller under it. The work hasn't changed much." } },
     advice = { { id = "tp_ad", text = "Measure twice and cut once, and never let a mage borrow your scissors." } },
     _none = { { id = "tp_none", text = "Not my thread to pull, I'm afraid. Try someone in the quarter who reads books instead of hems." } },

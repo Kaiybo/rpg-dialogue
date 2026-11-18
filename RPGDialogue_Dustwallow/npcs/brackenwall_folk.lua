@@ -123,8 +123,64 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "How do the riders fly in this fog?", next = "fog" },
         { text = "Do you ever fly near Theramore?", next = "theramore" },
+        { text = "What do you think of the marsh?", next = "marsh" },
+        { text = "That scar on your chin looks like a bite.", next = "scar" },
+        { text = "Lok'tar, Shardi. Who taught you to handle riders?", next = "orc", when = { race = "Orc" } },
+        { text = "How do your riders take to beasts like mine?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Do the riders mind carrying a tauren?", next = "tauren", when = { race = "Tauren" } },
         { text = "Farewell, Shardi.", next = "END" },
       },
+    },
+    marsh = {
+      lines = { { id = "ma_default", text = "It's wet, it stinks, it bites, and it grows things that bite back, and that's the nice half. The other half belongs to the black dragons in the Wyrmbog, and my riders won't fly south of the Stonemaul ruins for any amount of gold." } },
+      choices = {
+        { text = "What happened at the Stonemaul ruins?", next = "ma_ruins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ma_ruins = {
+      lines = { { id = "mar_default", text = "Dragons. The ogres had a proper village there until the blacks came down and burned it, and the Stonemaul that lived came north and threw in with us. Ask Logok sometime, though he tells it like it was weather." } },
+      choices = {
+        { text = "Who leads the black dragons down there?", next = "ma_dragons" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "stonemaul" } } },
+      },
+    },
+    ma_dragons = {
+      lines = { { id = "mad_default", text = "The grunts say a great black broodmother sits in a lair beyond the Wyrmbog, and Mok'Morokk won't say her name aloud. I've seen her whelps from the air, and that's as close as any rider of mine will ever get." } },
+      choices = {
+        { text = "Someone should go in and kill her.", next = "BACK", fx = { trait = { brave = 1 } },
+          reply = "Someone should. Write to me after, if you still have hands." },
+        { text = "Something else.", next = "BACK", fx = { learn = { "black_dragonflight" } } },
+      },
+    },
+    scar = {
+      lines = { { id = "sc_default", text = "It is a bite, and you've a good eye. A young rider took me for supper the first week I had the roost, and I let him know who was supper and who wasn't, and we've been friends ever since." } },
+      choices = {
+        { text = "You kept the rider that bit you?", next = "sc_rider" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sc_rider = {
+      lines = { { id = "scr_default", text = "Kept him, and he's the best flier in the roost now. A rider that bites once has spirit, and a rider that bites twice goes back to the Barrens, so he learned quickly, and so did I." } },
+      choices = {
+        { text = "Spirit is worth a scar. Strength earns loyalty.", next = "BACK", fx = { align = { honor = 1 } },
+          reply = "That's the orc way, and the wind rider way too. Good." },
+        { text = "I'd have put him down. A beast that bites can't be trusted.", next = "BACK", fx = { align = { honor = -1 } },
+          reply = "Then you'd have a dead rider and no friend, and I'd have a lot less to tell you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orc = {
+      lines = { { id = "or_default", text = "Lok'tar, {class}. An old Warsong rider at Crossroads taught me, back when the Horde first came to Kalimdor and nobody knew if the riders would take orcs on their backs. They did, after a few bites, and here I am." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    hunter = {
+      lines = { { id = "hu_default", text = "They tolerate a pet if it rides still and doesn't eat anything on the way. Keep {pet} calm over the marsh, hunter, because a rider who smells a crocolisk below will want to go down and have a look." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "They grumble, and I don't blame them, but they carry you all the same. Your folk lend us the riders in the first place, so I'd never turn a tauren away from my roost." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     fog = {
       lines = { { id = "fo_default", text = "By smell, mostly. The riders know the reek of Brackenwall from a mile up, and they know the Barrens smell of dust and sun, so they fly from one stink to the other." } },
@@ -154,6 +210,9 @@ P:NPC {
   topics = {
     knows = { { id = "tp_knows", text = "Winds, fog, and how far a rider can fly before it gets cranky." } },
     advice = { { id = "tp_ad", text = "Hold on tight over the marsh. If you fall, the crocolisks will be glad of you." } },
+    stonemaul = { { id = "tp_stonemaul", text = "Big, slow and loyal, once the dragons burned them out and they came north to us." } },
+    black_dragonflight = { { id = "tp_black", text = "They own the Wyrmbog. My riders won't go south of the Stonemaul ruins." } },
+    theramore = { { id = "tp_theramore", text = "We give it a wide berth. The gryphon riders' crossbows didn't hear about the peace." } },
     _none = { { id = "tp_none", text = "I haven't a clue, because I spend my days up in the clouds." } },
   },
 }

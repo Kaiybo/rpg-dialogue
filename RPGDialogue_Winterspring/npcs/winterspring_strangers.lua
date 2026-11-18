@@ -152,18 +152,53 @@ P:NPC {
           text = "I'm Natheril Raincaller, and I keep Starfall supplied with food, water, thread and the little things a traveller forgets. It's a small village and a long way from Darnassus, so most of what I sell comes north through Felwood, if the furbolgs let it." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "You're Horde, and this is a Darnassian village, though Everlook's goblins keep a sort of peace in these hills. I'll answer your questions, but I'd keep moving, for your own sake." },
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "Ishnu-alah, and welcome home, or as near to home as this snow allows. I'm Natheril Raincaller, and I keep Starfall in bread and thread, and I'd be glad of news from Darnassus if you've any to spare." },
       },
-      again = { { id = "h_again", text = "Anything else? The kettle's nearly boiled." } },
+      again = {
+        { id = "h_again", text = "Anything else? The kettle's nearly boiled." },
+        { id = "h_again2", text = "Go on, sit a while longer. The fire's the only thing in Winterspring that's free." },
+      },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "What's life like in Starfall?", next = "village" },
         { text = "How do your supplies get here?", next = "road" },
+        { text = "Why 'Raincaller'? There's no rain here.", next = "name" },
+        { text = "What should a traveller carry in Winterspring?", next = "advice" },
+        { text = "Darnassus is well. The Tree still stands tall.", next = "darnassus", when = { race = "NightElf" } },
         { text = "Goodbye.", next = "END" },
       },
     },
     village = {
       lines = { { id = "vi_default", text = "Quiet and cold, and very beautiful when the stars come out over the snow. Wynd keeps watch over the ruins, and the dwarves from the Explorers' League dig where they shouldn't, and I keep everyone fed." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "The dwarves dig where they shouldn't?", next = "village_dwarves" },
+        { text = "What does Wynd watch for?", next = "village_wynd" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village_dwarves = {
+      lines = {
+        { id = "vd_default", text = "Jaron Stoneshaper and his diggers, who came looking for relics and found the wildkin instead. They mean no harm, I think, but they dig up graves as cheerfully as other people dig up turnips, and the wildkin take it badly, and so, privately, do I." },
+        { id = "vd_dwarf", when = { race = "Dwarf" }, text = "Your countryman Jaron Stoneshaper and his diggers, who are very good company and very bad neighbours to the dead. I like him, I truly do, but the wildkin take his digging badly, and so, privately, do I." },
+      },
+      choices = {
+        { text = "Old graves should be left alone.", next = "dig_stance" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "explorers_league" } } },
+      },
+    },
+    dig_stance = {
+      big = true,
+      lines = { { id = "ds_default", text = "Wynd says the same, and Jaron says that what's buried and forgotten is lost twice over, and that a museum in Ironforge is kinder than a hole in the snow. I sell them both their bread and keep my opinion in the kettle." } },
+      choices = {
+        { text = "Let the dead keep their own. Leave them buried.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Jaron's right. Knowledge buried is knowledge lost.", next = "BACK", fx = { align = { order = -1 }, learn = { "explorers_league" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    village_wynd = {
+      lines = { { id = "vw_default", text = "For whatever the Highborne left behind in Kel'Theril and Mazthoril, and for anyone foolish enough to go looking for it. He doesn't say much to me about it, and I don't ask, because some things are better kept in one head than in two." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "highborne" } } } },
     },
     road = {
       big = true,
@@ -171,14 +206,47 @@ P:NPC {
       choices = {
         { text = "Trust the Timbermaw. Old friends are worth it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Buy wherever it's cheapest. Sentiment won't feed anyone.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Are the Timbermaw ever unfriendly?", next = "road_timbermaw" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    road_timbermaw = {
+      lines = { { id = "rt_default", text = "Not to us, not yet, but the Winterfall were Timbermaw cousins once, and look at them now, raving in their camps by the hot springs. Every season I worry that the sickness will climb into the hold too, and every season so far, it hasn't." } },
+      choices = {
+        { text = "What made the Winterfall sick?", next = "road_winterfall" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "timbermaw" } } },
+      },
+    },
+    road_winterfall = {
+      lines = { { id = "rw_default", text = "Something foul in what they drink, Donova Snowden says, down at the hot springs, and she'd know better than I would; she's been watching them for months. Whatever it is, it turned gentle folk into raiders in a single winter." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "furbolgs" } } } },
+    },
+    name = {
+      lines = { { id = "na_default", text = "It was my mother's name, and she earned it in Ashenvale, where she could tell you the rain was coming a full day before the clouds knew. I only inherited the name, I'm afraid, and here it never rains at all; it just snows, very patiently, forever." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    advice = {
+      lines = { { id = "ad_default", text = "A warm cloak, more water than you think, because snow won't quench you, and something to eat that doesn't freeze solid in your pack. And keep away from the frostsabers' rock in the far north unless you've business with the riders there; the cats don't care for strangers." } },
+      choices = {
+        { text = "Riders? On frostsabers?", next = "advice_riders" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    advice_riders = {
+      lines = { { id = "ar_default", text = "The Sentinels keep a few at Frostsaber Rock, wild ones tamed slowly over long years, and they only let those who've proven themselves to Darnassus near them. I've seen one up close once, and it looked at me the way I look at a loaf of bread." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } } },
+    },
+    darnassus = {
+      lines = { { id = "dn_default", text = "Then I'm glad, more than I can say. I came north before the new Tree was even planted, so I've only seen it in the Sentinels' stories, and I'd like to think there's a branch on it somewhere that will wait for me." } },
+      choices = { { text = "It does. Something else.", next = "BACK", fx = { affinity = 1, learn = { "teldrassil" } } } },
     },
   },
 
   topics = {
     knows = { { id = "tp_knows", text = "Supplies, the roads north, and how to keep warm." } },
     furbolgs = { { id = "tp_furb", text = "The Timbermaw carry our goods through their tunnels. The Winterfall would rather eat them." } },
+    timbermaw = { { id = "tp_tim", text = "Our road, our friends, and the reason Starfall has bread at all. I hope they stay well." } },
+    explorers_league = { { id = "tp_el", text = "Kind, loud, and much too fond of shovels. They pay for their bread on time, I'll grant them." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. Ask Wynd; he knows the old things." } },
   },
 }

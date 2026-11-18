@@ -310,6 +310,10 @@ P:NPC {
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Where do your supplies come from?", next = "supply" },
         { text = "How does the camp eat, out here?", next = "eat" },
+        { text = "Why did you leave Kurzen's command?", next = "why" },
+        { text = "Nobody's been paid? How does the camp hold together?", next = "pay" },
+        { text = "Your powder's damp. Let me show ye how to keep it.", next = "powder", when = { race = "Dwarf" } },
+        { text = "Does Brother Nimetz have help with the wounded?", next = "nimetz", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Nothing for now.", next = "END" },
       },
     },
@@ -324,6 +328,57 @@ P:NPC {
       },
     },
 
+    why = {
+      lines = { { id = "wh_default", text = "The Colonel brought us down here to fight the trolls, and for a while that's what we did. Then he changed, and men went into his compound and didn't come out the same, and one night the Lieutenant said he was leaving and asked who'd come." } },
+      choices = {
+        { text = "Changed how?", next = "wh_changed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wh_changed = {
+      lines = { { id = "whc_default", text = "Quieter, and colder, and he stopped looking at a man when he gave an order. There was talk of things in the dark of his compound that weren't soldiers, and I was the one counting the rations, so I noticed when the men started eating less and staring more." } },
+      choices = {
+        { text = "Do you think he can be saved?", next = "wh_saved" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "kurzen" } } },
+      },
+    },
+    wh_saved = {
+      lines = { { id = "whs_default", text = "The Lieutenant still hopes so, some nights, and I don't argue with him. Me, I think whatever's in that compound wants us all, and the kindest thing we could do for the Colonel is end it." } },
+      choices = {
+        { text = "He was your commander. Bring him home for trial.", next = "BACK", fx = { align = { order = 1 } },
+          reply = "If we can, aye. Stormwind would want its answers. I just doubt they'd like them." },
+        { text = "Kill him and be done. Orders died with his mind.", next = "BACK", fx = { align = { order = -1 } },
+          reply = "That's what half the camp says when the Lieutenant isn't listening. Light help me, I'm one of them." },
+        { text = "Something else.", next = "BACK", fx = { learn = { "kurzen" } } },
+      },
+    },
+
+    pay = {
+      lines = { { id = "pa_default", text = "Stubbornness, mostly, and the Lieutenant. Doren doesn't promise us anything he can't give, which in this jungle makes him the most trustworthy man south of Westfall, so we stay." } },
+      choices = {
+        { text = "Has anyone tried writing to Stormwind?", next = "pa_write" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pa_write = {
+      lines = { { id = "paw_default", text = "Corporal Sethman writes a report every week and sends it with the Booty Bay boats, and every week nothing comes back. Either the letters sink, or someone in Stormwind reads 'deserters' at the top and stops there." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    powder = {
+      lines = { { id = "po_default", text = "Would you? Light bless you, master dwarf, half my shot misfires and the hunters blame me for it. Show me, and I'll pass it on to the men, and maybe the trolls will stop laughing at us." } },
+      choices = {
+        { text = "Wax-sealed horn, kept close to the body. Simple.", next = "BACK", fx = { affinity = 1 },
+          reply = "Close to the body. Of course. I've been keeping it in the crates, under the tarp, like a fool." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    nimetz = {
+      lines = { { id = "ni_default", text = "None, {class}, and he could use it. He prays over every man who comes back cut, and he does it well, but there's one of him and a jungle full of spears. If you've a spare hour, he'd take it without a word of thanks, and mean the thanks all the same." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
     eat = {
       lines = { { id = "ea_default", text = "Badly. Boar when the hunters are lucky, fish when the river is kind, and Stormwind biscuit when neither is. Brother Nimetz blesses it all before supper, and I've noticed it doesn't help the biscuit." } },
       choices = {
@@ -335,5 +390,8 @@ P:NPC {
 
   topics = {
     _none = { { id = "tp_none", text = "Couldn't say. Ask Sethman, he writes everything down." } },
+    kurzen = { { id = "tp_kurzen", text = "He changed, and men went into his compound and came out wrong. That's why we left." } },
+    doren = { { id = "tp_doren", text = "He never promises what he can't give. That's why we stay." } },
+    advice = { { id = "tp_ad", text = "Keep your powder dry and your boots on. The river leeches don't sleep." } },
   },
 }

@@ -51,6 +51,11 @@ P:NPC {
         { text = "What does a morale officer do?", next = "job" },
         { text = "Your soldiers look worn thin, Sergeant.", next = "lads" },
         { text = "What's for sale?", next = "BUSINESS" },
+        { text = "What's Deputy Rainer like to serve under?", next = "rainer" },
+        { text = "What's in the cask today?", next = "cask" },
+        { text = "Human ale? Ye'd best have something stronger.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Do the soldiers ever come to you for prayers?", next = "prayers", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "I've seen recruits look younger than I'd like.", next = "young", when = { race = "Human" } },
         { text = "Take care, Sergeant.", next = "END" },
       },
     },
@@ -77,14 +82,72 @@ P:NPC {
       },
       choices = {
         { text = "Then I'll lend a hand outside.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Gnolls and Defias both? Which is worse?", next = "lads_enemy" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    lads_enemy = {
+      lines = { { id = "le_default", text = "The gnolls are worse for the farms, friend, because they come in packs and take whatever's loose. The Defias are worse for the lads, because half of them used to be honest stonemasons, and it's a hard thing to fight a man you might have bought a drink for." } },
+      choices = {
+        { text = "Did you know any of them?", next = "lads_mason" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "defias" } } },
+      },
+    },
+    lads_mason = {
+      lines = { { id = "lm_default", text = "One or two came through Goldshire when they were still building the city walls, cheerful sorts with stone dust in their beards. Then the Crown didn't pay them, and now they wear red masks in Westfall, and I don't like to think too hard about which of them I've seen on a wanted poster." } },
+      choices = {
+        { text = "They were cheated. I can understand them.", next = "BACK", fx = { align = { order = -1 } },
+          reply = "So can I, friend, on the quiet nights. Doesn't make them any less dangerous on the road." },
+        { text = "Cheated or not, they're outlaws now. They hang.", next = "BACK", fx = { align = { order = 1 } },
+          reply = "That's the law, and I'm a sergeant of it. I just hope I'm not the one who has to watch." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rainer = {
+      lines = { { id = "ra_default", text = "Rainer's a good man who's been given too much ground and too few men, so he writes reports instead of sleeping. He'll never say thank you, but he signs my requests for extra rations without reading them, which is the same thing in a deputy." } },
+      choices = {
+        { text = "Does Stormwind ever answer his reports?", next = "ra_reports" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ra_reports = {
+      lines = { { id = "rr_default", text = "Stormwind answers with more forms, friend, and the odd recruit who's never held a sword. The lads joke that the reports go straight into Lady Prestor's fireplace, though I'd never say that where the Marshal could hear." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "stormwind_guard" } } } },
+    },
+    cask = {
+      lines = { { id = "ca_default", text = "Elwynn cider, mostly, pressed from orchards just down the road, and a little Thunder Ale that comes from Ironforge by way of the Goldshire inn. The cider's for the lads, and the Thunder Ale's for the days the lads have earned it." } },
+      choices = {
+        { text = "And the apples? Something about an apple business?", next = "apple" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    apple = {
+      lines = { { id = "ap_default", text = "Ha, you've heard about that. It's a small thing, friend, a treat for the lads that I need a willing pair of legs for, and small things are half of what keeps a garrison going. Ask me properly and I'll tell you what I need." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    dwarf = {
+      lines = { { id = "dw_default", text = "I keep the Thunder Ale for exactly your sort, friend, because a dwarf who's handed cider looks at you like you've insulted his mother. Don't tell the lads, but you'll get the good cask." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    prayers = {
+      lines = { { id = "pr_default", text = "More than they'd admit, {class}. They come to me because I'm here and the chapel in Goldshire's a walk, and I do my best, but I'm a sergeant with a cask, not a priest. If you've a blessing to spare for the lads, they'd be glad of it." } },
+      choices = {
+        { text = "I'll say a word for them before I go.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } },
+          reply = "Thank you. I'll let them think it was my idea; it's good for my reputation." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    young = {
+      lines = { { id = "yo_default", text = "So have I, friend, and some of them have lied about their age to me with their mothers' letters still in their pockets. I pour them milk with a splash of cider and call it a soldier's drink, and I watch them twice as closely as the rest." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "A sergeant of the Stormwind Guard, posted to Westbrook. I'm better with a cask than a sword, and the captain knew it." } },
     advice = { { id = "tp_ad", text = "Eat something before you drink something. You'd be amazed how many soldiers never learn it." } },
+    defias = { { id = "tp_defias", text = "Some of them were honest masons once. That's the worst of it, friend." } },
+    rainer = { { id = "tp_rainer", text = "Too much ground, too few men, and a stack of reports. A good man, all the same." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask Deputy Rainer; he's the one with the reports." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire's at Goldshire I lose half the garrison to it on their days off, and they come back with sore heads and a story apiece. Good for morale, I tell the deputy, and he pretends to believe me." } },
     booty_bay = { { id = "tp_booty_bay", text = "I tasted rum from Booty Bay once that took the varnish off a table, and I've wanted a cask for the garrison ever since. Deputy Rainer says no, very firmly." } },

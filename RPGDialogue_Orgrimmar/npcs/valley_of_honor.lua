@@ -301,12 +301,23 @@ P:NPC {
         { text = "What's the hardest thing to teach?", next = "hardest" },
         { text = "Which stance should I favor, Sorek?", next = "stance", when = { class = "WARRIOR" } },
         { text = "Train me.", next = "BUSINESS", when = { class = "WARRIOR" } },
+        { text = "Tell me about the Frostwolf who taught you.", next = "frostwolf" },
+        { text = "What do you look for when you watch the recruits?", next = "watch" },
+        { text = "What makes a warrior of the Horde?", next = "cause" },
+        { text = "Tauren fight differently from orcs, I think.", next = "tauren", when = { race = "Tauren" } },
         { text = "Farewell, Sorek.", next = "END" },
       },
     },
     grezz = {
       lines = { { id = "gr_default", text = "He takes the loud ones and I take the quiet ones, though somehow they all end up loud by the end. He thinks I'm too gentle, and I think he's going to lose his voice one of these days." } },
-      choices = { { text = "Something else, Sorek.", next = "BACK" } },
+      choices = {
+        { text = "Have the two of you ever sparred?", next = "grezz_spar" },
+        { text = "Something else, Sorek.", next = "BACK" },
+      },
+    },
+    grezz_spar = {
+      lines = { { id = "gs_default", text = "Once a season, in front of the recruits, so they can see both ways of fighting side by side. He knocks me down early, and I keep getting up, and by sundown he's too tired to lift his axe, which is the whole lesson if they're watching." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     hardest = {
       lines = { { id = "ha_default", text = "Patience, every time. A young orc wants to charge everything he sees, and it takes a dozen bruises before he understands that waiting for the right moment wins more fights than rushing." } },
@@ -328,9 +339,66 @@ P:NPC {
       lines = { { id = "st_default", text = "Whichever one keeps you alive in the fight you're actually in, rather than the one you'd like to be in. Defend when you're guarding someone, strike when the enemy's open, and don't be too proud to change your mind halfway through." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    frostwolf = {
+      lines = { { id = "fw_default", text = "His name was Grukar, and he'd never seen the inside of a camp, because the Frostwolves were exiled to the mountains of Alterac long before the war ended. He came south with the Warchief, and he looked at us camp orcs the way you'd look at wolves raised in a cage." } },
+      choices = {
+        { text = "Why did he make you stand in the rain?", next = "frostwolf_rain" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    frostwolf_rain = {
+      lines = { { id = "fr_default", text = "Because I'd struck a recruit who laughed at me, and he said a warrior who can't stand still can't stand at all. I stood there until dark with the water running down my face, and somewhere in the middle of it the anger ran out with the rain." } },
+      choices = {
+        { text = "Is Grukar still alive?", next = "frostwolf_home" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    frostwolf_home = {
+      lines = { { id = "fh_default", fx = { learn = { "alterac" } }, text = "He went back to Alterac, to Drek'Thar and the clan, because he said the mountains needed him more than a city of stone. I hear the Frostwolves are fighting dwarves for their valley now, and I'd wager he's standing very still in the snow, waiting for his moment." } },
+      choices = { { text = "Something else, Sorek.", next = "BACK" } },
+    },
+    watch = {
+      lines = {
+        { id = "wa_default", text = "Their feet, first, because a warrior who stands badly falls badly, and then their eyes, because the ones who watch the whole yard live longer than the ones who only watch their opponent. The arms come last, since anyone can learn to swing." },
+        { id = "wa_warrior", when = { class = "WARRIOR" }, text = "Feet, then eyes, then arms, and yours are in that order of quality too, {class}. Your stance is good, your eyes wander, and your arms do too much of the work." },
+      },
+      choices = {
+        { text = "And what do you see in me?", next = "watch_me" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch_me = {
+      lines = {
+        { id = "wm_default", text = "Someone who's been in more fights than they'd like, and fewer than they'll have. You'll do well, if you learn to breathe before you strike." },
+        { id = "wm_high", when = { minLevel = 30 }, text = "Someone who's survived a great many fights and stopped counting them, which is either wisdom or a bad habit. Take a day's rest now and then, because the Horde needs you whole, not brave." },
+      },
+      choices = {
+        { text = "Thank you, Sorek. I'll remember that.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cause = {
+      big = true,
+      lines = { { id = "ca_default", text = "That's what every recruit asks me in the end, and they all want me to say strength. I tell them a warrior of the Horde fights so that the orcs behind the walls never see another camp, and the ones who fight for songs and glory don't usually last. What do you fight for?" } },
+      choices = {
+        { text = "For the Horde. My people come first.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "For myself. Glory and gold are reason enough.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "I'm still working that out.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+    tauren = {
+      lines = { { id = "ta_default", text = "They do, and it's a good thing to watch, because a tauren warrior doesn't hurry and doesn't stop, like a herd on the move. I've learned more about patience from the tauren who come through this yard than they've ever learned about fighting from me." } },
+      choices = {
+        { text = "The Earth Mother teaches patience to all of us.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     _none = { { id = "tp_none", text = "That's not mine to know. I teach fighting, and I'm still learning how to do that well." } },
+    background = { { id = "tp_bg", text = "I came out of the camps angry, and an old Frostwolf taught me to stand still. I've been teaching that lesson ever since." } },
+    advice = { { id = "tp_ad", text = "Loosen your grip and breathe before you strike. The axe knows what to do if your arm stops arguing with it." } },
+    alterac = { { id = "tp_alterac", next = "frostwolf_home", text = "The Frostwolves' mountains, cold enough to freeze rage solid, which is why their warriors fight so well." } },
   },
 }
 

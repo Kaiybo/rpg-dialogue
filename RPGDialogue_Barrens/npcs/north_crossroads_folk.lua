@@ -41,6 +41,11 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Where do your weapons come from?", next = "source" },
         { text = "Which of these would get me killed?", next = "killed" },
+        { text = "Go on, then. Judge my grip.", next = "grip" },
+        { text = "Who buys the most steel from you?", next = "buyers" },
+        { text = "The centaur must keep you in business.", next = "kolkar" },
+        { text = "Would you sell to anyone with coin?", next = "anyone" },
+        { text = "My hands stay where you can see them, orc.", next = "rogue", when = { class = "ROGUE" } },
         { text = "I'll look elsewhere.", next = "END" },
       },
     },
@@ -66,9 +71,87 @@ P:NPC {
         { text = "I'll take a look at your stock.", next = "BUSINESS" },
       },
     },
+    grip = {
+      lines = {
+        { id = "gr_default", text = "Pick up the plain axe on the end, the one with no gold on it, and hold it the way you'd hold it with a centaur coming at you. Don't think about it, because thinking is what gets the grip wrong." },
+        { id = "gr_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "You're holding that like a broom, {class}, which tells me you've never needed a blade and hope you never will. Pick up the dagger instead, and hold it the way you'd hold a pen you meant to stab someone with." },
+        { id = "gr_tauren", when = { race = "Tauren" }, text = "Your hands could swallow that haft whole, tauren, so take the big mace from the back instead. I keep it for your people, because no orc here can swing it all day." },
+      },
+      choices = {
+        { text = "Well? What does my grip tell you?", next = "grip_verdict" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grip_verdict = {
+      lines = {
+        { id = "gv_default", text = "It tells me you squeeze too hard, like you're afraid the weapon will run off without you. A tight grip tires the arm in a dozen swings, and a tired arm is how grunts die in the Barrens." },
+        { id = "gv_warrior", when = { class = "WARRIOR" }, text = "It tells me someone drilled you properly once, and you've gotten lazy since. Your thumb's creeping round the wrong side of the haft, which is fine until the day it isn't." },
+      },
+      choices = {
+        { text = "Then show me how to hold it properly.", next = "grip_teach" },
+        { text = "My grip has kept me alive so far.", next = "BACK", fx = { trait = { proud = 1 } } },
+      },
+    },
+    grip_teach = {
+      lines = { { id = "gt_default", text = "Loose in the fingers, firm in the palm, and let the weight of the head do the work your arm wants to do. The trainers in Orgrimmar will tell you the same, and they'll charge you more for it, so remember you heard it here first." } },
+      choices = {
+        { text = "That's good advice, Nargal. Thank you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers = {
+      lines = { { id = "bu_default", text = "Grunts bound for Far Watch Post, mostly, because Kargal Battlescar wants every one of them armed before they reach his cliffs. Hunters come next, and then the odd fool who's heard there's treasure in the Wailing Caverns and wants something shiny to die holding." } },
+      choices = {
+        { text = "Anyone in particular stand out?", next = "buyers_mankrik" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers_mankrik = {
+      lines = { { id = "bm_default", text = "Mankrik bought the heaviest axe I had, after the Kolkar took his wife on the road, and he didn't haggle, which is how I knew it was bad. He's been out at the south gate with it ever since, waiting for someone to bring him news." } },
+      choices = {
+        { text = "I'll keep an eye out for her on the plains.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kolkar = {
+      lines = { { id = "ko_default", fx = { learn = { "centaur" } }, text = "The Kolkar keep me in business and in bad temper both. They come off the plains at a gallop with long spears, and the grunts who buy short swords from me learn about reach the hard way." } },
+      choices = {
+        { text = "So what do you sell against a spear?", next = "kolkar_spears" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kolkar_spears = {
+      lines = { { id = "ks_default", text = "A shield and an axe, so you can turn the point and cut the shaft, or a polearm of your own if you've the arms for it. I buy their spearheads off the grunts afterward, too, because centaur bronze is poor stuff but it melts down well enough." } },
+      choices = {
+        { text = "Who pays for dead centaur, then?", next = "kolkar_regthar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kolkar_regthar = {
+      lines = { { id = "kr_default", text = "Regthar Deathgate, out west by the Stonetalon road, and he wants proof of every kill. Go and see him if you've a blade and a strong stomach, because he means to break the Kolkar khans one at a time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    anyone = {
+      lines = { { id = "an_default", text = "Anyone in Horde colors, and goblins, because their coin is good and they're too clever to stab the merchant. Never a human, though, and never one of those Theramore soldiers from Northwatch, not if they paid me in gold bars." } },
+      choices = {
+        { text = "Good. Horde steel stays in Horde hands.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Human gold spends as well as orc gold.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Good, and keep them there, because the last rogue in my stall walked off with a dagger nobody had paid for. I found him in Boorand's inn that night, and he paid twice for it, once in coin and once in teeth." } },
+      choices = {
+        { text = "Fair. I'd have done the same.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     _none = { { id = "tp_none", text = "Don't know, grunt. If it's not sharp, I don't keep track of it." } },
+    background = { { id = "tp_bg", text = "I sharpened blades in the camps for guards who'd have used them on us, and I swore I'd sell my own one day. Now I do, and nobody tells me what to forge." } },
+    advice = { { id = "tp_ad", text = "Buy plain, buy heavy, and never trust a weapon that looks better than it feels, grunt." } },
+    centaur = { { id = "tp_centaur", next = "kolkar", text = "The Kolkar ride with spears longer than you are tall, and they only respect what can reach them." }, { id = "tp_centaur2", text = "Centaur bronze is soft, and centaur tempers are not. Bring a shield." } },
   },
 }
 
@@ -480,6 +563,10 @@ P:NPC {
         { text = "Why does a goblin run a Horde stable?", next = "why", when = { faction = "Horde" } },
         { text = "What's the hardest beast you've boarded?", next = "hardest" },
         { text = "Will you take good care of my {pet}?", next = "care", when = { class = "HUNTER", pet = { type = "Beast" } } },
+        { text = "What does it cost to keep a beast out here?", next = "costs" },
+        { text = "Sikwa keeps the stables too, doesn't she?", next = "sikwa" },
+        { text = "What happens if I never come back for my pet?", next = "unclaimed", when = { class = "HUNTER" } },
+        { text = "Goblins and kodo. I never thought I'd see it.", next = "kodo", when = { race = "Tauren" } },
         { text = "Later.", next = "END" },
       },
     },
@@ -512,9 +599,63 @@ P:NPC {
         { text = "I'll stable my beast now.", next = "BUSINESS" },
       },
     },
+    costs = {
+      lines = { { id = "co_default", text = "Whoa, you want the breakdown? A kodo eats forty pounds of grass a day, a lion eats meat that Zargh charges me full price for, and a raptor eats whatever's nearest, which is why raptors pay the hazard rate. Then there's water, which out here costs more than ale, and straw, which costs more than water." } },
+      choices = {
+        { text = "Grass is free. It's everywhere out there.", next = "costs_grass" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    costs_grass = {
+      lines = { { id = "cg_default", text = "Free to grow, pal, not free to cut, haul and stack in a place where the Kolkar can't steal it, and that's labor, and labor's overhead. Nothin' in the Barrens is free, except the dust, and I'd charge for that if I could find anybody buyin'." } },
+      choices = {
+        { text = "Who takes a cut of all this?", next = "costs_cartel" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    costs_cartel = {
+      lines = { { id = "cc_default", fx = { learn = { "steamwheedle" } }, text = "The Steamwheedle Cartel, same as every goblin on this side of the sea, so ten percent of every fee goes down to Ratchet and on to the trade princes. It buys me the Cartel's name on the door, and that name's why nobody burns the place down." } },
+      choices = {
+        { text = "A protection racket, then, with paperwork.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sikwa = {
+      lines = { { id = "si_default", text = "Sikwa does the beasts and I do the books, and between us the Crossroads has the best stable on the Barrens, not that she'd ever say so. She looks at a lion and sees a friend, and I look at a lion and see a feed bill, and we're both right." } },
+      choices = {
+        { text = "You two don't get along, I take it.", next = "sikwa_fence" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sikwa_fence = {
+      lines = { { id = "sf_default", text = "Oh, we get along fine, right up until the centaur hit the walls and she opens every stall and lets the beasts run loose. Three fences, pal, three, and I've invoiced Sergra for every one, and she keeps sendin' the invoices back with spear holes in 'em." } },
+      choices = {
+        { text = "Some things matter more than fences.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Sikwa should follow the rules like everyone else.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    unclaimed = {
+      lines = { { id = "un_default", text = "Then your {pet} eats on account for ninety days, and on the ninety-first, pal, the account comes due and somebody else gets a very well-fed companion. It's all in the contract, small print, bottom of the page, under the kodo stain." } },
+      choices = {
+        { text = "A companion isn't stock to be sold off.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "Fair terms. Unpaid board is unpaid board.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kodo = {
+      lines = { { id = "kd_default", text = "Hey, the kodo don't mind, buddy, as long as the grass shows up on time, and your people pay in good hides when they're short on silver. I take Mulgore leather at a fair rate, and by fair I mean my rate, but it's fair for a goblin." } },
+      choices = {
+        { text = "The kodo deserve better than a ledger.", next = "BACK", fx = { affinity = -1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     _none = { { id = "tp_none", text = "Never heard of it, pal, and if I can't sell it or stable it, I'm not interested." } },
+    background = { { id = "tp_bg", text = "I shoveled for the Ratchet caravans until I figured out the guy holding the ledger never touches the shovel. Now I hold the ledger, pal, and also the shovel, because labor's expensive." } },
+    advice = { { id = "tp_ad", text = "Read the contract before you sign it, pal, and especially the part under the kodo stain." } },
+    steamwheedle = { { id = "tp_steam", next = "costs_cartel", text = "The Cartel's my boss, my insurance and my landlord all at once, pal, and it costs about what that sounds like." }, { id = "tp_steam2", text = "Neutral and profitable, that's the Cartel, and I'm both, on a good day." } },
   },
 }
 

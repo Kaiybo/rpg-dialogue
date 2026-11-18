@@ -152,6 +152,10 @@ P:NPC {
       choices = {
         { text = "Working for your father can't be easy.", next = "father" },
         { text = "What's your best item right now?", next = "best" },
+        { text = "Where does all this salvage come from?", next = "salvage" },
+        { text = "You mentioned a bargain bin.", next = "bin" },
+        { text = "How does a goblin family end up in Orgrimmar?", next = "goblins" },
+        { text = "That hole in the helmet. It's my tusk's shape.", next = "tusk", when = { race = "Troll" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Farewell, Malton.", next = "END" },
       },
@@ -176,9 +180,70 @@ P:NPC {
       lines = { { id = "be_default", text = "Today it's a dwarf's mining helmet with a hole in it that's shaped exactly like a troll's tusk. I don't know the story, but I'm charging extra for it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    salvage = {
+      lines = {
+        { id = "sa_default", text = "Everywhere, friend! The caravans bring us broken gear from the Crossroads, the grunts sell us what they don't want to carry home from Ashenvale, and Dad buys anything that's metal and can't run away. We clean it, fix it, and sell it on, and nothing goes to waste in this shop." },
+        { id = "sa_warrior", when = { class = "WARRIOR" }, text = "Everywhere, buddy, and half of it comes off folks like you who broke something in a fight and didn't want to pay to mend it. Dad calls warriors our favorite suppliers, and he doesn't mean it as a compliment." },
+      },
+      choices = {
+        { text = "What comes back from Ashenvale?", next = "salvage_ashenvale" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    salvage_ashenvale = {
+      lines = { { id = "sv_default", fx = { learn = { "warsong" } }, text = "Axes from the Warsong lumber camps, mostly, and arrows the night elves left stuck in them. Sometimes a grunt brings in a whole kit, helmet and all, and doesn't say whose it was, and I don't ask." } },
+      choices = {
+        { text = "You've had a kit like that recently?", next = "salvage_tag" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    salvage_tag = {
+      big = true,
+      lines = { { id = "st_default", text = "Last week, buddy, a good helmet with a name scratched inside the rim, Korv of the Warsong. Dad says sell it, and I've got it under the counter in case somebody comes looking for Korv, and I can't decide which of us is right." } },
+      choices = {
+        { text = "Keep it. His family deserves the chance to claim it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Sell it. Korv isn't coming back for it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bin = {
+      lines = {
+        { id = "bi_default", text = "Under the window, buddy, where the light's bad, so Dad never looks at it. Odd boots, bent buckles, a shield with a bite out of it, all priced for folks having a lean week, and if it sits there long enough the price gets leaner." },
+        { id = "bi_poor", when = { money = { max = 1000 } }, text = "Right under the window, friend, and you look like exactly the customer it was made for, no offense. Have a dig, and if Dad comes out, you're just admiring the woodwork." },
+      },
+      choices = {
+        { text = "And your father really never checks it?", next = "bin_dad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bin_dad = {
+      lines = { { id = "bd_default", text = "He checks it once a year and shouts for an hour, and then he forgets about it again. Between you and me, buddy, I think he knows exactly what I'm doing and just likes the shouting." } },
+      choices = { { text = "Something else, Malton.", next = "BACK" } },
+    },
+    goblins = {
+      lines = { { id = "go_default", fx = { learn = { "ratchet" } }, text = "Same way as Gazlowe, friend, because the Warchief needed builders when the city went up, and goblins who build stay to sell. We came over from Ratchet with a cart of scrap, and Dad's been shouting at the Drag ever since." } },
+      choices = {
+        { text = "Do the orcs treat you fairly?", next = "goblins_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    goblins_orcs = {
+      lines = { { id = "gr_default", text = "Fair enough, as long as the prices are fair too, and an orc remembers a bad deal longer than he remembers his own birthday. The trick is to be useful and a little bit cheaper than the next fella, and they'll walk past three shops to buy from you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tusk = {
+      lines = { { id = "tu_default", text = "Ha! Then you'd know the story better than me, buddy, and I'd love to hear it, because a good story sells a helmet twice as fast. Was it a fight with a dwarf, or was the dwarf just in the wrong place?" } },
+      choices = {
+        { text = "The dwarf started it. I finished it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
+        { text = "A troll never tells, goblin.", next = "BACK", fx = { trait = { cunning = 1 } } },
+      },
+    },
   },
   topics = {
     _none = { { id = "tp_none", text = "Couldn't tell you, buddy, but I'll ask around, and Dad'll probably charge you for the answer." } },
+    background = { { id = "tp_bg", text = "Born over a crate of scrap in Ratchet, buddy, and raised on the Drag. The shop's my whole story so far, but I'm working on the sign." } },
+    advice = { { id = "tp_ad", text = "Never buy the first thing you see, friend, unless you see it in my shop." } },
+    warsong = { { id = "tp_warsong", next = "salvage_ashenvale", text = "The Warsong send us their broken axes from Ashenvale, and some of them come back with stories." } },
   },
 }
 

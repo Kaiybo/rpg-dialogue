@@ -237,6 +237,9 @@ P:NPC {
         { text = "Tell me about Shi'alune.", next = "cat" },
         { text = "What does the corruption do to beasts?", next = "beasts" },
         { text = "What are the Ancients in the Irontree Woods?", next = "ancients", when = { class = "HUNTER" } },
+        { text = "What do you teach the Sentinels' scouts?", next = "scouts" },
+        { text = "How did Felwood get this way?", next = "felwood" },
+        { text = "Shi'alune doesn't like the Horde?", next = "horde", when = { faction = "Horde" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -245,7 +248,19 @@ P:NPC {
       choices = {
         { text = "She's beautiful.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Can you teach that to my pet?", next = "beasts" },
+        { text = "How did the moonwell die?", next = "cat_well" },
       },
+    },
+    cat_well = {
+      lines = { { id = "cw_default", text = "Satyrs fouled it, the way they foul everything they creep near, with the filth they carry south out of these woods. Her mother drank from it and didn't wake, and Shi'alune was curled against her, waiting. I sat with them both until morning before I took her." } },
+      choices = {
+        { text = "And her name? What does it mean?", next = "cat_name" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "satyrs" } } },
+      },
+    },
+    cat_name = {
+      lines = { { id = "cn_default", text = "Something like 'moon's shadow', near enough, because she was black as the night between the moons and she followed me everywhere I went. The Sentinels tease me for naming her so grandly, and she doesn't care, and neither do I." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "elune" } } } },
     },
     beasts = {
       big = true,
@@ -258,11 +273,44 @@ P:NPC {
     },
     beasts_end = {
       lines = { { id = "bee_default", text = "I put them down, and I do it quickly, and I don't enjoy it. Shi'alune watches me do it every time, and I like to think she understands." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Is there no way to heal them?", next = "beasts_heal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts_heal = {
+      lines = { { id = "bh_default", text = "The druids of the Emerald Circle are trying, with the cleansed soil and the little sprouts they plant along the road. Arathandris at the Sanctuary thinks the forest can be healed, given a hundred years; I think the beasts don't have a hundred years." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
     },
     ancients = {
       lines = { { id = "an_default", text = "Spirits of the Ancients of Lore, who died at Hyjal and never quite left. Vartrus and his brothers speak to hunters who've proven themselves, and what they ask is hard, but I've never heard of a hunter who regretted it." } },
-      choices = { { text = "I'll seek them out. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = {
+        { text = "What sort of thing do they ask?", next = "ancients_ask" },
+        { text = "I'll seek them out. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+      },
+    },
+    ancients_ask = {
+      lines = { { id = "aa_default", text = "To hunt the things in this forest that should never have been born, and to bring proof. They don't care how strong your bow is; they watch how you treat what you kill, and the hunters who boast never hear them speak at all." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+    },
+    scouts = {
+      lines = { { id = "sc_default", text = "How to read a track that's half rotted away, how to smell bad water, and how to tell a satyr's footprint from a deer's in mud, which is harder than it sounds. They come to me green and leave knowing which bushes bite." } },
+      choices = {
+        { text = "Do they all come back?", next = "scouts_back" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "sentinels" } } },
+      },
+    },
+    scouts_back = {
+      lines = { { id = "sb_default", text = "Not all. Jaedenar takes some, and the Shadow Hold takes others, and once in a long while one simply walks into the Bloodvenom and doesn't think to stop. I keep their names on a strip of bark by the door, and Shi'alune sleeps under it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    felwood = {
+      lines = { { id = "fe_default", text = "The Burning Legion came through here in the war, to Hyjal and the World Tree, and wherever demons walked the ground remembered it. What they left behind seeped into the soil and the water, and the satyrs and the cultists have been feeding it ever since." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "burning_legion" } } } },
+    },
+    horde = {
+      lines = { { id = "ho_default", text = "She was a cub in Ashenvale, near where the axes ring now, and the first thing she learned to fear was that sound. She can't tell one of you from another, of course; she only knows the smell of an axe, and some of you carry it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 
@@ -270,6 +318,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Beasts, the glade, and the hunters who train here." } },
     advice = { { id = "tp_ad", text = "Watch your pet's nose. If it won't drink, neither should you." } },
     sentinels = { { id = "tp_sent", text = "I train their scouts. They come to me green and leave knowing which bushes bite." } },
+    burning_legion = { { id = "tp_bl", text = "They've been gone for years, and the water still tastes of them. That's all I need to know of demons." } },
     _none = { { id = "tp_none", text = "I don't know. Ask Shi'alune, and she'll tell you just as much." } },
   },
 }
