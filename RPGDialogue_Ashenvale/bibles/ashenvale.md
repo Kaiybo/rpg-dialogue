@@ -75,3 +75,9 @@ Secrets revealed by Persuade/Intimidate/Deceive checks (authored, not canon):
 - Thenysil commanding anything, Silverwind Refuge, or any Cataclysm-era Ashenvale.
 ### Authored, not canon
 Thenysil's way of judging the proven (Raene, Faldreas, Pelturas talk to her); Daelyshia's arrow-holed saddle on the wall, the gnome who came down in Lake Iris. Kimlya (0.37.0): wounded scouts upstairs for healers, Delgren's paladins asking for mutton.
+
+## Ruul Snowhoof (key: ruul, npcs/roads.lua)
+- Source: https://warcraft.wiki.gg/wiki/Ruul_Snowhoof (tauren druid, Yama's brother; caged in Bear Form at Thistlefur Hold, the furbolgs think he is a bear and starve him; escort quest Freedom to Ruul, then talk to Yama at Splintertree).
+- Voice: tauren, first person, slow and calm; Earth Mother, the herd's long view; dry warmth about his sister. Bears his captors no anger: the Felwood sickness creeping south took their minds.
+- Never: a furbolg, speaking of himself in third person, blaming the Thistlefur, post-Classic Felwood or Ashenvale.
+- Authored, not canon: the chieftain's cage key on a cord; staying in bear shape because he was too tired to change back.

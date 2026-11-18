@@ -1,6 +1,6 @@
--- Ashenvale between the towns (0.38.0): Forest Song, a bowyer's roadside camp, Zoram'gar, and a captive furbolg. Voice: bibles/ashenvale.md
+-- Ashenvale between the towns (0.38.0): Forest Song, a bowyer's roadside camp, Zoram'gar, and Ruul Snowhoof, a tauren druid caged at Thistlefur Hold. Voice: bibles/ashenvale.md
 local P = RPGDialogueAPI:Pack("rpgd.ashenvale")
-local TODO_NPC = P.TODO_NPC
+local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
   key = "kayneth", id = TODO_NPC("Kayneth Stillwind"), name = "Kayneth Stillwind", title = "",
@@ -571,113 +571,116 @@ P:NPC {
 P:NPC {
   key = "ruul", id = TODO_NPC("Ruul Snowhoof"), name = "Ruul Snowhoof", title = "",
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
-  communities = { "thistlefur" }, temper = { "gentle" }, values = { "kind", "brave" },
+  communities = { "splintertree" }, temper = { "gentle", "calm" }, values = { "kind", "family" },
   impression = {
-    first = "Ruul Snowhoof is a furbolg held captive by his own maddened tribe, the Thistlefur. He is the only one left among them with clear eyes, and it grieves him.",
-    third = "{name} met Ruul Snowhoof, a Thistlefur furbolg kept captive by his own maddened kin in Ashenvale.",
+    first = "Ruul Snowhoof is a tauren druid caged deep in Thistlefur Hold, where the furbolgs took him for a bear and have been starving him. He is thin and slow to rise, and he speaks of his captors without any anger.",
+    third = "{name} met Ruul Snowhoof, Yama's brother, a tauren druid held captive by the Thistlefur furbolgs in Ashenvale.",
   },
 
   greetings = {
-    { id = "g_default", text = "You are not Thistlefur, and you have not come to hurt Ruul. That is good, that is very good." },
-    { id = "g_back", when = { metBefore = true }, text = "You have come back for Ruul. Few do that for a furbolg, and Ruul will not forget it." },
+    { id = "g_default", text = "Peace, stranger. You are not Thistlefur, and you have not come with a club, so the Earth Mother has sent me better company than I have had in many days." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back to this cage. I hoped you would, though I tried not to count on it." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Freedom to Ruul") }, text = "When you are ready, open the door and walk beside me. I am slow now, and the Thistlefur will not let me go quietly." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Freedom to Ruul") }, text = "You walked me out of the dark once already. My sister will have fed you twice over by now, if I know her." },
   },
 
   start = "hello",
   nodes = {
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Ruul does not know, only that it came with the darkness creeping down from the north, and the Thistlefur breathed it in until their eyes went red. Ruul would have them healed and not killed, but Ruul fears that is too much to ask." } },
+      lines = { { id = "xdruid_default", text = "A sickness that comes down from Felwood, carried in the roots and the water. The Thistlefur drank it before they knew it was there. I would see them healed and not killed, though I know that may be too much to ask of this forest." } },
       choices = {
-        { text = "Then I'll spare them when I can, for your sake.", next = "BACK", reply = "Ruul thanks you, friend. Every Thistlefur spared is one Ruul might bring home.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "If they're too far gone, kindness means a quick end.", next = "BACK", reply = "Ruul knows, and Ruul cries for them. Make it quick, then, and Ruul will sing for them.", fx = { align = { honor = -1 } } },
+        { text = "Then I'll spare them when I can, for your sake.", next = "BACK", reply = "Thank you. Every one you spare is one the Earth Mother may yet call back to herself.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "If they're too far gone, kindness means a quick end.", next = "BACK", reply = "Perhaps you are right, and it grieves me. If it must be done, then do it cleanly.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "They will, because the Thistlefur no longer remember that they were friends of the forest. Ruul is sad to ask it, but if they come, you must fight them, and Ruul will try not to watch." } },
+      lines = { { id = "xwarcl_default", text = "They will, because they think you are stealing their bear. They are not wicked, only sick and frightened. If they come at us, you must fight them, and I will not hold that against you." } },
       choices = {
-        { text = "I'll spare any I can, for your sake.", next = "BACK", reply = "Ruul thanks you, friend. Ruul will tell the forest you were kind.", fx = { align = { honor = 1 } } },
-        { text = "They'll come, and they'll die. That's the way of it.", next = "BACK", reply = "Ruul knows it is the way, and Ruul hates it. Ruul will sing for them anyway.", fx = { align = { honor = -1 } } },
+        { text = "I'll spare any I can, for your sake.", next = "BACK", reply = "Then you fight the way my father taught me to. The herd remembers that kind of warrior.", fx = { align = { honor = 1 } } },
+        { text = "They'll come, and they'll die. That's the way of it.", next = "BACK", reply = "That is the way of it, as you say. I will still ask the Earth Mother to receive them.", fx = { align = { honor = -1 } } },
         { text = "Something else, then.", next = "BACK" },
       },
     },
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They hunted only what the forest gave, and they thanked the trees afterward, as furbolgs always did. Now they kill in anger and leave the bodies, and Ruul cannot bear to watch it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They hunted only what the forest gave, and they thanked the trees afterward, as furbolgs always did. Now they kill in anger and leave the bodies, but your {pet} is not afraid of Ruul, and that makes Ruul glad." },
+        { id = "xhuntcl_default", text = "Once they hunted only what they needed and thanked the trees afterward, as my own people thank the plains. Now they kill in anger and leave the bodies to rot, and that tells me how sick they are." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Once they hunted only what they needed and thanked the trees afterward, as my own people thank the plains. Now they kill in anger and leave the bodies to rot, but your {pet} sits easy near this cage, and that comforts me." },
       },
       choices = {
-        { text = "Then I'll hunt as the furbolgs once did.", next = "BACK", reply = "Then the forest will thank you, and Ruul will too. That is the furbolg way.", fx = { align = { light = 1 } } },
-        { text = "Anger's as good a reason to hunt as any.", next = "BACK", reply = "Ruul hopes you learn better, friend. Anger is what made the Thistlefur sick.", fx = { align = { light = -1 } } },
+        { text = "Then I'll hunt as they once did, with thanks.", next = "BACK", reply = "Good. The Earth Mother gives to those who remember to thank her.", fx = { align = { light = 1 } } },
+        { text = "Anger's as good a reason to hunt as any.", next = "BACK", reply = "I hope you learn otherwise. Anger is the door the sickness walked through.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhcast = {
       big = true,
       lines = {
-        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "You would know the bad voice better than Ruul does, Ruul thinks. Ruul asks only that you do not listen to it as long as the Thistlefur did, because Ruul has seen where that ends." },
-        { id = "xhcast_default", text = "Ruul has wondered that every night in this cage. The madness is not a wound, it is a voice, and Ruul does not know if a spell can make a voice go quiet, but Ruul would like someone to try before the Sentinels and the Horde kill them all." },
+        { id = "xhcast_lock", when = { class = "WARLOCK" }, text = "You would know the taint better than I do, I think, because it smells of the same fire you carry. I ask only that you do not listen to it as long as the Thistlefur did, because I have seen where that ends." },
+        { id = "xhcast_default", text = "I have wondered that every night in this cage. The sickness is not a wound you can close; it lives in the land and in the mind together. I do not know if a spell can quiet it, but I would like someone to try before the Sentinels and the Horde kill them all." },
       },
       choices = {
-        { text = "I'll look for a cure before anyone draws a blade.", next = "BACK", reply = "Ruul thanks you. Ruul knows there might not be one, but Ruul is glad you will look.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "A quick death is the only mercy left for them.", next = "BACK", reply = "Ruul knows it, and Ruul cries for it. Make it quick, if you must.", fx = { align = { honor = -1 } } },
+        { text = "I'll look for a cure before anyone draws a blade.", next = "BACK", reply = "Thank you. There may not be one, but I am glad someone will look.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A quick death is the only mercy left for them.", next = "BACK", reply = "It may be so, and it weighs on me. If you must, make it quick.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhrogue = {
       big = true,
-      lines = { { id = "xhrogue_default", text = "The chieftain keeps the cage key on a cord, and the stores are piled at the back of the den where the old ones used to sleep. Ruul does not like stealing from his own tribe, but Ruul likes this cage even less." } },
+      lines = { { id = "xhrogue_default", text = "Their chieftain keeps the cage key on a cord, and their stores are piled at the back of the hold. I would not have you rob them on my account, but I confess I would like to leave this cage." } },
       choices = {
-        { text = "I'll take only the key. Your tribe keeps the rest.", next = "BACK", reply = "Ruul thanks you, friend. Ruul's tribe will need those stores, if they wake.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Whatever they've hoarded is fair game now.", next = "BACK", reply = "Ruul does not like it, but Ruul understands. Take what you need, at least.", fx = { align = { honor = -1 } } },
+        { text = "I'll take only the key. They keep the rest.", next = "BACK", reply = "Thank you. They will need those stores, if they ever wake from this.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Whatever they've hoarded is fair game now.", next = "BACK", reply = "I will not argue with you here. Only take what you need, and no more.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The Thistlefur shamans went mad first, because they listened hardest, and something that was not the forest answered them. Ruul thinks something dark crept into their dreams, and the forest spirits have been quiet ever since." } },
+      lines = { { id = "xhsham_default", text = "The spirits here are quiet, and the earth beneath this hold feels bruised. The Thistlefur shamans listened hardest, so I think they fell first, when something that was not the forest answered them." } },
       choices = {
-        { text = "Your tribe can still be healed, Ruul. I believe that.", next = "BACK", reply = "Ruul wants to believe it, and Ruul does, a little, when you say it. Thank you.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The mad ones are lost. Save yourself, Ruul.", next = "BACK", reply = "Ruul will not leave them, friend. Ruul would rather be lost with them than safe alone.", fx = { align = { light = -1 } } },
+        { text = "The Thistlefur can still be healed. I believe that.", next = "BACK", reply = "So do I, most days. It is good to hear another voice say it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The mad ones are lost. Think of yourself, Ruul.", next = "BACK", reply = "I am thinking of myself, friend. I would not want to be left to the sickness either.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     hello = {
       lines = {
-        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You are shaman. Ruul's grandmother was shaman of the Thistlefur before the madness, and she spoke to the forest the way you speak to the wind." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You carry a prayer with you, Ruul can smell the candle smoke on your hands. Will you say one for the Thistlefur, even the mad ones? Ruul thinks they need it more than Ruul does." },
-        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Your hands crackle like the air before a storm. Ruul does not know your kind of magic, but Ruul hopes very much that it can open a cage." },
-        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "Ruul smells something on you, the same bad smell that came into the forest before the madness. Ruul will not judge you for it yet, but Ruul will watch your hands." },
-        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came so quietly that even the Thistlefur guards did not hear you, and they hear everything now. Ruul is glad you are a friend, or Ruul hopes you are." },
-        { id = "h_default", text = "Ruul's tribe, the Thistlefur, have gone mad, and they keep Ruul in this cage because Ruul would not go mad with them. If you set Ruul free, walk with Ruul out of the den, because the way is long and the Thistlefur will follow." },
-        { id = "h_cond", when = { race = "Tauren" }, text = "Shu'halo, cousin of the forest! Ruul knew your people's drums once, from the old days, before the madness." },
-        { id = "h_warcl", when = { class = "WARRIOR" }, text = "You carry a blade, and you are not Thistlefur. Ruul hopes that blade is not for Ruul." },
-        { id = "h_huntcl", when = { class = "HUNTER" }, text = "You walk the way the forest walks, quiet and watchful. Ruul likes that." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid! Ruul knows the smell of Cenarius's children, and Ruul's heart is glad, because perhaps you can see what has made the Thistlefur sick." },
+        { id = "h_shamancl", when = { class = "SHAMAN" }, text = "You walk with the spirits. Then you can feel how quiet they have gone in this place, and how wrong the earth sounds under the hold." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "You carry prayers with you, I think. Will you say one for the Thistlefur, even the ones who caged me? They need it more than I do." },
+        { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "Your hands crackle like the air before a storm on the plains. I do not know your kind of magic, but I hope very much that it can open a cage." },
+        { id = "h_hlock", when = { class = "WARLOCK", race = { "Orc", "Scourge" } }, text = "There is a smell on you like the one that came south into this forest before the furbolgs turned. I will not judge you for it yet, but I will watch your hands." },
+        { id = "h_hrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } }, text = "You came so quietly that even the guards did not hear you, and they hear everything now. I hope you are a friend, because I am in no shape to argue." },
+        { id = "h_done", when = { questDone = TODO_QUEST("Freedom to Ruul") }, text = "I am Ruul Snowhoof, and I owe you my life. I came back to the edge of this place to listen to it again, because the Thistlefur are still sick, and someone should still care." },
+        { id = "h_default", text = "I am Ruul Snowhoof, a druid of the tauren. I came into this forest in the bear's shape to listen to its sickness, and the Thistlefur caught me and took me for a bear. They have been starving me since. If you open this cage, walk with me, because I am weak and they will follow." },
+        { id = "h_cond", when = { race = "Tauren" }, text = "One of the herd, here of all places! The Earth Mother has a gentle sense of humor. Did my sister Yama send you?" },
+        { id = "h_warcl", when = { class = "WARRIOR" }, text = "You carry a blade, and you are not Thistlefur. I hope that blade is for the way out and not for me." },
+        { id = "h_huntcl", when = { class = "HUNTER" }, text = "You walk the way the beasts walk, quiet and watchful. I can rest a little easier with you here." },
+        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A child of Cenarius, like me. Then you have felt it too, the sickness under the roots, and perhaps you can see what has made the Thistlefur this way." },
       },
       again = {
-        { id = "h_again1", text = "What else does the friend want to know?" },
-        { id = "h_again2", text = "Ruul is listening, and Ruul is not going anywhere." },
+        { id = "h_again1", text = "Ask what you like, friend. I have had no one to talk to but the bars." },
+        { id = "h_again2", text = "I am listening. I am not going anywhere, not yet." },
       },
       choices = {
-        { text = "What happened to your tribe's shamans when the madness came?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "What do the spirits tell you about this place?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Can magic do anything for the Thistlefur?", next = "xhcast", when = { class = { "PRIEST", "MAGE", "WARLOCK" }, race = { "Orc", "Troll", "Scourge" } } },
         { text = "Where do the Thistlefur keep their stores and their keys?", next = "xhrogue", when = { class = "ROGUE", race = { "Orc", "Troll", "Scourge" } } },
-        { text = "Something must have driven your tribe mad.", next = "madness" },
-        { text = "You must have somewhere to go if you're freed.", next = "ruul" },
-        { text = "Why trust the Horde?", next = "horde" },
-        { text = "My people remember the furbolgs kindly.", next = "tauren", when = { race = "Tauren" } },
+        { text = "What drove the Thistlefur mad?", next = "madness" },
+        { text = "Where will you go if you're freed?", next = "ruul" },
+        { text = "Why did they take you for a bear?", next = "horde" },
+        { text = "Yama is waiting for you at Splintertree.", next = "tauren", when = { faction = "Horde" } },
         { text = "I'll come back for you, Ruul.", next = "END" },
-        { text = "Will your tribe fight us when we leave, Ruul?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "The Thistlefur must have hunted well, before they went mad.", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "Will the Thistlefur fight us when we leave?", next = "xwarcl", when = { class = "WARRIOR" } },
+        { text = "The Thistlefur must have hunted well, before this.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What made the Thistlefur turn, Ruul?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
       },
     },
     madness = {
       lines = {
-        { id = "madness_default", text = "Something in the forest, or in the water, Ruul does not know which. The red-eyed ones say a voice in the ground speaks to them, and Ruul hears only the wind, which is how Ruul knows he is still Ruul." },
+        { id = "madness_default", text = "A sickness from the north, from Felwood, where the trees are dying and the water runs foul. It creeps south through the roots a little more each season. The Thistlefur live closest to its path, and they breathed it in before anyone thought to warn them." },
       },
       choices = {
         { text = "Can they be saved?", next = "madness2" },
@@ -685,24 +688,24 @@ P:NPC {
     },
     madness2 = {
       lines = {
-        { id = "madness2_default", text = "Ruul hopes so, every night, but Ruul has seen them kill their own cubs. The Horde wants their land, and the elves want them gone, and nobody asks what the furbolgs want." },
+        { id = "madness2_default", text = "I hope so. Furbolgs were wise once, and friends to my people's druids, and the Timbermaw in the north still are. But the Horde wants this forest's wood, and the elves want the furbolgs gone, and no one asks what the forest wants." },
       },
       choices = {
-        { text = "They should be healed, not hunted.", next = "BACK", reply = "Ruul thinks so too, and Ruul is glad you say it. Nobody else does.", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "If they kill cubs, they're beyond saving.", next = "BACK", reply = "Ruul knows, and Ruul cannot argue. But Ruul still hopes.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "They should be healed, not hunted.", next = "BACK", reply = "That is what I believe as well. It is good to hear it from someone outside a cage.", fx = { align = { light = 1 }, affinity = 2 } },
+        { text = "If they kill on sight, they're beyond saving.", next = "BACK", reply = "I cannot argue with what you have seen. Still, I will keep hoping, slowly.", fx = { align = { light = -1 }, trait = { stern = 1 } } },
       },
     },
     ruul = {
       lines = {
-        { id = "ruul_default", text = "East, to the Timbermaw if they will have Ruul, for they are still themselves. Ruul has no tribe now, and a furbolg without a tribe is only half a furbolg." },
+        { id = "ruul_default", text = "Home to Splintertree, to my sister Yama, who will scold me and then feed me, in that order. When I have my strength back, I will keep listening to this forest. The herd's way is long, and one cage does not end it." },
       },
       choices = {
-        { text = "I hope they take you in.", next = "BACK" },
+        { text = "I hope she feeds you first.", next = "BACK" },
       },
     },
     horde = {
       lines = {
-        { id = "horde_default", text = "Ruul trusts the one standing at the cage, not the banner behind them. You came to talk before you came to kill, and that is a thing Ruul notices." },
+        { id = "horde_default", text = "Because I wore the bear's shape when they found me, and I was too tired to change back. I did not fight them, and I think that confused them. Do not blame them too much for it; sick minds see what they fear." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -710,19 +713,21 @@ P:NPC {
     },
     tauren = {
       lines = {
-        { id = "tauren_default", text = "Then the Earth Mother has not forgotten Ruul's people either. When you are home, tell the elders that one Thistlefur kept his mind." },
+        { id = "tauren_default", text = "Then my sister is still waiting, as she always waits for me. Get me out of here, and I will walk as fast as these old legs allow. She will want to thank you herself." },
       },
       choices = {
-        { text = "I will. Something else?", next = "BACK" },
+        { text = "Then let's get you home. Something else first?", next = "BACK" },
       },
     },
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Ruul is a Thistlefur, the last one with clear eyes." } },
-    timbermaw = { { id = "tp_timbermaw", text = "Timbermaw are Ruul's cousins, and they kept their eyes clear when the Thistlefur did not. If Ruul is ever free, Ruul will go to them." } },
-    emerald_dream = { { id = "tp_emerald_dream", text = "Ruul's grandmothers spoke of the green dream that the forest dreams. Ruul has not dreamed green since the madness came." } },
-    burning_legion = { { id = "tp_burning_legion", text = "The sickness in the Thistlefur smells like old fire from the north. Ruul does not know its name, but Ruul knows it is evil." } },
-    _none = { { id = "tp_none", text = "Ruul does not know that, friend. Ruul knows trees and cages, mostly." } },
+    background = { { id = "tp_bg", text = "I am a tauren druid, Yama's brother. I came to Ashenvale to listen to the forest's sickness, and the Thistlefur caged me for a bear." } },
+    yama = { { id = "tp_yama", text = "My sister Yama keeps house for me at Splintertree Post. She worries more than she lets anyone see, and I give her too many reasons." } },
+    thistlefur = { { id = "tp_thistlefur", text = "They starved me and they caged me, and still I do not blame them. The sickness took their minds before it took anything else." } },
+    timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw in the north have kept their minds, I am told. If the Thistlefur can be healed, perhaps their cousins will show us how." } },
+    emerald_dream = { { id = "tp_emerald_dream", text = "Cenarius taught our druids to walk the Dream, and its green should be strong here. In this hold I have not dreamed green once." } },
+    burning_legion = { { id = "tp_burning_legion", text = "The sickness in Felwood smells of old fire, from a war long before my people came to this forest. I do not know its whole story, but I know it is evil." } },
+    _none = { { id = "tp_none", text = "I do not know that, friend. I know the forest, the plains, and lately this cage." } },
   },
 }
