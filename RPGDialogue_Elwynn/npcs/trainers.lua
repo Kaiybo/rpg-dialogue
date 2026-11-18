@@ -1886,8 +1886,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It's dangerous enough to cost a man his eyebrows and worse, so I make introductions carefully, and I'm not sure a shaman needs one." } },
       choices = {
-        { text = "Then I'll leave your secrets alone, Remen.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Dangerous knowledge is worth having. Introduce me.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll leave your secrets alone, Remen.", next = "BACK", reply = "Thank you. It isn't that I don't trust you; I don't trust anything down here, myself included.", fx = { align = { order = 1 } } },
+        { text = "Dangerous knowledge is worth having. Introduce me.", next = "BACK", reply = "Ask Crowe, then, not me. I've only got the one set of eyebrows left.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1895,8 +1895,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "A page or two on the satyrs, which I'll not show you, because I suspect you'd burn it and I suspect you'd be right to. Some knowledge bites, as I told you, and that page has teeth." } },
       choices = {
-        { text = "Burn it, Marcot. Some knowledge only feeds corruption.", next = "BACK", fx = { align = { honor = 1 } } },
-        { text = "Keep it. Knowing the enemy is worth the risk.", next = "BACK", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Burn it, Marcot. Some knowledge only feeds corruption.", next = "BACK", reply = "I've thought about it, believe me. Crowe would have me scrubbing the circle for a month if I did.", fx = { align = { honor = 1 } } },
+        { text = "Keep it. Knowing the enemy is worth the risk.", next = "BACK", reply = "That's what Crowe says, and he's usually right, so it stays locked away a while longer.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1904,8 +1904,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Keeping things in, mostly, and sometimes keeping things out. A warrior who stepped across it once had a very bad evening, so I'll ask you to admire it from the edge." } },
       choices = {
-        { text = "I'll stay at the edge, then.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "I'll step where I please, Marcot.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll stay at the edge, then.", next = "BACK", reply = "Thank you. You'd be surprised how few people take the hint.", fx = { align = { light = 1 } } },
+        { text = "I'll step where I please, Marcot.", next = "BACK", reply = "Your evening, then. I'll fetch a bucket and the priestess, in that order.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1916,8 +1916,8 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is growling at the circle. Good, because that's the right response, and I wish more of my students had it." },
       },
       choices = {
-        { text = "If my beast wants to leave, I'll listen.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "My beast can wait. I'm curious.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If my beast wants to leave, I'll listen.", next = "BACK", reply = "Good. Animals know this cellar better than people do, and not one of them likes it.", fx = { align = { light = 1 } } },
+        { text = "My beast can wait. I'm curious.", next = "BACK", reply = "Curious is how most of us ended up down here, so don't say I didn't warn you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1925,8 +1925,8 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Because there are things down here that don't like surprises, and if you surprise one of them, I won't be able to call it back in time. Sylvius's students keep finding that out, and I'm tired of mopping up after them." } },
       choices = {
-        { text = "Then I'll knock next time, Marcot. Your rules, your cellar.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "I'll come and go as I please. Surprises are my trade.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll knock next time, Marcot. Your rules, your cellar.", next = "BACK", reply = "Much obliged. Two knocks, a pause, then one more, and I'll know it's you.", fx = { align = { order = 1 } } },
+        { text = "I'll come and go as I please. Surprises are my trade.", next = "BACK", reply = "Then I hope your trade is quicker than a voidwalker. Most aren't.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1934,8 +1934,8 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "It's how I began, with a book I shouldn't have opened in a library I shouldn't have been in, and Zaldimar would tell you the same story ends badly. I think it ends however you choose to end it." } },
       choices = {
-        { text = "Some books are best left closed, Marcot.", next = "BACK", fx = { align = { light = 1 } } },
-        { text = "Every closed book is a door waiting to be opened.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Some books are best left closed, Marcot.", next = "BACK", reply = "Wise words, and I'd have listened to them once. It's a bit late for me now.", fx = { align = { light = 1 } } },
+        { text = "Every closed book is a door waiting to be opened.", next = "BACK", reply = "And every one of them has something waiting behind it. I should know.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -2001,8 +2001,8 @@ P:NPC {
         { id = "ol_default", text = "The Slaughtered Lamb, in the city. Gakin the Darkbinder keeps its cellar the way we keep this one, quietly, and you'll keep the name quiet too." },
       },
       choices = {
-        { text = "My lips are sealed.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "I'll tell whoever I like.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "My lips are sealed.", next = "BACK", reply = "Thank you. The coven has few friends, and it remembers every one of them.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll tell whoever I like.", next = "BACK", reply = "Then you'll find the stairs much harder to come down next time. That isn't a threat; it's just how the coven is.", fx = { align = { honor = -1 } } },
         { text = "And if they're not?", next = "BACK", fx = { affinity = -2, trait = { stern = 1 } } },
       },
     },
@@ -2020,15 +2020,15 @@ P:NPC {
     threat = {
       lines = { { id = "t_default", text = "You could. They'd pray, Farley would sell them a drink, and we'd still be here on Tuesday, so have one yourself, upstairs." } },
       choices = {
-        { text = "I'll be watching.", next = "BACK", fx = { align = { light = 1, order = 1 }, affinity = -1 } },
-        { text = "Suits me. Pour me one too.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'll be watching.", next = "BACK", reply = "Watch from upstairs, then. The ale's better, and nobody down here will mind.", fx = { align = { light = 1, order = 1 }, affinity = -1 } },
+        { text = "Suits me. Pour me one too.", next = "BACK", reply = "Ask Farley for the dark ale, and tell him Remen sent you. He'll know what you mean.", fx = { align = { light = -1 } } },
       },
     },
     practise = {
       lines = { { id = "practise_l", text = "Corruption and Life Tap, until you can spend your own blood without wincing, and Fear, until you can use it without enjoying it. The first keeps you casting and the second keeps you sane." } },
       choices = {
-        { text = "I can't promise not to enjoy it.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll practise without enjoying it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I can't promise not to enjoy it.", next = "BACK", reply = "Nobody can, at first. That's what worries Crowe about every one of us.", fx = { align = { light = -1 } } },
+        { text = "I'll practise without enjoying it.", next = "BACK", reply = "Good. The ones who enjoy it don't stay in this cellar long, one way or another.", fx = { affinity = 1, align = { light = 1 } } },
       },
     },
     gnome = {
