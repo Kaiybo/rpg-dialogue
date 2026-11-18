@@ -1224,6 +1224,7 @@ P:NPC {
 
 P:NPC {
   key = "kauth", id = TODO_NPC("Innkeeper Kauth"), name = "Innkeeper Kauth",
+  gender = "male",
   bible = "bibles/mulgore.md", role = "innkeeper", tier = "service",
   communities = { "bloodhoof" }, temper = { "warm" }, values = { "generous" },
   notices = { "weary", "drink" },
@@ -1240,6 +1241,9 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "You've been out on the grass {away}, and I kept a pot on for you most nights anyway. Come in from the wind and eat." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The whole village talks of the help you've given us, so tonight the stew is yours for nothing. Don't tell the bluff folk." },
     { id = "g_word_angered", when = { word = "angered" }, text = "Someone came through grumbling about you, and they left my stew half eaten. Whatever passed between you, the inn is a peaceful place." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "kau_fl_no" } }, text = "Oh, welcome, come in from the wind, and I'll, ah, I'll bring you a bowl from the bottom of the pot, where the best meat settles, though I'd thank you not to tell the others it's there." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "kau_fl_yes" }, text = "You came back! I hoped you might, and I've been stirring the pot all evening so the stew would be at its best, just in case." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "kau_fl_no" }, text = "Welcome back, friend. A bowl and a hide, as always, and I'll not make things any more awkward than I did before." },
   },
 
   notice = {
@@ -1251,6 +1255,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Do I? I suppose I do, and I suppose you've noticed, which means I'm not as quiet about it as I thought. Forgive a plain innkeeper, friend, but when someone so fine walks in off the grass, the Earth Mother puts bread in my hands before I've thought it through." } },
+      choices = {
+        { text = "I don't mind, Kauth. The bread is lovely.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kau_fl_yes" }, clear = { "kau_fl_no" } } } },
+        { text = "Are you trying to court me, Kauth?", next = "fl_ask" },
+        { text = "A tauren your size, blushing? I like it, mon.", next = "fl_troll", when = { race = "Troll" } },
+        { text = "That's kind, but I'm only passing through.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "kau_fl_no" }, clear = { "kau_fl_yes" } } }, reply = "Of course, of course, and the bread comes with the bowl regardless. Pay me no mind, friend." },
+        { text = "Keep your bread, Kauth. I'm not interested.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "kau_fl_no", "kau_fl_rebuff" }, clear = { "kau_fl_yes" } } }, reply = "Ah. Yes, I understand, and I'm sorry if I made you uneasy. The stew is still yours, and I'll keep to my side of the fire." },
+      },
+    },
+    fl_ask = {
+      lines = { { id = "fla_default", text = "I, well, yes, I think I might be, though I'm doing it badly, by the look on your face. The tauren take their time over such things, the way the grass takes its time, so you needn't answer me tonight." } },
+      choices = {
+        { text = "Take your time, Kauth. I'll keep coming back.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kau_fl_yes" }, clear = { "kau_fl_no" } } } },
+        { text = "I'd rather we stayed friends, Kauth.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "kau_fl_no" }, clear = { "kau_fl_yes" } } }, reply = "Friends, then, and gladly. A friend at the fire is no small thing in Mulgore." },
+      },
+    },
+    fl_troll = {
+      lines = { { id = "flt_default", text = "I don't blush, it's only the fire, though I'll grant you're very tall for a troll and very bold for anyone. My grandmother used to say a laughing troll could charm a kodo out of its harness, and I'm beginning to see what she meant." } },
+      choices = {
+        { text = "Then consider yourself charmed, Kauth.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "kau_fl_yes" }, clear = { "kau_fl_no" } } } },
+        { text = "Your grandmother was wise. I'll leave you be.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "kau_fl_no" }, clear = { "kau_fl_yes" } } }, reply = "She was, and so are you, I think. Eat your stew, at least." },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Then I'll keep the bread warm and the best of the pot for you, and I'll try to say something clever next time instead of only staring. Walk with the Earth Mother, friend, and walk back this way whenever you can." } },
+      choices = {
+        { text = "I'll walk back soon, Kauth.", next = "BACK", reply = "The lake will still be singing against the shore, and I'll still be here." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Mind? No, only curious. Some of the young braves will want to see the Light, and some of the old ones will keep their distance, since they've heard the orcs' stories of the camps. Sit, and let them look. That's how we learn about strangers." } },
@@ -1365,6 +1400,7 @@ P:NPC {
         { text = "Do mages come through Bloodhoof often, Kauth?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "The tauren must mind a paladin at the inn, Kauth.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "Do you remember the night the braves brought me in, Kauth?", next = "xorig_orphan", when = { origin = "tauren_razormane_orphan" } },
+        { text = "You keep bringing me extra bread, Kauth.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "kau_fl_rebuff" } } },
         { text = "Just a meal, thank you.", next = "END" },
       },
     },

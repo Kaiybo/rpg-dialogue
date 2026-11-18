@@ -833,6 +833,7 @@ P:NPC {
 
 P:NPC {
   key = "bates", id = TODO_NPC("Innkeeper Bates"), name = "Innkeeper Bates",
+  gender = "male",
   bible = "bibles/silverpine.md", role = "innkeeper", tier = "service",
   communities = { "sepulcher" }, temper = { "hospitable" }, values = { "generous" },
   notices = { "weary" },
@@ -848,6 +849,9 @@ P:NPC {
     { id = "g_away", when = { away = 14 }, text = "Back to the crypt after {away}, are you? Your slab's made up, I mean your bed, and the spiders kept to their side of the arrangement." },
     { id = "g_away_long", when = { away = 60 }, text = "You've been gone {away}, and I'd started to think the worgen had finally got you. Sit by the fire and tell me which howls you heard on the way in." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The deathguards say you've been doing good work around the Sepulcher. That earns you the slab nearest the fire, and I don't give that one to just anybody." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "bates_fl_no" } }, text = "Come in out of the pines, and well, aren't you a sight for sore eyes? Mine are sorer than most, having gone a little soft at the corners, but they still know a pleasant view." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "bates_fl_yes" }, text = "There you are! I've made up the slab by the fire, I mean the bed, and put a fresh fur on it, though not for any particular reason." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "bates_fl_no" }, text = "Welcome back. A bed and a fire and no fuss from the innkeeper, just as you like it." },
   },
 
   notice = {
@@ -857,6 +861,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Was I? An old habit, from when I had a collar worth straightening and a face worth putting above it. It's been a long while since anyone this pleasant walked into my crypt, and I find I want to look my best, or at least my least decomposed." } },
+      choices = {
+        { text = "You look very well preserved, Bates.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "bates_fl_yes" }, clear = { "bates_fl_no" } } } },
+        { text = "Can the Forsaken still feel that sort of thing?", next = "fl_feel" },
+        { text = "We're both corpses, Bates. Does that make it easier?", next = "fl_dead", when = { race = "Scourge" } },
+        { text = "That's kind, but I'm only here to rest.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "bates_fl_no" }, clear = { "bates_fl_yes" } } }, reply = "Of course, and rest you shall. I'll stop fiddling with my collar and fetch you a blanket." },
+        { text = "Don't trouble yourself, Bates. I'm not interested.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "bates_fl_no", "bates_fl_rebuff" }, clear = { "bates_fl_yes" } } }, reply = "Ah, well, the spiders still think I'm handsome. Your bed's the east slab." },
+      },
+    },
+    fl_feel = {
+      lines = { { id = "flf_default", text = "We feel it after a fashion, the way you'd feel a song you only half remember. There's no warmth in it now, but there's a sort of pleasure in being glad to see someone, and I'm very glad to see you." } },
+      choices = {
+        { text = "I'm glad to see you too, Bates.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "bates_fl_yes" }, clear = { "bates_fl_no" } } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fl_dead = {
+      lines = { { id = "fld_default", text = "Easier? It's a great deal less awkward, at least, since neither of us has to worry about blushing or breathing too hard. And I'll say this for unlife: you've worn it far better than I have." } },
+      choices = {
+        { text = "You've worn it well enough, Bates.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "bates_fl_yes" }, clear = { "bates_fl_no" } } } },
+        { text = "Let's leave the dead to rest, Bates.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "bates_fl_no" }, clear = { "bates_fl_yes" } } }, reply = "Wise words in a crypt. Your slab's by the fire." },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Well preserved! That's the nicest thing anyone's said to me since I was buried. Come back some night when the worgen are quiet, and I'll sit by the fire with you and tell you about the dances in Pyrewood, back when I could still dance without anything falling off." } },
+      choices = {
+        { text = "I'd like to hear about Pyrewood, Bates.", next = "BACK", reply = "Then come back on a quiet night. They're rare out here, so I'll save one for you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     op_tauren = {
       big = true,
       lines = {
@@ -935,6 +970,7 @@ P:NPC {
         { text = "I doubt warlocks are welcome in your crypt, Bates.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Do the spiders really mind the Light, Bates?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I cut timber in Silverpine, Bates, and drank in Pyrewood.", next = "xorig_woods", when = { origin = "forsaken_silverpine_woodsman" } },
+        { text = "Why are you straightening your collar, Bates?", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "bates_fl_rebuff" } } },
         { text = "Just a rest, thanks.", next = "END" },
       },
       again = {

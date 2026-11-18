@@ -1369,6 +1369,7 @@ P:NPC {
 
 P:NPC {
   key = "gryshka", id = TODO_NPC("Innkeeper Gryshka"), name = "Innkeeper Gryshka",
+  gender = "female",
   bible = "bibles/orgrimmar.md", role = "innkeeper", tier = "service",
   communities = { "orgrimmar" }, temper = { "hearty" }, values = { "generous" },
   notices = { "weary", "hunger" },
@@ -1384,6 +1385,9 @@ P:NPC {
     { id = "g_away_long", when = { away = 60 }, text = "You've gone {away} without a hot meal from the Tusk, and look at you, you're all gristle. Sit, and you're not getting up until you've eaten and told me every fight." },
     { id = "g_word_helped", when = { word = "helped" }, text = "Half the Tusk has been talking about the work you've done for the city, so your first plate's on the house tonight. Then you can tell me the stories yourself." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I heard you put somebody's back up in the city not long ago, and they came in here grumbling about it. Whatever it was, you leave it at the door of my inn." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "gry_fl_no" } }, text = "Sit down and let me look at you, because the Tusk doesn't get many like you through the door. Food first, and then I'll find a reason to keep you here a while." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "gry_fl_yes" }, text = "There's my favourite! I've saved you the corner seat by the fire, and don't you dare tell Zargh I said so." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "gry_fl_no" }, text = "A plate and nothing else, I remember. Sit anyway, because I feed everyone at the Tusk, even the ones who won't let me fuss over them." },
   },
 
   notice = {
@@ -1393,6 +1397,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Everyone eats at the Tusk, but not everyone gets the best cut, and you'd do well to notice which one's on your plate. A warrior with shoulders like yours needs feeding properly, and I'll admit I like to watch a strong one eat." } },
+      choices = {
+        { text = "Then keep the best cuts coming, Gryshka.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "gry_fl_yes" }, clear = { "gry_fl_no" } } } },
+        { text = "Any orc would fight a war for a seat at your table.", next = "fl_yes", when = { race = "Orc" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "gry_fl_yes" }, clear = { "gry_fl_no" } } }, reply = "Lok'tar! Now that's how an orc pays a compliment, plain and loud, so the whole inn can hear it." },
+        { text = "Is there enough on that spit for a tauren?", next = "fl_tauren", when = { race = "Tauren" } },
+        { text = "Is that how you treat Zargh, too?", next = "fl_zargh" },
+        { text = "Generous of you, but I'll just take the stew.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "gry_fl_no" }, clear = { "gry_fl_yes" } } }, reply = "Stew it is, and no harm done. You'll still get the best cut, mind, because I can't help myself." },
+        { text = "Keep your eyes on the spit, innkeeper.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "gry_fl_no", "gry_fl_rebuff" }, clear = { "gry_fl_yes" } } }, reply = "Ha! Blunt as an axe, and I respect that. The spit it is, then." },
+      },
+    },
+    fl_zargh = {
+      lines = { { id = "flz_default", text = "Zargh! Who's been talking to you about Zargh? Fine, so he sends me meat from the Barrens and I send him back the bones, and nobody in Orgrimmar can make sense of it, least of all me. A woman can admire the stew in the next pot while she waits on her own, can't she?" } },
+      choices = {
+        { text = "She can admire it all she likes.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "gry_fl_yes" }, clear = { "gry_fl_no" } } } },
+        { text = "I'd not come between you and Zargh, Gryshka.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "gry_fl_no" }, clear = { "gry_fl_yes" } } }, reply = "Hmph. You're kinder than he is, then, because he's never once told me what the bones mean to him." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fl_tauren = {
+      lines = { { id = "flt_default", text = "For a tauren? I'd need a second spit and a wider door, and you'd still want a third plate after that. Lucky for you, I've always had a soft spot for a big appetite on a big frame." } },
+      choices = {
+        { text = "Then I'll make sure to come back hungry.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "gry_fl_yes" }, clear = { "gry_fl_no" } } } },
+        { text = "Just the one plate will do, Gryshka.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "gry_fl_no" }, clear = { "gry_fl_yes" } } }, reply = "One plate for a tauren. I'll believe that when I see the bottom of it." },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Now that's an answer with some blood in it! Come back off the Valley of Honor with a fresh scar and a good story, and I'll sit with you while you eat, which is something I don't do for just anybody." } },
+      choices = {
+        { text = "I'll bring the story, Gryshka.", next = "BACK", reply = "Bring the scar too. The ones with scars always tell it better." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xpt_gryshka = {
       big = true,
       lines = { { id = "xpt_gryshka_default", text = "Pick your companions the way you'd pick a wolf, for loyalty first and teeth second, because I've seen more war bands broken by quarrels over loot than by any Alliance blade. The ones who come back to my inn every season are the ones who share the coin evenly and the night watches fairly." } },
@@ -1538,6 +1575,7 @@ P:NPC {
         { text = "Does a Forsaken paladin bother your guests, Gryshka?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
         { text = "I went down Ragefire Chasm, Gryshka. It's quiet now.", next = "xcl_rfc", when = { cleared = "Ragefire Chasm", faction = "Horde" } },
         { text = "We're a company now, Gryshka. Any advice for us?", next = "xpt_gryshka", when = { party = { size = { min = 2 } } } },
+        { text = "Do you feed everyone this well, Gryshka?", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "gry_fl_rebuff" } } },
         { text = "Just resting.", next = "END" },
       },
       again = {

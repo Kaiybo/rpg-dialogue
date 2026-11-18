@@ -121,6 +121,7 @@ P:NPC {
 ---------------------------------------------------------------------------
 P:NPC {
   key = "uc_luca", id = TODO_NPC("Alessandro Luca"), name = "Alessandro Luca", title = "Blue Moon Odds and Ends",
+  gender = "male",
   bible = "bibles/uc_luca.md", role = "vendor", tier = "service",
   communities = { "undercity" }, temper = { "smooth", "cheerful" }, values = { "greedy" },
   notices = { "purse", "race" },
@@ -133,6 +134,9 @@ P:NPC {
     { id = "g_default", text = "Ah, a discerning customer! I can always tell; they look at the blue things first." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite customer returns! Well, one of my favourites, but you're very high on the list." },
     { id = "g_green", when = { race = "Scourge" }, text = "Welcome, welcome, and you'll forgive me for saying it, but a touch of blue would do wonders against that greenish cast of yours." },
+    { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "luca_fl_no" } }, text = "Ah, a customer who makes even my midnight blue look dull! Come a little closer, my dear, because the light down here is dreadful and I'd like a better look at you." },
+    { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "luca_fl_yes" }, text = "My favourite customer, and this time I mean it with all my heart, or what the apothecaries left of it. I put a scarf aside that's very nearly the colour of your eyes." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "luca_fl_no" }, text = "Ah, the customer who only comes for the shirts! Quite right, and the shirts are very glad to see you, even if I'm not allowed to say so." },
   },
 
   notice = {
@@ -144,6 +148,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    fl = {
+      lines = { { id = "fl_default", text = "Am I? Forgive me, but I've spent all day among faded grey and canal green, and then you walk in, and suddenly I remember what a summer sky over Lordaeron looked like. I'd wrap you in Capital blue myself, if it weren't so terrible for business." } },
+      choices = {
+        { text = "Then I'll take the compliment, and pay full price.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "luca_fl_yes" }, clear = { "luca_fl_no" } } } },
+        { text = "Your heart doesn't even beat, Luca. What's all this?", next = "fl_pulse" },
+        { text = "We're both dead, Luca. Isn't this a little forward?", next = "fl_dead", when = { race = "Scourge" } },
+        { text = "Admiring my blue again, Luca?", next = "fl_yes", when = { race = "Troll" }, fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "luca_fl_yes" }, clear = { "luca_fl_no" } } }, reply = "Admiring it, coveting it, and writing very bad poems about it in the stockroom, yes." },
+        { text = "Kind words, but I'm only here to browse.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "luca_fl_no" }, clear = { "luca_fl_yes" } } }, reply = "Browse away, my friend, and I'll keep my poetry to the price tags." },
+        { text = "Save the patter for paying customers, Luca.", next = "BACK", fx = { trait = { stern = 1 }, npcFlag = { set = { "luca_fl_no", "luca_fl_rebuff" }, clear = { "luca_fl_yes" } } }, reply = "Ouch! Straight between the ribs, and I've precious few left. The patter goes back in its box." },
+      },
+    },
+    fl_pulse = {
+      lines = { { id = "flp_default", text = "It hasn't beaten since the Plague, my friend, so you can be quite sure it isn't racing now. I simply have an eye for lovely things, and I've never seen the harm in saying so out loud, since the dead have so little else to say that's pleasant." } },
+      choices = {
+        { text = "Then say it as often as you like.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "luca_fl_yes" }, clear = { "luca_fl_no" } } } },
+        { text = "I'd rather you kept your eye on the stock.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "luca_fl_no" }, clear = { "luca_fl_yes" } } }, reply = "As you wish. The stock has never once complained about being looked at." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fl_dead = {
+      lines = { { id = "fld_default", text = "Forward? My dear, we've both been buried once already, and I see no reason to waste what time we've got left on modesty. Besides, you've kept your looks far better than most of us, and that deserves celebrating in blue." } },
+      choices = {
+        { text = "Then I'll take that as a compliment.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "luca_fl_yes" }, clear = { "luca_fl_no" } } } },
+        { text = "Let's leave the celebrating to the living, Luca.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "luca_fl_no" }, clear = { "luca_fl_yes" } } }, reply = "The living never celebrate anything properly, but as you like." },
+      },
+    },
+    fl_yes = {
+      lines = { { id = "fly_default", text = "Then we have an understanding, and the best of the midnight blue will sit under my counter with your name on it. Do come by often, because a merchant needs something lovely to look at between customers, and the canal does not qualify." } },
+      choices = {
+        { text = "I'll be back, Luca.", next = "BACK", reply = "I'll be here, among the blue, counting the hours. Well, the minutes, mostly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Alessandro Luca, purveyor of Blue Moon odds and ends. Shirts, trinkets and small comforts, all in blue, because grey is the colour of the dead and green is the colour of the canals, and I am tired of both." },
@@ -160,6 +197,7 @@ P:NPC {
         { text = "I'm already blue, Luca.", next = "troll", when = { race = "Troll" } },
         { text = "Some of this looks rather purple to me.", next = "purple", when = { class = "MAGE" } },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "You're very attentive today, Luca.", next = "fl", when = { flirt = true, ["not"] = { npcFlagBefore = "luca_fl_rebuff" } } },
         { text = "Good day, Luca.", next = "END" },
       },
     },
