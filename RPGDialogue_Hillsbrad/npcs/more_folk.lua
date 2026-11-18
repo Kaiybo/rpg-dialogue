@@ -281,7 +281,7 @@ P:NPC {
     shop2 = {
       lines = {
         { id = "sp2_default", text = "To look in the window, no more. The deathguards raid those farms on the High Executor's orders, and I've asked them, quietly, to leave the tailor's shop standing. So far they have." },
-        { id = "sp2_done", when = { questDone = TODO_QUEST("Battle of Hillsbrad") }, text = "I hear you were among those sent down to the Fields. I shan't ask what you did there, but if the shop with the green shutters still has its roof, I should like to be told." },
+        { id = "sp2_done", when = { questDone = TODO_QUEST("Battle of Hillsbrad") }, text = "I am told you were among those sent down to the Fields. I shan't ask what you did there, but if the shop with the green shutters still has its roof, I should like to be told." },
       },
       choices = {
         { text = "If I pass it, I'll leave it be.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
@@ -940,6 +940,8 @@ P:NPC {
       text = "That beast of yours has its eye on my offcuts. Smart animal. I'll wrap something for it, if you're buying for yourself as well." },
     { id = "n_cook", cat = "hunger", when = { profession = "Cooking" },
       text = "You've a cook's burn on that hand. Then you'll want the shoulder and not the loin, because you'll know what to do with it." },
+    { id = "n_tauren", cat = "hunger", when = { race = "Tauren" },
+      text = "Well, I'll be. I've butchered a great many cattle, and I hope you'll not take it personal. No? Good. Then what can I do for you?" },
   },
 
   start = "hello",
@@ -1021,6 +1023,8 @@ P:NPC {
     syndicate = { { id = "tp_syn", text = "Thieves in fancy masks. They took a cart of mine on the Alterac road, and I hope the beef choked them." } },
     lordaeron = { { id = "tp_lord", text = "We paid our taxes to it and it's gone. Stormwind's a long way off, friend, and it feels longer every winter." } },
     advice = { { id = "tp_ad", text = "Cut across the grain, and never trust a thin butcher." } },
+    scourge = { { id = "tp_scourge", text = "They ruined the northern herds first. I knew something was wrong the year the Andorhal beef stopped coming." } },
+    background = { { id = "tp_bg", text = "Third Coldcleave to hold this block. My grandfather cut meat for the men who built the sea wall." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. If it's not on a hook, I don't know it." } },
   },
 }
@@ -1032,7 +1036,7 @@ P:NPC {
   key = "hb_aebischer", id = TODO_NPC("Robert Aebischer"), name = "Robert Aebischer", title = "Superior Armorsmith",
   bible = "bibles/more_folk.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "steady", "proud" }, values = { "craft", "dutiful" },
-  notices = { "kit", "craft" },
+  notices = { "kit", "craft", "class" },
   impression = {
     first = "Robert Aebischer forges and sells armor in Southshore, and the militia's dented breastplates pass across his anvil every week. He reads the state of the war in those dents and does not much like the story.",
     third = "{name} met Robert Aebischer, the armorsmith of Southshore.",
@@ -1049,6 +1053,8 @@ P:NPC {
       text = "That's been through something. I can tell you what, too: those are axe cuts, low and from the left, so you were fighting someone shorter than you who knew his business." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "You've a smith's forearms. Then tell me honestly what you think of that hauberk by the door, because my own apprentice won't." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "You carry that weight well. Most who come in here wear their armor; you look as though you live in it." },
   },
 
   start = "hello",
@@ -1131,6 +1137,7 @@ P:NPC {
     alterac = { { id = "tp_alt", text = "Fine iron, and a rotten king. The iron deserved better." } },
     silver_hand = { { id = "tp_hand", text = "I shod their horses as a lad. They tipped in silver and said thank you, every one." } },
     advice = { { id = "tp_ad", text = "Oil your mail every night you've been near the sea. Salt gets in where swords can't." } },
+    background = { { id = "tp_bg", text = "Born in Southshore, trained in Stormwind, and came home to my father's forge. I've never wanted another." } },
     _none = { { id = "tp_none", text = "Can't help you there. If it can't be hammered, it's not my trade." } },
   },
 }
@@ -1142,7 +1149,7 @@ P:NPC {
   key = "hb_raycroft", id = TODO_NPC("Sarah Raycroft"), name = "Sarah Raycroft", title = "General Goods",
   bible = "bibles/more_folk.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "warm", "observant" }, values = { "community", "practical" },
-  notices = { "kit", "class" },
+  notices = { "kit", "class", "race" },
   impression = {
     first = "Sarah Raycroft keeps Southshore's general store and can tell from a shopping list whether a customer is going on patrol or leaving town for good. She says nothing about it and packs their baskets carefully either way.",
     third = "{name} met Sarah Raycroft, who sells general goods in Southshore.",
@@ -1159,6 +1166,8 @@ P:NPC {
       text = "You're new to the road, aren't you? No shame in it. Take two waterskins and not one, and don't let anybody sell you a map of Alterac." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage! Master Odelic of the Kirin Tor is staying in town, did you know? He bought every candle I had, so I hope you weren't after candles." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "Oh, mind the bottom shelf, love, that's where I keep things for customers of your height. You'd be surprised how many pass through." },
   },
 
   start = "hello",
@@ -1239,6 +1248,8 @@ P:NPC {
     syndicate = { { id = "tp_syn", text = "They buy from me in plain clothes, some of them. I know, and they know I know, and I take the money." } },
     dalaran = { { id = "tp_dal", text = "There's a great purple bubble where it used to be. The loremaster says the mages are rebuilding, and I say they might answer their letters." } },
     advice = { { id = "tp_ad", text = "Buy the good rope, love. Nobody ever wished they'd bought the cheap rope." } },
+    scourge = { { id = "tp_scourge", text = "My mother's people were from Andorhal. We stopped getting letters, and then we stopped expecting them." } },
+    background = { { id = "tp_bg", text = "I've kept this counter eleven years. I had it from my aunt, who had it when Southshore was only nets and a jetty." } },
     _none = { { id = "tp_none", text = "I couldn't say, love. I only know what goes over the counter." } },
   },
 }
@@ -1250,7 +1261,7 @@ P:NPC {
   key = "hb_lanyda", id = TODO_NPC("Jaysin Lanyda"), name = "Jaysin Lanyda", title = "Poisons & Reagents",
   bible = "bibles/more_folk.md", role = "vendor", tier = "service",
   communities = { "southshore" }, temper = { "sly", "genial" }, values = { "practical", "discreet" },
-  notices = { "class" },
+  notices = { "class", "race" },
   impression = {
     first = "Jaysin Lanyda sells reagents and poisons in Southshore, and he is cheerful about being the least respectable shopkeeper in a respectable town. He is careful to say that everything he sells is for the war.",
     third = "{name} met Jaysin Lanyda, who sells poisons and reagents in Southshore.",
@@ -1267,6 +1278,8 @@ P:NPC {
       text = "A paladin. Now, before you say anything, the reagents are all perfectly holy, and the other shelf is rat poison. Mostly rat poison." },
     { id = "n_caster", cat = "class", when = { class = { "MAGE", "PRIEST", "DRUID", "SHAMAN", "WARLOCK" } },
       text = "You'll be wanting the reagent side. Runes, powders, the usual. I keep them well apart from the other things, since I had a mix-up once." },
+    { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
+      text = "A night elf. Your huntresses coat their arrows, I'm told, and nobody calls them cowards for it. I've often thought it's all in how tall you are." },
   },
 
   start = "hello",
@@ -1348,6 +1361,8 @@ P:NPC {
     syndicate = { { id = "tp_syn", text = "They used to be customers, before they started on the wells. I've standards. They're low, but I've got them." } },
     new_plague = { { id = "tp_np", text = "There's talk the dead are brewing something at Tarren Mill. If it's true, nothing on my shelves will answer it, and that frightens me." } },
     advice = { { id = "tp_ad", text = "Label everything, and never taste to check." } },
+    ravenholdt = { { id = "tp_rav", text = "There's a house in the hills that buys from nobody and knows everybody. I've sent them my compliments twice, and had no answer, which I took as one." } },
+    background = { { id = "tp_bg", text = "I was an apothecary's boy in Stormwind, and I was better at the wrong half of the trade." } },
     _none = { { id = "tp_none", text = "Never heard of it, and I mean that in the ordinary way this time." } },
   },
 }

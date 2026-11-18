@@ -768,7 +768,7 @@ P:NPC {
   key = "magnus_frostwake", id = TODO_NPC("Magnus Frostwake"), name = "Magnus Frostwake",
   bible = "bibles/more_folk.md", role = "vendor", tier = "service",
   communities = { "caer_darrow" }, temper = { "gruff", "proud" }, values = { "craft", "practical" },
-  notices = { "craft" },
+  notices = { "craft", "race" },
   impression = {
     first = "Magnus Frostwake is the ghost of a dwarven smith who kept a forge on Caer Darrow and still sells his plans from it. He believes trade has merely been slow, and he blames the ferry.",
     third = "{name} met Magnus Frostwake, a dwarven ghost who still sells smithing plans at Caer Darrow.",
@@ -785,6 +785,8 @@ P:NPC {
       text = "Ye've a smith's hands, and ye've burned them on the same spot I did. Then ye'll know my plans are worth what I ask." },
     { id = "n_alch", cat = "craft", when = { profession = "Alchemy" },
       text = "An alchemist, are ye? I took a few recipes in trade from the academy's own stillroom. I can't make head nor tail of them, but they're genuine." },
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "A gnome! Ye'll have opinions on my bellows, I've nae doubt. Go on, have a look, but put back anything ye unscrew." },
   },
 
   start = "hello",
@@ -866,6 +868,7 @@ P:NPC {
     scholomance = { { id = "tp_schol", text = "The academy under the big house? Their stewards buy lamp brackets, and pay in old coin. I don't ask what they're studying." } },
     advice = { { id = "tp_ad", text = "Never quench in a hurry. A blade remembers how it was treated." } },
     background = { { id = "tp_bg", text = "Ironforge born, Caer Darrow by choice. I've shod every horse on this island, and a few of the lords." } },
+    scourge = { { id = "tp_scourge", text = "Scourge? I dinnae know the word. There's been talk of sickness at the big house, but there's always talk on an island." } },
     _none = { { id = "tp_none", text = "Cannae help ye. If it's nae iron, ask the magistrate; he knows everything and enjoys none of it." } },
   },
 }
@@ -877,7 +880,7 @@ P:NPC {
   key = "melia_darrow", id = TODO_NPC("Melia"), name = "Melia",
   bible = "bibles/more_folk.md", role = "child", tier = "service",
   communities = { "caer_darrow" }, temper = { "bossy", "bright" }, values = { "play", "fair" },
-  notices = { "pet", "class" },
+  notices = { "pet", "class", "race" },
   impression = {
     first = "Melia is the ghost of a small girl who races her friend Sammy around Caer Darrow's fountain and wins more often than he thinks is fair. She does not know anything is wrong, except that the grown-ups have gone quiet.",
     third = "{name} met Melia, the ghost of a little girl still playing by the fountain at Caer Darrow.",
@@ -894,6 +897,8 @@ P:NPC {
       text = "Is that yours? Can I pat it? Sammy, look! Mother says I'm not to touch strange animals, but that one looks sensible." },
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
       text = "You look like the priest who comes over on the ferry. He gave me a sweet once. Have you got any sweets?" },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "You've got a beard like Mister Frostwake! He lets me work the bellows sometimes. Do you make horseshoes too?" },
   },
 
   start = "hello",
@@ -983,6 +988,8 @@ P:NPC {
     scholomance = { { id = "tp_schol", text = "That's the school. We're not allowed near it. The big boys who go there never come out to play." } },
     background = { { id = "tp_bg", text = "I'm seven and three quarters. I live in the house with the blue door, and I can run faster than anybody." } },
     advice = { { id = "tp_ad", text = "Watch the loose stone by the fountain. It gets you every time." } },
+    darrowshire = { { id = "tp_darrow", text = "My cousin lives there! She's got a pony. I'm going to visit when the ferry comes." } },
+    holy_light = { { id = "tp_light", text = "We say prayers on rest day. I'm supposed to keep my eyes shut, but I look at Sammy and he pulls faces." } },
     _none = { { id = "tp_none", text = "I don't know. Ask a grown-up. They never know either, but they take longer to say so." } },
   },
 }
@@ -1011,6 +1018,8 @@ P:NPC {
       text = "Are you from the school? No, you're not, your robe's the wrong colour. Good. I don't like the ones from the school." },
     { id = "n_scourge", cat = "race", when = { race = "Scourge" },
       text = "You look like the men who carry things out of Lord Barov's cellar at night. But you've got nicer eyes. Are you ill as well?" },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "Are you a friend of Mister Frostwake's? He's nice. His forge used to be all orange inside. It's grey now, and he hasn't noticed." },
   },
 
   start = "hello",
@@ -1099,6 +1108,8 @@ P:NPC {
     scholomance = { { id = "tp_schol", text = "I don't like it. It used to have a bell for lessons. Now it hasn't got a bell." } },
     background = { { id = "tp_bg", text = "I'm eight. I live over the chandler's with my uncle, who's a guardsman, and I'm going to be one too." } },
     advice = { { id = "tp_ad", text = "If you're racing Melia, go on the ready. It's the only way." } },
+    scourge = { { id = "tp_scourge", text = "I don't know what that is. Is it why the birds stopped?" } },
+    holy_light = { { id = "tp_light", text = "The priest said the Light looks after children specially. I've been saying my prayers twice, just in case once isn't enough." } },
     _none = { { id = "tp_none", text = "I don't know that. I know about racing, and cannons, a bit." } },
   },
 }

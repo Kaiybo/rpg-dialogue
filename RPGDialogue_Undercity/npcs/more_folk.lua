@@ -2135,7 +2135,7 @@ P:NPC {
   key = "uc_keever", id = TODO_NPC("Apothecary Keever"), name = "Apothecary Keever",
   bible = "bibles/more_folk.md", role = "scholar", tier = "service",
   communities = { "undercity", "apothecarium" }, temper = { "muttering", "fussy" }, values = { "curious", "loyal" },
-  notices = { "profession", "class" },
+  notices = { "profession", "class", "race" },
   impression = {
     first = "Apothecary Keever tests serums on caged subjects in the Apothecarium and is disappointed, each time, by the small animal that results. He speaks of himself as Keever, as if he were his own assistant.",
     third = "{name} met Apothecary Keever, Master Faranell's muttering assistant in the Apothecarium.",
