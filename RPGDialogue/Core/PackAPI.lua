@@ -193,6 +193,11 @@ kinds.Errand = simpleKind("errands")
 kinds.Letter = simpleKind("letters")
 kinds.Town = simpleKind("towns")
 kinds.Origin = simpleKind("origins")
+-- Gut feelings (Systems/Insight.lua): note pools by tell, with class-flavored variants.
+function kinds.GutNotes(pack, def)
+  def._pack = pack.id
+  if ns.Insight then ns.Insight.Add(def) end
+end
 -- Views (0.82.0): what the player can say back after an "Ask about..." answer. One
 -- definition per topic (topic = "_any" for every topic without views of its own); several
 -- packs may add to the same topic. Replies are indexed as lines "view:<topic>.<view>.<id>".

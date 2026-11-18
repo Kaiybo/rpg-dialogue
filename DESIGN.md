@@ -854,6 +854,13 @@ If a line throws an error, paste the error instead. That tells us something too.
 - **Data.** `P:Views { topic, views = { { id, text, when, fx, replies = { lines } } } }` (`RPGDialogue_World/views*.lua`; several packs may add to one topic). `_any`: views for every non-standard topic without its own; `_shrug`: fallback replies. NPCs may add `views = { [topic] = {...} }` (offered before the topic's) and `viewReplies = { [viewId] = { lines } }` (scored as their own). Replies are indexed as `view:<topic>.<view>.<id>` (NPC: `<key>.view_<topic>.<view>.<id>`), picked by `Engine.PickViewReply` (slot `view`, fade a day); a reply's `fx` applies when shown (usually affinity, which drives the approval note and town word).
 - **Rules.** One view per topic per NPC (`mem.views[topic]`); the rest vanish for good with that person. Views are statements; `fx.align` applies once per topic per NPC (`mem.stances["view:<topic>"]`) and, as with stances, a topic with any aligned view has at least two opposing ones. Every view records `opinion = { <topic> = stance }`, so it lands in the journal's beliefs with the player's own words.
 
+### 3.15 Gut feelings (unreleased)
+- **What it is** (`Systems/Insight.lua`, BG3 Insight): when an NPC says a line they're unreliable about, sometimes a dim note under the page: "Something in his voice doesn't sit right." Shown with the approval note (`Conv.ShowPendingNote`, `s.gutNote`). Setting `gutFeelings` (default on).
+- **Which lines.** A line's own `tell = "lie" | "true" | "hiding" | "afraid"` wins; otherwise the first `fx.hear` claim with a tell: the claim's own `tell`, else from `truth` (`false` lie, `partly` hiding, `disputed`/`unknown` true; plainly true claims say nothing).
+- **Chance** (`Insight.Chance`, capped 65%): base 10%; class (rogue, priest +18%; druid, shaman +14%; others less); dominant traits skeptical/cautious/curious/witty; disposition Warm +8% (Friendly+ another 4%); +20% when the claim was contradicted (exposed, a heard claim whose `contradicts` names it or that it names, or a heard `exposedBy` line). Rolled from a hash of NPC and line, so reopening never rerolls; a line that has given a note never gives another. One per conversation.
+- **Journal.** A noticed lie marks `char.claims.doubted[claim]` and `[line gid]`: "You doubted this." after the claim on Myself and after the answer on Heard of.
+- **Notes.** `P:GutNotes { lie = {...}, ["true"] = {...}, hiding, afraid, class = { ROGUE = { lie = {...} } } }` (World `gut.lua`); `{his}` `{him}` `{His}` follow the speaker's sex, `{npc}` their name. A class variant is used about a third of the time.
+
 ### 3.10 Window style (look)
 
 Two looks, setting "Window style" (`look`), switchable while a conversation is open:

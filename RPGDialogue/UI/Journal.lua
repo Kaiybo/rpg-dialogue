@@ -382,7 +382,8 @@ local function heard(add, c, search)
           local line = ns.Data.Line(a.gid)
           if line and line.text then
             local who = a.name or (c.npc[a.who] and c.npc[a.who].name) or a.who
-            add(L.J_SAID:format(who, ns.Tokens.Render(line.text, ctx, { info = { name = who } })), "note")
+            local doubt = c.claims.doubted and c.claims.doubted[a.gid] and (" " .. L.J_DOUBTED) or ""
+            add(L.J_SAID:format(who, ns.Tokens.Render(line.text, ctx, { info = { name = who } })) .. doubt, "note")
           end
         end
       end
@@ -546,6 +547,7 @@ local function myself(add, c)
     local def = ns.Data.claims[id]
     local who = def and def.by and ns.Data.npcs[def.by] and ns.Data.npcs[def.by].name or tostring(rec.npc or "?")
     lines[#lines + 1] = L.J_INSISTS:format(who, def and def.text or id) .. (c.claims.exposed[id] and (" " .. L.J_SETTLED) or "")
+      .. (c.claims.doubted and c.claims.doubted[id] and (" " .. L.J_DOUBTED) or "")
   end
   table.sort(lines)
   if #lines > 0 then

@@ -328,6 +328,7 @@ local function build()
   checkbox(L.OPT_DISPOSITION, "showDisposition")
   checkbox(L.OPT_APPROVAL, "approval")
   checkbox(L.OPT_CHECK_RESULTS, "checkResults")
+  checkbox(L.OPT_GUT, "gutFeelings")
 
   -- The world: people noticing you, speaking up, the madness.
   header(L.OPT_HEADER_WORLD)

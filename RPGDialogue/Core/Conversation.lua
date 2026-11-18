@@ -200,6 +200,8 @@ function Conv.Shown(winner)
   if not winner or not s then return end
   Memory.MarkSeen(winner.gid, winner.line)
   for sys in pairs(winner.systems or {}) do ns.Pacing.Use(sys, s.env) end
+  -- Gut feeling (BG3 insight): checked before the line's fx records its claim as heard.
+  if ns.Insight and not s.gutNote then s.gutNote = ns.Insight.Notice(s, winner) end
   if winner.line.fx then Effects.Apply(winner.line.fx, s.env) end
   if winner.line.journal and not winner.line._thread then Effects.Journal(winner.line.journal, s.ctx, s.env) end
   if winner.line._thread and ns.Threads then ns.Threads.Heard(winner.line, s.env) end
@@ -807,6 +809,7 @@ function Conv.ShowNode(nodeId, reply)
     askCount = ns.Topics and ns.Topics.Count(), disposition = Conv.DispositionView(s),
   })
   if ns.db.settings.tts then Conv.Speak(s, body) end
+  Conv.ShowPendingNote()
 end
 
 -- Read a page aloud in a voice that fits the speaker (see Compat's text to speech).
@@ -1041,9 +1044,11 @@ end
 -- The note from the last reply, under the new page's text.
 function Conv.ShowPendingNote()
   local s = Conv.session
-  if not s or not s.pendingNote then return end
+  if not s then return end
   local note = s.pendingNote
-  s.pendingNote = nil
+  if s.gutNote then note = note and (note .. "  " .. s.gutNote) or s.gutNote end
+  s.pendingNote, s.gutNote = nil, nil
+  if not note then return end
   if s.mode ~= "full" then return end
   local hex = ns.UI and ns.UI.Theme and ns.UI.Theme.Hex("dim") or "|cff888888"
   View(s).ShowReaction(hex .. note .. "|r")
@@ -1130,6 +1135,7 @@ function Conv.Ask(topic)
   Conv.Log("ask", tdef and tdef.name or topic)
   Conv.Log("npc", text)
   View(s).ShowAnswer(text, tdef and tdef.name or topic, linked)
+  Conv.ShowPendingNote()
   local nextId = w and w.line.next
   local node = nextId and s.info.def and s.info.def.nodes and s.info.def.nodes[nextId]
   if node then
