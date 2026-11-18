@@ -9,7 +9,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "gruff" }, values = { "dutiful", "practical" },
   notices = { "pet", "class" },
   impression = {
-    first = "Gazrog keeps the Crossroads guard tower and lost the guards' silver to a pack of raptors. He still cannot believe it, and he has to face every unpaid grunt in town until the silver comes back.",
+    first = "He lost the guards' silver to a pack of raptors.",
     third = "{name} met Gazrog at the Crossroads, the orc whose guard payroll was stolen by raptors.",
   },
 

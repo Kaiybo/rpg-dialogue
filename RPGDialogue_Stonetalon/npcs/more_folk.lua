@@ -13,7 +13,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "race", "class" },
   impression = {
-    first = "Braug Dimspirit is a tauren shaman who keeps a hut by the Talondeep Path and tests the minds of those Dorn Plainstalker sends him. He spoke of goblins, night elves and the younger races all sharing the blame for the world's pain, and he spared none of them.",
+    first = "He blames every race for the world's pain and spares none.",
     third = "{name} met Braug Dimspirit, the shaman by the Talondeep Path who gives the Test of Lore.",
   },
   greetings = {
@@ -125,7 +125,7 @@ P:NPC {
   communities = { "malakajin" }, temper = { "cheerful", "sly" }, values = { "trade", "hunt" },
   notices = { "race", "class" },
   impression = {
-    first = "Denni'ka butchers and sells meat at Malaka'jin, the troll camp where the Barrens road climbs into Stonetalon. She laughs a lot and cuts fast, and she claimed to know what every beast in the mountains tastes like.",
+    first = "She claims to know what every beast in the mountains tastes like.",
     third = "{name} met Denni'ka, the troll butcher at Malaka'jin.",
   },
   greetings = {

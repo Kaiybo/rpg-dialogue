@@ -11,7 +11,7 @@ P:NPC {
   notices = { "craft", "kin" },
 
   impression = {
-    first = "High Tinker Mekkatorque speaks fast, worries about whether people are eating, and has more ideas than he can test. Leading his people from someone else's city weighs on him more than he lets on.",
+    first = "Leading his people from someone else's city weighs on him.",
     third = "{name} met High Tinker Gelbin Mekkatorque, the elected leader of the gnomes, who works from Ironforge while Gnomeregan cannot be lived in.",
   },
 
@@ -597,7 +597,7 @@ P:NPC {
   notices = { "lore" },
 
   impression = {
-    first = "Royal Historian Archesonus learned my voice before she learned my name, since her eyes went long ago. Her memory has more than made up for it.",
+    first = "Her eyes went long ago, so she knows me by my voice.",
     third = "{name} spoke with Royal Historian Archesonus, the blind keeper of Ironforge's history who knows her visitors by their voices.",
   },
 
@@ -894,7 +894,7 @@ P:NPC {
   notices = { "lore", "travel" },
 
   impression = {
-    first = "High Explorer Magellas warned me not to touch anything with a label, or without one. His Prospectors do the digging, he says, and he does the worrying, and he's good at it.",
+    first = "His Prospectors do the digging and he does the worrying.",
     third = "{name} met High Explorer Muninn Magellas in the Hall of Explorers, who leads the Explorers' League from Ironforge.",
   },
 
@@ -1276,7 +1276,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Prospector Stormpike looked up from his reading just long enough to make clear I'd interrupted. He isn't unkind, only spare with his words and his time.",
+    first = "He isn't unkind, only spare with his words and his time.",
     third = "{name} interrupted Prospector Stormpike's reading in the Hall of Explorers, and the dwarf made plain he had little time for chat.",
   },
 
@@ -1527,7 +1527,7 @@ P:NPC {
   notices = { "kit", "greenness" },
 
   impression = {
-    first = "Senator Mehr Stonehallow could be debating somewhere warm and is counting troggs in a quarry instead. He seems proud of that, and rightly.",
+    first = "He could debate somewhere warm and counts troggs in a quarry instead.",
     third = "{name} met Senator Mehr Stonehallow, who left the warmth of the Senate to hold the Gol'Bolar Quarry against the troggs.",
   },
 
@@ -1878,7 +1878,7 @@ P:NPC {
   notices = { "drink", "weary" },
 
   impression = {
-    first = "Innkeeper Firebrew keeps the Stonefire loud, warm and full of stories that grow as the kegs empty. He likes anyone who'll add to the noise.",
+    first = "His stories grow as the kegs empty.",
     third = "{name} took a stool at the Stonefire Tavern, where Innkeeper Firebrew keeps the beer strong and the stories tall.",
   },
 

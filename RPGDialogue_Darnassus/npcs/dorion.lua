@@ -8,7 +8,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "quiet", "dry" }, values = { "patience", "loyalty" },
   notices = { "pet", "class" },
   impression = {
-    first = "Dorion trains hunters in the Enclave with a grey wolf named Shadow lying across his feet. He says more to the wolf than to his students, and the wolf seems to listen better.",
+    first = "He says more to his wolf than to his students.",
     third = "{name} met Dorion, a hunter trainer of the Cenarion Enclave who keeps a wolf called Shadow.",
   },
 

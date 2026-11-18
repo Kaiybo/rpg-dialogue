@@ -15,7 +15,7 @@ P:NPC {
   notices = { "craft", "kit", "race", "purse" },
 
   impression = {
-    first = "Brikk Keencraft is a goblin smith with forearms like knotted rope and not a single hair left on either of them. Brikk priced my sword by the sound of it while we talked, and never once stopped working the bellows.",
+    first = "This smith prices a sword by the sound of it.",
     third = "{name} met Brikk Keencraft, the goblin who teaches blacksmithing in Booty Bay and claims to hear a flaw in a blade before it's struck.",
   },
 
@@ -333,7 +333,7 @@ P:NPC {
   notices = { "kit", "race", "class" },
 
   impression = {
-    first = "Fargon Mortalak is a grey, weathered human armorer who looks at a customer the way a quartermaster looks at a recruit. He measured my shoulders with his eyes before I'd said a word, and he didn't seem to like what he found.",
+    first = "He looks at customers the way a quartermaster looks at recruits.",
     third = "{name} met Fargon Mortalak, a human armorer at the Plate-n-Chain in Booty Bay who once fitted soldiers for Colonel Kurzen's column.",
   },
 
@@ -583,7 +583,7 @@ P:NPC {
   notices = { "pet", "kit" },
 
   impression = {
-    first = "Hurklor is the biggest armorer I've ever met and very nearly the gentlest person in Booty Bay. He talks slowly, as if every word had to be lifted, and he keeps a hermit crab in an old helm on the end of his bench.",
+    first = "He keeps a hermit crab in an old helm on his bench.",
     third = "{name} met Hurklor, the quiet armorer who holds the plates for Fargon Mortalak at the Plate-n-Chain and keeps a crab named Rivet.",
   },
 
@@ -780,7 +780,7 @@ P:NPC {
   notices = { "craft", "kit", "class" },
 
   impression = {
-    first = "Grarnik Goodstitch is the eldest of Booty Bay's Goodstitch clan and dresses like it, in a waistcoat with more buttons than it needs. Every compliment Grarnik paid me came with a price attached, and I think he meant each one.",
+    first = "Every compliment comes with a price attached, and each one is meant.",
     third = "{name} met Grarnik Goodstitch, head of the Goodstitch family, who teaches tailoring at A Tailor to Cities and dresses the Baron himself.",
   },
 
@@ -1038,7 +1038,7 @@ P:NPC {
   notices = { "craft", "pet", "race" },
 
   impression = {
-    first = "Blixrez Goodstitch runs a tannery that I could smell from the pier, and is cheerfully proud of every whiff. Blixrez is the Goodstitch the rest of the family seats by the window, and doesn't seem to mind in the least.",
+    first = "The rest of the family seats this Goodstitch by the window.",
     third = "{name} met Blixrez Goodstitch, the leather-selling black sheep of the Goodstitch family, at Tan-Your-Hide Leatherworks in Booty Bay.",
   },
 
@@ -1226,7 +1226,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Oglethorpe Obnoticus is a gnome engineer surrounded by live wires and half-built robots, and he talks about his banishment from Tinker Town the way other people talk about the weather. He insists he was framed, and he insists it at length.",
+    first = "He insists he was framed, and he insists it at length.",
     third = "{name} met Oglethorpe Obnoticus, the exiled gnome engineer in Booty Bay who builds the OOX homing robots and swears he never let the Crowd Pummeler loose.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Dorin Songblade refits armour in Lakeshire and worries about a brother who went digging in the Wetlands. He hides it behind a pile of girdles and a gruff word.",
+    first = "He frets over a brother who went digging in the Wetlands.",
     third = "{name} met Dorin Songblade, a dwarf armorer in Lakeshire whose brother Daewyn went off with a dig crew to the Wetlands.",
   },
 

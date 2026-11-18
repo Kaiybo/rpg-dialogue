@@ -10,7 +10,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "gruff", "practical" }, values = { "practical", "loyal" },
   notices = { "race", "purse", "weary" },
   impression = {
-    first = "Grawnal sells bread, water and bags at Sun Rock and counts every crate twice, because every crate came up the mountain on a kodo's back. He grumbles like an old sergeant and means about half of it.",
+    first = "He grumbles like an old sergeant and means about half of it.",
     third = "{name} met Grawnal, the orc who keeps Sun Rock Retreat stocked with bread, water and bags.",
   },
 
@@ -154,7 +154,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "patient", "warm" }, values = { "craft", "nature" },
   notices = { "craft", "race" },
   impression = {
-    first = "Kulwia sells thread, vials, rods and a few enchanting formulas from a corner of Sun Rock, and she talks about craft the way other tauren talk about the Earth Mother. She asked what I make before she asked what I wanted.",
+    first = "She asks what I make before she asks what I want.",
     third = "{name} met Kulwia, the patient tauren who sells trade supplies at Sun Rock Retreat.",
   },
 
@@ -284,7 +284,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "loud", "jovial" }, values = { "practical", "hearty" },
   notices = { "race", "hunger", "pet" },
   impression = {
-    first = "Krond sells meat at Sun Rock with his sleeves rolled up and his voice at full volume, and he judges people by what they eat. He thinks the tauren are wrong about most things to do with dinner.",
+    first = "He judges people by what they eat.",
     third = "{name} met Krond, the loud orc butcher of Sun Rock Retreat.",
   },
 
@@ -394,7 +394,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "dry", "steady" }, values = { "craft", "practical" },
   notices = { "class", "race", "weary" },
   impression = {
-    first = "Borand is an orc who sells bows, which he admits is odd for an orc, and he defends it with the calm of someone who has watched harpies fly over axe-men. He mends gear while he talks and doesn't look up much.",
+    first = "He took up bows after watching harpies fly over axe-men.",
     third = "{name} met Borand, the orc bowyer of Sun Rock Retreat.",
   },
 

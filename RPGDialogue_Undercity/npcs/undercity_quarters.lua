@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Michael Garrett keeps the bats by the Undercity's outer gate, and he speaks of them with more warmth than he shows for most living things. He has a dry humor that reminds you he's been dead a while.",
+    first = "He shows his bats more warmth than most living things.",
     third = "{name} met Michael Garrett, the bat handler of the Undercity.",
   },
 
@@ -202,7 +202,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Anastasia Hartwell teaches mages in the Undercity's Magic Quarter, and she treats the arcane like a scalpel. She was a scholar in life and has lost none of her impatience with fools.",
+    first = "She has lost none of her impatience with fools.",
     third = "{name} met Anastasia Hartwell, a mage trainer in the Undercity.",
   },
 
@@ -374,7 +374,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Apothecary Zinge works in the Apothecarium under Master Apothecary Faranell, and she talks about her experiments the way other people talk about the weather. She doesn't look up from her work much.",
+    first = "She talks about her experiments the way others talk about weather.",
     third = "{name} met Apothecary Zinge in the Undercity's Apothecarium.",
   },
 

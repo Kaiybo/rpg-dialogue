@@ -11,7 +11,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Gordon Wendham sells blades in the Trade Quarter and calls the living \"warm ones\" as if it were a diagnosis. His apprentice put a bolt in him on the Brill road, and he has decided every beating heart would do the same.",
+    first = "His apprentice shot him, so now he trusts no beating heart.",
     third = "{name} met Gordon Wendham, an Undercity weaponsmith who forged for Lordaeron's army and now trusts nobody with a pulse.",
   },
 

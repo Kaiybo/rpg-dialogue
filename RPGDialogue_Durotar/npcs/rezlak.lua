@@ -9,7 +9,7 @@ P:NPC {
   temper = { "anxious" }, values = { "profit", "practical" },
   notices = { "purse", "craft" },
   impression = {
-    first = "Rezlak is one of Gazlowe's goblins, posted on the road outside Orgrimmar to keep the supply caravans moving. The harpies keep taking them, and he talks faster every time he counts what that has cost.",
+    first = "He talks faster every time he counts what the harpies cost.",
     third = "{name} met Rezlak of the Tinkers' Union, a harried goblin trying to keep Gazlowe's caravans safe from the Durotar harpies.",
   },
 

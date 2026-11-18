@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Donova Snowden studies the hot springs and the creatures around them, and she is worried sick about the Winterfall furbolgs. Something is poisoning them, and she means to find out what.",
+    first = "She means to find out what is poisoning the Winterfall furbolgs.",
     third = "{name} met Donova Snowden, a warm-hearted dwarf naturalist studying the hot springs of Winterspring.",
   },
 
@@ -266,7 +266,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Witch Doctor Mau'ari speaks of herself by name and bargains in spirits and juju. She has been up in the ice long enough to stop complaining about the cold, though not to stop feeling it.",
+    first = "She has stopped complaining about the cold, but not feeling it.",
     third = "{name} met Witch Doctor Mau'ari, the playful troll witch doctor of Winterspring who trades in E'ko and juju.",
   },
 

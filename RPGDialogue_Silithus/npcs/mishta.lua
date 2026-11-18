@@ -8,7 +8,7 @@ P:NPC {
   communities = { "cenarion_hold" }, temper = { "fussy", "anxious" }, values = { "careful", "practical" },
   notices = { "craft", "purse" },
   impression = {
-    first = "Mishta sells thread, salt and flux at Cenarion Hold and is always about to run out of all three. She blames a goblin supplier she has never once seen arrive on time.",
+    first = "She blames a goblin supplier she has never seen arrive on time.",
     third = "{name} met Mishta, the anxious trade-goods seller at Cenarion Hold.",
   },
 

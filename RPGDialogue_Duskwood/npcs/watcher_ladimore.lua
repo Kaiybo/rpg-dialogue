@@ -11,7 +11,7 @@ P:NPC {
   notices = { "paladin", "grief" },
 
   impression = {
-    first = "Watcher Sarah Ladimore stands her post in Darkshire knowing that the thing her comrades fear most once tucked her into bed. She carries it more quietly than I could.",
+    first = "The thing her comrades fear most once tucked her into bed.",
     third = "{name} met Watcher Sarah Ladimore of the Night Watch, daughter of Morgan Ladimore and the only one of her family who survived him.",
   },
 

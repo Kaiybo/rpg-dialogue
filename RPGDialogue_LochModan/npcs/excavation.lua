@@ -11,7 +11,7 @@ P:NPC {
   notices = { "kit", "craft" },
 
   impression = {
-    first = "Magmar Fellhew keeps the tally at Ironband's dig: every crate, every pick and every trogg sighted, in a hand so small it needs a lamp. He seemed relieved just to have someone to tell it all to.",
+    first = "He seemed relieved just to have someone to tell his tallies to.",
     third = "{name} met Magmar Fellhew, who minds the details of Ironband's Excavation and counts troggs the way other dwarves count coin.",
   },
 
@@ -236,7 +236,7 @@ P:NPC {
   notices = { "soldier", "kit" },
 
   impression = {
-    first = "Huldar hauls blastpowder for the Explorers' League and sits on the barrels while he talks, which says a lot about his nerves or his sense. He trusted his crew completely, once.",
+    first = "He trusted his crew completely, once.",
     third = "{name} met Huldar, a League hauler on the road south of the loch, who learned the hard way who rode beside him.",
   },
 

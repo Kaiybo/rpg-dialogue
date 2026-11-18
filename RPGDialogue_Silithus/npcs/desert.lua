@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "status" },
 
   impression = {
-    first = "Layo Starstrike keeps Valor's Rest, a graveyard at the edge of Silithus, and speaks of the dead with more tenderness than most people spare the living. He warned me not to wake the past.",
+    first = "He warns me not to wake the past.",
     third = "{name} met Layo Starstrike, the Cenarion Circle's agent at Valor's Rest, who tends the graves of those who fell in the wastes.",
   },
 
@@ -360,7 +360,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Hermit Ortell deserted the Twilight's Hammer and now hides in a cave, jumping at shadows and very pleased with his own cleverness. He told the cult he's in Westfall, and he's proud of it.",
+    first = "He told the cult he's in Westfall, and he's proud of it.",
     third = "{name} met Hermit Ortell, a deserter from the Twilight's Hammer hiding in the hills of Silithus.",
   },
 
@@ -657,7 +657,7 @@ P:NPC {
   notices = { "race", "status" },
 
   impression = {
-    first = "Rutgar Glyphshaper runs Bronzebeard's Encampment while Brann is off getting lost again. He's gruff, impatient, and certain they're onto something huge that Ironforge won't send an army for.",
+    first = "He's certain they've found something huge that Ironforge is ignoring.",
     third = "{name} met Rutgar Glyphshaper, the Explorers' League dwarf who holds Bronzebeard's Encampment in the south of Silithus.",
   },
 
@@ -957,7 +957,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Frankal Stonebridge watches the sky over Silithus for dragons and tells the story of Natalia's madness with great relish and greater volume. He thinks the monkey deserves a medal.",
+    first = "He thinks the monkey deserves a medal.",
     third = "{name} met Frankal Stonebridge, a talkative dwarf of Bronzebeard's Encampment who saw Natalia Mar'alith go mad.",
   },
 

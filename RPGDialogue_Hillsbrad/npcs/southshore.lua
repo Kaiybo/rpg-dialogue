@@ -10,7 +10,7 @@ P:NPC {
   notices = { "soldier", "kit" },
 
   impression = {
-    first = "Marshal Redpath was headman when Southshore took in Stormwind's refugees, and now the town is full of their children. He's small-town stubborn and proud of it.",
+    first = "He's small-town stubborn and proud of it.",
     third = "{name} met Marshal Redpath, who has watched over Southshore since the first refugee boats came from Stormwind.",
   },
 
@@ -498,7 +498,7 @@ P:NPC {
   notices = { "status" },
 
   impression = {
-    first = "Magistrate Henry Maleb is young for the post and buried in papers about the Syndicate. He was pleased to see me, and a little too honest about wishing he were a clerk somewhere safer.",
+    first = "He is too honest about wishing he were a clerk somewhere safer.",
     third = "{name} met Magistrate Henry Maleb, Southshore's young magistrate, whose desk is buried in reports about the Syndicate.",
   },
 
@@ -841,7 +841,7 @@ P:NPC {
   notices = { "drink" },
 
   impression = {
-    first = "Lieutenant Farren Orinelle claims every chair in the inn and has apparently been in charge of murlocs since last spring. He calls it building character, and he doesn't look convinced.",
+    first = "He calls commanding murlocs building character, and he doesn't look convinced.",
     third = "{name} met Lieutenant Farren Orinelle, late of the Stormwind City Guard, now charged with Southshore's murloc troubles.",
   },
 
@@ -1189,7 +1189,7 @@ P:NPC {
   notices = { "paladin", "drink" },
 
   impression = {
-    first = "Brewmeister Bilger was a knight of the Silver Hand once and never touched a drop. He has made up for it since, and he tells the story without a trace of shame.",
+    first = "He never drank as a knight, and has made up for it.",
     third = "{name} met Brewmeister Bilger in the Southshore cellar, a former knight of the Silver Hand who turned to brewing.",
   },
 
@@ -1435,7 +1435,7 @@ P:NPC {
   notices = { "lore" },
 
   impression = {
-    first = "Loremaster Dibbs is saving what's left of the old kingdom's books from ogre cookfires. He talks about them the way other people talk about lost friends.",
+    first = "He talks about the old kingdom's books like lost friends.",
     third = "{name} met Loremaster Dibbs, who collects the scattered knowledge of the old kingdom in Southshore.",
   },
 
@@ -1671,7 +1671,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Innkeeper Anderson told me to shut the door against the rain and then admitted every corner leaks. Honest about his roof is honest enough for me.",
+    first = "He admits every corner of his roof leaks, which is honest enough.",
     third = "{name} took shelter at the Southshore inn, kept by Innkeeper Anderson, where the rain finds every corner.",
   },
 

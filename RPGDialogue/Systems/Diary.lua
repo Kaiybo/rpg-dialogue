@@ -1,6 +1,7 @@
--- The diary writes itself a little: the first time the character reaches a zone (an
--- authored Arrival entry from a pack), and after talking with a named NPC who carries an
--- `impression` (what the character made of them). Both use the journal's two voices.
+-- The diary writes itself a little, and only for things worth a line: the first time the
+-- character reaches a zone (an authored Arrival entry from a pack) and a few deeds. A named
+-- NPC's `impression` (what the character made of them) is a short note on the People page,
+-- not a diary entry (0.86.0: the diary was filling with a paragraph per person met).
 local _, ns = ...
 
 local C = ns.Compat
@@ -29,13 +30,11 @@ function Diary.Arrive(zone)
   ns.Effects.Journal(def, ctx, env)
 end
 
--- After a conversation: the impression, once per NPC (people met before 0.35.0 get theirs
--- the next time they're spoken to).
+-- After a conversation: the note about this person shows on the People page from now on.
 function Diary.Impression(s)
   local def = s and s.info and s.info.def
   if not def or not def.impression or not s.mem or s.mem.impressed then return end
   s.mem.impressed = C.Now()
-  ns.Effects.Journal(def.impression, s.ctx or ns.Context.New({ spoof = {} }), s.env or { now = C.Now(), info = s.info })
 end
 
 -- A few deeds write their own line: a first death, every tenth level, a first dungeon.

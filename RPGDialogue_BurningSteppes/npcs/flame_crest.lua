@@ -9,7 +9,7 @@ P:NPC {
   notices = { "drink", "race", "poison" },
 
   impression = {
-    first = "Ragged John hiccups, laughs at his own jokes and calls his cave home without a trace of shame. Under all the ale there's a sharp old dwarf who knows exactly what people say about him.",
+    first = "Under all the ale there's a sharp old dwarf.",
     third = "{name} met Ragged John, the hard-drinking dwarf of Flame Crest who was with Marshal Windsor when he vanished.",
   },
 
@@ -401,7 +401,7 @@ P:NPC {
   notices = { "purse", "class" },
 
   impression = {
-    first = "Maxwort Uberglint asked whether I'd come to make him rich before he asked my name. He chases the legends of the Seven for the money, and he doesn't pretend otherwise.",
+    first = "He asked if I'd make him rich before he asked my name.",
     third = "{name} met Maxwort Uberglint, a treasure hunter at Flame Crest chasing the lost knowledge of the Seven.",
   },
 
@@ -613,7 +613,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Tinkee Steamboil names her gadgets with great ceremony and warned me off a bench of things that are very nearly stable. When her patron comes up she goes quiet, which I noticed.",
+    first = "She goes quiet whenever her patron comes up.",
     third = "{name} met Tinkee Steamboil, an excitable goblin scholar of dragonkin working out of Flame Crest.",
   },
 
@@ -879,7 +879,7 @@ P:NPC {
   notices = { "craft", "purse" },
 
   impression = {
-    first = "Yuka Screwspigot sells engineering supplies with a cheerful grin and talks about her family as a business arrangement. I would not want to owe her money, or be her brother.",
+    first = "I would not want to owe her money, or be her brother.",
     third = "{name} met Yuka Screwspigot, who sells engineering supplies at Flame Crest and keeps the Screwspigot family accounts.",
   },
 
@@ -1099,7 +1099,7 @@ P:NPC {
   notices = { "pet", "purse" },
 
   impression = {
-    first = "Kibler talks like a salesman and handles his animals like a man who loves them. His parrot, Opus, keeps interrupting him, and I'm not sure which of them runs the shop.",
+    first = "I'm not sure whether he or his parrot Opus runs the shop.",
     third = "{name} met Kibler, the goblin behind Kibler's Exotic Pets in the caves at Flame Crest.",
   },
 
@@ -1320,7 +1320,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Mathredis Firestar told me I was standing in his light and never quite let me out of it. There's a hunger in him for magic, and under the contempt, something that looks like grief.",
+    first = "Under his contempt there is something that looks like grief.",
     third = "{name} met Mathredis Firestar, a cold elven mage of Quel'Thalas who seeks the lost librams of his masters.",
   },
 
@@ -1549,7 +1549,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Vahgruk keeps the wind riders at Flame Crest and doesn't waste words on anything else. He seems content to be the way home for whoever comes this far north.",
+    first = "He seems content to be the way home for whoever comes.",
     third = "{name} met Vahgruk, the orc who keeps the wind riders at Flame Crest.",
   },
 

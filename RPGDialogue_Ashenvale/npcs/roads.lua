@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "forest_song" }, temper = { "tense" }, values = { "dutiful", "protective" },
   impression = {
-    first = "Kayneth Stillwind holds Forest Song, the far eastern outpost of Ashenvale, with the Forsaken on one side and demons on the other. He speaks like a man counting arrows.",
+    first = "He speaks like a man counting arrows.",
     third = "{name} met Kayneth Stillwind, who keeps watch at Forest Song in eastern Ashenvale.",
   },
 
@@ -231,7 +231,7 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "vendor", tier = "service",
   communities = { "ashenvale_road" }, temper = { "dry" }, values = { "craft", "private" },
   impression = {
-    first = "Bhaldaran Ravenshade sells bows from a quiet camp off the Ashenvale road, far from town by choice. He judges a customer by how they hold a bow before he listens to a word they say.",
+    first = "He judges how you hold a bow before he hears a word.",
     third = "{name} met Bhaldaran Ravenshade, a bowyer who keeps a camp off the road in Ashenvale.",
   },
 
@@ -391,7 +391,7 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "zoramgar" }, temper = { "watchful" }, values = { "loyal", "practical" },
   impression = {
-    first = "Karang Amakkar keeps Zoram'gar Outpost, a scrap of Horde camp on the Zoram Strand surrounded by elves and naga. He has the patience of an orc who has learned to wait for his chances.",
+    first = "He has learned to wait for his chances.",
     third = "{name} met Karang Amakkar, who commands the Horde's Zoram'gar Outpost on the coast of Ashenvale.",
   },
 
@@ -573,7 +573,7 @@ P:NPC {
   bible = "bibles/ashenvale.md", role = "questgiver", tier = "quest",
   communities = { "splintertree" }, temper = { "gentle", "calm" }, values = { "kind", "family" },
   impression = {
-    first = "Ruul Snowhoof is a tauren druid caged deep in Thistlefur Hold, where the furbolgs took him for a bear and have been starving him. He is thin and slow to rise, and he speaks of his captors without any anger.",
+    first = "He speaks of the furbolgs who starved him without any anger.",
     third = "{name} met Ruul Snowhoof, Yama's brother, a tauren druid held captive by the Thistlefur furbolgs in Ashenvale.",
   },
 

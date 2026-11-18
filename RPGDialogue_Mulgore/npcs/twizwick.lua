@@ -11,7 +11,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Twizwick Sprocketgrind lives alone on a plateau above the Venture Company's mine and adores the smell of grease. He insists he isn't Venture Company, and he trains anybody who climbs up to him, for a fee.",
+    first = "He adores the smell of grease and insists he isn't Venture Company.",
     third = "{name} met Twizwick Sprocketgrind, a goblin engineering trainer camped on a lonely plateau above the Venture Co. Mine in Mulgore.",
   },
 

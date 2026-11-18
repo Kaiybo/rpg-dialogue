@@ -10,7 +10,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Captain Nials told me to make it quick, and meant it. What's left of Stromgarde is mostly tents now, and she carries that like a sword she refuses to put down.",
+    first = "She carries ruined Stromgarde like a sword she won't put down.",
     third = "{name} met Captain Nials at Refuge Pointe, an officer of Stromgarde fighting to win back the fallen kingdom.",
   },
 
@@ -352,7 +352,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Drum Fel speaks of Hammerfall as though its prosperous days have already begun. He sees the ogres and Witherbark as obstacles on a road he's certain of.",
+    first = "He talks as though Hammerfall's prosperous days have already begun.",
     third = "{name} met Drum Fel, who leads Hammerfall and means to clear the highlands of ogres and trolls.",
   },
 
@@ -684,7 +684,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Zengu is patient the way a good hunter is patient, and he finds it very funny that a human-made troll-killing sword might be turned on the Gurubashi. I rather agree.",
+    first = "He finds it funny to turn a troll-killing sword on the Gurubashi.",
     third = "{name} met Zengu, a Darkspear troll sent by Vol'jin to find the sword Trol'kalar in Arathi.",
   },
 
@@ -948,7 +948,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Innkeeper Adegwa keeps the one soft place in Hammerfall's hard stone. A tauren far from Mulgore, he offered me rest as though it was the most natural thing in the world.",
+    first = "He offered me rest as though it were the most natural thing.",
     third = "{name} rested by Innkeeper Adegwa's fire, a tauren far from Mulgore who keeps the inn at Hammerfall.",
   },
 

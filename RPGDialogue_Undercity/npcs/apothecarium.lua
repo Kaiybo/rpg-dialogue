@@ -12,7 +12,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "precise", "dry" }, values = { "curious" },
   notices = { "craft", "race" },
   impression = {
-    first = "Doctor Martin Felben teaches alchemy in the Apothecarium with a physician's bedside manner and no patients left to use it on. He measured me with his eyes the way he measures powders.",
+    first = "He measured me with his eyes the way he measures powders.",
     third = "{name} met Doctor Martin Felben, the alchemy trainer of the Apothecarium.",
   },
 
@@ -137,7 +137,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "warm", "wistful" }, values = { "kind" },
   notices = { "craft", "gender" },
   impression = {
-    first = "Martha Alliestar teaches herbalism under the city and misses the sun more than anyone I've met down here. She keeps a pot of peacebloom alive by a grate in the ceiling, and she's very proud of it.",
+    first = "She keeps a pot of peacebloom alive under a ceiling grate.",
     third = "{name} met Martha Alliestar, a herbalism trainer of the Undercity who grows peacebloom beneath a grate.",
   },
 

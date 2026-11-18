@@ -12,7 +12,7 @@ P:NPC {
   notices = { "greenness", "visitor" },
 
   impression = {
-    first = "Sylassa Moonglow waits at the foot of Aldrassil to explain the crafts to anyone newly woken, and she does it as if nobody had ever asked her before. She seemed glad when I asked her a question.",
+    first = "She seemed glad that I asked her a question.",
     third = "{name} met Sylassa Moonglow, who guides Shadowglen's newcomers toward the crafts and their trainers.",
   },
 
@@ -143,7 +143,7 @@ P:NPC {
   notices = { "druid", "herbalist" },
 
   impression = {
-    first = "Eleyna Duskbreeze teaches herbalism under Aldrassil and talks about Teldrassil's plants as if they were her friends' children. She asked me to pick gently and seemed to mean it.",
+    first = "She asked me to pick gently and seemed to mean it.",
     third = "{name} met Eleyna Duskbreeze, the junior herbalism trainer at Aldrassil.",
   },
 
@@ -308,7 +308,7 @@ P:NPC {
   notices = { "dwarf", "miner" },
 
   impression = {
-    first = "Fanorran Stilloak teaches mining at the foot of a tree, and he knows exactly how strange that is. He is quiet, dry and patient, and he sells picks to people who will need to cross the sea to use them.",
+    first = "He sells picks to people who must cross the sea to dig.",
     third = "{name} met Fanorran Stilloak, the junior mining trainer at Aldrassil.",
   },
 
@@ -458,7 +458,7 @@ P:NPC {
   notices = { "hunter", "druid" },
 
   impression = {
-    first = "Terunne Bearshaper teaches skinning at Aldrassil with a soft voice and a very sharp knife. He talks about the beasts with more respect than most people show each other.",
+    first = "He has a soft voice and a very sharp knife.",
     third = "{name} met Terunne Bearshaper, the junior skinning trainer at Aldrassil.",
   },
 

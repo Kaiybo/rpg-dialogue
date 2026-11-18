@@ -9,7 +9,7 @@ P:NPC {
   communities = { "talrendis_point" }, temper = { "dry", "watchful" }, values = { "craft", "dutiful" },
   notices = { "class", "kit" },
   impression = {
-    first = "Brinna Valanaar makes and mends bows for the Sentinels at Talrendis Point, and she judges people by how they hold one. She won't cut wood from Azshara's trees, and she has her reasons.",
+    first = "She won't cut wood from Azshara's trees, and she has her reasons.",
     third = "{name} met Brinna Valanaar, the bowyer at Talrendis Point.",
   },
 

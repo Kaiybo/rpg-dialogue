@@ -13,7 +13,7 @@ P:NPC {
   notices = { "class", "race", "arcane" },
 
   impression = {
-    first = "Priestess Alathea praised Elune and the Light in the same breath, and meant both. She is gracious until arcane magic comes up, and then something old and wary looks out of her eyes.",
+    first = "She is gracious until arcane magic comes up, then turns wary.",
     third = "{name} met Priestess Alathea, who trains the priests of the Temple of the Moon, and some of the Light's as well.",
   },
 
@@ -412,7 +412,7 @@ P:NPC {
   notices = { "class", "light", "origin" },
 
   impression = {
-    first = "Astarii Starseeker believes no soul is too far gone for Elune to hear, not even one that served the Twilight's Hammer. She says it gently, and she plainly means it.",
+    first = "She believes no soul is too far gone for Elune to hear.",
     third = "{name} met Astarii Starseeker, a priestess of the Temple of the Moon who believes in second chances.",
   },
 
@@ -637,7 +637,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Jandria treats prayer as a craft to be practised, like archery or bandaging. She has little patience for grand speeches and a great deal for anyone willing to work.",
+    first = "She treats prayer as a craft and has no patience for speeches.",
     third = "{name} met Jandria, a no-nonsense priest trainer of the Temple of the Moon.",
   },
 
@@ -824,7 +824,7 @@ P:NPC {
   notices = { "class", "weary" },
 
   impression = {
-    first = "Lariia notices everything and says about half of it. She told me the Temple's pool shows the moon even on cloudy nights, and I still don't know whether she was teasing.",
+    first = "She notices everything and says about half of it.",
     third = "{name} met Lariia, a quiet priest trainer who keeps watch over the Temple of the Moon's pool.",
   },
 
@@ -1008,7 +1008,7 @@ P:NPC {
   notices = { "class", "greenness" },
 
   impression = {
-    first = "Sister Aquinne is still studying at the Temple and takes every task the priestesses give her as a sacred trust. She spoke of Lady Sathrah as if mourning someone she had known.",
+    first = "She speaks of Lady Sathrah like someone she knew and mourns.",
     third = "{name} met Sister Aquinne, a young sister of the Temple of the Moon who spends her days weeding the Temple Gardens.",
   },
 
@@ -1262,7 +1262,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Idriana keeps the Bank of Darnassus with perfect courtesy and an even more perfect memory for who owns which box. Nothing leaves her vault without a reason she can write down.",
+    first = "Nothing leaves her vault without a reason she can write down.",
     third = "{name} met Idriana, the courteous banker of the Bank of Darnassus in the Temple Gardens.",
   },
 

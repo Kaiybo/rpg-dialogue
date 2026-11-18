@@ -10,7 +10,7 @@ P:NPC {
   notices = { "priest", "kit" },
 
   impression = {
-    first = "Guard Roberts lies wounded by the lake east of Goldshire and insists he is only resting. He is proud enough to refuse help and sore enough to need it.",
+    first = "He is too proud to take help and too sore to refuse.",
     third = "{name} met Guard Roberts, a wounded Stormwind guard lying by the lake east of Goldshire who would rather not discuss how it happened.",
   },
 

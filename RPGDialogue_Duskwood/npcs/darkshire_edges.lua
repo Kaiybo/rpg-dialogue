@@ -14,7 +14,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Blind Mary haunts an old farmhouse in the hills south of Darkshire. She tore out her own eyes so she'd never see what she'd become, and she still begs people not to look at her.",
+    first = "She tore out her eyes and still begs me not to look.",
     third = "{name} met Blind Mary, the banshee of the farmhouse south of Darkshire, who mourns the beauty she lost to the undead.",
   },
 
@@ -160,7 +160,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Watcher Dodds holds the Night Watch camp at the crossroads with too few men, and he's lost some of those to the spiders out west. He apologizes for asking for help and then asks anyway, because he has to.",
+    first = "He apologizes for asking for help and then asks anyway.",
     third = "{name} met Watcher Dodds, who keeps the Night Watch's crossroads camp in Duskwood and wants the giant spiders culled.",
   },
 

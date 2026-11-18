@@ -10,7 +10,7 @@ P:NPC {
   notices = { "profession", "kit" },
 
   impression = {
-    first = "Master Smith Burninate judged my gear before he judged me, and he found both wanting in small, fixable ways. He forged for a tyrant once and talks about the work now as if every blow were his own.",
+    first = "He forged for a tyrant once, and now owns every blow.",
     third = "{name} met Master Smith Burninate, the Thorium Brotherhood's master smith at Thorium Point.",
   },
 
@@ -212,7 +212,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Taskmaster Scrange counts everything twice and smiles at almost nothing. He runs the Brotherhood's ore crews and carries an old title from the mountain as if it were a debt he means to pay back.",
+    first = "He counts everything twice and smiles at almost nothing.",
     third = "{name} met Taskmaster Scrange, who runs the Thorium Brotherhood's ore crews at Thorium Point.",
   },
 

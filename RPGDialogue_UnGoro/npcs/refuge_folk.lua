@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "hunger" },
 
   impression = {
-    first = "Nergal sells food, drink and supplies at Marshal's Refuge, and he won't buy a thing that grew down in the crater. He's a gruff dwarf with a long memory for every expedition that went down and didn't come back.",
+    first = "He won't buy a thing that grew down in the crater.",
     third = "{name} met Nergal, the dwarf who sells supplies at Marshal's Refuge.",
   },
 
@@ -216,7 +216,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Gryfe runs the flights out of Marshal's Refuge for anyone who pays, Horde or Alliance. He's a cheerful goblin who considers a beast that doesn't land in Un'Goro a beast that comes back.",
+    first = "To him, a beast that never lands in Un'Goro comes back.",
     third = "{name} met Gryfe, the goblin flight master at Marshal's Refuge.",
   },
 

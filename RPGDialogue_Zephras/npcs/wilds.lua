@@ -17,7 +17,7 @@ P:NPC {
   notices = { "form", "class", "origin" },
 
   impression = {
-    first = "Urs'endris, the Great Windborne Bear Spirit, speaks slowly from his little isle in the east, and his grief sits on him like weather. He says strength is facing what's wrong inside you as much as what's wrong in the world.",
+    first = "He says strength means facing what's wrong inside you too.",
     third = "{name} sat before Urs'endris, the Great Windborne Bear Spirit, who has taught the bear's shape to generations of Skyborne druids.",
   },
 
@@ -189,7 +189,7 @@ P:NPC {
   notices = { "class", "origin", "kit" },
 
   impression = {
-    first = "Brother Zendraas wears the Al'Aketh's grey robes and says the words, but he's a tailor from Falaath Village who only wanted to live through the cult's occupation. He's very proud of the robes, which he designed.",
+    first = "He is very proud of the cult robes, which he designed.",
     third = "{name} met Brother Zendraas, a tailor in grey robes who joined the Al'Aketh only to survive and designed most of their clothes.",
   },
 
@@ -302,7 +302,7 @@ P:NPC {
   notices = { "class", "race", "kin" },
 
   impression = {
-    first = "Raan Wildwind has a fire going on the road to Shen'dar Village and an adventurer's way of making a camp look like home. He talks about fortune and glory like a man who has found a little of each and liked them.",
+    first = "He has found a little fortune and glory and liked both.",
     third = "{name} met Raan Wildwind, an adventurer camped on the road to Shen'dar Village who teaches the young how to make camp.",
   },
 

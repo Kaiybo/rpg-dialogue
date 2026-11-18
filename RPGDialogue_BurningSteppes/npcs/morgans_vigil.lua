@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "deputy" },
 
   impression = {
-    first = "Marshal Maxwell writes reports nobody reads and keeps his camp together anyway. He's tired, and bitter about Stormwind's silence, but the kindness hasn't gone out of him yet.",
+    first = "He is tired and bitter, but the kindness hasn't left him yet.",
     third = "{name} met Marshal Maxwell, who commands what is left of Stormwind's presence at Morgan's Vigil.",
   },
 
@@ -474,7 +474,7 @@ P:NPC {
   notices = { "race", "class", "form", "pet" },
 
   impression = {
-    first = "Helendis Riverhorn watches the mountain as if it were a page he means to finish reading. He speaks slowly and seems to weigh every person who climbs the ridge.",
+    first = "He watches the mountain like a page he means to finish reading.",
     third = "{name} met Helendis Riverhorn, the night elf sent from Darnassus to learn what stirs in the Burning Steppes.",
   },
 
@@ -857,7 +857,7 @@ P:NPC {
   notices = { "class", "race", "kit" },
 
   impression = {
-    first = "Oralius barks orders like a field marshal and argues with a pirate named Captain Winky whom I never quite saw. His enthusiasm for the war is boundless, and a little alarming.",
+    first = "He argues with a pirate named Captain Winky whom I never saw.",
     third = "{name} met Oralius of Morgan's Vigil, who plans grand campaigns against the Firegut ogres of Dreadmaul Rock.",
   },
 
@@ -1117,7 +1117,7 @@ P:NPC {
   notices = { "class", "race", "kit" },
 
   impression = {
-    first = "Jalinda Sprig jumps at every noise, and on a ridge where everything is on fire I can't really blame her. She leads her expedition anyway, and she worries over her mages like a mother.",
+    first = "She jumps at every noise and leads her expedition anyway.",
     third = "{name} met Jalinda Sprig, the jumpy leader of the expedition trying to reach Blackrock Depths.",
   },
 
@@ -1323,7 +1323,7 @@ P:NPC {
   notices = { "class", "origin" },
 
   impression = {
-    first = "Mayara Brightwing catalogues old treasures for a Stormwind count and treats the Dark Irons' ruins like a market stall. She is sharp, proud and plainly enjoying herself.",
+    first = "She treats the Dark Irons' ruins like a market stall.",
     third = "{name} met Mayara Brightwing, who collects relics at Morgan's Vigil on behalf of Count Remington Ridgewell.",
   },
 
@@ -1556,7 +1556,7 @@ P:NPC {
   notices = { "race", "mount" },
 
   impression = {
-    first = "Borgus Stoutarm fusses over his gryphons and their sooty feathers more than over any traveler. He knows which bird is in a good mood, and he tells me so whether I ask or not.",
+    first = "He tells me each gryphon's mood whether I ask or not.",
     third = "{name} met Borgus Stoutarm, the dwarf who keeps the gryphons of Morgan's Vigil.",
   },
 

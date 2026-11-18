@@ -15,7 +15,7 @@ P:NPC {
   notices = { "craft", "hunger", "race" },
 
   impression = {
-    first = "Angus Stern runs the Blue Recluse's kitchen as if every plate were going before the king. He's vain and anxious and very good, and he knew I knew it.",
+    first = "He's vain, anxious and very good, and he knows I know it.",
     third = "{name} met Angus Stern, the perfectionist head chef of the Blue Recluse in Stormwind's Mage Quarter.",
   },
 

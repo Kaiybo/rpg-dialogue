@@ -14,7 +14,7 @@ P:NPC {
   notices = { "pvp" },
 
   impression = {
-    first = "Marshal Bluewall commands the Alliance's silithyst gathering outside Hive'Zora and is furious that it started late. He talks about the Horde's head start like a debt he means to collect.",
+    first = "The Horde's head start is a debt he means to collect.",
     third = "{name} met Marshal Bluewall, the dwarf marshal running the Alliance's silithyst effort in Silithus.",
   },
 
@@ -100,7 +100,7 @@ P:NPC {
   notices = { "dwarf" },
 
   impression = {
-    first = "Captain Blackanvil signs the field duty papers at the Ironforge Brigade's camp outside Hive'Zora, and he likes to make newcomers sweat a little before he does. He calls the war against the hives \"skirmishing\" and seems to mean it.",
+    first = "He likes to make newcomers sweat before he signs their papers.",
     third = "{name} met Captain Blackanvil, the dwarf captain of the Ironforge Brigade in Silithus.",
   },
 
@@ -189,7 +189,7 @@ P:NPC {
   notices = { "smith", "paladin" },
 
   impression = {
-    first = "Janela Stouthammer is Captain Blackanvil's lieutenant and the Brigade's supply officer, a paladin who has spent more of the war counting blades than swinging one. She is tired of hearing about dull swords.",
+    first = "She is tired of hearing about dull swords.",
     third = "{name} met Janela Stouthammer, the dwarf lieutenant who keeps the Ironforge Brigade supplied in Silithus.",
   },
 
@@ -271,7 +271,7 @@ P:NPC {
   notices = { "pvp", "orc" },
 
   impression = {
-    first = "General Kirika commands the Orgrimmar Legion's silithyst gathering near Hive'Regal and has no time for small talk. She treats the desert as a race against the dwarves, and she means to win it.",
+    first = "The desert is her race against the dwarves, and she'll win it.",
     third = "{name} met General Kirika, the orc general running the Horde's silithyst effort in Silithus.",
   },
 

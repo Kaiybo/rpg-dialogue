@@ -9,7 +9,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Hurley worries for a living, or so it seemed, and most of his worrying is about Curly. He cuts trees for Turner and looks as if he hasn't slept properly in a month.",
+    first = "He worries for a living, and mostly about Curly.",
     third = "{name} met Hurley, a fretful logger at Turner's camp who looks out for his friend Curly.",
   },
 
@@ -200,7 +200,7 @@ P:NPC {
   notices = { "kit", "class" },
 
   impression = {
-    first = "Halligan Turner runs his logging camp like a sergeant and seems to think anyone standing still owes him an hour's work. I'd wager he's softer on his people than he lets them see.",
+    first = "I'd wager he is softer on his people than he shows.",
     third = "{name} met Halligan Turner, the gruff boss of the logging camp that feeds Farholde its timber.",
   },
 
@@ -413,7 +413,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Benjy Wheeler watches the fields at Wheeler's Grange with the look of a man who has stopped expecting good news. The clicking of the reapers out in the rows doesn't seem to let anyone there sleep.",
+    first = "He has the look of a man who stopped expecting good news.",
     third = "{name} met Benjy Wheeler at Wheeler's Grange, where harvest reapers have overrun the fields.",
   },
 

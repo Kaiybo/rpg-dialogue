@@ -11,7 +11,7 @@ P:NPC {
   communities = { "webwinder_camp" }, temper = { "excitable", "talkative" }, values = { "invention", "ambitious" },
   notices = { "race", "craft" },
   impression = {
-    first = "Gaxim Rustfizzle means to save the night elves' forests with magic, mixtures and mechanisms, chiefly high explosives. He swears they're not as dangerous as everyone thinks, which is the most frightening thing anyone has said to me.",
+    first = "He means to save the forest, chiefly with high explosives.",
     third = "{name} met Gaxim Rustfizzle, a gnome mage of the Enlightened Assembly camped above Windshear Crag with a plan to blow up the Venture Company.",
   },
 
@@ -175,7 +175,7 @@ P:NPC {
   communities = { "webwinder_camp" }, temper = { "melancholy", "steady" }, values = { "nature", "loyal" },
   notices = { "form", "class" },
   impression = {
-    first = "Kaela Shadowspear almost wept the first time she saw the Charred Vale, and she still hasn't quite stopped. She misses Ashenvale and her friends there, and she stays here because somebody has to.",
+    first = "She misses Ashenvale and stays because somebody has to.",
     third = "{name} met Kaela Shadowspear, a Sentinel sent from Ashenvale to watch over Stonetalon and the gnome mage who came with her.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "soldier", "kit" },
 
   impression = {
-    first = "Magistrate Bluntnose runs Thelsamar and has given up waiting on Ironforge to defend it. He hires whoever looks capable, and he looked at me the way a quartermaster looks at a new axe.",
+    first = "He eyed me the way a quartermaster eyes a new axe.",
     third = "{name} met Magistrate Bluntnose, who keeps order in Thelsamar and hires blades when Ironforge's soldiers are slow to come.",
   },
 

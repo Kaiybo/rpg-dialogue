@@ -10,7 +10,7 @@ P:NPC {
   notices = { "lore" },
 
   impression = {
-    first = "Clerk Daltry keeps Darkshire's records with a dry wit and too many entries marked missing, presumed wolf. He made the joke because the alternative is weeping into the ledgers.",
+    first = "He jokes because the alternative is weeping into the ledgers.",
     third = "{name} met Clerk Daltry, who keeps the records of Darkshire, including far too many names marked missing.",
   },
 

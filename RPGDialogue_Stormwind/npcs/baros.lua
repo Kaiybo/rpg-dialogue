@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "ambitious", "honest" },
   notices = { "westfall", "stone" },
   impression = {
-    first = "Baros Alexston has drawn the plans for street after street of rebuilt Stormwind and grew up on a Westfall farm, and both facts seem to weigh on him. He keeps his plans close and his past closer.",
+    first = "He keeps his plans close and his Westfall past closer.",
     third = "{name} met Baros Alexston, Stormwind's City Architect, a careful man of Westfall birth.",
   },
 

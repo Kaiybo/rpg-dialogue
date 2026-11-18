@@ -9,7 +9,7 @@ P:NPC {
   communities = { "brill" }, temper = { "clipped" }, values = { "dutiful", "stern" },
   notices = { "kit", "class" },
   impression = {
-    first = "Deathguard Dillinger guards the west road out of Brill and plainly wishes he were somewhere bloodier. He will not thank anyone for doing their duty, but he remembers who did it.",
+    first = "He will not thank anyone for doing their duty, but he remembers.",
     third = "{name} met Deathguard Dillinger, who holds Brill's western post and sends others to break the Scourge at Agamand Mills.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   notices = { "kit", "grief" },
 
   impression = {
-    first = "Sven Yorgen keeps a lonely fire in the woods and remembers when this forest was green. He talked as though nothing much mattered to him anymore, and I didn't believe it.",
+    first = "He talks as though nothing matters anymore, and I don't believe it.",
     third = "{name} met Sven Yorgen at his lonely camp in Duskwood, a man who remembers when the forest was still green.",
   },
 

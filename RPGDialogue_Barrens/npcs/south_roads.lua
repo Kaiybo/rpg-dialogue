@@ -8,7 +8,7 @@ P:NPC {
   temper = { "anxious" }, values = { "loyal", "honest" },
   notices = { "stealth", "kit" },
   impression = {
-    first = "Gilthares Firebough crewed for Captain Brightsun until Northwatch's guns put his ship on the rocks, and now he sits in a cell and whispers between the guards' rounds. He is no spy, only a deckhand who washed up on the wrong beach.",
+    first = "He is only a deckhand who washed up on the wrong beach.",
     third = "{name} found Gilthares Firebough, a privateer deckhand held prisoner in Northwatch Hold.",
   },
 
@@ -102,7 +102,7 @@ P:NPC {
   temper = { "calm" }, values = { "cunning", "patient" },
   notices = { "fel", "light" },
   impression = {
-    first = "Doan Karhan keeps a lonely fire in the Barrens and a binding circle he asks visitors to walk around. He says solitude is the warlock's oldest companion and that he would rather be lonely than owned.",
+    first = "He would rather be lonely than owned.",
     third = "{name} met Doan Karhan, a solitary warlock camped in the Barrens who seeks the scattered Orb of Soran'ruk.",
   },
 

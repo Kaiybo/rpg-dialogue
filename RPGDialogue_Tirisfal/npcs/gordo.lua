@@ -9,7 +9,7 @@ P:NPC {
   communities = { "brill" }, temper = { "simple" }, values = { "loyal", "kind" },
   notices = { "craft", "pet" },
   impression = {
-    first = "Gordo is an abomination who calls himself \"us\" and tears weeds out of the ground for a master who never asked for them. He is enormous and stitched together and earnestly trying to help.",
+    first = "He calls himself \"us\" and is earnestly trying to help.",
     third = "{name} met Gordo, a hulking abomination who walks the road to Brill gathering weeds for his master.",
   },
 

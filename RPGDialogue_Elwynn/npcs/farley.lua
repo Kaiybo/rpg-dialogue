@@ -9,7 +9,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "generous", "witty" },
   notices = { "guest", "pet", "drink" },
   impression = {
-    first = "Innkeeper Farley runs the Lion's Pride with a loud voice and a family pride older than its walls. He'll tell anyone who asks, and most who don't, that he has never watered a drink.",
+    first = "He'll tell anyone that he has never watered a drink.",
     third = "{name} was welcomed to the Lion's Pride by Innkeeper Farley, whose family has kept it since the first King Llane's day.",
   },
 

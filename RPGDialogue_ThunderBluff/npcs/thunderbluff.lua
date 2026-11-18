@@ -11,7 +11,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "honorable", "gentle", "wise" },
   notices = { "race", "class" },
   impression = {
-    first = "Cairne Bloodhoof is huge, grey in the muzzle and kinder than I expected, and he speaks of Mulgore as a home long waited for. He means to keep it, and I would not care to test him.",
+    first = "He means to keep Mulgore, and I would not test him.",
     third = "{name} met Cairne Bloodhoof, who leads the tauren tribes of Mulgore from the High Rise of Thunder Bluff.",
   },
 
@@ -666,7 +666,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "wise", "balanced" },
   notices = { "form", "race" },
   impression = {
-    first = "Arch Druid Hamuul Runetotem counts every young druid who rides up the lift and is not ashamed of it. He has spent years trying to be worth the yes Malfurion gave him, and it shows in his kindness.",
+    first = "He has spent years trying to be worth Malfurion's yes.",
     third = "{name} met Arch Druid Hamuul Runetotem on Elder Rise, the first tauren to learn the druid's path from Malfurion Stormrage.",
   },
 
@@ -981,7 +981,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "patient" }, values = { "balanced", "wise" },
   notices = { "form", "class" },
   impression = {
-    first = "Turak Runetotem teaches the steps while the Arch Druid teaches why they matter, and he seems content with that share. He speaks of balance as a thing practised daily, like any honest craft.",
+    first = "To him balance is practised daily, like any honest craft.",
     third = "{name} met Turak Runetotem, who helps the Arch Druid train young druids on Elder Rise.",
   },
 
@@ -1191,7 +1191,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "cunning" }, values = { "proud", "ambitious" },
   notices = { "race", "class" },
   impression = {
-    first = "Cairne lets her live on Elder Rise to keep an eye on her, Magatha Grimtotem says, and she lets him think it works. Every courtesy she offered seemed to come with a reason she was keeping to herself.",
+    first = "Every courtesy she offered came with a reason she kept to herself.",
     third = "{name} met Magatha Grimtotem, the sharp-tongued Elder Crone of the Grimtotem who dwells on Elder Rise.",
   },
 
@@ -1542,7 +1542,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "generous", "kind" },
   notices = { "weary", "race" },
   impression = {
-    first = "Innkeeper Pala gives everyone the same welcome and the same stew at the Cat and the Shaman. She fusses over her guests like a mother, and she clearly enjoys every minute of it.",
+    first = "She fusses over her guests like a mother and enjoys every minute.",
     third = "{name} rested at Innkeeper Pala's inn, the Cat and the Shaman, high on the bluffs of Thunder Bluff.",
   },
 

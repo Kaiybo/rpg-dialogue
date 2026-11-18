@@ -9,7 +9,7 @@ P:NPC {
   communities = { "farholde", "brotherhood_horse" }, temper = { "gruff" }, values = { "practical", "proud" },
   notices = { "race", "craft" },
   impression = {
-    first = "Bertrand Ironbrow keeps Farholde's walls standing and talks about mortar the way other men talk about family. He grumbles about the humans' building, and he's never once thought of leaving them.",
+    first = "He grumbles about human building and has never thought of leaving.",
     third = "{name} met Foreman Bertrand Ironbrow, the dwarf who keeps the walls of Farholde Keep in repair.",
   },
 

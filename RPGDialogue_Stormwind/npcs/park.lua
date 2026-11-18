@@ -11,7 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "calm" }, values = { "patient", "kind" },
   notices = { "form", "priest", "kaldorei" },
   impression = {
-    first = "Sheldras Moontree teaches druids under the trees of Stormwind's Park and insists that peace can be found even inside stone walls. He seemed amused by the city and fond of it all the same.",
+    first = "He insists peace can be found even inside stone walls.",
     third = "{name} met Sheldras Moontree, a night elf druid who teaches in Stormwind's Park.",
   },
 
@@ -309,7 +309,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "proud", "curious" },
   notices = { "herbalist", "druid" },
   impression = {
-    first = "Shylamiir greeted me as an interruption and then decided I might be useful. She is the finest herbalist in the Park and quite certain of it, and she wants a plant from inside Dalaran's walls.",
+    first = "She wants a plant from inside Dalaran's walls.",
     third = "{name} met Shylamiir, a night elf herbalist in Stormwind's Park who doubts anyone's skill matches her own.",
   },
 

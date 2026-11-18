@@ -11,7 +11,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "cheerful" }, values = { "kind", "practical" },
   notices = { "hunger" },
   impression = {
-    first = "Lamar Veisilli sells fruit in Lakeshire and polishes every apple before he hands it over. He talks about the orchards the way other men talk about old friends they've lost touch with.",
+    first = "He polishes every apple before he hands it over.",
     third = "{name} met Lamar Veisilli, Lakeshire's fruit seller.",
   },
   greetings = {
@@ -184,7 +184,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "blunt" }, values = { "practical", "craft" },
   notices = { "craft" },
   impression = {
-    first = "Karen Taylor sells picks, flux and coal in Lakeshire and has opinions about every smith in Redridge. She seemed to respect anyone who could swing a hammer and nobody who couldn't.",
+    first = "She respects anyone who can swing a hammer and nobody who can't.",
     third = "{name} met Karen Taylor, who sells blacksmithing and mining supplies in Lakeshire.",
   },
   greetings = {
@@ -360,7 +360,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "steady" }, values = { "duty", "craft" },
   notices = { "class", "kit" },
   impression = {
-    first = "Kara Adams makes shields for Lakeshire's soldiers and checks every one by striking it herself. She believes a shield is the most important thing a soldier carries, and she is hard to argue with.",
+    first = "She tests every shield by striking it herself.",
     third = "{name} met Kara Adams, Lakeshire's shield crafter.",
   },
   greetings = {
@@ -534,7 +534,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "wry" }, values = { "patient", "practical" },
   notices = { "craft" },
   impression = {
-    first = "Vernon Hale sells hooks and line on Lakeshire's docks and grumbles that the murlocs catch more fish than his customers do. He's probably right.",
+    first = "He grumbles that the murlocs catch more fish than his customers.",
     third = "{name} met Vernon Hale, who sells fishing supplies on the Lakeshire docks.",
   },
   greetings = {
@@ -712,7 +712,7 @@ P:NPC {
   communities = { "lakeshire" }, temper = { "gruff" }, values = { "practical", "hardworking" },
   notices = { "class" },
   impression = {
-    first = "Sherman Femmel cuts meat at the Lakeshire Inn and talks while he works, with the cleaver doing most of the punctuation. He knows more about the hills' wildlife than most hunters.",
+    first = "He knows the wildlife of these hills better than most hunters.",
     third = "{name} met Sherman Femmel, the butcher at the Lakeshire Inn.",
   },
   greetings = {
@@ -886,7 +886,7 @@ P:NPC {
   bible = "bibles/lakeshire_market.md", role = "citizen", tier = "service",
   communities = { "lakeshire" }, temper = { "harried" }, values = { "kind", "hardworking" },
   impression = {
-    first = "Gretchen Vogel carries bowls from Chef Breanna's kitchen to half the soldiers in Lakeshire and never seems to sit down. She knows every soldier's name and which of them are missing.",
+    first = "She knows every soldier's name and which of them are missing.",
     third = "{name} met Gretchen Vogel, who waits on the soldiers from Chef Breanna's kitchen.",
   },
   greetings = {

@@ -12,7 +12,7 @@ P:NPC {
   notices = { "class", "race", "profession" },
 
   impression = {
-    first = "Crazk Sparks sells fireworks out of a damp stall on the Booty Bay wharf and has no eyebrows at all, which he swears is a sign of quality. He talked faster than his fuses burn, and I believed about half of it.",
+    first = "He has no eyebrows, which he swears is a sign of quality.",
     third = "{name} met Crazk Sparks, the eyebrowless goblin who sells fireworks on the Booty Bay wharf.",
   },
 
@@ -228,7 +228,7 @@ P:NPC {
   notices = { "profession", "race", "purse" },
 
   impression = {
-    first = "Wigcik sells fish off the Booty Bay docks and argues with each fish before he sells it. He smells of the morning catch and talks about Old Man Heming the way a man talks about a rival he'd miss terribly.",
+    first = "He argues with each fish before he sells it.",
     third = "{name} met Wigcik, the sour goblin fishmonger of the Booty Bay docks.",
   },
 
@@ -408,7 +408,7 @@ P:NPC {
   notices = { "profession", "class", "race" },
 
   impression = {
-    first = "Myizz Luckycatch teaches fishing on the Booty Bay docks with a lucky charm on every finger and a rule for every day of the week. She is the only goblin I've met who thinks patience is worth paying for.",
+    first = "No other goblin I know thinks patience is worth paying for.",
     third = "{name} met Myizz Luckycatch, the superstitious goblin who trains fishers on the Booty Bay docks.",
   },
 
@@ -611,7 +611,7 @@ P:NPC {
   notices = { "pet", "mount", "class" },
 
   impression = {
-    first = "Grimestack keeps the stables of Booty Bay and lives up to his name, from his boots to his ears. He talked to my animals before he talked to me, and he was kinder to them.",
+    first = "He talks to the animals first, and he is kinder to them.",
     third = "{name} met Grimestack, the grimy goblin stable master of Booty Bay.",
   },
 
@@ -795,7 +795,7 @@ P:NPC {
   notices = { "profession", "race", "class" },
 
   impression = {
-    first = "Scooty runs a goblin transporter to Gadgetzan and believes in it the way some people believe in the Light. He listed its side effects as though they were features, and he may genuinely think they are.",
+    first = "He lists the transporter's side effects as though they were features.",
     third = "{name} met Scooty, the goblin chief engineer who runs Booty Bay's transporter to Gadgetzan.",
   },
 
@@ -984,7 +984,7 @@ P:NPC {
   notices = { "purse", "class" },
 
   impression = {
-    first = "Auctioneer Graves runs bids in Booty Bay with the cheer of a man reading a will. He has sold a great many drowned sailors' belongings and talks about them with a respect nobody else in town seems to bother with.",
+    first = "He treats drowned sailors' belongings with a respect nobody else bothers with.",
     third = "{name} met Auctioneer Graves, the gloomy goblin who sells salvage and wreck goods at the Booty Bay auction house.",
   },
 
@@ -1072,7 +1072,7 @@ P:NPC {
   notices = { "purse", "race" },
 
   impression = {
-    first = "Auctioneer Kresky works the night bids in Booty Bay and knows exactly who bought what, and tells you before you've asked. He seemed delighted and frightened by everything at once.",
+    first = "He seems delighted and frightened by everything at once.",
     third = "{name} met Auctioneer Kresky, the jittery, gossiping goblin auctioneer of Booty Bay.",
   },
 
@@ -1205,7 +1205,7 @@ P:NPC {
   notices = { "purse", "class" },
 
   impression = {
-    first = "Auctioneer O'reely runs the morning bids in Booty Bay as though every lot were the last great treasure of the South Seas. He told me about his grandfather three times, and the story changed every time.",
+    first = "His grandfather's story changes every time he tells it.",
     third = "{name} met Auctioneer O'reely, the boisterous goblin auctioneer who tells tall tales over the Booty Bay bids.",
   },
 

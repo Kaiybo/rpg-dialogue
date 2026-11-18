@@ -12,7 +12,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "sharp" }, values = { "curious", "careful", "loyal" },
   notices = { "race", "dungeon", "lore" },
   impression = {
-    first = "Sage Truthseeker reads the Bluff's politics the way other sages read old hides, looking for whoever is whispering to the Elder Council. She trusts Cairne completely and the Forsaken not at all.",
+    first = "She trusts Cairne completely and the Forsaken not at all.",
     third = "{name} met Sage Truthseeker, a scholar of Thunder Bluff who gathers knowledge to advise the High Chieftain.",
   },
 
@@ -276,7 +276,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "devout", "patient", "proud" },
   notices = { "kin", "trophy" },
   impression = {
-    first = "Eyahn Eagletalon prepares the ceremonies on the lower rise, fussing over feathers and beadwork as though the Earth Mother would notice a crooked stitch. He is very proud of his brother Ruul, and tries not to show it.",
+    first = "He is very proud of his brother Ruul and hides it badly.",
     third = "{name} met Eyahn Eagletalon, who keeps the ceremonies of Thunder Bluff and is brother to Ruul of Bloodhoof Village.",
   },
 
@@ -381,7 +381,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "gruff" }, values = { "proud", "loyal" },
   notices = { "dungeon", "class" },
   impression = {
-    first = "Auld Stonespire is an old shaman and one of the last of his tribe, driven out of the holy lands of the southern Barrens. He has not forgiven it, and he does not think he should have to.",
+    first = "He has not forgiven being driven from the southern Barrens.",
     third = "{name} met Auld Stonespire, an old shaman of the scattered Stonespire tribe who wants Charlga Razorflank dead.",
   },
 
@@ -493,7 +493,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "practical", "craft" },
   notices = { "profession" },
   impression = {
-    first = "Veren Tallstrider gathers leather on the middle rise and sends the young out to learn skinning and to stitch their first kodo hide bags. He talks about hides the way other people talk about family.",
+    first = "He talks about hides the way other people talk about family.",
     third = "{name} met Veren Tallstrider, who gathers leather in Thunder Bluff and teaches the young their first stitches.",
   },
 

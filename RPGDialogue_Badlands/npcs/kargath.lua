@@ -11,7 +11,7 @@ P:NPC {
   notices = { "race", "class", "level" },
 
   impression = {
-    first = "Warlord Goretooth holds Kargath and plainly wishes he were fighting instead of watching. He's loud, proud and lonely on that tower, and he admitted to talking to vultures.",
+    first = "He is lonely on that tower and admits to talking to vultures.",
     third = "{name} met Warlord Goretooth, who holds the Horde outpost of Kargath in the Badlands.",
   },
 
@@ -488,7 +488,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Hierophant Theodora Mulvadania calls everyone darling and gossips like a court lady at a bonfire. When she spoke of the 109th Division, though, the charm went out of her voice entirely.",
+    first = "The charm leaves her voice when she speaks of the 109th Division.",
     third = "{name} met Hierophant Theodora Mulvadania of the Kargath Expeditionary Force, who mourns the slaughtered 109th Division.",
   },
 
@@ -782,7 +782,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Shadowmage Vivian Lagrave insists she is very composed and then jumps at her own shadow. Her curiosity about the Dark Irons' secrets is almost greedy, and wholly sincere.",
+    first = "She insists she is very composed, then jumps at her own shadow.",
     third = "{name} met Shadowmage Vivian Lagrave of the Kargath Expeditionary Force, a theatrical student of the Dark Irons' secrets.",
   },
 
@@ -1095,7 +1095,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Lexlort spends words as though each one might be overheard and sold. He knew which path I'd come in by, and that is meant to impress me, I think.",
+    first = "He spends words as though each might be overheard and sold.",
     third = "{name} met Lexlort, the Kargath Expeditionary Force's watchful spy on Blackrock Spire.",
   },
 
@@ -1336,7 +1336,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "Innkeeper Shul'kar keeps a pot on and a dry bunk ready and collects the grunts' tall tales for free. Kargath is a hard place, and his inn is the softest corner of it.",
+    first = "His inn is the softest corner of a hard place.",
     third = "{name} met Innkeeper Shul'kar, who keeps the inn at Kargath for the Horde's soldiers.",
   },
 

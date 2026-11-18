@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "arcane" },
 
   impression = {
-    first = "Mor'zul Bloodbringer speaks softly and smiles at the word blood. He'll teach a warlock to bind a dreadsteed, and I suspect he enjoys the price he names more than the lesson.",
+    first = "He speaks softly and smiles at the word blood.",
     third = "{name} met Mor'zul Bloodbringer, a warlock at the Altar of Storms in the Burning Steppes who knows the ritual of the dreadsteed.",
   },
 

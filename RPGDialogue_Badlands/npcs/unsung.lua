@@ -10,7 +10,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Jazzrik sells coal and iron to the orcs of Kargath and never stops talking about how much it costs to haul anything into the Badlands. The goblin seemed both afraid of the Horde and delighted by its money.",
+    first = "He is afraid of the Horde and delighted by its money.",
     third = "{name} met Jazzrik, the goblin who sells blacksmithing supplies in Kargath.",
   },
 

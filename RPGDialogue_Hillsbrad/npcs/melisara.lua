@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Melisara is a banshee who serves Sharlindra and, through her, the Dark Lady, and she has no patience for idle chatter. Her voice made the hair on my neck rise even when she was being polite.",
+    first = "Her voice raises the hair on my neck even when she's polite.",
     third = "{name} met Melisara, the banshee lieutenant in Tarren Mill who hunts the Dark Lady's enemies in Alterac.",
   },
 

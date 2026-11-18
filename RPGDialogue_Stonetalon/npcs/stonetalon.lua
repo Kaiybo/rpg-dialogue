@@ -9,7 +9,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "hard" }, values = { "loyal", "brave" },
   notices = { "kit", "race" },
   impression = {
-    first = "Maggran Earthbinder holds Sun Rock with the hardness of an old warrior who says he was gentle once. The years and the battles took that from him, he claims, and I believe him.",
+    first = "He says he was gentle once, before the battles took it.",
     third = "{name} met Maggran Earthbinder, the battle-hardened tauren who holds Sun Rock Retreat for Cairne Bloodhoof.",
   },
 
@@ -392,7 +392,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "gentle" }, values = { "hopeful", "patient" },
   notices = { "class", "form" },
   impression = {
-    first = "On her knees in burned ground, Tammra Windfield coaxes green shoots out of it and counts five living against two dead as a good night. I have rarely seen stubbornness look so hopeful.",
+    first = "She counts five living shoots against two dead as a good night.",
     third = "{name} met Tammra Windfield, who tends what grows on Sun Rock and means to bring the Charred Vale back to life.",
   },
 
@@ -671,7 +671,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "bitter" }, values = { "ambitious", "vengeful" },
   notices = { "class", "form" },
   impression = {
-    first = "Braelyn Firehand keeps her fire lit without wood and her grudges burning longer still. Her hatred of the druids has the sound of an old wound, and she would rather not say how she learns most things.",
+    first = "Her hatred of the druids has the sound of an old wound.",
     third = "{name} met Braelyn Firehand, an embittered mage at Sun Rock who wants the druids of the Talon Den gone and the land's magic restored.",
   },
 
@@ -936,7 +936,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "sly" }, values = { "loyal", "curious" },
   notices = { "class", "race" },
   impression = {
-    first = "Most of the cages in Witch Doctor Jin'Zil's cave are empty, he told me, and then he said 'most' again in a way I did not care for. He laughs easily and boasts endlessly that he is better than Darsok.",
+    first = "He says most of his cages are empty, which worries me.",
     third = "{name} met Witch Doctor Jin'Zil, a sly Darkspear who keeps a cave full of cages and a pot always on the boil near Sun Rock.",
   },
 
@@ -1194,7 +1194,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "warm" }, values = { "generous" },
   notices = { "weary" },
   impression = {
-    first = "Innkeeper Jayka wants weapons down, boots off and a story of who you have been fighting before anything else. The wind howls around her inn, and she would not live anywhere else.",
+    first = "She wants weapons down, boots off and a story first.",
     third = "{name} rested at Innkeeper Jayka's inn on Sun Rock, where weary warriors trade stories for a seat by the fire.",
   },
 
@@ -1398,7 +1398,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "class", "form" },
   impression = {
-    first = "Keeper Albagorm calls everyone 'little one' and says crimes are done with hands, not banners. The fires in the vale to the south weigh on him, though he speaks of them with great patience.",
+    first = "He says crimes are done with hands, not banners.",
     third = "{name} met Keeper Albagorm, the serene keeper of the grove at Stonetalon Peak who mourns the burning of the Charred Vale.",
   },
 
@@ -1725,7 +1725,7 @@ P:NPC {
   communities = { "stonetalon_peak" }, temper = { "quiet" }, values = { "kind" },
   notices = { "weary" },
   impression = {
-    first = "Up at the top of the peak, Innkeeper Faralia keeps a small, quiet inn and tries to count the stars from her step. She speaks softly and gives sensible warnings about walking down after dark.",
+    first = "She tries to count the stars from her step.",
     third = "{name} found Innkeeper Faralia's small inn atop Stonetalon Peak, a quiet refuge for the few who climb that far.",
   },
 

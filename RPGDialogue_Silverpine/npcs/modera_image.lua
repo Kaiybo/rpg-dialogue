@@ -9,7 +9,7 @@ P:NPC {
   communities = { "kirin_tor" }, temper = { "proud", "steady" }, values = { "loyal", "learned" },
   notices = { "class", "faction" },
   impression = {
-    first = "The image of Archmage Modera flickers on the lakeshore like a candle in a draught, and it speaks with all of her composure. She is defying her own council to save her city, and she makes no apology for whom she asks.",
+    first = "She is defying her own council to save her city.",
     third = "{name} met the Image of Archmage Modera beside Lordamere Lake, a projection sent out of Dalaran to find help her council would not ask for.",
   },
 

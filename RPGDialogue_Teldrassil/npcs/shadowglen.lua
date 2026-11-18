@@ -9,7 +9,7 @@ P:NPC {
   communities = { "shadowglen" }, temper = { "delighted" }, values = { "kind", "devout" },
   notices = { "greenness", "class" },
   impression = {
-    first = "Every morning's light through the leaves seems to delight Conservator Ilthalaine as if it were the first. He counts the nightsaber cubs like a fond uncle, and even his worries about the glade sound gentle.",
+    first = "He counts the nightsaber cubs like a fond uncle.",
     third = "{name} met Conservator Ilthalaine, who keeps the balance in Shadowglen and delights in the glade he tends.",
   },
 
@@ -231,7 +231,7 @@ P:NPC {
   communities = { "shadowglen" }, temper = { "earnest" }, values = { "dutiful", "patient" },
   notices = { "class", "form" },
   impression = {
-    first = "Melithar Staghelm talks about Aldrassil as though the old tree could hear every word. He is earnest enough that I found myself lowering my voice near the roots.",
+    first = "He is so earnest that I lowered my voice near the roots.",
     third = "{name} met Melithar Staghelm, the earnest young druid who tends Aldrassil's roots and the newcomers who gather beneath them.",
   },
 
@@ -433,7 +433,7 @@ P:NPC {
   communities = { "shadowglen" }, temper = { "warm" }, values = { "wise", "kind" },
   notices = { "greenness", "race" },
   impression = {
-    first = "From the crown of Aldrassil, Tenaron Stormgrip watches every young elf walk the path down to Dolanaar. He has the warmth of someone who hopes each of them will one day climb back up.",
+    first = "He hopes each young elf will one day climb back up.",
     third = "{name} climbed to the crown of Aldrassil and met Tenaron Stormgrip, who watches over Shadowglen and blesses all who leave it.",
   },
 
@@ -745,7 +745,7 @@ P:NPC {
   communities = { "shadowglen" }, temper = { "wistful" }, values = { "kind", "loyal" },
   notices = { "pet" },
   impression = {
-    first = "Dirania Silvershine kept glancing toward the spider cave the whole time we spoke. She calls Shadowglen home, but her mind was plainly on a friend who keeps getting himself into trouble.",
+    first = "Her mind was plainly on a friend who keeps finding trouble.",
     third = "{name} met Dirania Silvershine, a wistful soul of Shadowglen forever worrying over her friend Iverron.",
   },
 
@@ -954,7 +954,7 @@ P:NPC {
   communities = { "shadowglen" }, temper = { "solitary" }, values = { "curious" },
   notices = { "craft" },
   impression = {
-    first = "Alone on Aldrassil's steps sits Gilshalan Windwalker, who studies the Webwood spiders from a distance, mostly. I liked his dry way of talking, and I suspect the distance is not only for science.",
+    first = "I suspect his distance from the spiders is not only for science.",
     third = "{name} met Gilshalan Windwalker, a solitary scholar on Aldrassil's steps who studies the Webwood spiders of Shadowthread Cave.",
   },
 

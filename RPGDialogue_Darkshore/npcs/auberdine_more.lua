@@ -10,7 +10,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "patient" }, values = { "healing", "curious" },
   notices = { "pet", "form" },
   impression = {
-    first = "Tharnariun Treetender talks about the thistle bears the way a healer talks about patients, even the ones that tried to bite him. He wants a sick bear alive, which tells you most of what you need to know about him.",
+    first = "He wants a sick bear brought alive, which says most of it.",
     third = "{name} met Tharnariun Treetender, a druid of Auberdine trying to cure the madness spreading through Darkshore's thistle bears.",
   },
 
@@ -269,7 +269,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "brisk" }, values = { "dutiful", "fair" },
   notices = { "race", "class" },
   impression = {
-    first = "Sentinel Elissa Starbreeze counts crates the way other Sentinels count arrows, and she counts the help that comes with them too. She has a soldier's respect for the humans at Maestra's Post, and a quartermaster's eye for what they send.",
+    first = "She counts crates the way other Sentinels count arrows.",
     third = "{name} met Sentinel Elissa Starbreeze, who keeps Auberdine's stores and its ties to the paladins at Maestra's Post.",
   },
 
@@ -512,7 +512,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "cheerful" }, values = { "dutiful", "kind" },
   notices = { "race" },
   impression = {
-    first = "Caylais Moonfeather knows every one of her hippogryphs by temper, and speaks of their moods as though they were weather. She seemed more worried about the sea wind than about anything on the ground.",
+    first = "The sea wind worries her more than anything on the ground.",
     third = "{name} met Caylais Moonfeather, who keeps the hippogryphs at Auberdine.",
   },
 

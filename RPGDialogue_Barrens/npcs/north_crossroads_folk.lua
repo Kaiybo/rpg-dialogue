@@ -16,7 +16,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "gruff" }, values = { "proud", "practical" },
   notices = { "kit", "class" },
   impression = {
-    first = "Nargal Deatheye sells weapons at the Crossroads and judges a buyer by how they hold a blade before he'll name a price. He has opinions about every edge on his rack and most of the people who buy them.",
+    first = "He judges how you hold a blade before he names a price.",
     third = "{name} met Nargal Deatheye, the Crossroads' weaponsmith.",
   },
   greetings = {
@@ -164,7 +164,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "calm" }, values = { "practical", "kind" },
   notices = { "craft", "race" },
   impression = {
-    first = "Jahan Hawkwing sells leather armor at the Crossroads and knows which beast every piece came from. He is calm and unhurried, and he reads a customer's boots the way a hunter reads tracks.",
+    first = "He reads a customer's boots the way a hunter reads tracks.",
     third = "{name} met Jahan Hawkwing, the tauren leather merchant of the Crossroads.",
   },
   greetings = {
@@ -295,7 +295,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "fussy" }, values = { "practical" },
   notices = { "craft", "kit" },
   impression = {
-    first = "Wrahk sells thread, dye and cloth at the Crossroads, complains about the dust getting into all of it, and brushes the counter between sentences. Wrahk is fussy and quick, with a sharp eye for a badly stitched hem.",
+    first = "The dust gets into everything, and the counter gets brushed between sentences.",
     third = "{name} met Wrahk, who sells tailoring supplies at the Crossroads.",
   },
   greetings = {
@@ -420,7 +420,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "warm" }, values = { "kind", "generous" },
   notices = { "hunger", "race" },
   impression = {
-    first = "Moorane Hearthgrain bakes bread for the Crossroads garrison and fusses over anyone who looks underfed. Her loaves are heavy, plain and warm, and she talks about the crock of sourdough she carried from Mulgore as if it were one of the family.",
+    first = "She speaks of her Mulgore sourdough as if it were family.",
     third = "{name} met Moorane Hearthgrain, the tauren baker of the Crossroads.",
   },
   greetings = {
@@ -539,7 +539,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "pushy" }, values = { "greedy", "practical" },
   notices = { "pet", "class" },
   impression = {
-    first = "Reggifuz runs the stables at the Crossroads like a counting-house, pricing every beast's feed and every risk out loud. He talks fast and never stops selling, even while he's shoveling.",
+    first = "He never stops selling, even while he's shoveling.",
     third = "{name} met Reggifuz, the goblin who runs the Crossroads stables.",
   },
   greetings = {
@@ -668,7 +668,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "blunt" }, values = { "proud", "practical" },
   notices = { "gender", "kit" },
   impression = {
-    first = "Halga Bloodeye trades at the Crossroads and bargains as if every copper were owed her personally. She is blunt and loud, treats a haggle like a duel, and speaks well of Sergra Darkthorn to anyone who'll listen.",
+    first = "She treats a haggle like a duel.",
     third = "{name} met Halga Bloodeye, a sharp-tongued orc trader at the Crossroads.",
   },
   greetings = {
@@ -793,7 +793,7 @@ P:NPC {
   temper = { "pushy", "sly" }, values = { "greedy", "cunning" },
   notices = { "purse", "class" },
   impression = {
-    first = "Lizzarik sells weapons from the back of his cart on the road between Ratchet and the Crossroads, with two bodyguards and a smile that never reaches his prices. He talks faster than any merchant I've met, and he'd rather die than pay rent to a wall.",
+    first = "He'd rather die than pay rent to a wall.",
     third = "{name} met Lizzarik, a goblin weapons dealer working the Barrens roads.",
   },
   greetings = {

@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "drunk" },
 
   impression = {
-    first = "Marleth Barleybrew is a Barleybrew to her bootlaces, and she grinned the whole time she explained how I was going to sneak into the Thunderbrews' cellar for her.",
+    first = "She grinned while planning my raid on the Thunderbrews' cellar.",
     third = "{name} met Marleth Barleybrew of Brewnall Village, who'd like the whole of Dun Morogh to know the Thunderbrews aren't the only brewers in it.",
   },
 
@@ -156,7 +156,7 @@ P:NPC {
   notices = { "drunk", "race" },
 
   impression = {
-    first = "Jarven Thunderbrew guards the barrels in the distillery cellar, surrounded by more ale than any dwarf could drink and under strict orders not to touch a drop. It has not improved his temper.",
+    first = "Guarding ale he may not touch has not improved his temper.",
     third = "{name} met Jarven Thunderbrew, who guards the cellar of the Thunderbrew Distillery and is not allowed to drink any of it.",
   },
 
@@ -256,7 +256,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Rejold Barleybrew is chasing the perfect stout, and he talks about it the way some dwarves talk about lost gold. He has a plan, and the plan involves trolls.",
+    first = "He chases the perfect stout, and his plan involves trolls.",
     third = "{name} met Rejold Barleybrew, a brewer of Brewnall Village who believes the perfect stout grows on Shimmer Ridge.",
   },
 
@@ -366,7 +366,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Ozzie Togglevolt spoke to me mostly from inside a gearbox, and when he came out he had grease to the eyebrows and a phial of something green he called a cure.",
+    first = "He came out of a gearbox with grease to the eyebrows.",
     third = "{name} met Ozzie Togglevolt in Kharanos, the gnome inventor working with Razzle Sprysprocket on a cure for Gnomeregan's sickness.",
   },
 
@@ -498,7 +498,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Shelby Stoneflint keeps the stables in Kharanos, and she had a bear cub asleep on her boots and a ram nosing at her pockets the whole time we talked.",
+    first = "A bear cub sleeps on her boots while she talks.",
     third = "{name} met Shelby Stoneflint, the stable master of Kharanos.",
   },
 

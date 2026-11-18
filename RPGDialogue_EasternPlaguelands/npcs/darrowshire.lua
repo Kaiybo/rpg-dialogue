@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Davil Lightfire is a paladin's ghost who came home to Darrowshire to defend it and died doing so. Even dead, he talks of the fight as if it might still be won.",
+    first = "Even dead, he talks as if the fight might still be won.",
     third = "{name} met the ghost of Davil Lightfire, the Silver Hand paladin who fell defending his home town of Darrowshire.",
   },
 

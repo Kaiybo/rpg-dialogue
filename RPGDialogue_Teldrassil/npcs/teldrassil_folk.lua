@@ -16,7 +16,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Sentinel Kyra Starsong carries the Council of the Forest's orders to Dolanaar and delivers them as if reading from a scroll. She knows exactly who has helped the satyr Zenn Foulhoof, and she is not pleased about it.",
+    first = "She knows exactly who has helped Zenn Foulhoof, and is not pleased.",
     third = "{name} met Sentinel Kyra Starsong in Dolanaar, who speaks for the Council of the Forest.",
   },
 
@@ -119,7 +119,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Sentinel Arynia Cloudsbreak guards the Oracle Tree with a handful of Sentinels and a growing list of harpies she'd like to see dead. She lost a runner to them and hasn't forgiven it.",
+    first = "She lost a runner to the harpies and hasn't forgiven it.",
     third = "{name} met Sentinel Arynia Cloudsbreak, who guards the Oracle Tree's glade against the harpies.",
   },
 
@@ -258,7 +258,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Laurna Morninglight trains Dolanaar's priests and would much rather be out tending the wounded than teaching. She sends her students to do the healing she can't leave to do herself.",
+    first = "She would much rather be out tending the wounded than teaching.",
     third = "{name} met Laurna Morninglight, the priest trainer of Dolanaar.",
   },
 
@@ -403,7 +403,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Jannok Breezesong trains Dolanaar's rogues between sighs. He is hopelessly in love with Syurna in Darnassus, who will not see him, and he seems to think that this is a perfectly normal way to live.",
+    first = "He is hopelessly in love with Syurna, who will not see him.",
     third = "{name} met Jannok Breezesong, Dolanaar's rogue trainer, who pines for Syurna in Darnassus.",
   },
 
@@ -537,7 +537,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Seriadne keeps the stables in Dolanaar and knows every animal by name, including the ones that only stay a night. She'd rather talk to your companion than to you.",
+    first = "She'd rather talk to your companion than to you.",
     third = "{name} met Seriadne, Dolanaar's stable master.",
   },
 
@@ -676,7 +676,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Daryn Lightwind keeps her books and her theories in Rut'theran Village and sends adventurers to every corner of Kalimdor to do the travelling she has no time for. She lends books reluctantly and talks about them freely.",
+    first = "She lends books reluctantly and talks about them freely.",
     third = "{name} met Daryn Lightwind, a historian in Rut'theran Village with an interest in everything from Feralas to giant turtles.",
   },
 

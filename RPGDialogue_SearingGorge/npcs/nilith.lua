@@ -9,7 +9,7 @@ P:NPC {
   notices = { "profession", "class" },
 
   impression = {
-    first = "Nilith Lokrav keeps an infernal named Raze beside her tent and talks about spiders the way other tailors talk about bolts of silk. She is calm, exact, and quite willing to have people killed over a thread.",
+    first = "She is quite willing to have people killed over a thread.",
     third = "{name} met Nilith Lokrav, a warlock tailor camped near Blackrock Mountain who guards the Searing Gorge's shadow silk.",
   },
 

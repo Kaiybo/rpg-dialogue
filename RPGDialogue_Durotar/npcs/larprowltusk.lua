@@ -9,7 +9,7 @@ P:NPC {
   communities = { "senjin" }, temper = { "calm" }, values = { "careful", "loyal" },
   notices = { "stealth", "class" },
   impression = {
-    first = "Lar Prowltusk speaks low and watches the western ridge while he talks. He crept into Kolkar Crag alone and came back with the centaur's battle plans, and he would rather burn those plans than win the battle.",
+    first = "He would rather burn the centaur's battle plans than win the battle.",
     third = "{name} met Lar Prowltusk near Sen'jin Village, a Darkspear scout who uncovered the Kolkar centaur's plan to attack Durotar.",
   },
 

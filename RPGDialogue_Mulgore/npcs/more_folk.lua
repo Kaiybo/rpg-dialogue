@@ -13,7 +13,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "steady", "earnest" }, values = { "duty", "tribe" },
   notices = { "race", "class" },
   impression = {
-    first = "Brave Wildrunner stands watch in Bloodhoof Village and gives directions to anyone who asks, patiently and more than once. He takes the safety of the village personally, and he seemed glad of another pair of hands.",
+    first = "He takes the safety of the village personally.",
     third = "{name} met Brave Wildrunner, a watchful brave who guards Bloodhoof Village.",
   },
   greetings = {
@@ -125,7 +125,7 @@ P:NPC {
   communities = { "narache" }, temper = { "steady", "sharp" }, values = { "tradition", "tribe" },
   notices = { "class" },
   impression = {
-    first = "Lanka Farshot trains Camp Narache's young hunters and believes a hunter serves the tribe before himself. He looks at everyone as if measuring how far they could shoot, and he does not hand out praise for free.",
+    first = "He does not hand out praise for free.",
     third = "{name} met Lanka Farshot, the hunter trainer at Camp Narache.",
   },
   greetings = {
@@ -218,7 +218,7 @@ P:NPC {
   communities = { "narache" }, temper = { "jovial", "warm" }, values = { "hospitality", "community" },
   notices = { "race" },
   impression = {
-    first = "Moodan Sungrain bakes bread and pours drinks for the young tauren training at Camp Narache, and he seems to think it is his duty to fatten them up before they leave. He laughs easily and loudly.",
+    first = "He thinks it his duty to fatten the young before they leave.",
     third = "{name} met Moodan Sungrain, the jovial baker at Camp Narache.",
   },
   greetings = {
@@ -285,7 +285,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "gruff", "steady" }, values = { "craft", "duty" },
   notices = { "class" },
   impression = {
-    first = "Harant Ironbrace sells armour and shields in Bloodhoof Village and judges every customer by the dents in what they already wear. He is gruff, but he takes the time to fit a shield properly.",
+    first = "He judges every customer by the dents in what they wear.",
     third = "{name} met Harant Ironbrace, the armorer and shieldcrafter of Bloodhoof Village.",
   },
   greetings = {
@@ -352,7 +352,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "calm", "patient" }, values = { "nature", "peace" },
   notices = { "craft" },
   impression = {
-    first = "Uthan Stillwater teaches fishing on the bank of Stonebull Lake, west of Bloodhoof, and he speaks as quietly as if the fish might hear. He seems to have more patience than anyone I have met.",
+    first = "He speaks as quietly as if the fish might hear.",
     third = "{name} met Uthan Stillwater, who teaches fishing beside Stonebull Lake.",
   },
   greetings = {
@@ -423,7 +423,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "race", "class" },
   impression = {
-    first = "Rimblat Earthshatter is a young tauren shaman of the Earthen Ring at Camp Gev'rek, where the Ring and the Windshapers have come together. He believes wounded land can be healed, and he says so with a conviction that is hard not to like.",
+    first = "His conviction that wounded land can heal is hard not to like.",
     third = "{name} met Rimblat Earthshatter, a young Earthen Ring shaman at Camp Gev'rek.",
   },
   greetings = {

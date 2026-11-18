@@ -12,7 +12,7 @@ P:NPC {
   notices = { "weary", "kit", "priest" },
 
   impression = {
-    first = "Ghak Healtouch patches up Thelsamar's miners and Mountaineers with salves that smell worse than the wounds. He scolds every patient and then treats them gently, and he seemed to think I'd be back on his table soon.",
+    first = "He scolds every patient and then treats them gently.",
     third = "{name} met Ghak Healtouch, the gruff healer of Thelsamar, who brews his remedies from things most folk would rather not touch.",
   },
 
@@ -232,7 +232,7 @@ P:NPC {
   notices = { "race", "origin" },
 
   impression = {
-    first = "Torren Squarejaw would rather be in a hole in the ground than behind a desk, and tells everyone so. He talks about the old ruins round the loch the way other dwarves talk about ale.",
+    first = "He would rather be down a hole than behind a desk.",
     third = "{name} met Torren Squarejaw of the Explorers' League, who longs for the dig while the League keeps him in Thelsamar.",
   },
 
@@ -333,7 +333,7 @@ P:NPC {
   notices = { "kit", "paladin" },
 
   impression = {
-    first = "Bailor Stonehand judges people by their weapons and weapons by their balance. He spoke of an old apprentice with more pride than he let his face show.",
+    first = "He judges people by their weapons and weapons by their balance.",
     third = "{name} met Bailor Stonehand, an old weaponsmith of Thelsamar who once trained Jordan Stilwell.",
   },
 

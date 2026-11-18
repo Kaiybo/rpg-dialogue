@@ -15,7 +15,7 @@ P:NPC {
   notices = { "class", "trophy" },
 
   impression = {
-    first = "Skorn Whitecloud is an old hunter whose ears have gone but whose stories haven't. He was never bested by any beast until Ghost Howl, and he still carries the shame of it like a stone he can't put down.",
+    first = "He still carries the shame of losing to Ghost Howl.",
     third = "{name} met Skorn Whitecloud, the aged tauren hunter of Bloodhoof Village who once failed to slay the mad wolf Ghost Howl.",
   },
 
@@ -152,7 +152,7 @@ P:NPC {
   notices = { "kit", "craft" },
 
   impression = {
-    first = "Varg Windwhisper sells leather armor in Bloodhoof and sends his hides up to a colleague in Thunder Bluff to be worked. Business is lively with all the hunters coming through, and he likes it that way.",
+    first = "Business is lively with the hunters about, and he likes it so.",
     third = "{name} met Varg Windwhisper, the leather armor merchant of Bloodhoof Village.",
   },
 
@@ -256,7 +256,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Var'jun is a Darkspear far from the shore, sent to the tauren plains to find his tribe's young priests and send them home. He takes the errand very seriously and looks at every troll who passes as if they might be the one.",
+    first = "He searches every passing troll's face for his tribe's young priests.",
     third = "{name} met Var'jun, the Darkspear sent to Bloodhoof Village to find young troll priests and send them to Ur'kyo.",
   },
 
@@ -365,7 +365,7 @@ P:NPC {
   notices = { "race", "mount" },
 
   impression = {
-    first = "Kar Stormsinger teaches the art of riding kodo and treats the beasts as kin, not livestock. He will teach any tauren who can pay, and anyone else only once the tauren of Thunder Bluff call them a true friend.",
+    first = "He treats his kodo as kin, not livestock.",
     third = "{name} met Kar Stormsinger, the kodo riding trainer of Bloodhoof Village.",
   },
 
@@ -497,7 +497,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Seikwa keeps the beasts of hunters passing through Bloodhoof and fusses over every one of them. She remembers each animal's name long after she's forgotten its owner's.",
+    first = "She remembers each animal's name long after forgetting its owner's.",
     third = "{name} met Seikwa, the tauren stable master of Bloodhoof Village.",
   },
 

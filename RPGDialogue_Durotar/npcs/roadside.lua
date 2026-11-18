@@ -9,7 +9,7 @@ P:NPC {
   temper = { "grieving" }, values = { "loyal", "proud" },
   notices = { "race" },
   impression = {
-    first = "Misha Tor'kren lives alone in a hut in Durotar's north, and the grief for her son Kron sits on her like a second skin. She asks for his amulet back from the beasts that took him, and she does not ask twice.",
+    first = "Grief for her son Kron sits on her like a second skin.",
     third = "{name} met Misha Tor'kren, a widowed orc keeping a lonely hut in northern Durotar.",
   },
   greetings = {
@@ -229,7 +229,7 @@ P:NPC {
   temper = { "watchful" }, values = { "dutiful", "patient" },
   notices = { "class" },
   impression = {
-    first = "Margoz keeps a hut within sight of Skull Rock and counts the Burning Blade cultists who slip in and out of it. He is patient and sour about it, and he would rather you did the killing than him.",
+    first = "He would rather I did the killing than him.",
     third = "{name} met Margoz, an orc keeping watch over Skull Rock from a hut in the hills.",
   },
   greetings = {
@@ -440,7 +440,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "calm" }, values = { "wise" },
   notices = { "class" },
   impression = {
-    first = "Swart trains the shaman of Razor Hill, a calm Darkspear troll who speaks of the elements the way other trolls speak of the loa.",
+    first = "He speaks of the elements as other trolls speak of the loa.",
     third = "{name} met Swart, the shaman trainer at Razor Hill.",
   },
   greetings = {
@@ -587,7 +587,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "gruff" }, values = { "brave" },
   notices = { "class" },
   impression = {
-    first = "Tarshaw Jaggedscar trains Razor Hill's warriors, a scarred veteran who judges a recruit by the way they stand before they ever swing.",
+    first = "He judges a recruit by their stance before they ever swing.",
     third = "{name} met Tarshaw Jaggedscar, the warrior trainer at Razor Hill.",
   },
   greetings = {

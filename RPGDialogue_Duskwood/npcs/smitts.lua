@@ -10,7 +10,7 @@ P:NPC {
   notices = { "drink", "lore" },
 
   impression = {
-    first = "Tavernkeep Smitts pours, listens and remembers what Darkshire would rather forget. He keeps the warmest room in Duskwood, and he admits it isn't saying much.",
+    first = "He keeps the warmest room in Duskwood and admits that's not much.",
     third = "{name} drank at the Scarlet Raven, where Tavernkeep Smitts pours and listens and remembers what the town would rather forget.",
   },
 

@@ -7,7 +7,7 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "questgiver", tier = "quest",
   communities = { "windshear_crag" }, temper = { "shifty" }, values = { "ambitious", "inventive" },
   impression = {
-    first = "Ziz Fizziks is a goblin hiding in a hut at Windshear Crag, right under the Venture Company's nose. He wants their shredder plans, and he isn't fussy about who fetches them.",
+    first = "He wants the shredder plans and isn't fussy about who fetches them.",
     third = "{name} met Ziz Fizziks, a goblin at Windshear Crag with designs on the Venture Company's machines.",
   },
 
@@ -187,7 +187,7 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "questgiver", tier = "quest",
   communities = { "sun_rock" }, temper = { "gentle" }, values = { "hopeful", "nature" },
   impression = {
-    first = "Tsunaman is a tauren of Sun Rock Retreat who plants new life where the Venture Company has cut the forest down. He works slowly, and he means to outlast the machines.",
+    first = "He plants slowly and means to outlast the machines.",
     third = "{name} met Tsunaman, a tauren of Sun Rock Retreat replanting the scarred woods of Stonetalon.",
   },
 
@@ -355,7 +355,7 @@ P:NPC {
   bible = "bibles/stonetalon.md", role = "questgiver", tier = "quest",
   communities = { "sun_rock" }, temper = { "brave" }, values = { "family", "determined" },
   impression = {
-    first = "Kaya Flathoof is a young tauren who survived the Grimtotem attack on Camp Aparaje and wants only to get home to Sun Rock. She is frightened and refuses to show it.",
+    first = "She is frightened and refuses to show it.",
     third = "{name} met Kaya Flathoof, a young tauren trying to get home to Sun Rock after the Grimtotem attack.",
   },
 

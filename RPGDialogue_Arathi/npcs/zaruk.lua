@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "lore" },
 
   impression = {
-    first = "Zaruk keeps to himself in Hammerfall and speaks of someone he calls the Lady with a calm that makes the skin crawl. He says he serves a higher cause, and he plainly believes it.",
+    first = "He speaks of the Lady with a calm that chills me.",
     third = "{name} met Zaruk, a quiet orc of Hammerfall who serves the Twilight's Hammer and the buried princess Myzrael.",
   },
 

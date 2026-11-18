@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gentle" }, values = { "kind", "pious" },
   notices = { "priest", "undeath", "duskwood" },
   impression = {
-    first = "Bishop Farthing asked what weighed on me before he asked what I wanted, and he listened to the answer. Darkshire trusts him when it trusts nobody else in Stormwind, and I can see why.",
+    first = "He asks what weighs on me before he asks what I want.",
     third = "{name} met Bishop Farthing of the Cathedral of Light, the one churchman Darkshire still writes to.",
   },
 
@@ -262,7 +262,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "eager" }, values = { "pious", "curious" },
   notices = { "priest", "craft" },
   impression = {
-    first = "Brother Kristoff is writing a sermon on the fortitude of the spirit, and he wants to build it out of a dwarf's book about iron. He rehearses it to anyone standing still, and he means every word.",
+    first = "He rehearses his sermon to anyone standing still.",
     third = "{name} met Brother Kristoff outside the Cathedral, a priest preparing a sermon on fortitude from a book about iron.",
   },
 
@@ -484,7 +484,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "warm" }, values = { "kind", "pious" },
   notices = { "stealth", "gnome", "priest" },
   impression = {
-    first = "Brother Sarno greets everyone who walks through the Cathedral doors, and he means it every time. He seems to worry about the gnomes' ruined city as if it were his own.",
+    first = "He worries about the gnomes' ruined city as though it were his.",
     third = "{name} met Brother Sarno, who welcomes every visitor at the door of the Cathedral of Light.",
   },
 
@@ -710,7 +710,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "eager" }, values = { "pious", "dutiful" },
   notices = { "priest", "paladin" },
   impression = {
-    first = "Thomas, the Cathedral's altar boy, is very proud of being trusted with secret errands and very bad at keeping his voice down about them. He wants to be a priest when he's grown.",
+    first = "He is proud of his secret errands and too loud about them.",
     third = "{name} met Thomas, an altar boy who walks the length of the Cathedral and runs the Bishop's errands.",
   },
 
@@ -910,7 +910,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "dutiful" },
   notices = { "refugee", "young", "priest" },
   impression = {
-    first = "Matron Nightingale stands outside the orphanage and speaks about war's costs as plainly as a quartermaster. She remembers every child who has passed through her door, and I suspect she never sleeps for long.",
+    first = "She remembers every child who has passed through her door.",
     third = "{name} met Orphan Matron Nightingale, who keeps Stormwind's orphanage and remembers every child by name.",
   },
 
@@ -1166,7 +1166,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "warm" }, values = { "kind", "pious" },
   notices = { "priest" },
   impression = {
-    first = "Shellene cares for the orphans with Matron Nightingale, and she scolds them and blesses them in the same breath. She's sure the Light will see the children right, and she'll help it along if it's slow.",
+    first = "She scolds the orphans and blesses them in the same breath.",
     third = "{name} met Shellene, who looks after the children in Stormwind's orphanage.",
   },
 

@@ -267,7 +267,6 @@ function kinds.Persuade(pack, def)
   def._pack = pack.id
   for _, action in ipairs({ "admire", "joke", "taunt", "intimidate" }) do
     for _, result in ipairs({ "say", "success", "fail" }) do
->>>>>>> theirs
       local list = def[action] and def[action][result]
       indexList(list, "persuade:" .. def.id .. "." .. action .. "." .. result, "persuade:" .. def.id, "persuade")
     end

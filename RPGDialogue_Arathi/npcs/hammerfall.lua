@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Gor'mul was a prisoner in the Hammerfall camp the night Doomhammer died breaking it open, and he never recovered. He talks about that night as if it were yesterday and the years since as if they never happened.",
+    first = "For him, the night Doomhammer died was yesterday.",
     third = "{name} met Gor'mul, a despairing orc of Hammerfall who was left behind when the camp was freed and never got over Doomhammer's death.",
   },
 
@@ -309,7 +309,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Tor'gan is Hammerfall's troll shaman, and he believes the spirits can heal even an orc who has given up. He is gentle about it, which in Hammerfall makes him unusual.",
+    first = "He believes the spirits can heal even an orc who gave up.",
     third = "{name} met Tor'gan, the troll shaman of Hammerfall, who is trying to bring the despairing Gor'mul back to life.",
   },
 
@@ -518,7 +518,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Korin Fel reads auguries for Hammerfall and keeps one secret from her husband, Drum Fel, to keep him alive. She trusted me with it quickly, which tells me how worried she is.",
+    first = "She keeps one secret from her husband to keep him alive.",
     third = "{name} met Korin Fel, Drum Fel's wife, who reads auguries and hides a threat from her husband to protect him.",
   },
 
@@ -697,7 +697,7 @@ P:NPC {
   notices = { "race", "pet" },
 
   impression = {
-    first = "Urda keeps Hammerfall's wind riders and talks about the Highlands' winds like an old enemy she's learned to respect.",
+    first = "She talks of the Highlands' winds like an old enemy she respects.",
     third = "{name} met Urda, the wind rider master at Hammerfall.",
   },
 

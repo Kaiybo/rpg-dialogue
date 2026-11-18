@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "craft", "class" },
 
   impression = {
-    first = "Master Vornal squints at everyone as if they were a label on a jar he can't quite read. He fought beside Sen'jin once, and now he grinds makrura eyes into tinctures because his own eyes are failing him.",
+    first = "He fought beside Sen'jin once, and now his eyes are failing him.",
     third = "{name} met Master Vornal, the old Darkspear alchemist of Sen'jin Village who has never found a student worth teaching.",
   },
 
@@ -209,7 +209,7 @@ P:NPC {
   notices = { "class", "craft" },
 
   impression = {
-    first = "Vel'rin Fang keeps the hides that keep Sen'jin warm, and he talks about tigers the way a farmer talks about his herd. He hunts what he needs and leaves the rest to breed, and he's prickly about anyone who doesn't.",
+    first = "He hunts what he needs and leaves the rest to breed.",
     third = "{name} met Vel'rin Fang, who supplies Sen'jin Village with furs and hides from the beasts of southern Durotar.",
   },
 
@@ -361,7 +361,7 @@ P:NPC {
   notices = { "class", "level" },
 
   impression = {
-    first = "Ula'elek works iron by the sea and talks about it as if the spirits were leaning over his shoulder. Thun'grim Firegaze sends him warriors, and he says he knew they were coming before the letters arrived.",
+    first = "He works iron as if the spirits were leaning over his shoulder.",
     third = "{name} met Ula'elek, the Darkspear smith of Sen'jin who forges brutal gauntlets for proven warriors of the Horde.",
   },
 

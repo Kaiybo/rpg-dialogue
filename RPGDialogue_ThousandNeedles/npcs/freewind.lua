@@ -9,7 +9,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Cliffwatcher Longhorn sees the centaur long before they see him, and he spoke as though the canyon were a debt he means to collect. Underneath, he is worried about a brother he hasn't written to.",
+    first = "Underneath, he is worried about a brother he hasn't written to.",
     third = "{name} met Cliffwatcher Longhorn, who keeps watch over the Thousand Needles from Freewind Post.",
   },
 
@@ -401,7 +401,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Rau Cliffrunner has been staring at centaur carvings since dawn and would happily keep going until the moon sets. There is a scholar's patience in that, and a scholar's hunger too.",
+    first = "He has a scholar's patience, and a scholar's hunger too.",
     third = "{name} met Rau Cliffrunner of Freewind Post, who studies the centaur relic called the Cloven Hoof.",
   },
 
@@ -626,7 +626,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Hagar Lightninghoof asked whether I'd seen a very large egg before he asked anything else. His mind keeps drifting back to it, and he is too delighted to apologize properly.",
+    first = "He asked about a very large egg before anything else.",
     third = "{name} met Hagar Lightninghoof of Thunder Bluff, who came to the Thousand Needles chasing tales of a strange egg.",
   },
 
@@ -847,7 +847,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Thalia Amberhide warned me she was poor company and was right about it. She keeps a knotted cord for the friend the Grimtotem took, and her fingers never stop finding it.",
+    first = "Her fingers never stop finding the cord for her lost friend.",
     third = "{name} met Thalia Amberhide at Freewind Post, who waits for word of her friend Lakota Windsong.",
   },
 
@@ -1109,7 +1109,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "Innkeeper Abeqwa keeps the blankets dry and tells guests not to look down from the mesa. The wind sings over her inn at night, and she plainly loves it.",
+    first = "The wind sings over her inn at night, and she loves it.",
     third = "{name} met Innkeeper Abeqwa, who keeps the inn atop the mesas at Freewind Post.",
   },
 

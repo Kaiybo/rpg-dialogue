@@ -11,7 +11,7 @@ P:NPC {
   temper = { "jolly", "sly" }, values = { "profit", "curious" },
   notices = { "class", "purse" },
   impression = {
-    first = "Tuu'li calls himself a Magnificent Mystic and sells empty vials and wrapping paper from a camp on the edge of Stonetalon. He is a showman to his fingertips, and I suspect he knows exactly how much of it is show.",
+    first = "I suspect he knows exactly how much of it is show.",
     third = "{name} met Tuu'li, a Darkspear showman who calls himself a Magnificent Mystic, trading with a goblin partner at the edge of Stonetalon.",
   },
   greetings = {
@@ -124,7 +124,7 @@ P:NPC {
   temper = { "pushy" }, values = { "profit", "practical" },
   notices = { "craft", "purse" },
   impression = {
-    first = "Xaphod Bizznox is a Booty Bay goblin selling picks, hammers and exactly one white kitten from a camp at the bottom of Stonetalon. He haggles with himself when nobody else will.",
+    first = "He haggles with himself when nobody else will.",
     third = "{name} met Xaphod Bizznox, a Booty Bay goblin trading picks and a white kitten at the edge of Stonetalon.",
   },
   greetings = {

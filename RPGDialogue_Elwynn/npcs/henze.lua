@@ -10,7 +10,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "paladin" },
   impression = {
-    first = "Henze Faulk jokes about having been dead the way other folk joke about the weather, and I think it helps him. He went in after his friend Gazin once, and he'd plainly do it again.",
+    first = "He jokes about having been dead, and I think it helps him.",
     third = "{name} met Henze Faulk, the dwarf who went after his friend Gazin and was caught by the Defias for it.",
   },
 

@@ -14,7 +14,7 @@ P:NPC {
   notices = { "class", "stealth" },
 
   impression = {
-    first = "Balthule Shadowstrike crouches in the brush below the Tower of Althalaxx and has not gone home because he's afraid of missing something. He speaks of a human paladin, Delgren, as his master, and of the Light with the shy pride of a new convert.",
+    first = "He speaks of the Light with a new convert's shy pride.",
     third = "{name} met Balthule Shadowstrike, a night elf scout watching the Dark Strand cult at the Tower of Althalaxx for Delgren the Purifier.",
   },
 
@@ -125,7 +125,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Sentinel Tysha Moonblade stands guard on the road west of Ameth'Aran and admits, with a soldier's honesty, that the ruin's ghosts drove her off. She'd rather you read its tablets than she did.",
+    first = "The ghosts of Ameth'Aran drove her off, and she admits it.",
     third = "{name} met Sentinel Tysha Moonblade by the road near Ameth'Aran, who sent them to read the tablets of the haunted ruin.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   communities = { "westfall_farms" }, temper = { "proud" }, values = { "stern", "honest" },
   notices = { "work", "kit" },
   impression = {
-    first = "When all his neighbours fled, Farmer Saldean stayed, and he says so with a certain grim pride. His furrows are the only straight thing he has left, by his own reckoning.",
+    first = "He stayed when every neighbour fled, and he is proud of it.",
     third = "{name} met Farmer Saldean, who holds his ground while harvest watchers stalk his fields.",
   },
 

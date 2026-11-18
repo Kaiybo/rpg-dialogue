@@ -12,7 +12,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "kit", "readiness" },
   impression = {
-    first = "Lord Grayson Shadowbreaker of the Silver Hand is not easily satisfied, and he told me so himself. He seems to judge a person first by how they keep their gear.",
+    first = "He judges a person first by how they keep their gear.",
     third = "{name} met Lord Grayson Shadowbreaker of the Silver Hand, the Cathedral's exacting paladin trainer.",
   },
 
@@ -344,7 +344,7 @@ P:NPC {
   spiritSensitive = true,
   notices = {},
   impression = {
-    first = "Arthur the Faithful isn't sure he has earned his name, which is probably why he has. He invites everyone to kneel a moment before they begin, and he means it kindly.",
+    first = "He doubts he has earned his name, which is why he has.",
     third = "{name} met Arthur the Faithful, a devout paladin trainer in the Cathedral's east wing.",
   },
 
@@ -569,7 +569,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "proud" }, values = { "honest", "ambitious" },
   notices = { "craft", "kit" },
   impression = {
-    first = "Grimand Elmore boasts about his work as if he were stating plain fact, and from what I saw, he may be. His praise is so rare that it nearly sounds like an insult.",
+    first = "His praise is so rare that it nearly sounds like an insult.",
     third = "{name} met Grimand Elmore, master weaponsmith of the Dwarven District, who makes barding for paladins' chargers.",
   },
 
@@ -793,7 +793,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "cowardly" }, values = { "curious" },
   notices = { "lore" },
   impression = {
-    first = "In the Royal Library one whispers, because Milton Sheaf believes the books are sleeping. He forgave a book seventy years overdue for the sake of a pressed flower he found between its pages.",
+    first = "He believes the books are sleeping, so one whispers.",
     third = "{name} met Milton Sheaf, keeper of Stormwind's Royal Library, who collects books and the people who fetch them.",
   },
 
@@ -1001,7 +1001,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "witty" },
   notices = { "watch" },
   impression = {
-    first = "Nobody has ever insisted on selling only cheese as firmly as Elling Trias does. He stands behind his counter looking honest with real dedication.",
+    first = "Nobody has ever insisted so firmly on selling only cheese.",
     third = "{name} met Elling Trias at his Trade District cheese shop, a man very insistent that he is only a cheesemaker.",
   },
 

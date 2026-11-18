@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "deed" },
 
   impression = {
-    first = "Cyrus Therepentous wondered aloud whether to eat me, and I'm not certain he was joking. He speaks of the Flight with a reverence he gives to nothing else.",
+    first = "He wondered aloud whether to eat me, and I doubt he joked.",
     third = "{name} met Cyrus Therepentous, a scornful dragonspawn of the black Flight who lairs at Slither Rock.",
   },
 

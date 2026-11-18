@@ -9,7 +9,7 @@ P:NPC {
   notices = { "kit", "drink" },
 
   impression = {
-    first = "Sigrun Ironhew is a smith's apprentice running a dig camp on sand and stubbornness. He jokes about going hungry, though I don't think he finds it as funny as he lets on.",
+    first = "He jokes about going hungry, but I doubt he finds it funny.",
     third = "{name} met Sigrun Ironhew, a dwarf smith keeping a hungry camp alive south of Hammertoe's Digsite in the Badlands.",
   },
 

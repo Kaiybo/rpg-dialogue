@@ -15,7 +15,7 @@ P:NPC {
   notices = { "arcane", "fel", "student" },
 
   impression = {
-    first = "Archmage Malin keeps rooms in the Wizard's Sanctum, drinks his tea strong enough to stand a spoon in, and talks about his dead master Trelane as though the man had only stepped out.",
+    first = "He speaks of his dead master as though he only stepped out.",
     third = "{name} met Archmage Malin of the Wizard's Sanctum, who wants his old master's artifacts brought out of Stromgarde's ruins.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "devout" }, values = { "faith", "craft" },
   notices = { "paladin", "kit" },
   impression = {
-    first = "Agustus Moulaine sells plate and mail at Righteous Plates, just south of the Cathedral, and he speaks of armour as if it were scripture. He was devout, proud of his stock and a little pompous.",
+    first = "He speaks of armour as if it were scripture.",
     third = "{name} met Agustus Moulaine of Righteous Plates in Cathedral Square.",
   },
   greetings = {
@@ -183,7 +183,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gentle" }, values = { "faith", "mercy" },
   notices = { "priest", "kit" },
   impression = {
-    first = "Theresa Moulaine sells robes to the Cathedral's clergy at Righteous Plates and blessed me as though it were part of the sale. She was gentle and noticed more than she said.",
+    first = "She blesses you as though it were part of the sale.",
     third = "{name} met Theresa Moulaine, who sells robes at Righteous Plates in Cathedral Square.",
   },
   greetings = {
@@ -351,7 +351,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gruff" }, values = { "animals", "loyal" },
   notices = { "pet", "class" },
   impression = {
-    first = "Jenova Stoneshield keeps the stables in Stormwind's Dwarven District and talks to the beasts more kindly than to their owners. She was gruff, plain-spoken and plainly good at her work.",
+    first = "She talks to the beasts more kindly than to their owners.",
     third = "{name} met Jenova Stoneshield, the dwarf stable master of Stormwind's Dwarven District.",
   },
   greetings = {
@@ -515,7 +515,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "excitable" }, values = { "invention", "community" },
   notices = { "craft", "gnome" },
   impression = {
-    first = "Billibub Cogspinner sells engineering parts in the Dwarven District and explains how they explode with real delight. He sends anyone who wants them to stay unexploded to Lilliam Sparkspindle.",
+    first = "He explains how his parts explode with real delight.",
     third = "{name} met Billibub Cogspinner, a gnome who sells engineering supplies in the Dwarven District.",
   },
   greetings = {

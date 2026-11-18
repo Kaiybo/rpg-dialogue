@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Brammold Deepmine sells old things to wizards and seems to enjoy the haggling more than the money. A dwarf among magi, and not the least bit bothered by it.",
+    first = "He seems to enjoy the haggling more than the money.",
     third = "{name} met Brammold Deepmine, a dwarf who deals in antiques in Dalaran.",
   },
 
@@ -156,7 +156,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Lizi Silverstone of the Kirin Tor talks quickly and works quicker, with two cats underfoot that she insists aren't hers. She can't walk past a broken thing without counting what's wrong with it, and she'd rather trust a gear than a spell.",
+    first = "She would rather trust a gear than a spell.",
     third = "{name} met Lizi Silverstone, a gnome of the Kirin Tor at Eclipse with Shears in Dalaran.",
   },
 
@@ -325,7 +325,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Pollero Rene of the Kirin Tor keeps an eye on the Path of Renewal and speaks of it like a gardener speaks of a bed that's only just been planted. He knows every stone on it by heart, and a cat named Zara keeps him company, on her own terms.",
+    first = "A cat named Zara keeps him company, on her own terms.",
     third = "{name} met Pollero Rene, a magus of the Kirin Tor who watches over Dalaran's Path of Renewal.",
   },
 

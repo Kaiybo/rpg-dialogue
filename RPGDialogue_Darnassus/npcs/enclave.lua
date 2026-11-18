@@ -13,7 +13,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Jenal digs ditches behind the Cenarion Enclave and insists he is a visionary kept down by lesser minds. He asked me not to step in the dirt, then talked about his dreams for a long while.",
+    first = "He digs ditches and insists he is a visionary kept down.",
     third = "{name} met Jenal, who shovels dirt behind the Cenarion Enclave and considers himself a misunderstood visionary.",
   },
 
@@ -255,7 +255,7 @@ P:NPC {
   notices = { "class", "stealth" },
 
   impression = {
-    first = "Syurna hardly speaks to anyone who isn't a rogue, and she made sure I knew it. Underneath the chill she cares a great deal about what is happening to the forests of Teldrassil.",
+    first = "Under the chill, she cares deeply about Teldrassil's forests.",
     third = "{name} met Syurna, the cool and guarded rogue trainer of the Cenarion Enclave.",
   },
 
@@ -485,7 +485,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Jocaste is as stern as the hunters warned, but I saw her watch the young ones with something close to pride. She speaks of balance as if it were a law she personally enforces.",
+    first = "She is stern, but she watches the young ones with pride.",
     third = "{name} met Jocaste, the stern and respected hunter trainer of the Cenarion Enclave.",
   },
 
@@ -748,7 +748,7 @@ P:NPC {
   notices = { "form", "class" },
 
   impression = {
-    first = "Denatharion blesses everyone in Cenarius's name, even those who will never take a shape. He speaks of the Enclave's quarrels with a teacher's tact, and of the young druids with real fondness.",
+    first = "He blesses everyone in Cenarius's name, druid or not.",
     third = "{name} met Denatharion, a patient druid trainer of the Cenarion Enclave.",
   },
 

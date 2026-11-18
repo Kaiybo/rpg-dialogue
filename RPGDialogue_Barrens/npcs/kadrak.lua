@@ -9,7 +9,7 @@ P:NPC {
   temper = { "fierce" }, values = { "proud", "loyal" },
   notices = { "race", "class" },
   impression = {
-    first = "Kadrak holds the Mor'shan Rampart for the Warsong, watching the road into Ashenvale. He speaks of Grom Hellscream like a living chieftain, and of the night elves as an enemy who will not let the Horde breathe.",
+    first = "He speaks of Grom Hellscream as if the chieftain still lived.",
     third = "{name} met Kadrak at the Mor'shan Rampart, the Warsong orc who directs the Horde's scouts on the Ashenvale border.",
   },
 

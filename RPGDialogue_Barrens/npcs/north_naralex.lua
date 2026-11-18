@@ -14,7 +14,7 @@ P:NPC {
   temper = { "grim", "earnest" }, values = { "dutiful", "faithful" },
   notices = { "class", "form" },
   impression = {
-    first = "Ebru keeps watch in the cave above the Wailing Caverns and speaks of the twisted beasts below as a sickness to be cut out. There is grief under the hard words, for the friends who went down and turned.",
+    first = "There is grief under the hard words, for friends who turned.",
     third = "{name} met Ebru, one of the Disciples of Naralex keeping vigil above the Wailing Caverns.",
   },
 
@@ -120,7 +120,7 @@ P:NPC {
   temper = { "curious", "dry" }, values = { "wise", "practical" },
   notices = { "craft", "class" },
   impression = {
-    first = "Nalpak studies the deviate beasts of the Wailing Caverns through their hides, hoping to learn what the nightmare is doing to the living. He is drier and more practical than his fellow disciples, and less hopeful.",
+    first = "He is drier and less hopeful than his fellow disciples.",
     third = "{name} met Nalpak, a Disciple of Naralex studying the twisted beasts of the Wailing Caverns.",
   },
 
@@ -217,7 +217,7 @@ P:NPC {
   temper = { "gentle", "thoughtful" }, values = { "faithful", "wise" },
   notices = { "race", "class" },
   impression = {
-    first = "Falla Sagewind waits on the hill above the Wailing Caverns for any sign from the dream below. She is gentle and slow to speak, and she listens to the wind before she answers.",
+    first = "She listens to the wind before she answers.",
     third = "{name} met Falla Sagewind, a tauren druid keeping watch over the Wailing Caverns.",
   },
 
@@ -316,7 +316,7 @@ P:NPC {
   temper = { "earnest", "weary" }, values = { "faithful", "loyal" },
   notices = { "class", "race" },
   impression = {
-    first = "The Disciple of Naralex has been waiting in the caverns for someone strong enough to walk him to his master's side. He is tired almost past speaking, and holds on to the hope of the awakening anyway.",
+    first = "He is tired almost past speaking and holds on to hope anyway.",
     third = "{name} met the Disciple of Naralex in the Wailing Caverns, the last follower still trying to wake his master.",
   },
 

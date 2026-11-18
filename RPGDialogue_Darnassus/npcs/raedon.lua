@@ -9,7 +9,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "earnest", "harried" }, values = { "duty", "thrift" },
   notices = { "craft", "purse" },
   impression = {
-    first = "Raedon Duskstriker counts bolts of cloth as though each one were a Sentinel's life, and to him it might be. He thanks people for wool with more feeling than most give for gold.",
+    first = "He thanks people for wool more warmly than most do for gold.",
     third = "{name} met Raedon Duskstriker, the Alliance cloth quartermaster on Darnassus' Craftsmen's Terrace, who collects cloth for the kaldorei.",
   },
 

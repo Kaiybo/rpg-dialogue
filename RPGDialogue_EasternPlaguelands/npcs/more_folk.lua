@@ -10,7 +10,7 @@ P:NPC {
   notices = { "deeds", "stranger" },
 
   impression = {
-    first = "Anthion Harmon is a ghost at Stratholme's gate who died trying to rescue his wife from Baron Rivendare. He'll answer questions about an old treasure, but only once he knows she's safe.",
+    first = "He'll speak of the treasure only once his wife is safe.",
     third = "{name} met Anthion Harmon, a ghost outside Stratholme who died trying to free his wife Ysida from the Baron.",
   },
 

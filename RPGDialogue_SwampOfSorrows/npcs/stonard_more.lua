@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "weary" },
 
   impression = {
-    first = "Dar is a plain Stonard orc who admits the town has no comforts and stays anyway, because its old stones matter to someone. He sends errands down to Tok'Kar on the beach, and Tok'Kar, by all accounts, insults him in return.",
+    first = "He admits the town has no comforts and stays anyway.",
     third = "{name} met Dar, an orc of Stonard who keeps the outpost's errands moving.",
   },
 
@@ -247,7 +247,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Breyk keeps the wind riders at Stonard, and spends his days drying their wings and scraping swamp moss off their harness. He complains about the wet the way Kargath's rider master complains about the heat.",
+    first = "He spends his days scraping swamp moss off wind rider harness.",
     third = "{name} met Breyk, the wind rider master at Stonard.",
   },
 
@@ -422,7 +422,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Greshka sells grimoires at Stonard and has no time for anyone who isn't a warlock. To warlocks she is barely kinder: she says they know enough to be dangerous and not enough to be useful.",
+    first = "She says warlocks are dangerous long before they are useful.",
     third = "{name} met Greshka, who sells warlock grimoires in Stonard.",
   },
 
@@ -604,7 +604,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Malosh trains Stonard's warriors in the mud of the yard and says that a warrior who can fight in the swamp can fight anywhere. He's blunt, scarred and proud of both.",
+    first = "He says whoever can fight in the swamp can fight anywhere.",
     third = "{name} met Malosh, the warrior trainer at Stonard.",
   },
 

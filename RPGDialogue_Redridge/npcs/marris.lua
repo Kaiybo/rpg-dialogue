@@ -10,7 +10,7 @@ P:NPC {
   notices = { "soldier", "trophy" },
 
   impression = {
-    first = "Marshal Marris keeps his eyes east, where the Blackrock are, and his guard stretched thin across a whole lake. He wanted numbers from me, not stories.",
+    first = "He wants numbers from me, not stories.",
     third = "{name} met Marshal Marris of Lakeshire, who holds the town against the Blackrock orcs with too few guards.",
   },
 

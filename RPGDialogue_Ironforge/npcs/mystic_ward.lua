@@ -14,7 +14,7 @@ P:NPC {
   notices = { "light", "race" },
 
   impression = {
-    first = "High Priest Rohan never stops walking the Hall of Mysteries, and he listens the whole time he walks. He talks about the Light the way a miner talks about a good seam: plainly, and with respect.",
+    first = "He speaks of the Light like a miner of a good seam.",
     third = "{name} met High Priest Rohan, who leads the Church of the Light in Ironforge from the Hall of Mysteries.",
   },
 
@@ -560,7 +560,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Theodrus Frostbeard warns everyone who passes not to turn their back on the Light. He means it kindly, I think, though it's hard to tell under the scowl.",
+    first = "His warnings are kindly meant, though the scowl hides it.",
     third = "{name} met Theodrus Frostbeard, a stern priest trainer in Ironforge's Hall of Mysteries.",
   },
 
@@ -759,7 +759,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Toldren Deepiron asked whether there was anything he could do for me, and then waited as if he really wanted to know. He seems to notice tired people before they notice themselves.",
+    first = "He notices tired people before they notice themselves.",
     third = "{name} met Toldren Deepiron, a gentle priest trainer in the Hall of Mysteries.",
   },
 
@@ -953,7 +953,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Braenna Flintcrag keeps the Hall's messages for priests from other temples and makes every stranger welcome. She is brisk about it, and very good at it.",
+    first = "She makes every stranger welcome, briskly and very well.",
     third = "{name} met Braenna Flintcrag, a priest trainer in the Hall of Mysteries who welcomes visitors from other temples.",
   },
 
@@ -1145,7 +1145,7 @@ P:NPC {
   notices = { "paladin" },
 
   impression = {
-    first = "Tiza Battleforge puts young paladins on the road by sending them to help people who can never repay them. She is proud of her husband and prouder still of the ones who come back.",
+    first = "She sends young paladins to help people who can never repay them.",
     third = "{name} met Tiza Battleforge, the respected dwarven paladin who sets Ironforge's young paladins on the path of virtue.",
   },
 
@@ -1404,7 +1404,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Muiredon Battleforge talked cheerfully through his stitches and would not stop thanking the priest who was sewing him. Underneath the jokes he is sick with worry for his friend Narm.",
+    first = "Underneath the jokes he is sick with worry for his friend Narm.",
     third = "{name} met Muiredon Battleforge, Tiza's husband, who came back wounded from spying on the Dark Irons near Helm's Bed Lake.",
   },
 
@@ -1651,7 +1651,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Bink told me to make friends with a mage, since a mage's sleeves are full of tricks. Judging by how fast she talks, she has several up each sleeve.",
+    first = "She says a mage's sleeves are always full of tricks.",
     third = "{name} met Bink, a quick-talking gnome mage trainer in the Hall of Mysteries.",
   },
 
@@ -1877,7 +1877,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Milstaff Stormeye told me plainly that he doubted I had the mental acuity to grasp portal magic. He was so sure of it that I almost apologized.",
+    first = "He doubted I had the mental acuity to grasp portal magic.",
     third = "{name} met Milstaff Stormeye, the gnome portal trainer of the Hall of Mysteries, who thinks very little of everyone else's.",
   },
 

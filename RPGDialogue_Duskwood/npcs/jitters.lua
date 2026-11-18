@@ -10,7 +10,7 @@ P:NPC {
   notices = { "fright", "hunger" },
 
   impression = {
-    first = "Jitters jumps at every sound and begged me for food before he told me anything else. Whatever he saw in these woods, he hasn't stopped seeing it.",
+    first = "Whatever he saw in these woods, he hasn't stopped seeing it.",
     third = "{name} met Jitters, a frightened man hiding near Raven Hill who jumps at every sound in the woods.",
   },
 

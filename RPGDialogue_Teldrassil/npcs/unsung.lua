@@ -11,7 +11,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "lively", "frank" }, values = { "craft", "self-reliance" },
   notices = { "class" },
   impression = {
-    first = "Jeena Featherbow sells bows and arrows in Dolanaar and will happily tell you everything wrong with the way you hold yours. She is friendly about it, and usually right.",
+    first = "She will happily tell you everything wrong with how you shoot.",
     third = "{name} met Jeena Featherbow, Dolanaar's frank and cheerful bowyer.",
   },
 
@@ -206,7 +206,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "steady", "encouraging" }, values = { "courage", "duty" },
   notices = { "class", "greenness" },
   impression = {
-    first = "Kyra Windblade trains Dolanaar's young warriors with steady encouragement, and she seems to measure a student by how they get up rather than how they fall.",
+    first = "She measures students by how they get up, not how they fall.",
     third = "{name} met Kyra Windblade, the steady warrior trainer of Dolanaar.",
   },
 
@@ -418,7 +418,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "soft-spoken", "curious" }, values = { "knowledge", "healing" },
   notices = { "craft" },
   impression = {
-    first = "Cyndra Kindwhisper teaches alchemy in Dolanaar and speaks so softly that I leaned in to hear her. She treats every herb as if it had something to tell her.",
+    first = "She speaks so softly that I leaned in to hear her.",
     third = "{name} met Cyndra Kindwhisper, the quiet alchemy trainer of Dolanaar.",
   },
 
@@ -609,7 +609,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "patient", "reverent" }, values = { "nature", "balance" },
   notices = { "craft", "form" },
   impression = {
-    first = "Malorne Bladeleaf teaches herbalism in Dolanaar and treats every root as something borrowed from the forest. He spoke more kindly to the plants than to most people, and he was kind enough to me.",
+    first = "He spoke more kindly to the plants than to most people.",
     third = "{name} met Malorne Bladeleaf, the patient herbalism trainer of Dolanaar.",
   },
 
@@ -794,7 +794,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "hospitable", "particular" }, values = { "home", "craft" },
   notices = { "craft" },
   impression = {
-    first = "Nadyia Maneweaver teaches leatherworking from the house she shares with Radnaal, and she welcomes students as guests. She is very particular about small, neat stitches.",
+    first = "She is very particular about small, neat stitches.",
     third = "{name} met Nadyia Maneweaver, who teaches leatherworking from her home west of Dolanaar.",
   },
 
@@ -988,7 +988,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "quiet", "gruff" }, values = { "respect", "craft" },
   notices = { "pet" },
   impression = {
-    first = "Radnaal Maneweaver teaches skinning and says little that isn't about the work. When he does speak, it is with real respect for the animals he skins.",
+    first = "He speaks with real respect for the animals he skins.",
     third = "{name} met Radnaal Maneweaver, the taciturn skinning trainer who shares a house with Nadyia.",
   },
 
@@ -1171,7 +1171,7 @@ P:NPC {
   communities = { "rutheran" }, temper = { "cheerful", "chatty" }, values = { "friendship", "trade" },
   notices = { "craft" },
   impression = {
-    first = "Nessa Shadowsong sells fishing gear in Rut'theran Village and seems to know every boat and every fisherman on the water. She talks about Auberdine as if it were next door.",
+    first = "She talks about Auberdine as if it were next door.",
     third = "{name} met Nessa Shadowsong, the cheerful fishmonger of Rut'theran Village.",
   },
 
@@ -1398,7 +1398,7 @@ P:NPC {
   communities = { "rutheran" }, temper = { "slow", "content" }, values = { "patience", "simplicity" },
   notices = { "craft" },
   impression = {
-    first = "Androl Oakhand teaches fishing on the shore at Rut'theran and does everything slowly, talking included. It is oddly restful to stand beside him.",
+    first = "It is oddly restful to stand beside him.",
     third = "{name} met Androl Oakhand, the slow and patient fishing trainer of Rut'theran Village.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "curious" },
   notices = { "craft" },
   impression = {
-    first = "William Pestle warns people away from his own bottles, which seems a sensible habit for an alchemist. Gramma Stonefield calls him a good friend and a slow one, and both look true.",
+    first = "He warns people away from his own bottles, a sensible habit.",
     third = "{name} met William Pestle, Goldshire's alchemist, who sells candles and tinctures and keeps Gramma Stonefield's confidences.",
   },
 

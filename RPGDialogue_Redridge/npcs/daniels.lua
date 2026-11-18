@@ -10,7 +10,7 @@ P:NPC {
   notices = { "drink", "travel" },
 
   impression = {
-    first = "Barkeep Daniels has a bar and very little to put behind it since the orcs cut the road. He's cheerful about it in the way of a man trying hard not to be miserable.",
+    first = "He is cheerful like a man trying hard not to be miserable.",
     third = "{name} met Barkeep Daniels of Lakeshire, whose shipment of drink never came after the orcs struck the road.",
   },
 
@@ -270,7 +270,7 @@ P:NPC {
   notices = { "guest", "pet" },
 
   impression = {
-    first = "Innkeeper Brianna keeps Lakeshire's rooms and, between her and Daniels, its nerves. She made me feel at home before I'd decided whether I wanted to be.",
+    first = "She makes me feel at home before I've decided to stay.",
     third = "{name} found a room with Innkeeper Brianna, who keeps the beds in Lakeshire and does her best to keep the town calm.",
   },
 

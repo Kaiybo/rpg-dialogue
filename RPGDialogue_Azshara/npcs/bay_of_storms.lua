@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "reputation" },
 
   impression = {
-    first = "Duke Hydraxis of the Waterlords is a water elemental who rules a rock in the Bay of Storms and wages war on fire, earth and air. He judged me as a tool and seemed to find me barely adequate.",
+    first = "He judged me as a tool and found me barely adequate.",
     third = "{name} met Duke Hydraxis, lord of the Hydraxian Waterlords, on his island in the Bay of Storms.",
   },
 
@@ -378,7 +378,7 @@ P:NPC {
   notices = { "class", "race", "fel" },
 
   impression = {
-    first = "Loramus Thalipedes is a night elf demon hunter living on an island in the Bay of Storms with three felhounds. He sees demons I can't, mocks me for it, and still agreed to help me hunt one.",
+    first = "He mocks me for the demons I can't see, yet he helps.",
     third = "{name} met Loramus Thalipedes, a demon hunter who keeps watch from his island in the Bay of Storms.",
   },
 
@@ -745,7 +745,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Lord Arkkoroc is a sea giant who lives in a drowned temple and calls himself a god. He grieves the sons a hydra has killed, and he paid me exactly what he promised.",
+    first = "He calls himself a god and grieves the sons a hydra killed.",
     third = "{name} met Lord Arkkoroc, the sea giant who rules the Temple of Arkkoran on Azshara's northern shore.",
   },
 

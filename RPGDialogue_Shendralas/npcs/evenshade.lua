@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "class", "carry" },
 
   impression = {
-    first = "Archmage Mordent Evenshade keeps a lonely watch over the ruins of Shen'dralas, a Highborne who has outlived his city and most of his grief, though not all of it. He speaks like a scholar and mourns like a man who was there.",
+    first = "He speaks like a scholar and mourns like one who was there.",
     third = "{name} met Archmage Mordent Evenshade of the Shen'dralar, who watches over the ruins of Shen'dralas from Evenshade Overlook.",
   },
 

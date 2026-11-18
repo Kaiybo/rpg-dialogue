@@ -9,7 +9,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "eager" }, values = { "kind", "practical" },
   notices = { "craft", "greenness" },
   impression = {
-    first = "Clarence Gillian greets the newly risen as if they had come to a village fair, and he wants every one of them to leave with a trade. His good cheer is so stubborn that it seems almost like defiance.",
+    first = "His good cheer is so stubborn that it seems almost like defiance.",
     third = "{name} met Clarence Gillian in Deathknell, who points the newly risen toward the trainers and the trades.",
   },
 
@@ -141,7 +141,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "brisk" }, values = { "orderly", "practical" },
   notices = { "craft" },
   impression = {
-    first = "Florence Nightshade teaches herbalism as if every careless picker were a personal insult. She is brisk and particular, and she plainly loves the plants more than the people who pick them.",
+    first = "She plainly loves the plants more than the people who pick them.",
     third = "{name} met Florence Nightshade, Deathknell's junior herbalism trainer, who has no patience for a root pulled the wrong way.",
   },
 
@@ -236,7 +236,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "gentle" }, values = { "patient", "practical" },
   notices = { "craft", "pet" },
   impression = {
-    first = "Margaret Weaver handles a skinning knife with quiet care and speaks to her students the same way. She is patient with the clumsy and firm with the wasteful.",
+    first = "She is patient with the clumsy and firm with the wasteful.",
     third = "{name} met Margaret Weaver, Deathknell's junior skinning trainer, who sells knives, salt and thread to the newly risen.",
   },
 
@@ -380,7 +380,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "cheerful" }, values = { "practical", "proud" },
   notices = { "craft", "race" },
   impression = {
-    first = "Walter Mason talks about copper veins the way other men talk about old friends. He sells picks and hammers to the newly risen and seems honestly delighted whenever one of them takes up the trade.",
+    first = "He talks about copper veins the way other men talk about friends.",
     third = "{name} met Walter Mason, Deathknell's junior mining trainer, who will talk about copper for as long as anyone lets him.",
   },
 

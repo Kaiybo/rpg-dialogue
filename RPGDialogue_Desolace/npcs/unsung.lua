@@ -10,7 +10,7 @@ P:NPC {
   notices = { "weary", "kit" },
 
   impression = {
-    first = "Christi Galvanis keeps the general store at Nijel's Point and has a dry word for everything Desolace throws at her. She talks about the wasteland below as though it were a long and tiresome joke.",
+    first = "She talks about the wasteland as though it were a tiresome joke.",
     third = "{name} met Christi Galvanis, who keeps the general store at Nijel's Point.",
   },
 
@@ -210,7 +210,7 @@ P:NPC {
   notices = { "hunger", "drink" },
 
   impression = {
-    first = "Janet Hommers feeds Nijel's Point and worries over every traveler who goes down into Desolace. She seemed to measure the outpost's health by how much of her bread came back uneaten.",
+    first = "She worries over every traveler who goes down into Desolace.",
     third = "{name} met Janet Hommers, who sells food and drink at Nijel's Point.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "firm" }, values = { "loyal", "dutiful" },
   notices = { "race", "kit", "origin" },
   impression = {
-    first = "Thork keeps the Crossroads for the Warchief and treats every road in the Barrens as his to hold. He is firm and fair after his fashion, and he will not spend soldiers on a grieving man's vengeance.",
+    first = "He will not spend soldiers on a grieving man's vengeance.",
     third = "{name} met Thork, the steadfast orc who holds the Crossroads for the Warchief against every threat in the Barrens.",
   },
 
@@ -314,7 +314,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "fierce" }, values = { "proud", "fair" },
   notices = { "gender", "kit" },
   impression = {
-    first = "Sergra Darkthorn runs the Crossroads and dares anyone to be bothered by it. She sends people out past the walls with a grin, as if the Barrens were a test she enjoys setting.",
+    first = "She sends people past the walls with a grin.",
     third = "{name} met Sergra Darkthorn, the fierce orc who runs the Crossroads and sends new blood out to prove itself on the Barrens.",
   },
 
@@ -537,7 +537,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "grieving" }, values = { "loyal", "vengeful" },
   notices = { "kit", "kin" },
   impression = {
-    first = "Up on the wall, Mankrik watches the horizon as if Olgra might walk out of the grass at any moment. His grief has gone hard and angry, and it will not let him rest.",
+    first = "His grief for Olgra has gone hard and angry.",
     third = "{name} met Mankrik, a grieving orc who stands watch at the Crossroads waiting for word of his wife Olgra.",
   },
 
@@ -755,7 +755,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "measured" }, values = { "balanced", "patient" },
   notices = { "form", "class" },
   impression = {
-    first = "Tonga Runetotem found the strange power Thunder Bluff sent him looking for, and he wishes he had not. He speaks calmly about poisoned oases, which made what he said all the more unsettling.",
+    first = "He found what Thunder Bluff sent him for and wishes he hadn't.",
     third = "{name} met Tonga Runetotem, a tauren druid at the Crossroads tracing the sickness that poisons the oases of the Barrens.",
   },
 
@@ -1016,7 +1016,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "clinical" }, values = { "curious", "practical" },
   notices = { "craft", "race" },
   impression = {
-    first = "Apothecary Helbrim swears the Society only wants to study the Barrens, not harm it, mostly. That 'mostly' has stayed with me longer than anything else he said.",
+    first = "He swears the Society won't harm the Barrens, mostly.",
     third = "{name} met Apothecary Helbrim of the Royal Apothecary Society, who studies what grows, festers and stings in the Barrens.",
   },
 
@@ -1295,7 +1295,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "boastful" }, values = { "proud" },
   notices = { "class", "stealth" },
   impression = {
-    first = "If Darsok Swiftdagger is to be believed, he is the best there is and cheaper besides. He is so pleased with himself that it is almost charming, though I would still keep an eye on my purse.",
+    first = "So pleased with himself it's almost charming, but I watch my purse.",
     third = "{name} met Darsok Swiftdagger, a boastful blade at the Crossroads who wages his own war on the harpies of the hills.",
   },
 
@@ -1497,7 +1497,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "jolly" }, values = { "generous" },
   notices = { "hunger", "craft" },
   impression = {
-    first = "Zargh the butcher sells meat to everyone who passes the Crossroads, which is everyone. Mention Gryshka in Orgrimmar and he goes as bashful as a butcher with a cleaver can.",
+    first = "Mention Gryshka in Orgrimmar and he goes bashful.",
     third = "{name} met Zargh, the jolly butcher of the Crossroads, who has his heart set on a certain innkeeper in Orgrimmar.",
   },
 
@@ -1660,7 +1660,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "warm" }, values = { "generous" },
   notices = { "weary", "drink" },
   impression = {
-    first = "Hooves, feet or whatever else comes through the door, Innkeeper Boorand Plainswind welcomes them all. He likes his leaky roof because that is how the stars get in, and he keeps putting food in Mankrik's hands.",
+    first = "He likes his leaky roof because it lets the stars in.",
     third = "{name} rested at Innkeeper Boorand Plainswind's inn at the Crossroads, where every traveller of the Barrens sleeps sooner or later.",
   },
 

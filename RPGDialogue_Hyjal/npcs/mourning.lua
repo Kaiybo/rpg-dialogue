@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "form", "status" },
 
   impression = {
-    first = "Marrosis is a vulture of the Wild Gods, dry as old bone and offended, more than anything, that the dead of Mourning's Rest refuse to lie still. Under the grumbling, it seems to care a great deal about the cycle the dead are breaking.",
+    first = "Under the grumbling, it cares deeply about the cycle the dead break.",
     third = "{name} met Marrosis, the vulture Wild God who keeps a hungry and impatient vigil over Mourning's Rest.",
   },
 

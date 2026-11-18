@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/lakeshire_trades.md", role = "flightmaster", tier = "service",
   communities = { "lakeshire" }, temper = { "brisk" }, values = { "duty", "freedom" },
   impression = {
-    first = "Ariena Stormfeather keeps Lakeshire's gryphons fed and flying, and from the air she has seen more of the Blackrock smoke than anyone in town.",
+    first = "From the air she has seen more Blackrock smoke than anyone.",
     third = "{name} met Ariena Stormfeather, Lakeshire's gryphon master.",
   },
   greetings = {
@@ -173,7 +173,7 @@ P:NPC {
   bible = "bibles/lakeshire_trades.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "blunt" }, values = { "craft", "practical" },
   impression = {
-    first = "Kimberly Hiett fletches arrows for Lakeshire's watch faster than anyone in Redridge, and still not fast enough for the gnolls.",
+    first = "She fletches fast, and still not fast enough for the gnolls.",
     third = "{name} met Kimberly Hiett, Lakeshire's overworked fletcher.",
   },
   greetings = {
@@ -338,7 +338,7 @@ P:NPC {
   bible = "bibles/lakeshire_trades.md", role = "vendor", tier = "service",
   communities = { "lakeshire" }, temper = { "dry" }, values = { "craft", "precision" },
   impression = {
-    first = "Henry Chapal sells guns and shot in Lakeshire, measures his powder to the grain, and speaks of dwarven blackpowder the way other men speak of good ale.",
+    first = "He speaks of dwarven blackpowder the way other men speak of ale.",
     third = "{name} met Henry Chapal, Lakeshire's precise gunsmith.",
   },
   greetings = {

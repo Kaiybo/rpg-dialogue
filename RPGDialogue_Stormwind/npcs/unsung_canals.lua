@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "measured" }, values = { "craft", "arcane" },
   notices = { "craft", "arcane" },
   impression = {
-    first = "Lucan Cordell is the enchanter the rest of Stormwind's merchants name when they talk about where their good wares come from. He spoke slowly and chose his words like reagents, and he expected the same care from a student.",
+    first = "He chooses his words like reagents and expects the same care.",
     third = "{name} met Lucan Cordell, the foremost enchanter in Stormwind.",
   },
   greetings = {
@@ -190,7 +190,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "family" },
   notices = { "craft" },
   impression = {
-    first = "Jessara Cordell sells rods, vials and formulae in the Cordells' shop and guards Lucan's time as fiercely as his stock. She was brisk with me and kind to the apprentices, which seemed the right way round.",
+    first = "She is brisk with customers and kind to the apprentices.",
     third = "{name} met Jessara Cordell, who sells enchanting supplies in the Cordells' shop.",
   },
   greetings = {
@@ -360,7 +360,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "salty" }, values = { "practical", "nature" },
   notices = { "craft" },
   impression = {
-    first = "Catherine Leland sells poles and bait on the Stormwind canals beside Arnold Leland, and she swears her prices are the best in the city. She talked about fish the way soldiers talk about old campaigns.",
+    first = "She talks about fish the way soldiers talk about old campaigns.",
     third = "{name} met Catherine Leland, who sells fishing supplies on the Stormwind canals.",
   },
   greetings = {
@@ -531,7 +531,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "community" },
   notices = { "kit" },
   impression = {
-    first = "Lisbeth Schneider sells cloth armour in the Canal Tailor and Fit Shop and measured me with her eyes before I'd said a word. She was brisk and good-humoured, and she knew the price of everything on the canals.",
+    first = "She measures you with her eyes before you say a word.",
     third = "{name} met Lisbeth Schneider, the clothier of the Canal Tailor and Fit Shop.",
   },
   greetings = {

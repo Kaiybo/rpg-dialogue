@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Baldruc spends his days keeping damp out of gryphon feathers, and he talks about the marsh as if it were a personal enemy. He checked every strap on my saddle twice and grumbled through both checks.",
+    first = "He talks about the marsh as if it were a personal enemy.",
     third = "{name} met Baldruc, who keeps the gryphons of Theramore dry, fed and flying.",
   },
 
@@ -213,7 +213,7 @@ P:NPC {
   notices = { "craft", "hunger" },
 
   impression = {
-    first = "Morgan Stern believes a soldier fed on good soup will hold a wall better than one fed on hard bread, and he may be right. He spoke of tortoise meat with real affection.",
+    first = "He believes good soup holds a wall better than hard bread.",
     third = "{name} met Morgan Stern, a Theramore cook determined to make something good out of what the marsh offers.",
   },
 
@@ -446,7 +446,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Doctor Gustaf VanHowzen talks about wounds the way a quartermaster talks about stores, calmly and in order. I suspect the calm is something he decided on long ago, and keeps deciding every morning.",
+    first = "I suspect his calm is something he decides on every morning.",
     third = "{name} met Doctor Gustaf VanHowzen, the trauma surgeon who teaches field medicine in Theramore.",
   },
 

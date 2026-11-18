@@ -10,7 +10,7 @@ P:NPC {
   notices = { "stealth", "hunger" },
 
   impression = {
-    first = "Clara Charles keeps a tidy farmhouse within sight of Stormwind's walls and walks to her well as if nobody were hiding beside it. I couldn't tell whether that was courage or simply having nowhere else to go.",
+    first = "She walks to her well as if nobody were hiding beside it.",
     third = "{name} met Clara Charles, who keeps a farm near Stormwind and goes on fetching water although Defias lurk by her well.",
   },
 

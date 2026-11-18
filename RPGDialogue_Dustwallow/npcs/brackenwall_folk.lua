@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "\"Little\" Logok is the biggest ogre in Brackenwall, and he keeps the inn with enormous care and very small spoons. He is proud of his stew, proud of his beds, and mildly offended by anyone who doesn't finish either.",
+    first = "He keeps his inn with enormous care and very small spoons.",
     third = "{name} met \"Little\" Logok, the enormous ogre who keeps the inn at Brackenwall Village.",
   },
 
@@ -115,7 +115,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Shardi is an orc woman with a scarred chin who keeps Brackenwall's wind riders flying through fog that would ground anyone sensible. She has opinions about the marsh, and not one of them is polite.",
+    first = "She has opinions about the marsh, and not one is polite.",
     third = "{name} met Shardi, the wind rider master of Brackenwall Village.",
   },
 

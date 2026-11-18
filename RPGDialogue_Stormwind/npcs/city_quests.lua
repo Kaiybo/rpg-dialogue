@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Shoni the Shilent commands Gnomeregan's underground assault crew from a corner of the Dwarven District, and she is not silent in the least. She explained her drilling machines to me twice, faster the second time.",
+    first = "For all her name, she is not silent in the least.",
     third = "{name} met Shoni the Shilent in Stormwind, the gnome who means to tunnel back into Gnomeregan with her gyrodrillmatic excavationators.",
   },
 
@@ -281,7 +281,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Argos Nightwhisper sits beneath the trees of Stormwind's park as if he were trying to remember a forest, and he asked for help with the patience of someone who has asked many times before.",
+    first = "He sits under the trees as if trying to remember a forest.",
     third = "{name} met Argos Nightwhisper in Stormwind's park, a night elf who came across the sea to find help for his brother in Darkshore.",
   },
 

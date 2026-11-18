@@ -9,7 +9,7 @@ P:NPC {
   communities = { "marshals_refuge" }, temper = { "calm", "warm" }, values = { "loyal", "patient" },
   notices = { "light", "pet" },
   impression = {
-    first = "Petra Grossen is an orc packmaster who has walked beside her kodo Dadanga since the beast was a calf. She is calm and kind, and she asks everyone to keep their torches away because Dadanga dislikes smoke.",
+    first = "She asks that torches be kept away, because Dadanga dislikes smoke.",
     third = "{name} met Petra Grossen, an orc of the Marshal Expedition, and her pack kodo Dadanga.",
   },
 

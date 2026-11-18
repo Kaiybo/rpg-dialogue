@@ -20,7 +20,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "practical", "craft" },
   notices = { "craft", "pet" },
   impression = {
-    first = "Kagil teaches skinning at the Den, a blunt orc who judges a hide before he judges the beast that wore it. He talks about boars and scorpids as if they owe him leather.",
+    first = "He talks about boars and scorpids as if they owe him leather.",
     third = "{name} met Kagil, the junior skinning trainer at the Den in the Valley of Trials.",
   },
   greetings = {
@@ -125,7 +125,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "strong", "practical" },
   notices = { "craft", "class" },
   impression = {
-    first = "Norzsh teaches mining at the Den and seems to doubt anyone can swing a pick until they prove it. Behind the scowl he cares about the copper in Durotar's hills.",
+    first = "Behind the scowl, he cares about the copper in Durotar's hills.",
     third = "{name} met Norzsh, the junior mining trainer at the Den in the Valley of Trials.",
   },
   greetings = {
@@ -220,7 +220,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "warm" }, values = { "helpful", "practical" },
   notices = { "craft", "greenness" },
   impression = {
-    first = "Thedda stands in the Valley of Trials to help new recruits pick a trade, and she is more patient about it than anyone else in the Den. She knows where every trainer in Durotar keeps their bench.",
+    first = "She knows where every trainer in Durotar keeps their bench.",
     third = "{name} met Thedda, who helps the recruits of the Valley of Trials choose their professions.",
   },
   greetings = {
@@ -324,7 +324,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "calm" }, values = { "patient", "wise" },
   notices = { "craft", "race" },
   impression = {
-    first = "Zor'la is a Darkspear herbalist in the Valley of Trials who speaks slowly and watches the ground while she talks. She misses the green of the Echo Isles and says Durotar's herbs grow angry.",
+    first = "She misses the Echo Isles and says Durotar's herbs grow angry.",
     third = "{name} met Zor'la, the Darkspear junior herbalism trainer in the Valley of Trials.",
   },
   greetings = {
@@ -434,7 +434,7 @@ P:NPC {
   communities = { "senjin" }, temper = { "sharp" }, values = { "proud", "loyal" },
   notices = { "craft", "arcane", "race" },
   impression = {
-    first = "Pa'zula is Sen'jin's enchanter, a sharp Darkspear woman who strips Zalazane's hexes from the pendants his slaves wear. She speaks of the Echo Isles as if she still lived there, and she grieves for every troll in them.",
+    first = "She grieves for every troll still in the Echo Isles.",
     third = "{name} met Pa'zula, the Darkspear enchanter of Sen'jin Village who unpicks Zalazane's binding spells.",
   },
   greetings = {
@@ -634,7 +634,7 @@ P:NPC {
   temper = { "proud" }, values = { "brave", "ambitious" },
   notices = { "class", "race" },
   impression = {
-    first = "Pal'juh is a Darkspear shadow hunter in training who went into Kolkar Crag alone to scout and ran out of magic. She's brave, quick and too proud to admit how frightened she was.",
+    first = "She is brave, quick and too proud to admit she was frightened.",
     third = "{name} met Pal'juh, a young Darkspear shadow hunter trainee stranded among the centaur of Kolkar Crag.",
   },
   greetings = {
@@ -841,7 +841,7 @@ P:NPC {
   temper = { "fierce" }, values = { "strong", "loyal" },
   notices = { "pet", "mount" },
   impression = {
-    first = "Slizzy Kreeg keeps a half-dead young beast called Morok'ra at Rocktusk Farm and means to make a war mount of it. She's gentle with it and hard with everyone else.",
+    first = "She is gentle with her half-dead beast and hard with everyone else.",
     third = "{name} met Slizzy Kreeg of Rocktusk Farm, who is nursing a beast called Morok'ra back to health to ride into battle.",
   },
   greetings = {
@@ -949,7 +949,7 @@ P:NPC {
   communities = { "razor_hill" }, temper = { "grim" }, values = { "honor", "loyal" },
   notices = { "class", "soldier" },
   impression = {
-    first = "Turroc keeps the barracks at Razor Hill and remembers the warriors who died taking Tiragarde Keep. He wants their weapons brought home from the ruins and hung where every grunt can see them.",
+    first = "He wants his fallen warriors' weapons brought home from Tiragarde Keep.",
     third = "{name} met Turroc of the Razor Hill barracks, who honors the Horde warriors who fell at Tiragarde Keep.",
   },
   greetings = {

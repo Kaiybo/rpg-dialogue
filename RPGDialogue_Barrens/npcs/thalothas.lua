@@ -9,7 +9,7 @@ P:NPC {
   temper = { "dry" }, values = { "proud", "loyal" },
   notices = { "race", "travel" },
   impression = {
-    first = "Captain Thalo'thas Brightsun is a high elf who commands the Thalo'dan Privateers out of Ratchet. He is courteous to everyone and forgiving of no one at Northwatch Hold, whose guns sank his ship.",
+    first = "He is courteous to everyone and forgives no one at Northwatch.",
     third = "{name} met Captain Thalo'thas Brightsun in Ratchet, the high elf privateer whose ship was sunk by the guns of Northwatch Hold.",
   },
 

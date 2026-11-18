@@ -12,7 +12,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "light", "affliction", "form" },
   impression = {
-    first = "Archbishop Benedictus has a gentle voice and a way of making a vast cathedral feel like a small chapel. He says the doors are open to everyone, and he plainly wants it to be true.",
+    first = "He makes a vast cathedral feel like a small chapel.",
     third = "{name} met Archbishop Benedictus, who tends the Church of the Holy Light and keeps its doors open to all.",
   },
 
@@ -434,7 +434,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "brave", "lawful" },
   notices = { "paladin" },
   impression = {
-    first = "Gazin Tenorm is a dwarf frightened for his friend and far too stubborn to hide it. He would sooner be out searching than standing at an altar waiting on prayers.",
+    first = "He would sooner be out searching for his friend than praying.",
     third = "{name} met Gazin Tenorm at the Cathedral, a dwarf sick with worry for his friend Henze Faulk.",
   },
 
@@ -631,7 +631,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "craft", "child" },
   impression = {
-    first = "Thirty children wait on Stephanie Turner, so she is always in a hurry, and still she found a moment to tell me to eat something. I doubt she has slept properly in years.",
+    first = "Thirty children wait on her, and she still tells me to eat.",
     third = "{name} met Stephanie Turner, who runs Stormwind's orphanage with her husband and never has enough linen.",
   },
 
@@ -853,7 +853,7 @@ P:NPC {
     { id = "b_dad", text = "Dad says I can't keep her. Dad says a lot of things." },
   },
   impression = {
-    first = "Lil Timmy has a kitten that needs a good home and a father who says theirs isn't one. He made his case with all the persistence of a seasoned merchant.",
+    first = "He pleads his kitten's case like a seasoned merchant.",
     third = "{name} met Lil Timmy, a boy near the Cathedral who is determined to find his kitten a good home.",
   },
   greetings = {
@@ -1029,7 +1029,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "light", "affliction", "form" },
   impression = {
-    first = "High Priestess Laurena likes her students standing in the light from the windows, and she looks at them very carefully when they do. She trusts slowly, and I think she's usually right to.",
+    first = "She trusts slowly, and I think she's usually right to.",
     third = "{name} met High Priestess Laurena, the Cathedral's senior priest trainer, who teaches only those she trusts with more.",
   },
 
@@ -1303,7 +1303,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "light", "form", "race" },
   impression = {
-    first = "Brother Joshua teaches beside the altar because people listen better near it, and I suspect he's right. He has watched the first light come through the east window for years and never tired of it.",
+    first = "He has never tired of first light through the east window.",
     third = "{name} met Brother Joshua, a quiet priest trainer who teaches beside the Cathedral's altar.",
   },
 
@@ -1647,7 +1647,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "light", "form" },
   impression = {
-    first = "I have never seen a priest so unable to keep still as Brother Benjamin, who teaches while pacing the eastern hall. He asked more questions than he answered and seemed delighted by every one.",
+    first = "I have never seen a priest so unable to keep still.",
     third = "{name} met Brother Benjamin, a restless priest trainer who thinks best while walking the Cathedral's halls.",
   },
 
@@ -1800,7 +1800,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "zealous", "sharp" }, values = { "devout", "proud" },
   notices = { "light", "race", "form" },
   impression = {
-    first = "Brother Crowley speaks for the Scarlet Crusade with the fervor of someone who has seen the dead walk. He was certain of everything he said, and that certainty stayed with me afterward.",
+    first = "His certainty about everything stays with me afterward.",
     third = "{name} met Brother Crowley, the Scarlet Crusade's emissary in the Cathedral's lower halls, who recruits the brave for Lordaeron.",
   },
 

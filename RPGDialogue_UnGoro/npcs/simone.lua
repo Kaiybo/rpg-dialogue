@@ -11,7 +11,7 @@ P:NPC {
   temper = { "cheerful", "sly" }, values = { "vain", "cruel" },
   notices = { "pet", "kin" },
   impression = {
-    first = "Simone calls herself a simple jungle troll out enjoying the crater, with a wolf named Precious at her heel. She smiles too much, walks unbothered where devilsaurs feed, and nothing about her quite fits.",
+    first = "She smiles too much, and nothing about her quite fits.",
     third = "{name} met Simone, a far too cheerful 'jungle troll' wandering the hot springs of Un'Goro with a wolf called Precious.",
   },
 

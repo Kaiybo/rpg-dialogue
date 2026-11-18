@@ -13,7 +13,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "fel", "race", "class", "form" },
   impression = {
-    first = "High Priestess Tyrande Whisperwind speaks as though Elune is listening, and perhaps she is. Leading her people alone shows only in how little time she spares for idle words.",
+    first = "She speaks as though Elune is listening, and perhaps she is.",
     third = "{name} stood before Tyrande Whisperwind, High Priestess of Elune, in the Temple of the Moon.",
   },
 
@@ -605,7 +605,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "abrasive" }, values = { "proud", "ambitious" },
   notices = { "race", "class" },
   impression = {
-    first = "Pride sits on Arch Druid Fandral Staghelm like a mantle, pride in Teldrassil and in having led his people out of the darkness, as he tells it. He wanted me brief, and I was glad to oblige.",
+    first = "Pride sits on him like a mantle, so I keep it brief.",
     third = "{name} met Arch Druid Fandral Staghelm, who leads the Cenarion Circle from the Enclave and suffers no doubts about it.",
   },
 
@@ -1072,7 +1072,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "calm" }, values = { "wise", "loyal" },
   notices = { "form", "class" },
   impression = {
-    first = "Mathrengyl Bearwalker has the calm of someone who once stood beside power and found he preferred teaching. Every question gets a patient answer from him, even the foolish ones.",
+    first = "Every question gets a patient answer from him, even the foolish ones.",
     third = "{name} met Mathrengyl Bearwalker, the dignified trainer of druids in the Cenarion Enclave.",
   },
 
@@ -1403,7 +1403,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "gentle" }, values = { "devout", "kind" },
   notices = { "class", "death", "origin" },
   impression = {
-    first = "Priestess A'moora called me 'little star' as if she had known me for years. Most come to her tired, she says, and I did leave the Temple pool lighter than I arrived.",
+    first = "She calls me 'little star' as if she'd known me for years.",
     third = "{name} met Priestess A'moora, who tends the Temple of the Moon's pool and the weary souls who come to it.",
   },
 
@@ -1679,7 +1679,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "intent" }, values = { "curious", "devout" },
   notices = { "lore", "trophy" },
   impression = {
-    first = "Some of Gracina Spiritmight's specimens are only mostly dead, and she wants to hear about every creature I have ever seen. Something in the southern deserts frightens her badly, and she does not strike me as easily frightened.",
+    first = "Something in the southern deserts frightens her, and she doesn't frighten easily.",
     third = "{name} met Gracina Spiritmight, the priestess and scholar of the Temple of the Moon whose study of insects has led her somewhere troubling.",
   },
 
@@ -1915,7 +1915,7 @@ P:NPC {
   communities = { "darnassus" }, temper = { "warm" }, values = { "kind" },
   notices = { "weary", "race" },
   impression = {
-    first = "Innkeeper Saelienne warned me not to look down from the terrace, which of course made me do it. Her inn rocks gently with the branches at night, and she swears most guests find it soothing.",
+    first = "She warned me not to look down, so of course I did.",
     third = "{name} found rest at Innkeeper Saelienne's inn on the Craftsmen's Terrace, high in the branches of Darnassus.",
   },
 

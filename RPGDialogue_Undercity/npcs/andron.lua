@@ -9,7 +9,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "jovial" }, values = { "greedy", "generous" },
   notices = { "drink", "purse" },
   impression = {
-    first = "Andron Gant is drunk, friendly and far too pleased to have company. He deals in old curiosities for the Apothecarium's scholars and talks about his business partners with a carelessness that made me uneasy.",
+    first = "His carelessness about his business partners made me uneasy.",
     third = "{name} met Andron Gant, a tipsy dealer in curiosities near the Undercity's Apothecarium.",
   },
 

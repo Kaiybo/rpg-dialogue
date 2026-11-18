@@ -11,7 +11,7 @@ P:NPC {
   notices = { "status", "stormwind" },
 
   impression = {
-    first = "Lord Ello Ebonlocke has asked Stormwind for soldiers more times than he can count. He is courteous, a little grand, and quietly desperate under all of it.",
+    first = "He is courteous, a little grand, and quietly desperate under it.",
     third = "{name} met Lord Ello Ebonlocke, mayor of Darkshire, who has long petitioned Stormwind for soldiers the Night Watch badly needs.",
   },
 

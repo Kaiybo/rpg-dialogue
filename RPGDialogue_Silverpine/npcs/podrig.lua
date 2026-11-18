@@ -9,7 +9,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "fussy" }, values = { "dutiful", "orderly" },
   notices = { "kit", "purse" },
   impression = {
-    first = "Deathguard Podrig counts the Sepulcher's swords the way other soldiers count their kills. He is fussy and proud of it, and he would rather see the Deathguard overstocked than caught short.",
+    first = "He counts swords the way other soldiers count their kills.",
     third = "{name} met Deathguard Podrig, who keeps the Sepulcher's stores in order for High Executor Hadrec.",
   },
 

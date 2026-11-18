@@ -9,7 +9,7 @@ P:NPC {
   communities = { "brill" }, temper = { "cold" }, values = { "loyal", "dutiful" },
   notices = { "kit", "race" },
   impression = {
-    first = "Executor Zygand speaks of the Scarlet Crusade the way a soldier speaks of bad weather he means to outlast. He is cold and spare with words, and I would not want to be on the wrong end of his blade.",
+    first = "I would not want to face the wrong end of his blade.",
     third = "{name} met Executor Zygand, commander of the Deathguard in Tirisfal, who means to see the Scarlet Crusade driven from the glades.",
   },
 
@@ -299,7 +299,7 @@ P:NPC {
   communities = { "brill" }, temper = { "brisk" }, values = { "orderly", "proud" },
   notices = { "status" },
   impression = {
-    first = "When Magistrate Sevren took Brill back it was a plague town full of the mindless, and he is quietly proud of what it is now. He would much rather I did his errands than discussed them.",
+    first = "He is quietly proud of what Brill has become.",
     third = "{name} met Magistrate Sevren of Brill, who rebuilt the town one street at a time and keeps it running by the book.",
   },
 
@@ -510,7 +510,7 @@ P:NPC {
   communities = { "brill" }, temper = { "intent" }, values = { "ambitious", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Apothecary Johaan works among bottles that are only mostly safe and speaks of a new plague with real enthusiasm. It is meant for the Scourge, he says, and he says it quickly.",
+    first = "His new plague is meant for the Scourge, he says, and quickly.",
     third = "{name} met Apothecary Johaan of the Royal Apothecary Society, who labours over a new plague in Brill.",
   },
 
@@ -721,7 +721,7 @@ P:NPC {
   communities = { "brill" }, temper = { "bitter" }, values = { "proud" },
   notices = { "drink" },
   impression = {
-    first = "Coleman Farthing died defending the Agamands' mills because they asked him to, and he has not forgiven them. He is courteous and wry about it, which somehow makes the grudge feel deeper.",
+    first = "He died defending the Agamands' mills and has not forgiven them.",
     third = "{name} met Coleman Farthing in the Gallows' End, a former mill hand who wants the risen Agamands put to rest for good.",
   },
 
@@ -878,7 +878,7 @@ P:NPC {
   communities = { "brill" }, temper = { "chilly" }, values = { "practical" },
   notices = { "weary" },
   impression = {
-    first = "By the tavern fire sits Gretchen Dedmar, out of habit, since she can no longer feel its warmth. What she misses most is being cold, which is one of the saddest things anyone has told me.",
+    first = "What she misses most is being cold.",
     third = "{name} met Gretchen Dedmar, a chilly regular of the Gallows' End who has found a way to keep death's cold at bay for a time.",
   },
 
@@ -1052,7 +1052,7 @@ P:NPC {
   communities = { "brill" }, temper = { "gentle" }, values = { "kind", "generous" },
   notices = { "weary", "race" },
   impression = {
-    first = "Innkeeper Renee looks after everyone in the Gallows' End, and especially the dead ones. She once hurt people for a cause, she says, and now she pours drinks and listens, which seems to suit her far better.",
+    first = "She once hurt people for a cause, and now she pours drinks.",
     third = "{name} met Innkeeper Renee of the Gallows' End, who left a harder life behind to look after Brill's guests, living and dead alike.",
   },
 
@@ -1292,7 +1292,7 @@ P:NPC {
   communities = { "brill" }, temper = { "composed" }, values = { "curious", "practical" },
   notices = { "craft" },
   impression = {
-    first = "Before I could ask, Eleanor Shackleton told me she was not with the Crusade, which only made me wonder why she felt the need. She is a composed traveller and a patient teacher of campfires.",
+    first = "She told me she was not with the Crusade before I asked.",
     third = "{name} met Eleanor Shackleton, a traveller camped on the road near Brill who teaches anyone willing how to make a proper camp.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   notices = { "race", "pvp", "level" },
 
   impression = {
-    first = "Borook Gallfist is a sour-tempered Darkspear troll on Hunter Rise who recruits for the fighting on the old Darkspear Islands. He complained about the wind, the height and the tauren cooking, and then spoke of his people's islands with something close to tenderness.",
+    first = "He spoke of the Darkspear Islands with something close to tenderness.",
     third = "{name} met Borook Gallfist, the Darkspear battlemaster on Thunder Bluff's Hunter Rise who sends the Horde to fight on the Darkspear Islands.",
   },
 

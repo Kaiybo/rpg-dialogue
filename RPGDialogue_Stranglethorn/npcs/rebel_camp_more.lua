@@ -14,7 +14,7 @@ P:NPC {
   notices = { "kit", "soldier" },
 
   impression = {
-    first = "Corporal Sethman keeps the Rebel Camp's patrol schedules in a ledger he never puts down, and he wrote my name in the margin before I'd finished saying it.",
+    first = "He never puts down his ledger, and my name is in it.",
     third = "{name} spoke with Corporal Sethman, who keeps the patrol rosters at the Rebel Camp and remembers who walked with whom.",
   },
 
@@ -171,7 +171,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Private Merle was the friendliest man in the Rebel Camp and the first to offer me a seat by the fire, and he asked a good many questions about where I'd been walking.",
+    first = "He is friendly and asks a great deal about where I walk.",
     third = "{name} shared a fire with Private Merle, a rebel soldier who left Colonel Kurzen with the others, or says he did.",
   },
 
@@ -298,7 +298,7 @@ P:NPC {
   notices = { "kit", "purse" },
 
   impression = {
-    first = "Corporal Bluth runs the Rebel Camp's stores out of three crates and a tarp, and he apologized for the prices before I'd seen them.",
+    first = "He apologizes for his prices before you have seen them.",
     third = "{name} traded with Corporal Bluth, who keeps what little the Rebel Camp has to sell.",
   },
 

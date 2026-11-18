@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class", "faction" },
 
   impression = {
-    first = "Spoogledorf is an old gnome with eyebrows like two grey fans and a beard he clearly combs every morning. He fled Gnomeregan and now keeps the ledgers of a young adventuring company he named Uber Town.",
+    first = "He fled Gnomeregan and still combs his beard every morning.",
     third = "{name} met Spoogledorf, an old Gnomeregan refugee in Stormwind who founded the adventuring company Uber Town and is sure the bards will sing about it one day.",
   },
 

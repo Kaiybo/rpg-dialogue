@@ -9,7 +9,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Commander Aggro'gosh asked whether I'd come to work before he asked anything else. Grom'gol holds because he simply refuses to let it fall.",
+    first = "Grom'gol holds because he simply refuses to let it fall.",
     third = "{name} met Commander Aggro'gosh, who keeps Grom'gol and the road to Stonard open against ogres and the Bloodscalp.",
   },
 
@@ -368,7 +368,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Nimboya came from Orgrimmar to find a chief's lost son, Yenniku, and he says he will not go home without him. I believe him.",
+    first = "He will not go home without Yenniku, and I believe him.",
     third = "{name} met Nimboya at Grom'gol, a troll who has sworn not to leave Stranglethorn without the chief's lost son, Yenniku.",
   },
 
@@ -649,7 +649,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Kin'weelay complained that the spirits are rude, and laughed about it. Beneath the joking there is a witch doctor who takes the unseen very seriously.",
+    first = "He jokes that the spirits are rude, but takes them very seriously.",
     third = "{name} met Kin'weelay, a Darkspear witch doctor sent from Orgrimmar to help Nimboya with what cannot be seen.",
   },
 
@@ -952,7 +952,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Far Seer Mok'thardin keeps the one quiet fire in a loud camp. He listens far more than he talks, and he wants the old power out of Stranglethorn's beasts.",
+    first = "He keeps the one quiet fire in a loud camp.",
     third = "{name} sat by Far Seer Mok'thardin's fire at Grom'gol, where the orc studies the old power in the blood and bones of Stranglethorn's beasts.",
   },
 
@@ -1263,7 +1263,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "Innkeeper Thulbek trades a bed for a war story and seems to think he's getting the better end. Out here, he says, a fire keeps things away rather than cold.",
+    first = "He trades a bed for a war story and thinks he wins.",
     third = "{name} found a bed at Grom'gol with Innkeeper Thulbek, who asks only for a story of the fighting in return.",
   },
 

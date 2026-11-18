@@ -16,7 +16,7 @@ P:NPC {
   notices = { "class", "stranger", "kin" },
 
   impression = {
-    first = "Ealaane Nimbuswalker fled Ban'aethal the night it began falling into the sky, and the man she loved went back for supplies and never returned. She is quiet and exact, and she knows old Skyborne craftsmanship the way some people know scripture.",
+    first = "The man she loved went back for supplies and never returned.",
     third = "{name} met Ealaane Nimbuswalker, a refugee from fallen Ban'aethal who mourns her lover Resaan and knows the works of the magesmith Luminarian.",
   },
 
@@ -223,7 +223,7 @@ P:NPC {
   notices = { "drink", "stranger", "class" },
 
   impression = {
-    first = "Sirocca Starfeather, called Swimmers, sailed skycutters between the islands before the trouble grounded him, and now he drinks at the Calmbreeze Inn and shouts at the innkeeper. He swears Shadowgale Forest is haunted, and I'm not sure he's wrong.",
+    first = "He swears Shadowgale Forest is haunted, and I'm not sure he's wrong.",
     third = "{name} met Swimmers Starfeather, a grounded skycutter sailor who drinks at the Calmbreeze Inn and tells ghost stories about Shadowgale Forest.",
   },
 
@@ -404,7 +404,7 @@ P:NPC {
   notices = { "guest", "drink" },
 
   impression = {
-    first = "Donaal Downbreeze keeps the Calmbreeze Inn in Valanaar and spends half his day hushing Swimmers' ghost stories. Business is thin, and he worries about it more than he lets on.",
+    first = "Business is thin, and he worries more than he lets on.",
     third = "{name} met Donaal Downbreeze, the long-suffering innkeeper of the Calmbreeze Inn in Valanaar.",
   },
 
@@ -546,7 +546,7 @@ P:NPC {
   notices = { "craft", "race", "kin" },
 
   impression = {
-    first = "Nyalah Brightfire teaches cooking in Valanaar and treats every dish as a small act of defiance against hard times. She's turned her ancestors' kaldorei recipes into something the isle can still make.",
+    first = "She treats every dish as a small defiance of hard times.",
     third = "{name} met Nyalah Brightfire, Valanaar's cheerful cook, who keeps old kaldorei recipes alive with island ingredients.",
   },
 

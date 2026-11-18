@@ -11,7 +11,7 @@ P:NPC {
   notices = { "fel", "kin" },
 
   impression = {
-    first = "King Magni Bronzebeard has a voice made for being heard over forges and a laugh made for being heard over that. He is every inch a king, and he hasn't forgotten how to be a dwarf.",
+    first = "Every inch a king, he hasn't forgotten how to be a dwarf.",
     third = "{name} stood before King Magni Bronzebeard in the High Seat of Ironforge.",
   },
 

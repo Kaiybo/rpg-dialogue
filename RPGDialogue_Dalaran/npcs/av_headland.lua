@@ -11,7 +11,7 @@ P:NPC {
   notices = { "soldier", "reputation" },
 
   impression = {
-    first = "Lieutenant Haggerdin signs up soldiers for the Stormpike Guard outside Alterac Valley and hands out insignia to those who earn them. He speaks of the Frostwolves as savages and of the valley as Ironforge's by right.",
+    first = "He calls the Frostwolves savages and the valley Ironforge's by right.",
     third = "{name} met Lieutenant Haggerdin, the Stormpike Guard's recruitment officer at the gates of Alterac Valley.",
   },
 
@@ -214,7 +214,7 @@ P:NPC {
   notices = { "soldier", "reputation" },
 
   impression = {
-    first = "Warmaster Laggrond recruits soldiers for the Frostwolf Clan at the gates of Alterac Valley. He says honour and respect are earned on that frigid field, and he looks at every newcomer as if weighing whether they'll earn either.",
+    first = "He weighs whether each newcomer will earn honour or respect.",
     third = "{name} met Warmaster Laggrond, the Frostwolf Clan's recruiter at the gates of Alterac Valley.",
   },
 

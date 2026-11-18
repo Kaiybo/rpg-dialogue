@@ -9,7 +9,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Jern Hornhelm keeps the Explorers' League's books in Thelsamar and counts every barrel of blastpowder that leaves town. He worries about Ironband the way a good clerk worries about a column that won't add up.",
+    first = "He worries about Ironband like a column that won't add up.",
     third = "{name} met Jern Hornhelm, the Explorers' League's contact in Thelsamar, who sends reports north and powder south.",
   },
 

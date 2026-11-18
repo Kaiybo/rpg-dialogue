@@ -14,7 +14,7 @@ P:NPC {
   notices = { "hunger", "craft", "race" },
 
   impression = {
-    first = "Cook Torka feeds every grunt in Razor Hill and complains about each of them by name. He's gruff, he's always behind, and he's secretly proud that nobody in the barracks has ever gone hungry on his watch.",
+    first = "Nobody has gone hungry on his watch, and he's secretly proud.",
     third = "{name} met Cook Torka, the harried orc cook who keeps Razor Hill's garrison fed.",
   },
 
@@ -170,7 +170,7 @@ P:NPC {
   notices = { "class", "level" },
 
   impression = {
-    first = "Takrin Pathseeker sizes people up the way a scout reads a trail, quickly and without fuss. He finds strong young recruits for his friend Kargal at the Barrens outpost and has a good word for every road west of Razor Hill.",
+    first = "He sizes people up the way a scout reads a trail.",
     third = "{name} met Takrin Pathseeker, the Razor Hill scout who sends promising recruits to Kargal Battlescar in the Barrens.",
   },
 
@@ -316,7 +316,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Shoja'my keeps Razor Hill's stables and talks to every beast in them as if they were her nieces and nephews. She's a Darkspear among orcs, and she gives as good as she gets.",
+    first = "A Darkspear among orcs, she gives as good as she gets.",
     third = "{name} met Shoja'my, the troll stable master of Razor Hill.",
   },
 

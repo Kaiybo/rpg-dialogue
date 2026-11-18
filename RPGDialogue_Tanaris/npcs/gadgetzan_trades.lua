@@ -10,7 +10,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Auctioneer Beardo runs Gadgetzan's auction house, where Horde and Alliance goods share one ledger. He talks prices the way other people talk weather, and he never once stopped smiling.",
+    first = "He talks prices like weather, and he never once stopped smiling.",
     third = "{name} met Auctioneer Beardo, who runs the neutral auction house in Gadgetzan.",
   },
 
@@ -224,7 +224,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Laziphus keeps the stables in Gadgetzan and fights the heat on behalf of every animal in them. He pays the Water Company more than he'd like and complains about it to anyone who stands still.",
+    first = "He complains about the Water Company's prices to anyone who stands still.",
     third = "{name} met Laziphus, the goblin who keeps the stables in Gadgetzan.",
   },
 
@@ -411,7 +411,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Buzzek Bracketswing teaches engineering from a hut at the south end of Gadgetzan and talks about explosions with real affection. He respects anyone who can keep all ten fingers.",
+    first = "He respects anyone who can keep all ten fingers.",
     third = "{name} met Buzzek Bracketswing, the engineering trainer in Gadgetzan's southern hut.",
   },
 
@@ -607,7 +607,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Pikkle trains miners in Gadgetzan and treats every vein of ore as money someone else hasn't dug up yet. He knows where the good rock is and expects to be thanked for sharing it.",
+    first = "He knows where the good rock is and expects thanks for sharing.",
     third = "{name} met Pikkle, the goblin who trains miners in Gadgetzan.",
   },
 

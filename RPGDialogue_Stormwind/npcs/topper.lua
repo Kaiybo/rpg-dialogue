@@ -19,7 +19,7 @@ P:NPC {
   },
 
   impression = {
-    first = "Topper McNabb was a farmer once and begs in the Trade District now, and he has a generous word for every passer-by. He told me I have a generous face, and I suspect he tells everyone, though he told it very well.",
+    first = "He says I have a generous face, and likely tells everyone.",
     third = "{name} met Topper McNabb, a cheerful beggar of the Trade District who used to work a farm and tells the story of losing it a different way every time.",
   },
 

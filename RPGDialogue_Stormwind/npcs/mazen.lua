@@ -14,7 +14,7 @@ P:NPC {
   notices = { "mage", "warlock", "scholar" },
 
   impression = {
-    first = "Mazen Mac'Nadir keeps the Academy's library and looks as though the library has been keeping him: ink on his cuffs, three books under one arm and a list of overdue requests as long as the other. He talks quickly, worries constantly, and lights up the moment anyone mentions Khadgar.",
+    first = "He lights up the moment anyone mentions Khadgar.",
     third = "{name} met Mazen Mac'Nadir, caretaker of the Academy's library in Stormwind, a harried scholar who guards enchanted books from the wrong hands.",
   },
 

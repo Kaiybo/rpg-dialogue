@@ -9,7 +9,7 @@ P:NPC {
   temper = { "gentle" }, values = { "devout", "wise" },
   notices = { "race", "class" },
   impression = {
-    first = "Lorekeeper Raintotem tends Red Rocks, where the most valiant tauren are laid to rest. He knows every name there and is too old to drive the quilboar off them, which shames him more than he admits.",
+    first = "Being too old to drive the quilboar off the graves shames him.",
     third = "{name} met Lorekeeper Raintotem at Red Rocks, the aged keeper of the tauren's sacred burial ground.",
   },
 

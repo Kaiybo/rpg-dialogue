@@ -9,7 +9,7 @@ P:NPC {
   communities = { "ratchet" }, temper = { "dry" }, values = { "cunning", "curious" },
   notices = { "fel", "light" },
   impression = {
-    first = "Strahad Farsan teaches the binding of demons from rented rooms in Ratchet, where the goblins ask about the rent and nothing else. He is dry and patient, and he tells his students the story of the two who were eaten.",
+    first = "He tells his students the story of the two who were eaten.",
     third = "{name} met Strahad Farsan, a warlock who takes students in the goblin port of Ratchet, far from the eyes of either capital.",
   },
 
@@ -155,7 +155,7 @@ P:NPC {
   communities = { "ratchet" }, temper = { "jovial" }, values = { "practical", "greedy" },
   notices = { "weary", "drink" },
   impression = {
-    first = "Innkeeper Wiley runs the only inn in Ratchet and keeps Horde and Alliance guests fed and seated at opposite doors. He bills for broken tables, broken windows and his own nerves.",
+    first = "He bills for broken tables, broken windows and his own nerves.",
     third = "{name} took a room at Innkeeper Wiley's inn in Ratchet, the only bed on the Barrens coast.",
   },
 
@@ -318,7 +318,7 @@ P:NPC {
   communities = { "ratchet" }, temper = { "brisk" }, values = { "practical", "profit" },
   notices = { "purse" },
   impression = {
-    first = "Fuzruckle keeps the Steamwheedle vault in Ratchet and takes Horde and Alliance gold into the same ledger at the same fee. He finds loyalty a poor investment and says so.",
+    first = "He finds loyalty a poor investment and says so.",
     third = "{name} banked with Fuzruckle, the Steamwheedle Cartel's banker in Ratchet.",
   },
 
@@ -441,7 +441,7 @@ P:NPC {
   communities = { "ratchet" }, temper = { "brash" }, values = { "practical", "greedy" },
   notices = { "kit" },
   impression = {
-    first = "Grazlix sells armor and shields on the Ratchet docks, some of it hammered by his own hand and some of it salvaged from people who no longer need it. He hammers the dents out either way.",
+    first = "Some of his armor came from people who no longer need it.",
     third = "{name} bought armor from Grazlix, a goblin armorer on the Ratchet docks.",
   },
 
@@ -556,7 +556,7 @@ P:NPC {
   communities = { "ratchet" }, temper = { "cheerful" }, values = { "practical", "cunning" },
   notices = { "greenness" },
   impression = {
-    first = "Jazzik sells a little of everything on the Ratchet docks and a great deal of rope. He sold a pirate three coils and a lantern and then told the bruisers which way he went.",
+    first = "He sold a pirate rope and told the bruisers where he went.",
     third = "{name} bought supplies from Jazzik, a goblin general goods merchant in Ratchet.",
   },
 
@@ -670,7 +670,7 @@ P:NPC {
   communities = { "ratchet" }, temper = { "dry" }, values = { "practical", "careful" },
   notices = { "craft" },
   impression = {
-    first = "Kilxx sells fish and fishing tackle in Ratchet and knows exactly how far out a goblin can row before the Southsea notice him. He lost a cousin's boat to a crocolisk and has not heard the end of it.",
+    first = "A crocolisk took his cousin's boat, and he still hears about it.",
     third = "{name} met Kilxx, a goblin fishmonger on the Ratchet docks.",
   },
 
@@ -793,7 +793,7 @@ P:NPC {
   communities = { "ratchet" }, temper = { "sharp" }, values = { "inventive", "profit" },
   notices = { "craft", "gnome" },
   impression = {
-    first = "Liv Rizzlefix sells engineering supplies in Ratchet and warns every customer which crates explode. She likes a quiet dwarf who pays in silver and never haggles, and she does not ask what he digs.",
+    first = "She warns every customer which crates explode.",
     third = "{name} met Liv Rizzlefix, a goblin who sells engineering supplies in Ratchet.",
   },
 

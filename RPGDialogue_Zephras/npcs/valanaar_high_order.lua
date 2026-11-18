@@ -16,7 +16,7 @@ P:NPC {
   notices = { "kin", "race", "class", "origin" },
 
   impression = {
-    first = "Elaadrin Evengale, Supreme Magister of the High Order, talks of Highborne magic as if it were a debt the world still owes his people. He is proud and quick, and under it he is angrier about the dead than he lets his face show.",
+    first = "He is angrier about the dead than he lets his face show.",
     third = "{name} met Elaadrin Evengale, Supreme Magister of the High Order, who means to save Zephras with the lost arcane knowledge of the Highborne.",
   },
 
@@ -291,7 +291,7 @@ P:NPC {
   notices = { "race", "class", "kin" },
 
   impression = {
-    first = "Dondallion Whisperwind of the High Order keeps his ink close and his worry closer. One of the order's scholars has gone missing, and he talks about it as if he had misplaced a friend.",
+    first = "He talks of the missing scholar as if he'd misplaced a friend.",
     third = "{name} met Dondallion Whisperwind, a High Order scholar in Valanaar troubled by a colleague who never came home.",
   },
 
@@ -455,7 +455,7 @@ P:NPC {
   notices = { "craft", "class", "race" },
 
   impression = {
-    first = "Iaadaria Bitterwind of the High Order teaches alchemy and resents every minute spent away from her vials. She's exact, short with fools, and secretly delighted when someone asks a good question.",
+    first = "She is secretly delighted when someone asks a good question.",
     third = "{name} met Iaadaria Bitterwind, the High Order's alchemist in Valanaar, who sells vials and teaches the craft.",
   },
 
@@ -616,7 +616,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Othesia Evengale teaches tailoring from her own home in Valanaar, with thread and dye on every surface. She makes cloth that moves like the wind and gets visibly tired whenever anyone mentions her surname.",
+    first = "She gets visibly tired whenever anyone mentions her surname.",
     third = "{name} met Othesia Evengale, a tailor of Valanaar who works out of her home.",
   },
 
@@ -728,7 +728,7 @@ P:NPC {
   notices = { "race", "stranger" },
 
   impression = {
-    first = "Gelia Shardsong spends her days on a step near the High Order's hall in Valanaar, watching everyone who passes and asking the strangers more questions than they can answer.",
+    first = "She asks strangers more questions than they can answer.",
     third = "{name} met Gelia Shardsong, a curious woman of Valanaar who keeps an eye on everything that happens near the High Order's hall.",
   },
 
@@ -829,7 +829,7 @@ P:NPC {
   notices = { "race", "kin" },
 
   impression = {
-    first = "The High Order's dockmaster keeps the eastern skydock in Valanaar and talks about the Dalaran skycutter the way a proud father talks about a clever child.",
+    first = "The Dalaran skycutter is spoken of here like a clever child.",
     third = "{name} met the High Order Dockmaster on Valanaar's eastern skydock, where the skycutter leaves for Dalaran.",
   },
 

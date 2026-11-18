@@ -9,7 +9,7 @@ P:NPC {
   temper = { "earnest" }, values = { "dutiful", "protective" },
   notices = { "race", "travel" },
   impression = {
-    first = "Brave Moonhorn watches the top of the Great Lift and stops travelers with urgent news for Freewind Post. The centaur raids worry him, but the way the Grimtotem have started looking at other tauren worries him more.",
+    first = "The Grimtotem worry him more than the centaur raids do.",
     third = "{name} met Brave Moonhorn at the top of the Great Lift, a tauren brave carrying warnings of centaur raids to Freewind Post.",
   },
 

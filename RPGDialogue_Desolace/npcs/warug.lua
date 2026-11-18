@@ -10,7 +10,7 @@ P:NPC {
   communities = { "magram_village" }, temper = { "boastful", "fierce" }, values = { "strength", "clan" },
   notices = { "race", "deeds" },
   impression = {
-    first = "Warug laughs at the Kolkar, sneers at the Gelkis and their mother, and boasts that the Magram need no one. Then he asked me, almost shyly, whether I had any gnomish gadgets.",
+    first = "For all his boasting, he asked me shyly about gnomish gadgets.",
     third = "{name} met Warug, the Magram clan's spokesman, a boastful centaur with a strange fondness for gnomish gizmos.",
   },
 

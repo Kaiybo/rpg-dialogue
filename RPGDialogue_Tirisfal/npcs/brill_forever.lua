@@ -9,7 +9,7 @@ P:NPC {
   communities = { "brill" }, temper = { "steady" }, values = { "devout", "loyal" },
   notices = { "class", "light" },
   impression = {
-    first = "Shari Stilwell holds the Light in a body it burns, and she speaks of it calmly, as if the pain were simply the price of a good thing. She is recruiting for a new order, and she means to see it take root.",
+    first = "The Light burns her, and she speaks of it calmly.",
     third = "{name} met Shari Stilwell in Brill, who trains the Forsaken's paladins and sends them on to Bandarion Keep.",
   },
 
@@ -254,7 +254,7 @@ P:NPC {
   communities = { "brill" }, temper = { "cheerful" }, values = { "generous", "proud" },
   notices = { "craft", "hunger" },
   impression = {
-    first = "William Pickman cooks with great care for guests he can no longer share a meal with. He can't taste a thing and seems determined not to let that stop him.",
+    first = "He can't taste a thing and won't let that stop him cooking.",
     third = "{name} met William Pickman, the cooking trainer at the Gallows' End Tavern in Brill.",
   },
 
@@ -360,7 +360,7 @@ P:NPC {
   communities = { "brill" }, temper = { "dry" }, values = { "practical", "curious" },
   notices = { "race", "class" },
   impression = {
-    first = "Angie Cilas watches Brill's street the way some people watch a play, with dry remarks for every entrance. She seems to know who comes and goes, and what everyone thinks of them.",
+    first = "She watches the street like a play, with dry remarks throughout.",
     third = "{name} met Angie Cilas, a Forsaken of Brill with a dry word for everyone who passes through the town.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "race", "kit" },
 
   impression = {
-    first = "Krom'rosh counts the dead he has sent into Krol'dok, and he means to stop counting by ending the place. He talks about the Twilight's Hammer the way a smith talks about rust.",
+    first = "He talks about the Twilight's Hammer the way smiths talk about rust.",
     third = "{name} met Krom'rosh at Rog'mar, an orc who is sending the Horde's best into Krol'dok Stronghold and wants its master dead.",
   },
 
@@ -371,7 +371,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Neza Bloodsnout looked me over as if weighing a carcass for market, and then told me I would do. I am still not sure whether that was praise.",
+    first = "She weighed me like a carcass and said I would do.",
     third = "{name} met Neza Bloodsnout, a hunter at Rog'mar who measures every newcomer and is rarely wrong.",
   },
 
@@ -521,7 +521,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Tan'jani is a troll headhunter who laughs at nearly everything, spears especially. He sent me to steal timber from the human loggers as if it were the most natural thing in the world.",
+    first = "He laughs at nearly everything, spears especially.",
     third = "{name} met Tan'jani, a cheerful troll headhunter at Rog'mar who makes his spears from the humans' own woodpiles.",
   },
 
@@ -663,7 +663,7 @@ P:NPC {
   notices = { "kit", "class" },
 
   impression = {
-    first = "Kreza Darkthorn keeps Rog'mar's forge burning and seems to find a puzzle more interesting than any person. A worn key mould from Krol'dok got a warmer welcome at that forge than I did.",
+    first = "A puzzle interests Kreza far more than any person does.",
     third = "{name} met Kreza Darkthorn, who keeps the forge at Rog'mar and can make a key from almost anything.",
   },
 

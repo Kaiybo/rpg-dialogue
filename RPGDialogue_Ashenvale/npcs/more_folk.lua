@@ -15,7 +15,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Gurda Ragescar bought a shredder in Ratchet and lost its manual to the wind on the road back, and she is far more frightened of her overseer than of anything in Ashenvale. She is honest about not being much of a reader.",
+    first = "She fears her overseer far more than anything in Ashenvale.",
     third = "{name} met Gurda Ragescar, an orc near Splintertree Post who lost the pages of her shredder's manual to the wind.",
   },
 
@@ -118,7 +118,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Yama Snowhoof waits at Splintertree for her brother Ruul, a druid who walked into the forest and did not come back. She is calm in the way of tauren, and worried underneath it.",
+    first = "She is calm about her missing brother, and worried underneath it.",
     third = "{name} met Yama Snowhoof at Splintertree Post, who waited for news of her brother Ruul.",
   },
 
@@ -213,7 +213,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Burkrum sells heavy armor at Splintertree Post with the slow calm of a tauren who has seen a great many arrows come out of the trees. He'd rather they bounced off his customers.",
+    first = "He would rather the arrows bounced off his customers.",
     third = "{name} met Burkrum, the tauren armor merchant of Splintertree Post.",
   },
 
@@ -279,7 +279,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Illiyana Moonblaze keeps the Silverwing Sentinels' supplies and treats the rules of their stores as suggestions. She is more fun than any Sentinel I've met, and possibly more dangerous.",
+    first = "More fun than any Sentinel I've met, and possibly more dangerous.",
     third = "{name} met Illiyana Moonblaze, the Silverwing Sentinels' supply officer at Silverwing Grove.",
   },
 
@@ -367,7 +367,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Sentinel Farsong keeps the tunnel into Warsong Gulch and speaks of the Horde's axes as if every tree they fell were a friend's grave. She rewards courage gladly and cowardice not at all.",
+    first = "She rewards courage gladly and cowardice not at all.",
     third = "{name} met Sentinel Farsong at Silverwing Grove, who sends fighters into Warsong Gulch.",
   },
 
@@ -462,7 +462,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Dalria sells trade goods in Astranaar and keeps a few rare enchanting formulas tucked behind the counter for those who ask nicely. She is brisk, amused and very hard to haggle with.",
+    first = "She keeps rare formulas behind the counter for those who ask nicely.",
     third = "{name} met Dalria, the trade goods merchant of Astranaar.",
   },
 
@@ -536,7 +536,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Nantar bakes for Astranaar and the Sentinels who guard it, and he seems to measure the town's spirits by how much bread it eats. Lately, he says, it's eating a great deal.",
+    first = "He measures the town's spirits by how much bread it eats.",
     third = "{name} met Nantar, Astranaar's baker.",
   },
 

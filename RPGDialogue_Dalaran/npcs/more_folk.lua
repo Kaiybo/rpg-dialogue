@@ -12,7 +12,7 @@ P:NPC {
   notices = { "race", "reputation" },
 
   impression = {
-    first = "Prospector Stonehewer is Explorers' League first and soldier second, and she wants the Frostwolves beaten mostly so she can get on with digging. She calls the plunder 'recovered treasures' and nearly keeps a straight face.",
+    first = "She calls the plunder recovered treasures and nearly keeps a straight face.",
     third = "{name} met Prospector Stonehewer, the Explorers' League prospector who sends soldiers against Drek'Thar so the League can dig in Alterac Valley.",
   },
 
@@ -152,7 +152,7 @@ P:NPC {
   notices = { "soldier", "pvp" },
 
   impression = {
-    first = "Sergeant Durgen Stormpike gives out the Guard's plainest orders: take a mine, pull a banner, hold a graveyard. He shares Vanndar's name and won't say how closely, which tells me he's tired of being asked.",
+    first = "He shares Vanndar's name and won't say how closely.",
     third = "{name} met Sergeant Durgen Stormpike, who sends the Stormpike Guard after Alterac Valley's mines, towers and graveyards.",
   },
 
@@ -287,7 +287,7 @@ P:NPC {
   notices = { "soldier", "pvp" },
 
   impression = {
-    first = "Corporal Teeka Bloodsnarl sends the Horde against Alterac Valley's mines, towers and graveyards, and she has no patience for anyone waiting for others to claim their glory. She fights for the Frostwolves as if they were her own blood.",
+    first = "She fights for the Frostwolves as if they were her own blood.",
     third = "{name} met Corporal Teeka Bloodsnarl, who sends the Horde after Alterac Valley's mines, towers and graveyards for the Frostwolf Clan.",
   },
 
@@ -425,7 +425,7 @@ P:NPC {
   notices = { "reputation", "race" },
 
   impression = {
-    first = "Thanthaldis Snowgleam is a night elf quartermaster for a dwarven guard, handing out Stormpike gear by reputation in the cold of Alterac. He seems amused by the dwarves and fond of them in about equal measure.",
+    first = "The dwarves amuse him about as much as he likes them.",
     third = "{name} met Thanthaldis Snowgleam, the night elf who supplies the Stormpike Guard outside Alterac Valley.",
   },
 

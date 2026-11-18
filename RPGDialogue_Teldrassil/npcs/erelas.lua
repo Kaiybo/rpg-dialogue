@@ -10,7 +10,7 @@ P:NPC {
   communities = { "rutheran" }, temper = { "gentle", "curious" }, values = { "nature", "curious" },
   notices = { "pet", "form" },
   impression = {
-    first = "Erelas Ambersky raises hippogryph chicks in Rut'theran and wonders aloud whether Elune made the wildkin. He asks questions the way other people breathe, and he listens to the answers.",
+    first = "He wonders aloud whether Elune made the wildkin.",
     third = "{name} met Erelas Ambersky, a druid in Rut'theran Village who raises young hippogryphs and studies the wildkin.",
   },
 

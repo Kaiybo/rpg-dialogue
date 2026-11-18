@@ -12,7 +12,7 @@ P:NPC {
   notices = { "craft", "arcane", "kin" },
 
   impression = {
-    first = "Betty Quin teaches enchanting from the top floor of Cordell's shop, in a room that smells of hot copper and singed hair. She is young for a teacher, quick to laugh, and has a scorch mark on one sleeve that she has clearly stopped trying to hide.",
+    first = "She has stopped trying to hide the scorch mark on her sleeve.",
     third = "{name} met Betty Quin, Lucan Cordell's journeyman, who teaches enchanting upstairs at Cordell's.",
   },
 

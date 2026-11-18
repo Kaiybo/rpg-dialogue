@@ -13,7 +13,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "warm", "calm" }, values = { "loyal", "honest" },
   notices = { "class", "race" },
   impression = {
-    first = "Xanis Flameweaver sits by a low fire on the Spirit Rise and watches the young shaman come and go. When one is ready for the next element, he knows it before they do, and he sends them out across Kalimdor to find it.",
+    first = "He knows a shaman is ready before they do.",
     third = "{name} met Xanis Flameweaver, a shaman on Thunder Bluff's Spirit Rise who sends young shaman to their elements.",
   },
 
@@ -104,7 +104,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "cheerful", "proud" }, values = { "loyal" },
   notices = { "class", "weary" },
   impression = {
-    first = "Bluff Runner Windstrider carries the news across Thunder Bluff's rises at a run, calling it out to anyone who'll listen. He is breathless, cheerful and very proud of how fast he is.",
+    first = "He is breathless, cheerful and very proud of how fast he is.",
     third = "{name} met Bluff Runner Windstrider, the town crier of Thunder Bluff.",
   },
 
@@ -195,7 +195,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "gruff", "sharp" }, values = { "practical", "loyal" },
   notices = { "class", "kit" },
   impression = {
-    first = "Ghede stands among piles of dirt on the Elder Rise, barking orders at anyone carrying soil for the Cenarion Circle. He calls everyone Private and he is sarcastic about everything, though the piles do get made.",
+    first = "He calls everyone Private and is sarcastic about everything.",
     third = "{name} met Ghede, who keeps the Cenarion Circle's Un'Goro soil piles on Thunder Bluff's Elder Rise.",
   },
 

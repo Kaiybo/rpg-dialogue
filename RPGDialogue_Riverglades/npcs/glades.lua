@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "I found Marshal Ryan in the Twilight's Shroud, too far gone to save. He spent the breath he had left on his duty and on a woman named Abigail, and I don't think he knew which mattered more until the end.",
+    first = "His last breath went to his duty and a woman named Abigail.",
     third = "{name} found Marshal Ryan, the Brotherhood's best scout, dying inside the Twilight's Shroud.",
   },
 
@@ -137,7 +137,7 @@ P:NPC {
   notices = { "race", "profession" },
 
   impression = {
-    first = "Sleebo Fizzlespout believes marsh gas is the fuel of the future and that he is the goblin to sell it. He won't tell anyone how his engine works, which I suspect is because it doesn't yet.",
+    first = "He won't explain his engine, likely because it doesn't work yet.",
     third = "{name} met Sleebo Fizzlespout, a goblin inventor collecting marsh gas from the Riverglades' ponds for a secret engine.",
   },
 
@@ -254,7 +254,7 @@ P:NPC {
   notices = { "class", "pvp" },
 
   impression = {
-    first = "Jezap Jinglesprocket promotes fights for Gadgetzan and looks at everyone like a price tag on two legs. He seemed to think the whole war in the Riverglades was a show nobody had sold tickets to yet.",
+    first = "He looks at everyone like a price tag on two legs.",
     third = "{name} met Jezap Jinglesprocket, a fight promoter out of Gadgetzan scouting the northern Riverglades for talent.",
   },
 

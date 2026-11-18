@@ -9,7 +9,7 @@ P:NPC {
   communities = { "eastvale" }, temper = { "proud" }, values = { "lawful", "brave" },
   notices = { "kit" },
   impression = {
-    first = "Nearly blind and still every inch a soldier, Marshal Haggard listens to the path below his door more closely than most men watch one. He ran the Stormwind Guard once, and he hasn't forgotten it.",
+    first = "Nearly blind, he listens to the path better than most men watch.",
     third = "{name} met old Marshal Haggard, once of the Stormwind Guard, who sits at home listening to the loggers swear.",
   },
 

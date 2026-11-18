@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.23.1 (2026-11-18)
+- Journal: the note about each person is one short sentence (12 words or fewer) and shows on the People page only, not in the diary.
+
 ## 1.23.0 (2026-11-18)
 - "Where is...?" directions for Darnassus (`directions.lua`, new file: restart the game fully).
 - Tyrande's lines have narration.

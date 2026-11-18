@@ -14,7 +14,7 @@ P:NPC {
   notices = { "pvp", "race", "soldier" },
 
   impression = {
-    first = "The Stormpike Emissary is a broad dwarf in the blue of the Stormpike Guard who talks about Alterac Valley as if it were a stubborn seam of ore. There was snow still caught in the beard, or I'd swear there was.",
+    first = "To this dwarf, Alterac Valley is a stubborn seam of ore.",
     third = "{name} met the Stormpike Emissary, a dwarf of Vanndar Stormpike's expedition who stands in the capitals to bring fighters north to Alterac Valley.",
   },
 
@@ -317,7 +317,7 @@ P:NPC {
   notices = { "pvp", "race", "soldier" },
 
   impression = {
-    first = "The Frostwolf Emissary is an orc in white furs who speaks of Alterac Valley the way other orcs speak of their ancestors. I had the feeling I was being measured against every Frostwolf who ever lived.",
+    first = "I felt measured against every Frostwolf who ever lived.",
     third = "{name} met the Frostwolf Emissary, an orc of Drek'Thar's clan who stands in the Horde's cities to call fighters north to defend Frostwolf Keep.",
   },
 

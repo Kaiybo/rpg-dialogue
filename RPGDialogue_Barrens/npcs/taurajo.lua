@@ -8,7 +8,7 @@ P:NPC {
   communities = { "taurajo" }, temper = { "patient" }, values = { "wise", "kind" },
   notices = { "class", "pet" },
   impression = {
-    first = "Jorn Skyseer believes stillness is a hunter's first lesson, and he teaches it by example. Sitting beside him, the empty Barrens began to look a great deal less empty.",
+    first = "Beside him, the empty Barrens began to look far less empty.",
     third = "{name} met Jorn Skyseer, the patient tauren at Camp Taurajo who teaches hunters to see the life hidden on the Barrens.",
   },
 
@@ -252,7 +252,7 @@ P:NPC {
   communities = { "taurajo" }, temper = { "scheming" }, values = { "cunning" },
   notices = { "race" },
   impression = {
-    first = "Mangletooth snorts through the bars of his cage and offers deals as though he were the one holding the keys. He remembers every one of his captors, and I suspect he will remember me too.",
+    first = "He offers deals from his cage as though he held the keys.",
     third = "{name} met Mangletooth, a caged Razormane quilboar at Camp Taurajo with a grudge against his own kin and a deal for anyone who listens.",
   },
 
@@ -453,7 +453,7 @@ P:NPC {
   communities = { "taurajo" }, temper = { "curious" }, values = { "curious", "practical" },
   notices = { "craft", "kit" },
   impression = {
-    first = "To Tatternack Steelforge, every weapon is a letter from the hand that held it. He is writing it all down for the Warchief, who may never read it, and he does not seem to mind.",
+    first = "To him every weapon is a letter from its wielder's hand.",
     third = "{name} met Tatternack Steelforge, a curious smith at Camp Taurajo who studies the weapons of every people the Horde meets.",
   },
 
@@ -606,7 +606,7 @@ P:NPC {
   communities = { "taurajo" }, temper = { "warm" }, values = { "generous", "kind" },
   notices = { "weary" },
   impression = {
-    first = "Innkeeper Byula keeps Taurajo's fire lit and serves the kodo herders first because they have earned it. She has never found the hyenas' laughter funny, and she says the stew helps more than you would think.",
+    first = "She has never found the hyenas' laughter funny.",
     third = "{name} rested at Innkeeper Byula's inn at Camp Taurajo, where the fire is always lit for travellers of the southern Barrens.",
   },
 

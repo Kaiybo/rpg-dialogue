@@ -14,7 +14,7 @@ P:NPC {
   notices = { "gnome", "wildhammer", "fel" },
 
   impression = {
-    first = "Senator Barin Redstone keeps a list of everyone who has wronged Ironforge, and it is a long list. The Dark Iron head it, the gnomes come close behind, and the Wildhammer are on it for good measure.",
+    first = "He keeps a long list of everyone who has wronged Ironforge.",
     third = "{name} heard Senator Barin Redstone's opinions on the Dark Iron, the gnomes and the Wildhammer, at length.",
   },
 

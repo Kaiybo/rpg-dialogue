@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/rutheran_and_warriors.md", role = "flightmaster", tier = "service",
   communities = { "darnassus" }, temper = { "calm" }, values = { "nature", "freedom" },
   impression = {
-    first = "Vesprystus tends the hippogryphs at Rut'theran Village, at the foot of Teldrassil, and he speaks of the sea wind as though it were an old friend.",
+    first = "He speaks of the sea wind like an old friend.",
     third = "{name} met Vesprystus, who keeps the hippogryphs of Rut'theran Village.",
   },
   greetings = {
@@ -187,7 +187,7 @@ P:NPC {
   bible = "bibles/rutheran_and_warriors.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "exacting" }, values = { "discipline", "duty" },
   impression = {
-    first = "Ilyenia Moonfire teaches weapons in Darnassus with a Sentinel's precision, and she does not hide her opinion of sloppy footwork.",
+    first = "She does not hide her opinion of sloppy footwork.",
     third = "{name} met Ilyenia Moonfire, Darnassus' exacting weapon master.",
   },
   greetings = {
@@ -356,7 +356,7 @@ P:NPC {
   bible = "bibles/rutheran_and_warriors.md", role = "trainer", tier = "service",
   communities = { "darnassus" }, temper = { "quiet" }, values = { "nature", "freedom" },
   impression = {
-    first = "Jeen'ra Nightrunner trains Darnassus' hunters in a quiet voice, and she seems far more at ease with the beasts than with the people who come to her.",
+    first = "The beasts put her at ease far more than people do.",
     third = "{name} met Jeen'ra Nightrunner, a quiet hunter trainer of Darnassus.",
   },
   greetings = {

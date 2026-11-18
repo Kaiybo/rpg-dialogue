@@ -12,7 +12,7 @@ P:NPC {
   notices = { "soldier", "night" },
 
   impression = {
-    first = "Commander Althea Ebonlocke speaks to everyone as if they were already on her watch roster. She looked tired in the way only the Night Watch seems to manage.",
+    first = "She speaks to everyone as if they were already on her roster.",
     third = "{name} reported to Commander Althea Ebonlocke of the Night Watch, sworn to keep the people of Darkshire alive.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Eridan Bluewind insists there's still green under Felwood's sickness, and she plants a seed every morning to prove it. Her hope is stubborn enough to be almost catching.",
+    first = "She plants a seed every morning to prove there's still green here.",
     third = "{name} met Eridan Bluewind of the Emerald Circle, who believes Felwood can be healed.",
   },
 
@@ -304,7 +304,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Greta Mosshoof keeps a stone from Mulgore in her pocket for when the forest grows too loud. She is wary of anyone who might be tempted by the power here, and she says so.",
+    first = "She keeps a Mulgore stone for when the forest grows too loud.",
     third = "{name} met Greta Mosshoof of the Emerald Circle, who fights Felwood's corruption from the Emerald Sanctuary.",
   },
 
@@ -518,7 +518,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Maybess Riverbreeze believes the forest can be mended more than fought for, one salve at a time. She asks everyone to help and seems to mean everyone.",
+    first = "She believes the forest can be mended one salve at a time.",
     third = "{name} met Maybess Riverbreeze of the Emerald Circle, who asks the Horde to help heal Felwood.",
   },
 
@@ -764,7 +764,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Arathandris Silversky spent a whole morning watching a single clean flower by the road. Her patience is the fighting kind, and she says the curse is no more stubborn than she is.",
+    first = "She says the curse is no more stubborn than she is.",
     third = "{name} met Arathandris Silversky of the Emerald Circle, who asks the Alliance to help cleanse Felwood.",
   },
 

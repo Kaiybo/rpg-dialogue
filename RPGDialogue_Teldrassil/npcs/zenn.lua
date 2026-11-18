@@ -9,7 +9,7 @@ P:NPC {
   communities = { "teldrassil_wilds" }, temper = { "sly", "cheerful" }, values = { "ambitious", "secretive" },
   notices = { "class", "greenness" },
   impression = {
-    first = "Zenn Foulhoof is a satyr who smiles too much and asks for too little, and he calls it a bargain. Every kind word he gave me came with a hook in it.",
+    first = "Every kind word he gave me came with a hook in it.",
     third = "{name} met Zenn Foulhoof, a smiling satyr living just off the road east of Dolanaar who wanted errands run and no questions asked.",
   },
 

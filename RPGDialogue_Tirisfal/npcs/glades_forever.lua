@@ -11,7 +11,7 @@ P:NPC {
   communities = { "argent_dawn" }, temper = { "steady" }, values = { "dutiful", "devout" },
   notices = { "class", "race" },
   impression = {
-    first = "Hadric Harlson wears the Argent Dawn's colours on a Forsaken's body and seems entirely at ease in both. He speaks of the Scourge's living servants with a cold disgust he saves for no one else.",
+    first = "He saves his coldest disgust for the Scourge's living servants.",
     third = "{name} met Hadric Harlson of the Argent Dawn, who hunts the Cult of the Damned outside the Undercity on his commander's behalf.",
   },
 
@@ -209,7 +209,7 @@ P:NPC {
   communities = { "brill" }, temper = { "grim" }, values = { "dutiful", "sharp" },
   notices = { "kit", "class" },
   impression = {
-    first = "Deathguard Kristof watches the Undercity road with the patience of someone who has already worked out that the danger is coming from somewhere else. He is grim and thoughtful and does not like being told he is wrong.",
+    first = "He does not like being told he is wrong.",
     third = "{name} met Deathguard Kristof at the waystation southeast of Brill, who suspects the Scourge in Tirisfal are being made inside the Forsaken's own borders.",
   },
 
@@ -405,7 +405,7 @@ P:NPC {
   communities = { "brill" }, temper = { "clipped" }, values = { "dutiful", "practical" },
   notices = { "kit" },
   impression = {
-    first = "Deathguard Lizabetha keeps the bridge at Cold Hearth Manor and seems to regard the whole posting as a test of her patience. She gives directions crisply and complaints even more crisply.",
+    first = "She gives directions crisply and complaints even more crisply.",
     third = "{name} met Deathguard Lizabetha, who guards the bridge by Cold Hearth Manor south of Brill.",
   },
 
@@ -501,7 +501,7 @@ P:NPC {
   communities = { "brill" }, temper = { "wry" }, values = { "loyal", "brave" },
   notices = { "class", "kit" },
   impression = {
-    first = "Deathguard Falgan stayed behind so his friend could run, and he seems more embarrassed than proud of it. He speaks of the Symbol of Life with a wistfulness that belongs to an older Lordaeron.",
+    first = "He stayed behind so his friend could run, and it embarrasses him.",
     third = "{name} met Deathguard Falgan in Venomweb Vale, who held off the Scarlet Crusade so his friend Billmuth could escape.",
   },
 
@@ -641,7 +641,7 @@ P:NPC {
   communities = { "brill" }, temper = { "dry" }, values = { "curious", "practical" },
   notices = { "race", "travel" },
   impression = {
-    first = "Deyrek Duke spends his days at the foot of the zeppelin tower, watching the goblin airships come and go with a connoisseur's eye. He has opinions about every pilot and most of the passengers.",
+    first = "He has opinions about every zeppelin pilot and most of the passengers.",
     third = "{name} met Deyrek Duke beside the zeppelin tower southeast of Brill, who watches the airships come and go.",
   },
 
@@ -737,7 +737,7 @@ P:NPC {
   communities = { "whispering_forest" }, temper = { "gentle" }, values = { "kind", "patient" },
   notices = { "pet", "class" },
   impression = {
-    first = "Relreo Emberlight lives quietly in a cottage in the Whispering Forest with a dog called Max, who is very much alive. He seems content in a way few Forsaken manage.",
+    first = "His dog Max is very much alive, and he seems content.",
     third = "{name} met Relreo Emberlight in the Whispering Forest, who lives in a cottage with his dog Max and walks him up to Bandarion Keep.",
   },
 
@@ -846,7 +846,7 @@ P:NPC {
   communities = { "bulwark" }, temper = { "gruff" }, values = { "dutiful", "stubborn" },
   notices = { "kit", "race" },
   impression = {
-    first = "Adelbert Edmunds stands his watch at the Bulwark beside Rickard Hardee, and the two of them argue as if they had been doing it for fifty years. He is gruff and certain and quietly fond of his friend.",
+    first = "He and Rickard argue as if they had fifty years of practice.",
     third = "{name} met Adelbert Edmunds at the Bulwark, an old watchman who keeps his post beside Rickard Hardee.",
   },
 
@@ -942,7 +942,7 @@ P:NPC {
   communities = { "bulwark" }, temper = { "wry" }, values = { "loyal", "patient" },
   notices = { "stealth", "class" },
   impression = {
-    first = "Rickard Hardee keeps watch at the Bulwark with one good eye and a great deal of patience, mostly spent on Adelbert. He sees more than his friend gives him credit for.",
+    first = "He sees more than Adelbert gives him credit for.",
     third = "{name} met Rickard Hardee at the Bulwark, a half-blind watchman who stands his post beside Adelbert Edmunds.",
   },
 

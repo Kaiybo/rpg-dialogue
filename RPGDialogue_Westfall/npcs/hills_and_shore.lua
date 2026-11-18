@@ -10,7 +10,7 @@ P:NPC {
   communities = {}, temper = { "jovial" }, values = { "craft", "freedom" },
   notices = { "race", "drink" },
   impression = {
-    first = "Grimbooze Thunderbrew brews lager in the Westfall hills, far from any Thunderbrew hall, and he speaks almost entirely in rhyme. The rhymes are terrible and the lager is not.",
+    first = "The rhymes are terrible and the lager is not.",
     third = "{name} met Grimbooze Thunderbrew, a rhyming dwarf who brews lager in the Dagger Hills of Westfall.",
   },
   greetings = {
@@ -214,7 +214,7 @@ P:NPC {
   communities = {}, temper = { "dry" }, values = { "practical", "patient" },
   notices = { "craft" },
   impression = {
-    first = "Kriggon Talsone fishes the Longshore below the lighthouse and talks as slowly as the tide comes in. He keeps one eye on his line and the other on the murlocs down the beach.",
+    first = "One eye stays on his line and the other on the murlocs.",
     third = "{name} met Kriggon Talsone, a fisherman on Westfall's Longshore.",
   },
   greetings = {

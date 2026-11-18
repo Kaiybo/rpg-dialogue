@@ -10,7 +10,7 @@ P:NPC {
   bible = "bibles/goldshire_more.md", role = "trainer", tier = "service", communities = { "goldshire" },
   temper = { "warm" }, values = { "craft", "kind" }, notices = { "hunger", "craft" },
   impression = {
-    first = "Tomas cooks for the whole of the Lion's Pride from a back room that smells of onions and woodsmoke. He asked whether I'd eaten before he asked my name, and he seemed to think that was the right order.",
+    first = "He asked whether I'd eaten before he asked my name.",
     third = "{name} met Tomas, the cook in the back of the Lion's Pride Inn, who teaches cooking to anyone who'll stand still long enough.",
   },
   greetings = {
@@ -216,7 +216,7 @@ P:NPC {
   bible = "bibles/goldshire_more.md", role = "vendor", tier = "service", communities = { "goldshire" },
   temper = { "cheerful" }, values = { "practical" }, notices = { "hunger", "weary" },
   impression = {
-    first = "Kira Songshine walks Elwynn's roads with a basket of bread and a voice that carries to the next farm. She sold me a loaf before I'd quite decided to buy one.",
+    first = "She sold me a loaf before I'd quite decided to buy one.",
     third = "{name} met Kira Songshine, the baker who walks the roads around Goldshire selling bread and drink.",
   },
   greetings = {
@@ -437,7 +437,7 @@ P:NPC {
   bible = "bibles/goldshire_more.md", role = "child", tier = "service", communities = { "goldshire" },
   temper = { "eager" }, values = { "brave" }, notices = { "wonder", "kit" },
   impression = {
-    first = "Bo runs circles around Goldshire's smithy with his friends and stops only long enough to ask whether your sword is real. He seemed to think mine was a little small.",
+    first = "He asked whether my sword was real, and thought it small.",
     third = "{name} met Bo, a Goldshire boy who plays around the smithy and the pond with his friends Joshua and Mark.",
   },
   greetings = {
@@ -586,7 +586,7 @@ P:NPC {
   bible = "bibles/goldshire_more.md", role = "child", tier = "service", communities = { "goldshire" },
   temper = { "grumbling" }, values = { "patient" }, notices = { "craft" },
   impression = {
-    first = "Matt fishes with great determination and very little luck, walking back and forth between Crystal Lake and the Goldshire pond in search of fish that will bite. I didn't have the heart to tell him about his knot.",
+    first = "I didn't have the heart to tell him about his knot.",
     third = "{name} met Matt, a Goldshire boy who fishes every day and catches very little.",
   },
   greetings = {

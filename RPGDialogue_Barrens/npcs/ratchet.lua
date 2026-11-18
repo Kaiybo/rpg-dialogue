@@ -10,7 +10,7 @@ P:NPC {
   temper = { "brash" }, values = { "ambitious", "practical" },
   notices = { "race" },
   impression = {
-    first = "Gazlowe runs Ratchet for the Steamwheedle Cartel, and he will tell anyone who stands still that he built Orgrimmar for Thrall. He is loud and greedy and sharper than he lets on, and the Southsea pirates on his coast cost him money every day.",
+    first = "He tells anyone who stands still that he built Orgrimmar.",
     third = "{name} met Gazlowe, the goblin boss of Ratchet who once helped build Orgrimmar.",
   },
   greetings = {
@@ -480,7 +480,7 @@ P:NPC {
   temper = { "anxious" }, values = { "curious" },
   notices = { "class" },
   impression = {
-    first = "Sputtervalve is a goblin tinker in Ratchet who cannot stop talking about the Samophlange, a contraption he lost out in the Barrens. He means well and frets constantly, and his sentences rarely end where they started.",
+    first = "His sentences rarely end where they started.",
     third = "{name} met Sputtervalve, a fretful goblin tinker in Ratchet.",
   },
   greetings = {
@@ -633,7 +633,7 @@ P:NPC {
   temper = { "smooth" }, values = { "ambitious" },
   notices = { "race" },
   impression = {
-    first = "Mebok Mizzyrix sells concoctions out of Ratchet and wants raptor horns and other odd ingredients for them. He is a pure salesman, all promises and grins, and he never says exactly what the drinks are for.",
+    first = "He never says exactly what his drinks are for.",
     third = "{name} met Mebok Mizzyrix, a goblin peddler of tonics in Ratchet.",
   },
   greetings = {
@@ -809,7 +809,7 @@ P:NPC {
   temper = { "harried" }, values = { "practical", "dutiful" },
   notices = { "race" },
   impression = {
-    first = "Wharfmaster Dizzywig keeps Ratchet's docks running and keeps a ledger of every crate that never arrived. He is harried and exact, and a missing shipment makes him take it personally.",
+    first = "He keeps a ledger of every crate that never arrived.",
     third = "{name} met Wharfmaster Dizzywig, who runs Ratchet's docks.",
   },
   greetings = {

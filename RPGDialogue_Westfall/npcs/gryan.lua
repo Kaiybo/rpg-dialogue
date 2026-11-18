@@ -10,7 +10,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "reputation", "paladin" },
   impression = {
-    first = "Gryan Stoutmantle came home from the war to find Westfall in thieves' hands, and he means to take it back one farm at a time. He sleeps in his boots, eats what the militia eat, and hasn't owned a dry pair of socks since spring.",
+    first = "He hasn't owned a dry pair of socks since spring.",
     third = "{name} met Gryan Stoutmantle at Sentinel Hill, who raised the People's Militia to reclaim his homeland.",
   },
 

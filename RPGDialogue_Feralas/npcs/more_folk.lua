@@ -13,7 +13,7 @@ P:NPC {
   communities = { "feathermoon" }, temper = { "calm", "precise" }, values = { "craft", "careful" },
   notices = { "craft", "arcane" },
   impression = {
-    first = "Xylinnia Starshine teaches enchanting at Feathermoon, and she speaks of it as a discipline of restraint rather than power. She weighs every word as though it might be bound into something.",
+    first = "She speaks of enchanting as a discipline of restraint, not power.",
     third = "{name} met Xylinnia Starshine, the enchanting trainer of Feathermoon Stronghold.",
   },
   greetings = {
@@ -96,7 +96,7 @@ P:NPC {
   communities = { "feathermoon" }, temper = { "dry", "steady" }, values = { "practical", "nature" },
   notices = { "craft", "hunger" },
   impression = {
-    first = "Harklane sells fish and drink at Feathermoon, and he knows which waters around the isle are safe to net and which belong to the naga. He spoke of the sea as a neighbour he doesn't entirely trust.",
+    first = "He speaks of the sea as a neighbour he doesn't entirely trust.",
     third = "{name} met Harklane, who sells fish at Feathermoon Stronghold.",
   },
   greetings = {
@@ -173,7 +173,7 @@ P:NPC {
   communities = { "feathermoon" }, temper = { "gentle", "patient" }, values = { "nature", "patient" },
   notices = { "pet" },
   impression = {
-    first = "Antarius keeps Feathermoon's stables and talks to the animals in a low voice that never changes, whatever they do. He worries about beasts that come over the water, because they rarely enjoy the crossing.",
+    first = "He worries for beasts that cross the water, since few enjoy it.",
     third = "{name} met Antarius, the stable master of Feathermoon Stronghold.",
   },
   greetings = {
@@ -245,7 +245,7 @@ P:NPC {
   communities = { "feathermoon" }, temper = { "watchful", "dry" }, values = { "duty", "careful" },
   notices = { "class", "travel" },
   impression = {
-    first = "Jadenvis Seawatcher sells reagents from the Feathermoon dock and watches the water while he does it. He is the first face most travellers see on the isle, and he seems to take that seriously.",
+    first = "He watches the water the whole time he is selling.",
     third = "{name} met Jadenvis Seawatcher, the reagent seller on the Feathermoon dock.",
   },
   greetings = {
@@ -319,7 +319,7 @@ P:NPC {
   communities = { "mojache" }, temper = { "warm", "gentle" }, values = { "kind", "family" },
   notices = { "hunger", "race" },
   impression = {
-    first = "Loorana sells bread and drink at Camp Mojache, and she feeds travellers the way a mother feeds a herd. Her bread smells of the plains, though she bakes it in a forest.",
+    first = "Her bread smells of the plains, though it's baked in a forest.",
     third = "{name} met Loorana, who sells food and drink at Camp Mojache.",
   },
   greetings = {
@@ -400,7 +400,7 @@ P:NPC {
   communities = { "mojache" }, temper = { "calm", "patient" }, values = { "nature", "wise" },
   notices = { "class" },
   impression = {
-    first = "Tarhus sells reagents at Camp Mojache: powders, seeds and the odd thing gathered from the forest floor. He speaks slowly and sorts his stock by the season it was gathered in.",
+    first = "He sorts his stock by the season it was gathered in.",
     third = "{name} met Tarhus, the reagent seller of Camp Mojache.",
   },
   greetings = {
@@ -474,7 +474,7 @@ P:NPC {
   communities = { "mojache" }, temper = { "blunt", "steady" }, values = { "loyal", "proud" },
   notices = { "pet" },
   impression = {
-    first = "Shyrka Wolfrunner keeps the stables at Camp Mojache, an orc among tauren, and she has opinions about every beast that comes through. She judges hunters by how their companions look at them.",
+    first = "She judges hunters by how their companions look at them.",
     third = "{name} met Shyrka Wolfrunner, the orc stable master at Camp Mojache.",
   },
   greetings = {
@@ -550,7 +550,7 @@ P:NPC {
   communities = { "mojache" }, temper = { "calm", "gentle" }, values = { "nature", "wise" },
   notices = { "form", "class" },
   impression = {
-    first = "Jannos Lighthoof trains druids at Camp Mojache, and he spends as much time listening to the forest as to his students. He seems to think Feralas has a great deal to teach anyone patient enough.",
+    first = "He listens to the forest as much as to his students.",
     third = "{name} met Jannos Lighthoof, the druid trainer at Camp Mojache.",
   },
   greetings = {

@@ -8,7 +8,7 @@ P:NPC {
   communities = { "ravenholdt" }, temper = { "cool" }, values = { "discreet", "proud" },
   notices = { "class" },
   impression = {
-    first = "Lord Jorach Ravenholdt receives guests in a manor that is not supposed to be easy to find. He is courteous in the way a blade is polished, and he has clearly already decided what you are worth.",
+    first = "He is courteous the way a blade is polished.",
     third = "{name} met Lord Jorach Ravenholdt, master of the hidden manor in the Alterac hills and no friend of the Syndicate.",
   },
 
@@ -277,7 +277,7 @@ P:NPC {
   communities = { "dalaran" }, temper = { "proud" }, values = { "learned", "dutiful" },
   notices = { "class" },
   impression = {
-    first = "Archmage Ansirem Runeweaver stands at Dalaran's gate, where the violet dome has only lately opened, as if waiting for the city to finish a sentence. He speaks of the city's walls with the fondness of a man who helped build them.",
+    first = "He speaks of Dalaran's walls like a man who helped build them.",
     third = "{name} met Archmage Ansirem Runeweaver of the Kirin Tor, keeping watch at Dalaran's newly opened gate.",
   },
 
@@ -512,7 +512,7 @@ P:NPC {
   communities = { "tarren_mill" }, temper = { "grim" }, values = { "loyal", "proud" },
   notices = { "race" },
   impression = {
-    first = "Gol'dir is an orc the Syndicate kept in chains, moved from camp to camp in the Alterac hills. His wrists are raw, and his pride is not.",
+    first = "His wrists are raw from Syndicate chains, and his pride is not.",
     third = "{name} met Gol'dir, an orc held prisoner by the Syndicate in the hills of Alterac.",
   },
 
@@ -686,7 +686,7 @@ P:NPC {
   communities = { "tarren_mill" }, temper = { "dry" }, values = { "careful", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Serge Hinott teaches alchemy in Tarren Mill and measures reagents with the steadiness of someone whose hands no longer shake from anything. He speaks of poisons the way a baker speaks of bread.",
+    first = "He speaks of poisons the way a baker speaks of bread.",
     third = "{name} met Serge Hinott, the Forsaken alchemist who teaches in Tarren Mill.",
   },
 

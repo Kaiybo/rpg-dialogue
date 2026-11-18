@@ -11,7 +11,7 @@ P:NPC {
   notices = { "light", "kit" },
 
   impression = {
-    first = "Elaine Carevin keeps lists: who has been fed, who hasn't been seen, which empty house showed a light. She talks about the Light as something you walk under, not something you wait for.",
+    first = "To her, the Light is something you walk under, not wait for.",
     third = "{name} met Elaine Carevin, who keeps the Carevin household's supplies moving and its questions asked.",
   },
 
@@ -283,7 +283,7 @@ P:NPC {
   notices = { "class", "travel" },
 
   impression = {
-    first = "Watchmaster Sorigal counts the days a crate can survive the road to Nethergarde the way other men count prayers. He's sure the keep matters, and he's tired of losing wagons to prove it.",
+    first = "He is tired of losing wagons to prove Nethergarde matters.",
     third = "{name} met Watchmaster Sorigal, who sends Darkshire's supply caravans down the long road to Nethergarde Keep.",
   },
 
@@ -528,7 +528,7 @@ P:NPC {
   notices = { "drink", "class" },
 
   impression = {
-    first = "Barkeep Hann leans across the bar to whisper about his moonshine as if the Night Watch might arrest us both. I suspect the whispering is most of the thrill.",
+    first = "He whispers about his moonshine, and whispering is most of the thrill.",
     third = "{name} met Barkeep Hann, who serves drinks at Darkshire's Scarlet Raven Tavern and keeps a jug of moonshine under the counter.",
   },
 
@@ -728,7 +728,7 @@ P:NPC {
   notices = { "class", "arcane" },
 
   impression = {
-    first = "Alyssa Eva sells reagents a few steps from her grandmother's cards and plainly loves the old woman, though she rolls her eyes at every warning. She thinks fate is mostly a matter of good locks.",
+    first = "She thinks fate is mostly a matter of good locks.",
     third = "{name} met Alyssa Eva, Madame Eva's granddaughter, who sells reagents in Darkshire.",
   },
 
@@ -933,7 +933,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Herble Baubbletump sells engineering parts out of a cramped house on the hill and gives his opinions away for nothing. A gnome in Darkshire, he says, is just an exile who found somewhere darker.",
+    first = "He calls a Darkshire gnome an exile who found somewhere darker.",
     third = "{name} met Herble Baubbletump, a gnome who sells engineering and mining supplies on the hill road in Darkshire.",
   },
 
@@ -1152,7 +1152,7 @@ P:NPC {
   notices = { "soldier", "weary" },
 
   impression = {
-    first = "Farrin Daris paces between his room at the Scarlet Raven and the table outside, asking why Stormwind's guards haven't come. He can't visit his father's grave anymore, and it's eating him alive.",
+    first = "He can't visit his father's grave anymore, and it's eating him alive.",
     third = "{name} met Farrin Daris, a worried Darkshire lodger who can no longer visit his father's grave.",
   },
 
@@ -1382,7 +1382,7 @@ P:NPC {
   notices = { "pet", "animal" },
 
   impression = {
-    first = "Steven Black keeps the beasts of Darkshire's travellers fed, calm and well away from the treeline. Animals settle when he speaks, and I suspect that's the only reason he does.",
+    first = "Animals settle when he speaks, which I suspect is why he does.",
     third = "{name} met Steven Black, Darkshire's stable master, who keeps travellers' animals safe from the woods.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "pet" },
 
   impression = {
-    first = "Ogtinc is a furbolg hunter who left his people to serve the Cenarion Circle, and he keeps watch over the Ruins of Eldarath from his cliff. He grieves every courser he asks someone to kill.",
+    first = "He grieves every courser he asks someone to kill.",
     third = "{name} met Ogtinc, a furbolg of the Cenarion Circle keeping watch on the cliff above the Ruins of Eldarath.",
   },
 
@@ -361,7 +361,7 @@ P:NPC {
   notices = { "profession" },
 
   impression = {
-    first = "Peter Galen teaches dragonscale leatherworking from a camp in the ruins, and offers his condolences to anyone who goes hunting dragons. He keeps a list of customers who never came back.",
+    first = "He keeps a list of customers who never came back.",
     third = "{name} met Peter Galen, the dragonscale leatherworker camped in the Ruins of Eldarath.",
   },
 
@@ -567,7 +567,7 @@ P:NPC {
   notices = { "race", "purse" },
 
   impression = {
-    first = "Kim'jael is a goblin the elves hired and then tried to kill, and he's furious about the nickname more than the knives. He paid me fairly and then immediately renegotiated.",
+    first = "He paid me fairly and then immediately renegotiated.",
     third = "{name} met Kim'jael, a goblin scout double-crossed by Magus Rimtori's elves on the northern cliffs.",
   },
 
@@ -814,7 +814,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Captain Vanessa Beltis lost her ship, the Horizon Scout, to the naga off Azshara and holds a nook in the Ruined Reaches with what's left of her crew. She blames herself for every drowned sailor.",
+    first = "She blames herself for every drowned sailor.",
     third = "{name} met Captain Vanessa Beltis, whose ship the Horizon Scout lies at the bottom of the sea off Azshara.",
   },
 
@@ -1004,7 +1004,7 @@ P:NPC {
   notices = { "race", "craft" },
 
   impression = {
-    first = "Pilot Xiggs Fuselighter dropped out of the sky onto a tiny helipad off Azshara's coast because I fired a flare. He's flying rubbings to Ironforge as a favour to a friend, and seems to love every minute.",
+    first = "He flies rubbings to Ironforge as a favour and loves every minute.",
     third = "{name} met Pilot Xiggs Fuselighter, who flies the Explorers' League's rubbings out of Azshara.",
   },
 

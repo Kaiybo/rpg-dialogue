@@ -11,7 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "hearty" }, values = { "strength", "honest" },
   notices = { "class", "kit" },
   impression = {
-    first = "Gerik Koen sells nothing that can be swung with one hand, and he's proud of it. His shop in Old Town is full of greatswords and soldiers, and he greeted me like an old comrade.",
+    first = "He sells nothing that can be swung with one hand.",
     third = "{name} met Gerik Koen of Heavy Handed Weapons in Old Town.",
   },
   greetings = {
@@ -295,7 +295,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "impatient" }, values = { "practical", "craft" },
   notices = { "craft", "class" },
   impression = {
-    first = "Maris Granger teaches skinning at the Protective Hide and made it plain she has no time for tourists. Once she saw I meant it, she taught quickly and well, and nearly smiled.",
+    first = "She has no time for tourists, only for those who mean it.",
     third = "{name} met Maris Granger, the impatient skinning trainer of the Protective Hide.",
   },
   greetings = {
@@ -467,7 +467,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "firm" }, values = { "honest", "craft" },
   notices = { "craft", "class" },
   impression = {
-    first = "Jillian Tanner sells thread, dye and salt at the Protective Hide, and she told me straight away that her prices were set and haggling was for goblins. I found that rather restful.",
+    first = "Her prices are set, and she says haggling is for goblins.",
     third = "{name} met Jillian Tanner, who sells leatherworking supplies at the Protective Hide.",
   },
   greetings = {
@@ -748,7 +748,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "craft", "practical" },
   notices = { "greenness", "kit" },
   impression = {
-    first = "Alyssa Griffith sells bags at the Protective Hide and believes most of an adventurer's troubles come from carrying too little. She was cheerful and certain, and she sold me on it.",
+    first = "She believes most troubles come from carrying too little.",
     third = "{name} met Alyssa Griffith, who sells bags at the Protective Hide in Old Town.",
   },
   greetings = {
@@ -918,7 +918,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "jovial" }, values = { "food", "community" },
   notices = { "craft", "hunger" },
   impression = {
-    first = "Kendor Kabonka sells recipes upstairs at the Pig and Whistle and collects dishes from every corner of the kingdom the way some men collect coins. He was jovial and hungry, and very easily distracted by food.",
+    first = "He collects dishes the way some men collect coins.",
     third = "{name} met Kendor Kabonka, who sells recipes upstairs at the Pig and Whistle.",
   },
   greetings = {

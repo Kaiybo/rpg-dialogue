@@ -10,7 +10,7 @@ P:NPC {
   notices = { "purse", "drink" },
 
   impression = {
-    first = "Marin Noggenfogger talks about his elixir the way some people talk about their children, side effects and all. He was sweating, cheerful and already pricing me as a customer.",
+    first = "He talks about his elixir like a child, side effects and all.",
     third = "{name} met Marin Noggenfogger, the goblin alchemist who runs Gadgetzan and dreams of a fortune in elixirs.",
   },
 
@@ -446,7 +446,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Sprinkle calls everyone sweetie and believes that anything can taste good with the right ingredient. She lets Marin think he runs their partnership, and seems to enjoy it.",
+    first = "She lets Marin think he runs their partnership, and enjoys it.",
     third = "{name} met Sprinkle, the warm-hearted goblin of Gadgetzan who fixes food that tastes wrong.",
   },
 
@@ -693,7 +693,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Chief Engineer Bilgewhizzle watches his pressure gauge the way other men watch the sky for storms. In a desert town he keeps the water flowing, and it shows on his face.",
+    first = "He watches his pressure gauge the way others watch for storms.",
     third = "{name} met Chief Engineer Bilgewhizzle, the harried head of the Gadgetzan Water Company.",
   },
 
@@ -929,7 +929,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Senior Surveyor Fizzledowser keeps a map full of circles where water used to be, and he expects every simple job to go wrong. In fairness, out here, he's usually right.",
+    first = "He expects every simple job to go wrong, and is usually right.",
     third = "{name} met Senior Surveyor Fizzledowser, who searches the desert for new water on behalf of the Gadgetzan Water Company.",
   },
 
@@ -1139,7 +1139,7 @@ P:NPC {
   notices = { "craft", "pet" },
 
   impression = {
-    first = "Alchemist Pestlezugg keeps a rat named Rose for an assistant and seems to trust her over any person in Gadgetzan. He is brisk, curious and a little too pleased by horrible discoveries.",
+    first = "He trusts his rat Rose over any person in Gadgetzan.",
     third = "{name} met Alchemist Pestlezugg, the Gadgetzan alchemist who studies the desert's stranger creatures for the Water Company.",
   },
 
@@ -1366,7 +1366,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Tran'rek answered every question about his business without actually answering any of them. He buys what the desert offers, sells it elsewhere and keeps his margins very close.",
+    first = "He answered every question about his business without answering any.",
     third = "{name} met Tran'rek, an evasive goblin trader of Gadgetzan who deals in whatever the desert yields.",
   },
 
@@ -1674,7 +1674,7 @@ P:NPC {
   notices = { "drink", "weary" },
 
   impression = {
-    first = "Innkeeper Fizzgrimble runs the only inn in Gadgetzan and makes a joke of it before anyone else can. He calls the sand in the stew seasoning, and somehow I believed him.",
+    first = "He calls the sand in the stew seasoning, and I believed him.",
     third = "{name} met Innkeeper Fizzgrimble, the chatty keeper of the Road Warrior inn in Gadgetzan.",
   },
 
@@ -1985,7 +1985,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Stoley asked who sent me and then guessed before I could answer. He owes money in Booty Bay and seems to spend most of his days hoping nobody notices him.",
+    first = "He owes money in Booty Bay and hopes nobody notices him.",
     third = "{name} met Stoley, a nervous trader at Steamwheedle Port with debts in Booty Bay.",
   },
 
@@ -2199,7 +2199,7 @@ P:NPC {
   notices = { "craft", "purse" },
 
   impression = {
-    first = "Krinkle Goodsteel will pour a mold for anything if the coin is right, and he says so proudly. He fought the Repairers' Union and won, which tells me a lot about him.",
+    first = "He fought the Repairers' Union and won, which says a lot.",
     third = "{name} met Krinkle Goodsteel, a sharp-tongued goblin smith in Gadgetzan who makes molds nobody else will.",
   },
 

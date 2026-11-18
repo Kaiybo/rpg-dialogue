@@ -9,7 +9,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "fierce" }, values = { "nature", "brave" },
   notices = { "form", "class" },
   impression = {
-    first = "Nara Wildmane is a young druid of the Hall of Elders with a fierce spirit and bad dreams. The four leaders of the Druids of the Fang haunt her sleep, and she wants them dead so the Barrens can heal.",
+    first = "The Druids of the Fang haunt her sleep.",
     third = "{name} met Nara Wildmane on the Elder Rise, a young druid haunted by the leaders of the Druids of the Fang.",
   },
 

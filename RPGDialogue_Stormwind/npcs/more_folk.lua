@@ -11,7 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gruff" }, values = { "craft", "loyal" },
   notices = { "craft", "soldier" },
   impression = {
-    first = "Hank the Hammer keeps a promise made to an old dwarf named Galvan: train anyone with the will to become an armorsmith. He looks at a smith's work before he looks at the smith.",
+    first = "He looks at a smith's work before he looks at the smith.",
     third = "{name} met Hank the Hammer of the Mithril Order, who tests Stormwind's smiths for the armorsmith's road.",
   },
   greetings = {
@@ -137,7 +137,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "fussy" }, values = { "order", "dutiful" },
   notices = { "kin", "status" },
   impression = {
-    first = "Royal Factor Bathrilor keeps the census of Stormwind on the second floor of City Hall and speaks of his records as if they were his children. He found Emma Felstone's name before I could finish saying it.",
+    first = "He speaks of his census records as if they were his children.",
     third = "{name} met Royal Factor Bathrilor, who keeps Stormwind's census in City Hall.",
   },
   greetings = {
@@ -249,7 +249,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "manic" }, values = { "curious", "craft" },
   notices = { "gnome", "stealth" },
   impression = {
-    first = "Doc Mixilpixil works in the cellar of SI:7 among his flasks, and he talks to a squirrel and to a statue as readily as to me. His cures work, which is apparently why nobody asks about the rest.",
+    first = "His cures work, so nobody asks why he talks to a squirrel.",
     third = "{name} met Doc Mixilpixil, a gnome physician in the cellar beneath SI:7.",
   },
   greetings = {
@@ -353,7 +353,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "earnest" }, values = { "dutiful", "practical" },
   notices = { "craft", "light" },
   impression = {
-    first = "Clavicus Knavingham collects cloth for the city's stores in Duncan's Textiles, and he talks about bolts of wool the way a general talks about soldiers. The textile stockpile is low, and he takes it personally.",
+    first = "The textile stockpile is low, and he takes it personally.",
     third = "{name} met Clavicus Knavingham, the cloth quartermaster who gathers donations for Stormwind's stores.",
   },
   greetings = {
@@ -447,7 +447,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "grave" }, values = { "order", "learning" },
   notices = { "arcane", "warlock" },
   impression = {
-    first = "High Sorcerer Andromath stands at the top of the Wizard's Sanctum and speaks quietly, as if anything louder might upset the wards. He is counted among the finest sorcerers not locked away in Dalaran, and he knows it.",
+    first = "He speaks quietly, as if anything louder might upset the wards.",
     third = "{name} met High Sorcerer Andromath of the Wizard's Sanctum in Stormwind.",
   },
   greetings = {
@@ -569,7 +569,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "mild" }, values = { "learning", "order" },
   notices = { "arcane", "kin" },
   impression = {
-    first = "Donyal Tovald is one of the stewards of the Royal Library, and he fusses over its shelves the way a gardener fusses over roses. He is polite, quiet and very sure that a book belongs where it was put.",
+    first = "He is very sure that a book belongs where it was put.",
     third = "{name} met Donyal Tovald, a steward of the Royal Library in Stormwind Keep.",
   },
   greetings = {
@@ -663,7 +663,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "eager" }, values = { "learning", "curious" },
   notices = { "arcane" },
   impression = {
-    first = "Garion Wendell keeps the library of the Wizard's Sanctum and takes in any book a mage finds out in the world. He reads the title before he says hello, and the hello is warmer if the book is rare.",
+    first = "His hello is warmer if the book you bring is rare.",
     third = "{name} met Garion Wendell, the librarian of Stormwind's Wizard's Sanctum.",
   },
   greetings = {

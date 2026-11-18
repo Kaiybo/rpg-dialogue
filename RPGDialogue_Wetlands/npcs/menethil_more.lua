@@ -12,7 +12,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Valstag Ironjaw reads the reports from Dun Algaz in the keep and doesn't like a word of them. He's a soldier's soldier: blunt, tired, and quietly worried about why the Dragonmaw are pushing now.",
+    first = "He is quietly worried about why the Dragonmaw are pushing now.",
     third = "{name} met Valstag Ironjaw, who gathers reports on the Dragonmaw in Menethil Keep for Captain Stoutfist.",
   },
 
@@ -296,7 +296,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Tarrel Rockweaver waits on the harbour bridge for letters from his wife Merrin at Whelgar's dig, and they have stopped coming. He's trying very hard to be calm and not managing it.",
+    first = "His wife Merrin's letters have stopped, and he can't stay calm.",
     third = "{name} met Tarrel Rockweaver, who waits in Menethil Harbor for word from his wife at the Whelgar excavation.",
   },
 
@@ -516,7 +516,7 @@ P:NPC {
   notices = { "travel", "hunger" },
 
   impression = {
-    first = "Vincent Hyal sits in the Deepwater Tavern and talks about his brother James, who sailed west with Lady Proudmoore and opened an inn. He's proud of him and hasn't heard from him in a while.",
+    first = "He is proud of a brother he hasn't heard from lately.",
     third = "{name} met Vincent Hyal, whose brother James sailed to Kalimdor with Jaina Proudmoore's expedition.",
   },
 
@@ -714,7 +714,7 @@ P:NPC {
   notices = { "greenness", "race" },
 
   impression = {
-    first = "Red Jack Flint sells Kalimdor to anyone who stands still long enough, with all the poetry of a sailor who misses the sea. He swears he sees the sea in my future, and probably says it to everyone.",
+    first = "He sees the sea in my future, and probably in everyone's.",
     third = "{name} met Red Jack Flint, who urges travellers in Menethil to seek their fortunes across the sea in Kalimdor.",
   },
 
@@ -930,7 +930,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Sida visits Ironbeard's Tomb every week and won't say why, and an ooze has eaten her bag. She's flustered, sharp-tongued, and plainly hiding something she considers nobody's business.",
+    first = "She is plainly hiding something she considers nobody's business.",
     third = "{name} met Sida, a dwarf in Menethil Harbor who lost her bag to an ooze at Ironbeard's Tomb.",
   },
 
@@ -1129,7 +1129,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Harold Riggs teaches fishing in Menethil and talks shop with anyone who'll stand still. He thinks the bay's full of bad luck and good fish in equal measure.",
+    first = "He thinks the bay holds equal parts bad luck and good fish.",
     third = "{name} met Harold Riggs, who teaches fishing in Menethil Harbor.",
   },
 
@@ -1310,7 +1310,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Camerick Jongleur is a wandering minstrel who can't wander, because the Wetlands have shut the roads around him. He's making the best of it in Menethil, one rainy song at a time.",
+    first = "The roads are shut, so he sings one rainy song after another.",
     third = "{name} met Camerick Jongleur, a minstrel stuck in Menethil Harbor while the Wetlands' troubles block the roads.",
   },
 
@@ -1552,7 +1552,7 @@ P:NPC {
   notices = { "race", "mount" },
 
   impression = {
-    first = "Unger Statforth breeds horses at Menethil and sells them only to those Stormwind trusts. He talks about his steeds like a proud father and about everyone else like a careful banker.",
+    first = "He talks of his steeds like a proud father.",
     third = "{name} met Unger Statforth, the horse breeder of Menethil Harbor.",
   },
 

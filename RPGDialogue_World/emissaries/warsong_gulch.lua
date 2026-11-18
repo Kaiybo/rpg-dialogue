@@ -10,7 +10,7 @@ P:NPC {
   notices = { "pvp", "soldier", "race" },
 
   impression = {
-    first = "The Silverwing Emissary is a night elf Sentinel sent out of Ashenvale to find soldiers for Warsong Gulch. She spoke of the orcs' lumber mill the way a healer speaks of a wound that won't close.",
+    first = "To her, the orcs' lumber mill is a wound that won't close.",
     third = "{name} met the Silverwing Emissary, a Sentinel of Silverwing Hold who stands in the Alliance capitals asking for help against the Warsong clan's logging in Ashenvale.",
   },
 
@@ -281,7 +281,7 @@ P:NPC {
   notices = { "pvp", "soldier", "race" },
 
   impression = {
-    first = "The Warsong Emissary is an orc of Hellscream's old clan who stands in the Horde's cities calling for fighters to guard the lumber mill in Warsong Gulch. He spoke of wood the way other orcs speak of water.",
+    first = "He spoke of wood the way other orcs speak of water.",
     third = "{name} met the Warsong Emissary, an orc of the Warsong Outriders who recruits for the fight against the night elves over the timber of Ashenvale.",
   },
 

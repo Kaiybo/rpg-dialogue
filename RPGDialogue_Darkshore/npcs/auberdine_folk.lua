@@ -16,7 +16,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Archaeologist Hollee is a young dwarf of the Explorers' League with dirt still under her nails and a habit of talking faster when she's worried. She worships Prospector Remtravel and is plainly terrified for him.",
+    first = "She worships Prospector Remtravel and is plainly terrified for him.",
     third = "{name} met Archaeologist Hollee in Auberdine, a dwarf of the Explorers' League who fled the golems at Remtravel's dig.",
   },
 
@@ -190,7 +190,7 @@ P:NPC {
   notices = { "fel", "class" },
 
   impression = {
-    first = "Gershala Nightwhisper studies corruption the way other scholars study poetry, closely and without flinching. He wants brain stems from satyr and naga, and he asks for them as calmly as if he were asking for ink.",
+    first = "He asks for satyr and naga brain stems as calmly as ink.",
     third = "{name} met Gershala Nightwhisper in Auberdine, a night elf scholar studying how magic twisted the satyr and the naga.",
   },
 
@@ -313,7 +313,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Sentinel Selarin keeps watch at the south end of Auberdine and speaks of Raene Wolfrunner as her mistress, with real pride. She is waiting for anyone strong enough to send down the road to Ashenvale.",
+    first = "She wants anyone strong enough to send down the road to Ashenvale.",
     third = "{name} met Sentinel Selarin in Auberdine, who serves Raene Wolfrunner of Astranaar and sends help south to her.",
   },
 
@@ -430,7 +430,7 @@ P:NPC {
   notices = { "race", "drink" },
 
   impression = {
-    first = "Thamarian stands on Auberdine's docks telling travellers which pier goes where, and he tells it as if every voyage were his own. He knows the ships by their creaks.",
+    first = "He knows the ships by their creaks.",
     third = "{name} met Thamarian, who gives directions to the boats on Auberdine's docks.",
   },
 
@@ -513,7 +513,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Kurdram Stonehammer teaches mining in Auberdine and grumbles about the trees in the way, the damp in his boots and the elves who won't let him dig where he likes. He knows Darkshore's rock better than anyone in town.",
+    first = "He grumbles about the elves, but nobody knows Darkshore's rock better.",
     third = "{name} met Kurdram Stonehammer, a dwarf who teaches mining in Auberdine.",
   },
 
@@ -660,7 +660,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Jenna Lemkenilli is a gnome engineer who talks like her thoughts are running ahead of her mouth. She is very glad to be anywhere at all, even a damp elf town, after Gnomeregan.",
+    first = "After Gnomeregan, she is glad to be anywhere at all.",
     third = "{name} met Jenna Lemkenilli, a gnome who teaches engineering in Auberdine.",
   },
 

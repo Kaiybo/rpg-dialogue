@@ -11,7 +11,7 @@ P:NPC {
   notices = { "fate", "fel" },
 
   impression = {
-    first = "Madame Eva behaved as though she had been expecting me for some time. I've no idea how she could have known, and I've decided not to ask.",
+    first = "She acts as though she had been expecting me for some time.",
     third = "{name} called on Madame Eva, the Darkshire fortune teller who reads the cards and seems to know her visitors before they arrive.",
   },
 

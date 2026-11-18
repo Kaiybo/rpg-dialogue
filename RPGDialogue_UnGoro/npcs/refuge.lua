@@ -9,7 +9,7 @@ P:NPC {
   notices = { "level", "kit" },
 
   impression = {
-    first = "Williden Marshal lost his base camps to the crater and still talks about Un'Goro like a man in love with it. He welcomed me warmly, and then he warned me twice about the dinosaurs.",
+    first = "He welcomed me warmly, then warned me twice about the dinosaurs.",
     third = "{name} met Williden Marshal, leader of the Marshal Expedition, at Marshal's Refuge in Un'Goro Crater.",
   },
 
@@ -294,7 +294,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Linken can't remember where he came from or why, and he is cheerful about it in a way that hurts to watch. He is quite sure he's a warrior, because it feels right.",
+    first = "He can't remember where he came from, and is cheerful about it.",
     third = "{name} met Linken, a gnome at Marshal's Refuge who lost his memory somewhere in Un'Goro Crater.",
   },
 
@@ -505,7 +505,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "J.D. Collie lost an eyebrow to his crystals this morning and seemed to think it a fair trade. His cave hums, and so does he, with theories.",
+    first = "He lost an eyebrow to his crystals and thought it fair.",
     third = "{name} met J.D. Collie, the Marshal Expedition's eager student of Un'Goro's crystals.",
   },
 
@@ -693,7 +693,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Spraggle Frock asked after her friend Ringo before she'd even said her own name. She worries for a living and seems to be very good at it.",
+    first = "She worries for a living and seems very good at it.",
     third = "{name} met Spraggle Frock, the anxious supply runner of the Marshal Expedition who frets over her missing friend Ringo.",
   },
 

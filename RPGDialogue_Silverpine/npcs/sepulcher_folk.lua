@@ -15,7 +15,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Patrice Dwyer sells poison supplies at the Sepulcher and talks about them the way other people talk about their gardens. The apothecaries look down on her, and she returns the favor.",
+    first = "The apothecaries look down on her, and she returns the favor.",
     third = "{name} met Patrice Dwyer, who sells poisons to the Sepulcher's rogues.",
   },
 
@@ -135,7 +135,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Johan Focht teaches mining at the Sepulcher with the patience of a man who spent half his life underground. He keeps clear of Ambermill, where Dalaran's mages carry crates into the old workings and nothing out.",
+    first = "He keeps clear of Ambermill and the mages in its old workings.",
     third = "{name} met Johan Focht, the Sepulcher's mining trainer.",
   },
 

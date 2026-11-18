@@ -10,7 +10,7 @@ P:NPC {
   race = "Orc", likesTone = "blunt",
   notices = { "race", "soldier" },
   impression = {
-    first = "Eitrigg is an old Blackrock warrior who walked away from the Horde once and was brought back by Thrall. He speaks of a human paladin named Tirion as his brother, and he does not say it lightly.",
+    first = "He calls a human paladin named Tirion his brother, and means it.",
     third = "{name} spoke with Eitrigg in Grommash Hold, the aged Blackrock veteran who counsels the Warchief and owes his life to a human paladin.",
   },
 

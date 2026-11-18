@@ -10,7 +10,7 @@ P:NPC {
   communities = { "splintertree" }, temper = { "eager", "boisterous" }, values = { "glory", "loyal" },
   notices = { "soldier", "class" },
   impression = {
-    first = "Torek wants scars the way some people want gold, and he wants company while he earns them. He respects the night elves enough to want a good fight from them.",
+    first = "He wants scars the way some people want gold.",
     third = "{name} met Torek, an orc raid leader in Ashenvale planning an assault on the Silverwing Outpost.",
   },
 

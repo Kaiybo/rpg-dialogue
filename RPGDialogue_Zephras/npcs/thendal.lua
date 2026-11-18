@@ -16,7 +16,7 @@ P:NPC {
   notices = { "kin", "stranger", "class" },
 
   impression = {
-    first = "Rorian the Dayseeker leads Thendal Village from the foot of its great tree, and he treats every young Skyborne as a charge he'll have to answer for. He is solemn about the old gifts and very short with anyone who plays with them.",
+    first = "He is very short with anyone who plays with the old gifts.",
     third = "{name} met Rorian the Dayseeker, the solemn leader of Thendal Village who hands the young their coming-of-age relics.",
   },
 
@@ -318,7 +318,7 @@ P:NPC {
   notices = { "kin", "stranger", "race", "origin" },
 
   impression = {
-    first = "Aetheen of the Gales sits on the Council of Elders and came to Thendal Grove to read the winds and weigh the young. She watches before she speaks, and when she speaks it sounds like a test.",
+    first = "She watches before she speaks, and her words sound like a test.",
     third = "{name} met Aetheen of the Gales, an elder of the Council who reads the winds and tests the young of Zephras Isle.",
   },
 
@@ -611,7 +611,7 @@ P:NPC {
   notices = { "kin", "stranger", "race" },
 
   impression = {
-    first = "Myriaal Mistwake is a ranger who guards Thendal Grove from the top of its watchtower and fills the slow hours with mischief. She'd like everyone to stop taking themselves so seriously, starting with Halaan.",
+    first = "She'd like everyone to take themselves less seriously, starting with Halaan.",
     third = "{name} met Myriaal Mistwake, a mischievous ranger of Thendal Grove who dares the young to leap from the watchtower.",
   },
 
@@ -792,7 +792,7 @@ P:NPC {
   notices = { "class", "race", "pet" },
 
   impression = {
-    first = "Halaan Hawk-Eye keeps his eyes on the great anchor pylon beyond Thendal Grove, as if watching it might hold it up. He speaks slowly, believes in being grateful for small gifts, and pretends Myriaal doesn't bother him.",
+    first = "He pretends Myriaal doesn't bother him.",
     third = "{name} met Halaan Hawk-Eye, a ranger of Thendal Grove who watches over the anchor pylon with his far-seeing gift.",
   },
 

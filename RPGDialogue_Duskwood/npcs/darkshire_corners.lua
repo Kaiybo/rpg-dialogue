@@ -14,7 +14,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Darkshire's Town Crier has a bell, a strong voice and a list of announcements that's mostly bad news. When the abomination walks the road, he's the one who shouts the town to arms.",
+    first = "He shouts the town to arms when the abomination walks the road.",
     third = "{name} met Darkshire's Town Crier, who rings the alarm when undead march on the town.",
   },
 
@@ -175,7 +175,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Finbus Geargrind is a gnome engineering trainer who swears he's never too busy to speak to a stranger, almost never anyway. He lives in Darkshire because it was the first town after Gnomeregan that let him set up a workbench.",
+    first = "Darkshire was the first town after Gnomeregan to allow him a workbench.",
     third = "{name} met Finbus Geargrind, the gnome engineering trainer of Darkshire.",
   },
 
@@ -322,7 +322,7 @@ P:NPC {
   notices = { "class", "stealth" },
 
   impression = {
-    first = "Malissa sells poisons and empty vials from behind a building in Darkshire, out of sight of the Night Watch. She's quiet, she's polite, and she never asks what anything is for.",
+    first = "She is polite and never asks what anything is for.",
     third = "{name} met Malissa, who sells poison supplies from behind a building in Darkshire.",
   },
 

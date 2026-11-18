@@ -14,7 +14,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Falfindel Waywarder keeps the little way-station of Thalanaar, where the forests of Feralas give out onto the dry Needles. He has the patience of a sentry and the sorrow of a man who reads too many reports about the dead.",
+    first = "He has the sorrow of one who reads too many death reports.",
     third = "{name} met Falfindel Waywarder, keeper of the Thalanaar way-station on Feralas's eastern edge.",
   },
 
@@ -134,7 +134,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Jer'kai Moonweaver hides with Kindal in a nook above the Grimtotem camps, and she is the angrier of the two. She speaks quickly and quietly, and keeps an arrow on the string the whole time.",
+    first = "She keeps an arrow on the string the whole time she talks.",
     third = "{name} met Jer'kai Moonweaver, who fights the Grimtotem of Feralas alongside Kindal Moonweaver.",
   },
 
