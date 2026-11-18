@@ -342,7 +342,7 @@ P:NPC {
     cloth = {
       lines = { { id = "cl_default", text = "You'd do that? Ten lengths of linen, then, fresh if you can, and I'll make her a wrapping that'll hold till the apothecaries come. I hope it's no imposition upon you, goodly paladin." } },
       choices = {
-        { text = "None at all. I'll be back.", next = "BUSINESS", fx = { affinity = 2 } },
+        { text = "No trouble at all. I'll be back with it.", next = "BUSINESS", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },

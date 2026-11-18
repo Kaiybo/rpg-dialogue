@@ -162,7 +162,7 @@ P:NPC {
     rogue = {
       lines = { { id = "ro_default", text = "Walk it if you like, but don't come running back here with something on your heels. If you must bring me anything from out there, bring me claws." } },
       choices = {
-        { text = "Claws, and quietly. Understood.", next = "BACK", fx = { affinity = 1 } },
+        { text = "The claws, then, and I'll keep it quiet.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

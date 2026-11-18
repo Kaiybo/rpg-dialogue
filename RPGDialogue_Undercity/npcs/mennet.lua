@@ -80,7 +80,7 @@ P:NPC {
       big = true,
       lines = { { id = "dl_default", text = "I serve the Dark Lady, who chose him to command us, and I find it simplest not to have opinions about her choices. You'd be wise to find it simple too." } },
       choices = {
-        { text = "Loyalty to the Dark Lady is enough for me.", next = "BACK", reply = "Then you'll go far among the deathstalkers. Loyalty is the only thing we can't afford to lose.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Loyalty to the Dark Lady is enough for me.", next = "BACK", reply = "Then you'll go far among the deathstalkers, because the ones who waver end up on my list.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll keep my own opinions, and my own counsel.", next = "BACK", reply = "Keep them, then, but keep them very quietly. The Undercity has ears, and some of them are mine.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -130,7 +130,7 @@ P:NPC {
         { id = "le_living", when = { race = { "Orc", "Troll" } }, text = "Here's one the Shattered Hand won't teach you: a blade is the last tool you reach for. By the time you need it, you've already failed at three quieter things." },
       },
       choices = {
-        { text = "Quiet, then. Always.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
+        { text = "Quiet, then, always. I'll remember.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
         { text = "Something else, Mennet.", next = "BACK" },
       },
     },

@@ -14,10 +14,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_rampart", text = "What is it, {class}? Speak quickly. The forest is listening." },
+    { id = "g_rampart", text = "What is it, {class}? Speak quickly, because the forest is listening." },
     { id = "g_reports", when = { questActive = TODO_QUEST("The Warsong Reports") }, text = "My scouts are at Zoram'gar, at Splintertree, and on the road toward Azshara. Bring me all three reports, and don't lose any of them." },
     { id = "g_presence", when = { questActive = TODO_QUEST("Horde Presence") }, text = "Rynthariel keeps the Talon Den on Stonetalon Peak. Kill her, and plant our flag where every elf there will see it." },
-    { id = "g_flag", when = { questDone = TODO_QUEST("Horde Presence") }, text = "The flag still flies in the Talon Den, my scouts say. Good. Let them look at it every morning." },
+    { id = "g_flag", when = { questDone = TODO_QUEST("Horde Presence") }, text = "The flag still flies in the Talon Den, my scouts say, and every elf up there has to look at it each morning." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}? The rampart held without you, but barely, so don't make a habit of it." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've hardened since you ran my reports. The Warsong could use more like you in Ashenvale." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Word from the south says folk speak well of you. Up here, we'll see for ourselves." },
@@ -27,7 +27,7 @@ P:NPC {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
       text = "An orc with fire in the eyes. Grom would have liked you, I think." },
     { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
-      text = "A warrior at the rampart. Good. Ashenvale eats the soft ones." },
+      text = "A warrior at the rampart, good, because Ashenvale eats the soft ones." },
   },
 
   start = "hello",
@@ -130,7 +130,7 @@ P:NPC {
     },
     leads = {
       lines = { { id = "ld_default", text = "The Warchief leads all of us, and the Warsong answer to him first. Out here the captains at Splintertree and the rampart keep the clan's fire lit, and we argue less than the Alliance would like." } },
-      choices = { { text = "Then you keep it well. Something else.", next = "BACK", fx = { affinity = 1, learn = { "warsong" } } } },
+      choices = { { text = "Sounds like you keep that fire well. Something else.", next = "BACK", fx = { affinity = 1, learn = { "warsong" } } } },
     },
     elves = {
       lines = { { id = "e_default", text = "They're quiet, quick, and patient. Their Sentinels can sit in a tree for a day waiting for one runner, and their dryads and wisps fight like the forest itself hates us, which it might." } },
@@ -157,7 +157,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "In Ashenvale, look up. The elves are never where you expect them, and usually they're above you." } },
     warsong = { { id = "tp_ws", text = "My clan. We're the Horde's spearhead in Ashenvale, and we're proud of it.", next = "warsong" } },
     sentinels = { { id = "tp_sent", text = "The Sentinels are the night elves' warriors, mostly women, armed with glaives and owls and endless patience. Don't underestimate them." } },
-    thrall = { { id = "tp_thrall", text = "Thrall is the son of Durotan, and he carries Doomhammer's hammer and Grom's trust both. When he speaks, the Warsong listen, and that isn't something I'd say of any other chieftain." } },
+    thrall = { { id = "tp_thrall", text = "Thrall is the son of Durotan, and he carries the Doomhammer and Grom's trust both. When he speaks, the Warsong listen, and that isn't something I'd say of any other chieftain." } },
     tyrande = { { id = "tp_tyrande", text = "Tyrande is the night elves' priestess queen, and she sits high in her tree while her Sentinels kill my scouts. I'd sooner meet her across a battlefield than across a table." } },
     second_war = { { id = "tp_second_war", text = "I was too young to ride against Lordaeron, and I'm glad, because the old Horde fought for demons and didn't know it. Ashenvale is my war, and at least I know who I'm fighting for." } },
     burning_legion = { { id = "tp_burning_legion", fx = { learn = { "dark_portal" } }, text = "The Legion poured their blood into us and made us into what we were, and Grom killed Mannoroth and broke their hold, and I will not hear anyone call that a small thing." } },

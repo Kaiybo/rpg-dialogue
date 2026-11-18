@@ -387,11 +387,11 @@ P:NPC {
     },
     lesson = {
       lines = { { id = "le_default", text = "To take only what you need and leave the root, so there's something next season. The dead forget that, because we've stopped thinking about next season, and I won't teach anyone who strips a hillside bare." } },
-      choices = { { text = "Leave the root. I'll remember.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+      choices = { { text = "Leave the root in the ground. I'll remember.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
     xherb = {
       lines = { { id = "xh_default", text = "Peacebloom, silverleaf, and yes, there, a bit of earthroot you packed wet that's gone soft at the bottom. Dry them in the sun before you bag them, even Tirisfal's poor excuse for sun." } },
-      choices = { { text = "I'll do better. Thank you.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "I'll do better next time. Thank you, Faruza.", next = "BACK", fx = { affinity = 1 } } },
     },
     xtauren = {
       lines = { { id = "xt_default", text = "Do you think so? I've read that your people sing to the soil, and I'd laugh, except that I talk to mine every morning and it's the only thing in Brill that listens. Would she hear a prayer from one of us, do you think?" } },
@@ -412,7 +412,7 @@ P:NPC {
       lines = { { id = "as_default", text = "Perhaps, but I'm one woman with a basket, and they're the Royal Apothecary Society. I'll grow what grows, and leave the questions to someone with more to lose than I have." } },
       choices = {
         { text = "Knowledge is never wasted. Ask them.", next = "BACK", reply = "Then you ask them, and do let me know what they say. I'll be here with my basket, growing whatever they'll pay for.", fx = { align = { order = -1 } } },
-        { text = "Wise. Leave the Society to its work.", next = "BACK", reply = "It's the only sensible thing to do, if you ask me, and nobody ever does. The Society has its work and I have my garden, and we leave each other well alone.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Wise of you. Leave the Society to its work.", next = "BACK", reply = "It's the only sensible thing to do, if you ask me, and nobody ever does. The Society has its work and I have my garden, and we leave each other well alone.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -161,7 +161,7 @@ P:NPC {
       lines = {
         { id = "gu_default", text = "Not the gun, only the noise. A dwarf once fired one in this Enclave and every bird in the city left at once, and Shadow hid under my cot for an afternoon, so be a little gentle with it here." },
       },
-      choices = { { text = "I'll keep it quiet. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "I'll keep it quiet, Dorion. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
   },
 

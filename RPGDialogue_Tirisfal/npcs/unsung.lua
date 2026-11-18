@@ -43,7 +43,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "They stood just behind us, and when the line bent they'd step into the gap and pray loud enough to shame us back into place. I don't know what you pray to now, but a voice behind the line still matters, so learn where to stand before you learn what to say." } },
       choices = {
-        { text = "I'll stand behind your line and keep it whole.", next = "BACK", reply = "Good. A line with a voice behind it bends, but it rarely breaks.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll stand behind your line and keep it whole.", next = "BACK", reply = "Good. I saw a line hold half a night at Andorhal with one chaplain shouting behind it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll stand where I like. Lines are for soldiers.", next = "BACK", reply = "Then you'll find yourself standing alone when the Scourge comes, and a lone priest is a short fight.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -116,7 +116,7 @@ P:NPC {
     },
     pain = {
       lines = { { id = "pa_default", text = "Dangerous, because you can lose an arm and only notice when the sword falls out of it. The first thing I teach is to look at your own body after every fight, since it will not tell you when it is hurt." } },
-      choices = { { text = "That's useful advice. Something else.", next = "BACK" } },
+      choices = { { text = "That's useful advice, Stern. Something else.", next = "BACK" } },
     },
     enemies = {
       lines = { { id = "e_default", text = "The mindless dead and the Rattlecages in the fields, which are the Scourge's leftovers, and the Scarlet Crusade, who camp south of here and burn anything that walks without a heartbeat. Executor Arren will give you work against both." } },
@@ -147,7 +147,7 @@ P:NPC {
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I served beside men who'd have hanged a cutpurse for lifting a loaf, and now we're all dead together in Deathknell. Take your knives to the Crusade and I'll count it as soldiering." },
       },
       choices = {
-        { text = "A knife in the back ends a fight quickest.", next = "BACK", reply = "It does, and nobody here will argue. Learn to take a hit anyway, Stern's advice.", fx = { align = { honor = -1 } } },
+        { text = "A knife in the back ends a fight quickest.", next = "BACK", reply = "It does, and nobody here will argue. Learn to take a hit anyway; that's Stern's advice, and it's free.", fx = { align = { honor = -1 } } },
         { text = "I'll learn to face them too, Stern.", next = "BACK", reply = "Good, because a rogue who can face a man as well as stab him is worth two who can't.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "What's it like to fight without feeling pain?", next = "pain" },
       },
@@ -159,7 +159,7 @@ P:NPC {
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "Half the mages who fell in Lordaeron fell because a ghoul got close while they were still muttering, and I watched it happen more than once. Learn to step back as you cast, and you'll do better than they did." },
       },
       choices = {
-        { text = "I'll learn the staff, Stern. You're right.", next = "BACK", reply = "Good. A mage with a stick is a mage who lives to cast another day.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll learn the staff, Stern. You're right.", next = "BACK", reply = "Good. I once saw a mage with no mana left brain a ghoul with his staff, and he walked home.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "My spells are protection enough, Stern.", next = "BACK", reply = "That's what the Kirin Tor thought, right up until the Scourge came through the gates. Learn the staff anyway.", fx = { align = { order = -1 } } },
         { text = "There seem to be enemies on every side here.", next = "enemies" },
       },
@@ -213,7 +213,7 @@ P:NPC {
       },
       choices = {
         { text = "The hunt is sacred, Cleric. There's more to it than aim.", next = "BACK", reply = "Perhaps it is, for you, and I'll not tell you otherwise. Only remember that the sky doesn't draw your bow.", fx = { align = { light = 1 } } },
-        { text = "My faith is in my aim, Cleric, and nothing more.", next = "BACK", reply = "Then you've grasped the heart of it already. Faith in the arrow is faith in the hand that looses it.", fx = { align = { light = -1 } } },
+        { text = "My faith is in my aim, Cleric, and nothing more.", next = "BACK", reply = "Then you've grasped the heart of it already, hunter, and you never had to sit through a sermon.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -300,7 +300,7 @@ P:NPC {
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran's mages were proud of their minds, and the Scourge took those minds anyway, so I'd not lean on study alone. Whatever drew you out of the Lich King's grip was will, and you'd do well to cultivate it." },
       },
       choices = {
-        { text = "Will over faith. I believe that.", next = "BACK", reply = "Good. The Forgotten Shadow would welcome a mind like yours.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Will over faith, then. I can believe that.", next = "BACK", reply = "Good. The Forgotten Shadow would welcome a mind like yours.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "There's still something to the Light, Cleric.", next = "BACK", reply = "There may be, but it burned every one of us who reached for it. Look carefully before you reach again.", fx = { affinity = -1, align = { light = 1 } } },
         { text = "What is the Forgotten Shadow?", next = "cult" },
       },
@@ -312,7 +312,7 @@ P:NPC {
         { id = "xwarlock_scourge", when = { race = "Scourge" }, text = "You knelt to the Lich King once, as we all did, so you know exactly what it costs to serve something greater than yourself. Never kneel to a demon, and the Forgotten Shadow will have no quarrel with you." },
       },
       choices = {
-        { text = "I command. I'll never kneel again.", next = "BACK", reply = "Good. A warlock who never kneels is a warlock who survives.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "I command. I'll never kneel again.", next = "BACK", reply = "Good. Kneeling is how all of us ended up in the Lich King's ranks, so stay on your feet.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Even a warlock needs something to believe in.", next = "BACK", reply = "You already have something, warlock, and it's your own will. Don't go looking for anything else to kneel to.", fx = { align = { light = 1 } } },
         { text = "You must have served the Light when you lived.", next = "past" },
       },
@@ -469,7 +469,7 @@ P:NPC {
         { id = "xrogue_scourge", when = { race = "Scourge" }, text = "I had a boy lift apples off my cart in the old days, and I chased him three streets before I gave up. If that was you, I'm glad to see you've come down in the world as far as I have." },
       },
       choices = {
-        { text = "I'll pay, Kien. Shopkeepers deserve that much.", next = "BACK", reply = "Thank you, and it's nice to hear. Old habits die hard, even for the dead.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll pay, Kien. Shopkeepers deserve that much.", next = "BACK", reply = "Thank you, and it's nice to hear. I still count the change twice, though nobody's cheated me since I died.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Principle is reason enough to steal.", next = "BACK", reply = "Then do it somewhere else, please, because I'll know, and I'll be very disappointed.", fx = { align = { order = -1 } } },
         { text = "I'd not have thought the dead needed to eat.", next = "eat" },
       },
@@ -695,7 +695,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Healing draughts first, and a strength elixir if you can afford one, though I'd rather you kept your coin for the draughts. Peacebloom and silverleaf are all you need for the basics, and they grow by the roads if you can be bothered to look." } },
       choices = {
-        { text = "I'll carry draughts, Carolai, and learn to brew them.", next = "BACK", reply = "Good, and do it properly, with clean vials and fresh leaves. A brewed draught is a promise kept.", fx = { align = { order = 1 } } },
+        { text = "I'll carry draughts, Carolai, and learn to brew them.", next = "BACK", reply = "Good, and do it properly, with clean vials and fresh leaves. A sloppy draught is worse than none, because you'll trust it.", fx = { align = { order = 1 } } },
         { text = "I'll take my chances. Draughts are for the timid.", next = "BACK", reply = "The timid are the ones still walking, {class}, and I've watched the brave ones carried in. Buy one anyway.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -765,7 +765,7 @@ P:NPC {
     },
     herbs = {
       lines = { { id = "h2_default", text = "Peacebloom and silverleaf grow all over the glades, even with the plague in the soil, and earthroot grows near the hills. Further south in Silverpine, you'll find mageroyal and briarthorn, if the worgen don't find you first." } },
-      choices = { { text = "Thanks. Something else.", next = "BACK" } },
+      choices = { { text = "Thanks, Carolai. Something else.", next = "BACK" } },
     },
     xhsham = {
       big = true,
@@ -930,7 +930,7 @@ P:NPC {
     },
     dead_linen = {
       lines = { { id = "dl_default", text = "From the people you fight, dear, since half of Tirisfal walks around in old cloth. The Scarlet Crusade carry plenty of it, and they won't need it once you're finished with them." } },
-      choices = { { text = "Thank you. Something else.", next = "BACK" } },
+      choices = { { text = "Thank you, Nurse. Something else.", next = "BACK" } },
     },
     xhsham = {
       big = true,
@@ -1018,7 +1018,7 @@ P:NPC {
       lines = { { id = "xhpriest_default", text = "One or two of them still shy at a church bell, which is a funny thing in a horse with no ears to speak of. I like to think it's the ones that pulled the carts to Sunday service, and I keep them away from the chapel road for their own sake." } },
       choices = {
         { text = "That's kind of you, Zachariah. They earned their rest.", next = "BACK", reply = "They did, and they'll get it, in my stable at least. A bell won't trouble them here.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "They're bones, Zachariah. Don't be sentimental.", next = "BACK", reply = "Bones they are, and bones they'll stay, but I'll keep them away from the bells anyway. Habit, you understand.", fx = { align = { light = -1 } } },
+        { text = "They're only bones, Zachariah, so don't get sentimental.", next = "BACK", reply = "Bones they are, and bones they'll stay, but I'll keep them away from the bells anyway. Habit, you understand.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

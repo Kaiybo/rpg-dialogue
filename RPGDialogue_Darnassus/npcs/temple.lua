@@ -147,7 +147,7 @@ P:NPC {
       lines = {
         { id = "wa2_default", text = "Sister Astarii would tell you yes, without even stopping to think, and she has better reason to know than I do. Ask her about the golden tablet some night, and watch how she holds it." },
       },
-      choices = { { text = "I'll ask her. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = { { text = "I'll ask her, then. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     paladin_a = {
       lines = {
@@ -337,7 +337,7 @@ P:NPC {
       lines = {
         { id = "mn_default", text = "The young priestesses' fears are theirs to tell, not mine. They're doing well, and that is all I'll say about them to a stranger." },
       },
-      choices = { { text = "Of course. Forgive me.", next = "BACK" } },
+      choices = { { text = "Of course. Forgive me for prying.", next = "BACK" } },
     },
 
     arcane = {
@@ -350,7 +350,7 @@ P:NPC {
       choices = {
         { text = "Even arcane that serves a god?", next = "arcane_divine" },
         { text = "You're right. That power should be left alone.", next = "BACK", reply = "Thank you, and I wish more of your kind understood it. The Well is gone, but the hunger that drained it is not.", fx = { align = { order = 1 }, affinity = 2, learn = { "highborne" } } },
-        { text = "Power isn't evil. People are.", next = "BACK", reply = "People, yes, and people with power do evil far more easily than people without it. That is precisely why I fear it.", fx = { align = { order = -1 }, affinity = -1, learn = { "highborne" } } },
+        { text = "Power isn't evil, Priestess. People are.", next = "BACK", reply = "People, yes, and people with power do evil far more easily than people without it. That is precisely why I fear it.", fx = { align = { order = -1 }, affinity = -1, learn = { "highborne" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -359,7 +359,7 @@ P:NPC {
         { id = "ad_default", text = "Divine or not, magic that pulls on the world's threads makes me uneasy. Your Church would tell you some of its own wonders lean that way; ask Laurena about it when you're home, and watch her face." },
       },
       choices = {
-        { text = "I will. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I will, I promise. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "I'd rather not stir up the Cathedral.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -584,7 +584,7 @@ P:NPC {
       lines = {
         { id = "t3_default", text = "I don't know, and I won't promise you it can. What I know is that a prayer heard is better than a prayer lost in a cultist's pack, and that I'll read it aloud by the pool tonight." },
       },
-      choices = { { text = "Read it for him. Something else.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+      choices = { { text = "Read it for him, then. Something else.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
     },
     forgive = {
       big = true,
@@ -788,7 +788,7 @@ P:NPC {
       lines = {
         { id = "h2_default", text = "I make them sit with a wounded hunter's cat until it lets them near. Nothing teaches patience like a nightsaber that doesn't want a bandage." },
       },
-      choices = { { text = "That sounds dangerous. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "That sounds dangerous, for the student and the cat. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     wounded = {
       lines = {
@@ -896,7 +896,7 @@ P:NPC {
         { id = "xrogue_default", text = "Who comes in and who leaves, how long they stand by the water, and what they look at when they think no one sees them. I'd guess you watch people the same way, so be gentle with what you learn." },
       },
       choices = {
-        { text = "I'll be gentle with it. People deserve that.", next = "BACK", reply = "Thank you, rogue, for that is more than most of your trade would promise. People open up when they feel safe.", fx = { align = { light = 1 } } },
+        { text = "I'll be gentle with it. People deserve that.", next = "BACK", reply = "Thank you, rogue, for that is more than most of your trade would promise. The ones who come to this pool at night are usually carrying something heavy.", fx = { align = { light = 1 } } },
         { text = "What I learn is mine to use as I please.", next = "BACK", reply = "It is, I suppose, and I cannot stop you. Only remember that the pool watches you as well.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1111,7 +1111,7 @@ P:NPC {
         { id = "sk2_default", text = "Gone, and you had to come all this way down. I'm sorry, and I'm also a little glad, because otherwise I'd never have met you; is that terrible of me?" },
       },
       choices = {
-        { text = "Not terrible. I'm glad too.", next = "BACK", fx = { affinity = 2 } },
+        { text = "It wasn't terrible at all. I'm glad too.", next = "BACK", fx = { affinity = 2 } },
         { text = "A little, yes.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -1119,7 +1119,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdruid_default", text = "Once, when I was very young, but I couldn't bear the thought of sleeping for years while the world went on without me. The Sisterhood stays awake, and I think I would rather keep watch than dream." } },
       choices = {
-        { text = "The Sisterhood's watch is the more needed duty right now.", next = "BACK", reply = "That is what I keep telling myself, and it helps to hear you say it too. The world needs watchers.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Sisterhood's watch is the more needed duty right now.", next = "BACK", reply = "That is what I keep telling myself, and it helps to hear you say it too. Somebody has to keep the lamps lit while the druids sleep.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The Dream holds answers no watch on this side ever will.", next = "BACK", reply = "It does, I am sure, and I would love to hear them someday. But not yet, I think, not yet.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1200,7 +1200,7 @@ P:NPC {
         { id = "st_default", text = "The history of the Sisterhood, mostly, back before the Sundering and through the long years after. There's so much of it, and I keep falling asleep over the War of the Ancients, which is shameful." },
       },
       choices = {
-        { text = "History matters. Keep at it.", next = "BACK", reply = "Thank you, and I will, though the War of the Ancients is very long. Perhaps I will stay awake tonight.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "History matters, Aquinne. Keep at it.", next = "BACK", reply = "Thank you, and I will, though the War of the Ancients is very long. Perhaps I will stay awake tonight.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "Some days the garden teaches more than books.", next = "BACK", reply = "Oh, it does, and I much prefer the garden. Please do not tell my teacher I said so.", fx = { align = { order = -1 }, affinity = 1 } },
         { text = "What happened in the War of the Ancients?", next = "study2" },
       },
@@ -1235,7 +1235,7 @@ P:NPC {
       },
       choices = {
         { text = "Our faiths have more in common than not.", next = "BACK", reply = "I think so too, and it makes me feel less alone in my studies. Thank you for telling me.", fx = { align = { light = 1 }, affinity = 2 } },
-        { text = "Our teachers sigh. Our faiths differ.", next = "BACK", reply = "They do, and perhaps the sighing is the part that matters most. It is nice to know teachers are the same everywhere.", fx = { align = { light = -1 }, trait = { witty = 1 } } },
+        { text = "Our faiths differ, but our teachers sigh the same way.", next = "BACK", reply = "They do, and perhaps the sighing is the part that matters most. It is nice to know teachers are the same everywhere.", fx = { align = { light = -1 }, trait = { witty = 1 } } },
       },
     },
   },

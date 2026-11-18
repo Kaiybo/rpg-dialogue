@@ -170,7 +170,7 @@ P:NPC {
       big = true,
       lines = { { id = "pu_default", text = "Whatever she wants, and I've learned not to ask. The Society's masters have their own work, with their own plans, and I'd be lying if I said I knew all of it, but I trust her completely." } },
       choices = {
-        { text = "So do I. She's earned it.", next = "BACK", reply = "She has, a hundred times over, and every Forsaken who can still think owes her for it.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "So do I. She's earned that much.", next = "BACK", reply = "She has, a hundred times over, and every Forsaken who can still think owes her for it.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Trust is fine. I'd still like to know.", next = "BACK", reply = "So would I, some nights, but wanting to know is how the living got into so much trouble. I'll wait to be told.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "new_plague" } } },
       },

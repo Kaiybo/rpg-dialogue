@@ -28,7 +28,7 @@ P:NPC {
       text = "Ah, the one who talked me out of my own lesson. Come into the shade; I've stopped counting your fingers, mostly." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and nobody I pay to listen heard a word of you in all that time. Either you're very good or very dull." },
     { id = "g_word_caught", when = { word = "caughtLying" },
-      text = "I hear you were caught in a lie on the terraces. Being caught is the part I'd train out of you." },
+      text = "Word reached me you were caught in a lie on the terraces. Being caught is the part I'd train out of you." },
   },
 
   notice = {
@@ -63,7 +63,7 @@ P:NPC {
           text = "Ithrenil, my old student, asked after you, believe it or not. I told her I'd met a human who didn't fit the lesson, and she laughed at me for a full minute." },
       },
       again = {
-        { id = "h_again", text = "Something else? Ask quietly." },
+        { id = "h_again", text = "Something else? Ask it quietly." },
         { id = "h_again2", text = "Go on. I've a student waiting, but she can practise patience." },
         { id = "h_again3", text = "What else do you want to know? I'll tell you what I can and nothing that would cost me." },
       },
@@ -140,7 +140,7 @@ P:NPC {
       lines = {
         { id = "it_default", text = "Alive, and back here, with a scar from her ear to her collar that she won't talk about. Later I learned a lord of the king's own court had been selling secrets to the Defias the same way, so tell me where the rot stops." },
         { id = "it_attack", when = { questDone = TODO_QUEST("The Attack!") },
-          text = "Alive, and home, with a scar she won't speak of. And I hear you were the one in Stormwind who dragged Lord Lescovar's dealings with the Defias into the light, so you've seen how high their rot climbs." },
+          text = "Alive, and home, with a scar she won't speak of. And I'm told you were the one in Stormwind who dragged Lord Lescovar's dealings with the Defias into the light, so you've seen how high their rot climbs." },
       },
       choices = {
         { text = "One traitor doesn't excuse distrusting them all.", next = "BACK", reply = "Perhaps not, but it taught me what to look for. One traitor is all it takes when he sits close enough to the king.", fx = { affinity = 1, align = { honor = 1 } } },
@@ -363,7 +363,7 @@ P:NPC {
         { id = "cd_default", text = "I take one root and leave the plant beside it to seed the next, and I fill the hole behind me. That is not the same as tearing open a hillside to see what my ancestors left in it, whatever you're about to say." },
       },
       choices = {
-        { text = "You take only what you need. That's the difference.", next = "BACK", reply = "It is the whole difference, and I'm glad someone outside the Enclave can see it. The earth forgives a borrowing but never a theft.", fx = { align = { order = -1 } } },
+        { text = "You take only what you need. That's the difference.", next = "BACK", reply = "It is the whole difference, and I'm glad someone outside the Enclave can see it. I pinch a stem and the plant blooms again by spring, but nothing grows back in a dwarf's trench.", fx = { align = { order = -1 } } },
         { text = "A hole is a hole, Firodren, whoever digs it.", next = "BACK", reply = "It is not, and I will not have that said in my garden. A hole you fill is a wound that heals, while theirs only ever gets deeper.", fx = { affinity = -1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

@@ -293,7 +293,7 @@ P:NPC {
     depths = {
       lines = { { id = "d_default", text = "Then you have seen him, or seen where he sleeps. Did the land feel any different when you came out, lighter perhaps? I would like to believe it did." } },
       choices = {
-        { text = "It felt lighter. Something changed.", next = "BACK", fx = { affinity = 2 } },
+        { text = "It felt lighter, like something down there had changed.", next = "BACK", fx = { affinity = 2 } },
         { text = "It felt the same. I'm sorry.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -340,7 +340,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? We should not wait long; even the kaldorei cannot outlast a nightmare." },
-        { id = "h_again2", text = "Ask quickly. The nightmare stirs." },
+        { id = "h_again2", text = "Ask quickly, because the nightmare is stirring." },
       },
       choices = {
         { text = "How will you wake him?", next = "wake" },

@@ -200,7 +200,7 @@ P:NPC {
       lines = { { id = "pr_default", text = "Do you? The Light watched Silvermoon burn and lifted no finger, and it watched every one of us die. Pray if it comforts you, but when it fails you again, the shadows will still be here, and so will I." } },
       choices = {
         { text = "It hasn't failed me yet, my lady.", next = "BACK", reply = "Yet is a long word for the dead. When it does fail you, remember where to find me.", fx = { align = { light = 1 } } },
-        { text = "You're right. I'll turn to the shadow.", next = "BACK", reply = "Wise. The shadows have never once abandoned my people.", fx = { affinity = 2, align = { light = -1 } } },
+        { text = "You're right. I'll turn to the shadow.", next = "BACK", reply = "Wise. The shadows never once turned on my people, which is more than the Light can say.", fx = { affinity = 2, align = { light = -1 } } },
       },
     },
     rogue = {
@@ -209,7 +209,7 @@ P:NPC {
         { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
           text = "You're already one of them, I see. Good. My deathstalkers are my eyes in Silverpine and Hillsbrad, and I want to know everything they see, before anyone else does." },
       },
-      choices = { { text = "Before anyone else. Understood.", next = "BACK", reply = "Good. The deathstalkers will expect nothing less.", fx = { affinity = 2, align = { order = 1 } } },
+      choices = { { text = "You'll hear it before anyone else, my lady.", next = "BACK", reply = "Good. The deathstalkers will expect nothing less.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "I'll keep some secrets for myself, my lady.", next = "BACK", reply = "Everyone does, and I learn most of them anyway. Keep yours small, and keep them well away from me.", fx = { affinity = -2, align = { order = -1 } } } },
     },
     cult = {
@@ -1043,7 +1043,7 @@ P:NPC {
     tauren = {
       lines = { { id = "ta_default", text = "Magatha's remedies! Yes, yes, the Society and the Grimtotem crone have an arrangement, very cordial, very scientific. Her herbs make my patients remember the taste of bread, and I make notes. Whether it's a cure, well, that's a big word, and I'm a careful man." } },
       choices = {
-        { text = "Careful? You?", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
+        { text = "You're telling me to be careful?", next = "BACK", fx = { affinity = 1, trait = { skeptical = 1 } } },
         { text = "I hope it works.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
@@ -1231,7 +1231,7 @@ P:NPC {
         { text = "Farewell.", next = "END" },
       },
       again = {
-        { id = "h_again", text = "What else? The Quarter is quiet; ask." },
+        { id = "h_again", text = "What else? The Quarter is quiet, so ask what you like." },
       },
     },
     mage = {
@@ -1247,7 +1247,7 @@ P:NPC {
     },
     orcmage = {
       lines = { { id = "om_default", text = "That Dalaran spent a war teaching that orcs could learn nothing but the axe and the fel, and here you are, proving it wrong in the Undercity of all places. Learn carefully; the arcane rewards patience, and it punishes hunger." } },
-      choices = { { text = "Patience, not hunger. I'll remember.", next = "BACK", fx = { affinity = 2 } } },
+      choices = { { text = "Patience, not hunger, then. I'll remember.", next = "BACK", fx = { affinity = 2 } } },
     },
     warlock = {
       big = true,

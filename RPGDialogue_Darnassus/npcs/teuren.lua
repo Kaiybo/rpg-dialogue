@@ -100,7 +100,7 @@ P:NPC {
       },
       choices = {
         { text = "The old patterns should be kept as they are.", next = "BACK", reply = "The Sentinels would kiss you for saying so, though they'd never admit it. There is a weight in an old line that a new one has to earn over centuries.", fx = { align = { order = 1 } } },
-        { text = "A face is your own. Change it as you like.", next = "BACK", reply = "Spoken like one of the young ones off the Auberdine boat, and I do not mind it at all. A face that never changes is a face that has stopped living.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A face is your own. Change it as you like.", next = "BACK", reply = "Spoken like one of the young ones off the Auberdine boat, and I do not mind it at all. Sit down, and tell me what you want people to see when they look at you.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -143,7 +143,7 @@ P:NPC {
         { id = "xd_default", text = "Trim it? I'd sooner trim the Temple roof without asking the High Priestess. I'll comb it, oil it and re-braid it, and I'll give you every hair back that I take, if that's your custom." },
       },
       choices = {
-        { text = "Comb it, then. Gently.", next = "BUSINESS", fx = { affinity = 2 } },
+        { text = "Comb it, then, and gently, please.", next = "BUSINESS", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },

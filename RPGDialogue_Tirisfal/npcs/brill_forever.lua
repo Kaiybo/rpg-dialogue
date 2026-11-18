@@ -171,7 +171,7 @@ P:NPC {
       lines = {
         { id = "dn_default", text = "That's between me and the Light, and I'll thank you to leave it there." },
       },
-      choices = { { text = "Of course. Forgive me.", next = "BACK" } },
+      choices = { { text = "Of course. Forgive me for asking.", next = "BACK" } },
     },
     distrust = {
       big = true,
@@ -211,7 +211,7 @@ P:NPC {
         { id = "bf_default", text = "Someone who held the Light in life, and lost it for a time after. Most of what came between is gone, or it's somewhere I don't care to look, so judge me by what I do now." },
       },
       choices = {
-        { text = "That's fair. Something else.", next = "BACK" },
+        { text = "That's fair enough. Let me ask something else.", next = "BACK" },
         { text = "What you do now is enough.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },

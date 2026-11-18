@@ -83,7 +83,7 @@ P:NPC {
       lines = { { id = "ea_default", text = "Two, in all my years, and both of them were certain they were cleverer than the creature. I tell the story to every new student and watch their faces, because the ones who laugh are the ones I worry about." } },
       choices = {
         { text = "Then why teach anyone at all?", next = "why_teach" },
-        { text = "I didn't laugh. Something else.", next = "BACK" },
+        { text = "I didn't laugh, Strahad. Let's talk of something else.", next = "BACK" },
       },
     },
     why_teach = {
@@ -106,7 +106,7 @@ P:NPC {
       lines = { { id = "ga_default", text = "Gakin and I learned the art under the same roof, long before either of us had students, and he still writes to me in a hand nobody else can read. If he thought you were worth the boat fare, try not to make him wrong." } },
       choices = {
         { text = "What was he like back then?", next = "gakin2" },
-        { text = "I'll try. Something else.", next = "BACK" },
+        { text = "I'll try. Let me ask something else, though.", next = "BACK" },
       },
     },
     gakin2 = {
@@ -130,7 +130,7 @@ P:NPC {
       choices = {
         { text = "The imp. It never stops talking.", next = "lock2", fx = { trait = { witty = 1 } } },
         { text = "The voidwalker. It watches me sleep.", next = "lock2", fx = { trait = { cautious = 1 } } },
-        { text = "None of them. They obey.", next = "lock2", fx = { trait = { proud = 1 } } },
+        { text = "None of them. They know who holds the leash.", next = "lock2", fx = { trait = { proud = 1 } } },
       },
     },
     lock2 = {
@@ -203,7 +203,7 @@ P:NPC {
           text = "Come in, come in, pal, and if there's a Theramore sailor by the far door, just ignore him, because he's paid up through Tuesday and I'd hate to lose him." },
       },
       again = {
-        { id = "h_again", text = "What else, pal? Talk's free, pal, and the stew's two silver, so pick wisely." },
+        { id = "h_again", text = "What else, pal? Talk's free and the stew's two silver, so pick wisely." },
       },
       choices = {
         { text = "Who stays at your inn?", next = "guests" },
@@ -596,7 +596,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     caverns = {
-      lines = { { id = "ca_default", fx = { learn = { "wailing_caverns" } }, text = "Okay, okay, here's what I hear, pal: they tie it off at the cave mouth so they can find their way back, and then something down there chews through it. The druids that went down in there to fix the oasis came back strange, and some of 'em didn't come back at all." } },
+      lines = { { id = "ca_default", fx = { learn = { "wailing_caverns" } }, text = "All right, all right, here's what I hear, pal: they tie it off at the cave mouth so they can find their way back, and then something down there chews through it. The druids that went down in there to fix the oasis came back strange, and some of 'em didn't come back at all." } },
       choices = {
         { text = "Something chews through rope?", next = "caverns_chew" },
         { text = "Something else.", next = "BACK" },
@@ -618,7 +618,7 @@ P:NPC {
       },
     },
     docks = {
-      lines = { { id = "do_default", text = "Kilxx sells fish, Grazlix sells armor, Liv sells things that blow up, and Fuzruckle keeps everybody's money so they can buy from the rest of us. Then there's me in the middle, pal, sellin' the rope that ties it all together, figuratively and also literally." } },
+      lines = { { id = "do_default", text = "Kilxx sells fish, Grazlix sells armor, Liv sells things that blow up, and Fuzruckle keeps everybody's money so they can buy from the rest of us. Then there's me in the middle, pal, sellin' the rope that ties it all together, and I mean that every way you can mean it." } },
       choices = {
         { text = "Who's the best of the lot?", next = "docks_best" },
         { text = "Something else.", next = "BACK" },
@@ -631,7 +631,7 @@ P:NPC {
     green = {
       lines = { { id = "gr_default", text = "Water, two skins of it, a bag with room in it and a torch for the caves, and then keep your silver for a better sword. And when you get back to the Crossroads, pal, tell 'em Jazzik sent you, because I'm workin' on a referral scheme." } },
       choices = {
-        { text = "Thanks, Jazzik. That's useful.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Thanks, Jazzik, that's worth knowing.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -875,7 +875,7 @@ P:NPC {
       choices = { { text = "Something else, Liv.", next = "BACK" } },
     },
     powder = {
-      lines = { { id = "po_default", text = "Coarse for mining and fine for your gadgets, sweetheart, and the fine stuff's ground in Booty Bay by somebody who still has all ten fingers, which tells you the quality. Keep it dry, keep it cool, and keep it away from that gnome you're probably working with." } },
+      lines = { { id = "po_default", text = "Coarse for mining and fine for your gadgets, sweetheart, and the fine stuff's ground in Booty Bay by somebody who still has all ten fingers, which tells you the quality. Keep it dry, keep it out of the sun, and keep it away from that gnome you're probably working with." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

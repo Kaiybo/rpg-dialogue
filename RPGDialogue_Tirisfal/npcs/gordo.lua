@@ -43,11 +43,11 @@ P:NPC {
         { id = "h_forsaken", when = { race = "Scourge" },
           text = "You is stitched back together too, only smaller and neater. Us likes your stitches, they is very tidy." },
         { id = "h_tauren", when = { race = "Tauren" },
-          text = "Big friend! Almost Gordo big! Us has not met anybody with horns before, but they is very nice horns." },
+          text = "Big friend, almost Gordo big! Us has not met anybody with horns before, but they is very nice horns." },
       },
       again = {
         { id = "h_again", text = "More talking? Gordo likes talking, it is easier than picking." },
-        { id = "h_again2", text = "Us is listening. All of us." },
+        { id = "h_again2", text = "Us is listening, all of us, even the quiet ones." },
       },
       choices = {
         { text = "Who is your master, Gordo?", next = "master" },

@@ -447,7 +447,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not yours, so you needn't hold {pet} so close. Rats, mostly, and the occasional bear, though a wolf from Silverpine that's been drinking from the wrong stream would make a very interesting afternoon." },
       },
       choices = {
-        { text = "I won't bring living beasts to your cages, Zinge.", next = "BACK", reply = "A pity, but I'll find my rats elsewhere. They're less trouble, honestly.", fx = { align = { honor = 1 } } },
+        { text = "I won't bring living beasts to your cages, Zinge.", next = "BACK", reply = "A pity, but I'll find my rats elsewhere, and they're less trouble anyway.", fx = { align = { honor = 1 } } },
         { text = "A sick wolf's no loss. I'll bring you one.", next = "BACK", reply = "Splendid! A sick one, mind, from the right stream. I'll keep a cage ready.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -553,7 +553,7 @@ P:NPC {
         { id = "xmage_scourge", when = { race = "Scourge" }, text = "Dalaran's people always think a spell will make chemistry behave, and it never does. Master Faranell let one try once, and we're still scraping the result off the ceiling." },
       },
       choices = {
-        { text = "Then I'll stay patient and follow your method.", next = "BACK", reply = "Good, and the ceiling thanks you. Patience saves more lives than haste ever did.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Then I'll stay patient and follow your method.", next = "BACK", reply = "Good, and the ceiling thanks you. The last apprentice who rushed a distillation is still being scraped off it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Risk is how anyone learns anything, Zinge.", next = "BACK", reply = "It is, and I've the scars to prove it. Still, I'd rather not learn it from the ceiling.", fx = { align = { order = -1 } } },
         { text = "What do you work on here?", next = "work" },
       },

@@ -48,7 +48,7 @@ P:NPC {
           text = "You met Leonid, then. He'll have told you what that keep means to him, and I'll only say that he doesn't tell everyone." },
       },
       again = {
-        { id = "h_again", text = "What else? Quietly, mind." },
+        { id = "h_again", text = "What else? Speak quietly, mind." },
         { id = "h_again2", text = "Ask, then, and keep an eye on the treeline while you do." },
       },
       choices = {
@@ -58,7 +58,7 @@ P:NPC {
         { text = "Who is your commander?", next = "leonid" },
         { text = "Are you Forsaken, or Argent Dawn?", next = "both" },
         { text = "Deathguard Kristof thinks someone is raising Scourge inside our borders.", next = "kristof", when = { any = { { questDone = TODO_QUEST("Patience") }, { questActive = TODO_QUEST("Patience") } } } },
-        { text = "I'll keep low. Farewell.", next = "END" },
+        { text = "I'll keep low, then. Farewell.", next = "END" },
       },
     },
     why = {
@@ -394,7 +394,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I served, then I died, and now I serve again. The middle part I don't discuss." } },
     advice = { { id = "tp_ad", text = "When the reports don't add up, believe your own eyes before the reports." } },
-    _none = { { id = "tp_none", text = "Not my concern. Ask in Brill." } },
+    _none = { { id = "tp_none", text = "That's not my concern. Ask someone in Brill." } },
   },
 }
 
@@ -411,7 +411,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Keep moving, unless you need directions." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Still lost?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again? Don't tell me you're still lost." },
   },
 
   notice = {
@@ -431,7 +431,7 @@ P:NPC {
           text = "I'll have you know I've doubled my efforts since your last visit. Not that anyone noticed." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm on duty." },
+        { id = "h_again", text = "Anything else? I'm on duty, so be quick about it." },
       },
       choices = {
         { text = "Why guard a bridge out here?", next = "post" },
@@ -527,7 +527,7 @@ P:NPC {
           text = "Their friars and zealots carry satchels with their deployment orders. Bring a copy to Deathguard Billmuth at Bandarion Keep, and he'll take it from there, so we can warn the Deathguard and set an ambush of our own." },
       },
       again = {
-        { id = "h_again", text = "What else? Quietly." },
+        { id = "h_again", text = "What else? Keep your voice down." },
       },
       choices = {
         { text = "What happened to you here?", next = "what" },
@@ -646,7 +646,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Waiting for the zeppelin? It'll be late. It's always late." },
+    { id = "g_default", text = "Waiting for the zeppelin? It'll be late, because it's always late." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The zeppelin still isn't here, in case you wondered." },
   },
 
@@ -770,7 +770,7 @@ P:NPC {
         { text = "Why walk up to the Keep?", next = "keep" },
         { text = "What's in the Whispering Forest?", next = "forest" },
         { text = "How did you come to live out here?", next = "cottage" },
-        { text = "Goodbye, Relreo. Goodbye, Max.", next = "END" },
+        { text = "Goodbye, Relreo, and goodbye to you too, Max.", next = "END" },
       },
     },
     max = {
@@ -922,7 +922,7 @@ P:NPC {
         { id = "e_default", text = "The Western Plaguelands, and Andorhal, and more Scourge than there are stones in this wall. Some of the young ones want to march east and finish it, and I say a wall that holds is worth more than an army that doesn't come back. Where do you stand?" },
       },
       choices = {
-        { text = "Hold the wall. Patience wins this.", next = "BACK", reply = "Good, and you'll live longer for it, which is not nothing even for us. The wall holds, and the Scourge breaks itself on it, one ghoul at a time.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Hold the wall. Patience will win this one.", next = "BACK", reply = "Good, and you'll live longer for it, which is not nothing even for us. The wall holds, and the Scourge breaks itself on it, one ghoul at a time.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Take the fight to them. Walls only delay.", next = "BACK", reply = "Spoken like one of the young ones, and they never come back to say how it went. Go east if you must, but I'll keep the wall standing behind you.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1020,7 +1020,7 @@ P:NPC {
       },
       choices = {
         { text = "Honest ones. I say what I mean.", next = "BACK", reply = "A rare thing in Brill, and Rickard would call you a fool for it. I'll take a friend who tells me the truth, though I'd not say no to a few insults besides.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "The other kind. Honesty is overrated.", next = "BACK", reply = "Then you and Rickard will get on splendidly, and I'll be the one stuck listening to the pair of you. Mind the old goat doesn't steal your boots.", fx = { align = { honor = -1 } } },
+        { text = "The other kind. Honesty's overrated, if you ask me.", next = "BACK", reply = "Then you and Rickard will get on splendidly, and I'll be the one stuck listening to the pair of you. Mind the old goat doesn't steal your boots.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

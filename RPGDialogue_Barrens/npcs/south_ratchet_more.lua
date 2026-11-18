@@ -145,7 +145,7 @@ P:NPC {
     magglish = {
       lines = { { id = "ma_default", text = "A goblin who went a bit funny in the head, and lives in the Wailing Caverns now, of all places, with the snakes and the druids that went bad. I chased him all the way there, and no way was I goin' in after him, not on a crane operator's wages." } },
       choices = {
-        { text = "The Wailing Caverns? Where?", next = "caverns" },
+        { text = "The Wailing Caverns? Where are those?", next = "caverns" },
         { text = "Something else.", next = "BACK" },
       },
     },

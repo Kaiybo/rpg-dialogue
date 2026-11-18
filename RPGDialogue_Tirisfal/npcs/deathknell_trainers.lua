@@ -68,7 +68,7 @@ P:NPC {
       big = true,
       lines = { { id = "ss_default", text = "We use whatever's to hand, and the Scourge left bones lying about in every field. Some of my students find it distasteful to work with the remains of their old masters' servants, and I find it efficient." } },
       choices = {
-        { text = "Efficient is right. Waste nothing.", next = "BACK", reply = "Exactly so, and the Scourge would be appalled to see its leftovers turned against it, which only makes the work sweeter. You'll find a pile of fresh skulls behind the chapel when you need them.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Efficient, I'd call it. Nothing goes to waste.", next = "BACK", reply = "Exactly so, and the Scourge would be appalled to see its leftovers turned against it, which only makes the work sweeter. You'll find a pile of fresh skulls behind the chapel when you need them.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "I'd rather not build my power on their bones.", next = "BACK", reply = "A tender conscience, and in a warlock, too. Keep it if you can, but the Nether won't care whose bones you stand on, only how firmly you stand.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -211,7 +211,7 @@ P:NPC {
     first3 = {
       lines = { { id = "f3_default", text = "Is simply deciding sooner than the other fellow, {class}, nothing more mysterious than that. Most people spend the first moment of a fight working out whether it's a fight, and you'll spend it ending one." } },
       choices = {
-        { text = "Decide sooner. I'll remember.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Decide sooner, then. I'll remember that.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -238,7 +238,7 @@ P:NPC {
     },
     dogs = {
       lines = { { id = "dg_default", text = "Downwind, always, and through water where you can, since it carries the smell off. Failing that, a little of Faruza's crushed mint rubbed on your coat, which confuses them, and confuses the Scarlets even more when they catch a whiff of a dead man smelling like a kitchen garden." } },
-      choices = { { text = "Mint and water. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+      choices = { { text = "Mint and water, then. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     before = {
       lines = { { id = "be_default", text = "A man who could open any lock in the capital and was paid by the lords who owned them to prove it. Whether I ever opened one I wasn't paid for is a thing the plague has very conveniently made me forget." } },
@@ -250,7 +250,7 @@ P:NPC {
     before2 = {
       lines = { { id = "b2_default", text = "Isn't it? The grave's the finest pardon there is, friend, and the Dark Lady doesn't ask what you stole in your first life, only what you'll take for her in this one. I find that a very fair arrangement." } },
       choices = {
-        { text = "A clean slate. I'll take it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "A clean slate suits me fine.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -346,7 +346,7 @@ P:NPC {
     },
     kt2 = {
       lines = { { id = "k2_default", text = "Now I teach the dead, which he'd find very amusing, I'm sure, wherever he's got to. I keep my lectures to fire and frost, and if a student asks about the other thing, I send them to Executor Arren." } },
-      choices = { { text = "Wise of you. Something else.", next = "BACK" } },
+      choices = { { text = "That was wise of you. Something else.", next = "BACK" } },
     },
     first = {
       lines = { { id = "f_default", text = "Fire, because it's honest and it shows you your mistakes right away, usually on your sleeve. Frost comes after, once you've learned patience, and the newly risen have little else, having nowhere to be." } },

@@ -183,7 +183,7 @@ P:NPC {
         { id = "ro_deathstalker", when = { origin = "forsaken_deathstalker_recruit" },
           text = "A deathstalker. Then you answer to the Dark Lady's own, and I'll not presume to give you orders. Tell your masters the Crusade's runners use the mill road, and they're careless at dusk." },
       },
-      choices = { { text = "Orders and throats. Understood.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } } },
+      choices = { { text = "Their orders, and their throats. Understood, Executor.", next = "BACK", fx = { affinity = 2, trait = { stern = 1 } } } },
     },
     paladin = {
       big = true,
@@ -199,7 +199,7 @@ P:NPC {
         { id = "ma_dalaran", when = { origin = "forsaken_dalaran_apprentice" },
           text = "Dalaran-trained, and now on our side of the wall. Bethor Iceshard in the Undercity would want to know you; he was Kirin Tor too, before." },
       },
-      choices = { { text = "Their fields, then. Not ours.", next = "BACK", fx = { affinity = 2 } } },
+      choices = { { text = "Their fields, then, not ours.", next = "BACK", fx = { affinity = 2 } } },
     },
     crusade = {
       big = true,
@@ -415,8 +415,8 @@ P:NPC {
           text = "A farmer, from the fields south of here? Then your land is likely in my ledger as abandoned, and I'm afraid the Deathguard grows nightshade on it now. You're welcome to visit it, though I wouldn't expect to be recognized." },
       },
       choices = {
-        { text = "Strike it. I'm alive enough.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Leave the record. That person died.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
+        { text = "Strike it from the record. I'm alive enough.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Leave the record be. That person died.", next = "BACK", fx = { affinity = 1, trait = { stern = 1 } } },
       },
     },
     warlock = {
@@ -769,7 +769,7 @@ P:NPC {
     rogue = {
       lines = { { id = "ro_default", text = "A short rest, quietly, from behind? Oh, I do like you. Old Gregor Agamand always sat with his back to the door, because he was certain nobody under him would dare. Prove him wrong for me, would you?" } },
       choices = {
-        { text = "From behind, then. He's earned it.", next = "BACK", reply = "Good. It's what he'd have done to any of us, and it's what he did, in the end.", fx = { affinity = 2, align = { honor = -1 } } },
+        { text = "From behind, then, since he's earned it.", next = "BACK", reply = "Good, because it's what he'd have done to any of us, and it's what he did, in the end.", fx = { affinity = 2, align = { honor = -1 } } },
         { text = "I'll face him, so he knows who sent me.", next = "BACK", reply = "Then tell him it was Coleman Farthing, the guard he left to die. I'd like him to hear my name once more.", fx = { affinity = 1, align = { honor = 1 } } },
       },
     },
@@ -1279,7 +1279,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine camp companion, because nothing creeps up on a fire that a beast can smell first. Feed it from the deer by Brightwater Lake, but look closely at the liver, because the plague shows there." },
       },
       choices = {
-        { text = "I take only what I'll eat, and waste nothing.", next = "BACK", reply = "That's the hunter's way, and my father's too. The forest is kinder to those who don't waste it.", fx = { align = { honor = 1 } } },
+        { text = "I take only what I'll eat, and waste nothing.", next = "BACK", reply = "That's the hunter's way, and my father's too. He used to say the deer could tell the difference, and I never caught him wrong.", fx = { align = { honor = 1 } } },
         { text = "I take what I can carry, and sell the rest.", next = "BACK", reply = "Practical, and I can't fault it with prices what they are. Just check the livers first, before you sell anything that'll make someone sick.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1290,7 +1290,7 @@ P:NPC {
         { id = "xwarlock_default", text = "Because the Scarlet Crusade patrols the roads past Brill, and they'd see a warlock's fire from the monastery and come looking. A small fire, well banked and out of the wind, is all you need, and it keeps both of us out of their sight." },
       },
       choices = {
-        { text = "Thank you. I'll keep my fires small and hidden.", next = "BACK", reply = "Good, and you'll find it keeps you warmer than you'd think. A small fire is a quiet friend.", fx = { align = { order = 1 } } },
+        { text = "Thank you. I'll keep my fires small and hidden.", next = "BACK", reply = "Good, and you'll find it keeps you warmer than you'd think. The Crusade's scouts look for smoke, not warmth.", fx = { align = { order = 1 } } },
         { text = "Let the Crusade come. I'll be ready for them.", next = "BACK", reply = "Ready, perhaps, but they come in dozens and they don't tire. I'd much rather you lived to camp another night.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

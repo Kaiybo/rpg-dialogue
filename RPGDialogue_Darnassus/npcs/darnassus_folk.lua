@@ -66,7 +66,7 @@ P:NPC {
       lines = { { id = "ho_default", text = "It's what you do when the fight's already lost and nobody's watching. Anyone can be brave in front of an army; a warrior is the one who's brave alone, and keeps faith with the dead." } },
       choices = {
         { text = "Honor is everything. I'll fight by it.", next = "BACK", reply = "Then fight by it when no one is looking, and I will believe you. Every recruit says it in the training yard, and very few say it at the end.", fx = { align = { honor = 1 } } },
-        { text = "Honor is fine. Winning is better.", next = "BACK", reply = "Winning is fine, until you see what some will do to win. I have fought the ones who stopped caring about honour, and they did not stop anywhere.", fx = { align = { honor = -1 } } },
+        { text = "Honor's fine, but winning is better.", next = "BACK", reply = "Winning is fine, until you see what some will do to win. I have fought the ones who stopped caring about honour, and they did not stop anywhere.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -173,7 +173,7 @@ P:NPC {
     friend = {
       lines = { { id = "fr_default", text = "Whichever you make of it, and it will make the same of you. I've seen hunters lose a companion and grieve like a sister, and I've seen others buy a new one the same afternoon." } },
       choices = {
-        { text = "A friend. I'd grieve mine.", next = "BACK", reply = "Then you have already chosen well, and your companion will know it before you do. A beast that is grieved for fights like ten.", fx = { align = { light = 1 } } },
+        { text = "A friend, and I'd grieve mine.", next = "BACK", reply = "Then you have already chosen well, and your companion will know it before you do. I once saw a cat drag her wounded hunter half a league, because he had sat up all night with her when she was a cub.", fx = { align = { light = 1 } } },
         { text = "A tool, and a good one. Tools can be replaced.", next = "BACK", reply = "Many hunters think so, until the day they cannot replace one. I hope you never learn it the way they did.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -435,7 +435,7 @@ P:NPC {
     },
     portal_well = {
       lines = { { id = "pwe_default", text = "I'm not going to answer that, and I'd thank you not to ask anyone else either. The water was very cold, and very holy, and I was very sorry." } },
-      choices = { { text = "Your secret's safe. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "Your secret's safe with me. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     watched = {
       lines = { { id = "wa_default", text = "They do, and I don't hold it against them; I'd watch me too. One of the older sisters prays every time I pass her, and I've decided to take it as a blessing." } },
@@ -683,7 +683,7 @@ P:NPC {
         { id = "jm_default", text = "That you pull with your shoulder, not your back, and you'll feel it by evening. Draw from here, between the blades, and let the string go as if you'd forgotten you were holding it." },
         { id = "jm_hunter", when = { class = "HUNTER" }, text = "That you've shot a good deal and been corrected very little. You've a fine eye and a lazy elbow, and the elbow's the easier one to fix." },
       },
-      choices = { { text = "I'll practise. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "I'll practise, I promise. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     arrows = {
       lines = { { id = "ar_default", text = "Sharp ones, and a great many of them, since you'll lose half to the brush and break a quarter on bone. Carry twice what you think you'll need and you'll come home with a few to spare." } },
@@ -691,7 +691,7 @@ P:NPC {
     },
     dwarf = {
       lines = { { id = "dw_default", text = "Then I'll sell you the shot for it and say nothing about the noise, which costs me a great deal. If you ever want to try a bow, the short ash on the left is forgiving, even to a rifleman." } },
-      choices = { { text = "Maybe one day. Something else.", next = "BACK" } },
+      choices = { { text = "Maybe one day, Landria. Something else.", next = "BACK" } },
     },
   },
 

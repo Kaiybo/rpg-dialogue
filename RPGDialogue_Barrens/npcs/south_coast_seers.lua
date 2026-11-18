@@ -148,7 +148,7 @@ P:NPC {
     isha = {
       lines = { { id = "is_default", text = "Isha Awak, the Deep Doom, is the great beast who rules these waters, strong and solemnly proud. The humans on the coast fear him, because he has eaten many of them, but I'm grateful that he's here." } },
       choices = {
-        { text = "Grateful? He's a man-eater.", next = "prey" },
+        { text = "Grateful? That beast is a man-eater.", next = "prey" },
         { text = "Something else.", next = "BACK" },
       },
     },

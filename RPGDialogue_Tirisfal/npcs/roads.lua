@@ -120,7 +120,7 @@ P:NPC {
       lines = {
         { id = "la_default", text = "Because she broke the Lich King's hold on us, and nobody else bothered to try. You'll have your own reasons soon enough, and if not, the Scourge will give you some." },
       },
-      choices = { { text = "Grim, but true. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "Grim, but true enough. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     xhwar = {
       big = true,
@@ -292,7 +292,7 @@ P:NPC {
         { id = "ds_default", text = "I don't know, and I've stopped asking Sarvis, because he only says it doesn't matter. It matters to me, so I put them down gently, and I say a word for each, even if I'm not sure who hears it." },
       },
       choices = {
-        { text = "That word matters. Keep saying it.", next = "BACK", reply = "I will, and I'm glad someone else thinks so. Sarvis would say I'm wasting breath I don't need.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "That word matters, Elreth. Keep saying it.", next = "BACK", reply = "I will, and I'm glad someone else thinks so. Sarvis would say I'm wasting breath I don't need.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "They're Scourge. Cut them down and move on.", next = "BACK", reply = "That's what Sarvis says, and he's usually right. Still, I'll say my word, and you can move on.", fx = { affinity = -1, align = { light = -1 } } },
       },
     },
@@ -424,7 +424,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, out here? I'll not wager against anyone who throws lightning, thank you, so put your hands down." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid, is it? I've heard your lot turn into cats, and I'll not fight a cat, because I've owned one and I know how that ends." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, are you? Splendid, then here's a fair fight at last, and none of the sneaking about that the last deadman tried." },
-        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've never fought one of you before, and I hear you'll heal yourself in the middle of a fight, which seems rather like cheating." },
+        { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! I've never fought one of you before, and they say you'll heal yourself in the middle of a fight, which seems rather like cheating." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin? Now that's a fight worth a few coins, because I've never punched a holy corpse before and I'd like to find out whether it punches back." },
       },
       choices = {
@@ -649,7 +649,7 @@ P:NPC {
     },
     weed_bother = {
       lines = {
-        { id = "wb_default", text = "Not knowing? A little. But you don't rise in the Society by asking what the Society is for, and I'd like to rise, very much." },
+        { id = "wb_default", text = "Not knowing? A little, but you don't rise in the Society by asking what the Society is for, and I'd like to rise, very much." },
       },
       choices = {
         { text = "Ambition's fine. Just don't lose yourself to it.", next = "BACK", reply = "I'll try, though I've no idea what I'd lose that the plague didn't take already. Thank you for caring, though.", fx = { align = { order = -1 } } },

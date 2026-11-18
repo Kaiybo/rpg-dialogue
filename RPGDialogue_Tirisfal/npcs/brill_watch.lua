@@ -310,7 +310,7 @@ P:NPC {
     { id = "g_default", text = "Stay back, abomination! The Light sees you, even here, even now." },
     { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "You're living, and you walk with these things? Then you're worse than they are, because you chose it." },
     { id = "g_priest", when = { class = { "PRIEST", "PALADIN" } }, text = "I can feel the Light on you. How can you carry it and stand among the dead? Answer me that." },
-    { id = "g_again", when = { metBefore = true }, text = "You again. Come to watch? They come to watch every day." },
+    { id = "g_again", when = { metBefore = true }, text = "You again. Have you come to watch, like the rest of them do every day?" },
   },
   notice = {
     { id = "n_scourge", cat = "race", when = { race = "Scourge" },
