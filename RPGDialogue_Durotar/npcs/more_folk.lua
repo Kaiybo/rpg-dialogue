@@ -4203,7 +4203,7 @@ P:NPC {
     { id = "g_default", text = "Tirisfal Glades and the Undercity, boarding from this platform, no pushing, no smoking and no fire magic, pal. Frezza's the name, what can I do for ya?" },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "Headed home, huh? Platform's right here, friend. Mind the gap, and by that I mean mind all your parts, I ain't sendin' anybody back down for a finger again." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, a repeat customer! See, I told ya it was safe. Mostly I told ya, anyway." },
-    { id = "g_away", when = { away = 14 }, text = "Well, look who's still in one piece! The Thundercaller's been askin' after ya, pal, in her way." },
+    { id = "g_away", when = { away = 14 }, text = "Well, look who's still in one piece! The old girl's been askin' after ya, pal, in her way." },
   },
   notice = {
     { id = "n_mage", cat = "class", when = { class = { "MAGE", "WARLOCK" } },
@@ -4215,7 +4215,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Frezza, zeppelin master, Tirisfal route. The Thundercaller runs from this tower clear across the Great Sea to the Undercity's front door and back again, regular as a paid debt. It's the safest way to cross an ocean ever invented, and I oughta know, I read the brochure." },
+        { id = "h_default", key = true, text = "Frezza, zeppelin master, Tirisfal route. My zeppelin runs from this tower clear across the Great Sea to the Undercity's front door and back again, regular as a paid debt. It's the safest way to cross an ocean ever invented, and I oughta know, I read the brochure." },
       },
       again = {
         { id = "h_again", text = "What else, pal? She ain't due for a few minutes." },
@@ -4239,7 +4239,7 @@ P:NPC {
       },
     },
     route2 = {
-      lines = { { id = "ro2_default", text = "That's my sister's. The Iron Eagle, south to Grom'gol Base Camp in Stranglethorn Vale, which is all jungle and things with teeth. Different climate entirely. Ya want Snurk for that one, and don't let her sell ya anything on the way." } },
+      lines = { { id = "ro2_default", text = "That's my sister's ship, south to Grom'gol Base Camp in Stranglethorn Vale, which is all jungle and things with teeth. Different climate entirely. Ya want Snurk for that one, and don't let her sell ya anything on the way." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     safe = {
@@ -4307,8 +4307,8 @@ P:NPC {
     third = "{name} met Snurk Bucksquick, the goblin zeppelin master for the Grom'gol route outside Orgrimmar.",
   },
   greetings = {
-    { id = "g_default", text = "Hey there! The Iron Eagle to Grom'gol Base Camp, Stranglethorn Vale, boards right here. I'm Snurk, and I'll be takin' real good care of ya." },
-    { id = "g_male", when = { gender = "male" }, text = "Well, hello, handsome. Goin' my way? The Iron Eagle to Grom'gol, and if ya stand close I'll tell ya when she's comin' in." },
+    { id = "g_default", text = "Hey there! The zeppelin to Grom'gol Base Camp, Stranglethorn Vale, boards right here. I'm Snurk, and I'll be takin' real good care of ya." },
+    { id = "g_male", when = { gender = "male" }, text = "Well, hello, handsome. Goin' my way? This one's for Grom'gol, and if ya stand close I'll tell ya when she's comin' in." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again, sweetheart! Couldn't stay away, huh? Don't worry, nobody can." },
     { id = "g_away", when = { away = 14 }, text = "Look who it is! I was startin' to think the jungle kept ya. It keeps a few, ya know." },
   },
@@ -4322,7 +4322,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Snurk Bucksquick, zeppelin master. I run the Iron Eagle from this tower down to Grom'gol Base Camp, which is the Horde's little foothold in Stranglethorn Vale. Warm weather, big cats, pirates down the coast, and I get ya there with your hair barely mussed." },
+        { id = "h_default", key = true, text = "Snurk Bucksquick, zeppelin master. I run the southern zeppelin from this tower down to Grom'gol Base Camp, which is the Horde's little foothold in Stranglethorn Vale. Warm weather, big cats, pirates down the coast, and I get ya there with your hair barely mussed." },
       },
       again = {
         { id = "h_again", text = "Anything else, sweetheart? I got a minute before she docks." },
@@ -4335,7 +4335,7 @@ P:NPC {
         { text = "Frezza says to watch my purse around you.", next = "brother" },
         { text = "What sells in the jungle that I should carry?", next = "trade" },
         { text = "Do you say that to every man on this platform?", next = "flirt", when = { gender = "male" } },
-        { text = "I'll wait for the Iron Eagle.", next = "END" },
+        { text = "I'll wait for the zeppelin.", next = "END" },
       },
     },
     gromgol = {
