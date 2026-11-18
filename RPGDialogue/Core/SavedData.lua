@@ -44,6 +44,7 @@ SD.ACCOUNT_DEFAULTS = {
     fadeDefault = true,         -- fade Blizzard's window while ours covers it
     textSize = 13,              -- the game's quest font size
     lineSpacing = 3,
+    largeBox = false,           -- a bigger conversation box with bigger text (0.82.0)
     echoReply = true,           -- "You: ..." above their answer (0.61.0)
     views = true,               -- say what you think after an "Ask about..." answer (0.82.0)
     look = "game",              -- "game" (the game's own quest window art) | "wood"

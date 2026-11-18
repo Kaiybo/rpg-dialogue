@@ -86,7 +86,13 @@ local function utf8Len(s) return #cutPoints(s) end
 
 local function settings() return ns.db.settings end
 local function isGame() return Theme.IsGame() end
-local function width() return isGame() and GAME_WIDTH or WOOD_WIDTH end
+-- "Large dialogue box" (0.82.0): a wider, taller box with bigger text, easier to read.
+local LARGE_EXTRA_W, LARGE_GAME_EXTRA_W, LARGE_EXTRA_H, LARGE_TEXT = 220, 150, 110, 3
+local function large() return settings().largeBox and true or false end
+local function woodWidth() return WOOD_WIDTH + (large() and LARGE_EXTRA_W or 0) end
+local function gameExtra() return large() and LARGE_GAME_EXTRA_W or 0 end
+local function gameHeight() return GAME_HEIGHT + (large() and LARGE_EXTRA_H or 0) end
+local function width() return isGame() and (GAME_WIDTH + gameExtra()) or woodWidth() end
 
 local function instant()
   local s = settings()
@@ -448,13 +454,13 @@ local function placeParts(game)
 end
 
 local function textWidth()
-  if isGame() then return GAME_TEXT_W end
-  return WOOD_WIDTH - (PAD + PORTRAIT + 14) - PAD - 22
+  if isGame() then return GAME_TEXT_W + gameExtra() end
+  return woodWidth() - (PAD + PORTRAIT + 14) - PAD - 22
 end
 
 function D.Style()
   if not frame then return end
-  local size = Theme.BodySize()
+  local size = Theme.BodySize() + (large() and LARGE_TEXT or 0)
   local game = isGame()
   Theme.Recolor(frame)
   placeParts(game)
@@ -530,7 +536,7 @@ function D.Layout()
   local rowLeft, rowWidth, y
   local rowGap = 2
   if game then
-    rowLeft, rowWidth, rowGap = GAME_ROW_X, GAME_ROW_W, 1
+    rowLeft, rowWidth, rowGap = GAME_ROW_X, GAME_ROW_W + gameExtra(), 1
     y = GAME_TEXT_Y - saidH - textH - reactionH - GAME_SPACER
   else
     local h = (frame.name:GetStringHeight() or 20) + (frame.subtitle:GetStringHeight() or 0) + 12 + saidH + textH + reactionH
@@ -584,11 +590,11 @@ function D.Layout()
       inset:SetPoint("BOTTOMRIGHT", -6, bottom)
     end
     frame.flagBox:SetWidth(W - 12 - 16 - (frame.ask:IsShown() and 148 or 0))
-    local H = math.max(-y + 12 + bottom, GAME_HEIGHT)
+    local H = math.max(-y + 12 + bottom, gameHeight())
     frame:SetHeight(H)
     Theme.FitPaper(frame, W - 10, H - GAME_HEADER - bottom)
   else
-    frame.flagBox:SetWidth(WOOD_WIDTH - 2 * PAD - 120)
+    frame.flagBox:SetWidth(woodWidth() - 2 * PAD - 120)
     if barShown then y = y - 36 end
     frame:SetHeight(-y + PAD - 4)
   end
