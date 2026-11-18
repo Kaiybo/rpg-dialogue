@@ -128,7 +128,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Something remembers, for the wolves do not howl near the old camp, and I have listened every night for years. A hunter would know if that is grief or only habit, and I would be grateful to hear which." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is quiet near me, which most things are not anymore. Perhaps it smells the old camp on me and knows to be gentle." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Something remembers, for the wolves do not howl near the old camp, and I have listened every night for years. Your {pet} is quiet near me too, so perhaps it smells the camp on me and knows to be gentle." },
       },
       choices = {
         { text = "It's grief, and grief can heal. Give it time, Gor'mul.", next = "BACK", fx = { align = { light = 1 } } },
@@ -245,7 +245,7 @@ P:NPC {
       },
     },
     stayed_name = {
-      lines = { { id = "sn_default", text = "They named it for him, yes, and Drum Fel builds walls on it. Drum has never been in a cage, and it shows in how easily he says the word future." } },
+      lines = { { id = "sn_default", text = "They named it for him, yes, and Drum Fel builds walls on it. Drum says the word future so easily, as if the cages had never stood here." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     torgan = {
@@ -293,7 +293,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A prisoner here, then a wanderer, then a prisoner here again, of a different kind.", next = "night" } },
     advice = { { id = "tp_ad", text = "Never turn your back on a horseman. That is the only lesson the camps taught me worth keeping." } },
     doomhammer = { { id = "tp_doom", text = "He came for us, and he died for it, here.", next = "night" } },
-    internment = { { id = "tp_internment", text = "I was in this camp, chained and beaten, the night the Warchief and Doomhammer came. Doomhammer died here, and I watched him fall, and I've never stopped seeing it." } },
+    internment = { { id = "tp_internment", text = "I was in this camp, chained and beaten, the night Thrall and Doomhammer came. Doomhammer died here, and I watched him fall, and I've never stopped seeing it." } },
     thrall = { { id = "tp_thrall", text = "Thrall was a slave like me, and he became the Warchief, and he came back for us. I'd die for him, if he asked, and I'd die gladly." } },
     second_war = { { id = "tp_second_war", text = "The Second War was glory and then it was chains, and I don't remember which came first anymore. It doesn't matter, I suppose." } },
     _none = { { id = "tp_none", text = "I don't know, and I find I don't care. Ask Tor'gan; he cares about everything." } },
@@ -475,8 +475,8 @@ P:NPC {
     xhhunt = {
       big = true,
       lines = {
-        { id = "xhhunt_default", text = "The Syndicate scouts, before anything with fur. Raptors will bite you, but Syndicate men will tell Stromgarde where Hammerfall sleeps, and that's worse for all of us." },
-        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "{pet} be a fine tracker, mon, I can tell by the way it keeps its nose low. Set it on the Syndicate trails first, because a beast smells a man's fear long before he knows he's been found." },
+        { id = "xhhunt_default", text = "The Syndicate scouts, before anything with fur. Raptors will bite you, but Syndicate men will sell word of where Hammerfall sleeps to whoever pays, and that's worse for all of us." },
+        { id = "xhhunt_pet", when = { pet = { type = "Beast" } }, text = "The Syndicate scouts, before anything with fur, because they sell word of where Hammerfall sleeps to whoever pays. {pet} be a fine tracker, mon, so set it on the Syndicate trails first." },
       },
       choices = {
         { text = "Then I'll track the Syndicate for Hammerfall.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
@@ -545,7 +545,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not a beast's, and not a man's, but something between, moving in the dark around my husband's banner. I would not ask a grunt to look, for he would tell Drum Fel, but a hunter keeps what he finds until he is ready to speak." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} watches the door the way my stones watch the night, and I trust a beast's eyes nearly as much as the spirits'. Keep it near you in Stromgarde." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not a beast's, and not a man's, but something between, moving in the dark around my husband's banner. {pet} watches the door the way my stones watch the night, so keep it near you in Stromgarde, and tell only me what you find." },
       },
       choices = {
         { text = "Drum Fel should know. Secrets between mates protect no one.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -627,7 +627,7 @@ P:NPC {
       },
     },
     orkalar = {
-      lines = { { id = "o_default", text = "A Boulderfist ogre who serves Mug'thol in Stromgarde. Drum beat him years ago, and an ogre's grudge only grows fatter with time." } },
+      lines = { { id = "o_default", text = "A Boulderfist ogre who serves Mug'thol, their chieftain in Stromgarde. Drum beat him years ago, and an ogre's grudge only grows fatter with time." } },
       choices = {
         { text = "What kind of trap?", next = "orkalar_trap" },
         { text = "Something else.", next = "BACK" },
@@ -656,7 +656,7 @@ P:NPC {
     },
     xhwar = {
       big = true,
-      lines = { { id = "xhwar_default", text = "Better than I expected, frankly. The orcs remember the internment camps, I remember dying, and Stromgarde gave us both our reasons, so we stand together well enough." } },
+      lines = { { id = "xhwar_default", text = "Better than I expected, frankly. The orcs remember the camps and the Forsaken remember dying, and Stromgarde gave both of them reasons to fight, so they stand together well enough." } },
       choices = {
         { text = "Then I'll stand with them, whatever we once were.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Alliances last until they don't. I'll watch my back.", next = "BACK", fx = { align = { order = -1 } } },
@@ -796,7 +796,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "You can fly out with every grunt in Hammerfall waving, or not at all, for my beasts don't leave without me knowing. Ask Gorkas at Revantusk if you like, and he'll tell you the same, between fish." } },
+      lines = { { id = "xrogue_default", text = "You can fly out with every grunt in Hammerfall waving, or not at all, for my beasts don't leave without me knowing. Ask Gorkas, the wind rider master at Revantusk, if you like, and he'll tell you the same, between fish." } },
       choices = {
         { text = "Then I'll wave on the way out. Rules keep the beasts safe.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules are for those who get caught.", next = "BACK", fx = { align = { order = -1 } } },

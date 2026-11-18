@@ -22,6 +22,6 @@ P:Pool {
   },
   choices = { { text = "For the Wildhammer.", next = "END", fx = { standing = { aerie_peak = 1 } } } },
   topics = {
-    _none = { { id = "t_none", text = "Ask the Thane, an' stand back, for he answers loud an' he's had his breakfast ale." } },
+    _none = { { id = "t_none", text = "Ask Thane Falstad, an' stand back, for he answers loud an' he's had his breakfast ale." } },
   },
 }

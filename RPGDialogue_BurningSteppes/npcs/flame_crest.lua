@@ -56,7 +56,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "All over the bloody place, but thickest round the Altar of Storms an' up toward the Spire, where Rend's orcs breed 'em big an' mean. I used tae hunt in Dun Morogh, back when I could see straight, an' I never met a wolf that hated me like a Blackrock worg does." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} out o' my ale, would ye? *hic* The last beast that got intae it slept for two days an' woke up thinkin' it was a dwarf." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "All over the bloody place, but thickest round the Altar of Storms an' up toward the Spire, where Rend's orcs breed 'em big an' mean. An' keep {pet} out o' my ale, would ye? *hic* The last beast that got intae it woke up thinkin' it was a dwarf." },
       },
       choices = {
         { text = "The worgs aren't to blame. Rend's orcs made them cruel.", next = "BACK", fx = { align = { light = 1 } } },
@@ -145,7 +145,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Ragged John, they call me, on account of my good looks. I've a cave, a cask and a story, and only the first two are for sale." },
         { id = "h_business", tags = { "news" }, when = { questActive = TODO_QUEST("The True Masters") },
-          text = "Official business, is it? Maxwell sent ye to hear about Windsor, and I'll bet he called me a coward on yer way out, too. Sit down, then; it's a long one." },
+          text = "Official business, is it? Marshal Maxwell sent ye to hear about Windsor, and I'll bet he called me a coward on yer way out, too. Sit down, then; it's a long one." },
         { id = "h_milk", when = { questActive = TODO_QUEST("Mother's Milk") },
           text = "Have ye let that great spider in the Spire bite ye yet? It's got to be flowin' through yer veins, mind, a gland in a jar won't do it at all." },
         { id = "h_milked", tags = { "news" }, when = { questRecent = { TODO_QUEST("Mother's Milk"), days = 5 } },
@@ -179,7 +179,7 @@ P:NPC {
         { text = "Shall I chill your cask, John?", next = "xmage", when = { class = "MAGE" } },
         { text = "Fel seems to worry you, John.", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Does the Light have any place in the Burning Steppes, John?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
-        { text = "I'd guess you ever fought beside a proper knight.", next = "xapala", when = { class = "PALADIN" } },
+        { text = "I'd guess you once fought beside a proper knight.", next = "xapala", when = { class = "PALADIN" } },
         { text = "What's waiting at the Spire for a warrior, John?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Where do the Blackrock worgs run, John?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Was it always ash here, John, or do you remember it green?", next = "xdruid", when = { class = "DRUID" } },
@@ -322,7 +322,7 @@ P:NPC {
       },
     },
     neutral = {
-      lines = { { id = "ne_default", text = "Because nobody else'll drink with me, and the goblins only care if ye pay. I'm nobody's soldier now, orc; sit down and have one, and we'll both forget whose side we're on." } },
+      lines = { { id = "ne_default", text = "Because nobody else'll drink with me, and the goblins only care if ye pay. I'm nobody's soldier now, friend; sit down and have one, and we'll both forget whose side we're on." } },
       choices = {
         { text = "One drink, then, and sides can wait until morning.", next = "BACK", fx = { align = { order = -1 }, affinity = 2 } },
         { text = "I remember whose side I'm on.", next = "BACK", fx = { affinity = -1, align = { order = 1 } } },
@@ -407,7 +407,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Welcome, welcome, my friend! Are you here to make me rich? Please say yes, because I've already budgeted for it." },
-    { id = "g_back", when = { metBefore = true }, text = "My favourite scribe returns! Do you have anything shiny, buddy, or only your charming face, which I can't sell?" },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite customer returns! Do you have anything shiny, buddy, or only your charming face, which I can't sell?" },
   },
 
   notice = {
@@ -434,7 +434,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I don't see why not, buddy, since Kibler swears his worg pups can find a scrap of meat under a yard of ash. If they can find meat they can find a buried Dark Iron coffer, and if they can find a coffer, I can retire somewhere with a balcony." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let me see {pet} sniff at this old Dark Iron coin, would you? If its tail wags, I'll know I've been carrying the real thing about all along, and I'll stop insuring the fake." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I don't see why not, buddy, since Kibler swears his worg pups can find meat under a yard of ash, and meat's not so different from a buried coffer. Let {pet} sniff at this old Dark Iron coin, would you? If its tail wags, I'll know it's the real thing." },
       },
       choices = {
         { text = "My beast won't dig up the dead for coin, Maxwort.", next = "BACK", fx = { align = { light = 1 } } },
@@ -574,9 +574,9 @@ P:NPC {
       choices = { { text = "Partner, you said?", next = "BACK", fx = { affinity = 1, trait = { greedy = 1 } } } },
     },
     archesonus = {
-      lines = { { id = "ar_default", text = "The blind historian in Ironforge? She knows more about that city than anyone alive, and she'll never sell a word of it, which I find personally offensive as a businessman. Did she mention the Seven at all?" } },
+      lines = { { id = "ar_default", text = "Royal Historian Archesonus, in Ironforge? He knows more about that city than anyone alive, and he'll never sell a word of it, which I find personally offensive as a businessman. Did he mention the Seven at all?" } },
       choices = {
-        { text = "She said the accounts all stop at the blast.", next = "BACK", fx = { affinity = 1 } },
+        { text = "He said the accounts all stop at the blast.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'm not telling you.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
       },
     },
@@ -778,7 +778,7 @@ P:NPC {
       lines = { { id = "s_default", fx = { learn = { "black_dragonflight" } },
         text = "The black dragonkin of the Steppes: the whelps, the broodlings, the drakes, and how they grow. If I could learn to capture a living whelp, or an egg, I'd be the envy of every dragon scholar in the world, and I could charge admission." } },
       choices = {
-        { text = "That sounds like dangerous work for a gnome.", next = "study_danger" },
+        { text = "That sounds like dangerous work for a scholar.", next = "study_danger" },
         { text = "Why eggs?", next = "study_eggs" },
       },
     },
@@ -912,7 +912,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because it comes up the road through Searing Gorge, past more Dark Irons than you'd believe, and every cart I lose goes on the price of the rest. You'd be amazed how many carts the worgs have eaten this season, pal, and they don't even like the taste." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And don't let {pet} chew on the blasting powder, please, sweetheart. I know it smells interesting, but the last beast that tried it learned to fly, very briefly, and its owner still owes me for the crate." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because it comes up the road through Searing Gorge, past more Dark Irons than you'd believe, and every cart I lose goes on the price of the rest. And don't let {pet} chew on the blasting powder, sweetheart, because the last beast that tried it learned to fly, very briefly." },
       },
       choices = {
         { text = "A fair price for a hard road. I'll pay it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -942,7 +942,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "He's paying it now, a little every month, through his cousin in Booty Bay, with interest compounded. The Screwspigots never forget a debt, friend, and that's why we're still in business while everybody else in Flame Crest is on their third shop." } },
       choices = {
-        { text = "Debts get paid. Ribbly should've known that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Debts get paid. Good for you, Yuka.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "He blew up a crate. Call it a lesson and move on.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else, Yuka.", next = "BACK" },
       },
@@ -982,11 +982,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Yuka Screwspigot, engineering supplies, best prices this side of the mountain, mostly because I'm the only supplier this side of the mountain. What can I sell you, pal?" },
         { id = "h_sought", tags = { "news" }, when = { questActive = TODO_QUEST("Yuka Screwspigot") },
-          text = "Yorba sent you? Good old Yorba, she always did know who'd be useful and what they'd cost. Yes, I'm looking for our brother, bless his worthless little heart and his overdue accounts." },
+          text = "Your sister Yorba sent you? Good old Yorba, she always did know who'd be useful and what they'd cost. Yes, I'm looking for our brother, bless his worthless little heart and his overdue accounts." },
         { id = "h_ribbly", when = { questActive = TODO_QUEST("Ribbly Screwspigot") },
           text = "Ribbly's hiding somewhere deep in Blackrock Depths with the Dark Irons, pal. Bring him back to me, or if he won't come along quietly, his head will do nicely, and it's lighter to carry." },
         { id = "h_ribbly_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Ribbly Screwspigot"), days = 7 } },
-          text = "The Baron's paid, the family's happy, and little Ribbly's never looked so peaceful, pal. You've done the Screwspigots a great service, and we remember our creditors and our friends." },
+          text = "Baron Revilgaz has paid, the family's happy, and little Ribbly's never looked so peaceful, pal. You've done the Screwspigots a great service, and we remember our creditors and our friends." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest! If you're here to pray for Ribbly, don't bother, sweetheart, because the Screwspigot family has already decided what he's owed, and it's not a prayer, it's an invoice." },
         { id = "h_apaladin", when = { class = "PALADIN" },
@@ -1374,7 +1374,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I knew a great many of them, as one knows the soldiers one passes in the street, and I thought very little of them at the time. They died on the borders while scholars like me fled with our books, and the librams are no comfort at all when I remember that." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} watches me as though I were prey, {class}. It may be right, for I'm not what I was, and beasts always know it before people do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I knew a great many of them, as one knows soldiers passing in the street, and they died on the borders while scholars like me fled with our books. Your {pet} watches me as though I were prey, {class}, and perhaps it is right." },
       },
       choices = {
         { text = "Honour their sacrifice, Mathredis. Make your work worth it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1610,7 +1610,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "No, but they respect each other, which out here is the same thing. A wind rider sees a wolf the way a wolf sees a rabbit, so I keep them apart, and nobody gets eaten." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} is watching my riders. Good, because they're watching it back, and out here the first to blink is usually lunch." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "No, but they respect each other, which out here is the same thing, so I keep them apart. {pet} is watching my riders, and they're watching it back, and out here the first to blink is usually lunch." },
       },
       choices = {
         { text = "Then I'll keep them apart, as you do.", next = "BACK", fx = { align = { order = 1 } } },

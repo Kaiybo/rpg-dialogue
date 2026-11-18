@@ -68,7 +68,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "When the hunters ask, an' they ask more now the raptors have come down from the hills tae pick at the soldiers' camps. A good point'll go through raptor hide like it's cloth, an' I've seen what a bad one does, which is bounce." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} has been sniffin' round my anvil since ye walked in, an' I'll take that as a compliment tae my work. Mind its nose, though, for the iron's still hot." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When the hunters ask, an' they ask more now the raptors have come down from the hills. Yer {pet} has been sniffin' round my anvil since ye walked in, so mind its nose, for the iron's still hot." },
       },
       choices = {
         { text = "Good work deserves fair coin. I'll pay your price.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -214,6 +214,6 @@ P:NPC {
     stromgarde = { { id = "tp_stromgarde", text = "Stromgarde's soldiers need maces, and I forge them as fast as I can. Every cracked ogre skull is a step closer to taking the city back." } },
     magni = { { id = "tp_magni", text = "The King of Ironforge sent me here to help Stromgarde, and I'll stay until the job's done. He's a good king, and a better dwarf." } },
     second_war = { { id = "tp_second_war", text = "I forged maces for the Second War too, and I'm still forging them, and I'll be forging them when I'm grey. Wars don't end, they just change their faces." } },
-    _none = { { id = "tp_none", text = "Couldn't tell ye, friend. Ask Captain Nials; he hears everything first." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ye, friend. Ask Captain Nials; she hears everything first." } },
   },
 }

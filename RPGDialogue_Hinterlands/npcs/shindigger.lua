@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_default", text = "Well, hello! Ye keep bobbin' up an' down, friend, so either stand still or have a drink an' bob along wi' me." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, hic, an' welcome back! Pardon the hiccups, they've been wi' me since breakfast." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, was it? Felt like an afternoon tae me, but then most things do." },
-    { id = "g_kocktail", when = { questActive = TODO_QUEST("Rhapsody's Kalimdor Kocktail") }, text = "Roc gizzards from Tanaris, an' livers from Feralas, groddoc an' ironfur! Then I'll talk, I promise." },
+    { id = "g_kocktail", when = { questActive = TODO_QUEST("Rhapsody's Kalimdor Kocktail") }, text = "Bring me roc gizzards from Tanaris, an' groddoc an' ironfur livers from Feralas, an' then I'll talk, I promise." },
     { id = "g_drunk", when = { drunk = true }, text = "Ye've had a few! Now we're seein' eye tae eye, or at least eye tae nose." },
   },
 
@@ -130,7 +130,7 @@ P:NPC {
 
     gilveradin = {
       lines = {
-        { id = "gi_default", text = "Gilveradin? Honey ripple, he calls it, or rather he sells the bottles an' some orc in Orgrimmar fills them. He talks like a book an' drinks like a dwarf, an' I've never had a better neighbour." },
+        { id = "gi_default", text = "Gilveradin? He sells Honey Ripple bottles, or the empty ones anyway, an' some orc in Orgrimmar fills them wi' cheaper stuff. He talks like a book an' drinks like a dwarf, an' I've never had a better neighbour." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -194,7 +194,7 @@ P:NPC {
         { id = "h_sticky_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("A Sticky Situation"), days = 3 } },
           text = "Finely executed, and you did not bruise the delicacy of the ripple, for which I commend you. Our little chicanery shall turn these bottles into an alcoholic treasure of the ages." },
         { id = "h_delivery", when = { questActive = TODO_QUEST("Ripple Delivery") },
-          text = "Deliver yon barrel to Dran in his salvage emporium, and pray extend my warmest greetings to Malton. Tell him, should he ever thirst for fine drink and finer company, he would be welcome here." },
+          text = "Deliver yon barrel to Dran in his salvage emporium, and pray extend my warmest greetings to his son Malton. Tell him, should he ever thirst for fine drink and finer company, he would be welcome here." },
         { id = "h_horde", when = { faction = "Horde" },
           text = "An emissary of the Horde! I have orcish friends in Orgrimmar, which shocks my kin no end, and I delight in shocking my kin." },
       },

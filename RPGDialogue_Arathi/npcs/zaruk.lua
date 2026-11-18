@@ -19,7 +19,7 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You return. The Lady said you might." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the stones beneath Arathi have not stopped whispering. Did you hear them, where you went?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown strong, {class}. Strength is what the Lady asks of her allies." },
-    { id = "g_theldurin", when = { questActive = TODO_QUEST("Theldurin the Lost") }, text = "The Badlands, and a mad dwarf hiding in them with what is ours. Find him." },
+    { id = "g_theldurin", when = { questActive = TODO_QUEST("Theldurin the Lost") }, text = "Theldurin hides in the Badlands with the scroll he stole from us. Find him." },
   },
 
   notice = {
@@ -176,7 +176,7 @@ P:NPC {
       lines = {
         { id = "dr_default", text = "Drum Fel knows I am quiet and that I do my share, and he has a war to win against the humans. A commander with that much on his mind does not ask what an old orc prays to at night." },
         { id = "dr_warm", when = { disposition = { min = 65 } },
-          text = "He suspects, I think, and Korin Fel suspects more. But Hammerfall needs every blade it has, and so they let me be, and I let them be, and the Lady waits." },
+          text = "He suspects, I think, and his wife Korin Fel suspects more. But Hammerfall needs every blade it has, and so they let me be, and I let them be, and the Lady waits." },
       },
       choices = {
         { text = "I should tell him.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -191,7 +191,7 @@ P:NPC {
       },
       choices = {
         { text = "What do you think the elements are, Zaruk?", next = "opn_elements" },
-        { text = "The spirits are right. Leave her buried.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The spirits are right. Leave it buried.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Perhaps the spirits fear what they can't control.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -202,7 +202,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I listen to the stones and to the camp, and both say more than they mean to. Ask." } },
     background = { { id = "tp_bg", text = "I fought for the old Horde, and when it fell I found a truer master. That is all you need to know." } },
     advice = { { id = "tp_ad", text = "Listen to what lies beneath, {class}. The surface is always the last to know." } },
-    twilights_hammer = { { id = "tp_th", text = "An order, now, not a clan. We see what is coming.", next = "hammer" } },
+    twilights_hammer = { { id = "tp_th", text = "The Twilight's Hammer is an order now, not a clan, and we see what is coming.", next = "hammer" } },
     forsaken = { { id = "tp_forsaken", text = "The dead who walk in Tarren Mill serve their own queen, and they do not understand the greater cause. The Lady will show them, in time." } },
     thrall = { { id = "tp_thrall", text = "The Warchief of the Horde is a small chief in a small world, and the Lady sees far beyond him. I serve the Horde here, for now, because it serves her." } },
     the_elements = { { id = "tp_the_elements", text = "The elements of this land are angry, and the Lady is the source of that anger. She will set them free, and the world will see true power." } },

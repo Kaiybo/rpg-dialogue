@@ -35,15 +35,15 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Deathstalker Adamant, of the Sepulcher, and lately of this cell. Rethilgore kept the key on his belt and my blade on his wall, and if he's dead, I'll thank you and then I'll go and get my blade." },
+        { id = "h_default", key = true, text = "Deathstalker Adamant, of the Sepulcher, and lately of this cell. Rethilgore, the worgen who jails this place, kept the key on his belt and my blade on his wall, and if he's dead, I'll thank you and then I'll go and get my blade." },
         { id = "h_quest", when = { questActive = TODO_QUEST("Deathstalkers in Shadowfang") },
-          text = "Hadrec sent two of us into this keep, and you've found the one who could still answer. I'm sorry to say the other is out in the courtyard, and he won't be answering anyone." },
+          text = "High Executor Hadrec sent two of us into this keep, and you've found the one who could still answer. I'm sorry to say the other is out in the courtyard, and he won't be answering anyone." },
         { id = "h_rogue", when = { class = "ROGUE" },
           text = "A rogue, good. I can open the courtyard door for you, but there are things past it that a careful blade will handle better than a loud one." },
         { id = "h_cleared", when = { cleared = "Shadowfang Keep" },
           text = "You've been to the top of this keep before, I can tell, because you don't look at the stairs the way the new ones do. Arugal keeps coming back, it seems, so we keep going up." },
         { id = "h_tauren", when = { race = "Tauren" },
-          text = "Mind your horns on the doorway, friend, because these cells were built for the Baron's prisoners and not for tauren. I'm Adamant, and I'm glad of you." },
+          text = "Mind your horns on the doorway, friend, because these cells were built for Baron Silverlaine's prisoners and not for tauren. I'm Adamant, and I'm glad of you." },
       },
       again = {
         { id = "h_again", text = "What else? Ask quickly, because I'd rather be moving than talking." },
@@ -55,7 +55,7 @@ P:NPC {
         { text = "Where is your partner?", next = "vincent" },
         { text = "What waits for us beyond this cell?", next = "keep" },
         { text = "You'll want that blade back, deathstalker.", next = "blade", when = { class = "ROGUE" } },
-        { text = "Why would the living come here for you?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "You look surprised that one of the living came for you.", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Open the courtyard door, Adamant.", next = "BUSINESS" },
         { text = "Rest a moment. We'll move soon.", next = "END" },
       },
@@ -158,7 +158,7 @@ P:NPC {
     },
     keep_arugal = {
       lines = {
-        { id = "ka_default", text = "He paces at the top of the keep and talks to nobody, and sometimes he laughs, and that's worse. He was a Kirin Tor archmage, Dalar Dawnweaver says, and I believe it, because only a wizard could be that clever and that stupid at once." },
+        { id = "ka_default", text = "He paces at the top of the keep and talks to nobody, and sometimes he laughs, and that's worse. He was a Kirin Tor archmage, Dalar Dawnweaver at the Sepulcher says, and I believe it, because only a wizard could be that clever and that stupid at once." },
       },
       choices = {
         { text = "Dalar knew him?", next = "keep_dalar" },
@@ -201,7 +201,7 @@ P:NPC {
 
     living = {
       lines = {
-        { id = "li_default", text = "I've wondered the same, so tell me yourself. Did the Sepulcher send you, or did you come into this keep for your own reasons?" },
+        { id = "li_default", text = "I am, I'll admit it, so tell me yourself. Did the Sepulcher send you, or did you come into this keep for your own reasons?" },
       },
       choices = {
         { text = "The Horde stands together, living or dead.", next = "living_answer", fx = { affinity = 1, align = { order = 1 } } },
@@ -255,7 +255,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Sorcerer Ashcrombe, of Dalaran, and you've no idea how pleased I am to say so to somebody. The brute Rethilgore kept me in here, and if he's dead, I can open the courtyard door for you with very little fuss." },
+        { id = "h_default", key = true, text = "Sorcerer Ashcrombe, of Dalaran, and you've no idea how pleased I am to say so to somebody. The worgen brute Rethilgore kept me in here, and if he's dead, I can open the courtyard door for you with very little fuss." },
         { id = "h_mage", when = { class = "MAGE" },
           text = "A mage, and come to rescue me, which my old masters would find very funny indeed. I'm Ashcrombe, of Dalaran, and I can open the courtyard door with a word, if you'll give me a moment to remember it." },
         { id = "h_paladin", when = { class = { "PALADIN", "PRIEST" } },

@@ -59,7 +59,7 @@ P:NPC {
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "Your mastery over the denizens of other worlds has grown, I see, and you've come to me for the greatest of steeds. The dreadsteeds dwell on the Plains of Xoroth, and binding one is not a task for the impatient." },
         { id = "h_blood", tags = { "news" }, when = { questActive = TODO_QUEST("Rage of Blood") },
-          text = "Thirty bottles of raging beast's blood, from the maddened owlkin of Winterspring. The ink for your glyphs must be strong, and nothing is stronger than madness in the veins." },
+          text = "Bring me thirty bottles of raging beast's blood, from the maddened owlkin of Winterspring. The ink for your glyphs must be strong, and nothing is stronger than madness in the veins." },
         { id = "h_blood_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Rage of Blood"), days = 3 } },
           text = "The blood is distilling nicely. I may have kept a little aside for myself, for I hear its taste is quite euphoric, and I'll not apologise for it." },
         { id = "h_steed_active", tags = { "news" }, when = { questActive = TODO_QUEST("Dreadsteed of Xoroth") },
@@ -113,7 +113,7 @@ P:NPC {
     },
     blood_drink = {
       lines = {
-        { id = "bd_default", text = "A little, now and then, for science, and for pleasure, which is just science with a napkin. Gorzeeki prefers his warm and still moving, which I find rather vulgar, but we all have our tastes." },
+        { id = "bd_default", text = "A little, now and then, for science, and for pleasure, which is just science with a napkin. Gorzeeki, my goblin, prefers his warm and still moving, which I find rather vulgar, but we all have our tastes." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

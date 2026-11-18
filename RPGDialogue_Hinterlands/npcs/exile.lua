@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_bundle", tags = { "news" }, when = { questActive = TODO_QUEST("The Atal'ai Exile") },
           text = "You bring me the summoning artifacts of the Atal'ai? So Jammal'an is leading the disciples of the Chamber of Blood toward their chosen fate, and I wonder whether Hakkar has returned to the temple." },
         { id = "h_bundle_done", when = { questActive = TODO_QUEST("Return to Fel'Zerul") },
-          text = "Those artifacts are harmless, tell Fel'Zerul that. But if Jammal'an has found the proper fetish enchantment for the ritual, the whole world lies in great peril." },
+          text = "Those artifacts are harmless, and you may tell Fel'Zerul in Stonard so. But if Jammal'an has found the proper fetish enchantment for the ritual, the whole world lies in great peril." },
         { id = "h_head_done", tags = { "news" }, when = { questDone = TODO_QUEST("Jammal'an the Prophet") },
           text = "Jammal'an's reckless trust in false visions led my people to their doom, and now he has joined them. I thought revenge would taste of more than ashes." },
         { id = "h_sunken", tags = { "news" }, when = { cleared = "The Temple of Atal'Hakkar" },
@@ -46,7 +46,7 @@ P:NPC {
           text = "A troll who walks with the Horde. My people would call you lost, and perhaps I would have, once, but now I am the lost one." },
       },
       again = {
-        { id = "h_again", text = "What else? The Witherbark are watching us, and their witch doctors be watching hardest." },
+        { id = "h_again", text = "What else? The Witherbark are watching us, and their witch doctors are watching hardest." },
         { id = "h_again2", text = "Ask, if you must. I have time, and nothing else." },
       },
       choices = {

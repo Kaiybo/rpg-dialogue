@@ -37,7 +37,7 @@ P:NPC {
       lines = { { id = "xhpriest_default", text = "A few, dear, for the living and the dead both, though never the same ones! The pale caps from under the Sepulcher settle a Forsaken's joints, and the little brown ones by the Dead Fields ease a living fever if you boil them twice. I'd never sell a healer the wrong kind." } },
       choices = {
         { text = "Then I'll take the healing ones and leave the rest.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "The purple caps sound more useful, honestly.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "I'd rather try the ones you won't sell a healer.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -220,8 +220,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Nothing you'd wear, since you're all leather and mail, but a good cloak keeps the rain off and the forest smell out. Silverpine's damp gets into everything, and I mean everything, so wrap up before you go back out." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Nothing for you, I'm afraid, and certainly nothing for {pet}, who has just shed on my best bolt of linen. A good cloak keeps the rain off, though, and Silverpine's damp gets into everything." },
+        { id = "xhuntcl_default", text = "Nothing you'd wear, since you're all leather and mail, and you've tracked mud across my floor besides. A good cloak keeps the rain off and the forest smell out, though. Silverpine's damp gets into everything, and I mean everything, so wrap up before you go back out." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Nothing for you, I'm afraid, and certainly nothing for {pet}, who has tracked mud in and shed on my best bolt of linen. A good cloak keeps the rain off, though, and Silverpine's damp gets into everything." },
       },
       choices = {
         { text = "I'll wipe my boots next time, Andrea.", next = "BACK", fx = { align = { order = 1 } } },
@@ -254,7 +254,7 @@ P:NPC {
       choices = {
         { text = "Did you make vestments in life, Andrea?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What's wrong with how I dress, Andrea?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "Would you believe it simply comes back, Andrea?", next = "druid_q", when = { class = "DRUID" } },
+        { text = "My robe simply comes back when I change, Andrea.", next = "druid_q", when = { class = "DRUID" } },
         { text = "Show me your clothes.", next = "BUSINESS" },
         { text = "You sew like someone who did it in life.", next = "past" },
         { text = "Cloth must be hard to come by out here.", next = "cloth" },
@@ -295,7 +295,7 @@ P:NPC {
     },
     druid_q = {
       big = true,
-      lines = { { id = "dq_default", text = "I would not, because nothing in my trade simply comes back, and I've spent a lifetime mending what didn't. But I watched one of your sort turn into a bear by the Sepulcher gate and come back without a stitch out of place, so I suppose I must, and I find it very upsetting." } },
+      lines = { { id = "dq_default", text = "I'd not have believed it, because nothing in my trade simply comes back, and I've spent a lifetime mending what didn't. But I watched one of your sort turn into a bear by the Sepulcher gate and come back without a stitch out of place, so I suppose I must, and I find it very upsetting." } },
       choices = {
         { text = "There's no trick to it. It's honest magic.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Every craft has its secrets. I'll keep mine.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -397,7 +397,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "For anyone, because the worgen in the north don't care what you carry, and they come in packs. A demon's a fine thing to put between you and a worgen, but buy food and water anyway, because the demon won't share." },
+        { id = "xwarlock_default", text = "For anyone, because the worgen in the south don't care what you carry, and they come in packs. A demon's a fine thing to put between you and a worgen, but buy food and water anyway, because the demon won't share." },
       },
       choices = {
         { text = "I'll pack well and watch for worgen.", next = "BACK", fx = { align = { order = 1 } } },

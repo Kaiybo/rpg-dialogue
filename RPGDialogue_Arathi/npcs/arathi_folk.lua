@@ -51,7 +51,7 @@ P:NPC {
         { id = "h_done", when = { questDone = Q_AB },
           text = "You've fought in the Basin and come back, which is more than some can say. The Defilers felt it, and so did their masters in Undercity." },
         { id = "h_five", when = { questActive = Q_CTRL5 },
-          text = "All five, soldier, at once, with the Defilers' banners down across the whole Basin. It's never been done lightly, so pick your companions well." },
+          text = "Now take all five at once, soldier, and put the Defilers' banners down across the whole Basin. It's never been done lightly, so pick your companions well." },
         { id = "h_rank", when = { pvpRank = 6 },
           text = "A ranked officer of the Alliance, by your insignia. Good, for the Basin needs leaders as much as it needs blades." },
       },
@@ -179,7 +179,7 @@ P:NPC {
         { id = "h_active", tags = { "news" }, when = { questActive = Q_AB },
           text = "You've been sent into the Basin. Take the holdings, hold them, and leave the League's banners in the mud where they belong." },
         { id = "h_take5", when = { questActive = Q_TAKE5 },
-          text = "All five bases, all at once, with the League scattered and howling. Do that and even the orcs will remember your name." },
+          text = "Take all five bases at once and leave the League scattered and howling. Do that and even the orcs will remember your name." },
         { id = "h_done", when = { questDone = Q_AB },
           text = "You fought in the Basin and came back to tell me, and the League buried some of its own because of it. That pleases me more than it should." },
         { id = "h_orc", when = { race = "Orc" },
@@ -297,7 +297,7 @@ P:NPC {
         { id = "h_trauma", tags = { "news" }, when = { questActive = Q_TRAUMA },
           text = "Your trainer sent you, did they? Then you've reached the end of what bandages alone can teach, and it's time for an examination." },
         { id = "h_triage", when = { questActive = Q_TRIAGE },
-          text = "The critically injured first, then the badly injured, then the merely injured. Lose six and you fail, and I shan't be gentle with you about it." },
+          text = "Treat the critically injured first, then the badly injured, then the merely injured. Lose six and you fail, and I shan't be gentle with you about it." },
         { id = "h_done", when = { questRecent = { Q_TRIAGE, days = 7 } },
           text = "Miraculous work, doctor, simply miraculous. You've joined the most exclusive company in the Horde, and the only one that does any good." },
         { id = "h_tauren", when = { race = "Tauren" },
@@ -423,7 +423,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Meat, salt, an' who in this camp eats the most. It's Jannos." } },
+    knows = { { id = "tp_knows", text = "Meat, salt, an' who in this camp eats the most, which is Jannos the macecrafter." } },
     _none = { { id = "tp_none", text = "I cut meat, friend, I don't cut gossip." } },
   },
 }
@@ -488,7 +488,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Beasts. Wolves best of all." } },
+    knows = { { id = "tp_knows", text = "I know beasts, and wolves best of all." } },
     _none = { { id = "tp_none", text = "I don't know that. Ask the wolves; they'll know as much." } },
   },
 }
@@ -523,7 +523,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I'm Keena, and I sell what crafters need: thread, dye, flux and salt, all of it carried over the hills from Orgrimmar's docks. It costs what it costs, so don't haggle." },
+          text = "I'm Keena, and I sell what crafters need: thread, dye, flux and salt, all of it shipped from Orgrimmar and carried over the hills. It costs what it costs, so don't haggle." },
       },
       again = {
         { id = "h_again", text = "What else? Quick, I've customers." },
@@ -550,7 +550,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "Prices, roads, and who owes me money." } },
+    knows = { { id = "tp_knows", text = "I know prices, roads, and who owes me money." } },
     _none = { { id = "tp_none", text = "If it's not for sale, I don't know about it." } },
   },
 }

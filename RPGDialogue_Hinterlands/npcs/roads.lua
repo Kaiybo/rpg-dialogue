@@ -56,7 +56,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Owls, mon, only owls, for their feathers fetch good trade. The elves said I was huntin' them, which be flattery, because an elf be much harder to find than an owl and taste much worse." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} got the look of a beast that never been in a cage, mon, and Rin'ji hope it stay that way. Elves cage anythin' they don't understand." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Owls, mon, only owls, for their feathers fetch good trade, whatever the elves say. {pet} got the look of a beast that never been in a cage, and Rin'ji hope it stay that way, because elves cage anythin' they don't understand." },
       },
       choices = {
         { text = "They had a right to guard their woods, Rin'ji.", next = "BACK", fx = { align = { order = 1 } } },

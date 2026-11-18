@@ -14,7 +14,7 @@ P:NPC {
 
   greetings = {
     { id = "g_watch", text = "Keep low, please. The orcs at Go'Shek don't look up often, but when they do, they look up here." },
-    { id = "g_back", when = { metBefore = true }, text = "You again, good. Kinelory's been pacing, and I'd like someone else to talk to." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, good. Kinelory, my partner, has been pacing, and I'd like someone else to talk to." },
   },
 
   notice = {
@@ -63,7 +63,7 @@ P:NPC {
     },
     opn_forsaken_r_watch = {
       lines = {
-        { id = "opn_forsaken_r_watch", text = "Glad someone thinks so, because my feet have stopped complaining and started filing reports of their own." },
+        { id = "opn_forsaken_r_watch", text = "Glad someone thinks so. I've watched so long that my feet have stopped complaining, but at least the watching does some good." },
       },
       choices = {
         { text = "Something else, Quae.", next = "BACK" },
@@ -99,7 +99,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Wagons, and the crates on them, and who signs for them when they arrive. The orcs are farming nothing I'd eat, and the wagons come from the west, from the Forsaken lands, which is why Phin sent us up here." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} still, please, because the orcs keep wolves down there, and a wolf can smell a beast on the ridge as easily as you can see it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wagons, and the crates on them, and who signs for them when they arrive, because they come from the Forsaken lands. And keep {pet} still, please, because the orcs keep wolves down there, and a wolf can smell a beast on the ridge." },
       },
       choices = {
         { text = "If it's plague, we stop it, whatever it costs.", next = "BACK", fx = { align = { light = 1 } } },
@@ -202,7 +202,7 @@ P:NPC {
     },
     courier = {
       lines = {
-        { id = "co_default", text = "Papers and sealed crates, carried by a Forsaken courier who comes and goes on the road from the north. If those papers say what I think, Tarren Mill's apothecaries mean to try their new plague on more than mountain lions." },
+        { id = "co_default", text = "Papers and sealed crates, carried by a Forsaken courier who comes and goes on the road from the north. If those papers say what I think, Tarren Mill's apothecaries mean to try their new plague on more than the beasts they've tested it on so far." },
       },
       choices = { { text = "Then someone should take those papers.", next = "courier_plan" } },
     },
@@ -293,7 +293,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Would you? I'll still be the one walking up to him, because Quae says I'm the least suspicious-looking of us, which I don't think was a compliment. But if I know someone's watching from the trees, I might stop shaking long enough to grab the papers." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} will be watching too, won't it? That helps, actually, because a beast doesn't hesitate, and I hesitate quite a lot." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Would you? I'll still be the one walking up to him, but if I know you and {pet} are watching from the trees, I might stop shaking long enough to grab the papers." },
       },
       choices = {
         { text = "I'll stay close and keep you safe. That's a promise.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -321,7 +321,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "He was one of the Kirin Tor's students, before he left, and he still reads everything twice and argues with it once. He says the courier's papers might be written in a cipher the Forsaken apothecaries use, and if they are, I'll need someone cleverer than me to read them, which is most people, honestly." } },
+      lines = { { id = "xmage_default", text = "Phin was one of the Kirin Tor's students, before he left, and he still reads everything twice and argues with it once. He says the courier's papers might be written in a cipher the Forsaken apothecaries use, and if they are, I'll need someone cleverer than me to read them, which is most people, honestly." } },
       choices = {
         { text = "Bring me the papers. We'll read them together.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Ciphers are dull. I'd rather burn the courier.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -455,7 +455,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Against my will, yes, and I've concluded that they track by candle smoke and earwax, which is not a sentence I ever expected to write. A real tracker would tell me if I'm wrong, though I'd rather you told me after we've left." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is the first creature in this gorge that hasn't tried to steal from me, and I'm prepared to name a chapter after it. Do keep it beside me while we walk." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Against my will, yes, and I've concluded that they track by candle smoke and earwax. Your {pet} is the first creature in this gorge that hasn't tried to steal from me, so do keep it beside me while we walk." },
       },
       choices = {
         { text = "Finish your notes properly, Professor. Science needs rigour.", next = "BACK", fx = { align = { order = 1 } } },

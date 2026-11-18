@@ -16,8 +16,8 @@ P:NPC {
   greetings = {
     { id = "o_war_trust", when = { gossip = { topic = "warchief", stance = "trust" } }, text = "Rok Orhan tells me you think well of the Warchief. So do I, young one. Thrall's orcs stood with us when the centaur hunted us across the plains." },
     { id = "g_default", text = "Sit, young one. An elder's stories are long, but they are rarely wasted." },
-    { id = "g_north", when = { questActive = TODO_QUEST("Vengeance on the Northspring") }, text = "Their wings are black as night, so do not take your eyes from them, or they vanish into the dark." },
-    { id = "g_heart", when = { questDone = TODO_QUEST("Dark Heart") }, text = "I keep her heart beside my bedroll, and I sleep better for it. That is your doing." },
+    { id = "g_north", when = { questActive = TODO_QUEST("Vengeance on the Northspring") }, text = "The Northspring harpies' wings are black as night, so do not take your eyes from them, or they vanish into the dark." },
+    { id = "g_heart", when = { questDone = TODO_QUEST("Dark Heart") }, text = "I keep Edana's crystal heart beside my bedroll, and I sleep better for it. That is your doing." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and I told your story twice to the young braves while you were away. It grows a little each time, I confess." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You walk heavier than you did, the way a hunter does when the hunt has changed them. Sit, and tell me what you have learned." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "The camp speaks well of you, and the camp is not easy to please. The Earth Mother sees such things." },
@@ -47,7 +47,7 @@ P:NPC {
         { id = "h_fel", when = { questActive = TODO_QUEST("The Strength of Corruption") },
           text = "The bears and wolves of Felwood are mad with the fel, but stronger for it, I believe. Go and learn whether I am right, because a hunter must know his enemy." },
         { id = "h_dm", when = { questActive = TODO_QUEST("Lethtendris's Web") },
-          text = "The elf mage hides among the satyrs in the old city's broken quarter. Bring me her web, so its stolen magic can be let go into the wild again." },
+          text = "The elf mage Lethtendris hides among the satyrs in the old city's broken quarter. Bring me her web, so its stolen magic can be let go into the wild again." },
       },
       again = {
         { id = "h_again", text = "Another question? Good, an elder likes to be asked, as the old grass likes the rain." },
@@ -117,7 +117,7 @@ P:NPC {
     story = {
       lines = { { id = "st_default", text = "When I was young, I tracked a great cat through these hills for six days, and on the seventh I found it watching me from a branch above my head. It had been hunting me the whole time, and it let me go." } },
       choices = {
-        { text = "It let you go, for some reason.", next = "story_why" },
+        { text = "Why did it let you go?", next = "story_why" },
         { text = "Something else.", next = "BACK" },
       },
     },

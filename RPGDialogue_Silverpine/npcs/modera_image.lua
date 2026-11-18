@@ -34,7 +34,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "You've likely heard that Dalaran is suffering a magical outbreak, and that every mage we have is too busy holding the city's wards to contain it. I am Modera of the Kirin Tor, or her image, and I need hands that aren't already full." },
         { id = "h_jacques", tags = { "news" }, when = { questActive = TODO_QUEST("An Alarming Request") },
-          text = "I see Jacques was successful in finding aid. It isn't strictly permitted, but we can't let our pride turn away allies in our hour of need, and don't let the guards fool you, because things in the city are anything but under control." },
+          text = "I see Emissary Jacques was successful in finding aid. It isn't strictly permitted, but we can't let our pride turn away allies in our hour of need, and don't let the guards fool you, because things in the city are anything but under control." },
         { id = "h_sewer", tags = { "news" }, when = { questActive = TODO_QUEST("Blood in the Streets") },
           text = "Stay your weapon, {race}. That key won't get you past my wards; you didn't really think we'd leave such a weakness open at a time like this? It's no coincidence the Horde has taken an interest in my city now, and in fact, I was counting on it." },
         { id = "h_heart", when = { questActive = TODO_QUEST("Heart of Disruption") },
@@ -129,7 +129,7 @@ P:NPC {
     },
     after = {
       lines = {
-        { id = "af_default", text = "A great deal, most of it about procedure, and none of it about the fact that the city is still standing. Let them; Archmage Celindra will tell them what you did, and the Six can't deny results, however much they'd like to." },
+        { id = "af_default", text = "A great deal, most of it about procedure, and none of it about the fact that the city is still standing. Let them; Archmage Celindra will tell them what you did, and the council of Six can't deny results, however much they'd like to." },
       },
       choices = {
         { text = "Who is Celindra?", next = "celindra" },
@@ -198,7 +198,7 @@ P:NPC {
     },
     skyborne = {
       lines = {
-        { id = "sk_default", text = "One of Elaadrin's people, out here on the shore! Ansirem will be beside himself; he's been talking about the Skyborne for months. You'll find the wards hum differently around you, I suspect, and I'd dearly love to know why once all this is over." },
+        { id = "sk_default", text = "One of the Skyborne, out here on the shore! Archmage Ansirem of our council will be beside himself; he's been talking about your people for months. You'll find the wards hum differently around you, I suspect, and I'd dearly love to know why once all this is over." },
       },
       choices = {
         { text = "I'd be glad to tell you, Archmage.", next = "BACK", fx = { affinity = 1 } },

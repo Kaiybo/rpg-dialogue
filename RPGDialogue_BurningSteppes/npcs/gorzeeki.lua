@@ -128,7 +128,7 @@ P:NPC {
     xpotion = {
       big = true,
       lines = {
-        { id = "xp_default", text = "To walk through Jaedenar in the Shadow Council's own flavor of evil, pal, so you can speak with Lord Banehollow about his stardust. They cost a bit, I'll say that up front, but they're a lot cheaper than being torn apart by satyrs." },
+        { id = "xp_default", text = "Potions that let you walk through Jaedenar wearing the Shadow Council's own flavor of evil, pal, so you can speak with Lord Banehollow about his stardust. They cost a bit, I'll say that up front, but they're a lot cheaper than being torn apart by satyrs." },
       },
       choices = {
         { text = "Wearing the Council's evil doesn't trouble me.", next = "BACK", fx = { align = { honor = -1 } } },

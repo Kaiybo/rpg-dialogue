@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They judge it by its stillness, mostly, for a beast that waits calmly beneath the roost is no threat, and one that stares upward is a hunter. The wild hippogryphs of the mainland learned that from the yetis, and they taught it to mine." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the right manner, I think; it does not look up at them, and so they have stopped looking down at it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They judge it by its stillness, mostly, for a beast that waits calmly beneath the roost is no threat. Your {pet} has the right manner, I think; it does not look up at them, and so they have stopped looking down at it." },
       },
       choices = {
         { text = "Every creature deserves a chance to earn trust.", next = "BACK", fx = { align = { light = 1 } } },
@@ -256,7 +256,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bear and wolf for the cloaks, and anything thick enough to turn an ogre's club for the armor, though the hunters rarely bring enough. The rain ruins half of what comes over, so a hunter who keeps the hides dry is a hunter I remember." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} away from the stacked hides, please, because a beast that smells fresh leather tends to want to taste it, and I've lost a bolt or two that way." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bear and wolf for the cloaks, and anything thick enough to turn an ogre's club, brought in dry. And keep {pet} away from the stacked hides, please, because a beast that smells fresh leather tends to want to taste it." },
       },
       choices = {
         { text = "Take only what the land can spare.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -293,7 +293,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "The scouts who return from the mainland, always. Angelas's people come back from the ruins with wounds that close slowly, and the priestesses ask me for more linen than the boats can bring, so I ration it, though I hate to." } },
+      lines = { { id = "xapriest_default", text = "The scouts who return from the mainland, always. The Sentinels come back from the ruins with wounds that close slowly, and the priestesses ask me for more linen than the boats can bring, so I ration it, though I hate to." } },
       choices = {
         { text = "Ration it to the worst hurt first. That's fair.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Give it to those who'll fight again soonest.", next = "BACK", fx = { align = { light = -1 } } },
@@ -458,7 +458,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Better than any map, for the beasts of Feralas know which leaves heal and which poison, and they graze accordingly. Watch what the wild things eat after a fight, and you will learn half of what I teach." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Watch {pet} when it noses at the ground, for it is reading the Earth Mother's gifts, and she speaks more plainly to beasts than to us." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better than any map, for the beasts of Feralas know which leaves heal and which poison. Watch {pet} when it noses at the ground, for the Earth Mother speaks more plainly to beasts than to us." },
       },
       choices = {
         { text = "The beasts are our teachers. We should learn from them.", next = "BACK", fx = { align = { light = 1 } } },
@@ -837,7 +837,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Badly, and every lame kodo means a caravan delayed and a trader overcharging. I'd value a hunter who knows beasts well enough to tell me which of my kodos will make the road and which won't." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well kept, which tells me you know what a beast needs on a long trail, and I'd trust your eye over my drovers'." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Badly, and every lame kodo means a caravan delayed. Your {pet} looks well kept, which tells me you know what a beast needs on a long trail, so I'd trust your eye over my drovers' to tell me which kodos will make the road." },
       },
       choices = {
         { text = "Work the beasts fairly. A broken kodo serves no one.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -847,7 +847,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "No, I can't, and I don't, but I count anyway. The caravans from Thunder Bluff come the long way through the Needles, and every missing spool is one that some kodo walked a hundred miles to bring me." } },
+      lines = { { id = "xrogue_default", text = "No, I can't, and I don't blame them, but I count anyway. The caravans from Thunder Bluff come the long way through the Needles, and every missing spool is one that some kodo walked a hundred miles to bring me." } },
       choices = {
         { text = "Count away. I respect a careful trader.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Your caution insults honest customers.", next = "BACK", fx = { align = { order = -1 } } },
@@ -977,6 +977,6 @@ P:NPC {
     centaur = { { id = "tp_centaur", text = "The centaur of Desolace raid the road between here and Thunder Bluff, and I count the caravans that don't come in. The count is too high this season." } },
     thrall = { { id = "tp_thrall", text = "The Warchief keeps the roads open for us, as much as anyone can. He sends grunts to guard the worst stretches, and they eat everything I sell." } },
     gadgetzan = { { id = "tp_gadgetzan", text = "Goblin traders come up from Gadgetzan and charge me for sand in the bottom of every sack. I pay, because nobody else sells what they sell." } },
-    _none = { { id = "tp_none", text = "That's beyond my shelves, friend. Hadoken hears more of the forest than I do, so ask him." } },
+    _none = { { id = "tp_none", text = "That's beyond my shelves, friend. Hadoken Swiftstrider hears more of the forest than I do, so ask him." } },
   },
 }

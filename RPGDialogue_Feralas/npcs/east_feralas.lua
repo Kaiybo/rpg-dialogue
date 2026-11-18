@@ -118,7 +118,7 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The road, the couriers, and the names of the scouts who didn't come back." } },
+    knows = { { id = "tp_knows", text = "I know the road, the couriers, and the names of the scouts who didn't come back." } },
     background = { { id = "tp_bg", text = "A sentry of the Kaldorei, keeper of a small post on a long road.", next = "post" } },
     _none = { { id = "tp_none", text = "No courier has brought me word of that." } },
   },
@@ -140,7 +140,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Down, and quiet. The Grimtotem have ears, and some of them have good ones." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Doling Justice") }, text = "Raiders, naturalists, shamans. They're still down there, so neither of us is finished." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Doling Justice") }, text = "The Grimtotem raiders, naturalists and shamans are still down there, so neither of us is finished." },
     { id = "g_done", when = { questDone = TODO_QUEST("Doling Justice") }, text = "They felt that, all through the camp. I heard them wailing from up here." },
   },
 
@@ -231,9 +231,9 @@ P:NPC {
   },
 
   topics = {
-    knows = { { id = "tp_knows", text = "The Grimtotem camps, their patrols, and every cage they keep." } },
+    knows = { { id = "tp_knows", text = "I know the Grimtotem camps, their patrols, and every cage they keep." } },
     background = { { id = "tp_bg", text = "A Sentinel who came with the expedition and stayed in the hills.", next = "kindal" } },
-    grimtotem = { { id = "tp_grim", text = "Cruel to the forest and proud of it. I've no pity left for them." } },
+    grimtotem = { { id = "tp_grim", text = "The Grimtotem are cruel to the forest and proud of it. I've no pity left for them." } },
     _none = { { id = "tp_none", text = "I don't know, and I haven't the time to find out." } },
   },
 }

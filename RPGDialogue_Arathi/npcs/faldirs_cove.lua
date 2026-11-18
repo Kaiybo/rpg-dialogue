@@ -38,9 +38,9 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Shakes O'Breen, captain of the Harbinger and the Blackwater Raiders' man in Faldir's Cove. 'Twas a horrible mess out there, and Seahorn will have my ship if he finds out what went down." },
         { id = "h_landho", tags = { "news" }, when = { questActive = TODO_QUEST("Land Ho!") },
-          text = "Lolo sent you, did he? Then you'll have heard we lost the Spirit of Silverpine and the Maiden's Folly, and you'll have heard it in the third person, which is the only way Lolo tells anything." },
+          text = "Lolo, my lookout, sent you, did he? Then you'll have heard we lost the Spirit of Silverpine and the Maiden's Folly, and you'll have heard it in the third person, which is the only way Lolo tells anything." },
         { id = "h_treasure", when = { questActive = TODO_QUEST("Sunken Treasure") },
-          text = "The Professor's contraption swears the treasure's down there, and the Professor swears by his contraption. I'd swear by neither, but I need that gold." },
+          text = "Professor Phizzlethorpe's contraption swears the treasure's down there, and the Professor swears by his contraption. I'd swear by neither, but I need that gold." },
         { id = "h_defended", tags = { "news" }, when = { questRecent = { TODO_QUEST("Death From Below"), days = 3 } },
           text = "We survived the attack, and we couldn't have done it without you! We'll be heading out as soon as the tide rises, and if you weren't bound for bigger things, I'd offer you a place on my crew." },
         { id = "h_seahorn", when = { questDone = TODO_QUEST("Death From Below") },
@@ -76,7 +76,7 @@ P:NPC {
     },
     wreck_reef = {
       lines = {
-        { id = "wf_default", text = "That's no ordinary reef, matey; something's down there. Nilzlix swears he saw carved stone under the hulls, like the roof of a temple, and the naga came boiling out of it before the masts had stopped falling." },
+        { id = "wf_default", text = "That's no ordinary reef, matey; something's down there. Nilzlix, who keeps our logs, swears he saw carved stone under the hulls, like the roof of a temple, and the naga came boiling out of it before the masts had stopped falling." },
       },
       choices = {
         { text = "Naga must want something in this cove.", next = "wreck_naga" },
@@ -86,7 +86,7 @@ P:NPC {
     wreck_naga = {
       big = true,
       lines = {
-        { id = "wn_default", text = "Whatever's in that temple, I'd guess, and they don't care to share it. Naga are known for their ruthlessness, and they'll keep coming until I'm dead, because without my charts nobody gets this crew home." },
+        { id = "wn_default", text = "Whatever's in that temple, I'd guess, and they don't care to share it. They'll keep coming at this cove until we're gone or they are, so we'd best be ready for them." },
       },
       choices = {
         { text = "Then we hold the cove and hold it hard.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -196,7 +196,7 @@ P:NPC {
     ob_prize = {
       big = true,
       lines = {
-        { id = "op_default", text = "Put them ashore at Jaguero Isle with a barrel of water and a rowboat with one oar. Seahorn said I was soft, and the Baron said I'd wasted good ransom, and I still say the sea had enough bodies that day." },
+        { id = "op_default", text = "Put them ashore at Jaguero Isle with a barrel of water and a rowboat with one oar. Seahorn said I was soft, and Baron Revilgaz of Booty Bay said I'd wasted good ransom, and I still say the sea had enough bodies that day." },
       },
       choices = {
         { text = "Mercy suits a captain. You did right.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -227,7 +227,7 @@ P:NPC {
     ob_bloodsail = {
       lines = {
         { id = "ob_default", text = "Not often, but their scouts turn up wherever there's treasure, like gulls at a fish market. I'd half hoped the naga would get them before they got us, but the naga don't seem to care whose colours a sailor wears." },
-        { id = "ob_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Less, now Firallon's gone, and they say a stranger did that, which I'd believe of you, matey. His captains will be fighting over his chair all season, and that's a season they won't spend chasing my wreck." },
+        { id = "ob_done", when = { questDone = TODO_QUEST("The Bloodsail Buccaneers") }, text = "Less, now Fleet Master Firallon's gone, and they say a stranger did that, which I'd believe of you, matey. His captains will be fighting over his chair all season, and that's a season they won't spend chasing my wreck." },
       },
       choices = {
         { text = "Then let's hope they stay busy elsewhere, Captain.", next = "BACK", fx = { learn = { "bloodsail" } } },
@@ -323,7 +323,7 @@ P:NPC {
     { id = "g_default", text = "Argh, sit if ye want, the fire's free. Just don't ask me how I'm keepin'." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The naga were singin' in the water last night, an' I didnae sleep." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' the sea's still out there laughin' at me. Sit down, then." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Drowned Sorrows") }, text = "Raiders an' sorceresses, along the shore. Kill them for my boys." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Drowned Sorrows") }, text = "The Daggerspine raiders an' sorceresses are out along the shore. Kill them for my boys." },
   },
 
   notice = {
@@ -537,7 +537,7 @@ P:NPC {
         { id = "ssw_default", text = "Lights, down under the reef, green as a Lordaeron bog, an' a voice singin' in a tongue I didnae know. The singin' stopped when I went black, an' when I woke on the sand I could still hear the end o' it, an' sometimes I still do." },
       },
       choices = {
-        { text = "The naga sorceresses. Tell O'Breen.", next = "BACK", fx = { affinity = 1 } },
+        { text = "That sounds like the naga sorceresses. Tell O'Breen.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "You can see me, mon? Then the spirits sent you, and I know by who, so sit down and listen before the fire takes my voice." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to dis cursed rock. Did you find him, the ogre with my ring?" },
-    { id = "g_done", when = { questDone = TODO_QUEST("Krom'Grul") }, text = "He has it now, my ring, or he threw it away, I know. I can feel the rock letting go of me a little more every day, and Bwonsamdi waiting at the edge of it." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Krom'Grul") }, text = "Thal'trak has my ring now, I know it, even if he threw it in the river. I can feel the rock letting go of me a little more every day, and Bwonsamdi waiting at the edge of it." },
   },
 
   notice = {
@@ -137,7 +137,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Never get close enough to hear the chanting, because by then they've already seen you, and no voodoo of mine could hide me." } },
     _none = { { id = "tp_none", text = "I don't know dat one. The dead know less than you'd think, mon." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin be our chief, mon, and he be wise. Tell him a Darkspear scout died well, if you ever see him." } },
-    darkspear = { { id = "tp_darkspear", text = "The Darkspear be my husband's people, mon, and mine be in the Hinterlands. We was going to live there together, after." } },
+    darkspear = { { id = "tp_darkspear", text = "The Darkspear be my people and my husband's, mon, but my mother and father live in the Hinterlands now. We was going to live there with them, after." } },
     firegut = { { id = "tp_firegut", text = "The Firegut chained me to this altar for their ritual. Krom'Grul be the one who did it, mon, and I hope you make him pay." } },
     thrall = { { id = "tp_thrall", text = "The Warchief give the Darkspear a home, and my husband fight for him. I fight for him too, in my way." } },
   },

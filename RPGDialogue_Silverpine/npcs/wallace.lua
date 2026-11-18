@@ -22,7 +22,7 @@ P:NPC {
 
   notice = {
     { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "You smell like a cellar after a wet spring, friend, but then so does half this forest. I won't hold it against you if you don't hold my nose against me." },
+      text = "You smell like a cellar after a wet spring, friend, but then so does half this forest, so I won't hold it against you." },
     { id = "n_smith", cat = "craft", when = { profession = "Blacksmithing" },
       text = "Coal smoke and quench oil on your hands. A smith! Then you'll be judging my stock, and I'll be listening to you do it." },
   },

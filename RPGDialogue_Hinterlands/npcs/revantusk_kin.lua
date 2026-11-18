@@ -35,7 +35,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I be Elder Torntusk of de Revantusk, an' dis be not my hut. De Vilebranch came in de night an' brought me up here for deir priestess an' her altar, an' she be takin' her time about it." },
         { id = "h_found", tags = { "news" }, when = { questActive = TODO_QUEST("Kidnapped Elder Torntusk!") },
-          text = "So she found where dey keep me. Good. Now hear me: de cage be locked, an' one of deir keepers carry de key, so dat be de next ting you need." },
+          text = "So my mate found where dey keep me. Good. Now hear me: de cage be locked, an' one of deir keepers carry de key, so dat be de next ting you need." },
         { id = "h_key", when = { questActive = TODO_QUEST("Recover the Key!") },
           text = "Find de one who hold de key, take it from dem, an' bring it back up de stairs. Don't stop to admire de view; it be full of Vilebranch." },
         { id = "h_free", tags = { "news" }, when = { questActive = TODO_QUEST("Return to Primal Torntusk") },
@@ -203,7 +203,7 @@ P:NPC {
     },
 
     raids = {
-      lines = { { id = "ra_default", text = "Not so often since dey took de elder, because dey know de Primal be waitin' for dem. But dey come at night when dey come, so I keep a quiver by my bed." } },
+      lines = { { id = "ra_default", text = "Not so often since dey took Elder Torntusk, because dey know his mate, de Primal, be waitin' for dem. But dey come at night when dey come, so I keep a quiver by my bed." } },
       choices = {
         { text = "Should the village strike first?", next = "raids_stance" },
         { text = "Something else.", next = "BACK" },
@@ -222,7 +222,7 @@ P:NPC {
     wood = {
       lines = { { id = "wo_default", text = "From de trees by de shore, where de Wildhammer don't fly so low. Feathers from de owls, when de hunters bring dem, an' from de seagulls when dey don't." } },
       choices = {
-        { text = "Seagull feathers? Do they fly true?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Seagull feathers. I'll take your word they fly true.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -247,6 +247,6 @@ P:NPC {
 
   topics = {
     background = { { id = "tp_bg", text = "Revantusk, born an' raised. I make arrows an' sell arrows an' sometimes shoot arrows." } },
-    _none = { { id = "tp_none", text = "Don't know, mon. Ask Lard, he hear everyting at de inn." } },
+    _none = { { id = "tp_none", text = "Don't know, mon. Ask Lard, de innkeeper; he hear everyting." } },
   },
 }

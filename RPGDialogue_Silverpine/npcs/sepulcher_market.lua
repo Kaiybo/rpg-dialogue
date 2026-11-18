@@ -93,7 +93,7 @@ P:NPC {
     },
   },
   topics = {
-    worgen = { { id = "tp_worgen", text = "Ask me anything else about them and I'll answer, but don't ask me to sew them." } },
+    worgen = { { id = "tp_worgen", text = "Ask me what you like about the worgen, but don't ask me to sew their hides." } },
     _none = { { id = "tp_none", text = "I know leather and saddles, and very little else worth repeating. Try Bates at the inn." } },
   },
 }
@@ -236,7 +236,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     metal = {
-      lines = { { id = "m_default", text = "Bat crates from the Undercity, when Karos's bats feel like flying. Otherwise scrap, from wherever the Deathguard can drag it, and Ambermill's walls have a fair bit of good iron in their gates if anyone ever gets close enough." } },
+      lines = { { id = "m_default", text = "Bat crates from the Undercity, when Karos Razok's bats feel like flying. Otherwise scrap, from wherever the Deathguard can drag it, and Ambermill's walls have a fair bit of good iron in their gates if anyone ever gets close enough." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     fallen = {
@@ -257,7 +257,7 @@ P:NPC {
     },
   },
   topics = {
-    worgen = { { id = "tp_worgen", text = "They chew pauldrons. That's what I know, and that's all I need to know." } },
+    worgen = { { id = "tp_worgen", text = "Worgen chew pauldrons. That's what I know, and that's all I need to know." } },
     _none = { { id = "tp_none", text = "Not my trade. Ask someone with less to hammer." } },
   },
 }
@@ -299,7 +299,7 @@ P:NPC {
       },
     },
     vials = {
-      lines = { { id = "v_default", text = "Renferrel says it's samples, from the forest, for the war against the Scourge. Mind you, a sample in my day was a thimbleful, and he takes them by the crate." } },
+      lines = { { id = "v_default", text = "Apothecary Renferrel says it's samples, from the forest, for the war against the Scourge. Mind you, a sample in my day was a thimbleful, and he takes them by the crate." } },
       choices = {
         { text = "What do you think he's making?", next = "vials_what" },
         { text = "Something else.", next = "BACK" },
@@ -355,7 +355,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Sarah Goode. I keep the stables, for whoever's beasts need keeping, and for the bats when Karos lets them out of his sight. It's quiet work, and that suits me." },
+        { id = "h_default", key = true, text = "Sarah Goode. I keep the stables, for whoever's beasts need keeping, and for the bats when Karos Razok, our bat handler, lets them out of his sight. It's quiet work, and that suits me." },
         { id = "h_scourge", when = { race = "Scourge", class = "HUNTER" }, text = "One of us, with a beast that trusts you anyway. That's a rare thing, and you should be proud of it, because most animals can smell the grave on us." },
       },
       again = {
@@ -403,7 +403,7 @@ P:NPC {
     },
   },
   topics = {
-    worgen = { { id = "tp_worgen", text = "My animals hate them, and my animals are better judges than I am." } },
+    worgen = { { id = "tp_worgen", text = "My animals hate the worgen, and my animals are better judges than I am." } },
     _none = { { id = "tp_none", text = "I wouldn't know. Ask the innkeeper, he collects gossip like a magpie." } },
   },
 }

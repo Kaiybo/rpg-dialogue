@@ -14,10 +14,10 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_bed", text = "Forgive me if I don't get up. Ivar left me with fewer working parts than I started with." },
+    { id = "g_bed", text = "Forgive me if I don't get up. Ivar the Foul's ghouls left me with fewer working parts than I started with." },
     { id = "g_back", when = { metBefore = true }, text = "Oh. You're back? Good, because the ceiling and I ran out of things to say to each other." },
     { id = "g_potion", when = { questActive = TODO_QUEST("Return to Quinn") }, text = "Rane said someone was coming with a potion. If it has hearts in it, please don't tell me which kind." },
-    { id = "g_eyes", when = { questActive = TODO_QUEST("Wild Eyes") }, text = "Murloc eyes, along the lakeshore. Renferrel will grumble, but he'll grumble with something new to try." },
+    { id = "g_eyes", when = { questActive = TODO_QUEST("Wild Eyes") }, text = "Renferrel wants murloc eyes from the lakeshore now. He'll grumble at whatever you bring, but at least he'll grumble with something new to try." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I've moved exactly once in that time, to throw a boot at a ghoul. I missed." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown up since you brought me that potion. I'd say I'm proud, but I've no right to it; I've spent the whole time lying down." },
   },
@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_drank", tags = { "news" }, when = { questRecent = { TODO_QUEST("Return to Quinn"), days = 2 } },
           text = "I can feel the potion working, or I can feel something, at least. I'll soon be able to travel, and I'm told that's progress." },
         { id = "h_wild", when = { questDone = TODO_QUEST("Return to Quinn"), questBefore = TODO_QUEST("Wild Eyes") },
-          text = "I wouldn't dare question Renferrel's formulae, but I'd be lying if I said that potion did very much. He's obsessed with hearts lately, and I think murlocs might offer him a fresh perspective, since they have eyes." },
+          text = "I wouldn't dare question Renferrel's formulae, but I'd be lying if I said that potion did very much. He's obsessed with hearts lately, so I've suggested he try murloc eyes instead, if only for a change." },
         { id = "h_again_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Return to Quinn (Again)"), days = 3 } },
           text = "That one worked, and I don't care what was in it. I can stand, and I can almost walk, and Ivar had better start worrying." },
         { id = "h_ivar_done", tags = { "news" }, when = { questDone = TODO_QUEST("Ivar the Foul") },
@@ -91,7 +91,7 @@ P:NPC {
       },
     },
     renferrel_hearts = {
-      lines = { { id = "rh_default", text = "You'd have to ask him, and I'd advise against it unless you've an hour spare. If my choice is a second death or Renferrel killing me for doubting him, I know which one I'd pick." } },
+      lines = { { id = "rh_default", text = "You'd have to ask him, and I'd advise against it unless you've an hour spare. Just don't tell him I doubt the hearts, because I'd rather not find out what goes into the next potion." } },
       choices = {
         { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "He's trying to help you, Quinn.", next = "BACK", fx = { trait = { kind = 1 } } },

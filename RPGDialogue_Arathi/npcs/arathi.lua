@@ -10,7 +10,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Captain Nials told me to make it quick, and meant it. What's left of Stromgarde is mostly tents now, and she carries that like a sword he refuses to put down.",
+    first = "Captain Nials told me to make it quick, and meant it. What's left of Stromgarde is mostly tents now, and she carries that like a sword she refuses to put down.",
     third = "{name} met Captain Nials at Refuge Pointe, an officer of Stromgarde fighting to win back the fallen kingdom.",
   },
 
@@ -148,7 +148,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
-          text = "A full company, and on my doorstep at that! Refuge Pointe holds because the Forsaken and the Boulderfist can't agree which of them wants it more, and five more blades on the wall changes that sum nicely." },
+          text = "A full company, and on my doorstep at that! Refuge Pointe holds because the Syndicate and the Boulderfist can't agree which of them wants it more, and five more blades on the wall make that sum a good deal better for us." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've heard Ironforge's priests speak of the earth as the Titans' handiwork, {class}, not as a voice, so I'll judge what you bring to the field and leave the theology to others." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid of the Kaldorei, here in the Highlands? Stromgarde could use anyone who knows wild country, because the Witherbark know these hills far better than my soldiers do." },
@@ -230,7 +230,7 @@ P:NPC {
       },
     },
     keep_army = {
-      lines = { { id = "ka_default", text = "This one, small, stubborn and still here, and whoever walks in off the road willing to help. Today, that's you." } },
+      lines = { { id = "ka_default", text = "I have one: this one, small, stubborn and still here, and whoever walks in off the road willing to help. Today, that's you." } },
       choices = {
         { text = "Something else.", next = "BACK" },
         { text = "How long can you really hold, Captain?", tag = "Persuade", next = "tents",
@@ -355,8 +355,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_fort", text = "You're in Hammerfall, {class}, built where the humans once kept us in chains, and here we fight now and soon we'll prosper. Which are you here for?" },
-    { id = "g_back", when = { metBefore = true }, text = "You again, good, because the hills won't clear themselves, and your axe has honor in it." },
+    { id = "g_fort", text = "You're in Hammerfall, {class}, built where the humans once kept us in chains. We fight here now, and soon we'll prosper here, so which have you come for?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again, good, because the hills won't clear themselves, and Hammerfall can use you." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and Hammerfall kept fighting without you. Now you're back, so fight with us." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You're stronger than when you last stood here, I can see it in your stance. The hills will notice it too." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The grunts say you've done good work for Hammerfall. That's how a stranger earns a place by our fire." },
@@ -402,7 +402,7 @@ P:NPC {
     },
     opn_peace_r_war = {
       lines = {
-        { id = "opn_peace_r_war", text = "Say that louder at the fire and you'll have friends for life, and Korin will glare at you across it. I won't argue, though I'll follow the Warchief." },
+        { id = "opn_peace_r_war", text = "Say that louder at the fire and you'll have friends for life, and my wife Korin will glare at you across it. I won't argue, though I'll follow the Warchief." },
       },
       choices = {
         { text = "Something else, Drum Fel.", next = "BACK" },
@@ -446,7 +446,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Aye, and the Highland striders too, for they kick over carts and scatter the pack beasts. When Hammerfall trades with the Undercity in earnest, I want those roads clear enough for a peon to walk them alone." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks fierce enough to clear a road on its own. Feed it well, {class}, because it'll earn its keep here." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Aye, and the Highland striders too, for they kick over carts and scatter the pack beasts. Your {pet} looks fierce enough to clear a road on its own, {class}, so feed it well, because it'll earn its keep here." },
       },
       choices = {
         { text = "I'll clear the roads, and take only what I need.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -464,7 +464,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "On the wall, when the ogres come, and in the yard after, when the young ones come back from the Witherbark with poisoned cuts. Tor'gan does what he can with the spirits, but he's one troll and he has Gor'mul to look after, and I won't lose a warrior because the shaman was busy with a ghost." } },
+      lines = { { id = "xhpriest_default", text = "On the wall, when the ogres come, and in the yard after, when the young ones come back from the Witherbark with poisoned cuts. Tor'gan, our shaman, does what he can, but he's one troll and he spends half his days on old Gor'mul, and I won't lose a warrior because the shaman was busy elsewhere." } },
       choices = {
         { text = "Then I'll stand on the wall with your warriors.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Gor'mul's a lost cause. Tor'gan should tend the living.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -503,7 +503,7 @@ P:NPC {
         { text = "Must the ogres be driven out, or can the highlands be shared?", next = "druid_q", when = { class = "DRUID" } },
         { text = "Tell me about this place.", next = "history" },
         { text = "Hammerfall looks like it's been under attack.", next = "enemies" },
-        { text = "Where do their leaders hide?", next = "stromgarde" },
+        { text = "Where do the ogre leaders hide?", next = "stromgarde" },
         { text = "Hammerfall seems more camp than stronghold.", next = "future" },
         { text = "Lok'tar, chieftain. I came to fight.", next = "orc", when = { race = "Orc" } },
         { text = "The Witherbark are trolls. Do you trust me?", next = "troll", when = { race = "Troll" } },
@@ -594,7 +594,7 @@ P:NPC {
     },
     stromgarde_humans = {
       lines = {
-        { id = "sh_default", text = "A prince with a handful of soldiers holds a corner of it, and the Syndicate thieves crawl through the rest. Zengu has business with that prince, so ask him, but my quarrel is with the ogres." },
+        { id = "sh_default", text = "A prince with a handful of soldiers holds a corner of it, and the Syndicate thieves crawl through the rest. Zengu, the Darkspear by our fire, has business with that prince, so ask him, but my quarrel is with the ogres." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "syndicate" } } } },
     },
@@ -792,7 +792,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Because a sword made to kill trolls know where a troll keep his heart, and the Gurubashi got plenty of hearts. Takin' it from Stromgarde be easy enough, mon, but keepin' Trol'kalar from turnin' on the hand that hold it." } },
+      lines = { { id = "xrogue_default", text = "Because a sword made to kill trolls know where a troll keep his heart, and the Gurubashi got plenty of hearts. Takin' it from Stromgarde be easy enough, mon; the hard part be keepin' Trol'kalar from turnin' on the hand that hold it." } },
       choices = {
         { text = "Using the enemy's own weapon is clever. I like it.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Stolen blades bring bad luck. Forge your own.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -916,12 +916,12 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "Zengu hear plenty, mon, sittin' quiet while the orcs shout. Ask, and I tell you what I know." },
     },
-    yenniku = { { id = "tp_yenniku", text = "The chief's boy, and bad business in the jungle. Nimboya see to that, and I see to this." } },
-    echo_isles = { { id = "tp_isles", text = "One day, mon, but first the sword, then the rest." } },
+    yenniku = { { id = "tp_yenniku", text = "Yenniku be Nimboya's boy, taken by the Bloodscalp in the jungle, and that be bad business. Nimboya see to that, and Zengu see to this." } },
+    echo_isles = { { id = "tp_isles", text = "The Echo Isles be home, and Zengu go back one day, mon, but first the sword, and then the rest." } },
     background = { { id = "tp_ba", text = "A Darkspear hunter, sent by the chief because I be patient, and stealing a sword out of a tomb take patience.", next = "why" } },
     advice = { { id = "tp_ad", text = "The Syndicate in Stromgarde wear masks, but their boots be loud. Listen for the boots, mon." } },
     darkspear = { { id = "tp_darkspear", text = "The Darkspear stand with the Horde, and I am proud of it, mon, even this far from the Echo Isles. Vol'jin leads us well, and he don't forget a debt." } },
-    voljin = { { id = "tp_voljin", text = "Vol'jin is a clever leader, and he knows what it is to lose a home and build another. He sent me to watch the Witherbark here, and I watch them well." } },
+    voljin = { { id = "tp_voljin", text = "Vol'jin is a clever leader, and he knows what it is to lose a home and build another. He sent me here for Trol'kalar, and Zengu don't go home without it." } },
     zul_gurub = { { id = "tp_zul_gurub", text = "Zul'Gurub is the heart of the Gurubashi, and they have woken Hakkar again in there. The Zandalar are gathering to stop it, and I hope they move quickly." } },
     _none = { { id = "tp_none", text = "Zengu only know the hunt, and the sword." } },
   },
@@ -979,7 +979,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Few, for the Highlands are strange to us, all stone and wet wind instead of grass. I miss the plainstriders and the open sky, and I think the young hunters who come here miss them more, though they would never say so." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let {pet} lie by the fire, {class}. The Earth Mother made it as she made us, and it has walked as far as you have to get here." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Few, for the Highlands are strange to us, all stone and wet wind instead of grass. Let {pet} lie by the fire, {class}, because it has walked as far as you have to get here." },
       },
       choices = {
         { text = "Hunt with respect, as the Earth Mother taught. Take only what you need.", next = "BACK", fx = { align = { light = 1 } } },
