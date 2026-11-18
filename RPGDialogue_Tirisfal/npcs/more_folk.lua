@@ -1225,6 +1225,7 @@ P:NPC {
     scarlet_crusade = { { id = "tp_scarlet", text = "Their swords are well made, I'll admit, better than mine. I've taken a few apart to see how the tang's set, and I'm learning from them whether they like it or not." } },
     trade = { { id = "tp_trade", text = "Brill's a good town for a smith who's still learning, because the customers are all beginners too and nobody minds plain work. There's no smithing trainer nearer than the Undercity, more's the pity." } },
     advice = { { id = "tp_ad", text = "Wipe the blade before you sheathe it, every time. Nothing in the Glades bleeds anything that's good for steel." } },
+    lordaeron = { { id = "tp_lord", text = "My master made swords for the garrison at the capital, and they wore his mark on parade. I've one of them still, and I don't sell it." } },
     _none = { { id = "tp_none", text = "Couldn't say. If it isn't steel, I don't know much about it." } },
   },
 }
@@ -1298,6 +1299,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Hamlin Atkins, mushroom farmer. I used to grow barley out past the Brightwater, and now I grow mushrooms in a cellar, and if you ask me, the mushrooms are better company." },
         { id = "h_back", when = { metBefore = true }, text = "Hamlin Atkins, with the mushrooms, as ever. I've been round the town twice already this morning, and the basket's a good deal lighter than when I started." },
+        { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Hamlin Atkins, mushroom farmer, and you're just the sort of customer I grow them for. I used to raise barley out past the Brightwater, and now it's mushrooms in a cellar, and they're better company." },
       },
       again = {
         { id = "h_again", text = "Anything else? Mind the basket." },
@@ -1342,6 +1344,7 @@ P:NPC {
     scarlet_crusade = { { id = "tp_scarlet", text = "They burn any farm that shelters one of us, and they use the family's own lamp oil to do it. I don't go west of town with the basket any more." } },
     lordaeron = { { id = "tp_lord", text = "It was good barley country, friend, the best north of the lake, and the harvest suppers went on for three days. I try to remember the suppers and not what came after." } },
     advice = { { id = "tp_ad", text = "Butter, a hot pan, and a pinch of salt if you can find any. Renee at the Gallows' End does them properly for her living guests, and she buys from me." } },
+    forsaken = { { id = "tp_forsaken", text = "We're a bit like my crop, friend, when you think on it. We came up in the dark out of something dead, and we're doing better than anyone expected." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask me about mushrooms." } },
   },
 }
@@ -1413,6 +1416,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Blacksmith Rand. I sell armor to the risen of Deathknell, which means I sell a great deal of very simple armor to people who don't yet know which end of a gauntlet goes on first." },
         { id = "h_back", when = { metBefore = true }, text = "Blacksmith Rand, same as before. Let me see how that last piece is holding, because I like to know which of my rivets came back." },
+        { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Blacksmith Rand. I don't get many living customers, and nothing on my bench was cut for a frame like yours, but I can let out a strap or two if you're stuck." },
       },
       again = {
         { id = "h_again", text = "Something else? There's a line behind you, or there will be." },
@@ -1457,6 +1461,7 @@ P:NPC {
     scarlet_crusade = { { id = "tp_scarlet", text = "They camp south of the village and they make good scrap. I'd rather have them as iron than as neighbours." } },
     forsaken = { { id = "tp_forsaken", text = "Every one of us in Deathknell is a beginner at being dead. Executor Arren runs the place, and the rest of us get the newly risen dressed and armed and out of the gate." } },
     advice = { { id = "tp_ad", text = "Check your straps after every fight, because you won't feel it when one goes. The Rattlecages always find the piece that's hanging loose." } },
+    lordaeron = { { id = "tp_lord", text = "Deathknell had a smith before me, a real one, and his mark's still stamped on the anvil. I work over it every day and I've never felt entitled to file it off." } },
     _none = { { id = "tp_none", text = "I hammer metal, not questions. Ask Mordo or the Shadow Priest." } },
   },
 }
@@ -1584,5 +1589,1160 @@ P:NPC {
     trade = { { id = "tp_trade", text = "You'll not learn smithing from me, since I'm barely learning it myself. The missus keeps the general goods across the way, and she'll know where to find anything I haven't got." } },
     advice = { { id = "tp_ad", text = "Ask Mrs. Winters, whatever it is. If something's happened in Brill, she knew about it before the person it happened to." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask the missus; she hears everything." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Missed folk: Deathknell's weaponsmith, three more of Brill's trainers and traders, the
+-- fishers on Brightwater Lake, the Rhobarts, and the goblins of the zeppelin tower.
+---------------------------------------------------------------------------
+
+-- Harold Raims: Deathknell's apprentice weaponsmith.
+P:NPC {
+  key = "tir_raims", id = TODO_NPC("Harold Raims"), name = "Harold Raims", title = "Apprentice Weaponsmith",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "deathknell" }, temper = { "wry", "patient" }, values = { "craft", "practical" },
+  notices = { "greenness", "class", "weary" },
+  impression = {
+    first = "Harold Raims sells the first weapon most of the newly risen ever hold, and he watches each of them pick one up as though he were laying a small bet. He is wry about it, and more careful than he sounds.",
+    third = "{name} met Harold Raims, the apprentice weaponsmith who arms the newly risen of Deathknell.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Pick one up and see how it sits in your hand. Nobody in Deathknell knows what they can swing until they've tried." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back, and you've still got all your fingers. I'll take that as a compliment to the blade." },
+    { id = "g_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "You'll be wanting a staff or a dagger, and you'll tell me you don't need either. Take one anyway, because spells run dry and Rattlecages don't." },
+  },
+
+  notice = {
+    { id = "n_green", cat = "greenness", when = { maxLevel = 3 },
+      text = "Your grip's all thumbs, but that's only the grave in your knuckles. Hold something heavy for an hour a day and it comes back." },
+    { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
+      text = "That edge has been through bone, and plenty of it. Let me sell you something that hasn't been chewed before you go back out to the fields." },
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "One of David Trias's pupils, by the way you looked at the daggers first and the door second. The short ones are on the left." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Harold Raims, apprentice weaponsmith. I sell swords, maces, daggers and staves to people who were lying in the ground this morning, so you'll understand if I keep the stock simple." },
+        { id = "h_warrior", when = { class = "WARRIOR" }, text = "Harold Raims, and you're one of Dannal Stern's, I can tell by the stance. He drills them and I arm them, and between us we get a soldier out of a corpse in about a week." },
+        { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Harold Raims, weapons. I'll warn you that everything here is made for Forsaken hands, which are lighter than they look, so you may find the grips a little mean for a fist like yours." },
+        { id = "h_back", when = { metBefore = true }, text = "Harold Raims, same rack, same anvil. Let me see how the last one's held up before you tell me what you want this time." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I've a rack to fill before the next lot climbs out." },
+        { id = "h_again2", text = "Go on. Asking's free, it's the steel that costs." },
+        { id = "h_again3", text = "What else would you like to know? I can talk and sharpen." },
+      },
+      choices = {
+        { text = "Show me what's on the rack.", next = "BUSINESS" },
+        { text = "You watch people choose. What do you look for?", next = "choose" },
+        { text = "Simple stock, for a village at war.", next = "simple" },
+        { text = "Who else works the forge with you?", next = "forge" },
+        { text = "What should a new warrior carry, Harold?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Not today.", next = "END" },
+      },
+    },
+    choose = {
+      lines = { { id = "ch_default", text = "Whether the hand remembers before the head does. A man who was a woodcutter reaches for the axe without knowing why, and a woman who kept a kitchen takes the knife, and I've stopped being surprised by which of them turn out dangerous." } },
+      choices = {
+        { text = "And the ones whose hands remember nothing?", next = "choose2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    choose2 = {
+      big = true,
+      lines = { { id = "ch2_default", text = "I give those a mace, because you can't hold a mace wrong, and I send them to Executor Arren like the rest. Some weeks I wonder whether I ought to, since half of them barely know their own names and I'm putting a weapon in their hands." } },
+      choices = {
+        { text = "They've a right to defend themselves. Arm them.", next = "BACK", reply = "That's how I settle it, most nights. Nobody asked them if they wanted to wake up, and the least we owe them is a fighting chance.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Arm them all. The Dark Lady needs every hand.", next = "BACK", reply = "That's the Executor's view, and it keeps my rack empty. I only wish the hands knew what they were being spent on.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    simple = {
+      lines = { { id = "si_default", text = "Simple is what they can use. The mindless dead in the graveyard and the Rattlecages in the fields don't parry, so nobody here needs a duelling blade, only something that won't bend the third time it hits a skull." } },
+      choices = {
+        { text = "And against the Scarlet Crusade?", next = "simple2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    simple2 = {
+      lines = { { id = "si2_default", text = "Against them you want reach and a clear road home. The Crusaders camped south of the village are trained and armoured, and I tell every customer that a new sword doesn't make a new swordsman, though not many of them hear it." } },
+      choices = {
+        { text = "I heard it.", next = "BACK", reply = "Then you're ahead of most, and you'll likely be back to buy a second one. That's all the proof I need.", fx = { affinity = 1 } },
+        { text = "Something else, Harold.", next = "BACK" },
+      },
+    },
+    forge = {
+      lines = { { id = "fo_default", text = "Blacksmith Rand, who does the armor, and we share one anvil and a good many arguments about whose turn it is. Archibald Kava has the cloth and leather across the way, and Joshua Kien the general goods, so the four of us outfit the whole graveyard." } },
+      choices = {
+        { text = "Two apprentices at one anvil. Who's teaching whom?", next = "forge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge2 = {
+      lines = { { id = "fo2_default", text = "Nobody, and that's the joke of it. The masters are all in the Undercity's War Quarter, so Rand and I learn from our mistakes, and there's a pile of them behind the shed that we melt down every month and try again." } },
+      choices = {
+        { text = "That's still a way of learning.", next = "BACK", reply = "It's the slow way, but we've the time for it. Being dead is good for patience, if nothing else." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warrior = {
+      lines = { { id = "wr_default", text = "A sword and a shield until Dannal says otherwise, and he won't say otherwise for a good while. Leave the big two-handers alone for now, because your arms came back weaker than you think and the grave doesn't tell you so." } },
+      choices = {
+        { text = "Sword and shield, then.", next = "BUSINESS" },
+        { text = "I'll remember it. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    scarlet_crusade = { { id = "tp_scarlet", text = "Their steel is better than mine, and I'm not too proud to say so. What the Deathguard bring back from their camp, I study before I melt it." } },
+    forsaken = { { id = "tp_forsaken", text = "Everyone who comes to my rack was somebody else a little while ago. I try to sell them something that suits who they are now." } },
+    advice = { { id = "tp_ad", text = "Wipe it, oil it, and don't use it to pry open coffins. You'd be amazed how many I get back bent from that." } },
+    lordaeron = { { id = "tp_lord", text = "I was a cooper in the old kingdom, I think, because my hands know hoops and staves better than they know blades. Barrels aren't wanted now, so I learned swords." } },
+    scourge = { { id = "tp_scourge", text = "The mindless ones in the graveyard are what every customer of mine nearly was. I think of that each time I hand somebody a sword to use on them." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you. Ask Executor Arren, or anyone who's been above ground longer than I have." } },
+  },
+}
+
+-- Gina Lang: Brill's second demon trainer, upstairs at the Gallows' End.
+P:NPC {
+  key = "tir_gina", id = TODO_NPC("Gina Lang"), name = "Gina Lang", title = "Demon Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "brill" }, temper = { "cool", "amused" }, values = { "control", "knowledge" },
+  notices = { "class", "pet", "fel" },
+  impression = {
+    first = "Gina Lang sells grimoires from an upstairs room of the Gallows' End, and she talks to a customer's demon before she talks to the customer. She seems to find warlocks a good deal more amusing than the things they summon.",
+    third = "{name} met Gina Lang, a demon trainer who keeps a room above the Gallows' End Tavern in Brill.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Close the door behind you, if you please. The draught turns the pages, and some of these should not be read by accident." },
+    { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, and one who climbed the stairs, which already sets you above the ones who stop at Ageron's shelf. Let me see what you've brought with you." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. I wondered whether you would come back or whether your servant would come back without you." },
+  },
+
+  notice = {
+    { id = "n_imp", cat = "pet", when = { class = "WARLOCK", pet = { family = "Imp" } },
+      text = "Your imp is muttering in Eredun under its breath, and none of it is polite. It thinks I can't understand it, and I'd leave it thinking so." },
+    { id = "n_void", cat = "pet", when = { class = "WARLOCK", pet = { family = "Voidwalker" } },
+      text = "A voidwalker, and it stood in the doorway until you told it to come in. That is a well-kept servant, {class}, and I don't say so often." },
+    { id = "n_light", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
+      text = "You are standing as far from my shelf as the room allows. That is sensible of you, and I'm not offended in the least." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Gina Lang, and I sell the books that teach a bound demon new work. Ageron Kargal does the same downstairs, so you may take it that Brill has more warlocks than its size would suggest." },
+        { id = "h_lock", when = { class = "WARLOCK" }, text = "Gina Lang. You have a servant from the Nether and it knows only what it arrived knowing, so tell me which kind it is, and I shall tell you which of my books it is ready for." },
+        { id = "h_back", when = { metBefore = true }, text = "Gina Lang, as before, and the shelf has not changed, though you may have. Tell me what your servant has learned since we last spoke, and what it has refused to." },
+      },
+      again = {
+        { id = "h_again", text = "Was there something more? Speak quietly, the books on the top shelf are light sleepers." },
+        { id = "h_again2", text = "Go on. I have all evening, and so does everything in this room." },
+        { id = "h_again3", text = "Ask it, then. I do enjoy a question I haven't heard this week." },
+      },
+      choices = {
+        { text = "Show me your grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
+        { text = "Two demon trainers, in one small tavern.", next = "two" },
+        { text = "You speak to the demon before its master.", next = "speak" },
+        { text = "Where do the books come from?", next = "books" },
+        { text = "How do I know when my demon is ready for more?", next = "ready", when = { class = "WARLOCK" } },
+        { text = "I'll leave you to your reading.", next = "END" },
+      },
+    },
+    two = {
+      lines = { { id = "tw_default", text = "It is less strange than it sounds. Ageron keeps the common books by the stairs, where a beginner can find them, and I keep the ones a beginner ought not to find. We send each other customers, and we have never once agreed about a demon." } },
+      choices = {
+        { text = "What do you disagree about?", next = "two2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    two2 = {
+      big = true,
+      lines = { { id = "tw2_default", text = "He holds that a demon is a hound, to be leashed short and never spoken to. I hold that a thing which can hate you can also bargain, and that a servant who has been given something to lose will serve the better for it. You have an opinion, I expect." } },
+      choices = {
+        { text = "Ageron's right. A leash, and nothing more.", next = "BACK", reply = "Then you will have obedient servants and dull ones. There are worse fates for a warlock, and I have watched most of them.", fx = { align = { order = 1 } } },
+        { text = "I'd bargain. A willing servant is a sharper one.", next = "BACK", reply = "So I have found. Only remember that it is bargaining too, and that it has had ten thousand years more practice than you.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    speak = {
+      lines = { { id = "sp_default", text = "The demon tells me more. A warlock will say whatever flatters them, but an imp cannot help boasting of every order it has twisted, and a voidwalker's silence has a different weight when it has been ill used. I learn the master from the servant." } },
+      choices = {
+        { text = "And what do the demons of Brill say?", next = "speak2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    speak2 = {
+      lines = { { id = "sp2_default", text = "That Rupert Boch's pupils are well drilled and frightened of him, which is as it should be. And that the newly risen make careless masters at first, because a person who has already died once is slow to believe that anything worse can happen." } },
+      choices = {
+        { text = "Something worse can always happen.", next = "BACK", reply = "It can, and I have a shelf of books describing it. I am glad that one of us did not need to read them to know.", fx = { affinity = 1 } },
+        { text = "Something else, Gina.", next = "BACK" },
+      },
+    },
+    books = {
+      lines = { { id = "bk_default", text = "From the Undercity, for the most part, copied in the Magic Quarter by scribes who are paid not to understand what they write. A few are older, out of private libraries in Lordaeron whose owners were hanged for keeping them, back when there was anyone to do the hanging." } },
+      choices = {
+        { text = "The kingdom burned such books. Now you sell them.", next = "books2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    books2 = {
+      lines = { { id = "bk2_default", text = "The kingdom burned a great many things and was not saved by it. The Dark Lady has no such scruples, and so the knowledge is taught in the open, by people who know its dangers, which I consider a safer arrangement than a cellar and a guilty conscience." } },
+      choices = {
+        { text = "Safer for whom?", next = "BACK", reply = "For the warlock, certainly. For everyone else, I should say it depends upon the warlock, as it always did." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ready = {
+      lines = {
+        { id = "rd_default", text = "When it has stopped testing the orders it already has. A servant that still looks for the gap in every command will find a wider gap in a new one, so bring it back to me when it obeys the old work without that little pause first." },
+        { id = "rd_imp", when = { pet = { family = "Imp" } }, text = "With an imp, when it has stopped complaining about the last book and started complaining about being bored. That one of yours is nearly there, by the sound of it, so it wants perhaps another week of honest work." },
+      },
+      choices = {
+        { text = "I'll watch for the pause.", next = "BACK", reply = "Do. Most never learn to see it, and those are the ones whose demons I end up selling on.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    burning_legion = { { id = "tp_legion", text = "What I deal in are the Legion's kitchen servants, taken one at a time and bound. Anyone who tells you they understand the masters of the house is selling something worse than a book." } },
+    forsaken = { { id = "tp_forsaken", text = "We were bound to a will not our own, and we know precisely what it is like. I find that makes Forsaken warlocks either the kindest masters or the cruellest, and seldom anything between." } },
+    advice = { { id = "tp_ad", text = "Give an order once, in words that can only mean one thing. If you find yourself explaining what you meant, you have already lost the argument." } },
+    sylvanas = { { id = "tp_syl", text = "The Dark Lady keeps a dreadlord at her right hand, on a leash of her own making. Every warlock in Lordaeron should study how she manages it, and pray she goes on managing." } },
+    kirin_tor = { { id = "tp_kirin", text = "They knew all of this and locked it away, and their city fell regardless. I do not find that an argument for locks." } },
+    _none = { { id = "tp_none", text = "That is not in any book of mine, and I have read them all, some more than once." } },
+  },
+}
+
+-- Selina Weston: alchemy and herbalism supplies, by the road north of the Gallows' End.
+P:NPC {
+  key = "tir_selina", id = TODO_NPC("Selina Weston"), name = "Selina Weston", title = "Alchemy & Herbalism Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "brill" }, temper = { "tidy", "tart" }, values = { "orderly", "craft" },
+  notices = { "profession", "class", "race" },
+  impression = {
+    first = "Selina Weston sells vials and herbs from a stall by the road in Brill, with every jar labelled in a small square hand. She has firm views on apothecaries who do not wash their glassware, and she shares them freely.",
+    third = "{name} met Selina Weston, who sells alchemy and herbalism supplies by the road in Brill.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Vials, herbs and clean glass. Please don't lean on the table, because the rack is balanced and I've only just got it level." },
+    { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist. Good, then I needn't explain why you want the leaded vials and not the cheap ones." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. I hope you rinsed the last lot before you corked them, though I know better than to ask." },
+  },
+
+  notice = {
+    { id = "n_herb", cat = "profession", when = { profession = "Herbalism" },
+      text = "You pick your own, I see, and you've wrapped them damp, which is correct. Faruza taught you that, or somebody who learned it from her." },
+    { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
+      text = "A word of advice, since you still have a stomach. Nothing on this table is for eating, whatever it looks like, and the pale mushrooms least of all." },
+    { id = "n_green", cat = "class", when = { maxLevel = 6, race = "Scourge" },
+      text = "You're new to Brill, and you're looking at my jars as if one of them might be medicine. None of them will mend what we have, dear, but some will mend a cut." },
+  },
+
+  start = "hello",
+  nodes = {
+    dried = {
+      lines = { { id = "dr_default", text = "Fresh, always, if you can use it the same day, and almost nobody can. A dried herb gives up a little strength and gains a year on the shelf, and Tirisfal's herbs dry better than most, since they are slow to rot even when you would like them to." } },
+      choices = {
+        { text = "Faruza would say to pick your own.", next = "dried2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dried2 = {
+      lines = { { id = "dr2_default", text = "Faruza would, and she is right, for anyone with the patience to walk the fences at dawn. I am here for the ones who haven't, and for the days when the Crusade is on the west road and nobody sensible goes picking at all." } },
+      choices = {
+        { text = "So you sell the walk they didn't take.", next = "BACK", reply = "Neatly put. I may have it painted on the stall.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Selina Weston, alchemy and herbalism supplies. Carolai Anise teaches the brewing and Faruza teaches the picking, and I sell everything either of their pupils forgot to bring." },
+        { id = "h_alch", when = { profession = "Alchemy" }, text = "Selina Weston. I've empty vials in three sizes and the common herbs dried or fresh, and if you're one of Carolai's pupils, she's already told you that I don't give credit." },
+        { id = "h_herb", when = { profession = "Herbalism" }, text = "Selina Weston. I buy nothing, I'm afraid, so keep what you've picked for your own brewing, but if you've run short of a common leaf between fields, I likely have it dried." },
+      },
+      again = {
+        { id = "h_again", text = "Was there anything else? Mind your sleeve on the rack." },
+        { id = "h_again2", text = "Go on, I can label and listen." },
+        { id = "h_again3", text = "What else can I tell you? Ask it before the light goes, I've stock to cover." },
+      },
+      choices = {
+        { text = "Let me see your stock.", next = "BUSINESS" },
+        { text = "Every jar is labelled. Even the empty ones.", next = "labels" },
+        { text = "Brill seems to run on vials.", next = "vials" },
+        { text = "Why keep a stall out by the road?", next = "road" },
+        { text = "What sells to a working alchemist, Selina?", next = "working", when = { profession = "Alchemy" } },
+        { text = "Dried or fresh, your sign says. Which is better?", next = "dried" },
+        { text = "Not today.", next = "END" },
+      },
+    },
+    labels = {
+      lines = { { id = "la_default", text = "Especially the empty ones. An unlabelled vial is how a healing draught ends up in the same crate as something Apothecary Johaan mixed, and I have seen what that mistake does to a person, even a dead one." } },
+      choices = {
+        { text = "What did it do?", next = "labels2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    labels2 = {
+      lines = { { id = "la2_default", text = "He drank it thinking it would steady his hands, and it did, for good, along with the rest of him. They stood him in a corner of the apothecary's until it wore off, which took nine days, and he has labelled everything he owns ever since." } },
+      choices = {
+        { text = "A hard way to learn tidiness.", next = "BACK", reply = "There is no easy way. I merely try to sell people the lesson before they need it." },
+        { text = "Something else, Selina.", next = "BACK" },
+      },
+    },
+    vials = {
+      lines = { { id = "vi_default", text = "It does, and I supply a good share of them. Abigail Shiel and I divide the trade, so she has the crafters' vials with her thread and dye, and I have the herbs and the glass for anyone who actually means to brew something." } },
+      choices = {
+        { text = "And the Royal Apothecary Society buys from you both?", next = "vials2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    vials2 = {
+      big = true,
+      lines = { { id = "vi2_default", text = "By the crate, and they pay on the day. I know roughly what Johaan is working toward, because one can't sell a man that much gloom weed without drawing conclusions, and I have decided that a plague aimed at the Scourge is a tool like any other. Some of my customers disagree." } },
+      choices = {
+        { text = "A plague is a plague. It won't stop at the Scourge.", next = "BACK", reply = "That is what the careful ones say, and I can't call them fools. I shall go on selling, but I'll admit I count the crates.", fx = { align = { light = 1 } } },
+        { text = "The Scourge made us with one. Let them taste their own.", next = "BACK", reply = "That is very nearly what the Society says, word for word. It has a pleasing symmetry, which is not the same as being wise, but it will do.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    road = {
+      lines = { { id = "ro_default", text = "Because the herbs want air and the pickers come in from the fields this way. I catch them before they reach the tavern, while they still remember what they went out for, and I see everyone who passes between the Gallows' End and the north road." } },
+      choices = {
+        { text = "You must see a good deal from here.", next = "BACK", reply = "I see Hamlin Atkins go by with his basket six times a day, and Gordo once, with his arms full. The rest is Deathguard, and they never buy anything." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    working = {
+      lines = { { id = "wk_default", text = "Peacebloom and silverleaf for the first draughts, and then earthroot and mageroyal once Carolai lets you near anything stronger. Buy twice the vials you think you need, because you will break a third of them and give away another." } },
+      choices = {
+        { text = "Twice the vials. I'll take your word.", next = "BUSINESS" },
+        { text = "Good counsel. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    new_plague = { { id = "tp_plague", text = "I sell the Society its glass and its herbs, and I don't ask to see the recipe. If you want to know more, Apothecary Johaan is the one to ask, and he may even tell you." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They burned the herb gardens at the old abbey farms, every bed, out of spite. I've not forgiven them the gardens, never mind the rest." } },
+    advice = { { id = "tp_ad", text = "Label it, cork it, and store it upright. That is the whole of alchemy that anyone can be taught, and the rest is talent." } },
+    forsaken = { { id = "tp_forsaken", text = "We lost our tempers, our sleep and our sense of smell, and kept our handwriting. I have built a trade on the last, and I recommend the principle." } },
+    _none = { { id = "tp_none", text = "I couldn't say. If it doesn't go in a vial, it is somebody else's business." } },
+  },
+}
+
+-- Vance Undergloom: enchanting trainer with a permanent room above the Gallows' End.
+P:NPC {
+  key = "tir_vance", id = TODO_NPC("Vance Undergloom"), name = "Vance Undergloom", title = "Enchanting Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "brill" }, temper = { "absent", "precise" }, values = { "knowledge", "craft" },
+  notices = { "profession", "arcane", "kit" },
+  impression = {
+    first = "Vance Undergloom teaches enchanting from a rented room over the Gallows' End, and he looks at a visitor's gear the way a jeweller looks at a ring. He would rather take a thing apart than own it.",
+    third = "{name} met Vance Undergloom, the enchanting trainer who keeps a room above the Gallows' End Tavern in Brill.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "One moment, I am in the middle of a rune. There. Now, what have you brought me to look at?" },
+    { id = "g_ench", when = { profession = "Enchanting" }, text = "You have dust under your nails, the grey kind that never quite washes out. Sit down, colleague, and show me your rod." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, it is you. I have been thinking about that piece you were wearing last time, and I've decided I was right about it." },
+  },
+
+  notice = {
+    { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
+      text = "A mage. Cain Firesong sends me his pupils when they've singed something valuable, on the theory that I can make it worth wearing again. He is right about one time in three." },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Your equipment is failing, and nothing I could lay on it would hold in metal that tired. See an armorer first, and then come and see me." },
+  },
+
+  start = "hello",
+  nodes = {
+    pupils = {
+      lines = { { id = "pu_default", text = "A handful, and they are an odd handful. Mages who want their staves improved, a tailor who wishes his cloaks to do more than keep the rain off, and one Deathguard who will not say why she is learning and has turned out to be the best of them." } },
+      choices = {
+        { text = "What makes a guard a good enchanter?", next = "pupils2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pupils2 = {
+      lines = { { id = "pu2_default", text = "Stillness. She has stood watch for so long that her hand does not move unless she tells it to, and a rune asks for nothing else. The mages fidget and the tailor talks, and she simply closes the line and looks at me for the next one." } },
+      choices = {
+        { text = "I'd have guessed the mages would be best.", next = "BACK", reply = "Everyone does, the mages most of all. It is the chief reason they are not." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Vance Undergloom. I teach enchanting, which is the art of taking the magic out of one thing so that you may put it more usefully into another, and I've a few rods and formulae to sell besides." },
+        { id = "h_ench", when = { profession = "Enchanting" }, text = "Vance Undergloom, and it is a pleasure to meet someone who already knows which end of a rod to hold. Tell me how far you've got, and I shall tell you what I can add to it." },
+        { id = "h_back", when = { metBefore = true }, text = "Vance Undergloom, and you find me exactly where you left me, three runes further on. Have you brought me anything interesting to look at?" },
+      },
+      again = {
+        { id = "h_again", text = "Was there something further? I can spare a moment between runes." },
+        { id = "h_again2", text = "Go on, but stand out of the light, if you would." },
+        { id = "h_again3", text = "Ask away. I think aloud in any case, so you may as well give me a subject." },
+      },
+      choices = {
+        { text = "Teach me what you know.", next = "BUSINESS" },
+        { text = "You took a room at an inn for good.", next = "room" },
+        { text = "Taking magic out of a thing destroys it.", next = "unmake" },
+        { text = "Where does a Brill enchanter find anything to work on?", next = "supply" },
+        { text = "What's the first thing you'd have me enchant?", next = "first", when = { profession = "Enchanting" } },
+        { text = "Do many in Brill come to you to learn?", next = "pupils" },
+        { text = "I'll let you work.", next = "END" },
+      },
+    },
+    room = {
+      lines = { { id = "rm_default", text = "I did, and Innkeeper Renee was good enough to stop asking when I would be leaving. I need a table, a lamp and a door that shuts, and the Undercity's Apothecarium has too many people in it who want to know what one is doing." } },
+      choices = {
+        { text = "And the tavern below doesn't trouble you?", next = "room2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    room2 = {
+      lines = { { id = "rm2_default", text = "I no longer hear it. Gina Lang has the room along the passage, with her grimoires, and we have an arrangement that her books do not whisper while I am inscribing and I do not disenchant anything of hers that wanders in." } },
+      choices = {
+        { text = "Has anything of hers wandered in?", next = "BACK", reply = "A bookmark, once, that was not a bookmark. I returned it in a jar, and we have been perfectly civil ever since." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    unmake = {
+      big = true,
+      lines = { { id = "br_default", text = "It does, completely, and that troubles some of my pupils more than I expected. A sword that a smith spent a week over becomes a pinch of dust and a sliver of essence in a moment, and they ask me whether it is right to unmake good work." } },
+      choices = {
+        { text = "It's waste. Good work ought to be used as it was made.", next = "BACK", reply = "A craftsman's answer, and Oliver Dwor across the square would shake your hand for it. I shall go on unmaking things, but more thoughtfully.", fx = { align = { order = 1 } } },
+        { text = "Nothing's wasted. The magic only changes its coat.", next = "BACK", reply = "Precisely so, and I could not have put it better to my pupils. Nothing in this world is lost, only moved, as we of all people ought to know.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    supply = {
+      lines = { { id = "su_default", text = "From the volunteers, chiefly. Executor Zygand sends them against the Crusade and the Scourge, and they come back with odd rings and charmed bracers they have no use for, and I teach them to render those down." } },
+      choices = {
+        { text = "Scarlet charms, turned to Forsaken use.", next = "supply2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    supply2 = {
+      lines = { { id = "su2_default", text = "The magic has no allegiance. A Crusader's ward against the undead yields the same strange dust as a farmer's lucky buckle, and I admit to a small satisfaction when the first becomes a protection on a Deathguard's shield." } },
+      choices = {
+        { text = "That's a neat kind of justice.", next = "BACK", reply = "It is merely thrift, but I allow myself to enjoy it.", fx = { affinity = 1 } },
+        { text = "Something else, Vance.", next = "BACK" },
+      },
+    },
+    first = {
+      lines = { { id = "fi_default", text = "Your own bracers, with something small for health. It is the humblest formula there is, and it teaches you to keep the rune closed, which is the whole craft. Pupils who begin with something grand end by owing Renee for a table." } },
+      choices = {
+        { text = "Bracers, then, and a closed rune.", next = "BUSINESS" },
+        { text = "I'll bear it in mind. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    kirin_tor = { { id = "tp_kirin", text = "They taught enchanting as a minor study, beneath a real mage's attention. I have found it outlasts most of what they thought important." } },
+    forsaken = { { id = "tp_forsaken", text = "We are, if you think of it, a disenchantment that went wrong: the life taken out and the pieces left walking. I try not to think of it while I work." } },
+    advice = { { id = "tp_ad", text = "Close the rune before you admire it. That is the first rule and very nearly the only one." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "Their chaplains lay wards on a soldier's gear without knowing why the wards work. It is crude, and it holds, and I have learned more from their leavings than I care to admit." } },
+    lordaeron = { { id = "tp_lord", text = "The court enchanters of the old capital could set a glow in a ballroom ceiling that lasted a season. I was not one of them, but I repaired their work, and I knew where they had cut corners." } },
+    _none = { { id = "tp_none", text = "I have no notion. If it cannot be rendered into dust, I have probably not looked at it closely." } },
+  },
+}
+
+-- Clyde Kellen: fishing trainer on the southwestern shore of Brightwater Lake.
+P:NPC {
+  key = "tir_clyde", id = TODO_NPC("Clyde Kellen"), name = "Clyde Kellen", title = "Fishing Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "brill" }, temper = { "easy", "unhurried" }, values = { "patient", "solitude" },
+  notices = { "profession", "race", "class" },
+  impression = {
+    first = "Clyde Kellen fishes the shore of Brightwater Lake and teaches anyone who will stand still long enough to learn. The Deathguard call him a bass master, and he is the calmest person I have met in Tirisfal.",
+    third = "{name} met Clyde Kellen, the fishing trainer on the shore of Brightwater Lake.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Mind your shadow on the water, friend. Come round this side and I'll gladly talk." },
+    { id = "g_fisher", when = { profession = "Fishing" }, text = "There's a rod on your back that's seen some water. Sit down and tell me what they're biting on where you come from." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back. They've been rising since first light, so you've picked a good day for it." },
+    { id = "g_camp", when = { questActive = TODO_QUEST("Camping 101: Fishing") }, text = "Somebody's told you that a camp wants a fisherman, have they? They're right, and I'll show you why, if you can sit quiet a while." },
+  },
+
+  notice = {
+    { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
+      text = "You'll want to cook whatever you catch here, and cook it hard. The lake's cleaner than the land, but that's not saying a great deal." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "Your folk fish with spears, I hear, standing in the shallows. I'd like to see that done, some time when the bass aren't looking." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter knows how to wait, so you're halfway to a fisherman already. The other half is not minding when nothing comes." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Clyde Kellen. I fish Brightwater, and I teach fishing to whoever asks, which isn't many. Most of the dead think they've no use for it, since they don't eat, and I let them think so and keep the lake to myself." },
+        { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Fishing") }, text = "So it's camp craft you're after. A fire's only half a camp, friend, and the other half is something to put over it, so I'll show you how to pull your supper out of whatever water you've pitched beside." },
+        { id = "h_fisher", when = { profession = "Fishing" }, text = "Clyde Kellen, and it's good to meet another who carries a rod by choice. I can show you a thing or two more, if you've a mind to learn, or we can just watch the floats for a bit." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Keep your voice easy, sound carries on the water." },
+        { id = "h_again2", text = "Go on. I've a line out, but I can listen." },
+        { id = "h_again3", text = "Ask away, friend. The fish are in no hurry and neither am I." },
+      },
+      choices = {
+        { text = "Teach me to fish.", next = "BUSINESS" },
+        { text = "Why fish at all, if you can't eat?", next = "why" },
+        { text = "The Deathguard call you a bass master.", next = "bass" },
+        { text = "Is the lake safe? There are murlocs on these shores.", next = "lake" },
+        { text = "What does a camp need from a fisherman?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Fishing") } },
+        { text = "What's biting in Brightwater, Clyde?", next = "biting", when = { profession = "Fishing" } },
+        { text = "I'll leave you to the water.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "wy_default", text = "Because it's the one thing I do now exactly as I did it before. The line goes out, the float sits, and for as long as it sits I'm only a man by a lake, with nothing about me that would tell you which side of the grave I'm on." } },
+      choices = {
+        { text = "And what becomes of the fish?", next = "why2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why2 = {
+      big = true,
+      lines = { { id = "wy2_default", text = "Renee takes some for her living guests at the Gallows' End, and the rest go back in the water. Martine says that's daft, catching a thing only to let it go, and that I ought to sell the lot to the apothecaries, who'll pay for anything with a gall bladder." } },
+      choices = {
+        { text = "Let them go. Not everything has to be used.", next = "BACK", reply = "That's my feeling, though I've never put it so plainly. There's enough in these Glades being used.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Martine's right. A catch you waste is a catch wasted.", next = "BACK", reply = "You and her both. Well, maybe I'll sell the next ugly one, and see how it sits with me.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bass = {
+      lines = { { id = "bs_default", text = "They do, and I don't know who started it. I pulled a bass out of this lake that was as long as my arm, once, in front of a patrol, and Deathguard have little enough to talk about that it's lasted me a year." } },
+      choices = {
+        { text = "As long as your arm? Truly?", next = "bass2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bass2 = {
+      lines = { { id = "bs2_default", text = "As long as my arm was at the time, which I grant you isn't quite the length it used to be. A fisherman's allowed that much. The fish was real enough, and it's still in there, because I put it back and I've been after it again ever since." } },
+      choices = {
+        { text = "I hope you never catch it.", next = "BACK", reply = "Do you know, so do I. It'd leave me with nothing to do tomorrow.", fx = { affinity = 1 } },
+        { text = "Something else, Clyde.", next = "BACK" },
+      },
+    },
+    lake = {
+      lines = { { id = "lk_default", text = "This shore is, near enough. The Vile Fin keep to the north bank and the far coast, and they've learned that the Brill patrols come by here. Gunther Arcanus has the island out in the middle, and nothing much goes near him, which keeps the deep water quiet." } },
+      choices = {
+        { text = "You've a necromancer for a neighbour.", next = "lake2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lake2 = {
+      lines = { { id = "lk2_default", text = "I've had worse. He doesn't fish, he doesn't shout across the water, and his lights go out at a decent hour. A man who keeps to his own island is the best neighbour a fisherman could ask for, whatever else he gets up to on it." } },
+      choices = {
+        { text = "That's a generous way to see him.", next = "BACK", reply = "It's a lazy way, friend, and I've found the two come out much the same." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = { { id = "cp_default", text = "Supper, to begin with, and that matters more than folk allow. But a fisherman also knows which water's fit to drink and where the bank won't flood, because he's sat beside it for hours, and that's worth more to a camp than another sword." } },
+      choices = {
+        { text = "So pitch where the fisherman sits.", next = "BACK", reply = "You've got it in one. Find the old fellow with the rod, and put your tent behind him.", fx = { affinity = 1, learn = { "camping" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "camping" } } },
+      },
+    },
+    biting = {
+      lines = { { id = "bi_default", text = "Brilliant smallfish close in, all day, and they'll take anything shiny. The longjaw mud snappers sit deeper, off that fallen trunk, and they want patience and an early start, so cast long and don't twitch the line." } },
+      choices = {
+        { text = "The fallen trunk. I'll try it.", next = "BACK", reply = "Leave me the left side of it. That's where the big one lies, and he and I have an understanding." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    camping = { { id = "tp_camp", text = "Pitch by water you'd be willing to fish, and you'll not go far wrong. If nothing lives in it, don't drink it." } },
+    lordaeron = { { id = "tp_lord", text = "There used to be a regatta on this lake at midsummer, with lanterns on every boat. I caught nothing that week, every year, and I never minded." } },
+    advice = { { id = "tp_ad", text = "Don't twitch the line. That's fishing, and I've found it covers most other things too." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, friend. News doesn't come down to the water much, and I don't go up for it." } },
+  },
+}
+
+-- Martine Tramblay: fishing supplies, beside Clyde Kellen on the lake shore.
+P:NPC {
+  key = "tir_martine", id = TODO_NPC("Martine Tramblay"), name = "Martine Tramblay", title = "Fishing Supplies",
+  bible = "bibles/more_folk.md", role = "vendor", tier = "service",
+  communities = { "brill" }, temper = { "sharp", "lively" }, values = { "practical", "profit" },
+  notices = { "profession", "purse", "race" },
+  impression = {
+    first = "Martine Tramblay sells rods, lines and bait on the shore of Brightwater Lake, and she does most of the talking for herself and the fisherman beside her. She would turn the whole lake to profit if he would only let her.",
+    third = "{name} met Martine Tramblay, who sells fishing supplies on the shore of Brightwater Lake.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Rods, line, bait and lures! You'll catch nothing with your hands, whatever Clyde tells you about the old days." },
+    { id = "g_fisher", when = { profession = "Fishing" }, text = "Now there's a customer who knows what they want. Let me see that line of yours, because I'll wager it's frayed." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more bait? I told you one tin wouldn't see you through." },
+  },
+
+  notice = {
+    { id = "n_purse", cat = "purse", when = { money = { max = 150 } },
+      text = "You're light in the purse, aren't you? Take the plain pole, then; it catches the same fish as the fancy one, only you'll look worse doing it." },
+    { id = "n_living", cat = "race", when = { race = { "Orc", "Troll", "Tauren" } },
+      text = "A customer who'll actually eat what they catch! Buy the big tin of bait, and thank me at supper." },
+  },
+
+  start = "hello",
+  nodes = {
+    shore = {
+      lines = { { id = "so_default", text = "Every plank of it. There was a boathouse where those posts stick up, and a jetty, and on a fine day half of Brill came down to row about and get sunburnt. I kept a stall then too, just there, and it's the same pitch I've got now." } },
+      choices = {
+        { text = "You took your old place back.", next = "shore2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shore2 = {
+      lines = { { id = "so2_default", text = "I did, the week I could walk straight. Nobody else wanted it, and I'll tell you something, friend, standing on your own spot does more for a body than all the Shadow Priest's speeches. Clyde turned up a month after, and he's never said so, but I think he came for the same reason." } },
+      choices = {
+        { text = "Then the two of you kept the shore alive.", next = "BACK", reply = "Alive's a strong word for it. We kept it open, and that's as good as this country gets.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Martine Tramblay, fishing supplies. Clyde there will teach you how to fish and I'll sell you what to fish with, and between you and me, mine is the half of the business that pays." },
+        { id = "h_heard", when = { heardLine = "tir_clyde.h_default" }, text = "Martine Tramblay. You've been talking to Clyde, so you've heard how peaceful it all is, and now you'll want a pole, because nobody listens to that man for five minutes without wanting one." },
+        { id = "h_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Martine Tramblay, fishing supplies, and aren't you a welcome sight, a customer with an appetite! Clyde will teach you and I'll kit you out, and you can be eating by sundown." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? Don't mind Clyde, he can't hear us when the float's moving." },
+        { id = "h_again2", text = "Go on, I'm only sorting hooks." },
+        { id = "h_again3", text = "What else do you want to know? Ask it loudly, it annoys him." },
+      },
+      choices = {
+        { text = "Show me your tackle.", next = "BUSINESS" },
+        { text = "You and Clyde make an odd pair.", next = "clyde" },
+        { text = "Who buys fishing tackle in a land of the dead?", next = "buyers" },
+        { text = "Where does your bait come from?", next = "bait" },
+        { text = "What line holds a Brightwater bass, Martine?", next = "line", when = { profession = "Fishing" } },
+        { text = "You remember this shore from before, I think.", next = "shore" },
+        { text = "Not today.", next = "END" },
+      },
+    },
+    clyde = {
+      lines = { { id = "cl_default", text = "We do, and it works. He'd fish all day and never sell so much as a hook, and I'd sell hooks all day and never wet a line, so he draws the customers and I see they don't leave empty-handed." } },
+      choices = {
+        { text = "He says you'd sell his whole catch to the apothecaries.", next = "clyde2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clyde2 = {
+      big = true,
+      lines = { { id = "cl2_default", text = "I would, and I've the buyer waiting. Apothecary Johaan pays silver for fish oil and more for the livers, and that soft-headed man catches a basket a day and tips it back in the lake. I say the Forsaken can't afford to throw away anything of use." } },
+      choices = {
+        { text = "You're right. Sentiment won't feed the war.", next = "BACK", reply = "Thank you! Say it to him on your way past, and say it slowly. I've been saying it for a year.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "It's his catch. Let the man have his peace.", next = "BACK", reply = "Oh, I do, I do. I only complain about it, which is my peace, and he's never begrudged me that.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers = {
+      lines = { { id = "by_default", text = "More than you'd think. The living ones off the zeppelin, for a start, who are amazed anything swims up here. Then there are the cooks, and the alchemists after oils, and a fair few Forsaken who only want something to do with their hands of an evening." } },
+      choices = {
+        { text = "A pastime, for the dead.", next = "buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    buyers2 = {
+      lines = { { id = "by2_default", text = "Why not? We don't sleep, and the nights in Tirisfal are long. I've sold poles to three Deathguard this month, and they stand along the bank after their watch like herons and never say a word to each other." } },
+      choices = {
+        { text = "That's almost a cheerful thought.", next = "BACK", reply = "It's a profitable one, which is better. But I'll allow it's nice to see them at it." },
+        { text = "Something else, Martine.", next = "BACK" },
+      },
+    },
+    bait = {
+      lines = { { id = "ba_default", text = "The worms I dig myself, behind the old boathouse, and there's no shortage of worms in Tirisfal, I can promise you. The shiny baubles come up from the Undercity with the trade cart, and Abigail Shiel in Brill takes her cut for passing them along." } },
+      choices = {
+        { text = "No shortage of worms. I can imagine why.", next = "BACK", reply = "Best not to imagine too hard. They're fat and the fish like them, and that's where I stop asking." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    line = {
+      lines = { { id = "li_default", text = "The waxed one, doubled at the hook, and don't let anyone sell you silk for this lake. There's sunken fencing all along the old shore from when the water was lower, and silk cuts on it like thread on a knife." } },
+      choices = {
+        { text = "Waxed and doubled. I'll take a spool.", next = "BUSINESS" },
+        { text = "That's worth knowing. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    trade = { { id = "tp_trade", text = "Bait sells every day and poles sell once, so I price the poles low and the bait fair. Don't tell the customers, it's the only secret I've got." } },
+    lordaeron = { { id = "tp_lord", text = "This shore had a boathouse and a tea garden, and I sold lemonade to people in white hats. I sell worms now, to people in no hats at all, and the money's better." } },
+    advice = { { id = "tp_ad", text = "Buy more bait than you think you need, and keep it out of the sun. That's sound whether you fish or not." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They've no use for a lake except to drown things in. If they ever come down this shore, I've a gaff hook that'll change the subject." } },
+    forsaken = { { id = "tp_forsaken", text = "People think we've given up wanting things. I've a tin box of takings that says otherwise, and I count it every night." } },
+    _none = { { id = "tp_none", text = "No idea. If it hasn't got fins or coin on it, I've not been paying attention." } },
+  },
+}
+
+-- Shelene Rhobart: leatherworking trainer southeast of Brill; Rand Rhobart's wife.
+P:NPC {
+  key = "tir_shelene", id = TODO_NPC("Shelene Rhobart"), name = "Shelene Rhobart", title = "Leatherworking Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "brill" }, temper = { "firm", "warm" }, values = { "craft", "family" },
+  notices = { "profession", "kit", "class" },
+  impression = {
+    first = "Shelene Rhobart teaches leatherworking at a house off the road southeast of Brill, and she runs her pupils and her husband with the same steady hand. She can tell who skinned a hide by the cuts on it.",
+    third = "{name} met Shelene Rhobart, the leatherworking trainer southeast of Brill.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Come in, but keep clear of the stretching frames. If you've come to learn, find a stool, and if you've come to gawp, be quick." },
+    { id = "g_lw", when = { profession = "Leatherworking" }, text = "That's a stitching awl in your belt, and you carry it where you can reach it. Good. Show me the last thing you made." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Let me see your hands, I want to know whether you've been practising or only meaning to." },
+  },
+
+  notice = {
+    { id = "n_skin", cat = "profession", when = { profession = "Skinning" },
+      text = "You skin your own, and you're taking the flank cut too shallow, I can see it on that hide. Rand will show you, if you ask him nicely and bring him a darkhound." },
+    { id = "n_kit", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "Those straps are about to part. I'll not have anyone walk out of my house with their armor round their ankles, so sit down while I find a needle." },
+    { id = "n_leather", cat = "class", when = { class = { "ROGUE", "HUNTER", "DRUID", "SHAMAN" } },
+      text = "You wear leather, and you've worn it hard. You'd save yourself a deal of coin if you learned to mend it, {class}, and I happen to teach that." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Shelene Rhobart, and I teach leatherworking. My husband Rand does the skinning and teaches that, so between us a pupil can take a hide off a beast in the morning and be wearing it by the week's end." },
+        { id = "h_lw", when = { profession = "Leatherworking" }, text = "Shelene Rhobart. You've made a start on the craft already, so we can skip the part where I explain which side of the hide is the outside. Tell me what you can do, and I'll tell you what comes next." },
+        { id = "h_back", when = { metBefore = true }, text = "Shelene Rhobart, and there's a stool free if you've come to work. Rand's out the back, talking to a hide, so you've caught the house on a quiet day." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Talk while I work this edge." },
+        { id = "h_again2", text = "Go on, I can stitch and listen." },
+        { id = "h_again3", text = "Was there more? Ask it, and mind the frame behind you." },
+      },
+      choices = {
+        { text = "Teach me leatherworking.", next = "BUSINESS" },
+        { text = "You and your husband both came back.", next = "rand" },
+        { text = "Why set up out here, away from Brill?", next = "house" },
+        { text = "Hides from Tirisfal can't be easy to work.", next = "hides" },
+        { text = "What should I make first to get my hand in?", next = "firstwork", when = { profession = "Leatherworking" } },
+        { text = "I'll let you get on.", next = "END" },
+      },
+    },
+    rand = {
+      lines = { { id = "ra_default", text = "We did, and within a day of each other, which I'm told hardly ever happens. I woke first and I sat by him until he stirred, because I'd decided that if he was coming back, the first thing he saw was going to be someone he knew." } },
+      choices = {
+        { text = "And if he hadn't woken?", next = "rand2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rand2 = {
+      big = true,
+      lines = { { id = "ra2_default", text = "Then I'd have buried him again, properly, and gone on. Some of the neighbours say we only cling to each other out of habit, and that the dead ought to stand alone and owe nothing to who they were. I've thought about it, on the long nights." } },
+      choices = {
+        { text = "A vow outlasts the grave. Keep to him.", next = "BACK", reply = "That's what I came to, in the end. I said till death, and death turned out not to be the end of it, so here I am.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "You owe the past nothing. Stay only if you choose it.", next = "BACK", reply = "I do choose it, every morning, and perhaps that's the better way to put it. He'd laugh to hear he's being chosen.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    house = {
+      lines = { { id = "ho_default", text = "Because of the smell, mostly. Tanning is a foul business even to a nose like mine, and Magistrate Sevren made it very clear that Brill has smells enough. Out here we've the road for customers and the lake for water, and nobody to complain." } },
+      choices = {
+        { text = "Who are your neighbours on this road?", next = "house2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    house2 = {
+      lines = { { id = "ho2_default", text = "Clyde Kellen and Martine Tramblay, down at the water, and they send us the odd fish skin to see what we'll make of it. The Deathguard pass twice a watch, and Eliza Callen comes out from Brill to buy whatever my pupils finish that's fit to sell." } },
+      choices = {
+        { text = "So your pupils' work ends up on her rack.", next = "BACK", reply = "The good pieces do. The rest I cut up for laces, and there are a great many laces." },
+        { text = "Something else, Shelene.", next = "BACK" },
+      },
+    },
+    hides = {
+      lines = { { id = "hi_default", text = "They're thin, and the grain's poor, because every beast in these Glades is half sick. A darkhound's the best of them. You learn to work around the bad patches, and it makes a careful cutter of you faster than good leather ever would." } },
+      choices = {
+        { text = "Do you ever get better hides from elsewhere?", next = "hides2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hides2 = {
+      lines = { { id = "hi2_default", text = "Now and then, since the zeppelin started running. An orc came through with a bale of Durotar boar, thick as my thumb and stiff as a plank, and I spent a happy week on it. I'd not known how much I'd missed leather that fights back." } },
+      choices = {
+        { text = "The Horde has its uses, then.", next = "BACK", reply = "It has boars, which is use enough for me. Send more orcs, and tell them to bring luggage." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    firstwork = {
+      lines = { { id = "fw_default", text = "Armor kits, a stack of them, until your stitches run even without your looking. Then a pair of boots for yourself, because you'll take more care over something you have to walk in. Bring me the boots and I'll tell you the truth about them." } },
+      choices = {
+        { text = "Kits first, then boots.", next = "BUSINESS" },
+        { text = "I'll bring you the boots. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    scarlet_crusade = { { id = "tp_scarlet", text = "Their patrols have come within sight of this house twice. Rand keeps the big knife by the door, and I keep the awl, and so far we've needed neither." } },
+    forsaken = { { id = "tp_forsaken", text = "Most of us came back alone, to nothing. I came back to a husband and a trade, and I try to remember how rare that is when my pupils are being slow." } },
+    advice = { { id = "tp_ad", text = "Measure twice, cut once, and wax your thread. It was true when I was alive and nobody's repealed it." } },
+    lordaeron = { { id = "tp_lord", text = "We had a tannery by the river, and Rand's father had it before him. The river's still there, which is more than can be said for the rest." } },
+    trade = { { id = "tp_trade", text = "Eliza Callen in Brill sells what my pupils make, and Rand supplies the hides. If you want to buy leather, go to her, and if you want to make it, sit down." } },
+    _none = { { id = "tp_none", text = "I couldn't say. Ask Rand, he talks to everyone who passes while he's meant to be scraping." } },
+  },
+}
+
+-- Rand Rhobart: skinning trainer; Shelene's husband.
+P:NPC {
+  key = "tir_rhobart", id = TODO_NPC("Rand Rhobart"), name = "Rand Rhobart", title = "Skinning Trainer",
+  bible = "bibles/more_folk.md", role = "trainer", tier = "service",
+  communities = { "brill" }, temper = { "cheerful", "blunt" }, values = { "craft", "family" },
+  notices = { "profession", "pet", "class" },
+  impression = {
+    first = "Rand Rhobart teaches skinning beside his wife's leather shop, and he talks the whole time his knife is moving. The Deathguard say he is a fair hand with a duskbat, which he takes as the highest praise.",
+    third = "{name} met Rand Rhobart, the skinning trainer southeast of Brill and husband of Shelene Rhobart.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Mind where you step, there's a hide pegged out just there. Have you come to learn the knife, or to talk? I can manage both at once." },
+    { id = "g_skin", when = { profession = "Skinning" }, text = "That's a skinner's knife, and you keep it sharp. Good! Come and look at this one, and tell me where I went wrong at the shoulder." },
+    { id = "g_back", when = { metBefore = true }, text = "There you are again. Did you bring me anything dead? Anything else dead, I should say." },
+  },
+
+  notice = {
+    { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "That's a handsome coat on {pet}. Don't look at me like that, I'm only admiring, and I never skin anything that has a name." },
+    { id = "n_lw", cat = "profession", when = { profession = "Leatherworking" },
+      text = "You work leather, so you'll be one of Shelene's, or you ought to be. She'll tell you your stitching's crooked, and she'll be right, and you'll thank her in a month." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid. You'll not think much of my trade, I expect, but I'll say this for it: I take only what's already been killed, and I waste none of it." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Rand Rhobart, skinner. My wife Shelene makes the leather and I get it off the beast for her, and I'll teach you to do the same, if you've a knife and no objection to the smell." },
+        { id = "h_skin", when = { profession = "Skinning" }, text = "Rand Rhobart, and it's a treat to meet somebody who already knows the work. I can show you the cuts for the bigger beasts, if you're ready for them, or we can just compare knives." },
+        { id = "h_back", when = { metBefore = true }, text = "Rand Rhobart, still scraping, as you see. Pull up that log and tell me where you've been, because nothing happens on this road and I rely on visitors." },
+      },
+      again = {
+        { id = "h_again", text = "What else? I'll keep scraping, if it's all the same to you." },
+        { id = "h_again2", text = "Go on, ask. Shelene says I'd talk to the hides if nobody else came by." },
+        { id = "h_again3", text = "Anything more? I've the whole afternoon and half a darkhound." },
+      },
+      choices = {
+        { text = "Teach me to skin.", next = "BUSINESS" },
+        { text = "The Deathguard say you're good with a duskbat.", next = "bats" },
+        { text = "Your wife seems to run this house.", next = "shelene" },
+        { text = "What's worth skinning in Tirisfal?", next = "beasts" },
+        { text = "Where am I spoiling my hides, Rand?", next = "spoil", when = { profession = "Skinning" } },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    bats = {
+      lines = { { id = "bt_default", text = "They do, bless them, and it's the only thing I've ever been famous for. A duskbat's wing is thinner than a glove and tears if you breathe on it, so the trick is to peg it out first and work from the bone outward, with a knife no longer than your finger." } },
+      choices = {
+        { text = "What does anyone want with a bat's wing?", next = "bats2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bats2 = {
+      lines = { { id = "bt2_default", text = "Shelene lines gloves with it, and there's nothing softer. The apothecaries want it too, for straining things I've not asked about, and they pay double for a wing with no holes, which is how the Deathguard came to hear of me." } },
+      choices = {
+        { text = "Famous among apothecaries. That's a mixed blessing.", next = "BACK", reply = "It is! I get the best customers in Tirisfal and I don't dare ask any of them in for supper." },
+        { text = "Something else, Rand.", next = "BACK" },
+      },
+    },
+    shelene = {
+      lines = { { id = "se_default", text = "She does, and she did when we were alive, and I've never seen cause to change it. I'm the one who chats to the customers and she's the one who knows what anything costs, and a house needs both, but it needs hers more." } },
+      choices = {
+        { text = "She told me she sat by you until you woke.", next = "shelene2", when = { heardLine = "tir_shelene.ra_default" } },
+        { text = "You're a lucky man, living or dead.", next = "BACK", reply = "Don't I know it. I tell her so once a day, and she tells me to get on with the scraping.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shelene2 = {
+      lines = { { id = "se2_default", text = "She did. I opened my eyes in the dark with no notion of where I was or what had been done to me, and there was Shelene, saying my name as if I'd only overslept. I've not been properly afraid of anything since that morning." } },
+      choices = {
+        { text = "Then you woke better than most of us.", next = "BACK", reply = "Better than anyone I've met, and I know it. It's why I talk so much, I think. Somebody was kind to me first.", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts = {
+      lines = { { id = "be_default", text = "Darkhounds, first and last, and the worgs if you go as far as the Silverpine road. The duskbats when you've got the hands for them. Leave the plagued bears alone, because the hide comes away in patches and the smell stays in your knife for a week." } },
+      choices = {
+        { text = "The sickness spoils even the skin, then.", next = "beasts2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts2 = {
+      big = true,
+      lines = { { id = "be2_default", text = "It spoils everything, sooner or later. Each year the hides come in thinner and the beasts come in fewer, and Shelene and I have talked about whether the hunters ought to hold off a season and let the packs breed back. The Executor won't hear of it while there's a war on." } },
+      choices = {
+        { text = "Hold off. A land hunted bare feeds nobody.", next = "BACK", reply = "That's what I say, and I'm a man who makes his living off the hunting. If I can see it, I don't know why Zygand can't.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The war comes first. Take what the land has.", next = "BACK", reply = "That's the Executor's answer, and I'll not call it wrong. I only wonder what we'll be skinning in five years.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spoil = {
+      lines = { { id = "sl_default", text = "At the legs, I'd bet my knife on it, because everyone does. You're cutting round the joint and then pulling, and the pull tears the belly. Slit down the inside of each leg to the middle first, and the whole hide will come away like a coat." } },
+      choices = {
+        { text = "Inside of the leg, then to the middle.", next = "BACK", reply = "That's it. Bring me the next one and I'll tell you whether your hands were listening.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    scarlet_crusade = { { id = "tp_scarlet", text = "They've hounds of their own, big red brutes, and I'll admit I've wondered about the hide. Shelene says I'm not to go and find out." } },
+    forsaken = { { id = "tp_forsaken", text = "We're a gloomy lot, taken all round, and I can't say we've no reason. I just had a softer waking than most, so I try to be cheerful enough for a few of the others." } },
+    advice = { { id = "tp_ad", text = "Keep the knife sharper than you think it needs to be. A dull knife is what takes fingers, and they don't all sew back on straight." } },
+    lordaeron = { { id = "tp_lord", text = "My father tanned hides by the river and so did I, and the stags in the king's wood were the finest in the north. They're sickly things now, and I leave them be." } },
+    trade = { { id = "tp_trade", text = "I don't sell the hides, they all go to Shelene. If you want one, you'll have to learn to take your own, and I can help you there." } },
+    _none = { { id = "tp_none", text = "Now that I don't know, and I usually know a bit about everything. Ask Shelene, she actually listens when people talk." } },
+  },
+}
+
+-- Zapetta: goblin zeppelin master for the Durotar ship, at the tower outside the Undercity.
+P:NPC {
+  key = "tir_zapetta", id = TODO_NPC("Zapetta"), name = "Zapetta", title = "Zeppelin Master",
+  bible = "bibles/more_folk.md", role = "flightmaster", tier = "service",
+  communities = { "brill" }, temper = { "brash", "quick" }, values = { "profit", "pride" },
+  notices = { "race", "profession", "travel" },
+  impression = {
+    first = "Zapetta runs the Durotar zeppelin from the tower outside the Undercity and prices everything he says, including the weather. He talks about the airship the way other people talk about a clever child.",
+    third = "{name} met Zapetta, the goblin zeppelin master who runs the Orgrimmar ship from Tirisfal Glades.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Orgrimmar zeppelin, this platform, friend! She's on her way, she's always on her way, and the wait don't cost you a copper." },
+    { id = "g_orc", when = { race = { "Orc", "Troll" } }, text = "Headin' home to Durotar, pal? Smart, real smart, because this place does somethin' to the appetite and I'm speakin' from experience." },
+    { id = "g_back", when = { metBefore = true }, text = "Hey, a repeat customer! That's the best advertisement there is, on account of it proves you landed." },
+  },
+
+  notice = {
+    { id = "n_engineer", cat = "profession", when = { profession = "Engineering" },
+      text = "Whoa, hands where I can see 'em, tinker. You can look at the engine housing all you want, but anybody touches a valve on my ship and it's a liability matter." },
+    { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
+      text = "No offence, pal, but I'm gonna ask you to hold on with both hands this trip. We had a fella lose an arm over the Great Sea last month, and the paperwork was murder." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "Big fella, do me a favour and stand in the middle of the deck. It's a load balance thing, nothin' personal, the ship just flies better level." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Name's Zapetta, and I run the zeppelin from Tirisfal to Orgrimmar and back, finest airship on the northern route. She's goblin built and goblin flown, so you know she's fast, and you got my personal word she's mostly safe." },
+        { id = "h_dead", when = { race = "Scourge" }, text = "Zapetta, and the ship goes straight to Orgrimmar. You're gonna love Durotar, pal, it's dry, it's sunny, nothin' rots, and I hear that's a real novelty for you folks." },
+      },
+      again = {
+        { id = "h_again", text = "Anythin' else? Talk fast, I'm watchin' the sky and the clock both." },
+        { id = "h_again2", text = "Go ahead, pal, questions are on the house." },
+        { id = "h_again3", text = "What else ya need? If it's about the ship, I got answers, and if it ain't, I got opinions." },
+      },
+      choices = {
+        { text = "Where exactly does your ship put me down?", next = "route" },
+        { text = "'Mostly safe' is an interesting promise.", next = "safe" },
+        { text = "A goblin, working a tower in Tirisfal.", next = "posting" },
+        { text = "That other goblin runs the Stranglethorn ship?", next = "hin" },
+        { text = "What's holding your engine together, Zapetta?", next = "engine", when = { profession = "Engineering" } },
+        { text = "I'll wait for the ship.", next = "END" },
+      },
+    },
+    route = {
+      lines = { { id = "rt_default", text = "Tower outside Orgrimmar's front gate, right in Durotar, and you can walk to the Warchief's door from there in the time it takes to get the sand outta your boots. One hop across the Great Sea, no stops, no detours, and the view's included in the price, which is nothin'." } },
+      choices = {
+        { text = "Nothing? Goblins don't fly anyone for nothing.", next = "route2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    route2 = {
+      lines = { { id = "rt2_default", text = "Hey, listen, the passengers ride free because the Warchief and the Dark Lady pick up the tab, and they pay regular, which is the best kind of customer. Me, I'm on a contract, per crossing, plus a bonus for every month nothin' catches fire." } },
+      choices = {
+        { text = "How often do you collect the bonus?", next = "BACK", reply = "Often enough, pal, often enough. I don't discuss the exact numbers with passengers, it's company policy and it's better for everybody's nerves." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    safe = {
+      lines = { { id = "sf_default", text = "It's an honest one, and you won't get that from the competition, on account of there ain't any. She's a bag of gas with a furnace hangin' under it, friend. I keep the two apart, and I've been keepin' 'em apart for a good long while now." } },
+      choices = {
+        { text = "And when they aren't kept apart?", next = "safe2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    safe2 = {
+      big = true,
+      lines = { { id = "sf2_default", text = "Then you get a real pretty light over the water and I'm outta work, so believe me, I'm motivated. Look, some folks say I oughta tell passengers every little thing that could go wrong before they board. I say that's bad for business and worse for the passenger. What's your take?" } },
+      choices = {
+        { text = "Tell them. People should know what they're boarding.", next = "BACK", reply = "Yeah, yeah, an honest sign on the ramp. I'll think about it, pal, I'll price it out, but if bookings drop I'm sendin' you the bill.", fx = { align = { honor = 1 } } },
+        { text = "Keep quiet. A calm passenger is a safe one.", next = "BACK", reply = "See, that's what I'm sayin'! Nobody ever fell off a ship from bein' too relaxed. You got a head for the trade, friend.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    posting = {
+      lines = { { id = "po_default", text = "It's a job, and it pays the cold weather rate, which I negotiated personally. Sure, the trees are dead and the locals are dead and the fog gets in the fuel lines, but nobody up here haggles, pal. They just stare till you name a price." } },
+      choices = {
+        { text = "You get along with the Forsaken, then.", next = "posting2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    posting2 = {
+      lines = { { id = "po2_default", text = "I get along with anybody who settles their account. There's a fella called Deyrek stands by the tower all day watchin' my ship come in, never rides, never buys, just watches. I offered him a discount on a free trip and he still said no, which I gotta respect." } },
+      choices = {
+        { text = "A discount on a free trip.", next = "BACK", reply = "It's about the principle, friend. You always leave the customer feelin' like they got a deal, even when there ain't one." },
+        { text = "Something else, Zapetta.", next = "BACK" },
+      },
+    },
+    hin = {
+      lines = { { id = "hn_default", text = "Hin Denburg, yeah, he's got the other ship, down to Grom'gol. Slower ship, longer route, more mosquitoes on the far end. He'll tell ya his run's the prestige posting, and I let him, on account of I got the brother thing covered already." } },
+      choices = {
+        { text = "The brother thing?", next = "hin2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hin2 = {
+      lines = { { id = "hn2_default", text = "My brother Nez'raz works the Grom'gol tower, catchin' Hin's ship at the jungle end. So anythin' Hin does wrong on that route, I hear about it by the next crossing, and anythin' I do wrong, well, family don't talk. It's a real nice arrangement." } },
+      choices = {
+        { text = "Nice for one of you.", next = "BACK", reply = "For the one that counts, pal. That's business." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    engine = {
+      lines = { { id = "en_default", text = "Rivets, optimism and about forty feet of copper pipe I ain't supposed to mention. Nah, listen, she's sound where it matters, the boiler's double walled and the gas bag's sewn in cells, so if one goes you only lose a little altitude and a little dignity." } },
+      choices = {
+        { text = "Cells in the bag. That's clever work.", next = "BACK", reply = "Thank you! Finally, somebody who appreciates the engineering and don't just ask if it's gonna explode.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    steamwheedle = { { id = "tp_cartel", text = "The Cartel holds my contract and the Horde pays the Cartel, and everybody's happy so long as the ship shows up. Don't ask me about politics, pal, I just fly the route." } },
+    thrall = { { id = "tp_thrall", text = "Pays on time, never argues the invoice, and he ain't once asked me to carry anythin' that ticks. On my mother's ledger, that's the best client I ever had." } },
+    advice = { { id = "tp_ad", text = "Stand in the middle, hold the rail, and don't lean out to look at the whales. That's free, and it's worth every copper." } },
+    forsaken = { { id = "tp_forsaken", text = "Listen, they're the easiest passengers I got. No luggage, no complaints, no lunch comin' back up over the rail. I just count the limbs on and count 'em off." } },
+    _none = { { id = "tp_none", text = "Couldn't tell ya, pal. If it don't fly or pay, it ain't crossed my desk." } },
+  },
+}
+
+-- Hin Denburg: goblin zeppelin master for the Grom'gol ship, at the same tower.
+P:NPC {
+  key = "tir_hin", id = TODO_NPC("Hin Denburg"), name = "Hin Denburg", title = "Zeppelin Master",
+  bible = "bibles/more_folk.md", role = "flightmaster", tier = "service",
+  communities = { "brill" }, temper = { "smooth", "fussy" }, values = { "profit", "careful" },
+  notices = { "race", "level", "travel" },
+  impression = {
+    first = "Hin Denburg runs the zeppelin to Grom'gol from the tower outside the Undercity, with a clipboard and a great many warnings about the jungle. He is the careful one of the two goblins there, and he wants that known.",
+    third = "{name} met Hin Denburg, the goblin zeppelin master who runs the Stranglethorn ship from Tirisfal Glades.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Grom'gol Base Camp, Stranglethorn Vale, this side of the tower, friend. Check your bags, check your weapons, and check 'em again, 'cause I don't turn the ship around for a forgotten sword." },
+    { id = "g_green", when = { maxLevel = 25 }, text = "Whoa, whoa, hold up, pal. You know where this ship goes, right? I'm askin' because I got a clipboard full of folks who didn't, and none of 'em filed a complaint, if ya take my meanin'." },
+    { id = "g_back", when = { metBefore = true }, text = "You're back from the jungle in one piece! I'm markin' that down, friend, it does wonders for my figures." },
+  },
+
+  notice = {
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A troll, headed for Stranglethorn. You'll know the place better than I do, pal, so do me a favour and tell the other passengers the raptors ain't friendly." },
+    { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
+      text = "Word of advice, friend, from one professional to another. The jungle's hot and it's wet and you folks don't keep so good in it, so pack somethin' to wrap up in." },
+    { id = "n_high", cat = "level", when = { minLevel = 40 },
+      text = "Now you, you look like you've seen a jungle or two. Good, that's one passenger I don't gotta worry about, and worry's overhead." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Hin Denburg, zeppelin master, and that's my ship on the other mooring. She runs from here clear down the world to Grom'gol Base Camp in Stranglethorn, and she's the longest scheduled crossing the Horde's got, which I mention because nobody else will." },
+        { id = "h_green", when = { maxLevel = 25 }, text = "Hin Denburg, and the ship's bound for Grom'gol in Stranglethorn Vale. Now listen, listen, I'll fly anybody, but that jungle eats greenhorns, so I gotta ask if you're real sure about this one." },
+      },
+      again = {
+        { id = "h_again", text = "Somethin' else? Go ahead, I got a minute before I check the moorings again." },
+        { id = "h_again2", text = "Ask away, friend, askin's free and so's the ride." },
+        { id = "h_again3", text = "What else can I tell ya? I got it all written down here somewhere." },
+      },
+      choices = {
+        { text = "What's waiting at the other end of your route?", next = "gromgol" },
+        { text = "You keep careful count of your passengers.", next = "clipboard" },
+        { text = "The Durotar master says his is the better ship.", next = "zapetta" },
+        { text = "Cold work for a goblin, this tower.", next = "cold" },
+        { text = "I'm from those jungles, mon. What do you warn them about?", next = "troll", when = { race = "Troll" } },
+        { text = "I'll wait for the ship.", next = "END" },
+      },
+    },
+    gromgol = {
+      lines = { { id = "gg_default", text = "A stockade full of orcs on the coast, with jungle on three sides and the sea on the fourth. Good folks, hard folks, and they'll put you to work before your feet stop wobblin'. Past their wall it's tigers, raptors, trolls that ain't the friendly kind, and bugs the size of my head." } },
+      choices = {
+        { text = "And if I wanted somewhere less deadly from there?", next = "gromgol2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gromgol2 = {
+      lines = { { id = "gg2_default", text = "Then you walk south, a long way, and you come to Booty Bay, where my people run things and everybody's welcome so long as they're spendin'. Tell 'em Hin sent ya. It won't get you a thing, friend, but I like 'em to know I'm still alive up here." } },
+      choices = {
+        { text = "I'll pass on your regards.", next = "BACK", reply = "You're a pal. And hey, if anybody down there asks, the Princess runs on time, every time, got it?", fx = { affinity = 1, learn = { "booty_bay" } } },
+        { text = "Something else.", next = "BACK", fx = { learn = { "booty_bay" } } },
+      },
+    },
+    clipboard = {
+      lines = { { id = "cb_default", text = "Every one of 'em, out and back. Zapetta over there thinks it's a waste of ink, but when the Cartel's auditors come round, I can show 'em what I carried and when, and that, friend, is the difference between a contract and a real long swim home." } },
+      choices = {
+        { text = "How many come back, of those who go out?", next = "clipboard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clipboard2 = {
+      big = true,
+      lines = { { id = "cb2_default", text = "Not enough, and it bugs me, I ain't gonna lie. Some stay down there, sure, but some just don't show up in either column. I been thinkin' I oughta turn the green ones away at the ramp, only it ain't my call who rides, and a refused fare's still a refused fare." } },
+      choices = {
+        { text = "Turn them away. A life is worth more than a fare.", next = "BACK", reply = "Yeah. Yeah, all right, maybe I start with a real stern talkin'-to and work up from there. Don't tell Zapetta, he'll say I've gone soft.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Fly them. Where they go is their own affair.", next = "BACK", reply = "That's the contract talkin', and the contract ain't wrong. I just fly the ship, right? I just fly the ship.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zapetta = {
+      lines = { { id = "zp_default", text = "Zapetta says a lotta things, mostly loud. His ship's faster, sure, I'll give him that, on a route a blind gnome could fly. Mine goes four times the distance over open water and puts down in a jungle, and I ain't singed a passenger yet, which he can't say." } },
+      choices = {
+        { text = "He mentioned his brother watches your landings.", next = "zapetta2", when = { heardLine = "tir_zapetta.hn2_default" } },
+        { text = "You two bicker like partners.", next = "BACK", reply = "We're competitors who share a staircase, pal, it's worse. But he covers my platform when I eat, so I guess that's somethin'." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zapetta2 = {
+      lines = { { id = "zp2_default", text = "Nez'raz, yeah, down at the Grom'gol tower, and don't think I don't know it. So I land her like I'm settin' down a crate of eggs, every single time, and that weasel's got nothin' to write home about. Best thing that ever happened to my record, bein' spied on." } },
+      choices = {
+        { text = "So his spying made you the better pilot.", next = "BACK", reply = "Ha! Don't you dare tell him. I want him to keep payin' for the postage.", fx = { affinity = 1 } },
+        { text = "Something else, Hin.", next = "BACK" },
+      },
+    },
+    cold = {
+      lines = { { id = "co_default", text = "Tell me about it. The damp gets in the rope, the fog gets in the instruments, and every local I talk to looks like he's waitin' for me to keel over so he can see what happens next. But the hazard pay's handsome, and I'm bankin' every copper of it." } },
+      choices = {
+        { text = "Saving for something?", next = "BACK", reply = "A little place in Booty Bay with a roof that don't leak and no stairs. A fella can dream, pal, and I dream in round numbers." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    troll = {
+      lines = { { id = "tr_default", text = "The water, the fevers, and the fact that everythin' down there with teeth is faster than it looks. And I tell 'em the jungle trolls ain't Darkspear and won't care who the Warchief is. You got anythin' to add, pal, I'm all ears, I'll write it down." } },
+      choices = {
+        { text = "Tell them never to sleep by the river.", next = "BACK", reply = "Never sleep by the river. Got it, that's goin' on the board in big letters. You maybe just saved me a couple of blank columns, friend.", fx = { affinity = 2 } },
+        { text = "You've covered it. The jungle teaches the rest.", next = "BACK", reply = "Yeah, that's what worries me. It ain't a patient teacher, from what I hear." },
+      },
+    },
+  },
+  topics = {
+    booty_bay = { { id = "tp_booty", text = "Steamwheedle town on the south cape of Stranglethorn, and the only place on that whole coast you can get a decent drink. Everybody's welcome and nobody's safe, so watch your purse." } },
+    steamwheedle = { { id = "tp_cartel", text = "They hold the contract, I fly the ship, and the auditors come twice a year. Keep your books clean and the Cartel's the best boss in the world, pal." } },
+    advice = { { id = "tp_ad", text = "Check your gear before you board, not after. There ain't a shop between here and the jungle, and the ship don't turn around." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief wanted a line to his people in the jungle and he paid for it up front. I never met the fella, but I'd fly him anywhere, half rate." } },
+    forsaken = { { id = "tp_forsaken", text = "Quiet folks, pay their way, don't get airsick. I'd take a deck full of 'em over one seasick orc, and you can quote me." } },
+    _none = { { id = "tp_none", text = "That ain't on my clipboard, friend. Try somebody who gets out more." } },
   },
 }
