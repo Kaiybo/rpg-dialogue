@@ -22,3 +22,4 @@ npcs\mackreel.lua
 npcs\zaruk.lua
 npcs\muggol.lua
 npcs\arathi_folk.lua
+npcs\more_folk.lua

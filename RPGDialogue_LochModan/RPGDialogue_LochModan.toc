@@ -25,3 +25,4 @@ npcs\thelsamar_trades.lua
 npcs\stoutlager_stalls.lua
 npcs\loch_edges.lua
 npcs\loch_folk.lua
+npcs\more_folk.lua
