@@ -398,7 +398,7 @@ P:NPC {
 }
 
 P:NPC {
-  key = "thor", id = TODO_NPC("Thor"), name = "Thor",
+  key = "thor", id = TODO_NPC("Thor"), name = "Thor", gender = "male",
   bible = "bibles/sentinel_folk.md", role = "flightmaster", tier = "quest",
   communities = { "sentinel_hill" }, temper = { "brisk" }, values = { "proud" },
   notices = { "travel", "animal" },
@@ -410,6 +410,12 @@ P:NPC {
   greetings = {
     { id = "g_fly", text = "Need a ride? The birds are fed and cross, which is the best time to fly, since they'll get you there quicker just to be rid of you." },
     { id = "g_back", when = { metBefore = true }, text = "Landed well, did you? Good, because the birds talk about the bad ones." },
+    { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "thor_flirt_no" } }, cooldown = "2d",
+      text = "Afternoon. The birds have gone quiet, which they only do when someone worth looking at comes up the hill, so I looked as well." },
+    { id = "g_flirt_yes", when = { flirt = true, npcFlagBefore = "thor_flirt_yes" }, priority = 8, cooldown = "1d",
+      text = "You're back! The big bird's been preening since you left, and I'll admit I've combed my beard twice, so neither of us is fooling anyone." },
+    { id = "g_flirt_no", when = { npcFlagBefore = "thor_flirt_no" }, priority = 8, once = true,
+      text = "Just the birds today, I promise. I've told the big one to mind his manners, and myself while I was at it." },
   },
 
   notice = {
@@ -490,6 +496,10 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", text = "Name's Thor, and I keep the gryphons. They're the fastest way out of Westfall, and the only one the Defias haven't managed to rob, so far." },
+        { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "thor_flirt_no" } }, cooldown = "3d",
+          text = "The gryphons like you, which is rare, because they don't like anyone, me included. I'd trust their judgement before my own, and my own happens to agree with them." },
+        { id = "h_flirt_yes", when = { flirt = true, npcFlagBefore = "thor_flirt_yes" }, priority = 6, cooldown = "1d",
+          text = "You came up the hill again, and the birds noticed before I did, which is the only time I've ever been jealous of a gryphon." },
         { id = "h_message", tags = { "news" }, when = { questActive = TODO_QUEST("A Swift Message") },
           text = "From Lewis, and urgent? They're all urgent, with Lewis. Up you go, then, and hold on with your knees, not your hands; the bird hates being strangled." },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -519,7 +529,34 @@ P:NPC {
         { text = "Do your gryphons ever carry the wounded back to Stormwind?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Your gryphons look eager to fly against the Defias, Thor.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Will your gryphons carry a warlock, Thor?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
+        { text = "Do the gryphons ever take to anyone, Thor?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "thor_flirt_no" } } },
         { text = "Not today.", next = "END" },
+      },
+    },
+    flirt = {
+      lines = {
+        { id = "fl_default", text = "Hardly anyone, but the big one has watched you since you came up the hill, and he's got taste, for a bird. So have I, I'm told, though nobody on this hill gives me much chance to prove it." },
+        { id = "fl_again", when = { npcFlagBefore = "thor_flirt_yes" }, priority = 5,
+          text = "The big one still watches you, and so do I, if I'm honest. A man who spends his days with gryphons forgets how to be subtle, and I was never much good at it to start with." },
+      },
+      choices = {
+        { text = "Then perhaps you'll take me flying someday, Thor.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "thor_flirt_yes" }, clear = { "thor_flirt_no" } } } },
+        { text = "Careful, Thor. My beast gets jealous.", next = "flirt_yes", when = { class = "HUNTER" },
+          reply = "Then it can take a number behind the gryphons, because they had their eye on you first.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "thor_flirt_yes" }, clear = { "thor_flirt_no" } } } },
+        { text = "I'll take the compliment, but just the flight path, please.", next = "BACK",
+          reply = "Fair enough, and no offence taken. The birds will sulk, but they sulk about everything.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "thor_flirt_no" }, clear = { "thor_flirt_yes" } } } },
+        { text = "Stick to your birds, Thor.", next = "BACK",
+          reply = "That's what my mother told me, and she was right as well. Off you go, then, and hold on with your knees.",
+          fx = { trait = { stern = 1 }, npcFlag = { set = { "thor_flirt_no" }, clear = { "thor_flirt_yes" } } } },
+      },
+    },
+    flirt_yes = {
+      lines = { { id = "fy_default", text = "Gryphon masters don't fly for pleasure as a rule, because it feels too much like work. For you I'd make an exception, though I'd want a clear sky, the gentle bird, and nobody from the militia watching." } },
+      choices = {
+        { text = "I'll hold you to that, Thor.", next = "BACK",
+          reply = "Hold on with your knees, not your hands, and you can hold me to anything you like." },
       },
     },
     birds = {

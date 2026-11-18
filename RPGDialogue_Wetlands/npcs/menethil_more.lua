@@ -1291,7 +1291,7 @@ P:NPC {
 }
 
 P:NPC {
-  key = "camerick", id = TODO_NPC("Camerick Jongleur"), name = "Camerick Jongleur",
+  key = "camerick", id = TODO_NPC("Camerick Jongleur"), name = "Camerick Jongleur", gender = "male",
   bible = "bibles/menethil_more.md", role = "citizen", tier = "service",
   communities = { "menethil" }, temper = { "cheerful" }, values = { "romantic", "curious" },
   notices = { "class", "race" },
@@ -1304,6 +1304,12 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "A traveller! Sit, sit, and let me try a new verse on you before I lose my nerve." },
     { id = "g_back", when = { metBefore = true }, text = "My one faithful audience returns! I've a new song since last time, and it rhymes almost everywhere." },
+    { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "camerick_flirt_no" } }, cooldown = "2d",
+      text = "Ah, a muse walks in out of the rain! I've been trying to rhyme 'Menethil' all morning, and you're the first thing that's helped." },
+    { id = "g_flirt_yes", when = { flirt = true, npcFlagBefore = "camerick_flirt_yes" }, priority = 8, cooldown = "1d",
+      text = "My muse returns, and I've finished a verse about you! It rhymes 'harbour' with 'ardour', which I'm told is cheating, but I stand by it." },
+    { id = "g_flirt_no", when = { npcFlagBefore = "camerick_flirt_no" }, priority = 8, once = true,
+      text = "No love songs today, I promise; I've gone back to writing about the rain. The rain, at least, doesn't mind being written about." },
   },
 
   notice = {
@@ -1396,6 +1402,10 @@ P:NPC {
       lines = {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Every good ballad has one, and I've never had a real one sit still long enough to tell me how they talk." },
         { id = "h_default", text = "Camerick Jongleur, wandering minstrel, though I've not wandered in a while. Raptors to the east, orcs to the north, Dark Irons on the bridges, so I'm wandering in a very small circle around Menethil." },
+        { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "camerick_flirt_no" } }, cooldown = "3d",
+          text = "You've walked in on a man composing a love song with nobody to address it to. That's either very good timing or very bad, and I'd rather like to find out which." },
+        { id = "h_flirt_yes", when = { flirt = true, npcFlagBefore = "camerick_flirt_yes" }, priority = 6, cooldown = "1d",
+          text = "The guards have heard your verse eleven times now, and they've started requesting the rain song again, which I take as jealousy." },
         { id = "h_nekrosh", when = { questDone = TODO_QUEST("Defeat Nek'rosh") },
           text = "You're the one who brought down Nek'rosh! Sit still; I'm writing a verse, and I need to know what colour his blood was." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Oh, splendid, because every good song needs a warrior, and I've been stuck here writing songs about rain." },
@@ -1422,10 +1432,37 @@ P:NPC {
         { text = "What songs do humans sing about my people, Camerick?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Nobody would write a song about a warlock.", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "What would your song about a Bronzebeard shaman say, Camerick?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do you ever write love songs, Camerick?", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "camerick_flirt_no" } } },
         { text = "Some other time.", next = "END" },
       },
     },
 
+    flirt = {
+      lines = {
+        { id = "fl_default", text = "Constantly, but they all end up about the rain, because the rain's the only thing in Menethil that hasn't left me. I'd write one about you in an evening, though, if you'd sit for it, and I'd even try to rhyme properly." },
+        { id = "fl_again", when = { npcFlagBefore = "camerick_flirt_yes" }, priority = 5,
+          text = "The song about you has grown three verses since you were last here, and the guards say it's better than the rain song. The guards say that about everything, of course, but I choose to believe them." },
+      },
+      choices = {
+        { text = "Write it, Camerick. I'll sit for it.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "camerick_flirt_yes" }, clear = { "camerick_flirt_no" } } } },
+        { text = "My people deserve a better song than the one you wrote.", next = "flirt_yes", when = { race = "NightElf" },
+          reply = "Then sit with me and correct it, verse by verse, and we'll take as long as it needs.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "camerick_flirt_yes" }, clear = { "camerick_flirt_no" } } } },
+        { text = "I'm flattered, but write about someone else.", next = "BACK",
+          reply = "Then I'll write about the rain again, and you'll be in it somewhere as a passing sunbeam. Nobody minds a sunbeam.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "camerick_flirt_no" }, clear = { "camerick_flirt_yes" } } } },
+        { text = "Save your verses for someone who wants them.", next = "BACK",
+          reply = "Fair, and fairly said, since a minstrel learns to take a bad review. I may put that line in the next song, if you don't mind.",
+          fx = { trait = { stern = 1 }, npcFlag = { set = { "camerick_flirt_no" }, clear = { "camerick_flirt_yes" } } } },
+      },
+    },
+    flirt_yes = {
+      lines = { { id = "fy_default", text = "Then hold still by the window, where the grey light's kindest. 'There came to the harbour a traveller fair,' and I'm stuck already, because the only rhyme I have is 'hair', and I've not decided if that's too forward." } },
+      choices = {
+        { text = "I'll come back for the last verse.", next = "BACK",
+          reply = "Then I'll never finish it, so you'll have to keep coming back. That's the oldest trick a minstrel knows." },
+      },
+    },
     song = {
       lines = {
         { id = "s_default", text = "'Oh, the rain on the harbour, the rain on the keep, the rain on the captain who never will sleep.' It goes on like that, and so does the rain; it's very popular with the guards." },

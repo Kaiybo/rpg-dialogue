@@ -922,7 +922,7 @@ P:NPC {
 
 -- Corina Steele: weaponsmith, same forge.
 P:NPC {
-  key = "corina", id = TODO_NPC("Corina Steele"), name = "Corina Steele", title = "Weaponsmith",
+  key = "corina", id = TODO_NPC("Corina Steele"), name = "Corina Steele", title = "Weaponsmith", gender = "female",
   bible = "bibles/goldshire_folk.md", role = "blacksmith", tier = "service", communities = { "goldshire" },
   temper = { "sharp" }, values = { "proud" }, notices = { "kit" },
   impression = {
@@ -931,6 +931,12 @@ P:NPC {
   },
   greetings = {
     { id = "g_blade", text = "Swords, axes and maces; pick one up and feel the balance." },
+    { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "corina_flirt_no" } }, cooldown = "2d",
+      text = "Back to look at the swords, or at the smith? Either way, mind the edges, because I've only just put them on." },
+    { id = "g_flirt_yes", when = { flirt = true, npcFlagBefore = "corina_flirt_yes" }, priority = 8, cooldown = "1d",
+      text = "There's my charmer. Kurran keeps asking why I've burned my thumb twice this week, and I keep telling him it's the forge." },
+    { id = "g_flirt_no", when = { npcFlagBefore = "corina_flirt_no" }, priority = 8, once = true,
+      text = "Just the blades today, I promise, and my clever remarks stay in the coal bucket where they belong. No hard feelings, {class}." },
   },
   notice = {
     { id = "n_dull", cat = "kit", when = { durability = { max = 0.25 } },
@@ -1026,6 +1032,10 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. You'll want a mace or a staff, I'd guess, and I've a few that won't embarrass you." },
         { id = "h_default", key = true, text = "Corina Steele, and yes, really. With a name like that it was this or juggling." },
+        { id = "h_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "corina_flirt_no" } }, cooldown = "3d",
+          text = "You've a good grip and better shoulders, and I'm speaking strictly as a weaponsmith, of course. Well, mostly strictly." },
+        { id = "h_flirt_yes", when = { flirt = true, npcFlagBefore = "corina_flirt_yes" }, priority = 6, cooldown = "1d",
+          text = "You again, and I've just put an edge on something, so mind you don't distract me into losing a finger." },
         { id = "h_warrior", when = { class = "WARRIOR" }, text = "Lyria sends me all her students. Half come back for a heavier blade. The other half come back for a lighter one." },
         { id = "h_kurran", when = { metBefore = true }, text = "Kurran and I share a name and an argument. The argument's older." },
         { id = "h_balance", when = { metBefore = true }, text = "A sword's balance tells you who it was made for. Most of mine are made for whoever pays." },
@@ -1057,7 +1067,34 @@ P:NPC {
         { text = "What would you forge for someone who fights with claws?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "I'd guess you don't sell much to mages, Corina.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "My weapon feels poorly balanced, Corina.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "You seem to watch your customers closely, Corina.", next = "flirt", when = { flirt = true, ["not"] = { npcFlag = "corina_flirt_no" } } },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    flirt = {
+      lines = {
+        { id = "fl_default", text = "Only the ones worth watching, and you test a blade like you mean it, which is rarer than you'd think. I don't flirt with customers as a rule, but rules are for people who don't own the forge." },
+        { id = "fl_again", when = { npcFlagBefore = "corina_flirt_yes" }, priority = 5,
+          text = "Still watching, and still not sorry about it. Kurran has started whistling whenever you walk in, and I'll make him pay for that in leather." },
+      },
+      choices = {
+        { text = "Then watch closely. I'll test a few more blades.", next = "flirt_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "corina_flirt_yes" }, clear = { "corina_flirt_no" } } } },
+        { text = "Lyria warned me her students always fall for the smith.", next = "flirt_yes", when = { class = "WARRIOR" },
+          reply = "Did she? Then Lyria talks too much, though I can't say she's wrong.",
+          fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "corina_flirt_yes" }, clear = { "corina_flirt_no" } } } },
+        { text = "You're kind, Corina, but I'm only here for steel.", next = "BACK",
+          reply = "Then steel you'll have, and the best on the rack. Forget I said anything; the coal smoke makes me talkative.",
+          fx = { trait = { reserved = 1 }, npcFlag = { set = { "corina_flirt_no" }, clear = { "corina_flirt_yes" } } } },
+        { text = "Flattery won't win you a better price from me.", next = "BACK",
+          reply = "It wasn't meant to, but I'll take the hint and save the flattery for the blades, since they never argue.",
+          fx = { trait = { stern = 1 }, npcFlag = { set = { "corina_flirt_no" }, clear = { "corina_flirt_yes" } } } },
+      },
+    },
+    flirt_yes = {
+      lines = { { id = "fy_default", text = "Then take this one by the hilt while I check the balance, and if your hand lingers, I'll pretend I didn't notice. Come back when it's notched, {class}, because I'll be glad to see it, and you." } },
+      choices = {
+        { text = "I'll notch it quickly, then.", next = "BACK",
+          reply = "Not too quickly. A smith likes to see her work last, and her customers too." },
       },
     },
     blade = {
