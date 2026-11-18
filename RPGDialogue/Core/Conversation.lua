@@ -927,11 +927,20 @@ function Conv.Log(who, text)
   s.log = s.log or {}
   s.log[#s.log + 1] = { who = who, text = text }
   if #s.log > 400 then table.remove(s.log, 1) end
-  -- The journal's Transcript page keeps the last conversation after it ends (0.86.0).
+  -- The journal's Transcript page keeps recent conversations, not just the last (0.87.0).
   if ns.char then
-    local t = ns.char.transcript
-    if not t or t.log ~= s.log then
-      ns.char.transcript = { name = s.info and s.info.name, t = C.Now(), log = s.log }
+    local list = ns.char.transcripts
+    if not list then
+      list = {}
+      local old = ns.char.transcript
+      if old and old.log and #old.log > 0 then list[1] = old end
+      ns.char.transcript = nil
+      ns.char.transcripts = list
+    end
+    local last = list[#list]
+    if not last or last.log ~= s.log then
+      list[#list + 1] = { name = s.info and s.info.name, t = C.Now(), log = s.log }
+      while #list > 20 do table.remove(list, 1) end
     end
   end
   local J = ns.Journal
