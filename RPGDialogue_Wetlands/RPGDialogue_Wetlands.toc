@@ -24,3 +24,5 @@ npcs\wetlands_forever.lua
 npcs\menethil_folk.lua
 npcs\more_folk.lua
 npcs\missed_ashlan.lua
+npcs\missed.lua
+npcs\missed2.lua

@@ -24,3 +24,4 @@ npcs\bartolo.lua
 npcs\grudges.lua
 npcs\hillsbrad_folk.lua
 npcs\more_folk.lua
+npcs\missed.lua

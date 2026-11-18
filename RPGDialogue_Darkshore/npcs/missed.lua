@@ -91,7 +91,7 @@ P:NPC {
   },
   notice = {
     { id = "n_outlander", cat = "race", when = { race = { "Human", "Dwarf", "Gnome" } },
-      text = "Another guest from across the sea. There were none of you on this dock a few years ago, and now I hear your tongue every day." },
+      text = "Another guest from across the sea. There were none of you on this dock a few years ago, and now your tongue is spoken here every day." },
   },
   start = "hello",
   nodes = {
@@ -182,7 +182,7 @@ P:NPC {
       },
     },
     speaks = {
-      lines = { { id = "sp_default", text = "Lately, of the Twilight's Hammer, who have crept into the old ruins at the Master's Glaive to the south. He does not frighten easily, so when he asks travellers to go and look, I take it very seriously.", fx = { learn = { "twilights_hammer" } } } },
+      lines = { { id = "sp_default", text = "Lately, of the Twilight's Hammer, who have crept into the old ruins at the Master's Glaive to the south. He does not frighten easily, so when he asks travellers to go and see for themselves, I take it very seriously.", fx = { learn = { "twilights_hammer" } } } },
       choices = { { text = "Then I will hear him out. Something else.", next = "BACK" } },
     },
     lonely = {
