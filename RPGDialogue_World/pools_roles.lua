@@ -537,13 +537,19 @@ P:Pool {
 ---------------------------------------------------------------------------
 P:Pool {
   -- Faction-neutral: human and dwarf paladins of the Silver Hand, and the Forsaken who
-  -- still answer to the Light in Forever.
+  -- still answer to the Light in Forever. Expanded 0.82.0: craft sub-hub (blessings,
+  -- seals, auras, undead, Redemption, the warhorse), the order sub-hub (Uther, Arthas,
+  -- the Scarlet Crusade, the Argent Dawn, Forsaken paladins), the teacher asks why you
+  -- took up the hammer, origin replies, and branches for priests and outsiders.
   id = "trainer_paladin", role = "trainer", subtitle = "paladin trainer", tier = "service",
   greetings = {
     { id = "g_light", text = "Be welcome, and be honest. Here to learn?" },
     { id = "g_high", when = { minLevel = 40 }, text = "You've come a long way since your first lesson, when you dropped the hammer on your own foot. Come, there's more to learn." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, and I trust the Light walked with you. Come, let's see what it taught you." },
     { id = "g_since", when = { levelsSince = 6 }, text = "You've come a long way since I last taught you, and it shows in how you stand. Come, there's more to learn." },
+    { id = "g_fem", when = { class = "PALADIN", gender = "female", maxLevel = 15 }, text = "Welcome, sister. Some of the old knights will tell you the order was a brotherhood, and you may tell them the Light never checked." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Late for a lesson, but the Light keeps no hours and neither do I. Come in out of the dark." },
+    { id = "g_ghost", when = { resSick = true }, text = "You've the grey look of someone the spirit healer has just sent back. Sit a moment before you swing anything." },
   },
   notice = {
     { id = "n_dirty", cat = "gear", when = { durability = { max = 0.25 } },
@@ -554,6 +560,10 @@ P:Pool {
       text = "Every human paladin I've taught had that same look, half sure the Light was listening and half afraid that it was. Both halves are right, so keep them." },
     { id = "n_dwarf", cat = "class", when = { race = "Dwarf", class = "PALADIN" },
       text = "You've a dwarf's patience with the hammer and a dwarf's impatience with everything else. The Light seems to like the combination, so I'll not argue with it." },
+    { id = "n_deaths", cat = "class", when = { class = "PALADIN", deaths = { min = 20 } },
+      text = "You've been carried back from the dead more often than I'd like to count, by the look of you. A shield is meant to be held up, {class}, not admired from the ground." },
+    { id = "n_scarlet", cat = "class", when = { class = "PALADIN", killed = { name = "Scarlet", min = 25 } },
+      text = "There's red dye under your gauntlets, and I don't think it's wine. Cutting down men who pray to the same Light is a hard road, so walk it with your eyes open." },
   },
   start = "hello",
   nodes = {
@@ -564,37 +574,125 @@ P:Pool {
         { id = "l_young", when = { class = "PALADIN", maxLevel = 20 }, text = "Your hammer arm will learn before your heart does, and that's the wrong way round. Pray before you train, not after." },
         { id = "l_veteran", when = { class = "PALADIN", minLevel = 45 }, text = "You wear the Light now like an old coat you've stopped noticing. That's either grace or exhaustion, so tell me which." },
         { id = "l_other", when = { ["not"] = { class = "PALADIN" } }, text = "You're not of the order, but you're welcome all the same. The Light judges what you do, not what you were trained to do." },
+        { id = "l_forsaken", when = { race = "Scourge", class = "PALADIN", faction = "Horde" }, text = "Another of the risen who still kneels. There are few enough of us that I'd know your face anywhere, so let's make the most of the lesson." },
       },
       again = {
         { id = "a_again", text = "Is there more on your mind, or shall we get back to the hammer?" },
         { id = "a_again2", text = "Speak plainly; I have the time." },
+        { id = "a_again3", text = "Go on. A squire who stops asking questions has stopped learning, and that's when they get hurt." },
       },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PALADIN" } },
-        { text = "What should I be practising?", next = "practise", when = { class = "PALADIN" } },
+        { text = "What should I be practising?", next = "craft", when = { class = "PALADIN" } },
         { text = "I can't decide whether the Light asks mercy or judgement.", next = "mercy", when = { class = "PALADIN", minLevel = 10 } },
-        { text = "Even a priest must doubt the Light sometimes.", next = "doubt" },
+        { text = "What's left of the Silver Hand these days?", next = "order" },
+        { text = "You've the look of someone who's trained a lot of squires.", next = "teacher" },
+        { text = "Could someone like me learn to call on the Light?", next = "outsider", when = { ["not"] = { class = { "PALADIN", "PRIEST" } } } },
+        { text = "The priests and you pray to the same Light, surely.", next = "priest", when = { class = "PRIEST" } },
+        { text = "I was squire to a knight of the Silver Hand, once.", next = "xorig_squire", when = { origin = "human_paladin_squire" } },
+        { text = "I held Darkshire's walls before I ever held a hammer.", next = "xorig_darkshire", when = { origin = "human_darkshire_watch" } },
+        { text = "I took my first vows in Ironforge.", next = "xorig_ironforge", when = { origin = "dwarf_silver_hand" } },
+        { text = "I ran a quarry crew at Gol'Bolar before this.", next = "xorig_quarry", when = { origin = "dwarf_quarry_foreman" } },
+        { text = "I was a knight of the Silver Hand before I died.", next = "xorig_risen", when = { origin = "forsaken_risen_knight" } },
+        { text = "I was a squire, and the plague came before my oath.", next = "xorig_unsworn", when = { origin = "forsaken_unsworn_squire" } },
         { text = "Farewell.", next = "END" },
       },
     },
-    practise = {
+
+    -- The craft: a sub-hub of things to practise.
+    craft = {
+      hub = true,
       lines = {
         { id = "p_default", text = "Your blessings, and on other people. A paladin who keeps every blessing for their own skin is only a warrior who prays." },
         { id = "p_young", when = { maxLevel = 20 }, text = "Learn to heal in armour with a hammer still in your hand. Nobody will ever give you a quiet moment to set it down." },
         { id = "p_veteran", when = { minLevel = 40 }, text = "Learn when to step forward and take the blow meant for someone softer. The Light gave you that armour for exactly that." },
       },
+      again = {
+        { id = "c_again", text = "What else? There's always more to drill than there are hours to drill it." },
+        { id = "c_again2", text = "Ask away. I'd rather answer you here than have you find out the hard way on the road." },
+      },
       choices = {
+        { text = "Who should I bless, if I can only manage one?", next = "blessings" },
+        { text = "I don't really understand seals and judgement.", next = "seals" },
+        { text = "My aura feels like nothing at all.", next = "auras" },
         { text = "And against the undead?", next = "practise_undead" },
+        { text = "I've learned Redemption, and it frightens me a little.", next = "redemption", when = { minLevel = 12 } },
+        { text = "When will the order trust me with a warhorse?", next = "warhorse", when = { minLevel = 30 } },
         { text = "Something else.", next = "BACK", fx = { trait = { cautious = 1 } } },
       },
+    },
+    blessings = {
+      lines = {
+        { id = "bl_default", text = "Whoever is standing nearest the danger, and that's rarely the one asking loudest for it. Bless the healer in the back before you bless yourself, because if they fall, you follow them soon enough." },
+        { id = "bl_party", when = { party = true }, text = "Look at the company you keep and ask who'd be the first to fall. Bless {companion} before you bless yourself, and you'll all walk home." },
+      },
+      choices = {
+        { text = "And myself? Am I last?", next = "blessings_self" },
+        { text = "I'll keep that in mind.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    blessings_self = {
+      lines = { { id = "bs_default", text = "You're not last, you're simply not first. A paladin who's all bruises can still stand in a doorway, and that's worth more than a pretty one who's hiding behind it." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    seals = {
+      lines = {
+        { id = "se_default", text = "A seal is a promise you make on your weapon, and a judgement is you keeping it. Set the seal, strike, then release it on your enemy all at once, and set another before the first one cools." },
+        { id = "se_young", when = { maxLevel = 15 }, text = "You've one or two seals so far, and that's plenty to learn the rhythm. Set it, strike with it, judge it, set it again, and count it out loud at first if you have to." },
+      },
+      choices = {
+        { text = "That sounds more like arithmetic than prayer.", next = "seals_prayer" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seals_prayer = {
+      lines = { { id = "sp_default", text = "Prayer is only attention, said aloud. Count your seals with the same care you'd count your prayers, and soon enough you won't know which is which." } },
+      choices = { { text = "I'll practise both, then.", next = "BACK", fx = { trait = { pious = 1 } } } },
+    },
+    auras = {
+      lines = {
+        { id = "au_default", text = "It should feel like nothing; that's how you know it's working. An aura isn't for you, it's for the people beside you, and they'll feel the difference long before you do." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
     practise_undead = {
       lines = {
         { id = "pu_default", text = "The Light is fire to them, so don't hold back and don't hesitate. Whatever they were once, they aren't that now, and the kindest blow is the quickest." },
         { id = "pu_undead", when = { race = "Scourge" }, text = "You know better than I do what the Scourge feel when the Light touches them. Use that knowledge, and finish what's left of them quickly." },
       },
-      choices = { { text = "I'll remember.", next = "BACK", fx = { affinity = 1 } } },
+      choices = {
+        { text = "Some of them were people I knew.", next = "undead_known" },
+        { text = "I'll remember.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
+    undead_known = {
+      lines = {
+        { id = "uk_default", text = "Then say their names before you strike, if it helps, and say them again afterward over a candle. The Light won't think less of you for grieving, but it won't wait for you to finish, either." },
+        { id = "uk_undead", when = { race = "Scourge" }, text = "And some of them knew you, before you woke up free and they didn't. That's a debt you can't pay in tears, only by putting them to rest." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    redemption = {
+      lines = {
+        { id = "rd_default", text = "Good, because it should. You'll call a soul back into a body that was finished with it, and the first time they open their eyes and look at you, you'll understand why we pray before we try it." },
+        { id = "rd_undead", when = { race = "Scourge" }, text = "I'd be frightened too, in your place. You call them back into warm flesh, which is more than anyone did for you, and I've no answer for why the Light allows the one and not the other." },
+      },
+      choices = {
+        { text = "It's a gift. I'll use it gladly.", next = "BACK", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Some souls are better left where they fell.", next = "BACK", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warhorse = {
+      lines = {
+        { id = "wh_default", text = "When you're ready to look after something that will carry you into a fight without asking why. Come back to me when you've a few more seasons on you, and we'll talk about it then." },
+        { id = "wh_ready", when = { minLevel = 40 }, text = "You're ready, or near enough. The warhorse comes when you call and goes when the fight is over, and it will never once complain, so be worth riding." },
+        { id = "wh_dwarf", when = { race = "Dwarf" }, text = "The order gives dwarves a warhorse too, and I've seen the look on the rams' faces about it. Don't let the stable hands tease you; it's a fine beast and it doesn't care how long your legs are." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    -- Mercy and judgement: a stance.
     mercy = {
       big = true,
       lines = { { id = "m_default", text = "Both, and never at the same moment. Mercy for the one who can still turn back, judgement for the one who won't, and Light help you telling them apart while they're both holding swords." } },
@@ -608,6 +706,110 @@ P:Pool {
       lines = { { id = "mt_default", text = "You don't, not always, and you'll get it wrong both ways before you're done. Pray over the ones you spared and the ones you didn't, and keep doing the work anyway." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { pious = 1 } } } },
     },
+
+    -- The order: what's left of the Silver Hand.
+    order = {
+      hub = true,
+      lines = {
+        { id = "o_default", text = "Less than there should be. Arthas broke the order when he broke Lordaeron, Uther lies in his tomb in the Plaguelands, and the rest of us are scattered across every kingdom that still has a chapel." },
+        { id = "o_horde", when = { faction = "Horde" }, text = "The living knights would say nothing is left that belongs to us. We swore the same oaths before the plague, though, and the Light hasn't asked to have them back." },
+      },
+      again = {
+        { id = "o_again", text = "What else about the order? I'll tell you what I can, and what I can't I'll say so." },
+        { id = "o_again2", text = "Ask on. Old knights like nothing better than talking about the old days." },
+      },
+      choices = {
+        { text = "Tell me about Uther.", next = "uther", fx = { learn = { "silver_hand" } } },
+        { text = "How does a paladin end up like Arthas?", next = "arthas_fall", fx = { learn = { "arthas" } } },
+        { text = "The Scarlet Crusade says it's the true order now.", next = "scarlet", fx = { learn = { "scarlet_crusade" } } },
+        { text = "What do you make of the Argent Dawn?", next = "argent", fx = { learn = { "argent_dawn" } } },
+        { text = "Do the living knights accept Forsaken paladins?", next = "forsaken_order", when = { race = "Scourge" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    uther = {
+      lines = {
+        { id = "ut_default", text = "He was the first of us, ordained by Archbishop Faol himself, and he was kinder off the field than anyone would believe from watching him on it. He died at Andorhal, defending a prince's ashes from the prince who killed him." },
+        { id = "ut_undead", when = { race = "Scourge" }, text = "You might have seen him once, in the life before. Plenty of Lordaeron's people did, riding at the head of the column with that great hammer across his saddle." },
+      },
+      choices = {
+        { text = "I'd like to see his tomb one day.", next = "uther_tomb" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    uther_tomb = {
+      lines = { { id = "utt_default", text = "It stands in the Western Plaguelands, south of Andorhal, and the dead wander right up to its door. Go when you can hold your own out there, and leave something at the statue for the rest of us who can't." } },
+      choices = { { text = "I will.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } } },
+    },
+    arthas_fall = {
+      big = true,
+      lines = {
+        { id = "af_default", text = "One hard choice at a time, each of them made for a reason that sounded good. He burned Stratholme to save the kingdom and lost the kingdom anyway, and somewhere along that road the Light stopped answering him and he didn't notice." },
+        { id = "af_undead", when = { race = "Scourge" }, text = "You'd know his work better than any of my students. I'll only say that he was once exactly as earnest as you, and that's the part we're meant to remember." },
+      },
+      choices = {
+        { text = "Then any of us could fall the same way.", next = "BACK", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
+        { text = "He chose it. I'd never make that choice.", next = "BACK", fx = { align = { order = -1 }, trait = { proud = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    scarlet = {
+      big = true,
+      lines = {
+        { id = "sc_default", text = "They say a great many things, mostly at the top of their lungs. Some of them were good knights once, and now they burn farmers for coughing and call it the Light's work, which it isn't." },
+        { id = "sc_undead", when = { race = "Scourge" }, text = "They'd say you're an abomination wearing a dead knight's armour, and they'd put you to the torch before you finished a prayer. Keep away from their monastery and their towers, unless you've come to end them." },
+      },
+      choices = {
+        { text = "Someone has to fight the Scourge without mercy.", next = "BACK", fx = { align = { order = 1, light = -1 }, opinion = { scarlet_crusade = "necessary" } } },
+        { text = "They've become as cruel as the dead they hunt.", next = "BACK", fx = { align = { light = 1 }, opinion = { scarlet_crusade = "hate" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    argent = {
+      lines = {
+        { id = "ag_default", text = "They're the best of what came after, if you ask me. Priests, knights, farmers and scholars who'll stand beside anyone who fights the Scourge, and they don't ask what you were before you picked up a sword." },
+        { id = "ag_lvl", when = { minLevel = 50 }, text = "You're ready for the north, so go and find them at Light's Hope Chapel in the east. They'll have work for a paladin, and they'll pay in more than coin." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    forsaken_order = {
+      lines = {
+        { id = "fo_default", text = "Most of them would rather put us to the torch than kneel beside us. A few of the old knights look at us a long while before they draw, though, and that's more than nothing." },
+        { id = "fo_horde", when = { faction = "Horde" }, text = "No, and I don't expect them to. That's why there's Bandarion Keep up on the bluffs in Tirisfal, so that the Light's risen servants have somewhere to kneel. Go and see Danitha Morr there if you haven't." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { stern = 1 } } } },
+    },
+
+    -- The teacher, and why the player took up the hammer.
+    teacher = {
+      lines = {
+        { id = "t_default", text = "More than I can remember and fewer than I'd like to have kept. Most of them are good knights now, and some of them I pray for every night. Tell me, then, why did you take up the hammer?" },
+        { id = "t_notpal", when = { ["not"] = { class = "PALADIN" } }, text = "More than I can count, and each one of them stood about where you're standing. You've a weapon of your own, though, so tell me what you fight for." },
+      },
+      choices = {
+        { text = "To protect people who can't protect themselves.", next = "why_answer", fx = { align = { light = 1 }, trait = { kind = 1 }, affinity = 1 } },
+        { text = "For justice. Somebody has to bring the wicked to account.", next = "why_answer", fx = { align = { order = 1 }, trait = { stern = 1 } } },
+        { text = "For vengeance. The Scourge took everything from me.", next = "why_vengeance", fx = { align = { light = -1 }, trait = { stern = 1 } } },
+        { text = "Honestly, the order needed bodies and I needed bread.", next = "why_answer", fx = { align = { honor = -1 }, trait = { witty = 1 } } },
+        { text = "Do you ever doubt the Light?", next = "doubt" },
+      },
+    },
+    why_answer = {
+      lines = {
+        { id = "wa_default", text = "That's as good a reason as any I've heard, and better than some. Hold on to it, because there'll come a morning when it's the only thing that gets you out of bed and into your armour." },
+      },
+      choices = {
+        { text = "What got you out of bed?", next = "doubt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why_vengeance = {
+      lines = { { id = "wv_default", text = "I understand it, and I won't pretend I've never felt it. Vengeance will get you to the Plaguelands, but it won't keep the Light in your hands once you're there, so find another reason before you arrive." } },
+      choices = {
+        { text = "I'll try.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Vengeance is reason enough for me.", next = "BACK", fx = { trait = { proud = 1 } } },
+      },
+    },
     doubt = {
       lines = {
         { id = "d_default", text = "I doubt myself every morning, and I doubted the Light the winter the plague came. It answered anyway, both times, and that's the only argument I've ever needed." },
@@ -617,6 +819,76 @@ P:Pool {
         { text = "That's a comfort.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
+    },
+
+    -- Visitors from outside the order.
+    outsider = {
+      lines = {
+        { id = "os_default", text = "Anyone can pray, and the Light listens to a farmer as closely as it listens to a knight. To wield it the way we do takes vows and years of training, and I'm afraid the order chooses its squires young." },
+        { id = "os_warrior", when = { class = "WARRIOR" }, text = "You fight like one of us already, you only do it without the prayers. Say one before your next fight anyway and see whether the shield feels any lighter." },
+        { id = "os_horde", when = { faction = "Horde", ["not"] = { race = "Scourge" } }, text = "The Light doesn't care what tusks or horns you wear, whatever the living knights might say. Your own people have their spirits and their Earth Mother, though, and I'd not try to talk you out of those." },
+      },
+      choices = {
+        { text = "Then teach me a prayer, at least.", next = "prayer" },
+        { text = "I'll keep to my own path.", next = "BACK" },
+      },
+    },
+    prayer = {
+      lines = { { id = "pr_default", text = "Here's the one we give squires on their first night: Light, make my arm strong and my judgement slow, and keep the people behind me safe from both. Say it before a fight and mean it, and that's half of what we do." } },
+      choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } } },
+    },
+    priest = {
+      lines = {
+        { id = "pq_default", text = "The same Light, yes, and different work. You mend people from behind the line, and we stand on it and mend them where they fall, and both of us would be dead in a week without the other." },
+        { id = "pq_undead", when = { race = "Scourge" }, text = "Most of your kind turned to the shadow when they woke, and you didn't, or not entirely. That makes two of us who don't fit anywhere, so come and sit by the brazier whenever you like." },
+      },
+      choices = {
+        { text = "Paladins are just priests who'd rather hit things.", next = "priest_joke", fx = { trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    priest_joke = {
+      lines = { { id = "pj_default", text = "Ha! And priests are just paladins who never learned to lift anything heavier than a book. Go on, before I tell the cathedral what you called us." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+
+    -- Origins.
+    xorig_squire = {
+      lines = { { id = "xo_squire", text = "Then you carried a knight's shield before you ever had your own, and that's the best schooling there is. Whoever it was, I'd wager they'd be proud to see you wearing the plate now." } },
+      choices = { { text = "I hope so.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xorig_darkshire = {
+      lines = { { id = "xo_darkshire", text = "Then you already know what it's like to stand on a wall at night and wait for the dark to move. The Light only puts a little more behind you, which is something the Night Watch could always have used." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xorig_ironforge = {
+      lines = { { id = "xo_ironforge", text = "The Mystic Ward's a good place to kneel, with the forge rumbling under your knees like the mountain's own prayer. Dwarves were late to the Light, but you've never been late to anything else." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { trait = { proud = 1 } } } },
+    },
+    xorig_quarry = {
+      lines = { { id = "xo_quarry", text = "Then you know how to keep a crew alive under a falling roof, which is most of what a paladin does with a party. You'll only swap the pick for a hammer and the foreman's whistle for a prayer." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xorig_risen = {
+      lines = {
+        { id = "xo_risen", text = "Then you swore the oath once already, with a heartbeat behind it. I won't ask you to swear it again, only to keep it as well as you can now that you're cold." },
+      },
+      choices = {
+        { text = "My oath outlived me. I'll keep it.", next = "BACK", fx = { align = { honor = 1 }, trait = { pious = 1 } } },
+        { text = "Death released me from that oath.", next = "BACK", fx = { align = { honor = -1 }, trait = { stern = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xorig_unsworn = {
+      lines = { { id = "xo_unsworn", text = "Then you never knelt, and yet the Light came to you anyway, which tells me it doesn't care much for our ceremonies. If you want to say the words now, I'll hear them, and if not, the Light seems to have heard enough." } },
+      choices = {
+        { text = "I'd like to say them now.", next = "oath" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oath = {
+      lines = { { id = "oa_default", text = "Then kneel. Swear to stand between the weak and the dark, to judge slowly and strike surely, and to give the Light back everything it gives you. Rise, then, for it's done, and no grave can take it from you a second time." } },
+      choices = { { text = "Thank you.", next = "BACK", fx = { affinity = 2, trait = { pious = 1 } } } },
     },
   },
   topics = {
@@ -628,6 +900,24 @@ P:Pool {
     },
     scourge = {
       { id = "w_scourge", text = "The dead fear the Light more than any blade, and a paladin who stands firm is a wall they can't climb. Go north when you're ready, and not a day before." },
+    },
+    silver_hand = {
+      { id = "w_hand", text = "Five knights at the start, and Uther first among them, and for a while there was no finer order in the world. Now we're whoever still keeps the oaths, wherever we happen to be." },
+    },
+    scarlet_crusade = {
+      { id = "w_scarlet", text = "Zealots in red who think fear and faith are the same thing. Some of my old brothers are among them, and I pray for them, which they would call heresy." },
+    },
+    argent_dawn = {
+      { id = "w_argent", text = "Good people at Light's Hope Chapel who fight the Scourge without asking for anyone's pedigree. If you want to do the order's work in the north, they'll give you plenty of it." },
+    },
+    stratholme = {
+      { id = "w_strat", text = "The city where a prince stopped being a paladin. The Scourge hold its streets and the Scarlets hold a corner of it, and neither of them deserves to." },
+    },
+    tome_of_divinity = {
+      { id = "w_tome", text = "Every young paladin gets sent after a tome sooner or later, and the reading is the easy part. The lesson is in the errand, which is usually somebody else's trouble." },
+    },
+    forsaken = {
+      { id = "w_forsaken", text = "They're the people of Lordaeron, whatever else they are now, and some of them still kneel. I'd sooner judge them one at a time than all at once." },
     },
     knows = {
       { id = "t_kn1", text = "The Light asks us to share whatever might help another, so I will. Ask me of these, and I'll answer you honestly." },
