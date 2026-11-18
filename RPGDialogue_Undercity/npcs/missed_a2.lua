@@ -488,7 +488,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Good day to you. Fall in beside us if you like, since we're only walking, and we've been round twice already." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again. We've done another circuit since, and I can report that nothing has improved." },
-    { id = "g_living", when = { ["not"] = { race = "Scourge" } }, text = "A living visitor, in our humble sewer! Selina, Reginald, do look, and try not to stare at the breathing." },
+    { id = "g_living", when = { ["not"] = { race = "Scourge" } }, text = "A living visitor, in our humble sewer! Selina, Reginald, do come and see, and try not to stare at the breathing." },
   },
   notice = {
     { id = "n_orc", cat = "race", when = { race = "Orc" },
@@ -803,7 +803,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     abom = {
-      lines = { { id = "a_default", text = "You stay inside the reach of the hook, where it can't get a swing, and you cut the stitching and not the meat. One of us holds its eye and the other opens the seams, and it comes apart like a badly sewn sack." } },
+      lines = { { id = "a_default", text = "You stay inside the reach of its hook, so that it can't get a swing, and you cut the stitching and not the meat. One of us holds its eye and the other opens the seams, and it comes apart like a badly sewn sack." } },
       choices = { { text = "I'll remember that in the Plaguelands.", next = "BACK", fx = { affinity = 1 } } },
     },
   },

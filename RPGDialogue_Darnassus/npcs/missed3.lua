@@ -507,7 +507,7 @@ P:NPC {
       },
     },
     closer = {
-      lines = { { id = "c_default", text = "You may look, but keep your hands at your sides. She will bear a stranger near her so long as I am calm, and I am calm so long as nobody reaches for her ears." } },
+      lines = { { id = "c_default", text = "You may come a little nearer, but keep your hands at your sides. She will bear a stranger near her so long as I am calm, and I am calm so long as nobody reaches for her ears." } },
       choices = { { text = "Hands at my sides, then. Something else.", next = "BACK" } },
     },
     ravenoak = {
