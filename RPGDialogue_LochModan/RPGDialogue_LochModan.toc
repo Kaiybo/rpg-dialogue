@@ -26,3 +26,6 @@ npcs\stoutlager_stalls.lua
 npcs\loch_edges.lua
 npcs\loch_folk.lua
 npcs\more_folk.lua
+npcs\missed.lua
+npcs\missed2.lua
+npcs\missed3.lua

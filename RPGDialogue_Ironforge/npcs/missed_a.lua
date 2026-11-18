@@ -563,7 +563,7 @@ P:NPC {
       },
       choices = {
         { text = "What does a leatherworker run out of first?", next = "runout" },
-        { text = "I hear you improve the shop's tools.", next = "tools" },
+        { text = "They say you improve the shop's tools.", next = "tools" },
         { text = "How did gnomes come to leather?", next = "leather" },
         { text = "Just supplies today.", next = "END" },
       },
@@ -767,7 +767,7 @@ P:NPC {
   },
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
-      text = "I know that look, for ye're countin' the wards on my keys from where ye stand. Count all ye like, {g:lad|lass}, for it's the locks ye'd have to beat, and I cut those too." },
+      text = "I know that stare, for ye're countin' the wards on my keys from where ye stand. Count all ye like, {g:lad|lass}, for it's the locks ye'd have to beat, and I cut those too." },
   },
   start = "hello",
   nodes = {
