@@ -1755,7 +1755,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "Anything else? I've a stave in the steam that won't wait long." },
         { id = "hello_again2", text = "Go on, I can talk while I wax." },
-        { id = "hello_again3", text = "Yes? Ask away." },
+        { id = "hello_again3", text = "Yes, ask away, by all means." },
       },
       choices = {
         { text = "Let me see your bows.", next = "BUSINESS" },
@@ -1871,7 +1871,7 @@ P:NPC {
       },
       again = {
         { id = "hello_again1", text = "Something else? I've a bolt to measure." },
-        { id = "hello_again2", text = "Go on. Cloth is patient." },
+        { id = "hello_again2", text = "Go on, then; cloth is patient." },
         { id = "hello_again3", text = "Yes? Ask, by all means." },
       },
       choices = {
@@ -2047,7 +2047,7 @@ P:NPC {
     },
     fel = {
       lines = {
-        { id = "fel_1", text = "You got him? Huh. That's good for the living, I guess, but half my trade was folks stocking up to go fight his dead, so I'll have to rethink my prices. Don't get me wrong, pal, I'm thrilled for ya." },
+        { id = "fel_1", text = "You got him? Well, that's good for the living, I guess, but half my trade was folks stocking up to go fight his dead, so I'll have to rethink my prices. Don't get me wrong, pal, I'm thrilled for ya." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

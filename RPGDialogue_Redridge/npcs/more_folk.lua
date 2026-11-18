@@ -719,7 +719,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "What else can I find you?" },
         { id = "hello_again2", text = "Go on, I'm only tidying." },
-        { id = "hello_again3", text = "Yes? Ask away." },
+        { id = "hello_again3", text = "Yes, ask away, by all means." },
       },
       choices = {
         { text = "Show me your goods.", next = "BUSINESS" },
@@ -1070,7 +1070,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "What else can I do for you?" },
         { id = "hello_again2", text = "Go on. Leather's in no hurry." },
-        { id = "hello_again3", text = "Yes? I'm listening." },
+        { id = "hello_again3", text = "Yes, I'm listening." },
       },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },

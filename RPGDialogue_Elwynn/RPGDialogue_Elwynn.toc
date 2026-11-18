@@ -56,4 +56,5 @@ npcs\daniel_library.lua
 npcs\sergeant_de_vries.lua
 npcs\clara_charles.lua
 npcs\elwynn_forever.lua
+npcs\missed_folk.lua
 directions.lua

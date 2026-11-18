@@ -28,3 +28,30 @@
 
 ## Never
 - Veiled Hand, Legion, Cataclysm Darkshire, Nightmare Incursions (Season of Discovery).
+
+## Deepening pass and added NPCs  (new keys: watcher_paige, watcher_jan, watcher_petras, watcher_bukouris, watcher_keller, watcher_fraizer, watcher_wollpert, avette_fellwood, lohgan_eva, bliztik)
+
+### Sources
+- warcraft.wiki.gg pages: Watcher_Paige (central crossroad), Watcher_Jan, Watcher_Petras (patrols Darkshire), Watcher_Bukouris (female), Watcher_Keller, Watcher_Fraizer, Watcher_Wollpert (Night Watch, Darkshire; nothing else; Legion/Veiled Hand sections not used), Avette_Fellwood (Bowyer, near the inn), Lohgan_Eva (Tailoring Supplies; Madame Eva's grandson, Alyssa's brother), Bliztik (Classic only; goblin, Alchemy Supplies, a house in Raven Hill). All Classic-range NPC ids.
+
+### Their quests
+- none: guards and vendors. They react to the pack's existing quests (The Night Watch, Raven Hill, Morbent Fel, Worgen in the Woods, The Legend of Stalvan, Translation to Ello, Look To The Stars).
+
+### Identity / voice
+- Watcher Paige · woman · alone at the crossroads, keeps a tally of who takes which road.
+- Watcher Jan · man · fills and counts the Watch's lamps; oil from Stormwind or from Kzixx.
+- Watcher Petras · man · ex-woodcutter; reads the mud at the town's edge each morning.
+- Watcher Bukouris · woman · brisk; sees to the Watch's arms; Dodds's pitchfork.
+- Watcher Keller · man · stiff, by the book; town hall steps; wrote down the nine standing orders.
+- Watcher Fraizer · man · chatty; patrols by the Scarlet Raven and hears its talk.
+- Watcher Wollpert · man · grim; the cemetery road toward Tranquil Gardens; Stitches came up it.
+- Avette Fellwood · woman · calm bowyer; sells to the Carevins and the Watch.
+- Lohgan Eva · man · the Eva with no interest in stars; wry about his grandmother.
+- Bliztik · goblin · brazen; "no rent, no council"; says Kzixx is a cousin.
+- Existing eight: added a second branch each (letters, the round, lamps, the orchard road) and replies for priests, paladins, hunters, engineers, and quest states.
+
+### Authored, not canon
+- All posts, habits and backstories above (tally, lamp count, standing orders, cemetery cart, Petras a woodcutter, Bukouris's husband a garrison soldier, Lohgan the family bookkeeper, Bliztik's stock by Kzixx's wagon, Bliztik and Kzixx cousins).
+
+### Never
+- Veiled Hand, Legion, Cataclysm Darkshire.

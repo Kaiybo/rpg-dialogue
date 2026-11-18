@@ -49,3 +49,30 @@ Files: `npcs/more_folk.lua` (quest givers), `npcs/more_folk2.lua` (shops and cor
 
 ## Never
 - Cataclysm/Legion versions (Andromath with Hammond Clay, Clavicus at the harbor, Thulman's Vision barricade, Anduin's library programme). Gallina family relations beyond what `canals.md` gives.
+
+## Deepening pass and added NPCs  (new keys: sergeant_major_clate, lieutenant_jackspring, master_sergeant_biggins, sergeant_major_skyshadow, archmage_gaiman, guard_quine, guard_hammon, wilder_thistlenettle, jorgen, reese_langston)
+
+### Sources
+- warcraft.wiki.gg: Sergeant_Major_Clate (dwarf, armour vendor), Lieutenant_Jackspring (gnome, weapons), Master_Sergeant_Biggins (gnome, accessories), Sergeant_Major_Skyshadow (night elf), Archmage_Gaiman, Guard_Quine, Guard_Hammon (all Champions' Hall; Hammon bald), Wilder_Thistlenettle (Dwarven District pub; Collecting Memories, Oh Brother. . .), Jorgen (by the water in the Valley of Heroes; The Missing Diplomat; history with Elling Trias), Reese_Langston (Tavernkeeper, Pig and Whistle).
+- Existing pack: stormwind_more.md (Karter and the hall), old_town.md (Elly Langston, Dashel, Bartleby), city files (Jorgen "fishes the moat and never catches anything").
+
+### Their quests
+- Wilder Thistlenettle: Collecting Memories (four Miners' Union Cards from the undead miners in the Deadmines), Oh Brother. . . (Foreman Thistlenettle's Explorers' League badge).
+- Jorgen: The Missing Diplomat (takes the Bishop's letter, sends a sealed note to Elling Trias).
+- Others: none (quartermasters, guards, an officer, a mage, a tavernkeeper). Hall NPCs react to `pvpRank`.
+
+### Identity / voice
+- Clate · dwarf · stolid; rank is rank, price is price.
+- Jackspring · gnome · precise, eager; weights and tolerances.
+- Biggins · gnome · genial; insignia, biscuits.
+- Skyshadow · night elf · remote Sentinel of Ashenvale; does not boast of war.
+- Gaiman · human · dry, tired battle-mage; Dalaran-trained.
+- Quine · human · young door guard; keeps a book of where the officers have been.
+- Hammon · human · bald senior door guard; fatherly.
+- Wilder · dwarf · grieving survivor; a light burr.
+- Jorgen · human · laconic; dropped g's; watches boots.
+- Reese Langston · human · jovial; soldiers' tavern.
+- Existing eight: Evan, Garion, Heinrich, Joachim, Julia, Karrina, Beasley and Thulman each got three or four more nodes and replies by class, race, origin and profession.
+
+### Authored, not canon
+- Skyshadow's two years on the Warsong lumber roads; Gaiman at Blackrock Spire as an apprentice; Clate lent by Magni; Jackspring's test frame and repeating crossbow; Quine's notebook; Hammon's four earlier partners; Jorgen's empty hook and that Shaw knows why he sits there; Reese rebuilding on the old cellar; Thulman's wife in Ironforge; Beasley carrying stone for VanCleef's guild.

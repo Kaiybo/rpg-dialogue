@@ -220,7 +220,7 @@ P:NPC {
     },
     fight = {
       lines = {
-        { id = "fight_1", text = "Hah! Yes. Trolls at least rest. The mould works day and night, and it cannot be frightened, and no one has ever sung a lok'vadnod for a merchant who beat it." },
+        { id = "fight_1", text = "Hah! Yes, and trolls at least rest. The mould works day and night, and it cannot be frightened, and no one has ever sung a lok'vadnod for a merchant who beat it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -854,9 +854,9 @@ P:NPC {
     third = "{name} met Jaxin Chong, the alchemy trainer of Booty Bay.",
   },
   greetings = {
-    { id = "g_default", text = "Don't touch that! Or that. Sorry, pal, reflex. Jaxin Chong, alchemy, lessons by the hour and breakages by the item." },
+    { id = "g_default", text = "Don't touch that, or that either! Sorry, pal, it's a reflex. Jaxin Chong, alchemy, lessons by the hour and breakages by the item." },
     { id = "g_2", when = { metBefore = true }, text = "You again! Good, good, you've still got both eyebrows, so something I said stuck." },
-    { id = "g_3", when = { profession = "Alchemy" }, text = "A practitioner! Finally. Come round this side of the bench, friend, and mind the green one, it's in a mood." },
+    { id = "g_3", when = { profession = "Alchemy" }, text = "A practitioner, finally! Come round this side of the bench, friend, and mind the green one, it's in a mood." },
   },
   notice = {
     { id = "n_1", cat = "craft", when = { profession = "Herbalism" },
@@ -916,7 +916,7 @@ P:NPC {
     },
     roof = {
       lines = {
-        { id = "roof_1", text = "Once! One time. It was a small roof, it was mostly thatch, and I maintain the fire was already going when my flask landed on it. I paid, though. In Booty Bay you pay the Baron or you swim." },
+        { id = "roof_1", text = "Once, pal, one time! It was a small roof, it was mostly thatch, and I maintain the fire was already going when my flask landed on it. I paid, though. In Booty Bay you pay the Baron or you swim." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -1272,7 +1272,7 @@ P:NPC {
         { id = "supply_1", text = "I mend their sails, yes, and I'd be at the bottom of the bay if I didn't. I've not lifted a blade for them, and I never will. A man can be frightened and still not be one of them, can't he?" },
       },
       choices = {
-        { text = "You're a prisoner doing what you must to survive.", next = "BACK", reply = "That's it exactly. Thank you. It's been a long while since anyone said so.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "You're a prisoner doing what you must to survive.", next = "BACK", reply = "That's it exactly, and thank you. It's been a long while since anyone said so.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Every sail you mend carries them to another ship.", next = "BACK", reply = "I know it. I think about it every night, and in the morning I thread the needle again.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1346,7 +1346,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "Anything else? I've a fuse running, but it's a long one." },
         { id = "hello_again2", text = "Go on, I'm listening with at least sixty percent of my attention!" },
-        { id = "hello_again3", text = "Yes? Ask, ask." },
+        { id = "hello_again3", text = "Yes? Ask, ask, I don't mind." },
       },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },

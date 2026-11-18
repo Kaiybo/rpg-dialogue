@@ -882,7 +882,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "Was there more?" },
         { id = "hello_again2", text = "Go on. I've only the ledger to mind." },
-        { id = "hello_again3", text = "Aye? Ask it." },
+        { id = "hello_again3", text = "Aye? Ask it, then." },
       },
       choices = {
         { text = "Show me the armour.", next = "BUSINESS" },
@@ -1162,7 +1162,7 @@ P:NPC {
         { id = "vanity_1", text = "Oh, I've heard that, usually from someone who's never been handed one. A stripe's a small bit of cloth that says somebody saw what you did. I've watched hard old soldiers go quiet when I pin it on, and that isn't vanity." },
       },
       choices = {
-        { text = "Being seen for what you've done matters. You're right.", next = "BACK", reply = "There, you understand. Have a biscuit.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Being seen for what you've done matters. You're right.", next = "BACK", reply = "There, you understand, so have a biscuit.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Soldiers should fight for the cause, not for ribbons.", next = "BACK", reply = "They do, friend. The ribbon's only how the cause says thank you.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -1236,7 +1236,7 @@ P:NPC {
       },
       again = {
         { id = "hello_again1", text = "There is more you would ask?" },
-        { id = "hello_again2", text = "Speak. I am listening." },
+        { id = "hello_again2", text = "Speak, and I will listen." },
         { id = "hello_again3", text = "Ask, and I will answer what I may." },
       },
       choices = {
@@ -1331,7 +1331,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Good day. If you've come for the quartermasters, they're by the racks. If you've come to ask a mage about war, I'd sit down first." },
-    { id = "g_2", when = { metBefore = true }, text = "You again. Good. You're one of the few who doesn't ask me to set something on fire." },
+    { id = "g_2", when = { metBefore = true }, text = "You again, and good. You're one of the few who doesn't ask me to set something on fire." },
     { id = "g_3", when = { class = "MAGE" }, text = "A colleague, in this hall of swordsmen. Pull up a chair, and tell me they're still teaching the fundamentals at the Sanctum." },
   },
   notice = {
@@ -1396,7 +1396,7 @@ P:NPC {
       },
       choices = {
         { text = "Power should weigh on the one who uses it.", next = "BACK", reply = "It should. I'm glad to hear someone say it who isn't a mage.", fx = { align = { light = 1 }, affinity = 1 } },
-        { text = "In war you use what wins, and you don't apologise.", next = "BACK", reply = "I use it. I've never refused. I only decline to be cheerful about it.", fx = { align = { light = -1 } } },
+        { text = "In war you use what wins, and you don't apologise.", next = "BACK", reply = "I use it, and I've never refused. I only decline to be cheerful about it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1568,7 +1568,7 @@ P:NPC {
   greetings = {
     { id = "g_y1", when = { timeOfDay = "night" }, text = "Evening. Night watch on this door is the easy one; it's the officers who can't sleep, and they only want a nod." },
     { id = "g_default", text = "Good day to you. Champions' Hall. Wipe your boots, mind your manners, and you'll have no trouble from me." },
-    { id = "g_2", when = { metBefore = true }, text = "Back again. Good. Boots, please, same as before." },
+    { id = "g_2", when = { metBefore = true }, text = "Back again, good. Boots, please, the same as before." },
     { id = "g_3", when = { pvpRank = { min = 6 } }, text = "Sir. Welcome to the hall. Quine will want to ask you a question, and I'd take it as a kindness if you'd answer him." },
   },
   notice = {
@@ -1588,7 +1588,7 @@ P:NPC {
       },
       again = {
         { id = "hello_again1", text = "Anything else I can do for you?" },
-        { id = "hello_again2", text = "Go on. The door's quiet." },
+        { id = "hello_again2", text = "Go on, the door's quiet." },
         { id = "hello_again3", text = "Aye?" },
       },
       choices = {
@@ -1707,7 +1707,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "Was there more ye wanted?" },
         { id = "hello_again2", text = "Go on. I've nowhere to be." },
-        { id = "hello_again3", text = "Aye? Ask." },
+        { id = "hello_again3", text = "Aye? Ask, and welcome." },
       },
       choices = {
         { text = "What happened in the mine?", next = "mine" },
@@ -1825,12 +1825,12 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "hello_1", text = "Name's Jorgen. I fish here. Been fishin' here a good few years, and the guards have stopped askin' what I catch. It's a fine spot for it, right under the bridge, where everybody who comes into Stormwind walks over my head." },
+        { id = "hello_1", text = "Name's Jorgen, and I fish here. Been fishin' here a good few years, and the guards have stopped askin' what I catch. It's a fine spot for it, right under the bridge, where everybody who comes into Stormwind walks over my head." },
         { id = "hello_2", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "Jorgen. So the Bishop's sent you, has he? Then he's worried, and he doesn't worry easy. I'll write you somethin' for Elling Trias, and you'll hand it to him and say nothin' else." },
         { id = "hello_3", when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "Jorgen. You saw that business through, I hear, all the way out to the marsh. I heard it from three directions, and none of 'em were you, which I thought well of." },
       },
       again = {
-        { id = "hello_again1", text = "Somethin' else? Keep it low." },
+        { id = "hello_again1", text = "Somethin' else? Keep it low, then." },
         { id = "hello_again2", text = "Go on. Fish ain't bitin' anyhow." },
         { id = "hello_again3", text = "Ask, then." },
       },
@@ -1899,7 +1899,7 @@ P:NPC {
     },
     bait = {
       lines = {
-        { id = "bait_1", text = "No. Never has been. You've a good eye, and I'd thank you to keep a shut mouth to go with it. There's a fella in Old Town named Shaw who knows why I'm here, and nobody else needs to." },
+        { id = "bait_1", text = "No, and there never has been. You've a good eye, and I'd thank you to keep a shut mouth to go with it. There's a fella in Old Town named Shaw who knows why I'm here, and nobody else needs to." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

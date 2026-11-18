@@ -176,7 +176,7 @@ P:NPC {
     },
     short = {
       lines = {
-        { id = "short_1", text = "Of cats? Bless you, no. They find me. I open the door of a morning and there's a new one on the step, washing, as if it had an appointment. I only sell the ones who tell me they'd like to see the world." },
+        { id = "short_1", text = "Of cats? Bless you, no, dear, they find me. I open the door of a morning and there's a new one on the step, washing, as if it had an appointment. I only sell the ones who tell me they'd like to see the world." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -248,8 +248,8 @@ P:NPC {
     third = "{name} met Eldrin, the tailoring trainer at the Eastvale Logging Camp.",
   },
   greetings = {
-    { id = "g_default", text = "Good day. Oh, dear. I can tell at a glance that your wardrobe is in dire need of care. Do come in." },
-    { id = "g_2", when = { metBefore = true }, text = "Ah, you're back. Turn round, please. Yes, the seam's held. I'm gratified." },
+    { id = "g_default", text = "Good day, and oh, dear, I can tell at a glance that your wardrobe is in dire need of care. Do come in." },
+    { id = "g_2", when = { metBefore = true }, text = "Ah, you're back. Turn round for me, please; yes, the seam's held, and I'm gratified." },
     { id = "g_3", when = { questActive = TODO_QUEST("Camping 101: Tailoring") }, text = "You've the look of someone sent on an errand. Is this about a camp? I was told to expect it, and I've laid out the canvas." },
   },
   notice = {
@@ -624,7 +624,7 @@ P:NPC {
         { id = "hello_2", when = { questDone = TODO_QUEST("Wanted: \"Hogger\"") }, text = "Quartermaster Hudson, and you're the one who put down Hogger. I'll admit that's good news. Mind you, there'll be another just like him by harvest; there always is." },
       },
       again = {
-        { id = "hello_again1", text = "What else? We've time. Probably." },
+        { id = "hello_again1", text = "What else? We've time, probably." },
         { id = "hello_again2", text = "Go on, I'm only counting what we've got left." },
         { id = "hello_again3", text = "Aye, what?" },
       },
@@ -670,7 +670,7 @@ P:NPC {
         { id = "gloom_1", text = "So the Deputy says. But I've noticed that the ones who laugh at me check their straps all the same, on the way out. I'd sooner they were frightened and buckled than cheerful and dead." },
       },
       choices = {
-        { text = "A warning that keeps men alive is worth the grumbling.", next = "BACK", reply = "There, you see? Somebody understands. It won't help, mind, but thank you.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A warning that keeps men alive is worth the grumbling.", next = "BACK", reply = "There, you see, somebody understands! It won't help, mind, but thank you.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "Fear spreads. A garrison needs courage, not doom.", next = "BACK", reply = "Courage, aye. I issue it in oak and steel. The talk's free.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -744,7 +744,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "What else can I show you?" },
         { id = "hello_again2", text = "Go on, friend. I can stitch and listen." },
-        { id = "hello_again3", text = "Yes? Ask away." },
+        { id = "hello_again3", text = "Yes, ask away, by all means." },
       },
       choices = {
         { text = "Show me your leathers.", next = "BUSINESS" },

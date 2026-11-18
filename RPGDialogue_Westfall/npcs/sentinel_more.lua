@@ -737,8 +737,8 @@ P:NPC {
         { id = "hello_3", when = { questDone = TODO_QUEST("Klaven's Tower") }, text = "Agent Kearnen. You got Mortwake's journal out of his own chest, under his own nose. I told Shaw as much in my report, in one line, which is as much praise as he reads." },
       },
       again = {
-        { id = "hello_again1", text = "Anything else? Quickly." },
-        { id = "hello_again2", text = "Go on. Keep it low." },
+        { id = "hello_again1", text = "Anything else? Be quick about it." },
+        { id = "hello_again2", text = "Go on, and keep it low." },
         { id = "hello_again3", text = "Ask." },
       },
       choices = {
@@ -963,7 +963,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "quiet", "far-sighted" }, values = { "vigilance", "home" },
   notices = { "travel", "class", "soldier" },
   impression = {
-    first = "Protector Weaver keeps the lookout on top of Sentinel Tower and can name every farm in Westfall by the shape of its roof. Most of them are empty now, and he watches them anyway, as if they might be lit again.",
+    first = "Protector Weaver keeps the lookout on top of Sentinel Tower and can name every farm in Westfall by the shape of its roof. Most are empty now, and he watches them anyway, as if they might be lit again.",
     third = "{name} met Protector Weaver, the People's Militia's lookout atop Sentinel Tower.",
   },
   greetings = {
@@ -1158,14 +1158,14 @@ P:NPC {
         { id = "charging_1", text = "Gariel says so too. But if I wait at the wall, they reach the wall, and there are children in that inn. I'd sooner meet them a hundred paces out and be a bit reckless than be careful on my own doorstep." },
       },
       choices = {
-        { text = "That's courage. Somebody has to go out and meet them.", next = "BACK", reply = "Ha! That's it. I'll tell Gariel you said so.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "That's courage. Somebody has to go out and meet them.", next = "BACK", reply = "Ha! That's it, and I'll tell Gariel you said so.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "A dead guard protects nobody. Hold the wall.", next = "BACK", reply = "Aye, you may be right. I'll think on it, the next time, for as long as I can stand still.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     swing = {
       lines = {
-        { id = "swing_1", text = "There, like that. What? Too wide? Captain Danuvin says the same. So I bring it in close, and step as I cut, and keep the shield up while I do. That's three things at once. I was better at one." },
+        { id = "swing_1", text = "There, like that. Too wide, is it? Captain Danuvin says the same. So I bring it in close, and step as I cut, and keep the shield up while I do. That's three things at once. I was better at one." },
       },
       choices = {
         { text = "You'll get there. Something else.", next = "BACK" },
