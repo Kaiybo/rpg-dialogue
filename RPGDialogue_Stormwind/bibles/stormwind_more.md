@@ -46,7 +46,7 @@ Fourteen named Stormwind City NPCs the pack lacked. Keys: demisette_cloyce, sand
 - Demisette: a student killed by his own voidwalker; Gakin's numb hand; the coven borrowing the Lamb's furnace key.
 - Sandahl: once nearly hanged at Nethergarde; his "understanding" method opposed to Demisette's.
 - Jalane: handled felcloth twice and won't again; a young warlock who tried an imp on her for a discount.
-- Jarel: Moonberry Juice for the cellar, a Thunderbrew keg by an Ironforge carter, poured for the masons.
+- Jarel: his real stock (wiki) split into a common shelf and a "good shelf" of drinks nobody makes any more (Dalaran Noir, Hearthglen Ambrosia, Lordaeron Lambic). Invented: the last two Lambic casks bought off a refugee cart; six bottles of Noir, one sold a year; he poured a Scarlet recruiter's drink on the floor; a Thunderbrew keg by an Ironforge carter; poured for the masons; ex-footman in Hillsbrad under Lothar; sister Edna in Goldshire who thinks he keeps a respectable inn; the previous owner's story of the lamb that never came out; a young man who went down with Gakin's lot and never came back; a priest who preached in the Lamb and left with his robe on fire; house rules for cutpurses.
 - Katherine: "the Pure" began as a jest among her brothers in Lordaeron.
 - Cassius: a candle-seller's son who delivered a box to the Cathedral at twelve; refugees in the side chapels.
 - Tony Romano: younger son of a house "with more history than money"; leverage over his family; plays cards with Shaw.

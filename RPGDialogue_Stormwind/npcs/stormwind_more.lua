@@ -714,9 +714,9 @@ P:NPC {
 -- Jarel Moor: bartender of the Slaughtered Lamb; knows exactly what's under his floor.
 P:NPC {
   key = "jarel_moor", id = TODO_NPC("Jarel Moor"), name = "Jarel Moor", title = "Bartender",
-  bible = "bibles/stormwind_more.md", role = "innkeeper", tier = "service",
+  bible = "bibles/stormwind_more.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "steady", "dry" }, values = { "discreet", "practical" },
-  notices = { "drink", "cellar" },
+  notices = { "drink", "cellar", "class" },
 
   impression = {
     first = "Jarel Moor tends bar at the Slaughtered Lamb, polishes the same cup for a very long time, and told me twice to stay away from the shadows, as if that were a sensible thing to say in a tavern with a warlock cellar under it.",
@@ -736,6 +736,10 @@ P:NPC {
       text = "You've had enough, friend, and I say that as a man who makes his living from the opposite. Sit a while and let the floor stop moving before you try those stairs." },
     { id = "n_cellar", cat = "cellar", when = { origin = "human_lamb_cellar" }, place = "before",
       text = "I know your face from the stairs, and I've never once said so to anyone. I'll keep on not saying it, so long as you keep tipping." },
+    { id = "n_paladin", cat = "class", when = { class = "PALADIN" }, place = "before",
+      text = "Half the room just went quiet, friend, and that's your armour doing it. Sit with your back to the stairs, if you'd be so kind, and nobody needs to have a bad night." },
+    { id = "n_priest", cat = "class", when = { class = "PRIEST" }, place = "before",
+      text = "A priest in the Lamb. I'll not ask if you've come to drink or to pray over the place, but if it's the second, do it quietly." },
   },
 
   start = "hello",
@@ -743,8 +747,10 @@ P:NPC {
     hello = {
       hub = true,
       lines = {
-        { id = "h_default", text = "Jarel Moor, and this is the Slaughtered Lamb, and the drinks are honest even if the clientele aren't. I'll pour you something if you like, but stay away from the shadows; that's free advice and the best thing I sell." },
+        { id = "h_default", key = true, text = "Jarel Moor, and this is the Slaughtered Lamb, and the drinks are honest even if the clientele aren't. I'll pour you something if you like, but stay away from the shadows; that's free advice and the best thing I sell." },
         { id = "h_lock", when = { class = "WARLOCK" }, text = "Another one for downstairs, is it? I don't ask and I don't tell, and I'd take it kindly if you didn't bring anything back up with you that wasn't there when you went down." },
+        { id = "h_refugee", when = { origin = "human_lordaeron_refugee" }, text = "You've a northern way of holding a cup, friend, as if somebody might take it off you. I keep a little Lordaeron Lambic behind the bar for folk like you, and I don't charge what it's worth." },
+        { id = "h_mage", when = { class = "MAGE" }, text = "A robe from up the hill, slumming it with the rest of us. Your masters drink at the Recluse, but I'll wager you'll find the company more honest in here, if not the company's intentions." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf in the Lamb, and you're welcome; your kind drinks honest and pays honest, which is more than I get from the robes. I've a keg of Thunderbrew in the back, if you'll keep it quiet." },
       },
       again = {
@@ -761,6 +767,11 @@ P:NPC {
         { text = "I've been down those stairs, Jarel.", next = "xcellar", when = { origin = "human_lamb_cellar" } },
         { text = "I served in the City Watch. We knew about this place.", next = "xguard", when = { origin = "human_city_guard" } },
         { text = "How long have you kept this bar?", next = "years" },
+        { text = "Why call a tavern the Slaughtered Lamb?", next = "name" },
+        { text = "What brought you behind a bar like this?", next = "self" },
+        { text = "Lordaeron Lambic? I haven't tasted that since home.", next = "drink_lambic", when = { origin = "human_lordaeron_refugee" } },
+        { text = "I've worked the canals. I know the corner trade.", next = "xrogue", when = { origin = "human_canal_pickpocket" } },
+        { text = "A place like this needs the Light more than most.", next = "xlight", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Do the warlocks treat you well?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "Thunderbrew, you said? Prove it.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Pour me something.", next = "BUSINESS" },
@@ -770,16 +781,80 @@ P:NPC {
 
     drink = {
       lines = {
-        { id = "d_default", text = "Ale from the Elwynn brewers, wine that's honest about being cheap, and Moonberry Juice for the ones who've an appointment downstairs and need a clear head. Nobody comes to the Lamb for the drink, friend, but nobody's died of it either." },
+        { id = "d_default", text = "Stormwind Tawny for the locals, Foote Tripel for those who like it thick, mead and stout for the dwarves, and Badlands Bourbon for anyone who's lost a bet. Then there's the good shelf: Dalaran Noir, Hearthglen Ambrosia and Lordaeron Lambic, and every bottle on it is a bottle nobody's making any more." },
       },
       choices = {
-        { text = "Moonberry Juice? For warlocks?", next = "drink_house" },
+        { text = "Why won't anyone make them any more?", next = "drink_shelf" },
+        { text = "Badlands Bourbon. Is it as bad as it sounds?", next = "drink_bourbon" },
+        { text = "Do the folk downstairs drink much?", next = "drink_house" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drink_shelf = {
+      lines = {
+        { id = "dsh_default", text = "Because the vineyards round Dalaran are behind the Violet Citadel's walls or under them, and the orchards at Hearthglen belong to men in red tabards who don't sell to the likes of me. And Lordaeron, well. Nobody's brewing anything in Lordaeron now but trouble." },
+      },
+      choices = {
+        { text = "Tell me about the Lambic.", next = "drink_lambic" },
+        { text = "Who are the men in red tabards?", next = "drink_ambrosia" },
+        { text = "Dalaran Noir. Is it any good?", next = "drink_noir" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drink_lambic = {
+      lines = {
+        { id = "dl_default", text = "A sour northern beer, brewed with wild yeast in open vats outside Lordaeron's walls. I bought eleven casks off a refugee cart the year the plague came south, and I'm down to the last two. When they're gone, there won't be any more in the world, so far as I know." },
+        { id = "dl_refugee", when = { origin = "human_lordaeron_refugee" }, text = "Then you'll know it better than I do. I bought eleven casks off a cart of folk like you, the year the plague came south, and I'm down to the last two. Have a cup on me; I'd rather it went to somebody who remembers the taste.",
+          fx = { learn = { "lordaeron" } } },
+      },
+      choices = {
+        { text = "Sell the last casks. Someone ought to enjoy them.", next = "drink_lambic_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drink_lambic_stance = {
+      lines = {
+        { id = "dls_default", text = "That's the question I ask myself every night when I lock up. Pour it and it's gone, or keep it and it's only a barrel in the dark." },
+      },
+      choices = {
+        { text = "Pour it. Things are meant to be used.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Keep it. Some things should be saved.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drink_ambrosia = {
+      lines = {
+        { id = "da_default", text = "The Scarlet Crusade, they call themselves, and they hold Hearthglen and its orchards now. They purge anything that might be plague-touched, which in their eyes is most things, and the ambrosia's stopped coming. A man came in last spring trying to recruit at my bar, and I poured his drink on the floor.",
+          fx = { learn = { "scarlet_crusade" } } },
+      },
+      choices = {
+        { text = "The north needs men willing to fight the plague.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Zealots. You were right to send him off.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drink_noir = {
+      lines = {
+        { id = "dn_default", text = "Dark as a warlock's hood and twice as dear, and the mages who come in order it just to look at the label. I've six bottles left, and I sell one a year, to whoever asks most politely.",
+          fx = { learn = { "dalaran" } } },
+        { id = "dn_mage", when = { class = "MAGE" }, text = "You'd know it better than me, I'd think, if your masters ever let you near their cellars. I've six bottles left. A Kirin Tor man in a plain cloak tried to buy all six once, and cried when I told him no.",
+          fx = { learn = { "dalaran" } } },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    drink_bourbon = {
+      lines = {
+        { id = "db_default", text = "Worse. A dwarf from the Badlands swore it was the finest thing ever distilled, and then he drank half a jug and tried to fight the stairs. I keep it for wagers and for warlocks who've had a bad night below." },
+      },
+      choices = {
         { text = "Something else.", next = "BACK" },
       },
     },
     drink_house = {
       lines = {
-        { id = "dh_default", text = "You'd be surprised how many of them don't touch a drop; a slip of the tongue down there can cost more than a slip of the hand. Ursula drinks it by the jug, and I've never once seen her merry." },
+        { id = "dh_default", text = "You'd be surprised how many of them don't touch a drop; a slip of the tongue down there can cost more than a slip of the hand. Ursula takes a jug of water down every evening, and I've never once seen her merry." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -822,6 +897,7 @@ P:NPC {
       },
       choices = {
         { text = "You never hear anything from down there?", next = "cellar_noise" },
+        { text = "Has anyone ever not come back up?", next = "cellar_worst" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -903,6 +979,87 @@ P:NPC {
       },
     },
 
+    name = {
+      lines = {
+        { id = "nm_default", text = "It was the Slaughtered Lamb when I bought it, and a man doesn't change a tavern's name without changing its luck. The old owner told me it was named for a lamb that wandered in off the street and never came out again, and then he laughed, and then he left town rather quickly." },
+      },
+      choices = {
+        { text = "Do you believe him?", next = "name_believe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name_believe = {
+      lines = {
+        { id = "nb_default", text = "I believe the cellar was dug before I came, and I believe the man who sold it to me wasn't asking enough for it. Whatever the name means, I've decided it's a joke, and I'd thank you to let me go on thinking so." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    self = {
+      lines = {
+        { id = "sf_default", text = "I was a footman in the Second War, and I came home with two good arms and a head that didn't want any more marching. A barman sees as much of the world as a soldier, friend, only it comes to him, and it pays for its own drinks." },
+      },
+      choices = {
+        { text = "Where did you serve?", next = "self_war" },
+        { text = "Is there anyone waiting for you at home?", next = "self_home" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    self_war = {
+      lines = {
+        { id = "sw2_default", text = "Hillsbrad, under Lord Lothar's banners, mostly holding bridges and digging latrines. I saw the orcs once, from a long way off, and that was close enough. Lothar shook my hand once; he had a grip like a vice and he remembered my name, which I've never forgotten.",
+          fx = { learn = { "second_war" } } },
+      },
+      choices = {
+        { text = "You did your part. That's worth something.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    self_home = {
+      lines = {
+        { id = "sh_default", text = "A sister in Goldshire who thinks I keep a respectable inn, and I've never had the heart to correct her. If you're ever at the Lion's Pride and a sharp woman called Edna asks after her brother, tell her the Lamb is doing very well and leave it there." },
+      },
+      choices = {
+        { text = "Your secret's safe with me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "You ought to tell her the truth.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Some lies are kindness. Keep it.", next = "BACK", fx = { align = { order = -1 } } },
+      },
+    },
+
+    cellar_worst = {
+      lines = {
+        { id = "cw_default", text = "Two winters back, a young fellow went down with Gakin's lot, bright lad, always said thank you. He never came back up, and the next night Gakin paid his tab without my asking. I've not let myself wonder about it since, and I'd thank you not to ask me to start." },
+      },
+      choices = {
+        { text = "Someone should answer for that.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "He chose to go down. That's on him.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    xrogue = {
+      lines = {
+        { id = "xr_default", text = "Then you know the rules: nothing lifted in my room, nothing sold at my bar, and nobody leaves bleeding. Keep to those and you're as welcome as anyone. Break one and I've a cudgel under the counter I haven't used in a year." },
+      },
+      choices = {
+        { text = "Fair rules. I'll keep them.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Who's working your corners now?", next = "shadows_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlight = {
+      lines = {
+        { id = "xli_default", text = "Maybe it does, and maybe I'd sleep better if somebody blessed the stairs. But I'll tell you plainly: the last priest who tried to preach in here went home with his robe on fire, and I had to pay for the curtains." },
+      },
+      choices = {
+        { text = "Then the Cathedral should shut this place down.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "The Light doesn't need to kick down every door.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     xcellar = {
       lines = {
         { id = "xc_default", text = "I know you have, friend, and I've never said a word about it, and I'll not start now. Just tell me one thing: is it worth it, whatever it is they do down there?" },
@@ -944,6 +1101,9 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I've tended this bar longer than I like to count, and I've learned to see nothing in all that time." } },
     advice = { { id = "tp_ad", text = "Stay away from the shadows. I'll keep saying it till somebody listens." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They hold Hearthglen now, so no more ambrosia, and they wanted to recruit at my bar. I poured the man's drink on the floor.", next = "drink_ambrosia" } },
+    lordaeron = { { id = "tp_lordaeron", text = "I've two casks of Lordaeron Lambic left, and when they're gone, so is the last of it.", next = "drink_lambic" } },
+    defias = { { id = "tp_defias", text = "Red kerchiefs in my corners now and then. I don't see them, if you take my meaning.", next = "shadows_why" } },
     stonemasons = { { id = "tp_stonemasons", text = "I poured for them while they built this city, and they were good men, badly paid.", next = "years_masons" } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend, and I'd be suspicious of any barman who could." } },
   },
