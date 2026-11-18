@@ -7,6 +7,7 @@
 
 ## Their quests
 - Morgan Stern (gives): ambitious menu, trusts his nephew's palate.
+- (Henry Stern, nephew, is the Razorfen Downs recipe trainer: canon relation per the wiki infobox.)
 - A Meal Served Cold (gives/turn-in): panicky perfectionism; serves the nobility.
 
 ## Identity
@@ -23,7 +24,7 @@ Never says: promises of free food
 The finest table in the kingdom.
 
 ## Secrets
-Authored, not canon: Morgan is his sister's son; wizards don't notice what they eat.
+Authored, not canon: Morgan is his sister's son; wizards don't notice what they eat. Henry (canon nephew, Razorfen Downs, Goldthorn Tea) is Morgan's brother and went to the Barrens after the tea; Angus blames himself. The Sanctum mage who enchanted his consommé; buckets of sand by the dining chairs; two scullions, a weeping pastry cook and a potato boy, praised once a year at Winter Veil; supplies (Elwynn, the lakes, Thunderbrew stout, Booty Bay spice, Westfall onions now dear); the Gilnean mutton pie he can't master; the pheasant a noble family sent back.
 
 ## Reliability
 Honest; self-flattering.
