@@ -88,12 +88,12 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Rethban Gauntlet"), days = 3 } },
           text = "Ye made it back inside the hour, and still standin', near enough! I'll be tellin' that one in Ironforge till my beard's white." },
         { id = "h_shield", when = { questDone = TODO_QUEST("The Shieldsmith") },
-          text = "Did Furen make ye a good shield? He'd better have, because he owes me more favours than I can count, and I've counted." },
+          text = "Did Furen Longbeard make ye a good shield in Stormwind? He'd better have, because he owes me more favours than I can count, and I've counted." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "Now there's a warrior if ever I saw one! Ye'll be wantin' to hear about my challenge, I'd wager, and ye'll be wantin' a mug before ye do." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye've the look o' someone who'd rather shoot a gnoll than drink a pint, which is a sad thing, and I'll try to fix it." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest at the bar! Ye'll be wantin' to bless the Scalder, I'd wager, an' I'll warn ye now it's beyond savin'." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! I'd not ask ye to drink, but I'd wager ye'd run the gauntlet faster than any warrior." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Drink my family's brew and run through gnoll country. Courage is best measured staggering, I say." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Drink my family's brew and run through gnoll country on it, because courage is best measured staggerin', I say." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I pour, it saves time." },
@@ -221,7 +221,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Keep your hands where I can see them, friend, mostly for your sake." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Either you've something for me, or you've got a lot of free time." },
-    { id = "g_mill", when = { questActive = TODO_QUEST("Alther's Mill") }, text = "That lockbox won't open itself, unless the orcs got to it first." },
+    { id = "g_mill", when = { questActive = TODO_QUEST("Alther's Mill") }, text = "That lockbox up at Alther's Mill won't open itself, unless the orcs got to it first." },
   },
 
   notice = {
@@ -238,7 +238,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Locks are honest. People lie. Your spirits might be honest too, but I'd not bet on it." } },
+      lines = { { id = "xdsham_default", text = "Locks are honest, and people lie. Your spirits might be honest too, but I'd not bet on it." } },
       choices = {
         { text = "Some people are honest, Lucius. Give them a chance.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "You're right. Locks don't betray anyone.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -275,10 +275,10 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "No, friend, I work in shadows, and you work with the things that live in them, which is a different trade entirely. Mine leaves a man missing a purse, and yours leaves him missing a good deal more." } },
+      lines = { { id = "xlo_default", text = "Not the same things, friend. I work in shadows, and you work with the things that live in them, which is a different trade entirely. Mine leaves a man missing a purse, and yours leaves him missing a good deal more." } },
       choices = {
         { text = "Shadows are shadows. Don't be squeamish.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "I'll not take anything from Lakeshire's folk.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "I'll keep my arts well away from Lakeshire's folk.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "What do you teach down here?", next = "teach" },
       },
     },
@@ -313,7 +313,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Lucius. I sit on these docks, I watch the boats, and if a certain sort of person comes along, I teach them something useful. You're not that sort, I'd guess, but I've been wrong." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "Renzik sent you down from Stormwind? Let's see those hands... clumsy, but I've fixed worse, and some of the worst are working for the crown now." },
+          text = "Renzik the Shiv sent you down from Stormwind? Let's see those hands... clumsy, but I've fixed worse, and some of the worst are working for the crown now." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Alther's Mill"), days = 5 } },
           text = "So the lockbox gave in to you. Good; whatever kills you from here on, at least it won't be my teaching." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You're not the sort I teach, but you're the sort who protects the sort I teach, so you can stand there if you want." },
@@ -366,7 +366,7 @@ P:NPC {
       lines = {
         { id = "m_default", text = "Up off the road east of here is Alther's Mill, and I keep a chest up there with a token inside. Open the lockbox, bring back the token, and you'll have your certificate." },
         { id = "m_done", when = { questDone = TODO_QUEST("Alther's Mill") },
-          text = "Empty now, and filled again by morning, for the next pair of fat fingers. You'd be amazed how many I get." },
+          text = "The lockbox is empty now, and I'll fill it again by morning for the next pair of fat fingers. You'd be amazed how many I get." },
       },
       choices = {
         { text = "Anything else up there I should know?", next = "mill_orcs" },
@@ -600,7 +600,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     hunter = {
-      lines = { { id = "hu_default", text = "Can I really? Hilary's going to be so jealous, because her mum won't even let us have a cat. Does {pet} like fish, do you think, because I've caught three little ones and nobody wants them." } },
+      lines = { { id = "hu_default", text = "Can I really? Hilary's going to be so jealous, because her mum says one cat is plenty. Does {pet} like fish, do you think, because I've caught three little ones and nobody wants them." } },
       choices = {
         { text = "{pet} loves fish. Go on.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Careful. Pets bite strangers.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -653,7 +653,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Once it was peaceful, a good friend. Now it's full of murlocs and worse. Your water spirits might know how to cleanse it." } },
+      lines = { { id = "xdsham_default", text = "It wasn't, friend; it was peaceful once, like an old friend, and now it's full of murlocs and worse. Your water spirits might know how to cleanse it." } },
       choices = {
         { text = "Then let's restore it, Matthew. The lake deserves peace.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The lake's ruined. Fish somewhere else.", next = "BACK", fx = { align = { order = -1 } } },
@@ -941,7 +941,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be one of the few who orders milk without pulling a face, I'd wager." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Milk, bread and cheese is all I serve, and I'd guess a night elf won't miss the ale as much as the soldiers do." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I've no strong drink, but I've bread and cool water, and I'd guess you can make your own of both." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Bread, cheese, meat, or milk? Not ale, before you ask. Fifty times a day I'm asked." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Bread, cheese, meat or milk? Not ale, before you ask, because I'm asked fifty times a day." },
       },
       again = {
         { id = "h_again", text = "What else can I do for you? And no, still no ale." },
@@ -1086,7 +1086,7 @@ P:NPC {
       },
     },
     xlock = {
-      lines = { { id = "xlo_default", text = "Some do, and I know which ones, and I don't pick them. Grave moss is for necromancers and fools, and Redridge has had enough of both since Morganth took that tower." } },
+      lines = { { id = "xlo_default", text = "Some do, and I know which ones, and I don't pick them. Grave moss is for necromancers and fools, and Redridge has had enough of both since the sorcerer Morganth took his tower in the foothills." } },
       choices = {
         { text = "Wise. Leave the grave moss in the ground.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power grows where it grows, Alma.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1121,7 +1121,7 @@ P:NPC {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Healers and herbalists ought to be friends, so mind you don't pull my peacebloom up by the roots." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your sort tread heavy, so mind my beds as you go." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! You'll want to know which herbs put a body to sleep, I expect, and I'll tell you which ones to leave well alone." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Don't pull that plant by the roots. Do your earth spirits know how to treat a garden?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Mind you don't pull my plants up by the roots, and tell me, do your earth spirits know how to treat a garden?" },
       },
       again = {
         { id = "h_again", text = "Something else? I'll keep sorting while you ask." },
@@ -1191,7 +1191,7 @@ P:NPC {
 
   topics = {
     emerald_dream = { { id = "tp_emerald_dream", text = "A night elf druid passed through looking for herbs once and spoke of a green dream where the world grows as it should. I'd like to sleep there one night, if it's anything like the hills before the gnolls." } },
-    elune = { { id = "tp_elune", text = "The night elves leave a little water out for their moon-goddess before they cut any herb, and I've started doing it too. I don't know if it helps the plants, but it slows me down, and that does." } },
+    elune = { { id = "tp_elune", text = "The night elves leave a little water out for their moon-goddess before they cut any herb, and I've started doing it too. I don't know if it helps the plants, but it slows me down, and that helps me." } },
     cenarion_circle = { { id = "tp_cenarion_circle", text = "The druids of the Cenarion Circle know more about growing things than anyone in Stormwind, and they're kind enough to share it if you don't trample their roots. I'd study with them if I could get to Moonglade." } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs stripped the hills bare all the way north to the Steppes, and from what I hear, nothing grows near that black mountain of theirs. I can't imagine living somewhere with no green at all." } },
     knows = { { id = "tp_knows", text = "Herbs, soil, and who in Lakeshire needs a poultice this week, which is most of us. Ask away." } },
@@ -1227,7 +1227,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I carry every block. Oslow complains, and I complain about Oslow. Your spirits might lighten the load." } },
+      lines = { { id = "xdsham_default", text = "I carry every block of it, and Oslow complains, and I complain about Oslow. Your spirits might lighten the load." } },
       choices = {
         { text = "Honest work's its own reward, Trent.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let the spirits carry it. You've earned a rest.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1374,7 +1374,7 @@ P:NPC {
     },
     danger_lost = {
       lines = {
-        { id = "dl_default", text = "Not yet, and the foreman means to keep it that way. He'd rather the bridge was late than one of us was buried under it, though he'd never say so out loud." },
+        { id = "dl_default", text = "Two to the catapults and a lad to the lake, and the foreman means to stop at that. He'd rather the bridge was late than one more of us was buried under it, though he'd never say so out loud." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

@@ -41,7 +41,7 @@ P:NPC {
         { id = "h_before", when = { questBefore = TODO_QUEST("Songblade Search") },
           text = "My brother Daewyn went off tae the Wetlands wi' a diggin' crew out o' Loch Modan, intae hills no dwarf's set boot in. He always writes, an' this time he hasn't." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Songblade Search") },
-          text = "Whelgar's Excavation Site, that's where they were headed. If ye're marchin' that way, look fer a dwarf who looks like me, only better lookin', he'd say." },
+          text = "Whelgar's Excavation Site in the Wetlands, that's where Daewyn's crew were headed. If ye're marchin' that way, look fer a dwarf who looks like me, only better lookin', he'd say." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Fallen in the Fen"), days = 7 } },
           text = "I should have gone wi' him. I was makin' this gear fer him, a surprise, an' it wasn't ready when he came by, an' now it never will be." },
         { id = "h_later", when = { questDone = TODO_QUEST("Fallen in the Fen"), metBefore = true },

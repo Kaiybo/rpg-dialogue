@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_inn", text = "Move along, unless you've business in Lakeshire. If you have, state it." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. Have you been to Stormwind yet, to the Stockade?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Have you been to the Stockade in Stormwind yet, to see about Targorr?" },
     { id = "g_active", when = { questActive = TODO_QUEST("What Comes Around...") }, text = "Targorr still breathes, then. Every day he does is a day the wrong people are winning." },
     { id = "g_done", when = { questDone = TODO_QUEST("What Comes Around...") }, text = "I sleep better since Targorr's head came back to Lakeshire, and I don't care who knows it." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. The Blackrock weren't, and neither was I." },

@@ -249,7 +249,7 @@ P:NPC {
         { id = "cp_after", text = "On purpose, I'm afraid, because the Crown counts heads before it counts letters, and a town of four hundred gets an answer where a town of two hundred gets two lines and a seal. Please don't strike them off; it's the only thing I can do for Darkshire with a pen." },
       },
       choices = {
-        { text = "Your secret's safe. I'm not from Stormwind.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Your secret's safe. I lied; Stormwind didn't send me.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'll leave the register as it is.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },

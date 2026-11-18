@@ -35,7 +35,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The Magistrate distrusts everything that isn't on paper. You're new, so you'll be on paper. That's all." } },
+      lines = { { id = "xdsham_default", text = "The Magistrate distrusts anything that isn't on paper, citizen, so as a newcomer you'll be written down, and that's all." } },
       choices = {
         { text = "Write it down, then. I've nothing to hide, Bailiff.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Paper won't stop orcs. Spend your time on the walls.", next = "BACK", fx = { align = { order = -1 } } },
@@ -163,7 +163,7 @@ P:NPC {
       },
     },
     town = {
-      lines = { { id = "t_default", text = "Holding. The court has ruled that it will continue to hold, though the orcs have not yet been informed." } },
+      lines = { { id = "t_default", text = "It's holding, citizen. The court has ruled that it will continue to hold, though the orcs have not yet been informed." } },
       choices = { { text = "Ha.", next = "BACK", fx = { affinity = 1 } } },
     },
     solomon = {
@@ -174,11 +174,11 @@ P:NPC {
       },
     },
     answers = {
-      lines = { { id = "an_default", text = "Politely. The court keeps a drawer for polite, and it is a large drawer." } },
+      lines = { { id = "an_default", text = "They answer politely, and only politely. The court keeps a drawer for polite replies, and it is a large drawer." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     theft = {
-      lines = { { id = "th_default", text = "Then the court adds theft to the warrant. A small charge beside the others, but the court likes a complete record." } },
+      lines = { { id = "th_default", text = "Then the court adds theft to the warrant, a small charge beside the others, but the court likes a complete record." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     oath = {
@@ -317,7 +317,7 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Deputy Feldon. I watch the south end of the bridge and count gnolls. The count keeps going up, which is not how counting's meant to go." },
         { id = "h_parker", tags = { "news" }, when = { questActive = TODO_QUEST("Encroaching Gnolls") },
-          text = "Parker sent you? Camps to the north and east, he says, so it's worse than I reported, and I reported it bad." },
+          text = "Guard Parker sent you down from the Three Corners? He says there are camps to the north and east, so it's worse than I reported, and I reported it bad." },
         { id = "h_assess", when = { questActive = TODO_QUEST("Assessing the Threat") },
           text = "Thin them out along the road, and look hard while you're at it. I need numbers I can put in a letter that Stormwind can't wave away." },
         { id = "h_assess_done", when = { questDone = TODO_QUEST("Assessing the Threat") },
@@ -364,7 +364,7 @@ P:NPC {
       },
     },
     guard = {
-      lines = { { id = "g2_default", text = "Elwynn has a few men by a bridge and the Lion's Pride. I've been to Goldshire, so I know." } },
+      lines = { { id = "g2_default", text = "Elwynn has a few guards at its bridges and whoever's drinking at the inn in Goldshire. I've been there, so I know." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "lions_pride" } } } },
     },
     need = {
@@ -426,8 +426,8 @@ P:NPC {
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I went to the Darkmoon Faire on my one leave last year and lost to a gnome at a shooting gallery. I've told everyone it was a rigged gun, and I've half convinced myself." } },
     background = { { id = "tp_bg", text = "I'm a deputy at the south end of the bridge, and I count." } },
     advice = { { id = "tp_ad", text = "Stay on the road after dark. If the road's not safe, stay in town. If the town's not safe, tell me first." } },
-    redridge_gnolls = { { id = "tp_gnolls", text = "Redridge clans, mostly, bigger than the Riverpaw in Westfall and meaner than the Elwynn ones. They've started building." } },
-    blackrock = { { id = "tp_blackrock", text = "The gnolls are the hands. I think the orcs are the arms. Don't tell anyone I said so until I can prove it." } },
+    redridge_gnolls = { { id = "tp_gnolls", text = "Redridge clans, mostly, bigger than the Riverpaw in Westfall and meaner than the Elwynn ones, and they've started building camps of their own." } },
+    blackrock = { { id = "tp_blackrock", text = "The gnolls do the raiding, but I think the orcs are giving the orders. Don't tell anyone I said so until I can prove it." } },
     _none = { { id = "tp_none", text = "Not my patrol, friend; ask in town." } },
   },
 }
@@ -457,7 +457,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "There are gnolls and orcs out there, and too few guards. I want to know where everyone walks. Your spirits won't keep me from asking." } },
+      lines = { { id = "xdsham_default", text = "They do, with gnolls and orcs both and too few guards to watch them. That's why I ask everyone where they're walking, and your spirits won't stop me asking." } },
       choices = {
         { text = "Ask all you like, Parker. Order keeps us safe.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Ask less, guard more. That's what you're for.", next = "BACK", fx = { align = { order = -1 } } },
@@ -531,13 +531,13 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Parker. I walk this road between Lakeshire and the Duskwood line and keep an eye on the hills, eye on the job always, and that's the whole trick." },
+          text = "Parker. I walk this road between Lakeshire and the Duskwood line with my eye on the hills, and keeping my eye on the job is the whole trick." },
         { id = "h_gnolls", tags = { "news" }, when = { questActive = TODO_QUEST("Encroaching Gnolls") },
           text = "There are camps north and east of here, more every week. Get word to Deputy Feldon at the bridge; he'll know what to do, or I hope he does." },
         { id = "h_lunch", tags = { "news" }, when = { questActive = TODO_QUEST("A Free Lunch") },
           text = "Lunch, from Darcy? That's, er, that's very kind of her. Tell her it was very kind, no, tell her something better than that, once I've thought of something." },
         { id = "h_herbalist", when = { questActive = TODO_QUEST("Visit the Herbalist") },
-          text = "Martie's garden is at the west end of town; ask her for something nice. And please don't tell her who it's from, or who it's for." },
+          text = "Martie Jainrose keeps a garden at the west end of town, so ask her for some flowers, something nice. And please don't tell her who they're from, or who they're for." },
         { id = "h_after", when = { questDone = TODO_QUEST("Delivering Daffodils") },
           text = "She liked them, and she said so? Well, that's good, that's... eyes on the road, Parker, eyes on the road." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Eye on the hills, always, and you'll do fine here, because the hills have plenty to say about anyone who doesn't watch them." },
@@ -570,7 +570,7 @@ P:NPC {
       },
     },
     road = {
-      lines = { { id = "r_default", text = "Gnolls in the hills, worse in the woods past the Duskwood line. Things come up out of that fog I don't have names for." } },
+      lines = { { id = "r_default", text = "Gnolls in the hills, and worse in the woods past the Duskwood line, where things come up out of the fog that I don't have names for." } },
       choices = {
         { text = "Stay sharp.", next = "BACK", fx = { learn = { "redridge_gnolls" } } },
         { text = "That's far too close to Elwynn for gnolls.", next = "elwynn" },
@@ -751,7 +751,7 @@ P:NPC {
         { id = "h_daffodils", tags = { "news" }, when = { questActive = TODO_QUEST("Delivering Daffodils") },
           text = "Daffodils from Parker? Oh, they're lovely, they really are! They're Martie's favourites, though, so did she pick these on purpose?" },
         { id = "h_after", when = { questDone = TODO_QUEST("Delivering Daffodils") },
-          text = "They're in a jar on the windowsill, and I've moved them twice. Don't say anything." },
+          text = "Parker's daffodils are in a jar on the windowsill, and I've moved them twice. Don't say anything." },
         { id = "h_parker", when = { heardLine = "parker.h_default" },
           text = "You met Parker, out on the road? Was he eating, because he never eats, and did he say anything, about anything at all?" },
         { id = "h_skyborne", when = { race = "Skyborne" },
@@ -818,14 +818,14 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gossip = {
-      lines = { { id = "g2_default", text = "Martie's boar's been in her garden again, and the Marshal's gone and named it Bellygrub. Now nobody can take it seriously, which is a problem, because it's enormous." } },
+      lines = { { id = "g2_default", text = "A great boar's been in Martie Jainrose's garden again, and the Marshal's gone and named it Bellygrub. Now nobody can take it seriously, which is a problem, because it's enormous." } },
       choices = {
         { text = "Ha.", next = "BACK", fx = { affinity = 1 } },
         { text = "Martie herself seems a sweet sort.", next = "martie" },
       },
     },
     martie = {
-      lines = { { id = "m_default", text = "Martie Jainrose? Sweet as honey to your face. I'd count my flowers after, that's all." } },
+      lines = { { id = "m_default", text = "Martie Jainrose? She's sweet as honey to your face, love, but I'd not tell her anything I wanted kept." } },
       choices = {
         { text = "That's unkind, Darcy.", next = "BACK", fx = { affinity = -1, trait = { kind = 1 } } },
         { text = "It sounds as if she likes Parker.", next = "martie_parker" },
@@ -942,7 +942,7 @@ P:NPC {
       },
     },
     xrogue = {
-      lines = { { id = "xro_default", text = "They would, and that's why I grow them down by the lake where I can see them, not by the road. Alma taught me which ones mend and which ones kill, and she made me promise to sell only the first sort." } },
+      lines = { { id = "xro_default", text = "They would, and that's why I grow them down by the lake where I can see them, not by the road. Alma Jainrose, who teaches herbcraft in town, taught me which ones mend and which ones kill, and she made me promise to sell only the first sort." } },
       choices = {
         { text = "Every blade needs an edge, Martie.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Your promise is a good one. Keep it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
@@ -1044,7 +1044,7 @@ P:NPC {
       },
     },
     buyers = {
-      lines = { { id = "bu_default", text = "Whoever's doing the healing, which is everyone lately. Peacebloom for the guards' cuts, silverleaf for the kitchen. Alma teaches the craft, if you want it." } },
+      lines = { { id = "bu_default", text = "Whoever's doing the healing, which is everyone lately. Peacebloom for the guards' cuts, silverleaf for the kitchen. Alma Jainrose teaches the craft in town, if you want it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     boar = {
@@ -1224,7 +1224,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Sit down and eat, because I'll not have it said that the Silver Hand left my kitchen hungry." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! If you know where the boar have gone in these hills, tell me, because my soldiers have eaten nothing but lake trout for a week." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue in my kitchen. If you're after the pantry, you'll find it empty, because every scrap goes to the soldiers before you could lift it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down and eat; there aren't nearly enough soldiers, and I'll feed whoever fights." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Sit down and eat, because there aren't nearly enough soldiers in Lakeshire, and I'll feed anyone who fights beside them." },
       },
       again = {
         { id = "h_again", text = "What else, dear? You can talk while I get on with the chopping." },
@@ -1277,7 +1277,7 @@ P:NPC {
       },
     },
     spider = {
-      lines = { { id = "sp_default", text = "Crisp spider, and it crunches. Everyone has seconds, and nobody asks twice." } },
+      lines = { { id = "sp_default", text = "Crisp spider, and it crunches. Everyone has seconds, and nobody asks what's in it twice." } },
       choices = { { text = "I'll take your word for it.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     kitchen = {

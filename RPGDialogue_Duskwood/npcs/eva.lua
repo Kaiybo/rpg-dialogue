@@ -96,7 +96,7 @@ P:NPC {
       },
     },
     xmage = {
-      lines = { { id = "xma_default", text = "And frost bolts are only cold air with ambition, by that reckoning. You could study in Stormwind for twenty years, child, and still not know what I know about the man walking up my stairs." } },
+      lines = { { id = "xma_default", text = "And frost bolts are only cold air with ambition, by that reckoning. You could study in Stormwind for twenty years, child, and still not know what I know about the next soul to walk up my stairs." } },
       choices = {
         { text = "Real magic has rules. Yours doesn't.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fair. Some things books can't teach.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },
@@ -307,7 +307,7 @@ P:NPC {
     },
     thread_ask = {
       lines = {
-        { id = "ta_default", text = "Perhaps. He pays, he's kind, and the cards turn up the Needle whenever his name is spoken, so I have decided not to think about the Needle." },
+        { id = "ta_default", text = "Perhaps. The hermit pays, he's kind, and the cards turn up the Needle whenever his name is spoken, so I have decided not to think about the Needle." },
         { id = "ta_after", when = { questDone = TODO_QUEST("Translation to Ello") },
           text = "I should have asked. I know what walked down that road and whose thread held it together, because the cards told me, and I didn't want to hear them." },
       },

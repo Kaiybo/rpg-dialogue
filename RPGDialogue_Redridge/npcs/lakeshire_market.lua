@@ -26,7 +26,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I miss every one of them. They're full of gnolls now. Your earth spirits might know whether they'll grow again." } },
+      lines = { { id = "xdsham_default", text = "I miss every tree, and the orchards are full of gnolls now. Your earth spirits might know whether they'll grow again." } },
       choices = {
         { text = "They'll grow again, Lamar. Hold on to hope.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The orchards are gone. Grow something new.", next = "BACK", fx = { align = { light = -1 } } },
@@ -111,7 +111,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue! Take an apple, and don't take two when I'm not looking, because I always know." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Can you make an apple grow faster? No? Then can you keep one from going soft? I'd be glad of that." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, take an apple anyway; I'd think even warlocks get hungry." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! An apple? Polished, of course. The orchards were old friends once, before the orcs." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Have an apple, polished, of course, from orchards that were old friends of mine before the orcs came." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the basket; it's my last good one." },
@@ -199,7 +199,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Not much, no. A smith works with honest hands. Your spirits might help, but I'd still like to see you strike iron." } },
+      lines = { { id = "xdsham_default", text = "Not much, no, because a smith works with honest hands. Your spirits may be handy, but I'd still like to see you strike iron." } },
       choices = {
         { text = "Honest work earns respect. I'll swing a hammer gladly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Lightning's just as honest. Hammers aren't everything.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -315,7 +315,7 @@ P:NPC {
       },
     },
     verner = {
-      lines = { { id = "v_default", text = "Because the Guard needs blades and arrowheads, and they come first. So Verner can't shoe a horse to save his life, and the gnolls take every horse that wanders off unshod, and round it goes." } },
+      lines = { { id = "v_default", text = "Because the Guard needs blades and arrowheads, and those come first. That leaves Verner no iron to shoe the horses, and a lame horse ends up as a gnoll's supper, and round it goes." } },
       choices = {
         { text = "The soldiers have to come first.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A town needs its horses too. That's poor planning.", next = "BACK", fx = { align = { order = -1 }, affinity = 1 } },
@@ -377,7 +377,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It matters more than anything. I strike every one myself before I sell it. Your spirits might protect you, but a shield won't fail." } },
+      lines = { { id = "xdsham_default", text = "It's no small thing, because a shield is what brings a soldier home, and I strike every one myself before I sell it. Your spirits may protect you, but a good shield won't fail you." } },
       choices = {
         { text = "Then I'll trust your shields, Kara. Good work.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My spirits protect me well enough.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -549,7 +549,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They catch most of them, I'd swear. They've overrun the lake shore, and my hooks go unsold." } },
+      lines = { { id = "xdsham_default", text = "They catch most of them, I'd swear, since they've overrun the lake shore, and my hooks go unsold." } },
       choices = {
         { text = "Then we'll drive them back fairly, Vernon.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Poison the water. Murlocs won't last.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -701,7 +701,7 @@ P:NPC {
     theramore = { { id = "tp_theramore", text = "They fish whole marsh-beasts out of Dustwallow near Theramore, so the sailors say, and they eat them too. I'll stick with trout, thank you, if the murlocs leave me any." } },
     background = { { id = "tp_bg", text = "I've sold tackle on these docks since before the bridge fell, and I'll sell it after they put it back." } },
     advice = { { id = "tp_ad", text = "Fish the morning, friend, when the murlocs are still asleep." } },
-    _none = { { id = "tp_none", text = "Don't know. Doesn't bite, doesn't swim, doesn't interest me." } },
+    _none = { { id = "tp_none", text = "I couldn't say, because if it doesn't bite or swim, it doesn't interest me." } },
   },
 }
 
@@ -727,7 +727,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I'd wager so. Every beast I've cut tells me where it lived and what it ate. Your spirits might know the rest." } },
+      lines = { { id = "xdsham_default", text = "I'd wager so, since every beast I cut tells me where it lived and what it ate. Your spirits might know the rest." } },
       choices = {
         { text = "Respect the beasts, Sherman. Waste nothing.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Beasts are meat. Cut and sell.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -897,7 +897,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Too many are. I carry bowls to empty seats sometimes, out of habit. Your spirits might know where they've gone." } },
+      lines = { { id = "xdsham_default", text = "Too many are, love, and I still carry bowls to their empty seats sometimes, out of habit. Your spirits might know where they've gone." } },
       choices = {
         { text = "I'll help bring them back, Gretchen. That's a promise.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Stop carrying the bowls. They won't come back.", next = "BACK", fx = { align = { light = -1 } } },
@@ -986,7 +986,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll be out in the hills, then, and you'll see the watchtowers, so would you tell me if the soldiers there look well fed?" },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! You'll know some herb for sleep, I hope, because half my soldiers lie awake every night and I've only soup to give them." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Could you conjure a few loaves for the soldiers on the far posts? I've walked my feet raw carrying the kitchen's bread." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I know every soldier's name, and which of them are missing. Will you be one I remember?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I know every soldier's name in Lakeshire, and I'll learn yours too, if you're staying to fight." },
       },
       again = {
         { id = "h_again", text = "What else, love? I've six more bowls to carry." },
@@ -1032,7 +1032,7 @@ P:NPC {
       },
     },
     breanna_soup = {
-      lines = { { id = "bs_default", text = "Not with her soup, I don't. Crystal and I eat better than most of the town, and there's always a bowl to carry home, so I'd say Chef's the best employer in Redridge." } },
+      lines = { { id = "bs_default", text = "Not with her soup, it isn't. Crystal and I eat better than most of the town, and there's always a bowl to carry home, so I'd say Chef's the best employer in Redridge." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     rest = {

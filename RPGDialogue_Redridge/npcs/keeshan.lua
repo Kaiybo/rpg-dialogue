@@ -47,7 +47,7 @@ P:NPC {
       choices = { { text = "Something else, Corporal.", next = "BACK" } },
     },
     op_orcs_2 = {
-      lines = { { id = "op_orcs_r2", text = "Maybe, maybe not, but you'll not hear me argue with anybody who wants orcs dead tonight. Ask me again when the ringing stops." } },
+      lines = { { id = "op_orcs_r2", text = "Maybe, maybe not, but you'll not hear me argue with anybody who wants orcs dead tonight. Ask me again when my head stops ringing." } },
       choices = { { text = "Something else, Corporal.", next = "BACK" } },
     },
     op_orcs_3 = {
@@ -75,7 +75,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They didn't need to. Their chanting was enough. You're a dwarf, and you're no orc, but the sound of spirits still turns my stomach." } },
+      lines = { { id = "xdsham_default", text = "They didn't need to, because their chanting was enough. You're a dwarf and no orc, but the sound of spirits still turns my stomach." } },
       choices = {
         { text = "I'm sorry, Keeshan. I'll prove I'm nothing like them.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Then face the fear, Keeshan. It won't shrink on its own.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -126,7 +126,7 @@ P:NPC {
           text = "You've been to the top of Blackrock Spire and come down again, and I was a prisoner of the Blackrock long enough to know what that costs. They used to boast about the Spire in my hearing every night, as though I'd never live to see it." },
         { id = "h_druidx", when = { class = "DRUID" },
           text = "A druid. I spent a long while in those hills with nothing but the wolves for company, so I've a soft spot for anyone who speaks their tongue." },
-        { id = "h_default", text = "Corporal Keeshan, Stormwind Army. I was on the walls at Stonewatch when it fell, and they kept me alive, because orcs like a prisoner who can talk." },
+        { id = "h_default", text = "Corporal Keeshan, Stormwind Army. I was on the walls at Stonewatch when it fell, and the orcs kept me alive, because they like a prisoner who can talk." },
         { id = "h_rescue", tags = { "news" }, when = { questActive = TODO_QUEST("Missing In Action") },
           text = "You're from Lakeshire? Then you're the best thing I've seen in this cave. Get me to the Marshal and I'll try to keep up." },
         { id = "h_after", tags = { "news" }, when = { questRecent = { TODO_QUEST("Missing In Action"), days = 3 } },
@@ -188,7 +188,7 @@ P:NPC {
     fall = {
       big = true,
       lines = {
-        { id = "f_default", text = "Our regiment was the 12th Sabre. Cavalry, on a wall, which tells you how it went. Most of the lads died, something hit me on the head, and the world went black." },
+        { id = "f_default", text = "Our regiment was the 12th Sabre, cavalry posted on a wall, which tells you how it went. Most of the lads died, something hit me on the head, and the world went black." },
       },
       choices = {
         { text = "The 12th Sabre?", next = "regiment" },
@@ -227,7 +227,7 @@ P:NPC {
       },
     },
     after = {
-      lines = { { id = "af_default", text = "Some nights I'm back on that rock. Then I wake and I'm not. Every time, it surprises me, and every time it's a good surprise." } },
+      lines = { { id = "af_default", text = "Some nights I'm back on that rock until I wake and find I'm not, and every time it's a good surprise." } },
       choices = {
         { text = "It'll get easier.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },

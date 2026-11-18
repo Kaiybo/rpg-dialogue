@@ -224,7 +224,7 @@ P:NPC {
     },
     druid = {
       lines = {
-        { id = "dr_default", text = "I know it, and I said as much, but it doesn't change what my crossbow sees in the dark. Change where there's light, and we'll get along." },
+        { id = "dr_default", text = "I know it, and I said as much, but it doesn't change what my crossbow sees in the dark. Change back where there's light to see you by, and we'll get along." },
       },
       choices = { { text = "Then I'll keep to the lamplight.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -348,7 +348,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I'm Calor. I stood a Night Watch post for years and watched the dark take a little more each season, until I joined Master Carevin, and now we take some of it back." },
         { id = "h_woods", tags = { "news" }, when = { questActive = TODO_QUEST("Worgen in the Woods") },
-          text = "Brightwood Grove, the Rotting Orchard, and the mine down south past them. The small ones weave shadows, the big ones run in packs, and the worst ones sit by their fires near Roland's Doom." },
+          text = "The worgen hold Brightwood Grove, the Rotting Orchard, and the mine down south past them. The small ones weave shadows, the big ones run in packs, and the worst ones sit by their fires near Roland's Doom." },
         { id = "h_woods_done", when = { questDone = TODO_QUEST("Worgen in the Woods") },
           text = "Kill one, and two more come out of the trees. I don't understand where they come from, but Master Carevin will, and I have faith in that." },
         { id = "h_ravenhill", when = { questDone = TODO_QUEST("Raven Hill") },
@@ -394,12 +394,12 @@ P:NPC {
       },
     },
     hold = {
-      lines = { { id = "ho_default", text = "Somebody does, but somebody else. I didn't say they were wrong; I said I couldn't do it." } },
+      lines = { { id = "ho_default", text = "Somebody does, but not me. I didn't say they were wrong; I said I couldn't do it." } },
       choices = { { text = "No shame in that. Somebody has to hold the gate.", next = "BACK" } },
     },
     watch_miss = {
       lines = {
-        { id = "wm_default", text = "I miss the people, though not the waiting. I still drink with them at the Raven when they'll have me, and some of them won't." },
+        { id = "wm_default", text = "I miss the people, though not the waiting. I still drink with them at the Scarlet Raven when they'll have me, and some of them won't." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "night_watch" } } } },
     },
@@ -598,7 +598,7 @@ P:NPC {
         { id = "h_note", tags = { "news" }, when = { questActive = TODO_QUEST("Translate Abercrombie's Note") },
           text = "Let me see the hermit's note... oh dear, that's an old script, older than the hermit himself, so whatever is he doing with it?" },
         { id = "h_note_ack", when = { heardLine = "abercrombie.h_note" },
-          text = "Did he tell you not to read it? You couldn't have, because it's in a hand nobody's used here in a very long while, which is precisely why he used it." },
+          text = "Did he tell you not to read it? You couldn't have read it anyway, because it's in a hand nobody's used here in a very long while, which is precisely why he used it." },
         { id = "h_ello", tags = { "news" }, when = { questActive = TODO_QUEST("Translation to Ello") },
           text = "Take this to Lord Ello, and quickly, please. Don't stop to talk to anyone on the way; I mean it." },
         { id = "h_grave", when = { questActive = TODO_QUEST("The Weathered Grave") },
@@ -612,7 +612,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you've got the shoulders for it. Do try not to knock anything over; the shelf behind you holds three centuries of Darkshire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do keep that beast away from my papers, I beg you; the last one ate a land deed from the reign of King Barathen." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Stand still a moment, please, because the books I own say almost nothing true about your people, and I'd like to correct them." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Hold still, please. A shaman, you say? Hmm, I've read about shamans, but only in Horde accounts. You'd be a footnote worth adding." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've read about shamans, but only in Horde accounts, so you'd be a footnote well worth adding." },
       },
       again = {
         { id = "h_again", text = "Yes? Another question? Splendid, since questions are the only thing in this town that keep." },
@@ -736,7 +736,7 @@ P:NPC {
     },
     priest_priest = {
       lines = {
-        { id = "pp_default", text = "A priest in Darkshire told him to look for a gravestone at Raven Hill, and it was kindly meant. He refused to believe it, and then he went, but don't carry that, because nobody should." },
+        { id = "pp_default", text = "A priest in Darkshire told him his family lay under a gravestone at Raven Hill, and it was kindly meant. He refused to believe it until he went and saw it, and nobody should carry the blame for what came after." },
       },
       choices = {
         { text = "Someone had to tell him.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
@@ -752,7 +752,7 @@ P:NPC {
     },
     lordaeron = {
       lines = {
-        { id = "lo_default", text = "Then you've seen what he saw, the plague and the Silver Hand broken, and Morgan came home from all that to graves. Did you come home to anything?" },
+        { id = "lo_default", text = "Then you came home the way Morgan Ladimore did, from a war in the north to a town full of graves. Did you come home to anything?" },
       },
       choices = {
         { text = "Nothing that was still standing.", next = "BACK", fx = { affinity = 2 } },
@@ -810,7 +810,7 @@ P:NPC {
 
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
-      text = "An engineer, bless you! Can you turn a bronze tube, a true one, with no bends? Cog's plans say it must be true." },
+      text = "An engineer, bless you! Can you turn a bronze tube, a true one, with no bends? Cog Glitzspinner's plans say it must be true." },
     { id = "n_mage", cat = "arcane", when = { class = "MAGE" },
       text = "A mage. I mean no offense, but I don't think the answer here is magic; I think it's something you can measure." },
   },
@@ -828,7 +828,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I need a guard when I breathe in this forest, friend. The worgs think my lens is a shiny thing worth stealing, and I can't tell a star's position and a wolf's at the same time." } },
+      lines = { { id = "xwarcl_default", text = "I'd want a guard just for breathing in this forest, friend. The worgs think my lens is a shiny thing worth stealing, and I can't tell a star's position and a wolf's at the same time." } },
       choices = {
         { text = "I'll stand watch while you work. Science deserves a guard.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Stargazing in Duskwood is your problem, not mine.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1016,7 +1016,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I study the stars, in Duskwood, yes, I know. Laugh if you like, and then ask me something real." } },
     advice = { { id = "tp_ad", text = "Look up now and then, because everything that wants to eat you is down here." } },
     worgen = { { id = "tp_worgen", text = "Either they came with the dark or the dark came with them, and I'd give my last lens to know which was cause and which effect." } },
-    night_watch = { { id = "tp_watch", text = "Lovely people, but they keep asking me to put out my lamp, and I keep asking them to put out theirs, because of the light pollution, you see." } },
+    night_watch = { { id = "tp_watch", text = "Lovely people, but they keep asking me to put out my lamp, and I keep asking them to put out theirs, because their lamps wash the stars right out of the sky." } },
     _none = { { id = "tp_none", text = "That's not my field, I'm afraid; my field is roughly forty miles straight up." } },
     elune = { { id = "tp_elune", text = "The night elves pray to the moon and call her Elune, and from Duskwood I can see why, because the moon's the only light here that's never failed us. I don't pray to her, but I do keep her company." } },
     green_dragons = { { id = "tp_green_dragons", text = "On clear nights I've seen great shapes over Twilight Grove, green against the stars and far too large for birds. My lenses aren't strong enough to say more, and my nerve isn't either." } },
@@ -1235,7 +1235,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 2, standing = { darkshire = 1 } } } },
     },
     hunter = {
-      lines = { { id = "hu_default", text = "Fresh game, he says, as if it walked in on its own! My favourite customer, that one, but I'll warn you that half of what's out there has been dead a while already, so sniff it before you skin it." } },
+      lines = { { id = "hu_default", text = "Fresh game, as if it walks in on its own! You're my favourite customer already, but I'll warn you that half of what's out there has been dead a while already, so sniff it before you skin it." } },
       choices = {
         { text = "I know a fresh kill, Grual.", next = "BACK", fx = { affinity = 1 } },
         { text = "What do you need most?", next = "ingredients" },
@@ -1285,7 +1285,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Unanswered letters, unpaid soldiers, and a forest full of the dead. If your spirits could carry a message to the king, I'd write another." } },
+      lines = { { id = "xdsham_default", text = "Unanswered letters, unpaid soldiers, and a forest full of the dead. If your spirits could carry a message to the Keep, I'd write another." } },
       choices = {
         { text = "Keep writing, Councilman. The kingdom must be held accountable.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Forget Stormwind. Darkshire must save itself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1296,8 +1296,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Not one, and I have the replies to prove it, all six of them politely declining. The Night Watch is shopkeepers and farmers, so one trained warrior here does more good than every letter the House of Nobles ever sealed." } },
       choices = {
-        { text = "Then I'll fight for Darkshire, since Stormwind won't.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Stormwind has its reasons. I won't speak against the crown.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then I'll fight under the council's banner, since Stormwind won't come.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Stormwind's failed you. I'll fight my own way, not the council's.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Councilman.", next = "BACK" },
       },
     },
@@ -1374,7 +1374,7 @@ P:NPC {
         { id = "h_ward", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Crime and Punishment") },
           text = "Dextren Ward sold our dead to Morbent Fel, and Lord Ebonlocke sentenced him to die for it. The nobles in Stormwind took him instead, and he's alive in their Stockade." },
         { id = "h_ward_done", tags = { "news" }, when = { questDone = TODO_QUEST("Crime and Punishment") },
-          text = "So it's done, and the families can visit the graves without wondering. Somewhere in Stormwind, a noble has been reminded that Darkshire still exists." },
+          text = "So Dextren Ward is dead, and the families can visit the graves without wondering. Somewhere in Stormwind, a noble has been reminded that Darkshire still exists." },
         { id = "h_skyborne", when = { race = "Skyborne", faction = "Alliance" },
           text = "Your people are with the Alliance now? Then you'll learn soon enough how it goes: you write to Stormwind, and you wait, and then you write again." },
         { id = "h_noble", when = { origin = "human_minor_noble" },
@@ -1382,7 +1382,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'd write to Stormwind asking for a hundred of you, and I have, and they sent nobody, so I'll take the one who walked in." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The wolves are taking our livestock and Stormwind is taking our taxes, and I know which one I'd rather you hunted." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the night elves, here in Darkshire. I don't suppose your people have a council that answers its letters, because ours in Stormwind does not." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Do you look like Stormwind? No? Good, then I won't read you my list of grievances. Not yet." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and nobody from Stormwind, by the look of you. Good, then I won't read you my list of grievances, not yet." },
       },
       again = {
         { id = "h_again", text = "Next item, then, and you understand I'm putting all this in the minutes." },
@@ -1553,7 +1553,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Because things outside can see you there, and they come. I check the shutters twice. Your spirits might see them coming, though." } },
+      lines = { { id = "xdsham_default", text = "Because things outside can see you framed in it, and they come. Your spirits might see them coming, but I'd still rather you stepped inside." } },
       choices = {
         { text = "Then I'll keep away from the door, Trelayne. Caution is wise.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let them come. I'm not afraid of the dark.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1607,7 +1607,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Safe enough to sleep, mostly, which is all I promise anyone. Smitts's old murders still keep a few of the older guests awake, and the new ones wake when the wolves start, so a paladin by the door would do us all good." } },
+      lines = { { id = "xapala_default", text = "Safe enough to sleep, mostly, which is all I promise anyone. The old murders Smitts talks about still keep a few of the older guests awake, and the new ones wake when the wolves start, so a paladin by the door would do us all good." } },
       choices = {
         { text = "The room by the door, then. Let them sleep.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll take a quiet room upstairs, thank you.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1722,7 +1722,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Every fighter does, spirits or no. When the dead get close, it's steel that matters." } },
+      lines = { { id = "xdsham_default", text = "Every fighter does, spirits or no, because when the dead get close, it's steel that matters." } },
       choices = {
         { text = "Steel and spirits both. I'll gear up properly, Clarise.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "My spirits are enough. I don't need steel.", next = "BACK", fx = { align = { honor = -1 } } },
