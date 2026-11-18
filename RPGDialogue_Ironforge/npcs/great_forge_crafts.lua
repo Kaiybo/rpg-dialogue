@@ -235,7 +235,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The old hands say so, an' the old hands are the ones still alive, so I listen tae them. Deepmountain's taught for generations that a creakin' tunnel's only settlin', but I've lost good diggers who believed it. If the stone talks tae ye, I'd sooner ye taught my students tae hear it than I taught them tae ignore it." } },
+      lines = { { id = "xdsham_default", text = "The old hands say so, an' the old hands are the ones still alive, so I listen tae them. Deepmountain Minin' has taught for generations that a creakin' tunnel's only settlin', but I've lost good diggers who believed it. If the stone talks tae ye, I'd sooner ye taught my students tae hear it than I taught them tae ignore it." } },
       choices = {
         { text = "Keep Deepmountain's methods, and add the listening on top.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Throw out the old teaching. Listen to the stone first.", next = "BACK", fx = { align = { order = -1 } } },
@@ -438,7 +438,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I could, though Emrul would charge me double for the mushrooms, the old thief. Night elves aren't all fussy about meat, mind, but a good cook asks before he serves, an' that's the first thing I teach." } },
+      lines = { { id = "xdruid_default", text = "I could, though my brother Emrul would charge me double for the mushrooms, the old thief. Night elves aren't all fussy about meat, mind, but a good cook asks before he serves, an' that's the first thing I teach." } },
       choices = {
         { text = "Always ask your guest first. That's simple courtesy.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Serve what you have. Travellers can't afford to be choosy.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -468,7 +468,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Emrul, every week, though he'll deny it. Ye might think a recipe's a small thing, but a good cook's livelihood rests on knowin' what nobody else knows, much like yer trade." } },
+      lines = { { id = "xrogue_default", text = "My own brother Emrul, every week, though he'll deny it. Ye might think a recipe's a small thing, but a good cook's livelihood rests on knowin' what nobody else knows, much like yer trade." } },
       choices = {
         { text = "A recipe's a cook's secret. I'll respect yours.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Secrets are meant to be pried loose. That's the fun.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -486,7 +486,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Every week, for the Physician sends down orders for broth an' I make it the way my mother did, wi' bones an' barley an' nothin' fancy. Nissa says it does as much as her bandages, but she'll never say it in front o' her students." } },
+      lines = { { id = "xapriest_default", text = "Every week, for Nissa Firestone, who teaches first aid, sends down orders for broth, an' I make it the way my mother did, wi' bones an' barley an' nothin' fancy. Nissa says it does as much as her bandages, but she'll never say it in front o' her students." } },
       choices = {
         { text = "Feeding the sick is holy work, Daryl. Keep doing it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Broth is broth. Healing is the priests' work, not the cook's.", next = "BACK", fx = { align = { light = -1 } } },
@@ -762,7 +762,7 @@ P:NPC {
         { text = "Do people really worry about warlocks' coin?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "Why should a warrior care about spices, Emrul?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "What spice would you put on wild boar, Emrul?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
-        { text = "Do you ever give spices to the poor in the Forlorn Cavern?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Do you ever give spices to the poor, Emrul?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Are your spice prices fair, Emrul? Your brother says otherwise.", next = "xapala", when = { class = "PALADIN", heardLine = "if_daryl.em_default" } },
         { text = "Where do your spices come from, Emrul?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Can't conjured spices match yours, Emrul?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
@@ -1014,7 +1014,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "I patched up soldiers in the Second War, an' I've been patchin' up adventurers ever since. Adventurers are worse patients." } },
     advice = { { id = "tp_ad", text = "Bandage first, ask questions after. The wound won't wait for yer curiosity." } },
     scourge = { { id = "tp_scourge", text = "The plague wounds dinnae close right, an' they smell wrong, an' I've seen a few come through here from the north. Burn the bandages an' wash yer hands twice." } },
-    holy_light = { { id = "tp_holy_light", text = "The priests mend with prayer an' I mend wi' linen, an' between us we lose fewer than we would alone. Dinnae tell Rohan I said that, for he'd be insufferable." } },
+    holy_light = { { id = "tp_holy_light", text = "The priests mend with prayer an' I mend wi' linen, an' between us we lose fewer than we would alone. Dinnae tell High Priest Rohan I said that, for he'd be insufferable." } },
     second_war = { { id = "tp_second_war", text = "I learned my trade in the Second War, stitchin' soldiers who came back from the front wi' axe cuts I couldnae believe they'd survived. Most o' them did, an' I'm proud o' that." } },
     _none = { { id = "tp_none", text = "That's no' a wound, so it's no' my concern." } },
   },
@@ -1034,7 +1034,7 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Who's there? Oh, a customer, and you set off my door ward, which I calibrated myself to catch exactly that. You might have knocked, you know." },
-    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I suppose you can come in, since my inventory still balances to the last strange dust from your last visit." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I suppose you can come in, since nothing went missing after your last visit; I counted, down to the last pinch of dust." },
   },
 
   notice = {

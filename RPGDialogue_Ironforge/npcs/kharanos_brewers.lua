@@ -37,7 +37,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Marleth Barleybrew, an' my family's been brewin' in Dun Morogh as long as the Thunderbrews, whatever they tell the tourists. They need to learn that theirs isn't the only decent brew in these mountains, an' I've a barrel here that'll teach them." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Bitter Rivals") },
-          text = "Have ye switched the barrel yet? Down in the cellar o' the Thunderbrew Distillery, quiet as ye like. If old Jarven's on guard, ye'll need to give him somethin' to look at besides the barrels." },
+          text = "Have ye switched the barrel yet? It's down in the cellar o' the Thunderbrew Distillery, an' if Jarven Thunderbrew's on guard there, ye'll need to give him somethin' to look at besides the barrels." },
         { id = "h_return", tags = { "news" }, when = { questActive = TODO_QUEST("Return to Marleth") },
           text = "Ye did it? Ha! I can just see it now, half o' Kharanos takin' a pull o' Thunder Ale an' gettin' a mouthful o' Barleybrew Scalder instead!" },
         { id = "h_done", when = { questDone = TODO_QUEST("Return to Marleth") },
@@ -67,7 +67,7 @@ P:NPC {
     feud_old = {
       lines = { { id = "fo_default", text = "My grandda an' old Ragnar's grandda once fought a duel over a hop field, an' they were both so drunk they missed with every swing an' fell asleep in the field. The families have been arguin' over who won ever since." } },
       choices = {
-        { text = "Who did win?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Ha. I'd wager they both lost.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -98,9 +98,9 @@ P:NPC {
       },
     },
     brewnall = {
-      lines = { { id = "br_default", text = "A wee village o' brewers up the road, where the Barleybrews have been brewin' since before the Thunderbrews learned to spell. My cousin Rejold's there too, chasin' some daft perfect stout with weeds he wants stolen off the trolls." } },
+      lines = { { id = "br_default", text = "A wee village o' brewers up the road, where the Barleybrews have been brewin' since before the Thunderbrews learned to spell. My cousin Rejold's there too, chasin' a daft notion o' the perfect stout brewed wi' a weed the Frostmane trolls grow." } },
       choices = {
-        { text = "Trolls? What does he want?", next = "BACK", fx = { learn = { "frostmane" } } },
+        { text = "A weed from the trolls? That sounds like trouble.", next = "BACK", fx = { learn = { "frostmane" } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -184,7 +184,7 @@ P:NPC {
     barrels = {
       lines = { { id = "ba_default", text = "Thunder Ale, mostly, the finest drink in Khaz Modan, an' a few casks o' the special for the King's table in Ironforge. If anyone so much as breathes on those, it's my beard, so I count them every hour." } },
       choices = {
-        { text = "How many are there?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Then I'll keep my breath off them.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -248,7 +248,7 @@ P:NPC {
         { id = "h_stout_done", tags = { "news" }, when = { questDone = TODO_QUEST("The Perfect Stout") },
           text = "The shimmerweed's in the kettle, an' it smells like nothin' I've ever brewed. It might be the perfect stout, or it might be poison, an' there's only one way to find out." },
         { id = "h_evershine", when = { questActive = TODO_QUEST("Evershine") },
-          text = "Bellowfiz wants Evershine, does he? That gnome has good taste for a gnome. I'll see what I can do, but I'll need a favor first." },
+          text = "Pilot Bellowfiz wants Evershine, does he? That gnome has good taste for a gnome. I'll see what I can do, but I'll need a favor first." },
         { id = "h_shimmer", when = { questActive = TODO_QUEST("Shimmer Stout") },
           text = "Take that cask o' Shimmer Stout up the road and mind ye don't drink it on the way, for it's the best thing I've ever made and I've only the one cask." },
       },
@@ -352,9 +352,9 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "Ozzie Togglevolt, inventor, and that's my partner Razzle muttering at the Recombobulator. Since the accident, Gnoarn talks about nothing but cleansing Gnomeregan and curing the sickness, and Razzle and I are close to a cure, or the recipe for a very powerful rum, and we won't know which until we test it." },
+          text = "Ozzie Togglevolt, inventor, and that's my partner Razzle muttering at the Recombobulator. We're working on a cure for the sickness that took Gnomeregan, or possibly the recipe for a very powerful rum, and we won't know which until we test it." },
         { id = "h_dayafter", tags = { "news" }, when = { questActive = TODO_QUEST("The Day After") },
-          text = "Gnoarn sent you? Bless his bald head. He'll tell you he had a magnificent gnomefro before the radiation, and I'm not saying he's lying, but I've never seen a drawing." },
+          text = "Gnoarn sent you? Bless that old tinker's bald head. He'll tell you he had a magnificent gnomefro before the radiation, and I'm not saying he's lying, but I've never seen a drawing." },
         { id = "h_gnogaine", tags = { "news" }, when = { questActive = TODO_QUEST("Gnogaine") },
           text = "The phial, you have the phial? Hold it up to the irradiated troggs in Gnomeregan and let it fill with their green fallout. Don't drink it, don't sniff it, and don't let it touch your skin, though that last part's more of a suggestion." },
         { id = "h_gnogaine_done", tags = { "news" }, when = { questDone = TODO_QUEST("Gnogaine") },
@@ -394,7 +394,7 @@ P:NPC {
     },
     mekkatorque = {
       big = true,
-      lines = { { id = "mk_default", text = "Razzle thinks the plan was sound and the city wasn't, and I won't hear a word against the High Tinker myself. But some nights I wonder what would have happened if we'd just packed up and left the troggs to it." } },
+      lines = { { id = "mk_default", text = "Razzle thinks the plan was sound and the radiation simply got away from us, and I won't hear a word against the High Tinker myself. But some nights I wonder what would have happened if we'd just packed up and left the troggs to it." } },
       choices = {
         { text = "He did what he had to. Gnomeregan was worth fighting for.", next = "BACK", fx = { align = { order = 1 }, learn = { "gnomeregan" } } },
         { text = "He gambled with everyone's lives. That was wrong.", next = "BACK", fx = { align = { order = -1 }, learn = { "gnomeregan" } } },
@@ -505,6 +505,6 @@ P:NPC {
   },
 
   topics = {
-    _none = { { id = "tp_none", text = "I couldn't tell ye. Ask Belm at the inn, he hears everythin'." } },
+    _none = { { id = "tp_none", text = "I couldn't tell ye. Ask Innkeeper Belm at the Thunderbrew, for he hears everythin'." } },
   },
 }

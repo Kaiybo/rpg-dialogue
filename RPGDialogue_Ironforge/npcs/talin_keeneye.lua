@@ -20,7 +20,7 @@ P:NPC {
     { id = "g_hunt", when = { questActive = TODO_QUEST("The Boar Hunter") }, text = "How goes the hunt? I can still hear them grunting out there, so I'd guess there's a few left." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' the boars have been breedin' the whole time ye were away, I'd wager. Welcome back tae the valley." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye were thinning boars fer me no' so long ago, an' now ye've the look o' somebody who hunts bigger game. Good on ye." },
-    { id = "g_word_helped", when = { word = "helped" }, text = "Sten says ye've been carryin' letters an' clearin' the hills. The valley could do wi' a few more like ye." },
+    { id = "g_word_helped", when = { word = "helped" }, text = "Sten Stoutarm says ye've been carryin' letters an' clearin' the hills. The valley could do wi' a few more like ye." },
     { id = "g_word_angered", when = { word = "angered" }, text = "I hear somebody in the valley's sore wi' ye. Out here we settle that sort o' thing over a roast, so think on it." },
   },
 
@@ -58,7 +58,7 @@ P:NPC {
         { text = "Sten says half your mail is for Grelin.", next = "mail", when = { any = { { heardLine = "sten.ma_default" }, { questActive = TODO_QUEST("Coldridge Valley Mail Delivery") } } } },
         { text = "What's the trick to hunting boar?", next = "trick" },
         { text = "Teach a fellow hunter something, Talin.", next = "hunter", when = { class = "HUNTER" } },
-        { text = "You said there are more boars every year. Is it the troggs?", next = "troggs", when = { questDone = TODO_QUEST("The Boar Hunter") } },
+        { text = "Could the troggs be pushing the boars down too?", next = "troggs", when = { questDone = TODO_QUEST("The Boar Hunter") } },
         { text = "I'll help thin them.", next = "BUSINESS" },
         { text = "Good hunting, Talin.", next = "END" },
       },
@@ -72,7 +72,7 @@ P:NPC {
       },
     },
     boars_wolves = {
-      lines = { { id = "bw_default", text = "Aye, an' then the recruits at Anvilmar took tae huntin' wolves fer Sten's gloves, so the wolves thinned an' the boars didnae. I've no' said that tae Sten, an' I'd thank ye no' tae either." },
+      lines = { { id = "bw_default", text = "Aye, an' then the recruits at Anvilmar took tae huntin' wolves fer the meat Sten Stoutarm wanted, so the wolves thinned an' the boars didnae. I've no' said that tae Sten, an' I'd thank ye no' tae either." },
       },
       choices = {
         { text = "Then the valley needs balance, not slaughter.", next = "boars_balance" },
@@ -127,7 +127,7 @@ P:NPC {
       },
     },
     troggs = {
-      lines = { { id = "tr_default", text = "The troggs push the boars down out o' the hills, aye, an' Balir's been sayin' as much fer weeks. Fewer boars by the lake now, thanks tae ye, but the troggs are another matter." },
+      lines = { { id = "tr_default", text = "The troggs push the boars down out o' the hills, aye, an' Balir Frosthammer's been sayin' as much fer weeks. Fewer boars by the lake now, thanks tae ye, but the troggs are another matter." },
       },
       choices = {
         { text = "Then I'll see Balir about the troggs.", next = "BACK" },
@@ -139,7 +139,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I hunt, I eat what I hunt, an' I pass on Sten's mail when I have tae. It's a good life when there's fewer boars in it." } },
     advice = { { id = "tp_ad", text = "Step aside when it charges. That's all the advice a body needs in Coldridge." } },
-    troggs = { { id = "tp_troggs", text = "I dinnae hunt troggs; there's no meat on them worth the name. Ask Balir, for he hates them enough fer the both of us." } },
+    troggs = { { id = "tp_troggs", text = "I dinnae hunt troggs; there's no meat on them worth the name. Ask Balir Frosthammer at the camp, for he hates them enough fer the both of us." } },
     frostmane = { { id = "tp_frostmane", text = "The Frostmane hunt the same boars as me, an' they're no' bad at it, which I'll only admit tae ye. We stay out o' each other's way, an' it works." } },
     wildhammer = { { id = "tp_wildhammer", text = "I've hunted wi' a Wildhammer once, an' he shot from his gryphon an' hit the boar right between the eyes. Show-off, an' I've been jealous ever since." } },
     timbermaw = { { id = "tp_timbermaw", text = "There's bears in the north that talk, I'm told, an' I'd love tae ask one how it feels about boar. I suspect we'd get on." } },

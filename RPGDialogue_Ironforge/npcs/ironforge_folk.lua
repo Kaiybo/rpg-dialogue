@@ -18,7 +18,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hall", text = "The Light keep ye! Are ye here for trainin', or for the warm floor?" },
-    { id = "g_human", when = { race = "Human", class = "PALADIN" }, text = "A human paladin up the mountain! Rall'll want ye back by supper." },
+    { id = "g_human", when = { race = "Human", class = "PALADIN" }, text = "A human paladin up the mountain! Duthorian Rall down in Stormwind will want ye home by supper." },
   },
 
   notice = {
@@ -30,7 +30,7 @@ P:NPC {
   nodes = {
     opn_crusade = {
       lines = {
-        { id = "opn_crusade_q", text = "Some o' the Silver Hand's own went over tae them after Uther fell, an' I trained alongside one or two. They burn the dead an' a fair few o' the livin' with 'em, by the stories comin' south. Ye've heard the same stories, I'd wager, so tell me what ye think." },
+        { id = "opn_crusade_q", text = "Some o' the Silver Hand's own went over tae the Scarlet Crusade after Uther fell, an' I trained alongside one or two. They burn the dead an' a fair few o' the livin' with 'em, by the stories comin' south, so tell me what ye make o' them." },
       },
       choices = {
         { text = "Someone has to hold Lordaeron. At least they're fighting.", next = "opn_crusade_r_admire", fx = { align = { order = 1 }, opinion = { scarlet_crusade = "admire" } } },
@@ -153,7 +153,7 @@ P:NPC {
       lines = {
         { id = "h_pt_brandur", tags = { "news" }, when = { party = { class = "PALADIN" } },
           text = "There's a paladin in yer company, I see, an' {companion} wears it well, beard or no beard. Mind ye keep them humble; the young ones forget the Light shines on the whole company, no' just whoever's holdin' the hammer." },
-        { id = "h_default", text = "Brandur Ironhammer, an' I train the Light's young ones here in Ironforge. Dwarves I send on tae Tiza Battleforge an' humans tae Duthorian Rall, for the Light's no' fussy about beards." },
+        { id = "h_default", text = "Brandur Ironhammer, an' I train the Light's young ones here in Ironforge. When they're ready I send the dwarves on tae Tiza Battleforge an' the humans tae Duthorian Rall in Stormwind, for the Light's no' fussy about beards." },
         { id = "h_dwarf", when = { race = "Dwarf", class = "PALADIN" },
           text = "Ye've a dwarf's stubbornness an' a paladin's oath. That's a fine pair, as long as the oath wins the arguments." },
         { id = "h_other", when = { ["not"] = { class = "PALADIN" } },
@@ -161,7 +161,7 @@ P:NPC {
         { id = "h_noble", when = { class = "PALADIN", minLevel = 40 },
           text = "Look at ye, all plate an' purpose! I'll own it, I get a wee bit jealous, an' Tiza says that's my weakness. I'm workin' on it." },
         { id = "h_priest", when = { class = "PRIEST" },
-          text = "A priest! Ye're in the right hall, then. Rohan's along the way, pacin' as he does; tell him Brandur sent ye, an' he'll pretend tae know who that is." },
+          text = "A priest! Ye're in the right hall, then. High Priest Rohan's along the way, pacin' as he does; tell him Brandur sent ye, an' he'll pretend tae know who that is." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage come tae see a paladin? The Light an' the arcane get along better than folk think, if ye don't mind a lecture on the subject." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
@@ -197,13 +197,13 @@ P:NPC {
         { id = "tz_default", text = "Tiza's one o' our most respected. She gives the young ones the Tome o' Divinity, then sends 'em tae help someone who cannae repay it, an' her husband Muiredon tests the rest." },
       },
       choices = {
-        { text = "Tests them how?", next = "tiza_muiredon" },
+        { text = "How does he test them?", next = "tiza_muiredon" },
         { text = "Something else.", next = "BACK", fx = { learn = { "tome_of_divinity" } } },
       },
     },
     tiza_muiredon = {
       lines = {
-        { id = "tm_default", text = "There's Dark Irons south o' Helm's Bed Lake. Muiredon an' Narm went spyin' on 'em an' only one came back walkin', an' still the Senate wants proof they're there at all." },
+        { id = "tm_default", text = "In the field, though he's laid up just now. He an' Narm Faulk went spyin' on the Dark Irons south o' Helm's Bed Lake an' only Muiredon came back walkin', an' still the Senate wants proof they're there at all." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "dark_iron" } } } },
     },
@@ -248,7 +248,7 @@ P:NPC {
     shaman = {
       big = true,
       lines = {
-        { id = "sm_default", text = "So I hear, an' I hear it from ye. I'll no' call it heresy, for the Light never said it was alone in the world, but I'll ask ye plain: when the stone talks tae ye, does it ever tell ye tae be kind?" },
+        { id = "sm_default", text = "So I'm told, an' now I'm hearin' it from ye. I'll no' call it heresy, for the Light never said it was alone in the world, but I'll ask ye plain: when the stone talks tae ye, does it ever tell ye tae be kind?" },
         { id = "sm_listener", when = { origin = "dwarf_stone_listener" },
           text = "Ye're the one they talk about in the Mystic Ward, the lass or lad wi' an ear tae the walls. I'll no' call it heresy, but I'll ask ye plain: does the stone ever tell ye tae be kind?" },
       },
@@ -266,7 +266,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "I'm a paladin o' the Silver Hand an' a trainer in the Hall. I've sent more young ones up tae Tiza than I can count, an' I can count." } },
     advice = { { id = "tp_ad", text = "Mend yer armor before ye pray. The Light hears ye either way, but the troll's quicker." } },
-    tome_of_divinity = { { id = "tp_tome", text = "Tiza teaches it here an' Rall teaches it in Stormwind. It's the same book, just in different accents." } },
+    tome_of_divinity = { { id = "tp_tome", text = "Tiza teaches the Tome o' Divinity here an' Rall teaches it in Stormwind. It's the same book, just in different accents." } },
     holy_light = { { id = "tp_holy_light", text = "The Light's a plain thing at heart: ye stand up for folk who cannae stand up for themselves, an' ye mean it. The rest is sermons, an' I give a few o' those too." }, { id = "tp_holy_light2", when = { class = "PALADIN" }, text = "Ye know it already, I'd wager, in yer arms when ye swing an' in yer chest when ye stand fast. The Light's no' a book; it's a beard that grows on the inside." } },
     scourge = { { id = "tp_scourge", text = "The dead are the Light's oldest enemy an' its plainest, an' there's nae question which side ye're on. Every paladin o' this hall will see the north sooner or later." } },
     silver_hand = { { id = "tp_silver_hand", text = "Uther's order did right by the world until the plague, an' there's still a few o' them scattered through the Hinterlands an' the north. Them as are left are worth ten men each." } },
@@ -481,7 +481,7 @@ P:NPC {
       lines = {
         { id = "ca_default", text = "Did you, now? Then you know where half my children would be without Stephanie, and where some of them go when they run off anyway. I won't ask how you learned your trade, but I'll ask you to steer any little ones you meet toward our door." },
         { id = "ca_pick", when = { origin = "human_canal_pickpocket" },
-          text = "You've the quick hands of a canal child; I've had a few of those through the orphanage, and every one of them stole my purse in the first week. Did anybody ever take you in?" },
+          text = "You've the quick hands of a canal child; I've had a few of those through the orphanage, and every one of them stole my purse in the first week. Steer any little ones you meet toward our door, would you?" },
       },
       choices = {
         { text = "I'll send them your way.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
@@ -579,7 +579,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Every morning, before the fire's hot, for a hammer made without a prayer is just iron, and a paladin deserves better than iron. Bosch Verigan used to laugh at me for it, and then he'd stand quiet while I finished, and I miss that more than I can say." } },
+      lines = { { id = "xapriest_default", text = "Every morning, before the fire's hot, for a hammer made without a prayer is just iron, and a paladin deserves better than iron. My friend Bosch Verigan used to laugh at me for it, and then he'd stand quiet while I finished, and I miss that more than I can say." } },
       choices = {
         { text = "A prayer at the anvil is a good habit. Keep it, Jordan.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Good steel holds without prayer. The work speaks for itself.", next = "BACK", fx = { align = { light = -1 } } },
@@ -601,13 +601,13 @@ P:NPC {
       lines = {
         { id = "h_default", text = "Jordan Stilwell. I serve the Church of the Holy Light the only way I know: at the anvil, while my wife Daphne keeps our farm in Westfall." },
         { id = "h_fist", tags = { "news" }, when = { questActive = TODO_QUEST("The Test of Righteousness") },
-          text = "Bosch Verigan was my friend. This hammer will carry his name, and it'll go to a paladin worthy of it, which I hope is you." },
+          text = "This hammer will carry the name of my friend Bosch Verigan, and it'll go to a paladin worthy of it, which I hope is you." },
         { id = "h_daphne", when = { questDone = TODO_QUEST("The Tome of Valor") },
           text = "You stood with Daphne at the farm? She wrote to me that you were brave and she was braver, and that sounds just like her." },
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest of the Church, which has been good to Daphne and me. If you're ever on the Westfall coast, look in on her; she'll put you to work." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
-          text = "The Church sends me paladins, an' you're no paladin. What are you after, then, near my anvil?" },
+          text = "The Church sends me paladins, and you're no paladin. What are you after, then, near my anvil?" },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock at the Church's anvil! I'll ask you to keep your distance from the blessed metal, for it's been blessed once and I'd not like to bless it again." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. I'll forge you arrowheads if you need them, and bless the steel while I'm at it." },
@@ -640,7 +640,7 @@ P:NPC {
     verigan = {
       lines = { { id = "v_default", text = "He was an old friend and a good man, the kind you name things after so people keep asking who he was. That's the whole point of it." } },
       choices = {
-        { text = "Who was he?", next = "verigan_who" },
+        { text = "What kind of man was he?", next = "verigan_who" },
         { text = "Then I'll remember him.", next = "BACK", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Names fade, however many things you put them on.", next = "BACK", fx = { align = { light = -1 } } },
       },
@@ -653,7 +653,7 @@ P:NPC {
     },
     outside = {
       lines = {
-        { id = "ou_default", text = "The cool mountain air, Duthorian tells people. The truth is I like to see the road, because people come up it needing things, and I'd rather meet them halfway." },
+        { id = "ou_default", text = "The cool mountain air, I tell people. The truth is I like to see the road, because people come up it needing things, and I'd rather meet them halfway." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -669,7 +669,7 @@ P:NPC {
     keep = {
       big = true,
       lines = {
-        { id = "kp_default", text = "Baron Silverlaine's, back when we lived in Pyrewood. When the keep went foul, Daphne and I ran with nothing, and my father's hammer is still lying in the stables there." },
+        { id = "kp_default", text = "My father was smith to Baron Silverlaine's keep, back when we lived in Pyrewood. When the keep went foul, Daphne and I ran with nothing, and my father's hammer is still lying in the stables there." },
       },
       choices = {
         { text = "And your father?", next = "father" },
@@ -687,7 +687,7 @@ P:NPC {
     },
     daphne = {
       lines = {
-        { id = "dp_default", text = "My wife. She keeps our farm on the Westfall coast while I'm up here, with the Defias at the Longshore. She writes that she's killed a few, and I believe her." },
+        { id = "dp_default", text = "My wife. She keeps our farm on the Westfall coast while I'm up here, with the Defias prowling the Longshore. She writes that she's killed a few, and I believe her." },
       },
       choices = {
         { text = "Why leave her alone?", next = "daphne_why" },

@@ -29,7 +29,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "More than the old folk like, an' fewer than the young ones claim. Every year there's a lad or lass who's been listenin' at the rocks since they were wee, an' now Teo Hammerstorm's tellin' them it isnae daft after all. It's their grandparents who come in here complainin'." } },
+      lines = { { id = "xdsham_default", text = "More than the old folk like, an' fewer than the young ones claim. Every year there's a lad or lass who's been listenin' at the rocks since they were wee, an' now Teo Hammerstorm, the shaman trainer, is tellin' them it isnae daft after all. It's their grandparents who come in here complainin'." } },
       choices = {
         { text = "The grandparents deserve patience. Change is hard on old dwarves.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The grandparents had their turn. The young can choose now.", next = "BACK", fx = { align = { light = -1 } } },
@@ -223,7 +223,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "A mace or an axe, somethin' honest wi' weight behind it. The orcs used tae carry great carved staves, but a dwarf doesnae walk about wavin' a stick when he could carry a hammer. I'll take back any that breaks in an honest fight, same as always, though I'll want tae know if the lightnin' broke it." } },
+      lines = { { id = "xdsham_default", text = "A mace or an axe, somethin' honest wi' weight behind it, for a dwarf doesnae walk about wavin' a stick when he could carry a hammer. I'll take back any that breaks in an honest fight, same as always, though I'll want tae know if the lightnin' broke it." } },
       choices = {
         { text = "An honest hammer, Grawn. I'll fight fair with it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Whatever kills quickest. Fairness is a luxury.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -241,7 +241,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Any of them, if the arm behind it's steady, but I'd give ye the broad axe, for trolls are tall an' a good axe reaches up as well as across. I'll take back any that breaks in an honest fight, as I said, an' I've no' taken one back yet." } },
+      lines = { { id = "xwarcl_default", text = "Any of them, if the arm behind it's steady, but I'd give ye the broad axe, for trolls are tall an' a good axe reaches up as well as across. I'll take back any that breaks in an honest fight, an' I've no' had tae take one back yet." } },
       choices = {
         { text = "An honest fight is the only kind I'll give it.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'll use it however wins the day, honest or not.", next = "BACK", fx = { align = { honor = -1 } } },

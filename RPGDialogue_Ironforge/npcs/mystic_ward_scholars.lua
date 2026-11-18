@@ -157,7 +157,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Tymor, student o' the arcane, an' aye, a dwarf, before ye say it. I've an interest in Azshara, back when the elves practised their magic there openly, an' they left runes in public places for anyone to ponder, an' I mean to ponder every one o' them." },
         { id = "h_burden", tags = { "news" }, when = { questActive = TODO_QUEST("Passing the Burden") },
-          text = "So ye've come about Azshara! Good, good, my friend at the Hall said he'd send someone. Pull up a crate, I've a drawin' kit an' a task for ye." },
+          text = "So ye've come about Azshara! Good, good, I hoped somebody would. Pull up a crate, for I've a drawin' kit an' a task for ye." },
         { id = "h_runes", tags = { "news" }, when = { questActive = TODO_QUEST("Arcane Runes") },
           text = "Four runes at the Ruins o' Eldarath, an' I need a rubbin' of each: Beth'Amara, Jin'yael, Markri an' Sael'hai. Then signal Pilot Xiggs from the wee island off the southern point, an' he'll fly ye out before the naga notice." },
         { id = "h_runes_done", tags = { "news" }, when = { questDone = TODO_QUEST("Arcane Runes") },

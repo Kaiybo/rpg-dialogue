@@ -58,7 +58,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Every curator worries about thieves, for a relic that walks out the door never walks back in. The Hidden Circle swear they've never touched my halls, an' I believe them about as far as I could throw Margol's horn." } },
+      lines = { { id = "xrogue_default", text = "Every curator worries about thieves, for a relic that walks out the door never walks back in. The Hidden Circle swear they've never touched my halls, an' I believe them about as far as I could throw a titan statue." } },
       choices = {
         { text = "Your relics are safe from me, Curator. I steal from enemies only.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "A relic in a case does nobody any good, Curator.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -163,7 +163,7 @@ P:NPC {
 
     tour = {
       lines = {
-        { id = "to_default", text = "Splendid! Over here we've relics from the old digs, there's titan-work from Uldaman behind the glass, an' that big skeleton's a raptor, though Magellas swears it's a very small dragon." },
+        { id = "to_default", text = "Splendid! Over here we've relics from the old digs, there's titan-work from Uldaman behind the glass, an' that big skeleton's a raptor, though High Explorer Magellas swears it's a very small dragon." },
       },
       choices = {
         { text = "Who's right, you or Magellas?", next = "tour_who" },
@@ -197,7 +197,7 @@ P:NPC {
       },
       choices = {
         { text = "Those Dark Irons should face justice.", next = "BACK", fx = { align = { honor = 1 }, trait = { brave = 1 }, learn = { "dark_iron" } } },
-        { text = "Then free his men first, and leave vengeance be.", next = "BACK", fx = { align = { honor = -1 }, trait = { kind = 1 }, learn = { "dark_iron" } } },
+        { text = "Then look after the living first, and leave vengeance be.", next = "BACK", fx = { align = { honor = -1 }, trait = { kind = 1 }, learn = { "dark_iron" } } },
       },
     },
 
@@ -256,7 +256,7 @@ P:NPC {
     grim_batol = { { id = "tp_grim_batol", text = "There's a case in the back o' the hall wi' a shard o' Grim Batol's gate in it, an' nobody's ever been brave enough tae steal it. That tells ye somethin' about Grim Batol." } },
     blackrock_depths = { { id = "tp_blackrock_depths", text = "Dorius writes from the Searing Gorge that the Dark Irons have built a whole city under the Blackrock, an' a grand one. I'd give my beard tae see it an' my life tae get back out." } },
     zul_farrak = { { id = "tp_zul_farrak", text = "The trolls o' the desert build fine stone an' bury their kings wi' gold, so the League tells me. I've a mask from Zul'Farrak in the hall that I'm still no' sure was a good idea tae display." } },
-    _none = { { id = "tp_none", text = "We've nothin' on that in the museum, I'm afraid. Try the Library; Mae finds everythin'." } },
+    _none = { { id = "tp_none", text = "We've nothin' on that in the museum, I'm afraid. Try the Library; Librarian Mae Paledust finds everythin'." } },
   },
 }
 
@@ -392,7 +392,7 @@ P:NPC {
 
     past = {
       lines = {
-        { id = "pa_default", text = "Because the future's comin' whether we like it or no', like rain fallin' tae the sea. We cannae stop it, but if we've read the past, we'll at least know which way tae hold the umbrella." },
+        { id = "pa_default", text = "Because the future's comin' whether we like it or no', like the rain, an' we cannae stop it. But if we've read the past, we'll at least know which way tae hold the umbrella." },
       },
       choices = {
         { text = "The past teaches us what to keep.", next = "BACK", fx = { align = { order = 1 }, affinity = 1 } },
@@ -402,7 +402,7 @@ P:NPC {
     },
     past_disagree = {
       lines = {
-        { id = "pd_default", text = "Constantly, an' that's the joy o' it. The Royal Historian an' I have been arguin' over a single footnote since the spring, an' neither of us intends tae lose." },
+        { id = "pd_default", text = "Constantly, an' that's the joy o' it. Royal Historian Archesonus an' I have been arguin' over a single footnote since the spring, an' neither of us intends tae lose." },
       },
       choices = { { text = "My coin's on the Historian.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } } },
     },
@@ -835,7 +835,7 @@ P:NPC {
         { id = "h_tidings", tags = { "news" }, when = { questDone = TODO_QUEST("Passing Word of a Threat") },
           text = "Och, those were evil tidings Karnik sent. Go back tae him an' say the King's authority is behind him, so he's tae act swiftly; the Shadowforge must be halted in the Badlands." },
         { id = "h_tablet", tags = { "news" }, when = { questActive = TODO_QUEST("The Lost Tablets of Will") },
-          text = "Hammertoe's quest is still unfulfilled. Find the Tablet o' Will in Uldaman before the Shadowforge do, for I owe him that much, an' so does Ironforge." },
+          text = "Hammertoe Grez's quest is still unfulfilled. Find the Tablet o' Will in Uldaman before the Shadowforge do, for I owe him that much, an' so does Ironforge." },
         { id = "h_tablet_done", when = { questDone = TODO_QUEST("The Lost Tablets of Will") },
           text = "The tablet's wi' the King's mages now, an' they're arguin' over it day an' night. Whatever it is, it's ours, an' no' the Dark Irons', thanks tae you." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
@@ -1305,7 +1305,7 @@ P:NPC {
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! Aye, my birds like yer sort, for ye sit square in the saddle an' ye don't scream on the dive like the mages do." },
         { id = "h_default", text = "Gryth Thurden, gryphon master. The Wildhammers might have fast steeds, but can those Aerie Peak gryphons stand the heat o' the Great Forge? I think not!" },
         { id = "h_picks", tags = { "news" }, when = { questActive = TODO_QUEST("Gryth Thurden") },
-          text = "Honorary picks for Brock's students in Thelsamar, is it? No trouble at all, as long as ye've been there before an' spoken tae the flight master; my birds won't fly tae a place ye've never seen." },
+          text = "Honorary picks for Brock Stoneseeker's students in Thelsamar, is it? No trouble at all, as long as ye've been there before an' spoken tae the flight master; my birds won't fly tae a place ye've never seen." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid! I've seen yer kind take wing on yer own, an' I'll confess my gryphons get a wee bit jealous when ye do." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },

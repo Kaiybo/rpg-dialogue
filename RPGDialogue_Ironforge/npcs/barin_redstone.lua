@@ -23,11 +23,11 @@ P:NPC {
     { id = "g_back", when = { metBefore = true }, text = "You again. Well, the Senate's patience is long, even if mine isnae." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "Aye, what is it? Speak up; I cannae hear ye from all the way down there, an' I've no time tae bend." },
     { id = "g_gnome_soft", when = { race = "Gnome", heardLine = "barin_redstone.gv_default" },
-      text = "Ah. You. Come up, then, an' mind the step; it's high for yer folk, an' nobody's thought tae fix it." },
+      text = "Ah, it's you. Come up, then, an' mind the step; it's high for yer folk, an' nobody's thought tae fix it." },
     { id = "g_vote", when = { heardLine = "barin_redstone.gv_default", ["not"] = { race = "Gnome" } },
       text = "Ye'll remember what I told ye last time, an' ye'll remember tae keep it tae yerself. Now, what is it?" },
-    { id = "g_reports", when = { questActive = Q }, text = "Is that Senir Whitebeard's report? Hand it over, an' if there's a royal seal on it, I dinnae want tae hear about it." },
-    { id = "g_done", when = { questDone = Q }, text = "Ye brought Whitebeard's report up the proper way. That's more than I can say for his cousin." },
+    { id = "g_reports", when = { questActive = Q }, text = "Is that Senir Whitebeard's report? Hand it over, for it's the Senate that should be readin' it, no' the King's clerks." },
+    { id = "g_done", when = { questDone = Q }, text = "Ye brought Whitebeard's report up the proper way, through the Senate. That's more than I can say for his brother Grelin." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were ye? The Senate's sat eleven times since, an' got nothin' done in any o' them." },
   },
 
@@ -37,7 +37,7 @@ P:NPC {
     { id = "n_wild", cat = "wildhammer", when = { origin = { "dwarf_wildhammer_kin", "dwarf_wildhammer_shaman" } },
       text = "Is that paint on yer arm? Wash it off before ye come up these steps again; this is the High Seat, no' an aerie." },
     { id = "n_warlock", cat = "fel", place = "before", when = { class = "WARLOCK" },
-      text = "A warlock. Thaurissan was a sorcerer as well, an' he burned half the Redridge Mountains wi' his tricks, so keep yer hands where I can see them." },
+      text = "A warlock. Thaurissan was a sorcerer as well, an' his summonin' burned the Searing Gorge tae glass, so keep yer hands where I can see them." },
   },
 
   start = "hello",
@@ -55,7 +55,7 @@ P:NPC {
         { id = "h_dwarf", when = { race = "Dwarf" },
           text = "A Bronzebeard, by the cut o' yer beard, an' welcome. There are few enough o' us left in the city who'll stand up an' say what this mountain's owed." },
         { id = "h_reports", tags = { "news" }, when = { questActive = Q },
-          text = "Senir Whitebeard's report, at last. His cousin Grelin went over the Senate's head wi' a letter carryin' the King's name, an' I've been waitin' for somebody tae send me the proper papers." },
+          text = "Senir Whitebeard's report, at last. His brother Grelin went over the Senate's head wi' a letter carryin' the King's name, an' I've been waitin' for somebody tae send me the proper papers." },
         { id = "h_reports_done", when = { questDone = Q },
           text = "Whitebeard's report is wi' the Senate now, an' they're arguin' about trolls instead o' tunnels, for once. I'll take my small mercies." },
       },
@@ -108,7 +108,7 @@ P:NPC {
       },
     },
     senate_stonehallow = {
-      lines = { { id = "ss_default", text = "Mehr does, out at Gol'Bolar wi' a hammer in his fist, an' the Senate laughs at him for it. I dinnae laugh. I think he's the only one o' us who's seen what comes up out o' the deep when ye dig too far." } },
+      lines = { { id = "ss_default", text = "Mehr Stonehallow does, out at Gol'Bolar wi' a hammer in his fist, an' the Senate laughs at him for it. I dinnae laugh, for I think he's the only one o' us who's seen what comes up out o' the deep when ye dig too far." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -118,7 +118,7 @@ P:NPC {
           fx = { learn = { "dark_iron", "thaurissan" } } },
       },
       choices = {
-        { text = "Why does it sit so close with you?", next = "darkiron_why" },
+        { text = "Why is it so personal for you?", next = "darkiron_why" },
         { text = "What about Princess Moira?", next = "darkiron_moira" },
         { text = "Something else.", next = "BACK" },
       },
@@ -189,7 +189,7 @@ P:NPC {
     gnomes_vote = {
       big = true,
       lines = {
-        { id = "gv_default", key = true, text = "No. When the troggs came up in Gnomeregan, Mekkatorque sent tae this Senate for the Reserve, an' we argued three days over the cost o' sendin' it. I argued longest. On the fourth day word came that he'd made his choice an' flooded the halls wi' poison, an' I've been blamin' the gnomes for it ever since, because the other way round is harder tae carry." },
+        { id = "gv_default", key = true, text = "No. When the troggs came up in Gnomeregan, Mekkatorque sent tae this Senate for the Ironforge Reserve, an' we argued three days over the cost o' sendin' it, an' I argued longest. On the fourth day word came that he'd flooded the halls wi' poison tae save what he could, an' I've been blamin' the gnomes for it ever since, because the other way round is harder tae carry." },
       },
       choices = {
         { text = "You couldn't have known what he'd do.", next = "gnomes_vote_after", fx = { affinity = 2 } },
@@ -209,7 +209,7 @@ P:NPC {
       choices = {
         { text = "The troggs came from the deep, same as at Gol'Bolar.", next = "xgnome_troggs" },
         { text = "We lost our home and half our people, Senator.", next = "xgnome_lost", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "Then I'll make sure the debt's repaid, every copper.", next = "xgnome_lost", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Half our people are gone. Send your bill to them, Senator.", next = "xgnome_lost", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "There's more to it than that, isn't there?", tag = "Persuade", next = "gnomes_vote",
           check = { pass = { any = { { disposition = { min = 65 } }, { questDone = Q }, { origin = "gnome_gnomeregan_refugee" }, { origin = "gnome_ironforge_raised" } } } },
           fail = { next = "gnomes_fail", fx = { affinity = -1 } } },
@@ -220,7 +220,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xgnome_lost = {
-      lines = { { id = "xl_default", text = "Half yer people. Aye, I've seen the lists, an' I've no' forgotten them. That doesnae make the bill smaller, but I'll grant it makes the arguin' over it uglier." } },
+      lines = { { id = "xl_default", text = "Half yer people, aye. I've seen the lists, an' I've no' forgotten them. That doesnae make the bill smaller, but I'll grant it makes the arguin' over it uglier." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 

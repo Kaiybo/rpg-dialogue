@@ -30,7 +30,7 @@ P:NPC {
 
   notice = {
     { id = "n_human_priest", cat = "light", when = { class = "PRIEST", race = "Human" },
-      text = "A priest o' the Cathedral, up the mountain. Laurena trains her people well, an' I can always tell, for they stand as if someone's about tae ask them a hard question." },
+      text = "A priest o' the Cathedral, up the mountain. High Priestess Laurena in Stormwind trains her people well, an' I can always tell, for they stand as if someone's about tae ask them a hard question." },
     { id = "n_dwarf_priest", cat = "light", when = { class = "PRIEST", race = "Dwarf" },
       text = "One o' ours! I remember when the Hall had six priests an' a great deal o' empty floor, so ye'll forgive me if I'm pleased tae see ye." },
     { id = "n_gnome_priest", cat = "race", when = { class = "PRIEST", race = "Gnome" },
@@ -72,7 +72,7 @@ P:NPC {
     },
     opn_light_r_tool = {
       lines = {
-        { id = "opn_light_r_tool", text = "A hammer's a power like any other, too, an' ye'll notice nobody prays tae their hammer. Use it well, aye, but don't forget it's lookin' back at ye." },
+        { id = "opn_light_r_tool", text = "A hammer's a power like any other, too, but a hammer doesnae watch what ye do wi' it. Use the Light well, aye, but don't forget it's lookin' back at ye." },
       },
       choices = {
         { text = "Something else, Father.", next = "BACK" },
@@ -88,7 +88,7 @@ P:NPC {
     },
     opn_light_r_devotion = {
       lines = {
-        { id = "opn_light_r_devotion", text = "Aye, an' keep feelin' it on the days ye've broken one, for those are the days it matters. Brandur would like ye; he says the same thing louder." },
+        { id = "opn_light_r_devotion", text = "Aye, an' keep feelin' it on the days ye've broken one, for those are the days it matters. Brandur Ironhammer, our paladin trainer, would like ye; he says the same thing louder." },
       },
       choices = {
         { text = "Something else, Father.", next = "BACK" },
@@ -171,13 +171,13 @@ P:NPC {
         { id = "h_fear_done", when = { questDone = TODO_QUEST("A Lack of Fear") },
           text = "How's the ward holdin'? Fear's a clever enemy, for it never comes the same way twice, so keep the prayer fresh." },
         { id = "h_prayer", tags = { "news" }, when = { questActive = TODO_QUEST("Desperate Prayer") },
-          text = "Still here? Laurena's waitin' for ye in the Cathedral, an' she's no' a woman ye keep waitin'. Go on, wi' my blessin' an' my regards." },
+          text = "Still here? High Priestess Laurena's waitin' for ye in Stormwind's Cathedral, an' she's no' a woman ye keep waitin'. Go on, wi' my blessin' an' my regards." },
         { id = "h_aid", tags = { "news" }, when = { questActive = TODO_QUEST("Cenarion Aid") },
           text = "Azshara's a long way tae carry a prayer, but the Cenarion Circle asked, an' we answer when people ask. Ogtinc's on the cliffs above the old elven ruins." },
         { id = "h_human_priest", when = { class = "PRIEST", race = "Human" },
           text = "A human priest in a dwarven hall! The Light came up this mountain wi' yer people, so ye're as much at home here as I am. More, maybe, for ye didnae have tae learn the hymns in a second language." },
         { id = "h_paladin", when = { class = "PALADIN", minLevel = 50 },
-          text = "A paladin wi' that look about ye usually wants my censer. Shadowbreaker's sendin' them up the tram again, I suppose." },
+          text = "A paladin wi' that look about ye usually wants my censer. Lord Shadowbreaker in Stormwind must be sendin' them up the tram again." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There ye are! I was hopin' ye'd come by, for I've a question that's been botherin' me all week an' the young ones are tired o' hearin' it." },
         { id = "h_acolyte", when = { origin = "dwarf_mystic_acolyte" },
@@ -318,7 +318,7 @@ P:NPC {
       lines = {
         { id = "cs_default", text = "Humans I send down tae the Cathedral, tae Laurena, who's High Priestess there, an' night elves tae Priestess Alathea in their Temple o' the Moon. The dwarves I keep, for there are lessons that belong tae dwarves." },
         { id = "cs_ne", when = { race = "NightElf" },
-          text = "Alathea sends word for her people now an' then, an' Braenna catches most o' the messages, for she's quicker on the stairs than I am. Ye'll hear from Darnassus when ye're ready, never fear." },
+          text = "Alathea sends word for her people now an' then, an' Braenna Flintcrag, one o' our trainers, catches most o' the messages, for she's quicker on the stairs than I am. Ye'll hear from Darnassus when ye're ready, never fear." },
       },
       choices = {
         { text = "Lessons that belong to dwarves?", next = "came_ward" },
@@ -338,7 +338,7 @@ P:NPC {
 
     censer = {
       lines = {
-        { id = "ce_default", text = "Aye, an old thing, an' I've swung it over more than one poor soul that had somethin' unwelcome livin' in them. Lord Shadowbreaker's paladins come for it now, an' I give it tae them for a donation." },
+        { id = "ce_default", text = "Aye, an old thing, an' I've swung it over more than one poor soul that had somethin' unwelcome livin' in them. Lord Shadowbreaker's paladins come up from Stormwind for it now, an' I give it tae them for a donation." },
       },
       choices = {
         { text = "Selling a holy relic seems a strange thing for a priest.", next = "censer_sell" },
@@ -503,7 +503,7 @@ P:NPC {
       lines = {
         { id = "sh_default", text = "An' ye came into the Hall o' Mysteries tae say so, which is either very brave or very rude, an' I'll take it as brave. Half my priests are fumin' about the dwarves takin' up the old ways, but I'd sooner ye listened tae somethin' than nothin'." },
         { id = "sh_acolyte", when = { origin = "dwarf_mystic_acolyte" },
-          text = "Ye served in this very Hall as a young one, I remember the face, an' now ye've gone an' found a different voice. I'm no' angry, lad or lass, only curious what it said that we didnae." },
+          text = "Ye served in this very Hall as a young one, I remember the face, an' now ye've gone an' found a different voice. I'm no' angry, {g:lad|lass}, only curious what it said that we didnae." },
       },
       choices = {
         { text = "The Light came from outside. The earth was always ours.", next = "BACK", fx = { align = { light = -1 }, affinity = -1 } },
@@ -953,7 +953,7 @@ P:NPC {
     { id = "n_human", cat = "race", when = { race = "Human", class = "PRIEST" },
       text = "Cathedral robes, an' they've seen weather. The Light's no' fussy about where ye learned yer hymns, an' neither am I." },
     { id = "n_ne", cat = "race", when = { race = "NightElf", class = "PRIEST" },
-      text = "One o' Elune's priestesses' own, under the mountain! I've a message for yer kind more often than ye'd think, so check wi' me before ye leave." },
+      text = "A priestess o' Elune, under the mountain! I've a message for yer kind more often than ye'd think, so check wi' me before ye leave." },
   },
 
   start = "hello",
@@ -978,7 +978,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Mostly tae Glorin Steelbrow at Menethil, for the Dragonmaw cut the road half the time an' he's the worst correspondent in the Alliance. A warrior's a fine courier, for the letters arrive, an' so does the warrior, usually." } },
+      lines = { { id = "xwarcl_default", text = "Mostly tae Glorin Steelbrow, the priest at Menethil Harbor, for the Dragonmaw cut the road half the time an' he's the worst correspondent in the Alliance. A warrior's a fine courier, for the letters arrive, an' so does the warrior, usually." } },
       choices = {
         { text = "I'll carry your letters, and gladly.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "I'm a soldier, not a courier. Find someone else.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1143,9 +1143,9 @@ P:NPC {
 
   notice = {
     { id = "n_human_pal", cat = "paladin", when = { class = "PALADIN", race = "Human" },
-      text = "One o' Rall's? Ye've the Stormwind way o' holdin' a hammer, like it's goin' tae be painted. Hold it like it's goin' tae be used." },
+      text = "One o' Duthorian Rall's, from Stormwind? Ye've the Stormwind way o' holdin' a hammer, like it's goin' tae be painted. Hold it like it's goin' tae be used." },
     { id = "n_dwarf_pal", cat = "paladin", when = { class = "PALADIN", race = "Dwarf" },
-      text = "A dwarf o' the Silver Hand. Brandur sent ye, I'll wager; he sends me all his best an' then sulks about it." },
+      text = "A dwarf o' the Silver Hand. Brandur Ironhammer sent ye, I'll wager; he sends me all his best an' then sulks about it." },
   },
 
   start = "hello",
@@ -1239,12 +1239,12 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The Silver Hand has fought beside stranger allies than ye, though I'll admit no' many o' them were dwarves." },
       },
       again = {
-        { id = "h_again", text = "Go on, lass or lad; the Light's never too busy fer an honest question." },
+        { id = "h_again", text = "Go on, {g:lad|lass}; the Light's never too busy fer an honest question." },
         { id = "h_again2", text = "Go on. I've time for an honest question." },
       },
       choices = {
         { text = "What does the path to virtue ask?", next = "path" },
-        { text = "Someone over there is the wounded dwarf up.", next = "husband" },
+        { text = "Who's the wounded dwarf over there?", next = "husband" },
         { text = "How did you come to the Light?", next = "came" },
         { text = "Brandur speaks highly of you.", next = "brandur", when = { heardLine = "brandur.tz_default" } },
         { text = "I've earned my oaths, Tiza.", next = "oath", when = { class = "PALADIN" } },
@@ -1333,7 +1333,7 @@ P:NPC {
         { id = "br_default", text = "Does he? He's a good teacher an' a jealous one, an' I told him so tae his face. He swore he'd work on it, an' tae his credit, he is." },
       },
       choices = {
-        { text = "Was that kind, telling him that?", next = "BACK", fx = { affinity = 1 } },
+        { text = "That was blunt of you, Tiza.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1397,7 +1397,7 @@ P:NPC {
 
   greetings = {
     { id = "g_cough", text = "*cough* Well met, friend! Pay nae heed tae the holes in me; this priest 'ere's patchin' ol' Muiredon up a stitch at a time." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? I'm mendin', thank ya, slower than I'd like an' faster than Tiza'd like." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? I'm mendin', thank ya, slower than I'd like an' a great deal slower than Tiza'd like." },
     { id = "g_away", when = { away = 14 }, text = "*cough* Ye've been gone {away}, an' I'm still lyin' here gettin' stitched! Tiza says I'm mendin', but she says that every day." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at ye, all grown fierce since ye last came by! Narm would've liked ye, an' I mean that as the highest praise I've got." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The priests say ye've been doin' good turns about the city, friend. That's the stuff, an' it's better medicine than half Tiza's poultices." },
@@ -1423,7 +1423,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Aye, an' they left my friend Narm in far worse trouble, which is why I'm laughin' so hard at nothin'. If ye know a herb for worry, I'd take a whole sack o' it." } },
+      lines = { { id = "xdruid_default", text = "Aye, an' they left my friend Narm in far worse trouble, so I'll no' complain about mine. If ye know a herb for worry, though, I'd take a whole sack o' it." } },
       choices = {
         { text = "Then let's find Narm. Worry wants doing, not herbs.", next = "BACK", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Heal first. Rushing back will only get you killed.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1543,7 +1543,7 @@ P:NPC {
     },
     lake_after = {
       lines = {
-        { id = "lf_default", text = "Some kind o' scripts, writin's, an' a commander mindin' them close. The Senate wants proof they're even there, an' I've got the proof in me ribs, but they'll want somethin' wi' a seal on it." },
+        { id = "lf_default", text = "Papers o' some kind, writin's they guarded close, an' a commander mindin' them. The Senate wants proof they're even there, an' I've got the proof in me ribs, but they'll want somethin' wi' a seal on it." },
       },
       choices = {
         { text = "The Senate should act on your word alone.", next = "BACK", fx = { align = { order = -1 }, affinity = 1, learn = { "dark_iron" } } },
@@ -1701,14 +1701,14 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Twice this month, and both times they took a scroll on basic water conjuration, which is the most dull thing I own. If you want to learn magic, I'd much rather you asked, and anyway, the good scrolls are warded." } },
       choices = {
-        { text = "I'd sooner ask than steal from a fellow refugee, Bink.", next = "BACK", fx = { align = { honor = 1 } } },
+        { text = "I'd sooner ask than steal from you, Bink.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Warded scrolls just need a better thief, Bink.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Mostly, though Theodrus keeps warning my students that the arcane leads souls astray, and my students keep setting his robes on fire by accident. I think it's even, but Theodrus doesn't agree." } },
+      lines = { { id = "xapriest_default", text = "Mostly, though Theodrus over on the priests' side keeps warning my students that the arcane leads souls astray, and my students keep setting his robes on fire by accident. I think it's even, but Theodrus doesn't agree." } },
       choices = {
         { text = "Theodrus has a point. Magic without restraint can be dangerous.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Magic is a tool. Theodrus should leave your students alone.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1923,7 +1923,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Only if a mage opens it for you, and I'd want to know where you're going and why, to the yard. A portal isn't a back door, though I've had more than one of your kind ask me to make it one." } },
+      lines = { { id = "xrogue_default", text = "Only if a mage opens it for you, and I'd want to know exactly where you're going and why. A portal isn't a back door, though I've had more than one of your kind ask me to make it one." } },
       choices = {
         { text = "I'll never ask you to make a portal a back door.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Every door is a back door if you use it right.", next = "BACK", fx = { align = { order = -1 } } },

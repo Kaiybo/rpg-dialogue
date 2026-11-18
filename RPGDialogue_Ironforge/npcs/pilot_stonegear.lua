@@ -17,9 +17,9 @@ P:NPC {
   greetings = {
     { id = "g_depot", text = "Mind the treads, {g:lad|lass}! Trollplow doesn't stop fer pedestrians." },
     { id = "g_back", when = { metBefore = true }, text = "Ha! Back fer more, are ye? Good; I like a face that comes back." },
-    { id = "g_den", when = { questActive = TODO_QUEST("The Grizzled Den") }, text = "Been tae the Grizzled Den yet? Those wendigos can be fierce, so don't come back wi' half yer manes an' none o' yer own hair." },
+    { id = "g_den", when = { questActive = TODO_QUEST("The Grizzled Den") }, text = "Been tae the Grizzled Den yet? Those wendigos are fierce, so bring me their manes an' keep yer own hide in one piece." },
     { id = "g_ore", when = { questActive = TODO_QUEST("Search for Incendicite") }, text = "Where's that ore? Trollplow's cannon is waitin', an' so am I." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I've had naught but Fizzer's engine talk tae listen to. Thank the mountain ye're back." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I've had naught but Pilot Bellowfiz's engine talk tae listen to. Thank the mountain ye're back." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Ye've grown some grit since I first sent ye after wendigos. I said I'd see great things from ye, an' I'm startin' tae." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "They tell me ye've been makin' friends round Kharanos. Good, but don't let it soften ye." },
     { id = "g_word_intim", when = { word = "intimidated" }, text = "Word is ye've been leanin' on folk. Try leanin' on Trollplow an' see who gives first." },
@@ -42,11 +42,11 @@ P:NPC {
         { id = "h_den_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Grizzled Den"), days = 3 } },
           text = "Those manes make a fine rug on Trollplow's deck, an' my feet haven't been this warm since the Second War. Ye've grit, I'll say that." },
         { id = "h_search", tags = { "news" }, when = { questActive = TODO_QUEST("Stonegear's Search") },
-          text = "Ye're here about the task, eh? Good tae see blood that burns at the thought o' adventure. I've heard rumours of a rare ore, an' I want it." },
+          text = "Ye're here about my search, eh? Good tae see blood that burns at the thought o' adventure. I've heard rumours of a rare ore called incendicite, an' I want it." },
         { id = "h_ore_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Search for Incendicite"), days = 5 } },
           text = "Incendicite! I've found a lad brave enough tae try smeltin' it, an' let's hope he doesn't blow himself up before he gets it right." },
         { id = "h_gnome", when = { race = "Gnome" },
-          text = "A gnome! Ye'll be wantin' tae tell me how tae improve Trollplow's engine, then. Save it fer Bellowfiz; he's the one who cares about engines." },
+          text = "A gnome! Ye'll be wantin' tae tell me how tae improve Trollplow's engine, then. Save it fer Pilot Bellowfiz; he's the one who cares about engines." },
       },
       again = {
         { id = "h_again", text = "What else? Trollplow's listenin' too." },
@@ -76,7 +76,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     trollplow_armour = {
-      lines = { { id = "ta_default", text = "No! Armour an' cannon both, an' that's where Fizzer an' I part ways. Some fools are strippin' armour off their engines tae make them lighter, an' I call that nonsense." },
+      lines = { { id = "ta_default", text = "No! Armour an' cannon both, an' that's where Bellowfiz an' I part ways. Some fools are strippin' armour off their engines tae make them lighter, an' I call that nonsense." },
       },
       choices = {
         { text = "Speed wins fights, so lighter is smarter.", next = "trollplow_debate" },

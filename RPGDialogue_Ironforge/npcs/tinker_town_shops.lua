@@ -22,7 +22,7 @@ P:NPC {
 
   notice = {
     { id = "n_eng", cat = "craft", when = { profession = { "Engineering" } },
-      text = "Singed eyebrows, if I'm not mistaken. Welcome, fellow engineer; you'll want the coarse powder, not the rough, whatever you used last time." },
+      text = "Singed eyebrows, if I'm not mistaken. Welcome, fellow engineer; you'll want the coarse powder this time, whatever you used last time." },
     { id = "n_apprentice", cat = "origin", when = { origin = "gnome_tinker_apprentice" },
       text = "You're an apprentice, I can tell by the way you're counting the blasting powder in your head. How many explosions so far? Don't tell me, because I'd rather not know which of my parts were involved." },
   },
@@ -502,7 +502,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because half my potions need it and the other half are mixed drinks, which is why I keep them on very separate shelves! Your servant can sit by the door if it likes, but if it touches the green bottles, I won't be held responsible." },
+        { id = "xlock_default", text = "Because half my potions need sulfur, which is why the mixed drinks sit on a very separate shelf! Your servant can wait by the door if it likes, but if it touches the green bottles, I won't be held responsible." },
       },
       choices = {
         { text = "I'll keep it by the door.", next = "BACK", fx = { align = { order = 1 } } },

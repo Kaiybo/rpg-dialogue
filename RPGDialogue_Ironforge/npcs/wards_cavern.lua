@@ -29,7 +29,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They know somethin', an' it isnae me, for they've never once gone quiet for me. The cat in the end stall growls at everybody who comes through that door, an' she put her head down for the last shaman as if he were her own hunter. I'd have charged him boardin' if I'd thought o' it." } },
+      lines = { { id = "xdsham_default", text = "They know somethin' about yer kind that they've never known about me, for they've never once gone quiet for me. The cat in the end stall growls at everybody who comes through that door, an' she put her head down for the last shaman as if he were her own hunter." } },
       choices = {
         { text = "Keep them well, Ulbrek. The beasts deserve your kindness.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "They know who's strongest. Beasts always do.", next = "BACK", fx = { align = { light = -1 } } },
@@ -249,7 +249,7 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Quieter, cheaper, and they don't blow up in your face when the powder's damp, which is more than any rifle in the Wetlands can say. The dwarves won't hear a word of it, of course, but then the dwarves also like loud noises." },
+        { id = "xhuntcl_default", text = "Quieter, cheaper, and they don't blow up in your face when the powder's damp, which is more than any rifle can say in a Wetlands rain. The dwarves won't hear a word of it, of course, but then the dwarves also like loud noises." },
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} won't flinch at every shot, either, which I always think is kinder." },
       },
       choices = {
@@ -411,7 +411,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Aye, if the shaman could keep quiet, which few o' them can, what wi' all the thunder. Mind, a rogue who knew the walls were listenin' would think twice about a job, an' that's the part that bothers me. The earth's a witness who cannae be paid." } },
+      lines = { { id = "xdsham_default", text = "Aye, if the shaman could keep quiet, which few o' them can, what wi' all the thunder. Mind, a rogue who knew the very stones were listenin' would think twice about a job, for the earth's a witness who cannae be paid." } },
       choices = {
         { text = "The earth sees everything. Rogues should remember that.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "For the right job, the earth and I could look away.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },

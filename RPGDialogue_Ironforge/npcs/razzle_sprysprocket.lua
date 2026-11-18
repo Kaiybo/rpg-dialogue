@@ -37,7 +37,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Razzle Sprysprocket, at your service, and that's Ozzie Togglevolt with his head in the gearbox. Between the two of us, we're going to put the gnomish race back together." },
         { id = "h_before", when = { questBefore = TODO_QUEST("Operation Recombobulation") },
-          text = "Upon further analysis, we didn't only fail to get rid of the troggs, we also turned most of our own people into leper gnomes. Ozzie and I mean to reverse it, with the Recombobulator!" },
+          text = "Upon further analysis, the High Tinker's plan didn't only fail to get rid of the troggs, it turned most of our own people into leper gnomes. Ozzie and I mean to reverse it, with the Recombobulator!" },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Operation Recombobulation") },
           text = "Restabilization cogs and gyromechanic gears, eight of each. The leper gnomes outside Gnomeregan carry them about, and I'd rather not think too hard about why." },
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Operation Recombobulation"), days = 3 } },
@@ -90,7 +90,7 @@ P:NPC {
     },
     gnomeregan_blame = {
       big = true,
-      lines = { { id = "gb_default", text = "Everyone asks that, and Ozzie won't hear a word against the High Tinker. I say the plan was sound and the city wasn't, but I've been wrong about bigger things than that." },
+      lines = { { id = "gb_default", text = "Everyone asks that, and Ozzie won't hear a word against the High Tinker. I say the plan was sound and the radiation simply got away from us, but I've been wrong about bigger things than that." },
       },
       choices = {
         { text = "Mekkatorque did what he had to. Stand by him.", next = "BACK", fx = { align = { order = 1 } } },
