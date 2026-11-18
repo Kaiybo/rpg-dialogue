@@ -98,7 +98,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boots, heavy ones, and the marks of carts dragged north toward Bael'dun, though the beasts came afterward to pick at what was left. Follow the cart tracks and you'll find the dwarves' digging, and from there you can judge for yourself who struck first." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can follow a scent where my eyes can't. Let it lead you up the north road, and stay close behind it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boots, heavy ones, and the marks of carts dragged north toward Bael'dun, though the beasts came afterward to pick at what was left. Your {pet} can follow a scent where my eyes can't. Let it lead you up the north road, and stay close behind it." },
       },
       choices = {
         { text = "I'll follow the tracks and judge fairly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -281,7 +281,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A hunter bonds with a beast and a druid becomes one, but both of us must respect the creature's spirit, or the bond turns sour. I've seen hunters treat their companions better than some druids treat their own forms, so I'll not claim my path is the wiser." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a gentle spirit; I can sense it. You've treated it well, and the Earth Mother sees that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A hunter bonds with a beast and a druid becomes one, but both of us must respect the creature's spirit, or the bond turns sour. Your {pet} has a gentle spirit; I can sense it. You've treated it well, and the Earth Mother sees that." },
       },
       choices = {
         { text = "My beast and I share the hunt as equals.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -326,7 +326,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken who carries the Light. The Runetotems learned the old ways from strangers, so I will not turn a stranger away." },
         { id = "h_default", key = true, text = "I am Gennia Runetotem, and I teach the druids of Bloodhoof what the land is willing to share. Our family learned the old ways from the night elves, long ago, and we keep them still." },
-        { id = "h_druid", when = { class = "DRUID" }, text = "Welcome back, little druid. Show me what the wild has taught you since last we spoke." },
+        { id = "h_druid", when = { class = "DRUID" }, text = "Welcome, little druid. Show me what the wild has taught you so far." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman among my druids? You're welcome here, because the Earth Mother speaks to both of us, only in different voices." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. You carry the strength of a bear without its patience, and the druids could teach you the second." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The druids and the hunters both walk with the beasts, though we walk inside them and you walk beside." },
@@ -398,7 +398,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Everything worth anything takes something. The plains feed us, and we thank the beast that gives. I expect your Light takes pain, from what the orcs say. If you thank it, as we thank the beasts, I think you're closer to us than you seem." } },
+      lines = { { id = "xfpala_default", text = "Everything worth having takes something in return, and we thank the beast that feeds us. From what I've heard, your Light takes pain, so if you thank it the way we thank the beasts, I think you're closer to us than you seem." } },
       choices = {
         { text = "I thank it, every time it burns.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I thank nothing. I take what I need.", next = "BACK", fx = { align = { light = -1 } } },
@@ -427,7 +427,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Feed it before you feed yourself, speak to it every day, and never send it into a fight you wouldn't take yourself. The beasts of Mulgore are proud, and they remember every kindness and every slight, so earn their trust each day as though you'd never earned it before." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks at you with trust. Good, {class}; keep it that way, and it'll follow you anywhere." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Feed it before you feed yourself, speak to it every day, and never send it into a fight you wouldn't take yourself. Your {pet} looks at you with trust. Good, {class}; keep it that way, and it'll follow you anywhere." },
       },
       choices = {
         { text = "I'll earn its trust every day, Yaw.", next = "BACK", fx = { align = { honor = 1 } } },

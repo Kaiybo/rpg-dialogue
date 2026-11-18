@@ -19,7 +19,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Oh. You came up. The Archmage doesn't usually let visitors past Sanath." },
+    { id = "g_default", text = "Oh. You came up. The Archmage doesn't usually let visitors past Sanath at the door." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Mind the books, they're older than your kingdom." },
   },
 

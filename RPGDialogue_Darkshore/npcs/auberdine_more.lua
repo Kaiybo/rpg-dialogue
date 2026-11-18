@@ -35,7 +35,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "To heal it, if I can. A sick bear is a patient, not an enemy. Your spirits must understand that." } },
+      lines = { { id = "xdsham_default", text = "To heal it, if I can, because a sick bear is a patient and not an enemy. Your spirits will understand that better than most." } },
       choices = {
         { text = "Then I will help you bring one alive, Tharnariun.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "A sick bear is dangerous. End it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -92,7 +92,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one with a demon's claw marks across it." },
+        { id = "xlock_default", text = "Fel moss grows thick near the Blackwood camps, and the furbolgs there have gone the same way the bears are going. I can't prove it yet, which is why I need a sick bear brought to me alive, and not a dead one torn apart by a demon." },
       },
       choices = {
         { text = "The bears deserve a cure, not a blade.", next = "BACK", fx = { align = { light = 1 } } },
@@ -190,7 +190,7 @@ P:NPC {
     },
     terenthis_t = {
       lines = {
-        { id = "t_default", text = "Terenthis and I share a moonwell and an argument. He burns moss in the hills and I brew cures by the shore, and each of us thinks the other is a little too slow. Gwennyth has her dead sea creatures on the beach, too." },
+        { id = "t_default", text = "Terenthis and I share a moonwell and an argument. He burns moss in the hills and I brew cures by the shore, and each of us thinks the other is a little too slow. Gwennyth, the priestess on the beach, has her dead sea creatures too." },
         { id = "t_heard", when = { heardLine = "terenthis.h_default" },
           text = "You've heard him already, then, and he's told you the furbolgs are sick rather than evil. He's right, and I'd say the same of my bears, though I would say it more quietly." },
       },
@@ -207,7 +207,7 @@ P:NPC {
     },
     caught = {
       lines = {
-        { id = "ca_default", text = "That the sickness lives in the blood and grows worse in the dark of the moon, which I would never have learned from a corpse. She sleeps more quietly with the potion, though she is not cured, and she may never be." },
+        { id = "ca_default", text = "That the sickness lives in the blood and grows worse in the dark of the moon, which I would never have learned from a corpse. The bear sleeps more quietly with the potion, though she is not cured, and she may never be." },
       },
       choices = {
         { text = "Then the potion is a start.", next = "BACK", fx = { affinity = 2 } },
@@ -270,14 +270,14 @@ P:NPC {
     { id = "n_human", cat = "race", when = { race = "Human" },
       text = "Another human! Delgren's company has taught me that your people keep their promises, so I'll assume you keep yours until you prove otherwise." },
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "A paladin, like the Purifier's company. They came across the sea to fight our demons, and I have not forgotten it." },
+      text = "A paladin, like Delgren the Purifier's company. They came across the sea to fight our demons, and I have not forgotten it." },
   },
 
   start = "hello",
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "We never get enough, but we manage. A shaman's help is counted gladly. Your spirits might guard the crates." } },
+      lines = { { id = "xdsham_default", text = "We never get enough, but we manage, and a shaman's help is counted gladly. If your spirits could keep the damp off the crates, I'd count that too." } },
       choices = {
         { text = "Count me among the help, Elissa.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Supplies are someone else's worry.", next = "BACK", fx = { align = { order = -1 } } },
@@ -306,7 +306,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Meat for the stores, hides for the Sentinels' winter gear, and the threshers kept away from the fishing boats. I count everything that comes in, so if you bring it, I'll know exactly whose it was." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its own entry in my head now, I'm afraid. Everything that comes through Auberdine gets counted, and that includes beasts that eat from its stores." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Meat for the stores, hides for the Sentinels' winter gear, and the threshers kept away from the fishing boats. Your {pet} has its own entry in my head now, I'm afraid. Everything that comes through Auberdine gets counted, and that includes beasts that eat from its stores." },
       },
       choices = {
         { text = "I'll supply Auberdine before I sell anywhere else.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -455,7 +455,7 @@ P:NPC {
       },
       choices = {
         { text = "I'll earn the rest of it.", next = "BACK", fx = { affinity = 2 } },
-        { text = "Then I'll leave it. Something else.", next = "BACK" },
+        { text = "Fair enough.", next = "BACK" },
       },
     },
     thin_e = {
@@ -507,7 +507,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They are restless, yes. Something on the coast unsettles them. Your spirits might calm them." } },
+      lines = { { id = "xdsham_default", text = "They are restless, yes, because something on this coast unsettles them. Perhaps your spirits could calm them." } },
       choices = {
         { text = "Then I will help calm them, Caylais.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Restless birds fly faster.", next = "BACK", fx = { align = { order = -1 } } },
@@ -527,7 +527,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They fish, mostly, out over the water at dawn, and they'll take a crab off the beach if nobody stops them. The sea wind has been strange this season, though, and they come back tired, which worries me more than any beast on land." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} should stay on the ground while my birds are landing. A hippogryph coming down hard doesn't look where it puts its talons." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They fish, mostly, out over the water at dawn, and they'll take a crab off the beach if nobody stops them. Your {pet} should stay on the ground while my birds are landing. A hippogryph coming down hard doesn't look where it puts its talons." },
       },
       choices = {
         { text = "I'll keep my companion clear of the roost.", next = "BACK", fx = { align = { order = 1 } } },
@@ -641,11 +641,11 @@ P:NPC {
     },
     first = {
       lines = {
-        { id = "fi_default", text = "Sit tall, hold the harness and not the feathers, and don't look down until you're over the water. If you're going to be sick, lean left, because she hates it on her right wing." },
+        { id = "fi_default", text = "Sit tall, hold the harness and not the feathers, and don't look down until you're over the water. If you're going to be sick, lean left, because the bird hates it on her right wing." },
       },
       choices = {
         { text = "Left. I'll remember.", next = "BACK", fx = { affinity = 2, trait = { witty = 1 } } },
-        { text = "I'll manage. Something else.", next = "BACK" },
+        { text = "I'll manage.", next = "BACK" },
       },
     },
     druid_c = {

@@ -16,8 +16,8 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "Ishnu-alah. Have you come up the road from Jaedenar? Forgive me, I ask everyone that." },
-    { id = "g_della", text = "Della, sit. She growls at strangers, but she doesn't mean a word of it." },
-    { id = "g_wait", when = { questBefore = TODO_QUEST("Rescue From Jaedenar") }, text = "Still no word from them, and they're days late now. I keep telling myself the road is simply slow." },
+    { id = "g_della", text = "Della, sit. Don't mind my wolf; she growls at strangers, but she doesn't mean a word of it." },
+    { id = "g_wait", when = { questBefore = TODO_QUEST("Rescue From Jaedenar") }, text = "Still no word from Arko'narin and Trey, and they're days late now. I keep telling myself the road is simply slow." },
     { id = "g_arko", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "Arko's on her way to Darnassus because of you. I can breathe again, a little." },
     { id = "g_trey", when = { questDone = TODO_QUEST("The Remains of Trey Lightforge") }, text = "Trey's resting now, thanks to you. I light a candle for him every night, and Della sits with me while I do." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I caught myself watching the road for you as well. Old habits, I suppose." },
@@ -30,7 +30,7 @@ P:NPC {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
       text = "Della likes {pet}, which is rare; she usually just stares at other beasts until they leave. Keep it close in Felwood, because the wolves here aren't wolves any more." },
     { id = "n_paladin", cat = "paladin", when = { class = "PALADIN" },
-      text = "You carry yourself the way Trey does, with that same Light about you. It's a comfort to see it, and it hurts a little too." },
+      text = "You carry yourself the way my friend Trey does, with that same Light about you. It's a comfort to see it, and it hurts a little too." },
   },
 
   start = "hello",
@@ -38,7 +38,7 @@ P:NPC {
     op_ask = {
       big = true,
       lines = {
-        { id = "op_ask_default", text = "Arko'narin went into Shadow Hold because the Sentinels sent her, and nobody came after her but me. You've met the High Priestess's people. Do you think Darnassus cares what happens to its soldiers this far out?" },
+        { id = "op_ask_default", text = "Arko'narin went into Shadow Hold to bring Darnassus proof, and nobody has come after her but me. Tell me honestly: do you think Darnassus cares what happens to its soldiers this far out?" },
       },
       choices = {
         { text = "Tyrande cares. She's just stretched too thin.", next = "op_r1", fx = { align = { honor = 1 }, opinion = { tyrande = "trust" } } },
@@ -125,7 +125,7 @@ P:NPC {
     },
     council = {
       lines = {
-        { id = "c_default", text = "Warlocks, mostly, who sold their souls to the demons long before the orcs ever came to this world. They're the ones who claim the credit for most of what the orcs suffered, and now they seem to want some of that power back." },
+        { id = "c_default", text = "Warlocks, mostly, who sold their souls to the demons long before the orcs ever came to this world. They're the ones who led the orcs to the demons in the first place, and now they seem to want some of that power back." },
       },
       choices = {
         { text = "Why would they come to Felwood?", next = "council_why", fx = { learn = { "burning_legion" } } },
@@ -247,13 +247,13 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm from Darnassus, and I came north to meet two friends who were braver than I am. That's all of it, really." } },
     advice = { { id = "tp_ad", text = "Don't drink from the streams up here, and don't go into Jaedenar alone. My friends went in together, and look how that turned out." } },
-    silver_hand = { { id = "tp_sh", text = "Trey's order. He wore their tabard as if it were the finest thing he owned, and to him I think it was." } },
+    silver_hand = { { id = "tp_sh", text = "The Silver Hand was Trey's order. He wore their tabard as if it were the finest thing he owned, and to him I think it was." } },
     burning_legion = { { id = "tp_bl", text = "Gone from this forest, they say, except that everything here still remembers them, and so do the warlocks who serve them." } },
     cenarion_circle = { { id = "tp_cc", text = "The Emerald Circle's druids have been kind to me while I wait, though they've far more to worry about than my friends." } },
-    holy_light = { { id = "tp_holy_light", text = "Trey prays to the Light, and he believes it goes with him everywhere. I'm a moon girl, myself, but I hope he's right tonight." } },
+    holy_light = { { id = "tp_holy_light", text = "Trey prays to the Light, and he believes it goes with him everywhere. I pray to Elune myself, but I hope he's right tonight." } },
     elune = { { id = "tp_elune", text = "I pray to Elune for Arko'narin every night, and for Trey, and a little for myself. She hasn't said no yet." } },
     satyrs = { { id = "tp_satyrs", text = "Shadow Hold is full of satyrs, and they took my friends. I'm not brave, but I'm not leaving them there." } },
     scourge = { { id = "tp_scourge", text = "Trey fought the dead in the human lands before he came here, and he doesn't talk about it. He only goes very quiet." } },
-    _none = { { id = "tp_none", text = "I'm sorry, I can't think about much besides Jaedenar just now, Elune forgive me. Ask Greta; she knows this forest far better than I do." } },
+    _none = { { id = "tp_none", text = "I'm sorry, I can't think about much besides Jaedenar just now, Elune forgive me. Ask Greta Mosshoof at the sanctuary; she knows this forest far better than I do." } },
   },
 }

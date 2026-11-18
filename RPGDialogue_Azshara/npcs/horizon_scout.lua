@@ -28,7 +28,7 @@ P:NPC {
     { id = "n_swim", cat = "swimmer", when = { form = "aquatic" },
       text = "A seal! No, a druid, Light bless you. If you can breathe down there, you're the most useful soul who's walked onto this beach in a month." },
     { id = "n_heal", cat = "healer", when = { class = { "PRIEST", "PALADIN", "SHAMAN" } },
-      text = "A healer. If you're heading to the captain's camp, Alexandra will thank you with tears in her eyes; she's been mending sailors alone since the night we sank." },
+      text = "A healer. If you're heading to the captain's camp, Alexandra Blazen, our priestess, will thank you with tears in her eyes; she's been mending sailors alone since the night we sank." },
   },
 
   start = "hello",
@@ -96,7 +96,7 @@ P:NPC {
     },
     swim_end = {
       lines = { { id = "se_default", text = "If you can get close to the wreck and back without the naga noticing, then tell Roland we haven't forgotten him. It's not much, but I think it would help him hold on." } },
-      choices = { { text = "I'll try. Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+      choices = { { text = "I'll try.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
 
     why = {

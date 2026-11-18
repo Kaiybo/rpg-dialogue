@@ -15,10 +15,10 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Can you feel the tension in the air, {class}? The stone itself is holding its breath." },
-    { id = "g_ravine", when = { questActive = TODO_QUEST("Boulderslide Ravine") }, text = "Resonite, and the depth of that cave. Whatever the kobolds are digging toward, I must know it." },
+    { id = "g_ravine", when = { questActive = TODO_QUEST("Boulderslide Ravine") }, text = "Bring me Resonite, and tell me how deep that cave goes; whatever the kobolds are digging toward, I must know it." },
     { id = "g_earthen", when = { questActive = TODO_QUEST("Earthen Arise") }, text = "Goggeroc will wake weak from his long sleep. That moment is the only one you'll get, so strike then." },
     { id = "g_done", when = { questDone = TODO_QUEST("Earthen Arise") }, text = "The mountain sleeps easier since Goggeroc fell, and so do I. All of Stonetalon owes you, whether it knows it or not." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, and back at Sun Rock. The Earth Mother keeps her children's paths winding, but they come home." },
+    { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and now you're back at Sun Rock. The Earth Mother keeps her children's paths winding, but they come home." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown much since you went into that ravine for me. The earth knows your step now, I think." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "The braves of Sun Rock speak well of you. That is no small thing, among folk who say so little." },
   },

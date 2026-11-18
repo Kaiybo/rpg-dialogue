@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Ah, one of the little warlocks who learned our art without our leave. Come closer, warlock; you smell of Xoroth already, or you wish you did." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Lord Banehollow") }, text = "Gorzeeki's errand-runner, I presume. That goblin sends me the most polite murderers in Azeroth." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and still wearing our shadow. Either you are very brave or you have learned nothing, and both amuse me." },
-    { id = "g_arko", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "You are the one who emptied a cage in my hold. Rakaiah was furious, and I confess I laughed. Sit down." },
+    { id = "g_arko", when = { questDone = TODO_QUEST("Rescue From Jaedenar") }, text = "You are the one who emptied a cage in my hold. Rakaiah, my succubus, was furious, and I confess I laughed. Sit down." },
   },
 
   notice = {

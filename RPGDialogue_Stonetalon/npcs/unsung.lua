@@ -71,7 +71,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Only the harpies, and only because they come in numbers, which no hippogryph will face alone. I'd welcome a hunter who could keep the cliffs clear while my birds rest." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is watching my birds, {class}, and they're watching it right back. I think they'll get along, if neither of them blinks." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only the harpies, and only because they come in numbers, which no hippogryph will face alone. Your {pet} is watching my birds, {class}, and they're watching it right back. I think they'll get along, if neither of them blinks." },
       },
       choices = {
         { text = "I'll keep the cliffs clear while your birds rest.", next = "BACK", fx = { align = { honor = 1 } } },

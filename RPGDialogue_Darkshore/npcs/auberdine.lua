@@ -56,7 +56,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r2 = {
-      lines = { { id = "op_r2_default", text = "Some did. Remtravel came for the ruins and would tell you so cheerfully, but Delgren came for the furbolgs, and I've seen him bleed for them." } },
+      lines = { { id = "op_r2_default", text = "Some did. Remtravel the dwarf came for the ruins and would tell you so cheerfully, but Delgren the paladin came for the furbolgs, and I've seen him bleed for them." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r3 = {
@@ -64,7 +64,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     op_r4 = {
-      lines = { { id = "op_r4_default", text = "Delgren says much the same, though he says it while doing the work, which I respect more than the saying." } },
+      lines = { { id = "op_r4_default", text = "Delgren the Purifier, our paladin, says much the same, though he says it while doing the work, which I respect more than the saying." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     xdsham = {
@@ -140,7 +140,7 @@ P:NPC {
       lines = {
         { id = "mth2_default", text = "I trust that you mean well, which is not the same thing. My people trusted Highborne who meant well, and we sleep in villages like this one now because the old cities are at the bottom of the sea." },
       },
-      choices = { { text = "That's fair. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "That's fair.", next = "BACK", fx = { affinity = 1 } } },
     },
     hunter_th = {
       lines = {
@@ -209,7 +209,7 @@ P:NPC {
         { text = "I'm a paladin, and I'd like to help.", next = "paladin", when = { class = "PALADIN" } },
         { text = "Can a priest help against this corruption?", next = "priest_t", when = { class = "PRIEST" } },
         { text = "I came over on the Bravery from Menethil.", next = "boat", when = { race = { "Human", "Dwarf", "Gnome" } } },
-        { text = "Auberdine needs blades on its walls. I have one.", next = "warrior_th", when = { class = "WARRIOR" } },
+        { text = "Auberdine needs more blades. I have one.", next = "warrior_th", when = { class = "WARRIOR" } },
         { text = "I could read the magic in those Highborne ruins.", next = "mage_th", when = { class = "MAGE" } },
         { text = "The beasts here are sick. I've seen it in their eyes.", next = "hunter_th", when = { class = "HUNTER" } },
         { text = "An elder must hear a great many things. So do I.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -276,7 +276,7 @@ P:NPC {
       choices = { { text = "I'll keep that in mind.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
     },
     glaive = {
-      lines = { { id = "gl_default", text = "South, past the Grove of the Ancients, a great glaive stands in the bones of something very old. Onu says an old lord of the earth fell there, and now Twilight's Hammer cultists dig around it." } },
+      lines = { { id = "gl_default", text = "South, past the Grove of the Ancients, a great glaive stands in the bones of something very old. Onu, the Ancient at the grove, says it fell there in the war against the Legion, and now Twilight's Hammer cultists dig around it." } },
       choices = {
         { text = "What are they digging for?", next = "glaive2" },
         { text = "Something else.", next = "BACK" },
@@ -354,7 +354,7 @@ P:NPC {
     nordrassil = { { id = "tp_nordrassil", text = "Nordrassil still stands on Hyjal, wounded, and I think of it when I look at this poor shore. Some wounds go on hurting long after the war is done." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The Circle's druids walk the Dream for answers, and lately they come back with fewer than they went in with. That worries me more than any naga." } },
     theramore = { { id = "tp_theramore", text = "The Theramore ships call at our docks more often these days, and the humans are courteous guests. I'm glad of allies who come by sea and not with axes." } },
-    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children watch over the Dream, and something has unsettled them lately, if the druids are to be believed. I am an old man, and I would prefer the dragons settled." } },
+    green_dragons = { { id = "tp_green_dragons", text = "Ysera's children watch over the Dream, and something has unsettled them lately, if the druids are to be believed. I am an old elf, and I would prefer the dragons settled." } },
     _none = { { id = "tp_none", text = "I don't know, but I will find someone who does. Auberdine is small, but its memory is long." } },
   },
 }
@@ -405,7 +405,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Green on their muzzles and a stagger in their walk, which means the Fel Moss has reached their blood. Follow their trail back to where they eat and you'll find the moss growing thickest there, and that is where I need you to look." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} from eating anything near the Blackwood camps, I beg you. If the moss can do that to a furbolg, I don't want to know what it would do to a beast." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Green on their muzzles and a stagger in their walk, which means the Fel Moss has reached their blood. Keep your {pet} from eating anything near the Blackwood camps, I beg you. If the moss can do that to a furbolg, I don't want to know what it would do to a beast." },
       },
       choices = {
         { text = "I'll track it back to its source.", next = "BACK", fx = { align = { order = 1 } } },
@@ -465,7 +465,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true,
-          text = "I am Terenthis, and I came to Darkshore to learn how far the Fel Moss has spread. It is farther than I feared, and I have seen the fel at work before, so I mean to find out why and put an end to it. Now even Volcor, who walks these hills with a great bear, has fallen foul of the furbolgs." },
+          text = "I am Terenthis, and I came to Darkshore to learn how far the Fel Moss has spread. It is farther than I feared, and now even Volcor, who walks these hills with a great bear, has fallen foul of the furbolgs it maddens." },
         { id = "h_threat", tags = { "news" }, when = { questActive = TODO_QUEST("How Big a Threat?") },
           text = "Find one of the furbolg camps and tell me what you see there. Some of my brethren had to be rescued from a corrupted furbolg on Teldrassil, and I will not wait for more of our kind to be hurt." },
         { id = "h_grimclaw", tags = { "news" }, when = { questActive = TODO_QUEST("A Lost Master") },
@@ -590,7 +590,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I do not know, and it frightens me. Elune has not answered my prayers on it. Perhaps your water spirits know what Elune keeps silent." } },
+      lines = { { id = "xdsham_default", text = "I do not know, and it frightens me, because Elune has not answered my prayers on it. Perhaps your water spirits know what she keeps silent." } },
       choices = {
         { text = "Keep praying, Gwennyth. Elune and the spirits may both answer.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Elune is silent. Trust the spirits instead.", next = "BACK", fx = { align = { light = -1 } } },
@@ -599,7 +599,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "I pray not, because whatever killed something that size would make short work of Auberdine's walls. The bodies lie along the beach to the north, so if you go to look, take your shield and keep one eye on the water." } },
+      lines = { { id = "xwarcl_default", text = "I pray not, because whatever killed something that size would make short work of Auberdine. The bodies lie along the beach to the north, so if you go to look, take your shield and keep one eye on the water." } },
       choices = {
         { text = "If it comes ashore, I'll stand between it and Auberdine.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Whatever it is, it isn't my fight.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -610,7 +610,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "That's my hope, because I can tell you they died but not how. Look for wounds a beast would make, or the lack of them, because if nothing bit them, then something worse than teeth is at work in the sea." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing toward the shore, and I don't think it likes what it smells. Animals know when the sea is wrong." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's my hope, because I can tell you they died but not how. Your {pet} keeps sniffing toward the shore, and I don't think it likes what it smells. Animals know when the sea is wrong." },
       },
       choices = {
         { text = "I'll study the bodies and tell you what I find.", next = "BACK", fx = { align = { order = 1 } } },
@@ -755,7 +755,7 @@ P:NPC {
       { id = "tp_knows", text = "The Sisterhood teaches us to listen before we speak, and I have listened to a great deal on this shore. Ask what you need to." },
     },
     background = { { id = "tp_bg", text = "The Temple of the Moon sent me to see to Auberdine's troubles. I expected sick villagers, not dead threshers." } },
-    advice = { { id = "tp_ad", text = "Stay out of the water near the carcasses, because whatever the murlocs leave behind, something larger may come for." } },
+    advice = { { id = "tp_ad", text = "Stay out of the water near the carcasses, because something larger than murlocs may come for what's left." } },
     sisterhood_of_elune = { { id = "tp_sister", text = "We go where we are needed, and the Temple decided I was needed here, among the bones." } },
     elune = { { id = "tp_elune", text = "Elune sends her priestesses where the hurt is, and she sent me to Auberdine. I'm still not sure if it was an honour or a joke." } },
     blackfathom = { { id = "tp_blackfathom", text = "Blackfathom was Elune's temple once, and the Twilight's Hammer pray in it now. I'm told the moonlight doesn't reach the inner halls anymore, and I believe it." } },
@@ -949,7 +949,7 @@ P:NPC {
         { id = "h_fragments", tags = { "news" }, when = { questActive = TODO_QUEST("The Fragments Within") },
           text = "Bone, inside the crystal, and half a jaw that may have belonged to someone who walked on two legs? That answers one question and raises a dozen more, so I'll take it to the council." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Good, because the Sentinels I send up the coast come back with wounds that do not close cleanly, and I have too few hands to mend them." },
-        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kind at Maestra's Post fight hard, I am told, so I will not waste your strength on small things." },
+        { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your kind at Maestra's Post in Ashenvale fight hard, I am told, so I will not waste your strength on small things." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and kaldorei by the look of you. The groves along this shore are sickening faster than the Circle can tend them, so I am glad to see another of you on the beach." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I watch the beach for murlocs and the groves for corruption, and I'll be watching you as well until I know which of the two you are." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Greymist", min = 30 } },
@@ -995,7 +995,7 @@ P:NPC {
     moonkin = {
       big = true,
       lines = {
-        { id = "m_default", text = "They were thought to be gentle, almost mystical creatures, and some still revere them. Then that crystal drew them in, and now they turn on anyone who comes near; it isn't their fault, but that doesn't blunt their claws." },
+        { id = "m_default", text = "They were thought to be gentle, almost mystical creatures, and some still revere them. Then a strange red crystal in the eastern hills drew them in, and now they turn on anyone who comes near; it isn't their fault, but that doesn't blunt their claws." },
       },
       choices = {
         { text = "I'll be careful.", next = "BACK", fx = { affinity = 1 } },
@@ -1067,7 +1067,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "She was my beloved, lost while I slept for thousands of years. I dreamed of her the whole time. Your spirits may know whether she rests." } },
+      lines = { { id = "xdsham_default", text = "She was my beloved, lost when Ameth'Aran fell, and I dreamed of her through thousands of years of sleep. Your spirits may know whether she rests." } },
       choices = {
         { text = "Then I hope you find peace, Cerellean.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The past is gone. Let her go.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1078,7 +1078,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "She loved to walk the woods of Ameth'Aran at night and watch the moonstalkers on the cliffs, and she said that watching was the first duty of anyone who loved the wild. I think of her every time I see one, and I envy the hunters who still walk there." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has the same quiet eyes as the beasts she loved. Be good to it, for we do not keep what we love as long as we think." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "She loved to walk the woods of Ameth'Aran at night and watch the moonstalkers on the cliffs, and she said that watching was the first duty of anyone who loved the wild. Your {pet} has the same quiet eyes as the beasts she loved. Be good to it, for we do not keep what we love as long as we think." },
       },
       choices = {
         { text = "I'll honor her memory when I walk those woods.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1113,12 +1113,12 @@ P:NPC {
       choices = {
         { text = "Fighting was still right, even if it failed.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Then maybe you should have fled with her.", next = "BACK", fx = { align = { honor = -1 }, affinity = -1 } },
-        { text = "I'm sorry. Something else.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "I'm sorry.", next = "BACK", fx = { trait = { kind = 1 } } },
       },
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "She troubles me less than the not knowing does, for I never learned if she found peace after I left Ameth'Aran. If your prayers reach the dead at all, I would ask you to say one for her, by name." } },
+      lines = { { id = "xapriest_default", text = "Her spirit troubles me less than the not knowing, for I cannot tell whether any part of her is at peace. If your prayers reach the dead at all, I would ask you to say one for her, by name." } },
       choices = {
         { text = "I'll pray for Anaya by name. She deserves peace.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The dead should be let go, Cerellean, not prayed over.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1208,7 +1208,7 @@ P:NPC {
       },
     },
     ameth = {
-      lines = { { id = "am_default", text = "It was a city of the Highborne's age, beautiful in the way of those days. Now it is ruins and ghosts, and Thundris sends young people there to carry off what is left of the old magic." } },
+      lines = { { id = "am_default", text = "It was a city of the Highborne's age, beautiful in the way of those days. Now it is ruins and ghosts, and Thundris, our elder, sends young people there to carry off what is left of the old magic." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     sleep_d = {
@@ -1258,7 +1258,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They do, if you listen. Your water spirits must hear them better than I do. Rest, and listen." } },
+      lines = { { id = "xdsham_default", text = "They do, if you listen, and I'd wager your water spirits hear them better than I do. Rest here tonight and listen for yourself." } },
       choices = {
         { text = "I will listen gladly, Shaussiy. Thank you.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Waves are noise. I prefer silence.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1277,8 +1277,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "There's always room, though I keep the cats away from the docks, because the fishermen have opinions about their catch. The waves will sing you both to sleep after a night or two, I promise." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can sleep by the fire, where it's warmer and it won't hear the storms in the floorboards. Animals always know a storm's coming before I do." },
+        { id = "xhuntcl_default", text = "There's always room, though I keep animals away from the docks, because the fishermen have opinions about their catch. The waves will sing you both to sleep after a night or two, I promise." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "There's always room, though I keep animals away from the docks, because the fishermen have opinions about their catch. Your {pet} can sleep by the fire, where it's warm and out of the draughts. Animals always know a storm's coming before I do." },
       },
       choices = {
         { text = "We'll keep clear of the docks, I promise.", next = "BACK", fx = { align = { order = 1 } } },

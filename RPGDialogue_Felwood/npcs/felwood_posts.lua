@@ -18,7 +18,7 @@ P:NPC {
     { id = "g_default", text = "Ishnu-alah. The hippogryphs are rested, and they would be glad to leave this poisoned forest behind them, as would I." },
     { id = "g_horde", when = { faction = "Horde" }, text = "My hippogryphs fly for the Alliance, stranger, not for you. Your people keep their wind riders at Bloodvenom Post, away to the southwest." },
     { id = "g_away", when = { away = 14 }, text = "Ishnu-alah. You've been away {away}, and I've counted more fires over the forest since you left, though I'm glad to see you safe." },
-    { id = "g_word_angered", when = { word = "angered" }, text = "I've heard that someone in the glade left your company troubled and angry, and Talonbranch is too small and too beset for that. I hope you'll make it right." },
+    { id = "g_word_angered", when = { word = "angered" }, text = "I've heard you left someone in the glade angry, and Talonbranch is too small and too beset for quarrels. I hope you'll make it right." },
     { id = "g_word_helped", when = { word = "helped" }, text = "The glade speaks kindly of you, and that's a rare thing to hear in Felwood, so thank you for whatever you did." },
   },
 
@@ -60,7 +60,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "It has made them hungry in ways a beast should never be hungry, so that the bears and the wolves eat things that only make them sicker. My hippogryphs will not land anywhere but Talonbranch, and I don't blame them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let {pet} drink from the moonwell before you go, please. It's the only clean water for miles, and I'd hate for it to drink anything else." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "It has made them hungry in ways a beast should never be hungry, so that the bears and the wolves eat things that only make them sicker. Let {pet} drink from the moonwell before you go, please. It's the only clean water for miles, and I'd hate for it to drink anything else." },
       },
       choices = {
         { text = "I'll keep my beast clean of this forest, whatever it costs.", next = "BACK", fx = { align = { light = 1 } } },
@@ -97,7 +97,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "The Sentinels would say a sword, and Golhine by the moonwell would say neither, only patience. I think the forest needs both, and someone who knows which to reach for when the Deadwood come down the road at night." } },
+      lines = { { id = "xapala_default", text = "The Sentinels would say a sword, and Golhine, the druid by our moonwell, would say neither, only patience. I think the forest needs both, and someone who knows which to reach for when the Deadwood come down the road at night." } },
       choices = {
         { text = "Then I'll hold the road and let the druids do the healing.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The druids are too slow. Burn the corruption out and be done.", next = "BACK", fx = { align = { order = -1 } } },
@@ -241,7 +241,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than they trust me, some days, because a beast knows when another beast is well fed and well treated. They won't go near anything that's grazed in Felwood, though, and they'll scream at a corrupted bear from a mile up." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let {pet} stay by the perch while you're here, if you like. My riders will sniff it, and then they'll decide whether to like you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than they trust me, some days, because a beast knows when another beast is well fed and well treated. Let {pet} stay by the perch while you're here, if you like. My riders will sniff it, and then they'll decide whether to like you." },
       },
       choices = {
         { text = "I treat my beast as kin. It's the only right way.", next = "BACK", fx = { align = { light = 1 } } },
@@ -419,7 +419,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Nothing I would eat, nor feed to anyone I cared for. The deer and the bears drink the same streams as everything else, and their flesh tastes of it, so the hunters at this post bring their meat up from Ashenvale or go hungry." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} must eat too, I know. Feed it from clean stores, not from the forest, and it will thank you by living." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Nothing I would eat, nor feed to anyone I cared for. Your {pet} must eat too, I know. Feed it from clean stores, not from the forest, and it will thank you by living." },
       },
       choices = {
         { text = "I'll hunt here only to end their suffering, never for meat.", next = "BACK", fx = { align = { light = 1 } } },
@@ -465,7 +465,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Nothing I'd trust, though the Emerald Circle tells me some corners are coming back. I've seen orcs eat the fruit from the Irontree and wake up shouting, and I'll not have that on my conscience, so everything I sell comes in on the wind riders, and it costs what it costs." } },
+      lines = { { id = "xdruid_default", text = "Nothing I'd trust, though the Emerald Circle tells me some corners are coming back. I've seen orcs eat the fruit from the Irontree and wake up shouting, and I'll not have that on my conscience, so everything I sell is carried in from cleaner land, and it costs what it costs." } },
       choices = {
         { text = "You're right. Nothing from this forest should reach the Horde.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The Circle's mending it. Trust what they've cleansed.", next = "BACK", fx = { affinity = 1, align = { order = -1 } } },

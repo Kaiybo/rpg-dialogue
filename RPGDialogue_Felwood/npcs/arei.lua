@@ -106,13 +106,13 @@ P:NPC {
         { id = "k_default", text = "A druid named Kayneth Stillwind, at Forest Song. He will understand what you have done, and he will see that it is remembered." },
       },
       choices = {
-        { text = "I'll find her.", next = "BACK", fx = { affinity = 1 } },
+        { text = "I'll find him.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
     },
     flute = {
       lines = {
-        { id = "fl_default", text = "The flute was tied to us by the satyrs, and Eridan Bluewind cut that tie with the water of Elune. Now it only calls, and does not bind, and that is why I could come to you as myself." },
+        { id = "fl_default", text = "The satyrs used that flute to bind my kin, and the druid Eridan Bluewind broke the binding with the water of Elune. Now it only calls and does not bind, which is why I could come to you as myself." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -143,7 +143,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I was an ancient of this forest, a guardian among many. Now I am a memory with roots." } },
     advice = { { id = "tp_ad", text = "Every kind deed here is a seed, little one. Plant as many as you can before you leave." } },
-    burning_legion = { { id = "tp_bl", text = "They passed through here once, and the forest will remember it longer than any of you will live." } },
+    burning_legion = { { id = "tp_bl", text = "The Legion passed through here once, and the forest will remember it longer than any of you will live." } },
     cenarion_circle = { { id = "tp_cc", text = "The druids try, and I love them for it. They are young, even the old ones." } },
     nordrassil = { { id = "tp_nordrassil", text = "Nordrassil is the mother of every tree that stood in this forest, and I felt it groan when the demons came. I would give my last root to feel it whole again." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "I dreamed green once, as all the ancients do, before the fel came into my roots. Now I dream of fire, and I do not sleep if I can help it." } },

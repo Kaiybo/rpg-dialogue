@@ -65,7 +65,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Sometimes, if the sickness hasn't gone deep, and I've seen a wolf from the south recover after a week of drinking here. But the water has little to spare, and if every hunter brought every sick beast in Felwood to it, it would be gone by summer." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Let {pet} drink first, before you, so it knows the taste of clean water. It may need to remember it out there." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Sometimes, if the sickness hasn't gone deep, and I've seen a wolf from the south recover after a week of drinking here. Let {pet} drink first, before you, so it knows the taste of clean water. It may need to remember it out there." },
       },
       choices = {
         { text = "Then I'll bring only the ones worth saving, and quietly.", next = "BACK", fx = { align = { order = 1 } } },
@@ -86,7 +86,7 @@ P:NPC {
       big = true,
       lines = { { id = "xlock_default", text = "Because everything outside this glade was green once, and fel made it otherwise. I teach druids to heal the land, and you were taught to burn it, so we start a long way apart, and I would rather not pretend we don't." } },
       choices = {
-        { text = "Then I'll prove you wrong by keeping my distance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Then I'll prove myself by keeping my distance.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Burning is the only thing demons understand.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Then I'll be on my way.", next = "BACK" },
       },
@@ -139,7 +139,7 @@ P:NPC {
         { text = "Talonbranch Glade seems to have held out well.", next = "glade" },
         { text = "What does a druid learn here that she can't at home?", next = "lesson", when = { class = "DRUID" } },
         { text = "I mean the moonwell no harm. Why so wary?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
-        { text = "Could the arcane help cleanse the moonwell's water?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
+        { text = "Could the arcane help keep the moonwell clean?", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Is the moonwell's water holy, the way a blessing is?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a warrior learn in a forest like this, Golhine?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "The moonwell's water might heal a sick beast.", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -170,7 +170,7 @@ P:NPC {
     why_young = {
       big = true,
       lines = {
-        { id = "wy_default", text = "They learn to hear the forest without weeping at it, which takes most of a year. I'm never sure whether I've taught them strength or only taught them to stop feeling, and I don't have an answer for that under the hood either." },
+        { id = "wy_default", text = "They learn to hear the forest without weeping at it, which takes most of a year. I'm never sure whether I've taught them strength or only taught them to stop feeling." },
       },
       choices = {
         { text = "A healer has to bear the pain. That is strength.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },

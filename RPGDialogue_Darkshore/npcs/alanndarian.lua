@@ -79,7 +79,7 @@ P:NPC {
     },
     deer_bears = {
       lines = {
-        { id = "db_default", text = "Tharnariun thinks his bears and my deer share a sickness, and I think he's half right. The water's poisoned, but there's something else at work too, something that wants Darkshore sick." },
+        { id = "db_default", text = "Tharnariun, who tends the bears, thinks his bears and my deer share a sickness, and I think he's half right. The water's poisoned, but there's something else at work too, something that wants Darkshore sick." },
       },
       choices = {
         { text = "Something that wants it? Who?", next = "deer_who" },
@@ -131,7 +131,7 @@ P:NPC {
         { id = "ct_default", text = "I trust anyone who answers a letter about sick deer. That's a short list in this world, so I'm keeping them on it." },
       },
       choices = {
-        { text = "Your secret's safe. Something else.", next = "BACK" },
+        { text = "That's a fair rule.", next = "BACK" },
         { text = "Goodbye, Alanndarian.", next = "END" },
       },
     },

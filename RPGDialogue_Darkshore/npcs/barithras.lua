@@ -40,7 +40,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Cave Mushrooms"), days = 3 } },
           text = "You have my mushrooms, and you have seen the cave. Tell me nothing yet, because if the Ancients feared it, it is Onu who should hear it first." },
         { id = "h_onu", tags = { "news" }, when = { questActive = TODO_QUEST("Onu") },
-          text = "Onu, an Ancient of Lore, knows you went to the falls and wishes to speak with you. The Ancients are patient beyond our understanding, so if he is in a hurry, I fear it is urgent." },
+          text = "Onu, an Ancient of Lore, knows you went to the falls and wishes to speak with you. The Ancients are patient beyond our understanding, so if he asks for you quickly, it must be urgent." },
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid. Then you may hear what the Ancients hear better than I can, and perhaps you will tell me whether I was a coward to stay away from that cave." },
       },
@@ -144,7 +144,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A maker of potions, and a careful one. Careful people live long in Darkshore; I would like to be one of them." } },
     advice = { { id = "tp_ad", text = "When the Ancients warn you away from a place, believe them. Then, if you must go, go carefully." } },
-    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is the reason I'm careful. I've seen what it does to those who brewed it carelessly, and I'd rather be dull and alive." } },
+    fel_moss = { { id = "tp_fel_moss", text = "Fel moss is the reason I'm careful. I've seen what it does to anyone who handles it carelessly, and I'd rather be dull and alive." } },
     blackfathom = { { id = "tp_blackfathom", text = "The water near Blackfathom is fouled with something I can't name, and I don't want to name it. I keep my vials far from that coast." } },
     highborne = { { id = "tp_highborne", text = "Highborne alchemy was brilliant and reckless, and the ruins prove both. I've found their vials, and I've put them back where I found them." } },
     _none = { { id = "tp_none", text = "I could not say. Ask at the Grove of the Ancients, if you have the patience for the answer." } },

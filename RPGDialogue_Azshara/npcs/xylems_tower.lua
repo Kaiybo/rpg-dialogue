@@ -89,7 +89,7 @@ P:NPC {
       },
     },
     xcl_st2 = {
-      lines = { { id = "xcl_st2_default", text = "To fetch something for me, naturally, and to prove he didn't need my help fetching it. He was a promising boy with poor instincts, and if I sound cold about it, you may put that down to the tower being very high and the company very thin." } },
+      lines = { { id = "xcl_st2_default", text = "He was with me when Morphaz caught us in the open, and he tried to prove he didn't need my help. He was a promising boy with poor instincts, and if I sound cold about it, you may put that down to the tower being very high and the company very thin." } },
       choices = {
         { text = "I'll put it down to grief, Archmage.", next = "BACK" },
       },
@@ -116,7 +116,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Drakes, sirens and whatever eats my books, mostly, and the blue dragonflight takes a dim view of my interest in drakes. A hunter could track down the beasts of this coast that swallowed my stolen fragments, and I'd be grateful, in an academic sort of way." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Do keep {pet} from chewing anything in the tower. The last beast that came up here ate a page of Highborne poetry, and I'm told it hasn't been right since." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Drakes, sirens and whatever eats my books, mostly, and the blue dragonflight takes a dim view of my interest in drakes. Do keep {pet} from chewing anything in the tower. The last beast that came up here ate a page of Highborne poetry, and I'm told it hasn't been right since." },
       },
       choices = {
         { text = "I'll track the beasts carefully and bring every fragment intact.", next = "BACK", fx = { align = { order = 1 } } },
@@ -195,7 +195,7 @@ P:NPC {
         { id = "h_frag", when = { questActive = TODO_QUEST("Fragmented Magic") },
           text = "Polymorph the Spitelash with the shell close by and strike down the little copies before they fade. It sounds absurd, I know, and that's how you can tell it's real research." },
         { id = "h_bag", when = { questActive = TODO_QUEST("Encoded Fragments") },
-          text = "My books on dispelling were stolen and torn up by savages, and Ravenholdt's bag won't open itself. Bring me the fragments; the beasts out there swallow everything, including literature." },
+          text = "Savages stole my books on dispelling and tore them up, and I need them to open a certain bag for Ravenholdt. Bring me the fragments; the beasts out there swallow everything, including literature." },
         { id = "h_tablet", when = { questActive = TODO_QUEST("Delivery to Archmage Xylem") },
           text = "Is that the Tablet of Sael'hai? I can feel it from here, like warmth from a hearth. Put it down gently, please, and tell me nothing about the orc who found it." },
         { id = "h_warm", when = { disposition = { min = 70 } },
@@ -396,7 +396,7 @@ P:NPC {
       },
     },
     rogue = {
-      lines = { { id = "ro_default", text = "Does he? How unlike him. Jorach and I have an understanding: he finds the things nobody can find, and I open the things nobody can open, and neither of us asks the other what's inside." } },
+      lines = { { id = "ro_default", text = "Does he? How unlike him. Jorach Ravenholdt and I have an understanding: he finds the things nobody can find, and I open the things nobody can open, and neither of us asks the other what's inside." } },
       choices = {
         { text = "A good arrangement.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -491,7 +491,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "My master would let a kodo into the tower if it brought him a relic, but I would not, and I am the one who sends you up. Your beast stays down here with me, and if it sheds on the stones, I'll know whom to blame." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I suppose {pet} is better company than most of my master's visitors, if only because it doesn't talk." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "My master would let a kodo into the tower if it brought him a relic, but I would not, and I am the one who sends you up. I suppose {pet} is better company than most of my master's visitors, if only because it doesn't talk." },
       },
       choices = {
         { text = "Fine. My beast will wait here, as you ask.", next = "BACK", fx = { align = { order = 1 } } },
@@ -646,7 +646,7 @@ P:NPC {
       },
     },
     home_sorry = {
-      lines = { { id = "hs_default", text = "Your sorrow is noted and of no use to me. Still, it's the first polite thing anyone's said at this camp in a month, so I'll insult your hat a little less." } },
+      lines = { { id = "hs_default", text = "Your sorrow is noted and of no use to me. Still, it's the first polite thing anyone's said at this tower in a month, so I'll insult your hat a little less." } },
       choices = { { text = "That's something.", next = "BACK", fx = { affinity = 1 } } },
     },
   },

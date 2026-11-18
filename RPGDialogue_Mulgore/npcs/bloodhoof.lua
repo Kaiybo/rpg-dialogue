@@ -13,7 +13,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_dw_shame", when = { gossip = { topic = "dwarves", stance = "shame" } }, text = "Morin tells me a dwarf apologised to him for Bael'dun, and I believe it was you. That's a word spoken well, friend, and I'll remember it." },
+    { id = "o_dw_shame", when = { gossip = { topic = "dwarves", stance = "shame" } }, text = "Morin Cloudstalker tells me a dwarf apologised to him for Bael'dun, and I believe it was you. That's a word spoken well, friend, and I'll remember it." },
     { id = "g_tent", text = "Be welcome in Bloodhoof Village. My father keeps the bluffs; I keep the plains below them." },
     { id = "g_back", when = { metBefore = true }, text = "Friend, sit with me a moment; the village can spare me, and the grass will grow without my watching it." },
     { id = "g_away", when = { away = 14 }, text = "You've been away from the plains {away}, friend, and the village asked after you more than once. Sit with me a moment and tell me where the road took you." },
@@ -125,7 +125,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Now and then, when a brave follows a kodo too far west and the Palemane gnolls take offence, or a hunter strays onto the goblins' claims. Most quarrels start with a hunt that went one step too far, so I ask our hunters to know where the borders lie." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a calm way about it. I find that the beasts of a peaceful hunter are always calm, and the restless ones belong to the restless." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now and then, when a brave follows a kodo too far west and the Palemane gnolls take offence, or a hunter strays onto the goblins' claims. Your {pet} has a calm way about it. I find that the beasts of a peaceful hunter are always calm, and the restless ones belong to the restless." },
       },
       choices = {
         { text = "I'll respect the borders, Baine, and avoid quarrels.", next = "BACK", fx = { align = { order = 1 } } },
@@ -217,7 +217,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, friend? The village is quiet for now, and An'she is still high, so ask." },
-        { id = "h_again2", text = "Go on. I'd rather hear it from you than from the gossip at Kauth's fire, where every plainstrider grows a foot in the telling." },
+        { id = "h_again2", text = "Go on. I'd rather hear it from you than from the gossip round the cookfires, where every plainstrider grows a foot in the telling." },
       },
     },
     xorig_brave = {
@@ -260,7 +260,7 @@ P:NPC {
       choices = { { text = "I'll come back and tell you.", next = "BACK", fx = { affinity = 2, standing = { bloodhoof = 1 } } } },
     },
     skyborne = {
-      lines = { { id = "sk_default", text = "Quiet ones, and respectful of the land, which is all a tauren asks. They watch the sky the way Harken does, as if they're waiting for it to call them home, and I haven't the heart to ask whether it will." } },
+      lines = { { id = "sk_default", text = "Quiet ones, and respectful of the land, which is all a tauren asks. They watch the sky the way old Harken Windtotem does, as if they're waiting for it to call them home, and I haven't the heart to ask whether it will." } },
       choices = {
         { text = "Some of us are waiting for that.", next = "BACK", fx = { affinity = 1 } },
         { text = "Mulgore is home enough now.", next = "BACK", fx = { affinity = 2, standing = { bloodhoof = 1 } } },
@@ -421,7 +421,7 @@ P:NPC {
   nodes = {
     xfpala = {
       big = true,
-      lines = { { id = "xfpala_default", text = "Not fear. They do not know what to make of you: something that died and was not laid to rest, yet carries a warmth the dead should not have. I would like to know whether that warmth is yours or only borrowed." } },
+      lines = { { id = "xfpala_default", text = "They do not fear you; they only do not know what to make of you: something that died and was not laid to rest, yet carries a warmth the dead should not have. I would like to know whether that warmth is yours or only borrowed." } },
       choices = {
         { text = "It's mine, earned in pain. I'll keep it.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Borrowed or not, it serves me well.", next = "BACK", fx = { align = { light = -1 } } },
@@ -450,7 +450,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every hunter carries a few, and they stay as long as you remember them. The tauren give thanks for every plainstrider and every kodo so that their spirits return to the Earth Mother in peace, and I'd ask the same of you while you hunt these plains." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a living spirit among all those departed ones. It keeps them company, I think, and they seem to like it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every hunter carries a few, and they stay as long as you remember them. Your {pet} has a living spirit among all those departed ones. It keeps them company, I think, and they seem to like it." },
       },
       choices = {
         { text = "I'll give thanks for every life I take.", next = "BACK", fx = { align = { light = 1 } } },
@@ -545,7 +545,7 @@ P:NPC {
     },
     spirits = {
       lines = {
-        { id = "s_wells", text = "They're restless near the wells. The water's spirits don't understand why it tastes of oil. Mull is trying to explain it to them." },
+        { id = "s_wells", text = "They're restless near the wells, because the water's spirits don't understand why it tastes of oil. Mull Thunderhorn is trying to explain it to them." },
         { id = "s_quiet", text = "Quiet, today, and quiet is good. Quiet means nobody is grieving." },
       },
       choices = { { text = "Thank you, elder.", next = "END", fx = { affinity = 1 } } },
@@ -575,7 +575,7 @@ P:NPC {
   greetings = {
     { id = "g_prej", when = { prejudiced = true }, text = "Ah, one of the Forsaken. Forgive an old herder if he stands upwind of you; my people believe the dead should rest in the Earth Mother's arms, and seeing you walk about troubles the part of me that was taught it." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "It's good to see you, friend, and I mean it more than I did the first time. Whatever you are, you've the manners of the living, and that's more than I can say for some of the living." },
-    { id = "g_plains", text = "Watch the sky over Mulgore for a while, the way the hawks do. You'll see what I mean about the swoops." },
+    { id = "g_plains", text = "Watch the sky over Mulgore for a while, the way the hawks do, and you'll see how many swoops there are this year." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and the sky over Mulgore has changed its mind a dozen times since. My knees could have told you it would." },
     { id = "g_word_persuaded", when = { word = "persuaded" }, text = "I hear you talked someone in the village round to your way of thinking. That's a rarer thing among tauren than you'd guess, because we're stubborn as old kodo." },
   },
@@ -684,7 +684,7 @@ P:NPC {
         { id = "h_knees", when = { metBefore = true }, text = "My grandfather read the weather from how the birds flew. I read it from how my knees ache. The tribe calls that progress." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Even the swoops sleep at this hour, but I don't, much; it's an old habit from the wandering years." },
         { id = "h_walk", when = { origin = "tauren_long_migration" }, text = "You came out of the Barrens on the long walk, same as me. I spent that whole road watching the sky for vultures, because vultures meant the centaur had caught someone behind us, and I suppose I never really stopped." },
-        { id = "h_maur", when = { heardLine = "maur.h_default" }, text = "Maur's after that beast again? He's tracked it longer than some of our braves have been alive." },
+        { id = "h_maur", when = { heardLine = "maur.h_default" }, text = "Maur Raincaller's after that beast again? He's tracked it longer than some of our braves have been alive." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman, is it? Then you'll know the wind is turning before my knees do, and I'd thank you to tell me when." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and a tall one. Watch the skies, because the swoops dive at anything that stands still long enough on the plains." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest! My knees say rain is coming, and my eyes say a priest of the Horde has come, and I'm only certain about the knees." },
@@ -713,7 +713,7 @@ P:NPC {
       lines = {
         { id = "hu_default", text = "Not at a grown one, but they'll take a kodo calf or a careless pup. Watch how they circle: two turns wide and one turn tight, and then they drop, so loose your arrow on the tight turn." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "{pet} has been watching them since you got here, see? A good beast reads the sky as well as I do. Let it tell you when one's about to stoop." },
+          text = "Not at a grown one, but they'll take a kodo calf or a careless pup, so watch how they circle: two turns wide and one turn tight, and then they drop. {pet} has been watching them since you got here, and a good beast reads the sky as well as I do." },
       },
       choices = { { text = "Two wide, one tight. I'll remember.", next = "BACK", fx = { affinity = 2 } } },
     },
@@ -958,7 +958,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The plainstriders drink from the wells and sicken, and the wolves that eat them sicken in turn, and so the poison spreads across the plains. Bring down the sick ones mercifully when you find them, and help me cleanse the wells so the next ones drink clean." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep your {pet} away from the wells near the goblin camps. I couldn't bear to see a hunter's companion fall to that poison too." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The plainstriders drink from the wells and sicken, and the wolves that eat them sicken in turn, and so the poison spreads across the plains. Keep your {pet} away from the wells near the goblin camps. I couldn't bear to see a hunter's companion fall to that poison too." },
       },
       choices = {
         { text = "I'll put the sick beasts down mercifully, Mull.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1084,7 +1084,7 @@ P:NPC {
 
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
-      text = "That's a fine companion you have. Keep him close, and don't ever let him wander off." },
+      text = "That's a fine companion you have. Keep it close, and don't ever let it wander off." },
   },
 
   start = "hello",
@@ -1233,7 +1233,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "o_orcs_useful", when = { gossip = { topic = "orcs", stance = "useful" } }, text = "Krang's been growling about you all week, something about calling the orcs useful. He growls about everyone, so have some stew and don't let it spoil your appetite." },
+    { id = "o_orcs_useful", when = { gossip = { topic = "orcs", stance = "useful" } }, text = "Krang Stonehoof's been growling about you all week, something about calling the orcs useful. He growls about everyone, so have some stew and don't let it spoil your appetite." },
     { id = "o_peace_war", when = { gossip = { topic = "peace", stance = "war" } }, text = "Baine's been quiet since you left, and word is you told him there'll be no peace with the humans. Eat something, at least, before you go off looking for a war." },
     { id = "g_inn", text = "Come in from the grass and the wind. There's stew, and a hide to sleep on, and the hide only smells a little of kodo." },
     { id = "g_home", when = { homeInn = { "Bloodhoof Village" } }, text = "Your sleeping hide is aired and ready. The wind is kind tonight." },
@@ -1282,7 +1282,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Plainstrider and kodo, mostly, and a prairie wolf when the hunters are feeling generous. The tauren waste no part of a beast, so I make broth from the bones and send the hides up to Una on the bluffs, and nothing goes to waste in my kitchen." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And there's always a bowl for your {pet}. Every beast that walks into Bloodhoof gets fed, same as everyone else." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Plainstrider and kodo, mostly, and a prairie wolf when the hunters are feeling generous. And there's always a bowl for your {pet}. Every beast that walks into Bloodhoof gets fed, same as everyone else." },
       },
       choices = {
         { text = "I'll bring my game here, and waste none of it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1324,7 +1324,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "Troll mages, mostly, on the road up to Thunder Bluff, and now and then a Forsaken who won't eat a thing. The trolls eat like kodos and the Forsaken don't eat at all, so I've learned to cook for both by cooking too much." },
+        { id = "xmage_default", text = "Troll mages, mostly, on the road up to Thunder Bluff, and now and then a Forsaken who won't eat a thing. The trolls eat like kodos and the Forsaken don't eat at all, so I've learned to cook for both by cooking too much, and nobody pays for seconds." },
       },
       choices = {
         { text = "I'll pay my way, Kauth, like any other guest.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1500,7 +1500,7 @@ P:NPC {
       lines = {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin by my fire! I've met all sorts at campfires, but I've never met one who glowed. Sit down." },
         { id = "h_default", key = true,
-          text = "I'm Kaga Wildhoof. I wander, I camp, and I come back to Mulgore when the wind turns, and the Chief and I go back a long way." },
+          text = "I'm Kaga Wildhoof. I wander, I camp, and I come back to Mulgore when the wind turns, and Chief Hawkwind of Camp Narache and I go back a long way." },
         { id = "h_bundle", tags = { "news" }, when = { questActive = TODO_QUEST("The Adventurer") },
           text = "A bundle from Chief Hawkwind? He never forgets a kindness. Tell him he owes me nothing, and that I said so twice." },
         { id = "h_outdoors", when = { questActive = TODO_QUEST("The Great Outdoors") },

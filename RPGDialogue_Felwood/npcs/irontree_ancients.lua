@@ -102,7 +102,7 @@ P:NPC {
     },
     tasks_leaf = {
       lines = { { id = "tl_default", text = "Into the deepest fire there is, beneath a mountain, where the Firelord keeps his treasures. I cannot tell you more, because I do not know how it came there, only that it is mine and that it calls to me." } },
-      choices = { { text = "I'll find it. Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+      choices = { { text = "I'll find it.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
 
     corrupters = {
@@ -114,12 +114,12 @@ P:NPC {
     },
     corrupters_how = {
       lines = { { id = "coh_default", text = "Alone, hunter. They are arrogant, and if you come to them by yourself they will try to destroy you, but if you bring allies, they will flee. Turn their arrogance into their misery, and bring me their heads." } },
-      choices = { { text = "Alone, then. Something else.", next = "BACK", fx = { trait = { brave = 1 } } } },
+      choices = { { text = "Alone, then.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
 
     why_hunters = {
       lines = { { id = "wh_default", text = "Because a hunter walks with the beasts and listens to the forest, as we did. Your path is a good one, small one, but it is not ours, and our gifts would not sit easily in your hands." } },
-      choices = { { text = "I understand. Something else.", next = "BACK" } },
+      choices = { { text = "I understand.", next = "BACK" } },
     },
     druid = {
       lines = { { id = "dr_default", text = "Then you know what it is to love a forest and watch it sicken. Go gently in the Dream while you are in Felwood, druid, for my grief is not the only thing you will hear there." } },

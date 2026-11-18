@@ -182,9 +182,9 @@ P:NPC {
     },
     hunter = {
       lines = {
-        { id = "hu_default", text = "To Grull, who leads our hunts, and then out among the plainstriders, because a hunter's first kill should be something that runs. Bring the meat back to the fire, and the tribe will know your name." },
+        { id = "hu_default", text = "To my son Grull, who leads our hunts, and then out among the plainstriders, because a hunter's first kill should be something that runs. Bring the meat back to the fire, and the tribe will know your name." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "And bring {pet} back to the fire too. The braves will want to see a beast that chose to walk beside one of us." },
+          text = "To my son Grull, who leads our hunts, and then out among the plainstriders, because a hunter's first kill should be something that runs. And bring {pet} back to the fire too. The braves will want to see a beast that chose to walk beside one of us." },
       },
       choices = { { text = "I'll go to Grull.", next = "BACK", fx = { affinity = 1, standing = { narache = 1 } } } },
     },
@@ -383,12 +383,12 @@ P:NPC {
       lines = {
         { id = "hu_default", text = "Beside them? In front of them, if it's fast! The braves still hunt the old way, on foot with a spear, and I'd like them to see what a hunter and a beast can do together." },
         { id = "hu_pet", when = { pet = { type = "Beast" } },
-          text = "Is that {pet}? Ha, look at it, already sniffing at the plainstrider tracks. Bring it to the southern pens with you; the battleboars won't know what to do." },
+          text = "Beside them? In front of them, if it's fast, because I'd like the braves to see what a hunter and a beast can do together. Is that {pet}? Bring it to the southern pens with you; the battleboars won't know what to do." },
       },
       choices = { { text = "We'll show them.", next = "BACK", fx = { affinity = 2 } } },
     },
     lead = {
-      lines = { { id = "l_default", text = "I'll lead the way my grandmother did, from the front. If that's not well, the tribe can tell me so." } },
+      lines = { { id = "l_default", text = "I'll lead the way my grandmother did, from the front. If that's wrong, the tribe can tell me so." } },
       choices = {
         { text = "I believe you.", next = "BACK", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "A wise chief leads from where the spears can't reach.", next = "BACK", fx = { align = { honor = -1 } } },

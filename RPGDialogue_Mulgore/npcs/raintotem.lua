@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_rocks", text = "Walk softly here, {class}. Every stone on this hill has a name beneath it." },
     { id = "g_active", when = { questActive = TODO_QUEST("A Sacred Burial") }, text = "The Bristleback are among the graves still. Drive them off, and quickly." },
     { id = "g_done", when = { questDone = TODO_QUEST("A Sacred Burial") }, text = "The hill is quiet again, as it should be. The honored dead thank you, and so do I." },
-    { id = "g_away", when = { away = 14 }, text = "{away} away, and the hill has kept its peace. I hope your travels did the same for you." },
+    { id = "g_away", when = { away = 14 }, text = "You have been {away} away, and the hill has kept its peace. I hope your travels did the same for you." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You have grown strong since you cleared this hill for an old man. The ancestors watch the strong ones closely, so walk well." },
   },
 

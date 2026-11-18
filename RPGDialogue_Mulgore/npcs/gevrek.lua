@@ -107,7 +107,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Very strange, and very beautiful. The kodo walk so slowly that the young ones laughed at first, until they saw one charge, and now they watch the herds with as much respect as any tauren, which is a lesson I hope we keep." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a fine creature. The young ones will want to follow it about the camp, and I hope you'll forgive them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Very strange, and very beautiful. Your {pet} is a fine creature. The young ones will want to follow it about the camp, and I hope you'll forgive them." },
       },
       choices = {
         { text = "Respect the herds, and the plains will welcome you.", next = "BACK", fx = { align = { honor = 1 } } },

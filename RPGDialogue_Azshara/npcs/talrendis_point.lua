@@ -95,7 +95,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I believe so, for the coursers and the hippogryphs will not go near the shrine, and the deer flee from it at dusk without anything chasing them. My people say a beast's eyes see what ours cannot, and I have never seen a reason to doubt it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been looking toward the shrine since you sat down. You see, friend, it knows something is there." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I believe so, for the coursers and the hippogryphs will not go near the shrine, and the deer flee from it at dusk without anything chasing them. Your {pet} has been looking toward the shrine since you sat down. You see, friend, it knows something is there." },
       },
       choices = {
         { text = "Then the spirits deserve to be set free. I'll help.", next = "BACK", fx = { align = { light = 1 } } },
@@ -446,7 +446,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The water there hides something old and angry, and the winds won't carry them over it. I think the elements of Azshara remember the Highborne better than we do." } },
+      lines = { { id = "xdsham_default", text = "The water there hides something old and angry, and even the winds seem unwilling to carry my birds over it. I think the elements of Azshara remember the Highborne better than we do." } },
       choices = {
         { text = "I'll respect the bay's warning, Jarrodenus.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll find out what's down there myself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -475,7 +475,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because the wild hippogryphs of Azshara are hunted by the satyrs and the naga both, and my birds remember it. A beast that sits still beside its hunter tells them it's no threat, and yours is sitting very still." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} hasn't so much as twitched at my birds. Bring it round more often and they'll come to think of it as one of the flock." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because the wild hippogryphs of Azshara are hunted by the satyrs and the naga both, and my birds remember it. Your {pet} hasn't so much as twitched at my birds. Bring it round more often and they'll come to think of it as one of the flock." },
       },
       choices = {
         { text = "A well-trained beast keeps the peace. That's a hunter's duty.", next = "BACK", fx = { align = { order = 1 } } },
@@ -597,6 +597,6 @@ P:NPC {
     loramus = { { id = "tp_loramus", text = "There is a hermit on an island in the bay, and my hippogryphs will not fly over him. I have never asked them why." } },
     teldrassil = { { id = "tp_teldrassil", text = "My birds came from Teldrassil, raised in the branches, and they miss it, I think. This coast is too salty for them." } },
     tyrande = { { id = "tp_tyrande", text = "High Priestess Tyrande rode a hippogryph into battle in the old wars, and the birds remember it in their blood. I am certain of that." } },
-    _none = { { id = "tp_none", text = "I keep birds, not secrets. Ask the Sentinels, or the tauren by the fire; he has listened to this land almost as long as we have." } },
+    _none = { { id = "tp_none", text = "I keep birds, not secrets. Ask the Sentinels, or Loh'atu, the tauren by the fire; he has listened to this land almost as long as we have." } },
   },
 }

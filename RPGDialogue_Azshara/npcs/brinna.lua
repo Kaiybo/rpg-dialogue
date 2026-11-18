@@ -48,7 +48,7 @@ P:NPC {
     },
     op_orc_drive = {
       lines = {
-        { id = "opod_default", text = "That's the Sentinel's answer, and it's the one I give when the Captain asks. Keep it, but don't let it make you careless; the orcs can hate us back just as well." },
+        { id = "opod_default", text = "That's the Sentinel's answer, and it's the one I give when our captain asks. Keep it, but don't let it make you careless; the orcs can hate us back just as well." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -94,7 +94,7 @@ P:NPC {
       },
     },
     border_orcs = {
-      lines = { { id = "bo_default", text = "They lost warriors to an elf mage of their own choosing, I hear, and they've been quiet since. I'd almost pity them, if they weren't cutting down Ashenvale on the other side of the river." } },
+      lines = { { id = "bo_default", text = "They lost a dozen warriors to an elf mage they'd hired, I hear, and they've been quiet since. I'd almost pity them, if they weren't cutting down Ashenvale on the other side of the river." } },
       choices = {
         { text = "Should the Sentinels make peace with that camp?", next = "op_orcs" },
         { text = "Something else.", next = "BACK" },

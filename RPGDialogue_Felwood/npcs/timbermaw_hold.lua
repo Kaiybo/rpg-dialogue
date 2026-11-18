@@ -59,11 +59,11 @@ P:NPC {
     },
     eye = {
       lines = {
-        { id = "e_default", text = "Gorn lost it to a Deadwood claw, many winters ago, in the first year the sickness came up from the south. The claw belonged to a furbolg Gorn had taught to fish when he was small." },
+        { id = "e_default", text = "Gorn lost it to a Deadwood claw, many winters ago, in the first year the sickness came up from the south. The claw belonged to a furbolg Gorn had taught to fish when that one was a cub." },
       },
       choices = {
         { text = "You knew him?", next = "eye_story" },
-        { text = "I'm sorry. Something else.", next = "BACK" },
+        { text = "I'm sorry.", next = "BACK" },
       },
     },
     eye_story = {
@@ -216,7 +216,7 @@ P:NPC {
     xtauren = {
       big = true,
       lines = {
-        { id = "xt_default", text = "Gorn thanks you, tauren, and Gorn thinks she does. Your people speak to the land the way ours did before the poison, so you understand that we are not killing monsters out there, only family who no longer know us." },
+        { id = "xt_default", text = "Gorn thanks you, tauren, and Gorn thinks the Earth Mother does weep. Your people speak to the land the way ours did before the poison, so you understand that we are not killing monsters out there, only family who no longer know us." },
       },
       choices = {
         { text = "Then we mourn them and still do what must be done.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },

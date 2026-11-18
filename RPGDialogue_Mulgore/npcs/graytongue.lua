@@ -17,9 +17,9 @@ P:NPC {
     { id = "o_quil_peace", when = { gossip = { topic = "quilboar", stance = "peace" } }, text = "Windfeather tells me you'd make peace with the quilboar. I've buried too many braves for that, young one, but I'll not stop you trying." },
     { id = "o_grim_lost", when = { gossip = { topic = "grimtotem", stance = "lost" } }, text = "The Chief says you'd break the Grimtotem. Remember the quilboar first, young one, because they're closer and they don't argue at the fire." },
     { id = "g_mesa", text = "Stand still a moment, young one. The mesa speaks, if you let it." },
-    { id = "g_strength", when = { questActive = TODO_QUEST("Rite of Strength") }, text = "The thornsnarl, and the Bristleback in it. Return when your Rite is done." },
+    { id = "g_strength", when = { questActive = TODO_QUEST("Rite of Strength") }, text = "The Bristleback wait in the thornsnarl, so go and face them, and return when your Rite is done." },
     { id = "g_done", when = { questDone = TODO_QUEST("Rite of Strength") }, text = "You carry the Rite of Strength in your stride now. I see it from here." },
-    { id = "g_away", when = { away = 14 }, text = "{away} away from the mesa, and you come back taller. The Earth Mother has fed you well." },
+    { id = "g_away", when = { away = 14 }, text = "You've been {away} away from the mesa, and you come back taller. The Earth Mother has fed you well." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "You were a calf when I set your first Rite, and now look at you. The Earth Mother is patient with all of us, and she has been generous with you." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "The braves of Camp Narache speak well of you. That is the first thing a tauren earns, and the hardest to lose." },
   },
@@ -69,7 +69,7 @@ P:NPC {
       lines = { { id = "r2_default", text = "For protecting those who cannot protect themselves, and for nothing else. A tauren who fights for glory is only a quilboar with better manners." } },
       choices = {
         { text = "Then what of those who fight for glory?", next = "rite3" },
-        { text = "I understand. Something else.", next = "BACK" },
+        { text = "I understand.", next = "BACK" },
       },
     },
     rite3 = {

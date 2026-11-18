@@ -17,7 +17,7 @@ P:NPC {
     { id = "g_default", text = "Ishnu-alah, and welcome to Talonbranch. If you're bound north toward Winterspring, I'd like a word before you go." },
     { id = "g_active", when = { questActive = TODO_QUEST("Wild Guardians") }, text = "You're back from the north already? Tell me what you saw of the owlbeasts, and leave nothing out." },
     { id = "g_secrets", when = { questActive = TODO_QUEST("Guarding Secrets") }, text = "Have you found what they were guarding? I've hardly slept since you left, wondering." },
-    { id = "g_done", when = { questDone = TODO_QUEST("Guarding Secrets") }, text = "There you are, the one who carried Elune's answer out of the snow. I still turn that over in my mind every evening." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Guarding Secrets") }, text = "There you are, the one who found what the wildkin were guarding. I still turn it over in my mind every evening." },
     { id = "g_back", when = { metBefore = true }, text = "Back by the moonwell again. Sit, if you like; the wildkin can wait a moment." },
   },
 
@@ -179,7 +179,7 @@ P:NPC {
   topics = {
     furbolgs = { { id = "tp_furb", text = "The Timbermaw are the only sane furbolgs left in the north, and they guard the only good road to Winterspring. Be polite to them." } },
     cenarion_circle = { { id = "tp_circ", text = "The druids of the Emerald Circle are working in the south of the forest. They're braver than I am, and I've told them so." } },
-    advice = { { id = "tp_ad", text = "Look at a creature's eyes before you decide it's a monster. Most of the time you'll be right, but not always." } },
+    advice = { { id = "tp_ad", text = "Look at a creature's eyes before you decide it's a monster. Most of the time it will be one, but not always." } },
     _none = { { id = "tp_none", text = "I'm afraid I know about owlbeasts and very little else. Ask Golhine, who knows a little about everything and says almost none of it." } },
   },
 }
@@ -205,7 +205,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "Shi'alune doesn't mind you, so neither do I. What do you need?" },
+    { id = "g_default", text = "My cat Shi'alune doesn't mind you, so neither do I. What do you need?" },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, this far into Felwood. Come, let's see what you've learned on the way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Shi'alune remembered you before I did." },
   },
@@ -244,7 +244,7 @@ P:NPC {
       lines = { { id = "ca_default", text = "She was a cub when I found her by a dead moonwell in Ashenvale, too weak to stand. She's been at my side since, and she has never once drunk from a Felwood stream, because I taught her to smell the sickness before she tasted it." } },
       choices = {
         { text = "She's beautiful.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
-        { text = "Can you teach that to my pet?", next = "beasts" },
+        { text = "What happens to beasts that do drink?", next = "beasts" },
       },
     },
     beasts = {
@@ -262,7 +262,7 @@ P:NPC {
     },
     ancients = {
       lines = { { id = "an_default", text = "Spirits of the Ancients of Lore, who died at Hyjal and never quite left. Vartrus and his brothers speak to hunters who've proven themselves, and what they ask is hard, but I've never heard of a hunter who regretted it." } },
-      choices = { { text = "I'll seek them out. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = { { text = "I'll seek them out.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
   },
 

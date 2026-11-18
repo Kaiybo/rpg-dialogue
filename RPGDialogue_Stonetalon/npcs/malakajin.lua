@@ -246,7 +246,7 @@ P:NPC {
       },
     },
     why_sunrock = {
-      lines = { { id = "ws_default", text = "The tauren be good neighbors, mon, though they look at our cooking pots like we might be boilin' a kodo. Maggran send word down when the harpies be bad, and we send up meat when the hunt be good." } },
+      lines = { { id = "ws_default", text = "The tauren be good neighbors, mon, though they look at our cooking pots like we might be boilin' a kodo. Maggran Earthbinder up on Sun Rock send word down when the harpies be bad, and we send up meat when the hunt be good." } },
       choices = {
         { text = "Sounds like a fair trade.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -312,7 +312,7 @@ P:NPC {
 
   greetings = {
     { id = "g_hello", text = "Don't touch the pots, mon. Anything else you can touch, but not the pots." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Ken'zigla's Draught") }, text = "Half for Dogran, mon, then a night, then the other half. Don't you forget." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Ken'zigla's Draught") }, text = "Give Dogran half the draught, mon, then wait a night before the other half, and don't you forget." },
     { id = "g_done", when = { questDone = TODO_QUEST("Ken'zigla's Draught") }, text = "Word come back from Taurajo that the grunt be walking. Good brew, if I say so myself." },
   },
 

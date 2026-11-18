@@ -119,7 +119,7 @@ P:NPC {
     },
     friend = {
       lines = { { id = "fr_default", text = "Then you've done what most of the Circle never manages. Go to the hold and let them feed you honey, and don't refuse it, because a Timbermaw takes a refused meal very personally." } },
-      choices = { { text = "I'll eat the honey. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
+      choices = { { text = "I'll eat the honey, then.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     cenarius = {
       lines = { { id = "ce_default", text = "So the old stories say, and the furbolgs say it too, in their way. Cenarius loved them, and they guarded the forests for him long before our people built a single temple, and I think we owe them more than we ever paid." } },

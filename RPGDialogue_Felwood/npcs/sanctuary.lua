@@ -70,7 +70,7 @@ P:NPC {
     },
     xcl_st = {
       big = true,
-      lines = { { id = "xcl_st_default", text = "Because Eranikus guarded that temple for Ysera, and he was her consort before he was its jailer. Something in the long watch poisoned his sleep, and a poisoned dreamer reaches into every dream that touches his, which is not so different from what the fel did to these trees." } },
+      lines = { { id = "xcl_st_default", text = "Because Eranikus, Ysera's consort, was set to guard that temple, and something in the long watch poisoned his sleep, and a poisoned dreamer reaches into every dream that touches his, which is not so different from what the fel did to these trees." } },
       choices = {
         { text = "Then he must be redeemed. A dragon's mind can be healed.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "A corrupted dragon should be destroyed before he spreads it.", next = "BACK", fx = { align = { light = -1 } } },
@@ -114,7 +114,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "One, a fawn by the sanctuary's edge that drank from our cleansed water and grew up with clear eyes. It's a small thing, but I count it, because if one fawn can be saved, then the forest is only sick, not dead." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And look at {pet}, healthy and bright-eyed in the middle of Felwood! That does my heart more good than you know." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "One, a fawn by the sanctuary's edge that drank from our cleansed water and grew up with clear eyes. And look at {pet}, healthy and bright-eyed in the middle of Felwood! That does my heart more good than you know." },
       },
       choices = {
         { text = "Then there's hope for the rest. I'll help you find it.", next = "BACK", fx = { align = { light = 1 } } },
@@ -188,7 +188,7 @@ P:NPC {
         { id = "h_purified", when = { questDone = TODO_QUEST("Purified!") },
           text = "Purified... say it again, please, for I've waited a long time to hear that word in Felwood." },
         { id = "h_linken", when = { heardLine = "linken.h_default" },
-          text = "You've met the gnome in Un'Goro who lost his memory? If his friends send you for a totem, come to me. The water spirit and I can do a great deal together." },
+          text = "You've met Linken, the gnome in Un'Goro who lost his memory? If his trail ever leads you back to Felwood, come and tell me how he fares." },
         { id = "h_rest", when = { metBefore = true },
           text = "I planted a seed by the sanctuary's edge this morning, and it won't take, but I plant one every morning anyway. One day one will." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
@@ -346,7 +346,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Made them hungry and angry and wrong, like the felpaw wolves who'll chase you to the edge of the sanctuary and then stand there snarling at the trees. I pity them, but I won't let one near the camp, and I'd ask you to do the same." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} close to you while you're in the forest. I've seen beasts turn after a single night of drinking from the wrong stream." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Made them hungry and angry and wrong, like the felpaw wolves who'll chase you to the edge of the sanctuary and then stand there snarling at the trees. Keep {pet} close to you while you're in the forest. I've seen beasts turn after a single night of drinking from the wrong stream." },
       },
       choices = {
         { text = "I'll keep my beast close and leashed. Felwood demands care.", next = "BACK", fx = { align = { order = 1 } } },
@@ -562,7 +562,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Where the beasts still graze, mostly, because they know better than we do which leaves are safe. Follow a deer that's still healthy and it'll lead you to the last clean patches in the forest, if you're patient and don't spook it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} might sniff them out faster than either of us. Animals know a sick plant from a clean one, even when I can't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Where the beasts still graze, mostly, because they know better than we do which leaves are safe. And {pet} might sniff them out faster than either of us. Animals know a sick plant from a clean one, even when I can't." },
       },
       choices = {
         { text = "I'll follow the deer gently and leave them in peace.", next = "BACK", fx = { align = { light = 1 } } },
@@ -656,7 +656,7 @@ P:NPC {
         { text = "I'm Alliance. Can I still help?", next = "alliance", when = { faction = "Alliance" } },
         { text = "The alchemist at Bloodvenom wants the corruption.", next = "winna", when = { heardLine = "winna.h_default" } },
         { text = "Would you really let a warlock help the cleansing?", next = "xlock", when = { class = "WARLOCK", faction = "Horde" } },
-        { text = "You need someone to get close to something.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
+        { text = "What do you need someone to get close to?", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "What does Felwood need mending most, Maybess?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What use is a warrior in mending a forest?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "There must be clean plants somewhere in Felwood.", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
@@ -783,7 +783,7 @@ P:NPC {
       choices = {
         { text = "What did you see it do?", next = "pj_arath2" },
         { text = "A leash is all it takes. I master what I summon.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Fel is only power. Your fear does more harm than it does.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Fel is only power. Your fear does more harm than fel.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Then I'll keep my demon away from the sanctuary.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -825,7 +825,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because cleansing is like a long stalk, waiting for the moment the plant is ready and not a moment before. Most of the Alliance's soldiers want it finished in an afternoon, but a hunter knows that some prey takes days." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} may help, I think. The plants here seem to grow a little cleaner where something healthy has walked, though I can't prove it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because cleansing is like a long stalk, waiting for the moment the plant is ready and not a moment before. And {pet} may help, I think. The plants here seem to grow a little cleaner where something healthy has walked, though I can't prove it." },
       },
       choices = {
         { text = "Then I'll be patient and do it properly.", next = "BACK", fx = { align = { order = 1 } } },
@@ -917,7 +917,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" },
           text = "Patient, quiet and careful, that is the sort of help a cleansing needs, and a rogue is all three when it suits them. I hope it suits you today." },
         { id = "h_default", key = true,
-          text = "I am Arathandris Silversky, of the Emerald Circle. I ask the Alliance to help me cleanse Felwood, and the curse is old and stubborn, but I have been stubborn for ten thousand years." },
+          text = "I am Arathandris Silversky, of the Emerald Circle. I ask the Alliance to help me cleanse Felwood. The curse is old and stubborn, but I have been stubborn for ten thousand years." },
         { id = "h_cleansing", tags = { "news" }, when = { questActive = TODO_QUEST("Cleansing Felwood") },
           text = "The salve is laid on the sick plants a little each day. It doesn't look like war, but it's harder than war." },
         { id = "h_horde", when = { faction = "Horde" },
@@ -987,7 +987,7 @@ P:NPC {
     },
     background = { { id = "tp_ba", text = "Kaldorei, Emerald Circle, and too stubborn to be told a forest can't be saved." } },
     advice = { { id = "tp_ad", text = "Do one good thing a day here, only one, and then do it again tomorrow, because that's how this works.", next = "harder" } },
-    cenarion_circle = { { id = "tp_circle", text = "We are the Circle's in this forest, where few others would come." } },
+    cenarion_circle = { { id = "tp_circle", text = "We are the Circle's hands in this forest, where few others would come." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The Dream shows Felwood healthy, every leaf of it, and I refuse to believe that can't be made real. That's why the Circle calls me stubborn." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw kept their minds when the rest of their people fell, and I admire that more than I can say. We work with them where we can." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion's fel is in the soil, the water and the trees. I'll pull it out root by root if I have to." } },

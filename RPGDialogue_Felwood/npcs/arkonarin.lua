@@ -16,7 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Keep your voice down! The cultists come through here more often than you'd think." },
     { id = "g_key", when = { questActive = TODO_QUEST("A Strange Red Key") }, text = "Is that a key in your hand? Please, tell me that's a key." },
-    { id = "g_ready", when = { questActive = TODO_QUEST("Rescue From Jaedenar") }, text = "Lightforge first, then out. Stay close and don't stop for anything." },
+    { id = "g_ready", when = { questActive = TODO_QUEST("Rescue From Jaedenar") }, text = "Trey's sword first, then out. Stay close and don't stop for anything." },
     { id = "g_away", when = { away = 14 }, text = "You went away for {away} and came back down here? Either you're mad or you've a reason, and I hope it's the second." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You look like you've been through more than this place since I saw you last. Good, because this place hasn't got any easier." },
     { id = "g_word_pleased", when = { word = "pleased" }, text = "Even the cultists talk, and they say someone's been giving them grief upstairs. I hope it was you." },
@@ -24,7 +24,7 @@ P:NPC {
 
   notice = {
     { id = "n_paladin", cat = "class", when = { class = "PALADIN" },
-      text = "You're of the Silver Hand, or near enough. Don't look at me like that; I've seen that light before, and I know where it ended up." },
+      text = "You're of the Silver Hand, or near enough. My friend Trey carried that same Light into this place, and it didn't save him." },
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
       text = "A druid, down here? The Circle should be burning this place out, not sending one of you into it alone." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -39,9 +39,9 @@ P:NPC {
         { id = "h_key", tags = { "news" }, when = { questActive = TODO_QUEST("A Strange Red Key") },
           text = "The key, you've found it! It's made of bone, isn't it, and heavy for its size? The cultist who carries it likes to rattle it against the bars while he tells me what's coming, so give it here and let's see how he likes losing it." },
         { id = "h_ready", tags = { "news" }, when = { questActive = TODO_QUEST("Rescue From Jaedenar") },
-          text = "Our gear is close, and Trey's sword with it. Once I have Lightforge in my hands, nothing in this barrow is going to keep me in it." },
+          text = "Our gear is close, and my friend Trey's sword with it. Once I have that sword in my hands, nothing in this barrow is going to keep me in it." },
         { id = "h_hunter", when = { class = "HUNTER" },
-          text = "You came down here with a beast at your heel and the cultists didn't hear you coming? Then you're better at this than Trey and I ever were." },
+          text = "You came down here with a beast at your heel and the cultists didn't hear you coming? Then you're better at this than my friend and I ever were." },
         { id = "h_lock", when = { class = "WARLOCK" },
           text = "You smell of the same fire as the ones who put me in here. If you've come to ask me questions too, you can save your breath, because I've heard them all already." },
       },
@@ -170,11 +170,11 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I'm a night elf from Darnassus who walked into a trap with her best friend. Ask me again when I'm out of this cage." } },
     advice = { { id = "tp_ad", text = "Don't let them take you alive. Whatever happens on the stairs, don't let them take you alive." } },
-    silver_hand = { { id = "tp_sh", text = "Trey's order. He'd want me to say something kind about them, so I'll say they make friends worth dying for." } },
+    silver_hand = { { id = "tp_sh", text = "My friend Trey was one of them. He'd want me to say something kind, so I'll say they make friends worth dying for." } },
     burning_legion = { { id = "tp_bl", text = "They're here, walking around this barrow as if it were theirs. Whoever says the demons left Felwood has never been down these stairs." } },
     elune = { { id = "tp_elune", text = "I've prayed to Elune every night in this cage, and she sent you, so I suppose she listens after all. I'd like her to send a key next." } },
     tyrande = { { id = "tp_tyrande", text = "The High Priestess would never have let us come here without a full company of Sentinels. That's why we didn't ask her." } },
-    holy_light = { { id = "tp_holy_light", text = "Trey prays to the Light, and he says it goes with him even into a place like this. I hope he's right, because he's somewhere in here too." } },
+    holy_light = { { id = "tp_holy_light", text = "Trey prayed to the Light, and he said it went with him even into places like this. I hope he was right, because he died down here." } },
     satyrs = { { id = "tp_satyrs", text = "The satyrs of Shadow Hold are the worst of them, cruel and clever both. They laughed while they put me in here, and I've been listening to them laugh ever since." } },
     _none = { { id = "tp_none", text = "I don't care about that right now. Get me out of here, by Elune, and I'll answer anything you like." } },
   },

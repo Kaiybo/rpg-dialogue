@@ -26,7 +26,7 @@ P:NPC {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "A dwarf, all the way up here. You'll want the heavy shot, I expect, since you lot would rather shoot a harpy than throw anything at it." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome. If you're going down to Gaxim's camp, take him some bread, because I don't think he remembers to eat." },
+      text = "A gnome. If you're going down to Gaxim's camp below the Crag, take him some bread, because I don't think he remembers to eat." },
     { id = "n_broke", cat = "purse", when = { money = { max = 100 } },
       text = "Your purse is light, so buy water and nothing else, and I won't think less of you for it." },
     { id = "n_weary", cat = "weary", when = { durability = { max = 0.3 } },
@@ -380,7 +380,7 @@ P:NPC {
     },
     venture_leave = {
       lines = {
-        { id = "vl_default", text = "With what, my good looks? The company's got my contract, my back pay, and my cousin's debt on account, so if I walk out, they come after the whole family. Gerenzo's Orders gets me out with something to show for it, or it gets me buried in here." },
+        { id = "vl_default", text = "With what, my good looks? The company's got my contract, my back pay, and my cousin's debt on account, so if I walk out, they come after the whole family. Spying on Gerenzo gets me out with something to show for it, or it gets me buried in here." },
       },
       choices = {
         { text = "Then let's make sure it's the first one.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 }, learn = { "venture_company" } } },

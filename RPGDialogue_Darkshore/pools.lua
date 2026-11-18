@@ -6,18 +6,18 @@ P:Pool {
   id = "guard_auberdine", role = "guard", community = "auberdine",
   barks = {
     { id = "b_ship", text = "The Moonspray's late again, whether from murlocs or weather, and either way someone's swimming." },
-    { id = "b_moonkin", text = "The moonkin are on the eastern ridge again, and they were gentle once, for as long as any of us can remember." },
+    { id = "b_moonkin", text = "The moonkin on the eastern ridge have turned savage, and they were gentle for as long as any of us can remember." },
   },
   greetings = {
     { id = "g_port", text = "Ishnu-alah, and welcome to Auberdine. The boats to Teldrassil and Menethil are at the piers, and there's trouble everywhere else." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Stay near the lamps after dark, because the Blackwood furbolgs come closer than they used to. Elune's light is no shield against claws." },
-    { id = "g_liked", when = { townStanding = { town = "auberdine", min = 30 } }, text = "The elder speaks well of you, and so do we." },
+    { id = "g_liked", when = { townStanding = { town = "auberdine", min = 30 } }, text = "Elder Thundris speaks well of you, and so do we." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "You've been in the Blackwood, or with the murlocs; either way, see the smith before you go back." },
     { id = "n_druid", cat = "form", when = { class = "DRUID" },
-      text = "A druid! Terenthis will want a word with you, for everyone with a druid's eye is needed out there." },
+      text = "A druid! Terenthis, our druid by the shore, will want a word with you, for everyone with a druid's eye is needed out there." },
   },
   react = { { id = "r_stealth", on = "stealth", text = "There's a shadow on the pier. Step into the lamplight, please, and slowly." } },
   lines = {

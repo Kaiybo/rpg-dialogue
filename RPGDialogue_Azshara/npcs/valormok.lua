@@ -68,7 +68,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "If anyone can, it's your kind, because they leave no tracks a grunt would see, but they leave them all the same. Find where they camp past the northern bluffs, and I'll have my answer for the dead of Valormok." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And send {pet} ahead of you through the trees. The elves' mages set traps, and I'd rather lose a sniffing nose than another warrior." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "If anyone can, it's your kind, because they leave no tracks a grunt would see, but they leave them all the same. And send {pet} ahead of you through the trees. The elves' mages set traps, and I'd rather lose a sniffing nose than another warrior." },
       },
       choices = {
         { text = "I'll find them and bring you the truth along with their heads.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -107,7 +107,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Rimtori's people, I think, watching to see whether any of us are still standing. Find their scouts and deal with them, and I'll sleep a little easier at night." } },
+      lines = { { id = "xrogue_default", text = "Magus Rimtori's people, I think, watching to see whether any of us are still standing. Find their scouts and deal with them, and I'll sleep a little easier at night." } },
       choices = {
         { text = "I'll hunt their scouts. Valormok deserves peace.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll do it, but on my own terms.", next = "BACK", fx = { align = { order = -1 } } },
@@ -187,7 +187,7 @@ P:NPC {
       },
     },
     betrayal_ran = {
-      lines = { { id = "br_default", text = "After that I threw every warrior I had left at her, and not one came home. Some are dead, I'm sure, and some simply ran, and I don't know which I'd rather believe." } },
+      lines = { { id = "br_default", text = "None that came back to me. After the ambush I threw every warrior I had left at her camp, and not one came home; some are dead, I'm sure, and some simply ran, and I don't know which I'd rather believe." } },
       choices = {
         { text = "Not every warrior is a hero.", next = "betrayal_names" },
         { text = "Something else.", next = "BACK" },
@@ -315,7 +315,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Nothing useful, which is what bothers me, because they guard them like treasure and can't read a word. A hunter who can slip past their patrols could bring the tablets out and leave the naga none the wiser until it was too late." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And keep {pet} out of the water by the ruins, because the naga eat anything that swims, and I can't sell a tablet with teeth marks in it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Nothing useful, which is what bothers me, because they guard them like treasure and can't read a word. And keep {pet} out of the water by the ruins, because the naga eat anything that swims, and I can't sell a tablet with teeth marks in it." },
       },
       choices = {
         { text = "I'll take them openly. I'm no thief, Jediga.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -325,7 +325,7 @@ P:NPC {
     },
     mage_jd = {
       lines = {
-        { id = "mjd_default", text = "An orc mage, out here with the tablets? Somebody in Orgrimmar's going to have kittens about that. Read all you like, but you'll pay what Magatha's agents pay, because a mage's curiosity is worth more to me than his loyalty." },
+        { id = "mjd_default", text = "An orc mage, out here with the tablets? Somebody in Orgrimmar's going to have kittens about that. Read all you like, but you'll pay what Magatha Grimtotem's agents pay, because a mage's curiosity is worth more to me than his loyalty." },
         { id = "mjd_camp", when = { origin = "orc_camp_primer" },
           text = "Learned your letters from a primer in the internment camps, I'd bet; plenty of us did. Look where it's got you, reading dead elves' homework in a ruined forest, same as me." },
       },
@@ -363,7 +363,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "I am, and it would take enough Highborne tablets sold to enough fools, and an orc's memory that's shorter than his temper. I said no to the wrong orc and I've had a long time to regret it, though I've never once regretted the no." } },
+      lines = { { id = "xhcast_default", text = "I am, and getting there will take enough tablets sold to enough fools, and an orc in Orgrimmar whose memory is shorter than his temper. I said no to the wrong orc, and I've had a long time to regret what it cost me, though never once the no." } },
       choices = {
         { text = "Standing by your no is worth something.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "You should've said yes. Pride's a poor trade.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -372,7 +372,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Everything grows too big and too quiet, like it's holding its breath. I've watched beasts walk into those ruins and come out wrong, and I've no wish to be one of them, so I trade and I wait, and I let braver tauren than me ask the trees what's the matter." } },
+      lines = { { id = "xdruid_default", text = "Everything grows too big and too quiet, like it's holding its breath. I've watched beasts walk into those ruins and come out wrong, and I've no wish to be one of them, so I trade and I wait, and I let braver folk than me ask the trees what's the matter." } },
       choices = {
         { text = "Someone has to go in there and face it. I will.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Waiting is wise. No coin is worth being changed by that place.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -563,7 +563,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They mind the salt wind, the naga and the noise from Ag'tor's camp, but a quiet beast doesn't bother them. If yours starts barking, though, they'll bite it, and then you'll be walking home." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "{pet} can stay by the perch while you wait. The riders won't mind it, if it doesn't mind them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They mind the salt wind, the naga and the noise from Ag'tor's camp, but a quiet beast doesn't bother them. {pet} can stay by the perch while you wait. The riders won't mind it, if it doesn't mind them." },
       },
       choices = {
         { text = "A trained beast stays calm. That's the whole of the art.", next = "BACK", fx = { align = { order = 1 } } },

@@ -15,7 +15,7 @@ P:NPC {
 
   greetings = {
     { id = "g_road", text = "Walk with me, if you like. I don't stop moving on this road, and the quilboar have learned to respect that." },
-    { id = "g_active", when = { questActive = TODO_QUEST("Break Sharptusk!") }, text = "Brambleblade Ravine, east of here. Sharptusk keeps to the middle of his camp, like a coward." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Break Sharptusk!") }, text = "Sharptusk is in Brambleblade Ravine, east of here, and he keeps to the middle of his camp like a coward." },
     { id = "g_done", when = { questDone = TODO_QUEST("Break Sharptusk!") }, text = "The ravine's quieter since Sharptusk fell. I still walk this road, though, because quiet never lasts." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}! I wondered if you'd gone back to Narache or gone on to Bloodhoof." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 6 }, text = "Look at you! You were a newcomer when you went into that ravine for me, and now you walk like a proper brave." },
@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     op_quilboar = {
       lines = {
-        { id = "opq_q", text = "Some of the elders say the quilboar were here first, and that we should treat with them. I say look at Red Cloud Mesa and tell me how. What do you say?" },
+        { id = "opq_q", text = "Some of the elders say the quilboar were here first, and that we should treat with them. I say look at what they've done on Red Cloud Mesa, and then tell me how. What do you say?" },
       },
       choices = {
         { text = "They kill our young. There's nothing to talk about.", next = "op_quilboar_r1", fx = { affinity = 2, align = { light = -1 }, opinion = { quilboar = "war" } } },
@@ -122,7 +122,7 @@ P:NPC {
     },
     road = {
       lines = { { id = "r_default", text = "Because when I walk it, nobody else has to walk it alone. The young ones going to Grull for their first hunt know there's a brave somewhere on the road, and that makes them braver." } },
-      choices = { { text = "That's a good reason. Something else.", next = "BACK", fx = { affinity = 1 } } },
+      choices = { { text = "That's a good reason.", next = "BACK", fx = { affinity = 1 } } },
     },
     fight = {
       lines = { { id = "f_default", text = "Cut through to him fast, before his warriors close in, and don't let him get his back to the thorns. A quilboar chief fights best when he's got somewhere to hide." } },
