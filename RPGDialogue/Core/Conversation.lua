@@ -1215,8 +1215,17 @@ function Conv.Ask(topic)
   if not s or s.mode ~= "full" then return end
   if topic == "knows" then Conv.AskKnows(); return end
   if topic == "whereis" and ns.Directions then Conv.AskWhere(); return end
+  -- Disposition gates (0.85.0): Cold or worse, they keep to small talk; secrets and personal
+  -- matters wait until they're Warm.
+  local gates = ns.db.settings.dispositionGates ~= false
+  local gateNeed = gates and Engine.TopicGate(s.info, topic, s.ctx, s.env)
+  if gateNeed then Conv.AskGated(topic, gateNeed); return end
   local w = Engine.PickTopic(s.info, topic, s.ctx, s.env)
   local brushoff = w == nil or (type(w.src) == "string" and w.src:find("brushoff") ~= nil)
+  if brushoff and gates then
+    local held = Engine.HeldAnswerNeed(s.info, topic, s.ctx, s.env)
+    if held then Conv.AskGated(topic, held); return end
+  end
   ns.Topics.Asked(topic, s.memKey, not brushoff)
   local text = L.FALLBACK_LINE
   if w then
@@ -1250,6 +1259,96 @@ function Conv.Ask(topic)
     Conv.OfferChoices(s)
   end
   if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+-- They won't talk about it yet (0.85.0): a refusal in their voice, remembered as "won't
+-- say" (not "nothing to say"), with a quiet note under it. need: the disposition it wants.
+function Conv.AskGated(topic, need)
+  local s = Conv.session
+  ns.Topics.Gated(topic, s.memKey, need)
+  local w = Engine.PickGated(s.info, s.ctx, s.env)
+  local text = L.GATED_LINE
+  if w then
+    Conv.Shown(w)
+    s.lastLine = w.gid
+    text = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
+  end
+  local tdef = ns.Data.topics[topic]
+  local name = tdef and tdef.name or topic
+  Conv.Log("ask", name)
+  Conv.Log("npc", text)
+  View(s).ShowAnswer(text, name, nil)
+  if s.viewTopic and s.nodeDef then
+    s.viewTopic = nil
+    Conv.OfferChoices(s)
+  end
+  if ns.db.settings.checkResults ~= false then
+    s.pendingNote = L.GATED_NOTE:format(ns.Disposition and ns.Disposition.TierName(need) or tostring(need))
+    Conv.ShowPendingNote()
+  end
+  if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+-- Admire, Taunt, Intimidate (0.85.0, Systems/Persuasion.lua): once a day each with each
+-- person. They answer in their voice; the result shows under it ("Admire: success."), and
+-- disposition moves for days.
+function Conv.Persuade(action)
+  local s = Conv.session
+  local P = ns.Persuasion
+  if not s or s.mode ~= "full" or not P or not s.mem or not P.EFFECT[action] then return end
+  local env, ctx = s.env, s.ctx
+  local hex = ns.UI and ns.UI.Theme and ns.UI.Theme.Hex("dim") or "|cff888888"
+  if not P.CanUse(s.mem, action) then
+    View(s).ShowReaction(hex .. L.PERSUADE_USED:format(s.info.name or "") .. "|r")
+    return
+  end
+  local before = ns.Disposition and ns.Disposition.For(env, ctx)
+  local ok = P.Try(action, s.info, s.mem, ctx)
+  local result = ok and "success" or "fail"
+  local w = Engine.PickPersuade(s.info, action, result, ctx, env)
+  local text = ok and L.PERSUADE_FALLBACK_SUCCESS or L.PERSUADE_FALLBACK_FAIL
+  if w then
+    Conv.Shown(w)
+    s.lastLine = w.gid
+    text = Tokens.Render(w.line.text, ctx, env, w.line.when)
+  end
+  local name = L["PERSUADE_" .. action:upper()] or action
+  local said = "[" .. name .. "]"
+  Conv.Log("you", said)
+  Conv.Log("npc", text)
+  local linked = Conv.Hear(text)
+  View(s).ShowAnswer(text, name, linked, ns.db.settings.echoReply ~= false and said or nil)
+  if s.viewTopic and s.nodeDef then
+    s.viewTopic = nil
+    Conv.OfferChoices(s)
+  end
+  local notes = {}
+  if ns.db.settings.checkResults ~= false then
+    notes[#notes + 1] = (ok and L.CHECK_PASSED or L.CHECK_FAILED):format(name)
+  end
+  if before and ns.Disposition then
+    local after = ns.Disposition.For(env, ctx)
+    if ns.Disposition.Tier(after) ~= ns.Disposition.Tier(before) then
+      notes[#notes + 1] = L.DISP_NOW:format(ns.Disposition.TierName(after))
+    end
+  end
+  if #notes > 0 then
+    s.pendingNote = table.concat(notes, "  ")
+    Conv.ShowPendingNote()
+  elseif View(s).SetDisposition then
+    View(s).SetDisposition(Conv.DispositionView(s))
+  end
+  if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
+end
+
+-- What the persuasion buttons show: { [action] = { usable, tried } } (nil when off).
+function Conv.PersuadeState(s)
+  s = s or Conv.session
+  local P = ns.Persuasion
+  if not s or not P or not s.mem or ns.db.settings.persuasion == false or s.page then return nil end
+  local out = {}
+  for _, a in ipairs(P.ACTIONS) do out[a] = { usable = P.CanUse(s.mem, a), last = P.LastTry(s.mem, a) } end
+  return out
 end
 
 -- The replies for the current node (plus any views on offer). Inside DialogueUI the topic

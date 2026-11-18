@@ -15,6 +15,7 @@ local Data = {
   views = {},     -- topic id -> list of things the player can say back (0.82.0)
   directions = {}, -- town id -> list of "Where is...?" entries (several packs may add to one town)
   arrivals = {},  -- zone name -> list of diary entries for a first arrival (first match wins)
+  persuade = {},  -- reply sets for Admire / Taunt / Intimidate (0.85.0)
   lines = {},     -- global line id -> { line = , owner = , slot = }
 }
 ns.Data = Data
@@ -72,6 +73,14 @@ local function indexNPC(def)
     indexList(node.again, def.key, def.key, "again")
   end
   indexTopics(def.topics, def.key, def.key)
+  -- Their own answers to Admire / Taunt / Intimidate (0.85.0).
+  for action, byResult in pairs(def.persuade or {}) do
+    if type(byResult) == "table" then
+      for result, list in pairs(byResult) do
+        indexList(list, def.key .. ".persuade_" .. action .. "_" .. result, def.key, "persuade")
+      end
+    end
+  end
   -- Their own things the player can say back (0.82.0), and their answers to them.
   for topic, list in pairs(def.views or {}) do
     for _, v in ipairs(list) do
@@ -100,6 +109,17 @@ local function mergeNPC(old, new, pack)
   old.nodes = old.nodes or {}
   for id, node in pairs(new.nodes or {}) do
     if not old.nodes[id] or (pack.priority or 0) > (old._priority or 0) then old.nodes[id] = node end
+  end
+  if new.persuade then
+    old.persuade = old.persuade or {}
+    for action, byResult in pairs(new.persuade) do
+      old.persuade[action] = old.persuade[action] or {}
+      for result, list in pairs(byResult) do
+        local into = old.persuade[action][result] or {}
+        old.persuade[action][result] = into
+        for _, l in ipairs(list) do into[#into + 1] = l end
+      end
+    end
   end
   old.topics = old.topics or {}
   for topic, list in pairs(new.topics or {}) do
@@ -234,6 +254,21 @@ function kinds.Directions(pack, def)
       warn(pack, "directions for " .. def.town .. ": an entry needs id and name")
     end
   end
+end
+-- Persuade (0.85.0): how people answer Admire, Taunt and Intimidate.
+--   P:Persuade { id, role = "guard" | {..}, subtitle = "..", faction = "Horde", zone = "..",
+--     admire = { success = { lines }, fail = { lines } }, taunt = {..}, intimidate = {..} }
+-- Lines are indexed "persuade:<id>.<action>.<result>.<line id>".
+function kinds.Persuade(pack, def)
+  if not def.id then return warn(pack, "Persuade without id") end
+  def._pack = pack.id
+  for _, action in ipairs({ "admire", "taunt", "intimidate" }) do
+    for _, result in ipairs({ "success", "fail" }) do
+      local list = def[action] and def[action][result]
+      indexList(list, "persuade:" .. def.id .. "." .. action .. "." .. result, "persuade:" .. def.id, "persuade")
+    end
+  end
+  Data.persuade[#Data.persuade + 1] = def
 end
 -- Arrivals: what the character writes in the diary the first time they reach a zone.
 function kinds.Arrival(pack, def)

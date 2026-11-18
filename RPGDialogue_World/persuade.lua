@@ -1,0 +1,422 @@
+-- Persuasion (0.85.0): how people answer Admire, Taunt and Intimidate, and how they refuse
+-- a topic when they don't think well enough of you yet (DESIGN.md §3.16).
+--
+-- P:Persuade { id, role, subtitle, faction, zone, subzone, admire|taunt|intimidate = { success, fail } }
+-- Sets for a role outrank side and home-city sets, which outrank everyone's. Lines take the
+-- usual conditions on the player (race, class, gender, faction, disposition). A named NPC
+-- can add their own: persuade = { admire = { success = { lines }, fail = { lines } }, ... }.
+-- No bribes, no alignment, no promises the game can't keep.
+local P = RPGDialogueAPI:Pack("rpgd.world")
+
+---------------------------------------------------------------------------
+-- Everyone
+---------------------------------------------------------------------------
+P:Persuade { id = "any",
+  admire = {
+    success = {
+      { id = "s1", text = "Well, now. It's not every day a stranger has a kind word for me, and I won't pretend I mind it." },
+      { id = "s2", text = "You've a silver tongue, {class}, and I know it, but I'll take the compliment all the same." },
+      { id = "s3", text = "That's good of you to say. Most folk only stop to tell me what I've done wrong." },
+      { id = "s4", text = "Ha! Flattery, and before noon too. Go on, then, I'm listening." },
+      { id = "s5", when = { gender = "female" }, text = "Aren't you sweet? I'd heard adventurers were all elbows and no manners, but you've proved them wrong." },
+      { id = "s6", when = { race = "Dwarf" }, text = "Kind words from a dwarf are rare as rubies, so I'll keep that one somewhere safe." },
+      { id = "s7", when = { race = "Gnome" }, text = "That's very kind, and very precisely put, as I'd expect from one of your folk." },
+      { id = "s8", when = { race = "Tauren" }, text = "When a tauren says a kind thing, you know they mean it. Thank you, friend." },
+    },
+    fail = {
+      { id = "f1", text = "Save your honey for someone who'll swallow it. I know when I'm being buttered up." },
+      { id = "f2", text = "If you want something, {class}, ask for it plainly instead of wasting both our time with compliments." },
+      { id = "f3", text = "That's very pretty, and I don't believe a word of it." },
+      { id = "f4", text = "Flattery's the cheapest coin there is, and you're spending it like you've a cartload." },
+      { id = "f5", when = { race = "Scourge" }, text = "A compliment from a corpse. I can't decide if that's charming or just unsettling, and I'm leaning toward the second." },
+      { id = "f6", when = { race = "NightElf" }, text = "Your people have had ten thousand years to practise courtesy, and that's the best you could manage?" },
+    },
+  },
+  taunt = {
+    success = {
+      { id = "s1", text = "Ha! You've got some nerve, {class}, and I'd rather deal with nerve than with simpering any day." },
+      { id = "s2", text = "Oh, is that how it is? Well, I like a body who says what they think to my face." },
+      { id = "s3", text = "You've a sharp mouth on you. Keep it pointed the right way and we'll get along fine." },
+      { id = "s4", when = { class = "WARRIOR" }, text = "Spoken like someone who's taken a few hits and handed back more. All right, I respect that." },
+    },
+    fail = {
+      { id = "f1", text = "I don't know who raised you, but they did a poor job of it. Mind your tongue." },
+      { id = "f2", text = "Is that meant to be clever? Go and bother somebody with more patience than I have." },
+      { id = "f3", text = "Charming. I'll remember that, {class}, and not fondly." },
+      { id = "f4", text = "There's no call to talk to me like that. I've done nothing to you." },
+      { id = "f5", when = { race = "Gnome" }, text = "Big words from someone I could put in my coat pocket. Run along." },
+      { id = "f6", when = { race = "Troll" }, text = "You can keep that sort of talk for the Echo Isles, troll, because it isn't welcome here." },
+    },
+  },
+  intimidate = {
+    success = {
+      { id = "s1", text = "All right, all right! There's no need for that, {class}. I'm listening, I promise you." },
+      { id = "s2", text = "Easy, easy. I'm sure we can be civil about this, can't we?" },
+      { id = "s3", text = "I... yes, of course. Whatever you say. I didn't mean to give offence." },
+      { id = "s4", when = { race = "Orc" }, text = "By all that's holy, you're a big one. Fine, fine, I'll mind my manners." },
+      { id = "s5", when = { race = "Tauren" }, text = "You needn't loom like that, I can see you perfectly well. Ask what you like, then." },
+      { id = "s6", when = { race = "Scourge" }, text = "Keep your distance, please, and I'll tell you anything you like. Just keep your distance." },
+    },
+    fail = {
+      { id = "f1", text = "Are you threatening me? I've stood up to worse than you, and in better boots." },
+      { id = "f2", text = "Try that again and I'll have the guards on you before you can blink." },
+      { id = "f3", text = "You want to frighten somebody, go and frighten the kobolds. I've no time for bullies." },
+      { id = "f4", text = "Big talk. I've seen your sort come and go, and most of them went face down." },
+      { id = "f5", when = { power = { "below", "far_below" } }, text = "You? Threaten me? Come back when you've a few more scars, {g:lad|lass}." },
+      { id = "f6", when = { race = "Gnome" }, text = "Oh, I'm terribly frightened. Shall I fetch you a crate to stand on while you glower?" },
+    },
+  },
+}
+
+---------------------------------------------------------------------------
+-- By side
+---------------------------------------------------------------------------
+P:Persuade { id = "horde", faction = "Horde",
+  admire = {
+    success = {
+      { id = "s1", text = "Kind words are rare in the Horde, and rarer still when they're true. I'll remember you said them." },
+      { id = "s2", text = "You honour me. Strength and good manners in one {class}, and the Alliance still calls us savages." },
+    },
+    fail = {
+      { id = "f1", text = "Sweet talk is for the Alliance's courts. Here, we judge each other by deeds." },
+      { id = "f2", text = "Flattery won't fill a belly or win a fight. Keep it." },
+    },
+  },
+  taunt = {
+    success = {
+      { id = "s1", text = "Ha! There's fire in you. Good; the Horde has no use for the timid." },
+    },
+    fail = {
+      { id = "f1", text = "Watch how you speak to your own. The Horde has enemies enough without you making more inside it." },
+    },
+  },
+  intimidate = {
+    success = {
+      { id = "s1", text = "Peace, peace. We're all of the Horde here, and there's no need to bare your teeth at me." },
+    },
+    fail = {
+      { id = "f1", text = "You'd threaten one of the Horde, in the Horde's own lands? Thrall would be ashamed of you." },
+    },
+  },
+}
+
+P:Persuade { id = "alliance", faction = "Alliance",
+  admire = {
+    success = {
+      { id = "s1", text = "Why, thank you. It's good to know there's still some courtesy left in the Alliance." },
+    },
+    fail = {
+      { id = "f1", text = "You'll find that sort of talk works better at court than out here, {class}." },
+    },
+  },
+  taunt = {
+    success = {
+      { id = "s1", text = "Hah! You'd go far in the army with a mouth like that, provided you can back it up." },
+    },
+    fail = {
+      { id = "f1", text = "We're on the same side, or had you forgotten? Save the insults for the Horde." },
+    },
+  },
+  intimidate = {
+    success = {
+      { id = "s1", text = "Steady, now. We're allies, aren't we? There's no call for that look." },
+    },
+    fail = {
+      { id = "f1", text = "The Alliance has laws, {class}, and threatening honest folk breaks a good many of them." },
+    },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Home cities and starting lands: the speaker's own people
+---------------------------------------------------------------------------
+P:Persuade { id = "orcs", zone = { "Orgrimmar", "Durotar" },
+  admire = {
+    success = { { id = "s1", text = "You speak well of me. Good; I'll see you're worth the words in battle." } },
+    fail = { { id = "f1", text = "An orc doesn't need praise to know his worth. Say something useful or say nothing." } },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Ha! Lok'tar! You've a warrior's tongue, whatever else you are." } },
+    fail = { { id = "f1", text = "Careful. In the old days, words like that ended with someone in the dirt." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "Hrm. You've the look of one who's spilled blood. Fine, I'll hear you out." } },
+    fail = { { id = "f1", text = "You try to frighten an orc? I survived the camps, whelp. You are nothing." } },
+  },
+}
+
+P:Persuade { id = "trolls", subzone = { "Sen'jin Village", "Echo Isles", "Darkspear Strand" },
+  admire = {
+    success = { { id = "s1", text = "Ah, you be a sweet talker, mon. I like dat, so long as you don't overdo it." } },
+    fail = { { id = "f1", text = "Sweet words from a stranger, dat's how de Darkspear learned to watch their backs." } },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Hah! Dat be a good one. You got some bite to you, mon." } },
+    fail = { { id = "f1", text = "Watch your mouth, or de loa might be watching it for you." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "Easy, mon, easy. No need for de mean look. What you want?" } },
+    fail = { { id = "f1", text = "You don't scare me, mon. I've faced Zalazane's witch doctors, and they be a lot uglier than you." } },
+  },
+}
+
+P:Persuade { id = "tauren", zone = { "Thunder Bluff", "Mulgore" },
+  admire = {
+    success = { { id = "s1", text = "Your words are gentle as spring rain. The Earth Mother smiles on kindness, and so do I." } },
+    fail = { { id = "f1", text = "Words that come too easily blow away just as easily, young one." } },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Ha. You have the spirit of a young bull, all horns and noise. I can respect that." } },
+    fail = { { id = "f1", text = "There is no honour in sharp words for those who have done you no harm. Walk on." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "Peace. There's no need to paw the earth at me; I will listen." } },
+    fail = { { id = "f1", text = "I have stood before charging kodo, little one. You will have to do far better than that." } },
+  },
+}
+
+P:Persuade { id = "forsaken", zone = { "Undercity", "Tirisfal Glades" },
+  admire = {
+    success = { { id = "s1", text = "How quaint. It's been a long while since anyone said something kind to me, and I find it doesn't entirely revolt me." } },
+    fail = { { id = "f1", text = "Spare me the pleasantries. My heart stopped beating long ago, and flattery won't restart it." } },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Ha. There's a little venom in you after all. The Dark Lady could use more of that." } },
+    fail = { { id = "f1", text = "Insult me again and I'll see how well you take to the apothecaries' newest batch." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "Very well, very well. I've no wish to be put in the ground a second time." } },
+    fail = { { id = "f1", text = "Threaten me? I've already died once. There's very little left for you to take." } },
+  },
+}
+
+P:Persuade { id = "dwarves", zone = { "Ironforge", "Dun Morogh" },
+  admire = {
+    success = { { id = "s1", text = "Och, away with ye! But aye, go on, say it again, I didnae quite catch it." } },
+    fail = { { id = "f1", text = "Save yer sweet talk for the elves, {g:lad|lass}. A dwarf wants plain words and a full mug." } },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Ha! Ye've got stones, I'll give ye that. Come and say it again over an ale." } },
+    fail = { { id = "f1", text = "Say that again and ye'll be pickin' yer teeth up off the forge floor." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "All right, all right, by my beard! Nae need to loom like a Dark Iron at a wake." } },
+    fail = { { id = "f1", text = "Ye think ye can scare a dwarf? I've stared down Dark Irons, ye great lump." } },
+  },
+}
+
+P:Persuade { id = "gnomes", subzone = { "Tinker Town", "Gnomeregan Exiles", "Anvilmar" },
+  admire = {
+    success = { { id = "s1", text = "Oh! Well, that's very kind, and I'd estimate at least seventy percent sincere, which is better than most." } },
+    fail = { { id = "f1", text = "I've built machines that compliment better than that, and they were faulty." } },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Ha! Sharp, very sharp. You'd do well in a design review, you would." } },
+    fail = { { id = "f1", text = "Rude! Unnecessarily rude, and I've lost my city, so I've had quite enough of rude today." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "Eep! Yes, quite, no need for that, I'll cooperate entirely, fully, completely." } },
+    fail = { { id = "f1", text = "I've survived a radiation leak and Thermaplugg's lot. You're a minor inconvenience, statistically speaking." } },
+  },
+}
+
+P:Persuade { id = "kaldorei", zone = { "Darnassus", "Teldrassil" },
+  admire = {
+    success = { { id = "s1", text = "Your words are kind, and kindly meant, I think. Elune-adore, traveller." } },
+    fail = { { id = "f1", text = "I have heard ten thousand years of honeyed speech. Yours is not the sweetest of it." } },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Bold. The Sentinels would like you, I think, if they didn't arrest you first." } },
+    fail = { { id = "f1", text = "Such haste and such rudeness. The young races have a great deal to learn." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "Peace, peace. There is no need for this. Speak, and I will answer." } },
+    fail = { { id = "f1", text = "I have seen the Legion burn the world. You do not frighten me." } },
+  },
+}
+
+P:Persuade { id = "humans", zone = { "Stormwind City", "Elwynn Forest" },
+  admire = {
+    success = { { id = "s1", text = "Well, aren't you a gentle sort! Stormwind could use more folk like you, and fewer tax collectors." } },
+    fail = { { id = "f1", text = "I've heard nobles say prettier things than that, and I didn't believe them either." } },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Ha! You'd fit right in down at the Pig and Whistle, and I mean that kindly." } },
+    fail = { { id = "f1", text = "There's a city watch for people like you, and it's never far off." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "All right, no need for that. I've a family, you know, so let's keep this friendly." } },
+    fail = { { id = "f1", text = "Threaten me in the king's own city? Go on, try it, and see where you spend the night." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- By role
+---------------------------------------------------------------------------
+P:Persuade { id = "guard", role = { "guard", "soldier", "militia" },
+  admire = {
+    success = {
+      { id = "s1", text = "Kind of you to say. Most folk only notice the guard when they want something or want to complain." },
+      { id = "s2", text = "Hmph. Well, I do keep this post well, if I say so myself. Thank you, {class}." },
+    },
+    fail = {
+      { id = "f1", text = "I'm on duty, {class}. Compliments won't get you past me, and they won't get you out of a fine either." },
+      { id = "f2", text = "Move along. I've no time for sweet talk while I'm standing watch." },
+    },
+  },
+  taunt = {
+    success = {
+      { id = "s1", text = "Ha! You've some spine. I'd rather have you beside me in a fight than half the recruits I'm given." },
+      { id = "s2", text = "Mouthy, aren't you? Good. A soldier who can't take a ribbing won't last a week on the walls." },
+    },
+    fail = {
+      { id = "f1", text = "One more word like that and you'll spend a night in the stockade to think it over." },
+      { id = "f2", text = "I'm the law here, {class}, and the law doesn't take kindly to cheek." },
+    },
+  },
+  intimidate = {
+    success = {
+      { id = "s1", text = "Easy there. I've a post to keep and a family to go home to, so let's not make trouble." },
+    },
+    fail = {
+      { id = "f1", text = "Threatening a guard? That's a short walk to a long sentence. Try it and see." },
+      { id = "f2", text = "I've a whole garrison behind me, {class}. Think very carefully about your next move." },
+    },
+  },
+}
+
+P:Persuade { id = "innkeeper", role = "innkeeper",
+  admire = {
+    success = {
+      { id = "s1", text = "Oh, go on with you! Now I'll be smiling all evening, and the regulars will wonder what's got into me." },
+      { id = "s2", text = "Ha! You've a way with words, friend. Sit by the fire a while, it's warmer than the road." },
+    },
+    fail = {
+      { id = "f1", text = "I've heard every line there is across this bar, friend, and that's one of the tired ones." },
+    },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Ha! That's the sort of cheek I hear from my best customers. You'll do." } },
+    fail = { { id = "f1", text = "Keep that up and you can find somewhere else to drink. I run a respectable house." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "Steady on. I don't want trouble in my common room, so let's keep this quiet and friendly." } },
+    fail = { { id = "f1", text = "I've thrown out bigger brutes than you, and with a ladle. Settle down or get out." } },
+  },
+}
+
+P:Persuade { id = "merchant", role = { "vendor", "banker", "auctioneer" },
+  admire = {
+    success = {
+      { id = "s1", text = "Why, thank you! It's not often a customer has anything nice to say before they've seen the prices." },
+    },
+    fail = {
+      { id = "f1", text = "Compliments don't come off the price, friend. I've a family to feed." },
+      { id = "f2", text = "Mm-hm. Everyone's very charming right before they ask for credit." },
+    },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Ha! You'd make a fine haggler with that tongue. I'll watch my margins around you." } },
+    fail = { { id = "f1", text = "Rude customers are still customers, but only just. Mind yourself." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "No need for any unpleasantness! I'm sure we can do business like civilised folk." } },
+    fail = { { id = "f1", text = "Lean on me all you like. I've dealt with goblin collectors, and you're nothing next to them." } },
+  },
+}
+
+P:Persuade { id = "smith", role = "blacksmith",
+  admire = {
+    success = { { id = "s1", text = "Aye, the work's good, isn't it? Nice to have somebody notice it instead of just complaining it's dented." } },
+    fail = { { id = "f1", text = "Words are cheap. Steel isn't. Tell me what you need fixed." } },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Ha! You've got a temper like a good forge, and I can work with that." } },
+    fail = { { id = "f1", text = "Careful. I've a hammer in my hand and a long day behind me." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "Fine, fine. Put the scowl away and I'll hear what you've got to say." } },
+    fail = { { id = "f1", text = "You see these arms? I swing a hammer all day. Try me." } },
+  },
+}
+
+P:Persuade { id = "trainer", role = "trainer",
+  admire = {
+    success = { { id = "s1", text = "I appreciate that. Teaching is a thankless trade more often than not." } },
+    fail = { { id = "f1", text = "Praise won't make you learn any faster, {class}. Practice will." } },
+  },
+  taunt = {
+    success = { { id = "s1", text = "Ha. That's the spirit I like to see in a student, so long as you can take as good as you give." } },
+    fail = { { id = "f1", text = "Insult your teacher and you'll find the lessons get a great deal harder." } },
+  },
+  intimidate = {
+    success = { { id = "s1", text = "Very well. Clearly you've learned a few things since you started, and threatening people is one of them." } },
+    fail = { { id = "f1", text = "I taught half the people who could beat you. Sit down." } },
+  },
+}
+
+P:Persuade { id = "warrior_trainer", role = "trainer", subtitle = "warrior",
+  taunt = {
+    success = {
+      { id = "s1", text = "Ha! Now that's how a warrior should talk. Back it up on the training dummies and we'll get on fine." },
+      { id = "s2", when = { class = "WARRIOR" }, text = "Good. A warrior who can't bark is a warrior who won't bite. You'll go far." },
+    },
+  },
+}
+
+P:Persuade { id = "peon", role = { "peon", "worker" },
+  admire = {
+    success = { { id = "s1", text = "Me? Nobody ever say nice things to me. Uh, thanks. Zug zug." } },
+    fail = { { id = "f1", text = "You trying to trick me into more work? It won't work. Probably." } },
+  },
+  taunt = {
+    fail = { { id = "f1", text = "Why everybody always mean to me? I'm working, I'm working!" } },
+  },
+  intimidate = {
+    success = {
+      { id = "s1", text = "Okay, okay! Don't whip me, I go faster now, see?" },
+      { id = "s2", text = "I didn't do it! Whatever it was, it was the other peon." },
+    },
+  },
+}
+
+P:Persuade { id = "flightmaster", role = { "flightmaster", "stablemaster" },
+  admire = {
+    success = { { id = "s1", text = "Kind of you. The beasts get all the compliments around here, so it's nice to get one myself." } },
+    fail = { { id = "f1", text = "Sweet words won't get you there any faster. The beasts fly at their own pace." } },
+  },
+  taunt = {
+    fail = { { id = "f1", text = "Talk to me like that and you can walk to wherever you're going." } },
+  },
+  intimidate = {
+    fail = { { id = "f1", text = "Threaten me in front of the beasts again and they'll be the ones you answer to." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- "I've nothing to say to you about that." When they don't think well enough of you yet.
+---------------------------------------------------------------------------
+P:Generic { id = "gated", topics = {
+  _gated = {
+    { id = "g1", text = "I've nothing to say to you about that." },
+    { id = "g2", text = "That's not something I discuss with strangers, and you're still a stranger to me." },
+    { id = "g3", text = "Why would I tell you that? I barely know you, and what I know I don't much like." },
+    { id = "g4", text = "Ask me again when I've a reason to trust you. Today isn't that day." },
+    { id = "g5", when = { faction = "Horde" }, text = "You haven't earned that, {class}. Earn it, and then we'll talk." },
+    { id = "g6", when = { faction = "Alliance" }, text = "I'll thank you to keep your nose out of that, at least until I know you better." },
+    { id = "g7", when = { disposition = { max = 19 } }, text = "Get away from me. I wouldn't tell you the time of day." },
+  },
+} }
+
+P:Pool { id = "gated_guard", role = "guard", askOnly = true, topics = {
+  _gated = {
+    { id = "g1", text = "That's guard business, not yours. Move along." },
+    { id = "g2", text = "I don't share watch talk with anyone I don't trust, and I don't trust you yet." },
+  },
+} }
+
+P:Pool { id = "gated_innkeeper", role = "innkeeper", askOnly = true, topics = {
+  _gated = {
+    { id = "g1", text = "What's said in my house stays in my house, friend, at least until I know who's asking." },
+  },
+} }

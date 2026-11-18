@@ -39,6 +39,7 @@ origins\orc.lua
 origins\troll.lua
 origins\tauren.lua
 origins\forsaken.lua
+persuade.lua
 rumors\elwynn.lua
 rumors\westfall.lua
 rumors\redridge.lua
