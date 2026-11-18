@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; follow `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.88.0)
+## State (0.89.0)
+- 0.89.0 (user: "make a release"): open PRs #151 (Galiaan human voice, Westfall 1.27.0) and #152 (flagged lines print in chat + copy window; `/rpgd flagged copy`, `/rpgd flagged N`) merged cleanly. No new files. Only `luac -p` run; nothing seen in game.
 - 0.88.0 (user: "go ahead" on releasing the rest of #141): the last two batches of the missed-NPC pass, 47 new NPCs (Orgrimmar 29, Ironforge/Dun Morogh 18). Before merging, 60 entries from those batches that duplicated NPCs already released in 0.87.0 were dropped (the released copies kept), so the duplicate count is unchanged at 336, not worse. Orgrimmar `npcs/more_folk2.lua` is a NEW FILE (full restart). Only `luac -p` run.
 - 0.87.0 (user: "build the next release"): open PRs #141 (its later commits; 0.86.0 had only the early part), #143-#147 merged. Conflicts: Wenna Silkbeard dropped from Barrens `unsung.lua` (#141 moved her to Wetlands); #144 was cut from the pre-0.86.0 base, so its changelogs/handoff were dropped (ours kept) and its `.toc` file lists kept both. Every pack bumped one minor. Only `luac -p` run; nothing seen in game.
 - **Duplicates:** #141 and #144 both added "missed" NPCs in the same zones, so ~337 TODO_NPC names now exist twice under different keys. Nothing breaks (the last-loaded copy wins `byName`; the other is dead weight), but they should be deduped, keeping the deeper copy. List: `git grep -hoP 'id = TODO_NPC\("\K[^"]+' -- 'RPGDialogue_*/npcs/*.lua' | sort | uniq -d`.

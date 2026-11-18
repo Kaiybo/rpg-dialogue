@@ -108,8 +108,8 @@ commands.why = function(args)
   if ns.Why then ns.Why.Print(tonumber(args[1])) else notYet() end
 end
 
-commands.flagged = function()
-  if ns.Flag then ns.Flag.List() else notYet() end
+commands.flagged = function(args)
+  if ns.Flag then ns.Flag.List(args[1]) else notYet() end
 end
 
 commands.packs = function()
