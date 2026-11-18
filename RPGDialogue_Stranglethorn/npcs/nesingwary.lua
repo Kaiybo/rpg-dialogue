@@ -131,7 +131,7 @@ P:NPC {
       lines = { { id = "dt_default", text = "It troubles a great many people, and yet the panthers remain. I take the strong ones and leave the young, and I write down everything I see. Respect, my friend, can come with a rifle." } },
       choices = {
         { text = "Take only what you need. That is the balance.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "You kill for trophies. There's no honor in it.", next = "BACK", fx = { align = { honor = -1 } } },
+        { text = "Trophy or meat, a dead cat's a dead cat.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Let me ask about something else.", next = "BACK" },
       },
     },
@@ -146,7 +146,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Never, though I'll admit I've been tempted since King Bangalash slipped away from me at dusk. A hunt is a contest between the hunter an' the beast, an' magic would spoil it, so I'll keep my rifle an' my patience." } },
+      lines = { { id = "xmage_default", text = "Never, though I'll admit I've been tempted since King Bangalash, the great white tiger, slipped away from me at dusk. A hunt is a contest between the hunter an' the beast, an' magic would spoil it, so I'll keep my rifle an' my patience." } },
       choices = {
         { text = "You're right. A fair hunt is the only hunt.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Use every advantage. The beast would.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -197,7 +197,7 @@ P:NPC {
         { id = "h_dusk", when = { timeOfDay = "night" },
           text = "Listen, d'ye hear that? Somethin' big, west o' camp, movin' slow. We'll go after it tomorrow; tonight we drink." },
         { id = "h_cat", when = { form = "cat" },
-          text = "Dinnae move, dinnae... ach, it's only a druid! Ye nearly had a bullet for yer trouble, so turn back intae yerself before Ajeck sees ye." },
+          text = "Dinnae move, dinnae... ach, it's only a druid! Ye nearly had a bullet for yer trouble, so turn back intae yerself before Ajeck, my best shot, sees ye." },
         { id = "h_king_done", tags = { "news" }, key = true, when = { questRecent = { TODO_QUEST("Big Game Hunter"), days = 3 } },
           text = "The King's head, on my wall. I've wanted that for years, an' now I've got it I keep lookin' west anyway. There's always somethin' bigger." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Quiet, quiet! Ah, a rogue, which is the next best thing tae a hunter, since ye ken how tae move without scarin' the game." },
@@ -228,7 +228,7 @@ P:NPC {
         { text = "I'll hunt for you.", next = "END", fx = { affinity = 2, trait = { brave = 1 } } },
         { text = "Some of those cats you hunt are my kin, Nesingwary.", next = "k_druid", when = { class = "DRUID" } },
         { text = "My people hunted this jungle before yours had rifles.", next = "k_troll", when = { race = "Troll" } },
-        { text = "A human hunter. You don't see many, they tell me.", next = "k_human", when = { race = "Human", class = "HUNTER" } },
+        { text = "There aren't many human hunters, they tell me.", next = "k_human", when = { race = "Human", class = "HUNTER" } },
         { text = "A rogue could make a good hunter, I'd think, Nesingwary.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Would you really use magic in a hunt, Nesingwary?", next = "xmage", when = { class = "MAGE" } },
         { text = "Would you hunt alongside a Forsaken paladin, Nesingwary?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
@@ -261,7 +261,7 @@ P:NPC {
       choices = {
         { text = "Fair chance. I can respect that.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Fair or not, a kill's a kill.", next = "BACK", fx = { align = { honor = -1 } } },
-        { text = "A fair chance against a rifle?", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
+        { text = "A fair chance, against a rifle? I doubt that.", next = "BACK", fx = { affinity = -1, trait = { skeptical = 1 } } },
       },
     },
 
@@ -323,7 +323,7 @@ P:NPC {
       },
     },
     students_ajeck = {
-      lines = { { id = "sa_default", text = "Her father taught her tigers; I just gave her somewhere tae practise. She'll take Sin'Dall one day, an' I hope I'm awake for it." } },
+      lines = { { id = "sa_default", text = "Her father taught her tigers; I just gave her somewhere tae practise. She'll take Sin'Dall, the great tiger o' the north, one day, an' I hope I'm awake for it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     students_erlgadin = {
@@ -381,12 +381,12 @@ P:NPC {
       },
       choices = {
         { text = "Then hunt with me, old man.", next = "BACK", fx = { affinity = 2, trait = { brave = 1 } } },
-        { text = "Hunt in your own forests, human.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 } } },
+        { text = "Hunt in your own mountains, dwarf.", next = "BACK", fx = { affinity = -2, trait = { stern = 1 } } },
       },
     },
     k_human = {
       lines = {
-        { id = "xhu_default", text = "I see one every morning in my shaving bowl, so I'd say there are a few of us. Most Stormwinders think a rifle is something you buy, not something you earn, and if you earned yours, you're welcome at my fire." },
+        { id = "xhu_default", text = "Fewer than there ought tae be, for most Stormwinders think a rifle's somethin' ye buy, no' somethin' ye earn. If ye earned yers, ye're welcome at my fire." },
         { id = "xhu_eastvale", when = { origin = "human_eastvale_woodsman" },
           text = "Eastvale, by the cut of that coat. Those woods breed the only human hunters worth the name, and I learned half my tracking from an old Eastvale man, so you're welcome at my fire." },
       },
@@ -627,7 +627,7 @@ P:NPC {
       },
     },
     master_reason = {
-      lines = { { id = "mr_default", text = "I know, an' that's what makes me cross. A dwarf likes tae be protected about as much as he likes tae be short, which is tae say, it's no' his choice." } },
+      lines = { { id = "mr_default", text = "I know, an' that's what makes me cross, for a dwarf hates bein' protected near as much as he hates bein' called short." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
 
@@ -699,7 +699,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Ajeck Rouack restrung her bow while we talked and never once looked up. She means to take Sin'Dall someday, and he says it like a plain fact.",
+    first = "Ajeck Rouack restrung her bow while we talked and never once looked up. She means to take Sin'Dall someday, and she says it like a plain fact.",
     third = "{name} met Ajeck Rouack at Nesingwary's camp, a tiger hunter who means one day to bring down Sin'Dall.",
   },
 
@@ -806,7 +806,7 @@ P:NPC {
         { text = "Tell me about your father.", next = "father" },
         { text = "Tracking a tiger must take a deal of patience.", next = "track" },
         { text = "Want to compare bows?", next = "bows", when = { class = "HUNTER" } },
-        { text = "What about the cats that walk on two legs?", next = "druid", when = { class = "DRUID" } },
+        { text = "What if one of the cats you hunt is a druid?", next = "druid", when = { class = "DRUID" } },
         { text = "Why are you so set on taking Sin'Dall, Ajeck?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "Would you hunt Sin'Dall with a warrior beside you, Ajeck?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Would you take a paladin on the hunt for Sin'Dall, Ajeck?", next = "xapala", when = { class = "PALADIN" } },
@@ -891,7 +891,7 @@ P:NPC {
       },
       choices = {
         { text = "A collar? I'll consider it.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
-        { text = "I'd see you coming.", next = "BACK", fx = { affinity = -1 } },
+        { text = "No collar. I'd see your arrow coming first.", next = "BACK", fx = { affinity = -1 } },
       },
     },
     k_troll = {

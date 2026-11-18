@@ -194,7 +194,7 @@ P:NPC {
     plate_fault = {
       lines = { { id = "plf_default", text = "Nothing's wrong with it, chum, and that's what bothers me, because Fargon learned the trade in some soldier's column up north and won't tell me a single trick. I've offered him money, I've offered him rum, and once I offered him my cousin's hand, and he turned down all three." } },
       choices = {
-        { text = "How did your cousin take that?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "I hope your cousin never heard about that.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Someone else.", next = "BACK" },
       },
     },
@@ -304,7 +304,7 @@ P:NPC {
       },
     },
     xhunt = {
-      lines = { { id = "xh_default", text = "When the jungle rot gets into the barrels, aye, and they pay in pelts, which I then have to sell to Blixrez Goodstitch at a loss. Never take payment in hides from a hunter, pal, because the hunter always knows what they're worth and you never do." } },
+      lines = { { id = "xh_default", text = "When the jungle rot gets into the barrels, aye, and they pay in pelts, which I then have to sell to Blixrez Goodstitch at the tannery, at a loss. Never take payment in hides from a hunter, pal, because the hunter always knows what they're worth and you never do." } },
       choices = {
         { text = "Hunters drive a hard bargain. It's true.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -612,7 +612,7 @@ P:NPC {
         { id = "h_tauren", when = { race = "Tauren" },
           text = "Oh, good, somebody who has to duck under the door like me. Fargon made the frame taller for me, so you will fit too, and you do not need to stoop in here." },
         { id = "h_rivet", when = { metBefore = true },
-          text = "Rivet changed helms last night and moved into the old dented one at the end. Fargon says that is a bad omen, but I think Rivet just likes the room." },
+          text = "Rivet, my crab, changed helms last night and moved into the old dented one at the end. Fargon says that is a bad omen, but I think Rivet just likes the room." },
       },
       again = {
         { id = "h_again", text = "Is there more? I am in no hurry." },
@@ -1071,7 +1071,7 @@ P:NPC {
         { id = "h_druid", when = { class = "DRUID" },
           text = "A druid, in a tannery. I'll be honest with you, pal, this is the part of my week I worry about most." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "One of Strom's lot, by the walk. You'll want soft leather that doesn't creak, and I've got the only oil in town that makes it so, at a price that'll make you wince quietly." },
+          text = "One of Ian Strom's rogues, by the walk. You'll want soft leather that doesn't creak, and I've got the only oil in town that makes it so, at a price that'll make you wince quietly." },
       },
       again = {
         { id = "h_again", text = "What else, pal? Talk quick, the vats need stirring." },
@@ -1192,7 +1192,7 @@ P:NPC {
       },
     },
     xrogue = {
-      lines = { { id = "xr_default", text = "Oil, pal, oil and patience, because new leather creaks like a ship in a storm and a rogue in creaky boots is a rogue in a cell. I keep a little pot of mink oil under the counter for just that, and nobody in Strom's lot leaves without one." } },
+      lines = { { id = "xr_default", text = "Oil, pal, oil and patience, because new leather creaks like a ship in a storm and a rogue in creaky boots is a rogue in a cell. I keep a little pot of mink oil under the counter for just that, and none of Ian Strom's rogues leaves without one." } },
       choices = {
         { text = "Let me see what you've got.", next = "BUSINESS" },
         { text = "Something else.", next = "BACK" },
@@ -1365,7 +1365,7 @@ P:NPC {
     goblins_fav = {
       lines = { { id = "gof_default", text = "Brikk Keencraft, without question, because Brikk forges my casings to a hair's breadth and never once asks what they're for. And the big armorer, Hurklor, who carried me down the boardwalk the day a prototype became a little too affectionate, which I'll never forget, however much I'd like to." } },
       choices = {
-        { text = "Affectionate? Hurklor said it was chasing you.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Affectionate? That sounds like a polite word for chasing.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

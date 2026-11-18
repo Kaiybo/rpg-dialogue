@@ -83,7 +83,7 @@ P:NPC {
       },
     },
     ride = {
-      lines = { { id = "ri_default", text = "The Darkspear say their people rode them long ago, and Kin'weelay says it as though it were yesterday. I have tried once, and I have the scar on my thigh to show you how that went." } },
+      lines = { { id = "ri_default", text = "The Darkspear say their people rode them long ago, and old Kin'weelay, the Darkspear here in camp, tells it as though it were yesterday. I have tried once, and I have the scar on my thigh to show you how that went." } },
       choices = {
         { text = "Keep trying. You'll get there.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -126,7 +126,7 @@ P:NPC {
 
   notice = {
     { id = "n_undead", cat = "race", when = { race = "Scourge" },
-      text = "Going home, are ya? Lovely, lovely, and listen, you don't need a seat by the rail for the air, so I'll sell that one to a troll." },
+      text = "Going home, are ya? Lovely, lovely, and listen, you folks don't breathe, so you won't need a seat by the rail for the air, and I'll sell that one to a troll." },
     { id = "n_weary", cat = "weary", place = "before", when = { resSick = true },
       text = "Whoa, you look like you've been run through the Spirit Healer twice, buddy. Sit down at the top of the tower and don't fall off, because the paperwork's murder." },
   },
@@ -150,7 +150,7 @@ P:NPC {
         { text = "Is the zeppelin really safe?", next = "safe" },
         { text = "What's the Undercity like to deal with?", next = "undercity" },
         { text = "Why does a goblin run Horde zeppelins?", next = "cartel" },
-        { text = "When's the next zeppelin?", next = "END" },
+        { text = "I'll go and wait for the zeppelin.", next = "END" },
       },
     },
 
@@ -347,7 +347,7 @@ P:NPC {
     },
 
     strange = {
-      lines = { { id = "sr_default", text = "A basilisk, from up by the crystal mines, and the meat glittered in the pot like it was full of little stones. It tasted of nothing at all, and Kin'weelay would not touch it, which tells you something." } },
+      lines = { { id = "sr_default", text = "A basilisk, from up by the crystal mines, and the meat glittered in the pot like it was full of little stones. It tasted of nothing at all, and Kin'weelay, the Darkspear by the north gate, would not touch it, which tells you something." } },
       choices = {
         { text = "I'll take the raptor, then.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },

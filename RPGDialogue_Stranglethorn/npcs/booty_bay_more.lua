@@ -96,7 +96,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Only the ones that smell like cats, which is half of you, I'm told. A druid in bird form flew alongside my birds once, all the way up the coast, and they sulked for a week because something kept up with them." } },
+      lines = { { id = "xdruid_default", text = "Only the ones that smell like cats, which is half of you, I'm told. A druid in bird form flew alongside my birds once, all the way up the coast, and they sulked for a week, off their fish, because something kept up with them." } },
       choices = {
         { text = "Your birds deserve better than fish. Speak to the Baron about it.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "They eat what's cheap, like everyone in Booty Bay. That's fair.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -719,7 +719,7 @@ P:NPC {
     },
     source = {
       lines = {
-        { id = "s_default", text = "Sailors, mostly, and the Blackwater lads after a fight with the Bloodsail. Some of these blades have changed hands more times than a gambling debt at MacKinley's table." },
+        { id = "s_default", text = "Sailors, mostly, and the Blackwater lads after a fight with the Bloodsail. Some of these blades have changed hands more times than a gambling debt at the Salty Sailor's card tables." },
       },
       choices = {
         { text = "I'd guess a few of them were stolen.", next = "source_stolen" },
@@ -1055,7 +1055,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Probably not, but you'd be the first to find out, and I'd want to hear about it either way. Pirates buy off dead men, druids buy off nobody, and I sell to the people in between, which is most of the dock and all of the profit." } },
+      lines = { { id = "xdruid_default", text = "Probably not, but you'd be the first to find out, and I'd want to hear about it either way. Either way, I'll take your coin before you try it, and the hat's yours whatever shape you end up in." } },
       choices = {
         { text = "I'd never pretend to be a pirate. It's an insult to the honest.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Fine, sell me the hat. A druid can have a little fun.", next = "BACK", fx = { affinity = 1, align = { honor = -1 } } },
@@ -1115,7 +1115,7 @@ P:NPC {
     },
     real_red = {
       lines = {
-        { id = "rr_default", text = "Bloodsail colors, friend. First Mate Crazz would put a knife in you before you could explain, and then he'd feel terrible, but only a little." },
+        { id = "rr_default", text = "Bloodsail colors, friend. First Mate Crazz of the Blackwater would put a knife in you before you could explain, and then he'd feel terrible, but only a little." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "bloodsail" } } } },
     },
@@ -1193,7 +1193,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "The haunted island, mostly, the one the captains won't go near, and they say a ghost wrecked a ship there and kept the crew. They talk with their mouths full, so I only catch half, but the half I catch is enough to put me off my dinner, and I don't put myself off dinner for nothin'." } },
+      lines = { { id = "xhcast_default", text = "They do, mostly about the haunted island the captains won't go near, where they say a ghost wrecked a ship and kept the crew. They talk with their mouths full, so I only catch half, but the half I catch is enough to put me off my dinner, and I don't put myself off dinner for nothin'." } },
       choices = {
         { text = "Someone ought to lay that ghost to rest.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A wreck with no crew means free cargo.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -1310,7 +1310,7 @@ P:NPC {
         { id = "sk_default", text = "Compete? Skindle sells you a stool and a rum and a roof, and I sell you what you take away and eat on the pier. We stay out of each other's way, mostly, and out of each other's ledgers." },
       },
       choices = {
-        { text = "Mostly?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I'll not ask about the mostly.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1485,7 +1485,7 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Store your cloth with cedar, never with fish, pal. You'd be amazed how many people need telling, and how many come back to buy new cloth." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay's a sailor's town, so I mend more sails than silks, and I don't complain. Every ship that comes in has something torn, and I've got the thread for it." } },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail sails are badly sewn and patched with whatever they've stolen, and I can spot one from the dock. That's how I know they're coming, before anyone else does." } },
-    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire tents are the finest silk work I've ever seen, pal, and I've tried for years to find out who sews them. Silas won't say a word." } },
+    darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire tents are the finest silk work I've ever seen, pal, and I've tried for years to find out who sews them. Silas Darkmoon won't say a word." } },
     theramore = { { id = "tp_theramore", text = "Theramore's sailmakers do good work, the Kul Tiran way, tight stitches and heavy canvas. I've copied a few of their tricks." } },
     _none = { { id = "tp_none", text = "Not cloth, not thread, not my business, and not my money." } },
   },

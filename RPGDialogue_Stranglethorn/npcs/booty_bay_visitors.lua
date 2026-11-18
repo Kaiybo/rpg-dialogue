@@ -128,7 +128,7 @@ P:NPC {
       choices = {
         { text = "Then the elders should lead, and the younger tribes should listen.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "No tribe owes another obedience, however old it is.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Do the younger tribes ever listen?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I doubt the younger tribes ever listen.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
 
@@ -249,7 +249,7 @@ P:NPC {
       },
       choices = {
         { text = "My faith is the Light. Your loa are not gods to me.", next = "BACK", fx = { affinity = -1 }, when = { faction = "Alliance" } },
-        { text = "Then the loa themselves want him gone?", next = "BACK", fx = { affinity = 1 } },
+        { text = "Then the true loa must want him gone as much as you do.", next = "BACK", fx = { affinity = 1 } },
       },
     },
   },
@@ -298,11 +298,11 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Dudd Fizzlescroll, purveyor of scrolls, maps and documents of every kind, scholar. Agility, Strength, Protection, Spirit, a good map of the Cape for a fair price, and treasure maps for an even fairer one, which you'll understand is a different thing entirely." },
         { id = "h_rogue", when = { class = "ROGUE" },
-          text = "One of Strom's quiet friends, if I'm any judge, and you'll want a Scroll of Agility for those fingers, scholar. Don't try lifting one, though, because I count my stock twice an hour and I count it in ink." },
+          text = "One of Ian Strom's rogues, if I'm any judge, and you'll want a Scroll of Agility for those fingers, scholar. Don't try lifting one, though, because I count my stock twice an hour and I count it in ink." },
         { id = "h_warrior", when = { class = "WARRIOR" },
           text = "Now here's a scholar with arms like ship's cable! A Scroll of Strength on top of all that would be gilding the cannon, but I sell gilt too, so let's talk." },
         { id = "h_cortello", when = { questDone = TODO_QUEST("Cortello's Riddle") },
-          text = "Word is you followed old Cortello's riddle all the way to the end, scholar, and there was a real chest at the bottom. Do you know what that does to my business, having a real one out there making mine look bad?" },
+          text = "Word is you followed old Captain Cortello's riddle all the way to the end, scholar, and there was a real chest at the bottom. Do you know what that does to my business, having a real one out there making mine look bad?" },
       },
       again = {
         { id = "h_again", text = "What else, scholar? Ask away, because questions are free and answers are priced to sell." },
@@ -331,11 +331,11 @@ P:NPC {
       },
     },
     scrolls_who = {
-      lines = { { id = "sw_default", text = "Not the magic ones, no, because the last time I tried, the ink caught fire and so did my desk, my sleeve and a very nice ledger. I've got a cousin who buys his blasting powder from Crazk Sparks, and even he said I should stick to copying." } },
+      lines = { { id = "sw_default", text = "Not the magic ones, no, because the last time I tried, the ink caught fire and so did my desk, my sleeve and a very nice ledger. I've got a cousin who buys his blasting powder from Crazk Sparks, the fireworks man, and even he said I should stick to copying." } },
       choices = { { text = "Something else, Dudd.", next = "BACK" } },
     },
     scrolls_best = {
-      lines = { { id = "sb_default", text = "Protection, scholar, by a long way, because anybody going up the jungle road wants a little extra between them and a raptor. Spirit sells to the priests and Intellect sells to the mages, and Agility sells to Strom's crowd, though they always want to pay in favours." } },
+      lines = { { id = "sb_default", text = "Protection, scholar, by a long way, because anybody going up the jungle road wants a little extra between them and a raptor. Spirit sells to the priests and Intellect sells to the mages, and Agility sells to the rogues, though they always want to pay in favours." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -397,7 +397,7 @@ P:NPC {
       choices = { { text = "Something else, Dudd.", next = "BACK" } },
     },
     cust_garrett = {
-      lines = { { id = "cg_default", text = "I don't ask, scholar, because a goblin who asks questions about Shady Goods ends up a footnote. My guess is letters of passage, the kind with a seal that looks very much like a Stormwind one if you don't hold it near a lamp." } },
+      lines = { { id = "cg_default", text = "I don't ask, scholar, because a goblin who asks questions about Garrett's business ends up a footnote. My guess is letters of passage, the kind with a seal that looks very much like a Stormwind one if you don't hold it near a lamp." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
 
@@ -535,12 +535,12 @@ P:NPC {
       },
     },
     rocket_pix = {
-      lines = { { id = "rp_default", text = "She said gear doesn't explode, sport, which she's been sayin' ever since, and she's got a point. Then Frix tried to sell the ship's captain a policy against roofs, and that's when they put us ashore with our luggage." } },
+      lines = { { id = "rp_default", text = "She said the cabin roof was comin' out of my share, sport, and she's been sayin' it ever since. Then Frix tried to sell the ship's captain a policy against roofs, and that's when they put us ashore with our luggage." } },
       choices = { { text = "Something else, Rix.", next = "BACK" } },
     },
 
     dream = {
-      lines = { { id = "dr_default", text = "Rockets, sport, every day! I've got a corner of the shelf set aside for parts, and one day I'll have enough for a proper shop on the pier, rockets for weddings and battles and the Baron's birthday. Crazk Sparks says the wharf ain't big enough for two of us, which I take as a compliment." } },
+      lines = { { id = "dr_default", text = "Rockets, sport, every day! I've got a corner of the shelf set aside for parts, and one day I'll have enough for a proper shop on the pier, rockets for weddings and battles and the Baron's birthday. Crazk Sparks, who sells fireworks on the wharf, says it ain't big enough for two of us, which I take as a compliment." } },
       choices = {
         { text = "Crazk sounds worried.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -669,7 +669,7 @@ P:NPC {
       choices = {
         { text = "The paper's what makes it right. Keep to it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Paper or no paper, you're still a pirate.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Who decides what counts as lawful prize?", next = "marque_earn" },
+        { text = "How did you earn that paper, anyway?", next = "marque_earn" },
       },
     },
     marque_earn = {
@@ -817,13 +817,13 @@ P:NPC {
       choices = {
         { text = "A bargain broken is no bargain. You were right to stop.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "It's their land. Pay them better and keep paying.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "What did the chief do with the empty crate?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "I hope he at least gave you the crate back.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
 
     kurzen = {
       lines = {
-        { id = "kz_default", text = "Kurzen's rebels sit up in the north of the jungle with their stolen rifles, partner, and they'll take a wagon of food without blinkin' because they've gone hungry out there. The bandits are worse, because a bandit doesn't even want the food, he wants the mules and the driver's boots." },
+        { id = "kz_default", text = "Colonel Kurzen's soldiers, you mean, who've gone bad up in the north of the jungle, partner, and they'll take a wagon of food without blinkin' because they've gone hungry out there. The bandits are worse, because a bandit doesn't even want the food, he wants the mules and the driver's boots." },
       },
       choices = {
         { text = "Who are Kurzen's men, exactly?", next = "kurzen_who" },
@@ -874,7 +874,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know every rut in the jungle road, partner, and who's waitin' in the trees beside it." } },
     background = { { id = "tp_bg", text = "Mule boy at nine, caravan boss at thirty, and still on the Steamwheedle's road twenty-two years on.", next = "past" } },
     advice = { { id = "tp_ad", text = "Stay on the road, partner, and if you hear a raptor call, don't call back." } },
-    kurzen = { { id = "tp_kurzen", text = "Rebels with rifles and empty stomachs, partner, and they eat my flour." } },
+    kurzen = { { id = "tp_kurzen", text = "Soldiers gone bad, with rifles and empty stomachs, partner, and they eat my flour." } },
     _none = { { id = "tp_none", text = "Never carried it, partner, so I couldn't tell you what it's worth." } },
   },
 }
@@ -896,7 +896,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to the berth of the Maiden's Fancy, passenger! Have you tried the chowder yet? You should try the chowder." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, passenger! Either you missed the boat or you came back for the chowder, and I hope it's the chowder." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, passenger, and the Fancy's made the crossing four times while you were away. Kelsey's changed the clams twice, too, so you've got some catching up to do." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, passenger, and the Fancy's made the crossing four times while you were away. Kelsey Yance at the inn has changed her clams twice, too, so you've got some catching up to do." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde passengers ride the Fancy same as anybody, at the same fare, and they're sick over the same rail, passenger." },
   },
 

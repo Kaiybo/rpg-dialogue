@@ -96,7 +96,7 @@ P:NPC {
       },
     },
     ratchet_back = {
-      lines = { { id = "rb_default", text = "Gazlowe sends me a letter every year asking for fireworks for the harbour festival, and every year he adds a line at the bottom sayin' I'm to set 'em off from a boat, a good long way out. I think that's what you call a compliment with conditions, buddy." } },
+      lines = { { id = "rb_default", text = "Gazlowe, who runs Ratchet, sends me a letter every year asking for fireworks for the harbour festival, and every year he adds a line at the bottom sayin' I'm to set 'em off from a boat, a good long way out. I think that's what you call a compliment with conditions, buddy." } },
       choices = { { text = "That sounds like a friendship, of sorts.", next = "BACK", fx = { affinity = 1, learn = { "steamwheedle" } } } },
     },
 
@@ -121,7 +121,7 @@ P:NPC {
     pirates = {
       lines = { { id = "pi_default", text = "Big loud reds, the louder the better, so the whole bay knows they've taken somethin'. Once a crew lit a whole crate on the deck of the ship they'd just captured, and the ship went up with it, so they came back with nothin' but a good story and a bill from me." } },
       choices = {
-        { text = "Did they pay the bill?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I'd wager they never paid that bill.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Pirates and powder. Who'd have guessed?", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
@@ -168,7 +168,7 @@ P:NPC {
     workshop = {
       lines = { { id = "wk_default", text = "Every one, in a shed out past the tunnel where the only neighbours are panthers, and the panthers have learned to keep their distance. The powder comes in from Gadgetzan, the paper comes from wherever I can get it, and the colours are a family secret, buddy, which means I'll tell ya for gold." } },
       choices = {
-        { text = "How much gold for the secret?", next = "BACK", fx = { trait = { greedy = 1 } } },
+        { text = "I'd pay good gold for that secret.", next = "BACK", fx = { trait = { greedy = 1 } } },
         { text = "Keep your secret. I like being surprised.", next = "BACK", fx = { affinity = 1 } },
       },
     },
@@ -243,7 +243,7 @@ P:NPC {
     { id = "n_fisher", cat = "profession", when = { profession = { name = "Fishing", min = 1 } },
       text = "You fish, chum, I can tell by the hands and the squint. You sellin' or buyin', because I do both and the prices ain't the same." },
     { id = "n_troll", cat = "race", when = { race = "Troll" },
-      text = "Darkspear, huh? Your folk were netting this bay before Heming was born, whatever he tells ya, so you can have the honest price." },
+      text = "Darkspear, huh? Your folk were netting this bay before Old Man Heming was born, whatever he tells ya, so you can have the honest price." },
     { id = "n_poor", cat = "purse", when = { money = { max = 500 } },
       text = "Your purse is lighter than a minnow, chum. There's bait in the bucket that's cheaper than the fish, and some days it tastes about the same." },
   },
@@ -352,7 +352,7 @@ P:NPC {
       lines = { { id = "sg_default", text = "A Bloodsail captain's hat with the captain's head still in it, a chest full of Stormwind letters nobody ever claimed, and once a murloc in a pair of goblin boots. I sold the boots, chum, and the murloc went back in, because I ain't a monster." } },
       choices = {
         { text = "What happened to the letters?", next = "strange_letters" },
-        { text = "Where did a murloc get goblin boots?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "A murloc in goblin boots? I'd have paid to see that.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
     strange_letters = {
@@ -377,7 +377,7 @@ P:NPC {
       },
     },
     xfisher_cape = {
-      lines = { { id = "xfc_default", text = "Big ones, chum, and the sharks that eat the big ones. Myizz up on the deck'll teach ya to cast that far, and Heming'll tell ya not to bother, and they're both right, which is the trouble with fishin'." } },
+      lines = { { id = "xfc_default", text = "Big ones, chum, and the sharks that eat the big ones. Myizz, the fishing teacher down the dock, will teach ya to cast that far, and Heming'll tell ya not to bother, and they're both right, which is the trouble with fishin'." } },
       choices = { { text = "I'll ask Myizz, then.", next = "BACK" } },
     },
     xcook = {
@@ -480,7 +480,7 @@ P:NPC {
       choices = {
         { text = "Old customs keep the sea honest. Keep yours.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll keep every fish that bites, thanks.", next = "BACK", fx = { align = { order = -1 } } },
-        { text = "Who's right, you or Heming?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I suspect you're both right.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
 
@@ -500,7 +500,7 @@ P:NPC {
     luck_charms = {
       lines = { { id = "lch_default", text = "A shark's tooth, a ring off a Blackwater captain who owed me money, a tin cricket from my grandma, and this one's a pearl from the Vile Reef I'm not allowed to talk about. The tin cricket's the real luck, sweetheart, and the rest are just there to keep it company." } },
       choices = {
-        { text = "Why can't you talk about the pearl?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "A pearl you can't talk about? Now I'm curious.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Your grandmother sounds like a wise woman.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
       },
     },
@@ -537,7 +537,7 @@ P:NPC {
       lines = { { id = "bt_default", text = "Nat Pagle, sweetheart, and don't you tell Heming I said so. He's a human who sits out on an island in Dustwallow Bay doing nothing but fishing, and folk say if you bring him the right catch, he'll teach you things no book in Booty Bay knows." } },
       choices = {
         { text = "Where in Dustwallow can I find him?", next = "best_pagle" },
-        { text = "Better than you, though?", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Better than you? I find that hard to believe.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
     best_pagle = {
@@ -550,7 +550,7 @@ P:NPC {
       lines = { { id = "pt_default", text = "I didn't start patient, sweetheart, I started in the Cartel's counting house in Gadgetzan, adding up other people's money till my eyes crossed. One day I quit, came down here, sat on this dock with a rod, and didn't move for three days, and that was the best trade I ever made." } },
       choices = {
         { text = "Do you miss the counting house?", next = "past_miss" },
-        { text = "Three days without moving? Really?", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Three days without moving? I don't believe it.", next = "BACK", fx = { trait = { skeptical = 1 } } },
       },
     },
     past_miss = {
@@ -679,7 +679,7 @@ P:NPC {
       choices = {
         { text = "He deserved it. Cruelty to beasts is cowardice.", next = "BACK", fx = { align = { light = 1 }, learn = { "venture_company" } } },
         { text = "A mule's a tool. You threw away a good job.", next = "BACK", fx = { align = { light = -1 }, learn = { "venture_company" } } },
-        { text = "Do they still want your ears?", next = "BACK", fx = { trait = { curious = 1 }, learn = { "venture_company" } } },
+        { text = "I hope your ears are safe these days.", next = "BACK", fx = { trait = { curious = 1 }, learn = { "venture_company" } } },
       },
     },
     past_venture = {
@@ -692,7 +692,7 @@ P:NPC {
       lines = { { id = "bs_default", text = "Hunters' cats and wolves, a few horses for folk who came down from the north and won't admit they're seasick, and a raptor called Moody who belongs to nobody, boss. Some fella left him two years ago and never came back, so now he's mine, and he's the best guard dog in the Bay." } },
       choices = {
         { text = "Tell me about Moody.", next = "moody" },
-        { text = "Horses in a jungle port? Really?", next = "BACK", fx = { trait = { skeptical = 1 } } },
+        { text = "Horses in a jungle port? I'd never have guessed.", next = "BACK", fx = { trait = { skeptical = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -746,7 +746,7 @@ P:NPC {
     customers = {
       lines = { { id = "cu_default", text = "Hunters off to Nesingwary's camp, boss, who leave their cats with me while they shoot the jungle's, which I've never found funny. And the Blackwater officers who keep horses they never ride, just so they can say they've got one." } },
       choices = {
-        { text = "Nesingwary's hunters bother you?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I can tell Nesingwary's hunters bother you.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "A horse they never ride? That's goblin money.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
@@ -810,7 +810,7 @@ P:NPC {
     { id = "n_eng", cat = "profession", when = { profession = { name = "Engineering", min = 1 } },
       text = "Hey, an engineer! You got grease on your cuffs, pal, I can smell it, and I'd shake your hand but mine's holding a live wire." },
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
-      text = "A gnome! Now don't start, pal, I know what you're gonna say about the wiring, and Oglethorpe already said it, louder." },
+      text = "A gnome! Now don't start, pal, I know what you're gonna say about the wiring, and Oglethorpe, the gnome engineer up the way, already said it, louder." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
       text = "A mage, huh? You can teleport for free, pal, I know, I know, but can you do it while eatin' a sandwich? Neither can the pad, but I'm workin' on it." },
   },
@@ -859,7 +859,7 @@ P:NPC {
     },
     how_apart = {
       lines = { { id = "ha_default", text = "Completely, pal, every last whisker, but only for a second, and you don't feel a thing, or if you do, you don't remember it, which is the same thing legally. I been through it forty times myself and I'm fine, mostly, except I can hear colours on Tuesdays." } },
-      choices = { { text = "You can hear colours?", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = { { text = "Hearing colours. I'll take your word for it.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     how_cousin = {
       lines = { { id = "hc_default", text = "My cousin Fizzik minds the Gadgetzan pad, pal, and he's a fine engineer, except for the time he went to lunch and left it on. Three caravans of sand came through to Booty Bay, and the Baron still bills me for sweeping." } },
@@ -877,7 +877,7 @@ P:NPC {
     },
     effects_worst = {
       lines = { { id = "ew_default", text = "Worst one I ever saw, pal, a dwarf went in and two dwarves came out, and one of 'em was real rude. The rude one went off toward the Shimmering Flats and we never heard from him again, and the nice one tips me every spring." } },
-      choices = { { text = "There's an evil dwarf loose in Kalimdor?", next = "BACK", fx = { trait = { curious = 1 } } } },
+      choices = { { text = "So there's a rude dwarf loose in Kalimdor somewhere.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     effects_lost = {
       big = true,
@@ -894,7 +894,7 @@ P:NPC {
       lines = { { id = "ru_default", text = "Goblin engineers only, pal, by Cartel rule, because only goblin engineers understand the waiver, and frankly only goblin engineers are brave enough to sign it. Everybody else takes the boat, or the bird, or the long walk round." } },
       choices = {
         { text = "That seems unfair to everyone else.", next = "rules_fair" },
-        { text = "Can I watch someone use it?", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "I'd like to watch somebody use it sometime.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
     rules_fair = {
@@ -1128,13 +1128,13 @@ P:NPC {
     sells = {
       lines = { { id = "sl_default", text = "Silk and spices go fast, chief, and anything from the jungle trolls, 'cause the collectors in Stormwind and Undercity both want 'em. Tigers' fangs, panther pelts, voodoo junk, it all goes north for three times what I sell it for, and I don't think about that too much." } },
       choices = {
-        { text = "You don't mind selling sacred troll items?", next = "BACK", fx = { trait = { stern = 1 } } },
+        { text = "Selling sacred troll things sits badly with me.", next = "BACK", fx = { trait = { stern = 1 } } },
         { text = "Good to know what's worth gathering.", next = "BACK", fx = { trait = { greedy = 1 } } },
       },
     },
     night = {
-      lines = { { id = "nt_default", text = "Can't sleep, chief, never could, my mother said I came out of the egg talkin'. O'reely does the mornings and tells his stories, Graves does the afternoons and scares the customers, and I do the nights, which is when everybody gets honest, 'cause they're tired or drunk." } },
-      choices = { { text = "Goblins come from eggs?", next = "BACK", fx = { trait = { curious = 1 } } } },
+      lines = { { id = "nt_default", text = "Can't sleep, chief, never could, my mother said I was born talkin' and never stopped. O'reely does the mornings and tells his stories, Graves does the afternoons and scares the customers, and I do the nights, which is when everybody gets honest, 'cause they're tired or drunk." } },
+      choices = { { text = "Some folk are just born talking.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
   },
 
@@ -1209,7 +1209,7 @@ P:NPC {
     },
     strange = {
       lines = { { id = "sg_default", text = "A wooden leg, champ, from a Blackwater captain who wanted to buy himself a better one, and the bidding went to eleven gold because somebody started a rumour it was lucky. It wasn't lucky, the next owner fell off the pier, but he fell off very stylishly." } },
-      choices = { { text = "Was the rumour yours, O'reely?", next = "BACK", fx = { trait = { skeptical = 1 } } } },
+      choices = { { text = "I'd wager that rumour was yours, O'reely.", next = "BACK", fx = { trait = { skeptical = 1 } } } },
     },
     secret = {
       lines = { { id = "sc_default", text = "Every lot has a story, champ, and if it don't, you give it one, nothing too big, just enough. A plain old sword's a sword, but a sword found on a beach after a storm, now that's somethin' a person wants to hang on their wall." } },

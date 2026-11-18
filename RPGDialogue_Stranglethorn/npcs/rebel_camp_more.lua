@@ -26,7 +26,7 @@ P:NPC {
 
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
-      text = "Your armor's in a worse state than our stores, and that's saying something. Bluth might have a strap or two, if you're polite to him." },
+      text = "Your armor's in a worse state than our stores, and that's saying something. Corporal Bluth, who keeps our stores, might have a strap or two, if you're polite to him." },
     { id = "n_soldier", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
       text = "You stand like you've stood a watch or two. Good, then you'll understand why I write everything down." },
   },
@@ -44,7 +44,7 @@ P:NPC {
         { id = "h_after", tags = { "news" }, when = { questDone = TODO_QUEST("Report to Doren") },
           text = "The Lieutenant has the name now, and it's his to deal with. I've gone back to my ledger, and I find I don't sleep much better for knowing." },
         { id = "h_secrets", when = { questActive = TODO_QUEST("Jungle Secrets") },
-          text = "You're looking into Thorsen? He walked his last patrol with someone from this camp, and that someone talked. I've the roster, if the Lieutenant ever asks for it." },
+          text = "You're looking into what happened to Private Thorsen? He walked his last patrol with someone from this camp, and that someone talked. I've the roster, if the Lieutenant ever asks for it." },
       },
       again = {
         { id = "h_again", text = "Anything else? I've a roster to finish before the dusk watch." },
@@ -171,7 +171,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Private Merle, and glad to know you. I came into this jungle with the Colonel same as the rest, and walked out with the Lieutenant same as the rest, and now I mostly stand watch and wait for something to happen." },
         { id = "h_secrets", tags = { "news" }, when = { questActive = TODO_QUEST("Jungle Secrets") },
-          text = "You're asking around about Thorsen, aren't you? Terrible business, him getting caught like that. Did the Lieutenant say who he thinks did it?" },
+          text = "You're asking around about Private Thorsen, aren't you? Terrible business, him getting caught like that. Did the Lieutenant say who he thinks did it?" },
         { id = "h_herod", when = { questActive = TODO_QUEST("Bookie Herod") },
           text = "Bookie Herod? I've heard the name, everyone has. Some of the lads used to put a few coppers on cards with him, back before, and I couldn't say who still does." },
         { id = "h_patrol", tags = { "news" }, when = { questActive = TODO_QUEST("Patrol Schedules") },

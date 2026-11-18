@@ -15,7 +15,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_op_trolls", when = { gossip = { topic = "trolls", stance = "hate" } }, text = "My Bruisers tell me you called the Zandalari a pack of savages, and to his face. Brave of you, friend, and bad for business, so next time do it outside my harbor." },
+    { id = "g_op_trolls", when = { gossip = { topic = "trolls", stance = "hate" } }, text = "My Bruisers tell me you called the trolls savages, and to the Zandalari emissary's face. Brave of you, friend, and bad for business, so next time do it outside my harbor." },
     { id = "g_op_venture", when = { opinion = { topic = "venture_company", stance = "useful" } }, text = "Ah, my friend with an eye for cheap lumber! Come in, come in; a person who knows a bargain is always welcome on my balcony." },
     { id = "g_balcony", text = "From this balcony I can count every ship in the cove and most of the coins coming off them, and my time up here runs about a gold piece a minute. So state your business, friend, and keep it profitable." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Good, good; repeat business is the only kind I trust, and it's the only kind that pays the overhead." },
@@ -151,7 +151,7 @@ P:NPC {
       },
     },
     druid_talk = {
-      lines = { { id = "dt_default", text = "The jungle grows back, friend, and so does the profit, which is the beauty of it. The Venture Company is the one with the saws, not the Blackwater Raiders, so if you want to fight someone over trees, I'll gladly point you at them and charge nothing for the directions." } },
+      lines = { { id = "dt_default", text = "The jungle grows back, friend, and so does the profit, which is the beauty of it. The Venture Company is the one with the saws, not the Steamwheedle, so if you want to fight someone over trees, I'll gladly point you at them and charge nothing for the directions." } },
       choices = {
         { text = "Then I'll stop the Venture Company's saws.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Profit and saws, it's all the same to the jungle.", next = "BACK", fx = { align = { order = -1 } } },
@@ -212,7 +212,7 @@ P:NPC {
         { id = "h_isle", when = { questActive = TODO_QUEST("The Haunted Isle") },
           text = "There's an island off the coast the captains won't go near anymore. Something there scares sailors, and scared sailors don't carry cargo, and cargo that doesn't move doesn't pay, so find out what it is." },
         { id = "h_tides", when = { any = { { questActive = TODO_QUEST("Water Elementals") }, { questActive = TODO_QUEST("The Curse of the Tides") }, { questActive = TODO_QUEST("The Stone of the Tides") } } },
-          text = "Now, this business with the tides. I don't pretend to understand the magic, but I understand exactly what it's costing me, down to the copper, every single day." },
+          text = "Now, this business with the cursed Stone of the Tides. I don't pretend to understand the magic, but I understand exactly what it's costing me, down to the copper, every single day." },
         { id = "h_ledger", when = { metBefore = true }, text = "Eleven ships in, nine out, and two the Bloodsail will want to know about. The ledger never sleeps, friend, and on a good quarter neither do I." },
         { id = "h_night", when = { timeOfDay = "night" }, text = "Lanterns on every deck, music on every pier, and somebody about to fall in and sue. It's the same every night, and I'd miss it if it stopped, mostly for the dock fees." },
         { id = "h_cold", when = { disposition = { max = 34 } },
@@ -408,7 +408,7 @@ P:NPC {
       choices = {
         { text = "Then I'll work for you, Baron, not against you.", next = "BACK", fx = { align = { order = 1 }, affinity = 2 } },
         { text = "Every ledger has a gap, Baron. I'll find yours.", next = "BACK", fx = { align = { order = -1 }, affinity = -2 } },
-        { text = "I'd guess the Baron's ledger has something to say about me.", next = "ledger" },
+        { text = "I'd guess your ledger has something to say about me.", next = "ledger" },
       },
     },
     k_troll = {
@@ -631,7 +631,7 @@ P:NPC {
         { id = "h_bloodsail", tags = { "news" }, when = { questActive = TODO_QUEST("The Bloodsail Buccaneers") },
           text = "The Bloodsail are scheming against the town, and their camp's up the Wild Shore. Raid it, bring me their letters, and we'll see whose name is on the plan." },
         { id = "h_treasure", when = { questActive = TODO_QUEST("Sunken Treasure") },
-          text = "A treasure under the waves, and somebody wants me to have the best of it? Bring that gem straight here, and don't let it near a Bloodsail." },
+          text = "So you're diving for that sunken treasure, and somebody's promised me the best of it? Bring the gem straight here, and don't let it near a Bloodsail." },
         { id = "h_storm", when = { metBefore = true }, text = "Smell that? There's a storm coming by morning, and my knees know it before the sky does, the way the herds on the plains knew the rain before it came. That's the old sailor's curse for you, and the tauren's too." },
         { id = "h_crazz", when = { heardLine = "crazz.h_default" }, text = "Crazz has been at you about the Bloodsail? He's a good lad, if too eager, but I was just as eager once myself, and it got me a fleet." },
         { id = "h_eye_resolved", tags = { "news" }, when = { thread = { id = "bloodsail_eye", state = "resolved" } },
@@ -682,7 +682,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "ey_default", key = true,
-          text = "Do you, now? Crazz's list, Lozgil's runaway fishmonger, Strom nodding at somebody every evening: I hear who asks questions on my docks, friend. Out with it, then, and don't dress it up, because I've been dressed up to by the Baron all week." },
+          text = "Do you, now? Crazz has his list, Lozgil has his runaway fishmonger and Strom nods at somebody every evening, so I know who's been asking questions on my docks, friend. Out with it, then, and don't dress it up, because I've been dressed up to by the Baron all week." },
         { id = "ey_baron", when = { thread = { id = "bloodsail_eye", beat = "b4_revilgaz" } },
           text = "Do you, now? And the Baron's had a word with you first, I'd wager, since he's had a word with everyone else. Out with it, friend, and tell me whose side of the stairs you're standing on." },
       },
@@ -922,7 +922,7 @@ P:NPC {
     },
     r_captains = {
       lines = {
-        { id = "rcp_default", text = "Good ones and lucky ones, and once in a while both. Crazz will have his own deck before long, Fin would too if he'd kept out of that pond, and I sent O'Breen north with three ships after a treasure, which I'm starting to regret." },
+        { id = "rcp_default", text = "Good ones and lucky ones, and once in a while both. Crazz will have his own deck before long, Fin Fizracket would too if he'd kept out of that jungle pond, and I sent O'Breen north with three ships after a treasure, which I'm starting to regret." },
       },
       choices = {
         { text = "Why do you regret O'Breen?", next = "r_obreen" },
@@ -1291,7 +1291,7 @@ P:NPC {
         { id = "h_isle", when = { questActive = TODO_QUEST("The Haunted Isle") },
           text = "That island the Baron frets about? The crews swear they hear things out there at night, and I swear I don't believe them, but I'm also not going for any price, and I've got a price for everything." },
         { id = "h_rumor", when = { questActive = TODO_QUEST("The Rumormonger") },
-          text = "Information's my trade, and I'm trusting you with a little of it on credit. Rumors spoil faster than fish in this heat, so run, run, run!" },
+          text = "I'm trusting you with a rumor on credit, so carry it where I told you, and fast, because rumors spoil faster than fish in this heat." },
         { id = "h_tranrek", when = { questActive = TODO_QUEST("Tran'rek") },
           text = "Tran'rek, in Gadgetzan, pays well for the right sort of help, and he owes me for the last referral. Tell him Krazek sent you; it can't hurt, and it might get me paid." },
         { id = "h_gossip", when = { metBefore = true }, text = "Three new rumors since you left, and one of them's about you! Don't worry, it's a flattering one, mostly, and I've only sold it twice." },
@@ -1400,7 +1400,7 @@ P:NPC {
 
     rebels = {
       lines = {
-        { id = "rb_default", text = "Thinly. They buy roots and pay in Stormwind silver, which is the last thing Stormwind ever sent them, and I send what I can at a fair price, well, fairish, with a little for shipping." },
+        { id = "rb_default", text = "Thinly. They buy flour and boots and pay in Stormwind silver, which is the last thing Stormwind ever sent them, and I send what I can at a fair price, well, fairish, with a little for shipping." },
       },
       choices = {
         { text = "Give them a better price.", next = "rebels_price", fx = { align = { light = 1 }, trait = { generous = 1 } } },
@@ -1546,7 +1546,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "There's mercy in the interest, friend, because I let a man pay late before I send anyone round. Shaky Phillipe has had more chances than a cat has lives and still he hides from me, so you tell me who's being cruel to whom." } },
+      lines = { { id = "xapriest_default", text = "There's mercy in the interest, friend, because I let a man pay late before I send anyone round. Shaky Phillipe down on the docks has had more chances than a cat has lives and still he hides from me, so you tell me who's being cruel to whom." } },
       choices = {
         { text = "Forgive him, MacKinley. Mercy costs less than you think.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "He made his bargain. Let him pay what he owes.", next = "BACK", fx = { align = { light = -1 } } },
@@ -1583,7 +1583,7 @@ P:NPC {
         { id = "h_seen_stoley", when = { heardLine = "stoley.h_default" },
           text = "You've seen Stoley, and he's still breathing? Good, because breathing men can pay." },
         { id = "h_voodoo", when = { questActive = TODO_QUEST("Voodoo Dues") },
-          text = "There's a debt out among the trees with a bit of voodoo wrapped round it. That's no matter to me; magic doesn't cancel what's owed." },
+          text = "The debt you're collecting has some troll voodoo wrapped round it now. That's no matter to me, because magic doesn't cancel what's owed." },
         { id = "h_maury", when = { questActive = TODO_QUEST("Cracking Maury's Foot") },
           text = "Maury's dead, and he still owes me. Death is no excuse, so bring me what he's got." },
         { id = "h_stoley", when = { questActive = TODO_QUEST("Stoley's Debt") },
@@ -1825,7 +1825,7 @@ P:NPC {
         { id = "h_tusks", when = { questActive = TODO_QUEST("Skullsplitter Tusks") },
           text = "Skullsplitter tusks, and don't ask what for. All right, ask: polished up, nobody on the southern islands can tell them from a tiger's fang, and the markup is beautiful." },
         { id = "h_takeover", when = { questActive = TODO_QUEST("Hostile Takeover") },
-          text = "That job I gave you, quietly, quickly, and my name stays off it. Some deals are best closed in the dark, where nobody reads the contract." },
+          text = "That job I gave you: do it quietly, do it quickly, and keep my name off it. Some deals are best closed in the dark, where nobody reads the contract." },
         { id = "h_agents", when = { metBefore = true }, text = "Lost another agent to the trolls last week, a good man and terrible at running, so I'm hiring faster runners now at the same rate." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now you're the kind of agent I can use, friend, because my last three came back in pieces, and I'm sure a quiet one would last longer and cost less in flowers." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, I don't suppose your demon could do a little work for me? I pay in gold, of course, though I imagine it'd prefer souls, and I don't keep those in stock." },
@@ -2237,7 +2237,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "I'd trade almost anything, and that frightens me a little when I think about it at night. Sprogger tells me I'm a fool to even consider it, and he's usually right, though I've never told him that." } },
+      lines = { { id = "xlock_default", text = "I'd trade almost anything, and that frightens me a little when I think about it at night. Sprogger, my cook, tells me I'm a fool to even consider it, and he's usually right, though I've never told him that." } },
       choices = {
         { text = "Sprogger is right. Some prices are too high.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Vengeance is worth any price. I'll help.", next = "BACK", fx = { align = { light = -1 } } },
@@ -2525,7 +2525,7 @@ P:NPC {
         { id = "h_mackinley", when = { heardLine = "mackinley.h_default" },
           text = "You've talked to MacKinley, I can tell, because you've got that look, the look of someone who knows what I owe. I'll pay! Tell him I'll pay soon, very soon!" },
         { id = "h_scared", when = { questDone = TODO_QUEST("Scaring Shaky") },
-          text = "I paid, every last coin, and I'm never playing knucklebones again. I'm never looking at meat again, either." },
+          text = "I paid, every last coin, and I'm never playing knucklebones again. After the scare you gave me, I've lost my appetite for good, too." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage? Could you make me invisible, just for a few days? There's a large man with a gambling habit looking for me, and I'd really rather he didn't find me." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Oh no, did he send you? Please tell me he didn't hire a demon to collect, because I really can't afford that." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You don't happen to have seen big footprints near my door, have you, the heavy kind, belonging to somebody very large who likes to gamble?" },
@@ -2926,7 +2926,7 @@ P:NPC {
     c_keelhaul_mercy = {
       big = true,
       lines = {
-        { id = "ckm_default", text = "Seahorn would want him tried in front of the Baron, all proper, with Krazek taking notes. Me, I'd tie him under the Harbinger and see how he likes the barnacles, but I'm only the first mate, so what would you do?" },
+        { id = "ckm_default", text = "Seahorn would want him tried in front of the Baron, all proper, with Krazek taking notes. Me, I'd tie him under the flagship and see how he likes the barnacles, but I'm only the first mate, so what would you do?" },
       },
       choices = {
         { text = "Try him before the Baron. Justice, not revenge.", next = "BACK", fx = { align = { light = 1 } } },
@@ -3181,7 +3181,7 @@ P:NPC {
         { id = "h_shards", tags = { "news" }, when = { any = { { questActive = TODO_QUEST("Singing Blue Shards") }, { questActive = TODO_QUEST("Venture Company Mining") } } },
           text = "The Venture Company's digging up crystals that sing, singing crystals, chum! Do you know what people pay for things that sing? Bring me some, and don't ask the Venture Company first, because they'll say no and charge you for the question." },
         { id = "h_zanzil", when = { any = { { questActive = TODO_QUEST("Zanzil's Secret") }, { questActive = TODO_QUEST("Fool's Stout") }, { questActive = TODO_QUEST("Zanzil's Mixture and a Fool's Stout") } } },
-          text = "Zanzil's mixture, a fool's stout, and a friend at a racetrack who'd like a few rivals to slow down. Don't ask me which friend, pal; you'll meet him, and he'll want a receipt." },
+          text = "I need Zanzil's mixture and a cask of Fool's Stout, for a friend at a racetrack who'd like a few rivals to slow down. Don't ask me which friend, pal; you'll meet him, and he'll want a receipt." },
         { id = "h_kravel", when = { heardLine = "kravel.h_default" },
           text = "You know Kravel, at the Raceway? Lovely fellow, very competitive, and we have an arrangement, strictly off the books. You didn't hear that from me, and if you did, it cost you nothin', so forget it." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! Now you look like someone who appreciates a good bargain, pal, and I've got some that aren't exactly on the Baron's books, or any books." },
@@ -3454,7 +3454,7 @@ P:NPC {
         { text = "How do you lose a whole cask?", next = "lost" },
         { text = "What makes this port so special?", next = "port" },
         { text = "Toast me, then.", next = "toast" },
-        { text = "A gnome who drinks like a dwarf. I've seen everything now.", next = "gnome", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "You drink like a dwarf, Slim. I've seen everything now.", next = "gnome", when = { race = { "Dwarf", "Gnome" } } },
         { text = "Pour me something big. I'm a tauren.", next = "k_tauren", when = { race = "Tauren" } },
         { text = "Where exactly did your port go missing, Slim?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Can magic really make water taste like port, Slim?", next = "xmage", when = { class = "MAGE" } },
@@ -3504,7 +3504,7 @@ P:NPC {
       },
     },
     toast_threat = {
-      lines = { { id = "tt_default", text = "Every toast needs a little salt! It's a gnomish tradition, probably, or at least my grandfather did it, and he had very few friends, but they never cheated him." } },
+      lines = { { id = "tt_default", text = "Every toast needs a little salt! It's an old Lordaeron tradition, probably, or at least my grandfather did it, and he had very few friends, but they never cheated him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gnome = {
@@ -3936,7 +3936,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhcast_default", text = "The physician says it's the jungle air, and the troll from Grom'gol said it was the jungle's rot, and they both charged me for saying so. If there's a spell in it, I'd like to know whose, so I can send them the bill." } },
       choices = {
-        { text = "I'll find Mokk and get your cure.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "I'll find you a cure, Fin, magic or no magic.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "I'll help, but your crew can cover my costs.", next = "BACK", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -3952,10 +3952,10 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Out in the jungle, chasing a deal that wasn't worth it, and now I sweat through three shirts a day at four silver a shirt. The witch doctors on the coast are supposed to know a cure, but I'm not in any shape to go asking, so here I sit, losing money." } },
+      lines = { { id = "xrogue_default", text = "In a jungle pond up the coast, on shore leave, where everybody told me not to swim, and now I sweat through three shirts a day at four silver a shirt. The witch doctors on the coast are supposed to know a cure, but I'm not in any shape to go asking, so here I sit, losing money." } },
       choices = {
         { text = "I'll find the cure for you, Fin. Hang on.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "You chased the deal. Live with what it cost you.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "You swam where you were warned not to. Live with it.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Fin.", next = "BACK" },
       },
     },
