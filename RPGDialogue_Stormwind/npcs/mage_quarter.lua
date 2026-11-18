@@ -407,7 +407,7 @@ P:NPC {
           text = "I can feel the fel on you, faint as old smoke, and it troubles me. Even so, I'd rather talk to you than about you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Your kind always arrives in such a rush, with your armour clanking and your hand on your sword, as if the room might attack." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Among my people, the rangers walked the woods of Eversong with hawks on their wrists, so I feel a little less far from home." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, in my classroom. Our peoples parted long ago, cousin, and I sometimes wonder what you see when you look at me." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei, in my classroom. Our peoples parted long ago, cousin, and I sometimes wonder what you see when you look at me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. My people learned the arcane from careful study, and I confess spirits seem strange to me. But I have learned patience with strange things." },
       },
       again = {

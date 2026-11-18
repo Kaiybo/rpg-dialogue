@@ -307,7 +307,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Arrows are the first thing we run out of, after bread and patience, so I hope you brought your own." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. Our bandages are mostly old shirts, so whatever you can do without them, please do." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Your plate's in better shape than anything in my ledger, so keep it that way, since I've nothing to mend it with." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, is it? I've no column in my ledger for night elves, so I'll write you down as a scout and hope nobody asks." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, is it? I've no column in my ledger for night elves, so I'll write you down as a scout and hope nobody asks." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I've one ledger and a robbed wagon. If your spirits can stop the Defias stealing my supplies, I'd be grateful." },
       },
       again = {

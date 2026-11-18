@@ -115,7 +115,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage! You'll be teleporting to Orgrimmar, I suppose, and leaving my zeppelin empty, which is a crying shame and a lost fare, pal." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior! Keep that axe sheathed on the deck, pal, because the last fellow who practiced his swings up there cut through a rope we really needed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Beasts ride free on my zeppelin, pal, but if yours gets airsick, you're the one cleaning the deck." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! I'll warn you now, the zeppelin's no place for a bear, chum, but if you turn into something small you could ride the rigging and save me a seat to sell." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid! I'll warn you now, the zeppelin's no place for a bear, chum, but if you turn into something small you could ride the rigging and save me a seat to sell." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin! Perfectly safe zeppelins, perfectly safe, and even if they weren't, you're already dead, so really you're my ideal passenger." },
       },
       again = {

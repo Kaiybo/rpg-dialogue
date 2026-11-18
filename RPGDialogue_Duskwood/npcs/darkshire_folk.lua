@@ -358,7 +358,7 @@ P:NPC {
         { id = "h_priest", when = { class = "PRIEST" },
           text = "A priest! Out here the Light needs hands as much as it needs voices, so have you got hands?" },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, then, and not a soldier. That's fine; in this wood the one who sees the worg first lives longer than the one who swings hardest." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and a night elf at that. Have you ever fought something that ought to be dead and wasn't, or only the honest beasts of your forest?" },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, and a night elf at that. Have you ever fought something that ought to be dead and wasn't, or only the honest beasts of your forest?" },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Have you ever swung a blade at something that swung back? Spirits won't save you if you freeze when the dead come." },
       },
       again = {
@@ -611,7 +611,7 @@ P:NPC {
           text = "A priest! Do they still teach the old liturgies at the abbey? Some of the older stones at Raven Hill quote them, and nobody but me reads them now." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you've got the shoulders for it. Do try not to knock anything over; the shelf behind you holds three centuries of Darkshire." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do keep that beast away from my papers, I beg you; the last one ate a land deed from the reign of King Barathen." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Stand still a moment, please, because the books I own say almost nothing true about your people, and I'd like to correct them." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Stand still a moment, please, because the books I own say almost nothing true about your people, and I'd like to correct them." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've read about shamans, but only in Horde accounts, so you'd be a footnote well worth adding." },
       },
       again = {
@@ -1381,7 +1381,7 @@ P:NPC {
           text = "A noble's child, in my town hall! Do sit, because I've waited years to say a few things to one of you, and I'll be brief, though I won't be kind." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'd write to Stormwind asking for a hundred of you, and I have, and they sent nobody, so I'll take the one who walked in." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! The wolves are taking our livestock and Stormwind is taking our taxes, and I know which one I'd rather you hunted." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the night elves, here in Darkshire. I don't suppose your people have a council that answers its letters, because ours in Stormwind does not." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the night elves, here in Darkshire. I don't suppose your people have a council that answers its letters, because ours in Stormwind does not." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and nobody from Stormwind, by the look of you. Good, then I won't read you my list of grievances, not yet." },
       },
       again = {

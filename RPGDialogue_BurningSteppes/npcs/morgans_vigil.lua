@@ -1629,7 +1629,7 @@ P:NPC {
           text = "A warrior! Mind ye stand still while I saddle ye, for the birds can feel a soldier fidgetin' in his plate, an' it puts them off their flyin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter, is it? Keep yer beasts clear o' the roost an' all will be well, for my birds are cross enough wi' the smoke as it is." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Now there's a sight, and me birds have been sneezin' ash all mornin', so if ye know a trick for that I'd hear it gladly." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! Now there's a sight, and me birds have been sneezin' ash all mornin', so if ye know a trick for that I'd hear it gladly." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Then ask the wind tae stop blowin' ash in my birds' eyes, an' I'll fly ye anywhere for nothin', which I've never offered anyone." },
       },
       again = { { id = "h_again", text = "Need somethin' more? The gryphons cannae abide the smoke off the mountain, so be quick." } },

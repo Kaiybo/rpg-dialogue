@@ -105,7 +105,7 @@ P:NPC {
           text = "Citizen, the court's register says you were born in Lakeshire, and the court is glad to see a local name come home. The register also records what the orcs did to the names beside yours, so it's a gladness with some weight to it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, citizen. You'll be glad to know that hunting in Redridge is entirely lawful, provided the quarry isn't the Magistrate's cattle." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, citizen. The court has no objection to prayer, provided it is conducted in an orderly fashion and does not block the steps." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Citizen, and a druid of the kaldorei, I see. The Magistrate will want your name for the register, since it has never yet listed a night elf." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "Citizen, and a druid of the kaldorei, I see. The Magistrate will want your name for the register, since it has never yet listed a night elf." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Citizen. A shaman, I see. The Magistrate will want your name written down. That's not a threat, just procedure." },
       },
       again = {
@@ -760,7 +760,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, love, and a beast besides! I'll find it a bowl of scraps if you'll promise it won't chase the inn's cat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, love! Sit by the window, because the soldiers behave themselves better with someone holy in the room." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, love! Parker will want to meet you, because he says the Silver Hand are the bravest lot in the kingdom." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, love, and a night elf besides! The whole inn will be talking about you by supper, and I'll only pass on the nice parts." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, love, and a night elf besides! The whole inn will be talking about you by supper, and I'll only pass on the nice parts." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "Oh, a warlock! I won't tell anyone, I promise, though the whole inn will know by supper, because it's that sort of inn." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Hello, love. A shaman! Sit away from the wobbly table. I'll tell you only the nice gossip, promise." },
       },

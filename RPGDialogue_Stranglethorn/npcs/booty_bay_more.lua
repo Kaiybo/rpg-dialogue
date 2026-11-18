@@ -125,7 +125,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! You'll be wanting to teleport home, I suppose, but the gryphons are a lot more fun, and they don't leave you dizzy for an hour after." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Believe it or not, gryphons like a heavy rider, because the weight steadies them in the sea wind, so you'll have a calm flight north." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, I'd know the look anywhere, because you're eyeing my gryphons the way I eye a fine animal and not the way a passenger does." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid on my ledge! My gryphons like you, and they've nipped three travelers this week alone, so don't ruin it by turning into anything they'd want to eat." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid on my ledge! My gryphons like you, and they've nipped three travelers this week alone, so don't ruin it by turning into anything they'd want to eat." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! My gryphons don't care much for pirates, but they'll sit still for you, which is more than they do for me." },
       },
       again = {
@@ -307,7 +307,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Keep your demon away from the wind riders, because they've got long memories, and they don't care for anything that smells of the old Horde's fel." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The wind riders don't mind a heavy rider so long as you don't kick, and warriors always kick, so sit still, pal, or pay for the bruises." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, eh? Then you'll know better than to feed my wind riders anything, and you'll know why." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, on my ledge. The wind riders know the Earth Mother's people by smell, and they sit quieter for it, so stay close while I saddle one." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid, on my ledge. The wind riders know the Earth Mother's people by smell, and they sit quieter for it, so stay close while I saddle one." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Gold first, questions after, and my question is whether you glow in the dark, because the riders won't sleep if you do." },
       },
       again = {

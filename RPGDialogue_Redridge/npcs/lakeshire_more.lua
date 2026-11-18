@@ -939,7 +939,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and you'll want some cheese for the road and a bit of meat for your beast, I'd wager, and I've plenty of both." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Bread, cheese, milk and no ale, which I'd guess suits you better than most." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. You'll be one of the few who orders milk without pulling a face, I'd wager." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Milk, bread and cheese is all I serve, and I'd guess a night elf won't miss the ale as much as the soldiers do." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid! Milk, bread and cheese is all I serve, and I'd guess a night elf won't miss the ale as much as the soldiers do." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I've no strong drink, but I've bread and cool water, and I'd guess you can make your own of both." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Bread, cheese, meat or milk? Not ale, before you ask, because I'm asked fifty times a day." },
       },

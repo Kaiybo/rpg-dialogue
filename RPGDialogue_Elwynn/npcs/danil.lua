@@ -115,7 +115,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "You've come down from the graveyard, I can tell, and Drusilla La Salle's students always look like they've slept badly. Bread helps with that, or so I tell myself." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior from the barracks, and you'll want rations, I expect. Llane Beshere works recruits hard, and hungry recruits drop their shields." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at Northshire, and plainly a long way from home! The Abbey's bread is humble, but it's honest, and I'd say the same of the thread." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf at Northshire, and plainly a long way from home! The Abbey's bread is humble, but it's honest, and I'd say the same of the thread." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage of the Abbey! Brother Bremen's students always buy the bread and forget the water, and then they come back thirsty." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and I'll wager a full purse with you. The Abbey's roof still leaks, you know. Perhaps your rain spirits could ask it to stop." },
       },

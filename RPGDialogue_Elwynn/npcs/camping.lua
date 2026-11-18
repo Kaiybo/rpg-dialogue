@@ -105,7 +105,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Could you light my fire for me some evening? I've been at it with flint for an hour some nights, and it's undignified." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit down before you fall down; whoever you fought today, they'll still be there tomorrow, and the fire's warm now." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, sleeping rough like me by the look of you! Pull up a log, because a fire's always better with somebody who's walked further than I have." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, sleeping rough like me by the look of you! Pull up a log, because a fire's always better with somebody who's walked further than I have." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Do you ever take your demon camping? I've always wondered whether imps like a fire or just like setting things on one." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, walking the roads like me. Sit by the fire. Do your spirits like a good long rest as much as I do?" },
       },

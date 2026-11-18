@@ -101,7 +101,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. That beast of yours had better have a nose for an ambush, because the Brotherhood will have one waiting." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest, is it? Save your prayers for the road, because if the Brotherhood catch us, we'll both be needing them." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin, in all that shining plate. They'll see you coming a mile off, but maybe that'll make them think twice." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid, out here? The Brotherhood won't know what to make of you, and that suits me fine." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid, out here? The Brotherhood won't know what to make of you, and that suits me fine." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman? Keep your voice down. If your spirits can see who's following me, I want to know before they reach me." },
       },
       again = {

@@ -173,7 +173,7 @@ P:NPC {
           text = "A mage, and you're the sort who forgets to sleep, I can see it in your eyes. Reading by candlelight again, were you?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on my road. You've had a hard day of it, I'd wager; the Lion's Pride has a bed with your name on it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, with a beast in tow and mud to the knees. Farley lets animals sleep by the fire, so long as they don't eat the cat." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on the Goldshire road! The Lion's Pride has a soft bed and a hot meal, though I expect your kind would sooner sleep in a tree." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf on the Goldshire road! The Lion's Pride has a soft bed and a hot meal, though I expect your kind would sooner sleep in a tree." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Well, everybody needs somewhere to sleep, and I'll point you to the Lion's Pride like anyone else, though I suspect you know the cellar already." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and tired, I'd say! Rest at the Lion's Pride, friend. Farley never waters his drinks, and the beds are clean." },
       },

@@ -363,7 +363,7 @@ P:NPC {
           text = "A paladin! I've three chapters on the founding of the Silver Hand and none on its ending, because nobody who saw it end will sit still long enough to tell me." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Stand still a moment while I note your arms, because my records of Southshore's defenders are very thin, and I've had to guess at the sword sizes." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Excellent, because the town records have a gap where the beasts of Hillsbrad ought to be, and nobody who knows about them has ever stood still long enough." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei! I've a whole shelf of guesses about your people and not one proper source, so if you've an hour, I've a quill." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei! I've a whole shelf of guesses about your people and not one proper source, so if you've an hour, I've a quill." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now that's a thing I've not had the chance to write down properly. Hillsbrad's histories are full of your kind, mostly as the reason something burned." },
       },
       again = {
@@ -599,7 +599,7 @@ P:NPC {
           text = "A paladin, eh? Then I'll warn you that Bilger will want a word, and once he starts on the old days he doesn't stop till the barrel's dry." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want the strong stuff, I'd guess, and the latest on who's been picking fights with Tarren Mill. I've both behind the bar, and the second one's free." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at my bar! Tell me what's moving in the hills, and I'll tell you what's moving in the town, and we'll both come out ahead." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid at my bar. Word is you lot can talk to animals, so I'll warn you, the cat in the cellar knows everything and tells nothing." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid at my bar. Word is you lot can talk to animals, so I'll warn you, the cat in the cellar knows everything and tells nothing." },
       },
       again = {
         { id = "h_again", text = "What else? I've been wiping this same mug since noon and it's no cleaner, so I'm free." },
@@ -1429,7 +1429,7 @@ P:NPC {
           text = "A priest. You'll not call me mad, I hope, since your Cathedral was as quick as the Silver Hand to think it, though at least it was quieter about it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, and you'll want a warhorse, I suppose, which is what the Silver Hand always wanted. They rode my stock to war and called me mad for asking where the horses went." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You'll know what it is to trust an animal, then, and most who come through that gate only know how to spur one." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid among my horses! They're shy of the cat-folk, I find, so I'd ask you to stay on two legs while you're in the paddock." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid among my horses! They're shy of the cat-folk, I find, so I'd ask you to stay on two legs while you're in the paddock." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You'll want a horse that won't bolt the first time you set your sleeves on fire, I expect, and I breed them steady, but only for Stormwind's own." },
       },
       again = {

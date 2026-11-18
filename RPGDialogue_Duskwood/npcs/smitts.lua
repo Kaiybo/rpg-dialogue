@@ -150,7 +150,7 @@ P:NPC {
         { id = "h_case", when = { metBefore = true }, text = "I spent the night with my old notes again. There's never anything new in them, but I read them anyway, same as every night." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. I'll pour you something, but you'll drink it with your back to the wall like everyone else in here, because that's how Darkshire drinks." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, and your beast is welcome by the fire, so long as it doesn't drink from the bucket under the bar, because that's for washing." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll write you down, if you don't mind, because I note everyone who walks in out of that forest, and a night elf is a first." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid. I'll write you down, if you don't mind, because I note everyone who walks in out of that forest, and a night elf is a first." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I pour, listen, and remember what Darkshire wants to forget. Your spirits must do the same." },
       },
       again = {

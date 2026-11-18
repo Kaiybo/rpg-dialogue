@@ -292,7 +292,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "Gruul Darkblade, weaponsmith for Valormok. Axes, swords, maces, whatever you swing, and I'll have it sharp before you go hunting elves or naga, because both of them are hunting us." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, at my forge. You'll not want your mace sharpened, I'd guess, but the elves who killed our warriors won't stop for prayers, so carry something with an edge." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, with claws of your own when you need them. You'll not want my axes, I'd wager, but your friends will, and the elves here aren't shy about killing tauren." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A druid, with claws of your own when you need them. You'll not want my axes, I'd wager, but your friends will, and the elves here aren't shy about killing tauren." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Bring me that hammer, because the elves who killed our warriors won't care what you pray to, and neither will the edge." },
       },
       again = {

@@ -139,7 +139,7 @@ P:NPC {
         { id = "h_canals", when = { origin = "human_canal_pickpocket" },
           text = "I remember a file about a canal child with quick fingers and no respect for anybody's purse. Osborne asked me to let it go, and I did, and here you are; don't make me regret it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in Old Town, walking past SI:7's door. You're loud, but you're honest about it, and in my line of work that's almost refreshing." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid walking into SI:7. Your Sentinels keep their own intelligence and share very little of it, and I'd like to know whether you're here to change that." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid walking into SI:7. Your Sentinels keep their own intelligence and share very little of it, and I'd like to know whether you're here to change that." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman in Stormwind. I have a note on you already, of course, but I'd like to hear your own account of who taught you." },
       },
       again = {

@@ -312,7 +312,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Brakkar, wind rider master at Bloodvenom Post. My beasts fly to Splintertree Post, to Everlook in the snows and to Valormok, and from there to anywhere the Horde can reach, so tell me where you're going and let's be done." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. My wind riders won't drink from the river and neither should you, so if you've a blessing for clean water, start with the troughs." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid. You'll not like Felwood, tauren, and you'll like flying over it less, because the air down near Jaedenar burns the throat." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A druid. You'll not like Felwood, tauren, and you'll like flying over it less, because the air down near Jaedenar burns the throat." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. I've no patience for this forest, and none for anything strange that crawls out of it, so tell me where you're flying and let's be done." },
       },
       again = {
@@ -488,7 +488,7 @@ P:NPC {
         { id = "h_default", key = true,
           text = "I am Bale, and I keep the general goods at Bloodvenom Post. Water, food, thread and tools, all of it carried in from cleaner land, because nothing that grows in Felwood is fit to eat, and the Earth Mother weeps for it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest, here where nothing grows clean. The Earth Mother would welcome any healing you can give this soil, whatever name you give it in." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid, and a tauren besides. You'll understand, I think, why I sell nothing that grew in Felwood, because even the water here tastes of rot." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A druid, and a tauren besides. You'll understand, I think, why I sell nothing that grew in Felwood, because even the water here tastes of rot." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. The land here is sick and does not heal, and yet you were sick once, and something healed you." },
       },
       again = {

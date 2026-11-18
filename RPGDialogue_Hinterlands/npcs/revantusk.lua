@@ -175,7 +175,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You move like a Revantusk scout, {class}, low and quiet and lookin' at the exits. Good, because Jintha'Alor be full of eyes, and the Vilebranch never see the quiet ones comin'." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Revantusk be a hunting people, mon, and we know a good tracker by how they walk, so walk with us, and the forest be kinder to you." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. My mate be caged at Jintha'Alor while you walk free, and I be wantin' to know if your claws be as sharp as they say." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. My mate be caged at Jintha'Alor while you walk free, and I be wantin' to know if your claws be as sharp as they say." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The Vilebranch have priests too, {class}, with blood on their hands up to the elbow, so you show me you be the other kind, and I be glad to have you." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Vilebranch", min = 40 } }, text = "The drums at Jintha'Alor beat slower these nights, and I know why. Every Vilebranch you put down be a debt paid, and Revantusk be keepin' count with you." },
         { id = "h_cl_zg", tags = { "news" }, when = { cleared = "Zul'Gurub", faction = "Horde" },
@@ -475,7 +475,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You walk downwind of me like you know what you doin', {class}. My brother walked like that too, before the Vilebranch caught him in the dark." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon. You walk like the forest owe you somethin', and the forest don't owe nobody nothin', so step lighter or the Vilebranch hear you comin'." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, mon! Then you know how to hunt with respect, which be the only way I teach it." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid, mon! Then you know how to hunt with respect, which be the only way I teach it." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, mon. You hunt the dead, the stories say, and you be dead yourself, so I wonder if you ever feel like the prey." },
       },
       again = {
@@ -990,7 +990,7 @@ P:NPC {
           text = "Quiet feet, {class}, good, because loud feet scare the fish. Sit, sit, and don't steal my bait, because the turtles do that already." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and you got the look of somebody who never sit still. Sit anyway, for one breath, and watch the water with old Katoom." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! You and Katoom be the same, mon, only you hunt on land and Katoom hunt in the water, and the water be much more relaxin'." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! You know about the fish, I be thinkin', so maybe you know why they don't bite on cloudy days." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid! You know about the fish, I be thinkin', so maybe you know why they don't bite on cloudy days." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead paladin come to fish wit' Katoom? Sit, mon, because the fish don't care what you pray to, and neither does Katoom, so long as you keep the turtles off my bait." },
       },
       again = {
@@ -1172,7 +1172,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Lard see you sneakin', little one, because Lard is tall and see over everything. No stealin' from the inn, or Lard sit on you." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "You are a warrior! Lard can tell, because you are all metal and clanking. Please do not clank on the tables, because Lard just fixed them." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "Lard see a tauren druid. Lard like tauren, because tauren big like Lard, and tauren not cause trouble in Lard's inn." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "Lard see a tauren druid. Lard like tauren, because tauren big like Lard, and tauren not cause trouble in Lard's inn." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You dead, and you shiny. Lard never see dead and shiny at the same time, and Lard think it look very uncomfortable, but you be welcome at the inn." },
       },
       again = {
@@ -1375,7 +1375,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Light fingers, {class}? The Vilebranch took my best tools into the hills, and nothing would please me more than a quiet pair of hands bringing them home." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Bring that bow here and I'll restring it, because I can see it's been fighting the damp, and the damp in the Hinterlands always wins." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You don't need a shield, I'd wager, for a bear's hide is better than any I could forge." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. You don't need a shield, I'd wager, for a bear's hide is better than any I could forge." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. Bring me your plate if it's dented; I've mended worse for stranger folk, though I'll admit I've never hammered on armour that glows." },
       },
       again = {
@@ -1619,7 +1619,7 @@ P:NPC {
           text = "You got the look of somebody who could walk into Aerie Peak and out again with no dwarf ever the wiser, mon, and Otho like that look very much." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon! You look like you could walk up to Aerie Peak and knock on the thane's door, and Otho would pay to see the dwarf's face when he open it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon. You bring Otho meat and Otho cook it, and if you bring Otho a gryphon feather, Otho cook it twice for spite." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! You can call the beasts, I be thinkin', so maybe you can call a gryphon down from Aerie Peak and let Otho give it a message." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid! You can call the beasts, I be thinkin', so maybe you can call a gryphon down from Aerie Peak and let Otho give it a message." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin, mon! The dwarves at Aerie Peak think the Light belong to the Alliance, so imagine their faces when a dead one come down the mountain shinin'." },
       },
       again = {
@@ -1811,7 +1811,7 @@ P:NPC {
           text = "You sneak up on an orc fishin', you get a hook in the ear, {class}. Sit down, and keep your shadow off the water." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and you want to fly somewhere and hit something, I'd wager. Lok'tar, but wait till I finish this cast, because the grouper is close today, and I can feel it in the line." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Maybe you know something about grouper, because I've been hunting one for three seasons and it's still laughing at me." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Can you speak with the fish, by chance? I want to ask the grouper where it's been hiding." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. Can you speak with the fish, by chance? I want to ask the grouper where it's been hiding." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The wind riders won't care what you are, though I'd thank you not to glow on my pier, because the grouper are skittish enough as it is." },
       },
       again = {

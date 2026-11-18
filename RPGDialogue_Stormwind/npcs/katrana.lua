@@ -174,7 +174,7 @@ P:NPC {
           text = "A mage of the Sanctum, or one who wishes to be. Dalaran's children do so love to remind the court how clever they are." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the king's hall. How very loyal you look, all that steel and no idea at all who you're guarding." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, in the Keep. Do keep your animal on a short leash; the Regent's hall has quite enough noise in it already." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, at court. How quaint, the kaldorei send us their forest-priests, as if the Regent needed reminding that the world is older than his crown." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, at court. How quaint, the kaldorei send us their forest-priests, as if the Regent needed reminding that the world is older than his crown." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. How very unusual. I'm sure Ironforge's king finds such things charming, but here at court, we prefer things we understand." },
       },
       again = { { id = "h_again", text = "Something else? Do be quick." } },

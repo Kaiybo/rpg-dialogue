@@ -889,7 +889,7 @@ P:NPC {
           text = "Your essences went off to the Undercity by courier this morning, all of them in one crate. I do hope you spent your payment on something frivolous; it's what I'd do." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" },
           text = "Oh! A warrior, and you clank, which is good, because at least I heard you coming, and I'm perfectly composed, thank you." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, out in this blasted place. I expect the Badlands make your fur crawl, and I can't say I blame you, for nothing here has grown properly in an age." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid, out in this blasted place. I expect the Badlands make your fur crawl, and I can't say I blame you, for nothing here has grown properly in an age." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Oh! You're glowing. A Forsaken who wields the Light, here in Kargath, and I've only just finished my tea. Do pardon the staring; it's purely academic, I promise." },
       },
       again = {

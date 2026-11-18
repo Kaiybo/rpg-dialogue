@@ -684,7 +684,7 @@ P:NPC {
           text = "A rogue fresh out o' Anvilmar! Ye'll want leather that doesnae creak, an' I've a few pieces that'll suit ye." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Ye'll be wantin' mail soon enough, but for now let me give ye somethin' warm tae wear under it." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? Ye'll want leather, then, an' good leather's my trade, so ye've come tae the right dwarf." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' ye look half frozen, though I expect ye'd say ye're fine. Kaldorei always say that, an' then they start shiverin'." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, an' ye look half frozen, though I expect ye'd say ye're fine. Kaldorei always say that, an' then they start shiverin'." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've wolf pelts an' bear hides aplenty, though I suppose ye'd want tae ask the beasts' leave before ye wore one." },
       },
       again = {

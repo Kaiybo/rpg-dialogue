@@ -770,7 +770,7 @@ P:NPC {
           text = "I've seen the troll witch doctors deal wi' spirits, an' I'll tell ye now ye've a touch o' the same smell about ye. That's no compliment, mind." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. My brother'll be glad tae hear it, though he'll no' say so; he likes his troubles where he can see them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, eh? The Frostmane hunt these hills too, an' I'd like tae know which o' ye is better at it." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' a kaldorei at that. My brother'll say his beard warned him ye were comin', so ye may as well let him." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, an' a kaldorei at that. My brother'll say his beard warned him ye were comin', so ye may as well let him." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My brother'll want ye in his reports, an' the Senate'll want tae know about ye even more, though I doubt they'll like the answer." },
       },
       again = {
@@ -1353,7 +1353,7 @@ P:NPC {
           text = "A warlock, eh? There's a room for ye, but I'll put ye at the end o' the hall, away from the families an' the brewers." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! Sit ye down; a warrior's earned a pint by breakfast in Dun Morogh, whatever else they've done." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Ragnar'll want tae see ye, for he's mad for boar ribs an' short o' anyone tae bring them." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Thunderbrew! Sit by the fire, friend, for ye kaldorei look as if ye've never seen snow, an' snow's all we've got." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid at the Thunderbrew! Sit by the fire, friend, for ye kaldorei look as if ye've never seen snow, an' snow's all we've got." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Here, take a mug, ye've earned it, whatever it was ye did that ye'll no' be tellin' me about." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, in Kharanos! Sit by the fire, then, an' tell me if it's happy, for it's been smokin' somethin' awful all week." },
       },

@@ -1400,7 +1400,7 @@ P:NPC {
         { id = "h_ink", when = { metBefore = true }, text = "I ran out of ink yesterday and had to borrow from the Archmage, and his ink glows. My records glow now, and nobody will take them seriously." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I don't have a ledger for you, since the Kirin Tor keep their own records, but I'll note your arrival anyway, because I note everything." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'll need your name for the ledger, and I'll need it twice, once for you and once for whatever you've got following you." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Theramore. I'll have to add you to the record, since only a handful of your kind have come through the gates since the city was founded." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid in Theramore. I'll have to add you to the record, since only a handful of your kind have come through the gates since the city was founded." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest. I'll note your arrival, and I'll note also that the chapel could use another pair of hands, since the Guard has had more funerals this year than the record likes." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, from Ironforge. I don't have a line in the ledger for that, so I'll write field support and trust the Lady won't ask." },
       },

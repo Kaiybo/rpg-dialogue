@@ -104,7 +104,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" },
           text = "A warlock, and not from around here. Keep whatever that is away from my lads, because they're nervous enough with Hogger in the woods." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter at Westbrook. The gnolls cross the river at night, and I could use someone who sees in the dark better than my lads." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, and you came in from the trees, not the road. That's a skill I'd sooner have on my side than out there with the gnolls." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, and you came in from the trees, not the road. That's a skill I'd sooner have on my side than out there with the gnolls." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I asked Stormwind for a squad and got a handful of farmers, so I'll take a mage gladly, and I'll not ask for anything else." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Riverpaw", min = 30 } }, text = "The farmers say the Riverpaw packs are thinner along the river this week, and the bodies they find have your mark on them. I asked Stormwind for a squad and got you, and I'm starting to think I got the better bargain." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I asked Stormwind for a squad and got you, and I'm not complaining, mind; you'll do." },

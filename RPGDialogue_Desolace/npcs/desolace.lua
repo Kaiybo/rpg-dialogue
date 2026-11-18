@@ -831,7 +831,7 @@ P:NPC {
           text = "Raleigh sends his blessing, you said. I think of it every night when the valley goes quiet, and it helps." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You move like someone who has slipped through a few doors, friend. The Crusade has use for such skills, though we'd ask you to use them only against the Scourge." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage, and still among the living, praise the Light. Dalaran's fall cost us so many of your kind, and the Crusade would welcome your fire against the Scourge." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the night elves. You don't kneel to the Light, I know, but the Scourge hate every living thing alike, and that makes us allies whether you like it or not." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID" }, text = "A druid of the night elves. You don't kneel to the Light, I know, but the Scourge hate every living thing alike, and that makes us allies whether you like it or not." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf who calls on spirits. The Crusade has burned better men than you for less, but the dead walk, and I'll take any ally against them." },
       },
       again = { { id = "h_again", text = "Yes, friend? The Light hears every question." } },

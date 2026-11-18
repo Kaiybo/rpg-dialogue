@@ -284,7 +284,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! With a real beast and everything! Can it do tricks? I bet it can do tricks, and I bet it bites gnolls." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "A priest! Are you here to bless the bridge? Somebody should, because Dmitri says it's cursed, though I think he's only joking." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! A real one! Is it true you can heal people just by touching them? Could you show me sometime?" },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "You're a real druid, and a night elf besides! I've never seen either before today, and I'd love to see the bear, if you'd show me." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "You're a real druid, and a night elf besides! I've never seen either before today, and I'd love to see the bear, if you'd show me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! A real one? Can you call lightning? Can you do it now? I won't tell Oslow, honest." },
       },
       again = {

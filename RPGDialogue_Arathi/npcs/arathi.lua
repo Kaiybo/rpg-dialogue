@@ -150,7 +150,7 @@ P:NPC {
         { id = "h_pt_company", tags = { "news" }, when = { party = { size = 4 }, faction = "Alliance" },
           text = "A full company, and on my doorstep at that! Refuge Pointe holds because the Syndicate and the Boulderfist can't agree which of them wants it more, and five more blades on the wall make that sum a good deal better for us." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. I've heard Ironforge's priests speak of the earth as the Titans' handiwork, {class}, not as a voice, so I'll judge what you bring to the field and leave the theology to others." },
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID" },
           text = "A druid of the Kaldorei, here in the Highlands? Stromgarde could use anyone who knows wild country, because the Witherbark know these hills far better than my soldiers do." },
         { id = "h_default", key = true,
           text = "Captain Nials. Stromgarde's keep fell in the Third War, and these tents are most of what our kingdom still holds. We're here to win the rest back." },
@@ -473,7 +473,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "A tauren druid in Hammerfall! The Earth Mother's children are welcome among us, and so are their claws, for the Boulderfist have plenty of hide to tear." },
         { id = "h_default", key = true,
           text = "I am Drum Fel, and I lead Hammerfall, which we raised on the ashes of an internment camp in Orgrim Doomhammer's name. The Boulderfist ogres and the Witherbark trolls stand between us and the highlands, and once they fall, Hammerfall will thrive." },
@@ -765,7 +765,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "The Darkspear teach their young to move quiet in the jungle, {class}, and you got that same walk. Maybe you be the one to fetch Trol'kalar for Vol'jin, eh?" },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, mon, and a big one. Stromgarde keep a sword in their vaults made to kill trolls, and Zengu would like it carried by a warrior who know what to do with it." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, mon. The loa of the wild must like you, 'cause you walk like one of their own." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid, mon. The loa of the wild must like you, 'cause you walk like one of their own." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "Ha, a dead paladin, mon! The humans' Light, in the hands of the Forsaken, and me here fetchin' a troll-killin' sword to use on the Gurubashi, so this be a very good week for jokes." },
       },
       again = {
@@ -1017,7 +1017,7 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, walking the Earth Mother's paths so far from home! The spirits of the Highlands are sour and stony, but sit by my fire, and perhaps they'll warm to you as they've slowly warmed to me." },
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "One of the Earth Mother's druids, and a tauren besides! Sit by my fire and tell me whether the grass still grows tall in Mulgore." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest, and welcome at my fire. The grunts bring me their bruises and their bad dreams, and I'd be glad of someone who can mend more than I can with tea." },

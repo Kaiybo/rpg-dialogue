@@ -460,7 +460,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "o_sydistrust", tags = { "news" }, when = { opinion = { topic = "sylvanas", stance = { "distrust", "doubt" } } }, text = "Word reaches even Marris Stead, and word is you doubt the Dark Lady. Say it to my face, if you'd like to learn how the rangers of Quel'Thalas settled such things." },
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "A tauren druid in the Plaguelands. Keep to the river, druid, and don't go embracing the trees out here, for the ones not rotten through are hollow and full of something worse." },
         { id = "h_default", key = true,
           text = "Nathanos, Champion of the Banshee Queen; they call me the Blightcaller. The Scourge, the plaguebats and the Scarlet zealots all crawl over these fields, and I mean to clear them, and you'll help." },

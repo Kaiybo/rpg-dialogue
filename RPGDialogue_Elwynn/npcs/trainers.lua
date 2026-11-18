@@ -1329,7 +1329,7 @@ P:NPC {
           text = "You're from the warlocks' cellar downstairs. I can hear them chanting some nights, right through the floorboards, and it makes the candles gutter." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior up here, among the candles. You've come a long way from the common room, and you'll want something more than ale, I hope." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, up all those stairs. I hope your companion didn't take them too fast; Farley's carpet is older than he is." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, all the way from across the sea! I've always meant to see Teldrassil and always stayed right here, so you'll have to tell me what it's like." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, all the way from across the sea! I've always meant to see Teldrassil and always stayed right here, so you'll have to tell me what it's like." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and well-travelled by the look of your boots. I always meant to go far, so tell me where the spirits have taken you." },
       },
       again = { { id = "h_again", text = "What else? Mind the floorboard; it squeaks to Farley." } },

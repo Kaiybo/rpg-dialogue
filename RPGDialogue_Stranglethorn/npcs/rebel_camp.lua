@@ -827,7 +827,7 @@ P:NPC {
           text = "I still wake up reaching for their uniform, and then I remember which side I'm on. It takes a moment longer than I'd like." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. Kurzen's men feared magic more than anything, and I'll admit I still flinch a little when I see a spell cast." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I spent months pretending to be one of Kurzen's men, and I'll tell you that his officers would've killed you on sight." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid. Kurzen's men burned a stretch of the jungle north of here to clear a camp, and I'd wager you can still smell it." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid. Kurzen's men burned a stretch of the jungle north of here to clear a camp, and I'd wager you can still smell it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Kurzen's lot would've called you a heathen, so I'm inclined to like you on principle." },
       },
       again = {

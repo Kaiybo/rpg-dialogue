@@ -149,7 +149,7 @@ P:NPC {
         { id = "h_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Betrayed"), days = 7 } },
           text = "The spirits of our dead can rest now, and Belgrom can stop pacing his hall. You did that, {name}, and Valormok won't forget it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Good, because I've buried a dozen warriors since that elf mage turned on us, and they went into the ground without a proper word said over them." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother, out here at Valormok? You'll find this forest sick, tauren, and the elves who live in it are sicker." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A druid of the Earth Mother, out here at Valormok? You'll find this forest sick, tauren, and the elves who live in it are sicker." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin, at Valormok. We buried nearly every warrior in this camp, and I'd have given my own axe for someone with healing hands that night." },
       },
       again = {

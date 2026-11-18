@@ -195,7 +195,7 @@ P:NPC {
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "Oh, splendid, it's you! Mind the coil there, it bites, and do sit down, because I've a hundred things to show you and time for about four." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Do you eat properly out there? I only ask because my people forget to, and you look as though you'd forget too." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Your people know more about living with the land than we gnomes ever learned, and after Gnomeregan, I'm humble enough to say so." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid! Your people know more about living with the land than we gnomes ever learned, and after Gnomeregan, I'm humble enough to say so." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! My engineers have argued about your sort for weeks. Sixty percent think you're picking up seismic vibrations, and the rest think you're simply very sensitive." },
       },
       again = {
@@ -1394,7 +1394,7 @@ P:NPC {
           text = "Ye've a warlock's look about ye, an' I've seen what yer kind left behind in some o' the old ruins. Mind yerself in the Hall." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. State yer business; I've a page tae finish." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Fine; mind yer beast doesnae chew the maps." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. The League's turned up a few kaldorei relics in the hills, an' I suppose ye'll want tae tell me they're no' mine." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid. The League's turned up a few kaldorei relics in the hills, an' I suppose ye'll want tae tell me they're no' mine." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. The League's got opinions about ye, an' so have I, an' I'll keep mine tae myself today." },
       },
       again = {

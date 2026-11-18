@@ -524,7 +524,7 @@ P:NPC {
           text = "A warrior! The cauldrons are well guarded, {class}, and I've been praying for someone with a shield to stand in front of me while I work." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. Keep that bow handy, {class}, because the wildlife near the cauldrons drinks from the same wells as the farms, and none of it is fit to eat any more." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! I've been praying to the Light for a cure for this land, and perhaps the Light sent me one with antlers." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! I've been praying to the Light for a cure for this land, and perhaps the Light sent me one with antlers." },
       },
       again = {
         { id = "h_again", text = "Something else on your mind? Ask away, I've a jar or two to label while you talk." },
@@ -1076,7 +1076,7 @@ P:NPC {
           text = "A warrior! Splendid, for you're exactly the sort I'd want about if my dead brother came calling, {class}, though I'd want you at the door, not by the bed." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter. We kept a fine kennel at Caer Darrow, {class}, and I'm told the hounds still prowl the island, though whose hounds they are now I'd rather not guess." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. I suppose you'll be wanting to plant trees on my family's lands once this is over, but I'll be wanting my rents first." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid of the kaldorei. I suppose you'll be wanting to plant trees on my family's lands once this is over, but I'll be wanting my rents first." },
       },
       again = {
         { id = "h_again", text = "Well? You're still here, so you must want something else." },
@@ -1841,7 +1841,7 @@ P:NPC {
           text = "A warrior! Oh, the gryphons do grumble about plate, {class}, but they're very brave birds, and they'd carry an anvil if you asked them nicely." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" },
           text = "A hunter! The gryphons like your sort, {class}, because you smell of the woods rather than the plague, and that's a real treat for them up here." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! You'll want to fly as a bird, I'd wager, but the gryphons are faster, and they don't mind the smell as much as you'd think." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Oh, the gryphons won't like that, no, not one bit, {class}, but they'll fly you anyway, because I've told them you're on our side, and I'm very persuasive." },
       },
       again = { { id = "h_again", text = "Anything else? The birds aren't going anywhere without me, so take your time; I've measured their patience at about eleven minutes, give or take a feather." } },

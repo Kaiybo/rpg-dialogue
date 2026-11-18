@@ -125,7 +125,7 @@ P:NPC {
           text = "A warlock at the stables! Keep yer creature well back, for the beasts can smell it, an' they dinnae like it one bit." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, eh? Ye've no beast for me tae keep, but ye're welcome tae stand by the stalls an' say hello." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Come in, come in; is it a new beast ye're after, or are ye leavin' an old friend wi' me for a while?" },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, an' a kaldorei. The beasts in the stalls'll smell the forest on ye, so don't be surprised if they all start fussin'." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, an' a kaldorei. The beasts in the stalls'll smell the forest on ye, so don't be surprised if they all start fussin'." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue. The rams always know when someone quiet comes in, for they go still an' watch the door, an' they've been watchin' ye since ye stepped in." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My charges always go quiet when yer kind passes, so ye'll forgive them if they stare. I've seen hunters get less respect." },
       },

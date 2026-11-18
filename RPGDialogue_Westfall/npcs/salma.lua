@@ -153,7 +153,7 @@ P:NPC {
           text = "Oh, it's you! I've been keeping a bowl warm in case you came by, and don't you dare say you've already eaten." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior at my door! You'll eat, then, because that's the rule, and you'll eat twice because you look like you need it." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin at my table! Sit down, and take off those gauntlets, because nobody eats my stew in steel." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf at my door, and thin as a willow switch! Sit down, druid, because I don't care what shape you came in, you'll leave fed." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf at my door, and thin as a willow switch! Sit down, druid, because I don't care what shape you came in, you'll leave fed." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "You came up to my door so quiet I nearly hit you with the ladle. Sit down, you'll eat like everyone else." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! There's stew on the stove for anyone hungry, shaman or no. Sit down and eat." },
       },

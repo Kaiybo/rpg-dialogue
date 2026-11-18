@@ -838,7 +838,7 @@ P:NPC {
           text = "A warrior! Good, because Brann's off somewhere with my last two guards, and this camp's held together with digging tools and bad language." },
         { id = "h_huntcl", when = { class = "HUNTER" },
           text = "A hunter, eh? Are ye daft, wandering this desert with a beast that needs water? Come in out of the sun, the pair of ye." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid, out at Brann's dig! Yer people knew this land before it was sand, so I'll gladly hear whatever ye can tell me." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei druid, out at Brann's dig! Yer people knew this land before it was sand, so I'll gladly hear whatever ye can tell me." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, eh? Brann'd want tae write ye up, an' I want tae know if the stone round here's said anythin' tae ye about what's under it." },
       },
       again = {

@@ -179,7 +179,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "You move like the grunt who slipped his chains the night the Warchief came, {class}, and vanished into the dark before the guards ever saw him go." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The Doomhammer fell not far from here, and the beasts in the hills watched it, I think, though nobody asks a raptor what it saw." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. Your people were hunted by centaur before Thrall found you, I've heard, so you know what it is to be chained to fear." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. Your people were hunted by centaur before Thrall found you, I've heard, so you know what it is to be chained to fear." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead thing carrying the Light, like the knights who rode past this camp when I was in chains. I thought I had seen everything there was to see, and I was wrong, which is the first thing to surprise me in years." },
       },
       again = {
@@ -563,7 +563,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "A druid, on the very day the bones turned up a bear's tooth. I do not believe in chance, tauren, and I would not advise you to either." },
         { id = "h_default", key = true,
           text = "I am Korin, wife of Drum Fel. He leads Hammerfall and I read the auguries for it, as the old clan seers did before the demon blood, and lately the auguries say things I cannot tell him, of an ogre called Or'Kalar and a trap laid for my husband." },
@@ -773,7 +773,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" },
           text = "Sneak up on a wind rider and you'll lose a hand, {class}. They smell fear and mischief equally well, and you've a whiff of both." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Climb on with your armour if you must, but the winds off Thoradin's Wall don't care how brave you are, and they've tipped heavier riders than you." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You could fly yourself if you wanted, I've heard, but I'll take your coin all the same." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. You could fly yourself if you wanted, I've heard, but I'll take your coin all the same." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. The wind riders shy away from most of your people, but they let you near, and I've learned to trust their noses more than my own eyes." },
       },
       again = {
