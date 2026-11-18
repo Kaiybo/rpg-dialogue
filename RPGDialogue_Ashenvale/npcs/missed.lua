@@ -558,7 +558,7 @@ P:NPC {
       },
     },
     buys = {
-      lines = { { id = "b_default", text = "The priestesses, who come for holy candles, and the druids for their seeds. Of late there are human mages too, bound for Maestra's Post, and they buy powders by the handful as though they expected to need them all at once." } },
+      lines = { { id = "b_default", text = "The priestesses, who come for holy candles, and the druids for their seeds. Of late there are humans too, bound for Maestra's Post, and they buy by the handful as though they expected to need it all at once." } },
       choices = {
         { text = "Perhaps they do expect it.", next = "expect" },
         { text = "Something else.", next = "BACK" },
@@ -798,8 +798,8 @@ P:NPC {
       choices = { { text = "It troubles me as well. Something else.", next = "BACK" } },
     },
     druid = {
-      lines = { { id = "dr_default", text = "That is what I hoped to ask you. The wolf is Goldrinn's shape, and our oldest tales warn against those who took his fury and could not put it down, and I wonder whether Velinde brushed against the same thing." } },
-      choices = { { text = "The old tales are worth heeding. Something else.", next = "BACK" } },
+      lines = { { id = "dr_default", text = "That is what I hoped to ask you, whether a power that answers a prayer in the shape of a wolf can be trusted. Velinde believed the Scythe was Elune's gift, and I am no longer certain it came from the Goddess at all." } },
+      choices = { { text = "I would not trust it either. Something else.", next = "BACK" } },
     },
   },
   topics = {

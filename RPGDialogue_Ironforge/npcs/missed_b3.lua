@@ -322,7 +322,7 @@ P:NPC {
         { id = "h_default", text = "I'm a thief catcher, an' the name on my warrant doesnae matter much, for the folk I'm after never ask it. The others walk the middle o' the hall tae be seen, an' I walk the edge tae see." },
       },
       again = {
-        { id = "h_again", text = "Somethin' more? Softly." },
+        { id = "h_again", text = "If there's somethin' more, say it softly." },
         { id = "h_again2", text = "Go on, I'm watchin' the bridge while ye talk." },
       },
       choices = {
