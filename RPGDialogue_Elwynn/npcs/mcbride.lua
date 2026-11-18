@@ -114,6 +114,10 @@ P:NPC {
       },
     },
     hello = {
+      narr = {
+        { text = "He looks you over from boots to collar, the way he checks a sentry's kit before the night watch.", when = { metBefore = false } },
+        { text = "He glances up from the map spread across the courtyard table, a stub of charcoal still between his fingers." },
+      },
       lines = {
         { id = "dd_rolf", when = { questDone = TODO_QUEST("Discover Rolf's Fate") },
           text = "Dughan wrote to me about Rolf and his men at the murloc camp by the lake, and that you were the one who found them. I trained two of those footmen myself, recruit, so I thank you for bringing them home in word, if not in body." },
@@ -170,7 +174,7 @@ P:NPC {
           text = "I know you; you were carrying the brothers' candles through these halls last spring. Now you'll be taking the kobolds' candles off them instead, which is the same job with more teeth." },
         { id = "h_warm", when = { disposition = { min = 72 } },
           text = "There's a face I'm glad to see. You're the sort of recruit I'd hand the valley to for an afternoon, and I don't say that lightly." },
-        { id = "h_cold", when = { disposition = { max = 34 } },
+        { id = "h_cold", when = { disposition = { max = 34 } }, narr = "He keeps his eyes on the map and doesn't put down the charcoal.",
           text = "You. State your business and keep it short, recruit, because I've not forgotten the last time." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, here in Northshire! I've kobolds in the vineyard and wolves in the hills, so I'll gladly take whatever help you're offering." },
@@ -241,7 +245,7 @@ P:NPC {
           text = "You cleared more of it than anyone. There may still be some down there, and I'll send others after them; that's not a failure, recruit, it's what a garrison is for." },
       },
       choices = {
-        { text = "Then I'll keep coming back.", next = "BACK", reply = "Good, because I'll need you. The kingdom's soldiers are spread thin, and I'll take every pair of hands that keeps coming.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Then I'll keep coming back.", next = "BACK", narr = "He gives you one short nod and goes back to marking the mine on his map.", reply = "Good, because I'll need you. The kingdom's soldiers are spread thin, and I'll take every pair of hands that keeps coming.", fx = { affinity = 2, align = { order = 1 } } },
         { text = "That sounds exhausting.", next = "BACK", reply = "It is, and I've been doing it for years. Don't complain to me about tired legs, recruit.", fx = { align = { order = -1 }, trait = { witty = 1 } } },
       },
     },
@@ -287,6 +291,7 @@ P:NPC {
 
     defias = {
       big = true,
+      narr = "He taps two fingers on the vineyard at the edge of his map, where someone has inked a row of small crosses.",
       lines = {
         { id = "d_default", key = true,
           text = "The Defias are in the valley and they're organized, and some of them were honest men once. But a thief with a cause is still a thief.",
@@ -388,6 +393,7 @@ P:NPC {
 
     lordaeron = {
       big = true,
+      narr = "His eyes go past you to the hills north of the Abbey wall and stay there for a breath.",
       lines = {
         { id = "lo_default", text = "Lordaeron, yes. Then you know why I don't laugh at kobolds, or bandits, or anything else that grows while nobody's watching it." },
       },
@@ -426,7 +432,7 @@ P:NPC {
     garrison_letters = {
       big = true,
       lines = {
-        { id = "gl_default", text = "Twice, in my own hand, with the kobold counts attached. The first came back from the Highlord's clerk saying he'd consider it, and the second came back from Lady Prestor's office saying the valley must make do with what it has." },
+        { id = "gl_default", narr = "He turns his shoulder to the brothers sweeping the courtyard and lowers his voice.", text = "Twice, in my own hand, with the kobold counts attached. The first came back from the Highlord's clerk saying he'd consider it, and the second came back from Lady Prestor's office saying the valley must make do with what it has." },
         { id = "gl_after", text = "So we make do. The brothers bind my recruits for nothing, Willem counts bandanas, and I write a third letter in my head every night and never send it. That stays on this hill, recruit." },
       },
       choices = {
@@ -446,6 +452,7 @@ P:NPC {
     },
     warlock = {
       big = true,
+      narr = "He folds his arms across his tabard and doesn't step any closer.",
       lines = { { id = "warlock_l", text = "It did, and I wrote it anyway, because the kingdom asked me to send every recruit to their teacher, and Drusilla La Salle is yours. I don't have to like it, recruit, and I don't." } },
       choices = {
         { text = "You'll be glad of me when the Defias come.", next = "BACK", reply = "Maybe I will, recruit, and I'll be the first to say so if it happens. Until then, mind how you go in my valley.", fx = { align = { order = 1 }, trait = { stern = 1 } } },

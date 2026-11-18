@@ -237,6 +237,10 @@ P:NPC {
       },
     },
     hello = {
+      narr = {
+        { text = "She inclines her head to you as to kin, and the moonlight falling through the open roof silvers the violet of her robes.", when = { race = "NightElf" } },
+        { text = "She stands at the edge of the moonwell with her hands folded, and the light falling through the open roof catches the silver at her shoulders." },
+      },
       lines = {
         { id = "h_dd_silverwing", when = { reputation = { faction = "Silverwing Sentinels", min = "honored" } }, text = "The Silverwing Sentinels speak of you in their reports from Warsong Gulch, and they do not praise lightly. Elune has given you a steady arm, and you have spent it well in her daughters' service." },
         { id = "h_dd_raene", tags = { "news" }, when = { questDone = TODO_QUEST("Raene's Cleansing") }, text = "Raene Wolfrunner's reports from Astranaar mention you more than once, and always with gratitude. Ashenvale is the frontier of our people now, and those who stand with the Sentinels there stand with me." },
@@ -318,6 +322,7 @@ P:NPC {
     },
     xborrowed = {
       big = true,
+      narr = "She turns one hand over in the moonlight and studies the fine lines across her knuckles.",
       lines = {
         { id = "xbo_default", text = "Borrowed from whom, though? We gave the Tree's gifts away to stop Archimonde, so I have come to think the years are not borrowed but bought, and dearly. Some of our people spend them grieving what we lost, and some spend them as if each one were the last, so tell me which you have chosen." },
       },
@@ -338,6 +343,7 @@ P:NPC {
     },
     malfurion = {
       big = true,
+      narr = "Her eyes go to the still water of the moonwell and stay there until she has finished speaking.",
       lines = {
         { id = "m_default", text = "His body sleeps in his barrow while his spirit walks the Emerald Dream, and it does not come back. The druids searched and found nothing, so I wait, and I am very tired of waiting." },
       },
@@ -403,9 +409,10 @@ P:NPC {
     },
     mistakes = {
       big = true,
+      narr = "A priestess crosses behind her with a silver ewer from the moonwell, and Tyrande waits until the girl has passed before she answers.",
       lines = { { id = "mi_default", text = "Pride, and magic hoarded by the few, and leaders so certain they knew best that no one could tell them otherwise. We drowned half a continent learning that lesson once." } },
       choices = {
-        { text = "Fandral would call you too cautious.", next = "BACK", reply = "He would, and he has, and I have heard it many times over the years. I would rather be too cautious than rebuild a world from its ashes.", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
+        { text = "Fandral would call you too cautious.", next = "BACK", narr = "The corner of her mouth tightens, and she smooths a fold of violet silk at her sleeve before she answers.", reply = "He would, and he has, and I have heard it many times over the years. I would rather be too cautious than rebuild a world from its ashes.", fx = { align = { light = -1 }, trait = { skeptical = 1 } } },
         { text = "Then I'll watch for pride. Mine too.", next = "BACK", reply = "That is wisdom few find in a long life, let alone a short one. Watch it most closely in yourself, for that is where it hides.", fx = { affinity = 2, align = { light = 1 }, trait = { cautious = 1 } } },
       },
     },
@@ -461,6 +468,7 @@ P:NPC {
     },
     hyjal = {
       big = true,
+      narr = "She lifts her chin a little and meets your eyes squarely, the way a Sentinel stands to give a report.",
       lines = { { id = "hy_default", text = "It is true that I called your kind mongrels once. Then a young human sorceress held the first line at Hyjal so that we could finish our work, and I told her plainly that I had misjudged her." } },
       choices = {
         { text = "And now?", next = "hyjal2" },
@@ -522,6 +530,7 @@ P:NPC {
       },
     },
     barrow_vigil = {
+      narr = "Her voice drops low enough that the priestesses tending the moonwell do not turn their heads.",
       lines = {
         { id = "bv_default", text = "I do, when the Sentinels' reports are done and no one waits on my word. I sit beside him and tell him what his people did that day, and I never tell him that I am tired, because I will not have him wake to hear that I wavered." },
         { id = "bv_priest", when = { class = "PRIEST" },

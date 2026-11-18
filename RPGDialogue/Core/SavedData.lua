@@ -48,6 +48,7 @@ SD.ACCOUNT_DEFAULTS = {
     lineSpacing = 3,
     largeBox = false,           -- a bigger conversation box with bigger text (0.82.0)
     echoReply = true,           -- "You: ..." above their answer (0.61.0)
+    narration = true,           -- stage directions ("He sets down the hammer...") above lines (0.85.0)
     views = true,               -- say what you think after an "Ask about..." answer (0.82.0)
     look = "game",              -- "game" (the game's own quest window art) | "wood"
     pagesInBox = true,          -- the game's next gossip page and quest pages stay in the box

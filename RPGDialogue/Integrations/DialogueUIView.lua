@@ -193,13 +193,19 @@ function V.Refresh()
   pcall(f[handler], f, true)
 end
 
+-- A muted grey-brown that reads on DialogueUI's parchment and its dark theme alike.
+local NARR_COLOR = "|cff8c7b67"
+
 ---------------------------------------------------------------------------
 -- The same calls as the box (UI/DialogueFrame.lua)
 ---------------------------------------------------------------------------
 function V.Show(v)
   if not V.Available() then return false end
   lastView = v
-  page = { text = v.text, choices = v.choices, canAsk = v.canAsk }
+  -- Narration (0.85.0): its own paragraph ahead of their words, in a muted colour.
+  local text = v.text
+  if v.narr and v.narr ~= "" then text = NARR_COLOR .. v.narr .. "|r\n\n" .. (text or "") end
+  page = { text = text, choices = v.choices, canAsk = v.canAsk }
   local f = window()
   if f:IsShown() then
     V.Refresh()
@@ -236,7 +242,7 @@ end
 function V.ShowAnswer(text)
   if not page then return end
   page.text = text or ""
-  if lastView then lastView.text = page.text end
+  if lastView then lastView.text = page.text; lastView.narr = nil end
   V.Refresh()
 end
 

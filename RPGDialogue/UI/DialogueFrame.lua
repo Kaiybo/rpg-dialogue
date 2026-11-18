@@ -651,8 +651,10 @@ function D.Show(v)
   D.Style()   -- also builds the current look's parts, the round portrait among them
   local portrait = Theme.GamePart(frame, "portrait")
   if portrait and not C.SetPortrait(portrait, v.unit) then portrait:SetTexture(PORTRAIT_FALLBACK) end
-  reveal.full = v.text or ""
-  reveal.linked = v.linkedText
+  -- Narration (0.85.0): its own paragraph in dim ink, typed before their words.
+  local narr = (v.narr and v.narr ~= "") and (Theme.Hex("dim") .. v.narr .. "|r\n\n") or ""
+  reveal.full = narr .. (v.text or "")
+  reveal.linked = v.linkedText and (narr .. v.linkedText) or nil
   reveal.total = utf8Len(reveal.full)
   reveal.cuts = nil
   reveal.shown = 0

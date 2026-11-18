@@ -182,6 +182,10 @@ P:NPC {
       },
     },
     hello = {
+      narr = {
+        { text = "He comes down a step from the throne to meet you, his gauntleted hand rising to his chest in the Silver Hand's salute.", when = { class = "PALADIN" } },
+        { text = "He stands at the foot of the throne with one hand resting on the arm of the boy king's chair, and turns from Lady Prestor to face you." },
+      },
       lines = {
         { id = "h_alt_kin", when = { alt = { kin = true }, metBefore = false },
           text = "Forgive me for staring. A {altrace} named {alt} stood in this hall not long ago, and you carry yourself so much like that one that I took you for kin before you'd said a word." },
@@ -206,7 +210,7 @@ P:NPC {
           text = "You've been to Sentinel Hill. Stoutmantle is a better man than this court deserves. Tell him I said so, if he'll hear it from me." },
         { id = "h_varian", when = { minLevel = 30 },
           text = "The king left for Theramore and never arrived. Each morning I look at that empty seat and tell the boy it's only a while longer." },
-        { id = "h_masquerade", tags = { "news" }, when = { questDone = TODO_QUEST("The Great Masquerade") },
+        { id = "h_masquerade", tags = { "news" }, when = { questDone = TODO_QUEST("The Great Masquerade") }, narr = "He turns a sealed decree over in his hands without breaking the wax.",
           text = "I trusted Lady Prestor's counsel for years, every word of it, and now I'll be reading old decrees for months, looking for her hand in them." },
         { id = "h_solomon", tags = { "news" }, when = { questRecent = { TODO_QUEST("The True Masters"), days = 5 } },
           text = "Magistrate Solomon's evidence from Lakeshire isn't enough to march an army on, and it's too much to ignore, so I'm sending you. Lakeshire deserves an army; it gets my best instead." },
@@ -260,6 +264,7 @@ P:NPC {
     },
     westfall = {
       big = true,
+      narr = "He glances toward Lady Prestor at the council table before he answers.",
       lines = {
         { id = "t_westfall", key = true,
           text = "I know what they say out there. The kingdom is stretched thinner than any of us would like, and my council urges patience. I mislike it." },
@@ -286,6 +291,7 @@ P:NPC {
     },
     bear = {
       big = true,
+      narr = "He looks past you to the boy on the throne, who is swinging his heels against the legs of the great chair.",
       lines = {
         { id = "b_default", text = "I bear it by not acting on suspicion, and not breaking faith with the people who serve. Some days that's all a regent has, and it has to be enough." },
       },
@@ -300,6 +306,7 @@ P:NPC {
     },
     bear_true = {
       big = true,
+      narr = "He steps to the side of the dais, out of earshot of the boy, and lowers his voice.",
       lines = {
         { id = "bt_default", text = "Sleep, mostly. I sit up with the boy until he drops off, and then I sit up with the reports, and some nights I put my sword on the table just to remember I used to know what to do with my hands." },
         { id = "bt_patience", text = "And patience. My council tells me patience is strength, and I've said it to the court so often it sounds like my own voice, though some nights I wonder whether it's only patience after all." },
@@ -323,6 +330,7 @@ P:NPC {
       },
     },
     prestor = {
+      narr = "He glances to where Lady Prestor stands beside the throne, and she inclines her head to him.",
       lines = { { id = "pr_default", text = "Her counsel has kept this city steady through a hard few years, and there's no sharper mind on the council. Some find her cold; I find her useful, and a regent needs useful more than warm." } },
       choices = {
         { text = "Useful to whom?", next = "BACK", fx = { trait = { skeptical = 1 } } },
@@ -333,7 +341,7 @@ P:NPC {
       big = true,
       lines = { { id = "ch_default", text = "His Grace has my ear whenever he wants it, and the Cathedral's doors are the one thing in this city nobody argues about. Pray for the king, both of them, if you would." } },
       choices = {
-        { text = "I pray for them every day.", next = "BACK", reply = "Then you're doing more for them than half this court. Thank you, and the Light keep you.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I pray for them every day.", next = "BACK", narr = "He bows his head to you, briefly, the way he would to a priest of the Cathedral.", reply = "Then you're doing more for them than half this court. Thank you, and the Light keep you.", fx = { affinity = 2, align = { light = 1 } } },
         { text = "Prayers won't bring a king home, my lord.", next = "BACK", reply = "No, but they keep me on my feet while the searching goes on. I'll not apologise for leaning on them.", fx = { align = { light = -1 } } },
         { text = "Pray for the people outside the walls too.", next = "church_outside" },
       },
