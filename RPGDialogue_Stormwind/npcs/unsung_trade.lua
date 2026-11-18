@@ -86,7 +86,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than you'd think, because a fine pelt fetches more than a pouch of silver if you wait for the right buyer. We had a whole winter's worth of wolf pelts from Duskwood last year, and the whole vault smelled of wet dog until spring." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can't come into the vault, I'm sorry to say. The rules are very clear on beasts, though I'll admit it's very sweet." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than you'd think, because a fine pelt fetches more than a pouch of silver if you wait for the right buyer. Your {pet} can't come into the vault, I'm sorry to say. The rules are very clear on beasts, though I'll admit it's very sweet." },
       },
       choices = {
         { text = "Patience pays. I'll wait for the right buyer.", next = "BACK", fx = { align = { order = 1 } } },
@@ -126,7 +126,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Pelts and trophies in the vault? We can store them, though I'll ask you to make sure they're properly salted first." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll say it before you ask: nobody has ever stolen from this bank, not even a cat that walked through the bars." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. I'll open your box like anyone else's, but I'll ask you to keep nothing in it that breathes." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Nothing has ever been stolen from these vaults. Nothing. Your spirits would find nothing to complain about." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, welcome. Nothing has ever been stolen from these vaults, not once, so your spirits will find nothing to complain about." },
       },
       again = {
         { id = "h_again", text = "Is there something more the Bank of Stormwind can do for you?" },
@@ -206,7 +206,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Everyone's fears, in gold and silver. A shaman's deposit would be interesting. I'd wager your spirits don't use coin." } },
+      lines = { { id = "xdsham_default", text = "Everyone's fears, counted out in gold and silver. A shaman's deposit would be interesting, though I'd wager your spirits don't use coin." } },
       choices = {
         { text = "A careful bank keeps a careful kingdom, Newton.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fear is a poor reason to hoard coin.", next = "BACK", fx = { align = { order = -1 } } },
@@ -264,7 +264,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Teeth, claws and feathers, mostly, and one memorable hunter kept a stuffed murloc that he swore was the biggest ever caught in Westfall. I believed him, because nobody would make that up." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has its eye on the coin trays, I notice. Clever beast; it knows where the shiny things are kept." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Teeth, claws and feathers, mostly, and one memorable hunter kept a stuffed murloc that he swore was the biggest ever caught in Westfall. Your {pet} has its eye on the coin trays, I notice. Clever beast; it knows where the shiny things are kept." },
       },
       choices = {
         { text = "A trophy honours the hunt, not my pride.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -445,7 +445,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, and some keep it in a sack under their bedroll, and I worry for the second sort. A hunter who's been robbed on the road once usually becomes my best customer." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} would be your guard, I suppose, if you did keep your coin on the road. A fine guard, too, by the look of those teeth." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and some keep it in a sack under their bedroll, and I worry for the second sort. And {pet} would be your guard, I suppose, if you did keep your coin on the road. A fine guard, too, by the look of those teeth." },
       },
       choices = {
         { text = "I'll trust the bank with my coin. It's safer.", next = "BACK", fx = { align = { order = 1 } } },
@@ -623,7 +623,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Leather, by far, since the tailors and leatherworkers are always hungry for it. Last week a single pristine hide from a Redridge bear went for three times what the vendors offer." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} can stay by the podium, but please don't let it put its paw on anything. The bidders get very jumpy." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Leather, by far, since the tailors and leatherworkers are always hungry for it. Your {pet} can stay by the podium, but please don't let it put its paw on anything. The bidders get very jumpy." },
       },
       choices = {
         { text = "I'll price my goods fairly for everyone.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -796,7 +796,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than you'd think, because two wolf pelts look much alike to most people. I keep a note of every scar and every colour, and I've settled more arguments with my ledger than any guard has with his sword." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has been sitting very still by my desk, which I appreciate. The last animal in here chewed through a ledger." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than you'd think, because two wolf pelts look much alike to most people. Your {pet} has been sitting very still by my desk, which I appreciate. The last animal in here chewed through a ledger." },
       },
       choices = {
         { text = "Careful records keep everyone honest.", next = "BACK", fx = { align = { order = 1 } } },
@@ -836,7 +836,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. You'll want to list your spare blades, I suppose, and I'll write every one down correctly, which is my entire job." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Pelts, leather and meat, I suppose, and I'll write each one down so that nobody can claim it was a different hide." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid. I'll write you down as I write everyone down, though I don't suppose you'll be bidding on anything with a pelt attached." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Every bid is written down. Fraud is the greatest danger this city faces, and your spirits won't change that." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Every bid in this hall is written down, because fraud is the danger I fear most, and your spirits won't change that." },
       },
       again = {
         { id = "h_again", text = "Is there anything else? I'd like to finish this page before the ink dries." },
@@ -1033,7 +1033,7 @@ P:NPC {
     booty_bay = { { id = "tp_booty_bay", text = "The goblins of Booty Bay keep their books in a code I've never been able to break. I keep mine in plain Common, because fraud is the greatest sin in this trade, and I'll not commit it." } },
     steamwheedle = { { id = "tp_steamwheedle", text = "The Steamwheedle Cartel runs auction houses in every goblin port, and they're very good at it, I'll grant them. But they'll sell to anyone, and I'd rather know where my goods are going." } },
     the_stockade = { { id = "tp_the_stockade", text = "Some of the goods that come up for auction have very suspicious origins, and I note every one. I've sent a few names to the Stockade, back when the Stockade held anyone." } },
-    stonemasons = { { id = "tp_stonemasons", text = "I copied the debts owed to them, once, and I watched the lines grow smaller on the page. I'll say no more than that in a public hall." } },
+    stonemasons = { { id = "tp_stonemasons", text = "I copied the debts owed to the stonemasons, once, and I watched the lines grow smaller on the page. I'll say no more than that in a public hall." } },
     background = { { id = "tp_bg", text = "I was a scribe in the House of Nobles once, copying deeds, and I left because I preferred honest bidding to what I saw written there." } },
     _none = { { id = "tp_none", text = "I have nothing written on that, I'm afraid, and I don't repeat what isn't written." } },
   },
@@ -1119,7 +1119,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "More than last month, because the leatherworkers can't keep up with the new adventurers. A clean wolf hide fetches a fair price, but a torn one's worth half, so skin carefully." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a handsome creature, and well kept. I'll say this for nothing: a beast like that would fetch a fortune, if anyone were fool enough to sell one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "More than last month, because the leatherworkers can't keep up with the new adventurers. Your {pet} is a handsome creature, and well kept. I'll say this for nothing: a beast like that would fetch a fortune, if anyone were fool enough to sell one." },
       },
       choices = {
         { text = "I'll skin carefully and sell honestly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1293,7 +1293,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because a beast on a crest is alive in a way a sword never is. I once designed a crest with a stag for a hunting lodge in Elwynn, and the old man who ordered it wept when he saw it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would make a fine crest, you know. If you ever form a guild, bring it to me, and I'll draw it properly." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a beast on a crest is alive in a way a sword never is. Your {pet} would make a fine crest, you know. If you ever form a guild, bring it to me, and I'll draw it properly." },
       },
       choices = {
         { text = "A crest should honour the beasts we hunt.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1638,7 +1638,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hand axes and short swords, light enough to swing while you're backing away, which is how most hunters fight up close. Gunther says a hunter's axe is the hardest thing to get right, and he grumbles about it for days." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is very well behaved, thank you. The last one knocked over a rack of daggers, and Gunther hasn't stopped talking about it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hand axes and short swords, light enough to swing while you're backing away, which is how most hunters fight up close. Your {pet} is very well behaved, thank you. The last one knocked over a rack of daggers, and Gunther hasn't stopped talking about it." },
       },
       choices = {
         { text = "Quality steel is worth the extra coin.", next = "BACK", fx = { align = { order = 1 } } },
@@ -1939,7 +1939,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Reagents for their spells, mostly. I've learned what every sort needs by watching what they buy." } },
+      lines = { { id = "xdsham_default", text = "Ankhs, mostly, for when the spirits bring them back, and a few reagents. I've learned what every sort needs by watching what they buy." } },
       choices = {
         { text = "You know your customers well, Kyra. That's good business.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I'll find what I need myself.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1977,7 +1977,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A few, buying for their friends, and they always ask whether any of it would help their pets. None of it would, but I like that they ask." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing at the reagents, and I'd stop it if I were you, because some of these smell nicer than they are." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A few, buying for their friends, and they always ask whether any of it would help their pets. Your {pet} is sniffing at the reagents, and I'd stop it if I were you, because some of these smell nicer than they are." },
       },
       choices = {
         { text = "I'd rather ask than risk my pet's health.", next = "BACK", fx = { align = { light = 1 } } },

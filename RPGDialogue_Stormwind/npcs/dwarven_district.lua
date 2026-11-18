@@ -97,7 +97,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Rifles, mostly, an' rams tae carry 'em, back in Dun Morogh, though the old mountaineers swear by the crossbow when the snow's thick. A barrel freezes in the high passes, ye ken, but a good string keeps." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} o' yours would do well in the snow, I'd say. Keep it out o' the forge, though, for the sparks fly further than ye'd think." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rifles, mostly, an' rams tae carry 'em, back in Dun Morogh, though the old mountaineers swear by the crossbow when the snow's thick. That {pet} o' yours would do well in the snow, I'd say. Keep it out o' the forge, though, for the sparks fly further than ye'd think." },
       },
       choices = {
         { text = "Every tool has its place. Bow or rifle, it's the hand that counts.", next = "BACK", fx = { align = { order = 1 } } },
@@ -228,7 +228,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Some of the old-timers grumble about orc magic. Not me. You're one of ours, and you buy from the right shop, which matters more." } },
+      lines = { { id = "xdsham_default", text = "Some o' the old-timers grumble about orc magic, but no' me. Ye're one o' ours, an' ye buy from the right shop, which matters more." } },
       choices = {
         { text = "I'll always buy honest dwarven goods, Kaita.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "The Trade District has bargains too. You're too proud.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -286,7 +286,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Gunpowder, when I can get it down the tram from Ironforge, an' arrowhead blanks for the ones who'd rather fletch their own. Most humans here buy their arrows ready-made, but a dwarf likes tae know what's in her quiver." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That's a braw beast, that {pet}. Keep it away from the powder kegs, mind, for I've no wish tae see either o' us blown tae Loch Modan." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Gunpowder, when I can get it down the tram from Ironforge, an' arrowhead blanks for the ones who'd rather fletch their own. That's a braw beast, that {pet}. Keep it away from the powder kegs, mind, for I've no wish tae see either o' us blown tae Loch Modan." },
       },
       choices = {
         { text = "I make my own arrows. You learn more that way.", next = "BACK", fx = { align = { order = 1 } } },
@@ -329,7 +329,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, {g:lad|lass}! Ye'll not need much from a smith's supply stall, but I've a fine bit o' flux for mendin' a rifle barrel, if ye carry one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Dwarven District! Ye'll find nothin' green down here but the copper, an' I'll thank ye not tae lecture me about the mines." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! Ye'll be wantin' nothing from me but a whetstone for yer knife, but ye're welcome tae look." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, and a dwarf! Proper goods, from Ironforge, on the tram. No Trade District rubbish. Your spirits will know good iron." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, an' a dwarf! Ye'll find proper goods here, straight from Ironforge on the tram an' no' Trade District rubbish, an' yer spirits will know good iron." },
       },
       again = {
         { id = "h_again", text = "What else, {g:lad|lass}?" },
@@ -475,7 +475,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "I could, I have, and I've built three, and only one of them caught fire. A properly ground lens on a properly mounted rail makes a hunter accurate at twice the range, which my calculations say is very nearly perfect." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Does {pet} like loud noises? Some beasts don't, and engineering tends to involve them, so I'd keep it well back from the bench." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I could, I have, and I've built three, and only one of them caught fire. Does {pet} like loud noises? Some beasts don't, and engineering tends to involve them, so I'd keep it well back from the bench." },
       },
       choices = {
         { text = "Precision is the heart of a good hunt. I'll try your scope.", next = "BACK", fx = { align = { order = 1 } } },
@@ -527,7 +527,7 @@ P:NPC {
       },
       choices = {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Engineering" } },
-        { text = "Goblin engineering seems the bolder craft.", next = "choice" },
+        { text = "Gnomish or goblin engineering, Lilliam? Which should I choose?", next = "choice" },
         { text = "You look to be calculating something.", next = "sum" },
         { text = "You can't have got many notes out of Gnomeregan.", next = "gnome", when = { race = "Gnome" } },
         { text = "What sort of flaw do gnomish locks have?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
@@ -623,7 +623,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I miss it every day. I came to help rebuild Stormwind and teach miners, and when I've taught enough I'll go home where the rock has some backbone." } },
+      lines = { { id = "xdsham_default", text = "I miss it every day. I came tae help rebuild Stormwind an' teach miners, an' when I've taught enough I'll go home, where the rock has some backbone." } },
       choices = {
         { text = "Finish the work properly, Gelman, then go home with honour.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Go home now. Stormwind can dig its own mines.", next = "BACK", fx = { align = { order = -1 } } },
@@ -661,7 +661,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "He wanted more than the stone could give him, so he went lookin' in a cellar instead, an' now he doesnae speak tae any o' us. He's alive, as far as I know, but I'd no' call it livin'." } },
+      lines = { { id = "xlock_default", text = "The miner I knew wanted more than the stone could give him, so he went lookin' in the Lamb's cellar instead, an' now he doesnae speak tae any o' us. He's alive, as far as I know, but I'd no' call it livin'." } },
       choices = {
         { text = "Power that costs you your friends isn't worth having.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Maybe he found what the stone could never give him.", next = "BACK", fx = { align = { light = -1 } } },
@@ -681,7 +681,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Kobolds, mostly, which are near enough tae beasts, an' the odd bear that's found a warm tunnel for the winter. In Elwynn's mines, the kobolds are so thick ye'd think they grew out o' the rock." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Yer {pet} has a good nose for a cave, I'd wager. Keep it close in the dark, for it'll smell the kobolds long before ye see the candle." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Kobolds, mostly, which are near enough tae beasts, an' the odd bear that's found a warm tunnel for the winter. Yer {pet} has a good nose for a cave, I'd wager. Keep it close in the dark, for it'll smell the kobolds long before ye see the candle." },
       },
       choices = {
         { text = "I'll clear the kobolds out, so the miners can work safe.", next = "BACK", fx = { align = { order = 1 } } },
@@ -728,7 +728,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, an' a long way from the high passes, by the look o' ye. The tunnels under Stormwind are no place for a beast, I'll tell ye that much." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Ye've interrupted me, druid, an' ye'd better have a reason. If it's tae tell me the hills are sad about my minin', I've heard it." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage. Ye've interrupted me, an' ye'd better have a reason, though if it's tae ask whether ye can conjure ore, the answer's no." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "You've interrupted me. A shaman, though. I'll allow it. The earth here is soft, compared to Dun Morogh. Does it speak differently?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "Ye've interrupted me, but ye're a shaman, so I'll allow it. The earth here is soft next tae Dun Morogh's; does it speak differently tae ye?" },
       },
       again = {
         { id = "h_again", text = "Aye? Make it quick." },

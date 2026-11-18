@@ -94,7 +94,7 @@ P:NPC {
     },
     ryan_grief = {
       lines = {
-        { id = "rg_default", text = "I asked him to come and live with my parents and me, here, in a city with walls and bread and a Cathedral. He swore he'd stay until he'd purged his home of orcs, and he wouldn't budge an inch. We hadn't spoken since." },
+        { id = "rg_default", text = "I asked him to come and live with my parents and me, here, in a city with walls and bread and a Cathedral. He swore he'd stay until he'd purged his home of orcs, and he wouldn't budge an inch, so we parted badly, and we've not spoken since." },
       },
       choices = {
         { text = "Do you regret not going with him?", next = "argument" },
@@ -1849,7 +1849,7 @@ P:NPC {
   },
 
   topics = {
-    background = { { id = "tp_bg", text = "Darnassus first, then here, where the work is." } },
+    background = { { id = "tp_bg", text = "I learned my craft in Darnassus, and then came here, where the work is." } },
     advice = { { id = "tp_ad", text = "Wear what keeps you alive. Let me worry about how it looks." } },
     _none = { { id = "tp_none", text = "That is not my concern. Ask me about how you look, and I will have plenty to say." } },
   },

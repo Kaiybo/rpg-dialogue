@@ -31,7 +31,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "More than I'd like, and their lightning hurt worse than any axe. You're the first dwarf I've seen doing it, though. Strange times." } },
+      lines = { { id = "xdsham_default", text = "More than I'd like, and their lightning hurt worse than any axe. You're the first dwarf I've seen doing it, though, and I'd like to see how you'd fare against my regulars." } },
       choices = {
         { text = "Fight fair, Harry, and I'll spar anytime you like.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Let your regulars come. I'll knock them down fast.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -80,7 +80,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Walked ahead of us through the Lordaeron forests and told us where the orcs were before the orcs told us themselves. One old ranger had a hawk that spotted an ambush at Hillsbrad, and I've owed that bird my life for twenty years." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "That {pet} of yours has the same look that hawk had, watching everything. Look after it, and it'll look after you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Walked ahead of us through the Lordaeron forests and told us where the orcs were before the orcs told us themselves. That {pet} of yours has the same look that hawk had, watching everything. Look after it, and it'll look after you." },
       },
       choices = {
         { text = "I'll scout ahead for anyone who needs me.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -131,7 +131,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. We had a few of your sort scouting for us in the Second War, and every one of them saved my company at least once." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid in the Pig and Whistle! We never had your sort in the Second War, more's the pity, because a bear on the flank would've done wonders for morale." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in the Pig and Whistle. Sit down where the regulars can see you, or they'll start a fight just to find out what you are." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Sit down, I've a regular here who'll test your mettle. Never fought a shaman, have you, Bartleby? Nor have I, come to that." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Sit down, I've a regular here who'll test your mettle. You've never fought a shaman, have you, Bartleby? Well, there's a first time for everything." },
       },
       again = {
         { id = "h_again", text = "What else? I've half a pint left and all evening." },
@@ -313,7 +313,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because the last one drank my ale, and I've never forgiven it, nor its owner, nor the barmaid who laughed. A dog that can drink a pint of the Pig's dark is a dog with no sense, and I'll not share a bar with it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Keep {pet} at the far end, by Elly. She likes animals, and I like my ale where I left it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because the last one drank my ale, and I've never forgiven it, nor its owner, nor the barmaid who laughed. Keep {pet} at the far end, by Elly. She likes animals, and I like my ale where I left it." },
       },
       choices = {
         { text = "Right, Bartleby. I'll keep my elbows off your end of the bar.", next = "BACK", fx = { align = { order = 1 } } },
@@ -520,7 +520,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "One a week, if we're lucky, and usually between a soldier and a dockhand over something neither remembers in the morning. Dashel ends most of them, and Reese mops up after, and I keep pouring." } },
+      lines = { { id = "xwarcl_default", text = "One a week, if we're lucky, and usually between a soldier and a dockhand over something neither remembers in the morning. Dashel Stonefist ends most of them, and Reese mops up after, and I keep pouring." } },
       choices = {
         { text = "I'll keep the peace if one starts while I'm here.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A good brawl clears the air. I'll join in.", next = "BACK", fx = { align = { order = -1 } } },
@@ -531,7 +531,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Every evening, coming in from Elwynn with their boots muddy and their stories bigger than their game. My favourite is an old trapper who swears a bear in the Brackwell woods knows his name." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, look at {pet}! I'll find it a bowl of water and a bone from the kitchen, and don't you dare tell Stephen I took it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Every evening, coming in from Elwynn with their boots muddy and their stories bigger than their game. Oh, look at {pet}! I'll find it a bowl of water and a bone from the kitchen, and don't you dare tell Stephen I took it." },
       },
       choices = {
         { text = "My stories are always true, Elly. Mostly.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -712,7 +712,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar from the Elwynn woods, roasted slow with apples, and if you ever bring me a good haunch of it I'll show you how. Westfall's chicken's the most common, but there's nothing on a plate like a boar that's eaten acorns all autumn." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet} will want the scraps, I suppose? Fair's fair, then, since it probably did half the work of catching it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar from the Elwynn woods, roasted slow with apples, and if you ever bring me a good haunch of it I'll show you how. And {pet} will want the scraps, I suppose? Fair's fair, then, since it probably did half the work of catching it." },
       },
       choices = {
         { text = "I'll bring you boar, and only take what I need.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -897,7 +897,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A clean kill, a clean skinning and a hide salted the same day, because a pelt that's been dragged across Westfall for a week is good for nothing but a boot sole. The best ones come from hunters who care, and you can always tell." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a lovely coat; I'll not suggest anything, I promise, it's only a professional habit to notice. Keep it brushed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A clean kill, a clean skinning and a hide salted the same day, because a pelt that's been dragged across Westfall for a week is good for nothing but a boot sole. Your {pet} has a lovely coat; I'll not suggest anything, I promise, it's only a professional habit to notice. Keep it brushed." },
       },
       choices = {
         { text = "A clean kill and respect for the hide. That's my way.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1062,7 +1062,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Alike in patience and different in purpose. You wait in the trees for something that doesn't know it's being hunted, and I wait in the dark for someone who does, which makes my quarry a good deal more dangerous." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}, does it bark at shadows? Mine would, if I had one, which is why I don't." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Alike in patience and different in purpose. And your {pet}, does it bark at shadows? Mine would, if I had one, which is why I don't." },
       },
       choices = {
         { text = "I'd never use my skills to hunt people.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1257,7 +1257,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Plenty passes this door that never gets written down. Ask, and I'll decide what you can hear." } },
     background = { { id = "tp_bg", text = "I'm the Night Man. Anything before that was somebody else's life, and I've forgotten it on purpose." } },
     advice = { { id = "tp_ad", text = "Learn to listen before you learn to pick a lock. Most doors open once you know who has the key." } },
-    si7 = { { id = "tp_si7", text = "The door behind me, and I'm all of it you'll see, unless you're one of us.", next = "door" } },
+    si7 = { { id = "tp_si7", text = "SI:7 is the door behind me, and I'm all of it you'll see, unless you're one of us.", next = "door" } },
     _none = { { id = "tp_none", text = "Never heard of it, and I hear a great deal. Ask Renzik; he'll pretend he knows." } },
   },
 }
@@ -1345,7 +1345,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, and some think it's dishonourable, which is a lovely sentiment until a bear's halfway up your leg. I don't take sides, I just take coin." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a good nose, so keep it away from the stock, please. Some of it doesn't smell like what it is." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and some think it's dishonourable, which is a lovely sentiment until a bear's halfway up your leg. Your {pet} has a good nose, so keep it away from the stock, please. Some of it doesn't smell like what it is." },
       },
       choices = {
         { text = "Poison is no way to hunt. A clean shot is enough.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1475,7 +1475,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "Everything that comes through SI:7's door passes my counter sooner or later. Ask carefully, and I'll answer carefully." } },
     background = { { id = "tp_bg", text = "I sell supplies to SI:7. Before that, I sold them to somebody else, and that's all I'll say." } },
     advice = { { id = "tp_ad", text = "Never tell a man more than he needs to know, and never trust a man who tells you more than you need. Both will get you killed." } },
-    si7 = { { id = "tp_si7", text = "You're standing in it, friend. Mind your voice." } },
+    si7 = { { id = "tp_si7", text = "You're standing in SI:7, friend, so mind your voice." } },
     _none = { { id = "tp_none", text = "I don't sell that kind of information. Or any kind, to you, today." } },
   },
 }

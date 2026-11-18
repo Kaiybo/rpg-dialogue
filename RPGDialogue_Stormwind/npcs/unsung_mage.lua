@@ -85,7 +85,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, from Darnassus and Auberdine, and the humans stare at their night sabers as if they've never seen a cat. They come to buy potions, mostly, and to tell me which herbs have grown thick in Ashenvale." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would like the forests of my home, I think. Take it there one day, if you can, so it knows what a real tree looks like." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, from Darnassus and Auberdine, and the humans stare at their night sabers as if they've never seen a cat. Your {pet} would like the forests of my home, I think. Take it there one day, if you can, so it knows what a real tree looks like." },
       },
       choices = {
         { text = "The wild is sacred and should be kept so.", next = "BACK", fx = { align = { light = 1 } } },
@@ -262,7 +262,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Skinning blades that never dull, and needles fine enough to stitch a hide without tearing it. My people believe that if you take a life, you should waste nothing of what it gives you." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a fine coat, and I can see it is loved. My people would say the bond between you honours you both." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Skinning blades that never dull, and needles fine enough to stitch a hide without tearing it. Your {pet} has a fine coat, and I can see it is loved. My people would say the bond between you honours you both." },
       },
       choices = {
         { text = "Waste nothing. That's the right way to hunt.", next = "BACK", fx = { align = { light = 1 } } },
@@ -378,7 +378,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I could make anything elegant! Business has never been better, and I'd love the challenge. Come back." } },
+      lines = { { id = "xdsham_default", text = "I could make anything elegant, darling, and I'd love the challenge. Come back when you can stand still for an afternoon." } },
       choices = {
         { text = "Make something practical, Georgio. Elegance can come after.", next = "BACK", fx = { align = { honor = 1 } } },
         { text = "Elegance first. Let them see me coming.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -425,7 +425,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Of course, though you'll only tear it again in the next briar patch. I'll double the stitching at the knees, because hunters spend half their lives crouching in the bushes." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And {pet}, I see, has been helping, with its claws? Never mind, I've mended worse; I once repaired a cloak that a bear had eaten half of." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Of course, though you'll only tear it again in the next briar patch. And {pet}, I see, has been helping, with its claws? Never mind, I've mended worse; I once repaired a cloak that a bear had eaten half of." },
       },
       choices = {
         { text = "I'll take better care of my clothes, I promise.", next = "BACK", fx = { align = { order = 1 } } },
@@ -465,7 +465,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in a tailor's shop! You'll be wanting a tabard to wear over that armour, I expect, so that everybody knows whose side you're on." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! Your clothes are torn, I see, in all the places hunters always tear them: the knees, the elbows and the hem." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! Your leathers are serviceable, I'll say that, but please let me show you what a proper cut would do for a figure as tall as yours." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Let me see what you're wearing. Hmm. Rugged, practical. Not elegant." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Let me see what you're wearing. Hmm, rugged and practical, darling, but not elegant." },
       },
       again = {
         { id = "h_again", text = "What else? I've a bolt of wool waiting." },
@@ -542,7 +542,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "I feel it in every stitch. The good thread came from Dalaran, and the elves sell us theirs now. Your spirits might know where better thread grows." } },
+      lines = { { id = "xdsham_default", text = "I feel it in every stitch, because the good thread came from Dalaran, and now we make do with what the elves sell us. Your spirits might know where better thread grows." } },
       choices = {
         { text = "Then we'll make the best of what remains, Alexandra.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "The elves' thread will do. No need for Dalaran.", next = "BACK", fx = { align = { order = -1 } } },
@@ -600,7 +600,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Heavy waxed thread, mostly, which Simon Tanner swears by, though he'll never admit to buying it from me. It holds a stitch through rain and mud, which is what a hunter needs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps batting at my spools, and I don't have the heart to stop it. Is it always this playful?" },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Heavy waxed thread, mostly, which Simon Tanner swears by, though he'll never admit to buying it from me. Your {pet} keeps batting at my spools, and I don't have the heart to stop it. Is it always this playful?" },
       },
       choices = {
         { text = "Good thread for good work. I'll buy the best.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -639,7 +639,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! I've thread strong enough for hides, if you work your own leather, and needles that won't snap on a boar's skin." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and you'll be wondering where my dyes come from, I expect, because your people always ask that before they ask the price." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Black thread and a dark dye, I'd wager, and a needle sharp enough for leather. I can always tell the quiet ones." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Georgio's fussing again. Do you need thread? Good thread comes from Teldrassil now that Dalaran's gone." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Don't mind Georgio fussing; do you need thread? The good thread comes from Teldrassil now that Dalaran's gone." },
       },
       again = {
         { id = "h_again", text = "Anything else?" },
@@ -770,7 +770,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "In patience, yes, and in knowing that one hasty move can ruin hours of work. A hunter who looses too early loses the deer, and a tailor who cuts too early loses the cloth." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is a very patient beast, I see. It's been watching my needle for a full minute, which is longer than any of my students manage." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "In patience, yes, and in knowing that one hasty move can ruin hours of work. Your {pet} is a very patient beast, I see. It's been watching my needle for a full minute, which is longer than any of my students manage." },
       },
       choices = {
         { text = "Patience in everything, as you say.", next = "BACK", fx = { align = { order = 1 } } },
@@ -809,7 +809,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll know about patience, I'd guess, which is the first thing I teach and the last thing my students learn." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I always say the forest is the greatest loom of all, with every root a thread, and I'd love to know if you agree." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! Every thread matters, I always say, even the dark ones, and perhaps especially the dark ones." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Weaving is like the world, you know. Threads crossing, holding each other up. Do your spirits weave?" },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Weaving is like the world, you know, all threads crossing and holding each other up. Do your spirits weave?" },
       },
       again = {
         { id = "h_again", text = "Anything else? I've got a lesson in a moment." },
@@ -931,7 +931,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not usually, because a bow does the same work and never needs recharging. But I knew a ranger from Quel'Thalas once who carried a wand to light his campfires, and he swore by it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is staring at the wands as though they might move. Clever beast; some of them do, a little, when the enchantment's fresh." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not usually, because a bow does the same work and never needs recharging. Your {pet} is staring at the wands as though they might move. Clever beast; some of them do, a little, when the enchantment's fresh." },
       },
       choices = {
         { text = "A bow is honest work. No magic needed.", next = "BACK", fx = { align = { order = 1 } } },
@@ -999,7 +999,7 @@ P:NPC {
       },
     },
     makers2 = {
-      lines = { { id = "m2_default", text = "I never went there myself, and I miss its workshops more than its towers. That sounds cold, I know, but a merchant mourns in her own way." } },
+      lines = { { id = "m2_default", text = "I never went there myself, so it's the workshops' wands I miss, not the towers. That sounds cold, I know, but a merchant mourns in her own way." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     choose = {
@@ -1042,7 +1042,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Some of them, I swear it. Every one has a story, and stories are like spirits. Your elements would understand." } },
+      lines = { { id = "xdsham_default", text = "Some of them do, I swear it. Every one has a story, and a story is a little like a spirit, so I think your elements would understand." } },
       choices = {
         { text = "Then I'll speak gently around them, Charys.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Trinkets don't listen. Stories just sell better.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1100,7 +1100,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "From all over the world, from the crafters and mages here and from the hunters and gatherers who bring me what they find. A good hunter can make a fine living bringing in rare feathers and claws, if they know what to look for." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks healthy and strong, which is good; some of these reagents come from beasts that weren't so lucky." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "From all over the world, from the crafters and mages here and from the hunters and gatherers who bring me what they find. Your {pet} looks healthy and strong, which is good; some of these reagents come from beasts that weren't so lucky." },
       },
       choices = {
         { text = "I'll take only what I need from the creatures I hunt.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -1214,7 +1214,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It teaches patience, mostly. A shaman must have patience too, or the elements would never answer." } },
+      lines = { { id = "xdsham_default", text = "Teaching Thurman teaches me patience, mostly. A shaman must have patience too, or the elements would never answer." } },
       choices = {
         { text = "Patience is worth teaching, Wynne. Keep at it.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Some apprentices aren't worth the trouble.", next = "BACK", fx = { align = { order = -1 } } },
@@ -1261,7 +1261,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Once in a while, for a feast or a funeral, and they always look terribly uncomfortable in them. My apprentice says it's because hunters can't sit still in anything that doesn't rustle like leaves." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has better manners than my apprentice, I'll say that. At least it hasn't forgotten its sewing kit." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Once in a while, for a feast or a funeral, and they always look terribly uncomfortable in them. Your {pet} has better manners than my apprentice, I'll say that. At least it hasn't forgotten its sewing kit." },
       },
       choices = {
         { text = "Even a hunter can dress well when it matters.", next = "BACK", fx = { align = { order = 1 } } },

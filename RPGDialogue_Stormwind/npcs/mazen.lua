@@ -73,7 +73,7 @@ P:NPC {
         { text = "What's this about Khadgar's essays?", next = "essays" },
         { text = "Who is Dellis?", next = "dellis" },
         { text = "Why guard the books so closely?", next = "danger" },
-        { text = "You said there were strange happenings.", next = "happenings" },
+        { text = "Have there been strange happenings in the city lately?", next = "happenings" },
         { text = "I've studied at Dalaran. What would you ask?", next = "xdalaran", when = { origin = "human_dalaran_stray" } },
         { text = "I trained here in the Quarter, as it happens.", next = "xquarter", when = { origin = "human_mage_quarter" } },
         { text = "I was Gnomeregan's last arcane student.", next = "xgnome", when = { origin = "gnome_last_student" } },
@@ -214,7 +214,7 @@ P:NPC {
         { id = "d_default", text = "Acolyte Dellis, my assistant, and inside these walls the most capable young man I've ever had. He can find any book in the place blindfolded and knows the catalogue better than I do, and outside the city gates he's helpless as a kitten in a rainstorm." },
       },
       choices = {
-        { text = "So why send him to the Blasted Lands?", next = "dellis_why" },
+        { text = "So why send him all the way to Nethergarde?", next = "dellis_why" },
         { text = "What happened to him in the swamp?", next = "dellis_swamp" },
         { text = "Something else.", next = "BACK" },
       },

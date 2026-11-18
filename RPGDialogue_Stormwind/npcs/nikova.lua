@@ -103,7 +103,7 @@ P:NPC {
         { text = "I stood shifts at the Stockade. I knew him, a little.", next = "xguard", when = { origin = "human_city_guard" } },
         { text = "My guild never meant for this, Nikova.", next = "xmason", when = { origin = "human_stonemason_child" } },
         { text = "Shall I pray with you for him?", next = "xpriest", when = { class = "PRIEST" } },
-        { text = "I've been down to the lower tiers. It's done.", next = "xcleared", when = { cleared = "The Stockade" } },
+        { text = "I've been down into the Stockade, Nikova. The riot's put down.", next = "xcleared", when = { cleared = "The Stockade" } },
         { text = "I'll get you what you need.", next = "BUSINESS" },
         { text = "I'm sorry for your loss. Good day.", next = "END" },
       },

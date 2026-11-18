@@ -285,7 +285,7 @@ P:NPC {
       },
     },
     ironforge_tram = {
-      lines = { { id = "it_default", text = "I've only ridden the tram once, and I wasn't scared, though I held the rail the whole way. Bolvar says the dwarves dug it so the Alliance could never be cut in two." } },
+      lines = { { id = "it_default", text = "Louder? Then I hope he visits again soon. Bolvar says the dwarves dug the tram so the Alliance could never be cut in two, and I'd love to ride it." } },
       choices = { { text = "Something else, Your Majesty.", next = "BACK", fx = { affinity = 1 } } },
     },
     gnomeregan = {
@@ -367,9 +367,9 @@ P:NPC {
       { id = "tp_knows", text = "I hear a lot at council, because everyone forgets I'm there. Ask me about any of it and I'll tell you, as long as it isn't a secret." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You can ask me about anything here, and I'll tell you the parts Bolvar skips, too." },
     },
-    westfall = { { id = "tp_westfall", text = "I asked about Westfall at council. Everyone went quiet. That's how I know it's bad." } },
+    westfall = { { id = "tp_westfall", text = "I asked about Westfall at council and everyone went quiet, so that's how I know it's bad." } },
     defias = { { id = "tp_defias", text = "Bolvar won't say much about them when I'm in the room, but I hear anyway. I'm small, not deaf." } },
-    tome_of_divinity = { { id = "tp_tome", text = "Duthorian Rall showed it to me once. I wasn't allowed to touch it. I touched it a little." } },
+    tome_of_divinity = { { id = "tp_tome", text = "Duthorian Rall showed me the Tome once, and I wasn't allowed to touch it, though I touched it a little." } },
     _none = { { id = "tp_none", text = "I don't know, I'm afraid; I'm only ten. But I'll ask Bolvar for you, if you like." } },
   },
 }

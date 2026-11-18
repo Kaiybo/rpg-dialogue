@@ -115,7 +115,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "In my own way, little one, though I've never had much patience for the chase itself. One learns far more by waiting until the quarry walks to you, and in this court, they always do." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "What a devoted creature your {pet} is. It reminds me of a great many people in this hall, though it has better manners than most of them." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "In my own way, little one, though I've never had much patience for the chase itself. What a devoted creature your {pet} is. It reminds me of a great many people in this hall, though it has better manners than most of them." },
       },
       choices = {
         { text = "A hunter should respect the quarry, my lady.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -165,7 +165,7 @@ P:NPC {
           text = "Lakeshire's magistrate sends letters too; they all send letters. One begins to suspect the countryside has nothing better to do." },
         { id = "h_anduin", text = "The young king is doing splendidly, because he listens, and that is the most important quality in a king at his age. Listening." },
         { id = "h_skyborne", when = { race = "Skyborne" },
-          text = "Ah. One of the elves who came down out of the sky. The Kirin Tor do collect such curiosities." },
+          text = "Ah. One of the elves from that great tree across the sea. How very exotic the Alliance has become." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "You again, and I find I don't mind. You have the look of someone who understands how things are actually decided, which is rarer at this court than gold." },
         { id = "h_cold", when = { disposition = { max = 34 } },
@@ -296,7 +296,7 @@ P:NPC {
     },
     warlock = {
       big = true,
-      lines = { { id = "wl_default", text = "How refreshing; nobody at this court says anything so honest. The priests downstairs would faint, of course, but the strong never did take their manners from the timid, little one." } },
+      lines = { { id = "wl_default", text = "How refreshing; nobody at this court says anything so honest. The priests at the Cathedral would faint, of course, but the strong never did take their manners from the timid, little one." } },
       choices = {
         { text = "The strong rule, and the rest pray.", next = "warlock_strong", fx = { align = { light = -2 } } },
         { text = "Power needs a leash, my lady, even mine.", next = "warlock_leash", fx = { align = { light = 1 } } },
@@ -368,8 +368,8 @@ P:NPC {
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "Ask away, then. It's so rare to be asked anything by someone who might actually understand the answer." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll indulge you on a very few things, and briefly, because the Regent is waiting." },
     },
-    defias = { { id = "tp_defias", text = "Disgruntled masons. Tiresome. They'll be a footnote, one way or another." } },
-    westfall = { { id = "tp_westfall", text = "Dust and complaints. I'm told it used to grow wheat." } },
+    defias = { { id = "tp_defias", text = "Disgruntled masons, and tiresome ones. They'll be a footnote, one way or another." } },
+    westfall = { { id = "tp_westfall", text = "Westfall is dust and complaints these days, though I'm told it used to grow wheat." } },
     _none = { { id = "tp_none", text = "How quaint that you'd think I'd discuss that with you." } },
   },
 }

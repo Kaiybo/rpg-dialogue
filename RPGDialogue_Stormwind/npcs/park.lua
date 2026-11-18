@@ -156,7 +156,7 @@ P:NPC {
         { text = "I'm not sure I understand balance.", next = "balance" },
         { text = "Is there a sacred place for druids, Sheldras?", next = "moonglade" },
         { text = "Your Elune must differ from our Light.", next = "light", when = { class = "PRIEST" } },
-        { text = "I'd welcome your advice on my practice, Sheldras.", next = "practise", when = { class = "DRUID" } },
+        { text = "What should I practise hardest, Sheldras?", next = "practise", when = { class = "DRUID" } },
         { text = "Should druids take sides in the Alliance's wars?", next = "war", when = { class = "DRUID" } },
         { text = "My people honour the winds more than Elune.", next = "skyborne", when = { race = "Skyborne", class = "DRUID" } },
         { text = "Do you mind a hunter's beast in your Park?", next = "hunter", when = { class = "HUNTER" } },
@@ -296,8 +296,8 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "A druid of the Cenarion Circle who has spent longer among humans than he expected to. The trees here are young; perhaps I am keeping them company." } },
     advice = { { id = "tp_ad", text = "Look inside yourself for balance before you look for it in the world. The world is very noisy, and you are much quieter than it." } },
-    cenarion_circle = { { id = "tp_circle", text = "The druids of Kalimdor, sworn to the balance, who meet in Moonglade.", next = "moonglade" } },
-    teldrassil = { { id = "tp_teldrassil", text = "Our new world-tree, rising off the northern coast. I miss its shade, even here." } },
+    cenarion_circle = { { id = "tp_circle", text = "The Cenarion Circle is the druids of Kalimdor, sworn to the balance, and they meet in Moonglade.", next = "moonglade" } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is our new world-tree, rising off Kalimdor's northern coast, and I miss its shade even here." } },
     _none = { { id = "tp_none", text = "I don't know, and I'm content not to. Not every question needs to be caught." } },
   },
 }
@@ -378,7 +378,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Silverleaf, which should never grow in a human city, and a kind of moss that only grows where water runs underground. The humans planted this Park for its beauty, and the land quietly decided to grow something useful in it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} walks carefully among the roots. It understands, I think, that a garden should be walked through, not over." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Silverleaf, which should never grow in a human city, and a kind of moss that only grows where water runs underground. Your {pet} walks carefully among the roots. It understands, I think, that a garden should be walked through, not over." },
       },
       choices = {
         { text = "We should take from the land only what we need.", next = "BACK", fx = { align = { light = 1 } } },
@@ -472,7 +472,7 @@ P:NPC {
     knows = {
       { id = "tp_knows", text = "I know plants, and the people who walk through the Park on their way to somewhere else. Ask, but make it worth my time." },
     },
-    background = { { id = "tp_bg", text = "I tended the groves of Ashenvale for longer than this city has stood, and now I study herbs here, better than anyone in it. What more would you need to know?" } },
+    background = { { id = "tp_bg", text = "I tended the groves of Ashenvale for longer than this city has stood, and now I study the herbs here, which I know better than anyone in this city. What more would you need to know?" } },
     advice = { { id = "tp_ad", text = "Take the leaf and leave the root. Then there's something to pick next year." } },
     _none = { { id = "tp_none", text = "If it isn't a plant, I don't care, and I have had a very long life in which to decide what deserves my care." } },
   },

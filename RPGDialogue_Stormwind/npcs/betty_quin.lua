@@ -200,7 +200,7 @@ P:NPC {
     },
     story_home = {
       lines = {
-        { id = "sh_default", text = "At Harvest Festival, when I can. My father still asks when I'll stop all this and come make barrels, and then he shows the Lion's Pride the lamp I enchanted for him, so I think he's proud." },
+        { id = "sh_default", text = "At Harvest Festival, when I can. My father still asks when I'll stop all this and come make barrels, and then he shows everyone at the Lion's Pride Inn the lamp I enchanted for him, so I think he's proud." },
       },
       choices = {
         { text = "He sounds proud to me.", next = "BACK", fx = { affinity = 1 } },

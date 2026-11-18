@@ -121,7 +121,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Room is the one thing I never have enough of, friend. The stable master on the east side manages, but I've had three petitions this month about wolves in the Trade District, and I didn't draw a single kennel." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I'd sooner the beasts had the hills than the alleys, but {pet} looks better kept than most of my masons. Mind it doesn't chew the scaffolding; the masons have enough to complain about without that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Room is the one thing I never have enough of, friend. I'd sooner the beasts had the hills than the alleys, but {pet} looks better kept than most of my masons. Mind it doesn't chew the scaffolding; the masons have enough to complain about without that." },
       },
       choices = {
         { text = "A city should make room for the ones who keep its roads safe.", next = "BACK", fx = { align = { order = 1 } } },
@@ -140,7 +140,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Wages paid, and a word from the House admitting the masons were wronged, and neither will ever happen. Instead they took to the hills of Westfall, and now the crown calls them bandits and sends soldiers after them." } },
+      lines = { { id = "xapala_default", text = "Wages paid, and a word from the House admitting the masons were wronged, and neither will ever happen. Instead the masons took to the hills of Westfall, and now the crown calls them bandits and sends soldiers after them." } },
       choices = {
         { text = "The law must deal with the Defias, whatever the House owes.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "When the law cheats men, they've a right to take what's theirs.", next = "BACK", fx = { align = { order = -1 } } },
@@ -165,7 +165,7 @@ P:NPC {
         { id = "h_masons", when = { heardLine = "gryan.l_known" },
           text = "So Stoutmantle told you about the Stonemasons. Yes, I was one, and I took the post when Edwin took the road. Ask me which of us was the coward." },
         { id = "h_compass", tags = { "news" }, when = { questActive = TODO_QUEST("Humble Beginnings") },
-          text = "The old house is west of Sentinel Hill, and Father swears the chest is still there under the char. It holds a boy's compass, worth nothing to anyone, but bring it anyway." },
+          text = "My family's old house is west of Sentinel Hill, and Father swears the chest is still there under the char. It holds a boy's compass, worth nothing to anyone, but bring it anyway." },
         { id = "h_thredd", tags = { "news" }, when = { questActive = TODO_QUEST("Bazil Thredd") },
           text = "Thredd was Edwin's lieutenant, taken in the riots and all but forgotten in the Stockade since. If anyone knows what Edwin set moving, it's him." },
         { id = "h_maelik", tags = { "news" }, when = { questActive = TODO_QUEST("The Curious Visitor") },
@@ -198,7 +198,7 @@ P:NPC {
         { text = "My family sits in the House of Nobles.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "Your arches are fair work, for human stone.", next = "dwarf_stone", when = { race = "Dwarf" } },
         { text = "My father was a Stonemason. He was never paid either.", next = "mason_child", when = { origin = "human_stonemason_child" } },
-        { text = "Few could know the city's drains as well as you.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "Who else knows the city's drains as well as you do?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Something's eating the Mage Quarter's mortar.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
         { text = "Which part of the city would you hold first, Architect?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Does the city have room left for a hunter's beasts, Architect?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
@@ -231,7 +231,7 @@ P:NPC {
     },
     riot = {
       big = true,
-      lines = { { id = "ri_default", text = "The riot. The queen came down into the street to calm us. She was the one at court who'd argued we be paid. Someone threw a stone." } },
+      lines = { { id = "ri_default", text = "The riot. The queen came down into the street to calm us, because she was the one at court who'd argued we be paid, and someone threw a stone that killed her." } },
       choices = {
         { text = "Was it a mason?", next = "riot_after" },
         { text = "I'm sorry.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
@@ -264,7 +264,7 @@ P:NPC {
     },
 
     farm = {
-      lines = { { id = "f_default", text = "Westfall. The Alexston farm, west of Sentinel Hill. Thieves burned the house and moved in. My father hid what he could before he went.",
+      lines = { { id = "f_default", text = "I grew up in Westfall, on the Alexston farm west of Sentinel Hill. The Defias burned the house and moved in, and my father hid what he could before he fled.",
         fx = { learn = { "westfall" } } } },
       choices = {
         { text = "Is anything left?", next = "farm_father" },
@@ -272,7 +272,7 @@ P:NPC {
       },
     },
     farm_father = {
-      lines = { { id = "ff_default", text = "My first compass, he says, in a chest under the ash. Useless to me now. I think about it more often than the Cathedral." } },
+      lines = { { id = "ff_default", text = "My father says my first compass is still in a chest under the ash. It's useless to me now, but I think about it more often than the Cathedral." } },
       choices = { { text = "Maybe someone could fetch it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
 
@@ -305,7 +305,7 @@ P:NPC {
       choices = {
         { text = "You took the post. He'd have called you a traitor.", next = "BACK", fx = { affinity = -1, align = { order = -1 } } },
         { text = "Someone had to keep building. He'd understand.", next = "BACK", fx = { affinity = 2, align = { order = 1 } } },
-        { text = "What was his name, to you?", next = "mason_name" },
+        { text = "Would you know his work, if I told you his name?", next = "mason_name" },
       },
     },
     mason_name = {
@@ -326,7 +326,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A Westfall boy who learned stone, rebuilt a city, and took the office his old partner refused. I don't care for the ending.", next = "farm" } },
     advice = { { id = "tp_ad", text = "Look at the foundations before the facade. In buildings and in people. The pretty part is always the last thing built." } },
     defias = {
-      { id = "tp_defias", text = "Masons, once. Some of the best I ever worked with. I'd thank you not to call them common anything." },
+      { id = "tp_defias", text = "The Defias were masons once, some of the best I ever worked with. Call them bandits if you must, but never call them common." },
     },
     westfall = { { id = "tp_westfall", text = "Westfall was home, once: the Alexston farm. I haven't been back, and I know I should.", next = "farm" } },
     _none = { { id = "tp_none", text = "If it isn't built of stone, I'm afraid I've no opinion worth having." } },

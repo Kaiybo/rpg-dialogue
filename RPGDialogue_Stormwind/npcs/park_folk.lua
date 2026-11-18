@@ -286,8 +286,8 @@ P:NPC {
     advice = { { id = "tp_ad", text = "Pray a little when things go well, too. Elune hears the frightened prayers easily enough, but I think she likes the grateful ones better." } },
     elune = { { id = "tp_elune", text = "Elune is the Mother Moon, and she has watched over my people since long before your kingdom's first stones were cut. Her light is kindest in the dark, which is when you'll need it." } },
     tyrande = { { id = "tp_tyrande", text = "Tyrande Whisperwind is our high priestess and the leader of our people, and she waits for Malfurion to wake. I have knelt before her twice in my life, and both times she knew my name." } },
-    sisterhood_of_elune = { { id = "tp_sister", text = "The priestesses of Elune, healers and warriors both, who keep the Temple of the Moon in Darnassus. I am one of them, though a long way from the Temple." } },
-    teldrassil = { { id = "tp_teldrassil", text = "Our new World Tree, rising from the sea off Darkshore. I miss the sound of its leaves more than I miss its shade." } },
+    sisterhood_of_elune = { { id = "tp_sister", text = "The Sisterhood is the priestesses of Elune, healers and warriors both, who keep the Temple of the Moon in Darnassus. I am one of them, though a long way from the Temple." } },
+    teldrassil = { { id = "tp_teldrassil", text = "Teldrassil is our new World Tree, rising from the sea off Darkshore, and I miss the sound of its leaves more than its shade." } },
     _none = { { id = "tp_none", text = "I don't know, {name}, and I'd rather say so than guess. Elune keeps some answers to herself, and so, it seems, does the world." } },
   },
 }
@@ -483,7 +483,7 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know the Park and everyone who stops at this well, which is nearly everyone. Ask away." } },
     background = { { id = "tp_bg", text = "A footman's daughter from Old Town who minds other people's children. It's honest work, and it leaves me plenty of time to watch the world." } },
     advice = { { id = "tp_ad", text = "Keep your blade oiled even when you don't need it. My father said that, and he said it about more than swords." } },
-    the_park = { { id = "tp_park", text = "The prettiest corner of the city, and the strangest since the elves came. Mind the pond if you've children with you; it's deeper than it looks." } },
+    the_park = { { id = "tp_park", text = "The Park is the prettiest corner of the city, and the strangest since the elves came. Mind the pond if you've children with you; it's deeper than it looks." } },
     _none = { { id = "tp_none", text = "I couldn't tell you, I'm afraid. Ask me who's quarrelled by the well this week, and I'll do better." } },
   },
 }
@@ -500,7 +500,7 @@ P:NPC {
   },
 
   greetings = {
-    { id = "g_default", text = "If you're selling, I'm not buying, and if you're buying, I've nothing in until Kristy's next parcel." },
+    { id = "g_default", text = "If you're selling, I'm not buying, and if you're buying, I've nothing in until my sister Kristy's next parcel." },
     { id = "g_active", when = { questActive = Q_PELTS }, text = "Is that Kristy's knot on that parcel? Bring it here before Kelly sees it." },
     { id = "g_done", when = { questDone = Q_PELTS }, text = "The pelts sold in a week, every one. Kristy will be insufferable." },
     { id = "g_skinner", when = { profession = "Skinning" }, text = "A skinner. Let me see your hands, and I'll tell you if you cut clean." },
@@ -1100,8 +1100,8 @@ P:NPC {
     knows = { { id = "tp_knows", text = "I know tracks, forests, and who walked through this Park and when. Ask, while I'm walking." } },
     background = { { id = "tp_bg", text = "A tracker who came to guide the envoys and stayed when they left. Ashenvale was home; this Park is somewhere to put my feet." } },
     advice = { { id = "tp_ad", text = "Look at the edges of a footprint, not the middle. The middle tells you where they were, the edges tell you how they felt about it." } },
-    ashenvale = { { id = "tp_ashenvale", text = "The oldest forest my people still hold, and the orcs are cutting it down for their war. I tracked there for longer than Stormwind has stood." } },
-    sentinels = { { id = "tp_sentinels", text = "Tyrande's warriors, who guard our forests by moonlight. I tracked for them, though I never swore their oath." } },
+    ashenvale = { { id = "tp_ashenvale", text = "Ashenvale is the oldest forest my people still hold, and the orcs are cutting it down for their war. I tracked there for longer than Stormwind has stood." } },
+    sentinels = { { id = "tp_sentinels", text = "The Sentinels are Tyrande's warriors, who guard our forests by moonlight, and I tracked for them, though I never swore their oath." } },
     _none = { { id = "tp_none", text = "Nothing I've seen in the mud. Ask me something that leaves tracks." } },
   },
 }

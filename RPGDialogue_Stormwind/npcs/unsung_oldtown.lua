@@ -66,7 +66,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "The clever ones do, because a polearm keeps the beast at arm's length while the arrows do their work. A boar spear's the oldest hunting weapon in Elwynn, and it's still one of the best." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} would hold a beast in place while you drive the spear home, I'd bet. A good team, the pair of you." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The clever ones do, because a polearm keeps the beast at arm's length while the arrows do their work. Your {pet} would hold a beast in place while you drive the spear home, I'd bet. A good team, the pair of you." },
       },
       choices = {
         { text = "A spear and a steady hand. That's the old way.", next = "BACK", fx = { align = { order = 1 } } },
@@ -167,7 +167,7 @@ P:NPC {
     buyers_story = {
       lines = { { id = "bs_default", text = "Some come back to have their blade sharpened and tell me what it did, which I like. One came back last spring to sell me the sword I'd sold him, because he'd lost the arm that swung it, and he said he wanted it to go to someone who could use it properly." } },
       choices = {
-        { text = "Did you take it back?", next = "BACK" },
+        { text = "That's a hard sale to make.", next = "BACK" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -241,10 +241,10 @@ P:NPC {
     },
     hands_war = {
       big = true,
-      lines = { { id = "hw_default", text = "That's the whole of it, and I know it's not fair to every shield in the world. The orcs are in the camps now, those that lived, and I walk past the guards' talk of them every morning and never know what I think." } },
+      lines = { { id = "hw_default", text = "That's the whole of it, and I know it's not fair to every shield in the world. The orcs who lived were penned in camps after the war, and now they've broken out and gone over the sea, and I never know what I think of it." } },
       choices = {
-        { text = "After what they did, the camps are too kind.", next = "BACK", fx = { align = { light = -1 } } },
-        { text = "The war's over. Keeping them caged forever isn't justice.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "After what they did, they should have stayed caged.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "The war was over. Caging them forever was never justice.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -370,7 +370,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A sharp knife, a steady hand and the patience to do it right, because a torn hide's worth half a whole one. Most hunters rush it, and I can always tell, because they bring me ragged pelts and expect full price." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} has a good coat, and don't look at me like that; I'm only saying, as a professional. Keep it brushed." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A sharp knife, a steady hand and the patience to do it right, because a torn hide's worth half a whole one. Your {pet} has a good coat, and don't look at me like that; I'm only saying, as a professional. Keep it brushed." },
       },
       choices = {
         { text = "I'll take my time and do it right.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -511,7 +511,7 @@ P:NPC {
     },
     xlock = {
       big = true,
-      lines = { { id = "xlock_default", text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for. They're polite enough, and they pay, which is more than I can say for Bartleby's crowd." } },
+      lines = { { id = "xlock_default", text = "Felcloth thread, mostly, and a dark red dye they won't say what it's for. They're polite enough, and they pay, which is more than I can say for the drunks at the Pig and Whistle." } },
       choices = {
         { text = "I'd use your dye for honest work, Jillian.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Better you don't know what the red's for.", next = "BACK", fx = { align = { light = -1 } } },
@@ -531,7 +531,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A good handful for every hide, and more in summer, when the flies are bad. The hunters who bring Simon the best pelts always buy their salt from me, and the ones who don't bring him rotten ones." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is sniffing my salt bags, and I don't mind, as long as it doesn't lick them. Salt's not good for beasts." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A good handful for every hide, and more in summer, when the flies are bad. Your {pet} is sniffing my salt bags, and I don't mind, as long as it doesn't lick them. Salt's not good for beasts." },
       },
       choices = {
         { text = "I'll salt every hide properly. A good pelt deserves it.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -763,7 +763,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The biggest one I have. Totems, reagents, rations, all of it. Carrying too little is the start of all trouble." } },
+      lines = { { id = "xdsham_default", text = "The biggest one I have, love, for the totems, the reagents and the rations. Carrying too little is the start of all trouble." } },
       choices = {
         { text = "You're right, Alyssa. A prepared traveller is a safe one.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "I travel light. Spirits carry the rest.", next = "BACK", fx = { align = { order = -1 } } },
@@ -821,7 +821,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Bigger than you think, because you'll run out halfway through a fight with a pack of wolves. I sell quivers that hold twice what the market stalls sell, and I've never had a hunter bring one back for being too big." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} needs carrying room too, you know: a bit of meat and a water skin. Don't leave it hungry on the road." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Bigger than you think, because you'll run out halfway through a fight with a pack of wolves. Your {pet} needs carrying room too, you know: a bit of meat and a water skin. Don't leave it hungry on the road." },
       },
       choices = {
         { text = "Always carry more than I need. I'll buy the big quiver.", next = "BACK", fx = { align = { order = 1 } } },
@@ -860,7 +860,7 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior! You'll want a bag big enough for bandages, rations and whatever you take off the gnolls, and I've got just the one." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, and carrying nothing, as usual for your people. I'll not let that stand, because even a bear needs a bag for the walk home." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock! You'll want a soul bag, I expect, and I'll tell you now, the shards rattle if you don't line it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Totems are heavy. You'll need a big bag, trust me." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Totems are heavy, so you'll need a big bag, trust me." },
       },
       again = {
         { id = "h_again", text = "What else, love?" },
@@ -933,7 +933,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Very nearly, my friend! I've dishes from Westfall, Lakeshire, Darkshire. Never a shaman's dish, though. Come back with one." } },
+      lines = { { id = "xdsham_default", text = "Very nearly, my friend! I've dishes from Westfall, Lakeshire and Darkshire, but never a shaman's dish, so come back with one." } },
       choices = {
         { text = "I'll share one gladly, Kendor. Food is meant for sharing.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Recipes are secrets. You'll have to pay.", next = "BACK", fx = { align = { light = -1 } } },
@@ -991,7 +991,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Goretusk liver, if you can stand the smell while it's cooking, and Elwynn boar for everything else. I got the goretusk recipe from a farmer in Westfall before the Defias drove him off, and I think of him every time I sell it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks well fed, I'm glad to see. Some hunters give their beasts the scraps; you've given it the good cuts, I can tell." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Goretusk liver, if you can stand the smell while it's cooking, and Elwynn boar for everything else. Your {pet} looks well fed, I'm glad to see. Some hunters give their beasts the scraps; you've given it the good cuts, I can tell." },
       },
       choices = {
         { text = "My pet eats as well as I do. It's earned it.", next = "BACK", fx = { align = { light = 1 } } },

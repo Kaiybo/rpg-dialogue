@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Mostly from Darkshire, where the dead do not rest. If your spirits know how to comfort the restless, I'd sooner learn than judge." } },
+      lines = { { id = "xdsham_default", text = "Grief, mostly, and most of it from Darkshire, where the dead do not rest. If your spirits know how to comfort the restless, I'd sooner learn than judge." } },
       choices = {
         { text = "Comfort is holy work, Bishop, whoever does it.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The restless dead need a blade more than comfort.", next = "BACK", fx = { align = { light = -1 } } },
@@ -82,7 +82,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "There's room for anyone's, and I think a hunter's are often the most honest, because you know what it costs to live. I've heard farmers pray over a lamb with less feeling than the trappers from Elwynn pray over their snares." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet} may sit too; I don't think the Light minds where its blessings fall. It looks like it has carried you through a great deal." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "There's room for anyone's, and I think a hunter's are often the most honest, because you know what it costs to live. And your {pet} may sit too; I don't think the Light minds where its blessings fall. It looks like it has carried you through a great deal." },
       },
       choices = {
         { text = "I give thanks for every kill, Bishop.", next = "BACK", fx = { align = { light = 1 } } },
@@ -92,7 +92,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "Worgen in the woods, the dead at Raven Hill, and a necromancer named Morbent Fel with more patience than the Night Watch has men. Commander Ebonlocke is a proud man, but he'd take your help, and he'd be wise to." } },
+      lines = { { id = "xapala_default", text = "Worgen in the woods, the dead at Raven Hill, and a necromancer named Morbent Fel with more patience than the Night Watch has men. Commander Ebonlocke is a proud woman, but she'd take your help, and she'd be wise to." } },
       choices = {
         { text = "Then I'll go to Darkshire and stand with the Night Watch.", next = "BACK", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Darkshire chose to stay in that cursed wood. Let it defend itself.", next = "BACK", fx = { align = { honor = -1 } } },
@@ -127,7 +127,7 @@ P:NPC {
       },
       choices = {
         { text = "Why does Darkshire trust you, and not the city?", next = "darkshire" },
-        { text = "I've never heard of lightforge iron.", next = "iron", when = { any = { { questActive = TODO_QUEST("Seeking Wisdom") }, { questActive = TODO_QUEST("The Doomed Fleet") }, { questDone = TODO_QUEST("The Doomed Fleet") } } } },
+        { text = "What is lightforge iron, Bishop?", next = "iron", when = { any = { { questActive = TODO_QUEST("Seeking Wisdom") }, { questActive = TODO_QUEST("The Doomed Fleet") }, { questDone = TODO_QUEST("The Doomed Fleet") } } } },
         { text = "I don't see how faith alone fights a necromancer.", next = "fel" },
         { text = "Bishop, you must have taught a great many young priests.", next = "priest", when = { class = "PRIEST" } },
         { text = "I've come from the Night Watch in Darkshire.", next = "watch", when = { questDone = TODO_QUEST("Seeking Wisdom") } },
@@ -248,9 +248,9 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "A bishop of the Church, and a slow reader of other people's letters. There's no grander story than that, and I've never needed one." } },
     advice = { { id = "tp_ad", text = "Never walk into Duskwood after dark without a lantern and a friend, and if you can only bring one, bring the friend." } },
-    morbent_fel = { { id = "tp_fel", text = "A necromancer in the Duskwood hills who has wrapped himself in spells. Plain steel won't reach him, so don't try it.", next = "fel" } },
-    third_fleet = { { id = "tp_fleet", text = "The Kul Tiran ships that sank off the Wetlands with their lightforge iron. Glorin Steelbrow in Menethil knows where they lie.", next = "iron" } },
-    night_watch = { { id = "tp_watch", text = "Brave people who were left to guard their own homes and have done it. I pray for every one of them by name." } },
+    morbent_fel = { { id = "tp_fel", text = "Morbent Fel is a necromancer in the Duskwood hills who has wrapped himself in spells. Plain steel won't reach him, so don't try it.", next = "fel" } },
+    third_fleet = { { id = "tp_fleet", text = "The Third Fleet was the Kul Tiran ships that sank off the Wetlands with their lightforge iron. Glorin Steelbrow in Menethil knows where they lie.", next = "iron" } },
+    night_watch = { { id = "tp_watch", text = "The Night Watch are brave people who were left to guard their own homes, and they've done it. I pray for every one of them by name." } },
     _none = { { id = "tp_none", text = "I don't know, {g:brother|sister}, and I'd rather admit that than guess at something that matters to you." } },
   },
 }
@@ -332,7 +332,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Well, an arrow holds true because each feather balances the others, and I thought the soul might work the same way. Brother Sarno says I'm overreaching, and the metallurgy book, sadly, says nothing about feathers." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "And your {pet}, does it have fortitude? I suppose it must, following you through all weathers. I may put it in the sermon, if you don't mind." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Well, an arrow holds true because each feather balances the others, and I thought the soul might work the same way. And your {pet}, does it have fortitude? I suppose it must, following you through all weathers." },
       },
       choices = {
         { text = "A steady soul is like a straight arrow. You're on to something.", next = "BACK", fx = { align = { light = 1 } } },
@@ -472,7 +472,7 @@ P:NPC {
     },
     background = { { id = "tp_bg", text = "A brother of the Cathedral with more sermons in his head than courage to give them. This one, though, I mean to finish." } },
     advice = { { id = "tp_ad", text = "Read outside your own trade. The best thing I ever learned about the soul came from a book about mining." } },
-    northshire_abbey = { { id = "tp_abbey", text = "Brother Paxton there is a fine copyist and a very slow one. I say that with love." } },
+    northshire_abbey = { { id = "tp_abbey", text = "Brother Paxton at Northshire Abbey is a fine copyist and a very slow one. I say that with love." } },
     _none = { { id = "tp_none", text = "Oh, I don't know that one at all. Is there a book on it? There's usually a book." } },
   },
 }
@@ -507,7 +507,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Every evening. A city drowned in its own poison, and its people sleeping in Ironforge's halls. I wonder whether the earth there mourns too." } },
+      lines = { { id = "xdsham_default", text = "Every evening, for a city drowned in its own poison and a people sleeping in Ironforge's halls. I wonder whether the earth there mourns too." } },
       choices = {
         { text = "Keep praying, Brother. Gnomeregan will need every voice.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Prayers won't clear that poison. Engineers and soldiers will.", next = "BACK", fx = { align = { light = -1 } } },
@@ -565,7 +565,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Very much, though the Archbishop says I'm not to feed the pigeons on the steps any more because they've grown too bold. If I weren't a priest I think I'd have been a shepherd somewhere near Goldshire." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hello there, {pet}! Oh, it's lovely. I'll watch it while you pray, if you'd like, and I promise not to feed it anything the Archbishop wouldn't approve of." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Very much, though the Archbishop says I'm not to feed the pigeons on the steps any more because they've grown too bold. Hello there, {pet}! Oh, it's lovely." },
       },
       choices = {
         { text = "Every beast deserves a kind word, Brother.", next = "BACK", fx = { align = { light = 1 } } },
@@ -698,7 +698,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "A brother of the Cathedral who was given the door, and who has loved it ever since. There isn't much more to tell than that, I'm afraid." } },
     advice = { { id = "tp_ad", text = "Say hello to people first. It costs nothing, and half the time they've been waiting for someone to." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "The gnomes' city under Dun Morogh, lost to something in its own depths. I pray for it, machines and all." } },
-    scarlet_crusade = { { id = "tp_crusade", text = "Brother Crowley's people. I greet him every morning, and one day he'll greet me back." } },
+    scarlet_crusade = { { id = "tp_crusade", text = "The Scarlet Crusade are Brother Crowley's people. I greet him every morning, and one day he'll greet me back." } },
     _none = { { id = "tp_none", text = "Oh, I've no idea, but someone inside surely does. Shall I point you to them?" } },
   },
 }
@@ -788,7 +788,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Only once, on the way to Goldshire, and there was a wolf by the road and the cart man threw a rock at it! I wanted to see it properly but it ran away into the trees." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Is that {pet}? Can I touch it? I'll be careful, honest, I carry candles all day and I've only dropped two." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Only once, on the way to Goldshire, and there was a wolf by the road and the cart man threw a rock at it! Is that {pet}? Can I touch it?" },
       },
       choices = {
         { text = "Wolves are just trying to live too, Thomas.", next = "BACK", fx = { align = { light = 1 } } },
@@ -854,7 +854,7 @@ P:NPC {
       },
     },
     delavey = {
-      lines = { { id = "d_default", text = "He speaks for the Church at court, up in the Keep, so he has to be clever and polite at the same time, which is very hard. He gives me errands because I'm quick and I don't chatter, mostly." } },
+      lines = { { id = "d_default", text = "Bishop DeLavey. He speaks for the Church at court, up in the Keep, so he has to be clever and polite at the same time, which is very hard. He gives me errands because I'm quick and I don't chatter, mostly." } },
       choices = { { text = "Mostly.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     altar = {
@@ -1006,7 +1006,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Very good, I think, for the quiet ones who won't speak to people. I've seen a boy who hasn't said a word in a month talk for an hour to a stray dog in the square." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} looks gentle enough. If you'd let it sit on the steps with them a while, I'd be grateful, {class}." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Very good, I think, for the quiet ones who won't speak to people. Your {pet} looks gentle enough. If you'd let it sit on the steps with them a while, I'd be grateful, {class}." },
       },
       choices = {
         { text = "Of course. A little kindness costs nothing.", next = "BACK", fx = { align = { light = 1 } } },
@@ -1103,7 +1103,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     help = {
-      lines = { { id = "hp_default", text = "Shellene, inside, who loves them and shouts at them in equal measure, and Stephanie Turner and her husband, who clothe and feed them. The Cathedral sends priests, and the Light sends the rest, eventually." } },
+      lines = { { id = "hp_default", text = "I don't. There's Shellene, inside, who loves them and shouts at them in equal measure, and Stephanie Turner and her husband, who clothe and feed them. The Cathedral sends priests, and the Light sends the rest, eventually." } },
       choices = {
         { text = "What could I do?", next = "help_do" },
         { text = "Something else.", next = "BACK" },
@@ -1117,7 +1117,7 @@ P:NPC {
       },
     },
     jeremy = {
-      lines = { { id = "j_default", text = "Avette wrote to me afterward. She says he isn't ready for that letter yet, and she'll keep it for him until he is, which is exactly what I'd have done. I'm glad he has someone who knows to wait." } },
+      lines = { { id = "j_default", text = "Avette wrote to me afterward. She says he isn't ready for his mother's letter yet, and she'll keep it for him until he is, which is exactly what I'd have done. I'm glad he has someone who knows to wait." } },
       choices = {
         { text = "She was right to wait.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "He deserved to know.", next = "BACK", fx = { trait = { stern = 1 } } },
@@ -1242,7 +1242,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hardly ever, which is a shame, because a day in the Elwynn woods would do them more good than a week of sermons. The Matron took the older ones to Goldshire once, and they talked about the deer for a whole season." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oh, look at {pet}! The children would adore it, so long as it promises not to eat the bread. I'll pray over it tonight with the rest." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hardly ever, which is a shame, because a day in the Elwynn woods would do them more good than a week of sermons. Oh, look at {pet}! The children would adore it, so long as it promises not to eat the bread." },
       },
       choices = {
         { text = "I'll show them the woods one day, if the Matron allows.", next = "BACK", fx = { align = { order = 1 } } },

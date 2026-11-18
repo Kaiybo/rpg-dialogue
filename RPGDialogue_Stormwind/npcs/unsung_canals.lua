@@ -85,7 +85,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A bow, yes, with patience, and a rifle's scope, if a gnome will mount it for me afterwards. Since Dalaran fell, much of the old craft has been lost, and I'm still learning which of the bow runes survived." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} keeps sniffing at the dust on the bench; please don't let it, because arcane dust tastes worse than you'd think, I'm told." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A bow, yes, with patience, and a rifle's scope, if a gnome will mount it for me afterwards. Your {pet} keeps sniffing at the dust on the bench; please don't let it, because arcane dust tastes worse than you'd think, I'm told." },
       },
       choices = {
         { text = "Some of the old craft should be found again, for everyone's sake.", next = "BACK", fx = { align = { order = 1 } } },
@@ -205,7 +205,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "They're frightened of everything, which is useful. A shaman won't help that, so be gentle." } },
+      lines = { { id = "xdsham_default", text = "They're frightened of everything, which is useful. A shaman with lightning at his fingers won't help that, so be gentle with them." } },
       choices = {
         { text = "I'll be gentle with them, Jessara. Fear isn't respect.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "A little fear keeps them sharp.", next = "BACK", fx = { align = { order = -1 } } },
@@ -263,7 +263,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Little enough, because an arrow is only used once, and nobody enchants a thing they mean to lose. The best I can offer is a blessed bowstring, and even that's mostly for luck." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} is very well behaved for a shop full of glass. I wish I could say the same of Lucan's students." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Little enough, because an arrow is only used once, and nobody enchants a thing they mean to lose. Your {pet} is very well behaved for a shop full of glass. I wish I could say the same of Lucan's students." },
       },
       choices = {
         { text = "Skill matters more than any trinket. I'll trust my aim.", next = "BACK", fx = { align = { order = 1 } } },
@@ -313,7 +313,7 @@ P:NPC {
         { text = "You seem to be filling a great many orders.", next = "orders" },
         { text = "You keep Lucan's time well.", next = "lucan" },
         { text = "Lucan seems to talk about the old masters a great deal.", next = "xmage", when = { class = "MAGE", faction = "Alliance" } },
-        { text = "You must keep some valuable things here.", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
+        { text = "What do thieves want most from your shelves, Jessara?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do many warriors buy enchanting supplies, Jessara?", next = "xwarcl", when = { class = "WARRIOR", faction = "Alliance" } },
         { text = "Is there any real magic for arrows, Jessara?", next = "xhuntcl", when = { class = "HUNTER", faction = "Alliance" } },
         { text = "Does the Cathedral buy from your shop, Jessara?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
@@ -375,7 +375,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Same as the soldiers come back from campaign. Fewer every year, but they come. Your spirits might bring more." } },
+      lines = { { id = "xdsham_default", text = "They do, the way soldiers come back from campaign, a few fewer every year. Perhaps your spirits could bring more of them." } },
       choices = {
         { text = "Then fish the canals fairly, Catherine. Leave some for next year.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Fish while they're biting. Next year's not certain.", next = "BACK", fx = { align = { order = -1 } } },
@@ -433,7 +433,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Shiny baubles for the pike and nightcrawlers for everything else, and never the stale bread the children use. The rivers around Elwynn are kind to beginners, and the lakes in Redridge are kind to nobody." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} will want to help, I'm sure, and it'll scare every fish in the river. Leave it on the bank with a biscuit." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Shiny baubles for the pike and nightcrawlers for everything else, and never the stale bread the children use. Your {pet} will want to help, I'm sure, and it'll scare every fish in the river. Leave it on the bank with a biscuit." },
       },
       choices = {
         { text = "I'll take only what I need from the rivers.", next = "BACK", fx = { align = { honor = 1 } } },
@@ -516,7 +516,7 @@ P:NPC {
     },
   },
   topics = {
-    booty_bay = { { id = "tp_booty_bay", text = "The sharks off Booty Bay would snap one of my poles in half, I'm told, but they'd need to bite first, and they don't bite cheap bait. Best deals in all of Stormwind, my friend, and better than anything in Booty Bay." } },
+    booty_bay = { { id = "tp_booty_bay", text = "The sharks off Booty Bay would snap one of my poles in half, I'm told, so I'll leave them to the goblins. My prices beat anything in Booty Bay, mind." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells a fishing pole that's supposed to catch anything, and it caught Arnold's hat. I sell honest poles, and they catch honest fish." } },
     ratchet = { { id = "tp_ratchet", text = "The goblins of Ratchet sell bait that's supposed to bring fish leaping into your boat. I bought some once, and it brought a murloc leaping into mine, so I'll stick with worms." } },
     background = { { id = "tp_bg", text = "I've sold tackle on these canals for years, beside Arnold. We fished together long before either of us made a living at it." } },
@@ -604,7 +604,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Wool in the cold and linen in the heat, dyed brown or green, and nothing that rustles when you crouch. I fitted a hunter last month who'd been wearing a bright red cloak to stalk deer, and he couldn't work out why he never caught anything." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Your {pet} doesn't need a coat, of course, but it's shedding on my racks, and I'll ask you to keep it a step back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Wool in the cold and linen in the heat, dyed brown or green, and nothing that rustles when you crouch. Your {pet} doesn't need a coat, of course, but it's shedding on my racks, and I'll ask you to keep it a step back." },
       },
       choices = {
         { text = "Quiet clothes make for a quiet hunt.", next = "BACK", fx = { align = { order = 1 } } },
@@ -634,7 +634,7 @@ P:NPC {
       lines = {
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" }, text = "Another priest! I'll find you something that doesn't make you look like a sack of flour, if you'll stand still long enough." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin! You'll want a tabard that doesn't ride up under the plate, and the Cathedral's tailors never get that right." },
-        { id = "h_default", text = "Lisbeth Schneider. Rema makes, Corbett carries, and I sell the finished pieces off these racks, and I'll fit you properly, which is more than the market stalls will do, and lately half the city wants padding under its coats." },
+        { id = "h_default", text = "Lisbeth Schneider. Rema sews, Corbett carries, and I sell the finished pieces and fit you properly, which is more than the market stalls will do. Lately half the city wants padding under its coats." },
         { id = "h_priest", when = { class = "PRIEST" }, text = "A priest! The Cathedral sends us all its novices, and they come in looking like sacks of flour tied in the middle. Let me find you something that fits." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage! Let me guess: everything you own has a scorch mark on the left sleeve, because you cast with your right hand." },
@@ -644,7 +644,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter! You'll want something dull and quiet that won't snag on every briar in Elwynn, I'd wager." },
         { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid! I can tell your cloth was sewn in Darnassus, because no human tailor would leave the hems that loose." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "Leather, not cloth, for you, I'd guess, but I'll measure you anyway, because quiet folk always have one good cloak and never look after it." },
-        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Let me look at you. Your robes are rough; mail, perhaps? Totems are heavy." },
+        { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Your robes are rough-sewn, and with all those totems to carry, you'll want something that won't tear at the straps." },
       },
       again = {
         { id = "h_again", text = "Something more, friend? I'll keep measuring you while you think of it." },

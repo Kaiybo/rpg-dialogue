@@ -52,7 +52,7 @@ P:NPC {
         { id = "h_recent", tags = { "news" }, when = { questRecent = { Q, days = 3 } },
           text = "So Skuerto has you running errands already? Good. He'll be rude about it, but he only wastes his rudeness on people he expects to see again." },
         { id = "h_wand", tags = { "news" }, when = { questDone = WAND },
-          text = "I've heard Kor'gresh no longer has my master's wand, and that he had some trouble letting go of it. I won't ask how hard you had to pull." },
+          text = "I've heard the ogre Kor'gresh no longer has my master's wand, and that he had some trouble letting go of it. I won't ask how hard you had to pull." },
         { id = "h_tower", tags = { "news" }, when = { questDone = TOWER },
           text = "The phylactery, the orb and the ember agate are on their way south, Kryten says, and the Boulderfist are short a few shamans. I've waited a long while to hear that, and I thank you for it." },
         { id = "h_dwarf", when = { race = "Dwarf" },
