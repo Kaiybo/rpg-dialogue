@@ -211,6 +211,10 @@ P:NPC {
         { text = "Teach me to ride.", next = "BUSINESS", when = { minLevel = 40 } },
         { text = "How is a dead horse different?", next = "horses" },
         { text = "Who rides them besides the Forsaken?", next = "others" },
+        { text = "What's the first lesson in the saddle?", next = "lesson" },
+        { text = "Tell me about Zachariah Post.", next = "zach" },
+        { text = "Did you ride before you died, Velma?", next = "xlife", when = { race = "Scourge" } },
+        { text = "Will a dead horse even carry one of the living?", next = "xliving", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -237,9 +241,59 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    lesson = {
+      lines = { { id = "le_default", text = "Getting on, which sounds simple until the horse decides it's a statue and you're a fly. You put your foot in the stirrup and your will in the reins at the same moment, and if either one's late, you'll be sitting in the mud of Brill's main road." } },
+      choices = {
+        { text = "And the second lesson?", next = "lesson2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lesson2 = {
+      lines = { { id = "l2_default", text = "Stopping, which is harder, because a dead horse has no reason to want to. You think of a wall in front of it, a real one you remember, and the beast believes you, and that's why the old soldiers make the best riders." } },
+      choices = {
+        { text = "Why the old soldiers?", next = "lesson3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lesson3 = {
+      lines = { { id = "l3_default", text = "Because they remember walls better than anyone, {class}, having stood on so many of them. The farmers think of fences and the horse jumps them, which is a lesson of its own, and a muddy one." } },
+      choices = {
+        { text = "I'll think of a very tall wall.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zach = {
+      lines = { { id = "za_default", text = "Zachariah sells the horses and I teach the riding, and he thinks that makes him the important one. He's a fair dealer and a poor rider, and he'd tell you the first and deny the second." } },
+      choices = {
+        { text = "Where does he get dead horses?", next = "zach2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    zach2 = {
+      lines = { { id = "z2_default", text = "From the same place we all came from, the fields and stables the plague emptied, raised by the Undercity's people and sent up to Brill. I don't ask whose horse each one was, though now and then one of them knows the way to a farm that isn't there anymore." } },
+      choices = {
+        { text = "That's a sad thing, Velma.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlife = {
+      lines = { { id = "xl_default", text = "Every day, out to the fields north of here, on a grey mare who wouldn't cross running water for love or apples. I don't know what became of her, and I've stopped looking for her face among Zachariah's stock, mostly." } },
+      choices = {
+        { text = "Some things are better not found.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xliving = {
+      lines = { { id = "xv_default", text = "It'll carry you without a complaint, though it won't warm to you, since it doesn't warm to anyone. The trouble is your own beast's nose, because a living horse or wolf smells the grave on these and wants nothing to do with them." } },
+      choices = {
+        { text = "Then I'll keep my own mount. Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    forsaken = { { id = "tp_forsaken", text = "We rose with nothing, and the Dark Lady gave us back a town, a cause and, in time, a horse apiece for those who earned one. That's more than most kings managed." } },
+    lordaeron = { { id = "tp_lordaeron", text = "Lordaeron had the finest horses in the north once, and its knights rode them proudly. I teach their bones now, and I like to think the bones remember the roads." } },
     _none = { { id = "tp_none", text = "I know horses, and very little else. Ask Zachariah, or ask the Magistrate." } },
   },
 }

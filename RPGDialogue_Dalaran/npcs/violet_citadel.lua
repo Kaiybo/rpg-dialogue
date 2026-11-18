@@ -702,6 +702,11 @@ P:NPC {
       choices = {
         { text = "Your shelves are nearly bare.", next = "thin" },
         { text = "Who buys from the Kirin Tor?", next = "who" },
+        { text = "Tell me about the Kirin Tor tabard.", next = "tabard" },
+        { text = "You said Antonidas trusted you with the stores.", next = "anton" },
+        { text = "Who decides where your stores go?", next = "ledger" },
+        { text = "Have you any robes fit for a magus?", next = "xmage", when = { class = "MAGE" } },
+        { text = "You'll trade with the Horde, then?", next = "xhorde", when = { faction = "Horde" } },
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Good day, Archmage.", next = "END" },
       },
@@ -725,7 +730,65 @@ P:NPC {
       lines = {
         { id = "wh_default", text = "Friends of the Kirin Tor, which lately means anyone who went into the sewers for us, and a good many Skyborne asking after any pattern with azure in its name." },
       },
+      choices = {
+        { text = "Why do the Skyborne want azure patterns?", next = "who2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who2 = {
+      lines = {
+        { id = "w2_default", text = "Belanaa Windveil tells me azure is the colour of the open sky over their islands, and a Skyborne far from home likes to wear a little of it. I suspect it's also the only colour in this city that isn't violet, and I can hardly blame them." },
+        { id = "w2_skyborne", when = { race = "Skyborne" }, text = "You'd know better than I would. Belanaa says it's the colour of your open sky, and I've noticed your people buy it the way sailors buy rope, as though they'd be lost without it." },
+      },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tabard = {
+      lines = { { id = "ta_default", text = "Violet and silver, the colours of the Kirin Tor, and I give it only to those the council counts as friends. It won't turn a blade, I'm afraid, but it turns heads in this city, and some days that's worth more." } },
+      choices = {
+        { text = "How does one become a friend of the Kirin Tor?", next = "tabard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tabard2 = {
+      lines = {
+        { id = "t2_default", text = "By doing the city a service it can't forget, which these days mostly means going where the magi would rather not be seen going. Archmage Modera keeps that list, not I, and I'd ask her, politely." },
+        { id = "t2_done", when = { questDone = TODO_QUEST("Friend of the Kirin Tor") }, text = "You already have, which is why your name sits in my ledger with a little star beside it. I don't give out many stars, so do try to keep yours polished." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    anton = {
+      lines = { { id = "an_default", text = "He did, years ago, when I was a junior magus who counted inkwells twice and couldn't stop. He said a city of wizards needs one man who knows where every candle is, and he made me that man, and I've never been sure it was a compliment." } },
+      choices = {
+        { text = "What was he like?", next = "anton2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    anton2 = {
+      lines = { { id = "a2_default", text = "Patient with apprentices and impatient with archmagi, which is the right way round. When the Scourge came he sent me down to the vaults with the ledgers and stayed on the walls himself, and I've wondered every day since whether I'd have stayed if he'd let me." } },
+      choices = {
+        { text = "He gave you a duty. You kept it.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ledger = {
+      big = true,
+      lines = { { id = "le_default", text = "The council, in principle, and my ledger, in practice. Every bolt of cloth I hand an adventurer is one that doesn't go to a scaffold, and I'm forever told I should keep it all for the city, or else give it all to those who bleed for it. Where would you send it?" } },
+      choices = {
+        { text = "The city first. Walls before tabards.", next = "BACK", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "To those who bleed for it. They've earned it.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xm_default", text = "Fit for a magus, yes, and fit for wearing, sometime next season, when the weavers come down off the scaffolds. For now I can offer you the patterns, and a sincere apology, in that order." } },
+      choices = { { text = "I'll take the apology for now.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xhorde = {
+      lines = { { id = "xh_default", text = "Archmage Modera let you in, and a quartermaster doesn't argue with an archmage, at least not in writing. Your coin balances my ledger the same as anyone's, and frankly my ledger isn't fussy." } },
+      choices = {
+        { text = "Good to know, Archmage.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
 

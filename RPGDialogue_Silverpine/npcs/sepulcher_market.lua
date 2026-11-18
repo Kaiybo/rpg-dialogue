@@ -295,6 +295,9 @@ P:NPC {
         { text = "Why do the apothecaries need so many vials?", next = "vials" },
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "You're very cheerful for a dead man.", next = "cheer" },
+        { text = "Your prices are higher than Brill's.", next = "markup" },
+        { text = "I go through vials faster than the apothecaries.", next = "xalch", when = { profession = "Alchemy" } },
+        { text = "I can't afford much today, I'm afraid.", next = "xpoor", when = { money = { max = 200 } } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -316,18 +319,61 @@ P:NPC {
     },
     buyers = {
       lines = { { id = "b_default", text = "The apothecaries, then Lefevre for his thread and salt, then the Deathguard for whetstones, which they lose like children lose mittens. Gwyn Farrow buys dye, and I've never asked what for, since her mushrooms are colourful enough." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "Guess, then. What does Gwyn want dye for?", next = "gwyn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gwyn = {
+      lines = { { id = "gw_default", text = "My guess is she dyes the dull mushrooms to look like the dangerous ones, so nobody steals her stock. Either that, or the other way about, and I hope very much it's the first." } },
+      choices = { { text = "I'll be careful what I eat, then.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     cheer = {
       lines = { { id = "c_default", text = "I was a gloomy man alive, if you can believe it, always fretting over money and the weather. Then I died, and found the weather can't hurt me and money can't be taken with you, because I've been there and checked, so what's left to fret about?" } },
       choices = {
         { text = "That's a fine way to look at it.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Was there nothing you liked about being alive?", next = "cheer2" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    cheer2 = {
+      lines = { { id = "c2_default", text = "Bread, I suppose, and rain on the shop roof when I was safe indoors, and my sister's laugh, which carried three streets. I've lost the bread and I don't know where she is, but it still rains on the roof, so I've kept one of the three." } },
+      choices = {
+        { text = "One of three is something, Andrew.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    markup = {
+      lines = { { id = "mk_default", text = "They are, and I'll tell you why, because I'm an honest man even if I'm a dead one. Every crate comes down the road from Brill past the worgen, and I add what the road eats to the price." } },
+      choices = {
+        { text = "What does the road eat?", next = "markup2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    markup2 = {
+      lines = { { id = "m2_default", text = "One cart in five, last season, and two drivers I'd known since we were both breathing. The worgen don't want the thread, they want the horse and whoever's holding the reins, and the thread just lies in the road getting rained on." } },
+      choices = {
+        { text = "Couldn't the Deathguard escort the carts?", next = "markup3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    markup3 = {
+      lines = { { id = "m3_default", text = "They do, when they can spare a man, which is never when I need one. The High Executor has the wall and the woods and Dalaran's apprentices at Ambermill to worry about, and my thread comes somewhere after all three." } },
+      choices = { { text = "I'll keep an eye on the road. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xalch = {
+      lines = { { id = "xa_default", text = "Do you, now! Then you'll want them washed, and mine are washed twice, which is more than Renferrel's empties get before they come back to me. Never mind what was in them before; you don't want to know, and neither do I." } },
+      choices = { { text = "Twice washed it is.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xpoor = {
+      lines = { { id = "xp_default", text = "Then don't buy much, and come back when you've sold a few hides to Lefevre, who's always short of good leather. Conversation's free, and you're welcome to all of it." } },
+      choices = { { text = "Thanks, Andrew. Something else.", next = "BACK" } },
     },
   },
   topics = {
     trade = { { id = "tp_trade", text = "Vials up, thread steady, whetstones always. That's the Sepulcher's whole economy in a breath." } },
+    worgen = { { id = "tp_worgen", text = "They eat one cart in five and both the drivers, and they've never once paid for the thread. I hold a grudge about that, as a businessman." } },
+    new_plague = { { id = "tp_plague", text = "I sell the vials. What goes in them is the apothecaries' business, and they've made it very clear it isn't mine." } },
     _none = { { id = "tp_none", text = "Oh, I don't know that one. Ask Bates; he hears everything over the counter." } },
   },
 }

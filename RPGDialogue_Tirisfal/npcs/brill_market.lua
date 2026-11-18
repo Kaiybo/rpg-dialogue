@@ -194,6 +194,10 @@ P:NPC {
         { text = "How do beasts take to the dead?", next = "beasts" },
         { text = "What about the skeletal horses?", next = "horses" },
         { text = "Any trouble in Tirisfal for animals?", next = "trouble" },
+        { text = "What did you do before the plague?", next = "past" },
+        { text = "How should I care for a beast in this fog?", next = "care" },
+        { text = "My companion's restless here. Any advice?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "My people raise kodo. These beasts seem unhappy.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Good day.", next = "END" },
       },
     },
@@ -220,12 +224,66 @@ P:NPC {
     trouble = {
       lines = { { id = "t_default", text = "The wolves in the hills are sick, and the bats near the cemetery are worse, and the Crusade shoots anything that isn't theirs. Keep your beast out of the plagued water, because they'll drink it if you let them." } },
       choices = {
+        { text = "Sick how, the wolves?", next = "trouble2" },
         { text = "Thank you, Morganus.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trouble2 = {
+      lines = { { id = "t2_default", text = "Thin, with their coats coming out in patches and their eyes gone milky, and they bite at things that aren't there. The plague's in the ground here, and the ground's in everything that eats from it." } },
+      choices = {
+        { text = "Can anything be done for them?", next = "trouble3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trouble3 = {
+      big = true,
+      lines = { { id = "t3_default", text = "Not by me. The apothecaries would take one off my hands for study, I expect, and some say a quick arrow's the only kindness left. What would you do with a beast that's past saving?" } },
+      choices = {
+        { text = "End it quickly. That's the only mercy left.", next = "BACK", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Give it to the apothecaries. Its death could serve.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past = {
+      lines = { { id = "pa_default", text = "Kept horses for a lord's estate outside the capital, forty stalls and a tack room I could find blind. The lord's name doesn't matter now, and neither does mine, much." } },
+      choices = {
+        { text = "What became of the horses?", next = "past2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past2 = {
+      lines = { { id = "p2_default", text = "I opened the stalls the night the dead came up the road and let them run. Some of them, I expect, are in Zachariah's stock now, but I never look too close at a skeleton's teeth." } },
+      choices = {
+        { text = "You gave them a chance. That counts.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    care = {
+      lines = {
+        { id = "ca_default", text = "Dry straw, a rub-down after the fog, and keep it out of the plagued water like I said. Most of all, feed it yourself, every time, so it learns your hands even if it can't stand your smell." },
+        { id = "ca_cat", when = { pet = { family = "Cat" } }, text = "Cats hate the damp worst of all, so give yours somewhere high and dry to sleep and it'll forgive you the rest. Feed it yourself, every time, so it learns your hands." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhunter = {
+      lines = { { id = "xh_default", text = "Course it is; it smells death in every doorway in this town. Talk to it while you feed it, any words will do, because it's the voice it learns, not the meaning." } },
+      choices = {
+        { text = "I'll talk to it, then.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtauren = {
+      lines = { { id = "xt_default", text = "Unhappy's the word. They're living beasts in a dead town, and nobody here can give them what a herd gives. If you've a song your people sing to kodo, sing it in my stable sometime, because I've nothing of the sort." } },
+      choices = {
+        { text = "I'll sing it for them, Morganus.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
       },
     },
   },
   topics = {
+    scourge = { { id = "tp_scourge", text = "The Scourge emptied every stable in Lordaeron, and the beasts that ran are the only ones that lived. I don't forgive that, and I don't forget it." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They shoot hunters' pets on sight, for walking at our heels. A man who'll kill a dog for its company isn't worth arguing with." } },
     _none = { { id = "tp_none", text = "Don't know. Ask someone who talks to people more than I do." } },
   },
 }

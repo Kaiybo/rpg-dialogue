@@ -293,7 +293,7 @@ P:NPC {
       },
     },
     gossip = {
-      lines = { { id = "g_default", text = "Coleman Farthing still talks to the Agamands' portrait when he thinks nobody's listening, and Johaan's been buying more vials than his work could possibly need. There's also a courier who passes through from the Sepulcher with very clean boots, and I don't trust clean boots." } },
+      lines = { { id = "go_default", text = "Coleman Farthing still talks to the Agamands' portrait when he thinks nobody's listening, and Johaan's been buying more vials than his work could possibly need. There's also a courier who passes through from the Sepulcher with very clean boots, and I don't trust clean boots." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     past = {
@@ -343,12 +343,62 @@ P:NPC {
         { text = "What grows in Tirisfal?", next = "grows" },
         { text = "Do the apothecaries buy from you?", next = "apoth" },
         { text = "Why herbs, for one of the dead?", next = "why" },
+        { text = "Do you keep a garden of your own?", next = "garden" },
+        { text = "What's the first thing an herbalist learns?", next = "lesson" },
+        { text = "Here. Smell my satchel and tell me what's off.", next = "xherb", when = { profession = "Herbalism" } },
+        { text = "The Earth Mother could heal this soil, in time.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Good day, Faruza.", next = "END" },
       },
     },
     grows = {
-      lines = { { id = "g_default", text = "Peacebloom and silverleaf near the roads, earthroot in the hills, and mageroyal by the water if you're lucky. Then there's doom weed, which Holland pays for, and which you should never, ever touch without gloves." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      lines = { { id = "gr_default", text = "Peacebloom and silverleaf near the roads, earthroot in the hills, and mageroyal by the water if you're lucky. Then there's doom weed, which Holland pays for, and which you should never, ever touch without gloves." } },
+      choices = {
+        { text = "Why gloves, for doom weed?", next = "grows2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grows2 = {
+      lines = { { id = "g2_default", text = "Because it grows where the plague sank deepest, and it carries some of it in the sap. I picked a sickly-looking stalk bare-handed once, early on, and my fingers went black to the knuckle for a week." } },
+      choices = {
+        { text = "What happened after that?", next = "grows3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grows3 = {
+      lines = { { id = "g3_default", text = "The apothecaries came asking where I'd found it, very politely, with their notebooks out. Holland still asks, every month, whether I've seen any more of it, and I always say no, whether or not it's true." } },
+      choices = {
+        { text = "You don't trust him.", next = "BACK", fx = { learn = { "new_plague" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    garden = {
+      lines = { { id = "ga_default", text = "A little one behind the inn, in three old crates of soil I carried up from the Glades. Half of it is weeds the apothecaries want, and the other half is marigolds, which nobody wants at all except me." } },
+      choices = {
+        { text = "Why marigolds?", next = "garden2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    garden2 = {
+      lines = { { id = "a2_default", text = "My mother grew them on her windowsill in Brill, before Brill was what it is now. I can't smell them properly anymore, but I remember they smelled of summer, and that's near enough." } },
+      choices = {
+        { text = "Keep growing them, Faruza.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lesson = {
+      lines = { { id = "le_default", text = "To take only what you need and leave the root, so there's something next season. The dead forget that, because we've stopped thinking about next season, and I won't teach anyone who strips a hillside bare." } },
+      choices = { { text = "Leave the root. I'll remember.", next = "BACK", fx = { affinity = 1, trait = { cautious = 1 } } } },
+    },
+    xherb = {
+      lines = { { id = "xh_default", text = "Peacebloom, silverleaf, and yes, there, a bit of earthroot you packed wet that's gone soft at the bottom. Dry them in the sun before you bag them, even Tirisfal's poor excuse for sun." } },
+      choices = { { text = "I'll do better. Thank you.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    xtauren = {
+      lines = { { id = "xt_default", text = "Do you think so? I've read that your people sing to the soil, and I'd laugh, except that I talk to mine every morning and it's the only thing in Brill that listens. Would she hear a prayer from one of us, do you think?" } },
+      choices = {
+        { text = "The Earth Mother hears all who tend her.", next = "BACK", fx = { affinity = 2 } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     apoth = {
       lines = { { id = "a_default", text = "Johaan does, and Holland, for anything that grew in plague-soaked ground. I sell them what they ask for and I don't ask what it's for, because I've learned the answers are usually long and full of words I don't like." } },
@@ -376,6 +426,8 @@ P:NPC {
   },
   topics = {
     new_plague = { { id = "tp_plague", text = "I sell weeds. Ask Johaan what he does with them." } },
+    forsaken = { { id = "tp_forsaken", text = "We're the dead who kept our minds, and some of us use them to brew poisons and some to grow marigolds. I know which I'd rather be remembered for." } },
+    advice = { { id = "tp_ad", text = "Gloves for doom weed, a knife for earthroot, and patience for everything else. Leave the root, always." } },
     _none = { { id = "tp_none", text = "I know plants and not much else. Ask Renee at the inn." } },
   },
 }
