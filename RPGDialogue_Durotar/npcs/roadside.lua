@@ -534,7 +534,7 @@ P:NPC {
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. The elements don't answer you, I think, but something does, and I'll not pretend I can't feel it." },
         { id = "h_default", key = true, text = "I be Swart of the Darkspear, and I teach those the elements will answer. If you got the gift, I help you hear it; if not, I can still tell you what the spirits say of this land, mon." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "A shaman, good. Sit, mon, and let us see what the earth has taught you since we last spoke." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren! The spirits of Durotar be dry and harsh, but they speak plainly, and I suspect you hear them as well as any of my students." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A druid of the tauren! The spirits of Durotar be dry and harsh, but they speak plainly, and I suspect you hear them as well as any of my students." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "The elements don't answer you, mage, though they notice when you pull at them. The fire spirits around Razor Hill grumble whenever you pass." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The spirits go quiet when you near, warlock, the way birds go quiet when a hawk be overhead. I don't need the loa to tell me what you carry." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The elements notice you, though you don't notice them, because the earth feels every step you take toward a fight." },

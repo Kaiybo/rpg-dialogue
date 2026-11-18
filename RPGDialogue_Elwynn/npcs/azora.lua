@@ -110,7 +110,7 @@ P:NPC {
           text = "You've the smell of a cellar about you, and I don't mean the inn's ale. Theocritus won't want you near his books, so let's keep our business to the counter." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, all the way up our stairs in all that steel! Sit a moment, because Theocritus keeps the windows shut and the climb is warmer than it looks." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter in the tower! Mind the gnomes on the stairs, please, because they startle, and your beast startles them." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A kaldorei, all the way up the tower stairs! Mind the shelves, because Master Theocritus counts the vials and he gets very cross when he has to count them twice." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A kaldorei, all the way up the tower stairs! Mind the shelves, because Master Theocritus counts the vials and he gets very cross when he has to count them twice." },
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Alliance" }, text = "A rogue, all the way up the tower stairs. Do mind the shelves, because Theocritus counts the vials and blames me for every one that goes missing." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, up all these stairs? Mind the shelves, please, and keep your spirits from rearranging anything. Theocritus notices everything except the dust on his own desk." },
       },

@@ -157,7 +157,7 @@ P:NPC {
         { id = "h_hamuul", when = { heardLine = "hamuul.h_default" },
           text = "The tauren Arch Druid spoke for the Forsaken before the Horde, when the orcs would have turned us away. Remember that, when you hear the tauren speak of balance." },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Thrall's people speak of spirits and of balance, and I have heard enough of spirits to last me the rest of my long existence." },
-        { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid of the tauren. Your Arch Druid spoke for my people before the Horde, and I have not forgotten it." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" }, text = "A druid of the tauren. Your Arch Druid spoke for my people before the Horde, and I have not forgotten it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The Forsaken need blades that do not break, and I will learn soon enough whether yours is one of them." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. I led the rangers of Quel'Thalas once, and I still know an archer by the way they carry their shoulders." },
         { id = "h_dd_hillsbrad", tags = { "news" }, when = { questDone = TODO_QUEST("Battle of Hillsbrad") },

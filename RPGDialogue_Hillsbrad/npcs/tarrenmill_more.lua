@@ -105,7 +105,7 @@ P:NPC {
       lines = {
         { id = "h_shamancl", when = { class = "SHAMAN" },
           text = "A shaman, and of the Warchief's own calling. The spirits came back to our people because Thrall asked them to, and I trust them more than I trust anyone in this town of corpses." },
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID" },
           text = "A tauren druid. I wish I'd had one of you with us at Durnholde, because I would not be the only one left to tell of it." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } },
           text = "A priest. My band had no healer at Durnholde, and I've thought about that every night since, so whether you serve the loa or whatever the dead pray to, you're welcome at my fire." },
@@ -306,7 +306,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You could slip into Southshore far more easily than I can, and there are things buried in their graveyard that belong to my master." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. The peasants of Southshore struck down my master with pitchforks and torches, and I'd dearly love to see how they fare against real steel." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. My master kept hounds once, great black beasts the peasants burned, most of them, along with him, and I've never forgiven them for that either." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. You talk to the beasts, don't you? The few of Helcular's hounds that escaped the mob still wander the hills, and they won't come to me, though I've tried and tried." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. You talk to the beasts, don't you? The few of Helcular's hounds that escaped the mob still wander the hills, and they won't come to me, though I've tried and tried." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. Helcular hated your kind, and I suspect you'd hate what I'm doing here, so let's agree not to stand too close to each other." },
       },
       again = {
@@ -484,7 +484,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. If you'd been standing watch with me, perhaps those dwarves wouldn't have walked off with my gear, so I'll not pretend I'm glad to see you." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. I'd ask your demon to guard my tent, but I suppose it would steal more than the dwarves ever did." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior, and fully armed, which I can't claim to be. Don't look at my belt, please, because there's no sword on it, and I know." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, and twice my size. I don't suppose you could track a pack of dwarven scouts by smell? Mine has been gone for years." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid, and twice my size. I don't suppose you could track a pack of dwarven scouts by smell? Mine has been gone for years." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. I'd ask you to bless my borrowed club, only I think it would be wasted on it, and the dwarves of Dun Garok would just steal that too." },
       },
       again = {
@@ -665,7 +665,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue! You'd be good at collecting skulls, I think, since you could get close enough to take them without anyone noticing." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Could you make one of my skulls glow? I've always wanted a lantern with a face, and the apothecaries won't help me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter! Do you take trophies? I've a dozen skulls by the gate, and I'd love to hear how a proper hunter keeps them clean." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! Do your people collect skulls? Bones, perhaps, or antlers, or anything else that holds a man's interest on a quiet post?" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid! Do your people collect skulls? Bones, perhaps, or antlers, or anything else that holds a man's interest on a quiet post?" },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin! Now I've always wondered whether a human skull taken by a holy hammer looks any different from the rest, so bring me one and we'll compare it to the collection." },
         { id = "h_dd_guards", tags = { "news" }, when = { killed = { name = "Southshore Guard", min = 10 } },
           text = "You've been putting Southshore's guards in the dirt, I hear, and doing it close enough to their walls that they can hear the bells. If any of their skulls are still attached, you know where my wall is." },
@@ -844,7 +844,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll be no use at Hammerfall, where the orcs need shields and axes, but I suppose you could slip past the Stromgarde lines and see what they're planning." },
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock. Your demon could hold a line at Hammerfall for a while, I suppose, longer than the soft-skinned recruits they send me." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Hammerfall needs scouts as much as shields, I'm told, so you might be some use to the orcs, if you don't die on the way." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid! Your people could heal the whole of Hammerfall's sick tents in an afternoon. Why aren't you there?" },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid! Your people could heal the whole of Hammerfall's sick tents in an afternoon. Why aren't you there?" },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. You'll want to heal everyone you pass, I expect, but save it for Hammerfall, where the orcs need it more than the dead here do." },
       },
       again = {
@@ -1017,7 +1017,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. You could teleport, I suppose, but the bats are cheaper and they don't drop you in the wrong city, unless you've been rude to them." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. Leave the shield on the ground before you climb on, because the bats don't like being thumped with it every time you turn around." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. The bats will be curious about your beast, so keep it calm, because a curious bat is a nibbling bat." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. The bats like you already, I can tell, and that's rare, because they don't like anyone." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. The bats like you already, I can tell, and that's rare, because they don't like anyone." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin. The bats don't mind you, though the living will, when you come down out of the sky glowing over their fields." },
         { id = "h_dd_falling", when = { deathCause = "falling" },
           text = "You fell off something tall, didn't you? I can see it in the way you're standing, and my bats would have done the descending for you, more gracefully, for a few coins." },
@@ -1166,7 +1166,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "A rogue. You'll want rope, I'd guess, and flash powder, and perhaps a little food for the road, since I hear the living still eat." },
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage. I've a shelf for the living allies, if you're one of them, and a few things for spellcasters, though I'll warn you that candles go faster here than anywhere else." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Horde" }, text = "A warrior. I've whetstones, bandages and rations for the living, and I keep them on the shelf furthest from the embalming salts, so you'll not get them muddled." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid. I've nothing to sell you that you couldn't grow yourself, I suppose, but I'm sure I'll find something." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid. I've nothing to sell you that you couldn't grow yourself, I suppose, but I'm sure I'll find something." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A paladin of the Forsaken. You'll not need the living allies' shelf, I expect, though I've never been sure whether the Light gives your kind an appetite." },
       },
       again = {

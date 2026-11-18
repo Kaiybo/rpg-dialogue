@@ -116,7 +116,7 @@ P:NPC {
           text = "You've come from the graveyard, friend, I can smell it, and the brothers don't like Drusilla La Salle's students in the cellars." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior in my cellar! Do mind the barrels, friend; each one is accounted for, and you are not." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. Please, your animal stays on the stairs; it has been known for creatures to discover the cheese." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf in the Abbey's cellars, and welcome, friend! We've wine, cheese and a fair amount of quiet, though the wolves took one of the cheeses." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf in the Abbey's cellars, and welcome, friend! We've wine, cheese and a fair amount of quiet, though the wolves took one of the cheeses." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage of Northshire! Brother Bremen's students are a thirsty lot, I find, though I couldn't say why." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! Come and have a taste, for I've failed at moderation again, I confess. The Light forgives it, and so should your spirits." },
       },

@@ -418,7 +418,7 @@ P:NPC {
         { id = "h_c0", when = { faction = "Horde" }, text = "A child of the Horde, here at the front! The Warchief's eyes are on Silithus, and your service will be remembered." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" },
           text = "A hunter of the Horde. Your arrows will not stop a swarm, but your eyes might see one coming, and that is worth more." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A tauren druid, standing with the Horde in this wasteland. The Earth Mother must weep to see what the bugs have done to her desert." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A tauren druid, standing with the Horde in this wasteland. The Earth Mother must weep to see what the bugs have done to her desert." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Can you hold an axe? No, a hammer, then, and I hear the Light burns bugs as well as anything." },
         { id = "h_dd_honor", when = { faction = "Horde", honorKills = { min = 250 } }, text = "Your name has reached the Legion's camp before you, {rank}, along with a long count of Alliance dead. The Warchief wants peace here against the silithid, so keep your axe for the bugs while you stand in the Hold." },
       },

@@ -846,7 +846,7 @@ P:NPC {
           text = "I'll speak plain, as the King would want: there's a warlock in the throne room, an' every guard in the room has a hand on his axe. Say what ye came tae say." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. The King's always had a soft spot for warriors, for he was raised among them, an' so was I." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. The King's rams an' the King's rifles both owe plenty tae hunters, an' the throne remembers it." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid o' the kaldorei, standin' in the King's own hall. Ye're a long way from yer forests, so I'll see ye're treated as a guest o' the throne." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid o' the kaldorei, standin' in the King's own hall. Ye're a long way from yer forests, so I'll see ye're treated as a guest o' the throne." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman o' Khaz Modan. The King's spoken o' Earthseer Farsen often enough that I'll no' be the one tae turn my nose up at ye, though some in the Senate would." },
       },
       again = {
@@ -1504,7 +1504,7 @@ P:NPC {
           text = "Ah, one o' the cavern's other residents. Yer lot an' mine get the same looks from the guards, so we might as well nod tae each other." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, down in the Hidden Circle? Ye're louder than my whole crew put together, so keep yer voice down, if ye can." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, is it? Ye've a quiet step for someone who carries a gun, I'll give ye that." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "Well now, a night elf druid in the Forlorn Cavern, an' no' even lost! Yer kind can slip about as a cat, I hear, which would make ye a fine catch for the Circle." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "Well now, a night elf druid in the Forlorn Cavern, an' no' even lost! Yer kind can slip about as a cat, I hear, which would make ye a fine catch for the Circle." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, down here? The earth's got ears, they say, so I'll thank ye no' tae let it listen in on my business." },
       },
       again = {

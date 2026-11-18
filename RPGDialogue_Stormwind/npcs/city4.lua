@@ -150,7 +150,7 @@ P:NPC {
           text = "SI:7's people come through my gate at odd hours and never sign the book, and I've given up asking them to. Are you one of theirs, or only shy?" },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" },
           text = "A mage at the Valley gate. The army could use more of you, if the Quarter could spare any, because fire wins sieges." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid at the Valley gate. The kaldorei are new to this Alliance and my soldiers stare, I'll admit, but they'll learn their manners." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid at the Valley gate. The kaldorei are new to this Alliance and my soldiers stare, I'll admit, but they'll learn their manners." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock. The army has had dealings with your sort, and I'd prefer they stayed few, but I'll hear you out." },
       },
       again = {

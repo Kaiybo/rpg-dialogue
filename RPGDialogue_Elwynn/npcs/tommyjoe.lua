@@ -114,7 +114,7 @@ P:NPC {
           text = "There's something odd about you, odd like Gramma's stories, and I'm not sure I like it." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior. Are you here to beat me up for the Maclures, or for my family? Either way, I'd rather you didn't." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter. You must know how to wait without being seen, and I've been trying to learn that for months." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf, out by the river! I'm only looking at the water, if anybody asks, which they shouldn't." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf, out by the river! I'm only looking at the water, if anybody asks, which they shouldn't." },
         { id = "h_magecl", when = { class = "MAGE", faction = "Alliance" }, text = "A mage! I don't suppose you'd know a spell for getting across a river without anybody seeing, would you? Asking for a friend." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I'm only looking at the water, nothing else. Your spirits needn't tell anyone otherwise." },
       },

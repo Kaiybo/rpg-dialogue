@@ -103,7 +103,7 @@ P:NPC {
           text = "A warlock on my road, and with something at your heel, I see. I'll sell you anything you like, but I'd ask you to keep it out of my packs." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior on the road! I've a whetstone from Ironforge, or near enough, and it'll put an edge on anything." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter on my road! I've a call for luring deer, carved by a man in Duskwood, though he swore it calls wolves too." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf on the Eastvale road! I sell to everyone who stops, so stop, and I'll show you things you won't find in any forest." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf on the Eastvale road! I sell to everyone who stops, so stop, and I'll show you things you won't find in any forest." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've odds and ends in my pack, and I know every danger on every road. Want to hear about them?" },
       },
       again = {

@@ -128,7 +128,7 @@ P:NPC {
           text = "{alt} called on the court only recently, and I put that visit in the record beside yours. It is a sad thing when a magistrate can count his town's friends by name, but Lakeshire has so few that I can." },
         { id = "h_cl_ubrs", tags = { "news" }, when = { cleared = "Upper Blackrock Spire", faction = "Alliance" },
           text = "The court is informed that General Drakkisath is dead in Blackrock Spire, and that you were present. The court would like it entered in the record that Lakeshire said so first, and was told it lacked proof." },
-        { id = "h_druidx", when = { class = "DRUID" },
+        { id = "h_druidx", when = { race = "NightElf", class = "DRUID" },
           text = "A druid of the kaldorei in Lakeshire. I confess I have little notion what your people make of ours." },
         { id = "h_default", key = true,
           text = "I am Solomon, elected Magistrate of Lakeshire, which means the people chose me to be the one who writes the letters nobody answers, most of them about Stonewatch Keep." },

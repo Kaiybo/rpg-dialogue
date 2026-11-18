@@ -129,7 +129,7 @@ P:NPC {
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman. Good, because the far seer can't be everywhere, and my grunts fight harder with the elements at their backs." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest. Grom'gol needs healers more than it needs sermons, so keep the prayers short and the bandages tight." },
         { id = "h_hmage", when = { class = "MAGE", race = { "Troll", "Scourge" } }, text = "A mage. Can you burn a path through the Mosh'Ogg? Then I have a place for you on the road." },
-        { id = "h_druidx", when = { class = "DRUID" },
+        { id = "h_druidx", when = { race = "Tauren", class = "DRUID" },
           text = "A druid of the tauren. Good. My grunts fight better with one of your kind nearby to mend them." },
         { id = "h_default", key = true,
           text = "Commander Aggro'gosh. This camp keeps the road to Stonard open, and that road feeds the Horde. The ogres and the Bloodscalp make it hard, and I make it happen anyway, because that is what the Warchief asked of me." },
@@ -482,7 +482,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE", faction = "Horde" }, text = "A rogue. You could slip into the Bloodscalp camps and look for Yenniku, maybe, where a warrior like me only start a war." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "A warlock. Your power might frighten the Bloodscalp into giving up Yenniku, but I not risk the boy's life on a demon's temper." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter, mon. Your eyes be good in this jungle, and good eyes might find the tracks of Yenniku where mine see only mud." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Horde" }, text = "A druid of the tauren, in this jungle. You know the beasts, and the beasts here know where the Bloodscalp hide Yenniku, if only they could tell us." },
+        { id = "h_druidcl", when = { race = "Tauren", class = "DRUID", faction = "Horde" }, text = "A druid of the tauren, in this jungle. You know the beasts, and the beasts here know where the Bloodscalp hide Yenniku, if only they could tell us." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A dead one with the Light, mon. I hear the Forsaken have strange priests now, but you be stranger still." },
       },
       again = {

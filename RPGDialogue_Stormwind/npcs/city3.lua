@@ -140,7 +140,7 @@ P:NPC {
           text = "A mage, in the Royal Library. Let me guess that Dalaran wants a book back, and the Kirin Tor are too grand to ask in person." },
         { id = "h_warcl", when = { class = "WARRIOR", faction = "Alliance" }, text = "A warrior, in the garden. Do try not to trample the hedges; the House of Nobles takes its gardens more seriously than its soldiers." },
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Alliance" }, text = "A hunter, back from the countryside. I suppose you see a good deal more of the kingdom than the House does." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A druid, in the Royal Library. The kaldorei have been very gracious to the crown, and I've always wondered what a people so old expect in return." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A druid, in the Royal Library. The kaldorei have been very gracious to the crown, and I've always wondered what a people so old expect in return." },
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Alliance" }, text = "A warlock, in the Royal Library. How unexpected, and how very interesting, since your sort rarely come up from the Mage Quarter in daylight." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. How novel. Ironforge sends us all sorts these days, and I suppose some of them must be useful." },
       },

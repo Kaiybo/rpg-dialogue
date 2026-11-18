@@ -27,7 +27,7 @@ P:NPC {
   notice = {
     { id = "n_flagged", cat = "pvp", when = { pvpFlagged = true },
       text = "You've already got the scent of a fight on you, I see. Good, because the gulch rewards those who come in hot." },
-    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+    { id = "n_druid", cat = "class", when = { race = "Tauren", class = "DRUID" },
       text = "A druid, and a tauren one, I'd wager. The night elves will hate you twice over, because they think your kind of magic belongs to them." },
   },
 

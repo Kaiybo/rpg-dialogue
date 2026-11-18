@@ -137,7 +137,7 @@ P:NPC {
           text = "By day the Blasted Lands try to bake you and by night they try to freeze you, so I keep the ledgers by the brazier and count blankets twice." },
         { id = "h_warm", when = { disposition = { min = 70 } },
           text = "There's the one person in the Blasted Lands who brings me more than they take. Sit down; I'll find you something that isn't hardtack." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid in Nethergarde! I've a crate of seed corn nobody's managed to grow out here, and you're very welcome to try, though I'd not stake my supper on it." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid in Nethergarde! I've a crate of seed corn nobody's managed to grow out here, and you're very welcome to try, though I'd not stake my supper on it." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman of Ironforge! I'll write you in the ledger as a soldier, because I haven't got a column for people who talk to the elements, and I'm not about to make one." },
       },
       again = {
@@ -1814,7 +1814,7 @@ P:NPC {
           text = "A priest! The birds take to holy folk, I've noticed, and you'd be doing me a kindness if you said a word over them before the next long flight north." },
         { id = "h_apaladin", when = { class = "PALADIN" },
           text = "A paladin! You'll want my steadiest bird, then, because the heavy riders frighten the young ones, and the young ones are all I have left after this spring." },
-        { id = "h_druidcl", when = { class = "DRUID", faction = "Alliance" }, text = "A night elf druid! My gryphons perked up when you walked in, and they don't do that for anyone in this keep, so I'll thank you to stay a while." },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID", faction = "Alliance" }, text = "A night elf druid! My gryphons perked up when you walked in, and they don't do that for anyone in this keep, so I'll thank you to stay a while." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! My gryphons are calmer around you already, and in this place I'll take calm from anywhere it comes." },
       },
       again = { { id = "h_again", text = "Is there something else, or shall I saddle a bird for you?" } },

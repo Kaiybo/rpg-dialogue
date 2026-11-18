@@ -112,7 +112,7 @@ P:NPC {
         { id = "h_dd_fall", when = { deathCause = "falling" },
           text = "I heard you took a fall somewhere and didn't get up the first time. Take it from someone who flies for a living: the ground always wins, so stop giving it the chance." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman, at Light's Hope! The birds hate the air up here, {class}, but they'll fly calmer with someone aboard who knows what the wind's thinking." },
-        { id = "h_druidcl", when = { class = "DRUID" },
+        { id = "h_druidcl", when = { race = "NightElf", class = "DRUID" },
           text = "A night elf druid! If you're flying out over the plaguelands, mind you don't take a deep breath, because the birds won't, and they're smarter than most soldiers." },
         { id = "h_default", key = true,
           text = "Khaelyn Steelwing, gryphon master for the Alliance at Light's Hope. The air over these plaguelands is fouler than a Dark Iron's breath and the birds hate every mile of it, but they'll get ye to Chillwind or anywhere else ye need to be." },
