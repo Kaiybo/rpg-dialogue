@@ -10,7 +10,7 @@ P:NPC {
   notices = { "craft", "race", "pet" },
 
   impression = {
-    first = "A-Me 01 is Karna Remtravel's mechanical gorilla, dented and stranded by a waterfall near Fungal Rock. She speaks slowly and politely, like something still learning words, and all she wants is to go home to Karna.",
+    first = "All she wants is to go home to Karna.",
     third = "{name} met A-Me 01, a mechanical gorilla built by Karna Remtravel, who only wants to go home.",
   },
 

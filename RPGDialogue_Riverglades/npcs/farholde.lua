@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "stormwind", "kit" },
 
   impression = {
-    first = "Knight Commander Demar Brant holds Farholde with what Stormwind left him, which he insists is nothing. He speaks of his dead by name, and he sized me up like a man counting swords for the wall.",
+    first = "He speaks of his dead by name.",
     third = "{name} met Knight Commander Demar Brant, who has held Farholde for the Brotherhood of the Horse through twenty hard years.",
   },
 
@@ -489,7 +489,7 @@ P:NPC {
   notices = { "arcane", "curse" },
 
   impression = {
-    first = "Ashe Amberhall talks faster than I can write, then catches herself and apologizes, then carries on anyway. Underneath all the books there is someone grieving, and very good at not showing it.",
+    first = "Underneath all the books she is grieving, and hiding it well.",
     third = "{name} met Ashe Amberhall, the Knight Commander's advisor at Farholde, a quick-tongued mage who keeps her father's notes.",
   },
 
@@ -876,7 +876,7 @@ P:NPC {
   notices = { "kit", "curse" },
 
   impression = {
-    first = "Sergeant Riftan has fought the cultists so long he has stopped counting the years. He keeps one eye on the ridge even while he talks, and complains about Ashe in a way that sounds almost fond.",
+    first = "He has fought the cultists so long he stopped counting the years.",
     third = "{name} met Sergeant Riftan, a weary veteran of the Brotherhood of the Horse holding the line against the Twilight cultists.",
   },
 
@@ -1103,7 +1103,7 @@ P:NPC {
   notices = { "healer", "disease", "form" },
 
   impression = {
-    first = "Sister Rowland keeps the sick soldiers clean, fed and prayed over, and won't pretend to know what ails them. There is a calm about her that I suspect costs her more than she lets on.",
+    first = "Her calm costs her more than she lets on.",
     third = "{name} met Sister Rowland, who tends the Brotherhood's sick in Farholde's chapel.",
   },
 
@@ -1307,7 +1307,7 @@ P:NPC {
   notices = { "pets", "elves", "form" },
 
   impression = {
-    first = "Cady Lloydriel is a ranger of few words, and most of her attention stays on the cradle beside her. Her dog and cat seem to have more opinions than she shares.",
+    first = "Most of her attention stays on the cradle beside her.",
     third = "{name} met Cady Lloydriel, a ranger of the Brotherhood who keeps watch over Farholde's walls and a cradle.",
   },
 
@@ -1564,7 +1564,7 @@ P:NPC {
   notices = { "mount", "class" },
 
   impression = {
-    first = "Wheatley, the stable master, plainly likes horses better than the people who ride them, and he said as much. I found it hard to hold that against him.",
+    first = "He likes horses better than their riders, and says so.",
     third = "{name} met Wheatley, Farholde's stable master, who tends every horse in the Brotherhood.",
   },
 
@@ -1764,7 +1764,7 @@ P:NPC {
   notices = { "flight" },
 
   impression = {
-    first = "Gretchen Mayberry runs Farholde's gryphons briskly and is proud of every grumpy one of them. If the fog troubles her, she keeps it to herself.",
+    first = "She is proud of every grumpy gryphon she keeps.",
     third = "{name} met Gretchen Mayberry, the Gryphon Master of Farholde Keep.",
   },
 
@@ -1971,7 +1971,7 @@ P:NPC {
   notices = { "kit", "craft" },
 
   impression = {
-    first = "Alphonse Dumas spends his words the way he spends his coal, carefully and not often. He talked to me without once looking up from the anvil.",
+    first = "He spends his words like his coal, carefully and not often.",
     third = "{name} met Alphonse Dumas, the smith who keeps the Brotherhood shod and armed at Farholde.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   communities = { "gelkis_village" }, temper = { "proud", "devout" }, values = { "faith", "clan" },
   notices = { "race", "deeds" },
   impression = {
-    first = "Uthek the Wise speaks for the Gelkis and for the earth, and she does not always distinguish between the two. She would not hear a word from me until there was Magram blood on my hands, and then she called it good.",
+    first = "She would not hear me until Magram blood was on my hands.",
     third = "{name} met Uthek the Wise, shaman of the Gelkis centaur, who believes the earth mother Theradras watches over her clan.",
   },
 

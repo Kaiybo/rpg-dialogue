@@ -9,7 +9,7 @@ P:NPC {
   communities = { "senjin" }, temper = { "folksy" }, values = { "wise", "proud" },
   notices = { "race", "class", "origin" },
   impression = {
-    first = "Master Gadrin taught Vol'jin and Zalazane both, and only one of them makes him proud. He jokes about his old teeth, but the shame of Zalazane plainly keeps him from sleeping through the night.",
+    first = "He taught Vol'jin and Zalazane both, and only one makes him proud.",
     third = "{name} met Master Gadrin at Sen'jin Village, the old Darkspear witch doctor who once taught both Vol'jin and Zalazane.",
   },
 

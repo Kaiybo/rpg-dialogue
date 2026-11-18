@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "The Spirit of Kirith rose from what the demons made of him and grinned at me as if we shared a joke. He was one of the Fallen Hero's men, and he spent his last moments telling me how to kill the thing that broke him.",
+    first = "His last words taught me how to kill what broke him.",
     third = "{name} spoke with the Spirit of Kirith at Serpent's Coil, a lieutenant of Thrall's Grasp freed from damnation in the Blasted Lands.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   notices = { "weary" },
 
   impression = {
-    first = "Kreg Bilmn sells general supplies in Kharanos and has watched every new adventurer in Dun Morogh pass his counter. He gives plain advice whether you ask for it or not.",
+    first = "He gives plain advice whether you ask for it or not.",
     third = "{name} met Kreg Bilmn, who sells general supplies in Kharanos.",
   },
 
@@ -205,7 +205,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Grawn Thromwyn makes and sells weapons in Kharanos and takes each sale as a promise that the blade will hold. He has little patience for decoration and a great deal for good steel.",
+    first = "He takes each sale as a promise that the blade will hold.",
     third = "{name} met Grawn Thromwyn, a weaponsmith in Kharanos.",
   },
 
@@ -398,7 +398,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Boran Ironclink sells armor in Kharanos and clanks a little when he walks, because he wears a sample of his stock. He believes most problems in Dun Morogh can be solved by thicker mail.",
+    first = "He believes thicker mail solves most problems in Dun Morogh.",
     third = "{name} met Boran Ironclink, an armorer in Kharanos.",
   },
 
@@ -591,7 +591,7 @@ P:NPC {
   notices = { "greenness" },
 
   impression = {
-    first = "Durnan Furcutter sells cloth and leather armor at Anvilmar to recruits who have barely learned to hold a sword. He fusses over them like an uncle and worries about the ones who don't come back.",
+    first = "He worries about the recruits who don't come back.",
     third = "{name} met Durnan Furcutter, who sells armor to new recruits at Anvilmar.",
   },
 

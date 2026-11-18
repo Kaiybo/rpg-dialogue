@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "status" },
 
   impression = {
-    first = "Argent Quartermaster Lightspark keeps the Argent Dawn's stores at Chillwind Camp and keeps his ledgers tidier than most people keep their weapons. He sells only to those the Dawn has learned to trust, and he says so plainly.",
+    first = "His ledgers are tidier than most people keep their weapons.",
     third = "{name} met Argent Quartermaster Lightspark, who keeps the Argent Dawn's stores at Chillwind Camp.",
   },
 
@@ -225,7 +225,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Leonard Porter sells leatherworking supplies at Chillwind Camp and inspects every hide brought to him for plague. He has strong opinions about which animals in these lands are still worth skinning.",
+    first = "He inspects every hide brought to him for plague.",
     third = "{name} met Leonard Porter, who sells leatherworking supplies at Chillwind Camp.",
   },
 

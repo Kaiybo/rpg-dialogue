@@ -8,7 +8,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "steady" },
   notices = { "drink", "faith" },
   impression = {
-    first = "Brother Neals keeps the Abbey's cellars and its tally with equal devotion. He admitted cheerfully to failing at moderation, which made me trust him rather more.",
+    first = "He cheerfully admits to failing at moderation, and I trust him more.",
     third = "{name} met Brother Neals, keeper of Northshire Abbey's cellars, who loves a careful tally almost as much as the wine.",
   },
 

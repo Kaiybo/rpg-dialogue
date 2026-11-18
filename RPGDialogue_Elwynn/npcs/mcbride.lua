@@ -8,7 +8,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "steady", "sharp" }, likesTone = "blunt",
   notices = { "greenness", "kit", "follow_through" },
   impression = {
-    first = "Marshal McBride calls everyone recruit, and he means it as a duty more than an insult. He has a whole valley to hold and nowhere near enough people to hold it.",
+    first = "He has a whole valley to hold and too few holding it.",
     third = "{name} reported to Marshal McBride, who holds Northshire Valley and likes his recruits to stay alive.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   communities = { "narache" }, temper = { "warm" }, values = { "patient", "helpful" },
   notices = { "craft", "greenness" },
   impression = {
-    first = "Karne Grayhoof is an old tauren at Camp Narache who helps the young ones choose a trade. He talks about crafts the way some elders talk about the seasons, as if each had its time.",
+    first = "He talks about crafts as if each had its season.",
     third = "{name} met Karne Grayhoof, who guides the young tauren of Camp Narache toward a trade.",
   },
   greetings = {
@@ -112,7 +112,7 @@ P:NPC {
   communities = { "narache" }, temper = { "gentle" }, values = { "nature", "patient" },
   notices = { "craft", "class" },
   impression = {
-    first = "Garan Sunstrider teaches herbs at Camp Narache and talks to the plants as he picks them. He believes every leaf is a gift of the Earth Mother and should be taken with thanks.",
+    first = "He talks to the plants as he picks them.",
     third = "{name} met Garan Sunstrider, the gentle junior herbalism trainer of Camp Narache.",
   },
   greetings = {
@@ -206,7 +206,7 @@ P:NPC {
   communities = { "narache" }, temper = { "fierce" }, values = { "respect", "practical" },
   notices = { "craft", "pet" },
   impression = {
-    first = "Nawka Wildsong teaches skinning at Camp Narache, quick-handed and fierce, and she will not waste any part of a kill. She thanks every beast she skins and expects her students to do the same.",
+    first = "She thanks every beast she skins and expects the same of students.",
     third = "{name} met Nawka Wildsong, the junior skinning trainer of Camp Narache.",
   },
   greetings = {
@@ -299,7 +299,7 @@ P:NPC {
   communities = { "narache" }, temper = { "steady" }, values = { "patient", "craft" },
   notices = { "craft", "race" },
   impression = {
-    first = "Vartha Rockmane teaches mining at Camp Narache, slow-spoken and steady as stone. She asks the Earth Mother's leave before she breaks the rock and expects her students to do the same.",
+    first = "She asks the Earth Mother's leave before she breaks the rock.",
     third = "{name} met Vartha Rockmane, the junior mining trainer of Camp Narache.",
   },
   greetings = {

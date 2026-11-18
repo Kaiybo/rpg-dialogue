@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Krog wants to know who burned that inn because someone made a liar of his Warchief, and he takes that personally. He doesn't waste a word, and he doesn't trust the easy answer.",
+    first = "Someone made a liar of his Warchief, and he takes it personally.",
     third = "{name} met Krog, the orc who commands Brackenwall Village and investigates the burning of the Shady Rest Inn.",
   },
 
@@ -403,7 +403,7 @@ P:NPC {
   notices = { "class", "stealth" },
 
   impression = {
-    first = "Nazeer Bloodpike counts the Alliance's smiles and the knives behind them, and I suspect he counts mine too. He trusts paper peace about as far as the marsh lets it stay dry.",
+    first = "He trusts paper peace about as far as the marsh stays dry.",
     third = "{name} met Nazeer Bloodpike, the suspicious orc spymaster who watches Theramore from Brackenwall.",
   },
 

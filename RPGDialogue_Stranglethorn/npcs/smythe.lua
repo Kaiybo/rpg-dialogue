@@ -9,7 +9,7 @@ P:NPC {
   notices = { "purse", "race" },
 
   impression = {
-    first = "Markel Smythe is a sunburnt Stormwind man who calls himself salvage and means it as a boast. He watched my hands the whole time we talked, and I think he'd remember every word if anyone asked.",
+    first = "He watches my hands and would remember every word if asked.",
     third = "{name} met Markel Smythe on Booty Bay's upper landing, a human who was rescued from the Bloodsail, billed for it by the Baron, and stayed on as the port's sworn witness.",
   },
 

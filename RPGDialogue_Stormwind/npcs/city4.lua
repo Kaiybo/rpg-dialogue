@@ -9,7 +9,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "dutiful", "courteous" },
   notices = { "soldier", "kit" },
   impression = {
-    first = "General Marcus Jonathan keeps Stormwind's walls with whatever the Keep will spare him, and it plainly isn't enough. He reads every letter from the provinces twice and answers fewer than he'd like.",
+    first = "He reads every letter from the provinces twice and answers too few.",
     third = "{name} met General Marcus Jonathan, High Commander of Stormwind's defence, who watches over the Valley of Heroes.",
   },
 
@@ -369,7 +369,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "prickly" }, values = { "proud", "practical" },
   notices = { "class", "stealth" },
   impression = {
-    first = "Renzik speaks of himself by name, like a goblin selling his own legend, and he is second at SI:7 all the same. He decided I might be worth something and told me so bluntly.",
+    first = "He speaks of himself by name, like a goblin selling a legend.",
     third = "{name} met Renzik the Shiv, the goblin who serves as second at SI:7 and decides what good means there.",
   },
 
@@ -566,7 +566,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "curt" }, values = { "dutiful" },
   notices = { "soldier" },
   impression = {
-    first = "Major Samuelson keeps the throne room orderly and expects visitors to behave as though they know where they are standing. He said that was all I needed to know about him, and he meant it.",
+    first = "He expects visitors to know exactly where they are standing.",
     third = "{name} met Major Samuelson, captain of the guard in Stormwind Keep, a man of few words and fewer exceptions.",
   },
 
@@ -778,7 +778,7 @@ P:NPC {
     { id = "b_loaf", text = "A loaf for the road, a loaf for the pocket, a loaf for later!" },
   },
   impression = {
-    first = "Thomas Miller walks the Trade District from dawn to dusk with a basket of bread and a left foot that complains the whole way. He had a roll halfway into my hand before I'd decided I was hungry.",
+    first = "He presses a roll into your hand before you know you're hungry.",
     third = "{name} met Thomas Miller, the Trade District's walking baker, whose basket always wins the argument with his feet.",
   },
   greetings = {

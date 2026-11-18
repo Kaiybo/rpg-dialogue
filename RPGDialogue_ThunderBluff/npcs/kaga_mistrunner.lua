@@ -11,7 +11,7 @@ P:NPC {
   notices = { "dead", "warlock", "hunter" },
 
   impression = {
-    first = "Kaga Mistrunner sells meat in Thunder Bluff and speaks of the Forsaken in the Pools of Vision as a wrong done to the Earth Mother. She hates the Venture Company for her son's leg, and there is more to that story than she says.",
+    first = "She hates the Venture Company for her son's leg.",
     third = "{name} met Kaga Mistrunner, a Thunder Bluff meat seller who wants the Forsaken gone from the Pools of Vision.",
   },
 

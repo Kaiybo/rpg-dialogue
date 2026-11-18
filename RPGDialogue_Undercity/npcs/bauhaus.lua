@@ -10,7 +10,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "dry" }, values = { "orderly", "proud" },
   notices = { "race", "status" },
   impression = {
-    first = "Royal Overseer Bauhaus keeps the Undercity's census and treats every request as an imposition on a very great work. Beneath the sarcasm, he takes the names of the dead more seriously than anyone I've met.",
+    first = "Beneath the sarcasm, he takes the names of the dead seriously.",
     third = "{name} met Royal Overseer Bauhaus, keeper of the Undercity census and its records of the living and the formerly living.",
   },
 

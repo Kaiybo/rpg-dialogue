@@ -15,7 +15,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Mux Manascrambler is a goblin engineer who wants to build a machine that sees ghosts, and he's run out of money halfway through. He talks about ectoplasm the way other goblins talk about gold, which with Mux amounts to the same thing.",
+    first = "He wants a machine that sees ghosts, and the money ran out.",
     third = "{name} met Mux Manascrambler, the Gadgetzan engineer building an extra-dimensional ghost revealer.",
   },
 
@@ -157,7 +157,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Shreev runs the Gadgetzan Gizmorium and builds rocket parts for the Mirage Raceway, and he's the only goblin I've met who believes in safety catches. He thinks Razzeric is going to blow himself up, and he's mostly right.",
+    first = "He is the only goblin I've met who believes in safety catches.",
     third = "{name} met Shreev, who runs the Gadgetzan Gizmorium and builds boosters for the goblin racers of the Shimmering Flats.",
   },
 
@@ -258,7 +258,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Derotain Mudsipper is a Dark Iron dwarf of the Thorium Brotherhood who sells imperial plate plans for mountains of thorium and tells his customers to toughen up. He's rude, he's good at what he does, and he knows it.",
+    first = "He's rude, he's good at what he does, and he knows it.",
     third = "{name} met Derotain Mudsipper, the Thorium Brotherhood smith in Gadgetzan who trades imperial plate plans for thorium.",
   },
 
@@ -373,7 +373,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Nixx Sprocketspring teaches goblin engineering and sells it like a revival preacher. He'll explain the math of it to anybody: goblin plus engineering equals know-how, and anybody who disagrees can't add.",
+    first = "He sells goblin engineering like a revival preacher.",
     third = "{name} met Nixx Sprocketspring, Gadgetzan's goblin engineering trainer.",
   },
 
@@ -502,7 +502,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Jhordy Lapforge is a gnome in a yellow shirt and goggles who has built a matter transporter in the middle of a goblin town. All he needs is a skilled gnomish engineer to build a beacon for it, and he's very sure it's safe.",
+    first = "He is very sure his matter transporter is safe.",
     third = "{name} met Jhordy Lapforge, the gnome engineer in Gadgetzan who teaches the Ultrasafe Transporter to gnomish engineers.",
   },
 

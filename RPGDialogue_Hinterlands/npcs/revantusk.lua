@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Primal Torntusk leads the Revantusk while her mate sits in a Vilebranch cage at Jintha'Alor. She speaks of the Horde like a debt her tribe has paid twice over, and she isn't wrong.",
+    first = "She leads the tribe while her mate sits in a Vilebranch cage.",
     third = "{name} met Primal Torntusk, who leads the Revantusk trolls of the Hinterlands coast and wants her mate back from the Vilebranch.",
   },
 
@@ -386,7 +386,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Huntsman Markhor keeps the stables at Revantusk and judges the wilds as harshly as any judge of men. His twin brother died in the Vilebranch raid, and grief has made him patient, not soft.",
+    first = "Grief for his twin brother has made him patient, not soft.",
     third = "{name} met Huntsman Markhor, the Revantusk stable master who mourns his twin brother Malkhor.",
   },
 
@@ -605,7 +605,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Mystic Yayo'jin sells reagents from a platform at the north end of Revantusk and talks about Zul'jin as if he might walk up the stairs. She told me to mind her goods before she told me her name.",
+    first = "She talks about Zul'jin as if he might walk up the stairs.",
     third = "{name} met Mystic Yayo'jin, who sells mystical goods at Revantusk Village and hates the cannibal Vilebranch.",
   },
 
@@ -897,7 +897,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Katoom the Angler would rather be fishing than doing anything else in the world, and says so with real peace. His only enemies are the turtles that steal his bait.",
+    first = "His only enemies are the turtles that steal his bait.",
     third = "{name} met Katoom the Angler, Revantusk's fishing trainer and an admirer of Nat Pagle.",
   },
 
@@ -1103,7 +1103,7 @@ P:NPC {
   notices = { "weary", "pet" },
 
   impression = {
-    first = "Lard is an ogre who keeps the inn at Revantusk, keeps the peace, and sells fish. He is enormous and gentle, and mostly worried about his lunch.",
+    first = "He is enormous and gentle, and mostly worried about his lunch.",
     third = "{name} met Lard, the ogre innkeeper of Revantusk Village.",
   },
 
@@ -1318,7 +1318,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Smith Slagtree is an orc who mends anything broken at Revantusk's forge, while you wait. His best tools were a gift from a gnome who once saved his life, and the Vilebranch stole them.",
+    first = "The Vilebranch stole the tools a gnome gave him.",
     third = "{name} met Smith Slagtree, the orc smith of Revantusk Village, who lost a treasured set of tools to the Vilebranch.",
   },
 
@@ -1503,7 +1503,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Otho Moji'ko sells cooking supplies and dreams of terrifying Aerie Peak. He spits when he says the word Wildhammer, and he says it often.",
+    first = "He spits when he says Wildhammer, and he says it often.",
     third = "{name} met Otho Moji'ko, the Revantusk cook's supplier who wants to send the Wildhammer a message.",
   },
 
@@ -1750,7 +1750,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Gorkas is the wind rider master at Revantusk, and he spends more time fishing off the pier than tending his beasts. He's waiting for one particular grouper and doesn't care who knows it.",
+    first = "He's waiting for one particular grouper and doesn't care who knows.",
     third = "{name} met Gorkas, the orc wind rider master at Revantusk, who fishes off the pier between flights.",
   },
 

@@ -62,13 +62,10 @@ function Threads.Heard(beat, env)
   t.force = nil
   if t.state == "dormant" then t.state = "stirring" end
   if env.conv then env.conv.beats = (env.conv.beats or 0) + 1 end
-  -- Journal: every beat is recorded; at the third, a reflective entry ties them together.
+  -- Diary: only a beat with its own authored entry, and the reflection at the third beat.
+  -- (What was said is kept on the Stories page; the diary doesn't copy it out.)
   if ns.Effects then
-    local j = beat.journal or {
-      first = "{npc} told me: \"" .. beat.text .. "\"",
-      third = "{npc} told {name}: \"" .. beat.text .. "\"",
-    }
-    ns.Effects.Journal(j, env.ctx or {}, env)
+    if beat.journal then ns.Effects.Journal(beat.journal, env.ctx or {}, env) end
     local n = ns.Util.Count(t.beats)
     if n == 3 and thread.reflection then ns.Effects.Journal(thread.reflection, env.ctx or {}, env) end
   end

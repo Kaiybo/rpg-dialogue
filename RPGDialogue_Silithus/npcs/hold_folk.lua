@@ -6,7 +6,7 @@ P:NPC {
   key = "noggle", id = TODO_NPC("Noggle Ficklespragg"), name = "Noggle Ficklespragg",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Noggle Ficklespragg lies in a sickbed at Cenarion Hold, poisoned by the desert's creatures and determined to be cured by somebody else's hard work.",
+    first = "He is determined to be cured by somebody else's hard work.",
     third = "{name} met Noggle Ficklespragg, a poisoned goblin at Cenarion Hold in Silithus.",
   },
   greetings = {
@@ -158,7 +158,7 @@ P:NPC {
   key = "jonathan_revelator", id = TODO_NPC("Jonathan the Revelator"), name = "Jonathan the Revelator",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Jonathan the Revelator preaches the end of the world from the edge of Cenarion Hold, and the silithid hives give him plenty of material.",
+    first = "The silithid hives give his doomsaying plenty of material.",
     third = "{name} met Jonathan the Revelator, a doomsayer at Cenarion Hold in Silithus.",
   },
   greetings = {
@@ -320,7 +320,7 @@ P:NPC {
   key = "krug", id = TODO_NPC("Krug Skullsplit"), name = "Krug Skullsplit",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Krug Skullsplit represents the Horde's war effort at Cenarion Hold and has little patience for anyone who can't hold an axe.",
+    first = "He has little patience for anyone who can't hold an axe.",
     third = "{name} met Krug Skullsplit, a Horde war-effort commander at Cenarion Hold.",
   },
   greetings = {
@@ -494,7 +494,7 @@ P:NPC {
   key = "merok", id = TODO_NPC("Merok Longstride"), name = "Merok Longstride",
   bible = "bibles/silithus.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Merok Longstride represents the Alliance's war effort at Cenarion Hold, a steady soldier with an eye on the swarm and another on his Horde counterparts.",
+    first = "He keeps one eye on the swarm and one on the Horde.",
     third = "{name} met Merok Longstride, an Alliance war-effort commander at Cenarion Hold.",
   },
   greetings = {

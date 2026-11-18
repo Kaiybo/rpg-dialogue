@@ -10,7 +10,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "proud" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Before Smith Argus looked at my face, he looked at my armor, and he plainly found it wanting. He mends what's bent and makes what's needed, and he doesn't pretend to work miracles.",
+    first = "He looked at my armor before my face, and found it wanting.",
     third = "{name} met Smith Argus, a blacksmith who judges people by the state of their armor and rarely approves.",
   },
 

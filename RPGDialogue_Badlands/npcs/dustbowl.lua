@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Prospector Ryedol checked that I wasn't a troll, an ogre or a Dark Iron before anything else. He is worn through with worry for his partner Hammertoe and tries hard not to show it.",
+    first = "Worry for his partner Hammertoe has worn him through.",
     third = "{name} met Prospector Ryedol of the Explorers' League, whose partner Hammertoe went into the Badlands digsite and never came out.",
   },
 
@@ -277,7 +277,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Lotwil Veriatus warned me off anything glowing, humming or warm, which ruled out most of his camp. He is delighted by rock elementals in a way I'll never fully understand.",
+    first = "He warned me off anything glowing, humming or warm.",
     third = "{name} met Lotwil Veriatus, an absent-minded gnomish scholar who studies the elements in the Dustbowl.",
   },
 

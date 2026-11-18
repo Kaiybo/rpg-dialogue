@@ -10,7 +10,7 @@ P:NPC {
   notices = { "arcane", "learning", "light" },
 
   impression = {
-    first = "Adair Gilroy is a thin, ink-stained man in the Mage Quarter who calls himself a librarian, though every scroll on his shelves is meant to be read once and crumble. He has opinions about that.",
+    first = "His scrolls are all meant to be read once and crumble.",
     third = "{name} met Adair Gilroy, the Mage Quarter's scroll-seller, who copies every scroll he sells by hand and mourns each one a little.",
   },
 

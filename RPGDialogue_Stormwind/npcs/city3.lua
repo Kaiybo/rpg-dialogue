@@ -11,7 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "smooth" }, values = { "proud", "ambitious" },
   notices = { "deed", "status" },
   impression = {
-    first = "Courtesy from Lord Gregor Lescovar feels rather like being weighed on a merchant's scale. He comes to the library to escape the noise of the House of Nobles, or so he says.",
+    first = "His courtesy feels like being weighed on a merchant's scale.",
     third = "{name} met Lord Gregor Lescovar of the House of Nobles, an elegant man who prefers the quiet of the library.",
   },
 
@@ -268,7 +268,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "brawler" }, values = { "proud" },
   notices = { "body", "drink" },
   impression = {
-    first = "Dashel Stonefist asked what I was looking at in a tone that suggested any answer would end in a fight. I gather most of his evenings end that way, and he enjoys them.",
+    first = "Most of his evenings end in a fight, and he enjoys them.",
     third = "{name} met Dashel Stonefist, an Old Town brawler who settles his arguments with his fists.",
   },
 
@@ -493,7 +493,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "earnest" }, values = { "craft", "loyal" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Furen Longbeard learned his trade from Grimand Elmore and is still learning it, as Elmore reminds him daily. He looks at a dent and sees the whole fight that made it.",
+    first = "He looks at a dent and sees the whole fight behind it.",
     third = "{name} met Furen Longbeard, Grimand Elmore's student, who forges shields meant to be trusted rather than admired.",
   },
 
@@ -693,7 +693,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "anxious" }, values = { "self-preserving" },
   notices = { "soldier", "stealth" },
   impression = {
-    first = "Warden Thelwater keeps Stormwind's worst beneath its canals and would very much like the recent trouble never mentioned again. He has the look of a man who has stopped opening his letters.",
+    first = "He looks like a man who has stopped opening his letters.",
     third = "{name} met Warden Thelwater of the Stockade, an anxious man who would rather nobody heard about his lower tiers.",
   },
 

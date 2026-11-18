@@ -8,7 +8,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "brisk" }, values = { "practical", "dutiful" },
   notices = { "kit" },
   impression = {
-    first = "Deathguard Saltain greets the newly risen the way a quartermaster greets new recruits, with a list of what they need and no sympathy at all for what they've lost.",
+    first = "He has no sympathy at all for what the risen have lost.",
     third = "{name} met Deathguard Saltain, who sets the freshly risen Forsaken of Deathknell to scavenging.",
   },
 
@@ -194,7 +194,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "earnest" }, values = { "dutiful", "curious" },
   notices = { "class" },
   impression = {
-    first = "Novice Elreth is still learning the Forsaken's dark devotions and still a little troubled by them. She speaks of the mindless dead with something close to pity.",
+    first = "She speaks of the mindless dead with something close to pity.",
     third = "{name} met Novice Elreth, a Forsaken novice of the priesthood at Deathknell.",
   },
 
@@ -373,7 +373,7 @@ P:NPC {
   communities = { "deathknell" }, temper = { "cocky" }, values = { "proud", "greedy" },
   notices = { "race" },
   impression = {
-    first = "Calvin Montague is a living man loitering outside Deathknell, of all places, and he wants a fight. He seems to think a freshly risen corpse will be an easy one.",
+    first = "He is a living man who wants a fight with the dead.",
     third = "{name} met Calvin Montague, a living rogue who picks fights with the new Forsaken near Deathknell.",
   },
 
@@ -558,7 +558,7 @@ P:NPC {
   communities = { "brill" }, temper = { "eager" }, values = { "ambitious", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Junior Apothecary Holland would very much like to stop being junior. He's ambitious, eager and slightly too pleased with the smell of doom weed.",
+    first = "He would very much like to stop being junior.",
     third = "{name} met Junior Apothecary Holland of the Royal Apothecary Society in Brill.",
   },
 

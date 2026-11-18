@@ -9,7 +9,7 @@ P:NPC {
   communities = { "teldrassil_wilds" }, temper = { "calm", "wry" }, values = { "duty", "nature" },
   notices = { "form", "class" },
   impression = {
-    first = "Oben Rageclaw is a druid's spirit cut loose from his own body, watching furbolgs walk it about like a puppet. He asked me to destroy it so he could rest, and he managed a joke while he asked.",
+    first = "He asked me to destroy his own body so he could rest.",
     third = "{name} met the spirit of Oben Rageclaw, a druid of the claw whose sleeping body the Gnarlpine shaman had stolen.",
   },
 

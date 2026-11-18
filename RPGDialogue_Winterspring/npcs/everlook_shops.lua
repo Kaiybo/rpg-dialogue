@@ -14,7 +14,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Izzy Coppergrab runs the bank in Everlook and counts your coins while you're still holding them. He swears his vault is the safest in Kalimdor and charges accordingly.",
+    first = "He counts your coins while you're still holding them.",
     third = "{name} met Izzy Coppergrab, the goblin banker of Everlook.",
   },
 
@@ -129,7 +129,7 @@ P:NPC {
   notices = { "miner" },
 
   impression = {
-    first = "Lunnix Sprocketslip sells picks, flux and coal in Everlook and talks about thorium the way some people talk about sweethearts. Everyone calls her Lunny, and she lets them, for a price.",
+    first = "She talks about thorium the way some people talk about sweethearts.",
     third = "{name} met Lunnix Sprocketslip, who sells mining supplies in Everlook.",
   },
 
@@ -236,7 +236,7 @@ P:NPC {
   notices = { "goblin_eng", "gnome_eng" },
 
   impression = {
-    first = "Zap Farflinger calls himself an unbalanced engineer and means it as a boast. He has built a dimensional imploder in Everlook and is looking for a goblin engineer brave enough to blow themselves up with it.",
+    first = "He calls himself an unbalanced engineer and means it as a boast.",
     third = "{name} met Zap Farflinger, the goblin engineer in Everlook with the dimensional imploder.",
   },
 

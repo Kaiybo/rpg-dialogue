@@ -12,7 +12,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Brandur Ironhammer trains the Light's young ones and sends them on with a joke about beards. He has the easy warmth of a teacher who has never doubted his calling.",
+    first = "He sends the Light's young ones off with a joke about beards.",
     third = "{name} met Brandur Ironhammer, who trains young paladins in Ironforge's Hall of Mysteries.",
   },
 
@@ -284,7 +284,7 @@ P:NPC {
 
   barks = { { id = "b_orphans", text = "Spare a thought for the orphans of Stormwind! A thought, a copper, anything at all!" } },
   impression = {
-    first = "John Turner asked me to spare a moment for Stormwind's orphans before he asked my name. He comes all the way to Ironforge for supplies, and he never stops asking.",
+    first = "He asks help for Stormwind's orphans before he asks your name.",
     third = "{name} met John Turner, who runs the Stormwind orphanage with his wife and gathers supplies for it in Ironforge.",
   },
 
@@ -511,7 +511,7 @@ P:NPC {
   notices = { "paladin", "craft" },
 
   impression = {
-    first = "Jordan Stilwell serves the Church at an anvil by the gates, in the cold. He spoke of his faith the way most smiths speak of good iron.",
+    first = "He speaks of his faith the way smiths speak of good iron.",
     third = "{name} met Jordan Stilwell, a smith who serves the Church of the Holy Light at his anvil outside Ironforge's gates.",
   },
 

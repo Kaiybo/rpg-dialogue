@@ -9,7 +9,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "wise", "nature" },
   notices = { "pet", "class" },
   impression = {
-    first = "Melor Stonehoof sets hunts on Hunter Rise and believes each one must teach something. Some of his hunts are not for food or honor at all, but to rid the land of beasts gone wrong.",
+    first = "Some of his hunts only rid the land of beasts gone wrong.",
     third = "{name} met Melor Stonehoof on Hunter Rise, the elder hunter who sets young tauren hunts with lessons in them.",
   },
 

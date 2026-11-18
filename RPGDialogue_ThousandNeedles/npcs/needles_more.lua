@@ -13,7 +13,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Zamek is a goblin who belongs to neither racing team and sells to both, and he finds this hilarious. He offered me a repair, a rumor and a distraction in the same breath, and the distraction was the only one with a fixed price.",
+    first = "He sells to both racing teams and finds this hilarious.",
     third = "{name} met Zamek, an independent goblin at the Mirage Raceway who sells repairs and, for the right customer, a diversion.",
   },
 
@@ -133,7 +133,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Jandia is a tauren trader who keeps Freewind Post in thread, dye and salt, and knows exactly how much of each the lifts can carry. She is practical, warm, and cross about the harpies.",
+    first = "She is practical, warm, and cross about the harpies.",
     third = "{name} met Jandia, who sells trade supplies at Freewind Post.",
   },
 
@@ -259,7 +259,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Turhaw is an orc butcher on a mesa full of tauren, and he cheerfully admits it took him a season to stop offering them kodo steak. He talks with a cleaver in his hand and waves it for emphasis.",
+    first = "It took him a season to stop offering the tauren kodo steak.",
     third = "{name} met Turhaw, the orc butcher of Freewind Post.",
   },
 

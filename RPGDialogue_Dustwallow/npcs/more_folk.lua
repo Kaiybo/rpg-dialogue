@@ -13,7 +13,7 @@ P:NPC {
   temper = { "nervous", "cheerful" }, values = { "practical", "loyal" },
   notices = { "weary", "pet" },
   impression = {
-    first = "\"Stinky\" Ignatz was picking bogbean leaves for a cook in Theramore with raptors circling him, and he greeted me like a long-lost brother. The nickname, I noticed, was earned honestly.",
+    first = "The nickname, I noticed, was earned honestly.",
     third = "{name} met \"Stinky\" Ignatz, a nervous leaf-gatherer surrounded by raptors north of North Point Tower.",
   },
   greetings = {
@@ -125,7 +125,7 @@ P:NPC {
   temper = { "bitter", "weary" }, values = { "practical", "loyal" },
   notices = { "soldier", "class" },
   impression = {
-    first = "Balos Jacken leads the deserters squatting in the old tower at Lost Point, and he surrendered with very bad grace. He blames Vimes, the marsh and one man named Reethe, roughly in that order.",
+    first = "He blames Vimes, the marsh and Reethe, roughly in that order.",
     third = "{name} met Balos Jacken, the deserter lieutenant holed up at Lost Point.",
   },
   greetings = {
@@ -231,7 +231,7 @@ P:NPC {
   communities = { "theramore" }, temper = { "sharp", "gruff" }, values = { "profit", "practical" },
   notices = { "purse", "stealth" },
   impression = {
-    first = "Privateer Groy loiters by Theramore's docks shouting about late shipments, and he sells akiris reed to a client he won't name. He treats every stranger as either a courier or a nuisance.",
+    first = "He treats every stranger as either a courier or a nuisance.",
     third = "{name} met Privateer Groy, an impatient reed dealer on the Theramore docks.",
   },
   greetings = {
@@ -331,7 +331,7 @@ P:NPC {
   communities = { "theramore" }, temper = { "warm", "proud" }, values = { "craft", "loyal" },
   notices = { "mount", "race" },
   impression = {
-    first = "Gregor MacVince breeds horses on an island in a swamp, and he talks about them as companions for the ages. He only sells to humans and to those Stormwind trusts, and he is apologetic but firm about it.",
+    first = "He sells only to humans and those Stormwind trusts, apologetic but firm.",
     third = "{name} met Gregor MacVince, the horse breeder on Theramore Isle.",
   },
   greetings = {
@@ -427,7 +427,7 @@ P:NPC {
   communities = { "theramore" }, temper = { "calm", "gentle" }, values = { "duty", "craft" },
   notices = { "pet" },
   impression = {
-    first = "Michael keeps the stables outside Theramore's inn and spends half his day brushing mud out of animals that don't belong to him. He seemed to like them more than their owners, and didn't hide it.",
+    first = "He likes the animals more than their owners and doesn't hide it.",
     third = "{name} met Michael, the stable master outside the Theramore inn.",
   },
   greetings = {
@@ -506,7 +506,7 @@ P:NPC {
   communities = { "brackenwall" }, temper = { "gruff", "proud" }, values = { "proud", "craft" },
   notices = { "class", "race" },
   impression = {
-    first = "Zulrg sells weapons in Brackenwall, and he judges each one by how hard it hits rather than how it looks. He speaks of himself by name and seems a little proud that he can count his stock.",
+    first = "He judges a weapon by how hard it hits, not its looks.",
     third = "{name} met Zulrg, the Stonemaul ogre who sells weapons in Brackenwall Village.",
   },
   greetings = {

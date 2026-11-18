@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.34.1 (2026-11-18)
+- Journal: the note about each person is one short sentence (12 words or fewer) and shows on the People page only, not in the diary.
+
 ## 1.34.0 (2026-11-18)
 - "Where is...?" directions for Goldshire (`directions.lua`, new file: restart the game fully).
 - Marshal McBride, Marshal Dughan and Innkeeper Farley have polite and blunt versions of your replies, and react to your tone. McBride's lines have narration.

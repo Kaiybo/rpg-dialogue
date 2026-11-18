@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Jannos Ironwill forges maces for the soldiers of Refuge Pointe and has the patience of a dwarf who has watched too many wars. He believes the Highlands can be won back one cracked skull at a time.",
+    first = "He would win the Highlands back one cracked skull at a time.",
     third = "{name} met Jannos Ironwill, the macecrafter of Refuge Pointe.",
   },
 

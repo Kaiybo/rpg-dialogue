@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Skuerto is a dwarf scout working for Archmage Malin, and he was rude to me before I'd finished saying hello. He apologized later, which I gather is rare.",
+    first = "He was rude before I'd said hello, then apologized, which is rare.",
     third = "{name} met Skuerto, a touchy dwarf scout at Refuge Pointe recovering Archmage Trelane's artifacts for Archmage Malin.",
   },
 
@@ -206,7 +206,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Apprentice Kryten is Archmage Malin's polite young apprentice, keeping notes in a journal while his dwarf companion scouts. He apologized for Skuerto before I'd even met him.",
+    first = "He apologized for Skuerto before I had even met him.",
     third = "{name} met Apprentice Kryten, Archmage Malin's apprentice at Refuge Pointe, who studies Witherbark reagents and enchants Trelane's keys.",
   },
 
@@ -378,7 +378,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Cedrik Prose keeps the gryphons at Refuge Pointe and flies Stromgarde's dispatches south. He talks about the Highlands' weather as if it were another enemy.",
+    first = "He talks about the Highlands' weather as if it were another enemy.",
     third = "{name} met Cedrik Prose, the gryphon master at Refuge Pointe.",
   },
 
@@ -554,7 +554,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Vikki Lonsav sells general goods out of a tent at Refuge Pointe, and keeps careful count of every arrow and loaf she has left.",
+    first = "She keeps careful count of every arrow and loaf she has left.",
     third = "{name} met Vikki Lonsav, who sells general goods at Refuge Pointe.",
   },
 

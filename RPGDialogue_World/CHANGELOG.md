@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.40.1 (2026-11-18)
+- Journal: the first-arrival diary lines are one short sentence each.
+
 ## 1.40.0 (2026-11-18)
 - How people answer Admire, Taunt and Intimidate, by role, town and faction (`persuade.lua`, new file: restart the game fully).
 - Gut-feeling notes (`gut.lua`, new file).

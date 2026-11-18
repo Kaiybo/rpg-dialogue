@@ -10,7 +10,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Warg Deepwater teaches fishing on the western bank of the loch and seems to measure time in bites rather than hours. He is slow to speak and slower to hurry, and he does not appear to mind either.",
+    first = "He measures time in bites rather than hours.",
     third = "{name} met Warg Deepwater, who teaches fishing on the western shore of Loch Modan.",
   },
 
@@ -111,7 +111,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Khara Deepwater sells fishing tackle on the western bank of the loch and never seems to stop moving. She has more chores than hours and is cheerful about most of them, though not about her brother's idea of work.",
+    first = "She is cheerful about every chore except her brother's idea of work.",
     third = "{name} met Khara Deepwater, who sells fishing supplies on the shore of Loch Modan.",
   },
 
@@ -214,7 +214,7 @@ P:NPC {
   notices = { "race", "level", "class" },
 
   impression = {
-    first = "Mountaineer Pebblebitty guards the gate to the Searing Gorge and will not open it, no matter who asks or how nicely. She is stubborn as granite, proud of it, and still sore about losing her axe to an ogre.",
+    first = "She is stubborn as granite and still sore about losing her axe.",
     third = "{name} met Mountaineer Pebblebitty, who guards the sealed gate between Loch Modan and the Searing Gorge.",
   },
 

@@ -15,7 +15,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "composed", "patient" }, values = { "practical", "loyal" },
   notices = { "greenness", "class" },
   impression = {
-    first = "Deliana stands at the edge of the High Seat as if she has been waiting there for weeks, which she says she has. She is polite, careful with her words, and plainly measuring whether I'm worth her proposition.",
+    first = "She is measuring whether I'm worth her proposition.",
     third = "{name} met Deliana, a human woman waiting at the High Seat for an audience with King Magni, who has a proposition for seasoned adventurers.",
   },
   greetings = {
@@ -132,7 +132,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "secretive", "wry" }, values = { "knowledge", "greedy" },
   notices = { "class" },
   impression = {
-    first = "Gerrig Bonegrip keeps a shop of runes, bones and old books in the Forlorn Cavern, and he looks at every customer as if pricing what they might know. He wants certain manuscripts very badly, and doesn't care to explain why.",
+    first = "He wants certain manuscripts very badly and won't explain why.",
     third = "{name} met Gerrig Bonegrip, the dwarf who runs Bonegrip's Runes and Dooms in the Forlorn Cavern and pays well for forbidden lore.",
   },
   greetings = {
@@ -246,7 +246,7 @@ P:NPC {
   communities = { "ironforge", "gnomeregan" }, temper = { "eager", "scatterbrained" }, values = { "knowledge", "curious" },
   notices = { "race", "class" },
   impression = {
-    first = "Laris Geardawdle is a gnome with inky fingers and a theory about oozes he explains faster than anyone could follow. He wants slime from far-off places and believes it holds the secret of life itself.",
+    first = "He believes slime from far-off places holds the secret of life.",
     third = "{name} met Laris Geardawdle, a gnome scholar in the Ironforge Library with a passionate theory about the origin of oozes.",
   },
   greetings = {
@@ -350,7 +350,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "stern", "proud" }, values = { "brave", "clan" },
   notices = { "class", "race" },
   impression = {
-    first = "Muren Stormpike is a broad, grey-bearded dwarf who tests young warriors in the Hall of Arms and isn't impressed easily. He speaks of his clan's name as if it were a weapon he keeps sharp.",
+    first = "He speaks of his clan's name like a weapon he keeps sharp.",
     third = "{name} met Muren Stormpike, a Stormpike warrior in the Hall of Arms who tests young fighters before they earn their weapons.",
   },
   greetings = {
@@ -447,7 +447,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "gruff", "proud" }, values = { "craft", "honest" },
   notices = { "class", "craft" },
   impression = {
-    first = "Tormus Deepforge works the Great Forge with arms like anvils and a temper to match. He makes grey iron weapons for the warriors Muren Stormpike sends him, and he only gives them to those who earn them twice.",
+    first = "He only gives his weapons to those who earn them twice.",
     third = "{name} met Tormus Deepforge, a smith at the Great Forge who makes grey iron weapons for proven warriors.",
   },
   greetings = {
@@ -531,7 +531,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "restless", "salesman" }, values = { "profit", "practical" },
   notices = { "greenness" },
   impression = {
-    first = "Roetten Stonehammer paces the Library like a man waiting for a ship that's late. He works for Reclaimers Inc., which recovers valuables from places nobody else will go, and he talks about Desolace as though it were a gold mine.",
+    first = "He talks about Desolace as though it were a gold mine.",
     third = "{name} met Roetten Stonehammer, a Reclaimers Inc. agent in the Ironforge Library who recruits for salvage work in Desolace.",
   },
   greetings = {
@@ -607,7 +607,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "jovial", "nostalgic" }, values = { "friendship", "adventure" },
   notices = { "race" },
   impression = {
-    first = "Pilot Longbeard has goggles pushed up on his forehead and a story ready for anyone who stands still. He talks fondly of the Brassbolts brothers out at the Shimmering Flats, as though racing gnomes were family.",
+    first = "He has a story ready for anyone who stands still.",
     third = "{name} met Pilot Longbeard, a jovial dwarf pilot in the Hall of Arms with friends among the racers of the Shimmering Flats.",
   },
   greetings = {
@@ -683,7 +683,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "loud", "boastful" }, values = { "proud", "craft" },
   notices = { "class" },
   impression = {
-    first = "Artilleryman Sheldonore is a loud dwarf with gunpowder in his beard and strong opinions about bows. He'll talk your ear off about the virtues of a good rifle, and seems to think archery is a hobby for elves.",
+    first = "He seems to think archery is a hobby for elves.",
     third = "{name} met Artilleryman Sheldonore, a gun-loving dwarf in the Commons who thinks arrows are for sissies.",
   },
   greetings = {
@@ -770,7 +770,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "cold", "precise" }, values = { "power", "knowledge" },
   notices = { "class" },
   impression = {
-    first = "Alexander Calder is a pale, soft-spoken man who teaches warlocks in the back of Bonegrip's shop. He speaks slowly and precisely, as if each word costs him something, and he doesn't seem to blink often.",
+    first = "He speaks as if each word costs him, and rarely blinks.",
     third = "{name} met Alexander Calder, a human warlock trainer in the Forlorn Cavern.",
   },
   greetings = {
@@ -834,7 +834,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "stern", "kind" }, values = { "faith", "duty" },
   notices = { "class" },
   impression = {
-    first = "Valgar Highforge is the highest-ranking paladin of the Silver Hand in Ironforge, and carries it with a quiet weight. He speaks gently but leaves no doubt that he expects much of anyone who takes up the hammer.",
+    first = "He speaks gently and expects much of anyone who takes the hammer.",
     third = "{name} met Valgar Highforge, the senior paladin of the Silver Hand in Ironforge.",
   },
   greetings = {
@@ -897,7 +897,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "warm", "brisk" }, values = { "animals", "family" },
   notices = { "class" },
   impression = {
-    first = "Belia Thundergranite teaches hunters how to train their beasts, and she greets the animals before she greets their owners. She has a laugh like a rockslide and a short temper for anyone who mistreats a pet.",
+    first = "She greets the animals before she greets their owners.",
     third = "{name} met Belia Thundergranite, a dwarf pet trainer in the Hall of Arms.",
   },
   greetings = {
@@ -961,7 +961,7 @@ P:NPC {
   communities = { "ironforge" }, temper = { "loud", "earnest" }, values = { "duty", "clan" },
   notices = { "greenness", "soldier" },
   impression = {
-    first = "Lieutenant Rotimer stands in the Commons calling for volunteers to fight in Alterac Valley. He has a voice made for shouting over crowds and the earnest look of a man who believes every word.",
+    first = "He believes every word he shouts about Alterac Valley.",
     third = "{name} met Lieutenant Rotimer, a Stormpike Guard recruitment officer calling for volunteers in the Commons.",
   },
   greetings = {

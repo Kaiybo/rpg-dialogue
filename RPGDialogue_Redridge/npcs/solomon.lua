@@ -10,7 +10,7 @@ P:NPC {
   notices = { "reputation", "deputy" },
 
   impression = {
-    first = "Magistrate Solomon asked me to be brief and then wrote another letter nobody will answer. He carries Lakeshire's danger the way a clerk carries a stack of papers, carefully and too long.",
+    first = "He keeps writing letters that nobody will answer.",
     third = "{name} was received by Magistrate Solomon, Lakeshire's elected leader, whose letters asking for help mostly go unanswered.",
   },
 

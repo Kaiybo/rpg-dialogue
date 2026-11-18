@@ -10,7 +10,7 @@ P:NPC {
   notices = { "soldier", "craft" },
 
   impression = {
-    first = "Pilot Stonegear drives a siege engine called Trollplow and would sooner talk about its cannon than anything else alive. He tested my nerve before he'd give me work, and seemed pleased with what he found.",
+    first = "He would sooner talk about Trollplow's cannon than anything alive.",
     third = "{name} met Pilot Stonegear of the Ironforge Siege Brigade, who loves his siege engine Trollplow and its cannon above all things.",
   },
 

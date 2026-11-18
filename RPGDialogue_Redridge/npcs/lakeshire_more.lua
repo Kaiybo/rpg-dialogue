@@ -11,7 +11,7 @@ P:NPC {
   notices = { "class", "drink" },
 
   impression = {
-    first = "Yorus Barleybrew sits in the Lakeshire Inn daring warriors to drink his family's brew and then run through gnoll country. He thinks courage is best measured staggering, and he may be right.",
+    first = "He thinks courage is best measured staggering, and he may be right.",
     third = "{name} met Yorus Barleybrew, a dwarf in the Lakeshire Inn whose challenge to the Alliance's warriors is called the Rethban Gauntlet.",
   },
 
@@ -214,7 +214,7 @@ P:NPC {
   notices = { "class", "stealth" },
 
   impression = {
-    first = "Lucius loiters on the Lakeshire docks among the shady good-for-nothings, which suits him, since he trains them. He's rude, quick-eyed and fonder of a clever lock than of most people.",
+    first = "He is fonder of a clever lock than of most people.",
     third = "{name} met Lucius, a dwarf on the Lakeshire docks who teaches young rogues to open locks that aren't theirs.",
   },
 
@@ -436,7 +436,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Shawn fishes off the Lakeshire docks with his friend Hilary and asked me, very politely, to fetch her lost necklace out of the lake. He wants to be a hero, and he's practising on me.",
+    first = "He wants to be a hero, and he's practising on me.",
     third = "{name} met Shawn, a boy on the Lakeshire docks whose friend Hilary dropped her necklace in the lake.",
   },
 
@@ -635,7 +635,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Matthew Hooper teaches fishing off the end of a Lakeshire dock and talks about Lake Everstill as if it were an old friend who's fallen in with bad company. He has strong opinions about murlocs.",
+    first = "To him the lake is an old friend keeping bad company.",
     third = "{name} met Matthew Hooper, who teaches fishing on the Lakeshire docks.",
   },
 
@@ -827,7 +827,7 @@ P:NPC {
   notices = { "hunger", "drink" },
 
   impression = {
-    first = "Bartender Wental serves bread, cheese, meat and milk at the Lakeshire Inn and gets asked for ale fifty times a day. He takes it with remarkable good humour, mostly.",
+    first = "He gets asked for ale fifty times a day and mostly smiles.",
     third = "{name} met Bartender Wental, who sells food and soft drink at the Lakeshire Inn.",
   },
 
@@ -1020,7 +1020,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Alma Jainrose teaches herbalism in Lakeshire with dirt under her nails and very little patience for people who pull a plant up by the roots. She speaks of the hills as a garden that's been trampled.",
+    first = "She speaks of the hills as a garden that's been trampled.",
     third = "{name} met Alma Jainrose, who teaches herbalism in Lakeshire.",
   },
 
@@ -1209,7 +1209,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Bridge Worker Trent hauls stone for Foreman Oslow and complains about him with real affection. He has the shoulders of a man who's carried a bridge across a lake, one block at a time.",
+    first = "He complains about his foreman with real affection.",
     third = "{name} met Bridge Worker Trent, one of Foreman Oslow's crew rebuilding the Everstill Bridge.",
   },
 

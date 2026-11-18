@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Gyll keeps the Alliance gryphons on a cliff ledge above a pirate harbor and seems to find that perfectly normal. Gryphons and pirates, Gyll says, both bite if you look at them wrong.",
+    first = "Gryphons and pirates both bite if you look at them wrong.",
     third = "{name} met Gyll, who keeps the Alliance gryphons on the cliffs of Booty Bay.",
   },
 
@@ -203,7 +203,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Gringer keeps the Horde's wind riders on the same ledge as the Alliance gryphons and has opinions about both. The beasts seemed to trust him more than he trusts anybody.",
+    first = "The beasts trust him more than he trusts anybody.",
     third = "{name} met Gringer, the wind rider master of Booty Bay.",
   },
 
@@ -384,7 +384,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Viznik Goldgrubber spoke of my savings with more affection than most people show their families. The vault is the safest place in a pirate town, and Viznik never lets anyone forget it.",
+    first = "My savings get more affection here than most families do.",
     third = "{name} met Viznik Goldgrubber, a banker of Booty Bay who serves both Horde and Alliance.",
   },
 
@@ -594,7 +594,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Jutak trades in blades, and somehow each blade on his rack comes with a story about a famous owner. I believed perhaps a third of them, and I suspect Jutak would think that generous.",
+    first = "Every blade comes with a famous owner, and I believe a third.",
     third = "{name} browsed Jutak's blades in Booty Bay, each one sold with a story.",
   },
 
@@ -772,7 +772,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Zarena Cromwind sells new steel in a town that mostly trades in secondhand cutlasses, and she makes certain everyone knows the difference. Her work is good enough that the boasting hardly matters.",
+    first = "Her steel is good enough that the boasting hardly matters.",
     third = "{name} met Zarena Cromwind, the weaponsmith who sells fine new steel in Booty Bay.",
   },
 
@@ -981,7 +981,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Narkk sells pirate costume to people who aren't pirates and seems to find that very funny. In a town full of real buccaneers, he dresses the tourists.",
+    first = "In a town of real buccaneers, he dresses the tourists.",
     third = "{name} met Narkk, who sells pirate hats and finery in Booty Bay.",
   },
 
@@ -1156,7 +1156,7 @@ P:NPC {
   notices = { "drink" },
 
   impression = {
-    first = "Nixxrax Fillamug sells food and drink with a sincerity that is half salesmanship and half real pleasure in feeding people. It was hard to tell where one half ended.",
+    first = "Half the sincerity is salesmanship and half is joy in feeding people.",
     third = "{name} met Nixxrax Fillamug, who sells food and drink to the hungry of Booty Bay.",
   },
 
@@ -1374,7 +1374,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Xizk Goodstitch can tell a good seam from across the room and winces at a bad one. Selling thread to sailmakers and pirates has given Xizk strong opinions on both.",
+    first = "A bad seam gets a wince from clear across the room.",
     third = "{name} met Xizk Goodstitch, who sells thread, cloth and patterns in Booty Bay.",
   },
 

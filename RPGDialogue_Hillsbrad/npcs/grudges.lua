@@ -16,7 +16,7 @@ P:NPC {
   notices = { "class", "light" },
 
   impression = {
-    first = "Hal McAllister sells hooks and line on Southshore's jetty and won't fish above the river bend. He says the Forsaken are only the Scourge with better manners, and he watches the Tarren Mill road like a man expecting someone.",
+    first = "He says the Forsaken are only the Scourge with better manners.",
     third = "{name} met Hal McAllister, a Southshore fisherman with no patience for the Forsaken or anyone who speaks well of them.",
   },
 
@@ -268,7 +268,7 @@ P:NPC {
   notices = { "race", "origin" },
 
   impression = {
-    first = "Christoph Jeffcoat sells thread and cloth in Tarren Mill with a merchant's courtesy and a grudge under it. He was born in Southshore, and he has not forgiven it, nor the orcs who burned his father's farm when he was young.",
+    first = "He was born in Southshore, and he has not forgiven it.",
     third = "{name} met Christoph Jeffcoat, a Forsaken trade supplier in Tarren Mill who was born in Southshore and holds the orcs to an old war.",
   },
 

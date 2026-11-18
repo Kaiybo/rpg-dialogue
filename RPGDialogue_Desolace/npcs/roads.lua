@@ -6,7 +6,7 @@ P:NPC {
   key = "cork_gizelton", id = TODO_NPC("Cork Gizelton"), name = "Cork Gizelton",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Cork Gizelton runs the Gizelton caravan's kodos up and down the Desolace road, and he talks about bandits the way other folk talk about weather.",
+    first = "He talks about bandits the way other folk talk about weather.",
     third = "{name} met Cork Gizelton of the Gizelton caravan on the road through Desolace.",
   },
   greetings = {
@@ -166,7 +166,7 @@ P:NPC {
   key = "rigger_gizelton", id = TODO_NPC("Rigger Gizelton"), name = "Rigger Gizelton",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Rigger Gizelton minds the back of his family's caravan with a ledger in one hand and a crossbow within reach of the other.",
+    first = "He keeps a ledger in one hand and a crossbow within reach.",
     third = "{name} met Rigger Gizelton at the rear of the Gizelton caravan in Desolace.",
   },
   greetings = {
@@ -348,7 +348,7 @@ P:NPC {
   key = "smeed", id = TODO_NPC("Smeed Scrabblescrew"), name = "Smeed Scrabblescrew",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Smeed Scrabblescrew runs a goblin camp at the edge of the Kodo Graveyard and wants live kodos rounded up, preferably by somebody else.",
+    first = "He wants live kodos rounded up, preferably by somebody else.",
     third = "{name} met the goblin Smeed Scrabblescrew at his camp near the Kodo Graveyard in Desolace.",
   },
   greetings = {
@@ -531,7 +531,7 @@ P:NPC {
   key = "dalinda", id = TODO_NPC("Dalinda Malem"), name = "Dalinda Malem",
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Dalinda Malem was held prisoner in Thunder Axe Fortress and needed a strong arm to walk her out of the Burning Blade's reach.",
+    first = "She was a prisoner of the Burning Blade in Thunder Axe Fortress.",
     third = "{name} met Dalinda Malem, a captive of the Burning Blade at Thunder Axe Fortress in Desolace.",
   },
   greetings = {
@@ -680,7 +680,7 @@ P:NPC {
   bible = "bibles/desolace.md", role = "questgiver", tier = "quest",
   prejudice = { class = "WARLOCK", amount = 15, why = "years on the Burning Blade's trail; every cultist she caught began by calling the demon a tool" },
   impression = {
-    first = "Vahlarriel Demonslayer keeps her watch at Nijel's Point with the stillness of a hunter who has been tracking the same prey for years.",
+    first = "She has the stillness of a hunter long on the same trail.",
     third = "{name} met Vahlarriel Demonslayer, a night elf demon hunter of the Burning Blade's trail, at Nijel's Point.",
   },
   greetings = {
@@ -861,7 +861,7 @@ P:NPC {
   bible = "bibles/desolace.md", role = "citizen", tier = "major",
   temper = { "gruff" }, values = { "honest", "brave" },
   impression = {
-    first = "Rexxar walks the roads of Desolace with his bear Misha at his side, and he looks at strangers as though weighing whether they're worth the trouble.",
+    first = "He looks at strangers as though weighing whether they're worth the trouble.",
     third = "{name} met Rexxar, the half-ogre beastmaster, on the roads of Desolace.",
   },
   greetings = {

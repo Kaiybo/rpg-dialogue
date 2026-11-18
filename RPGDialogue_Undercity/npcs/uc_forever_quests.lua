@@ -17,7 +17,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "stern", "patient" }, values = { "pious", "loyal" },
   notices = { "class", "origin" },
   impression = {
-    first = "Garen Largo trains the Forsaken's paladins in the War Quarter and speaks of the Light like a craftsman speaks of a stubborn tool. He offered it even to those who don't carry it, as if solace were something he could hand across a table.",
+    first = "He offers the Light's solace like something handed across a table.",
     third = "{name} met Garen Largo, who trains the Forsaken's paladins in the War Quarter.",
   },
 
@@ -120,7 +120,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "brash", "greedy" }, values = { "ambitious", "practical" },
   notices = { "race", "class" },
   impression = {
-    first = "Glix Xizzix is a goblin barber in the Trade Quarter who tells everyone he single-handedly armed the Dark Lady's rebellion. Most of it is sales talk, but there are gnolls in Tirisfal who would remember him, if they were still alive.",
+    first = "His boasting is mostly sales talk, though not all of it.",
     third = "{name} met Glix Xizzix, a goblin merchant turned barber who claims a large part in the Forsaken's founding.",
   },
 
@@ -266,7 +266,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "nervous", "gentle" }, values = { "loyal", "humble" },
   notices = { "paladin", "race", "kindness" },
   impression = {
-    first = "Tanis Alderwood begs in the Trade Quarter so that he can keep his wife together until the apothecaries find time for her. He flinches at armour and apologises for being there at all, and he would do anything for her.",
+    first = "He begs for his wife's sake and would do anything for her.",
     third = "{name} met Tanis Alderwood, a Forsaken beggar in the Trade Quarter whose wife is falling apart.",
   },
 
@@ -423,7 +423,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "fervent", "proud" }, values = { "loyal", "pious" },
   notices = { "paladin", "origin", "race" },
   impression = {
-    first = "Morbin Lightbane is a Forsaken paladin who treats the Light as a conduit for fury and his loyalty to the Dark Lady as a thing to be proved every night. He knows the Banshee Queen watches his kind, and he wants her to.",
+    first = "He knows the Dark Lady watches his kind, and wants her to.",
     third = "{name} met Morbin Lightbane, a fervent Forsaken paladin in the Royal Quarter.",
   },
 
@@ -600,7 +600,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "boisterous", "proud" }, values = { "loyal", "brave" },
   notices = { "pvp", "race" },
   impression = {
-    first = "Rugbul Boomfirst is a big Darkspear troll in the Royal Quarter who sends Horde fighters to defend his people's islands against Theramore's soldiers. He wears a Warsong tabard and laughs off every question about it.",
+    first = "He laughs off every question about his Warsong tabard.",
     third = "{name} met Rugbul Boomfirst, a Darkspear troll who recruits for the fight over the Darkspear Islands.",
   },
 

@@ -14,7 +14,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Harlon Thornguard sells armor and shields in Auberdine and talks about the furbolgs up the coast as if they owed him money. His work is heavy, plain and dependable.",
+    first = "He talks about the furbolgs as if they owed him money.",
     third = "{name} met Harlon Thornguard, the armorer and shieldsmith of Auberdine.",
   },
 
@@ -95,7 +95,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Kyndri bakes for Auberdine and the boats that stop there, and her bread is plain and filling. She keeps half an eye on the harbor while she works, as if waiting for someone.",
+    first = "She watches the harbor while she works, as if waiting for someone.",
     third = "{name} met Kyndri, Auberdine's baker.",
   },
 
@@ -169,7 +169,7 @@ P:NPC {
   notices = { "race", "drink" },
 
   impression = {
-    first = "Allyndia sells food and drink in Auberdine and treats every customer as a friend she hasn't caught up with in a while. She seems to know who's coming off every boat.",
+    first = "She seems to know who is coming off every boat.",
     third = "{name} met Allyndia, who sells food and drink in Auberdine.",
   },
 
@@ -243,7 +243,7 @@ P:NPC {
   notices = { "class", "craft" },
 
   impression = {
-    first = "Shaldyn sells cloth armor in Auberdine and smooths every robe before she hands it over. She cares a great deal about colour and seems pained when customers don't.",
+    first = "It pains her when a customer doesn't care about colour.",
     third = "{name} met Shaldyn, who sells cloth armor in Auberdine.",
   },
 
@@ -309,7 +309,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Mavralyn sells leather armor and leatherworking supplies in Auberdine and buys hides with a critical eye. She's blunt about bad skinning and generous with advice about good skinning.",
+    first = "She is blunt about bad skinning and generous about good.",
     third = "{name} met Mavralyn, who sells leather and leatherworking supplies in Auberdine.",
   },
 

@@ -10,7 +10,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "steady", "plainspoken" }, values = { "community", "endurance" },
   notices = { "weary" },
   impression = {
-    first = "Haljan Oakheart keeps Astranaar's general store stocked no matter how many supply carts the Horde turns back. He is plainspoken and steady, the sort of person a village under siege leans on.",
+    first = "He is the sort a village under siege leans on.",
     third = "{name} met Haljan Oakheart, who keeps Astranaar supplied through the war.",
   },
 
@@ -194,7 +194,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "intense", "grim" }, values = { "defense", "vigilance" },
   notices = { "class", "race" },
   impression = {
-    first = "Xai'ander sells weapons in Astranaar and talks about the Warsong as if they were standing at the door. His blades are good, and his anger at the orcs is never far from the surface.",
+    first = "His blades are good, and his anger at the orcs is close.",
     third = "{name} met Xai'ander, Astranaar's grim weaponsmith.",
   },
 
@@ -379,7 +379,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "gentle", "wistful" }, values = { "beauty", "peace" },
   notices = { "class" },
   impression = {
-    first = "Aeolynn sells cloth armor in Astranaar and tries to keep a little beauty in a town at war. She spoke of Ashenvale before the orcs came with real longing.",
+    first = "She longs for Ashenvale as it was before the orcs came.",
     third = "{name} met Aeolynn, Astranaar's wistful clothier.",
   },
 
@@ -562,7 +562,7 @@ P:NPC {
   communities = { "astranaar" }, temper = { "cheerful", "motherly" }, values = { "care", "hospitality" },
   notices = { "hunger" },
   impression = {
-    first = "Maliynn sells food and drink in Astranaar and seems to think everyone who comes in from the forest is too thin. She fusses, but her bread is very good.",
+    first = "She thinks everyone is too thin, but her bread is very good.",
     third = "{name} met Maliynn, who feeds Astranaar's Sentinels and travelers alike.",
   },
 

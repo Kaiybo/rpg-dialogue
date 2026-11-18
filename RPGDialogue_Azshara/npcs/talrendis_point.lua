@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class", "faction" },
 
   impression = {
-    first = "Loh'atu is a tauren living as a guest among the Sentinels at Talrendis Point, on a promise of no trouble. He speaks softly, keeps his word, and grieves for elven ghosts that aren't his own.",
+    first = "He grieves for elven ghosts that aren't his own.",
     third = "{name} met Loh'atu, a tauren who keeps the peace as a guest of the Sentinels at Talrendis Point.",
   },
 
@@ -427,7 +427,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Jarrodenus keeps the hippogryphs at Talrendis Point, and won't fly them over the bay after dark. He talked about his birds the way some people talk about their children.",
+    first = "He won't fly his hippogryphs over the bay after dark.",
     third = "{name} met Jarrodenus, the hippogryph master at Talrendis Point.",
   },
 

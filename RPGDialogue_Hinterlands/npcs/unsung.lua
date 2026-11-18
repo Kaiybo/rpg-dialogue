@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "mount" },
 
   impression = {
-    first = "Guthrum Thunderfist sends the Wildhammer gryphons out from Aerie Peak and talks about them like old war comrades. He has little patience for anyone who calls them mounts.",
+    first = "He has little patience for anyone who calls his gryphons mounts.",
     third = "{name} met Guthrum Thunderfist, the gryphon master of Aerie Peak.",
   },
 
@@ -225,7 +225,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Harggan sells coal and iron to the smiths of Aerie Peak and complains about the cost of hauling it up a mountain. Under the grumbling, he plainly takes pride in keeping the Wildhammer forges lit.",
+    first = "Under the grumbling, he is proud to keep the Wildhammer forges lit.",
     third = "{name} met Harggan, who sells blacksmithing supplies in Aerie Peak.",
   },
 

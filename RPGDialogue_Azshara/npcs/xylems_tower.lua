@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "race", "arcane" },
 
   impression = {
-    first = "Archmage Xylem lives in a tower no one can climb, surrounded by Highborne relics and his own opinions. He talks about a drake that ate his apprentice, and seems to mourn the shard more than the student.",
+    first = "He mourns the shard more than the apprentice a drake ate.",
     third = "{name} met Archmage Xylem in his tower above the Highborne ruins of Azshara.",
   },
 
@@ -448,7 +448,7 @@ P:NPC {
   notices = { "race", "class", "kit" },
 
   impression = {
-    first = "Sanath Lim-yo guards the way up to Xylem's tower and hates every minute of it. He insulted my clothes, my face and my reasons for coming, and then got bored of insulting me.",
+    first = "He insulted my clothes, face and reasons, then got bored of it.",
     third = "{name} met Sanath Lim-yo, who sends visitors up to Archmage Xylem's tower and despises each of them.",
   },
 

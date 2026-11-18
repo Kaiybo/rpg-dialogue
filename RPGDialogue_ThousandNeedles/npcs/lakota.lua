@@ -9,7 +9,7 @@ P:NPC {
   temper = { "steady" }, values = { "brave", "loyal" },
   notices = { "race", "stealth" },
   impression = {
-    first = "Lakota Windsong is held at Darkcloud Pinnacle because she refused Arnak Grimtotem's offer of marriage. He killed her brother when he tried to stop the abduction, and she has not stopped grieving or refusing.",
+    first = "Arnak Grimtotem killed her brother, and she still refuses to marry him.",
     third = "{name} met Lakota Windsong at Darkcloud Pinnacle, the tauren woman Arnak Grimtotem carried off after she refused to marry him.",
   },
 

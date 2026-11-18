@@ -14,7 +14,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gentle", "calm" }, values = { "pious", "kind" },
   notices = { "shadow", "kaldorei", "priest" },
   impression = {
-    first = "Nara Meideros is a Priestess of the Moon who teaches priests beneath the trees of Stormwind's Park. She passes messages between the Sisterhood and the Cathedral, and she asked whether Elune still blessed my travels as if she truly wanted to know.",
+    first = "She asks if Elune blesses my travels and truly wants to know.",
     third = "{name} met Nara Meideros, a night elf priestess of Elune who trains priests in Stormwind's Park.",
   },
 
@@ -299,7 +299,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "warm", "steady" }, values = { "loyal", "practical" },
   notices = { "soldier", "noble" },
   impression = {
-    first = "Imelda minds a cloth merchant's children and spends their lesson hours by the Park's well, where she sees everyone who passes. Her father was a footman who taught her the sword, and she still stands like his daughter.",
+    first = "Her father was a footman, and she still stands like his daughter.",
     third = "{name} met Imelda, a nursemaid who keeps watch by the well in Stormwind's Park.",
   },
 
@@ -495,7 +495,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "brisk", "sharp" }, values = { "practical", "family" },
   notices = { "skinner", "hunter" },
   impression = {
-    first = "Kimberly Grant keeps the books for her family's fur trade from a bench in Stormwind's Park. Her sister Kristy sends pelts from Feralas and her sister Kelly would rather do anything than count them, and Kimberly worries about both of them out loud.",
+    first = "She worries about both her sisters out loud.",
     third = "{name} met Kimberly Grant, who sells her sister's Feralas furs from Stormwind's Park.",
   },
 
@@ -714,7 +714,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "eager", "restless" }, values = { "curious", "family" },
   notices = { "kaldorei", "traveller" },
   impression = {
-    first = "Kelly Grant is the youngest of three sisters in the fur trade, and she'd much rather be learning elvish words from the night elves in Stormwind's Park. She asked me more questions about the world than I asked her.",
+    first = "She asks more questions about the world than I ask her.",
     third = "{name} met Kelly Grant, a restless young woman in Stormwind's Park who dreams of Darnassus.",
   },
 
@@ -910,7 +910,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "dry", "restless" }, values = { "nature", "proud" },
   notices = { "beast", "stealth", "kaldorei" },
   impression = {
-    first = "Shailiea is a night elf tracker who walks the paths of Stormwind's Park in endless circles, reading everyone's footprints. She told me where I had been that morning before I said a word, and she was mostly right.",
+    first = "She reads footprints and can mostly tell where you have been.",
     third = "{name} met Shailiea, a restless night elf tracker who wanders Stormwind's Park.",
   },
 

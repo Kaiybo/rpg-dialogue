@@ -13,7 +13,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "sharp", "smooth" }, values = { "cunning", "loyal" },
   notices = { "stealth", "class" },
   impression = {
-    first = "Shenthul trains rogues in the Cleft of Shadow and seems to know everyone's business before they speak. The voice is soft and friendly, and that somehow makes it more unsettling.",
+    first = "The soft, friendly voice somehow makes it more unsettling.",
     third = "{name} met Shenthul, the rogue trainer who watches over the Cleft of Shadow in Orgrimmar.",
   },
 
@@ -122,7 +122,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "sharp" }, values = { "ambitious", "practical" },
   notices = { "fel", "class" },
   impression = {
-    first = "Mirket trains warlocks in the Cleft of Shadow and speaks about demons with the dry contempt of someone who has bound a great many of them. Mirket doesn't ask for anyone's approval, and doesn't seem to need it.",
+    first = "Demons get only dry contempt from someone who has bound so many.",
     third = "{name} met Mirket, a warlock trainer in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
@@ -268,7 +268,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "dry" }, values = { "patient", "curious" },
   notices = { "fel" },
   impression = {
-    first = "Kurgul teaches warlocks' demons new tricks in the Cleft of Shadow and talks about imps and voidwalkers with something close to fondness. It is the strangest kind of affection to see.",
+    first = "Such fondness for imps and voidwalkers is a strange thing to see.",
     third = "{name} met Kurgul, the demon trainer in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
@@ -410,7 +410,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "smooth" }, values = { "practical" },
   notices = { "class" },
   impression = {
-    first = "Rekkul sells poisons and their makings in the Cleft of Shadow, and keeps the jars labelled in a hand nobody else can read. Rekkul smiles too much for someone in that trade.",
+    first = "That is too much smiling for someone who sells poison.",
     third = "{name} met Rekkul, who sells poisons in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
@@ -536,7 +536,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "practical", "honest" },
   notices = { "class" },
   impression = {
-    first = "Hagrus sells reagents in the Cleft of Shadow and complains about every single customer who buys from him. Hagrus seems to like the complaining more than the selling.",
+    first = "Every customer gets complained about, and that seems the real pleasure.",
     third = "{name} met Hagrus, who sells reagents to the spellcasters of Orgrimmar's Cleft of Shadow.",
   },
   greetings = {

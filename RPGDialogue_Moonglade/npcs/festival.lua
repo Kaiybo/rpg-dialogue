@@ -13,7 +13,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Fariel Starsong sells the Lunar Festival's rockets and candles beside her brother Valadar, and she laughs far more than he does. She thinks a festival for the dead ought to be the loudest night of the year.",
+    first = "She thinks a festival for the dead should be loud.",
     third = "{name} met Fariel Starsong, who sells fireworks and festival finery in Nighthaven.",
   },
 

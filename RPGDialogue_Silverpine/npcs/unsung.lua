@@ -10,7 +10,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "cheerful" }, values = { "practical", "curious" },
   notices = { "hunger", "race" },
   impression = {
-    first = "Gwyn Farrow sells mushrooms in the Sepulcher and is far more cheerful about it than anyone in a crypt has a right to be. She knows which caps grow where and which ones will kill a living customer.",
+    first = "She knows which mushrooms will kill a living customer.",
     third = "{name} met Gwyn Farrow, the Sepulcher's mushroom merchant.",
   },
   greetings = {
@@ -175,7 +175,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "fussy" }, values = { "proud", "craft" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Andrea Boynton sells cloth armor in the Sepulcher and cannot stand to see a garment worn badly. She was a seamstress in life, and her death did nothing to lower her standards.",
+    first = "Death did nothing to lower her standards.",
     third = "{name} met Andrea Boynton, the clothier of the Sepulcher.",
   },
   greetings = {
@@ -342,7 +342,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "dry" }, values = { "practical" },
   notices = { "purse", "weary" },
   impression = {
-    first = "Edwin Harly keeps the Sepulcher's general supplies and speaks of Silverpine as a forest that eats travelers. He is dry and blunt, and he means every warning he gives.",
+    first = "He calls Silverpine a forest that eats travelers.",
     third = "{name} met Edwin Harly, who sells general supplies in the Sepulcher.",
   },
   greetings = {

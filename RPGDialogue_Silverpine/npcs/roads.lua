@@ -8,7 +8,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "jumpy" }, values = { "dutiful", "careful" },
   notices = { "race" },
   impression = {
-    first = "Deathstalker Erland is supposed to be a silent killer of the Dark Lady's enemies, and he is, mostly, except at night, in Silverpine, near worgen. He'd like company on the road.",
+    first = "For a silent killer, he badly wants company on the night road.",
     third = "{name} met Deathstalker Erland, a Forsaken scout who needed an escort through worgen country in Silverpine.",
   },
 
@@ -243,7 +243,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "cool" }, values = { "dutiful", "sharp" },
   notices = { "class" },
   impression = {
-    first = "Rane Yorick watches the south road from a dead farm's window, and she has been watching long enough to tell a worgen's gait from a wolf's at a hundred paces. She is unimpressed by most things.",
+    first = "She can tell a worgen's gait from a wolf's at distance.",
     third = "{name} met Rane Yorick, a Forsaken deathstalker keeping watch over Pyrewood and the southern roads of Silverpine.",
   },
 
@@ -414,7 +414,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "dry" }, values = { "patient" },
   notices = { "race", "pet" },
   impression = {
-    first = "Karos Razok keeps the Sepulcher's bats, and speaks to them more gently than he speaks to anyone else. He seems to find the living tiresome and the dead only a little better.",
+    first = "He finds the living tiresome and the dead only a little better.",
     third = "{name} met Karos Razok, the bat handler of the Sepulcher.",
   },
 

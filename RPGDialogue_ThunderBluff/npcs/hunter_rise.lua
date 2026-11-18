@@ -12,7 +12,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "gruff" }, values = { "craft", "practical", "proud" },
   notices = { "gear", "craft" },
   impression = {
-    first = "Mosarn hammers shields and armor on Hunter Rise with a crew of apprentices, faster than anyone else on the Bluff. He is proud of the work and careless about where it ends up.",
+    first = "He is proud of his work and careless where it ends up.",
     third = "{name} met Mosarn, the Hunter Rise blacksmith who arms the braves of Thunder Bluff and anyone else with coin.",
   },
 
@@ -114,7 +114,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "gruff" }, values = { "brave", "proud" },
   notices = { "class" },
   impression = {
-    first = "Sark Ragetotem trains warriors on Hunter Rise at the top of his voice. He seems to believe that anything worth teaching is worth shouting.",
+    first = "He believes anything worth teaching is worth shouting.",
     third = "{name} met Sark Ragetotem, a loud warrior trainer on Hunter Rise.",
   },
 
@@ -229,7 +229,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "disciplined", "patient" },
   notices = { "class" },
   impression = {
-    first = "Torm Ragetotem trains warriors on Hunter Rise in a voice so quiet you have to lean in, which may be the point. He is the calm one of the Ragetotem.",
+    first = "His voice is so quiet you have to lean in.",
     third = "{name} met Torm Ragetotem, a soft-spoken warrior trainer on Hunter Rise.",
   },
 
@@ -334,7 +334,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "jovial" }, values = { "nature", "friendly" },
   notices = { "pet" },
   impression = {
-    first = "Urek Thunderhorn trains hunters on Hunter Rise and cannot teach a single shot without telling the story of where he learned it. Most of the stories are about getting lost.",
+    first = "Most of his stories are about getting lost.",
     third = "{name} met Urek Thunderhorn, a talkative hunter trainer on Hunter Rise.",
   },
 
@@ -436,7 +436,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "dry" }, values = { "careful", "nature" },
   notices = { "class" },
   impression = {
-    first = "Kary Thunderhorn trains hunters on Hunter Rise and teaches tracking above everything else. She notices where people have been before they say a word.",
+    first = "She notices where people have been before they say a word.",
     third = "{name} met Kary Thunderhorn, a sharp-eyed hunter trainer on Hunter Rise.",
   },
 
@@ -549,7 +549,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "nature", "kind" },
   notices = { "pet" },
   impression = {
-    first = "Hesuwa Thunderhorn trains hunters' companions on Hunter Rise, and greets the beast before the hunter. He seems to find animals easier company than people, and does not hide it.",
+    first = "He greets the beast before the hunter, and does not hide why.",
     third = "{name} met Hesuwa Thunderhorn, the pet trainer of Hunter Rise.",
   },
 
@@ -651,7 +651,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "brisk" }, values = { "loyal", "brave" },
   notices = { "pvp" },
   impression = {
-    first = "Taim Ragetotem sends tauren north to fight for the Frostwolf clan in Alterac Valley. He talks about the snow as though it were a personal insult.",
+    first = "He talks about the snow as though it were a personal insult.",
     third = "{name} met Taim Ragetotem, who musters fighters on Hunter Rise for the Frostwolf in Alterac Valley.",
   },
 

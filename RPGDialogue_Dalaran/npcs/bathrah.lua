@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Bath'rah the Windwatcher is a troll hermit who has spent ages watching a ruined spot by the river for a wind lord nobody else can see. He forges weapons for champions and wants to know if I'm one.",
+    first = "He forges weapons for champions and wants to know if I'm one.",
     third = "{name} met Bath'rah the Windwatcher, the troll shaman and weaponsmith who keeps watch at Chillwind Point.",
   },
 

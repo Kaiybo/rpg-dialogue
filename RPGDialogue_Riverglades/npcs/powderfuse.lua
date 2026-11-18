@@ -9,7 +9,7 @@ P:NPC {
   notices = { "craft", "purse", "race" },
 
   impression = {
-    first = "According to Melbin Powderfuse, every plank in Powderfuse Port is his, and so is every nail. He watched my hands the whole time, as if I might carry off a wall.",
+    first = "He watches my hands as if I might carry off a wall.",
     third = "{name} met Melbin Powderfuse, Master Goblin Engineer, who claims to have built Powderfuse Port from nothing but sand.",
   },
 
@@ -322,7 +322,7 @@ P:NPC {
   notices = { "guest", "drink" },
 
   impression = {
-    first = "Innkeeper Zizplink calls everyone an explorer and seems to mean it kindly. Her inn smells of the sea, and she hears every rumor that comes off the Tanaris boat.",
+    first = "She hears every rumor that comes off the Tanaris boat.",
     third = "{name} met Innkeeper Zizplink, the cheerful goblin who keeps the inn at Powderfuse Port.",
   },
 
@@ -549,7 +549,7 @@ P:NPC {
   notices = { "standing", "drink" },
 
   impression = {
-    first = "Gray Dawnbright was rude to me before I had said a word, and I suspect he is rude to everyone. Something is eating at him that drink isn't fixing.",
+    first = "Something is eating at him that drink isn't fixing.",
     third = "{name} met Gray Dawnbright, a sour Brotherhood rider drinking away his leave at Powderfuse Port.",
   },
 
@@ -851,7 +851,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Jazzle Cheapshot owns an arena with no fights in it yet, and that doesn't dent his enthusiasm one bit. He looked me over like a poster he hadn't painted.",
+    first = "He looks me over like a poster he hasn't painted yet.",
     third = "{name} met Jazzle Cheapshot, who runs an empty arena at Powderfuse Port and dreams of filling it.",
   },
 
@@ -1017,7 +1017,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Fimbo Greasemitz cooks boar and fish every single day and suffers loudly over it. Give him one new ingredient, I think, and he'd weep with joy.",
+    first = "One new ingredient would make him weep with joy.",
     third = "{name} met Fimbo Greasemitz, who keeps a cafe on the water at Powderfuse Port and is bored of his own menu.",
   },
 
@@ -1221,7 +1221,7 @@ P:NPC {
   notices = { "drink", "craft" },
 
   impression = {
-    first = "Argo Brinewhistle hiccups through every sentence and calls his boat the finest in the port, sea monster and all. Drunk or not, there's a real sailor's nerve in him.",
+    first = "Drunk or not, there is a real sailor's nerve in him.",
     third = "{name} met Argo Brinewhistle, a hard-drinking captain at Powderfuse Port with a sea monster problem.",
   },
 
@@ -1410,7 +1410,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Gritta Chumwater sells chum, lures, fish and advice, and only the advice comes free. She says what she thinks and doesn't waste breath dressing it up.",
+    first = "Only her advice comes free, and she doesn't dress it up.",
     third = "{name} met Gritta Chumwater, the blunt goblin who sells fishing supplies at Powderfuse Port.",
   },
 

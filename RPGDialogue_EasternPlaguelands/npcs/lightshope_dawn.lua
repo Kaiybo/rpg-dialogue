@@ -9,7 +9,7 @@ P:NPC {
   communities = { "light_hope" }, temper = { "calm", "gentle" }, values = { "pious", "kind" },
   notices = { "class", "race" },
   impression = {
-    first = "Eris Havenfire is a spirit beneath Light's Hope who speaks of Light and Shadow as two hands of one healer. She weighed me before she spoke, and I'm still not sure what she found.",
+    first = "She weighed me before she spoke, and I can't tell the verdict.",
     third = "{name} met Eris Havenfire, a priestly spirit who keeps a quiet vigil in the crypt beneath Light's Hope Chapel.",
   },
 
@@ -183,7 +183,7 @@ P:NPC {
   notices = { "status", "race", "kit" },
 
   impression = {
-    first = "Quartermaster Miranda Breechlock keeps the Argent Dawn's stores at Light's Hope and keeps them shut to anyone the Dawn doesn't know. She counts everything twice, and she told me so as a warning.",
+    first = "She counts everything twice, and she told me so as a warning.",
     third = "{name} met Quartermaster Miranda Breechlock, the dwarf who keeps the Argent Dawn's stores at Light's Hope Chapel.",
   },
 

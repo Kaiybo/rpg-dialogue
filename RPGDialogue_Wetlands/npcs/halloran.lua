@@ -9,7 +9,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "James Halloran tans the crocolisk hides that leave Menethil for ports all over the world, and he's proud of every one. He jokes easily, even about the apprentice the crocs nearly killed.",
+    first = "He jokes easily, even about the apprentice the crocs nearly killed.",
     third = "{name} met James Halloran, Menethil Harbor's tanner, famous for his cured crocolisk skins.",
   },
 

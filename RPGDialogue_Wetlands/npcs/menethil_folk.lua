@@ -16,7 +16,7 @@ P:NPC {
   notices = { "class", "race", "stealth" },
 
   impression = {
-    first = "Tapoke Jahn, whom everyone calls Slim, is a thin, quick-eyed man who sits near the Deepwater Tavern's door with a drink he never finishes. He watches the room the way a cat watches a kitchen, and he talks the way a man talks when he's working out how far he can run.",
+    first = "He talks like a man working out how far he can run.",
     third = "{name} met Tapoke \"Slim\" Jahn, a small-time rogue in Menethil Harbor who took Defias coin to help someone aboard a ship that should never have been touched.",
   },
 
@@ -167,7 +167,7 @@ P:NPC {
   notices = { "kit", "race" },
 
   impression = {
-    first = "Fremal Doohickey is a gnome with spectacles pushed up into his wild hair and a roll of linen in each coat pocket. He teaches first aid in the Deepwater Tavern, and he talks about bandages the way other gnomes talk about engines.",
+    first = "He talks about bandages the way other gnomes talk about engines.",
     third = "{name} met Fremal Doohickey, the gnome who teaches bandaging in Menethil Harbor's Deepwater Tavern.",
   },
 
@@ -247,7 +247,7 @@ P:NPC {
   notices = { "race", "craft" },
 
   impression = {
-    first = "Telurinon Moonshadow is a tall night elf who looks out of place among Menethil's dwarves and fishermen, and seems to know it. He speaks of the marsh plants with a patience nobody else in the harbor spends on anything.",
+    first = "He speaks of marsh plants with a patience nobody else here has.",
     third = "{name} met Telurinon Moonshadow, the night elf who teaches herbalism in Menethil Harbor.",
   },
 
@@ -322,7 +322,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Bethaine Flinthammer keeps the stables outside the Deepwater Tavern and fights a daily war with the mud. She's a solid, sharp-tongued dwarf who treats every animal like a patient and every owner like a suspect.",
+    first = "Every animal is her patient, and every owner is a suspect.",
     third = "{name} met Bethaine Flinthammer, Menethil Harbor's stable master.",
   },
 
@@ -393,7 +393,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Stuart Fleming sells fishing gear and fish halfway up Menethil's northern dock, a sunburned man with a voice that carries over the gulls. He's never met a stranger he couldn't tell a fishing story to.",
+    first = "He has never met a stranger he couldn't tell a fishing story.",
     third = "{name} met Stuart Fleming, who sells fishing supplies and fish on Menethil Harbor's docks.",
   },
 
@@ -467,7 +467,7 @@ P:NPC {
   notices = { "kit", "class" },
 
   impression = {
-    first = "Brahnmar is a grizzled dwarf armorer who oils every piece of mail on his rack twice a day against the rust. He judges a customer by the state of their buckles before he looks at their face.",
+    first = "He judges your buckles before he looks at your face.",
     third = "{name} met Brahnmar, the dwarven armorer in Menethil Harbor who wages a lonely war against rust.",
   },
 

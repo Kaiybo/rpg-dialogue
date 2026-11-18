@@ -10,7 +10,7 @@ P:NPC {
   communities = { "eastvale" }, temper = { "quiet" }, values = { "craft", "patient" },
   notices = { "class", "craft" },
   impression = {
-    first = "Rallic Finn makes bows at the east end of Eastvale and talks about wood the way some men talk about horses. He kept a stave in his hands the whole time we spoke.",
+    first = "He talks about wood the way some men talk about horses.",
     third = "{name} met Rallic Finn, the soft-spoken bowyer of Eastvale Logging Camp.",
   },
   greetings = {
@@ -204,7 +204,7 @@ P:NPC {
   communities = { "eastvale" }, temper = { "shrewd" }, values = { "practical", "thrift" },
   notices = { "craft" },
   impression = {
-    first = "Drake Lindgren sells everything a logging camp runs short of, from thread to throwing knives, and he knows the price of each to the copper. He seemed to like me better once I bought something.",
+    first = "He seemed to like me better once I bought something.",
     third = "{name} met Drake Lindgren, who keeps Eastvale Logging Camp in general goods and trade supplies.",
   },
   greetings = {
@@ -385,7 +385,7 @@ P:NPC {
   bible = "bibles/eastvale_trades.md", role = "worker", tier = "service",
   communities = { "eastvale" }, temper = { "jovial" }, values = { "hardworking", "loyal" },
   impression = {
-    first = "Terry Palin works the mill at Eastvale and jokes about his supervisor the way men joke about the weather. Under the jokes he seemed proud of the work.",
+    first = "Under the jokes about his supervisor, he is proud of the work.",
     third = "{name} met Terry Palin, a cheerful lumberjack at the Eastvale mill.",
   },
   greetings = {

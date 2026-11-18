@@ -11,7 +11,7 @@ P:NPC {
   notices = { "status", "soldier" },
 
   impression = {
-    first = "Role Dreuger is Darkshire's deputy mayor and the only councilman I met who seemed tired of talking. He wants the council to act and can't make it.",
+    first = "He wants the council to act and can't make it.",
     third = "{name} met Role Dreuger, Darkshire's deputy mayor, who is weary of the council's bickering and wants action against the evil in the woods.",
   },
 

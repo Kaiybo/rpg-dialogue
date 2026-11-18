@@ -14,7 +14,7 @@ P:NPC {
   notices = { "troll", "smith" },
 
   impression = {
-    first = "Kilram is a jungle troll axesmith in Everlook with a long scar down his face that he calls a love tap. He'll teach the way of the axe to any smith who can bring him vengeance.",
+    first = "He calls the long scar down his face a love tap.",
     third = "{name} met Kilram, the troll master axesmith of Everlook.",
   },
 
@@ -119,7 +119,7 @@ P:NPC {
   notices = { "undead", "smith" },
 
   impression = {
-    first = "Seril Scourgebane is a human swordsmith in Everlook who tells strangers to back off or be cut in half. He has his reasons for being short with people, and most of them come from Stratholme.",
+    first = "Most of his reasons for being short come from Stratholme.",
     third = "{name} met Seril Scourgebane, Everlook's master swordsmith.",
   },
 
@@ -221,7 +221,7 @@ P:NPC {
   notices = { "close", "smith" },
 
   impression = {
-    first = "Lilith the Lithe is a Forsaken hammersmith in Everlook with two hobbies: dancing, and threatening to kill people who stand too close. She's very good at both.",
+    first = "She dances and threatens to kill people, and excels at both.",
     third = "{name} met Lilith the Lithe, the Forsaken master hammersmith of Everlook.",
   },
 

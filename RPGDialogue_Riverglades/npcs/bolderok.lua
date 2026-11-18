@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Clugfist is an ogre of Bolder'ok who talks slowly and means every word. He calls everyone smaller than him a little one, which is everyone, and he hates the Twilight's Hammer with his whole enormous heart.",
+    first = "He hates the Twilight's Hammer with his whole enormous heart.",
     third = "{name} met Clugfist at Bolder'ok, an ogre whose clan broke with the Twilight's Hammer and now stands with the Horde.",
   },
 
@@ -196,7 +196,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Jom-jom is a young ogre, enormous and frightened, who went looking for a friend in the wrong place. He wants very much to go home.",
+    first = "Enormous and frightened, he wants very much to go home.",
     third = "{name} met Jom-jom, a young ogre of Bolder'ok who wandered off to find a friend and needed help getting home.",
   },
 

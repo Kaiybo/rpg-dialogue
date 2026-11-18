@@ -8,7 +8,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "gruff" }, values = { "dutiful" },
   notices = { "greenness" },
   impression = {
-    first = "Kaltunk greets every recruit who walks into the Valley of Trials, because someone once greeted him and he remembers who. He is gruff about it, but he has not forgotten what it was to arrive with nothing.",
+    first = "He has not forgotten what it was to arrive with nothing.",
     third = "{name} met Kaltunk, the gruff orc who greets new blood at the mouth of the Valley of Trials.",
   },
 
@@ -221,7 +221,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "hard" }, values = { "stern", "dutiful" },
   notices = { "greenness", "class", "origin" },
   impression = {
-    first = "Gornek runs the Den and claims he is never asleep when the recruits whisper. The first lesson, to him, is getting back up, and he looks at newcomers as though deciding whether they will learn it.",
+    first = "The first lesson, to him, is getting back up.",
     third = "{name} met Gornek, the hard orc who runs the Den in the Valley of Trials and makes Horde out of whoever walks in.",
   },
 
@@ -456,7 +456,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "watchful" }, values = { "sharp", "dutiful" },
   notices = { "class" },
   impression = {
-    first = "Zureetha Fargaze watches the Burning Blade's caves to the north and wants every detail of what anyone saw there. Her contempt for the cultists who want the old fire back is fierce and wholly sincere.",
+    first = "Her contempt for cultists who want the old fire back is fierce.",
     third = "{name} met Zureetha Fargaze, who watches the Burning Blade's caves in the Valley of Trials and sends recruits to thin their ranks.",
   },
 
@@ -635,7 +635,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "exasperated" }, values = { "practical" },
   notices = { "idle" },
   impression = {
-    first = "Most of Foreman Thazz'ril's days go to keeping his peons awake, and mostly he fails. He is exasperated by their talent for napping and almost impressed by it, which makes him better company than he would guess.",
+    first = "His peons' talent for napping exasperates and almost impresses him.",
     third = "{name} met Foreman Thazz'ril, who struggles to keep the sleepy peons of the Valley of Trials gathering lumber.",
   },
 
@@ -786,7 +786,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "longsuffering" }, values = { "practical", "generous" },
   notices = { "hunger" },
   impression = {
-    first = "Nobody thanks the cook, Galgar told me, but everybody notices when the pot is empty. He insists fried scorpid tail grows on you, and I am not yet convinced.",
+    first = "Nobody thanks the cook, he says, until the pot is empty.",
     third = "{name} met Galgar, the long-suffering cook who feeds the recruits, grunts and peons of the Valley of Trials.",
   },
 
@@ -952,7 +952,7 @@ P:NPC {
   communities = { "valley_of_trials" }, temper = { "curt" }, values = { "practical" },
   notices = { "kit" },
   impression = {
-    first = "Kzan Thornslash keeps the recruits armed while they keep dropping their weapons in the scrub. He is curt and charges for everything, but he knows his trade.",
+    first = "He is curt and charges for everything, but he knows his trade.",
     third = "{name} met Kzan Thornslash, the curt weaponsmith who keeps the recruits of the Valley of Trials armed.",
   },
 

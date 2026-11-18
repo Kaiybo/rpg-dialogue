@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "stealth", "race" },
 
   impression = {
-    first = "Flint Shadowmore of SI:7 sat with his back to the wall and his eyes on the road, and asked me more questions than I asked him. Three of his agents went east after someone called the Blightcaller and didn't come back.",
+    first = "Three of his agents went after the Blightcaller and never returned.",
     third = "{name} met Flint Shadowmore, an SI:7 agent at Chillwind Camp hunting the one who killed his operatives.",
   },
 
@@ -181,7 +181,7 @@ P:NPC {
   notices = { "class", "craft" },
 
   impression = {
-    first = "Alexia Ironknife is a dwarf resting at Chillwind before she heads for Hearthglen, after a rumour about a mage the Scarlet Crusade killed. She didn't have much time to talk and talked anyway.",
+    first = "She had no time to talk and talked anyway.",
     third = "{name} met Alexia Ironknife, a dwarf at Chillwind Camp chasing a rumour about the Scarlet Crusade's murdered mage.",
   },
 

@@ -12,7 +12,7 @@ P:NPC {
   temper = { "fierce", "warm" }, values = { "ambitious", "loyal" },
   notices = { "class", "race" },
   impression = {
-    first = "Kranal Fiss is an orc shaman who keeps to the hills north of the Crossroads, where young shaman come to him for their first lesson in fire. His eyes look as if something is burning just behind them, and he likes it when he sees the same in yours.",
+    first = "His eyes look as if something burns just behind them.",
     third = "{name} met Kranal Fiss, an orc shaman north of the Crossroads who teaches the ways of fire.",
   },
 
@@ -101,7 +101,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "calm", "sharp" }, values = { "loyal", "practical" },
   notices = { "pet" },
   impression = {
-    first = "Sikwa keeps the stables at the Crossroads, a tauren hunter who watches the road as closely as the beasts in her care. She has no patience for owners who neglect their companions, and she says so.",
+    first = "She has no patience for owners who neglect their companions.",
     third = "{name} met Sikwa, the stable master at the Crossroads.",
   },
   greetings = {

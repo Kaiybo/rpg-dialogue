@@ -369,7 +369,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Pusillin is an imp in the Warpwood Quarter of Dire Maul who stole a book and a key and seems to think the whole thing is a marvellous game. He won't stand still long enough to be caught, and he's enjoying every minute of it.",
+    first = "He thinks his thieving is a marvellous game and won't stand still.",
     third = "{name} chased Pusillin, a thieving imp, through the Warpwood Quarter of Dire Maul.",
   },
 
@@ -498,7 +498,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "J'eevee is Gorzeeki Wildeyes' imp, who lives in a jar and comes out only to do very particular, very dangerous work. He's the most polite demon I've ever met, which I find more unsettling than the rude ones.",
+    first = "He is the most polite demon I've met, which unsettles me.",
     third = "{name} met J'eevee, the jar-dwelling imp who works for Gorzeeki Wildeyes and Mor'zul Bloodbringer.",
   },
 

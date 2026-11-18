@@ -11,7 +11,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Gabbi Goodwhistle sells food, fireworks and suspicious elixirs off a cart, and teaches weapons on the side because, as she put it, a customer who can fight is a customer who comes back. She talked the whole time and never once stopped smiling.",
+    first = "She says a customer who can fight is a customer who returns.",
     third = "{name} met Gabbi Goodwhistle, a goblin peddler and weapon trainer out of Gadgetzan.",
   },
 

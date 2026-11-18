@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Katar listens to the sea the way other orcs listen for war drums, and he smiled only once while we spoke, when I told him how many murlocs I'd killed. I didn't ask what the sea took from him.",
+    first = "I have not asked what the sea took from him.",
     third = "{name} met Katar, the grim patrol leader of Misty Reed Post, who hates the sea and its murlocs.",
   },
 

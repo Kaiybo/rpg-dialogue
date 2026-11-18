@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Rudra Amberstill keeps the ram ranch east of Kharanos, and she counts her herd twice a day since the yeti came down.",
+    first = "She counts her herd twice a day since the yeti came down.",
     third = "{name} met Rudra Amberstill, who runs the Amberstill Ranch and has a yeti problem.",
   },
 
@@ -190,7 +190,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Tundra MacGrann camps out in the snows of Dun Morogh, and a bear has run off with his food stash.",
+    first = "A bear has run off with his food stash.",
     third = "{name} met Tundra MacGrann, a dwarf who lives rough in the snows and lost his stash to a bear.",
   },
 
@@ -383,7 +383,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Pilot Bellowfiz waits at Steelgrill's Depot for his flying machine to be fuelled and fed, and he talks fast about both.",
+    first = "He talks fast about fuelling and feeding his flying machine.",
     third = "{name} met Pilot Bellowfiz at Steelgrill's Depot, a gnome pilot hungry for his next flight.",
   },
 
@@ -571,7 +571,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Hegnar Rumbleshot sells guns from a camp by the road, and he talks about them like other dwarves talk about ale.",
+    first = "He talks about guns like other dwarves talk about ale.",
     third = "{name} met Hegnar Rumbleshot, a gunsmith who keeps camp along the Dun Morogh road.",
   },
 

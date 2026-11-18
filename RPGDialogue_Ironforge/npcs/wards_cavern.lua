@@ -11,7 +11,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Ulbrek Firehand keeps the stables in the Hall of Arms and talks to the animals in his care more than he talks to people. He knows every beast in the stalls by name and temper.",
+    first = "He talks to his animals more than he talks to people.",
     third = "{name} met Ulbrek Firehand, the stable master of Ironforge's Hall of Arms.",
   },
 
@@ -203,7 +203,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Bixi Wobblebonk teaches daggers, crossbows and throwing weapons at Timberline Arms. She is cheerful about it in a way that is slightly alarming, given what she teaches.",
+    first = "Her cheer is slightly alarming, given what she teaches.",
     third = "{name} met Bixi Wobblebonk, a gnome weapon master in Ironforge's Military Ward.",
   },
 
@@ -393,7 +393,7 @@ P:NPC {
   notices = { "stealth" },
 
   impression = {
-    first = "Ormyr Flinteye trains rogues in the Forlorn Cavern and has nothing to say to anyone else. He watches the cavern's entrance even while he talks, as if expecting someone he'd rather not see.",
+    first = "He watches the entrance as if expecting someone he'd rather not see.",
     third = "{name} met Ormyr Flinteye, a rogue trainer in Ironforge's Forlorn Cavern.",
   },
 
@@ -582,7 +582,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Grimnur Stonebrand teaches fishing from the doorway of the Traveling Fisherman, deep in a cavern with no water worth the name. He finds this funny, and he has the patience to explain why it doesn't matter.",
+    first = "He finds it funny to teach fishing in a cavern without water.",
     third = "{name} met Grimnur Stonebrand, who teaches fishing in Ironforge's Forlorn Cavern.",
   },
 
@@ -773,7 +773,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Tansy Puddlefizz sells rods, bait and lures at the Traveling Fisherman and keeps trying to improve them. She is Grimnur's assistant and talks about him with great affection and mild exasperation.",
+    first = "She speaks of Grimnur with great affection and mild exasperation.",
     third = "{name} met Tansy Puddlefizz, who sells fishing supplies in Ironforge's Forlorn Cavern.",
   },
 

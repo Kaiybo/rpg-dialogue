@@ -9,7 +9,7 @@ P:NPC {
   notices = { "weary", "race" },
 
   impression = {
-    first = "Thultash sells food and drink in Stonard and complains about the supply caravans the way other orcs complain about the weather. Tok'Kar on the beach blames him for every drunk soldier, and Thultash seems rather proud of that.",
+    first = "He is rather proud of being blamed for every drunk soldier.",
     third = "{name} met Thultash, who sells food and drink in Stonard.",
   },
 
@@ -131,7 +131,7 @@ P:NPC {
   notices = { "class", "craft" },
 
   impression = {
-    first = "Thultazor sells vials and reagents in Stonard and wages a private war against the damp that gets into his powders. He takes his glassware more personally than most orcs take their axes.",
+    first = "He takes his glassware more personally than most orcs take their axes.",
     third = "{name} met Thultazor, the fussy reagent seller of Stonard.",
   },
 
@@ -235,7 +235,7 @@ P:NPC {
   notices = { "kit", "class" },
 
   impression = {
-    first = "Hartash sells weapons in Stonard and fights the rust on every blade as if it were an enemy at the gate. He thinks the Dreadmaul ogres are a fine reason to buy a bigger axe, and says so.",
+    first = "He calls the Dreadmaul ogres a fine reason for a bigger axe.",
     third = "{name} met Hartash, the weapon merchant of Stonard.",
   },
 
@@ -340,7 +340,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Grimnal sells mail and plate in a swamp where everyone sinks in it, and he's heard every joke about that. He argues with Thralosh across the square about whether armor or speed keeps a soldier alive.",
+    first = "He has heard every joke about selling plate in a swamp.",
     third = "{name} met Grimnal, who sells mail and plate in Stonard.",
   },
 
@@ -510,7 +510,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Thralosh sells cloth and leather in Stonard and swears speed keeps a soldier alive in the swamp. He and Grimnal across the square have been arguing about it for years, and he seems to enjoy it.",
+    first = "He swears speed keeps a soldier alive, and enjoys arguing it.",
     third = "{name} met Thralosh, who sells cloth and leather armor in Stonard.",
   },
 

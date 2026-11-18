@@ -9,7 +9,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "iron" }, values = { "loyal", "dutiful" },
   notices = { "kit", "race" },
   impression = {
-    first = "High Executor Hadrec holds the Sepulcher against the worgen, the Scourge, the gnolls and Dalaran's mages all at once, and he recites the list without a flicker of worry.",
+    first = "He lists all his enemies without a flicker of worry.",
     third = "{name} met High Executor Hadrec, who holds the Sepulcher and Silverpine Forest for the Dark Lady.",
   },
 
@@ -263,7 +263,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "focused" }, values = { "ambitious", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Apothecary Renferrel works far from the Undercity's eyes and nose, and he takes Silverpine's damp as a personal insult. He calls his work improving on a recipe for death without a hint of irony.",
+    first = "He takes Silverpine's damp as a personal insult.",
     third = "{name} met Apothecary Renferrel of the Royal Apothecary Society, who pursues his studies in the damp crypts of the Sepulcher.",
   },
 
@@ -458,7 +458,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "proud" }, values = { "sharp", "proud" },
   notices = { "class" },
   impression = {
-    first = "Dalar Dawnweaver would still like to be called Archmage, and thinks the Kirin Tor rude for stopping when he died. He warned Dalaran once and nobody listened, and he has not let it go.",
+    first = "He warned Dalaran once, nobody listened, and he hasn't let it go.",
     third = "{name} met Dalar Dawnweaver, a former archmage of the Kirin Tor who now watches Dalaran's mages from the Sepulcher.",
   },
 
@@ -691,7 +691,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "smooth" }, values = { "cunning", "loyal" },
   notices = { "class", "stealth" },
   impression = {
-    first = "Shadow Priest Allister had heard I was coming before I arrived, and he wanted me to know it. He keeps watchers in every corner of Lordaeron and trades in whatever they bring him.",
+    first = "He keeps watchers in every corner of Lordaeron.",
     third = "{name} met Shadow Priest Allister, the Sepulcher's spymaster, who learns of everything that moves in Silverpine.",
   },
 
@@ -868,7 +868,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "hospitable" }, values = { "generous" },
   notices = { "weary" },
   impression = {
-    first = "Innkeeper Bates runs an inn in a crypt and keeps calling the beds slabs out of habit. He has come to an arrangement with the spiders, and he can tell the worgen apart by their howls.",
+    first = "He keeps calling the beds slabs out of habit.",
     third = "{name} rested at Innkeeper Bates's crypt of an inn at the Sepulcher, where the roof at least keeps the worgen out.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "form" },
 
   impression = {
-    first = "Lady Jaina Proudmoore would rather hear bad news early, and she meant it. She carries Theramore and its peace on her shoulders, and seems to have forgotten what sitting down feels like.",
+    first = "She would rather hear bad news early, and she means it.",
     third = "{name} met Lady Jaina Proudmoore, who founded Theramore and works to keep the peace between Alliance and Horde.",
   },
 
@@ -724,7 +724,7 @@ P:NPC {
   notices = { "class", "craft" },
 
   impression = {
-    first = "Archmage Tervosh spoke quickly, as though the day were already running out on him. Between the Lady's errands and his books, I gather his garden gets very little of him.",
+    first = "Between her errands and his books, his garden gets little of him.",
     third = "{name} met Archmage Tervosh, Lady Jaina's brisk and loyal advisor in Theramore.",
   },
 
@@ -1020,7 +1020,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Captain Garran Vimes refuses to decide what the evidence means before he's seen all of it, which makes him rare in Theramore. Everyone else blames the Horde for the inn, and he isn't everyone.",
+    first = "Everyone else blames the Horde for the inn, and he isn't everyone.",
     third = "{name} met Captain Garran Vimes of the Theramore Guard, who is looking into the burning of the Shady Rest Inn.",
   },
 
@@ -1314,7 +1314,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Adjutant Tesoran asked for my name, unit and business before he caught himself. He keeps every soldier's record in Theramore, and I'd guess he could find anything in them blindfolded.",
+    first = "I'd guess he could find any soldier's record blindfolded.",
     third = "{name} met Adjutant Tesoran, who keeps the records of the Theramore Guard.",
   },
 
@@ -1526,7 +1526,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "Innkeeper Janene runs her inn like the kitchen of all Theramore and plainly loves the place. She fed me before she asked a single thing about me.",
+    first = "She fed me before she asked a single thing about me.",
     third = "{name} met Innkeeper Janene, the warm and steady keeper of Theramore's inn.",
   },
 

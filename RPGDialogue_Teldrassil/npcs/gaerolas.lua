@@ -9,7 +9,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "grave", "proud" }, values = { "dutiful", "protective" },
   notices = { "weary", "form" },
   impression = {
-    first = "Gaerolas Talvethren guards druids who sleep in the Emerald Dream, and he took the Gnarlpine's ambush as a personal failing. He was bleeding and still asked about the sleepers first.",
+    first = "He was bleeding and still asked about the sleepers first.",
     third = "{name} met Gaerolas Talvethren, the wounded Great Warden of the sleeping druids, in the plundered Starbreeze Village.",
   },
 

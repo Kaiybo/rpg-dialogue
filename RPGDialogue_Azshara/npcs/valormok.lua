@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Ag'tor Bloodfist holds Valormok for a commander who made a fool's bargain with an elf. He grieves a dozen dead warriors and still believes the Horde will win here, because someone has to.",
+    first = "He believes the Horde will win here because someone has to.",
     third = "{name} met Ag'tor Bloodfist, who holds Valormok after Magus Rimtori's betrayal cost it a dozen warriors.",
   },
 
@@ -273,7 +273,7 @@ P:NPC {
   notices = { "race", "drink" },
 
   impression = {
-    first = "Jediga was sent to Valormok because she told a powerful orc no, and she's turned her exile into a business selling Highborne tablets. She trusts nobody, the Archmage least of all.",
+    first = "She trusts nobody, and the Archmage least of all.",
     third = "{name} met Jediga, who turned her exile at Valormok into a trade in stolen Highborne tablets.",
   },
 
@@ -518,7 +518,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Kroum keeps Valormok's wind riders and speaks as little as he can. He told me the beasts hate the salt wind, and I think he does too.",
+    first = "His beasts hate the salt wind, and I think he does too.",
     third = "{name} met Kroum, the wind rider master at Valormok.",
   },
 

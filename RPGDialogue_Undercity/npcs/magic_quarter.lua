@@ -12,7 +12,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cold", "sharp" }, values = { "ambitious", "cunning" },
   notices = { "class", "pet" },
   impression = {
-    first = "Carendin Halgar teaches warlocks to bind the void in the Magic Quarter, and he talks about demons the way a kennel master talks about dogs. He seemed to enjoy it when I flinched.",
+    first = "He seemed to enjoy it when I flinched.",
     third = "{name} met Carendin Halgar, who teaches the Forsaken's warlocks to bind their first voidwalker.",
   },
 
@@ -149,7 +149,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "dry", "calm" }, values = { "precise" },
   notices = { "class" },
   impression = {
-    first = "Richard Kerwin teaches warlocks in the Magic Quarter like a schoolmaster drilling sums, and he seems to think a curse is mostly a matter of good handwriting. He's oddly reassuring for a man who trades in demons.",
+    first = "He is oddly reassuring for a man who trades in demons.",
     third = "{name} met Richard Kerwin, a patient warlock trainer in the Undercity's Magic Quarter.",
   },
 
@@ -278,7 +278,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "grim", "proud" }, values = { "ambitious" },
   notices = { "class", "race" },
   impression = {
-    first = "Kaal Soulreaper chose his own name after he died, and he makes sure you know it. Under the theatre there's a teacher who wants his students to survive, though he'd sooner die again than admit it.",
+    first = "He wants his students to survive and would never admit it.",
     third = "{name} met Kaal Soulreaper, a warlock trainer in the Undercity who renamed himself after death.",
   },
 
@@ -411,7 +411,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cold", "sharp" }, values = { "ambitious" },
   notices = { "class", "race" },
   impression = {
-    first = "Kaelystia Hatebringer teaches fire and frost in the Magic Quarter, and she chose her surname with the same care she gives a spell. Her anger is cold, patient and pointed north, at Dalaran.",
+    first = "Her anger is cold, patient and pointed north at Dalaran.",
     third = "{name} met Kaelystia Hatebringer, a mage trainer of the Undercity with a long grudge against Dalaran.",
   },
 
@@ -548,7 +548,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "warm", "dreamy" }, values = { "curious" },
   notices = { "class" },
   impression = {
-    first = "Pierce Shackleton teaches magic in the Magic Quarter as if the plague were an unfortunate interruption to his reading. He's the gentlest of the dead I've met, and the most easily distracted.",
+    first = "He is the gentlest of the dead, and the most easily distracted.",
     third = "{name} met Pierce Shackleton, an absent-minded mage trainer in the Undercity.",
   },
 
@@ -689,7 +689,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "proud", "precise" }, values = { "ambitious" },
   notices = { "craft", "class" },
   impression = {
-    first = "Josef Gregorian teaches enchanting at the artisan's level and does not let anyone forget the distinction. He talks about dust the way a sommelier talks about wine, and he handled my gear like a jeweller handling paste, which was humbling.",
+    first = "He handled my gear like a jeweller handling paste.",
     third = "{name} met Josef Gregorian, the Undercity's artisan enchanter.",
   },
 
@@ -803,7 +803,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "brisk", "warm" }, values = { "practical" },
   notices = { "class" },
   impression = {
-    first = "Hannah Akeley sells reagents to the Magic Quarter and keeps a running tally of which customers come back. She has a horseshoe nailed over her table and a superstition for every occasion, and she was cheerful about it all, which in the Undercity feels almost rebellious.",
+    first = "She has a horseshoe over her table and a superstition for everything.",
     third = "{name} met Hannah Akeley, who sells reagents in the Undercity's Magic Quarter.",
   },
 

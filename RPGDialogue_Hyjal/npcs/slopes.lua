@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "kit", "form" },
 
   impression = {
-    first = "Thylaen tends the poisoned growth on Hyjal's slopes with the stubborn patience of a gardener who has decided not to lose. There is no softness in how they speak of the thorns, only of what grows after them.",
+    first = "They speak softly only of what grows after the thorns.",
     third = "{name} met Thylaen, who is clearing the fel-soured brambles from Hyjal's slopes so the mountain can grow again.",
   },
 
@@ -145,7 +145,7 @@ P:NPC {
   notices = { "class", "race", "kit" },
 
   impression = {
-    first = "Zet'gan is a troll worn thin by a fight his people keep trying to leave and cannot. He jokes about arrows and owls, but every word comes back round to the friends he won't abandon.",
+    first = "Every joke of his comes back round to friends he won't abandon.",
     third = "{name} met Zet'gan, a weary troll keeping a dwindling Horde camp supplied on Mount Hyjal.",
   },
 

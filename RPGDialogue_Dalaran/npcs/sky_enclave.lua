@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "skyborne" },
 
   impression = {
-    first = "Arcanist Laurain welcomes everyone off the skycutter with a cheerful speech about exits and a laugh that doesn't quite believe itself. She is kinder than she is calm, and she knows it.",
+    first = "She is kinder than she is calm, and she knows it.",
     third = "{name} met Arcanist Laurain, who greets travellers at Dalaran's skycutter landing.",
   },
 
@@ -199,7 +199,7 @@ P:NPC {
   notices = { "skyborne" },
 
   impression = {
-    first = "Denaaris Stargale minds the Skyborne portal to Stormwind with the patience of a man who has counted every flagstone in the floor twice. He is homesick and too courteous to say so unless asked.",
+    first = "He is homesick and too courteous to say so unless asked.",
     third = "{name} met Denaaris Stargale of the High Order, who keeps the Skyborne portal to Stormwind in Dalaran's Sky Enclave.",
   },
 
@@ -333,7 +333,7 @@ P:NPC {
   notices = { "skyborne" },
 
   impression = {
-    first = "Belanaa Windveil gathers cloth for the High Order and thanks people for it as if each bolt were a personal favour, though her fingers are already testing the weave while she does. She is careful not to say much about her people's crafts to outsiders.",
+    first = "Her fingers test the weave while she is still thanking you.",
     third = "{name} met Belanaa Windveil, who collects cloth for the High Order in Dalaran's Sky Enclave.",
   },
 
@@ -502,7 +502,7 @@ P:NPC {
   notices = { "class", "arcane" },
 
   impression = {
-    first = "Alfina Nightgaze teaches druids in a city of mages and makes no secret that the place unsettles her. She watches the Kirin Tor's magic the way a farmer watches a river in flood.",
+    first = "She watches the Kirin Tor's magic like a farmer watching a flood.",
     third = "{name} met Alfina Nightgaze, a night elf druid who teaches in Dalaran's Sky Enclave.",
   },
 

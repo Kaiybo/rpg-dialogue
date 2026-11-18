@@ -9,7 +9,7 @@ P:NPC {
   communities = { "uthers_tomb" }, temper = { "gentle", "steady" }, values = { "devout", "kind" },
   notices = { "light", "weary" },
   impression = {
-    first = "High Priest Thel'danis keeps Uther's tomb swept and its garden green in the middle of a dead country. He is gentle with travellers and immovable about the tomb, and I believe both come from the same place.",
+    first = "He is gentle with travellers and immovable about the tomb.",
     third = "{name} met High Priest Thel'danis, who tends the tomb of Uther the Lightbringer in the Western Plaguelands.",
   },
 

@@ -12,7 +12,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "loyal", "cunning", "proud" },
   notices = { "origin", "dungeon" },
   impression = {
-    first = "Rahauro attends Magatha Grimtotem on Elder Rise and hands out her lesser tasks so that she can attend to greater ones. He speaks of her with a devotion that is either very sincere or very well rehearsed.",
+    first = "His devotion to Magatha is either very sincere or very well rehearsed.",
     third = "{name} met Rahauro, the Grimtotem attendant who handles Magatha's business on Elder Rise.",
   },
 
@@ -152,7 +152,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "brisk" }, values = { "nature", "practical", "curious" },
   notices = { "class", "dungeon" },
   impression = {
-    first = "Bashana Runetotem is Hamuul's daughter and a member of the Cenarion Circle, a brisk druid who would rather grow something than discuss it. She sells seeds and pouches on Elder Rise and runs her father's errands with more energy than he does.",
+    first = "She would rather grow something than discuss it.",
     third = "{name} met Bashana Runetotem, Hamuul's daughter and a druid of the Cenarion Circle on Elder Rise.",
   },
 
@@ -261,7 +261,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "nature", "patient" },
   notices = { "form" },
   impression = {
-    first = "Sheal Runetotem teaches druids in the Hall of Elders, slowly and with a great deal of silence between the words. She seems to think most problems can be solved by sitting still long enough.",
+    first = "She thinks most problems can be solved by sitting still long enough.",
     third = "{name} met Sheal Runetotem, a druid trainer on Elder Rise.",
   },
 
@@ -373,7 +373,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "eager" }, values = { "nature", "brave" },
   notices = { "form" },
   impression = {
-    first = "Kym Wildmane trains druids in the Hall of Elders and plainly would rather be running across Mulgore than standing in it. Her lessons come fast and go straight to the point.",
+    first = "She would plainly rather be running across Mulgore.",
     third = "{name} met Kym Wildmane, a druid trainer on Elder Rise.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "craft", "kit" },
 
   impression = {
-    first = "Bartolo Ginsetti makes yeti fur cloaks in Southshore and talks about himself in the third person, often while flexing. He is either the greatest tailor in Lordaeron or its loudest, and possibly both.",
+    first = "He talks about himself in the third person, often while flexing.",
     third = "{name} met Bartolo Ginsetti, Southshore's flamboyant maker of yeti fur cloaks.",
   },
 

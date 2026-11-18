@@ -18,7 +18,7 @@ P:NPC {
   temper = { "fierce" }, values = { "loyal", "vengeful" },
   notices = { "class", "fel", "race" },
   impression = {
-    first = "Aka'rai is a big Darkspear at Shadowprey Village who has learned to hate the Hatefury satyrs with a patience I didn't expect. He talks about the elves who became them as a lesson in what power costs.",
+    first = "He calls the satyrs a lesson in what power costs.",
     third = "{name} met Aka'rai, a Darkspear of Shadowprey Village who wants the Hatefury satyrs of Sargeron destroyed.",
   },
   greetings = {
@@ -225,7 +225,7 @@ P:NPC {
   temper = { "proud", "bitter" }, values = { "clan", "vengeful" },
   notices = { "race", "trophy" },
   impression = {
-    first = "Umarak is an old Kolkar centaur who stands alone west of the Mannoroc Coven and will talk to an outsider only because he needs one. He hates the Maraudine khan more than he despises me, which is saying something.",
+    first = "He hates the Maraudine khan more than he despises me.",
     third = "{name} met Umarak, an old Kolkar centaur who wants Khan Hratha of the Maraudine dead.",
   },
   greetings = {

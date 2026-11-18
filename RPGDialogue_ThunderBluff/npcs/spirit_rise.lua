@@ -14,7 +14,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "stern" }, values = { "devout", "wise" },
   notices = { "class" },
   impression = {
-    first = "Tigor Skychaser teaches shaman on Spirit Rise with long silences and very little praise. He talks about the elements as old neighbors who must be asked politely.",
+    first = "To him the elements are old neighbors who must be asked politely.",
     third = "{name} met Tigor Skychaser, the eldest of the Skychaser shaman trainers on Spirit Rise.",
   },
 
@@ -147,7 +147,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "steady" }, values = { "practical", "craft" },
   notices = { "class" },
   impression = {
-    first = "Beram Skychaser trains shaman on Spirit Rise and carves totems while he talks. He is more interested in what works in the field than in what the elders say about it.",
+    first = "He cares more for what works than for what the elders say.",
     third = "{name} met Beram Skychaser, a practical shaman trainer on Spirit Rise.",
   },
 
@@ -254,7 +254,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "eager" }, values = { "curious", "kind" },
   notices = { "race" },
   impression = {
-    first = "Siln Skychaser is the youngest of the shaman trainers on Spirit Rise, and the only one who goes down into the Pools of Vision to talk with the Forsaken. The older Skychasers seem to find this worrying.",
+    first = "Only he goes down to talk with the Forsaken.",
     third = "{name} met Siln Skychaser, a young shaman trainer on Spirit Rise.",
   },
 
@@ -377,7 +377,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "dry" }, values = { "proud", "careful" },
   notices = { "class", "arcane" },
   impression = {
-    first = "Archmage Shymm teaches mages in the caves beneath Spirit Rise, a Forsaken with a dry voice and a low opinion of amateurs. He warns everyone that magic will burn the untrained, and seems to rather hope it does.",
+    first = "He warns that magic burns the untrained, and rather hopes it does.",
     third = "{name} met Archmage Shymm, a Forsaken mage trainer in the Pools of Vision.",
   },
 
@@ -487,7 +487,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "curious", "careful" },
   notices = { "origin" },
   impression = {
-    first = "Ursyn Ghull teaches mages in the Pools of Vision and keeps his notes in perfect order. He speaks of Dalaran the way the living speak of a childhood home.",
+    first = "He speaks of Dalaran the way the living speak of childhood homes.",
     third = "{name} met Ursyn Ghull, a Forsaken mage trainer in the Pools of Vision.",
   },
 
@@ -596,7 +596,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "jovial" }, values = { "friendly", "curious" },
   notices = { "race" },
   impression = {
-    first = "Thurston Xane teaches mages in the caves beneath Spirit Rise and seems to enjoy being dead more than most Forsaken. He is fond of the tauren, and they are slowly getting used to him.",
+    first = "He seems to enjoy being dead more than most Forsaken.",
     third = "{name} met Thurston Xane, a cheerful Forsaken mage trainer in the Pools of Vision.",
   },
 
@@ -712,7 +712,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "devout", "careful" },
   notices = { "class" },
   impression = {
-    first = "Miles Welsh teaches priests in the Pools of Vision for the Cult of Forgotten Shadows, and speaks of the shadow as calmly as a farmer speaks of rain. He makes no apology for any of it.",
+    first = "He speaks of the shadow as calmly as a farmer of rain.",
     third = "{name} met Miles Welsh, a Forsaken priest trainer of the Forgotten Shadow in the Pools of Vision.",
   },
 
@@ -829,7 +829,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "sharp" }, values = { "devout", "loyal" },
   notices = { "race" },
   impression = {
-    first = "Malakai Cross teaches priests in the Pools of Vision with the fervor of a convert. He speaks of the Light with contempt and of the Dark Lady with something close to worship.",
+    first = "He holds the Light in contempt and the Dark Lady near worship.",
     third = "{name} met Malakai Cross, a fervent Forsaken priest trainer in the Pools of Vision.",
   },
 
@@ -939,7 +939,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "warm" }, values = { "kind", "patient" },
   notices = { "class" },
   impression = {
-    first = "Father Cobb teaches priests in the Pools of Vision and still speaks like a village priest, gently and with a sermon never far off. He seems to miss his old parish more than his old life.",
+    first = "He seems to miss his old parish more than his old life.",
     third = "{name} met Father Cobb, a gentle Forsaken priest trainer in the Pools of Vision.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Shakes O'Breen captains the Harbinger for the Blackwater Raiders and led two ships onto a reef that wasn't on any chart. He swaggers to hide how much he dreads telling Fleet Master Seahorn.",
+    first = "His swagger hides how much he dreads telling Fleet Master Seahorn.",
     third = "{name} met Shakes O'Breen, the Blackwater Raider captain stranded at Faldir's Cove after losing two ships of his fleet.",
   },
 
@@ -327,7 +327,7 @@ P:NPC {
   notices = { "drink", "kit" },
 
   impression = {
-    first = "Captain Steelgut sits by the fire at Faldir's Cove, a dwarf who should have drowned with his ship and can't forgive the sea for sparing him. He wants the naga dead, and he wants it more than he wants to live.",
+    first = "He wants the naga dead more than he wants to live.",
     third = "{name} met Captain Steelgut, the dwarf who lost the Maiden's Folly and all her crew at Faldir's Cove.",
   },
 

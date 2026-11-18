@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "craft", "kit" },
 
   impression = {
-    first = "Brock Stoneseeker runs a school of mining out of Thelsamar and talks about ore the way other dwarves talk about beer. He is proud of his students and prouder still that some of them listen.",
+    first = "He is proud of his students, and prouder that some listen.",
     third = "{name} met Brock Stoneseeker, who teaches mining and surveying to the young dwarves of Thelsamar.",
   },
 
@@ -235,7 +235,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Kali Healtouch teaches herbalism in Thelsamar and keeps her husband Ghak's alchemy honest. She knows every plant that grows on the loch's shores and has opinions about all of them.",
+    first = "She keeps her husband Ghak's alchemy honest.",
     third = "{name} met Kali Healtouch, Thelsamar's herbalist and the wife of its alchemist.",
   },
 

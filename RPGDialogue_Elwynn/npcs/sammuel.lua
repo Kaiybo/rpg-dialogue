@@ -9,7 +9,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "affliction", "light" },
   impression = {
-    first = "Brother Sammuel speaks softly and senses curses and sickness the way a healer feels for a pulse. He teaches those the Light has chosen and prays for the rest without complaint.",
+    first = "He senses curses and sickness as a healer feels for a pulse.",
     third = "{name} met Brother Sammuel of Northshire Abbey, who hears the oaths of new paladins and prays for everyone else.",
   },
 

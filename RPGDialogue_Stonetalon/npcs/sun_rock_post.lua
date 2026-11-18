@@ -11,7 +11,7 @@ P:NPC {
   communities = { "sun_rock" }, temper = { "aloof", "proud" }, values = { "knowledge", "discipline" },
   notices = { "craft", "class", "arcane" },
   impression = {
-    first = "Hgarth teaches enchanting from a ledge above Sun Rock that most people never find, and he seems to like it that way. He asked whether I had come for knowledge, and he sounded doubtful about the answer.",
+    first = "He asks if I came for knowledge and sounds doubtful.",
     third = "{name} climbed to Hgarth, the orc enchanter who teaches from a hidden ledge above Sun Rock Retreat.",
   },
 

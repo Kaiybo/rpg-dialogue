@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Commander Valorfist counts his soldiers out of the gate and counts them back in, and he writes the letters himself on days the numbers don't match. He has very little, and spends it carefully.",
+    first = "He writes the letters himself when a soldier doesn't come back.",
     third = "{name} met Commander Ashlam Valorfist, who holds Chillwind Camp for Stormwind against the dead of Andorhal.",
   },
 
@@ -383,7 +383,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "High Priestess MacDonnell speaks of the plague cauldrons with real appetite, as if each one were a personal insult. Her Light is the kind that burns, and she said so cheerfully.",
+    first = "Her Light is the kind that burns, and she says so cheerfully.",
     third = "{name} met High Priestess MacDonnell at Chillwind Camp, who means to give the Scourge a dose of its own plague.",
   },
 
@@ -693,7 +693,7 @@ P:NPC {
   notices = { "craft", "greenness" },
 
   impression = {
-    first = "Alchemist Arbington asked me to stand still, keep my elbows in and touch nothing, all in one anxious breath. Frightened as he is, he keeps working, and I respect that more than I expected.",
+    first = "Frightened as he is, he keeps working, and I respect that.",
     third = "{name} met Alchemist Arbington, Chillwind Camp's nervous alchemist and reluctant student of the Scholomance.",
   },
 
@@ -937,7 +937,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Weldon Barov sleeps with a sword under his blanket and talks about his brother's death as an inheritance matter. Fear and greed have been sharing his face for a long time.",
+    first = "Fear and greed have been sharing his face for a long time.",
     third = "{name} met Weldon Barov, the last living Barov, hiding from his brother's assassins at Chillwind Camp.",
   },
 
@@ -1259,7 +1259,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Argent Officer Pureheart keeps a table where nobody draws steel, whatever colors they wear. She laughs easily, and the burn scar up her sword arm suggests she's earned the right.",
+    first = "Nobody draws steel at her table, whatever colors they wear.",
     third = "{name} met Argent Officer Pureheart, who speaks for the Argent Dawn at Chillwind Camp.",
   },
 
@@ -1551,7 +1551,7 @@ P:NPC {
   notices = { "race", "craft" },
 
   impression = {
-    first = "Nathaniel Dumah came back to the Plaguelands for his father's mill, which says a good deal about him. He talks easily, and asks after Northridge like a man asking after family.",
+    first = "He asks after Northridge like a man asking after family.",
     third = "{name} met Nathaniel Dumah at Chillwind Camp, who wants his family's Northridge mill back from the Scarlet Crusade.",
   },
 
@@ -1774,7 +1774,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Bibilfaz Featherwhistle chatters to his gryphons at night about Ironforge pastries. He is the cheeriest thing in the Plaguelands, and I suspect he's working very hard at it.",
+    first = "I suspect he works very hard at being so cheery.",
     third = "{name} met Bibilfaz Featherwhistle, the gnomish gryphon master at Chillwind Camp.",
   },
 

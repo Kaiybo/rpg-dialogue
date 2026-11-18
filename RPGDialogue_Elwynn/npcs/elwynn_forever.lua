@@ -15,7 +15,7 @@ P:NPC {
   communities = {}, temper = { "anxious" }, values = { "loyal", "curious" },
   notices = { "class", "race" },
   impression = {
-    first = "Blixie Fitzwink is one of Theocritus's gnome servants, small and singed and very worried about her master's temper. Gnolls took a parcel from her on the road, and she fears the punishment more than she feared the gnolls.",
+    first = "She fears her master's punishment more than she feared the gnolls.",
     third = "{name} met Blixie Fitzwink, a gnome servant of the Tower of Azora who lost her master's parcel to gnolls.",
   },
 
@@ -201,7 +201,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "sharp" }, values = { "practical", "proud" },
   notices = { "pet", "class" },
   impression = {
-    first = "Josephine Carson trains hunters in Goldshire and has no patience for anyone who isn't one. She judges a person by how they'd handle a bow, and she says so to their face.",
+    first = "She judges people by how they'd handle a bow, and says so.",
     third = "{name} met Josephine Carson, Goldshire's sharp-tongued hunter trainer.",
   },
 
@@ -392,7 +392,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "jovial" }, values = { "proud", "practical" },
   notices = { "class", "race" },
   impression = {
-    first = "Nordun Steadysight is a travelling dwarf who sells guns, bows and shot out of Goldshire. He talks about a blunderbuss the way other men talk about their sweethearts.",
+    first = "He talks about a blunderbuss the way other men talk about sweethearts.",
     third = "{name} met Nordun Steadysight, a dwarf selling guns and bows on the road through Goldshire.",
   },
 
@@ -508,7 +508,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "brisk" }, values = { "hardworking", "practical" },
   notices = { "craft", "race" },
   impression = {
-    first = "Kelsey Fargo teaches mining at the mouth of Echo Ridge Mine and can't get a day's work done for the kobolds. She is brisk, dusty and much more interested in the rock than in the people who stop to talk.",
+    first = "She is far more interested in the rock than in people.",
     third = "{name} met Kelsey Fargo, a junior mining trainer cursing the kobolds at Echo Ridge Mine.",
   },
 
@@ -661,7 +661,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "cheerful" }, values = { "kind", "curious" },
   notices = { "craft" },
   impression = {
-    first = "Nancy Songflower teaches herb-picking in Northshire Valley and seems to know every flower in it by name. She is cheerful company, as long as you don't step on anything.",
+    first = "She is cheerful company, as long as you don't step on anything.",
     third = "{name} met Nancy Songflower, Northshire's cheerful junior herbalism trainer.",
   },
 
@@ -764,7 +764,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "steady" }, values = { "practical", "loyal" },
   notices = { "craft" },
   impression = {
-    first = "Riley Peltskinner teaches skinning in Northshire and comes from the same family as Eagan, the valley's tanner. She is practical and plain-spoken, and smells faintly of salt and hides.",
+    first = "She is plain-spoken, and smells faintly of salt and hides.",
     third = "{name} met Riley Peltskinner, Northshire's junior skinning trainer.",
   },
 
@@ -866,7 +866,7 @@ P:NPC {
   communities = { "northshire" }, temper = { "gruff" }, values = { "practical", "loyal" },
   notices = { "class", "pet", "race" },
   impression = {
-    first = "Tordrin Sternblade is a gruff dwarf with a thick mountain burr who teaches the hunters in Northshire. He talks about kobolds like a man discussing a family of rats in his cellar, with contempt and a grudging respect for their nerve.",
+    first = "He speaks of kobolds with contempt and grudging respect for their nerve.",
     third = "{name} met Tordrin Sternblade, the dwarf who trains the hunters at Northshire Abbey.",
   },
 
@@ -1031,7 +1031,7 @@ P:NPC {
   communities = { "eastvale" }, temper = { "anxious" }, values = { "hardworking", "honest" },
   notices = { "class" },
   impression = {
-    first = "Ormin Pelford tipped a wagonload of the logging camp's supplies into the river and is still standing by the bank, wringing his hands. He is apologetic about everything, even the weather.",
+    first = "He is apologetic about everything, even the weather.",
     third = "{name} met Ormin Pelford, who lost the Eastvale logging camp's tools in the river.",
   },
 

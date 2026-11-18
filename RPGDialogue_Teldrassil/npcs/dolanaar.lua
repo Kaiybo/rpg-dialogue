@@ -10,7 +10,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "grave" }, values = { "devout", "dutiful" },
   notices = { "class" },
   impression = {
-    first = "Corithras Moonrage tastes the moonwells himself and swears the third one is wrong. The Sentinels think he fusses, but I have rarely seen anyone so certain and so quietly afraid.",
+    first = "He swears the third moonwell is wrong, and he is quietly afraid.",
     third = "{name} met Corithras Moonrage, the grave keeper of Teldrassil's moonwells, who watches the young tree like a feverish child.",
   },
 
@@ -239,7 +239,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "stern" }, values = { "protective", "dutiful" },
   notices = { "class", "form" },
   impression = {
-    first = "There is no patience for riddles in Athridas Bearmantle, only plain words and a heavy heart. The Gnarlpine were never his enemies, and it grieves him more than he lets on that they are now.",
+    first = "It grieves him that the Gnarlpine are his enemies now.",
     third = "{name} met Athridas Bearmantle, the stern druid of Dolanaar who would rather cure the maddened Gnarlpine than kill them.",
   },
 
@@ -450,7 +450,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "approving" }, values = { "protective", "kind" },
   notices = { "greenness" },
   impression = {
-    first = "Something fatherly shows in the way Tallonkai Swiftroot looks over the young ones guarding the groves. He wants his dreamcatcher back, and I suspect he would like a few other things handled quietly as well.",
+    first = "He wants his dreamcatcher back, and a few other things handled quietly.",
     third = "{name} met Tallonkai Swiftroot of Dolanaar, who approves of the young taking up the groves' defence and has errands of his own for them.",
   },
 
@@ -683,7 +683,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "composed" }, values = { "dutiful", "loyal" },
   notices = { "craft" },
   impression = {
-    first = "Syral Bladeleaf sorts the Council's orders by which ones get someone hurt if they wait. He is calm about it, which may be the only way to bear having more orders than hands.",
+    first = "He sorts his orders by which ones get someone hurt waiting.",
     third = "{name} met Syral Bladeleaf, who carries the Council of the Forest's orders to anyone in Dolanaar willing to follow them.",
   },
 
@@ -910,7 +910,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "gentle" }, values = { "generous" },
   notices = { "weary" },
   impression = {
-    first = "At Keldamyr's inn the tea is always ready and nobody is asked why they look tired. Travellers leave lighter, and I think that is the whole point of the place.",
+    first = "Nobody at this inn is asked why they look tired.",
     third = "{name} stopped at Innkeeper Keldamyr's hearth in Dolanaar, where every traveller between Shadowglen and Darnassus rests sooner or later.",
   },
 
@@ -1123,7 +1123,7 @@ P:NPC {
   communities = { "dolanaar" }, temper = { "easy" }, values = { "curious", "generous" },
   notices = { "craft" },
   impression = {
-    first = "Lyreena Duskblade would rather sleep under the canopy than a roof, and she counts stars through the leaves until she drifts off. Sitting at her small fire, I found it hard to argue with her.",
+    first = "She would rather sleep under the canopy than under a roof.",
     third = "{name} shared a small fire with Lyreena Duskblade, who teaches anyone willing how to make a camp feel like home.",
   },
 

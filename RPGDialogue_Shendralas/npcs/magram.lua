@@ -10,7 +10,7 @@ P:NPC {
   notices = { "class", "race", "deeds" },
 
   impression = {
-    first = "Orgrul of the Magram works among the bones of the valley as calmly as a farmer among his rows. He never raises his voice, and he watches every outsider as if he were weighing what their bones would be good for.",
+    first = "He eyes outsiders as if weighing what their bones are good for.",
     third = "{name} met Orgrul, a Magram centaur who works necromancy in the Valley of Bones on behalf of his clan.",
   },
 
@@ -425,7 +425,7 @@ P:NPC {
   notices = { "class", "deeds" },
 
   impression = {
-    first = "Hagiak holds the Magram Front with hungry warriors and no patience for talk. He looks at outsiders the way a quartermaster looks at a cart, wondering how much it can carry.",
+    first = "He looks at outsiders like carts, wondering how much they can carry.",
     third = "{name} met Hagiak, the Magram warrior who holds the clan's front against the Bristleback quilboar.",
   },
 
@@ -632,7 +632,7 @@ P:NPC {
   notices = { "deeds", "class" },
 
   impression = {
-    first = "Nerlokh of the Gelkis watches the Magram from the edge of the Valley of Bones and is plainly itching to do something about them. He talks of the Earth Mother with real faith and of his own elders with less patience.",
+    first = "He has faith in the Earth Mother and less in his elders.",
     third = "{name} met Nerlokh, a Gelkis centaur who watches the Magram at the Valley of Bones.",
   },
 

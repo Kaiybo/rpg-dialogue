@@ -10,7 +10,7 @@ P:NPC {
   communities = { "ghost_walker" }, temper = { "shrewd", "solemn" }, values = { "cunning", "devout" },
   notices = { "race", "class", "rep" },
   impression = {
-    first = "Gurda Wildmane tends the dying kodo at Ghost Walker Post with one hand and plays the centaur clans against each other with the other. She is gentle about the first and cold about the second, and she sees no contradiction.",
+    first = "She tends dying kodo gently and plays the centaur clans coldly.",
     third = "{name} met Gurda Wildmane, the tauren shaman of Ghost Walker Post who means to break the centaur by their own hatreds.",
   },
 
@@ -218,7 +218,7 @@ P:NPC {
   communities = { "ghost_walker" }, temper = { "cheerful", "earnest" }, values = { "hospitality", "nature" },
   notices = { "race", "hunger", "weary" },
   impression = {
-    first = "Harnor feeds Ghost Walker Post and seems determined to be cheerful about it, though nothing grows in Desolace and everything has to be carried in. He worries about whether people have eaten, and he means it.",
+    first = "He worries about whether people have eaten, and he means it.",
     third = "{name} met Harnor, the cheerful tauren who sells food and drink at Ghost Walker Post.",
   },
 
@@ -322,7 +322,7 @@ P:NPC {
   communities = { "ghost_walker" }, temper = { "quiet", "shrewd" }, values = { "craft", "practical" },
   notices = { "craft", "race" },
   impression = {
-    first = "Kireena sells thread, dye and vials at Ghost Walker Post and buys anything useful the braves bring back from the centaur camps. She is quiet, sharp with a bargain, and not sentimental about where things come from.",
+    first = "She is not sentimental about where her goods come from.",
     third = "{name} met Kireena, who sells trade goods at Ghost Walker Post.",
   },
 

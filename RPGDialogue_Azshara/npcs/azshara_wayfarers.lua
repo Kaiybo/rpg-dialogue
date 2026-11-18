@@ -14,7 +14,7 @@ P:NPC {
   notices = { "nightelf" },
 
   impression = {
-    first = "Joy Ar'nareth is a high elf at the top of Xylem's Tower, studying the Highborne ruins of Azshara with an eagerness she tries hard to hide. She has opinions on everything and shares them freely.",
+    first = "She has opinions on everything and shares them freely.",
     third = "{name} met Joy Ar'nareth, a high elf scholar at the top of Xylem's Tower.",
   },
 
@@ -174,7 +174,7 @@ P:NPC {
   communities = { "xylems_tower" }, temper = { "calm", "precise" }, values = { "careful", "wise" },
 
   impression = {
-    first = "Rayan Dawnrisen is a quiet high elf at the top of Xylem's Tower who copies Highborne inscriptions in a tiny, perfect hand. He speaks slowly and corrects himself when he gets a detail wrong.",
+    first = "He corrects himself whenever he gets a detail wrong.",
     third = "{name} met Rayan Dawnrisen, a careful high elf scholar at the top of Xylem's Tower.",
   },
 
@@ -288,7 +288,7 @@ P:NPC {
   notices = { "timbermaw" },
 
   impression = {
-    first = "Gatekeeper Rageroar guards the Azshara mouth of the Timbermaw tunnels and lets nobody through without a long, suspicious look. His name is a warning, and he likes it that way.",
+    first = "His name is a warning, and he likes it that way.",
     third = "{name} met Gatekeeper Rageroar, the Timbermaw furbolg who guards the tunnel into Azshara.",
   },
 

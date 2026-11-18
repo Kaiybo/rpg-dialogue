@@ -9,7 +9,7 @@ P:NPC {
   communities = { "sepulcher" }, temper = { "brisk" }, values = { "craft", "practical" },
   notices = { "class", "race" },
   impression = {
-    first = "Abigail Sawyer makes bows at the Sepulcher out of Silverpine's own wood and checks every customer's arms before she checks their purse. She speaks of yew and sinew the way other people speak of family.",
+    first = "She checks a customer's arms before she checks their purse.",
     third = "{name} met Abigail Sawyer, the Sepulcher's bowyer.",
   },
 

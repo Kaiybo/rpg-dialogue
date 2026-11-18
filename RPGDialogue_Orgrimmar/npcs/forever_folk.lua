@@ -14,7 +14,7 @@ P:NPC {
   notices = { "pet", "class" },
 
   impression = {
-    first = "An'drak is a seasoned orc hunter who stands in the Valley of Strength with a grey wolf called Evermore at his knee. He talked about the wolf more than about himself, and I think he preferred it that way.",
+    first = "He talks about his wolf Evermore more than about himself.",
     third = "{name} met An'drak, an orc hunter in the Valley of Strength, and his wolf Evermore.",
   },
 
@@ -119,7 +119,7 @@ P:NPC {
   notices = { "pvp", "race", "level" },
 
   impression = {
-    first = "Gruga Bloodblade is a big Darkspear troll in the Hall of the Brave who sends Horde fighters to the old Darkspear Islands. He grinned the whole time we spoke, and I couldn't tell whether that was for the fight or for me.",
+    first = "His grin could be for the fight or for me.",
     third = "{name} met Gruga Bloodblade, the Darkspear battlemaster in Orgrimmar who sends the Horde to fight on the Darkspear Islands.",
   },
 
@@ -229,7 +229,7 @@ P:NPC {
   notices = { "gear", "race" },
 
   impression = {
-    first = "Mon'ye is a Darkspear troll in the Cleft of Shadow who weaves magic over armor so it looks like something else entirely. She studied my gear the way a tailor studies a bad seam, and she was far too polite about it.",
+    first = "She studied my gear the way a tailor studies a bad seam.",
     third = "{name} met Mon'ye, a Darkspear transmogrifier in Orgrimmar's Cleft of Shadow who changes how armor looks.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "sentinel_hill" }, temper = { "sharp" }, values = { "curious", "lawful" },
   notices = { "stealth", "red" },
   impression = {
-    first = "Scout Galiaan thinks in maps and pins, and he asked me not to stand on his before he asked anything else. His praise is rare and precise, much like his notes.",
+    first = "He asked me not to stand on his maps before anything else.",
     third = "{name} met Scout Galiaan of the People's Militia, who tracks the shifting Defias front on his map.",
   },
 

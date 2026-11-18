@@ -11,7 +11,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "proud" }, values = { "honest", "stern" },
   notices = { "craft" },
   impression = {
-    first = "Auntie Bernice Stonefield guards her kitchen like a fortress and her grudges like heirlooms. She had decided who stole her necklace long before anybody asked her.",
+    first = "She guards her kitchen like a fortress and her grudges like heirlooms.",
     third = "{name} met Auntie Bernice Stonefield, a baker with strong opinions about pie crusts and the Maclure family.",
   },
 
@@ -292,7 +292,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "sharp" }, values = { "stern", "honest" },
   notices = { "trophy" },
   impression = {
-    first = "Ma Stonefield is losing her whole crop to one enormous pig, and she takes it as a personal insult. She is not a crier, she says, and I believe her.",
+    first = "She says she is not a crier, and I believe her.",
     third = "{name} met Ma Stonefield, whose cabbages are being devoured by the Brackwells' prize sow, Princess.",
   },
 
@@ -545,7 +545,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "cowardly" }, values = { "witty" },
   notices = { "food", "wonder" },
   impression = {
-    first = "Before I'd accused him of anything, Billy Maclure had already sworn he didn't do it, which is either very honest or very suspicious. Mostly he seems hungry.",
+    first = "He swore he didn't do it before I'd accused him of anything.",
     third = "{name} met young Billy Maclure, accused of a theft he swears he didn't commit and hungry enough to bargain over it.",
   },
 

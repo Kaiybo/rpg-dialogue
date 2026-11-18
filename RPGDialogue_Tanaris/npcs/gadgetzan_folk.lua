@@ -10,7 +10,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Gimblethorn keeps Gadgetzan's vault and counts every coin twice, once for the Cartel and once for himself. He trusts the Bruisers more than the walls, and the walls more than anyone holding a sword.",
+    first = "He counts every coin twice, once for the Cartel and once himself.",
     third = "{name} met Gimblethorn, the goblin who keeps the bank in Gadgetzan.",
   },
 
@@ -265,7 +265,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Bera Stonehammer keeps the Alliance gryphons in Gadgetzan and spends half her day keeping sand out of their feathers. She speaks of the desert like a personal insult.",
+    first = "She speaks of the desert like a personal insult.",
     third = "{name} met Bera Stonehammer, the dwarf who keeps the Alliance gryphons in Gadgetzan.",
   },
 
@@ -512,7 +512,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Bulkrek Ragefist keeps the Horde's wind riders in Gadgetzan and says very little that isn't about them. He nods at the dwarf across the yard every morning, and seems to mean it.",
+    first = "He nods at the dwarf across the yard every morning.",
     third = "{name} met Bulkrek Ragefist, the orc who keeps the Horde's wind riders in Gadgetzan.",
   },
 
@@ -734,7 +734,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Dirge Quikcleave calls himself the greatest living chef in Azeroth and waves a cleaver to make the point. There is a drought in Gadgetzan, but somehow never a shortage of his meat.",
+    first = "There is a drought here, but never a shortage of his meat.",
     third = "{name} met Dirge Quikcleave, the boastful goblin butcher of Gadgetzan's inn.",
   },
 
@@ -954,7 +954,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Blizrik Buckshot sells guns in a town where the Bruisers forbid using them, and sees no contradiction in it. He test-fires everything into the same unlucky sand dune.",
+    first = "He test-fires everything into the same unlucky sand dune.",
     third = "{name} met Blizrik Buckshot, the goblin gunsmith of Gadgetzan.",
   },
 
@@ -1148,7 +1148,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Trenton Lighthammer works a forge by Gadgetzan's south gate and speaks of metal the way a priest speaks of prayer. He wants something from Zul'Farrak's trolls, and he is patient about it.",
+    first = "He wants something from Zul'Farrak's trolls, and he is patient about it.",
     third = "{name} met Trenton Lighthammer, the night elf smith by Gadgetzan's south gate.",
   },
 
@@ -1397,7 +1397,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Yeh'kinya is an old troll at Steamwheedle Port who says drink has dulled his eyes but not his inner sight. He talks about a dead god very calmly for someone who claims not to believe in him.",
+    first = "He speaks very calmly of a god he claims to disbelieve.",
     third = "{name} met Yeh'kinya, an old jungle troll at Steamwheedle Port who studies the god Hakkar.",
   },
 

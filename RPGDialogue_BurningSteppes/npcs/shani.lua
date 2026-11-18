@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "soldier" },
 
   impression = {
-    first = "Sha'ni Proudtusk is a ghost on the altar where Krom'Grul killed her, and she was angrier at losing her ring than at losing her life. Her last thoughts were all for Thal'trak.",
+    first = "She was angrier at losing her ring than at losing her life.",
     third = "{name} found the ghost of Sha'ni Proudtusk, a Kargath scout, on the altar atop Dreadmaul Rock in the Burning Steppes.",
   },
 

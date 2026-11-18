@@ -9,7 +9,7 @@ P:NPC {
   bible = "bibles/maclures.md", role = "farmer", tier = "quest", communities = { "goldshire" },
   temper = { "stubborn" }, values = { "proud", "family" }, notices = { "stealth", "kin" },
   impression = {
-    first = "Pa Maclure owns the vineyard, the house and, to hear him tell it, every opinion worth having on this side of the river. He looked at the Stonefield fields the way some men look at a storm cloud.",
+    first = "He looks at the Stonefield fields like a storm cloud.",
     third = "{name} met Pa Maclure, head of the Maclure family, who will hear nothing good said of the Stonefields.",
   },
   greetings = {
@@ -236,7 +236,7 @@ P:NPC {
   bible = "bibles/maclures.md", role = "vendor", tier = "service", communities = { "goldshire" },
   temper = { "easygoing" }, values = { "practical", "family" }, notices = { "drink" },
   impression = {
-    first = "Joshua Maclure sells the family's wine from outside the house, and he has a much easier manner than the man standing near him. He poured me a taste before I'd asked the price.",
+    first = "He poured me a taste of wine before I'd asked the price.",
     third = "{name} met Joshua Maclure, who sells drink at the Maclure Vineyards and smooths over what Pa says.",
   },
   greetings = {

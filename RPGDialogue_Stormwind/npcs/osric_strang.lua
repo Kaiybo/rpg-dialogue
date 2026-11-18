@@ -15,7 +15,7 @@ P:NPC {
   notices = { "soldier", "elf", "gear" },
 
   impression = {
-    first = "Osric Strang sells armor in Old Town and talks about the war as if it ended last week. He hates orcs with a soldier's patience, and he isn't much fonder of the night elves.",
+    first = "He talks about the war as if it ended last week.",
     third = "{name} bought nothing from Osric Strang, Old Town's armorer, but heard a good deal about orcs.",
   },
 

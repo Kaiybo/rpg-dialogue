@@ -9,7 +9,7 @@ P:NPC {
   notices = { "pet", "form" },
 
   impression = {
-    first = "Agnar Beastamer handles the beasts of Aerie Peak and treats every creature like a favourite nephew. He was openly jealous of my faerie dragon egg, and openly delighted to help hatch it.",
+    first = "He treats every creature like a favourite nephew.",
     third = "{name} met Agnar Beastamer, the Wildhammer animal handler of Aerie Peak.",
   },
 

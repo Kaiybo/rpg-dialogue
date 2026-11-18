@@ -10,7 +10,7 @@ P:NPC {
   spiritSensitive = true,
   notices = { "reputation", "paladin" },
   impression = {
-    first = "Highlord Bolvar Fordragon holds the kingdom for a boy and an absent king, and he looks tired in the way only honest men get tired. He asked me to speak plainly, and he meant it.",
+    first = "He looks tired in the way only honest men get tired.",
     third = "{name} stood before Highlord Bolvar Fordragon, Regent of Stormwind, who keeps the throne for a king who never came home.",
   },
 

@@ -14,7 +14,7 @@ P:NPC {
   notices = { "pet", "class" },
 
   impression = {
-    first = "Hekkru keeps Stonard's stables on the one patch of ground in town that doesn't flood, and he guards it like a treasure. He talks to the beasts more kindly than he talks to their owners.",
+    first = "He guards the one patch of ground that never floods.",
     third = "{name} met Hekkru, the stable master at Stonard, who keeps the beasts dry in a swamp that never is.",
   },
 
@@ -134,7 +134,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Rartar sells alchemy supplies in Stonard and keeps every vial on his shelf in an order only he understands. He works next to Rogvar the alchemist and quietly thinks he's the more careful of the two.",
+    first = "He keeps his vials in an order only he understands.",
     third = "{name} met Rartar, who sells vials and reagents to Stonard's alchemists.",
   },
 
@@ -229,7 +229,7 @@ P:NPC {
   notices = { "craft", "purse" },
 
   impression = {
-    first = "Banalash sells thread, dye, flux and everything else the craftsmen of Stonard need, and he keeps a running tally of who owes him what. He trades with the Booty Bay goblins and has picked up a little of their habit of pricing everything aloud.",
+    first = "He keeps a running tally of who owes him what.",
     third = "{name} met Banalash, the trade supplier at Stonard.",
   },
 
@@ -326,7 +326,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Gharash keeps the forge supplies at Stonard: flux, coal, stones and hammers. He's a quiet smith who says the swamp is the worst place on Azeroth to work iron, and then goes back to working it.",
+    first = "He calls the swamp the worst place for ironwork, then works it.",
     third = "{name} met Gharash, who sells blacksmithing supplies at Stonard.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   notices = { "craft", "swim" },
 
   impression = {
-    first = "Foreman Oslow told me to keep walking unless I carried a hammer. His bridge was meant to be finished before the rains, and the orcs have taken that personally.",
+    first = "He says to keep walking unless I carry a hammer.",
     third = "{name} met Foreman Oslow, who is rebuilding the Everstill Bridge at Lakeshire despite the orcs' interference.",
   },
 

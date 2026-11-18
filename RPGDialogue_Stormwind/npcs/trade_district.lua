@@ -9,7 +9,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "jovial" }, values = { "proud", "friendly" },
   notices = { "light", "kin", "drink" },
   impression = {
-    first = "Renato Gallina sells his family's wine to the whole Trade District square at the top of his voice. He'd decided I had discerning taste before I'd said a word, which I suspect he decides about everyone.",
+    first = "He decides everyone has discerning taste before they say a word.",
     third = "{name} met Renato Gallina, who cries the Gallina Winery's wine across the Trade District square.",
   },
 
@@ -266,7 +266,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "practical", "cunning" },
   notices = { "light", "kin", "watch" },
   impression = {
-    first = "Elaine Trias makes the cheese her husband sells, and she watches the shop's stairs as closely as the counter. Very little gets past her, and she let me see that on purpose.",
+    first = "Very little gets past her, and she lets you see that.",
     third = "{name} met Elaine Trias, the Mistress of Cheese in the Trias family's Trade District shop.",
   },
 
@@ -498,7 +498,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "warm" }, values = { "practical", "hardworking" },
   notices = { "light", "kin", "kit" },
   impression = {
-    first = "Thurman Mullby keeps a list of everything travellers forget to pack and reads it aloud to anyone who stands still. He sold me water and a bag I hadn't known I needed.",
+    first = "He keeps a list of everything travellers forget to pack.",
     third = "{name} met Thurman Mullby of Everyday Merchandise, who sells the Trade District what it forgot to pack.",
   },
 
@@ -678,7 +678,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gruff" }, values = { "proud", "honest" },
   notices = { "light", "kin", "kit" },
   impression = {
-    first = "Gunther Weller judges a buyer by how they hold a blade, not by what they say about it. He has little patience for shine and endless patience for balance.",
+    first = "He has little patience for shine and endless patience for balance.",
     third = "{name} met Gunther Weller of Weller's Arsenal, a blunt weapons merchant by the auction house.",
   },
 
@@ -858,7 +858,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "eager" }, values = { "loyal", "proud" },
   notices = { "light", "kin", "deed" },
   impression = {
-    first = "Crier Goodman carries the city's news in a voice made for a parade ground and a heart that loves gossip. He announced me to the whole street before I'd introduced myself.",
+    first = "He will announce you to the whole street before you introduce yourself.",
     third = "{name} met Crier Goodman, Stormwind's town crier, who calls heroes to the far corners of the world.",
   },
 
@@ -1115,7 +1115,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "jovial" }, values = { "practical", "patient" },
   notices = { "light", "kin", "dwarf" },
   impression = {
-    first = "Dungar Longdrink talks about his gryphons the way a captain talks about his crew, and about walking the way a priest talks about sin. He's human, whatever his name suggests, and tired of saying so.",
+    first = "He is human, whatever his name suggests, and tired of saying so.",
     third = "{name} met Dungar Longdrink, Stormwind's gryphon master at the roost in the Trade District.",
   },
 
@@ -1334,7 +1334,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "practical", "careful" },
   notices = { "light", "kin", "craft" },
   impression = {
-    first = "Morgan Pestle runs the city half of the Pestle family's apothecary with a careful hand and a running grumble about his brother in Goldshire. He measured me up the way he'd measure a powder.",
+    first = "He measures a person up the way he would measure a powder.",
     third = "{name} met Morgan Pestle, alchemist of Pestle's Apothecary in the Trade District.",
   },
 
@@ -1534,7 +1534,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "brisk" }, values = { "practical", "hardworking" },
   notices = { "light", "kin", "kit" },
   impression = {
-    first = "Harlan Bagley's armory is doing better business than it ever has, and it worries him that he doesn't know why. He told me so between two sales.",
+    first = "His armory has never done better, and not knowing why worries him.",
     third = "{name} met Harlan Bagley, who keeps the Lionheart Armory on the Trade District square.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "kit" },
 
   impression = {
-    first = "Yashiro is an orc blademaster who speaks quietly and means every word of it. He is hunting the demons in Dae'gun with a patience that looks a great deal like grief.",
+    first = "His patience with the demons looks a great deal like grief.",
     third = "{name} met Yashiro, a solitary orc blademaster waging his own war on the demons who still hide on Mount Hyjal.",
   },
 

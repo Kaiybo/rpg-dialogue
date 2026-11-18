@@ -9,7 +9,7 @@ P:NPC {
   communities = { "bloodhoof" }, temper = { "steady" }, values = { "patient", "brave" },
   notices = { "class", "greenness" },
   impression = {
-    first = "Ruul Eagletalon calls himself a warrior and a teacher, and he tests the young of Bloodhoof against the Windfury harpies before they go further from home. He is patient, and he expects you to come back.",
+    first = "He is patient, and he expects you to come back.",
     third = "{name} met Ruul Eagletalon in Bloodhoof Village, a warrior who tests young tauren against the Windfury harpies.",
   },
 

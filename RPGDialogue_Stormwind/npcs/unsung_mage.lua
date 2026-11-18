@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "restless" }, values = { "duty", "craft" },
   notices = { "craft", "soldier" },
   impression = {
-    first = "Lilyssia Nightbreeze teaches alchemy in a small shop in the Mage Quarter and plainly wishes she were fighting outside the walls instead. She teaches well anyway, out of duty, and says so.",
+    first = "She plainly wishes she were fighting outside the walls instead.",
     third = "{name} met Lilyssia Nightbreeze, a night elf alchemist teaching in Stormwind's Mage Quarter.",
   },
   greetings = {
@@ -189,7 +189,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "gracious" }, values = { "nature", "alliance" },
   notices = { "race" },
   impression = {
-    first = "Eldraeith sells herbs and tools carried by hand from Teldrassil, and she presents each one as a gift between two peoples. She was gracious and rather formal, and she meant every word.",
+    first = "She presents each herb as a gift between two peoples.",
     third = "{name} met Eldraeith, who sells Teldrassil's herbs in the Mage Quarter.",
   },
   greetings = {
@@ -361,7 +361,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "vain" }, values = { "beauty", "craft" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Georgio Bolero teaches tailoring at Duncan's Textiles and looked at my clothes before he looked at my face. He was vain about his cut and generous with his lessons, and business, he said, has never been better.",
+    first = "He is vain about his cut and generous with his lessons.",
     third = "{name} met Georgio Bolero, who teaches tailoring at Duncan's Textiles in the Mage Quarter.",
   },
   greetings = {
@@ -527,7 +527,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "practical" }, values = { "practical", "craft" },
   notices = { "craft" },
   impression = {
-    first = "Alexandra Bolero sells thread and dye at Duncan's Textiles and keeps her head while Georgio fusses over hems. She told me where the city's good thread comes from now that Dalaran is gone.",
+    first = "She keeps her head while Georgio fusses over hems.",
     third = "{name} met Alexandra Bolero, who sells tailoring supplies at Duncan's Textiles.",
   },
   greetings = {
@@ -697,7 +697,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "earnest" }, values = { "craft", "family" },
   notices = { "greenness" },
   impression = {
-    first = "Lawrence Schneider teaches beginning tailors at Duncan's Textiles and talks about weaving as though it explained the whole world. He was young, earnest and a little grand, and I liked him for it.",
+    first = "He talks about weaving as though it explained the whole world.",
     third = "{name} met Lawrence Schneider, a young tailor who teaches beginners at Duncan's Textiles.",
   },
   greetings = {
@@ -867,7 +867,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "enthusiastic" }, values = { "arcane", "trade" },
   notices = { "class" },
   impression = {
-    first = "Ardwyn Cailen sells wands at Stormwind Staves and talks about each one as if it had a temper of its own. She mourned Dalaran mostly for its workshops, and she was honest about that.",
+    first = "She mourns Dalaran mostly for its workshops, and is honest about it.",
     third = "{name} met Ardwyn Cailen, who sells wands at Stormwind Staves in the Mage Quarter.",
   },
   greetings = {
@@ -1027,7 +1027,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "quiet" }, values = { "arcane", "curiosity" },
   notices = { "arcane" },
   impression = {
-    first = "Charys Yserian keeps a cramped curio shop in the Mage Quarter and speaks softly, as though the trinkets might be listening. She knew the story of every odd thing on her shelves, or said she did.",
+    first = "She speaks softly, as though the trinkets might be listening.",
     third = "{name} met Charys Yserian, who keeps a shop of arcane curios in the Mage Quarter.",
   },
   greetings = {
@@ -1197,7 +1197,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "patient" }, values = { "craft", "practical" },
   notices = { "class", "kit" },
   impression = {
-    first = "Wynne Larson sells robes in the Mage Quarter and keeps young Thurman Schneider as an apprentice, which she described as a test of faith. She had dry patience and a good eye for a cut.",
+    first = "She calls keeping her apprentice a test of faith.",
     third = "{name} met Wynne Larson, who sells robes at Larson Clothiers in the Mage Quarter.",
   },
   greetings = {

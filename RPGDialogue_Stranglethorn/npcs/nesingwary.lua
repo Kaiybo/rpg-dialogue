@@ -11,7 +11,7 @@ P:NPC {
   notices = { "class", "pet", "kit" },
 
   impression = {
-    first = "Hemet Nesingwary hushed me so I wouldn't scare the game, then talked about the great cat for a quarter of an hour. Hunting is the whole of the man.",
+    first = "Hunting is the whole of the man.",
     third = "{name} found Hemet Nesingwary at his camp in Stranglethorn, where the famous hunter is after raptors, panthers, tigers and the great cat himself.",
   },
 
@@ -422,7 +422,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Barnil Stonepot keeps Nesingwary's camp, kit and book, and he is fiercely proud of all three. He asked me to pick up any loose pages I found.",
+    first = "He asks that I pick up any loose pages I find.",
     third = "{name} met Barnil Stonepot, who keeps Hemet Nesingwary's camp and minds the great hunter's book with fierce pride.",
   },
 
@@ -720,7 +720,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Ajeck Rouack restrung her bow while we talked and never once looked up. She means to take Sin'Dall someday, and she says it like a plain fact.",
+    first = "She means to take Sin'Dall someday, and says it like plain fact.",
     third = "{name} met Ajeck Rouack at Nesingwary's camp, a tiger hunter who means one day to bring down Sin'Dall.",
   },
 
@@ -944,7 +944,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Sir Erlgadin was a count in Stormwind once and would rather nobody mentioned it. He hunts panthers now, and he seems to find them better company than nobles.",
+    first = "He finds panthers better company than nobles.",
     third = "{name} met Sir S. J. Erlgadin, a former count of Stormwind who gave up the House of Nobles to hunt panthers in Stranglethorn.",
   },
 

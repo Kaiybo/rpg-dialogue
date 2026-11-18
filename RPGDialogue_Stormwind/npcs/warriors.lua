@@ -11,7 +11,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "calm" }, values = { "dutiful", "patient" },
   notices = { "kit", "guard" },
   impression = {
-    first = "Wu Shen teaches warriors in Old Town as if every lesson were the same lesson said again, and perhaps it is. He watched my feet before he looked at my face.",
+    first = "He teaches every lesson as if it were the same lesson.",
     third = "{name} met Wu Shen, the senior of Stormwind's warrior trainers in Old Town, who teaches stance before anything else.",
   },
 
@@ -297,7 +297,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "jovial" }, values = { "brave", "ambitious" },
   notices = { "kit", "fresh" },
   impression = {
-    first = "Ilsa Corbin trains warriors in Old Town with a grin and a very large sword, and she plainly enjoys both. She called me recruit and made it sound like a dare.",
+    first = "She calls me recruit and makes it sound like a dare.",
     third = "{name} met Ilsa Corbin, a cheerful and ferocious warrior trainer in Stormwind's Old Town.",
   },
 
@@ -522,7 +522,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "loyal", "dutiful" },
   notices = { "kit", "ally" },
   impression = {
-    first = "Ander Germaine teaches the shield and talks about the line as if it were a living thing he's responsible for. He seemed worried about the provinces, and about me, in roughly that order.",
+    first = "He talks about the line as a living thing he must protect.",
     third = "{name} met Ander Germaine, a steady warrior trainer in Stormwind's Old Town who teaches the shield and the line.",
   },
 

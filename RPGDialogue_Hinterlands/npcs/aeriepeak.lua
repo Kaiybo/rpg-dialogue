@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Falstad Wildhammer greets visitors like long-lost kin and talks of trolls the way other people talk of weather to be got through. A Wildhammer and his gryphon, he says, are one creature.",
+    first = "He says a Wildhammer and his gryphon are one creature.",
     third = "{name} met Falstad Wildhammer, High Thane of the Wildhammer clan, at Aerie Peak.",
   },
 
@@ -390,7 +390,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Gryphon Master Talonaxe would plainly rather be in the air than talking to me. He keeps the aeries safe from the trolls, and I don't think he's ever lost an argument with one.",
+    first = "I don't think he has ever lost an argument with a troll.",
     third = "{name} met Gryphon Master Talonaxe, who keeps the aviary at Aerie Peak safe from the forest trolls.",
   },
 
@@ -627,7 +627,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Fraggar Thundermantle's eyes are failing, but he listens to the land and says it is not happy. The Vilebranch rites trouble him deeply.",
+    first = "His eyes are failing, but he hears the land's unhappiness.",
     third = "{name} sat with Fraggar Thundermantle, who speaks for the spirits of the Hinterlands at Aerie Peak.",
   },
 
@@ -897,7 +897,7 @@ P:NPC {
   notices = { "drink", "weary" },
 
   impression = {
-    first = "Innkeeper Thulfram promised a fire hot enough to thaw a gryphon and very nearly delivered. Everyone ends up at his bar sooner or later, he says, and I believe it.",
+    first = "He says everyone ends up at his bar sooner or later.",
     third = "{name} rested at Innkeeper Thulfram's inn at Aerie Peak, where gryphon riders and wanderers all end up at his bar.",
   },
 

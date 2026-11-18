@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "money" },
 
   impression = {
-    first = "Kum'isha the Collector is a broken draenei who sneers that every race smells of greed, then sends you looking for crystals. Under the contempt there is a homesickness so old it has gone hard.",
+    first = "Under his contempt is a homesickness so old it has gone hard.",
     third = "{name} met Kum'isha the Collector, a Lost One who searches the Blasted Lands for draenethyst to carry him home.",
   },
 
@@ -336,7 +336,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Bloodmage Drazial studies the beasts of the Blasted Lands with the delight of a man unpacking presents, and he looks at people the same way. He called me a test subject and meant it as a compliment.",
+    first = "He called me a test subject and meant it as a compliment.",
     third = "{name} met Bloodmage Drazial, an elven bloodmage studying the strength of the Blasted Lands' beasts.",
   },
 
@@ -640,7 +640,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "Bloodmage Lynnore speaks of basilisks with more respect than she shows most people. She is cold, clever and fond of her brother in a way she would never admit to his face.",
+    first = "She is fonder of her brother than she would ever admit.",
     third = "{name} met Bloodmage Lynnore, Drazial's sister, who studies how the basilisks and vultures of the Blasted Lands think and heal.",
   },
 
@@ -933,7 +933,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Daio the Decrepit is an old man at a demon altar in the Tainted Scar, smiling as if the place were a garden. He speaks plainly about the price of power, and I believe he has paid it.",
+    first = "I believe he has paid the price of power he speaks of.",
     third = "{name} met Daio the Decrepit, an old warlock who teaches the binding of demons from an altar in the Tainted Scar.",
   },
 

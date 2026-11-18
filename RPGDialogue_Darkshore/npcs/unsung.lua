@@ -11,7 +11,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "wry", "competitive" }, values = { "trade", "friendship" },
   notices = { "craft" },
   impression = {
-    first = "Laird sells fish in the Auberdine inn and claims the Darkshore coast is more dangerous and more rewarding than anything Teldrassil offers. He talks about Nessa Shadowsong like a rival he would be lost without.",
+    first = "He talks about Nessa Shadowsong like a rival he'd be lost without.",
     third = "{name} met Laird, Auberdine's fishmonger, who trades with Nessa Shadowsong across the water.",
   },
 
@@ -227,7 +227,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "anxious", "conscientious" }, values = { "preparedness", "duty" },
   notices = { "greenness" },
   impression = {
-    first = "Dalmond sells general goods in Auberdine and worries out loud about what travelers have forgotten to pack. His anxiety is tiring, but it comes from a good place.",
+    first = "His worrying is tiring, but it comes from a good place.",
     third = "{name} met Dalmond, Auberdine's worried general goods vendor.",
   },
 
@@ -409,7 +409,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "genial", "easygoing" }, values = { "hospitality", "simplicity" },
   notices = { "drink", "race" },
   impression = {
-    first = "Taldan sells juices and milk in Auberdine and takes real pleasure in a traveler who enjoys a cold drink. He seems to think most troubles look smaller after a cup of moonberry juice.",
+    first = "He thinks most troubles look smaller after a cup of moonberry juice.",
     third = "{name} met Taldan, who sells drinks in Auberdine to anyone tired from the road.",
   },
 
@@ -592,7 +592,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "gruff", "proud" }, values = { "strength", "craft" },
   notices = { "class" },
   impression = {
-    first = "Naram Longclaw sells weapons in Auberdine and judges a customer by the scars on their hands. He is gruff, but he takes his trade seriously.",
+    first = "He judges a customer by the scars on their hands.",
     third = "{name} met Naram Longclaw, Auberdine's gruff weaponsmith.",
   },
 
@@ -774,7 +774,7 @@ P:NPC {
   communities = { "auberdine" }, temper = { "hearty", "blunt" }, values = { "craft", "trade" },
   notices = { "craft", "race" },
   impression = {
-    first = "Elisa Steelhand is a dwarf selling coal and flux among the night elves of Auberdine, and she seems to enjoy being the loudest voice on the docks. She speaks her mind and expects you to speak yours.",
+    first = "She speaks her mind and expects me to speak mine.",
     third = "{name} met Elisa Steelhand, a dwarf who sells blacksmithing supplies in Auberdine.",
   },
 

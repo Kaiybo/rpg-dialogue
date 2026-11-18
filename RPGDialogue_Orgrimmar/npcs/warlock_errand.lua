@@ -13,7 +13,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "proud", "smooth" }, values = { "ambitious", "practical" },
   notices = { "fel", "class" },
   impression = {
-    first = "Gan'rul Bloodeye teaches warlocks in the Cleft of Shadow and calls each promising one his star pupil, which is flattering until you notice he says it to all of them. He is warm about power and cool about what it costs other people.",
+    first = "He calls every promising warlock his star pupil.",
     third = "{name} met Gan'rul Bloodeye, a warlock trainer in Orgrimmar's Cleft of Shadow.",
   },
 
@@ -110,7 +110,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm", "grim" }, values = { "ambitious", "cunning" },
   notices = { "fel", "class" },
   impression = {
-    first = "Cazul is a blind orc warlock so old that his tusks have yellowed to the colour of bone, and he turns his face toward voices a moment before they speak. He talks of power as a debt that must always be paid, and he sounds as if he has paid a great deal of it.",
+    first = "He calls power a debt, and sounds as if he has paid.",
     third = "{name} met Cazul, an ancient and blind warlock in Orgrimmar's Cleft of Shadow.",
   },
 
@@ -204,7 +204,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "anxious", "warm" }, values = { "loyal", "honest" },
   notices = { "class", "weary" },
   impression = {
-    first = "Zankaja is a young orc who keeps watch from the bluffs west of the wind rider tower, looking down the road toward the Barrens. Her mate Dogran went to the Crossroads on a promotion and hasn't come back, and she asks every traveller for news.",
+    first = "She asks every traveller for news of her mate at the Crossroads.",
     third = "{name} met Zankaja, a young orc in Orgrimmar waiting for her mate, Grunt Dogran, to come home from the Crossroads.",
   },
 

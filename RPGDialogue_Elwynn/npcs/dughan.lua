@@ -9,7 +9,7 @@ P:NPC {
   communities = { "goldshire" }, temper = { "proud" }, values = { "stern", "brave" }, likesTone = "polite",
   notices = { "reputation", "bounty" },
   impression = {
-    first = "Marshal Dughan keeps Goldshire standing on stubbornness and very little sleep. He looked at me the way a man looks at one more pair of hands.",
+    first = "He looks at me like one more pair of hands.",
     third = "{name} met Marshal Dughan, who keeps Goldshire standing on stubbornness and very little sleep.",
   },
 

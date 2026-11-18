@@ -15,7 +15,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "gruff" }, values = { "dutiful", "proud" },
   notices = { "travel", "class" },
   impression = {
-    first = "Devrak keeps the wind riders at the Crossroads and talks about them more fondly than about most people. He knows every route over the Barrens and which ones the harpies like to watch.",
+    first = "He knows which routes the harpies like to watch.",
     third = "{name} met Devrak, the wind rider master of the Crossroads.",
   },
   greetings = {
@@ -179,7 +179,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "gruff" }, values = { "practical" },
   notices = { "purse", "hunger" },
   impression = {
-    first = "Barg sells general supplies at the Crossroads and seems to think everyone who walks into the Barrens without enough water is a fool. He is probably right.",
+    first = "He thinks travelers without water are fools, and he is probably right.",
     third = "{name} bought supplies from Barg, who keeps the general goods at the Crossroads.",
   },
   greetings = {
@@ -346,7 +346,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "cheerful" }, values = { "curious", "shrewd" },
   notices = { "craft", "class" },
   impression = {
-    first = "Hula'mahi sells reagents and herbs at the Crossroads with a troll's grin and a merchant's sharp eye. She knows which spellcaster needs which powder before they ask.",
+    first = "She knows which powder a spellcaster needs before they ask.",
     third = "{name} met Hula'mahi, the troll who sells reagents and herbs at the Crossroads.",
   },
   greetings = {
@@ -538,7 +538,7 @@ P:NPC {
   communities = { "crossroads" }, temper = { "blunt" }, values = { "practical", "craft" },
   notices = { "class", "kit" },
   impression = {
-    first = "Uthrok sells bows and guns at the Crossroads and has strong opinions about which one is better. He talks about the Barrens as a place made for anyone who can shoot from a distance.",
+    first = "He has strong opinions on whether bows or guns are better.",
     third = "{name} met Uthrok, the bowyer and gunsmith of the Crossroads.",
   },
   greetings = {
@@ -710,7 +710,7 @@ P:NPC {
   communities = { "taurajo" }, temper = { "calm" }, values = { "patient", "kind" },
   notices = { "travel", "weary" },
   impression = {
-    first = "Omusa Thunderhorn keeps the wind riders at Camp Taurajo and calls them by name, one by one. He is calm and slow to speak, and he worries about the dwarves and quilboar to the south.",
+    first = "He calls each of his wind riders by name.",
     third = "{name} met Omusa Thunderhorn, the wind rider master of Camp Taurajo.",
   },
   greetings = {
@@ -877,7 +877,7 @@ P:NPC {
   temper = { "gruff" }, values = { "practical" },
   notices = { "travel" },
   impression = {
-    first = "Bragok runs the flight point in Ratchet and has no patience for the goblins' prices on everything else. He is gruff, and plainly happier with his beasts than with the town.",
+    first = "He is plainly happier with his beasts than with the town.",
     third = "{name} met Bragok, the flight master of Ratchet.",
   },
   greetings = {
@@ -1038,7 +1038,7 @@ P:NPC {
   temper = { "warm" }, values = { "practical", "craft" },
   notices = { "craft" },
   impression = {
-    first = "Wenna Silkbeard sells thread and dye in Ratchet and talks about the colours the way other merchants talk about gold. She is warm and quick, and she knows where every bolt of cloth in the Barrens comes from.",
+    first = "She talks about colours the way other merchants talk about gold.",
     third = "{name} met Wenna Silkbeard, who sells tailoring supplies in Ratchet.",
   },
   greetings = {
@@ -1197,7 +1197,7 @@ P:NPC {
   temper = { "smooth" }, values = { "greedy", "shrewd" },
   notices = { "purse", "kit" },
   impression = {
-    first = "Ironzar sells weapons in Ratchet with a goblin's grin and a goblin's prices. Every blade has a story, to hear him tell it, and every story makes it more expensive.",
+    first = "Every blade has a story, and every story raises the price.",
     third = "{name} met Ironzar, the goblin weaponsmith of Ratchet.",
   },
   greetings = {

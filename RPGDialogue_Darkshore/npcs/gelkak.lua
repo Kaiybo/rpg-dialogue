@@ -9,7 +9,7 @@ P:NPC {
   communities = { "darkshore_wilds" }, temper = { "blustering", "cheerful" }, values = { "pride", "invention" },
   notices = { "race", "craft" },
   impression = {
-    first = "Gelkak Gyromast talks like a pirate and thinks like a tinker, and he lost his ship to the Threshadons without losing a scrap of swagger. His first mate is a machine, and he speaks of it more fondly than most captains speak of their crews.",
+    first = "His first mate is a machine, and he speaks of it fondly.",
     third = "{name} met Gelkak Gyromast, a shipwrecked gnome captain on Darkshore's northern shore, and heard all about his mechanical first mate.",
   },
 

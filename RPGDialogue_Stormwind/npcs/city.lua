@@ -10,7 +10,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "lawful" },
   notices = { "stealth", "watch" },
   impression = {
-    first = "Master Mathias Shaw talks like a man who has already read my file, and he probably has. I couldn't tell whether he approved of me or merely made a note.",
+    first = "He talks like a man who has already read my file.",
     third = "{name} met Master Mathias Shaw, head of SI:7, who listened to every word I said and gave back almost none.",
   },
 
@@ -449,7 +449,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "curious", "lawful" },
   notices = { "arcane" },
   impression = {
-    first = "Jennea Cannon teaches in the Wizard's Sanctum, where even the floor is warded, and she doesn't hand out compliments lightly. Her praise comes in very small measures, and it seems to be worth earning.",
+    first = "Her praise comes in very small measures and is worth earning.",
     third = "{name} met Jennea Cannon of the Wizard's Sanctum, a mage trainer who believes everyone's fundamentals have gaps.",
   },
 
@@ -707,7 +707,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "sharp" }, values = { "cunning", "ambitious" },
   notices = { "pet", "watch" },
   impression = {
-    first = "Gakin the Darkbinder teaches beneath the Slaughtered Lamb and values discretion above everything. He spoke as though every word cost him something he meant to be repaid.",
+    first = "Every word seems to cost him something he means to have repaid.",
     third = "{name} met Gakin the Darkbinder, the warlock trainer beneath the Slaughtered Lamb, who pays well for silence.",
   },
 
@@ -982,7 +982,7 @@ P:NPC {
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "generous" },
   notices = { "guest", "drink" },
   impression = {
-    first = "Innkeeper Allison runs the Gilded Rose between the bank and the auction house, so she feeds the newly rich and the newly poor alike. She called me love before she even knew my name.",
+    first = "She feeds the newly rich and the newly poor alike.",
     third = "{name} took a room at the Gilded Rose, where Innkeeper Allison keeps the fire lit for every tired traveler.",
   },
 

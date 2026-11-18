@@ -15,7 +15,7 @@ P:NPC {
   notices = { "race", "kit" },
 
   impression = {
-    first = "Gabrielle Chase sells cheese and drink out of a tent at Morgan's Vigil, and she keeps a pot on even when there's nobody to eat from it. She talks about the Steppes like a woman who has decided not to be afraid of them, and mostly manages it.",
+    first = "She has decided not to fear the Steppes, and mostly manages it.",
     third = "{name} met Gabrielle Chase, who keeps Morgan's Vigil fed from a tent among the ruins.",
   },
 

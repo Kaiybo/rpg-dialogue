@@ -10,7 +10,7 @@ P:NPC {
   notices = { "soldier", "stealth" },
 
   impression = {
-    first = "Guard Berton wants a condemned orc dead and doesn't much care whether a court agrees. He spoke of justice like a man who has watched it bought and sold.",
+    first = "He speaks of justice like a man who has seen it sold.",
     third = "{name} met Guard Berton of Lakeshire, who wants Targorr the Dread killed in the Stockade before politics sets him free.",
   },
 

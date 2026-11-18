@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Corporal Thund Splithoof is a tauren ghost who rose from the swamp when the Fallen Hero called him. He gave away his clan's relic as easily as another soldier might share a ration, and he seemed glad to.",
+    first = "He gave away his clan's relic as easily as sharing a ration.",
     third = "{name} met the spirit of Corporal Thund Splithoof, a tauren of Thrall's Grasp, by the road from the Swamp of Sorrows to the Blasted Lands.",
   },
 

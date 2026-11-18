@@ -2,6 +2,14 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.86.0 (2026-11-18)
+A briefer journal: the character jots down what matters instead of writing a paragraph about everything. No new files, so a /reload is enough.
+
+- **The Diary keeps events only.** Meeting someone no longer writes a diary entry, and story beats are no longer copied out word for word (they're still on the Stories page). What's left: choices that mattered, first arrivals, deaths, milestones, dungeons, letters and books.
+- **Short notes on People.** Every person's note is one sentence of 12 words or fewer (2,124 rewritten, about a third of the old length), under a single status line ("Warm  ·  spoken 3 times  ·  today"). The "last thing they said" quote is gone.
+- **Shorter built-in lines.** First arrivals in all 64 zones, the first death, level milestones and dungeon entries are one short sentence each.
+- **Old diaries are tidied on login.** The per-person paragraphs and copied story quotes already in your diary are removed once (the notes still show on People). Your own Notes page is untouched.
+
 ## 0.85.0 (2026-11-18)
 Six pieces of work in one release. **New files: restart the game fully (a /reload won't load them).**
 

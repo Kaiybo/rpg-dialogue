@@ -9,7 +9,7 @@ P:NPC {
   communities = { "stonetalon_border" }, temper = { "intense", "earnest" }, values = { "spirits", "duty" },
   notices = { "class", "craft" },
   impression = {
-    first = "Seereth Stonebreak hears the spirits of Stonetalon screaming as the goblins cut, and she has not slept well since. She is young for a shaman, and she knows it, and she has asked for help without shame.",
+    first = "She hears the spirits screaming and has not slept well since.",
     third = "{name} met Seereth Stonebreak, an orc shaman on the Stonetalon border who hears the mountains' spirits raging at the Venture Company.",
   },
 

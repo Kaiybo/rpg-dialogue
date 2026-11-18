@@ -9,7 +9,7 @@ P:NPC {
   communities = { "maestras_post" }, temper = { "gentle", "earnest" }, values = { "healing", "nature" },
   notices = { "craft", "weary" },
   impression = {
-    first = "Orendil Broadleaf knows the herbs of Ashenvale by their leaves and by their lies. He thinks the Whitemoon child's sickness is more than the body can carry, and he is not too proud to say his cure may not be enough.",
+    first = "He is not too proud to say his cure may fall short.",
     third = "{name} met Orendil Broadleaf, a healer at Maestra's Post who brewed a cure for Pelturas Whitemoon's sick daughter from Bathran's Hair.",
   },
 

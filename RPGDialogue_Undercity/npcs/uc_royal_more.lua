@@ -12,7 +12,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cold", "sharp" }, values = { "loyal", "cunning" },
   notices = { "race", "class" },
   impression = {
-    first = "Sharlindra is a banshee who drifts at the edge of the Royal Quarter, close enough to the Dark Lady to hear everything said in her presence. Her voice is soft and cold, and she treats every visitor as a tool whose usefulness she hasn't yet decided.",
+    first = "To her, every visitor is a tool of undecided usefulness.",
     third = "{name} met Sharlindra, a banshee who serves Lady Sylvanas in the Royal Quarter of the Undercity.",
   },
 
@@ -112,7 +112,7 @@ P:NPC {
   communities = { "undercity" }, temper = { "cheerful", "anxious" }, values = { "curious" },
   notices = { "class", "race" },
   impression = {
-    first = "Jorah Annison is employed as a cartographer in the Magic Quarter and despises every map he draws. What he loves are books, narrative and description, and he's read every one the Undercity has, which isn't many.",
+    first = "He despises every map he draws and loves books instead.",
     third = "{name} met Jorah Annison, a book-starved Forsaken cartographer in the Undercity's Magic Quarter.",
   },
 

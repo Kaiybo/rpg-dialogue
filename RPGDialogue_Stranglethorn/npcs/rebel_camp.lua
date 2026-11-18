@@ -9,7 +9,7 @@ P:NPC {
   notices = { "kit", "soldier" },
 
   impression = {
-    first = "Lieutenant Doren met me with a drawn sword and a hard question about Colonel Kurzen. Whatever took the Colonel's mind, this man has not forgiven it.",
+    first = "He has not forgiven whatever took Colonel Kurzen's mind.",
     third = "{name} was challenged at the rebel camp by Lieutenant Doren, who led the men who broke from Colonel Kurzen's expedition.",
   },
 
@@ -424,7 +424,7 @@ P:NPC {
   notices = { "class", "craft", "form" },
 
   impression = {
-    first = "Brother Nimetz has glassware drying on every flat surface of a jungle camp, and he apologized to me for nearly knocking over a flask I hadn't touched. He tended the sick, and now he studies what drove them mad.",
+    first = "He tended the sick, and now he studies what drove them mad.",
     third = "{name} met Brother Nimetz at the rebel camp, a priest studying the sickness of mind that took Colonel Kurzen and his men.",
   },
 
@@ -752,7 +752,7 @@ P:NPC {
   notices = { "stealth", "kit" },
 
   impression = {
-    first = "Private Thorsen spent time inside Kurzen's force pretending to be one of them, and he still keeps his voice down out of habit. He knows more than he's said.",
+    first = "He keeps his voice down and knows more than he says.",
     third = "{name} met Private Thorsen, who went among Colonel Kurzen's men in disguise and nearly did not come back.",
   },
 

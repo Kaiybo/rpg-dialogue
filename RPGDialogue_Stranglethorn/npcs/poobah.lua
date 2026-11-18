@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "status" },
 
   impression = {
-    first = "Princess Poobah is a tauren held captive by a gorilla king on Jaguero Isle, and she was more upset about her treatment than her danger. She insists on being called a princess, and I didn't feel brave enough to ask of what.",
+    first = "I am not brave enough to ask what she is princess of.",
     third = "{name} found Princess Poobah, a tauren captive of King Mukla, on Jaguero Isle off the coast of Stranglethorn.",
   },
 

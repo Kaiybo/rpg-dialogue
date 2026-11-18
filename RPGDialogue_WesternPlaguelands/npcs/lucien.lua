@@ -9,7 +9,7 @@ P:NPC {
   communities = { "caer_darrow" }, temper = { "reserved" }, values = { "dutiful", "loyal" },
   notices = { "status", "class" },
   impression = {
-    first = "Lucien Sarkhoff still stands like a butler waiting at a door, though the house he served is a school of necromancy and he has been dead for years. He lets his wife do the talking, and when he speaks himself, every word is chosen with care.",
+    first = "He still stands like a butler waiting at a door.",
     third = "{name} met Lucien Sarkhoff, once butler to House Barov, now a ghost keeping vigil at Caer Darrow with his wife Eva.",
   },
 

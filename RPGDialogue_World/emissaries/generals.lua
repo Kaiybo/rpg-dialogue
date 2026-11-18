@@ -19,7 +19,7 @@ P:NPC {
   notices = { "pvp", "soldier" },
 
   impression = {
-    first = "The Brigadier General is a grey-moustached human officer with ink on his cuffs and three battle reports open at once. He talks about Ashenvale, Arathi and Alterac as if they were one map, and he's plainly tired of being the only one who sees it that way.",
+    first = "He sees all three battlegrounds as one map, and nobody else does.",
     third = "{name} met the Alliance Brigadier General, the officer who collects marks from all three battlegrounds and grumbles that the Sentinels, the Arathorians and the Stormpike will not fight as one army.",
   },
 
@@ -371,7 +371,7 @@ P:NPC {
   notices = { "pvp", "race" },
 
   impression = {
-    first = "The Warbringer is a scarred orc officer who speaks of the battlegrounds as the place where the Horde proves itself to the world. He spoke of Thrall's honor as a law, and I believe he'd break any grunt who stained it.",
+    first = "I believe he'd break any grunt who stained Thrall's honor.",
     third = "{name} met the Horde Warbringer, an orc who collects marks from all three battlegrounds and holds that the Horde's honor matters as much as its victories.",
   },
 

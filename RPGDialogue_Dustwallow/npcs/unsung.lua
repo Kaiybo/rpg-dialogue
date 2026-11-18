@@ -10,7 +10,7 @@ P:NPC {
   notices = { "hunger", "weary" },
 
   impression = {
-    first = "Charity Mipsy runs Theramore's general store and talks about the marsh as though it were a badly behaved neighbor. She seemed to know every soldier's boot size and every sailor's sweet tooth.",
+    first = "She knows every soldier's boot size and every sailor's sweet tooth.",
     third = "{name} met Charity Mipsy, who keeps the general store in Theramore.",
   },
 
@@ -216,7 +216,7 @@ P:NPC {
   notices = { "kit", "class" },
 
   impression = {
-    first = "Hans Weston makes armor and shields for Theramore's guard and grumbles at the damp the way other men grumble at the king. He clearly takes rust as a personal enemy.",
+    first = "He takes rust as a personal enemy.",
     third = "{name} met Hans Weston, the armorer and shieldsmith of Theramore.",
   },
 
@@ -423,7 +423,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Piter Verance sells weapons in Theramore and has an easy manner that doesn't match the trade. He spoke of Theramore's peace with real fondness and of the marsh's beasts with real respect.",
+    first = "His easy manner doesn't match the weapons he sells.",
     third = "{name} met Piter Verance, a weaponsmith of Theramore.",
   },
 

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.1 (2026-11-18)
+- Journal: the note about each person is one short sentence (12 words or fewer) and shows on the People page only, not in the diary.
+
 ## 1.27.0 (2026-11-18)
 - NPCs notice what you have done: quests for their neighbours, notable kills, your deaths, rank and reputation.
 - Writing pass: stance replies end on something concrete, fewer echoes and stock phrases.

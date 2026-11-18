@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "light" },
 
   impression = {
-    first = "The archaeologist by the Altar of Suntara is dying and knows it, and he spent what breath he had asking me to help the others. I never learned his name, and I'm not sure he remembered it.",
+    first = "He spent his dying breath asking me to help the others.",
     third = "{name} found a dying dwarf archaeologist of Dorius Stonetender's unit beside the Altar of Suntara in the Slag Pit.",
   },
 

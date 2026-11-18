@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Nyse keeps the wind riders at the top of Freewind Post, where the air is thin and the drop is long. She talks about the mesas as if they were old friends.",
+    first = "She talks about the mesas as if they were old friends.",
     third = "{name} met Nyse, the tauren wind rider master at Freewind Post.",
   },
 
@@ -197,7 +197,7 @@ P:NPC {
   notices = { "pet" },
 
   impression = {
-    first = "Awenasa keeps the stables at Freewind Post and speaks to the animals in the same gentle voice she uses for people. She seems to know every hunter in the Needles by their pet's name.",
+    first = "She seems to know every hunter by their pet's name.",
     third = "{name} met Awenasa, the tauren stable master at Freewind Post.",
   },
 
@@ -343,7 +343,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Jinky Twizzlefixxit sells engineering supplies at the Mirage Raceway, to gnomes and goblins both, and keeps a cheerful tally of which team buys more bolts. She's a gnome, but she'll tell you business doesn't take sides.",
+    first = "She keeps a cheerful tally of which racing team buys more bolts.",
     third = "{name} met Jinky Twizzlefixxit, the gnome who sells engineering supplies at the Mirage Raceway.",
   },
 

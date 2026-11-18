@@ -15,7 +15,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Argent Guard Manados keeps the Argent Dawn's watch from a quiet corner of the Craftsmen's Terrace and talks about Blackfathom Deeps as if it were a wound he can't stop pressing.",
+    first = "He talks of Blackfathom Deeps like a wound he can't stop pressing.",
     third = "{name} met Argent Guard Manados, who gathers fighters for the Argent Dawn against the Twilight's Hammer in Blackfathom Deeps.",
   },
 
@@ -143,7 +143,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Dawnwatcher Shaedlass collects rumours for the Argent Dawn and sorts them like a scholar sorting scrolls, calmly and precisely. Only when he speaks of his missing scout does the calm wear thin.",
+    first = "His calm wears thin only when he speaks of his missing scout.",
     third = "{name} met Dawnwatcher Shaedlass, who gathers word for the Argent Dawn in Darnassus and fears for a scout lost in Blackfathom Deeps.",
   },
 
@@ -267,7 +267,7 @@ P:NPC {
   notices = { "craft", "class" },
 
   impression = {
-    first = "Lotherias runs a leatherworker's bench on the Craftsmen's Terrace with more orders than hands. She judges a person by their stitching, and she says so.",
+    first = "She judges a person by their stitching, and she says so.",
     third = "{name} met Lotherias, a leatherworker of Darnassus buried in orders for gloves, boots and cloaks.",
   },
 
@@ -375,7 +375,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Alegorn teaches cooking on the Craftsmen's Terrace and talks about food the way the priestesses talk about the moon: patiently, and as if it were the most natural thing in the world.",
+    first = "He talks about food the way priestesses talk about the moon.",
     third = "{name} met Alegorn, the cooking trainer of Darnassus, who believes a good meal settles most arguments.",
   },
 
@@ -458,7 +458,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Fylerian Nightwing teaches druids in the Cenarion Enclave, slowly and without raising his voice, as if he had all the time in the world, which as a druid he very nearly does.",
+    first = "He teaches as if he had all the time in the world.",
     third = "{name} met Fylerian Nightwing, a druid trainer of the Cenarion Enclave.",
   },
 
@@ -544,7 +544,7 @@ P:NPC {
   notices = { "class", "kit" },
 
   impression = {
-    first = "Cylania sells armor on the Warrior's Terrace and fits it as carefully as if she expected to bury whoever she sold it to. She would rather not, and she says that too.",
+    first = "She fits armor as if she expected to bury its buyer.",
     third = "{name} met Cylania, the armorer of Darnassus's Warrior's Terrace.",
   },
 
@@ -625,7 +625,7 @@ P:NPC {
   notices = { "class", "pet" },
 
   impression = {
-    first = "Shylenai keeps owls on the Warrior's Terrace and speaks softly so as not to wake them. She seems more at ease with them than with anyone who comes to buy one.",
+    first = "She is more at ease with her owls than with customers.",
     third = "{name} met Shylenai, who raises owls in Darnassus.",
   },
 
@@ -705,7 +705,7 @@ P:NPC {
   notices = { "craft", "race" },
 
   impression = {
-    first = "Talaelar sells fish by the lake in the Temple Gardens and seems to spend more time watching the water than minding his stall. He is in no hurry to change that.",
+    first = "He watches the water more than he minds his stall.",
     third = "{name} met Talaelar, who sells fish beside the Temple Gardens in Darnassus.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "farholde" }, temper = { "warm", "brisk" }, values = { "kind", "practical" },
   notices = { "weary", "drink" },
   impression = {
-    first = "Cassandra Wheeler sells bread and ale at Farholde and watches every soldier who passes her counter to see who isn't eating. She is brisk, motherly, and stubborn about it.",
+    first = "She watches every soldier at her counter to see who isn't eating.",
     third = "{name} met Cassandra Wheeler, who keeps Farholde Keep fed from her food and drink stall.",
   },
 

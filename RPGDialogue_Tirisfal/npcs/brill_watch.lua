@@ -10,7 +10,7 @@ P:NPC {
   communities = { "brill" }, temper = { "dry", "gruff" }, values = { "practical", "dutiful" },
   notices = { "kit", "race", "greenness" },
   impression = {
-    first = "Deathguard Simmer sends fresh corpses out to steal pumpkins from under the Crusade's noses, and he finds the whole business funnier than he lets on. Something in him still knows a good harvest when he sees one.",
+    first = "He sends fresh corpses to steal pumpkins from under the Crusade's noses.",
     third = "{name} met Deathguard Simmer, who sent the newly risen to raid the pumpkin fields of the Solliden Farmstead.",
   },
 
@@ -165,7 +165,7 @@ P:NPC {
   communities = { "brill" }, temper = { "steady", "wry" }, values = { "dutiful", "practical" },
   notices = { "kit", "class", "weary" },
   impression = {
-    first = "Deathguard Linnea watches the east road for whatever the Bulwark lets slip, and she sounds tired in a way the dead shouldn't. She is level-headed and wry, and she gives credit where it's due without making a fuss of it.",
+    first = "She sounds tired in a way the dead shouldn't.",
     third = "{name} met Deathguard Linnea, who keeps watch east of Brill for Scourge that slip past the Bulwark.",
   },
 
@@ -303,7 +303,7 @@ P:NPC {
   communities = { "brill" }, temper = { "fierce", "anxious" }, values = { "devout", "proud" },
   notices = { "race", "class" },
   impression = {
-    first = "The Scarlet Zealot chained in Brill is frightened and furious in equal measure, and he holds on to his faith as though it were the last thing in the room that belongs to him. I could not decide whether I pitied him.",
+    first = "I could not decide whether I pitied him.",
     third = "{name} spoke with a Scarlet Zealot kept prisoner in Brill.",
   },
   greetings = {

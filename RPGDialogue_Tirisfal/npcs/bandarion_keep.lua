@@ -9,7 +9,7 @@ P:NPC {
   communities = { "bandarion_keep" }, temper = { "steady", "warm" }, values = { "devout", "loyal", "dutiful" },
   notices = { "paladin", "origin", "light" },
   impression = {
-    first = "Danitha Morr leads the Forsaken paladins of Bandarion Keep, and she speaks of the Light like an old friend who has started to hurt her. She seems certain of one thing: the Forsaken are still the people she swore to protect.",
+    first = "The Light is an old friend who has started to hurt her.",
     third = "{name} met Danitha Morr, who leads the Forsaken paladins at Bandarion Keep and named it for her fallen friend, Garek Bandarion.",
   },
 
@@ -294,7 +294,7 @@ P:NPC {
   communities = { "bandarion_keep" }, temper = { "warm", "earnest" }, values = { "kind", "loyal" },
   notices = { "paladin", "greenness" },
   impression = {
-    first = "Breton Samuels greets whoever climbs the hill to Bandarion Keep as though they'd come home. He is kindly and a little tired, and he seems to spend more of his days fighting murlocs than welcoming recruits.",
+    first = "He greets whoever climbs the hill as though they'd come home.",
     third = "{name} met Breton Samuels, who welcomes new arrivals at Bandarion Keep and keeps the Vile Fin murlocs from its gates.",
   },
 
@@ -472,7 +472,7 @@ P:NPC {
   communities = { "bandarion_keep" }, temper = { "dry", "steady" }, values = { "practical", "careful" },
   notices = { "kit", "soldier" },
   impression = {
-    first = "Jorin Croge keeps Bandarion Keep's stores and counts every nail as if it were gold. He's dry and a little put-upon, and he plainly cares more about this place than he lets on.",
+    first = "He counts every nail as if it were gold.",
     third = "{name} met Jorin Croge, who keeps Bandarion Keep provisioned with whatever can be scavenged so far from the Undercity.",
   },
 
@@ -633,7 +633,7 @@ P:NPC {
   communities = { "bandarion_keep" }, temper = { "gruff", "blunt" }, values = { "practical", "loyal" },
   notices = { "pet", "mount" },
   impression = {
-    first = "Ephram Barbaro keeps the stables at Bandarion Keep and greets everyone with an \"Oi\". He has no patience for scholars, and nothing makes him happier than a hammer and something that deserves it.",
+    first = "Nothing makes him happier than a hammer and something that deserves it.",
     third = "{name} met Ephram Barbaro, the gruff stable master of Bandarion Keep, who believes most problems can be solved with a hammer.",
   },
 
@@ -772,7 +772,7 @@ P:NPC {
   communities = { "bandarion_keep" }, temper = { "earnest", "fierce" }, values = { "devout", "brave" },
   notices = { "paladin", "race" },
   impression = {
-    first = "Bareth Dawnstone is a young Forsaken paladin the Crusade caught on the road to Brill. Even beaten and bound, he talks of the Light as if it were on his side and theirs were the ones who'd lost it.",
+    first = "Even beaten and bound, he says the Light is on his side.",
     third = "{name} met Bareth Dawnstone, a Forsaken paladin of Bandarion Keep held captive by the Scarlet Crusade at the Crusader's Outpost.",
   },
 
@@ -918,7 +918,7 @@ P:NPC {
   communities = { "bandarion_keep" }, temper = { "gruff", "sharp" }, values = { "stern", "practical" },
   notices = { "class", "kit" },
   impression = {
-    first = "Hilda the Breaker trains Bandarion Keep's paladins and won't say how she earned her name. She is hard on everyone, but she seems to mean it as a kindness, because the world outside will be harder.",
+    first = "She won't say how she earned her name.",
     third = "{name} met Hilda the Breaker, the paladin trainer at Bandarion Keep, who reshapes soft recruits into hardened fighters.",
   },
 
@@ -1053,7 +1053,7 @@ P:NPC {
   communities = { "bandarion_keep" }, temper = { "steady", "dry" }, values = { "craft", "honest" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Angus Hammerhand keeps the paladins of Bandarion Keep in chain and shields beaten together from salvage. He's kin to Aramis, and he jokes that his brother got the Light while he got the hammer.",
+    first = "He jokes that his brother got the Light and he the hammer.",
     third = "{name} met Angus Hammerhand, blacksmith of Bandarion Keep and kin to Aramis Hammerhand of Deathknell.",
   },
 
@@ -1140,7 +1140,7 @@ P:NPC {
   communities = { "bandarion_keep" }, temper = { "quiet", "steady" }, values = { "loyal", "protective" },
   notices = { "origin", "greenness" },
   impression = {
-    first = "Ander Solliden walks the road between Bandarion Keep and the old watch tower, a few fields from the farmstead where he grew up. He has put down people he loved there, and he'd rather do it himself than leave it to strangers.",
+    first = "He put down people he loved rather than leave them to strangers.",
     third = "{name} met Ander Solliden, a lookout of Bandarion Keep who grew up on the Solliden Farmstead nearby.",
   },
 
@@ -1239,7 +1239,7 @@ P:NPC {
   communities = { "bandarion_keep" }, temper = { "nervous", "earnest" }, values = { "loyal", "kind" },
   notices = { "paladin", "light" },
   impression = {
-    first = "Deathguard Billmuth fidgets in Bandarion Keep like a man waiting to be burned. He came to the paladins only because the priests turned him away, and he plainly cares about his friend Falgan more than his pride.",
+    first = "He plainly cares about his friend Falgan more than his pride.",
     third = "{name} met Deathguard Billmuth, who came to Bandarion Keep for help when his friend Falgan was lost in Venomweb Vale.",
   },
 
@@ -1361,7 +1361,7 @@ P:NPC {
   communities = { "bandarion_keep" }, temper = { "fussy", "warm" }, values = { "careful", "dutiful" },
   notices = { "greenness" },
   impression = {
-    first = "Evin Schmidtt calls himself the keeper of Bandarion Keep, and he knows every key, door and loose stair in the place. He seems to love the old fortress as some men love a difficult horse.",
+    first = "He loves the old fortress as some men love a difficult horse.",
     third = "{name} met Evin Schmidtt, keeper of Bandarion Keep, who knows the old fortress and its history better than anyone there.",
   },
 

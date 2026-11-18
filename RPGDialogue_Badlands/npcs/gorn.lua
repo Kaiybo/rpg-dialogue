@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Gorn is an old orc at Kargath who remembers the Second War better than he'd like. He wants two black drakes dead because the Horde once fought beside them, and he calls that cleaning up after himself.",
+    first = "He calls killing two black drakes cleaning up after himself.",
     third = "{name} met Gorn, an old orc veteran at Kargath who means to slay the black drakes Blacklash and Hematus.",
   },
 

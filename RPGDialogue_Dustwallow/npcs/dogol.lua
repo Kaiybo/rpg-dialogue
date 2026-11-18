@@ -9,7 +9,7 @@ P:NPC {
   communities = { "brackenwall" }, temper = { "gruff", "proud" }, values = { "craft", "honest" },
   notices = { "kit", "craft" },
   impression = {
-    first = "Do'gol makes shields for Brackenwall and is prouder of them than of anything else in the village. He looks at a shield the way other ogres look at supper, and he hates big spiders.",
+    first = "He looks at a shield the way other ogres look at supper.",
     third = "{name} met Do'gol, the ogre who makes shields in Brackenwall Village.",
   },
 

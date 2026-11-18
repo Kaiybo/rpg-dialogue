@@ -11,7 +11,7 @@ P:NPC {
   notices = { "pet", "class" },
 
   impression = {
-    first = "Marek Ironheart runs the Farstrider Lodge and prizes hunting skill above all else. He offers his approval like a trophy that has to be earned, and starts a croc story at the slightest excuse.",
+    first = "He starts a croc story at the slightest excuse.",
     third = "{name} met Marek Ironheart, the grizzled dwarf who runs the Farstrider Lodge in Loch Modan.",
   },
 
@@ -247,7 +247,7 @@ P:NPC {
   notices = { "class", "greenness" },
 
   impression = {
-    first = "Daryl the Youngling calls himself Daryl the Bold and sets challenges he plainly expects no one to meet. He boasts about a scar he won't explain the same way twice.",
+    first = "He never explains his scar the same way twice.",
     third = "{name} met Daryl the Youngling, the boastful young hunter of the Farstrider Lodge.",
   },
 

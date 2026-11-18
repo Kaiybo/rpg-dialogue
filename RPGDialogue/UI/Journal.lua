@@ -280,7 +280,8 @@ local function people(add, c, search)
       local word = affinityWord(p.m.affinity)
       local d = ns.Disposition and ns.Disposition.ForMemory(p.key)
       if d then word = ns.Disposition.TierName(d):lower() end
-      add(L.J_PERSON:format(word, L.J_TALKED:format(p.m.times or 0), when(p.m.last)))
+      local n = p.m.times or 0
+      add(L.J_PERSON:format(word:sub(1, 1):upper() .. word:sub(2), n == 1 and L.J_TALKED_ONCE or L.J_TALKED:format(n), when(p.m.last)), "dim")
       if p.m.impressed and p.def and p.def.impression then
         local imp = voiceText(p.def.impression, ctx)
         if imp then add(imp, "note") end
@@ -297,9 +298,7 @@ local function people(add, c, search)
       end
       if #rivals > 0 then add(L.J_RIVALS:format(table.concat(rivals, ", ")), "dim") end
       local told = topicNames(p.m.topics)
-      if #told > 0 then add(L.J_ASKED_ABOUT:format(table.concat(told, ", "))) end
-      local line = p.m.lastLine and ns.Data.Line(p.m.lastLine)
-      if line and line.text then add(L.J_LAST_SAID:format(ns.Tokens.Render(line.text, ctx, { info = { name = p.name } })), "note") end
+      if #told > 0 then add(L.J_ASKED_ABOUT:format(table.concat(told, ", ")), "dim") end
     end
   end
 end

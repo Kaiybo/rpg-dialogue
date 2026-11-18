@@ -11,7 +11,7 @@ P:NPC {
   notices = { "trophy" },
 
   impression = {
-    first = "Curator Thorius offered me a tour of the museum before I had finished saying hello. He loves every object in it, and he loves his brother Dorius, digging in the Searing Gorge, more than all of them.",
+    first = "He loves his brother Dorius more than everything in the museum.",
     third = "{name} met Curator Thorius, who keeps Ironforge's museum in the Hall of Explorers.",
   },
 
@@ -268,7 +268,7 @@ P:NPC {
   notices = { "lore" },
 
   impression = {
-    first = "Librarian Mae Paledust believes that studying the past is how you brace for the future. She speaks quietly, as librarians do, and finds a book for every question.",
+    first = "She quietly finds a book for every question.",
     third = "{name} met Librarian Mae Paledust of the Explorers' League, who keeps the Explorers' library in Ironforge.",
   },
 
@@ -488,7 +488,7 @@ P:NPC {
   notices = { "lore" },
 
   impression = {
-    first = "Historian Karnik had no time for meaningless questions until I mentioned Uldaman, and then he had all the time in the world. He grieves his partner Hammertoe and hides it behind work.",
+    first = "He grieves his partner Hammertoe and hides it behind work.",
     third = "{name} met Historian Karnik of the Explorers' League, who studies Uldaman from the League's library in Ironforge.",
   },
 
@@ -725,7 +725,7 @@ P:NPC {
   notices = { "reputation" },
 
   impression = {
-    first = "Advisor Belgrum speaks with the King's authority and seems to feel its weight in every word. He reads quickly, frowns slowly, and always has time for Historian Karnik's business.",
+    first = "He reads quickly, frowns slowly, and feels the King's weight.",
     third = "{name} met Advisor Belgrum, who advises King Magni and acts on his authority in the Hall of Explorers.",
   },
 
@@ -975,7 +975,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Grand Mason Marblesten is delighted by good stone and has, by his own account, quite an imagination. Under the cheer he is weary of carving memorials to soldiers.",
+    first = "Under the cheer he is weary of carving memorials to soldiers.",
     third = "{name} met Grand Mason Marblesten, the master stonemason of Ironforge's Commons.",
   },
 
@@ -1198,7 +1198,7 @@ P:NPC {
   notices = { "mount" },
 
   impression = {
-    first = "Gryth Thurden keeps Ironforge's gryphons by the Great Forge and will tell anyone who listens that they're tougher than the Wildhammers' birds. The gryphons seem to agree with him.",
+    first = "He swears his gryphons are tougher than the Wildhammers' birds.",
     third = "{name} met Gryth Thurden, Ironforge's gryphon master at the Great Forge.",
   },
 
@@ -1394,7 +1394,7 @@ P:NPC {
   notices = { "stealth" },
 
   impression = {
-    first = "Hulfdan Blackbeard runs the Hidden Circle out of the Forlorn Cavern and talks like a pirate who has never seen the sea. The guards have trouble with him, and he is proud of it.",
+    first = "He talks like a pirate who has never seen the sea.",
     third = "{name} met Hulfdan Blackbeard, rogue trainer in the Forlorn Cavern and head of Ironforge's Hidden Circle.",
   },
 

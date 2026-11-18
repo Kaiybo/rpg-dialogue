@@ -8,7 +8,7 @@ P:NPC {
   communities = { "sorrow_hill" }, temper = { "sly" }, values = { "cunning", "proud" },
   notices = { "class" },
   impression = {
-    first = "Myranda the Hag keeps a hovel on Sorrow Hill and a smile she does not mean. She learned her first spells from the Scarlet Crusade's priests, and now she uses what they taught her to fool them.",
+    first = "She fools the Scarlet priests with the spells they taught her.",
     third = "{name} met Myranda the Hag, who works illusions from her hut on Sorrow Hill.",
   },
 
@@ -177,7 +177,7 @@ P:NPC {
   communities = { "andorhal" }, temper = { "cheerful" }, values = { "curious", "kind" },
   notices = { "race" },
   impression = {
-    first = "Chromie is a gnome standing alone in the ruins of Andorhal, which is strange enough, and she seems to know what you are going to say a moment before you say it, which is stranger.",
+    first = "She seems to know what you will say before you say it.",
     third = "{name} met Chromie, a peculiar gnome among the ruins of Andorhal who takes a great interest in the fall of Darrowshire.",
   },
 

@@ -8,7 +8,7 @@ P:NPC {
   communities = { "narache" }, temper = { "resolute" }, values = { "dutiful", "protective" },
   notices = { "greenness", "race", "origin" },
   impression = {
-    first = "Since the Bristleback killed his mother, the Greatmother, Chief Hawkwind has mourned her by standing straighter. Every task he gives seems meant to teach the young of his camp to do the same.",
+    first = "He mourns his mother, the Greatmother, by standing straighter.",
     third = "{name} met Chief Hawkwind at Camp Narache, who leads the young of his tribe through their first rites.",
   },
 
@@ -259,7 +259,7 @@ P:NPC {
   communities = { "narache" }, temper = { "fierce" }, values = { "loyal", "brave" },
   notices = { "class" },
   impression = {
-    first = "Grull Hawkwind is the Chief's son, and he leads Narache's hunts until the day he leads the camp. He has a fierce kind of eagerness, as though the hunt itself were waiting on him.",
+    first = "He is fiercely eager, as though the hunt were waiting on him.",
     third = "{name} met Grull Hawkwind, the Chief's son, who leads the hunts of Camp Narache.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   notices = { "class", "race", "form" },
 
   impression = {
-    first = "Maerion Thaelemaches is a night elf demon hunter who calls the victory at Hyjal a defeat with better songs, and seems to mean it. He watches everything, says less than he knows, and expects to be distrusted.",
+    first = "He calls the victory at Hyjal a defeat with better songs.",
     third = "{name} met Maerion Thaelemaches, a grim night elf demon hunter keeping his own vigil in the Cradle of Tranquility.",
   },
 
@@ -314,7 +314,7 @@ P:NPC {
   notices = { "class", "form" },
 
   impression = {
-    first = "Jereman is a vast dread raven, one of the Wild Gods, and it speaks as though it has watched the mountain far longer than anyone has lived on it. It answered my questions sideways, and I kept thinking about the answers afterward.",
+    first = "It answers questions sideways, and I keep thinking about the answers afterward.",
     third = "{name} spoke with Jereman, a raven of the Wild Gods who watches over the Cradle of Tranquility.",
   },
 

@@ -12,7 +12,7 @@ P:NPC {
   notices = { "dead", "warlock", "veteran" },
 
   impression = {
-    first = "Galthuk sells great axes and heavy blades in Orgrimmar and has an opinion on everyone who passes his stall. He calls the Forsaken walking corpses and troll voodoo a cheat, and he does not like being asked why.",
+    first = "He calls the Forsaken walking corpses and troll voodoo a cheat.",
     third = "{name} met Galthuk, an old orc weapon merchant in Orgrimmar with no love for the Forsaken or the trolls' hexes.",
   },
 

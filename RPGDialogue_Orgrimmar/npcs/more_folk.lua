@@ -14,7 +14,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "wise", "patient" },
   notices = { "class", "race" },
   impression = {
-    first = "Sagorne Creststrider is a tauren who teaches shaman in Grommash Hold, slow of speech and hard to hurry. He talks about the elements the way a herdsman talks about weather, as something to respect rather than to own.",
+    first = "He says the elements are to be respected, not owned.",
     third = "{name} met Sagorne Creststrider, the tauren shaman trainer in Grommash Hold.",
   },
   greetings = {
@@ -127,7 +127,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "wry" }, values = { "wise", "loyal" },
   notices = { "class", "race" },
   impression = {
-    first = "Sian'tsu is a Darkspear shaman who trains students in Grommash Hold, sharp-eyed and quick to laugh at anyone who takes the elements too seriously. She talks about the Echo Isles as if she could still hear the surf from here.",
+    first = "She talks as if she can still hear the Echo Isles' surf.",
     third = "{name} met Sian'tsu, the troll shaman trainer in Grommash Hold.",
   },
   greetings = {
@@ -199,7 +199,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "brisk" }, values = { "craft", "practical" },
   notices = { "craft", "race" },
   impression = {
-    first = "Zamja teaches cooking in the Drag, a troll with a cleaver who never stops chopping while she talks. She has firm opinions about orc seasoning and doesn't mind sharing them.",
+    first = "She has firm opinions about orc seasoning and shares them freely.",
     third = "{name} met Zamja, the troll cooking trainer in the Drag.",
   },
   greetings = {
@@ -271,7 +271,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "craft", "practical" },
   notices = { "craft", "pet" },
   impression = {
-    first = "Thuwd teaches skinning in the Drag and never seems to put his knife down, since there's always a boar on the ground in front of him. He talks about hides the way other orcs talk about axes.",
+    first = "He talks about hides the way other orcs talk about axes.",
     third = "{name} met Thuwd, the orc skinning trainer in the Drag.",
   },
   greetings = {
@@ -341,7 +341,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "dry" }, values = { "practical" },
   notices = { "class", "kit" },
   impression = {
-    first = "Handor sells cloth and leather armor out of the Kodohide Leatherworkers shop in the Drag. He looks at every customer's gear first and says what's wrong with it before they've asked.",
+    first = "He says what's wrong with your gear before you've asked.",
     third = "{name} met Handor, who sells cloth and leather armor in the Drag.",
   },
   greetings = {
@@ -406,7 +406,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "smooth" }, values = { "practical", "ambitious" },
   notices = { "class", "purse" },
   impression = {
-    first = "Tor'phan sells cloth and leather armor at Magar's Cloth Goods, and he sells hard, calling every robe the finest in the Drag. He and Handor down the street seem to compete for every customer who walks by.",
+    first = "He calls every robe the finest in the Drag.",
     third = "{name} met Tor'phan, who sells armor at Magar's Cloth Goods in the Drag.",
   },
   greetings = {
@@ -469,7 +469,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "craft", "patient" },
   notices = { "race", "hunger" },
   impression = {
-    first = "Kor'jus sells mushrooms from his shop, Dark Earth, down in the Cleft of Shadow, and he's pale from years of living out of the sun. He's the calmest orc in the Cleft and proud of every cap he grows.",
+    first = "He is calm, sun-starved and proud of every cap he grows.",
     third = "{name} met Kor'jus, who sells mushrooms at Dark Earth in the Cleft of Shadow.",
   },
   greetings = {
@@ -537,7 +537,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "dry" }, values = { "craft" },
   notices = { "class" },
   impression = {
-    first = "Muragus sells staves in the Cleft of Shadow, lean and quiet, with a habit of weighing each staff in his hand before he hands it over. His best customers are the warlocks next door, and he doesn't seem to mind.",
+    first = "He weighs each staff in his hand before he hands it over.",
     third = "{name} met Muragus, the staff merchant in the Cleft of Shadow.",
   },
   greetings = {
@@ -600,7 +600,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "warm" }, values = { "practical", "kind" },
   notices = { "hunger", "race" },
   impression = {
-    first = "Shan'ti sells fruit on the road between the Valley of Strength and the Valley of Wisdom, and knows every passing grunt by what they buy. In a city of meat-eaters, she means to feed them something else.",
+    first = "In a city of meat-eaters, she means to feed them fruit.",
     third = "{name} met Shan'ti, the orc fruit seller on the way to the Valley of Wisdom.",
   },
   greetings = {
@@ -663,7 +663,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "honorable", "loyal" },
   notices = { "class", "soldier" },
   impression = {
-    first = "Stone Guard Zarg keeps the weapons of the Hall of Legends, the ones made only for the Horde's greatest champions. He looks at everyone who walks in as if measuring how far they have yet to go.",
+    first = "He measures how far everyone who walks in has yet to go.",
     third = "{name} met Stone Guard Zarg, who keeps the champions' weapons in the Hall of Legends.",
   },
   greetings = {
@@ -726,7 +726,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "honorable", "patient" },
   notices = { "race", "soldier" },
   impression = {
-    first = "Brave Stonehide keeps the officers' tabards and cloaks in the Hall of Legends. She speaks gently, which is rare in the Hall, and seems to care more about the people wearing her goods than the goods themselves.",
+    first = "She cares more about the people wearing her goods than the goods.",
     third = "{name} met Brave Stonehide, the tauren quartermaster in the Hall of Legends.",
   },
   greetings = {

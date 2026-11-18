@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race" },
 
   impression = {
-    first = "Dorius Stonetender is chasing the Suntara Stones through the Searing Gorge, and he won't leave his missing team behind.",
+    first = "He won't leave his missing team behind.",
     third = "{name} met Dorius Stonetender, Curator Thorius's brother, digging for the Suntara Stones in the Searing Gorge.",
   },
 

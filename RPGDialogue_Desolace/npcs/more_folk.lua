@@ -13,7 +13,7 @@ P:NPC {
   communities = {}, temper = { "fierce", "proud" }, values = { "unity", "heritage" },
   notices = { "race", "class" },
   impression = {
-    first = "The Centaur Pariah was cast out of his tribe for heresy, and he wanders the south of Desolace alone. He believes the centaur should stop fighting over scraps and unite as one great people, and he needs an outsider to help him do it.",
+    first = "He believes the centaur should stop fighting and unite as one people.",
     third = "{name} met the Centaur Pariah, an exile who dreams of uniting the centaur tribes.",
   },
   greetings = {
@@ -109,7 +109,7 @@ P:NPC {
   communities = {}, temper = { "smooth", "sly" }, values = { "secrets", "power" },
   notices = { "race", "class" },
   impression = {
-    first = "Willow is a Forsaken who lives in Kormek's Hut, northeast of the Kodo Graveyard, and calls herself a researcher. She wants carvings from the depths of Maraudon, and she grew noticeably less friendly when I asked what she meant to do with them.",
+    first = "She grew less friendly when I asked what the carvings were for.",
     third = "{name} met Willow, a Forsaken researcher at Kormek's Hut who wants relics from Maraudon.",
   },
   greetings = {
@@ -198,7 +198,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "calm", "gentle" }, values = { "beasts", "patience" },
   notices = { "class" },
   impression = {
-    first = "Aboda keeps the stables at Shadowprey Village and speaks to the beasts more softly than he speaks to their owners. He seems happiest with a kodo's head resting on his shoulder.",
+    first = "He seems happiest with a kodo's head resting on his shoulder.",
     third = "{name} met Aboda, the gentle tauren stable master at Shadowprey Village.",
   },
   greetings = {
@@ -264,7 +264,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "jovial", "chatty" }, values = { "sea", "ease" },
   notices = { "race", "craft" },
   impression = {
-    first = "Lui'Mala teaches fishing off the docks at Shadowprey Village and tells every student the sea here is better than the Echo Isles, then tells them the opposite the next day. He laughs at his own stories more than anyone else does.",
+    first = "He laughs at his own stories more than anyone else does.",
     third = "{name} met Lui'Mala, the troll fishing trainer at Shadowprey Village.",
   },
   greetings = {
@@ -326,7 +326,7 @@ P:NPC {
   communities = { "shadowprey" }, temper = { "dry", "blunt" }, values = { "craft", "hunt" },
   notices = { "craft", "class" },
   impression = {
-    first = "Malux teaches skinning at Shadowprey Village with a knife he never seems to put down. He is dry and unimpressed by most things, though he grew almost cheerful talking about the hides of Desolace's scorpids.",
+    first = "Only the hides of Desolace's scorpids make him almost cheerful.",
     third = "{name} met Malux, the troll skinning trainer at Shadowprey Village.",
   },
   greetings = {
@@ -392,7 +392,7 @@ P:NPC {
   communities = { "ghost_walker" }, temper = { "proud", "gruff" }, values = { "craft", "strength" },
   notices = { "class" },
   impression = {
-    first = "Muuran makes and sells maces at Ghost Walker Post, and he calls himself a superior macecrafter without a hint of modesty. He talks about the weight of a mace the way others talk about the weight of a promise.",
+    first = "He calls himself a superior macecrafter without a hint of modesty.",
     third = "{name} met Muuran, the proud macecrafter of Ghost Walker Post.",
   },
   greetings = {
@@ -459,7 +459,7 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "wry", "brisk" }, values = { "practical", "trade" },
   notices = { "class" },
   impression = {
-    first = "Maxton Strang sells mail armour at Nijel's Point, a long way from Stormwind, and he complains about the sand in his rings. He is wry and practical, and he seems to measure everyone for a hauberk on sight.",
+    first = "He seems to measure everyone for a hauberk on sight.",
     third = "{name} met Maxton Strang, the Stormwind mail armour merchant at Nijel's Point.",
   },
   greetings = {
@@ -528,7 +528,7 @@ P:NPC {
   communities = { "nijels_point" }, temper = { "calm", "formal" }, values = { "beasts", "balance" },
   notices = { "class", "race" },
   impression = {
-    first = "Shelgrayn keeps the stables at Nijel's Point and speaks with the measured calm of her people. She is gentle with the beasts and polite with their owners, though she clearly prefers the beasts.",
+    first = "She is polite with owners, though she clearly prefers the beasts.",
     third = "{name} met Shelgrayn, the night elf stable master at Nijel's Point.",
   },
   greetings = {

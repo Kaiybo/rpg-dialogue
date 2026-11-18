@@ -14,7 +14,7 @@ P:NPC {
   notices = { "swimmer", "healer" },
 
   impression = {
-    first = "Second Mate Shandril of the Horizon Scout keeps watch from a spit of sand over the place where her ship went down. Some of her crew are still aboard, alive, and she won't leave until they come up.",
+    first = "She won't leave until the crew still trapped aboard come up.",
     third = "{name} met Second Mate Shandril, who keeps watch over the sunken Horizon Scout off the coast of Azshara.",
   },
 
@@ -146,7 +146,7 @@ P:NPC {
   notices = { "gnome", "mage" },
 
   impression = {
-    first = "Roland Geardabbler is a gnome passenger trapped inside the sunken Horizon Scout, holding a water-breathing ward over himself and the surviving crew. He talks quickly and cheerfully, as if stopping might break his concentration.",
+    first = "He chatters cheerfully, as if stopping might break his ward.",
     third = "{name} met Roland Geardabbler, the gnome keeping the Horizon Scout's trapped crew alive at the bottom of the sea.",
   },
 

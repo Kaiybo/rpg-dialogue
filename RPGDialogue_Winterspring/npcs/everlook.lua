@@ -10,7 +10,7 @@ P:NPC {
   notices = { "weary", "drink" },
 
   impression = {
-    first = "Innkeeper Vizzie checked me for bugs before she let me near the fire. She moved to the top of the world to get away from insects, and she's still losing to one beetle.",
+    first = "She checked me for bugs before she let me near the fire.",
     third = "{name} met Innkeeper Vizzie, the jumpy goblin who keeps the only inn in Everlook.",
   },
 
@@ -270,7 +270,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Umi Rumplesnicker told me not to touch anything, then changed her mind three times about which things. Whatever she's building, it's furry, and someone is going to scream.",
+    first = "Whatever she's building is furry, and someone is going to scream.",
     third = "{name} met Umi Rumplesnicker, the playful gnome engineer of Everlook with a prank in progress.",
   },
 
@@ -475,7 +475,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Gregor Greystone keeps the Argent Dawn's ear among Everlook's traders and greets everyone the same, whatever banner they fly. He is steady and kind, and he forgets to eat.",
+    first = "He is steady and kind, and he forgets to eat.",
     third = "{name} met Gregor Greystone, who speaks for the Argent Dawn in Everlook.",
   },
 

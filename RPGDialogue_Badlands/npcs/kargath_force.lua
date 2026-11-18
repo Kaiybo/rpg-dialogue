@@ -10,7 +10,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Thunderheart is a tauren shaman at Kargath who feels the fire under Blackrock Mountain the way others feel a fever. He speaks slowly and means every word, and his worry sits on him like a heavy cloak.",
+    first = "He feels the fire under Blackrock Mountain like a fever.",
     third = "{name} met Thunderheart, a tauren shaman of the Kargath Expeditionary Force who listens to the troubled elements of Blackrock.",
   },
 
@@ -219,7 +219,7 @@ P:NPC {
   notices = { "class", "pet", "race" },
 
   impression = {
-    first = "Galamav the Marksman is a tauren hunter at Kargath who watches Blackrock Mountain down the length of a rifle. He is quiet, exact and amused by very little, and he talks about worgs the way a farmer talks about wolves.",
+    first = "He talks about worgs the way a farmer talks about wolves.",
     third = "{name} met Galamav the Marksman, a tauren hunter of the Kargath Expeditionary Force.",
   },
 
@@ -403,7 +403,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Razal'blade is a Darkspear troll of the Kargath Expeditionary Force who misses the sea and says so often. He is quick, sly and loyal to the Warchief, and he thinks the Badlands are a joke the spirits played on him.",
+    first = "He thinks the Badlands are a joke the spirits played on him.",
     third = "{name} met Razal'blade, a Darkspear troll serving with the Kargath Expeditionary Force.",
   },
 
@@ -503,7 +503,7 @@ P:NPC {
   notices = { "class", "race" },
 
   impression = {
-    first = "Grunt Gargal is a huge orc with a huge shield, and he stands in front of things for a living. He doesn't say much, but what he says comes out like a wall coming down.",
+    first = "What little he says comes out like a wall coming down.",
     third = "{name} met Grunt Gargal, a towering orc grunt of the Kargath Expeditionary Force.",
   },
 
@@ -614,7 +614,7 @@ P:NPC {
   notices = { "class", "level" },
 
   impression = {
-    first = "Initiate Amakkar is a young orc with a quick knife and a quicker mouth, keen to prove he's more than an initiate. He talks as if Blackrock Mountain were a door he means to kick down personally.",
+    first = "To him Blackrock Mountain is a door he means to kick down.",
     third = "{name} met Initiate Amakkar, a young and restless orc of the Kargath Expeditionary Force.",
   },
 

@@ -11,7 +11,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Auctioneer Redmuse reads the Commons like a weather-glass, and can tell what copper will fetch before the miners have washed their hands. She is blunt about prices and kind about nothing else.",
+    first = "She is blunt about prices and kind about nothing else.",
     third = "{name} met Auctioneer Redmuse, who runs bids at the Ironforge auction house.",
   },
 
@@ -232,7 +232,7 @@ P:NPC {
   notices = { "gnome" },
 
   impression = {
-    first = "Auctioneer Lympkin works out a buyout before the seller has finished naming the goods. She keeps her ledgers in a gnomish shorthand nobody else can read, and seems to like it that way.",
+    first = "Nobody else can read her gnomish shorthand, and she likes that.",
     third = "{name} met Auctioneer Lympkin, a gnome who keeps the books at the Ironforge auction house.",
   },
 
@@ -446,7 +446,7 @@ P:NPC {
   notices = { "kit" },
 
   impression = {
-    first = "Bryllia Ironbrand sells bread, water, bags and shot in the Commons, and looks at every customer as if checking whether they've eaten. She means it kindly, and she is usually right.",
+    first = "She looks at every customer as if checking whether they've eaten.",
     third = "{name} met Bryllia Ironbrand, who sells general goods in the Commons of Ironforge.",
   },
 
@@ -659,7 +659,7 @@ P:NPC {
   notices = { "status" },
 
   impression = {
-    first = "Jondor Steelbrow registers guilds in the Visitor's Center and sizes up every visitor as a possible guild master. He believes that a band of friends with a name and a crest can do more than any army.",
+    first = "He sizes up every visitor as a possible guild master.",
     third = "{name} met Jondor Steelbrow, the guild master of Ironforge's Visitor's Center.",
   },
 
@@ -860,7 +860,7 @@ P:NPC {
   notices = { "status" },
 
   impression = {
-    first = "Lyesa Steelbrow sells tabards in the Visitor's Center and has an opinion on every crest ever stitched. She thinks a guild's colors should say something true about the people who wear them.",
+    first = "She has an opinion on every crest ever stitched.",
     third = "{name} met Lyesa Steelbrow, who sells tabards in Ironforge's Visitor's Center.",
   },
 
@@ -1052,7 +1052,7 @@ P:NPC {
   notices = { "purse" },
 
   impression = {
-    first = "Soleil Stonemantle keeps accounts in the Vault of Ironforge, as her family has for generations. She speaks quietly, counts precisely and seems to regard the vault's door as a personal friend.",
+    first = "She seems to regard the vault's door as a personal friend.",
     third = "{name} met Soleil Stonemantle, a banker in the Vault of Ironforge.",
   },
 

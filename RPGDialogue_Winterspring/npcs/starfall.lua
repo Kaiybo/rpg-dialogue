@@ -13,7 +13,7 @@ P:NPC {
   notices = { "arcane", "travel" },
 
   impression = {
-    first = "Wynd Nightchaser keeps a quiet watch at Starfall Village and knows every ruin in the snow by name. He speaks of the Highborne the way you'd speak of a family scandal: sadly, and not too loudly.",
+    first = "He speaks of the Highborne like a family scandal, sadly and quietly.",
     third = "{name} met Wynd Nightchaser of Starfall Village, who knows the old elven ruins of Winterspring.",
   },
 
@@ -205,7 +205,7 @@ P:NPC {
   notices = { "race", "craft" },
 
   impression = {
-    first = "Jaron Stoneshaper is an Explorers' League dwarf who digs for relics in the snow and got chased off his own camp by wildkin. He talks a great deal and laughs at himself more than most.",
+    first = "Wildkin chased him off his own camp, and he laughs about it.",
     third = "{name} met Jaron Stoneshaper, an Explorers' League digger in Winterspring with a grudge against wildkin.",
   },
 

@@ -9,7 +9,7 @@ P:NPC {
   communities = { "valormok" }, temper = { "jovial", "steady" }, values = { "loyal", "brave" },
   notices = { "class", "weary" },
   impression = {
-    first = "Haggrum Bloodfist is Ag'tor's brother and the only orc in Valormok who still smiles, though he was there when the elf turned her magic on them. He remembers when he and his brother had this wilderness to themselves.",
+    first = "He is the only orc in Valormok who still smiles.",
     third = "{name} met Haggrum Bloodfist, Ag'tor's brother and the cheerful heart of Valormok.",
   },
 

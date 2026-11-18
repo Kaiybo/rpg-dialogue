@@ -8,7 +8,7 @@ P:NPC {
   bible = "bibles/city_trades.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "patient" }, values = { "nature", "craft" },
   impression = {
-    first = "Tannysa teaches herbalism among the Park's trees, a night elf who finds human gardens tidy, lovely and a little sad.",
+    first = "She finds human gardens tidy, lovely and a little sad.",
     third = "{name} met Tannysa, who teaches herbalism in Stormwind's Park.",
   },
   greetings = {
@@ -175,7 +175,7 @@ P:NPC {
   bible = "bibles/city_trades.md", role = "trainer", tier = "service",
   communities = { "stormwind" }, temper = { "brisk" }, values = { "mercy", "practical" },
   impression = {
-    first = "Shaina Fuller teaches bandaging near the Cathedral, quickly and well, and she says she wraps more refugees' hands than soldiers' these days.",
+    first = "She wraps more refugees' hands than soldiers' these days.",
     third = "{name} met Shaina Fuller, who teaches first aid in Stormwind.",
   },
   greetings = {
@@ -341,7 +341,7 @@ P:NPC {
   bible = "bibles/city_trades.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "cheerful" }, values = { "craft", "practical" },
   impression = {
-    first = "Frederick Stover sells bows and arrows in the Trade District and talks about his yew the way some men talk about wine.",
+    first = "He talks about his yew the way some men talk about wine.",
     third = "{name} met Frederick Stover, a cheerful bowyer of the Trade District.",
   },
   greetings = {
@@ -507,7 +507,7 @@ P:NPC {
   bible = "bibles/city_trades.md", role = "vendor", tier = "service",
   communities = { "stormwind" }, temper = { "chatty" }, values = { "beauty", "community" },
   impression = {
-    first = "Felicia Gump sells flowers and kitchen herbs in Stormwind, and she can tell you who's courting, who's marrying and who's being buried by what they buy from her.",
+    first = "She knows who is courting, marrying or being buried by their flowers.",
     third = "{name} met Felicia Gump, Stormwind's chatty florist.",
   },
   greetings = {

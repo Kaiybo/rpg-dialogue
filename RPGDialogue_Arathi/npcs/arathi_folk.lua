@@ -22,7 +22,7 @@ P:NPC {
   notices = { "race", "class", "reputation" },
 
   impression = {
-    first = "Field Marshal Oslight commands the League of Arathor's war for the Basin from a map table at Refuge Pointe. He is grey at the temples, straight-backed, and speaks of Stromgarde's lost farms the way other men speak of their children.",
+    first = "He speaks of Stromgarde's lost farms the way men speak of children.",
     third = "{name} met Field Marshal Oslight, who leads the League of Arathor's fight to retake Arathi Basin for Stromgarde and the Alliance.",
   },
 
@@ -167,7 +167,7 @@ P:NPC {
   notices = { "race", "reputation" },
 
   impression = {
-    first = "Deathmaster Dwire commands the Defilers from a corner of Hammerfall, a Forsaken woman in black with a voice like a closing door. She talks about the Alliance's Refuge Pointe as a weed she hasn't found time to pull.",
+    first = "She calls Refuge Pointe a weed she hasn't had time to pull.",
     third = "{name} met Deathmaster Dwire, who leads the Defilers' campaign for Arathi Basin on behalf of the Dark Lady.",
   },
 
@@ -285,7 +285,7 @@ P:NPC {
   notices = { "craft", "kit", "race" },
 
   impression = {
-    first = "Doctor Gregory Victor is a Forsaken surgeon who runs Horde Trauma out of Hammerfall's field tents, with a clean apron and very little bedside manner. He calls everyone who passes his examination \"doctor\" and everyone else \"patient\".",
+    first = "Pass his examination and he calls you doctor, otherwise you are patient.",
     third = "{name} met Doctor Gregory Victor, head trauma surgeon of Horde Trauma in Hammerfall.",
   },
 
@@ -389,7 +389,7 @@ P:NPC {
   notices = { "hunger", "race" },
 
   impression = {
-    first = "Narj Deepslice is a barrel-chested dwarf butcher with a cleaver on his belt and a bloodied apron he wears like a uniform. He feeds Refuge Pointe's soldiers and complains about it loudly and fondly.",
+    first = "He complains about feeding the soldiers, loudly and fondly.",
     third = "{name} met Narj Deepslice, the dwarf who sells meat at Refuge Pointe.",
   },
 
@@ -453,7 +453,7 @@ P:NPC {
   notices = { "pet", "race" },
 
   impression = {
-    first = "Tharlidun is a quiet orc who keeps Hammerfall's stables and speaks to the beasts in a low growl they seem to understand better than words. He has wolf bites up both arms and is proud of every one.",
+    first = "He is proud of every wolf bite on his arms.",
     third = "{name} met Tharlidun, the orc stable master of Hammerfall.",
   },
 
@@ -518,7 +518,7 @@ P:NPC {
   notices = { "craft" },
 
   impression = {
-    first = "Keena is a sharp-eyed orc woman who sells thread, flux, salt and spice from a cart in Hammerfall. She counts coin faster than anyone in the camp and won't let you forget it.",
+    first = "She counts coin faster than anyone and won't let you forget it.",
     third = "{name} met Keena, who sells trade goods in Hammerfall.",
   },
 

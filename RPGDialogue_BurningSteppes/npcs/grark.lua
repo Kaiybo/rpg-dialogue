@@ -9,7 +9,7 @@ P:NPC {
   notices = { "race", "class" },
 
   impression = {
-    first = "Grark Lorkrub sold Kargath to the Blackrock and isn't the least bit sorry. He talks about the power he's joined as though I ought to envy him, and I think part of him really believes I do.",
+    first = "He sold Kargath to the Blackrock and isn't the least bit sorry.",
     third = "{name} found Grark Lorkrub, a Horde traitor sheltering with the Blackrock clan, in Blackrock Stronghold in the Burning Steppes.",
   },
 

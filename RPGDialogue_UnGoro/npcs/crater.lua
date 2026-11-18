@@ -6,7 +6,7 @@ P:NPC {
   key = "holanyee", id = TODO_NPC("Hol'anyee Marshal"), name = "Hol'anyee Marshal",
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Hol'anyee Marshal is Williden's sister and co-leader of the expedition, a sharpshooter who takes the crater's dangers personally.",
+    first = "She takes the crater's dangers personally.",
     third = "{name} met Hol'anyee Marshal, co-leader of the Marshal Expedition at Marshal's Refuge.",
   },
   greetings = {
@@ -181,7 +181,7 @@ P:NPC {
   key = "torwa", id = TODO_NPC("Torwa Pathfinder"), name = "Torwa Pathfinder",
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Torwa Pathfinder is a tauren hunter camped near the Refuge who has set his sights on the great raptor Lar'korwi.",
+    first = "He has set his sights on the great raptor Lar'korwi.",
     third = "{name} met Torwa Pathfinder, a tauren hunter in Un'Goro Crater.",
   },
   greetings = {
@@ -366,7 +366,7 @@ P:NPC {
   key = "muigin", id = TODO_NPC("Muigin"), name = "Muigin",
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Muigin tends unusual plants at Marshal's Refuge and talks about bloodpetals with real affection.",
+    first = "He talks about bloodpetals with real affection.",
     third = "{name} met Muigin, a botanist at Marshal's Refuge.",
   },
   greetings = {
@@ -529,7 +529,7 @@ P:NPC {
   key = "ringo", id = TODO_NPC("Ringo"), name = "Ringo",
   bible = "bibles/ungoro.md", role = "questgiver", tier = "quest",
   impression = {
-    first = "Ringo is a lost expedition member who wandered too far into the crater and could barely keep going.",
+    first = "He wandered too far into the crater and could barely keep going.",
     third = "{name} met Ringo, a lost member of the Marshal Expedition in Un'Goro Crater.",
   },
   greetings = {
@@ -679,7 +679,7 @@ P:NPC {
   key = "krakle", id = TODO_NPC("Krakle"), name = "Krakle",
   bible = "bibles/ungoro.md", role = "citizen", tier = "service",
   impression = {
-    first = "Krakle is a goblin who has taken a great interest in the hot springs of Un'Goro, mostly the profitable kind.",
+    first = "The only hot springs that interest him are the profitable kind.",
     third = "{name} met Krakle, a goblin near the hot springs of Un'Goro Crater.",
   },
   greetings = {

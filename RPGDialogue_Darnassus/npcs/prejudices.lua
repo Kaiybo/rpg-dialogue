@@ -13,7 +13,7 @@ P:NPC {
   notices = { "race", "stealth", "class" },
 
   impression = {
-    first = "Erion Shadewhisper trains the rogues of Darnassus and sends his best to Stormwind, though he trusts no human further than he can see their hands. A student of his paid for that lesson, and he hasn't forgiven the whole race for it.",
+    first = "He trusts no human further than he can see their hands.",
     third = "{name} met Erion Shadewhisper, the Darnassian rogue trainer who sends his students to Stormwind and trusts no human he sends them among.",
   },
 
@@ -283,7 +283,7 @@ P:NPC {
   notices = { "race", "profession", "class" },
 
   impression = {
-    first = "Firodren Mooncaller teaches herbalism in the Cenarion Enclave and talks to his plants more kindly than to dwarves. A dwarven dig crew cut down his grove in Darkshore, and he has blamed every dwarf since.",
+    first = "Dwarves cut down his grove, and he has blamed every dwarf since.",
     third = "{name} met Firodren Mooncaller, the Darnassian herbalist who has never forgiven the dwarves for a grove in Darkshore.",
   },
 

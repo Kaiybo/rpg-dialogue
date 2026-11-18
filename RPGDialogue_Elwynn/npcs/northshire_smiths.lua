@@ -9,7 +9,7 @@ P:NPC {
   bible = "bibles/northshire_smiths.md", role = "vendor", tier = "service",
   communities = { "northshire" }, temper = { "proud" }, values = { "craft", "duty" },
   impression = {
-    first = "Godric Rothgar fits the Abbey's recruits with plain mail and plainer shields, and he takes every dent as a personal insult.",
+    first = "He takes every dent in a recruit's shield as a personal insult.",
     third = "{name} met Godric Rothgar, Northshire's armorer, who takes dents personally.",
   },
   greetings = {
@@ -173,7 +173,7 @@ P:NPC {
   bible = "bibles/northshire_smiths.md", role = "vendor", tier = "service",
   communities = { "northshire" }, temper = { "gentle" }, values = { "craft", "faith" },
   impression = {
-    first = "Dermot Johns sells robes and jerkins to the Abbey's novices and mends the ones they tear, which, he says softly, is most of them.",
+    first = "He mends the robes the novices tear, which is most of them.",
     third = "{name} met Dermot Johns, who clothes and mends for Northshire's novices.",
   },
   greetings = {
@@ -326,7 +326,7 @@ P:NPC {
   bible = "bibles/northshire_smiths.md", role = "vendor", tier = "service",
   communities = { "northshire" }, temper = { "gruff" }, values = { "craft" },
   impression = {
-    first = "Janos Hammerknuckle is a dwarf a long way from Ironforge, selling blades to human recruits and grumbling about how they hold them.",
+    first = "He grumbles about how human recruits hold the blades he sells them.",
     third = "{name} met Janos Hammerknuckle, a dwarf weaponsmith at Northshire Abbey.",
   },
   greetings = {
@@ -491,7 +491,7 @@ P:NPC {
   bible = "bibles/northshire_smiths.md", role = "priest", tier = "service",
   communities = { "northshire" }, temper = { "gentle" }, values = { "faith", "mercy" },
   impression = {
-    first = "Brother Paxton walks the Abbey grounds with his hands ready to heal, and he seems to know every bruised recruit by name.",
+    first = "He seems to know every bruised recruit by name.",
     third = "{name} met Brother Paxton, who walks Northshire's grounds healing the recruits.",
   },
   greetings = {

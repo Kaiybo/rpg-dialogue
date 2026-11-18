@@ -9,7 +9,7 @@ P:NPC {
   notices = { "gear", "class" },
 
   impression = {
-    first = "Felder Stover sells and mends weapons at Morgan's Vigil and swears at the ash that gets into every joint. He dreams out loud about Windsor's hammer the way other men talk about women they've never met.",
+    first = "He dreams out loud about Windsor's hammer.",
     third = "{name} met Felder Stover, the weaponsmith at Morgan's Vigil.",
   },
 
@@ -111,7 +111,7 @@ P:NPC {
   notices = { "race", "weary" },
 
   impression = {
-    first = "Gruna sells bread and drink at Flame Crest, baked in an oven that the ground itself keeps hot. She's blunt, warm in her way, and she has no kind word at all for the Blackrock orcs on the mountain.",
+    first = "She has no kind word at all for the Blackrock orcs.",
     third = "{name} met Gruna, who sells bread and drink at Flame Crest.",
   },
 

@@ -13,7 +13,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff", "proud" }, values = { "brave", "loyal" },
   notices = { "pvp", "class" },
   impression = {
-    first = "Brakgul Deathbringer sends fighters to Warsong Gulch and talks about the war in Ashenvale as if it were already won. He judges everyone by whether they'll go, and nothing else seems to interest him.",
+    first = "He judges everyone by whether they will go to Warsong Gulch.",
     third = "{name} met Brakgul Deathbringer, the battlemaster in Orgrimmar who sends the Horde to fight in Warsong Gulch.",
   },
 
@@ -167,7 +167,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "gruff" }, values = { "patient", "proud" },
   notices = { "mount", "race" },
   impression = {
-    first = "Kildar teaches riders in the Valley of Honor and talks about wolves the way other orcs talk about family. He has no patience for anyone who treats a mount like a tool.",
+    first = "He has no patience for riders who treat a mount as a tool.",
     third = "{name} met Kildar, who teaches wolf riding in Orgrimmar's Valley of Honor.",
   },
 
@@ -277,7 +277,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "disciplined", "patient" },
   notices = { "class" },
   impression = {
-    first = "Sorek trains warriors in the Valley of Honor and is quieter than the others who share his yard. He watches more than he shouts, and he seems to like it that way.",
+    first = "He watches more than he shouts, and likes it that way.",
     third = "{name} met Sorek, one of the warrior trainers in Orgrimmar's Valley of Honor.",
   },
   greetings = {
@@ -411,7 +411,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "dry" }, values = { "practical", "diligent" },
   notices = { "gear" },
   impression = {
-    first = "Sayoc teaches the use of weapons in the Valley of Honor and seems to think that most people pick the wrong one. Every visit comes with a lecture, whether or not anyone asks for it.",
+    first = "Every visit comes with a lecture, asked for or not.",
     third = "{name} met Sayoc, a weapon master in Orgrimmar's Valley of Honor.",
   },
   greetings = {
@@ -532,7 +532,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "patient", "wise" },
   notices = { "race" },
   impression = {
-    first = "Hanashi is a Darkspear weapon master who teaches in the Valley of Honor. Hanashi speaks slowly and treats every weapon as if it had its own temper.",
+    first = "Hanashi treats every weapon as if it had its own temper.",
     third = "{name} met Hanashi, a Darkspear weapon master in Orgrimmar's Valley of Honor.",
   },
   greetings = {
@@ -657,7 +657,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "calm" }, values = { "kind", "patient" },
   notices = { "pet" },
   impression = {
-    first = "Xao'tsu trains hunters' beasts in the Valley of Honor and talks to the animals more than to their owners. The animals seem to prefer it that way, and so does Xao'tsu.",
+    first = "Xao'tsu talks to the animals more than to their owners.",
     third = "{name} met Xao'tsu, the pet trainer in Orgrimmar's Valley of Honor.",
   },
   greetings = {
@@ -773,7 +773,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "smooth" }, values = { "ambitious", "practical" },
   notices = { "purse", "class" },
   impression = {
-    first = "Kaja sells guns and ammunition out of Kaja's Boomstick Imports in the Valley of Honor, and every sentence is a sales pitch. The prices change depending on how interested you look.",
+    first = "The prices change depending on how interested you look.",
     third = "{name} met Kaja, the goblin who sells guns and ammunition in Orgrimmar's Valley of Honor.",
   },
   greetings = {
@@ -868,7 +868,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "dry" }, values = { "proud", "practical" },
   notices = { "class" },
   impression = {
-    first = "Jin'sora sells bows in the Valley of Honor and has a low opinion of the goblin selling guns nearby. Jin'sora seems to believe a good bow will always be better than any noisy machine.",
+    first = "Jin'sora thinks little of the goblin selling noisy guns nearby.",
     third = "{name} met Jin'sora, the Darkspear bowyer of Orgrimmar's Valley of Honor.",
   },
   greetings = {
