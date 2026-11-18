@@ -34,4 +34,7 @@ npcs\missed_estelle.lua
 npcs\missed_b.lua
 npcs\missed_b2.lua
 npcs\missed_b3.lua
+npcs\missed_a.lua
+npcs\missed_a2.lua
+npcs\missed_a3.lua
 directions.lua
