@@ -241,7 +241,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Those are good words, and I thank you for them. A chief at a small fire doesn't hear them often, and they warm him all the same." },
+        { id = "s2", text = "You speak with respect, and it does you credit. The braves who learn that early are the ones the Earth Mother favors." },
+      },
+      fail = {
+        { id = "f1", text = "I'm an old chief of a small camp, and I know what I'm worth without being told. Keep your praise for the ancestors, who've earned it." },
+        { id = "f2", text = "Soft words don't drive the Bristleback from our lands. Show me your worth with your hands, young one." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha, you've some boldness in you, to prod a chief at his own fire. I was the same once, and it served me well against the quilboar." },
+        { id = "s2", text = "That's the spirit of a brave who won't be easily turned. I'll not scold you for it, though you'd best not try it on the High Chieftain." },
+      },
+      fail = {
+        { id = "f1", text = "This is the Hawkwind's fire, and those who sit at it speak with respect. I'll ask you once to remember that." },
+        { id = "f2", text = "I've buried too many of my own to be amused by a sharp tongue. Go and turn that edge on the Bristleback, where it's needed." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There's strength in you beyond your seasons, and I'd be a poor chief if I failed to see it. Say what you came to say, and I'll hear it." },
+        { id = "s2", text = "I've stood against quilboar war parties, and few of them carried themselves as you do now. Very well, you have my ear." },
+      },
+      fail = {
+        { id = "f1", text = "I've held this camp while the Bristleback raided the plains around it, so hard looks don't move me. Stand easy, young one." },
+        { id = "f2", text = "A brave who threatens a chief at his own fire has lost the trail. Go and find it again before you speak to me." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's a thing I keep close, and I'll not speak of it to one I've only just met. Prove yourself to this camp first." },
+      { id = "gt2", text = "I'll hold my tongue on that for now. When you've done more for Narache, ask me again." },
+    },
     knows = {
       { id = "tp_knows", text = "The hunters bring word back to this fire, and some of it is worth hearing. Ask about these, and I'll tell you what the tribe knows." },
     },

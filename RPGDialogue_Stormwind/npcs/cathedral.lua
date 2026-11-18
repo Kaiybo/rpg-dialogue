@@ -9,6 +9,7 @@ P:NPC {
   key = "benedictus", id = TODO_NPC("Archbishop Benedictus"), name = "Archbishop Benedictus",
   bible = "bibles/benedictus.md", role = "priest", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "pious", "kind" },
+  likesTone = "polite",
   spiritSensitive = true,
   notices = { "light", "affliction", "form" },
   impression = {
@@ -397,7 +398,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "You're kind to say so, child, though I'm only an old student of Faol's in a finer robe than I deserve. I'll keep your words for one of the grey mornings." },
+        { id = "s2", text = "That warms an old priest more than the Cathedral's braziers do. Give the credit to the Light, child, and I'll keep only the smile." },
+      },
+      fail = {
+        { id = "f1", text = "Gently, child. Men have praised me in this nave before asking the Church to bless something it shouldn't, and I've learned to hear it coming." },
+        { id = "f2", text = "Praise belongs to the Light and not to its servants, and I'd be a poor archbishop if I forgot that for a pleasant word. Let's speak plainly instead." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Faol used to tease me in just that tone when I grew too solemn over my books, and I haven't heard it since. You've done an old man good, child." },
+        { id = "s2", text = "You've a sharp tongue, and I'll own that the robes invite it. I looked like a farmer long before I looked like an archbishop, and I laugh at the difference myself." },
+      },
+      fail = {
+        { id = "f1", text = "There are wounded in the side chapels and orphans at the door, child, and you spend your wit on an old priest. I'll pray you find a better use for it." },
+        { id = "f2", text = "I've been mocked by better and forgiven them all, so I forgive you as well. I'd ask you, though, to remember whose house you're standing in." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There's a great deal of anger in you, child, and I felt it across the nave. Come, I'll not quarrel with you; tell me what you need, and we'll see whether the Church can give it." },
+        { id = "s2", text = "You needn't raise your hand to be heard in this house. I'm an old man, and I'll give way on the small matter if it lets us speak of the larger one in peace." },
+      },
+      fail = {
+        { id = "f1", text = "I buried the refugees of Lordaeron with these hands, child, and there's little left in the world that I fear for myself. Sit down and tell me what's truly troubling you." },
+        { id = "f2", text = "No one is threatened beneath this roof, not the least beggar and not its archbishop. Lower your voice, or the paladins at the door will ask you to take it outside." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is something I share with those I've come to know, child, and we've not walked far enough together yet. Come and sit with us a few more times." },
+      { id = "gt2", text = "I'll keep my counsel on that for now. It's no unkindness, only that some things are for friends of the Cathedral, and I'd be glad to count you one in time." },
+    },
     holy_light = {
       { id = "tp_holy_light", text = "The Light is not a lord who demands tribute, but a fire that burns in every soul, if only we tend it. I've seen it in a pauper and in a king, and I've seen it missing from both." },
       { id = "tp_holy_light2", when = { class = "PRIEST" }, text = "You serve the Light with your hands as well as your words, and that is the whole of our faith. Never forget that the beggar on the steps deserves your prayers as much as any lord." },

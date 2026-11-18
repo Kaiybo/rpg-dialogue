@@ -9,6 +9,7 @@ P:NPC {
   rivals = { "ello" },
   bible = "bibles/althea.md", role = "soldier", tier = "major",
   communities = { "darkshire" }, temper = { "steady" }, values = { "brave", "lawful", "stern" },
+  likesTone = "blunt",
   notices = { "soldier", "night" },
 
   impression = {
@@ -485,7 +486,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "I don't hear that often, {class}, and never from the Keep. I'll take it for the Watch, since every name on my roster has earned it twice over." },
+        { id = "s2", text = "That's well said. My watchmen are farmers with torches holding back the dark, and it does them good when a stranger sees what that costs." },
+      },
+      fail = {
+        { id = "f1", text = "Smooth words lost me three watchmen and a payroll once, so I've no ear left for them. Tell me what you can do with that weapon." },
+        { id = "f2", text = "Compliments don't keep the lamps lit, {class}. If you think so well of the Night Watch, take a torch and stand a shift." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. You've a bolder tongue than my recruits, and most of them have faced worgen. I'll put up with it, because anyone who'll needle me will likely hold when the dead come up the road." },
+        { id = "s2", text = "Farmers with torches, yes, I've called them that myself and less kindly. You've nerve, and I'm short of nerve in this town, so I'll not hold it against you." },
+      },
+      fail = {
+        { id = "f1", text = "I've put watchmen in the ground this month, and I'm in no humour to be laughed at by someone who's only just arrived. Watch your mouth in my town." },
+        { id = "f2", text = "Try that again on Raven Hill at midnight with the dead coming at you, and I might find it funny. Until then, keep it to yourself." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Stand down, {class}; you've made yourself understood. I can't spare a watchman to quarrel with you, so you'll have what you asked, and then we're done with this." },
+        { id = "s2", text = "I know a real threat from a show of one, and that was real enough. Fine, I'll give you this, though I'd rather you saved it for what's in the woods." },
+      },
+      fail = {
+        { id = "f1", text = "I walk Duskwood at night with a torch and a sword, and you think to frighten me in a lit square? Try harder, or better yet, don't." },
+        { id = "f2", text = "Lay a hand on your weapon in Darkshire again and my watchmen will take it off you. The Watch has its ways with troublemakers, and none of them are gentle." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's Watch business, and I don't share Watch business with people I've no cause to trust yet. Prove yourself useful to Darkshire first." },
+      { id = "gt2", text = "I'll not talk about that with you, {class}, not yet. Stand a few nights with us and I may change my mind." },
+    },
     knows = {
       { id = "tp_knows", text = "My watchers bring me every report from the woods, and none of them are pleasant. Ask me about any of this, and I'll tell you plainly." },
     },

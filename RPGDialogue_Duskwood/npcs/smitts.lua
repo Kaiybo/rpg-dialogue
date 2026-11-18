@@ -363,7 +363,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Well, that's a kindness, friend, and kindness comes through that door about as often as sunlight does. I'll put it in my book, on a page with better company than most." },
+        { id = "s2", text = "You're good to say so. I only keep a fire and a barrel going, but in Duskwood that counts for a fair bit, and I'm glad someone thinks so." },
+      },
+      fail = {
+        { id = "f1", text = "I've poured for a lot of travellers who thought a sweet word would open my book for them. It stays under the bar, friend, however nicely you ask." },
+        { id = "f2", text = "That's pleasant enough, but I listen for a living, and it didn't ring true. Have a drink and try me again with something you mean." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! Aye, it's the warmest room in Duskwood and it still smells of wet wool and fear, I know it well. It's been too long since anyone in here had the heart to joke." },
+        { id = "s2", text = "That's cheek, and I'll take cheek gladly over another night of folk staring into their mugs. You'll do well in Darkshire, friend, if you can still laugh after dark." },
+      },
+      fail = {
+        { id = "f1", text = "Folk in this room have buried family this year, and they come here to forget it. If you want to mock something, there's a whole forest outside that's earned it." },
+        { id = "f2", text = "I've heard sharper from drunks I was carrying to the door. Keep it civil in the Raven, or drink in the fog." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "All right, friend, steady. I've seen enough bad nights to know when a body means business, so tell me what you want and I'll not make it hard." },
+        { id = "s2", text = "There's no call for that under my roof. I'm only a tavernkeep, and I'll not get my head broken over a question, so ask it." },
+      },
+      fail = {
+        { id = "f1", text = "Friend, I've listened to the things that howl outside these shutters every night for years. You're a deal less frightening than the dark, and you're in here with the Watch." },
+        { id = "f2", text = "Half the Night Watch is at those tables behind you, and they've been spoiling for something they can actually hit. I'd sit down, if I were you." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That one's in my book, and my book's not open to folk I've only just met. Come by a few more nights." },
+      { id = "gt2", text = "I know a thing or two about that, and I'm keeping it behind the bar for now. I only tell what I know to those I've come to trust." },
+    },
     knows = {
       { id = "tp_knows", text = "Everyone who comes through Darkshire ends up at my bar sooner or later, and they all have a story. Ask me about any of this." },
     },

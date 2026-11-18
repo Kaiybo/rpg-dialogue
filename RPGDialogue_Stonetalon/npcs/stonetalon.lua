@@ -7,6 +7,7 @@ P:NPC {
   key = "maggran", id = TODO_NPC("Maggran Earthbinder"), name = "Maggran Earthbinder",
   bible = "bibles/stonetalon.md", role = "soldier", tier = "major",
   communities = { "sun_rock" }, temper = { "hard" }, values = { "loyal", "brave" },
+  likesTone = "blunt",
   notices = { "kit", "race" },
   impression = {
     first = "Maggran Earthbinder holds Sun Rock with the hardness of an old warrior who says he was gentle once. The years and the battles took that from him, he claims, and I believe him.",
@@ -367,7 +368,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. I'm not a bull who's praised often, and I'd forgotten it could sit well. You have my thanks, and An'she's light on your road." },
+        { id = "s2", text = "You speak well of an old wounded warrior, and you seem to mean it. That's worth something to me up here." },
+      },
+      fail = {
+        { id = "f1", text = "Cairne didn't send me to Sun Rock to be flattered, and I've no patience for it. Say what you need." },
+        { id = "f2", text = "Pretty words belong on the bluff. Out here I judge a {class} by what they do on the mountain, so go and do something." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! You've horns on you, whatever your hide. It's been too long since anyone up here dared answer me back, and I'm the better for it." },
+        { id = "s2", text = "You'd prod a wounded bull, and grin while you did it. Good, because Stonetalon eats the timid, and you plainly aren't one of them." },
+      },
+      fail = {
+        { id = "f1", text = "I've little patience at the best of times, and you've just spent what there was. Take your tongue down the mountain." },
+        { id = "f2", text = "I bled for this rock, and I'll not be mocked on it. Find Tammra if you want gentleness, because you'll get none from me now." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I've fought long enough to know when I'm outmatched, and I don't waste pride denying it. You have my attention, {class}." },
+        { id = "s2", text = "There's a hardness in you that I'd want beside me on the Webwinder Path. Very well, I'll hear you, and I'll hear you carefully." },
+      },
+      fail = {
+        { id = "f1", text = "The Grimtotem have tried to frighten me off these roads for seasons, and I'm still on them. You're less than they are." },
+        { id = "f2", text = "I'm already wounded and already angry, so you've nothing left to threaten me with. Stand down before I forget you're a guest on this rock." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not something I speak of with strangers, and you're still a stranger to me. Do some good on this mountain first." },
+      { id = "gt2", text = "I'll keep that to myself. I've trusted the wrong ears before, and I'm slower with it now." },
+    },
     knows = {
       { id = "tp_knows", text = "I hold this rock, so I hear about everything that threatens it. Ask about any of these, and plainly." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get what every brave on this rock already knows, and nothing more, so pick one." },

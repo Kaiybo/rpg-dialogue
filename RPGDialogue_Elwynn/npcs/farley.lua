@@ -7,6 +7,7 @@ P:NPC {
   key = "farley", id = TODO_NPC("Innkeeper Farley"), name = "Innkeeper Farley",
   bible = "bibles/farley.md", role = "innkeeper", tier = "major",
   communities = { "goldshire" }, temper = { "steady" }, values = { "kind", "generous", "witty" },
+  private = { "lordaeron" },
   notices = { "guest", "pet", "drink" },
   impression = {
     first = "Innkeeper Farley runs the Lion's Pride with a loud voice and a family pride older than its walls. He'll tell anyone who asks, and most who don't, that he has never watered a drink.",
@@ -463,7 +464,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Now that's the sort of talk that gets a second helping in this inn! My father would've been glad to hear it, and his father too, since it's their roof you're praising." },
+        { id = "s2", text = "You're kind to say it, friend, and I'll tell the cook, who'll be impossible for a week. Sit down wherever the dog isn't." },
+      },
+      fail = {
+        { id = "f1", text = "Ha, I've been an innkeeper too long not to know when my ale's being praised by someone who hasn't tasted it. You needn't butter me, friend, because the bread's for that." },
+        { id = "f2", text = "That's a fine speech, and I've heard it from every traveller who was short of coin for a bed. I'm not offended, mind, only not fooled." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha! That's the best I've heard across this bar since Dobbins lost his last bet, and he's still sore about it. You'll fit in here, friend, so pull up a stool." },
+        { id = "s2", text = "Oh, you've a tongue on you, and the Lion's Pride has always had room for one of those. I only pour, it's true, but I pour better than anyone in Elwynn." },
+      },
+      fail = {
+        { id = "f1", text = "I'll take a joke as well as any man, but not one aimed at my father's inn. Mind yourself, friend, or you'll be drinking at the trough with the horses." },
+        { id = "f2", text = "That's not wit, it's only rudeness with a grin on it, and I hear enough of that on market nights. Drink your drink and be pleasant." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "Easy, now, easy! There's never been blood on these boards in my time and I'd like to keep it so, so tell me what it is you want." },
+        { id = "s2", text = "All right, friend, you've no need to glower. I'm an innkeeper and not a soldier, and I'd sooner give you your way than have the tables turned over." },
+      },
+      fail = {
+        { id = "f1", text = "I've put out drunken soldiers, Defias toughs and one very angry gnoll, and none of them left by the door they came in. Sit down, friend." },
+        { id = "f2", text = "Marshal Dughan's garrison is a stone's throw from my door, and half of it drinks here. You've picked a poor room to start throwing your weight about." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's not a story I tell to folk I've only just poured for. Come back a few evenings and we'll see." },
+      { id = "gt2", text = "Ah, I'd rather keep that one behind the bar for now, friend. Some things I only share with regulars." },
+    },
     knows = {
       { id = "tp_knows", text = "An innkeeper hears everything sooner or later, friend, usually after the second ale. Ask me about any of this and I'll tell you what's going round the common room." },
     },

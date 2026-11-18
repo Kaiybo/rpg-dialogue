@@ -6,6 +6,7 @@ P:NPC {
   key = "longhorn", id = TODO_NPC("Cliffwatcher Longhorn"), name = "Cliffwatcher Longhorn",
   bible = "bibles/thousandneedles.md", role = "soldier", tier = "major",
   communities = { "freewind" }, temper = { "grim" }, values = { "dutiful", "protective" },
+  likesTone = "blunt",
   notices = { "kit", "race" },
 
   impression = {
@@ -377,7 +378,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "That is kindly said, and I do not hear it often on this watch. I thank you, and I will remember that you said it." },
+        { id = "s2", text = "You honor the watch, and so you honor Freewind Post. A sentinel does not ask for thanks, but I will not refuse them." },
+      },
+      fail = {
+        { id = "f1", text = "I watch for what approaches under cover, and flattery is one such thing. Speak plainly, as you would to any guard." },
+        { id = "f2", text = "Words like those are light, and the wind up here takes light things over the edge. Give me something with weight." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hm! I did not think anyone on this mesa had the nerve to say that to my face. It is good to know that someone has." },
+        { id = "s2", text = "You have a bold tongue, and I find I am not angry. A watcher needs someone who will tell him when he has grown too grim." },
+      },
+      fail = {
+        { id = "f1", text = "I have a caravan of dead to answer for and no patience for jesting. Take your wit to the inn." },
+        { id = "f2", text = "You mock a watch you have never stood. Spend one night on this cliff listening for Galak hooves, and then speak to me." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I have watched many dangers cross the Needles, and I know one when it stands on my mesa. You have my attention, and my caution." },
+        { id = "s2", text = "There is real strength in you, and I do not dismiss what I can plainly see. Say what you want of me." },
+      },
+      fail = {
+        { id = "f1", text = "I stand at the edge of a long drop every day, and I have made my peace with it. You will not frighten me, so do not shame yourself trying." },
+        { id = "f2", text = "The Galak howl threats at this mesa every night, and still it stands. I have heard better than yours." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is not a matter I will speak of with one I do not yet trust. Prove yourself to Freewind, and ask again." },
+      { id = "gt2", text = "I will keep my own counsel on that. A watcher learns to be careful about what he lets past the gate, and that goes for words as well." },
+    },
     knows = {
       { id = "tp_knows", text = "From this mesa I see much of the Needles, and what I can't see, my scouts tell me. Ask about any of these." },
     },

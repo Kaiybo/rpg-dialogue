@@ -860,6 +860,7 @@ P:NPC {
   key = "rexxar", id = TODO_NPC("Rexxar"), name = "Rexxar",
   bible = "bibles/desolace.md", role = "citizen", tier = "major",
   temper = { "gruff" }, values = { "honest", "brave" },
+  likesTone = "blunt",
   impression = {
     first = "Rexxar walks the roads of Desolace with his bear Misha at his side, and he looks at strangers as though weighing whether they're worth the trouble.",
     third = "{name} met Rexxar, the half-ogre beastmaster, on the roads of Desolace.",
@@ -1203,7 +1204,43 @@ P:NPC {
       },
     },
   },
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Hm. I don't hear that often, mostly because I don't stay anywhere long enough. Misha seems to think you meant it, so I'll take it." },
+        { id = "s2", text = "Kind words don't weigh much to carry, and I travel light. I'll keep those, stranger." },
+      },
+      fail = {
+        { id = "f1", text = "I left the cities to get away from that kind of talk, and Misha doesn't like it any better than I do." },
+        { id = "f2", text = "Flattery is what people use when they want something they haven't earned. Say what you want, or leave us to the road." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Ha. Not many will bait a man with a bear at his side, and fewer still make me laugh doing it. You've got some nerve, and I like nerve.", narr = "Misha huffs, and Rexxar very nearly smiles." },
+        { id = "s2", text = "You've a wild streak, and you don't hide it behind manners. That's the first thing about you I've liked." },
+      },
+      fail = {
+        { id = "f1", text = "Misha has stopped watching the road and started watching you. I'd choose my next words with care." },
+        { id = "f2", text = "I've been called a half-breed and worse by better than you, and I outlived most of them. Walk on." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "I've hunted long enough to know a predator when one stands in front of me. I'll not turn my back on you, and I mean that as respect." },
+        { id = "s2", text = "Even Misha's gone quiet, and she's hard to impress. All right, you've made yourself understood." },
+      },
+      fail = {
+        { id = "f1", text = "I've stood alone against things that would swallow you whole, and I didn't flinch then either. Put your hackles down." },
+        { id = "f2", text = "A beast that snarls that loudly is usually afraid, and Misha knows it as well as I do." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That's mine to keep, and I don't share it with someone I've known for the length of one conversation." },
+      { id = "gt2", text = "I'll not speak of that. Earn Misha's trust first, and mine may follow." },
+    },
     knows = {
       { id = "tp_knows", text = "I hear things on the road, mostly from people who don't know I'm listening. Ask, and I'll tell you what I know." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "Misha doesn't trust you yet, so neither do I, but I'll answer a question or two if you keep it short." },

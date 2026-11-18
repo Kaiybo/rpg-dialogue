@@ -8,6 +8,7 @@ P:NPC {
   rivals = { "althea" },
   bible = "bibles/ello.md", role = "noble", tier = "major",
   communities = { "darkshire" }, temper = { "proud" }, values = { "lawful", "ambitious" },
+  likesTone = "polite",
   notices = { "status", "stormwind" },
 
   impression = {
@@ -437,7 +438,43 @@ P:NPC {
     },
   },
 
+  persuade = {
+    admire = {
+      success = {
+        { id = "s1", text = "Why, that is most gracious, {class}, and it has been a long while since anyone recognised what this office demands. I shall mention your good sense in my next letter to the Crown." },
+        { id = "s2", text = "At last, a visitor with discernment! The Ebonlockes have kept Darkshire's lamps lit through its worst years, and it warms me to hear that said aloud." },
+      },
+      fail = {
+        { id = "f1", text = "I am the mayor of Darkshire, and I have been courted by better tongues than yours at council. Fine words will not move me, though soldiers might." },
+        { id = "f2", text = "You flatter, and I have no leisure for it. If you admired this town as much as that, you would be out in the fog defending it and not standing in my hall." },
+      },
+    },
+    taunt = {
+      success = {
+        { id = "s1", text = "Hm! All those letters to the Crown and not one soldier; yes, yes, I know it better than you do. Still, you say it to my face, which is more than the council dares, and I find I respect that." },
+        { id = "s2", text = "Well, really. You have a bold tongue, and I suppose a town like ours has more use for boldness than for manners these days. I shall overlook it, and even smile a little." },
+      },
+      fail = {
+        { id = "f1", text = "You forget yourself. I hold this town together with ink and patience while the dead walk at its edge, and I will not be made sport of in my own hall." },
+        { id = "f2", text = "The Night Watch has a way with insolent strangers, and I have only to open that door to call them. Do reconsider your tone." },
+      },
+    },
+    intimidate = {
+      success = {
+        { id = "s1", text = "There is, ah, no need for that, none whatever. I am a reasonable man, and I am quite prepared to grant the point if you will kindly step back from the table." },
+        { id = "s2", text = "Very well, very well! I have enough terrors outside the town without one in my own hall, so you shall have your way in this." },
+      },
+      fail = {
+        { id = "f1", text = "I have lived for years with worgen in the woods and the dead on Raven Hill, and you imagine a raised voice will undo me? It will not." },
+        { id = "f2", text = "This is the town hall of Darkshire, and the Night Watch stands within call of it. One word from me and you will be explaining yourself to the Commander, who is a good deal less patient than I am." },
+      },
+    },
+  },
   topics = {
+    _gated = {
+      { id = "gt1", text = "That is council business, and I do not share council business with those who have yet to prove themselves friends of Darkshire." },
+      { id = "gt2", text = "I shall keep my own counsel on that, {class}. Earn the town's regard, and the mayor's will follow." },
+    },
     knows = {
       { id = "tp_knows", text = "The council hears everything that goes bump in Duskwood, usually at great length and in the middle of the night. Ask me about any of this." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For a friend of Darkshire, the council's knowledge is entirely at your disposal, minutes and all. Ask away." },
