@@ -2,6 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.89.0 (2026-11-18)
+- **"This line is wrong" is easier to send**: the flagged line prints in chat and opens a small window you can copy from (Ctrl+C). `/rpgd flagged copy` reopens all of them, `/rpgd flagged N` just one.
+- **Westfall: Scout Galiaan** now speaks as a human, not a night elf.
+- Not seen in game yet.
+
 ## 0.88.0 (2026-11-18)
 **New file in the Orgrimmar pack: restart the game fully (a /reload won't load it).**
 - **47 more people to talk to in Orgrimmar, Ironforge and Dun Morogh**: Orgrimmar's remaining class and craft trainers, its banker, two auctioneers and the Drag's shopkeepers; Kharanos, Anvilmar, Gol'Bolar Quarry and Amberstill Ranch folk who had nothing to say.

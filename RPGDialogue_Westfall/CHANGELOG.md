@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.27.0 (2026-11-18)
+- Scout Galiaan now speaks as a human, not a night elf.
+
 ## 1.26.0 (2026-11-18)
 - More named NPCs the earlier passes missed now have conversations, and thin ones have more to say.
 - Major NPCs answer Admire, Taunt and Intimidate in their own voice, and turn you down in their own words when they won't talk.
