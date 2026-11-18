@@ -1,5 +1,6 @@
 -- More Dun Morogh folk: Beldin Steelgrill and Milli Featherwhistle at Steelgrill's Depot, Tharek Blackstone and
 -- Granis Swiftaxe in Kharanos, and the Anvilmar trainers Thran Khorman, Thorgas Grimson, Bromos Grummner and Solm Hargrin.
+-- Also (added later): Lomac Gearstrip, Hands Springsprocket, Tannok Frosthammer, Mountaineer Barleybrew and seven Ironforge vendors.
 -- Voice: bibles/more_folk.md
 local P = RPGDialogueAPI:Pack("rpgd.ironforge")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
@@ -113,6 +114,7 @@ P:NPC {
     third = "{name} met Tharek Blackstone, an overworked toolsmith in Kharanos who makes most of Steelgrill's Depot's tools.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Aye, I'm still at it, an' the lamp's burnin' Beldin's coin. What d'ye need at this hour?" },
     { id = "g_hi", text = "If ye're from Steelgrill, tell him I'm workin' as fast as I can, an' if ye're no', I'm still workin' as fast as I can." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, I've another crate for the Depot an' my legs are done for the day." },
     { id = "g_done", when = { questDone = TODO_QUEST("Tools for Steelgrill") }, text = "Ye got the tools tae Beldin in one piece, which is more than my last apprentice managed. Thank ye kindly." },
@@ -220,6 +222,8 @@ P:NPC {
     third = "{name} met Milli Featherwhistle, the gnome who builds and sells mechanostriders at Steelgrill's Depot.",
   },
   greetings = {
+    { id = "g_gnome", when = { race = "Gnome" }, text = "Hello, hello, and welcome! The green one's warmed up, if you'd like to try the saddle." },
+    { id = "g_exalted", when = { reputation = { faction = "Gnomeregan", min = "exalted" } }, text = "A true friend of Gnomeregan! I've heard what you've done for us, and my pen is open to you." },
     { id = "g_hi", text = "Hello, hello! Mind the red one, it bites, figuratively speaking, but it does have a sticky clutch." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! The blue one's been asking after you, which is to say its gyroscope wobbles when you leave." },
   },
@@ -319,6 +323,8 @@ P:NPC {
     third = "{name} met Granis Swiftaxe, the warrior trainer in the Thunderbrew Distillery in Kharanos.",
   },
   greetings = {
+    { id = "g_back", when = { metBefore = true }, text = "Back again! Have ye come for a lesson or a mug? Ye can have both, in that order." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The drill's done for the day an' the taps are open. Sit, an' talk if ye've a mind." },
     { id = "g_hi", text = "Ho, there! Mind the barrels; I've knocked over more than one wi' a backswing." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior! Come in, come in, an' let's see what ye've learned since Anvilmar." },
   },
@@ -394,6 +400,7 @@ P:NPC {
     },
   },
   topics = {
+    anvilmar = { { id = "tp_anvil", text = "Where the young ones start, up in Coldridge. Thran sends them down tae me wi' the basics an' a few bad habits." } },
     thunderbrew = { { id = "tp_thunder", text = "Best distillery in Dun Morogh, whatever the Barleybrews tell ye. Ragnar runs it, an' he lets me drill in the back." } },
     frostmane = { { id = "tp_frost", text = "Ice trolls, an' older in these hills than we are. They'll no' leave, so we keep them back." } },
     background = { { id = "tp_bg", text = "I'm a warrior an' a trainer, an' I like my ale." } },
@@ -414,6 +421,7 @@ P:NPC {
     third = "{name} met Thran Khorman, the warrior trainer at Anvilmar.",
   },
   greetings = {
+    { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' on yer own two feet. That's the first test passed." },
     { id = "g_hi", text = "Another recruit, eh? Stand up straight an' let me have a look at ye." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "Back for more, are ye? Good. A warrior who stops learnin' stops livin'." },
     { id = "g_rune", when = { questActive = TODO_QUEST("Simple Rune") }, text = "Sten sent ye wi' a rune, did he? Hand it over an' let's get started." },
@@ -492,6 +500,8 @@ P:NPC {
     },
   },
   topics = {
+    frostmane = { { id = "tp_frost", text = "Ice trolls, wi' a camp in the valley's west end. They were here before Anvilmar was, an' they've no' forgotten it." } },
+    kharanos = { { id = "tp_khar", text = "Through the pass, when the pass is open. Granis Swiftaxe takes my recruits on from there, an' he's a sound teacher for all his ale." } },
     troggs = { { id = "tp_troggs", text = "Stupid, strong, an' never alone. Count them before ye swing, for there's always one more than ye thought." } },
     grelin = { { id = "tp_grelin", text = "Grelin Whitebeard watches the Frostmane from his camp tae the south-west. If he asks ye for somethin', he needs it." } },
     background = { { id = "tp_bg", text = "I'm a warrior trainer. I've been one for longer than ye've been alive." } },
@@ -512,6 +522,7 @@ P:NPC {
     third = "{name} met Thorgas Grimson, the hunter trainer at Anvilmar.",
   },
   greetings = {
+    { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' ye've a bit mair snow in yer beard, or ye would hae if ye'd a beard. Wot news frae the valley?" },
     { id = "g_hi", text = "Wot kin I do fer ye? If it's trainin' ye're after, ye've come tae the right dwarf." },
     { id = "g_hunt", when = { class = "HUNTER" }, text = "Back frae the snow, are ye? Good; let's see wot ye've learned oot there." },
     { id = "g_rune", when = { questActive = TODO_QUEST("Etched Rune") }, text = "Sten's rune, is it? Gie it here, an' we'll get ye started." },
@@ -593,6 +604,7 @@ P:NPC {
     },
   },
   topics = {
+    wolves = { { id = "tp_wolves", text = "They hunt in threes an' fours in the valley, an' the ane ye see is nae the ane tae fear. Watch the trees ahint ye." } },
     coldridge = { { id = "tp_cold", text = "A wee valley, an' a guid one tae learn in. There's wolves, boars, troggs an' trolls, an' nane o' them far frae the door." } },
     sten = { { id = "tp_sten", text = "Sten Stoutarm sorts the new ones an' sends them tae us wi' their runes. He's a guid lad, an' he speaks plainer than I dae." } },
     background = { { id = "tp_bg", text = "I'm a hunter, an' I train hunters. Nae more tae it." } },
@@ -613,6 +625,7 @@ P:NPC {
     third = "{name} met Bromos Grummner, the paladin trainer at Anvilmar.",
   },
   greetings = {
+    { id = "g_back", when = { metBefore = true }, text = "Back again, an' welcome! I was just thinkin' o' somethin' I meant tae tell ye last time." },
     { id = "g_hi", text = "The Light be with ye, friend! Come in, come in." },
     { id = "g_pal", when = { class = "PALADIN" }, text = "Welcome back, young paladin. The Light shines on ye today, I can tell." },
     { id = "g_rune", when = { questActive = TODO_QUEST("Consecrated Rune") }, text = "A consecrated rune from Sten! Good, then it's time ye began yer trainin' proper." },
@@ -693,6 +706,7 @@ P:NPC {
     },
   },
   topics = {
+    light = { { id = "tp_light", text = "It asks three things o' ye, respect, tenacity an' compassion, an' it asks them every day. Nane o' them get easier, but ye get stronger." } },
     uther = { { id = "tp_uther", text = "Uther the Lightbringer, first o' the order. We'll no' see his like again, but we can try tae be worth his memory." } },
     anvilmar = { { id = "tp_anvil", text = "A cold hall wi' a warm fire, an' the place where every dwarven paladin takes the first step. I'm proud tae stand in it." } },
     background = { { id = "tp_bg", text = "I'm a paladin o' the Silver Hand, an' I train the young ones." } },
@@ -713,6 +727,7 @@ P:NPC {
     third = "{name} met Solm Hargrin, the rogue trainer at Anvilmar.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Night's the proper time for a lesson. Step in, an' shut the door wi'out lettin' it click." },
     { id = "g_hi", text = "Didnae hear ye come in, which is either a compliment or a warnin'. What d'ye want?" },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Ah, one o' mine. Ye're quieter than last time, I'll give ye that." },
     { id = "g_rune", when = { questActive = TODO_QUEST("Encrypted Rune") }, text = "Sten's rune, is it? Good; let's see if ye can read it." },
@@ -793,6 +808,7 @@ P:NPC {
     },
   },
   topics = {
+    ironforge = { { id = "tp_if", text = "A city wi' one great gate an' a hundred small doors. I've walked most o' them, an' I'll no' tell ye where they go." } },
     dark_iron = { { id = "tp_dark", text = "Clever, patient, an' better at my trade than I like tae admit. If ye ever think ye've spotted all o' them, ye havenae." } },
     anvilmar = { { id = "tp_anvil", text = "Stone walls, one main door an' two ways out that the others dinnae know about. I'll no' say which." } },
     background = { { id = "tp_bg", text = "I'm a rogue trainer. That's all ye need tae know." } },
@@ -819,6 +835,7 @@ P:NPC {
     third = "{name} met Lomac Gearstrip, a suspicious gnome chemist in Tinker Town who makes the explosive NG-5.",
   },
   greetings = {
+    { id = "g_gnome", when = { race = "Gnome" }, text = "A gnome. Fine, you can come two steps closer than the others, but no further, and touch nothing." },
     { id = "g_hi", text = "Stop right there, and don't lean on that bench! Who sent you, and what did they tell you I had?" },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still in one piece, which is more than I'd have wagered. What is it this time?" },
     { id = "g_gaxim", when = { questActive = TODO_QUEST("An Old Colleague") }, text = "Ahhh, Gaxim sent you, did he? And how do I know you're not lying to me, hmm? Hmm?" },
@@ -900,6 +917,7 @@ P:NPC {
     },
   },
   topics = {
+    venture_company = { { id = "tp_venture", text = "Goblins who strip a forest to the stumps and call it industry. I'd blow up every shredder they own for free, and I never do anything for free." } },
     gnomeregan = { { id = "tp_gnomer", text = "I had a proper laboratory there, with ventilation. Thermaplugg can keep the furniture, but I do miss the ventilation." } },
     tinker_town = { { id = "tp_tinker", text = "Crowded, noisy and full of people who borrow tools. On the other hand, nobody here complains about the bangs." } },
     background = { { id = "tp_bg", text = "I'm a chemist, and I've been one for longer than most of my workshops have lasted." } },
@@ -995,6 +1013,8 @@ P:NPC {
     },
   },
   topics = {
+    anvilmar = { { id = "tp_anvil", text = "The hall at the heart of Coldridge Valley. It's warm inside and everyone's training for something, and I do my packing in a corner so as not to be drilled by accident." } },
+    thalos = { { id = "tp_thalos", text = "Mountaineer Thalos guards this end of the pass. He's stern, but he's saved my crate twice and my neck once, so I don't argue with him." } },
     kharanos = { { id = "tp_khar", text = "A proper town with a proper inn, just through the pass. I'd be there now if the troggs had any manners." } },
     troggs = { { id = "tp_troggs", text = "Big, grey and very fond of hitting things. I keep well back and let the mountaineers handle the introductions." } },
     background = { { id = "tp_bg", text = "I carry supplies between Anvilmar and Kharanos. It was a quiet living until quite recently." } },
@@ -1015,6 +1035,7 @@ P:NPC {
     third = "{name} met Tannok Frosthammer, the innkeeper's assistant in Kharanos, who worries about the trogg-held pass to Anvilmar.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "It's late tae be out in the snow. Come in, there's a bed upstairs an' the fire's banked for the night." },
     { id = "g_hi", text = "Hello there! Come in, take a seat by the fire an' warm yerself wi' a flagon o' ale." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' welcome. Yer seat's still warm, near enough." },
     { id = "g_crate", when = { questActive = TODO_QUEST("Supplies to Tannok") }, text = "Is that a crate from Hands ye're carryin'? Set it down here, friend, an' mind yer back." },
@@ -1089,6 +1110,8 @@ P:NPC {
     },
   },
   topics = {
+    thunderbrew = { { id = "tp_thunder", text = "The family that owns the roof over my head an' the ale under my feet. Ragnar's a fair master, so long as ye dinnae spill any." } },
+    hands = { { id = "tp_hands", text = "Hands Springsprocket, a wee gnome wi' a big conscience. He supplies us from the Coldridge side, when the troggs let him." } },
     belm = { { id = "tp_belm", text = "Innkeeper Belm's the face o' the place an' the laugh o' it. I'm the ledger, an' we both ken which the customers prefer." } },
     troggs = { { id = "tp_troggs", text = "They've the pass, an' I wish they hadnae. That's the whole o' my opinion on troggs." } },
     background = { { id = "tp_bg", text = "I'm a Frosthammer, an' I keep the stores at the Kharanos inn. It's steady work, an' warm." } },
@@ -1109,6 +1132,7 @@ P:NPC {
     third = "{name} met Mountaineer Barleybrew at the South Gate Outpost, who wants his brother's Shimmer Stout carried to a friend in Loch Modan.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Who goes? Step intae the lantern light. Ach, a traveller. It's a cold night for the tunnel, friend." },
     { id = "g_hi", text = "Halt! Ach, ye're no trogg. Come ahead, then, an' tell me if ye're bound for Loch Modan." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Good, for it's a dull watch an' I've a thirst for talk." },
     { id = "g_active", when = { questActive = TODO_QUEST("Stout to Kadrell") }, text = "Ye've the cask still? Kadrell patrols the road through Thelsamar, an' mind ye don't sample it on the way." },
@@ -1184,6 +1208,8 @@ P:NPC {
     },
   },
   topics = {
+    kadrell = { { id = "tp_kadrell", text = "Mountaineer Kadrell, down in Thelsamar. He's a good soldier an' a better judge o' stout, an' I miss havin' him on this gate." } },
+    troggs = { { id = "tp_troggs", text = "They come up wherever somebody's dug too deep. I've shot a fair few on this road, an' there's always more." } },
     rejold = { { id = "tp_rejold", text = "My brother, an' the finest brewer in Dun Morogh, whatever the sign over the Kharanos distillery says." } },
     loch_modan = { { id = "tp_loch", text = "Through the tunnel an' down. It's a bonny valley wi' a great loch in it, an' more troggs than it deserves." } },
     background = { { id = "tp_bg", text = "I'm a Barleybrew by birth an' a Mountaineer by choice. I guard the gate an' drink my brother's work." } },
@@ -1204,6 +1230,7 @@ P:NPC {
     third = "{name} met Bruuk Barleybeard, who keeps the bar at Bruuk's Corner in Ironforge's Military Ward.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The night watch has just gone out, so ye've the place near tae yerself. What'll it be?" },
     { id = "g_hi", text = "Welcome tae Bruuk's Corner. Find a stool, name yer drink, an' keep yer blade sheathed." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The usual, or have ye no' been here long enough tae have one?" },
     { id = "g_soldier", when = { class = { "WARRIOR", "PALADIN" } }, text = "Off duty, are ye? Good. Sit where the lads can see ye're no' an officer." },
@@ -1232,6 +1259,7 @@ P:NPC {
         { text = "What do the soldiers talk about?", next = "talk" },
         { text = "Why open a tavern in the Military Ward?", next = "ward" },
         { text = "I've stood a watch or two myself.", next = "watch", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
+        { text = "What's the best thing you pour?", next = "pour" },
         { text = "Another time, Bruuk.", next = "END" },
       },
     },
@@ -1270,8 +1298,17 @@ P:NPC {
       lines = { { id = "wt_default", text = "Then ye ken the worst o' it isnae the cold nor the fear, it's the hours when nothin' happens an' ye cannae stop listenin'. First one's poured strong for anybody who's stood that kind o' watch." } },
       choices = { { text = "You understand it well.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
+    pour = {
+      lines = {
+        { id = "po_default", text = "A dark ale from a wee brewer in the Commons that nobody's heard of, an' I'd like tae keep it that way. It's no' as strong as Thunderbrew's, but a soldier can drink two an' still find his bunk." },
+        { id = "po_drunk", when = { drunk = true }, text = "For ye, right now? Water. Ask me again tomorrow an' I'll tell ye about the dark ale." },
+      },
+      choices = { { text = "Two and still find my bunk. Pour it.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    dark_iron = { { id = "tp_dark", text = "Every soldier in here has an opinion on them, an' it's the same opinion. I pour, an' I let them have it." } },
+    hall_of_arms = { { id = "tp_hall", text = "Across the ward. They train there all day an' drink here all evenin', an' I can tell how the drill went by how fast the first mug goes down." } },
     military_ward = { { id = "tp_ward", text = "Barracks, the Hall o' Arms, an' my corner. It's the one part o' Ironforge where folk go tae bed on time." } },
     stonefire = { { id = "tp_stone", text = "Firebrew's place in the Commons. It's a fine tavern if ye want noise an' tall tales, an' I send him the ones who do." } },
     background = { { id = "tp_bg", text = "I was a soldier, an' now I pour for soldiers. It's the better half o' the same job." } },
@@ -1292,6 +1329,8 @@ P:NPC {
     third = "{name} met Dolman Steelfury, who sells weapons at Steelfury's Weapon Emporium in the Ironforge Commons.",
   },
   greetings = {
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "Steelfury's, an' welcome, {g:lad|lass}. Ye'll no' need tellin' that an axe is the proper answer tae most things." },
+    { id = "g_poor", when = { money = { max = 100 } }, text = "Ye've an empty purse, by the look o' ye. Look all ye like, there's nae charge for learnin' what good steel looks like." },
     { id = "g_hi", text = "Steelfury's Weapon Emporium. Tell me what ye mean tae hit, an' I'll tell ye what tae hit it wi'." },
     { id = "g_back", when = { metBefore = true }, text = "Back, are ye? Either that last one served ye well or it broke, an' I ken which I'm bettin' on." },
   },
@@ -1319,6 +1358,7 @@ P:NPC {
         { text = "Who forges what you sell?", next = "forge" },
         { text = "There's no shortage of weapon shops in Ironforge.", next = "rivals" },
         { text = "What would you put in my hand?", next = "fit", when = { class = { "WARRIOR", "PALADIN", "ROGUE", "HUNTER" } } },
+        { text = "What sells best these days?", next = "sells" },
         { text = "Good day, Dolman.", next = "END" },
       },
     },
@@ -1360,8 +1400,13 @@ P:NPC {
       },
       choices = { { text = "Show me, then.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
     },
+    sells = {
+      lines = { { id = "se_default", text = "Axes tae dwarves, same as always, an' swords tae the humans who come up on the tram wantin' somethin' dwarf-made tae show off at home. This last year it's been hammers, though, for there's more young paladins about than I've ever seen." } },
+      choices = { { text = "Hard times make for hammer sales.", next = "BACK", reply = "They do, an' I'd trade the lot for a quiet year.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    commons = { { id = "tp_commons", text = "Every coin in Ironforge passes through it. I can hear the auction house from my counter, an' I ken what steel's fetchin' before the smiths do." } },
     great_forge = { { id = "tp_forge", text = "The heart o' the city an' the source o' my stock. If ye've never stood at the rail an' watched the pour, go an' do it." } },
     grenil = { { id = "tp_grenil", text = "My kinsman, an' the better salesman. He'd sell an axe tae a gnome an' a stool tae stand on while swingin' it." } },
     background = { { id = "tp_bg", text = "I'm a Steelfury, an' we've sold arms in the Commons since my grandfather's day." } },
@@ -1382,6 +1427,7 @@ P:NPC {
     third = "{name} met Barim Jurgenstaad, the reagent vendor in the Ironforge Commons.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Late for shoppin'. The ones who come at this hour usually want the bottom shelf, an' I dinnae ask." },
     { id = "g_hi", text = "Reagents, friend. Tell me yer callin' an' I'll save ye the trouble o' readin' the labels." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, so ye've used it all up. That's how I like my customers, busy an' still breathin'." },
   },
@@ -1411,6 +1457,7 @@ P:NPC {
         { text = "Where does all this come from?", next = "source" },
         { text = "You don't ask what it's used for.", next = "ask" },
         { text = "What do you make of those who buy from you?", next = "caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "What's the strangest thing on your shelves?", next = "strange" },
         { text = "Good day, Barim.", next = "END" },
       },
     },
@@ -1449,8 +1496,17 @@ P:NPC {
       lines = { { id = "ca_default", text = "That ye're all in a hurry, an' ye all think the next spell is the important one. I've sold tae three generations o' casters, an' the ones who lasted were the ones who bought twice what they thought they'd need." } },
       choices = { { text = "Then I'll buy double.", next = "BUSINESS" }, { text = "Sound advice. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    strange = {
+      lines = { { id = "sg_default", text = "A jar o' somethin' the label calls 'wild thornroot', bought from an elf years back for the druids who never came. It's no' wilted in all that time, an' I've stopped lookin' at it after dark." } },
+      choices = {
+        { text = "I could use that.", next = "BUSINESS", when = { class = "DRUID" } },
+        { text = "Best leave that jar alone.", next = "BACK", fx = { trait = { witty = 1 } } },
+      },
+    },
   },
   topics = {
+    tinker_town = { { id = "tp_tinker", text = "The gnomes grind my powders. They're finer than I could manage an' they arrive on time, an' only the odd sack hums." } },
+    commons = { { id = "tp_commons", text = "Loud, crowded an' good for trade. I keep my door half shut against the noise an' the dust." } },
     hall_of_mysteries = { { id = "tp_hall", text = "Over in the Mystic Ward, an' the source o' most o' my custom. I've never been past the door, for a reagent seller's better no' knowin' too much." } },
     longberry = { { id = "tp_long", text = "Ginny Longberry keeps the other reagent shop, an' we send each other customers when one of us runs dry. It's a civil sort o' rivalry." } },
     background = { { id = "tp_bg", text = "I weigh powders an' sell candles. It's dull work done carefully, which is the only safe way tae do it." } },
@@ -1471,6 +1527,8 @@ P:NPC {
     third = "{name} met Myra Tyrngaarde, who sells fresh bread from a basket in the Ironforge Commons.",
   },
   greetings = {
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "Fresh bread, {g:lad|lass}! Dark an' heavy, the way yer own mother made it, or should have." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Ye've caught me wi' the last o' the day's bake. It's no' warm, but it's honest, an' I'll no' pretend otherwise." },
     { id = "g_hi", text = "Fresh bread! Warm from the oven, an' it'll no' stay that way if ye stand there thinkin' about it." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are again! I kept a loaf back, in case ye came by hungry." },
   },
@@ -1542,6 +1600,7 @@ P:NPC {
     },
   },
   topics = {
+    stonefire = { { id = "tp_stone", text = "Firebrew's tavern, an' my best customer. Half the bread on those tables is mine, whatever he tells ye." } },
     commons = { { id = "tp_commons", text = "The busiest floor in Ironforge, an' the hungriest. Ye can find anythin' here, so long as ye can hear yerself ask for it." } },
     sraaz = { { id = "tp_sraaz", text = "The wee pie-seller by the Great Forge. He's a sweet soul, an' his pies are better than he thinks they are." } },
     background = { { id = "tp_bg", text = "I'm a baker, an' my mother was a baker. I sell what I make before it's had time tae cool." } },
@@ -1562,6 +1621,8 @@ P:NPC {
     third = "{name} met Sraaz, a gnome who sells pies to the smiths around the Great Forge in Ironforge.",
   },
   greetings = {
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "Pies! Hot pies! And they're the meat ones today, sir or madam, I know you'll ask." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Oh! You're up late. I've two left, and they've been by the forge all evening, so they're warmer than I am." },
     { id = "g_hi", text = "Pies! Hot pies! Well, warm pies, I've been walking a while, but they were very hot when I started!" },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello again! Was the last one all right? You can tell me if it wasn't, I'd rather know." },
   },
@@ -1589,6 +1650,7 @@ P:NPC {
         { text = "Why pies?", next = "pies" },
         { text = "You apologise a great deal for a good cook.", next = "sorry" },
         { text = "Do you miss Gnomeregan's kitchens?", next = "home", when = { race = "Gnome" } },
+        { text = "What goes into a forge-side pie?", next = "filling" },
         { text = "Goodbye, Sraaz.", next = "END" },
       },
     },
@@ -1630,8 +1692,16 @@ P:NPC {
       lines = { { id = "ho_default", text = "Every day. We had ovens with a dial for the heat, and a little bell when the time was up, and here I've a coal stove I have to guess at. But the dwarves have been kind, and nobody has ever sent a pie back." } },
       choices = { { text = "We'll have those ovens again one day.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
+    filling = {
+      lines = {
+        { id = "fi_default", text = "Boar, mostly, from Dun Morogh, with onion and a great deal of pepper, because the smiths can't taste anything subtler through the smoke. There's an apple one too, but I only make six, and they're gone before I've finished the first circuit." },
+        { id = "fi_cook", when = { profession = "Cooking" }, text = "You cook, don't you? Then I'll tell you properly: boar shoulder, braised overnight, onion, pepper, and a spoon of the braising liquor in the pastry itself. That last part's mine, and I'm rather proud of it." },
+      },
+      choices = { { text = "I'll try the boar.", next = "BUSINESS" }, { text = "It sounds very good, Sraaz.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    tinker_town = { { id = "tp_tinker", text = "I sleep there, but I don't sell there. Everyone in Tinker Town wants to improve the pie, and one of them tried to add a wick." } },
     great_forge = { { id = "tp_forge", text = "The hottest, loudest, hungriest place in the city. I'm very fond of it, though I can't hear a thing for an hour afterwards." } },
     myra = { { id = "tp_myra", text = "Myra Tyrngaarde sells bread in the Commons, and she gave me her old proving cloths when I arrived with nothing. I save her a pie every week." } },
     background = { { id = "tp_bg", text = "I'm a cook from Gnomeregan. I got out with a rolling pin and a recipe book, which turned out to be enough." } },
@@ -1652,6 +1722,8 @@ P:NPC {
     third = "{name} met Pithwick, a gnome who sells bags in Fizzlespinner's General Goods in the Ironforge Commons.",
   },
   greetings = {
+    { id = "g_gnome", when = { race = "Gnome" }, text = "Bags, pouches and packs, and all of them with straps that adjust to a sensible height, unlike everything else in this city!" },
+    { id = "g_poor", when = { money = { max = 100 } }, text = "Bags! Though I see your purse is flat, and I do sell those too, for when you've something to put in one." },
     { id = "g_hi", text = "Bags, pouches and packs! And may I say, the one on your shoulder is carrying its load entirely on the wrong strap." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Is it full already? It's always full already. Nobody ever buys the size up when I tell them to." },
   },
@@ -1679,6 +1751,7 @@ P:NPC {
         { text = "You share a shop with Fizzlespinner.", next = "shop" },
         { text = "What's wrong with how I pack?", next = "pack" },
         { text = "I stitch bags myself.", next = "tailor", when = { profession = "Tailoring" } },
+        { text = "What's the most anyone has asked a bag to hold?", next = "most" },
         { text = "Goodbye, Pithwick.", next = "END" },
       },
     },
@@ -1720,8 +1793,13 @@ P:NPC {
       lines = { { id = "tl_default", text = "Do you? Then double-stitch the bottom corners and wax your thread, and you'll already be ahead of half of what's offered to me. I turn away more bags than I buy, and it's always the corners." } },
       choices = { { text = "Double-stitched corners. Noted.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
+    most = {
+      lines = { { id = "mo_default", text = "A miner once tried to fit forty bars of iron into a linen sack, and it lasted eleven steps, I counted. I sold him three wool bags and a lecture, and he's bought from me ever since, so the lecture must have been good." } },
+      choices = { { text = "Eleven steps is better than I'd have guessed.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    dwarves = { { id = "tp_dwarves", text = "Splendid people who pack by throwing things in and sitting on the lid. I've stopped watching, for my own peace." } },
     fizzlespinner = { { id = "tp_fizz", text = "Fillius Fizzlespinner keeps the general goods, and keeps them tidy, which is why I agreed to the corner. I couldn't share a roof with a muddle." } },
     commons = { { id = "tp_commons", text = "Everyone in Ironforge crosses it twice a day carrying too much. From a professional standpoint, it's ideal." } },
     background = { { id = "tp_bg", text = "I sold luggage in Gnomeregan, and now I sell it here. People leave in a hurry more often than you'd think." } },
@@ -1742,6 +1820,8 @@ P:NPC {
     third = "{name} met Fizzlebang Booms, a gnome who sells fireworks in Tinker Town in Ironforge.",
   },
   greetings = {
+    { id = "g_gnome", when = { race = "Gnome" }, text = "Fireworks! Oh, a fellow gnome, come in, come in, and tell me honestly whether this one looks green to you." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Night's the proper time for them! Take a few up to the gates and aim at the stars, not the guards." },
     { id = "g_hi", text = "Fireworks! Rockets in red, blue and green, and every one tested by me personally, which is why I look like this!" },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did they go up? They did go up, didn't they, and not sideways? Good, good." },
   },
@@ -1769,6 +1849,7 @@ P:NPC {
         { text = "Where can you even set them off in here?", next = "where" },
         { text = "What happened to your eyebrow?", next = "eyebrow" },
         { text = "I work with powder too. What's your mix?", next = "eng", when = { profession = "Engineering" } },
+        { text = "What's the grandest display you've ever made?", next = "grand" },
         { text = "Goodbye, Fizzlebang.", next = "END" },
       },
     },
@@ -1807,8 +1888,13 @@ P:NPC {
       lines = { { id = "en_default", text = "Slower than yours, I expect! You want a charge to burst a rock, and I want mine to lift gently and then open like a flower. I cut the powder with fine charcoal and a pinch of something I'm not telling Lomac Gearstrip about." } },
       choices = { { text = "Your secret's safe from Lomac.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
+    grand = {
+      lines = { { id = "gd_default", text = "Forty rockets off the slope above the gates, the first winter after we came here, for the refugees. Half the mountain came out to watch, dwarves and gnomes together, and for about a minute nobody was thinking about what we'd lost." } },
+      choices = { { text = "That minute was worth the powder.", next = "BACK", reply = "It was. I've been trying to make another one ever since.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    overspark = { { id = "tp_overspark", text = "The Tinkmaster's very fair, and he's only confiscated my stock twice. He gave it back both times, with a note." } },
     tinker_town = { { id = "tp_tinker", text = "Home for now, and the only neighbourhood in Ironforge where a sudden bang makes people look interested instead of alarmed." } },
     gnomeregan = { { id = "tp_gnomer", text = "We'll take it back, and when we do I've a display planned that will be seen from Loch Modan. I've been saving the good blue." } },
     background = { { id = "tp_bg", text = "I make fireworks, I sell fireworks, and now and then I wear them. It's a full life." } },

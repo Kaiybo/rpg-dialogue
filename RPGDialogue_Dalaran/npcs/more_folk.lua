@@ -705,6 +705,7 @@ P:NPC {
     },
   },
   topics = {
+    drekthar = { { id = "tp_drek", text = "The Frostwolf elder, blind, and better informed than anyone in the valley. He has never once asked to see my ledgers, and I suspect he does not need to." } },
     frostwolf = { { id = "tp_frost", text = "A clan that kept its own counsel in these mountains while the old Horde burned the south. They are proud, and I have come to think they have earned it." } },
     stormpike = { { id = "tp_storm", text = "Dwarves with picks and a claim. They are stubborn enough to die here in great numbers, which I say with a certain professional interest." } },
     undercity = { { id = "tp_under", text = "Home, if the word applies. It is warmer, darker and a good deal quieter than this, and nobody there sings." } },

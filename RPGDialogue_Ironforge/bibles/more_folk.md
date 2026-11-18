@@ -45,3 +45,39 @@ warcraft.wiki.gg pages via `tools/npc.py`, read 2026-11-18: each NPC's own page 
 
 ## Authored, not canon
 Belia and Regnus as cousins (wiki: relatives, unspecified); Tormus's wife; Longbeard's Burning Steppes scouting; Sheldonore's twenty years on the wall guns; Tharek's wife and apprentice; Milli's three years perfecting the stride.
+
+# Missed folk, added later (npcs/more_folk2.lua)
+
+Keys: mf_lomac, mf_hands, mf_tannok, mf_barleybrew (quest); mf_bruuk, mf_dolman, mf_barim, mf_myra, mf_sraaz, mf_pithwick, mf_fizzlebang (Ironforge vendors).
+
+## Sources
+warcraft.wiki.gg via `tools/npc.py`, read 2026-11-18: each NPC's page; quest pages An Old Colleague, Ineptitude + Chemicals = Fun, Supplies to Tannok, Stout to Kadrell. Wiki locations are post-Cataclysm for some (Mountaineer Barleybrew is written at the South Gate Outpost, his Classic post). All IDs are TODO.
+
+## Their quests
+- **Lomac Gearstrip** (Tinker Town): An Old Colleague (ends; from Gaxim Rustfizzle in Stonetalon, see the Stonetalon pack), Ineptitude + Chemicals = Fun (4 Minor Mana Potions, 2 Elixirs of Minor Fortitude for a sample of NG-5). Suspicious, gleeful about explosions, respects alchemists.
+- **Hands Springsprocket** (Coldridge Pass): Supplies to Tannok (starts). Can't get through the trogg-held pass without a mountaineer escort.
+- **Tannok Frosthammer** (Thunderbrew Distillery, Kharanos): Supplies to Tannok (ends). Worried by the lack of word from Anvilmar.
+- **Mountaineer Barleybrew** (South Gate Outpost): Stout to Kadrell (after Rejold's New Brew / Shimmer Stout). His brother Rejold brewed the stout.
+- none: Bruuk Barleybeard (Bartender, Bruuk's Corner, Military Ward), Dolman Steelfury (Weapon Merchant, Steelfury's Weapon Emporium, Commons), Barim Jurgenstaad (Reagents, Commons), Myra Tyrngaarde (Bread Vendor, walks the Commons), Sraaz (Pie Vendor, walks the Great Forge), Pithwick (Bag Vendor, Fizzlespinner's General Goods), Fizzlebang Booms (Fireworks Vendor, Tinker Town): vendors, built from role, place and neighbours.
+
+## Voices
+- **Lomac**: gnome, quick and accusing, laughs at the thought of someone exploding; "Hmm? Hmm?".
+- **Hands**: gnome, cheerful and cold, frets about the crate.
+- **Tannok**: dwarven burr, hospitable, a worrier; fire and flagon first.
+- **Barleybrew**: jolly dwarf sentry, family pride against the Thunderbrews.
+- **Bruuk**: gruff ex-soldier barman who hears everything.
+- **Dolman**: proud, direct; fits the weapon to the arm.
+- **Barim**: dry, careful; asks no questions and loses sleep over it.
+- **Myra**: brisk, motherly, "dear"; sells on the move.
+- **Sraaz**: anxious, apologetic gnome; percentages about pie.
+- **Pithwick**: precise, chatty gnome; capacity, seams, how people pack.
+- **Fizzlebang**: exuberant gnome; colour, height, eyebrows.
+
+## Authored, not canon
+Lomac's "third workshop"; Hands's half-heated coat; Tannok as kin to Balir Frosthammer and the bar argument over clearing the pass; Barleybrew having trained with Kadrell and his mother's disapproval; Bruuk as a former wall soldier; Grenil Steelfury as Dolman's kinsman at the other counter and their disagreement; Barim's bad batch of powder; Myra's sister and the bread she sells to the Stonefire; Sraaz's circuit and the gryphon; Pithwick's arrows; Fizzlebang's indoor rocket and the display for the refugees.
+
+## What they notice
+Lomac: alchemists, gnomes. Hands: new recruits, gnomes. Tannok: new arrivals, worn gear. Barleybrew: drink, dwarves. Bruuk: drink, veterans. Dolman: worn weapons, casters. Barim: mages, warlocks, paladins. Myra: the worn-out, humans. Sraaz: gnomes, the worn-out. Pithwick: tailors, worn gear. Fizzlebang: engineers, dwarves.
+
+## Deepened 2026-11-18
+mf_roetten, mf_longbeard, mf_sheldonore, mf_calder, mf_valgar, mf_belia, mf_rotimer, mf_tharek, mf_milli, mf_granis, mf_thran, mf_thorgas, mf_bromos, mf_solm (and dm_jarven in kharanos_brewers.lua): extra branches about their place and neighbours (the Library and Laris; the Hall of Arms, Muren, Regnus, Ulbrek; the Commons and each other; the Hall of Mysteries and Rohan; Steelgrill's Depot; Kharanos and Anvilmar's other trainers). Authored: Tharek's apprentice, Belia's crag boar, Thorgas raised high in the mountains, Bromos as a rifleman in the Second War, Binjy's falls.

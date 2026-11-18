@@ -1,5 +1,6 @@
 -- More Wetlands folk: Andrea Halloran, the tanner's wife in Menethil Harbor with two children who won't stay
 -- off things, and Comar Villard, who wanders the north road near the Thandol Span looking for his lost wife.
+-- Also (added later): the Menethil traders, Fradd Swiftgear and Wenna Silkbeard, and Kixxle.
 -- Voice: bibles/more_folk.md
 local P = RPGDialogueAPI:Pack("rpgd.wetlands")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
@@ -17,6 +18,7 @@ P:NPC {
     third = "{name} met Andrea Halloran, the tanner's wife in Menethil Harbor, who has her hands full with two adventurous children.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Hush, please, they're finally asleep. I'd forgotten what the harbor sounds like without them." },
     { id = "g_hi", text = "Oh, hello! Sorry, I'm only half listening; I've lost sight of Jesse again, and that's never a good sign." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! Have you seen a small boy halfway up anything tall? If you have, don't tell me which." },
   },
@@ -130,6 +132,7 @@ P:NPC {
     third = "{name} met Comar Villard, a grieving man who wanders the northern Wetlands searching for his lost wife.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Who's there? Forgive me, I thought for a moment... no. Good evening, friend. It is late to be on this road." },
     { id = "g_hi", text = "Excuse me, friend, but have you seen a woman travelling alone on these roads? No, I suppose you haven't, and nobody ever has." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Still no sign of her, I'm afraid, but I keep looking." },
   },
@@ -216,6 +219,7 @@ P:NPC {
     },
   },
   topics = {
+    menethil = { { id = "tp_men", text = "The harbor to the south. They tell me it is safe there, and I am sure it is. She was not going there." } },
     thandol_span = { { id = "tp_span", text = "A great dwarven bridge to the north, with fighting on it now. I keep to this side, for the Dark Irons don't care who is only looking for someone." } },
     dun_modr = { { id = "tp_modr", text = "The dwarves there lost their town and are trying to win it back. They've been kind to me, in the gruff way dwarves are kind." } },
     background = { { id = "tp_bg", text = "There's not much to tell, friend, beyond the woman I've lost and the roads I walk looking for her." } },
@@ -242,6 +246,8 @@ P:NPC {
     third = "{name} met Kersok Prond, the tradesman who works out of the Deepwater Tavern in Menethil Harbor.",
   },
   greetings = {
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf, an' no' yet green wi' the damp. Sit down, {g:lad|lass}, I've Ironforge flux an' Ironforge prices, near enough." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The night boat's due, so I'm still at my table. What are ye short of?" },
     { id = "g_hi", text = "Trade goods, friend, dry an' ready. In this town that's rarer than ye'd think." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. There's a ship in since ye left, so I've spice, an' I've lost my last crate o' vials tae the damp." },
   },
@@ -269,6 +275,7 @@ P:NPC {
         { text = "Why trade from a tavern?", next = "tavern" },
         { text = "How does the damp treat your stock?", next = "damp" },
         { text = "What sells to crafters in a port?", next = "craft", when = { profession = { "Tailoring", "Blacksmithing", "Alchemy", "Leatherworking", "Engineering" } } },
+        { text = "What's the best bargain you ever made?", next = "bargain" },
         { text = "Good day, Kersok.", next = "END" },
       },
     },
@@ -307,8 +314,13 @@ P:NPC {
       lines = { { id = "cr_default", text = "Thread an' needles tae the sailors, vials tae Dewin Shimmerdawn's customers when he runs short, an' flux tae Brak Durnad, who goes through it like ale. If ye make somethin' that keeps the wet out, ye'll sell it in this town before ye've finished it." } },
       choices = { { text = "Something that keeps the wet out. Noted.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
+    bargain = {
+      lines = { { id = "bg_default", text = "A whole crate o' elven silk thread, bought off a captain who thought it was fishin' line. I told him what it was after I'd paid, an' he laughed so hard he stood me a drink, which is why I still buy from him first." } },
+      choices = { { text = "Honest after the fact still counts.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    theramore = { { id = "tp_ther", text = "Lady Proudmoore's city, across the sea in Kalimdor. I've never seen it, but I've sold a great deal o' what it sends." } },
     menethil = { { id = "tp_men", text = "A keep, a dock an' a tavern, wi' a marsh pressin' in on three sides. It's the Alliance's door tae the north, an' doors get knocked on." } },
     dragonmaw = { { id = "tp_dragon", text = "Orcs from the old Horde, still up in the hills by Dun Algaz. They've cost me three carts this year, an' I've stopped sendin' any." } },
     background = { { id = "tp_bg", text = "I'm a tradesman. I buy at the dock an' sell at the fire, an' I've done it since before the last war." } },
@@ -329,6 +341,8 @@ P:NPC {
     third = "{name} met Gruham Rumdnul, who sells general supplies in Menethil Harbor.",
   },
   greetings = {
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "General supplies. A dwarf, eh? Then ye'll hate it here as much as I do, an' we'll get on." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're no' thinkin' o' goin' out there in the dark? Buy a lantern, at least, an' let me talk ye out o' the rest." },
     { id = "g_hi", text = "General supplies. Are ye headed intae the marsh? Then let me see yer boots before ye tell me what ye think ye need." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' ye're wet tae the knee. I did say." },
   },
@@ -356,6 +370,7 @@ P:NPC {
         { text = "Who buys from you, mostly?", next = "buyers" },
         { text = "You don't sound fond of the Wetlands.", next = "fond" },
         { text = "What should a newcomer watch for out there?", next = "advice", when = { maxLevel = 29 } },
+        { text = "What's the one thing nobody thinks to buy?", next = "nobody" },
         { text = "Good day, Gruham.", next = "END" },
       },
     },
@@ -394,8 +409,13 @@ P:NPC {
       lines = { { id = "ad_default", text = "Dinnae fill yer waterskin from a still pool, dinnae camp below the tide line, an' if ye see one murloc, ye've been seen by six. An' buy a second torch, for the first always ends up in the bog." } },
       choices = { { text = "Sell me the second torch.", next = "BUSINESS" }, { text = "Thank you, Gruham.", next = "BACK", fx = { affinity = 1 } } },
     },
+    nobody = {
+      lines = { { id = "nb_default", text = "A spare pair o' laces. Ye'd laugh, but a boot that'll no' stay on in a bog is a boot ye leave behind, an' then ye're walkin' the Wetlands in one sock. I keep a jar o' them on the counter an' nobody looks at it till they've been out once." } },
+      choices = { { text = "Sell me the laces.", next = "BUSINESS" }, { text = "I'll take my chances.", next = "BACK", reply = "Aye, they all say that. I'll keep a pair by for ye." } },
+    },
   },
   topics = {
+    murlocs = { { id = "tp_murloc", text = "Bluegills, all along the shore north o' the wall. They're bolder every month, an' they've taken tae the wrecks in the bay." } },
     menethil = { { id = "tp_men", text = "A harbor wi' a wall round it an' a bog round that. It's no' bonny, but it's held through worse than this." } },
     whelgar = { { id = "tp_whel", text = "The League's dig tae the north-east. They keep findin' old bones, an' the bones keep objectin', from what I hear." } },
     background = { { id = "tp_bg", text = "I'm an Ironforge dwarf who came for a season an' stayed eleven years. I sell supplies." } },
@@ -416,6 +436,8 @@ P:NPC {
     third = "{name} met Dewin Shimmerdawn, a night elf who sells alchemy supplies in Menethil Harbor.",
   },
   greetings = {
+    { id = "g_alch", when = { profession = "Alchemy" }, text = "Ishnu-alah, brewer. I have clean glass and fresh leaf, and I think you will know the difference." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The moon is up, and the marsh is singing. It is a good hour for a visit; I am glad you came." },
     { id = "g_hi", text = "Ishnu-alah. I have vials, and I have the herbs to fill them, if you know what to do with either." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Has the marsh shown you anything worth gathering since we spoke?" },
   },
@@ -443,6 +465,7 @@ P:NPC {
         { text = "What brought a night elf to Menethil?", next = "came" },
         { text = "How do you find the dwarves and humans here?", next = "folk" },
         { text = "I gather herbs. Where should I look?", next = "herbs", when = { profession = { "Alchemy", "Herbalism" } } },
+        { text = "What do you miss about Kalimdor?", next = "miss" },
         { text = "Farewell, Dewin.", next = "END" },
       },
     },
@@ -481,8 +504,13 @@ P:NPC {
       lines = { { id = "he_default", text = "Follow the water north of the harbor and look where the banks are undercut, for liferoot likes its feet wet. Take one plant in three and leave the roots of the rest, and the bank will have as much for you next season." } },
       choices = { { text = "One in three. I'll keep to that.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
+    miss = {
+      lines = { { id = "mi_default", text = "The quiet beneath the great trees, where even the rain arrives slowly. Here the sky is very near and everything happens at once. But I have found a stand of old willows north of the wall, and when the wind is in them I can close my eyes and nearly be home." } },
+      choices = { { text = "I hope the willows stand a long while.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    wetlands = { { id = "tp_wet", text = "Others see mud. I see a land that drinks the sea and the mountain both and makes green of them. It is not gentle, but it is very much alive." } },
     auberdine = { { id = "tp_aub", text = "The harbor on Darkshore where the ship from here makes land. It is grey and quiet and smells of pine, and I think of it when the taverns are loud." } },
     telurinon = { { id = "tp_tel", text = "Telurinon Moonshadow teaches herbalism here. He has been in Menethil longer than I, and has more patience with being stared at." } },
     background = { { id = "tp_bg", text = "I am a student of growing things who sells glass to pay for his lodging. There is no more to it." } },
@@ -503,6 +531,7 @@ P:NPC {
     third = "{name} met Brak Durnad, the weaponsmith of Menethil Harbor.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The night watch has just been in for their edges. Ye're next, if ye've somethin' needs seein' tae." },
     { id = "g_hi", text = "Weapons, an' good ones. Let me see what ye're carryin' first, for I'll no' sell ye a second till I ken how ye treat the first." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have ye oiled it since? Hm. Ye have, a wee bit. That's somethin'." },
   },
@@ -530,6 +559,7 @@ P:NPC {
         { text = "You arm the harbor guard?", next = "guard" },
         { text = "What have the Dragonmaw been carrying?", next = "orcs" },
         { text = "What would you carry into the marsh?", next = "carry", when = { class = { "WARRIOR", "PALADIN", "ROGUE", "HUNTER" } } },
+        { text = "What do you forge when the orders are done?", next = "own" },
         { text = "Good day, Brak.", next = "END" },
       },
     },
@@ -571,8 +601,14 @@ P:NPC {
       },
       choices = { { text = "Show me that rack.", next = "BUSINESS" }, { text = "Sound advice. Something else.", next = "BACK" } },
     },
+    own = {
+      lines = { { id = "ow_default", text = "Fish hooks, if ye'd believe it. There's nae time for anythin' grand, but a hook takes a moment an' the dock lads are always short. Harold Riggs says mine hold a better point than the ones off the boat, an' I've had worse praise." } },
+      choices = { { text = "A weaponsmith's fish hook. I'd buy one.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    stoutfist = { { id = "tp_stout", text = "Captain Stoutfist holds this harbor wi' too few an' asks for nothin' he'd no' do himself. I'd forge for him for free, if I could afford the coal." } },
+    murndan = { { id = "tp_murn", text = "The gunsmith, an' my partner in misery. If ye want tae hear a dwarf curse fog for an hour, buy him a drink." } },
     menethil = { { id = "tp_men", text = "A hard post an' a wet one. I'd no' leave it while there's a guard on that wall needin' an edge." } },
     brahnmar = { { id = "tp_brahn", text = "The armourer. A good dwarf, an' as tired as I am. Between us we keep the garrison in one piece." } },
     background = { { id = "tp_bg", text = "I learned my trade at the Great Forge an' brought it down tae the sea. Some days I wonder why." } },
@@ -593,6 +629,8 @@ P:NPC {
     third = "{name} met Jennabink Powerseam, a gnome who sells tailoring supplies from a cart in Menethil Harbor.",
   },
   greetings = {
+    { id = "g_gnome", when = { race = "Gnome" }, text = "Thread, dye, needles and patterns, and a friendly face at eye level for once! Hello, hello." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "I'm just putting the cover on, but I'll take it off again for a customer. What do you need?" },
     { id = "g_hi", text = "Thread, dye, needles and patterns! And if your cloak is letting the rain in, which it is, I can tell you why." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! Did the seam hold? I've been wondering, I do wonder about seams." },
   },
@@ -620,6 +658,7 @@ P:NPC {
         { text = "What are the specialty goods?", next = "special" },
         { text = "Why a cart, and not a shop?", next = "cart" },
         { text = "What should a tailor make for this weather?", next = "tailor", when = { profession = "Tailoring" } },
+        { text = "What colours sell in a port?", next = "colours" },
         { text = "Goodbye, Jennabink.", next = "END" },
       },
     },
@@ -658,8 +697,13 @@ P:NPC {
       lines = { { id = "tl_default", text = "Cloaks, and line them! Everyone here buys a cloak within a week of arriving and a second within a month, because the first was a single layer. Put a wool lining in and wax the outer, and you can name your price at the dock." } },
       choices = { { text = "Lined and waxed. Thank you.", next = "BACK", fx = { affinity = 1 } }, { text = "Sell me the thread for it.", next = "BUSINESS" } },
     },
+    colours = {
+      lines = { { id = "cl_default", text = "Blue to the sailors, always, and grey to the dwarves, who say it doesn't show the mud. I brought a lovely orange in the spring and sold exactly none of it, except to one elf, who bought the entire bolt and wouldn't say why." } },
+      choices = { { text = "Somewhere there's a very orange elf.", next = "BACK", reply = "I do hope so! I'd like to see it, just once.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    helbrek = { { id = "tp_helb", text = "The innkeeper. He grumbles when I park under his eaves, and then he sends his barmaid out with soup, so I've stopped taking the grumbling seriously." } },
     menethil = { { id = "tp_men", text = "Wet, busy and full of people with torn clothes. Professionally speaking, it's perfect." } },
     gnomeregan = { { id = "tp_gnomer", text = "I was a seamstress there, in a workshop with proper lamps. I do miss the lamps." } },
     background = { { id = "tp_bg", text = "I sew, I sell, and I push a cart. It's a small business, and it's entirely mine." } },
@@ -680,6 +724,8 @@ P:NPC {
     third = "{name} met Fradd Swiftgear, a gnome who sells engineering supplies from a camp in the Wetlands.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Oh! You set off the east bell. No harm done, I'm awake, I'm always awake. What can I get you?" },
+    { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer, at my camp! Sit, sit, there's tea, and I've a question about fuse cord I've been saving for someone qualified." },
     { id = "g_hi", text = "A customer! Out here! Wonderful, I was beginning to think the sign had fallen over again." },
     { id = "g_back", when = { metBefore = true }, text = "You found the camp twice! That's very nearly a record. What can I get you?" },
   },
@@ -707,6 +753,7 @@ P:NPC {
         { text = "Who shares this camp with you?", next = "camp" },
         { text = "Aren't you worried, out here alone?", next = "worry" },
         { text = "What fails first in this damp?", next = "fail", when = { profession = "Engineering" } },
+        { text = "What's the experiment on the tent peg?", next = "peg" },
         { text = "Goodbye, Fradd.", next = "END" },
       },
     },
@@ -745,8 +792,13 @@ P:NPC {
       lines = { { id = "fa_default", text = "Springs, then fuses, then anything with a leather seal. Copper tube goes green but keeps working, and good dwarven steel bolts last longest if you grease the threads. I've a notebook with the full table, and you're the first person who's ever asked to hear any of it." } },
       choices = { { text = "Grease the threads. I'll remember.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
+    peg = {
+      lines = { { id = "pg_default", text = "A rain gauge, a wind vane and a copper strip, all wired to one dial, so I can see how fast the metal tarnishes against how wet it's been. It's been running for seven months. The answer so far is 'quickly', but I'd like a second decimal place." } },
+      choices = { { text = "Seven months for a decimal place.", next = "BACK", reply = "That's very reasonable, by research standards! You should see how long the first one took.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_gnomer", text = "I try not to think about it too directly. I think about bolts, and the bolts have never let me down the way the ventilation did." } },
     wenna = { { id = "tp_wenna", text = "Wenna Silkbeard, my neighbour at the fire. She's sharp, she's kind, and she's right about most things, which I try not to hold against her." } },
     menethil = { { id = "tp_men", text = "Down the road to the south-west. I go in once a month for tea and solder, and come back with a headache from the noise." } },
     background = { { id = "tp_bg", text = "I'm an engineer from Gnomeregan who tests parts in bad weather. It's a narrow field, but I'm at the top of it." } },
@@ -767,6 +819,7 @@ P:NPC {
     third = "{name} met Wenna Silkbeard, a dwarf who sells special goods from a camp in the Wetlands.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Come intae the firelight where I can see ye. Aye, ye'll do. Sit, an' keep yer voice down, for Fradd's finally asleep." },
     { id = "g_hi", text = "I saw ye comin' up from the road a quarter hour back. Sit down, then, an' I'll show ye what I've got that the harbor hasnae." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again! Good. Fradd's been talkin' tae me about bolts since breakfast, an' I'm glad o' the rescue." },
   },
@@ -841,6 +894,8 @@ P:NPC {
     },
   },
   topics = {
+    menethil = { { id = "tp_men", text = "Down the road, behind its wall. I go in for flour an' gossip, an' I leave before anybody asks me about harbor dues." } },
+    jennabink = { { id = "tp_jenn", text = "The gnome wi' the cart by the inn. She's a fair seamstress an' a fair rival, an' if she'd come up here I'd share the fire wi' her gladly." } },
     fradd = { { id = "tp_fradd", text = "My neighbour, the gnome wi' the bells an' the notebook. He's worth ten o' most folk, an' he'll never ken it." } },
     dun_modr = { { id = "tp_modr", text = "North up the road. The Dark Irons took it, an' our lads are camped outside tryin' tae take it back. I send what cloth I can spare for bandages." } },
     background = { { id = "tp_bg", text = "I was a draper's daughter in Ironforge. I prefer the open air an' the open market." } },
@@ -861,6 +916,8 @@ P:NPC {
     third = "{name} met Kixxle, a goblin who sells potions and herbs on the road through the Wetlands.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Whoa, hey, don't sneak up on a guy! Night rates apply, pal, that's just the lamp oil talkin'." },
+    { id = "g_poor", when = { money = { max = 100 } }, text = "Hey, pal, I can hear your purse from here and it ain't jinglin'. Come back when it does, I'll still be sittin' on this blanket." },
     { id = "g_hi", text = "Hey, hey, pal, over here! You look like somebody who's about to need a potion, and I happen to be the only one sellin' for ten miles." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite repeat customer! You're still alive, so the product works, and that's the best advertisin' I got." },
   },
@@ -888,6 +945,7 @@ P:NPC {
         { text = "You sell to both sides?", next = "sides" },
         { text = "Where do the herbs come from?", next = "herbs" },
         { text = "I brew my own. What do you pay for stock?", next = "alch", when = { profession = { "Alchemy", "Herbalism" } } },
+        { text = "What's your best seller?", next = "seller" },
         { text = "See you around, Kixxle.", next = "END" },
       },
     },
@@ -926,8 +984,13 @@ P:NPC {
       lines = { { id = "al_default", text = "For finished potions? About a third of what I sell 'em for, and before you make that face, I'm the one sittin' in a bog all day movin' the product. Bring me healin' or swim speed and I'll take all you got, 'cause those two walk off the blanket." } },
       choices = { { text = "A third. I'll think about it.", next = "BACK", reply = "Think fast, the offer's got a shelf life, same as the potions.", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
+    seller = {
+      lines = { { id = "sl_default", text = "Healin' potions, by a mile, and right behind 'em the one that lets you breathe underwater, on account of there's a whole wrecked fleet in the bay and everybody figures they'll be the one to find the gold. Nobody's found it yet, and they all come back for more potions, so everybody wins, mostly me." } },
+      choices = { { text = "Show me the water-breathing ones.", next = "BUSINESS" }, { text = "You profit from hope, Kixxle.", next = "BACK", reply = "Hope's a renewable resource, friend. Best kind there is.", fx = { trait = { witty = 1 } } } },
+    },
   },
   topics = {
+    menethil = { { id = "tp_men", text = "Nice little port, lots of rules. I go in for supplies and get out before somebody mentions a vendor's licence." } },
     steamwheedle = { { id = "tp_steam", text = "The Cartel's got ports and rules and dues. Me, I'm what you'd call an independent, which means I keep all of it and nobody comes lookin' if I go missin'." } },
     dragonmaw = { { id = "tp_dragon", text = "Mean, broke and always bleedin', so they're decent customers. I don't ask about the war and they don't ask about my margins." } },
     background = { { id = "tp_bg", text = "I'm a businessman, friend. I found a spot with no competition, and I've been sittin' on it ever since." } },

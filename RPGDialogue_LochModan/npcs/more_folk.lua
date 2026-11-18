@@ -1,5 +1,6 @@
 -- More Loch Modan folk: Pilot Hammerfoot at the North Gate Outpost, Dargh Trueaim at the Farstrider Lodge,
 -- Deek Fizzlebizz on the Stonewrought Dam, and Greishan Ironstove on the road with his bread.
+-- Also (added later): Vyrin Swiftwind and the Lodge traders, Gothor Brumn and Nillen Andemar.
 -- Voice: bibles/more_folk.md
 local P = RPGDialogueAPI:Pack("rpgd.lochmodan")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
@@ -102,6 +103,8 @@ P:NPC {
     third = "{name} met Dargh Trueaim, the hunter trainer at the Farstrider Lodge.",
   },
   greetings = {
+    { id = "g_back", when = { metBefore = true }, text = "Back at the Lodge. Did ye hit what ye aimed at, or what was standin' next tae it?" },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Nae shootin' in this light. Sit by the fire an' I'll talk, if talk's what ye're after." },
     { id = "g_hi", text = "Mind the trophies; Marek's very proud o' them. What brings ye tae the Lodge?" },
     { id = "g_hunt", when = { class = "HUNTER" }, text = "A hunter! Come in, an' let's see how yer aim's improved." },
   },
@@ -183,6 +186,7 @@ P:NPC {
     },
   },
   topics = {
+    daryl = { { id = "tp_daryl", text = "A gifted lad who thinks the gift is the whole o' it. He'll learn, an' I hope it's from me an' no' from a bear." } },
     marek = { { id = "tp_marek", text = "Marek Ironheart's the heart o' this Lodge, an' a better hunter than me, though he shoots for the wall an' I shoot for the pot." } },
     crocolisks = { { id = "tp_croc", text = "They lie on the islands like logs till ye're close, an' then they're no' logs. Dinnae wade where ye cannae see the bottom." } },
     background = { { id = "tp_bg", text = "I'm a Farstrider an' a trainer. My aim speaks for itself." } },
@@ -203,6 +207,7 @@ P:NPC {
     third = "{name} met Deek Fizzlebizz, a gnome engineering trainer on the Stonewrought Dam.",
   },
   greetings = {
+    { id = "g_back", when = { metBefore = true }, text = "You came back! Nobody comes back, they say the wind's too much. Come and see what I've done to the number three sluice." },
     { id = "g_hi", text = "Hello, hello! Isn't the dam marvellous? Six thousand tons of stone, and every gear in it calculated to the last tooth!" },
     { id = "g_eng", when = { profession = "Engineering" }, text = "A fellow engineer! Come, come, I've something to show you." },
   },
@@ -288,6 +293,8 @@ P:NPC {
     },
   },
   topics = {
+    stonewrought_dam = { { id = "tp_dam", text = "Dwarven stone and gnomish gearing, holding back an entire loch. I've measured most of it and I'm still not tired of it." } },
+    tinker_town = { { id = "tp_tinker", text = "Crowded and brilliant and loud. I visit for parts and leave the same day, before someone talks me into a committee." } },
     hinderweir = { { id = "tp_hind", text = "The Chief Engineer, seventh of his name, and the most careful person I've ever met. If he's worried about something, I start worrying immediately." } },
     dark_iron = { { id = "tp_dark", text = "They'd like nothing better than to crack this dam, and they're good with powder, which I say with professional regret. The mountaineers watch the north approach for exactly that reason." } },
     background = { { id = "tp_bg", text = "I'm a gnome engineer, and I love this dam." } },
@@ -308,6 +315,7 @@ P:NPC {
     third = "{name} met Greishan Ironstove, a travelling bread merchant on the roads of Loch Modan.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're on the road late! So am I, mind. Have a heel o' bread an' walk wi' me as far as the next post." },
     { id = "g_hi", text = "Bread! Fresh bread, or as fresh as it gets after a day on the road. Hungry?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ye must like my bread, or ye're just hungry." },
   },
@@ -390,6 +398,8 @@ P:NPC {
     },
   },
   topics = {
+    honni = { { id = "tp_honni", text = "Honni Goldenoat, the town baker. She's the sweeter hand o' the two of us, an' I'll no' hear a word against her buns." } },
+    dun_algaz = { { id = "tp_algaz", text = "The pass north tae the Wetlands. It's a steep road, an' there's been orc trouble on the far side, so I turn round at the gate." } },
     thelsamar = { { id = "tp_thel", text = "Home, an' the best wee town on the loch. Ye'll smell Vidra's sausages before ye see the roofs." } },
     mountaineers = { { id = "tp_mount", text = "Good lads an' lasses, an' hungry every one. They keep the troggs off the road an' I keep them fed, an' that's Loch Modan in a sentence." } },
     background = { { id = "tp_bg", text = "I'm a baker an' a walker. That's my life." } },
@@ -498,6 +508,7 @@ P:NPC {
     },
   },
   topics = {
+    farstriders = { { id = "tp_far", text = "My people's rangers bore that name first, and the dwarves here took it up out of respect. I have not told them how the elder rangers would have looked upon the rifles." } },
     ol_sooty = { { id = "tp_sooty", text = "A great black bear with a lair in the caves to the north. He has outlasted every hunter in this Lodge, which says something for him and less for us." } },
     daryl = { { id = "tp_daryl", text = "Talented, tireless and unbearable. I expect he will be a fine hunter in ten years, if somebody can arrange for him to listen for one of them." } },
     background = { { id = "tp_bg", text = "I am a ranger's daughter from the north, and I keep a hunters' hall by a dwarven lake. That is all there is to tell." } },
@@ -518,6 +529,7 @@ P:NPC {
     third = "{name} met Xandar Goodbeard, who sells general supplies at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're in late! The hunters are all at the fire tellin' lies, but I'm still open, if ye need somethin' for the mornin'." },
     { id = "g_hi", text = "Come in, come in! If ye're headed out after game, tell me what ye've packed an' I'll tell ye what ye've forgotten." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the hills! An' I'd wager ye ran out o' somethin', for everybody does." },
   },
@@ -545,6 +557,7 @@ P:NPC {
         { text = "How do supplies reach the Lodge?", next = "carts" },
         { text = "That is a remarkable beard.", next = "beard" },
         { text = "What should I pack for the loch's far shore?", next = "pack", when = { class = "HUNTER" } },
+        { text = "What's the oddest thing a hunter has asked you for?", next = "odd" },
         { text = "Good day, Xandar.", next = "END" },
       },
     },
@@ -583,8 +596,14 @@ P:NPC {
       lines = { { id = "pk_default", text = "Two days' rations for a one-day hunt, a coil o' rope, an' somethin' tae burn that's already dry. If ye're goin' north toward the ogres, add bandages, an' if ye're goin' out tae the islands, add a second pair o' boots." } },
       choices = { { text = "Then set me up properly.", next = "BUSINESS" }, { text = "Good advice. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    odd = {
+      lines = { { id = "od_default", text = "A gnome came through wantin' forty yards o' rope, a bucket an' a live chicken, an' wouldnae say what for. I sold him the rope an' the bucket. He came back a week later lookin' very pleased, an' he still wouldnae say." } },
+      choices = { { text = "Now I want to know too.", next = "BACK", reply = "So do I, friend. It keeps me awake some nights.", fx = { trait = { curious = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    thelsamar = { { id = "tp_thel", text = "Across the loch. I go in twice a season for stock an' sausages, an' I'm always glad tae get back tae the quiet." } },
+    marek = { { id = "tp_marek", text = "Marek Ironheart runs the Lodge, in so far as hunters let themselves be run. He's fair, an' he pays his bill." } },
     farstrider_lodge = { { id = "tp_lodge", text = "The best hall on the loch, an' the loudest after a good hunt. There's a bed here for anybody who can tell a true story about a beast." } },
     mogrosh = { { id = "tp_mog", text = "Ogres, up in the north-east hills. They leave the Lodge alone, mostly, but they'll take a cart if they find one unguarded." } },
     background = { { id = "tp_bg", text = "I'm a Goodbeard, an' I keep the Lodge's stores. I've never shot anythin' bigger than a rabbit, an' I'm content wi' that." } },
@@ -605,6 +624,8 @@ P:NPC {
     third = "{name} met Irene Sureshot, the gunsmith at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf, good. Ye'll want a rifle, an' ye'll want it tae outlast ye. Step up." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "I dinnae test barrels after dark, so it's quiet for once. What are ye after?" },
     { id = "g_hi", text = "Rifles, shot an' powder. If ye've come tae tell me yer last one pulled left, I'll ask tae see ye shoot it first." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did it shoot true, or did ye?" },
   },
@@ -632,6 +653,7 @@ P:NPC {
         { text = "A gunsmith and a bowyer under one roof.", next = "cliff" },
         { text = "Did you earn the name Sureshot?", next = "name" },
         { text = "Look over my rifle for me.", next = "mine", when = { class = "HUNTER" } },
+        { text = "What's the best shot you ever saw?", next = "best" },
         { text = "Good day, Irene.", next = "END" },
       },
     },
@@ -670,8 +692,13 @@ P:NPC {
       lines = { { id = "mi_default", text = "Hand it here. The bore's clean an' the lock's sound, but yer flint's worn tae a nub an' the ramrod's bent, which is why ye've been seatin' the ball crooked. Fix those two an' ye'll gain ten paces." } },
       choices = { { text = "I'll fix both. Thank you.", next = "BACK", fx = { affinity = 1 } }, { text = "Sell me what I need.", next = "BUSINESS" } },
     },
+    best = {
+      lines = { { id = "bs_default", text = "Marek, three winters back, on a crocolisk that had a mountaineer by the boot out on the ice. One ball, through the eye, at a distance I'd have called a waste o' powder. The mountaineer kept the boot, an' Marek never mentions it." } },
+      choices = { { text = "That's a shot worth a rifle's price.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    powder = { { id = "tp_powder", text = "Keep it dry, keep it in horn an' no' in tin, an' never borrow a stranger's. Half the misfires I'm blamed for are somebody else's damp powder." } },
     farstriders = { { id = "tp_far", text = "The best shots on the loch, an' the worst at cleanin' up after themselves. I'd no' live anywhere else." } },
     cliff_hadin = { { id = "tp_cliff", text = "The bowyer. He makes a bonny bow, I'll give him that, for all the good it does anybody." } },
     background = { { id = "tp_bg", text = "I'm a Sureshot an' a gunsmith. I make them, I test them, an' I sell the ones that pass." } },
@@ -692,6 +719,7 @@ P:NPC {
     third = "{name} met Cliff Hadin, a human bowyer at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Good evening. I've put the tools away, but I'm happy to talk, if you don't mind the smell of glue." },
     { id = "g_hi", text = "Good day to you. Bows and arrows here, for the few in this lodge who still care for a quiet shot." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. How is the string holding? Loch Modan's damp is hard on a string." },
   },
@@ -719,6 +747,7 @@ P:NPC {
         { text = "How do you make a good bow?", next = "craft" },
         { text = "What brought a human to this lodge?", next = "came" },
         { text = "What draw weight would suit me?", next = "draw", when = { class = "HUNTER" } },
+        { text = "What do you think of arrows, as a craft?", next = "arrows" },
         { text = "Good day, Cliff.", next = "END" },
       },
     },
@@ -757,8 +786,14 @@ P:NPC {
       lines = { { id = "dr_default", text = "Hold your arm out and pull back as if there were a string. No, don't hunch. I'd start you a little lighter than you think you want, because a bow you can hold steady will always beat a bow you can barely draw." } },
       choices = { { text = "Lighter and steady. Show me those.", next = "BUSINESS" }, { text = "I'll think on it. Something else.", next = "BACK" } },
     },
+    arrows = {
+      lines = { { id = "ar_default", text = "That they're the half of the work nobody praises. A bow lasts for years, but an arrow is made to be lost, and it still has to fly true the once. I fletch with goose from the loch, and I can tell my own shafts in another man's quiver." } },
+      choices = { { text = "Made to be lost, and still made well.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    loch_modan = { { id = "tp_loch", text = "It's a handsome country, all water and pine. A man could do worse than grow old beside a lake with good timber on its islands." } },
+    vyrin = { { id = "tp_vyrin", text = "Vyrin Swiftwind keeps the beds and shoots better than any of us. She's the one person here whose opinion of a bow I'd lose sleep over." } },
     irene = { { id = "tp_irene", text = "Irene Sureshot, the gunsmith. She's the best at her trade I've ever met, and I'd thank you not to tell her I said it." } },
     farstriders = { { id = "tp_far", text = "They hunted with elven rangers once, and they still keep a few of the old ways about wood and patience, under all the gunsmoke." } },
     background = { { id = "tp_bg", text = "I'm a bowyer from the south who came for the timber. That's the whole of it." } },
@@ -779,6 +814,8 @@ P:NPC {
     third = "{name} met Kat Sampson, who sells leather armour at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good, then you'll have hides for me, or you'll want something to keep yours whole. Which is it?" },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "I'm stitching by lamplight, so mind you don't stand in it. What do you need?" },
     { id = "g_hi", text = "Leather armour, cut and stitched here at the Lodge. Have a look, and tell me what's been biting you." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Did the last piece hold, or did something get through it?" },
   },
@@ -806,6 +843,7 @@ P:NPC {
         { text = "How does a human end up at a dwarven lodge?", next = "lodge" },
         { text = "The hunters keep you supplied, then.", next = "hunters" },
         { text = "I skin my own kills. What will you buy?", next = "skin", when = { profession = { "Skinning", "Leatherworking" } } },
+        { text = "How long does a jerkin take you?", next = "jerkin" },
         { text = "Good day, Kat.", next = "END" },
       },
     },
@@ -844,8 +882,13 @@ P:NPC {
       lines = { { id = "sk_default", text = "Whole hides, no holes through the back, and scraped while they're fresh. Bring me bear from the northern caves like that and I'll not haggle. Bring me something that looks as though it lost a fight with a rake and I'll haggle a great deal." } },
       choices = { { text = "Clean cuts only. Understood.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
+    jerkin = {
+      lines = { { id = "je_default", text = "Three days, if the hide's already cured, and most of that is the stitching. I punch every hole by hand and wax the thread twice, because a seam that opens in the rain out here can cost somebody more than a jerkin." } },
+      choices = { { text = "Then it's worth the three days.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    dargh = { { id = "tp_dargh", text = "Dargh Trueaim teaches the young ones to shoot, and I wish he'd teach them to skin while he's about it." } },
     farstrider_lodge = { { id = "tp_lodge", text = "A good hall and a loud one. Everyone here kills for a living, and they're the gentlest lot I've ever worked beside." } },
     crocolisks = { { id = "tp_croc", text = "The best hide on the loch, wrapped round the worst temper. I'd pay well for more of it and I've never once gone to fetch it myself." } },
     background = { { id = "tp_bg", text = "I'm a leatherworker from the south. I go where the hides are good, and they're good here." } },
@@ -866,6 +909,8 @@ P:NPC {
     third = "{name} met Aldren Cordon, the clothier at the Farstrider Lodge in Loch Modan.",
   },
   greetings = {
+    { id = "g_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "A robe! Come in, come in, an' dinnae mind the hunters starin'. They've never seen cloth that reaches the floor." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Still up? I'm only pressin' tomorrow's shirts. Come in, an' mind the iron." },
     { id = "g_hi", text = "Ah, a customer! Stand still a moment. Aye, ye've a button hangin' by a thread, an' I cannae talk tae ye till that's seen tae." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! An' ye've been through a bramble since, by the state o' that hem." },
   },
@@ -893,6 +938,8 @@ P:NPC {
         { text = "What should a traveller wear on the loch?", next = "wear" },
         { text = "You're very particular for a hunting lodge.", next = "fussy" },
         { text = "What do you think of my robes?", next = "robes", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "What's the worst you've had to mend?", next = "worst" },
+        { text = "Who else trades at the Lodge?", next = "traders" },
         { text = "Good day, Aldren.", next = "END" },
       },
     },
@@ -924,8 +971,17 @@ P:NPC {
       lines = { { id = "ro_default", text = "The cloth's good an' the cut's fair, but ye've scorched the left cuff, an' the hem's been taken up by somebody in a hurry. I'd say ye're a caster who's better at the spell than the laundry, which is the right way round, I suppose." } },
       choices = { { text = "That's uncomfortably accurate.", next = "BACK", fx = { affinity = 1 } }, { text = "Sell me something better.", next = "BUSINESS" } },
     },
+    worst = {
+      lines = { { id = "wo_default", text = "A cloak that had been intae a crocolisk an' out again, wi' the hunter still attached tae the far end o' it. He wanted it patched, for luck. It took me a week an' more thread than cloth, an' he's worn it every day since." } },
+      choices = { { text = "A lucky cloak is worth a week.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    traders = {
+      lines = { { id = "td_default", text = "Xandar Goodbeard for supplies, Irene Sureshot for guns, Cliff Hadin for bows an' Kat Sampson for leather. We share a landing an' a kettle, an' Irene an' Cliff share an argument that's older than the kettle." } },
+      choices = { { text = "A lively landing, by the sound of it.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    daryl = { { id = "tp_daryl", text = "A fine shot who's never once hung up his own cloak. I've told him a hero wi' a crumpled collar is only half a hero." } },
     farstrider_lodge = { { id = "tp_lodge", text = "A fine hall full o' fine shots, an' no' one of them can fold a shirt. I do what I can." } },
     rann = { { id = "tp_rann", text = "Rann Flamespinner, in Thelsamar. He's the best dyer on the loch, an' the only dwarf I ken who's quieter than his own thread." } },
     background = { { id = "tp_bg", text = "I'm a clothier, an' I keep the Farstriders decent. Somebody must." } },
@@ -946,6 +1002,8 @@ P:NPC {
     third = "{name} met Gothor Brumn, the armorer in Thelsamar.",
   },
   greetings = {
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "Armour, shields an' helms, cut for a proper frame. Step up, {g:lad|lass}, an' I'll no' have tae shorten anythin'." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "The forge is banked, but the shop's open. If ye've been out on the hills after dark, ye'll be needin' me." },
     { id = "g_hi", text = "Armour, shields an' helms. Turn round an' let me see what the troggs have done tae what ye're wearin'." },
     { id = "g_back", when = { metBefore = true }, text = "Back, an' wi' fresh dents. I'll take that as a compliment tae whatever stopped them." },
   },
@@ -973,6 +1031,7 @@ P:NPC {
         { text = "What does a trogg do to armour?", next = "troggs" },
         { text = "Who else works metal in Thelsamar?", next = "smiths" },
         { text = "Check my armour's fit for me.", next = "fit", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
+        { text = "Mail or plate, for these hills?", next = "mail" },
         { text = "Good day, Gothor.", next = "END" },
       },
     },
@@ -1011,8 +1070,13 @@ P:NPC {
       lines = { { id = "fi_default", text = "Lift yer arms. Higher. There, ye see how the shoulder rides up an' leaves yer ribs open? It was fitted for somebody broader, or ye've lost weight on the road. A leather lace through the back would take it in for now." } },
       choices = { { text = "I'll lace it. Thank you, Gothor.", next = "BACK", fx = { affinity = 1 } }, { text = "Show me something that fits.", next = "BUSINESS" } },
     },
+    mail = {
+      lines = { { id = "ma_default", text = "Mail, for anybody who has tae climb. Plate's grand on a wall, but the loch's all slopes an' shale, an' I've seen a dwarf in full plate slide forty feet intae a trogg camp on his backside. He lived, an' he bought mail the next day." } },
+      choices = { { text = "Mail it is. Show me.", next = "BUSINESS" }, { text = "I'd have paid to see that slide.", next = "BACK", fx = { trait = { witty = 1 } } } },
+    },
   },
   topics = {
+    rugelfuss = { { id = "tp_rugel", text = "Captain Rugelfuss commands the mountaineers from the tower south o' town. He's hard on his troops an' harder on my delivery dates." } },
     thelsamar = { { id = "tp_thel", text = "A town that's had tae fight for its sleep. Good folk, an' they pay their armourer, mostly." } },
     mountaineers = { { id = "tp_mount", text = "The best o' Ironforge's young ones, sent out tae stand in the cold. I'd give them plate if they could climb in it." } },
     background = { { id = "tp_bg", text = "I'm an armorer, same as my father. I rivet rings an' I fit shoulders." } },
@@ -1033,6 +1097,7 @@ P:NPC {
     third = "{name} met Nillen Andemar, a macecrafter who sells his work on the Stonewrought Dam in Loch Modan.",
   },
   greetings = {
+    { id = "g_dwarf", when = { race = "Dwarf" }, text = "Maces an' hammers! A dwarf kens what a hammer's for, in the forge an' out o' it. Have a heft o' this one." },
     { id = "g_hi", text = "Maces an' hammers, friend! Pick one up an' feel the head pull. That's what a trogg feels, only faster." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! How did she swing? Dinnae tell me ye've chipped the flanges already." },
   },
@@ -1060,6 +1125,7 @@ P:NPC {
         { text = "Why sell on the dam?", next = "dam" },
         { text = "What makes a good mace?", next = "craft" },
         { text = "Fit me for a hammer.", next = "fit", when = { class = { "PALADIN", "WARRIOR", "PRIEST" } } },
+        { text = "What do the wall guards buy?", next = "guards" },
         { text = "Good day, Nillen.", next = "END" },
       },
     },
@@ -1101,8 +1167,14 @@ P:NPC {
       },
       choices = { { text = "Let me try a few.", next = "BUSINESS" }, { text = "Something else.", next = "BACK" } },
     },
+    guards = {
+      lines = { { id = "gs_default", text = "The short flanged ones, for there's nae room on a walkway for a long swing. I make them wi' a wrist loop, an' all, since a mace dropped off this dam is a mace ye'll no' see again, an' it's a long while before ye hear the splash." } },
+      choices = { { text = "A wrist loop. Sensible.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    thelsamar = { { id = "tp_thel", text = "My forge is there, in a lean-to behind Morhan Coppertongue's. I work nights an' sell days, an' sleep on the cart between." } },
+    hinderweir = { { id = "tp_hind", text = "The Chief Engineer. He's fussy about where I put my rack, an' I dinnae blame him, for it's his wall I'm standin' on." } },
     stonewrought_dam = { { id = "tp_dam", text = "The greatest wall the dwarves ever built, holdin' back the whole loch. I like tae think my maces are the second-best thing on it." } },
     troggs = { { id = "tp_troggs", text = "Heads like boulders. A sword skips off, an' a mace doesnae, an' that's my whole trade explained." } },
     background = { { id = "tp_bg", text = "I make maces. My father made maces. We've never seen a reason tae make anythin' else." } },

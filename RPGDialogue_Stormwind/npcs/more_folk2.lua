@@ -218,7 +218,7 @@ P:NPC {
     },
     guard = {
       lines = {
-        { id = "guard_1", text = "Tae shoot from the gate towers, though they've nae the practice for it. I offered to drill them myself, and the captain said the king's guard had always carried crossbows, as if that were a reason." },
+        { id = "guard_1", text = "To shoot from the gate towers, though they've nae the practice for it. I offered to drill them myself, and the captain said the king's guard had always carried crossbows, as if that were a reason." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -862,26 +862,26 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Well met. The armour on these racks is for those the Alliance has ranked, and I'm the one who checks the rank. Let's see yours." },
     { id = "g_2", when = { metBefore = true }, text = "Ye've returned. Has the rank changed, or only the dents?" },
-    { id = "g_3", when = { pvpRank = false }, text = "Nae rank on ye at all, I see. Ye may look, and ye may ask, and when ye've fought for it ye may buy." },
+    { id = "g_3", when = { pvpRank = false }, text = "No rank on ye at all, I see. Ye may look, and ye may ask, and when ye've fought for it ye may buy." },
   },
   notice = {
     { id = "n_1", cat = "rank", when = { pvpRank = { min = 6 } },
-      text = "A knight's stripes, and honestly come by, from the look of that pauldron. There's a rack here ye've earned the right tae open." },
+      text = "A knight's stripes, and honestly come by, from the look of that pauldron. There's a rack here ye've earned the right to open." },
     { id = "n_2", cat = "kit", when = { durability = { max = 0.3 } },
-      text = "That plate's been through a battleground and nae seen a hammer since. I sell new armour, but I'll nae watch ye walk out in that without saying so." },
+      text = "That plate's been through a battleground and not seen a hammer since. I sell new armour, but I'll not watch ye walk out in that without saying so." },
     { id = "n_3", cat = "race", when = { race = "Dwarf" },
-      text = "A kinsman. Good. I'll nae have tae explain why a breastplate should outlast its owner." },
+      text = "A kinsman. Good. I'll not have to explain why a breastplate should outlast its owner." },
   },
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "hello_1", text = "Sergeant Major Clate, armour quartermaster. Every piece in this hall was made for an officer of the Alliance and is sold only tae one, and I've held that line against dukes' sons and worse." },
-        { id = "hello_2", when = { pvpRank = { min = 6 } }, text = "Sergeant Major Clate, armour quartermaster. Ye hold the rank, so the racks are open tae ye. Choose slowly; ye'll be wearing it where the Horde can see." },
+        { id = "hello_1", text = "Sergeant Major Clate, armour quartermaster. Every piece in this hall was made for an officer of the Alliance and is sold only to one, and I've held that line against dukes' sons and worse." },
+        { id = "hello_2", when = { pvpRank = { min = 6 } }, text = "Sergeant Major Clate, armour quartermaster. Ye hold the rank, so the racks are open to ye. Choose slowly; ye'll be wearing it where the Horde can see." },
       },
       again = {
         { id = "hello_again1", text = "Was there more?" },
-        { id = "hello_again2", text = "Go on. I've only the ledger tae mind." },
+        { id = "hello_again2", text = "Go on. I've only the ledger to mind." },
         { id = "hello_again3", text = "Aye? Ask it." },
       },
       choices = {
@@ -897,7 +897,7 @@ P:NPC {
     },
     decides = {
       lines = {
-        { id = "decides_1", text = "The Alliance's high command sets it out, rank by rank, and I keep the list. A knight may wear this and a knight-captain that, and it's nae my place tae bend it, nor anyone's place tae ask me." },
+        { id = "decides_1", text = "The Alliance's high command sets it out, rank by rank, and I keep the list. A knight may wear this and a knight-captain that, and it's not my place to bend it, nor anyone's place to ask me." },
       },
       choices = {
         { text = "Has anyone asked?", next = "asked" },
@@ -906,7 +906,7 @@ P:NPC {
     },
     asked = {
       lines = {
-        { id = "asked_1", text = "A nobleman's son, last spring, with a purse the size of his head and nae a day in the field. I told him the Arathi Basin was open tae all, and that I'd hold the breastplate for him. He's nae been back." },
+        { id = "asked_1", text = "A nobleman's son, last spring, with a purse the size of his head and nae a day in the field. I told him the Arathi Basin was open to all, and that I'd hold the breastplate for him. He's not been back." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -923,17 +923,17 @@ P:NPC {
     rank = {
       big = true,
       lines = {
-        { id = "rank_1", text = "I've heard it said. But this armour marks a soldier out on the field, so that others know who tae follow. Put it on someone who's nae led, and ye've made a target of a fool and liars of the rest of us." },
+        { id = "rank_1", text = "I've heard it said. But this armour marks a soldier out on the field, so that others know who to follow. Put it on someone who's not led, and ye've made a target of a fool and liars of the rest of us." },
       },
       choices = {
-        { text = "Earned honours mean something. Keep the line.", next = "BACK", reply = "I intend tae. It's good tae hear it from the other side of the counter.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Earned honours mean something. Keep the line.", next = "BACK", reply = "I intend to. It's good to hear it from the other side of the counter.", fx = { align = { order = 1 }, affinity = 1 } },
         { text = "A recruit's life is worth as much as an officer's.", next = "BACK", reply = "It is. And the recruit's better served by a leader he can find in the smoke.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     first = {
       lines = {
-        { id = "first_1", text = "Fight where the Alliance asks, and fight well enough tae be noticed. Warsong Gulch, Arathi, Alterac; the marshals keep count. Come back with a sergeant's stripe and I'll have something for yer shoulders." },
+        { id = "first_1", text = "Fight where the Alliance asks, and fight well enough to be noticed. Warsong Gulch, Arathi, Alterac; the marshals keep count. Come back with a sergeant's stripe and I'll have something for yer shoulders." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -941,7 +941,7 @@ P:NPC {
     },
     dwarf = {
       lines = {
-        { id = "dwarf_1", text = "Aye, and why not? Ironforge forged half of what hangs here. King Magni lent me tae the hall when it was founded, and I've stayed because nae human I've met can tell good plate from polished tin." },
+        { id = "dwarf_1", text = "Aye, and why not? Ironforge forged half of what hangs here. King Magni lent me to the hall when it was founded, and I've stayed because nae human I've met can tell good plate from polished tin." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -949,7 +949,7 @@ P:NPC {
     },
     hall = {
       lines = {
-        { id = "hall_1", text = "Lieutenant Jackspring has the weapons and Master Sergeant Biggins the smaller kit, both gnomes, and both sharper than they look. Lieutenant Karter keeps the war mounts out front. Guards Quine and Hammon keep the door, and Archmage Gaiman keeps tae his chair." },
+        { id = "hall_1", text = "Lieutenant Jackspring has the weapons and Master Sergeant Biggins the smaller kit, both gnomes, and both sharper than they look. Lieutenant Karter keeps the war mounts out front. Guards Quine and Hammon keep the door, and Archmage Gaiman keeps to his chair." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -957,11 +957,13 @@ P:NPC {
     },
   },
   topics = {
+    ironforge = { { id = "tp_y_ironforge", text = "Home, and the only city I'd call properly built. Stormwind's handsome enough, for a place with so many windows." } },
+    second_war = { { id = "tp_y_second_war", text = "I held a pass in Dun Algaz with forty dwarves and a great many rocks. The plate I wore that week hangs in my quarters, and it's uglier than anything on these racks." } },
     background = { { id = "tp_background", text = "A smith's son of Ironforge and thirty years a soldier. They gave me a counter when my knees gave out, and I've run it like a shield wall." } },
-    rumors = { { id = "tp_rumors", text = "The marshals say the Horde has a hall like this in Orgrimmar. I'd like tae see their armour, purely as a professional." } },
+    rumors = { { id = "tp_rumors", text = "The marshals say the Horde has a hall like this in Orgrimmar. I'd like to see their armour, purely as a professional." } },
     advice = { { id = "tp_advice", text = "Buy the armour ye can move in. I've buried soldiers who bought the armour that looked best." } },
-    trade = { { id = "tp_trade", text = "I dinnae haggle. The price is the price, and the rank is the rank." } },
-    _none = { { id = "tp_none", text = "That's nae a matter for this counter. Ask at the keep." } },
+    trade = { { id = "tp_trade", text = "I don't haggle. The price is the price, and the rank is the rank." } },
+    _none = { { id = "tp_none", text = "That's not a matter for this counter. Ask at the keep." } },
   },
 }
 
@@ -1073,6 +1075,8 @@ P:NPC {
     },
   },
   topics = {
+    trade = { { id = "tp_y_trade", text = "Rank determines eligibility and coin determines purchase. I've a chart, if you'd like to see the chart." } },
+    ironforge = { { id = "tp_y_ironforge", text = "Tinker Town is very hospitable and forty percent too small. I visit quarterly, and I bring my own stool." } },
     background = { { id = "tp_background", text = "An armourer's apprentice in Gnomeregan, and an exile since. I hold a lieutenant's commission, which I earned at a desk and am not ashamed of." } },
     gnomeregan = { { id = "tp_gnomeregan", text = "I think about it daily, at a rate I've stopped measuring. Every weapon I pass across this counter is one more argument for going back." } },
     rumors = { { id = "tp_rumors", text = "Biggins tells me the Horde's officers carry axes too heavy for any human to lift. I'd need to weigh one before I believed it." } },
@@ -1189,6 +1193,8 @@ P:NPC {
     },
   },
   topics = {
+    gnomeregan = { { id = "tp_y_gnomeregan", text = "We'll have it back. I've kept the key to the third-sector storeroom on a chain all this time, and I mean to use it." } },
+    stormwind = { { id = "tp_y_stormwind", text = "A fine city with terrible doorknobs, all of them a foot too high. I've written to the keep about it." } },
     background = { { id = "tp_background", text = "I kept the stores in Gnomeregan's third sector. It was all filed beautifully, and I like to think the troggs have never found a thing." } },
     rumors = { { id = "tp_rumors", text = "They say there'll be a new battleground opened before long. I've ordered extra stripes, in hope." } },
     advice = { { id = "tp_advice", text = "Wear your insignia where your own side can see it. The other side will work out who you are soon enough." } },
@@ -1420,10 +1426,617 @@ P:NPC {
     },
   },
   topics = {
+    stormwind = { { id = "tp_y_stormwind", text = "The Sanctum here is a good school, and young. It hasn't yet had a disaster of its own to learn from, and I hope it never does." } },
+    second_war = { { id = "tp_y_second_war", text = "I was an apprentice carrying water for the mages at Blackrock Spire. I thought fire was glorious until I saw what it left." } },
     background = { { id = "tp_background", text = "Dalaran taught me, and I was in the field when it fell, which is the only reason I'm here to say so." } },
     dalaran = { { id = "tp_dalaran", text = "I'll speak of the libraries, if you like, or of the streets in spring. I'd rather not speak of the end." } },
     rumors = { { id = "tp_rumors", text = "The officers say the Horde's shamans are calling storms over Alterac Valley. If that's true, somebody on their side has stopped caring what it costs." } },
     advice = { { id = "tp_advice", text = "Count your own side before you cast. Then count them again." } },
     _none = { { id = "tp_none", text = "That's outside what I know, and I've learned not to improvise." } },
+  },
+}
+
+-- Guard Quine: the younger of the two guards at the door of the Champions' Hall, Old Town.
+P:NPC {
+  key = "guard_quine", id = TODO_NPC("Guard Quine"), name = "Guard Quine", gender = "male",
+  bible = "bibles/more_folk.md", role = "guard", tier = "service",
+  communities = { "stormwind" }, temper = { "earnest", "curious" }, values = { "dutiful", "learning" },
+  notices = { "rank", "class", "travel" },
+  impression = {
+    first = "Guard Quine keeps the door of the Champions' Hall and asks every returning officer one question about where they have been. He writes the answers down afterwards and hopes one day to see the places for himself.",
+    third = "{name} met Guard Quine, who keeps the door of Stormwind's Champions' Hall.",
+  },
+  greetings = {
+    { id = "g_y1", when = { timeOfDay = "night" }, text = "Good evening! The hall's quieter at night, and the officers who come now mostly come to sit. I don't ask those ones my question." },
+    { id = "g_default", text = "Good day! This is the Champions' Hall. Officers of the Alliance may enter freely, and everyone else may enter politely." },
+    { id = "g_2", when = { metBefore = true }, text = "Welcome back! Have you been anywhere new since? I'd be glad to hear it, if you've a moment." },
+    { id = "g_3", when = { pvpRank = { min = 6 } }, text = "Sir! The hall's yours, sir. Might I ask which battleground, sir? It's for my notes." },
+  },
+  notice = {
+    { id = "n_1", cat = "rank", when = { pvpRank = { min = 1 } },
+      text = "You've rank on your collar. I'm supposed to nod and stand aside, and I will, but I'd dearly like to know how you came by it." },
+    { id = "n_2", cat = "travel", when = { minLevel = 40 },
+      text = "You've the dust of three or four kingdoms on that cloak. I've only ever seen the one, and most of that from this doorway." },
+    { id = "n_3", cat = "class", when = { race = { "NightElf", "Gnome", "Dwarf" } },
+      text = "We see all the Alliance's peoples at this door. I've been learning the proper greetings, and I'd be obliged if you'd correct mine." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Guard Quine, door watch, Champions' Hall. Hammon has the left side and I have the right, and between us we see every officer in the Alliance sooner or later. I've met more heroes than a bard has, and I've not left Old Town in two years." },
+        { id = "hello_2", when = { faction = "Horde" }, text = "Guard Quine, door watch. You're not coming in, and I'd as soon you weren't standing there when Hammon looks round." },
+      },
+      again = {
+        { id = "hello_again1", text = "Is there anything else? I'm not due relief for hours." },
+        { id = "hello_again2", text = "Please, go on." },
+        { id = "hello_again3", text = "Yes? I'm glad of the company, truthfully." },
+      },
+      choices = {
+        { text = "What do you write in those notes?", next = "notes" },
+        { text = "What's it like, guarding heroes?", next = "heroes" },
+        { text = "A guard should guard, not daydream.", next = "daydream" },
+        { text = "I'll tell you about the battlegrounds.", next = "tell", when = { pvpRank = { min = 1 } } },
+        { text = "I've seen a good deal of the world. Ask me something.", next = "ask", when = { minLevel = 40 } },
+        { text = "Who's inside the hall today?", next = "inside" },
+        { text = "Good day, Quine.", next = "END" },
+      },
+    },
+    notes = {
+      lines = {
+        { id = "notes_1", text = "Places, mostly. A knight tells me there's a gulch in Ashenvale where the trees are as wide as this hall, and I write it down. A dwarf tells me the snow in Alterac comes up to his beard, and I write that down, with a note about the height of the dwarf." },
+      },
+      choices = {
+        { text = "What will you do with them?", next = "plans" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plans = {
+      lines = {
+        { id = "plans_1", text = "Go and look, when my service is up, and see how much of it was true. Hammon says soldiers lie about three things, which are the size of the enemy, the depth of the snow and the quality of the ale, so I expect to be surprised." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    heroes = {
+      lines = {
+        { id = "heroes_1", text = "Stranger than you'd think. They come in tired, mostly, and they're kinder than the nobles. A Knight-Captain once held this door for me while I fixed my boot, and I've not known what to do with that since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    daydream = {
+      big = true,
+      lines = {
+        { id = "daydream_1", text = "Hammon says the same, and he's forgotten more about guarding than I know. But I watch better for being curious, I think. A man who wonders about everyone who passes notices the one who doesn't fit." },
+      },
+      choices = {
+        { text = "Curiosity makes a sharper watchman. Keep the notes.", next = "BACK", reply = "I will, then. And I'll put you in them, if you don't object.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "Discipline first. Wonder on your own time.", next = "BACK", reply = "Yes. You're right, of course. I'll keep the book in my boot until relief.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tell = {
+      lines = {
+        { id = "tell_1", text = "Would you? Wait, let me fix it in my head. Start with the sound, if you would, because nobody ever tells me about the sound, and I think it must be most of it." },
+      },
+      choices = {
+        { text = "It's horns, then shouting, then nothing you can make out.", next = "BACK", reply = "Horns, shouting, then nothing. Thank you. That's better than a page of what the bards say." },
+        { text = "Another time. Something else.", next = "BACK" },
+      },
+    },
+    ask = {
+      lines = {
+        { id = "ask_1", text = "Then here's the one I ask everybody. Of all the places you've stood, which would you go back to with nobody trying to kill you? Most say home, and one dwarf said \"a tavern in Booty Bay\", and wouldn't explain." },
+      },
+      choices = {
+        { text = "Somewhere with trees and no war in them.", next = "BACK", reply = "I'll write that down as it stands. It's the answer I'd like to give, one day." },
+        { text = "I'll think on it. Something else.", next = "BACK" },
+      },
+    },
+    inside = {
+      lines = {
+        { id = "inside_1", text = "Sergeant Major Clate at the armour, the two gnome quartermasters, and Archmage Gaiman in his chair upstairs. And Sergeant Major Skyshadow, who came in at dawn, and whom I didn't hear arrive or see pass, which Hammon says I shouldn't put in the report." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    second_war = { { id = "tp_y_second_war", text = "Hammon was in it, and won't say where. I've put a blank page in the book for when he changes his mind." } },
+    background = { { id = "tp_background", text = "A cooper's son from the Trade District. I joined the guard to see the world, and they've shown me a doorway." } },
+    rumors = { { id = "tp_rumors", text = "An officer told me the Horde keeps a hall like ours. I asked what their door guards were like, and he'd never noticed, which I thought was telling." } },
+    advice = { { id = "tp_advice", text = "Ask people where they've been. Nearly everyone wants to tell someone, and nearly no one asks." } },
+    stormwind = { { id = "tp_stormwind", text = "I know Old Town stone by stone, and the rest by hearsay. That's a strange thing to say about your own city." } },
+    _none = { { id = "tp_none", text = "I don't know that one. Might I write it down, and ask the next officer?" } },
+  },
+}
+
+-- Guard Hammon: the senior guard at the door of the Champions' Hall, Old Town; bald, patient, long in service.
+P:NPC {
+  key = "guard_hammon", id = TODO_NPC("Guard Hammon"), name = "Guard Hammon", gender = "male",
+  bible = "bibles/more_folk.md", role = "guard", tier = "service",
+  communities = { "stormwind" }, temper = { "steady", "fatherly" }, values = { "dutiful", "comrades" },
+  notices = { "rank", "soldier", "kit" },
+  impression = {
+    first = "Guard Hammon has kept the door of the Champions' Hall since it opened, greeting generals and recruits in the same level voice. He is bald as a helmet, and says the hair went the year he began training door guards.",
+    third = "{name} met Guard Hammon, the senior guard at the door of Stormwind's Champions' Hall.",
+  },
+  greetings = {
+    { id = "g_y1", when = { timeOfDay = "night" }, text = "Evening. Night watch on this door is the easy one; it's the officers who can't sleep, and they only want a nod." },
+    { id = "g_default", text = "Good day to you. Champions' Hall. Wipe your boots, mind your manners, and you'll have no trouble from me." },
+    { id = "g_2", when = { metBefore = true }, text = "Back again. Good. Boots, please, same as before." },
+    { id = "g_3", when = { pvpRank = { min = 6 } }, text = "Sir. Welcome to the hall. Quine will want to ask you a question, and I'd take it as a kindness if you'd answer him." },
+  },
+  notice = {
+    { id = "n_1", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "You stand like you've done a watch or two yourself. Then you know the trick is in the knees." },
+    { id = "n_2", cat = "rank", when = { pvpRank = { min = 1 } },
+      text = "There's a stripe. Well earned, I don't doubt. The quartermasters are straight in and to the right." },
+    { id = "n_3", cat = "kit", when = { durability = { max = 0.3 } },
+      text = "You'll not go in to see Clate with your armour like that, will you? He'll look at it for a full minute without speaking, and nobody enjoys it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Guard Hammon, senior watch, Champions' Hall. I've had this door since the hall was founded, and I've trained four partners at it. Quine's the fifth, and he asks more questions than the other four put together." },
+        { id = "hello_2", when = { origin = "human_city_guard" }, text = "Guard Hammon, senior watch. You're guard-trained yourself, I can see it in the heels. Which gate did they start you on? Mine was the Valley of Heroes, in the rain." },
+      },
+      again = {
+        { id = "hello_again1", text = "Anything else I can do for you?" },
+        { id = "hello_again2", text = "Go on. The door's quiet." },
+        { id = "hello_again3", text = "Aye?" },
+      },
+      choices = {
+        { text = "You've had this door a long time.", next = "long" },
+        { text = "What do you make of young Quine?", next = "quine" },
+        { text = "Standing at a door is no life for a soldier.", next = "nolife" },
+        { text = "What's the trick in the knees?", next = "knees", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "I started on the Trade District gate.", next = "gate", when = { origin = "human_city_guard" } },
+        { text = "What trouble does this door ever see?", next = "trouble" },
+        { text = "Good day, Hammon.", next = "END" },
+      },
+    },
+    long = {
+      lines = {
+        { id = "long_1", text = "Long enough to have seen lads go in as sergeants and come out, a few years on, as knight-captains, with half as much to say. I've saluted every one, and I remember the ones who saluted back when they'd no need to." },
+      },
+      choices = {
+        { text = "Do many stop coming?", next = "stop" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stop = {
+      lines = {
+        { id = "stop_1", text = "Aye. A name gets mentioned at the quartermasters' counter in a certain voice, and then I don't see that face again. Clate takes the armour off the reserve rack himself, and none of us say anything that day." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quine = {
+      lines = {
+        { id = "quine_1", text = "He'll make a fine guard, if he doesn't make an explorer first. He keeps a little book of everywhere the officers have been. I tell him to put it away, and then I ask him what's in it when the watch gets long." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nolife = {
+      big = true,
+      lines = {
+        { id = "nolife_1", text = "I've heard that from men half my age. But the officers in there go out to the worst places there are, and when they come back, the first thing they see is the same bald fool at the same door. I think that's worth doing." },
+      },
+      choices = {
+        { text = "Somebody has to be what they come home to.", next = "BACK", reply = "That's how I've always seen it. Kind of you to put it better than I do.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "You've wasted good years holding a door for better men.", next = "BACK", reply = "Maybe. They're good men, though, and I'd hold it again.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    knees = {
+      lines = {
+        { id = "knees_1", text = "Never lock them. Weight on the balls of your feet, shift a little every hundred breaths, and flex inside your boots where the sergeant can't see. I've stood twelve hours that way, and seen proud lads go over like trees in two." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gate = {
+      lines = {
+        { id = "gate_1", text = "The Trade District! Then you had the crowds, and the pickpockets, and that crier. You'll have learned to watch hands. Out here I mostly watch faces, and I miss having something to do with my eyes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trouble = {
+      lines = {
+        { id = "trouble_1", text = "Little enough. A nobleman's son who thinks his name's a rank, now and then, and once a drunk from the Pig and Whistle who wanted to challenge a Knight-Champion. I walked him home. The Knight-Champion offered to carry his feet." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    second_war = { { id = "tp_y_second_war", text = "I was at the retreat from the city, with a pike and no notion how to use it. That's as much as I tell Quine, and it's as much as I'll tell you." } },
+    background = { { id = "tp_background", text = "Thirty years in the guard, and the last of them at this door. I was a mason's labourer before, which is where the back comes from." } },
+    rumors = { { id = "tp_rumors", text = "The talk at the counter is all Alterac, and how the snow's worse than the Horde. I've yet to hear a soldier blame himself when weather was to hand." } },
+    advice = { { id = "tp_advice", text = "Wipe your boots before you go in anywhere. It costs nothing, and it's how people decide what you are." } },
+    stormwind = { { id = "tp_stormwind", text = "I helped carry stone for these walls when they went back up. I like to think one of the blocks in this doorway is mine." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you. If it didn't come through this door, I've not seen it." } },
+  },
+}
+
+-- Wilder Thistlenettle: a dwarf miner in a quiet Dwarven District pub, the one survivor of a cave-in in the Deadmines that killed his brother and their company.
+P:NPC {
+  key = "wilder_thistlenettle", id = TODO_NPC("Wilder Thistlenettle"), name = "Wilder Thistlenettle", gender = "male",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "stormwind" }, temper = { "grieving", "gruff" }, values = { "kin", "memory" },
+  notices = { "race", "craft", "drink" },
+  impression = {
+    first = "Wilder Thistlenettle drinks alone in a near-empty Dwarven District pub, the one miner of his company to walk out of a cave-in under Moonbrook. He speaks of his brother the foreman as if the tunnel had only just fallen.",
+    third = "{name} met Wilder Thistlenettle, a dwarf miner who lost his brother and his company in the Deadmines.",
+  },
+  greetings = {
+    { id = "g_default", text = "Pull up a stool, if ye like. There's not shortage of them, as ye can see." },
+    { id = "g_2", when = { metBefore = true }, text = "Ye came back. Most folk hear the story once and find somewhere else to drink." },
+    { id = "g_3", when = { questActive = TODO_QUEST("Collecting Memories") }, text = "Have ye been down there yet? I see their faces every night, and I'd like to hold their cards and see the names instead." },
+    { id = "g_4", when = { questDone = TODO_QUEST("Oh Brother. . .") }, text = "There ye are. I've his badge here on the table, where he can keep an eye on my drinking." },
+  },
+  notice = {
+    { id = "n_1", cat = "race", when = { race = "Dwarf" },
+      text = "A kinsman. Sit. I've been among humans so long I've started to forget how a proper silence sounds." },
+    { id = "n_2", cat = "craft", when = { profession = "Mining" },
+      text = "Ye've a miner's hands. Then ye know the sound a prop makes before it goes, and ye know there's never time enough after ye hear it." },
+    { id = "n_3", cat = "drink", when = { drunk = true },
+      text = "Ye've had a few, and I'm the last dwarf alive who'd lecture ye for it. Mind the step on the way out, that's all." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Wilder Thistlenettle. I was a miner, with my brother's company, in a great vein under a barn in Moonbrook. The tunnel came down on the lot of us, and I'm the only one who crawled out, and I've not been able to say why it was me." },
+        { id = "hello_2", when = { questDone = TODO_QUEST("Oh Brother. . .") }, text = "Wilder Thistlenettle. Ye brought me my brother's badge out of that pit, and their union cards before it. I sleep, now, some nights, and that's your doing." },
+        { id = "hello_3", when = { questActive = TODO_QUEST("Oh Brother. . .") }, text = "Wilder Thistlenettle. If ye find him down there, he'll not know ye, and he'll not be kind. Take the badge from him and put him to rest, and don't tell me how it went." },
+      },
+      again = {
+        { id = "hello_again1", text = "Was there more ye wanted?" },
+        { id = "hello_again2", text = "Go on. I've nowhere to be." },
+        { id = "hello_again3", text = "Aye? Ask." },
+      },
+      choices = {
+        { text = "What happened in the mine?", next = "mine" },
+        { text = "Tell me about your brother.", next = "brother" },
+        { text = "You should stop blaming yourself.", next = "blame" },
+        { text = "Was it a bad roof, or was it brought down?", next = "roof", when = { profession = "Mining" } },
+        { text = "Why not go home to Ironforge?", next = "home", when = { race = "Dwarf" } },
+        { text = "I brought back their union cards. Who were they?", next = "cards", when = { questDone = TODO_QUEST("Collecting Memories") } },
+        { text = "I'll leave you to your drink.", next = "END" },
+      },
+    },
+    mine = {
+      lines = {
+        { id = "mine_1", text = "We were deep, deeper than the humans had ever dug, and the ore was the best I'd seen outside Khaz Modan. Then those thieving sorts in red masks turned up from nowhere and took the upper works, and while we were arguing what to do about it, the roof decided for us." },
+      },
+      choices = {
+        { text = "And the others?", next = "others" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others = {
+      lines = {
+        { id = "others_1", text = "Dead, every one, and not resting. I've heard from them that's been down since that there are miners still walking that collapsed tunnel, with picks in their hands, digging at nothing. I knew each of them by name, and now they'd kill me as soon as look." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    brother = {
+      lines = {
+        { id = "brother_1", text = "He was foreman, and an Explorers' League dwarf before that, with the badge to prove it. He took the mining work to pay for a dig he wanted in the Badlands. He was the careful one, ye understand. I was the one who took chances, and I'm the one sitting here." },
+      },
+      choices = {
+        { text = "What would you have me do for him?", next = "dofor" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dofor = {
+      lines = {
+        { id = "dofor_1", text = "If ye ever go down into those mines, find him, in the tunnel the goblins sealed. He wore his League badge on his chest. Bring it back to me, so there's one thing of his above ground, and so I know he's not still walking." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blame = {
+      big = true,
+      lines = {
+        { id = "blame_1", text = "Folk say that. I was nearest the shaft, and I ran. I didn't go back for him, because there wasn't any back to go to, only rock. I know that. Knowing it's done me nae good at all." },
+      },
+      choices = {
+        { text = "You lived, and you remember them. That's no small duty.", next = "BACK", reply = "Aye. Maybe that's what I was left for. I'd not thought of it as a duty.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "You ran, and you know it. Live with that honestly.", next = "BACK", reply = "I do live with it. Every night, right here. Ye're not telling me anything new.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    roof = {
+      lines = {
+        { id = "roof_1", text = "Ye'd ask that, being a miner. The props were sound; I set half of them myself. But those masked thieves had goblins with them, and goblins had powder, and I heard a crack that wasn't timber. I can't prove it, and I've stopped trying." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = {
+        { id = "home_1", text = "And tell our mother what, exactly? That I came out and he didn't? I'll go home when I've his badge to lay in front of her, and not before. Till then the district's near enough to smell the forges." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cards = {
+      lines = {
+        { id = "cards_1", text = "Good dwarves and good men. There was a lad from Lakeshire who sang while he worked, and two brothers from Loch Modan who never agreed on anything but the ale. I've their cards in my coat now, and I read the names out before I sleep." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "A miner, of a mining family, from under the mountain. There's one of us left that I know of, and ye're looking at him." } },
+    defias = { { id = "tp_defias", text = "Thieves in red masks, and well organised for thieves. They have the whole of that mine now, and what they want with it I couldn't tell ye." } },
+    rumors = { { id = "tp_rumors", text = "They say there's a ship being built down in those caverns. I'd have called that drunk talk, once, but I've seen how deep that hole goes." } },
+    advice = { { id = "tp_advice", text = "Listen to the timber. It always warns ye, and it never warns ye twice." } },
+    _none = { { id = "tp_none", text = "I don't know. I've not had my mind on much but the one thing." } },
+  },
+}
+
+-- Jorgen: fishes the moat by Stormwind's gates in the Valley of Heroes, catches nothing, and passes quiet messages; a step in The Missing Diplomat.
+P:NPC {
+  key = "jorgen", id = TODO_NPC("Jorgen"), name = "Jorgen", gender = "male",
+  bible = "bibles/more_folk.md", role = "questgiver", tier = "quest",
+  communities = { "stormwind" }, temper = { "laconic", "watchful" }, values = { "loyalty", "discretion" },
+  notices = { "stealth", "craft", "travel" },
+  impression = {
+    first = "Jorgen fishes the water by Stormwind's front gate from morning to dusk and has never been seen to land a fish. He looks at everyone who crosses the bridge, and he has some old business with Elling Trias the cheesemonger.",
+    third = "{name} met Jorgen, who fishes by Stormwind's gates and watches who comes and goes.",
+  },
+  greetings = {
+    { id = "g_default", text = "Mind your shadow, friend, you're scarin' the fish. Not that it makes a deal of difference." },
+    { id = "g_2", when = { metBefore = true }, text = "You again. Sit down wind, and don't talk loud." },
+    { id = "g_3", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "You've got the look of somebody carryin' a letter. If it's for me, hand it over slow, like you're passin' me bait." },
+  },
+  notice = {
+    { id = "n_1", cat = "stealth", when = { class = "ROGUE" },
+      text = "You came down the bank quiet. Most don't. I'll not ask who taught you, and you'll not ask who taught me." },
+    { id = "n_2", cat = "craft", when = { profession = "Fishing" },
+      text = "You fish, do you? Then you've noticed there's no bait on this hook. Keep it to yourself, there's a good {g:lad|lass}." },
+    { id = "n_3", cat = "travel", when = { minLevel = 30 },
+      text = "You've come in through that gate more than once this month, and by different roads each time. I notice that sort of thing. Can't help it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Name's Jorgen. I fish here. Been fishin' here a good few years, and the guards have stopped askin' what I catch. It's a fine spot for it, right under the bridge, where everybody who comes into Stormwind walks over my head." },
+        { id = "hello_2", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "Jorgen. So the Bishop's sent you, has he? Then he's worried, and he doesn't worry easy. I'll write you somethin' for Elling Trias, and you'll hand it to him and say nothin' else." },
+        { id = "hello_3", when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "Jorgen. You saw that business through, I hear, all the way out to the marsh. I heard it from three directions, and none of 'em were you, which I thought well of." },
+      },
+      again = {
+        { id = "hello_again1", text = "Somethin' else? Keep it low." },
+        { id = "hello_again2", text = "Go on. Fish ain't bitin' anyhow." },
+        { id = "hello_again3", text = "Ask, then." },
+      },
+      choices = {
+        { text = "You never catch anything, they say.", next = "catch" },
+        { text = "What do you see from down here?", next = "see" },
+        { text = "A man who watches the gate is a spy.", next = "spy" },
+        { text = "What's between you and Elling Trias?", next = "trias", when = { questActive = TODO_QUEST("The Missing Diplomat") } },
+        { text = "There's no bait on that hook, is there?", next = "bait", when = { class = "ROGUE" } },
+        { text = "What actually swims in this moat?", next = "moat", when = { profession = "Fishing" } },
+        { text = "I'll leave you to your fishing.", next = "END" },
+      },
+    },
+    catch = {
+      lines = {
+        { id = "catch_1", text = "That's what they say. A man with a full creel gets asked where the good spot is, and a man with an empty one gets left alone. I've been left alone a long while, and it suits me." },
+      },
+      choices = {
+        { text = "Then why fish at all?", next = "why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = {
+        { id = "why_1", text = "Because a man standin' by the gate all day is a loiterer, and a man fishin' by the gate all day is only a fool. Guards move loiterers along. Fools, they bring a pie to, now and then." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    see = {
+      lines = {
+        { id = "see_1", text = "Boots, mostly, from this angle. You'd be surprised what boots'll tell you. Farm mud, ship tar, the red dust off the Redridge road. And now and again a pair that's too clean for the cloak above 'em, and those I remember." },
+      },
+      choices = {
+        { text = "Whose boots were too clean lately?", next = "clean" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    clean = {
+      lines = {
+        { id = "clean_1", text = "A fella three days back, dressed like a carter, with a soldier's heels and no cart. He went in at noon and out by the canals at dusk. I mentioned it to a friend. I don't know what came of it, and I don't expect to." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spy = {
+      big = true,
+      lines = {
+        { id = "spy_1", text = "That's a hard word, friend. I never took the king's coin for it, nor anybody's. I see things, and now and then I tell 'em to folk I've reason to trust, and the city's still standin'. Call it what you want." },
+      },
+      choices = {
+        { text = "A city needs quiet eyes. You do it a service.", next = "BACK", reply = "Kind of you. Don't go sayin' it loud, is all.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Watching your neighbours in secret is no service.", next = "BACK", reply = "Could be you're right. I've wondered it myself, cold mornin's.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trias = {
+      lines = {
+        { id = "trias_1", text = "History. We worked together once, and it ended bad, and we don't speak. But he's the best there is at findin' a man who doesn't want findin', and he knows I'd not send him a note for anything small. That's all you need." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bait = {
+      lines = {
+        { id = "bait_1", text = "No. Never has been. You've a good eye, and I'd thank you to keep a shut mouth to go with it. There's a fella in Old Town named Shaw who knows why I'm here, and nobody else needs to." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    moat = {
+      lines = {
+        { id = "moat_1", text = "Brilliant smallfish and the odd longjaw mud snapper, and a boot now and then. If you want to really fish, go down to the canals by the Park. If you want folk to walk past without seein' you, there's no better water in the kingdom." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background", text = "I was somethin' else, once. Now I fish. Leave it there, friend." } },
+    defias = { { id = "tp_defias", text = "They've folk inside the walls, you can count on it. I've seen the same red kerchief in three different pockets this year." } },
+    rumors = { { id = "tp_rumors", text = "A diplomat left by this gate for Theramore and never got there. That's not rumour, that's arithmetic, and somebody ought to be doin' the sum." } },
+    advice = { { id = "tp_advice", text = "Look at folk's boots. Faces lie all day long, and boots hardly ever." } },
+    _none = { { id = "tp_none", text = "Couldn't say. And if I could, I likely wouldn't." } },
+  },
+}
+
+-- Reese Langston: keeps the taps at the Pig and Whistle Tavern in Old Town.
+P:NPC {
+  key = "reese_langston", id = TODO_NPC("Reese Langston"), name = "Reese Langston", title = "Tavernkeeper", gender = "male",
+  bible = "bibles/more_folk.md", role = "innkeeper", tier = "service",
+  communities = { "stormwind" }, temper = { "jovial", "shrewd" }, values = { "hospitality", "peace" },
+  notices = { "drink", "soldier", "purse" },
+  impression = {
+    first = "Reese Langston keeps the taps at the Pig and Whistle in Old Town and welcomes every customer as though the party had been waiting for them. He can tell a soldier's regiment by what they order and how fast.",
+    third = "{name} met Reese Langston, tavernkeeper of the Pig and Whistle in Stormwind's Old Town.",
+  },
+  greetings = {
+    { id = "g_y1", when = { class = { "WARRIOR", "PALADIN" } }, text = "In you come, soldier! First one's poured before you've sat, that's the rule for anyone who walks in wearing steel." },
+    { id = "g_default", text = "Welcome to the Pig and Whistle! Grab a mug and find a seat, friend; the more the merrier, and tonight we're merry already." },
+    { id = "g_2", when = { metBefore = true }, text = "There's a face I know! Your seat's warm, and I've not let anyone else spoil it." },
+    { id = "g_3", when = { timeOfDay = "night" }, text = "Come in out of the dark! The barracks have just let out, so mind your elbows and keep hold of your mug." },
+  },
+  notice = {
+    { id = "n_1", cat = "drink", when = { drunk = true },
+      text = "You've had a good start somewhere else, I see. No shame in it. Sit down before you fall down, and I'll bring you something with bread in it." },
+    { id = "n_2", cat = "soldier", when = { class = { "WARRIOR", "PALADIN" } },
+      text = "A fighting {g:man|woman}! The barracks crowd sits by the hearth, and they'll make room for one of their own." },
+    { id = "n_3", cat = "purse", when = { money = { max = 500 } },
+      text = "Light in the purse tonight? There's small beer at a copper a mug, and nobody here will look twice at what you're drinking." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "hello_1", text = "Reese Langston, and this is the Pig and Whistle, the soldiers' own tavern. The barracks are next door and the Champions' Hall is round the corner, so I pour for recruits and knight-captains at the same bar, and they're all thirsty the same way." },
+        { id = "hello_2", when = { pvpRank = { min = 6 } }, text = "Reese Langston, and you're an officer, by that stripe, so the good cask's open. The hall sends me its knights when they've been pinned, and I've a tankard on the shelf for every rank." },
+      },
+      again = {
+        { id = "hello_again1", text = "What else can I get you?" },
+        { id = "hello_again2", text = "Go on, I can pour and talk." },
+        { id = "hello_again3", text = "Aye, friend?" },
+      },
+      choices = {
+        { text = "Pour me a drink.", next = "BUSINESS" },
+        { text = "Who drinks at the Pig and Whistle?", next = "drinks" },
+        { text = "Who keeps the peace in here?", next = "peace" },
+        { text = "Soldiers drinking is a discipline problem.", next = "discipline" },
+        { text = "What do the soldiers say about the fronts?", next = "fronts", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Some of your patrons aren't soldiers at all.", next = "si7", when = { class = "ROGUE" } },
+        { text = "How long have the Langstons had this place?", next = "langstons" },
+        { text = "Good night, Reese.", next = "END" },
+      },
+    },
+    drinks = {
+      lines = {
+        { id = "drinks_1", text = "Footmen from the barracks, the warrior trainers when they've finished shouting, and officers from the hall who've come to remember what a recruit sounds like. Bartleby's on his stool by noon, and there's always one quiet table at the back that I don't ask about." },
+      },
+      choices = {
+        { text = "What's at the quiet table?", next = "quiet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quiet = {
+      lines = {
+        { id = "quiet_1", text = "Folk who work round the corner, in the building with no sign on it. They pay in exact coin, tip well, and never raise their voices. I've found it best to serve them quickly and be elsewhere." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    peace = {
+      lines = {
+        { id = "peace_1", text = "Dashel Stonefist, mostly, who's ended more fights with one look than I have with a bucket. Elly spots the trouble before it starts, and I mop up after. We've not had a broken window since midsummer, and I'm told that's a record for Old Town." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    discipline = {
+      big = true,
+      lines = {
+        { id = "discipline_1", text = "So a captain told me once, in here, over his third. A soldier's got to set it down somewhere, friend. Better here, among his own, with me counting his mugs, than alone in a barracks bunk with whatever he saw." },
+      },
+      choices = {
+        { text = "A tavern like this does the army more good than harm.", next = "BACK", reply = "That's how I've always seen it. I'll drink to that, on my side of the bar.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "You profit from men drowning what they should face.", next = "BACK", reply = "I've thought about that, on slow nights. Then one of them laughs, and I pour.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fronts = {
+      lines = {
+        { id = "fronts_1", text = "More than the heralds do, and none of it for repeating. But I'll say the Redridge lads come back thin, the ones from Westfall come back angry, and the ones who've been to Alterac drink without talking for the first hour." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    si7 = {
+      lines = {
+        { id = "si7_1", text = "I'm sure I couldn't say, friend, and I'm sure you already know. They've never been any trouble to me. I wipe their table twice as carefully, and I've never once found so much as a crumb to tell me who sat there." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    langstons = {
+      lines = {
+        { id = "langstons_1", text = "My father had it before the First War, and I rebuilt it after the second, on the same cellar. Elly's on the floor, and there are Langstons at half the tables most nights. If you can't find one, shout the name, and three will answer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    second_war = { { id = "tp_y_second_war", text = "I carried water on the walls as a boy, and I watched the old tavern burn from the keep. I knew where I'd build the new one before the fire was out." } },
+    background = { { id = "tp_background", text = "Born over the taproom, in the old Pig and Whistle. The orcs burned it, and I built it again with the same sign. I dug that sign out of the ashes myself." } },
+    rumors = { { id = "tp_rumors", text = "The barracks lads say there's trouble in the Stockade, and the guards on that shift have been drinking double. I'd not walk past the gate after dark." } },
+    advice = { { id = "tp_advice", text = "Eat before you drink, and pay before you forget. Those two have kept more friendships than any oath." } },
+    stormwind = { { id = "tp_stormwind", text = "Old Town's the only part of the city that remembers what it was. The rest is new stone and fine manners." } },
+    _none = { { id = "tp_none", text = "Haven't heard a word on that, friend, and I hear most things by the third round." } },
   },
 }
