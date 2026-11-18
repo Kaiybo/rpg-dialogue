@@ -31,3 +31,4 @@ npcs\guard_berton.lua
 npcs\guard_howe.lua
 npcs\dorin_songblade.lua
 npcs\gerald_crawley.lua
+npcs\more_folk.lua
