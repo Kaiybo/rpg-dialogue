@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.28.0 (2026-11-18)
+- 18 more named NPCs in Dun Morogh have conversations, around Kharanos, Anvilmar, Gol'Bolar Quarry and Amberstill Ranch.
+
 ## 1.27.0 (2026-11-18)
 - More named NPCs the earlier passes missed now have conversations, and thin ones have more to say. New files: restart the game fully.
 - Major NPCs answer Admire, Taunt and Intimidate in their own voice, and turn you down in their own words when they won't talk.

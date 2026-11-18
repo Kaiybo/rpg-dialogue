@@ -66,3 +66,64 @@ Sources: warcraft.wiki.gg pages for Nazgrel (advisor to Thrall, Frostwolf, Gromm
 ### Deepened (same pass)
 - Sian'tsu (the boat she lost to a storm), Zamja (feeding the Drag's sweepers), Thuwd (kodo hides and the tauren pact), Handor (reading wear), Tor'phan (the feud as theatre), Kor'jus (who walks toward Neeru; once a tunnel peon, authored), Muragus (the charred staff), Shan'ti (the apples over the camp fence, authored), Zarg (the notched blade from Hyjal, authored), Stonehide (her brother's cloak, authored).
 
+
+## Added later, second pass (56 NPCs; more_folk.lua and more_folk2.lua)
+Keys in more_folk.lua: deino, enyo, thuul, xyera, ormok, gest, siandur, xorjuul, zelmak, groldar, okothos, snarl, ugthok, shayis, kelgruk, aturk, ox, jhag, whuut, thund, snang, kamari.
+Keys in more_folk2.lua: soran, wabang, grimful, vehena, sumi, kithas, korgeld, sovik, gorina, shankys, borya, tamar, zealaya, xento, tumi, kiro, morgum, sana, urtharo, zendojian, koru, shoma, kareth, katis, borstan, olvia, gotri, horthus, magenius, asoran, shimra, trakgen, garyl, xantish.
+
+Sources: `python3 tools/npc.py "<Name>"` (warcraft.wiki.gg) for each: role, race, gender, shop and neighbours; Classic placement from the 1.12 client where the wiki page describes the later city (Nogg's shop is kept where this pack already puts it; Zeal'aya as herbalism supplier beside Jandi; Xen'to at the firepit in the Drag; Magenius beside Asoran, placement from the wiki's later note, kept vague). Quotes: only Kamari has gossip on the wiki (the rug she skinned herself; the centaur); it is paraphrased, never copied. Titles follow this pack's habit ("Blacksmithing Trainer", not the 1.12 rank titles). Everything else is authored from role, place and neighbours.
+
+### Their quests
+- Okothos Ironrager: The Art of the Armorsmith (mithril helms, boots and a breastplate; Krathok sends, Okothos judges). Lines before/active/recent.
+- Aturk the Anvil: The Old Ways (steel breastplates and helms made the old heavy way). Before/active/done.
+- Ox: Booty Bay or Bust! (his sign, carried to McGavan in Booty Bay; the Mithril Order, Galvan in Stranglethorn). Before/active/done.
+- X'yera: Cenarion Aid (priests, level 50; to Ogtinc in Azshara). Active/done only.
+- Sian'dur: The Hunter's Path (to Thotar at Razor Hill). Active only.
+- Vehena: the Darkspear cloth donations (wool, silk, mageweave, runecloth). No quest-state lines, because the titles are shared with Rashona's.
+- Forever quests (wiki "Forever" sections; TODO_QUEST by title): Borstan (Meal Appeal turn-in, Favorite Food, Changing Tastes: thicket raptor meat from the Wetlands dig sites, Zamja's idea), Kor'geld (Yelmak's Medley: cattail and speargrass from the Valley of Honor water, to humble Whuut), Whuut (Whuut's the Rush; Camping 101: Alchemy), Jhag (Camping 101: Enchanting), Snang (Camping 101: Tailoring), Kamari (Beasts of Thunder Ridge; Halikor's Hoof), Ug'thok (This Is Spinal Axe: one active line only, the quest text was not available).
+- Everyone else: none.
+
+### Never
+- Anything after Year 1: the Siege (Grol'dar's doomlord, Gotri behind his door, Sovik and Nogg tied to targets), the Kor'kron, Garrosh, Vol'jin's death, the goblin bankers, Deino's brother in Northrend, Sumi in Draenor, Wabang and Grimful as grunts, Garyl at the embassy, inscription (Nerog), Kezan goblins.
+- Left out on purpose: battlemasters, High Overlord Saurfang, Mokvar, the Hall of Legends officers not already written, the untitled inn and Drag folk (Kozish, Sarok, Doyo'da, Tamaro, Sarlek, Ollanus), Punra and Rilgiz (later), Zas'Tysh (promotional).
+
+### Voices (authored, not canon)
+Class trainers
+- Deino: the careful one; chalk circles; taught herself to read to learn to cast; the student saved by her own ward (order stance on caution vs daring).
+- Enyo: the bold one; a spell one size too large, and she stands close; the burn she took for a student (order stance, mirrored against Deino).
+- Thuul: a portal is a door; refused the Warchief's messengers twice when the weave was tangled, and Thrall backed him (honor stance on the message that cannot wait).
+- X'yera: spirits as nosy relatives; nine silent days on the crossing from the isles (light stance); teaches the young priests for Zayus.
+- Ormok: notices everything; the Shattered Hand's old name and why the madness must be left behind every morning (honor stance).
+- Gest: teaches waiting; four days in a Barrens gully for a traitor who never saw him (light stance).
+- Sian'dur: island raptor hunter; counting the pack; whether to hunt the Echo Isles bare to starve Zalazane (light stance).
+- Xor'juul: traps and close work; the missing fingertip and the father who made him reset the trap (order stance); soft on beasts.
+- Zel'mak: the one troll in the Hall of the Brave; went through a sergeant's line three times; teaches proud orcs in the dark (light stance).
+- Grol'dar: old warlock who carried books for the old Horde; teaches so that someone knows the enemy's arts (honor stance); the imp that has tried to bargain for eleven years.
+Smiths and craft trainers
+- Okothos: the shallow rivet and the gorget that hangs over his bench (light stance on forgiving himself).
+- Snarl: shouts; kept the camp guards' name for him out of spite (order stance on names, against Ug'thok).
+- Ug'thok: born in the camps; the clan mark Aturk drew for him, and what Aturk told him of his father's people (honor stance).
+- Shayis Steelfury: fits her own armor on the wearer; the wolf rider's cuirass she remade for nothing (light stance, against Okothos). Kin to Saru, relation left vague.
+- Kelgruk Bloodaxe: carries each weapon a day; took his name from a captured banner and later learned whose it was (honor stance).
+- Aturk the Anvil: misses the wars, obeys the peace because Thrall got him out of the mud (order stance on glory).
+- Ox: tauren calm among shouting orcs; the Mithril Order shares craft across the war (light stance); brings Aturk tea.
+- Jhag: patient; unmade his sister's copper band to begin (order stance); the peon whose shovel glows.
+- Whuut: prodigy, reaches for the rarest reagent (order stance on foundations); changes after Whuut's the Rush.
+- Thund: former wall-crew peon who swept Nogg's floor two years to learn; the uncle who calls powder cowardly (honor stance).
+- Snang: fussy; chose tailoring because of camp sacking; has stopped arguing with grunts (order stance).
+- Kamari: hunts her own hides; the centaur hide Karolek would not allow in the shop (light stance).
+Bank, auction house, quartermaster
+- Soran: the quiet brother; the unnamed Darkspear on his left at Hyjal and the empty vault box he pays for (light stance); the armory that was to be his trade (matches Thatog and Koma); trolls get a reply of their own.
+- Wabang: former peon who loves the floor; the three-gold steel axe and the bid he would not release (honor stance).
+- Grimful: the ledger; the forged documents with the too-perfect seal (order stance); reads the Barrens fighting from linen prices.
+- Vehena: gathers for Sen'jin Village first; her mother's weaving comb; whether the debt to the orcs is paid (order stance).
+Suppliers
+- Sumi (Saru's younger daughter, does not forge; the winter she kept the valley in coal; honor stance), Kithas (keeps the Runeworks' books; paid for Godan's free ward herself; order stance), Kor'geld (counts Whuut's leaves; show the boy or let him fail; light stance), Sovik (goblin; scratches cases on purpose for Thund; honor stance), Gorina (peon who cut the Cleft and found Ragefire; honor stance), Shankys (fished a camp ditch with a bent nail; honor stance), Borya (gossip; the Handor and Tor'phan feud as a show; light stance), Tamar (turns the vats at night unasked; honor stance), Zeal'aya (the one island vine in a pot; order stance), Xen'to (the pot of island stew carried to an orc fire; order stance).
+Arms and armor
+- Tumi (Saru's elder daughter; tells warriors the plate no longer fits; light stance on gentle vs hard truth), Kiro (the harness nobody praises; the widow she did not tell; honor stance), Morgum (haggles because the camps bargained over buttons; order stance), Sana (one fixed price; the hunter four silver short; order stance), Urtharo (the first axe straightens the back; light stance), Zendo'jian (light weapons, the murloc beach; order stance), Koru (sat a year in the elements' silence, sells to the called; light stance), Shoma (heavy steel, the Second War he will not disown; honor stance), Kareth (asks no names; the shaking young buyer; light stance), Katis (cannot cast; keeps a book of what casters feel; order stance).
+Food and goods
+- Borstan (cooked in a camp; feeds the city proudly against Zamja's plain cooking; order stance; third person when pleased), Olvia (clean block; the butcher whose bad meat killed eleven peons, and Thrall's sentence; light stance), Gotri (never left Durotar; a book of four hundred places; order stance), Horthus (tested and not called; carries the water; honor stance), Magenius (named himself from a human primer he learned to read in the camps; order stance), Asoran (reads petitioners by what they buy; the tauren who waited two days; honor stance), Shimra and Trak'gen (the painted line; the tailor's crate of thread; light stances facing each other), Garyl (her clan's banner burned; a scrap of its red in her thread box; order stance), Xan'tish (the green snake hidden on the crossing; light stance).
+
+### What they notice
+- Class and craft above all: each trainer notices their own class or trade (a mage's scorched hand, a hunter's string fingers, a smith's wrist burn) and one other (warlocks, warriors, shaman, tauren, trolls, Forsaken replies).
+- Merchants: worn gear (Tumi, Kiro, Morgum, Sana, Okothos, Shayis), thin purses (Soran, Wabang, Grimful, Urtharo, Asoran, Trak'gen, Sovik), hunger (Borstan, Olvia), hunters' pets (Olvia, Xan'tish, Sian'dur, Xor'juul), stealth (Ormok, Kareth), guild membership (Garyl), travel (Gotri).

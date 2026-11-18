@@ -2,6 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.88.0 (2026-11-18)
+**New file in the Orgrimmar pack: restart the game fully (a /reload won't load it).**
+- **47 more people to talk to in Orgrimmar, Ironforge and Dun Morogh**: Orgrimmar's remaining class and craft trainers, its banker, two auctioneers and the Drag's shopkeepers; Kharanos, Anvilmar, Gol'Bolar Quarry and Amberstill Ranch folk who had nothing to say.
+- Not seen in game yet.
+
 ## 0.87.0 (2026-11-18)
 Six pieces of work in one release. **New files in most zone packs: restart the game fully (a /reload won't load them).**
 - **Hundreds more people to talk to**: named NPCs the earlier passes missed (trainers, vendors, guards, quest givers) across nearly every zone pack, and thin NPCs with more to say. Wenna Silkbeard now sells in Menethil Harbor, where she belongs.
